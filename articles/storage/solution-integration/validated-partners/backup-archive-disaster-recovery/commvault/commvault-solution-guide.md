@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: ce321574ce2878f51864f55bf5618df2c96d1068
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa60b6f002e49babc1e1f014bcb941e7953a43a8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589886"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484776"
 ---
 # <a name="backup-to-azure-with-commvault"></a>Sauvegarder sur Azure avec Commvault
 
@@ -224,7 +224,7 @@ Dans le [portail Azure](https://portal.azure.com), recherchez **support** dans l
 Pour plus d’informations, consultez la documentation de CommVault suivante :
 
 - [Guide de l’utilisateur de CommVault](https://documentation.commvault.com/commvault/v11/article?p=37684_1.htm)
-- [Guide de l’architecture Azure pour Commvault](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
+- [Guide de l’architecture Azure pour Commvault](https://documentation.commvault.com/commvault/v11/others/pdf/public-cloud-architecture-guide-for-microsoft-azure11-19.pdf)
 
 ### <a name="marketplace-offerings"></a>Offres de la Place de marché
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9f2047a07586f078555032ed9001fdb602fe3b2a
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 0a28266210fd8b6f0b731b972f00aa3d413c0d0c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293785"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027735"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -87,7 +87,7 @@ Deux méthodes permettent de déployer automatiquement un Runbook Worker hybride
 
 ### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importer un runbook à partir de la Galerie de runbooks
 
-La procédure d’importation est détaillée dans [Importer un runbook PowerShell à partir de GitHub avec le portail Azure](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). Le nom du runbook à importer est **Create Automation Windows HybridWorker**.
+La procédure d'importation est détaillée dans [Importer des runbooks à partir de GitHub avec le portail Azure](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). Le nom du runbook à importer est **Create Automation Windows HybridWorker**.
 
 Le runbook utilise les paramètres suivants.
 

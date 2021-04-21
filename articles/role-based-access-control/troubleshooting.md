@@ -2,7 +2,6 @@
 title: Résoudre les problèmes liés à Azure RBAC
 description: Résoudre des problèmes liés au contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: azure-portal
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4a3f7f613f75f2f285437b7ae6f816adf56d999
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555880"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580093"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Résoudre les problèmes liés à Azure RBAC
 
@@ -68,11 +66,16 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+
+- Dans certains cas, si vous créez un principal de service et que vous tentez immédiatement de lui attribuer un rôle, cette attribution peut échouer.
+
+    Dans le cadre de ce scénario, vous devez définir la propriété `principalType` sur `ServicePrincipal` lors de la création de l’attribution de rôle. Vous devez également définir `apiVersion` de l’attribution de rôle sur `2018-09-01-preview` ou une version ultérieure. Pour plus d’informations, consultez [Attribuer des rôles Azure à l’aide de l’API REST](role-assignments-rest.md#new-service-principal) ou [Attribuer des rôles Azure à un nouveau principal de service à l’aide de modèles Azure Resource Manager](role-assignments-template.md#new-service-principal)
+
 - Si vous tentez de supprimer la dernière attribution de rôle Propriétaire pour un abonnement, l’erreur « Impossible de supprimer le dernier RBAC admin assignment » risque de s’afficher. La suppression de la dernière attribution de rôle Propriétaire pour un abonnement n’est pas prise en charge afin d’éviter que l’abonnement ne devienne orphelin. Si vous voulez annuler votre abonnement, consultez [Annulation de votre abonnement Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problèmes liés aux rôles personnalisés
 
-- Si vous avez besoin de connaître les étapes permettant de créer un rôle personnalisé, consultez les tutoriels de rôle personnalisé en utilisant le [Portail Azure](custom-roles-portal.md) (actuellement en préversion), [Azure PowerShell](tutorial-custom-role-powershell.md) ou [Azure CLI](tutorial-custom-role-cli.md).
+- Si vous avez besoin de la procédure de création d’un rôle personnalisé, consultez les didacticiels de rôle personnalisé à l’aide du [portail Azure PowerShell](custom-roles-portal.md), d’[Azure PowerShell](tutorial-custom-role-powershell.md) ou d’[Azure CLI](tutorial-custom-role-cli.md).
 - Si vous ne parvenez pas à mettre à jour un rôle personnalisé existant, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation `Microsoft.Authorization/roleDefinition/write`, comme [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
 - Si vous ne pouvez pas supprimer un rôle personnalisé et que vous obtenez le message d’erreur « Certaines attributions de rôle existantes font référence au rôle (code : RoleDefinitionHasAssignments) », cela signifie que des attributions de rôle utilisent toujours le rôle personnalisé. Supprimez ces attributions de rôle et réessayez de supprimer ce rôle.
 - Si vous obtenez le message d’erreur « La limite de définition de rôle a été dépassée. Plus aucune définition de rôle ne peut être créée (code : RoleDefinitionLimitExceeded) » quand vous essayez de créer un rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisés. Azure prend en charge jusqu’à **5 000** rôles personnalisés dans un répertoire. (Pour Azure Allemagne et Azure Chine 21Vianet, la limite est de 2 000 rôles personnalisés.)

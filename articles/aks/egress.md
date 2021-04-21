@@ -5,12 +5,12 @@ description: Découvrez comment créer et utiliser une adresse IP publique stati
 services: container-service
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: e1f81bf4c4d35108557449a8bebd126bdf744191
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cff3f5d66bb9872a0c949c6237150f8b69c9fa7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592368"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773006"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser une IP publique statique pour le trafic de sortie avec un équilibreur de charge de niveau tarifaire *De base* dans Azure Kubernetes Service (AKS)
 
@@ -129,13 +129,13 @@ $ curl -s checkip.dyndns.org
 Pour éviter de devoir gérer plusieurs adresses IP publiques sur l’équilibreur de charge Azure, vous pouvez à la place utiliser un contrôleur d’entrée. Les contrôleurs d’entrée offrent des avantages supplémentaires, comme l’arrêt de SSL/TLS, la prise en charge des réécritures d’URI et le chiffrement SSL/TLS en amont. Pour plus d’informations, consultez [Créer un contrôleur d’entrée de base dans AKS][ingress-aks-cluster].
 
 <!-- LINKS - internal -->
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [azure-cli-install]: /cli/azure/install-azure-cli
 [ingress-aks-cluster]: ./ingress-basic.md
 [outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#scenarios
-[public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

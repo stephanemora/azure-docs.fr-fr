@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f2bc71100a92d1811d69af31a7a3085af36f60a8
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 4c86811ee72d2713fced6320a17d1ccde1866d99
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121929"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769946"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Créer un compte qui prend en charge les clés gérées par le client pour les tables et les files d’attente
 
@@ -58,7 +58,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 Pour utiliser Azure CLI afin créer un compte de stockage qui s’appuie sur la clé de chiffrement de compte, vérifié que Azure CLI version 2.0.80 ou ultérieure est installé. Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](/cli/azure/install-azure-cli).
 
-Ensuite, créez un compte de stockage universel v2 en appelant la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create) avec les paramètres appropriés :
+Ensuite, créez un compte de stockage universel v2 en appelant la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create) avec les paramètres appropriés :
 
 - Incluez l’option `--encryption-key-type-for-queue` et définissez sa valeur sur `Account` pour utiliser la clé de chiffrement de compte afin de chiffrer les données dans Stockage File d’attente.
 - Incluez l’option `--encryption-key-type-for-table` et définissez sa valeur sur `Account` pour utiliser la clé de chiffrement de compte afin de chiffrer les données dans Stockage Table.
@@ -119,7 +119,7 @@ Une fois que vous avez créé un compte qui s’appuie sur la clé de chiffremen
 
 ## <a name="verify-the-account-encryption-key"></a>Vérifier la clé de chiffrement de compte
 
-Pour vérifier qu’un service dans un compte de stockage utilise la clé de chiffrement de compte, appelez la commande Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `keyType` pour chaque service dans la propriété de chiffrement et vérifiez qu’il est défini sur `Account`.
+Pour vérifier qu’un service dans un compte de stockage utilise la clé de chiffrement de compte, appelez la commande Azure CLI [az storage account](/cli/azure/storage/account#az_storage_account_show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `keyType` pour chaque service dans la propriété de chiffrement et vérifiez qu’il est défini sur `Account`.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -134,7 +134,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour vérifier qu’un service dans un compte de stockage utilise la clé de chiffrement de compte, appelez la commande [az storage account show](/cli/azure/storage/account#az-storage-account-show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `keyType` pour chaque service dans la propriété de chiffrement et vérifiez qu’il est défini sur `Account`.
+Pour vérifier qu’un service dans un compte de stockage utilise la clé de chiffrement de compte, appelez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `keyType` pour chaque service dans la propriété de chiffrement et vérifiez qu’il est défini sur `Account`.
 
 ```azurecli
 az storage account show /

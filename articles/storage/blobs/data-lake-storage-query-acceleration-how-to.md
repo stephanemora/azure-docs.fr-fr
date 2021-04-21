@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58b8cdef604861342a6489ef4e57ff1d057cd3f4
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 756258db1c6e91002bf3a7c2bd0f71f921ce655d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377732"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769928"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage
 
@@ -102,7 +102,7 @@ Pour utiliser l’accélération des requêtes, vous devez d’abord inscrire la
 
    Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
 
-3. Inscrivez la fonctionnalité d’accélération des requêtes à l’aide de la commande [az feature register](/cli/azure/feature#az-feature-register).
+3. Inscrivez la fonctionnalité d’accélération des requêtes à l’aide de la commande [az feature register](/cli/azure/feature#az_feature_register).
 
    ```azurecli
    az feature register --namespace Microsoft.Storage --name BlobQuery
@@ -122,7 +122,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuer
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour vérifier que l’inscription est terminée, utilisez la commande [az feature](/cli/azure/feature#az-feature-show).
+Pour vérifier que l’inscription est terminée, utilisez la commande [az feature](/cli/azure/feature#az_feature_show).
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name BlobQuery
@@ -144,7 +144,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 #### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour réinscrire le fournisseur de ressources, utilisez la commande [az provider register](/cli/azure/provider#az-provider-register).
+Pour réinscrire le fournisseur de ressources, utilisez la commande [az provider register](/cli/azure/provider#az_provider_register).
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'

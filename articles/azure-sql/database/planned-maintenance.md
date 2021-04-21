@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
 ms.date: 3/23/2021
-ms.openlocfilehash: eedbc46ee5feb0aa6f6a26c3f5b3c67ac8ca0a5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 259a8581d16f4fd6958a0d9ec2631f667d362b19
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044258"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579475"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planifier les événements de maintenance Azure dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ L’événement de maintenance peut produire une ou plusieurs reconfigurations, 
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Comment simuler un événement de maintenance planifiée ?
 
-En vous assurant que votre application cliente est résiliente aux événements de maintenance avant son déploiement en production, vous réduirez le risque d'erreurs et contribuerez à la disponibilité de l'application pour vos utilisateurs finaux. Vous pouvez tester le comportement de votre application cliente lors des événements de maintenance planifiée en [lançant un basculement manuel](https://aka.ms/mifailover-techblog) via PowerShell, l'interface de ligne de commande (CLI) ou l'API REST. Il produira un comportement identique à celui d'un événement de maintenance qui met le réplica principal hors connexion.
+En veillant à ce que votre application cliente soit résiliente aux événements de maintenance avant son déploiement en production, vous réduirez le risque d’erreurs et contribuerez à la disponibilité de l’application pour vos utilisateurs finaux. Vous pouvez tester le comportement de votre application cliente pendant les événements de maintenance planifiée en [testant la résilience aux erreurs d’application](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla#testing-application-fault-resiliency) par le biais de PowerShell, de l’interface CLI ou de l’API REST. Consultez également [Lancement du basculement manuel](https://aka.ms/mifailover-techblog) pour Managed Instance. Il produira un comportement identique à celui d'un événement de maintenance qui met le réplica principal hors connexion.
 
 ## <a name="retry-logic"></a>Logique de nouvelle tentative
 

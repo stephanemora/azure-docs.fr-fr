@@ -4,12 +4,12 @@ description: Décrit les files d’attente de lettres mortes dans Azure Service 
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 6459c8edd03427357810c1ad30161e87c18e059c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304322"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773222"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -31,7 +31,7 @@ Il n’est pas possible de connaître le nombre de messages en file d’attente 
 
 ![Nombre de messages en file d’attente de lettres mortes](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Vous pouvez également récupérer le nombre de messages en file d’attente de lettres mortes à l’aide de la commande Azure CLI : [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show). 
+Vous pouvez également récupérer le nombre de messages en file d’attente de lettres mortes à l’aide de la commande Azure CLI : [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show). 
 
 ## <a name="moving-messages-to-the-dlq"></a>Déplacer des messages vers la file d’attente de lettres mortes
 Plusieurs activités dans Service Bus entraînent l’envoi des messages dans la file d’attente de lettres mortes à partir du moteur de messagerie lui-même. Une application peut également explicitement déplacer des messages dans la file d’attente de lettres mortes. Les deux propriétés suivantes (motif de lettres mortes et description de lettres mortes) sont ajoutées aux messages de lettres mortes. Les applications peuvent définir leurs propres codes pour la propriété de motif de lettres mortes, mais le système définit les valeurs suivantes.
@@ -80,4 +80,3 @@ Pour plus d’informations sur les files d’attente de lettres mortes Service B
 
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Comparaison des files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-

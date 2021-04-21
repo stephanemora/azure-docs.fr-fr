@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/7/2021
+ms.openlocfilehash: 07b7715935756293467f2a3004109df9bf679661
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020058"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029997"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI à partir d’Azure Stream Analytics
 
@@ -73,9 +73,10 @@ Double | Double | String | String | Double
 String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
-## <a name="output-batch-size"></a>Taille de lot de sortie
+## <a name="limitations-and-best-practices"></a>Limites et meilleures pratiques
+Actuellement, Power BI peut être appelé environ une fois par seconde. Les éléments visuels de streaming prennent en charge des paquets de 15 Ko. Au-delà de cette taille, ils échouent (mais les transmissions de type push continuent de fonctionner). En raison de cette limite, Power BI s’applique naturellement dans les cas où Azure Stream Analytics débouche sur une réduction significative de la charge des données. Nous vous recommandons d’utiliser une fenêtre bascule ou une fenêtre récurrente pour vous assurer que la transmission de type push des données est effectuée au plus une fois par seconde et que votre requête respecte les exigences de débit.
 
-Pour la taille du lot de sortie, consultez [Limites d’API REST de Power BI](/power-bi/developer/automation/api-rest-api-limitations).
+Pour plus d’informations sur la taille du lot de sortie, consultez [Limites d’API REST de Power BI](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

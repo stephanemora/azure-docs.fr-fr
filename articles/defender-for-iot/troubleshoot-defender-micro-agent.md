@@ -1,18 +1,18 @@
 ---
 title: Résolution des problèmes du micro-agent Defender pour IoT (préversion)
 description: Découvrez comment gérer les erreurs inattendues ou inexpliquées.
-ms.date: 1/24/2021
+ms.date: 4/5/2021
 ms.topic: reference
-ms.openlocfilehash: 51550a4d3e5042fed7cadc4eac10a0074e954f19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d52c4093c01d7e449c68b1c8143249b51f7061a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782450"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011416"
 ---
 # <a name="defender-iot-micro-agent-troubleshooting-preview"></a>Résolution des problèmes du micro-agent Defender pour IoT (préversion)
 
-Si vous avez des erreurs inattendues ou inexpliquées, utilisez les méthodes de dépannage suivantes pour tenter de résoudre vos problèmes. Vous pouvez également contacter l’équipe produit d’Azure Defender pour IoT afin d’obtenir de l’aide si nécessaire.   
+Si une erreur inattendue se produit, vous pouvez utiliser ces méthodes de résolution de problèmes pour tenter de résoudre le problème. Vous pouvez également contacter l’équipe produit d’Azure Defender pour IoT afin d’obtenir de l’aide si nécessaire.   
 
 ## <a name="service-status"></a>État du service 
 
@@ -34,9 +34,9 @@ Si le service apparaît comme étant `inactive`, exécutez la commande suivante 
 systemctl start defender-iot-micro-agent.service 
 ```
 
-Vous savez que le service plante si le temps de bon fonctionnement du processus est trop court. Pour résoudre ce problème, vous devez examiner les journaux.
+Vous savez que le service plante si la durée de bon fonctionnement du processus est de moins de 2 minutes. Pour résoudre ce problème, vous devez [vérifier les journaux](#review-the-logs).
 
-## <a name="review-logs"></a>Consulter les journaux 
+## <a name="validate-micro-agent-root-privileges"></a>Valider les privilèges racines d’un micro-agent
 
 Utilisez la commande suivante pour vérifier que le service du micro-agent Defender IoT s’exécute avec des privilèges racines.
 
@@ -45,12 +45,25 @@ ps -aux | grep " defender-iot-micro-agent"
 ```
 
 :::image type="content" source="media/troubleshooting/root-privileges.png" alt-text="Vérifiez que le service de l’agent Defender pour IoT s’exécute avec des privilèges racines.":::
+## <a name="review-the-logs"></a>Vérifier les journaux 
 
-Pour visualiser les journaux, utilisez la commande suivante :  
+Pour vérifier les journaux, utilisez la commande suivante :  
 
 ```azurecli
 sudo journalctl -u defender-iot-micro-agent | tail -n 200 
 ```
+
+### <a name="quick-log-review"></a>Revue rapide des journaux
+
+Si un problème se produit lors de l’exécution du micro-agent, vous pouvez exécuter le micro-agent dans un état temporaire, ce qui permet d’afficher les journaux à l’aide de la commande suivante :
+
+```azurecli
+sudo systectl stop defender-iot-micro-agent
+cd /var/defender_iot_micro_agent/
+sudo ./defender_iot_micro_agent
+```
+
+## <a name="restart-the-service"></a>Redémarrez le service.
 
 Pour redémarrer le service, utilisez la commande suivante : 
 

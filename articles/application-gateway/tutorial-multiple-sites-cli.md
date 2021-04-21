@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 350962aed89d04c5508e7b2c50e8a838cd5a7174
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb924ab1f8947fefc83ed35a409628a576fad4b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566144"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772669"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
 
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) pour créer la passerelle d’application. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*, que vous avez créés. 
+Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create) pour créer la passerelle d’application. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*, que vous avez créés. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -105,7 +105,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 
 ### <a name="add-the-backend-pools"></a>Ajouter les pools backend
 
-Ajoutez les pools back-end qui doivent contenir les serveurs back-end à l’aide de la commande [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create)
+Ajoutez les pools back-end qui doivent contenir les serveurs back-end à l’aide de la commande [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az_network_application_gateway_address-pool_create)
 ```azurecli-interactive
 az network application-gateway address-pool create \
   --gateway-name myAppGateway \
@@ -120,7 +120,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-listeners"></a>Ajouter des écouteurs
 
-Ajoutez les écouteurs nécessaires pour acheminer le trafic à l’aide de la commande [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+Ajoutez les écouteurs nécessaires pour acheminer le trafic à l’aide de la commande [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create).
 
 >[!NOTE]
 > À l’aide du niveau tarifaire Application Gateway ou WAF v2, vous pouvez également configurer jusqu’à 5 noms d’hôte par écouteur et utiliser des caractères génériques dans le nom d’hôte. Pour plus d’informations, consultez les informations relatives aux [noms d’hôtes comportant des caractères génériques dans l’écouteur](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
@@ -148,7 +148,7 @@ az network application-gateway http-listener create \
 
 Les règles sont traitées dans par ordre de création. Le trafic est dirigé à l’aide de la première règle qui correspond, quelle que soit la particularité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
 
-Dans cet exemple, vous créez deux nouvelles règles et supprimez la règle par défaut qui a été créée lorsque vous avez déployé la passerelle d’application. Vous pouvez ajouter la règle à l’aide de la commande [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Dans cet exemple, vous créez deux nouvelles règles et supprimez la règle par défaut qui a été créée lorsque vous avez déployé la passerelle d’application. Vous pouvez ajouter la règle à l’aide de la commande [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -225,7 +225,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Créer un enregistrement CNAME dans votre domaine
 
-Une fois la passerelle d’application créée avec son adresse IP publique, vous pouvez obtenir l’adresse DNS et l’utiliser pour créer un enregistrement CNAME dans votre domaine. Vous pouvez utiliser la commande [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) pour obtenir l’adresse DNS de la passerelle d’application. Copiez la valeur *fqdn* de DNSSettings et utilisez-la comme valeur de l’enregistrement CNAME que vous créez. 
+Une fois la passerelle d’application créée avec son adresse IP publique, vous pouvez obtenir l’adresse DNS et l’utiliser pour créer un enregistrement CNAME dans votre domaine. Vous pouvez utiliser la commande [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) pour obtenir l’adresse DNS de la passerelle d’application. Copiez la valeur *fqdn* de DNSSettings et utilisez-la comme valeur de l’enregistrement CNAME que vous créez. 
 
 ```azurecli-interactive
 az network public-ip show \

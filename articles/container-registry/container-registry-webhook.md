@@ -3,12 +3,12 @@ title: Webhooks pour répondre aux actions du registre
 description: Découvrez comment utiliser des webhooks pour déclencher des événements quand des actions d’extraction (pull) ou d’envoi (push) sont exécutées dans l’un des référentiels de votre registre.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f6fb719f8d9d51429a19616aa5548b32a2687e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101722243"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773397"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilisation de webhooks Azure Container Registry
 
@@ -47,7 +47,7 @@ Exemple de formulaire webhook :
 
 ## <a name="create-webhook---azure-cli"></a>Créer un webhook - Azure CLI
 
-Pour créer un webhook à l’aide d’Azure CLI, utilisez la commande [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). La commande suivante crée un webhook pour tous les événements de suppression d’images dans le registre *mycontainerregistry* :
+Pour créer un webhook à l’aide d’Azure CLI, utilisez la commande [az acr webhook create](/cli/azure/acr/webhook#az_acr_webhook_create). La commande suivante crée un webhook pour tous les événements de suppression d’images dans le registre *mycontainerregistry* :
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -67,7 +67,7 @@ Avant d’utiliser le webhook, vous pouvez le tester à l’aide du bouton **Pin
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour tester un webhook d’ACR avec Azure CLI, utilisez la commande [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping).
+Pour tester un webhook d’ACR avec Azure CLI, utilisez la commande [az acr webhook ping](/cli/azure/acr/webhook#az_acr_webhook_ping).
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

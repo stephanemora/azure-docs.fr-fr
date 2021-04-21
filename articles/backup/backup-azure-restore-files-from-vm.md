@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: ed231a4870af7489d48ff54548be380c2cf0799c
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c2af279ec7e846316a94e58977e7079305ab9b03
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864888"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579375"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -133,12 +133,12 @@ Assurez-vous aussi que vous disposez de la [machine appropriée pour exécuter l
 
 Si vous exécutez le script sur un ordinateur disposant d’un accès restreint, assurez-vous qu’il a accès aux éléments suivants :
 
-- `download.microsoft.com`
+- `download.microsoft.com` ou étiquette de service `AzureFrontDoor.FirstParty` dans le groupe de sécurité réseau
 - URL Recovery Services (GEO-NAME fait référence à la région où réside le coffre Recovery Services.)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (Pour les régions publiques Azure)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (Pour Azure Chine 21Vianet)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (Pour Azure US Government)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (Pour Azure Allemagne)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (pour les régions publiques Azure) ou étiquette de service `AzureBackup` dans le groupe de sécurité réseau
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (pour Azure China 21Vianet) ou étiquette de service `AzureBackup` dans le groupe de sécurité réseau
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (pour Azure US Government) ou étiquette de service `AzureBackup` dans le groupe de sécurité réseau
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (pour Azure Allemagne) ou étiquette de service `AzureBackup` dans le groupe de sécurité réseau
 - Ports sortants 53 (DNS), 443, 3260
 
 > [!NOTE]

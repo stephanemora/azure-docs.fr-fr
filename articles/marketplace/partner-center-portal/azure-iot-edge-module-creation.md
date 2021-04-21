@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 6de387605a8c127485b68773b6cd1b19c7136d17
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 12600cadaa84ae116818eec06459d5db0c05304a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107497"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773417"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Créer une offre de module Azure IoT Edge
 
@@ -419,7 +419,7 @@ Vous devez fournir les informations suivantes sous l’onglet **Détails du réf
 
 1. Utilisateur administrateur
 
-<br>**Mot de passe pour le registre de conteneurs Azure** : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](/cli/azure/acr/credential#az-acr-credential-show).
+<br>**Mot de passe pour le registre de conteneurs Azure** : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](/cli/azure/acr/credential#az_acr_credential_show).
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustre l’écran des clés d’accès dans le portail Azure.":::
 

@@ -4,12 +4,12 @@ description: Empêchez les utilisateurs de mettre à jour ou de supprimer des re
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1cc96a855c2bfe79bbf5876f0476c016d36ca9a4
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 71637318a60e66bf5000de2f564d740cc101cc60
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030064"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768720"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -278,7 +278,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Verrouillez les ressources déployées avec Azure CLI à l’aide de la commande [az lock create](/cli/azure/lock#az-lock-create).
+Verrouillez les ressources déployées avec Azure CLI à l’aide de la commande [az lock create](/cli/azure/lock#az_lock_create).
 
 Pour verrouiller une ressource, indiquez le nom de la ressource, son type de ressource et son nom de groupe de ressources.
 
@@ -292,7 +292,7 @@ Pour verrouiller un groupe de ressources : indiquez le nom du groupe de ressour
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Pour obtenir des informations sur un verrou, utilisez la commande [az lock list](/cli/azure/lock#az-lock-list). Pour obtenir tous les verrous de votre abonnement, utilisez :
+Pour obtenir des informations sur un verrou, utilisez la commande [az lock list](/cli/azure/lock#az_lock_list). Pour obtenir tous les verrous de votre abonnement, utilisez :
 
 ```azurecli
 az lock list

@@ -1,99 +1,45 @@
 ---
-title: Mettre à l’échelle pour les performances
+title: Disponibilité et continuité
 titleSuffix: Azure Cognitive Search
-description: Découvrez les techniques et les bonnes pratiques pour optimiser les performances de la Recherche cognitive Azure et configurer une mise à l’échelle optimale.
-manager: nitinme
+description: Apprenez à rendre un service de recherche hautement disponible et résilient face aux perturbations périodiques, voire aux défaillances catastrophiques.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 493f6759f63f023572f38647076e04425acf9d6a
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670717"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581525"
 ---
-# <a name="scale-for-performance-on-azure-cognitive-search"></a>Mettre à l’échelle pour les performances de la Recherche cognitive Azure
+# <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Disponibilité et continuité opérationnelle dans Recherche cognitive Azure
 
-Cet article décrit les meilleures pratiques applicables dans le cadre de scénarios avancés présentant des exigences complexes en matière d’extensibilité et de disponibilité.
+Dans Recherche cognitive, la disponibilité est assurée par plusieurs réplicas, tandis que la continuité opérationnelle (et la récupération d’urgence) est assurée par plusieurs services de recherche. Cet article fournit des conseils que vous pouvez utiliser comme point de départ pour élaborer une stratégie qui répond aux exigences de votre entreprise en matière de disponibilité et de continuité opérationnelle.
 
-## <a name="start-with-baseline-numbers"></a>Commencer avec des valeurs de référence
+<a name="scale-for-availability"></a>
 
-Avant d’entreprendre un déploiement à plus grande échelle, vous devez savoir à quoi ressemble une charge de requête standard. Les instructions ci-après peuvent vous aider à atteindre les valeurs de requête de référence.
+## <a name="high-availability"></a>Haute disponibilité
 
-1. Choisissez une latence cible (ou durée maximale) nécessaire à l’exécution d’une recherche standard .
+Dans Recherche cognitive, les réplicas sont des copies de votre index. L’utilisation de plusieurs réplicas permet au service Recherche cognitive Azure de gérer les redémarrages et la maintenance des machines pour un réplica spécifique, alors que les requêtes continuent de s’exécuter sur d’autres réplicas. Pour plus d’informations sur l’ajout de réplicas, consultez [Ajouter ou enlever des réplicas et des partitions](search-capacity-planning.md#adjust-capacity).
 
-1. Créez et testez une charge de travail réelle avec votre service de recherche en utilisant un jeu de données réaliste pour mesurer les taux de latence.
-
-1. Commencez par un petit nombre de requêtes par seconde (RPS), puis augmentez graduellement le nombre d’exécutions dans le test jusqu’à ce que la latence des requêtes soit inférieure à la cible prédéfinie. Il s’agit d’un test d’évaluation important qui vous aidera à planifier la mise à l’échelle à mesure que l’utilisation de votre application s’intensifie.
-
-1. Dans la mesure du possible, réutilisez les connexions HTTP. Si vous utilisez le Kit de développement logiciel (SDK) .NET Recherche cognitive Azure, cela signifie que vous devez réutiliser une instance ou une instance [SearchClient](/dotnet/api/azure.search.documents.searchclient) et, si vous utilisez l’API REST, vous devez réutiliser une instance HttpClient unique.
-
-1. Variez la substance des requêtes afin que la recherche s’effectue sur différentes parties de votre index. Il est important de varier les requêtes, car si vous exécutez continuellement les mêmes requêtes de recherche, la mise en cache des données commencera à offrir de meilleures performances qu’avec un ensemble de requêtes plus disparates.
-
-1. Variez la structure des requêtes afin d’obtenir différents types de requêtes. En effet, le niveau de performance varie selon les requêtes de recherche. Par exemple, une recherche de document ou une suggestion de recherche s’exécute plus rapidement qu’une requête comportant un nombre important de facettes et de filtres. La composition de test doit inclure diverses requêtes, approximativement dans les mêmes proportions que celles que vous rencontreriez en production.  
-
-Lors de la création de ces charges de travail de test, certaines caractéristiques de la Recherche cognitive Azure doivent être prises en compte :
-
-+ L’envoi (push) simultané d’un nombre excessif de requêtes de recherche risque de surcharger votre service. Dans ce cas, vous verrez les codes de réponse HTTP 503. Pour éviter l’obtention du code 503 lors du test, commencez avec différentes plages de requêtes de recherche pour visualiser les différences de taux de latence à mesure que vous ajoutez d’autres requêtes.
-
-+ Le service Recherche cognitive Azure n’exécute pas de tâches d’indexation en arrière-plan. Si votre service gère les charges de travail de requête et d’indexation simultanément, prenez cela en compte en introduisant des travaux d’indexation dans vos tests de requête ou en explorant les options d’exécution des travaux d’indexation pendant les heures creuses.
-
-> [!Tip]
-> Vous pouvez simuler une charge de requête réaliste à l’aide des outils de test de charge. Essayez de [tester la charge avec Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) ou utilisez l’une de ces [alternatives](/azure/devops/test/load-test/overview#alternatives).
-
-## <a name="scale-for-high-query-volume"></a>Mettre à l’échelle pour un volume de requêtes élevé
-
-Un service est surchargé quand les requêtes prennent trop de temps ou que le service commence à abandonner des requêtes. Dans ces cas de figure, vous pouvez résoudre le problème de l’une des manières suivantes :
-
-+ **Ajouter des réplicas**  
-
-  Chaque réplica est une copie de vos données, ce qui permet au service d’équilibrer la charge des requêtes sur plusieurs copies.  L’équilibrage de la charge et la réplication des données sont entièrement gérés par la Recherche cognitive Azure, mais vous pouvez à tout moment changer le nombre de réplicas alloués à votre service. Vous pouvez allouer jusqu'à 12 réplicas dans un service de recherche Standard, et 3 dans un service de recherche de base. Les réplicas peuvent être ajustés sur le [portail Azure](search-create-service-portal.md) ou via [PowerShell](search-manage-powershell.md).
-
-+ **Créer un service à un niveau supérieur**  
-
-  la Recherche cognitive Azure est proposée dans [plusieurs niveaux](https://azure.microsoft.com/pricing/details/search/), chacun d’eux offrant des niveaux de performances différents. Dans certains cas, le nombre de requêtes peut être trop élevé pour qu’elles puissent être traitées dans le niveau que vous avez choisi, même si les réplicas sont optimisés. Envisagez alors de passer à un niveau supérieur plus performant, tel que le niveau S3 Standard qui est conçu pour des scénarios impliquant un grand nombre de documents et des charges de requêtes extrêmement élevées.
-
-## <a name="scale-for-slow-individual-queries"></a>Mettre à l’échelle pour les requêtes individuelles lentes
-
-Une requête unique dont l’exécution prend trop de temps peut également entraîner des taux de latence élevés. Dans ce cas, l’ajout de réplicas n’offrira aucune amélioration. Vous pouvez tenter de résoudre ce problème de deux manières :
-
-+ **Augmenter les partitions**
-
-  Une partition divise les données entre des ressources de calcul supplémentaires. Deux partitions divisent les données en deux, trois partitions les divisent en trois, et ainsi de suite. L’un des avantages découlant de cette opération réside dans l’accélération potentielle de l’exécution des requêtes les plus lentes grâce au calcul parallèle. Nous avons constaté une parallélisation sur les requêtes qui affichent une faible sélectivité, telles que les requêtes portant sur de nombreux documents ou les facettes comptabilisant un grand nombre de documents. Dans la mesure où des calculs significatifs sont nécessaires pour évaluer la pertinence des documents ou pour comptabiliser les documents, l’ajout de partitions supplémentaires contribue à accélérer l’exécution des requêtes.  
-   
-  Il peut y avoir un maximum de 12 partitions dans le service de recherche de niveau Standard, et 1 partition dans le service de recherche de niveau De base. Les réplicas peuvent être ajustés sur le [portail Azure](search-create-service-portal.md) ou via [PowerShell](search-manage-powershell.md).
-
-+ **Limiter les champs à cardinalité élevée**
-
-  un champ à cardinalité élevée est un champ utilisable comme facette ou comme filtre et contenant un grand nombre de valeurs uniques. Ce champ consomme donc une quantité substantielle de ressources lors du calcul des résultats. Par exemple, la définition d’un champ ID produit ou Description en tant que champ utilisable comme facette ou comme filtre est considérée comme une cardinalité élevée, car la plupart des valeurs sont uniques pour chaque document. Dans la mesure du possible, limitez le nombre de champs à cardinalité élevée.
-
-+ **Passer à un niveau de Recherche supérieur**  
-
-  Choisir un niveau de Recherche cognitive Azure supérieur est une autre façon d’améliorer les performances des requêtes lentes. Chaque niveau supérieur se caractérise par un processeur plus rapide et par une plus grande quantité de mémoire. Ces deux aspects ont un impact positif sur les performances des requêtes.
-
-## <a name="scale-for-availability"></a>Mettre à l’échelle pour la disponibilité
-
-Les réplicas permettent non seulement de réduire la latence des requêtes, mais ils peuvent également offrir une plus grande disponibilité. Avec un seul réplica, attendez-vous à des temps d’arrêt périodiques en raison du redémarrage du serveur après les mises à jour logicielles ou lorsque d’autres événements de maintenance se produisent. Par conséquent, il est important d’évaluer si votre application requiert une haute disponibilité des recherches (requêtes) ainsi que des écritures (événements d’indexation). La Recherche cognitive Azure offre des options de contrat de niveau de service sur tous les services de recherche payants avec les attributs suivants :
+Pour chaque service de recherche, Microsoft garantit une disponibilité d’au moins 99,9 % pour les configurations qui répondent à ces critères : 
 
 + Deux réplicas pour la haute disponibilité des charges de travail en lecture seule (requêtes)
 
-+ Trois réplicas (ou plus) pour la haute disponibilité des charges de travail en lecture-écriture (requêtes et indexation)
++ Trois réplicas (ou plus) pour la haute disponibilité des charges de travail en lecture-écriture (requêtes et indexation) 
 
-Pour plus d’informations, consultez le [Contrat de niveau de service de la Recherche cognitive Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
-Étant donné que les réplicas sont des copies de vos données, l’utilisation de plusieurs réplicas permet au service Recherche cognitive Azure de gérer les redémarrages et la maintenance des machines pour un réplica spécifique, alors que les requêtes continuent de s’exécuter sur d’autres réplicas. À l’inverse, si vous retirez des réplicas, vous constaterez une dégradation des performances de requête, en supposant que ces réplicas constituaient des ressources sous-exploitées.
+Aucun Contrat de niveau de service n’est fourni pour le niveau Gratuit. Pour plus d’informations, consultez [SLA pour Recherche cognitive Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 <a name="availability-zones"></a>
 
-### <a name="availability-zones"></a>Zones de disponibilité
+## <a name="availability-zones"></a>Zones de disponibilité
 
-Les [zones de disponibilité](../availability-zones/az-overview.md) divisent les centres de données d’une région en groupes situés dans des emplacements physiques distincts afin de fournir une haute disponibilité au sein d’une même région. Pour la Recherche cognitive, les réplicas correspondent aux unités de l’attribution de zone. Le service de recherche s’exécute dans une région, et ses réplicas dans différentes zones.
+[Zones de disponibilité](../availability-zones/az-overview.md) est une capacité de la plateforme Azure qui divise les centres de données d’une région en groupes situés dans des emplacements physiques distincts afin de fournir une haute disponibilité au sein d’une même région. Si vous utilisez Zones de disponibilité pour Recherche cognitive, les réplicas correspondent aux unités de l’attribution de zone. Le service de recherche s’exécute dans une région, et ses réplicas dans différentes zones.
 
-Vous pouvez utiliser des zones de disponibilité avec le service Recherche cognitive Azure en ajoutant au moins deux réplicas à votre service de recherche. Chaque réplica sera placé dans une zone de disponibilité distincte au sein de la région. Si vous avez plus de réplicas qu’il n’y a de zones de disponibilité, les réplicas sont répartis entre les zones de disponibilité aussi uniformément que possible.
+Vous pouvez utiliser des zones de disponibilité avec le service Recherche cognitive Azure en ajoutant au moins deux réplicas à votre service de recherche. Chaque réplica sera placé dans une zone de disponibilité distincte au sein de la région. Si vous avez plus de réplicas qu’il n’y a de zones de disponibilité, les réplicas sont répartis entre les zones de disponibilité aussi uniformément que possible. Vous n’avez aucune action spécifique à effectuer, si ce n’est de [créer un service de recherche](search-create-service-portal.md) dans une région qui fournit Zones de disponibilité, puis de configurer le service pour qu’il [utilise plusieurs réplicas](search-capacity-planning.md#adjust-capacity).
 
 Le service Recherche cognitive Azure prend actuellement en charge les zones de disponibilité pour les services de recherche de niveau standard ou supérieurs qui ont été créés dans l’une des régions suivantes :
 
@@ -112,21 +58,31 @@ Le service Recherche cognitive Azure prend actuellement en charge les zones de d
 
 Les zones de disponibilité n’ont pas d’incidence sur le [Contrat de niveau de service de la Recherche cognitive Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Vous avez toujours besoin d’au moins trois réplicas pour la haute disponibilité des requêtes.
 
-## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>Mettre à l’échelle pour les charges de travail géodistribuées et la géoredondance
+## <a name="multiple-services-in-separate-geographic-regions"></a>Plusieurs services dans des régions géographiques distinctes
 
-Dans le cas des charges de travail géodistribuées, les utilisateurs éloignés du centre de données hôte font face à des taux de latence plus élevés. L’une des manières d’atténuer ce problème consiste à approvisionner plusieurs services de recherche dans des régions plus proches de ces utilisateurs.
+Bien que la plupart des clients utilisent un seul service, une redondance des services peut être nécessaire en cas d’exigences opérationnelles particulières, notamment :
 
-La Recherche cognitive Azure n’offre actuellement pas de méthode automatisée de géo-réplication des index de Recherche cognitive Azure sur différentes régions, mais quelques techniques permettent d’implémenter et de gérer simplement ce processus. Elles sont présentées dans les sections suivantes.
++ [Continuité d’activité et reprise d’activité (BCDR)](../best-practices-availability-paired-regions.md) [Recherche cognitive ne fournit pas de basculement instantané en cas de panne.]
++ Applications déployées à l’échelle mondiale. Si les demandes d’interrogation et d’indexation proviennent du monde entier, les utilisateurs les plus proches du centre de données hôte bénéficieront de performances plus rapides. La création de services supplémentaires dans les régions les plus proches de ces utilisateurs peut égaliser les performances pour tous les utilisateurs.
++ Les [architectures mutualisées](search-modeling-multitenant-saas-applications.md) appellent parfois deux ou plusieurs services.
 
-L’objectif d’un ensemble géodistribué de services de recherche est de disposer de plusieurs index disponibles dans au moins deux régions, et de rediriger l’utilisateur vers le service Recherche cognitive Azure qui offre la plus faible latence, comme illustré dans cet exemple :
+Si vous avez besoin de deux services de recherche supplémentaires, leur création dans des régions différentes peut répondre aux exigences des applications en matière de continuité et de récupération, ainsi qu’à des temps de réponse plus rapides pour une base d’utilisateurs mondiale.
+
+Recherche cognitive Azure n’offre pas actuellement de méthode automatisée de géoréplication des index de recherche entre les régions, mais quelques techniques permettent d’implémenter et de gérer simplement ce processus. Elles sont présentées dans les sections suivantes.
+
+L’objectif d’un ensemble géodistribué de services de recherche est de disposer de plusieurs index dans au moins deux régions et de rediriger l’utilisateur vers le service Recherche cognitive Azure qui offre la plus faible latence :
 
    ![Tableau croisé des services par région][1]
 
+Vous pouvez implémenter cette architecture en créant plusieurs services et en concevant une stratégie de synchronisation des données. Si vous le souhaitez, vous pouvez inclure une ressource comme Azure Traffic Manager pour le routage des demandes. Pour plus d’informations, consultez [Créer un service de recherche](search-create-service-portal.md).
+
+<a name="data-sync"></a>
+
 ### <a name="keep-data-synchronized-across-multiple-services"></a>Garantir la synchronisation des données entre plusieurs services
 
-Il existe deux méthodes pour synchroniser vos services de recherche distribués : [l’indexeur de Recherche cognitive Azure](search-indexer-overview.md) ou l’API Push (également appelée [API REST de Recherche cognitive Azure](/rest/api/searchservice/)).  
+Il existe deux méthodes pour synchroniser plusieurs services de recherche distribués : [l’indexeur de Recherche cognitive Azure](search-indexer-overview.md) ou l’API Push (également appelée [API REST Recherche cognitive Azure](/rest/api/searchservice/)). 
 
-### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Mettre à jour le contenu dans plusieurs services à l’aide d’indexeurs
+#### <a name="option-1-use-indexers-for-updating-content-on-multiple-services"></a>Option 1 : Mettre à jour le contenu dans plusieurs services à l’aide d’indexeurs
 
 Si vous utilisez déjà un indexeur sur un service unique, vous pouvez configurer un second indexeur sur un deuxième service pour qu’il utilise le même objet de source de données, en extrayant les données au même emplacement. Chacun des services de chaque région dispose de son propre indexeur et d’un index cible (votre index de recherche n’est pas partagé, ce qui signifie que les données sont dupliquées), mais chaque indexeur référence la même source de données.
 
@@ -134,15 +90,31 @@ Voici une vue d’ensemble de l’aspect d’une telle architecture.
 
    ![Source de données unique avec indexeur distribué et combinaisons de service][2]
 
-### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Envoyer (push) les mises à jour de contenu à plusieurs services par le biais d’API REST
+#### <a name="option-2-use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Option 2 : Envoyer (push) les mises à jour de contenu à plusieurs services à l’aide d’API REST
 
-Si vous utilisez l’API REST Recherche cognitive Azure pour [envoyer (push) le contenu de votre index Recherche cognitive Azure](/rest/api/searchservice/update-index), vous pouvez assurer la synchronisation continue de vos différents services de recherche en envoyant les modifications à tous ces services chaque fois qu’une mise à jour est nécessaire. Dans votre code, veillez à gérer les cas dans lesquels la mise à jour d’un service de recherche échoue, mais réussit pour d’autres services de recherche.
+Si vous utilisez l’API REST Recherche cognitive Azure pour [envoyer (push) le contenu à votre index de recherche](tutorial-optimize-indexing-push-api.md), vous pouvez assurer la synchronisation continue de vos différents services de recherche en envoyant les modifications à tous ces services chaque fois qu’une mise à jour est nécessaire. Dans votre code, veillez à gérer les cas dans lesquels la mise à jour d’un service de recherche échoue, mais réussit pour d’autres services de recherche.
 
-## <a name="leverage-azure-traffic-manager"></a>Exploiter Azure Traffic Manager
+### <a name="use-azure-traffic-manager-to-coordinate-requests"></a>Utiliser Azure Traffic Manager pour coordonner les demandes
 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) vous permet d’acheminer les requêtes vers plusieurs sites géo-localisés et pris en charge par plusieurs services de recherche. Traffic Manager offre l’avantage de pouvoir tester la Recherche cognitive Azure pour vous assurer qu’il est disponible et de rediriger les utilisateurs vers d’autres services de recherche en cas d’interruption du service. En outre, si vous acheminez des requêtes de recherche via des sites Web Azure, Azure Traffic Manager permet d’équilibrer les charges lorsque le site web est opérationnel mais pas la Recherche cognitive Azure. Voici un exemple d’architecture tirant parti de Traffic Manager.
 
    ![Tableau croisé des services par région, avec Traffic Manager central][3]
+
+## <a name="disaster-recovery-and-service-outages"></a>Récupération d’urgence et pannes de service
+
+Bien que nous puissions récupérer vos données, Recherche cognitive Azure ne fournit pas de basculement instantané du service en cas de panne au niveau du centre de données ou du cluster. Si un cluster tombe en panne dans le centre de données, l’équipe d’exploitation le détecte et tente de restaurer le service. Vous rencontrerez un temps d’arrêt pendant la restauration de service, mais vous pouvez demander des crédits de service afin de compenser une indisponibilité du service conformément au [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+
+Si le service ne doit pas être interrompu même en cas de défaillances catastrophiques qui échappent au contrôle de Microsoft, vous pouvez [approvisionner un service supplémentaire](search-create-service-portal.md) dans une autre région et mettre en œuvre une stratégie de géoréplication pour assurer une redondance complète des index sur tous les services.
+
+Les clients qui utilisent des [indexeurs](search-indexer-overview.md) pour remplir et actualiser les index peuvent gérer la récupération d’urgence par le biais d’indexeurs propres à la région qui exploitent la même source de données. Deux services situés dans des régions différentes, chacun exécutant un indexeur, peuvent indexer la même source de données pour bénéficier de la géoredondance. Si vous indexez à partir de sources de données qui sont aussi géoredondantes, sachez que les indexeurs de Recherche cognitive Azure ne peuvent assurer qu’une indexation incrémentielle (en fusionnant les mises à jour de documents nouveaux, modifiés ou supprimés) à partir de réplicas principaux. À l’occasion d’un basculement, veillez à refaire pointer l’indexeur vers le nouveau réplica principal. 
+
+Si vous n’utilisez pas d’indexeurs, vous devez utiliser le code de votre application pour effectuer une transmission de type push des objets et des données vers différents services de recherche en parallèle. Pour plus d’informations, consultez [Garantir la synchronisation des données entre plusieurs services](#data-sync).
+
+## <a name="back-up-and-restore-alternatives"></a>Alternatives de sauvegarde et de restauration
+
+Recherche cognitive Azure n’est pas une solution de stockage de données principal. C’est pourquoi Microsoft ne fournit pas de mécanisme formel de sauvegarde et de restauration en libre-service. Toutefois, vous pouvez utiliser l’exemple de code **index-backup-restore** dans cet [exemple de référentiel .NET Recherche cognitive Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples) pour sauvegarder la définition et l’instantané d’un index dans une série de fichiers JSON, puis utiliser ces fichiers pour restaurer l’index, le cas échéant. Cet outil peut également déplacer des index entre les niveaux de service.
+
+Sinon, le code de votre application utilisé pour créer et remplir un index est l’option de restauration de facto si vous supprimez un index par erreur. Pour reconstruire un index, vous devez le supprimer (s’il existe), recréer l’index dans le service et le recharger en récupérant les données à partir de votre banque de données principale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

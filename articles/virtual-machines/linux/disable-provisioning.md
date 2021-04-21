@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 7c797957c292b9859ca41951b15f58c3d0be40b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c70b02bdc554c723f53ad5f8c0d36c5eca87811e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561062"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774364"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Désactiver ou supprimer l’agent Linux des machines virtuelles et des images
 
@@ -32,7 +32,7 @@ La plateforme Azure héberge de nombreuses extensions, notamment des application
 
 ## <a name="disabling-extension-processing"></a>Désactivation du traitement des extensions
 
-Il existe plusieurs façons de désactiver le traitement des extensions, en fonction de vos besoins, mais avant de continuer, vous **devez** supprimer toutes les extensions déployées sur la machine virtuelle. Par exemple, l’interface Azure CLI vous permet de [répertorier](/cli/azure/vm/extension#az-vm-extension-list) et de [supprimer](/cli/azure/vm/extension#az-vm-extension-delete) :
+Il existe plusieurs façons de désactiver le traitement des extensions, en fonction de vos besoins, mais avant de continuer, vous **devez** supprimer toutes les extensions déployées sur la machine virtuelle. Par exemple, l’interface Azure CLI vous permet de [répertorier](/cli/azure/vm/extension#az_vm_extension_list) et de [supprimer](/cli/azure/vm/extension#az_vm_extension_delete) :
 
 ```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -156,7 +156,7 @@ Lorsque vous créez la machine virtuelle à partir de l’image sans agent Linux
 > 
 > Si vous n’effectuez pas cette opération, la plateforme essaiera d’envoyer la configuration et le délai d’expiration de l’extension après 40 min.
 
-Pour déployer la machine virtuelle avec des extensions désactivées, vous pouvez utiliser l’interface CLI Azure avec [--enable-agent](/cli/azure/vm#az-vm-create).
+Pour déployer la machine virtuelle avec des extensions désactivées, vous pouvez utiliser l’interface CLI Azure avec [--enable-agent](/cli/azure/vm#az_vm_create).
 
 ```azurecli
 az vm create \

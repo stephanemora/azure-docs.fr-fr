@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 85a3505dd347b96036c28c85c089afa04e3e3bd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d4a801d0cf0a2355334272053ff86dd846b6bbf
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608642"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030302"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Résolution des problèmes liés à SQL Insights (préversion)
 Pour résoudre des problèmes liés à la collecte de données dans SQL insights, vérifiez l’état de la machine d’analyse dans l’onglet **Gérer le profil**. Elle aura l’un des états suivants :
@@ -171,10 +171,13 @@ InsightsMetrics
 ```
 
 ```
-Operation 
- | where OperationCategory == "WorkloadInsights" 
- | summarize Errors = countif(OperationStatus == 'Error') 
+WorkloadDiagnosticLogs
+| summarize Errors = countif(Status == 'Error')
 ```
+
+> [!NOTE]
+> En l'absence de données dans le type « WorkloadDiagnosticLogs », vous pouvez être amené à mettre à jour votre profil de surveillance pour stocker ces données.  Dans l'interface utilisateur de SQL Insights, sélectionnez « Gérer le profil », « Modifier le profil » et « Mettre à jour le profil de surveillance ».
+
 
 Dans les cas courants, nous fournissons des informations de résolution des problèmes dans notre vue des journaux : 
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: acb5457f10c54a741a738dd8a1008e703b0f23b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd45bb264f8e29a2aad870a7daff45fdd44e0d3c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102051019"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478809"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Créer une inscription d’application à utiliser avec Azure Digital Twins
 
-Lors de l’utilisation d’une instance Azure Digital Twins, il est courant d’interagir avec cette instance par le biais d’applications clientes, comme une application cliente personnalisée ou un exemple d’application comme [Azure Digital Twins Explorer](quickstart-adt-explorer.md). Ces applications doivent s’authentifier auprès d’Azure Digital Twins pour interagir avec, et certains des [mécanismes d’authentification](how-to-authenticate-client.md) que les applications peuvent utiliser impliquent une **inscription d’application** [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
+Lors de l’utilisation d’une instance Azure Digital Twins, il est courant d’interagir avec cette instance par le biais d’applications clientes, comme une application cliente personnalisée ou un exemple d’application comme [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Ces applications doivent s’authentifier auprès d’Azure Digital Twins pour interagir avec, et certains des [mécanismes d’authentification](how-to-authenticate-client.md) que les applications peuvent utiliser impliquent une **inscription d’application** [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
 
 Cela n’est pas obligatoire pour tous les scénarios d’authentification. Toutefois, si vous utilisez une stratégie d’authentification ou un exemple de code qui nécessite une inscription d’application, y compris un **ID de client** et un **ID de locataire**, cet article vous montre comment en définir une.
 

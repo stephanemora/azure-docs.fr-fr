@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31812a7b2dddad474ab5cd422a15f6e5368dba5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96533874"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774626"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob
 
@@ -239,7 +239,7 @@ Quand l’accès public est interdit pour le compte de stockage, le niveau d’a
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour mettre à jour le niveau d’accès public d’un ou de plusieurs conteneurs avec Azure CLI, appelez la commande [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission). Autorisez cette opération en transmettant votre clé de compte, une chaîne de connexion ou une signature d’accès partagé (SAP). L’opération [Définir l’ACL du conteneur](/rest/api/storageservices/set-container-acl) qui définit le niveau d’accès public du conteneur ne prend pas en charge l’autorisation avec Azure AD. Pour plus d’informations, consultez [Autorisations pour l’appel d’opérations de données d’objet BLOB et de file d’attente](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Pour mettre à jour le niveau d’accès public d’un ou de plusieurs conteneurs avec Azure CLI, appelez la commande [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission). Autorisez cette opération en transmettant votre clé de compte, une chaîne de connexion ou une signature d’accès partagé (SAP). L’opération [Définir l’ACL du conteneur](/rest/api/storageservices/set-container-acl) qui définit le niveau d’accès public du conteneur ne prend pas en charge l’autorisation avec Azure AD. Pour plus d’informations, consultez [Autorisations pour l’appel d’opérations de données d’objet BLOB et de file d’attente](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
 L’exemple suivant crée un conteneur dont l’accès public est désactivé, puis met à jour le paramètre d’accès public du conteneur pour autoriser l’accès anonyme au conteneur et à ses blobs. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 

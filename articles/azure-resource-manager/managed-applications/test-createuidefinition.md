@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36d6af7fb42bc1b705b44bdae6f24b454bfd242f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: eeef454e4c5706b39d07261ade1c2f0ffbc942ad
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312431"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478894"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Tester votre interface de portail pour Applications managées Azure
 
@@ -100,7 +100,7 @@ Si le portail se bloque sur l’écran récapitulatif, cela signifie qu’il y a
 
 ## <a name="test-your-solution-files"></a>Tester vos fichiers de solution
 
-Maintenant que vous avez vérifié que votre interface de portail fonctionne comme prévu, il est temps de vérifier que votre fichier createUiDefinition est correctement intégré à votre fichier mainTemplate.json. Vous pouvez exécuter un script de validation test pour tester le contenu de vos fichiers de solution, y compris le fichier createUiDefinition. Le script valide la syntaxe JSON, vérifie les expressions d’expression régulière sur les champs de texte et permet de s’assurer que les valeurs de sortie de l’interface du portail correspondent aux paramètres de votre modèle. Pour plus d’informations sur l’exécution de ce script, consultez [Run static validation checks for templates](https://github.com/Azure/azure-quickstart-templates/tree/master/test) (Effectuer les vérifications de validation statiques des modèles).
+Maintenant que vous avez vérifié que votre interface de portail fonctionne comme prévu, il est temps de vérifier que votre fichier createUiDefinition est correctement intégré à votre fichier mainTemplate.json. Vous pouvez exécuter un script de validation test pour tester le contenu de vos fichiers de solution, y compris le fichier createUiDefinition. Le script valide la syntaxe JSON, vérifie les expressions d’expression régulière sur les champs de texte et permet de s’assurer que les valeurs de sortie de l’interface du portail correspondent aux paramètres de votre modèle. Pour plus d’informations sur l’exécution de ce script, consultez [Run static validation checks for templates](https://aka.ms/arm-ttk) (Effectuer les vérifications de validation statiques des modèles).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

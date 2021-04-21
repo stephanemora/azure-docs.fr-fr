@@ -9,13 +9,13 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96509466"
 ---
-**Dernière mise à jour du document** : 12 novembre 2019 10:00 PST.
+**Dernière mise à jour du document** : 12 novembre 2019, 10 h 00 PST.
 
 La divulgation d’une [nouvelle classe de vulnérabilités de processeur](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) appelées attaques par canal latéral de l’exécution spéculative a généré des questions de la part de clients recherchant plus d’explications.  
 
@@ -72,7 +72,7 @@ Vous pouvez activer des fonctionnalités de sécurité supplémentaires dans vot
 Votre système d’exploitation cible doit être à jour pour pouvoir activer ces fonctionnalités de sécurité supplémentaires. Bien que de nombreuses atténuations des risques de canal côté exécution spéculative soient activées par défaut, les fonctionnalités supplémentaires décrites ici doivent être activées manuellement et peuvent affecter les performances. 
 
 
-**Étape 1 : Désactivez Hyper-Threading sur la machine virtuelle** : les clients qui exécutent du code non approuvé sur une machine virtuelle multithreads doivent désactiver la fonctionnalité Hyper-Threading ou passer à une taille de machine virtuelle non multithreads. Consutlez [ce document](../articles/virtual-machines/acu.md) pour obtenir la liste des tailles de machine virtuelle multithreads (dont le rapport processeur virtual/cœur est 2:1). Pour vérifier si la fonctionnalité Hyper-Threading est activée sur votre machine, reportez-vous au script ci-dessous lorsque vous utilisez la ligne de commande Windows à partir de la machine virtuelle.
+**Étape 1 : Désactivez Hyper-Threading sur la machine virtuelle** - Les clients qui exécutent du code non approuvé sur une machine virtuelle multithread doivent désactiver la fonctionnalité Hyper-Threading ou passer à une taille de machine virtuelle non multithread. Consutlez [ce document](../articles/virtual-machines/acu.md) pour obtenir la liste des tailles de machine virtuelle multithreads (dont le rapport processeur virtual/cœur est 2:1). Pour vérifier si la fonctionnalité Hyper-Threading est activée sur votre machine, reportez-vous au script ci-dessous lorsque vous utilisez la ligne de commande Windows à partir de la machine virtuelle.
 
 Entrez `wmic` pour ouvrir l’interface interactive. Puis, entrez ce qui suit pour afficher la quantité de processeurs physiques et logiques sur la machine virtuelle.
 
@@ -83,7 +83,7 @@ CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 Si le nombre de processeurs logiques est supérieur à celui des processeurs physiques (cœurs), la fonctionnalité Hyper-Threading est activée.  Si vous exécutez une machine virtuelle multithreads, [contactez le support Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) pour obtenir la désactivation de la fonctionnalité Hyper-Threading.  Une fois celle-ci désactivée, **la prise en charge de cette modification requiert un redémarrage complet de la machine virtuelle**. Reportez-vous à [Nombre de cœurs](#core-count) pour comprendre pourquoi le nombre de cœurs de la machine virtuelle a diminué.
 
 
-**Étape 2** : Parallèlement à l’étape 1, suivez les instructions de l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour vérifier que les protections sont activées à l’aide du module PowerShell [SpeculationControl](https://aka.ms/SpeculationControlPS).
+**Étape 2** : Parallèlement à l’étape 1, suivez les instructions de l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour vérifier que les protections sont activées à l’aide du module PowerShell [SpeculationControl](https://aka.ms/SpeculationControlPS).
 
 > [!NOTE]
 > Si vous avez déjà téléchargé ce module, vous devez installer la dernière version.
@@ -105,10 +105,10 @@ Si la sortie comporte `MDS mitigation is enabled: False`, [contactez le support 
 
 
 
-**Étape 3** : Pour activer la fonctionnalité Kernel Virtual Address (KVA) Shadowing (Copie shadow d’adresse virtuelle du noyau) et la prise en charge de système d’exploitation Branch Target Injection (BTI), suivez les instructions figurant dans [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour activer la protection à l’aide des clés de `Session Manager`. Un redémarrage est nécessaire.
+**Étape 3** : Pour activer la fonctionnalité Kernel Virtual Address Shadowing (KVAS), ou copie shadow d’adresse virtuelle du noyau, et la prise en charge de système d’exploitation Branch Target Injection (BTI), suivez les instructions figurant dans l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour activer la protection à l’aide des clés de registre `Session Manager`. Un redémarrage est nécessaire.
 
 
-**Étape 4** : Pour les déploiements utilisant la [virtualisation imbriquée](../articles/virtual-machines/windows/nested-virtualization.md) (D3 et E3 uniquement) : Ces instructions s’appliquent dans la machine virtuelle que vous utilisez comme hôte Hyper-V.
+**Étape 4** : Pour les déploiements qui utilisent la [virtualisation imbriquée](../articles/virtual-machines/windows/nested-virtualization.md) (D3 et E3 uniquement) : ces instructions s’appliquent à la machine virtuelle que vous utilisez comme hôte Hyper-V.
 
 1.  Suivez les instructions de l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour activer les protections via les clés de Registre `MinVmVersionForCpuBasedMitigations`.
 2.  Définissez le type de planificateur d’hyperviseur sur `Core` en suivant les instructions fournies [ici](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
@@ -119,7 +119,7 @@ Si la sortie comporte `MDS mitigation is enabled: False`, [contactez le support 
 <a name="linux"></a>L’activation de l’ensemble de fonctionnalités de sécurité supplémentaires nécessite que le système d’exploitation cible soit entièrement à jour. Certaines atténuations des risques sont activées par défaut. La section suivante décrit les fonctionnalités qui sont désactivées par défaut et/ou qui dépendent de la prise en charge matérielle (microcode). L’activation de ces fonctionnalités peut affecter les performances. Consultez la documentation du fournisseur de votre système d’exploitation pour obtenir des instructions
 
 
-**Étape 1 : Désactivez Hyper-Threading sur la machine virtuelle** : les clients qui exécutent du code non approuvé sur une machine virtuelle mutithreads doivent désactiver la fonctionnalité Hyper-Threading ou passer à une machine virtuelle non multithreads.  Consutlez [ce document](../articles/virtual-machines/acu.md) pour obtenir la liste des tailles de machine virtuelle multithreads (dont le rapport processeur virtual/cœur est 2:1). Pour vérifier si vous exécutez une machine virtuelle multithreads, exécutez la commande `lscpu` dans la machine virtuelle Linux. 
+**Étape 1 : Désactivez Hyper-Threading sur la machine virtuelle** - Les clients qui exécutent du code non approuvé sur une machine virtuelle mutithread doivent désactiver la fonctionnalité Hyper-Threading ou passer à une machine virtuelle non multithread.  Consutlez [ce document](../articles/virtual-machines/acu.md) pour obtenir la liste des tailles de machine virtuelle multithreads (dont le rapport processeur virtual/cœur est 2:1). Pour vérifier si vous exécutez une machine virtuelle multithreads, exécutez la commande `lscpu` dans la machine virtuelle Linux. 
 
 Si `Thread(s) per core = 2`, la fonctionnalité Hyper-Threading a été activée. 
 
@@ -145,7 +145,7 @@ Si vous exécutez une machine virtuelle multithreads, [contactez le support Azur
 
 
 
-**Étape 2** : Pour limiter les vulnérabilités de canal côté exécution spéculative, reportez-vous à la documentation du fournisseur de votre système d’exploitation :   
+**Étape 2** : Pour limiter les vulnérabilités de canal côté exécution spéculative, reportez-vous à la documentation du fournisseur de votre système d’exploitation :   
  
 - [Redhat et CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 

@@ -3,12 +3,12 @@ title: Créer, afficher et gérer des alertes de journal d’activité dans Azur
 description: Créer des alertes de journal d’activité à l’aide du portail Azure, d’un modèle Azure Resource Manager et d’Azure PowerShell.
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: 26ca755f6675fa19c3b122c3528e05d1e8d76845
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 647378d7e93ab383441b363315a84cea8a5ab773
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045528"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772538"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -276,13 +276,13 @@ Les commandes Azure CLI dédiées situées sous l'ensemble [az monitor activity-
 
 Pour créer une règle d'alerte de journal d'activité, utilisez les commandes suivantes dans cet ordre :
 
-1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create) : permet de créer une ressource de règle d'alerte de journal d'activité.
+1. [az monitor activity-log alert create](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_create) : permet de créer une ressource de règle d'alerte de journal d'activité.
 1. [az monitor activity-log alert scope](/cli/azure/monitor/activity-log/alert/scope) : permet d'ajouter une étendue pour la règle d'alerte de journal d'activité créée.
 1. [az monitor activity-log alert action-group](/cli/azure/monitor/activity-log/alert/action-group) : permet d'ajouter un groupe d'actions à la règle d'alerte de journal d'activité.
 
-Pour récupérer une ressource de règle d'alerte de journal d'activité, utilisez la commande Azure CLI [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-). Pour afficher toutes les ressources de règle d'alerte de journal d'activité d'un groupe de ressources, utilisez la commande [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Les ressources de règle d'alerte de journal d'activité peuvent être supprimées à l'aide de la commande Azure CLI [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
+Pour récupérer une ressource de règle d'alerte de journal d'activité, utilisez la commande Azure CLI [az monitor activity-log alert show](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_show
+). Pour afficher toutes les ressources de règle d'alerte de journal d'activité d'un groupe de ressources, utilisez la commande [az monitor activity-log alert list](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_list).
+Les ressources de règle d'alerte de journal d'activité peuvent être supprimées à l'aide de la commande Azure CLI [az monitor activity-log alert delete](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log_alert_delete).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

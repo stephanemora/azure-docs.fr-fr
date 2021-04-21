@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed87a5a744defb15d4a898aeabdce5267b7431fe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875447"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775652"
 ---
 # <a name="manage-your-function-app"></a>Gérer votre application de fonction 
 
@@ -46,14 +46,14 @@ L’onglet **Paramètres de l’application** conserve les paramètres qui sont 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
-La commande [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) retourne les paramètres d’application existants, comme dans l’exemple suivant :
+La commande [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) retourne les paramètres d’application existants, comme dans l’exemple suivant :
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-La commande [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) ajoute ou met à jour un paramètre d’application. L’exemple suivant crée un paramètre avec une clé nommée `CUSTOM_FUNCTION_APP_SETTING` et la valeur `12345` :
+La commande [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) ajoute ou met à jour un paramètre d’application. L’exemple suivant crée un paramètre avec une clé nommée `CUSTOM_FUNCTION_APP_SETTING` et la valeur `12345` :
 
 
 ```azurecli-interactive
@@ -260,7 +260,7 @@ Quand vous configurez la liste **Origines autorisées** pour votre application d
 
 Quand le caractère générique (`*`) est utilisé, tous les autres domaines sont ignorés. 
 
-Utilisez la commande [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) pour ajouter un domaine à la liste des origines autorisées. L’exemple suivant ajoute le domaine contoso.com :
+Utilisez la commande [`az functionapp cors add`](/cli/azure/functionapp/cors#az_functionapp_cors_add) pour ajouter un domaine à la liste des origines autorisées. L’exemple suivant ajoute le domaine contoso.com :
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -268,7 +268,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 --allowed-origins https://contoso.com
 ```
 
-Utilisez la commande [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) pour lister les origines autorisées actuelles.
+Utilisez la commande [`az functionapp cors show`](/cli/azure/functionapp/cors#az_functionapp_cors_show) pour lister les origines autorisées actuelles.
 
 ### <a name="authentication"></a><a name="auth"></a>Authentification
 

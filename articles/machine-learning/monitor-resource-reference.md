@@ -9,13 +9,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 10/02/2020
-ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: de4d934144d6721db8c00d7199061842e518e44f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521337"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031067"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Informations de référence sur l’analyse des données Azure Machine Learning
 
@@ -28,49 +28,62 @@ Cette section répertorie toutes les métriques de plateforme collectées automa
 **Modèle**
 
 | Métrique | Unité | Description |
-| ----- | ----- | ----- |
-| Déploiements de modèles ayant échoué | Count | Nombre de déploiements de modèles ayant échoué. |
-| Déploiements de modèles commencés | Count | Nombre de déploiements de modèles ayant commencé. |
-| Déploiements de modèles réussis | Count | Nombre de déploiements de modèles ayant réussi. |
-| Enregistrements de modèles ayant échoué | Count | Nombre d’enregistrements de modèles ayant échoué. |
-| Enregistrements de modèles réussis | Count | Nombre d’enregistrements de modèles ayant réussi. |
+|--|--|--|
+| Enregistrements de modèles réussis | Count | Nombre d’enregistrements de modèles ayant réussi dans cet espace de travail |
+| Enregistrements de modèles ayant échoué | Count | Nombre d’enregistrements de modèles ayant échoué dans cet espace de travail |
+| Déploiements de modèles commencés | Count | Nombre de déploiements de modèles ayant commencé dans cet espace de travail |
+| Déploiements de modèles réussis | Count | Nombre de déploiements de modèles ayant réussi dans cet espace de travail |
+| Échec du déploiement de modèle | Count | Nombre de déploiements de modèles ayant échoué dans cet espace de travail |
 
 **Quota**
 
 Les informations de quota concernent uniquement le calcul Azure Machine Learning.
 
 | Métrique | Unité | Description |
-| ----- | ----- | ----- |
-| Cœurs actifs | Count | Nombre de cœurs de calcul actifs. |
-| Nœuds actifs | Count | Nombre de nœuds actifs. |
-| Cœurs inactifs | Count | Nombre de cœurs de calcul inactifs. |
-| Nœuds inactifs | Count | Nombre de nœuds de calcul inactifs. |
-| Cœurs sortants | Count | Nombre de cœurs sortants. |
-| Nœuds sortants | Count | Nombre de nœuds sortants. |
-| Cœurs réquisitionnés | Count | Nombre de cœurs réquisitionnés. |
-| Nœuds reportés | Count | Nombre de nœuds réquisitionnés. |
-| Pourcentage d’utilisation du quota | Pourcentage | Pourcentage du quota utilisé. |
-| Nombre total de cœurs | Count | Nombre total de cœurs. |
-| Nombre total de nœuds | Count | Nombre total de nœuds. |
-| Cœurs inutilisables | Count | Nombre de cœurs inutilisables. |
-| Nœuds inutilisables | Count | Nombre de nœuds inutilisables. |
+|--|--|--|
+| Nombre total de nœuds | Count | Nombre total de nœuds. Ce total comprend certains des nœuds actifs, des nœuds inactifs, des nœuds inutilisables, des nœuds reportés et des nœuds sortants |
+| Nœuds actifs | Count | Nombre de nœuds actifs. Les nœuds qui exécutent activement un travail. |
+| Nœuds inactifs | Count | Nombre de nœuds inactifs. Les nœuds inactifs sont les nœuds qui n’exécutent aucun travail, mais qui peuvent accepter un nouveau travail, le cas échéant. |
+| Nœuds inutilisables | Count | Nombre de nœuds inutilisables. Les nœuds inutilisables ne sont pas fonctionnels en raison d’un problème insoluble. Azure recycle ces nœuds. |
+| Nœuds reportés | Count | Nombre de nœuds reportés. Ces nœuds sont les nœuds de basse priorité qui sont éloignés du pool de nœuds disponibles. |
+| Nœuds sortants | Count | Nombre de nœuds sortants. Les nœuds sortants sont les nœuds qui viennent de terminer le traitement d’un travail et qui passent à l’état inactif. |
+| Nombre total de cœurs | Count | Nombre total de cœurs |
+| Cœurs actifs | Count | Nombre de cœurs actifs |
+| Cœurs inactifs | Count | Nombre de cœurs inactifs |
+| Cœurs inutilisables | Count | Nombre de cœurs inutilisables |
+| Cœurs réquisitionnés | Count | Nombre de cœurs réquisitionnés |
+| Cœurs sortants | Count | Nombre de cœurs sortants |
+| Pourcentage d’utilisation du quota | Count | Pourcentage de quota utilisé |
 
 **Ressource**
 
-| Métrique | Unité | Description |
-| ----- | ----- | ----- |
-| CpuUtilization | Pourcentage | Pourcentage d’utilisation du processeur pour un nœud donné au cours d’une exécution/tâche. Cette métrique est publiée uniquement lorsqu’une tâche est en cours d’exécution sur un nœud. Une tâche peut utiliser un ou plusieurs nœuds. Cette métrique est publiée par nœud. |
-| GpuUtilization | Pourcentage | Pourcentage d’utilisation du processeur graphique (GPU) pour un nœud donné au cours d’une exécution/tâche. Un nœud peut avoir un ou plusieurs processeurs graphiques. Cette métrique est publiée par GPU, par nœud. |
+| Métrique| Unité | Description |
+|--|--|--|
+| CpuUtilization | Count | Pourcentage d’utilisation de la mémoire sur un nœud de processeur. L’utilisation est rapportée à intervalles d’une minute. |
+| GpuUtilization | Count | Pourcentage d’utilisation sur un nœud de GPU. L’utilisation est rapportée à intervalles d’une minute. |
+| GpuMemoryUtilization | Count | Pourcentage d’utilisation de la mémoire sur un nœud de GPU. L’utilisation est rapportée à intervalles d’une minute. |
+| GpuEnergyJoules | Nombre | Énergie par intervalle en joules sur un nœud GPU. L’énergie est rapportée à intervalles d’une minute. |
 
 **Exécuter**
 
-Informations sur les exécutions d’apprentissage.
+Informations sur les exécutions de formation pour l’espace de travail.
 
 | Métrique | Unité | Description |
-| ----- | ----- | ----- |
-| Exécutions terminées | Count | Nombre d’exécutions effectuées. |
-| Exécutions ayant échoué | Count | Nombre d’exécutions ayant échoué. |
-| Exécutions commencées | Count | Nombre d’exécutions commencées. |
+|--|--|--|
+| Exécutions annulées | Count | Nombre d’exécutions annulées pour cet espace de travail. Le nombre est mis à jour lorsque l’annulation d’une exécution aboutit. |
+| Annuler les exécutions demandées | Count | Nombre d’exécutions pour lesquelles l’annulation a été demandée dans cet espace de travail. Le nombre est mis à jour à la réception d’une demande d’annulation pour une exécution. |
+| Exécutions terminées | Count | Nombre d’exécutions réussies pour cet espace de travail. Le nombre est mis à jour lorsqu’une exécution est terminée et que la sortie a été collectée. |
+| Exécutions échouées | Count | Nombre d’exécutions en échec pour cet espace de travail. Le nombre est mis à jour lorsqu’une exécution échoue. |
+| Exécutions en cours de finalisation | Count | Nombre d’exécutions entrées en état de finalisation pour cet espace de travail. Le nombre est mis à jour lorsqu’une exécution est terminée, mais que la collecte de sortie est toujours en cours. | 
+| Exécutions sans réponse | Count | Nombre d’exécutions sans réponse pour cet espace de travail. Le nombre est mis à jour lorsqu’une exécution passe à l’état Sans réponse. |
+| Exécutions non démarrées | Count | Nombre d’exécutions à l’état Non démarré pour cet espace de travail. Le nombre est mis à jour lorsqu’une demande de création d’une exécution est reçue, mais que les informations d’exécution n’ont pas encore été remplies. |
+| Exécutions en cours de préparation | Count | Nombre d’exécutions en cours de préparation pour cet espace de travail. Le nombre est mis à jour lorsqu’une exécution passe à l’état En préparation pendant la préparation de l’environnement d’exécution. |
+| Exécutions en cours de provisionnement | Count | Nombre d’exécutions en cours de provisionnement pour cet espace de travail. Le nombre est mis à jour lorsqu’une exécution attend la création ou le provisionnement d’une cible de calcul. |
+| Exécutions en file d’attente | Count | Nombre d’exécutions mises en file d’attente pour cet espace de travail. Le nombre est mis à jour lorsqu’une exécution est mise en file d’attente dans la cible de calcul. Peut se produire en attendant que les nœuds de calcul nécessaires soient prêts. |
+| Exécutions démarrées | Count | Nombre d’exécutions en cours pour cet espace de travail. Le nombre est mis à jour lorsque l’exécution commence sur les ressources requises. |
+| Exécutions en cours de démarrage | Count | Nombre d’exécutions démarrées pour cet espace de travail. Le nombre est mis à jour après que la demande de création de l’exécution et des informations d’exécution (par exemple, l’ID d’exécution) a été remplie. |
+| Erreurs | Count | Nombre d’erreurs d’exécution dans cet espace de travail. Le nombre est mis à jour chaque fois que l’exécution rencontre une erreur. |
+| Avertissements | Count | Nombre d’avertissements d’exécution dans cet espace de travail. Le nombre est mis à jour chaque fois qu’une exécution rencontre un avertissement. |
 
 ## <a name="metric-dimensions"></a>Dimensions de métrique
 

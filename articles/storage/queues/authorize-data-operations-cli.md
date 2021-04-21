@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2f7092d8ce184d7021774814e96935e46d1ffb56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ac012da97194134f58d061dd9d84e945db554
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363166"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774464"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données de file d’attente avec Azure CLI
 
@@ -63,7 +63,7 @@ L’exemple suivant montre comment créer une file d’attente à partir d’Azu
     > [!IMPORTANT]
     > La propagation des attributions de rôles Azure peut prendre plusieurs minutes.
 
-1. Appelez la commande [`az storage queue create`](/cli/azure/storage/queue#az-storage-queue-create) avec le paramètre `--auth-mode` défini sur `login` pour créer la file d’attente à l’aide de vos informations d’identification Azure AD. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+1. Appelez la commande [`az storage queue create`](/cli/azure/storage/queue#az_storage_queue_create) avec le paramètre `--auth-mode` défini sur `login` pour créer la file d’attente à l’aide de vos informations d’identification Azure AD. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
     ```azurecli
     az storage queue create \

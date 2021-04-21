@@ -4,35 +4,38 @@ description: Découvrir le durcissement de la sécurité du système d’exploit
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0866905d0228d2304ebf5c8ef930a629979d2da
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86244036"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012074"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Durcissement de la sécurité du système d’exploitation hôte du nœud de l’agent AKS
 
-Azure Kubernetes Service (AKS) est un service sécurisé conforme aux normes SOC, ISO, PCI DSS et HIPAA. Cet article traite du durcissement de la sécurité appliqué aux hôtes de machines virtuelles AKS. Pour plus d’informations sur la sécurité AKS, consultez [Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)](./concepts-security.md).
+En tant que service sécurisé, Azure Kubernetes Service (AKS) est conforme aux normes SOC, ISO, PCI DSS et HIPAA. Cet article traite du durcissement de la sécurité appliqué aux hôtes de machines virtuelles AKS. Pour plus d’informations sur la sécurité AKS, consultez [Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)](./concepts-security.md).
 
 > [!Note]
 > Ce document se limite aux agents Linux dans AKS uniquement.
 
-Les clusters AKS sont déployés sur des machines virtuelles hôtes, qui exécutent un système d’exploitation doté d’une sécurité optimisée et utilisée pour les conteneurs en cours d’exécution sur AKS. Ce système d’exploitation hôte est basé sur une image **Ubuntu 16.04.LTS** ayant fait l’objet d’un durcissement de la sécurité et d’optimisations (voir les détails du durcissement de la sécurité).
+Les clusters AKS sont déployés sur des machines virtuelles hôtes, qui exécutent un système d’exploitation doté d’une sécurité optimisée et utilisée pour les conteneurs en cours d’exécution sur AKS. Ce système d’exploitation hôte est basé sur une image **Ubuntu 16.04.LTS** ayant fait l’objet d’un [durcissement de la sécurité](#security-hardening-features) et d’optimisations.
 
 L’objectif du système d’exploitation hôte avec un durcissement de la sécurité est de réduire la surface d’attaque et d’optimiser le déploiement de conteneurs de manière sécurisée.
 
 > [!Important]
-> Le système d’exploitation avec une sécurité durcie n’a PAS été testé selon les critères CIS. Même s’il y a des critères communs avec les bancs d’essai CIS, l’objectif n’est pas d’être conforme à CIS. L’objectif du durcissement du système d’exploitation hôte consiste à converger vers un niveau de sécurité cohérent avec les propres normes de sécurité d’hôte interne de Microsoft.
+> Le système d’exploitation avec une sécurité durcie n’a **pas** été testé selon les critères CIS. Même s’il y a des critères communs avec les bancs d’essai CIS, l’objectif n’est pas d’être conforme à CIS. L’objectif du durcissement du système d’exploitation hôte consiste à converger vers un niveau de sécurité cohérent avec les propres normes de sécurité d’hôte interne de Microsoft.
 
 ## <a name="security-hardening-features"></a>Caractéristiques du durcissement de la sécurité
 
-* AKS fournit un système d’exploitation hôte à sécurité optimisée par défaut. Il n’existe aucune option pour sélectionner un autre système d’exploitation.
+* AKS fournit un système d’exploitation hôte optimisé pour la sécurité par défaut, mais aucune option pour sélectionner un autre système d’exploitation.
 
-* Azure applique des correctifs quotidiens (y compris des correctifs de sécurité) aux hôtes de machines virtuelles AKS. Certains de ces correctifs nécessitent un redémarrage et d’autres non. Vous êtes responsable de la planification des redémarrages nécessaires des hôtes de machines virtuelles AKS. Pour obtenir des conseils sur l’automatisation des mises à jour correctives AKS, consultez l’[application de correctifs pour les nœuds AKS](./node-updates-kured.md).
+* Azure applique des correctifs quotidiens (y compris des correctifs de sécurité) aux hôtes de machines virtuelles AKS. 
+    * Certains de ces correctifs nécessitent un redémarrage et d’autres non. 
+    * Vous êtes responsable de la planification des redémarrages nécessaires des hôtes de machines virtuelles AKS. 
+    * Pour obtenir des conseils sur l’automatisation des mises à jour correctives AKS, consultez l’[application de correctifs pour les nœuds AKS](./node-updates-kured.md).
 
 ## <a name="what-is-configured"></a>Ce qui est configuré
 
@@ -79,14 +82,12 @@ L’objectif du système d’exploitation hôte avec un durcissement de la sécu
  
 * Pour réduire encore la surface d’attaque, certains pilotes de module de noyau inutiles ont été désactivés dans le système d’exploitation.
 
-* Le système d’exploitation avec durcissement de la sécurité est conçu et géré spécifiquement pour AKS et n’est PAS pris en charge en dehors de la plateforme AKS.
+* Le système d’exploitation avec durcissement de la sécurité est conçu et géré spécifiquement pour AKS et n’est **pas** pris en charge en dehors de la plateforme AKS.
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
 Pour plus d’informations sur la sécurité AKS, consultez les articles suivants : 
 
-[Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
-
-[Concepts de sécurité AKS](./concepts-security.md)
-
-[Bonnes pratiques AKS](./best-practices.md)
+* [Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
+* [Concepts de sécurité AKS](./concepts-security.md)
+* [Meilleures pratiques AKS](./best-practices.md)

@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: daf4ad39f0379f7e903c40b9d5073ab87f455bab
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 50ecf6e394d5d19d09033554272023bd6796851b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218768"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581227"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Déployer une machine virtuelle avec le lancement fiable activé (préversion)
 
@@ -41,10 +41,13 @@ Créez une machine virtuelle avec le lancement fiable activé.
 5. Sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné.
 6. Sous **Groupe de ressources**, sélectionnez **Créer** et spécifiez un nom pour votre groupe de ressources ou sélectionnez un groupe de ressources existant dans la liste déroulante.
 7. Sous **Détails de l’instance**, spécifiez un nom pour la machine virtuelle et choisissez une région qui prend en charge le [lancement fiable](trusted-launch.md#public-preview-limitations).
-8. Sous **Image**, sélectionnez une [image qui prend en charge le lancement fiable](trusted-launch.md#public-preview-limitations). Vous ne verrez peut-être que la version Gen 1 de l’image. Ce n’est pas un problème. Passez à l’étape suivante.
-9. Basculez vers l’onglet **Avancé** en le sélectionnant en haut de la page.
-10. Faites défiler jusqu’à la section **Génération de machine virtuelle**, puis sélectionnez **Gen 2**.
-11. Toujours sous l’onglet **Avancé**, faites défiler jusqu’à **Lancement fiable**, puis cochez la case **Lancement fiable**. Deux options supplémentaires s’affichent : Amorçage sécurisé et vTPM. Sélectionnez les options appropriées pour votre déploiement.
+8. Sous **Image**, sélectionnez une [image de génération 2 qui prend en charge le lancement fiable](trusted-launch.md#public-preview-limitations). 
+   > [!TIP]
+   > Si vous ne voyez pas la version génération 2 de l’image que vous souhaitez dans la liste déroulante, sélectionnez **Afficher toutes les images** , puis modifiez le filtre de **génération de machine virtuelle** pour afficher uniquement les images de la génération 2. Recherchez l’image dans la liste, puis utilisez la liste déroulante **Sélectionner** pour sélectionner la version génération 2.
+ 
+1. Basculez vers l’onglet **Avancé** en le sélectionnant en haut de la page.
+1. Descendez jusqu’à la section **Génération de machine virtuelle**. Assurez-vous que **Génération 2** est sélectionné.
+1. Toujours sous l’onglet **Avancé**, faites défiler jusqu’à **Lancement fiable**, puis cochez la case **Lancement fiable**. Deux options supplémentaires s’affichent : Amorçage sécurisé et vTPM. Sélectionnez les options appropriées pour votre déploiement.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Capture d’écran montrant les options pour le lancement fiable.":::
 

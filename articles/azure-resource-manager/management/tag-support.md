@@ -2,13 +2,13 @@
 title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 713fb5401db965787c2d9458da9afc3183a4c6a9
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.date: 04/20/2021
+ms.openlocfilehash: b196cae267a8d7dc878f055f6b2d70a3ff6f9313
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227328"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773960"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -939,7 +939,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | Non | Non |
 
 > [!NOTE]
-> Vous ne pouvez pas ajouter une balise à une machine virtuelle qui a été marquée comme généralisée. Vous marquez machine virtuelle comme généralisée avec [Set-AzVm-Generalized](/powershell/module/Az.Compute/Set-AzVM) ou [az vm generalize](/cli/azure/vm#az-vm-generalize).
+> Vous ne pouvez pas ajouter une balise à une machine virtuelle qui a été marquée comme généralisée. Vous marquez machine virtuelle comme généralisée avec [Set-AzVm-Generalized](/powershell/module/Az.Compute/Set-AzVM) ou [az vm generalize](/cli/azure/vm#az_vm_generalize).
 
 ## <a name="microsoftconnectedcache"></a>Microsoft.ConnectedCache
 
@@ -1193,8 +1193,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | DatabaseMigrations | Non | Non |
-> | services | Non | Non |
-> | services / projects | Non | Non |
+> | services | Oui | Oui |
+> | services / projects | Oui | Oui |
 > | SqlMigrationServices | Oui | Oui |
 
 ## <a name="microsoftdataprotection"></a>Microsoft.DataProtection
@@ -1594,8 +1594,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | networkFunctionVendors | Non | Non |
 > | registeredSubscriptions | Non | Non |
 > | Fournisseurs | Non | Non |
-> | vendors / vendorSkus | Non | Non |
-> | vendors / vendorSkus / previewSubscriptions | Non | Non |
+> | Vendors / vendorskus | Non | Non |
+> | Vendors / vendorskus / previewsubscriptions | Non | Non |
 > | virtualNetworkFunctions | Oui | Oui |
 > | virtualNetworkFunctionVendors | Non | Non |
 
@@ -2567,7 +2567,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | servers / restorableDroppedDatabases | Non | Non |
 > | servers / serviceobjectives | Non | Non |
 > | servers / tdeCertificates | Non | Non |
-> | virtualClusters | Non | Non |
+> | virtualClusters | Oui | Oui |
 
 <a id="sqlnote"></a>
 

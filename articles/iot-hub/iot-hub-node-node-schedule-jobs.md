@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.custom: mqtt, devx-track-js
-ms.openlocfilehash: e1992c806619154fa7b3c33500b2e54fbc919f20
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: mqtt, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: dc0ea9817b9cbc27816354c48abbe26d79a83f04
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92151434"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477891"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Planifier et diffuser des travaux (Node.js)
 
@@ -33,7 +33,7 @@ Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles 
 
 * Jumeau d’appareil et propriétés : [Bien démarrer avec des jumeaux d’appareils](iot-hub-node-node-twin-getstarted.md) et [Tutoriel : Guide pratique pour utiliser des propriétés de jumeau d’appareil](tutorial-device-twins.md)
 
-* Méthodes directes : [Guide du développeur IoT Hub – Méthodes directes](iot-hub-devguide-direct-methods.md) et [Tutoriel : méthodes directes](quickstart-control-device-node.md)
+* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes](iot-hub-devguide-direct-methods.md) et [Tutoriel : méthodes directes](quickstart-control-device-node.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

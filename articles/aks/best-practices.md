@@ -3,19 +3,24 @@ title: Meilleures pratiques relatives à Azure Kubernetes Service (AKS)
 description: Ensemble des meilleures pratiques à destination du développeur et de l’opérateur de clusters pour créer et gérer des applications dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/07/2018
-ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/09/2021
+ms.openlocfilehash: f4bd109ce6827de26b1649380b6f6a2ba7c10e17
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686257"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105899"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Meilleures pratiques à destination du développeur et de l’opérateur de clusters pour créer et gérer des applications sur Azure Kubernetes Service (AKS)
 
-Il convient de tenir compte et de mettre en œuvre plusieurs éléments afin de générer et d’exécuter des applications dans Azure Kubernetes Service (AKS). Ces éléments portent sur les fonctionnalités de mutualisation et de planification, la sécurité du cluster et du pod ou la continuité et la reprise d’activité (BCDR). Les meilleures pratiques suivantes sont regroupées pour aider les développeurs et les opérateurs du cluster à comprendre les points clés de chaque domaine et ainsi implémenter les fonctionnalités adéquates.
+La création et l’exécution d’applications avec succès dans Azure Kubernetes Service (AKS) requièrent la compréhension et l’implémentation de certaines considérations clés, notamment :
+* Fonctionnalités d’architecture mutualisée et de planificateur.
+* Sécurité des clusters et des pods.
+* La continuité d’activité et la reprise d’activité. 
 
-Les meilleures pratiques et articles conceptuels suivants ont été écrits conjointement avec le groupe de produits AKS, les équipes d’ingénieurs et les équipes sur le terrain, notamment les global black belts (GBB).
+
+Le groupe de produits AKS, les équipes d’ingénieurs et les équipes sur le terrain (notamment les global black belts [GBB]) ont contribué aux, rédigé et regroupé les meilleures pratiques et les articles conceptuels suivants. Leur but est d’aider les opérateurs et les développeurs de cluster à comprendre les considérations ci-dessus et à implémenter les fonctionnalités appropriées.
+
 
 ## <a name="cluster-operator-best-practices"></a>Meilleures pratiques pour l’opérateur de cluster
 

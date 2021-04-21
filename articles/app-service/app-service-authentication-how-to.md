@@ -4,12 +4,12 @@ description: Apprenez à personnaliser les paramètres d’authentification et d
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b7faf47363a5efee6a60951e67d9ad2bed8bf76f
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 9335bb62e494fab50f7beadf3d7bbc423d80cf14
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076868"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775724"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -652,7 +652,7 @@ Vous pouvez afficher la version actuelle de l’intergiciel (middleware) d’aut
 
 ##### <a name="from-the-azure-cli"></a>Dans Azure CLI
 
-À l’aide d’Azure CLI, affichez la version actuelle de l’intergiciel (middleware) avec la commande [az webapp auth show](/cli/azure/webapp/auth#az-webapp-auth-show).
+À l’aide d’Azure CLI, affichez la version actuelle de l’intergiciel (middleware) avec la commande [az webapp auth show](/cli/azure/webapp/auth#az_webapp_auth_show).
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -683,7 +683,7 @@ Vous pouvez également atteindre le point de terminaison /.auth/version sur une 
 
 #### <a name="update-the-current-runtime-version"></a>Mettre à jour la version actuelle du runtime
 
-À l’aide d’Azure CLI, vous pouvez mettre à jour le paramètre `runtimeVersion` dans l’application avec la commande [az webapp auth update](/cli/azure/webapp/auth#az-webapp-auth-update).
+À l’aide d’Azure CLI, vous pouvez mettre à jour le paramètre `runtimeVersion` dans l’application avec la commande [az webapp auth update](/cli/azure/webapp/auth#az_webapp_auth_update).
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -693,7 +693,7 @@ az webapp auth update --name <my_app_name> \
 
 Remplacez `<my_app_name>` par le nom de votre application. Remplacez également `<my_resource_group>` par le nom du groupe de ressources de votre application. Par ailleurs, remplacez `<version>` par une version valide du runtime 1.x ou `~1` pour la version la plus récente. Vous trouverez les notes de publication sur les différentes versions du runtime [ici] (https://github.com/Azure/app-service-announcements) pour déterminer la version sur laquelle épingler.
 
-Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](/cli/azure/reference-index#az-login) pour vous connecter.
+Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](/cli/azure/reference-index#az_login) pour vous connecter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

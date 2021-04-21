@@ -1,27 +1,28 @@
 ---
-title: Connecter les unités d’instance BareMetal dans Azure
-description: Découvrez comment identifier et interagir avec les unités d’instance BareMetal via le portail Azure ou Azure CLI.
+title: Connecter des instances BareMetal Infrastructure dans Azure
+description: Découvrez comment identifier et interagir avec des instances BareMetal dans le portail Azure ou Azure CLI.
 ms.topic: how-to
-ms.date: 03/19/2021
-ms.openlocfilehash: 42de1618813ba33934e3f8eeeee8dc7ac27d9824
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: workloads
+ms.date: 04/06/2021
+ms.openlocfilehash: a7fdc17aa4271915f7dc02aaa2d7a688016bf892
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951655"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579196"
 ---
-# <a name="connect-baremetal-instance-units-in-azure"></a>Connecter les unités d’instance BareMetal dans Azure
- 
-Cet article montre comment le [portail Azure](https://portal.azure.com/) affiche les [instances BareMetal](concepts-baremetal-infrastructure-overview.md). Cet article vous montre également les activités que vous pouvez effectuer dans le portail Azure avec les unités d’instance BareMetal déployées. 
+# <a name="connect-baremetal-infrastructure-instances-in-azure"></a>Connecter des instances BareMetal Infrastructure dans Azure
+
+Cet article montre la façon dont le [portail Azure](https://portal.azure.com/) affiche les [instances BareMetal](concepts-baremetal-infrastructure-overview.md). Cet article vous montre également ce que vous pouvez faire dans le portail Azure avec vos instances BareMetal Infrastructure déployées. 
  
 ## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
-Un fournisseur de ressources Azure pour les instances BareMetal fournit la visibilité des instances dans le portail Azure, actuellement en version préliminaire publique. Par défaut, l’abonnement Azure que vous utilisez pour les déploiements d’instance BareMetal inscrit le fournisseur de ressources *BareMetalInfrastructure*. Si vous ne voyez pas vos unités d’instance BareMetal déployées, vous devez inscrire le fournisseur de ressources auprès de votre abonnement. 
+Un fournisseur de ressources Azure pour les instances BareMetal fournit la visibilité des instances dans le portail Azure. Par défaut, l’abonnement Azure que vous utilisez pour les déploiements d’instances BareMetal inscrit le fournisseur de ressources *BareMetalInfrastructure*. Si vous ne voyez pas vos instances BareMetal déployées, vous devez inscrire le fournisseur de ressources auprès de votre abonnement. 
 
 Vous pouvez inscrire le fournisseur de ressources d’instance BareMetal à l’aide du portail Azure ou d’Azure CLI.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
  
-Vous devez afficher, dans le portail Azure, votre abonnement qui a été utilisé pour déployer votre ou vos unités d’instance BareMetal, puis double-cliquer dessus.
+Vous devrez répertorier vos abonnements dans le portail Azure, puis double-cliquer sur l’abonnement utilisé pour déployer vos instances BareMetal.
  
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -29,22 +30,22 @@ Vous devez afficher, dans le portail Azure, votre abonnement qui a été utilis�
 
 1. Dans la zone **Tous les services**, entrez **Abonnement**, puis sélectionnez **Abonnements**.
 
-1. Sélectionnez l'abonnement dans la liste.
+1. Sélectionnez l’abonnement dans la liste.
 
 1. Sélectionnez **Fournisseurs de ressources** et entrez  **BareMetalInfrastructure** dans la zone de recherche. Le fournisseur de ressources doit être **inscrit**, comme le montre l’image.
  
 >[!NOTE]
 >Si le fournisseur de ressources n’est pas inscrit, sélectionnez **Inscrire**.
  
-:::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="Capture d’écran montrant l’unité d’instance BareMetal inscrite":::
+:::image type="content" source="media/connect-baremetal-infrastructure/register-resource-provider-azure-portal.png" alt-text="Capture d’écran montrant les instances BareMetal inscrites.":::
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour commencer à utiliser Azure CLI :
+Pour commencer avec Azure CLI :
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Connectez-vous à l’abonnement Azure que vous utilisez pour le déploiement de l’instance BareMetal via Azure CLI. Inscrivez le fournisseur de ressources `BareMetalInfrastructure` à l’aide de la commande [az provider register](/cli/azure/provider#az_provider_register) :
+Connectez-vous à l’abonnement Azure que vous utilisez pour le déploiement d’instances BareMetal via Azure CLI. Inscrivez le fournisseur de ressources `BareMetalInfrastructure` à l’aide de la commande [az provider register](/cli/azure/provider#az_provider_register) :
 
 ```azurecli
 az provider register --namespace Microsoft.BareMetalInfrastructure
@@ -56,33 +57,33 @@ Vous pouvez utiliser la commande [az provider list](/cli/azure/provider#az_provi
 
 Pour plus d’informations sur les fournisseurs de ressources, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md).  
 
-## <a name="baremetal-instance-units-in-the-azure-portal"></a>Unités d’instance BareMetal dans le portail Azure
+## <a name="baremetal-instances-in-the-azure-portal"></a>Instances BareMetal dans le portail Azure
  
-Lorsque vous envoyez une demande de déploiement d’instance BareMetal, vous spécifiez l’abonnement Azure auquel vous vous connectez aux instances BareMetal. Utilisez le même abonnement que celui utilisé pour déployer la couche d’application qui fonctionne sur les unités d’instance BareMetal.
+Lorsque vous envoyez une demande de déploiement d’instance BareMetal, vous spécifiez l’abonnement Azure que vous connectez aux instances BareMetal. Utilisez le même abonnement que celui utilisé pour déployer la couche d’application qui fonctionne sur les instances BareMetal.
  
-Lors du déploiement de vos instances BareMetal, un nouveau [groupe de ressources Azure](../azure-resource-manager/management/manage-resources-portal.md) est créé dans l’abonnement Azure que vous avez utilisé dans la requête de déploiement. Ce nouveau groupe de ressources répertorie toutes les unités d’instance BareMetal que vous avez déployées dans l’abonnement spécifique.
+Lors du déploiement de vos instances BareMetal, un nouveau [groupe de ressources Azure](../azure-resource-manager/management/manage-resources-portal.md) est créé dans l’abonnement Azure que vous avez utilisé dans la requête de déploiement. Ce nouveau groupe de ressources répertorie toutes les instances BareMetal que vous avez déployées dans cet abonnement.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans l’abonnement BareMetal, dans le portail Azure, sélectionnez **Groupes de ressources**.
  
-   :::image type="content" source="media/baremetal-infrastructure-portal/view-baremetal-instance-units-azure-portal.png" alt-text="Capture d’écran montrant la liste de groupes de ressources":::
+   :::image type="content" source="media/connect-baremetal-infrastructure/view-baremetal-instances-azure-portal.png" alt-text="Capture d’écran montrant la liste des groupes de ressources.":::
 
 1. Dans la liste, localisez le nouveau groupe de ressources.
  
-   :::image type="content" source="media/baremetal-infrastructure-portal/filter-resource-groups.png" alt-text="Capture d’écran montrant l’unité d’instance BareMetal dans une liste de groupes de ressources filtrée" lightbox="media/baremetal-infrastructure-portal/filter-resource-groups.png":::
+   :::image type="content" source="media/connect-baremetal-infrastructure/filter-resource-groups.png" alt-text="Capture d’écran montrant l’instance BareMetal dans une liste de groupes de ressources filtrée." lightbox="media/connect-baremetal-infrastructure/filter-resource-groups.png":::
    
    >[!TIP]
    >Vous pouvez filtrer sur l’abonnement que vous avez utilisé pour déployer l’instance BareMetal. Une fois que vous avez filtré l’abonnement approprié, vous pourriez avoir une longue liste de groupes de ressources. Recherchez celui ayant un suffixe **-Txxx** où « xxx » représente trois chiffres ; par exemple, **-T250**.
 
-1. Sélectionnez le nouveau groupe de ressources pour en afficher les détails. L’image affiche une unité d’instance BareMetal déployée.
+1. Sélectionnez le nouveau groupe de ressources pour en afficher les détails. L’image montre une instance BareMetal déployée.
    
    >[!NOTE]
-   >Si vous avez déployé plusieurs locataires d’instance BareMetal dans le même abonnement Azure, plusieurs groupes de ressources Azure devraient être affichés.
+   >Si vous avez déployé plusieurs locataires d’instance BareMetal sous le même abonnement Azure, vous verrez plusieurs groupes de ressources Azure.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour afficher toutes vos instances BareMetal, exécutez la commande [az baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) pour votre groupe de ressources :
+Pour voir toutes vos instances BareMetal, exécutez la commande [az baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) pour votre groupe de ressources :
 
 ```azurecli
 az baremetalinstance list --resource-group DSM05A-T550 –output table
@@ -95,17 +96,17 @@ az baremetalinstance list --resource-group DSM05A-T550 –output table
 
 ## <a name="view-the-attributes-of-a-single-instance"></a>Afficher les attributs d’une instance unique
 
-Vous pouvez afficher les détails d’une seule unité.
+Vous pouvez afficher les détails d’une seule instance.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Dans la liste d’instances BareMetal, sélectionnez l’instance unique que vous souhaitez afficher.
+Dans la liste des instances BareMetal, sélectionnez la seule instance que vous souhaitez afficher.
  
-:::image type="content" source="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png" alt-text="Capture d’écran montrant les attributs d’unité d’instance BareMetal d’une instance unique" lightbox="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png":::
+:::image type="content" source="media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png" alt-text="Capture d’écran montrant les attributs d’instance BareMetal d’une seule instance." lightbox="media/connect-baremetal-infrastructure/view-attributes-single-baremetal-instance.png":::
  
-Les attributs de l’image ne sont pas très différents des attributs des machines virtuelles Azure. Sur la gauche, vous pouvez voir le groupe de ressources, la région Azure et le nom et l’ID de l’abonnement. Si vous avez attribué des étiquettes, vous les verrez ici également. Par défaut, les unités d’instance BareMetal n’ont pas d’étiquettes affectées.
+Les attributs de l’image ne sont pas très différents des attributs des machines virtuelles Azure. Sur la gauche, vous pouvez voir le groupe de ressources, la région Azure et le nom et l’ID de l’abonnement. Si vous avez attribué des étiquettes, vous les verrez ici également. Par défaut, les instances BareMetal n’ont pas d’étiquettes assignées.
  
-À droite, vous verrez le nom de l’unité, le système d’exploitation, l’adresse IP et la référence SKU indiquant la mémoire et le nombre de threads de l’UC. Vous verrez également l’état d’alimentation et la version du matériel (révision du tampon d’instance BareMetal). L’état d’alimentation indique si l’unité matérielle est sous tension ou hors tension. Toutefois, les détails du système d’exploitation n’indiquent pas s’il est en cours d’exécution.
+À droite, vous verrez le nom de l’instance BareMetal, le système d’exploitation, l’adresse IP et la référence SKU indiquant la mémoire et le nombre de threads de l’UC. Vous verrez également l’état d’alimentation et la version du matériel (révision du tampon d’instance BareMetal). L’état d’alimentation indique si l’unité matérielle est sous tension ou hors tension. Toutefois, les détails du système d’exploitation n’indiquent pas s’il est en cours d’exécution.
  
 Les révisions matérielles possibles sont les suivantes :
 
@@ -116,9 +117,10 @@ Les révisions matérielles possibles sont les suivantes :
 * Révision 4.2 (Rév. 4.2)
  
 >[!NOTE]
->Rev 4.2 est la dernière infrastructure BareMetal rebaptisée qui utilise l’architecture Rev 4 existante. Rev 4 assure une plus grande proximité des hôtes de machine virtuelle Azure. Elle présente des améliorations significatives de latence réseau entre les machines virtuelles Azure et les unités d’instance BareMetal déployées dans les tampons ou lignes Rev 4. Vous pouvez accéder à vos instances BareMetal et les gérer via le portail Azure. Pour plus d’informations, consultez l’article [Infrastructure BareMetal sur Azure](concepts-baremetal-infrastructure-overview.md).
+>Rev 4.2 est la dernière infrastructure BareMetal rebaptisée qui utilise l’architecture Rev 4 existante. Rev 4 assure une plus grande proximité des hôtes de machine virtuelle Azure. Elle apporte des améliorations significatives à la latence du réseau entre les machines virtuelles Azure et les instances SAP HANA. Vous pouvez accéder à vos instances BareMetal et les gérer via le portail Azure. Pour plus d’informations, consultez l’article [Infrastructure BareMetal sur Azure](concepts-baremetal-infrastructure-overview.md).
+
  
-En outre, sur le côté droit, vous trouverez le [Nom du groupe de placement de proximité Azure](../virtual-machines/co-location.md), qui est créé automatiquement pour chaque unité d’instance BareMetal déployée. Référencez le groupe de placement de proximité lorsque vous déployez les machines virtuelles Azure qui hébergent la couche application. Lorsque vous utilisez le groupe de placement de proximité associé à l’unité d’instance BareMetal, vous vous assurez que les machines virtuelles Azure sont déployées près de l’unité d’instance BareMetal.
+En outre, sur le côté droit, vous trouverez le nom du [groupe de placement de proximité Azure](../virtual-machines/co-location.md), qui est créé automatiquement pour chaque instance BareMetal déployée. Référencez le groupe de placement de proximité lorsque vous déployez les machines virtuelles Azure qui hébergent la couche d’application. Lorsque vous utilisez le groupe de placement de proximité associé à l’instance BareMetal, vous vous assurez que les machines virtuelles Azure sont déployées près de l’instance BareMetal.
  
 >[!TIP]
 >Pour trouver la couche application dans le même centre de données Azure que Révision 4.x, consultez [Groupes de placement de proximité Azure pour une latence réseau optimale](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
@@ -137,11 +139,11 @@ Si vous n’êtes pas sûr du nom de l’instance, exécutez la commande `az bar
  
 ## <a name="check-activities-of-a-single-instance"></a>Vérifier les activités d’une instance unique
  
-Vous pouvez vérifier les activités d’une seule unité. L’une des principales activités enregistrées est le redémarrage de l’unité. Les données indiquées incluent l’état de l’activité, le timestamp de l’activité déclenchée, l’ID d’abonnement et l’utilisateur Azure qui a déclenché l’activité.
+Vous pouvez vérifier les activités d’une seule instance BareMetal. L’une des principales activités enregistrées est le redémarrage de l’instance. Les données indiquées incluent l’état de l’activité, le timestamp de l’activité déclenchée, l’ID d’abonnement et l’utilisateur Azure qui a déclenché l’activité.
  
-:::image type="content" source="media/baremetal-infrastructure-portal/check-activities-single-baremetal-instance.png" alt-text="Capture d’écran montrant les activités d’unité d’instance BareMetal" lightbox="media/baremetal-infrastructure-portal/check-activities-single-baremetal-instance.png":::
+:::image type="content" source="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png" alt-text="Capture d’écran montrant les activités de l’instance BareMetal." lightbox="media/connect-baremetal-infrastructure/check-activities-single-baremetal-instance.png":::
  
-Les modifications apportées aux métadonnées de l’unité dans Azure sont également enregistrées dans le journal d’activité. En plus du redémarrage lancé, vous pouvez voir l’activité **Write BareMetallnstances**. Cette activité n’apporte aucune modification à l’unité d’instance BareMetal elle-même, mais documente les modifications apportées aux métadonnées de l’unité dans Azure.
+Les modifications apportées aux métadonnées de l’instance dans Azure sont également enregistrées dans le journal d’activité. En plus du redémarrage lancé, vous pouvez voir l’activité **Write BareMetallnstances**. Cette activité n’apporte aucune modification à l’instance BareMetal elle-même, mais documente les modifications apportées aux métadonnées de l’unité dans Azure.
  
 Une autre activité qui est enregistrée est lorsque vous ajoutez ou supprimez une [étiquette](../azure-resource-manager/management/tag-resources.md) à une instance.
  
@@ -149,15 +151,15 @@ Une autre activité qui est enregistrée est lorsque vous ajoutez ou supprimez u
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
  
-Vous pouvez ajouter des étiquettes Azure à une unité d’instance BareMetal ou les supprimer. La façon dont les étiquettes sont attribuées ne diffère pas de l’attribution d’étiquettes aux machines virtuelles. Comme pour les machines virtuelles, les étiquettes existent dans les métadonnées Azure et, pour les instances BareMetal, ont les mêmes restrictions que les étiquettes pour les machines virtuelles.
+Vous pouvez ajouter des étiquettes Azure à une instance BareMetal ou les supprimer. Les étiquettes sont attribuées de la même façon que lors de l’attribution d’étiquettes aux machines virtuelles. Comme pour les machines virtuelles, les étiquettes existent dans les métadonnées Azure. Les étiquettes ont les mêmes restrictions pour les instances BareMetal que pour les machines virtuelles.
  
-La suppression d’étiquettes fonctionne de la même façon qu’avec les machines virtuelles. L’application et la suppression d’une étiquette sont répertoriées dans le journal d’activité de l’unité d’instance BareMetal.
+La suppression des étiquettes fonctionne également de la même manière que pour les machines virtuelles. L’application et la suppression d’une étiquette sont répertoriées dans le journal d’activité de l’instance BareMetal.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-L’affectation de balises à des instances BareMetal fonctionne de la même façon que pour les machines virtuelles. Les balises existent dans les métadonnées Azure et, pour les instances BareMetal, ont les mêmes restrictions que les balises pour les machines virtuelles.
+L’attribution d’étiquettes à des instances BareMetal fonctionne de la même façon que l’attribution d’étiquettes à des machines virtuelles. Comme pour les machines virtuelles, les étiquettes existent dans les métadonnées Azure. Les étiquettes ont les mêmes restrictions pour les instances BareMetal que pour les machines virtuelles.
 
-Pour ajouter des balises à une unité d’instance BareMetal, exécutez la commande [az baremetalinstance update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) :
+Pour ajouter des étiquettes à une instance BareMetal, exécutez la commande [az baremetalinstance update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) :
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
@@ -177,25 +179,25 @@ Lorsque vous acquérez les instances, vous pouvez accéder à la section Propri�
  
 Vous verrez également un élément d’information critique sur l’adresse IP du stockage NFS. Il isole votre stockage dans votre **locataire** dans la pile d’instances BareMetal. Vous utilisez également cette adresse IP quand vous modifiez le [fichier de configuration pour les sauvegardes de captures instantanées de stockage](../virtual-machines/workloads/sap/hana-backup-restore.md#set-up-storage-snapshots).
  
-:::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-properties.png" alt-text="Capture d’écran montrant les paramètres de propriété d’instance BareMetal" lightbox="media/baremetal-infrastructure-portal/baremetal-instance-properties.png":::
+:::image type="content" source="media/connect-baremetal-infrastructure/baremetal-instance-properties.png" alt-text="Capture d’écran montrant les paramètres de propriété de l’instance BareMetal." lightbox="media/connect-baremetal-infrastructure/baremetal-instance-properties.png":::
  
-## <a name="restart-a-unit-through-the-azure-portal"></a>Redémarrage d’une unité par le biais du portail Azure
+## <a name="restart-a-baremetal-instance-through-the-azure-portal"></a>Redémarrer une instance BareMetal via le portail Azure
 
-Il existe plusieurs situations où le système d’exploitation ne termine pas un redémarrage, ce qui nécessite un redémarrage physique de l’unité d’instance BareMetal.
+Il existe plusieurs situations où le système d’exploitation ne termine pas un redémarrage, ce qui nécessite un redémarrage physique de l’instance BareMetal.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Vous pouvez effectuer un redémarrage physique de l’unité directement à partir du portail Azure :
+Vous pouvez effectuer un redémarrage physique de l’instance directement à partir du portail Azure :
  
-Sélectionnez **Redémarrer**, puis **Oui** pour confirmer le redémarrage de l’unité.
+Sélectionnez **Redémarrer**, puis **Oui** pour confirmer le redémarrage.
  
-:::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-restart.png" alt-text="Capture d’écran montrant comment redémarrer l’unité d’instance BareMetal":::
+:::image type="content" source="media/connect-baremetal-infrastructure/baremetal-instance-restart.png" alt-text="Capture d’écran montrant comment redémarrer l’instance BareMetal.":::
  
-Lorsque vous redémarrez une unité d’instance BareMetal, vous remarquerez un délai. Pendant ce laps de temps, l’état d’alimentation passe de **Démarrage en cours** à **Démarré**, ce qui signifie que le système d’exploitation a démarré complètement. Par conséquent, après un redémarrage, vous ne pouvez pas vous connecter à l’unité dès que l’état passe à **Démarré**.
+Lorsque vous redémarrez une instance BareMetal, vous remarquerez un délai. Pendant ce laps de temps, l’état d’alimentation passe de **Démarrage en cours** à **Démarré**, ce qui signifie que le système d’exploitation a démarré complètement. Par conséquent, après un redémarrage, vous pouvez vous connecter à l’unité uniquement lorsque l’état passe à **Démarré**.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour redémarrer une unité d’instance BareMetal, utilisez la commande [az baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) :
+Pour redémarrer une instance BareMetal, utilisez la commande [az baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) :
 
 ```azurecli
 az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
@@ -204,30 +206,30 @@ az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orclla
 ---
 
 >[!IMPORTANT]
->En fonction de la quantité de mémoire présente dans votre unité d’instance BareMetal, un redémarrage du matériel et du système d’exploitation peut prendre jusqu’à une heure.
+>En fonction de la quantité de mémoire présente dans votre instance BareMetal, un redémarrage du matériel et du système d’exploitation peut prendre jusqu’à une heure.
  
 ## <a name="open-a-support-request-for-baremetal-instances"></a>Ouvrir une demande de support pour les instances BareMetal
  
-Vous pouvez envoyer des demandes de support spécifiquement pour une unité d’instance BareMetal.
+Vous pouvez envoyer des demandes de support spécifiquement pour les instances BareMetal.
 1. Dans le portail Azure, sous **Aide + Support**, créez une **[Nouvelle demande de support](https://rc.portal.azure.com/#create/Microsoft.Support)** et fournissez les informations suivantes pour le ticket :
  
-   - **Type de problème :** Sélectionner un type de problème
+   - **Type de problème :** Sélectionnez un type de problème.
  
-   - **Abonnement :** Sélectionnez votre abonnement
+   - **Abonnement :** Sélectionnez votre abonnement.
  
    - **Service :** BareMetal Infrastructure
  
-   - **Ressource :** Fournir le nom de l’instance
+   - **Ressource :** Indiquez le nom de l’instance.
  
-   - **Résumé :** Fournir un résumé de votre demande
+   - **Résumé :** Fournissez un résumé de votre demande.
  
-   - **Type de problème :** Sélectionner un type de problème
+   - **Type de problème :** Sélectionnez un type de problème.
  
-   - **Sous-type de problème :** Sélectionner un sous-type pour le problème
+   - **Sous-type de problème :** Sélectionnez un sous-type pour le problème.
 
 1. Sélectionnez l’onglet **Solutions** pour trouver une solution à votre problème. Si vous ne trouvez pas de solution, passez à l’étape suivante.
 
-1. Sélectionnez l’onglet **Détails** et indiquez si le problème est lié à des machines virtuelles ou à des unités d’instance BareMetal. Ces informations permettent d’adresser la demande de support aux spécialistes appropriés.
+1. Sélectionnez l’onglet **Détails** et indiquez si le problème est lié à des machines virtuelles ou à des instances BareMetal. Ces informations permettent d’adresser la demande de support aux spécialistes appropriés.
 
 1. Indiquez à quel moment le problème a commencé et sélectionnez la région de l’instance.
 
@@ -239,4 +241,6 @@ Il faut compter jusqu’à cinq jours ouvrés pour qu’un représentant du supp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez en savoir plus sur les charges de travail, consultez [Types de charges de travail BareMetal](../virtual-machines/workloads/sap/get-started.md).
+En savoir plus sur les charges de travail :
+
+- [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](../virtual-machines/workloads/sap/hana-overview-architecture.md)

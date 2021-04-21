@@ -4,12 +4,12 @@ description: Cet article explique comment configurer des points de terminaison p
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f8a9ac46596b1c2611ce9df387ac995e8149e7b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 85546e99a8c431dc75b1af3d5044e06a18cf226d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425343"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770504"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurer des points de terminaison privés pour les rubriques ou les domaines Azure Event Grid
 Vous pouvez utiliser des [points de terminaison privés](../private-link/private-endpoint-overview.md) pour autoriser l’entrée sécurisée d’événements directement à partir de votre réseau virtuel vers vos rubriques et domaines via une [liaison privée](../private-link/private-link-overview.md), sans passer par le réseau Internet public. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre rubrique ou domaine. Pour plus d’informations conceptuelles, consultez [Sécurité du réseau](network-security.md).
@@ -121,7 +121,7 @@ Vous pouvez rejeter un point de terminaison privé qui se trouve dans l’état 
 
 
 ## <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
-Pour créer un point de terminaison privé, utilisez la méthode [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create), comme indiqué dans l’exemple suivant :
+Pour créer un point de terminaison privé, utilisez la méthode [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_create), comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -135,12 +135,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Pour obtenir une description des paramètres utilisés dans l’exemple, consultez la documentation relative à [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Voici quelques points à noter dans cet exemple : 
+Pour obtenir une description des paramètres utilisés dans l’exemple, consultez la documentation relative à [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_create). Voici quelques points à noter dans cet exemple : 
 
 - Pour `private-connection-resource-id`, spécifiez l’ID de ressource de la **rubrique** ou du **domaine**. L’exemple précédent utilise le type : rubrique.
 - pour `group-ids`, spécifiez `topic` ou `domain`. Dans l’exemple précédent, `topic` est utilisé. 
 
-Pour supprimer un point de terminaison privé, utilisez la méthode [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete), comme indiqué dans l’exemple suivant :
+Pour supprimer un point de terminaison privé, utilisez la méthode [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_delete), comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -165,7 +165,7 @@ az extension add -n eventgrid
 ```
 
 ### <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
-Pour créer un point de terminaison privé, utilisez la méthode [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create), comme indiqué dans l’exemple suivant :
+Pour créer un point de terminaison privé, utilisez la méthode [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_create), comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -179,12 +179,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Pour obtenir une description des paramètres utilisés dans l’exemple, consultez la documentation relative à [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Voici quelques points à noter dans cet exemple : 
+Pour obtenir une description des paramètres utilisés dans l’exemple, consultez la documentation relative à [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_create). Voici quelques points à noter dans cet exemple : 
 
 - Pour `private-connection-resource-id`, spécifiez l’ID de ressource de la **rubrique** ou du **domaine**. L’exemple précédent utilise le type : rubrique.
 - pour `group-ids`, spécifiez `topic` ou `domain`. Dans l’exemple précédent, `topic` est utilisé. 
 
-Pour supprimer un point de terminaison privé, utilisez la méthode [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete), comme indiqué dans l’exemple suivant :
+Pour supprimer un point de terminaison privé, utilisez la méthode [az network private-endpoint create](/cli/azure/network/private-endpoint?#az_network_private_endpoint_delete), comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>

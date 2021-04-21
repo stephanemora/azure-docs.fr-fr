@@ -1,41 +1,64 @@
 ---
 title: Utiliser les runbooks et modules Azure Automation dans PowerShell Gallery
-description: Cet article explique comment utiliser les runbooks et les modules de Microsoft et de la communauté dans PowerShell Gallery.
+description: Cet article explique comment utiliser les runbooks et les modules des dépôts GitHub Microsoft et de PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/04/2021
+ms.date: 04/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: b8f1fbdcb3b268c24eb19517a0686c6c72c50842
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 2df019888d293cd8a25a34e6f0f4e7dd215c6a41
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106294006"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030631"
 ---
-# <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Utiliser les runbooks et les modules de PowerShell Gallery
+# <a name="use-existing-runbooks-and-modules"></a>Utiliser des runbooks et des modules existants
 
-Au lieu de créer vos propres runbooks et modules dans Azure Automation, vous pouvez accéder à des scénarios déjà générés par Microsoft et la communauté. Vous pouvez obtenir des runbooks PowerShell et des [modules](#modules-in-powershell-gallery) à partir de PowerShell Gallery, et à partir des [runbooks Python](#use-python-runbooks) de l’organisation Azure Automation GitHub. Vous pouvez également contribuer à la communauté en partageant les [scénarios que vous développez](#add-a-powershell-runbook-to-the-gallery).
+Au lieu de créer vos propres runbooks et modules dans Azure Automation, vous pouvez accéder à des scénarios déjà générés par Microsoft et la communauté. Vous pouvez obtenir des runbooks PowerShell et Python en rapport avec Azure à partir de la galerie de runbooks dans le portail Azure, ainsi que des [modules](#modules-in-the-powershell-gallery) et des [runbooks](#runbooks-in-the-powershell-gallery) (qui peuvent être propres ou non à Azure) à partir de PowerShell Gallery. Vous pouvez également contribuer à la communauté en partageant les [scénarios que vous développez](#contribute-to-the-community).
 
 > [!NOTE]
-> Le centre de scripts TechNet est en retrait. Tous les runbooks du Centre de scripts de la Galerie de runbooks ont été déplacés vers notre [organisation GitHub Automation](https://github.com/azureautomation). Pour plus d'informations, cliquez [ici](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
+> Le centre de scripts TechNet est en retrait. Tous les runbooks du Centre de scripts dans la galerie de runbooks ont été déplacés vers notre [organisation GitHub Automation](https://github.com/azureautomation). Pour plus d'informations, consultez [Azure Automation Runbooks moving to GitHub](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
 
-## <a name="runbooks-in-powershell-gallery"></a>Runbooks dans PowerShell Gallery
+## <a name="import-runbooks-from-github-with-the-azure-portal"></a>Importer des runbooks à partir de GitHub avec le portail Azure
 
-[PowerShell Gallery](https://www.powershellgallery.com/packages) fournit un éventail de runbooks provenant de Microsoft et de la communauté, et que vous pouvez importer dans Azure Automation. Pour utiliser l’un de ces runbooks, vous pouvez en télécharger un à partir de la galerie, ou importer directement des runbooks à partir de la galerie, ou à partir de votre compte Automation sur le portail Azure.
+1. Dans le portail Azure, ouvrez votre compte Automation.
+2. Sélectionnez **Runbook Gallery** sous **Automatisation des processus**.
+3. Sélectionnez **Source : GitHub**.
+4. Vous pouvez utiliser les filtres situés au-dessus de la liste pour affiner l’affichage par éditeur, par type et par ordre de tri. Recherchez l’élément de la galerie qui vous intéresse et sélectionnez-le pour afficher les informations le concernant.
+
+   :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-github.png" alt-text="Navigation dans la galerie de runbooks." lightbox="./media/automation-runbook-gallery/browse-gallery-github-expanded.png":::
+
+5. Pour importer un élément, cliquez sur **Importer** dans la page de détails.
+
+   :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import.png" alt-text="Importation d’un élément de la galerie.":::
+
+6. Vous pouvez éventuellement changer le nom du runbook dans le panneau d’importation, puis cliquer sur **OK** pour importer le runbook.
+
+   :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import-blade.png" alt-text="Panneau d’importation d’élément de la galerie.":::
+
+7. Ce runbook apparaît sur l’onglet **Runbooks** du compte Automation.
+ 
+## <a name="runbooks-in-the-powershell-gallery"></a>Runbooks dans PowerShell Gallery
+
+> [!IMPORTANT]
+> Vous devez valider le contenu de tous les runbooks que vous obtenez à partir de PowerShell Gallery. Soyez extrêmement vigilant lors de leur installation et de leur exécution dans un environnement de production.
+
+[PowerShell Gallery](https://www.powershellgallery.com/packages) fournit un éventail de runbooks provenant de Microsoft et de la communauté, et que vous pouvez importer dans Azure Automation. Pour utiliser l’un de ces runbooks, vous pouvez en télécharger un à partir de la galerie, ou importer directement des runbooks à partir de la galerie, ou à partir de votre compte Automation sur le portail Azure.
 
 > [!NOTE]
 > Les runbooks graphiques ne sont pas pris en charge dans PowerShell Gallery.
 
-Seul le portail Azure permet d’importer des runbooks directement à partir de PowerShell Gallery. Vous ne pouvez pas exécuter cette fonction à l’aide de PowerShell.
+Seul le portail Azure permet d’importer des runbooks directement à partir de PowerShell Gallery. Vous ne pouvez pas exécuter cette fonction à l’aide de PowerShell. La procédure est la même que celle présentée dans [Importer des runbooks à partir de GitHub avec le portail Azure](#import-runbooks-from-github-with-the-azure-portal), sauf que la **source** sera **PowerShell Gallery**.
 
-> [!NOTE]
-> Vous devez valider le contenu de tous les runbooks que vous obtenez de PowerShell Gallery et vous montrer très vigilant lors de leur installation et de leur exécution dans un environnement de production.
+:::image type="content" source="./media/automation-runbook-gallery/source-runbook-gallery-small.png" alt-text="Sélection de la galerie de runbooks comme source." lightbox="./media/automation-runbook-gallery/source-runbook-gallery-large.png":::
 
-## <a name="modules-in-powershell-gallery"></a>Modules dans PowerShell Gallery
+## <a name="modules-in-the-powershell-gallery"></a>Modules dans PowerShell Gallery
 
 Les modules PowerShell contiennent des cmdlets que vous pouvez utiliser dans vos runbooks. Des modules existants qui peuvent être installés dans Azure Automation sont disponibles dans [PowerShell Gallery](https://www.powershellgallery.com). Vous pouvez lancer cette galerie sur le Portail Azure et installer les modules directement dans Azure Automation, ou bien les télécharger et les installer manuellement.
 
-## <a name="common-scenarios-available-in-powershell-gallery"></a>Scénarios courants disponibles dans PowerShell Gallery
+Vous trouverez également des modules à importer dans le portail Azure. Ils sont listés pour votre compte Automation dans la **Galerie de modules** sous **Ressources partagées**.
+
+## <a name="common-scenarios-available-in-the-powershell-gallery"></a>Scénarios courants disponibles dans PowerShell Gallery
 
 La liste ci-dessous contient quelques runbooks qui fournissent des scénarios courants. Pour obtenir la liste complète des runbooks créés par l’équipe Azure Automation, consultez [Profil AzureAutomationTeam](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
 
@@ -44,51 +67,40 @@ La liste ci-dessous contient quelques runbooks qui fournissent des scénarios co
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) : copie un fichier distant à partir d’une machine virtuelle Microsoft Azure.
    * [Copy-ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) : copie un fichier local vers une machine virtuelle Azure.
 
-## <a name="import-a-powershell-runbook-from-github-with-the-azure-portal"></a>Importation d’un runbook PowerShell à partir de GitHub avec le Portail Azure
+## <a name="contribute-to-the-community"></a>Contribuer à la communauté
 
-1. Dans le portail Azure, ouvrez votre compte Automation.
-1. Sélectionnez **Runbook Gallery** sous **Automatisation des processus**.
-1. Sélectionnez **Source : GitHub**.
-1. Vous pouvez utiliser les filtres situés au-dessus de la liste pour affiner l’affichage par éditeur, par type et par ordre de tri. Recherchez l’élément de la galerie qui vous intéresse et sélectionnez-le pour afficher les informations le concernant.
+Nous vous encourageons vivement à contribuer au développement de la communauté Azure Automation. Partagez les runbooks exceptionnels que vous avez créés avec la communauté. Vos contributions seront appréciées !
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Navigation dans la galerie GitHub." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+### <a name="add-a-runbook-to-the-github-runbook-gallery"></a>Ajouter un runbook à la galerie de runbooks GitHub
 
-1. Pour importer un élément, cliquez sur **Importer** dans le panneau de détails.
+Vous pouvez ajouter de nouveaux runbooks PowerShell ou Python à la galerie de runbooks avec ce workflow GitHub.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Vue détaillée d’un runbook dans la galerie GitHub." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+1. Créez un dépôt public sur GitHub, puis ajoutez le runbook et tous les autres fichiers nécessaires (par exemple readme.md, description, et ainsi de suite).
+1. Ajoutez la rubrique `azureautomationrunbookgallery` pour être sûr que le dépôt soit découvert par notre service et puisse être affiché dans la galerie de runbooks Automation.
+1. Si le runbook que vous avez créé est un workflow PowerShell, ajoutez la rubrique `PowerShellWorkflow`. S’il s’agit d’un runbook Python 3, ajoutez `Python3`. Aucune autre rubrique spécifique n’est requise pour les runbooks Azure, mais nous vous encourageons à ajouter d’autres rubriques susceptibles d’être utilisées pour la catégorisation et la recherche dans la galerie de runbooks.
 
-1. Vous pouvez également modifier le nom du runbook, puis cliquer sur **OK** pour importer le runbook.
-1. Ce runbook apparaît sur l’onglet **Runbooks** du compte Automation.
+   >[!NOTE]
+   >Consultez les runbooks existants dans la galerie pour en savoir plus sur des éléments tels que la mise en forme, les en-têtes et les étiquettes existantes (comme `Azure Automation` ou `Linux Azure Virtual Machines`) que vous pouvez utiliser.
 
-## <a name="import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Importer un runbook PowerShell à partir Runbook Gallery avec le portail Azure
+Pour suggérer des modifications à un runbook existant, soumettez une demande de tirage (pull request). 
 
-1. Dans le portail Azure, ouvrez votre compte Automation.
-1. Sélectionnez **Runbook Gallery** sous **Automatisation des processus**.
-1. Sélectionnez **Source : PowerShell Gallery**. La liste des runbooks disponibles que vous pouvez parcourir s’affiche.
-1. Vous pouvez utiliser la zone de recherche située au-dessus de la liste pour affiner la liste et les filtres pour affiner l’affichage par éditeur, par type et par ordre de tri. Recherchez l’élément de la galerie qui vous intéresse et sélectionnez-le pour afficher les informations le concernant.
+Si vous décidez de cloner et de modifier un runbook existant, la bonne pratique consiste à lui attribuer un nom différent. Si vous réutilisez l’ancien nom, il sera affiché deux fois dans la galerie de runbooks.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Navigation dans la galerie de runbooks." lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
+>[!NOTE]
+>La synchronisation entre GitHub et la galerie de runbooks Automation, pour les runbooks nouveaux et mis à jour, prend au moins 12 heures.
 
-1. Pour importer un élément, cliquez sur **Importer** dans le panneau de détails.
-
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Affichage du détail d’un élément de la galerie de runbooks." lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
-
-1. Vous pouvez également modifier le nom du runbook, puis cliquer sur **OK** pour importer le runbook.
-1. Ce runbook apparaît sur l’onglet **Runbooks** du compte Automation.
-
-## <a name="add-a-powershell-runbook-to-the-gallery"></a>Ajouter un runbook PowerShell à la galerie
+### <a name="add-a-powershell-runbook-to-the-powershell-gallery"></a>Ajouter un runbook PowerShell à PowerShell Gallery
 
 Microsoft vous invite à ajouter à PowerShell Gallery des runbooks dont vous pensez qu’ils pourraient être utiles à d’autres utilisateurs. PowerShell Gallery accepte les modules PowerShell et les scripts PowerShell. Vous pouvez ajouter un runbook en le [chargeant dans PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
 
-## <a name="import-a-module-from-the-module-gallery-with-the-azure-portal"></a>Importer un module à partir de la galerie des modules avec le portail Azure
+## <a name="import-a-module-from-the-modules-gallery-in-the-azure-portal"></a>Importer un module à partir de la galerie des modules dans le portail Azure
 
 1. Dans le portail Azure, ouvrez votre compte Automation.
-1. Sélectionnez **Modules** sous **Ressources partagées** pour ouvrir la liste des modules.
-1. Cliquez sur **Parcourir la galerie**, en haut de la page.
+1. Sous **Ressources partagées**, sélectionnez **Galerie de modules** pour ouvrir la liste des modules.
 
       :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="Vue de la galerie de modules." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
-1. Sur la page Parcourir la galerie, vous pouvez utiliser la zone de recherche pour rechercher des correspondances dans l’un des champs suivants :
+1. Sur la page Parcourir la galerie, vous pouvez effectuer des recherches en fonction des champs suivants :
 
    * Nom du module
    * Balises
@@ -110,17 +122,13 @@ Microsoft vous invite à ajouter à PowerShell Gallery des runbooks dont vous pe
 > [!NOTE]
 > Les modules qui prennent uniquement en charge PowerShell Core ne sont pas gérés dans Azure Automation et ne sont pas importables dans le Portail Azure, ni déployables directement à partir de PowerShell Gallery.
 
-## <a name="use-python-runbooks"></a>Utiliser des runbooks Python
-
-Les Runbooks Python sont disponibles dans l’[organisation Azure Automation GitHub](https://github.com/azureautomation). Lorsque vous contribuez à notre référentiel GitHub, ajoutez la balise **(rubrique GitHub) : Python3** lorsque vous chargez votre contribution.
-
 ## <a name="request-a-runbook-or-module"></a>Demander un runbook ou un module
 
 Vous pouvez envoyer des demandes à [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Si vous avez besoin d’aide pour écrire un runbook ou si vous avez une question à propos de PowerShell, publiez une question sur notre [page de questions Microsoft Q&A](/answers/topics/azure-automation.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour commencer à utiliser un runbook PowerShell, voir [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Pour commencer à utiliser des runbooks PowerShell, consultez [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Pour savoir comment utiliser des runbooks, voir [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
-* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).
+* Pour plus d’informations sur les scripts PowerShell, consultez la [documentation PowerShell](/powershell/scripting/overview).
 * Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation).

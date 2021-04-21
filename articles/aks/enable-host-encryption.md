@@ -4,12 +4,13 @@ description: Découvrez comment configurer un chiffrement basé sur l’hôte da
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 6942a3d445892faf0ea0570561eb06019e841e23
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7eb3215aeb1f7c6508092d18fbebd90f852efe63
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443190"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772916"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Activer le chiffrement basé sur l’hôte sur Azure Kubernetes Service (AKS) (préversion)
 
@@ -87,12 +88,12 @@ Passez en revue les [meilleures pratiques pour la sécurité du cluster AKS][bes
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
 [supported-sizes]: ../virtual-machines/disk-encryption.md#supported-vm-sizes
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

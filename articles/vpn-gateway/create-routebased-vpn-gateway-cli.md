@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2bbd7e39ee65ba304ec62697b6fcc77bea133b41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87e3490711990944e017d2d463090f3c8697956c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94737215"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484215"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI
 
@@ -74,7 +74,7 @@ az network public-ip create \
 
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Créer la passerelle VPN
 
-Créez la passerelle VPN à l’aide de la commande [az network vnet-gateway create](/cli/azure/group).
+Créez la passerelle VPN à l’aide de la commande [az network vnet-gateway create](/cli/azure/network/vnet-gateway).
 
 Si vous exécutez cette commande à l’aide du paramètre `--no-wait`, vous ne voyez aucun commentaire ni sortie. Le paramètre `--no-wait` permet à la passerelle d’être créée à l’arrière-plan. Cela ne signifie pas que la passerelle VPN est immédiatement créée.
 

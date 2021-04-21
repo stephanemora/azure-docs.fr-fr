@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67176738"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -18,10 +18,10 @@ ms.locfileid: "67176738"
 
 Maintenant que vous avez une table, intéressons-nous à la manière de gérer les entités, ou lignes, dans cette table. 
 
-Ces entités peuvent avoir jusqu’à 255 propriétés, dont trois propriétés système : **PartitionKey**, **RowKey** et **Timestamp**. Vous êtes chargé d’insérer et de mettre à jour les valeurs de **PartitionKey** et **RowKey**. Le serveur gère la valeur de **Timestamp**, qui ne peut pas être modifiée. Les propriétés **PartitionKey** et **RowKey** identifient de manière unique chaque entité d’une table.
+Les entités peuvent comprendre jusqu’à 255 propriétés, notamment trois propriétés système : **PartitionKey**, **RowKey** et **Timestamp**. Vous êtes chargé d’insérer et de mettre à jour les valeurs de **PartitionKey** et **RowKey**. Le serveur gère la valeur de **Timestamp**, qui ne peut pas être modifiée. Les propriétés **PartitionKey** et **RowKey** identifient de manière unique chaque entité d’une table.
 
-* **PartitionKey** : détermine la partition dans laquelle l’entité est stockée.
-* **RowKey** : identifie de façon unique l’entité dans la partition.
+* **PartitionKey**: détermine la partition dans laquelle l’entité est stockée
+* **RowKey**: identifie de façon unique l’entité dans la partition
 
 Vous pouvez définir au maximum 252 propriétés personnalisées par entité. 
 

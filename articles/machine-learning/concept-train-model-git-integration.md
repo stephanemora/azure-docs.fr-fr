@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 11/16/2020
-ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 2dc50702113f591075b790878347c4ca47beec4e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547847"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027803"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Intégration de Git pour Azure Machine Learning
 
@@ -25,6 +25,11 @@ Azure Machine Learning prend entièrement en charge les dépôts Git pour le sui
 Lors de la soumission d’un travail à Azure Machine Learning, si les fichiers sources sont stockés dans un dépôt Git local, les informations sur le dépôt font l’objet d’un suivi dans le cadre du processus d’entraînement.
 
 Étant donné qu’Azure Machine Learning effectue le suivi des informations à partir d’un dépôt Git local, il n’est lié à aucun dépôt central spécifique. Votre dépôt peut être cloné à partir de GitHub, GitLab, Bitbucket, Azure DevOps ou de tout autre service compatible Git.
+
+> [!TIP]
+> Visual Studio Code permet d’interagir avec Git par le biais d’une interface utilisateur graphique. Pour vous connecter à une instance de calcul distante Azure Machine Learning à l’aide de Visual Studio Code, consultez [Se connecter à une instance de calcul Azure Machine Learning dans Visual Studio Code (préversion)](how-to-set-up-vs-code-remote.md)
+>
+> Pour plus d’informations sur les fonctionnalités de contrôle de version de Visual Studio Code, consultez [Utilisation du contrôle de version dans VS Code](https://code.visualstudio.com/docs/editor/versioncontrol) et [Utilisation de GitHub dans VS Code](https://code.visualstudio.com/docs/editor/github).
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Cloner des dépôts Git dans le système de fichiers de votre espace de travail
 Azure Machine Learning fournit un système de fichiers partagé pour tous les utilisateurs de l’espace de travail.

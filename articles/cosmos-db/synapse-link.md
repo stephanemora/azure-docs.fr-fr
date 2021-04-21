@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2020
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: c22a4030bb44c1499995071849ca8942ae2110c3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 123c443e1afaf8eaded7021b963b68b3d8a8f554
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864344"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483756"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -99,20 +99,6 @@ Cette intégration active les scénarios HTAP suivants pour des utilisateurs dif
 
 Pour plus d’informations sur la prise en charge du runtime Azure Synapse Analytics pour Azure Cosmos DB, consultez [Prise en charge d’Azure Synapse Analytics pour Cosmos DB](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md).
 
-## <a name="security"></a>Sécurité
-
-Synapse Link vous permet d’exécuter une analytique en quasi-temps réel sur vos données stratégiques dans Azure Cosmos DB. Il est essentiel de s’assurer que les données critiques de l’entreprise sont stockées de manière sécurisée à la fois dans le magasin transactionnel et le magasin analytique. Azure Synapse Link pour Azure Cosmos DB est conçu pour vous aider à respecter ces exigences de sécurité grâce aux fonctionnalités suivantes :
-
-* **Isolement réseau à l’aide de points de terminaison privés** : vous pouvez contrôler indépendamment l’accès réseau aux données dans le magasin transactionnel et le magasin analytique. L’isolement réseau s’effectue à l’aide de points de terminaison privés managés distincts pour chaque magasin, au sein de réseaux virtuels managés dans les espaces de travail Azure Synapse. Pour plus d’informations, consultez l’article [Configurer des points de terminaison privés pour le magasin analytique](analytical-store-private-endpoints.md).
-
-* **Chiffrement des données avec des clés managées par le client** : vous pouvez chiffrer les données du magasin transactionnel et du magasin analytique de manière fluide en utilisant les mêmes clés managées par le client, de manière automatique et transparente. Pour plus d’informations, consultez l’article [Configurer des clés managées par le client](how-to-setup-cmk.md).
-
-* **Gestion sécurisée des clés** : l’accès aux données dans le magasin analytique à partir de Synapse Spark et des pools SQL serverless Synapse requiert la gestion des clés Azure Cosmos DB dans les espaces de travail Synapse Analytics. Au lieu d’utiliser les clés de compte Azure Cosmos DB inline dans les travaux Spark ou les scripts SQL, Azure Synapse Link offre des fonctionnalités plus sécurisées.
-
-  * Quand vous utilisez des pools SQL serverless Synapse, vous pouvez interroger le magasin analytique Azure Cosmos DB en créant au préalable des informations d’identification SQL qui contiennent les clés de compte et les référencent dans la fonction `OPENROWSET`. Pour plus d’informations, consultez l’article [Requête avec un pool SQL serverless dans Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
-
-  * Quand vous utilisez Synapse Spark, vous pouvez stocker les clés de compte dans les objets de service liés pointant vers une base de données Azure Cosmos DB et y faire référence dans la configuration Spark au moment de l’exécution. Pour plus d’informations, consultez l’article [Copier des données dans un pool SQL dédié avec Apache Spark](../synapse-analytics/synapse-link/how-to-copy-to-sql-pool.md).
-
 ## <a name="when-to-use-azure-synapse-link-for-azure-cosmos-db"></a>Quand utiliser Azure Synapse Link pour Azure Cosmos DB ?
 
 Synapse Link est recommandé dans les cas suivants :
@@ -136,6 +122,21 @@ L’utilisation de Synapse Link est déconseillée si vos exigences en matière 
 * Pour les conteneurs avec le magasin analytique activé, la sauvegarde et la restauration automatiques de vos données dans le magasin analytique ne sont pas prises en charge pour l’instant. Lorsque Synapse Link est activé sur un compte de base de données, Azure Cosmos DB continue automatiquement [d’effectuer des sauvegardes](./online-backup-and-restore.md) de vos données dans le magasin transactionnel (uniquement) des conteneurs selon l’intervalle de sauvegarde planifié, comme toujours. Il est important de noter que lorsqu’un conteneur avec le magasin analytique activé est restauré vers un nouveau compte, le conteneur est restauré avec uniquement le magasin transactionnel et aucun magasin analytique activé.
 
 * L’accès au magasin Azure Cosmos DB Analytics avec Synapse SQL approvisionné n’est pas disponible actuellement.
+
+## <a name="security"></a>Sécurité
+
+Synapse Link vous permet d’exécuter une analytique en quasi-temps réel sur vos données stratégiques dans Azure Cosmos DB. Il est essentiel de s’assurer que les données critiques de l’entreprise sont stockées de manière sécurisée à la fois dans le magasin transactionnel et le magasin analytique. Azure Synapse Link pour Azure Cosmos DB est conçu pour vous aider à respecter ces exigences de sécurité grâce aux fonctionnalités suivantes :
+
+* **Isolement réseau à l’aide de points de terminaison privés** : vous pouvez contrôler indépendamment l’accès réseau aux données dans le magasin transactionnel et le magasin analytique. L’isolement réseau s’effectue à l’aide de points de terminaison privés managés distincts pour chaque magasin, au sein de réseaux virtuels managés dans les espaces de travail Azure Synapse. Pour plus d’informations, consultez l’article [Configurer des points de terminaison privés pour le magasin analytique](analytical-store-private-endpoints.md).
+
+* **Chiffrement des données avec des clés managées par le client** : vous pouvez chiffrer les données du magasin transactionnel et du magasin analytique de manière fluide en utilisant les mêmes clés managées par le client, de manière automatique et transparente. Pour plus d’informations, consultez l’article [Configurer des clés managées par le client](how-to-setup-cmk.md).
+
+* **Gestion sécurisée des clés** : l’accès aux données dans le magasin analytique à partir de Synapse Spark et des pools SQL serverless Synapse requiert la gestion des clés Azure Cosmos DB dans les espaces de travail Synapse Analytics. Au lieu d’utiliser les clés de compte Azure Cosmos DB inline dans les travaux Spark ou les scripts SQL, Azure Synapse Link offre des fonctionnalités plus sécurisées.
+
+  * Quand vous utilisez des pools SQL serverless Synapse, vous pouvez interroger le magasin analytique Azure Cosmos DB en créant au préalable des informations d’identification SQL qui contiennent les clés de compte et les référencent dans la fonction `OPENROWSET`. Pour plus d’informations, consultez l’article [Requête avec un pool SQL serverless dans Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md).
+
+  * Quand vous utilisez Synapse Spark, vous pouvez stocker les clés de compte dans les objets de service liés pointant vers une base de données Azure Cosmos DB et y faire référence dans la configuration Spark au moment de l’exécution. Pour plus d’informations, consultez l’article [Copier des données dans un pool SQL dédié avec Apache Spark](../synapse-analytics/synapse-link/how-to-copy-to-sql-pool.md).
+
 
 ## <a name="pricing"></a>Tarifs
 

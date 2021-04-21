@@ -1,25 +1,25 @@
 ---
-title: Visualiser les journaux et les métriques Recherche cognitive Azure avec Power BI
-description: Visualiser les journaux et les métriques Recherche cognitive Azure avec Power BI
-manager: eladz
+title: Visualisez les journaux et les métriques avec Power BI
+description: Visualisez les journaux et les métriques Recherche cognitive Azure avec Power BI.
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 4056e892855c06ce6c412ec4a592ebcd97fc11a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: fbbeb861e50abfd393b416ddc46ff147fffb7b8e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325381"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581636"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualiser les journaux et les métriques Recherche cognitive Azure avec Power BI
-[Recherche cognitive Azure](./search-what-is-azure-search.md) vous permet de stocker les journaux des opérations et les métriques de service relatifs à votre service de recherche dans un compte de stockage Azure. Cette page fournit des instructions sur la façon dont vous pouvez visualiser ces informations par le biais d’une application modèle Power BI. L’application fournit des informations détaillées sur votre service de recherche, notamment des informations sur les métriques Recherche, Indexation, Opérations et Service.
+
+[Recherche cognitive Azure](./search-what-is-azure-search.md) peut envoyer des journaux d’opérations et des métriques de service vers un compte Stockage Azure, que vous pouvez ensuite visualiser dans Power BI. Cet article explique la démarche à suivre et la manière d’utiliser un modèle d’application Power BI pour visualiser les données. Le modèle peut vous aider à obtenir des informations détaillées sur votre service de recherche, notamment des informations sur les métriques de requête, d’indexation, d’opération et de service.
 
 L’application modèle Power BI **Recherche cognitive Azure : Analyser les journaux et les métriques** est accessible dans le [marketplace d’applications Power BI](https://appsource.microsoft.com/marketplace/apps).
 
-## <a name="how-to-get-started-with-the-app"></a>Prise en main de l’application
+## <a name="set-up-the-app"></a>Configurer l’application
 
 1. Activez la journalisation des métriques et des ressources pour votre service de recherche :
 
@@ -67,7 +67,8 @@ L’application modèle Power BI **Recherche cognitive Azure : Analyser les jou
 
     :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Capture d’écran du rapport Recherche cognitive Azure Power BI.":::
 
-## <a name="how-to-change-the-app-parameters"></a>Comment modifier les paramètres de l’application
+## <a name="modify-app-parameters"></a>Modifier les paramètres de l’application
+
 Si vous souhaitez visualiser des données à partir d’un autre compte de stockage ou modifier le nombre de jours de données à interroger, suivez les étapes ci-dessous pour modifier les paramètres **Jours** et **Compte de stockage**.
 
 1. Accédez à vos applications Power BI, recherchez votre application Recherche cognitive Azure et sélectionnez le bouton **Modifier l’application** pour afficher l’espace de travail.
@@ -86,7 +87,8 @@ Si vous souhaitez visualiser des données à partir d’un autre compte de stock
 
 1. Ouvrez le rapport pour afficher les données mises à jour. Vous devrez peut-être actualiser également le rapport pour afficher les données les plus récentes.
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting-report-issues"></a>Résoudre les problèmes liés aux rapports
+
 Si vous constatez que vous ne pouvez pas voir vos données, suivez ces étapes de résolution de problèmes :
 
 1. Ouvrez le rapport et actualisez la page pour vous assurer de disposer des données les plus récentes. Une option du rapport permet d’actualiser les données. Sélectionnez-la pour récupérer les données les plus récentes.
@@ -98,8 +100,7 @@ Si vous constatez que vous ne pouvez pas voir vos données, suivez ces étapes d
 1. Vérifiez si le jeu de données est toujours en cours d’actualisation. L’indicateur d’état d’actualisation est indiqué à l’étape 8 ci-dessus. S’il est toujours en cours d’actualisation, patientez jusqu’à la fin de l’actualisation pour ouvrir et actualiser le rapport.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur Recherche cognitive Azure](./index.yml)
 
-[Qu’est-ce que Power BI ?](/power-bi/fundamentals/power-bi-overview)
-
-[Concepts de base pour les concepteurs du service Power BI](/power-bi/service-basic-concepts)
++ [Surveiller les opérations et l’activité de recherche](search-monitor-usage.md)
++ [Qu’est-ce que Power BI ?](/power-bi/fundamentals/power-bi-overview)
++ [Concepts de base pour les concepteurs du service Power BI](/power-bi/service-basic-concepts)

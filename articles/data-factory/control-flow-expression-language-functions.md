@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: e89cb847bcd5d0137354c07fe97148bcbeca2714
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af365ef9b94702fa6634235a95a91297d6b7ae50
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786292"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107125"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 
@@ -161,6 +161,30 @@ Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **o
     }
 }
 ```
+
+### <a name="replacing-special-characters"></a>Remplacement des caractères spéciaux
+
+L’éditeur de contenu dynamique échappe automatiquement des caractères tels que les guillemets doubles et les barres obliques inversées dans votre contenu quand vous avez fini de l’éditer. Cela pose problème si vous souhaitez remplacer un saut de ligne ou une tabulation en utilisant **\n**, **\t** dans la fonction replace(). Vous pouvez modifier votre contenu dynamique en mode code pour supprimer le caractère \ supplémentaire dans l’expression, ou vous pouvez suivre les étapes ci-dessous pour remplacer les caractères spéciaux en utilisant le langage d’expression :
+
+1. Encodage d’URL par rapport à la valeur de chaîne d’origine
+1. Remplacez la chaîne encodée de l’URL, par exemple, le saut de ligne (%0A), le retour chariot (%0D) ou la tabulation horizontale (%09).
+1. Décodage d’URL
+
+Par exemple, pour la variable *companyName* avec un caractère de nouvelle ligne dans sa valeur, l’expression `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` peut supprimer le caractère de nouvelle ligne. 
+
+```json
+Contoso-
+Corporation
+```
+
+### <a name="escaping-single-quote-character"></a>Placement d’un caractère de guillemet simple dans une séquence d’échappement
+
+Les fonctions d’expression utilisent un guillemet simple pour les paramètres de valeur de chaîne. Utilisez deux guillemets simples pour placer un caractère « ’ » dans une séquence d’échappement dans les fonctions de chaîne. Par exemple, l’expression `@concat('Baba', ''' ', 'book store')` retourne le résultat ci-dessous.
+
+```
+Baba's book store
+```
+
 ### <a name="tutorial"></a>Didacticiel
 Cela [tutoriel](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) vous montre comment transmettre des paramètres entre un pipeline et une activité et entre les activités.
 

@@ -4,13 +4,13 @@ description: Extraire des données d’un texte d’énoncé avec des intentions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: dd7d113b1c23a0afec82a346e0f7baa1254ebbed
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025991"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500139"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données d’un texte d’énoncé avec des intentions et des entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
@@ -242,7 +242,7 @@ Les noms d’endroits sont définis et connus : villes, départements, États, p
 
 ### <a name="new-and-emerging-names"></a>Nouveaux noms
 
-Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont les plus difficiles à extraire. Commencez par une **[entité simple](luis-concept-entity-types.md#simple-entity)** et ajoutez une [liste d’expressions](luis-concept-feature.md). [Vérifiez](./luis-how-to-review-endpoint-utterances.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont les plus difficiles à extraire. Commencez par une **[entité simple](luis-concept-entity-types.md)** et ajoutez une [liste d’expressions](luis-concept-feature.md). [Vérifiez](./luis-how-to-review-endpoint-utterances.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ## <a name="patternany-entity-data"></a>Données d’entité Pattern.any
 

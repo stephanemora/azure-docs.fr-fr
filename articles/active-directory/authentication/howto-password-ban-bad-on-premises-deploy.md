@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5134c0eeaf3ebd1467b35cf825aa64bd1b445bd5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653811"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010577"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -88,7 +88,7 @@ Les principales exigences suivantes s’appliquent :
 * Le service de distribution de clés doit être activé sur tous les contrôleurs de domaine figurant dans le domaine qui exécutent Windows Server 2012 et versions ultérieures. Par défaut, ce service est activé par le début du déclencheur manuel.
 
 * Une connectivité réseau doit exister entre au moins un contrôleur de domaine dans chaque domaine et au moins un serveur hébergeant le service proxy pour la protection par mot de passe Azure AD. Cette connectivité doit autoriser le contrôleur de domaine à accéder au port 135 du mappeur de point de terminaison RPC et au port du serveur RPC sur le service proxy.
-    * Par défaut, le port du serveur RPC est un port RPC dynamique, mais il peut être configuré pour [utiliser un port statique](#static).
+    * Par défaut, le port du serveur RPC est un port RPC dynamique dans la plage (49152-65535), mais il peut être configuré pour [utiliser un port statique](#static).
 * Tous les ordinateurs sur lesquels le service proxy de protection par mot de passe Azure AD sera installé doivent disposer d’un accès réseau aux points de terminaison suivants :
 
     |**Point de terminaison**|**Objectif**|

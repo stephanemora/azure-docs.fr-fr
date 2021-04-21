@@ -4,13 +4,13 @@ description: Découvrez les meilleures pratiques pour obtenir les meilleurs rés
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: d5fa2a1e865a4f54de268e7ad756d1d4363f3b78
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98788483"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500207"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Meilleures pratiques pour la création d’une application LUIS (Language Understanding)
 Suivez le processus de création d’applications pour générer votre application LUIS :
@@ -81,7 +81,7 @@ Les entités acquises sur ordinateur sont adaptées à votre application et requ
 
 Les entités acquises sur ordinateur peuvent utiliser d’autres entités en tant que fonctionnalités. Ces entités peuvent être des entités personnalisées, telles que des entités d’expression régulière ou des entités de liste, ou des entités prédéfinies en tant que fonctionnalités.
 
-En savoir plus sur les [entités acquises sur ordinateur efficaces](luis-concept-entity-types.md#effective-machine-learned-entities).
+En savoir plus sur les [entités acquises sur ordinateur efficaces](luis-concept-entity-types.md#machine-learned-ml-entity).
 
 <a name="#do-build-the-app-iteratively"></a>
 

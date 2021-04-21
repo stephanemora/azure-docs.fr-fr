@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: rogarana
 ms.openlocfilehash: aeb15fbb8da44a203789e06a359cb664998602ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "77123220"
 ---
 L’agent Azure File Sync est mis à jour régulièrement pour ajouter de nouvelles fonctionnalités et pour résoudre les problèmes. Nous vous recommandons de configurer Microsoft Update pour obtenir les mises à jour de l’agent Azure File Sync lorsqu’elles sont disponibles.
 
 #### <a name="major-vs-minor-agent-versions"></a>Versions d’agent majeures et mineures
-* Les versions majeures de l’agent contiennent souvent de nouvelles fonctionnalités, et la première partie du numéro de version est constituée d’un nombre croissant. Par exemple : \*2.\*.\*\*
+* Les versions majeures de l’agent contiennent souvent de nouvelles fonctionnalités, et la première partie du numéro de version est constituée d’un nombre croissant. Par exemple, \*2.\*.\*\*
 * Les versions mineures de l’agent sont également appelées « correctifs », et sont publiées plus fréquemment que les versions majeures. Elles contiennent souvent des correctifs de bogues et des améliorations mineures, mais pas de nouvelles fonctionnalités. Par exemple, \*\*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Chemins de mise à jour
@@ -23,7 +23,7 @@ Il existe quatre moyens testés et approuvés d’installer les mises à jour de
     Il est recommandé d’installer toutes les mises à jour Azure File Sync pour bénéficier des derniers correctifs de l’agent du serveur. Microsoft Update rend ce processus transparent, en téléchargeant et en installant automatiquement les mises à jour.
 2. **Utilisez AfsUpdater.exe pour télécharger et installer les mises à jour de l’agent.**  
     AfsUpdater.exe se trouve dans le répertoire d’installation de l’agent. Double-cliquez sur l’exécutable pour télécharger et installer les mises à jour de l’agent. 
-3. **Appliquez un correctif à un agent Azure File Sync existant à l’aide d’un fichier de correctif Microsoft Update, ou d’un exécutable .msp. Le dernier package de mise à jour Azure File Sync peut être téléchargé à partir du [catalogue Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
+3. **Appliquer un correctif à un agent Azure File Sync existant à l’aide d’un fichier correctif Microsoft Update ou d’un fichier exécutable. msp. Le dernier package de mise à jour Azure File Sync peut être téléchargé à partir du [catalogue Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     L’exécution d’un exécutable .msp permet de mettre à jour votre installation d’Azure File Sync avec la même méthode que celle utilisée automatiquement par Microsoft Update dans le chemin de mise à jour précédent. L’application d’un correctif Microsoft Update effectue la mise à jour sur place d’une installation Azure File Sync.
 4. **Téléchargez le programme d’installation de l’agent Azure File Sync le plus récent à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/?linkid=858257).**  
     Pour mettre à niveau une installation existante de l’agent Azure File Sync, désinstallez l’ancienne version, puis installez la dernière version avec le programme d’installation téléchargé. L’inscription du serveur, les groupes de synchronisation et tous les autres paramètres sont gérés par le programme d’installation d’Azure File Sync.

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.date: 03/25/2021
+ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630104"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629987"
 ---
 ## <a name="generalize-the-image"></a>Généraliser l’image
 
@@ -52,7 +52,9 @@ Une fois que votre machine virtuelle est prête, vous pouvez la capturer dans un
 8. Sélectionnez **Vérifier + créer** pour passer en revue vos choix.
 9. Une fois la validation réussie, sélectionnez **Créer**.
 
-Pour publier, le compte de l’éditeur doit disposer d’un accès Propriétaire à la galerie d’images partagées. Pour accorder l’accès :
+L’abonnement Azure contenant la SIG doit être sous le même locataire que le compte de l’éditeur pour pouvoir être publié. Le compte d’éditeur doit également disposer d’un accès Propriétaire à la SIG. 
+
+Pour accorder l’accès :
 
 1. Accédez à la galerie d’images partagées.
 2. Sélectionnez **Contrôle d’accès** (IAM) dans le volet gauche.

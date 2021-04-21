@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/04/2021
 ms.author: trbye
-ms.openlocfilehash: 4ec9c847158c9b8a1160cb6f4510912ed83a9fae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 407906727332f3db8d3d0a6840d0c865c6b33ff7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98948644"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105609403"
 ---
 Tout d’abord, chargez votre fichier de modèle de mot clé à l’aide de la fonction statique `FromFile()`, qui retourne un élément `KeywordRecognitionModel`. Utilisez le chemin du fichier `.table` que vous avez téléchargé à partir de Speech Studio. De plus, vous créez un fichier `AudioConfig` à l’aide du microphone par défaut, puis instanciez un nouveau `KeywordRecognizer` à l’aide de la configuration audio.
 
@@ -35,6 +35,6 @@ KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(key
 
 D’autres classes du Kit de développement logiciel (SDK) Speech prennent en charge la reconnaissance continue (pour la reconnaissance vocale et intentionnelle) avec reconnaissance de mot clé. Cela vous permet d’utiliser le même code que celui que vous utiliseriez normalement pour la reconnaissance continue, avec la possibilité de référencer un fichier `.table` pour votre modèle de mot clé.
 
-Pour la reconnaissance vocale, suivez le même modèle de conception que celui indiqué dans le [démarrage rapide](../../../get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=script%2cbrowser%2cwindowsinstall#continuous-recognition) pour configurer la reconnaissance continue. Ensuite, remplacez l’appel à `recognizer.StartContinuousRecognitionAsync()` par `recognizer.StartKeywordRecognitionAsync(KeywordRecognitionModel)` et transmettez votre objet `KeywordRecognitionModel`. Pour arrêter la reconnaissance continue avec détection de mots clés, utilisez `recognizer.StopKeywordRecognitionAsync()` au lieu de `recognizer.StopContinuousRecognitionAsync()`.
+Pour la reconnaissance vocale, suivez le même modèle de conception que celui indiqué dans le [démarrage rapide](../../../get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=script%2cbrowser%2cwindowsinstall#continuous-recognition) pour configurer la reconnaissance continue. Ensuite, remplacez l’appel à `recognizer.StartContinuousRecognitionAsync()` par `recognizer.StartKeywordRecognitionAsync(KeywordRecognitionModel)` et transmettez votre objet `KeywordRecognitionModel`. Pour arrêter la reconnaissance continue avec reconnaissance de mots clés, utilisez `recognizer.StopKeywordRecognitionAsync()` au lieu de `recognizer.StopContinuousRecognitionAsync()`.
 
 La reconnaissance intentionnelle utilise un modèle identique avec les fonctions [`StartKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.startkeywordrecognitionasync#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StartKeywordRecognitionAsync_Microsoft_CognitiveServices_Speech_KeywordRecognitionModel_) et [`StopKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.stopkeywordrecognitionasync#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StopKeywordRecognitionAsync).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: weetok
 author: dcstwh
 ms.date: 07/16/2020
-ms.openlocfilehash: 5c1a55518c0fac04eafad79a2ed3f7b3677de5e9
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: d0b941325d6bbabcb083b5f71a40c145d3ef48d0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223232"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103468"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Exécuter des pipelines Azure Machine Learning dans Azure Data Factory
 
@@ -55,6 +55,7 @@ mlPipelineId | ID du pipeline Azure Machine Learning publié | Chaîne (ou expre
 experimentName | Nom de l’expérience de l’historique des exécutions pour l’exécution du pipeline Machine Learning | Chaîne (ou expression avec resultType de chaîne) | Non
 mlPipelineParameters | Paires clé/valeur à passer au point de terminaison du pipeline Azure Machine Learning publié. Les clés doivent correspondre aux noms des paramètres de pipeline définis dans le pipeline Machine Learning publié. | Objet avec des paires clé/valeur (ou expression avec l’objet resultType) | Non
 mlParentRunId | ID d’exécution du pipeline Azure Machine Learning parent | Chaîne (ou expression avec resultType de chaîne) | Non
+dataPathAssignments | Dictionnaire utilisé pour modifier les chemins de données dans Azure Machine Learning. Permet la commutation des chemins de données | Objet avec paires clé/valeur | Non
 continueOnStepFailure | Indique s’il faut poursuivre l’exécution des autres étapes lors de l’exécution du pipeline Machine Learning en cas d’échec d’une étape. | boolean | Non
 
 > [!NOTE]

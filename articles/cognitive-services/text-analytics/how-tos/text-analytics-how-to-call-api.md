@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599207"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029775"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -34,6 +34,14 @@ Avant d’utiliser l’API Analyse de texte, vous devrez créer une ressource Az
 2.  Sélectionnez la région que votre point de terminaison doit utiliser.  Notez que les points de terminaison `/analyze` et `/health` sont uniquement disponibles dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.
 
 3.  Créez la ressource d’Analyse de texte et accédez au panneau « Clés et point de terminaison » dans la partie gauche de la page. Copiez la clé à utiliser ultérieurement lors de l’appel des API. Vous l’ajouterez plus tard en tant que valeur pour l’en-tête `Ocp-Apim-Subscription-Key`.
+
+4. Pour vérifier le nombre d’enregistrements de texte qui ont été envoyés à l’aide de votre ressource Analyse de texte :
+
+    1. Accédez à votre ressource Analyse de texte dans le portail Azure. 
+    2. Cliquez sur **Mesures**, situées sous **Surveillance** dans le menu de navigation de gauche. 
+    3. Sélectionnez *Enregistrements de textes traités* dans la zone de liste déroulante pour **Métrique**.
+    
+Un enregistrement de texte contient 1 000 caractères.
 
 ## <a name="change-your-pricing-tier"></a>Changer votre niveau tarifaire 
 

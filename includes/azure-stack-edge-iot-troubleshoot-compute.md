@@ -3,13 +3,13 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 03/02/2021
-ms.openlocfilehash: 57415ec76a3e8d9fc3c160b47668d3419ff6ea5c
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.date: 03/23/2021
+ms.openlocfilehash: 0d912d0ac3f0fcf4c52116e67909038a1973304b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622293"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105105502"
 ---
 Utilisez les réponses du runtime de l’agent IoT Edge pour résoudre les erreurs liées au calcul. Voici une liste de réponses possibles :
 
@@ -32,7 +32,7 @@ Tous les modules sur l’appareil affichent un état Inconnu et ne peuvent pas �
 
 #### <a name="suggested-solution"></a>Solution suggérée
 
-Supprimez le service IoT Edge, puis redéployez le(s) module(s). Pour plus d’informations, consultez [Supprimer le service IoT Edge](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+Supprimez le service IoT Edge, puis redéployez le(s) module(s). Pour plus d’informations, consultez [Supprimer le service IoT Edge](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service).
 
 
 ### <a name="modules-show-as-running-but-are-not-working"></a>Les modules s’affichent comme étant en cours d’exécution mais ne fonctionnent pas
@@ -65,4 +65,44 @@ Procédez comme suit dans l’interface utilisateur web locale de votre appareil
 1. Entrez une plage d’adresses IP statiques et contiguës pour les **adresses IP de service externe Kubernetes**. Une adresse IP est requise pour le service `edgehub`. Une adresse IP est également requise pour chaque module IoT Edge et pour chaque machine virtuelle que vous déployez. 
 1. Sélectionnez **Appliquer**. La plage d’adresses IP modifiée doit prendre effet immédiatement.
 
-Pour plus d’informations, consultez [Modifier les adresses IP de service externe pour les conteneurs](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers).
+Pour plus d’informations, consultez [Modifier les adresses IP de service externe pour les conteneurs](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#change-external-service-ips-for-containers).
+
+### <a name="configure-static-ips-for-iot-edge-modules"></a>Configurer des adresses IP statiques pour les modules IoT Edge
+
+#### <a name="problem-description"></a>Description du problème
+
+Kubernetes attribue des adresses IP dynamiques à chaque module IoT Edge sur votre appareil GPU Azure Stack Edge Pro. Une méthode est nécessaire pour configurer des adresses IP statiques pour les modules.
+
+#### <a name="suggested-solution"></a>Solution suggérée
+
+Vous pouvez spécifier des adresses IP fixes pour vos modules IoT Edge à l’aide de la section K8s-experimental, comme décrit ci-dessous : 
+
+```yaml
+{
+  "k8s-experimental": {
+    "serviceOptions" : {
+      "loadBalancerIP" : "100.23.201.78",
+      "type" : "LoadBalancer"
+    }
+  }
+}
+```
+### <a name="expose-kubernetes-service-as-cluster-ip-service-for-internal-communication"></a>Exposer le service Kubernetes comme service IP de cluster pour la communication interne
+
+#### <a name="problem-description"></a>Description du problème
+
+Par défaut, le service IoT est de type équilibreur de charge et se voit attribuer des adresses IP tournées vers l’extérieur. Il se peut que vous ne souhaitiez pas une adresse IP tournée vers l’extérieur pour votre application. Vous devrez peut-être exposer les pods au sein du cluster Kubernetes pour l’accès en tant qu’autres pods et non en tant que service d’équilibreur de charge exposé à l’extérieur. 
+
+#### <a name="suggested-solution"></a>Solution suggérée
+
+Vous pouvez utiliser les options de création via la section K8s-experimental. L’option de service suivante doit fonctionner avec des liaisons de port.
+
+```yaml
+{
+"k8s-experimental": {
+  "serviceOptions" : {
+    "type" : "ClusterIP"
+    }
+  }
+}
+```

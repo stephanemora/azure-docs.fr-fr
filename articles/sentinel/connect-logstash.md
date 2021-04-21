@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 10812cf97f4f0dfc6f7957608eddf7acf929c3fc
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035423"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579755"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utiliser Logstash pour connecter des sources de données à Azure Sentinel
 
@@ -44,7 +44,9 @@ Le moteur Logstash est constitué de trois composants :
 - Plug-ins de sortie : envoi personnalisé des données collectées et traitées vers diverses destinations.
 
 > [!NOTE]
-> Azure Sentinel prend uniquement en charge son propre plug-in de sortie (fourni). Il ne prend pas en charge les plug-ins de sortie Azure Sentinel tiers, ni aucun autre plug-in Logstash de quelque type que ce soit.
+> - Azure Sentinel prend uniquement en charge son propre plug-in de sortie (fourni). La version actuelle de ce plug-in est v1.0.0, publiée le 25/08/2020. Il ne prend pas en charge les plug-ins de sortie Azure Sentinel tiers, ni aucun autre plug-in Logstash de quelque type que ce soit.
+>
+> - Le plug-in de sortie Logstash d’Azure Sentinel ne prend en charge que les **versions Logstash de 7.0 à 7.9**.
 
 Le plug-in de sortie Azure Sentinel pour Logstash envoie des données au format JSON à votre espace de travail Log Analytics, en utilisant l'API REST du collecteur de données HTTP de Log Analytics. Les données sont ingérées dans des journaux personnalisés.
 
@@ -67,19 +69,21 @@ Utilisez les informations du document Logstash [Structure d’un fichier de conf
 
 | Nom du champ | Type de données | Description |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Entrez le GUID de l’ID de votre espace de travail. * |
-| `workspace_key` | string | Entrez le GUID de la clé primaire de votre espace de travail. * |
+| `workspace_id` | string | Entrez le GUID de l’ID de votre espace de travail (voir les conseils). |
+| `workspace_key` | string | Entrez le GUID de la clé primaire de votre espace de travail (voir les conseils). |
 | `custom_log_table_name` | string | Définissez le nom de la table dans laquelle les journaux seront ingérés. Vous ne pouvez configurer qu'un seul nom de table par plug-in de sortie. La table des journaux apparaîtra dans Azure Sentinel sous **Journaux**, dans **Tables**, catégorie **Journaux personnalisés**, avec le suffixe `_CL`. |
 | `endpoint` | string | Champ facultatif. Par défaut, il s'agit du point de terminaison Log Analytics. Utilisez ce champ pour définir un autre point de terminaison. |
 | `time_generated_field` | string | Champ facultatif. Cette propriété remplace le champ par défaut **TimeGenerated** dans Log Analytics. Entrez le nom du champ d'horodatage dans la source de données. Les données du champ doivent être conformes au format ISO 8601 (`YYYY-MM-DDThh:mm:ssZ`) |
 | `key_names` | tableau | Entrez une liste de champs de schéma de sortie Log Analytics. Chaque élément de la liste doit être placé entre guillemets simples et les éléments séparés par des virgules, et toute la liste doit être placée entre crochets. Voir l'exemple ci-dessous. |
 | `plugin_flush_interval` | nombre | Champ facultatif. Permet de définir l'intervalle maximum (en secondes) entre les transmissions de messages à Log Analytics. La valeur par défaut est 5. |
-    | `amount_resizing` | boolean | True ou false. Activez ou désactivez le mécanisme de mise à l'échelle automatique, qui ajuste la taille de la mémoire tampon des messages en fonction du volume de données de journal reçues. |
+| `amount_resizing` | boolean | True ou false. Activez ou désactivez le mécanisme de mise à l'échelle automatique, qui ajuste la taille de la mémoire tampon des messages en fonction du volume de données de journal reçues. |
 | `max_items` | nombre | Champ facultatif. S'applique uniquement si `amount_resizing` est défini sur « false ». Permet de fixer un plafond à la taille de la mémoire tampon des messages (dans les enregistrements). La valeur par défaut est 2000.  |
 | `azure_resource_id` | string | Champ facultatif. Définit l’ID de la ressource Azure où résident les données. <br>La valeur de l’ID de ressource est particulièrement utile si vous utilisez un [RBAC dans le contexte de la ressource](resource-context-rbac.md) pour donne accès uniquement à des données spécifiques. |
 | | | |
 
-*  Vous pouvez trouver l’ID et la clé primaire de l’espace de travail dans la ressource d’espace de travail, sous **Gestion des agents**.
+> [!TIP]
+> -  Vous pouvez trouver l’ID et la clé primaire de l’espace de travail dans la ressource d’espace de travail, sous **Gestion des agents**.
+> - **Toutefois**, étant donné que les informations d’identification et autres informations sensibles stockées en texte clair dans les fichiers de configuration ne sont pas conformes aux meilleures pratiques de sécurité, il est vivement recommandé d’utiliser le **magasin de clés Logstash** pour inclure en toute sécurité l'**ID de l’espace de travail** et la **clé primaire de l’espace de travail** dans la configuration. Pour obtenir des instructions, consultez la [documentation d’Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/current/get-started-logstash-user.html).
 
 #### <a name="sample-configurations"></a>Exemples de configurations
 

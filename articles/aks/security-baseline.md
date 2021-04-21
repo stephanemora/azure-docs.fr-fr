@@ -6,13 +6,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.custom: subject-security-benchmark
-ms.openlocfilehash: b1a1c4f7a794041f46339dcf8cd5e09b2298f0bb
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: subject-security-benchmark, devx-track-azurepowershell
+ms.openlocfilehash: 0564f1f39ac9d492dfffdf0e7adacdde08db0874
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076358"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769586"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Base de référence de sécurité Azure pour Azure Kubernetes Service
 
@@ -60,7 +60,7 @@ Activez les journaux de flux de groupe de sécurité réseau et envoyez ceux-ci 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="13-protect-critical-web-applications"></a>1.3 : Protéger les applications web critiques
 
@@ -76,7 +76,7 @@ Utilisez une passerelle d’API pour l’authentification, l’autorisation, la 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
@@ -212,7 +212,7 @@ Vérifiez que les serveurs NTP sont accessibles par les nœuds de cluster si vou
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="22-configure-central-security-log-management"></a>2.2 : Configurer la gestion des journaux de sécurité centrale
 
@@ -289,7 +289,7 @@ La collecte de données est requise pour fournir une visibilité des mises à jo
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
@@ -335,7 +335,7 @@ Passez en revue les alertes Security Center sur les menaces et les activités ma
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="29-enable-dns-query-logging"></a>2.9 : Activer la journalisation des requêtes DNS
 
@@ -409,7 +409,7 @@ Créez des stratégies et des procédures concernant l’utilisation de comptes 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
 
@@ -419,7 +419,7 @@ Créez des stratégies et des procédures concernant l’utilisation de comptes 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
@@ -457,7 +457,7 @@ Activez l’authentification multifacteur Azure AD et suivez les recommandations
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3.8 : Gérer les ressources Azure uniquement à partir d’emplacements approuvés
 
@@ -516,7 +516,7 @@ Tenez compte des rôles utilisés à des fins de support ou de résolution des p
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
 
@@ -609,7 +609,7 @@ Pour garantir la sécurité des données client dans Azure, Microsoft a impléme
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
@@ -708,7 +708,7 @@ Notez que le processus de conservation des nœuds Windows Server à jour est dif
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs de logiciels tiers
 
@@ -794,7 +794,7 @@ Des teintes, étiquettes ou balises peuvent également être utilisées pour rap
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4 : Dresser et tenir un inventaire des ressources Azure approuvées
 
@@ -908,7 +908,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 
@@ -1184,7 +1184,7 @@ Limitez l’exposition des informations d’identification en ne les définissan
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8.3 : Vérifier que les logiciels et signatures anti-programme malveillant sont à jour
 

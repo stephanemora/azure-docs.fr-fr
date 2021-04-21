@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 0a98f9e4b108d2498fa19bc0b041f9d52272c7d2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719047"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774914"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gérer les ressources Azure et surveiller les coûts en créant des tâches d'automatisation (préversion)
 
@@ -150,7 +150,7 @@ Pour consulter l'historique des exécutions d'une tâche, avec l'état, les entr
 
    Le volet **Exécution de l'application logique** s'ouvre et affiche le workflow sous-jacent exécuté.
 
-   * Un workflow démarre toujours avec un [*déclencheur*](../connectors/apis-list.md#triggers-actions). Pour cette tâche, le workflow démarre avec le déclencheur [**Périodicité**](../connectors/connectors-native-recurrence.md).
+   * Un workflow démarre toujours avec un [*déclencheur*](../connectors/apis-list.md#triggers). Pour cette tâche, le workflow démarre avec le déclencheur [**Périodicité**](../connectors/connectors-native-recurrence.md).
 
    * Chaque étape indique son état et sa durée d'exécution. Une durée de 0 seconde indique que l'exécution de l'étape a nécessité moins d'une seconde.
 

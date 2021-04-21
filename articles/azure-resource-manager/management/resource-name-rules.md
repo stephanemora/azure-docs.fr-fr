@@ -3,12 +3,12 @@ title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: a1dbe409eb5479c4027834cd33e095d12c31e238
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: e260c9055b26d82f2fd2f8458d287a35a838f40f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210191"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477789"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -169,7 +169,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | diskEncryptionSets | resource group | 1-80 | Caractères alphanumériques et traits de soulignement. |
-> | disks | resource group | 1-80 | Caractères alphanumériques et traits de soulignement. |
+> | disks | resource group | 1-80 | Caractères alphanumériques, traits de soulignement et traits d’union. |
 > | galleries | resource group | 1-80 | Caractères alphanumériques et points.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
 > | galleries / applications | galerie | 1-80 | Caractères alphanumériques, traits d’union et points.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
 > | galleries / applications/versions | application | Entier de 32 bits | Chiffres et points. |

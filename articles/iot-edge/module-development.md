@@ -8,12 +8,12 @@ ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a30b4b056d56e096f80b9494ab80a585fff76e66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6274d0f0265220877938775ab6efd72ff22b84e4
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489920"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031121"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Développer vos propres modules IoT Edge
 
@@ -134,7 +134,7 @@ IoT Edge prend en charge plusieurs systèmes d’exploitation, architectures de 
 
 ### <a name="linux"></a>Linux
 
-Pour toutes les langues dans le tableau suivant, IoT Edge prend en charge le développement pour les appareils AMD64 et ARM32 Linux.
+Pour tous les langages du tableau suivant, IoT Edge prend en charge le développement pour les conteneurs Linux AMD64 et ARM32.
 
 | Langage de développement | Outils de développement |
 | -------------------- | ----------------- |
@@ -145,16 +145,30 @@ Pour toutes les langues dans le tableau suivant, IoT Edge prend en charge le dé
 | Python | Visual Studio Code |
 
 >[!NOTE]
->La prise en charge du développement et du débogage des appareils Linux ARM64 est disponible en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour plus d’informations, consultez [Développer et déboguer des modules IoT Edge ARM64 dans Visual Studio Code (préversion)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>La prise en charge du développement et du débogage des conteneurs Linux ARM64 est disponible en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour plus d’informations, consultez [Développer et déboguer des modules IoT Edge ARM64 dans Visual Studio Code (préversion)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ### <a name="windows"></a>Windows
 
-Pour toutes les langues dans le tableau suivant, IoT Edge prend en charge le développement pour les appareils Windows AMD64.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Pour tous les langages du tableau suivant, IoT Edge prend en charge le développement pour les conteneurs Windows AMD64.
 
 | Langage de développement | Outils de développement |
 | -------------------- | ----------------- |
 | C | Visual Studio 2017/2019 |
 | C# | Visual Studio Code (aucune fonctionnalité de débogage)<br>Visual Studio 2017/2019 |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+IoT Edge 1.1 LTS est le dernier canal à prendre en charge les conteneurs Windows. À partir de la version 1.2, les conteneurs Windows ne sont pas pris en charge.
+
+Pour plus d’informations sur le développement avec des conteneurs Windows, reportez-vous à la version [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) de cet article.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="next-steps"></a>Étapes suivantes
 

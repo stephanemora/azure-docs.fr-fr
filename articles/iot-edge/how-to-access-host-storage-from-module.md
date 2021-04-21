@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d88d35eece698c7d0079221ae3c76058d1877948
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 78752d4da42fe07461ae0e82b10343dc7219ad91
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200474"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482056"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fournir à des modules l’accès au stockage local d’un appareil
 
@@ -87,7 +87,7 @@ Vous trouverez plus de détails sur les options de création dans la [documentat
 
 ## <a name="encrypted-data-in-module-storage"></a>Données chiffrées dans le stockage de module
 
-Lorsque les modules appellent l’API de charge de travail du démon IoT Edge pour chiffrer les données, la clé de chiffrement est obtenue en utilisant l’ID du module et l’ID de génération du module. Un ID de génération est utilisé pour protéger les secrets si un module est supprimé du déploiement et qu’un autre module avec le même ID de module est ensuite déployé sur le même appareil. Vous pouvez afficher l’ID de génération d’un module à l’aide de la commande Azure CLI [az iot hub module-identity show](/cli/azure/ext/azure-iot/iot/hub/module-identity).
+Lorsque les modules appellent l’API de charge de travail du démon IoT Edge pour chiffrer les données, la clé de chiffrement est obtenue en utilisant l’ID du module et l’ID de génération du module. Un ID de génération est utilisé pour protéger les secrets si un module est supprimé du déploiement et qu’un autre module avec le même ID de module est ensuite déployé sur le même appareil. Vous pouvez afficher l’ID de génération d’un module à l’aide de la commande Azure CLI [az iot hub module-identity show](/cli/azure/iot/hub/module-identity).
 
 Si vous souhaitez partager des fichiers entre des modules d’une génération à l’autre, ces fichiers ne doivent pas contenir de secrets, sinon ces derniers ne pourront pas être déchiffrés.
 

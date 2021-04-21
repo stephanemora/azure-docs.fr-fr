@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: fda69d582f26b0c9189898bb5c8b0004a1e47360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 711b4f6577b17e84a5d30774fa7be4c9033d4340
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722767"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031126"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -174,7 +174,7 @@ Pour vous authentifier à l’aide d’un principal de service, fournissez l’I
 
 ### <a name="use-tags-to-manage-versions"></a>Utiliser des balises pour gérer les versions
 
-Une balise est un concept Docker servant à faire la distinction entre les versions des conteneurs Docker. Ce sont des suffixes comme **1.0**, ajoutés à la fin d’un référentiel de conteneur. Exemple : **mcr.microsoft.com/azureiotedge-agent:1.0**. Les balises étant mutables et modifiables pour pointer vers un autre conteneur à tout moment, il est essentiel que votre équipe se mette d’accord sur une convention à suivre pour mettre à jour vos images de module par la suite.
+Une balise est un concept Docker servant à faire la distinction entre les versions des conteneurs Docker. Ce sont des suffixes comme **1.1**, ajoutés à la fin d’un référentiel de conteneur. Exemple : **mcr.microsoft.com/azureiotedge-agent:1.1**. Les balises étant mutables et modifiables pour pointer vers un autre conteneur à tout moment, il est essentiel que votre équipe se mette d’accord sur une convention à suivre pour mettre à jour vos images de module par la suite.
 
 Les balises aident également à appliquer des mises à jour sur les appareils IoT Edge. Lorsque vous envoyez une version mise à jour d’un module à votre registre de conteneurs, incrémentez la balise. Ensuite, transmettez un nouveau déploiement sur vos appareils avec la balise incrémentée. Le moteur de conteneur la reconnaîtra comme une nouvelle version et extraira la dernière version du module sur l’appareil.
 
@@ -263,6 +263,17 @@ Si vos appareils sont destinés à être déployés sur un réseau qui utilise u
 
 Sous Linux, le démon IoT Edge utilise des journaux comme pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux d’activité du démon.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-IoTEdgeLog`. Les modules IoT Edge utilisent le pilote par défaut JSON pour la journalisation.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+:::moniker-end
+<!-- end 1.1 -->
+
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
@@ -281,12 +292,6 @@ Depuis la version 1.2, IoT Edge s’appuie sur plusieurs démons. Si les journau
   ```
 
 :::moniker-end
-
-Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-IoTEdgeLog`. Les modules IoT Edge utilisent le pilote par défaut JSON pour la journalisation.  
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
 
 Lorsque vous testez un déploiement IoT Edge, vous pouvez généralement accéder à vos appareils pour récupérer les journaux d’activité et résoudre les problèmes. Dans un scénario de déploiement, vous n’avez pas forcément cette option. Réfléchissez à la façon dont vous allez collecter des informations sur vos appareils en production. Il est possible d’utiliser un module de journalisation, par exemple, [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), qui recueille des informations auprès des autres modules et les envoie vers le cloud. Vous pouvez également concevoir votre propre module de journalisation.
 
@@ -308,12 +313,24 @@ Vous pouvez limiter la taille de tous les fichiers de journaux de conteneur dans
 }
 ```
 
-Ajoutez ces informations dans un fichier nommé `daemon.json` et placez-le à l’emplacement approprié pour votre plateforme d’appareil.
+Ajoutez ces informations dans un fichier nommé `daemon.json` et placez-le à l’emplacement suivant :
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Plateforme | Emplacement |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* `/etc/docker/`
+
+:::moniker-end
+<!-- end 1.2 -->
 
 Vous devez redémarrer le moteur de conteneur pour que les modifications entrent en vigueur.
 

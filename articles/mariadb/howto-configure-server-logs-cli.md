@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cea1571a48afe00350dde247c3c10e222a446247
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42382076b6c14989eb153725e991c8ef047ad15b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662387"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774788"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configurer et accéder au journaux des requêtes lentes dans Azure Database pour Maria DB en utilisant Azure CLI
 
@@ -42,14 +42,14 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Répertorier les journaux d’activité de serveur pour Azure Database for MariaDB
-Si **log_output** est configurée sur « fichier », vous pouvez accéder aux journaux directement à partir du stockage local du serveur. Pour lister les fichiers journaux des requêtes lentes disponibles pour votre serveur, exécutez la commande [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list).
+Si **log_output** est configurée sur « fichier », vous pouvez accéder aux journaux directement à partir du stockage local du serveur. Pour lister les fichiers journaux des requêtes lentes disponibles pour votre serveur, exécutez la commande [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_list).
 
 Vous pouvez répertorier les fichiers journaux pour le serveur **mydemoserver.mariadb.database.azure.com** sous le groupe de ressources **myresourcegroup**. Puis, dirigez la liste des fichiers journaux vers un fichier texte appelé **log\_files\_list.txt**.
 ```azurecli-interactive
 az mariadb server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Télécharger des journaux d’activité à partir du serveur
-Si **log_output** est configurée sur « Fichier », vous pouvez télécharger des fichiers journaux individuels à partir de votre serveur avec la commande [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download).
+Si **log_output** est configurée sur « Fichier », vous pouvez télécharger des fichiers journaux individuels à partir de votre serveur avec la commande [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az_mariadb_server_logs_download).
 
 Utilisez l’exemple suivant pour télécharger le fichier journal spécifique pour le serveur **mydemoserver.mariadb.database.azure.com** sous le groupe de ressources **myresourcegroup** dans votre environnement local.
 ```azurecli-interactive

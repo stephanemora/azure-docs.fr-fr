@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 8c114d6260cf81bcc4fb256fc8a09947ab9ce1d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10d45662f84a354ee4b261c2e7255a57aa81ad0f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502482"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774482"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Choisir le bon nombre de domaines d’erreur pour un groupe de machines virtuelles identiques
 Des groupes de machines virtuelles identiques sont créés avec cinq domaines d’erreur par défaut dans les régions Azure sans zones. Pour les régions qui prennent en charge le déploiement zonal de groupes de machines virtuelles identiques et si cette option est sélectionnée, la valeur par défaut du nombre de domaines d’erreur est de 1 pour chacune des zones. FD = 1 implique dans ce cas que les instances de machine virtuelle appartenant au groupe identique sont réparties entre plusieurs racks dans la mesure du possible.
@@ -25,7 +25,7 @@ Vous pouvez également envisager d’aligner le nombre de domaines d’erreur du
 Vous pouvez définir la propriété `properties.platformFaultDomainCount` sur 1, 2 ou 3 (la valeur par défaut est 3 si aucune valeur n’est spécifiée). Reportez-vous à la documentation de l’API REST [ici](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="azure-cli"></a>Azure CLI
-Vous pouvez définir le paramètre `--platform-fault-domain-count` sur 1, 2 ou 3 (la valeur par défaut est 3 si aucune valeur n’est spécifiée). Reportez-vous à la documentation d’Azure CLI [ici](/cli/azure/vmss#az-vmss-create).
+Vous pouvez définir le paramètre `--platform-fault-domain-count` sur 1, 2 ou 3 (la valeur par défaut est 3 si aucune valeur n’est spécifiée). Reportez-vous à la documentation d’Azure CLI [ici](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \

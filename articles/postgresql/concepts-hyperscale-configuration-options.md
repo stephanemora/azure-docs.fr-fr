@@ -6,19 +6,22 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 1/12/2021
-ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions
+ms.date: 04/07/2021
+ms.openlocfilehash: ae416c9acd03b3ee239a858aae550fb87293465a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98165609"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012783"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database pour PostgreSQL - Options de configuration d’Hyperscale (Citus)
 
 ## <a name="compute-and-storage"></a>Calcul et stockage
  
 Vous pouvez sélectionner les paramètres de calcul et de stockage indépendamment pour les nœuds Worker et le nœud coordinateur dans un groupe de serveurs Hyperscale (Citus).  Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. La taille de stockage pour l’approvisionnement fait référence à la capacité disponible pour les nœuds coordinateur et Worker dans votre groupe de serveurs Hyperscale (Citus). Le stockage inclut les fichiers de base de données, les fichiers temporaires, les journaux d’activité de transaction et les journaux d’activité du serveur PostgreSQL.
+
+### <a name="standard-tier"></a>Niveau standard
  
 | Ressource              | Nœud Worker           | Nœud coordinateur      |
 |-----------------------|-----------------------|-----------------------|
@@ -70,13 +73,46 @@ Pour l’ensemble du cluster Hyperscale (Citus), les IOPS agrégées présentent
 | 19           | 29 184              | 58 368            | 116 812           |
 | 20           | 30 720              | 61 440            | 122 960           |
 
+### <a name="basic-tier-preview"></a>Niveau de base (préversion)
+
+> [!IMPORTANT]
+> Le niveau de base Hyperscale (Citus) est actuellement en préversion.  Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+>
+> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans [Fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
+
+Le [niveau de base](concepts-hyperscale-tiers.md) Hyperscale (Citus) est un groupe de serveurs avec un seul nœud.  Étant donné qu’il n’existe pas de distinction entre les nœuds coordinateur et Worker, il est moins compliqué de choisir des ressources de calcul et de stockage.
+
+| Ressource              | Options disponibles     |
+|-----------------------|-----------------------|
+| Calcule, vCores       | 2, 4, 8               |
+| Mémoire par vCore, Gio | 4                     |
+| Taille de stockage, Gio     | 128, 256, 512         |
+| Type de stockage          | Usage général (SSD) |
+| E/S par seconde                  | Jusqu’à 3 IOPS/Gio      |
+
+La quantité totale de mémoire RAM dans un seul nœud Hyperscale (Citus) est basée sur le nombre de vCores sélectionné.
+
+| vCores | Gio de RAM |
+|--------|---------|
+| 2      | 8       |
+| 4      | 16      |
+| 8      | 32      |
+
+La quantité totale de stockage que vous approvisionnez définit également la capacité d’E/S disponible sur le nœud du niveau de base.
+
+| Taille de stockage, Gio | Nombre maximal d’E/S par seconde |
+|-------------------|--------------|
+| 128               | 384          |
+| 256               | 768          |
+| 512               | 1 536        |
+
 ## <a name="regions"></a>Régions
 Les groupes de serveurs Hyperscale (Citus) sont disponibles dans les régions Azure suivantes :
 
 * États-Unis:
     * Centre du Canada
     * USA Centre
-    * USA Est
+    * USA Est*
     * USA Est 2
     * Centre-Nord des États-Unis
     * USA Ouest 2
@@ -90,38 +126,9 @@ Les groupes de serveurs Hyperscale (Citus) sont disponibles dans les régions Az
     * Sud du Royaume-Uni
     * Europe Ouest
 
+(\* = prend en charge les [fonctionnalités d’évaluation](hyperscale-preview-features.md))
+
 Certaines de ces régions peuvent ne pas être initialement activées sur tous les abonnements Azure. Si vous souhaitez utiliser une région de la liste ci-dessus et ne la voyez pas dans votre abonnement, ou si vous souhaitez utiliser une région qui ne figure pas dans cette liste, ouvrez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-## <a name="limits-and-limitations"></a>Limites et limitations
-
-La section suivante décrit les limites fonctionnelles et les limites de capacités du service Hyperscale (Citus).
-
-### <a name="maximum-connections"></a>Nombre maximal de connexions
-
-Chaque connexion PostgreSQL (même inactive) utilise au moins 10 Mo de mémoire. Il est donc important de limiter les connexions simultanées. Voici les limites que nous avons choisies pour maintenir l’intégrité des nœuds :
-
-* Nœud coordinateur
-   * Nombre maximal de connexions : 300
-   * Nombre maximal de connexions utilisateur : 297
-* Nœud Worker
-   * Nombre maximal de connexions : 600
-   * Nombre maximal de connexions utilisateur : 597
-
-Au-delà de ces limites, les tentatives de connexion échouent et génèrent une erreur. Le système réserve trois connexions pour les nœuds de surveillance. C’est pourquoi il y a trois connexions disponibles de moins pour les requêtes utilisateur que le total des connexions.
-
-L’établissement de nouvelles connexions prend du temps. Ce point est problématique pour la plupart des applications, qui demandent de nombreuses connexions de courte durée. Nous vous recommandons d’utiliser un dispositif de regroupement de connexions pour réduire les transactions inactives et réutiliser les connexions existantes. Pour en savoir plus, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
-
-### <a name="storage-scaling"></a>Mise à l’échelle du stockage
-
-Il est possible d’effectuer un scale-up du stockage sur les nœuds coordinateur et Worker, mais non un scale-down.
-
-### <a name="storage-size"></a>Taille de stockage
-
-Les nœuds coordinateur et Worker prennent en charge jusqu’à 2 Tio de stockage. Pour connaître les tailles de cluster et de nœud, consultez [ci-dessus](#compute-and-storage) les options de stockage disponibles et le calcul des IOPS.
-
-### <a name="database-creation"></a>Création de base de données
-
-Le portail Azure fournit des informations d’identification pour se connecter à une seule base de données par groupe de serveurs Hyperscale (Citus), la base de données `citus`. La création d’une autre base de données n’est actuellement pas autorisée, et la commande CREATE DATABASE échoue avec une erreur.
 
 ## <a name="pricing"></a>Tarifs
 Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/postgresql/).

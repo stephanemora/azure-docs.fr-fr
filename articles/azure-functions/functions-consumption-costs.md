@@ -3,12 +3,12 @@ title: Estimation des coûts d’un plan Consommation dans Azure Functions
 description: Apprenez à mieux estimer les coûts induits par l’exécution de votre application de fonction dans un plan Consommation dans Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 648be6325cce5bad36795b113c8bbccb3e21d37b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578561"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774000"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimation des coûts d’un plan Consommation
 
@@ -105,7 +105,7 @@ Ce graphique présente un total de 1,11 milliard `Function Execution Units` con
 
 #### <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI](/cli/azure/) contient des commandes pour récupérer des métriques. Vous pouvez utiliser CLI à partir d’un environnement de commande local ou directement à partir du portail en utilisant [Azure Cloud Shell](../cloud-shell/overview.md). Par exemple, la commande [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) suivante retourne les données horaires sur la même période que celle utilisée précédemment.
+[Azure CLI](/cli/azure/) contient des commandes pour récupérer des métriques. Vous pouvez utiliser CLI à partir d’un environnement de commande local ou directement à partir du portail en utilisant [Azure Cloud Shell](../cloud-shell/overview.md). Par exemple, la commande [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) suivante retourne les données horaires sur la même période que celle utilisée précédemment.
 
 Veillez à remplacer `<AZURE_SUBSCRIPTON_ID>` par votre ID d’abonnement Azure en exécutant la commande.
 

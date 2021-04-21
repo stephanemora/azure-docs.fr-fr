@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: c0c7a6b25c15be2e521e0985c315baf819650aa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48f8445e30bd186681d1a4384d16f228a3382473
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491754"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012435"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -366,7 +366,7 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 > [!IMPORTANT]
 > L’implémentation Liquid utilisée dans la stratégie `set-body` est configurée en mode « C# ». Cela est particulièrement important lors d’opérations telles que le filtrage. Par exemple, l’utilisation d’un filtre de date nécessite l’emploi de la casse Pascal et de la mise en forme de date de C#, par exemple :
 >
-> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ssZ"}}
 
 > [!IMPORTANT]
 > Pour établir correctement une liaison avec un corps XML à l’aide du modèle Liquid, utilisez une stratégie `set-header` pour définir Content-Type pour application/xml, text/xml (ou n’importe quel type se terminant par +xml). Pour un corps JSON, la valeur doit être application/json, text/json (ou n’importe quel type se terminant par +json).

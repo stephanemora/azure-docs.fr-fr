@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 93821979e0c14a879b805049a4f662e9ef6d5b15
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 5baf5f503542f31b26c4c210741f1ce986f6a549
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075676"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580125"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -74,15 +74,15 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 | Identités managées attribuées par le système | Oui | Oui | [Répertorier les identités managées](#list-role-assignments-for-managed-identities) | Vous devez désactiver et réactiver les identités managées. Vous devez recréer les attributions de rôles. |
 | Identités managées attribuées par l’utilisateur | Oui | Oui | [Répertorier les identités managées](#list-role-assignments-for-managed-identities) | Vous devez supprimer, recréer et attacher les identités managées à la ressource appropriée. Vous devez recréer les attributions de rôles. |
 | Azure Key Vault | Oui | Oui | [Répertorier les stratégies d’accès Key Vault](#list-key-vaults) | Vous devez mettre à jour l’ID de locataire associé aux coffres de clés. Vous devez supprimer et ajouter de nouvelles stratégies d’accès. |
-| Bases de données Azure SQL avec l’intégration de l’authentification Azure AD activée | Oui | Non | [Vérifier les bases de données SQL Azure avec l’authentification Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  | 
+| Bases de données Azure SQL avec l’intégration de l’authentification Azure AD activée | Oui | Non | [Vérifier les bases de données SQL Azure avec l’authentification Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) | Vous ne pouvez pas transférer une base de données Azure SQL dont l’authentification Azure AD est activée dans un autre répertoire. Pour plus d’informations, consultez [Utiliser l’authentification Azure Active Directory](../azure-sql/database/authentication-aad-overview.md). | 
 | Stockage Azure et Azure Data Lake Storage Gen2 | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure Data Lake Storage Gen1 | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure Files | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
-| Azure File Sync | Oui | Oui |  |  |
+| Azure File Sync | Oui | Oui |  | Le service de synchronisation de stockage et/ou le compte de stockage peuvent être déplacés vers un autre répertoire. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](../storage/files/storage-files-faq.md#azure-file-sync) |
 | Azure Disques managés | Oui | Oui |  |  Si vous utilisez des jeux de chiffrement de disque pour chiffrer les disques managés avec des clés gérées par le client, vous devez désactiver et réactiver les identités affectées par le système associées aux jeux de chiffrement du disque. De plus, vous devez recréer les attributions de rôles, c’est-à-dire accorder à nouveau les autorisations requises sur les jeux de chiffrement de disque dans les coffres de clés. |
-| Azure Kubernetes Service | Oui | Oui |  |  |
+| Azure Kubernetes Service | Oui | Non |  | Vous ne pouvez pas transférer votre cluster AKS ni ses ressources associées vers un autre répertoire. Pour plus d’informations, consultez le [Forum aux questions sur Azure Kubernetes Service (AKS)](../aks/faq.md) |
 | Azure Policy | Oui | Non | Tous les objets Azure Policy, y compris les définitions personnalisées, les affectations, les exemptions et les données de conformité. | Vous devez [exporter](../governance/policy/how-to/export-resources.md), importer et réaffecter les définitions. Créez ensuite de nouvelles affectations de stratégie et toutes les [exemptions de stratégie](../governance/policy/concepts/exemption-structure.md) nécessaires. |
-| Azure Active Directory Domain Services | Oui | Non |  |  |
+| Azure Active Directory Domain Services | Oui | Non |  | Vous ne pouvez pas transférer un domaine managé Azure AD Domain Services vers un autre répertoire. Pour plus d’informations, consultez le [Forum aux questions (FAQ) sur Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.md) |
 | Inscriptions des applications | Oui | Oui |  |  |
 
 > [!WARNING]

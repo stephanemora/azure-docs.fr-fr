@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: de113e3c005e11bd2bcd13ec6c1554664ba8fbaf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 52b3d902b2cbfdacfe92117dcf0057dab1fe9a83
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877233"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012207"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurer une instance de serveur de configuration Spring Cloud pour votre service
 
@@ -242,9 +242,9 @@ Azure Spring Cloud peut accéder aux référentiels Git publics, sécurisés par
 
    ![Serveur de configuration Spring Cloud](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## <a name="delete-your-app-configuration"></a>Supprimer la configuration de votre application
+## <a name="delete-your-configuration"></a>Supprimer votre configuration
 
-Une fois que vous avez enregistré un fichier de configuration, le bouton **Supprimer la configuration d’application** apparaît sous l’onglet **Configuration**. Cliquez sur ce bouton pour effacer complètement les paramètres existants. Vous pouvez le faire si vous voulez connecter votre instance de serveur de configuration à une autre source, par exemple, pour passer de GitHub à Azure DevOps.
+Vous pouvez sélectionner le bouton **Réinitialiser** qui apparaît sous l’onglet **Serveur de configuration** pour effacer complètement vos paramètres existants. Supprimez les paramètres du serveur de configuration si vous voulez connecter votre instance de serveur de configuration à une autre source, par exemple, pour passer de GitHub à Azure DevOps.
 
 
 

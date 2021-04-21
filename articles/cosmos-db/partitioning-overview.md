@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2021
-ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 099c65143f29f4fdf341b52e5d80731f1bdb0808
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772465"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030999"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,9 +26,9 @@ Cet article explique la relation entre les partitions logiques et physiques. Il 
 
 ## <a name="logical-partitions"></a>Partitions logiques
 
-Une partition logique est constituée d’un ensemble d’éléments dotés de la même clé de partition. Par exemple, dans un conteneur qui contient des données sur la nutrition, tous les éléments contiennent une propriété `foodGroup`. Vous pouvez utiliser `foodGroup` comme clé de partition pour le conteneur. Des groupes d’éléments ayant des valeurs spécifiques pour `foodGroup`, telles que `Beef Products`, `Baked Products` et `Sausages and Luncheon Meats`, forment des partitions logiques distinctes. Vous n’avez pas à vous soucier de la suppression d’une partition logique quand les données sous-jacentes sont supprimées.
+Une partition logique est constituée d’un ensemble d’éléments dotés de la même clé de partition. Par exemple, dans un conteneur qui contient des données sur la nutrition, tous les éléments contiennent une propriété `foodGroup`. Vous pouvez utiliser `foodGroup` comme clé de partition pour le conteneur. Des groupes d’éléments ayant des valeurs spécifiques pour `foodGroup`, telles que `Beef Products`, `Baked Products` et `Sausages and Luncheon Meats`, forment des partitions logiques distinctes.
 
-Une partition logique définit également la portée des transactions de base de données. Vous pouvez mettre à jour les éléments d’une partition logique via une [transaction avec isolement de capture instantanée](database-transactions-optimistic-concurrency.md). Lorsque de nouveaux éléments sont ajoutés à un conteneur, de nouvelles partitions logiques sont créées de façon transparente par le système.
+Une partition logique définit également la portée des transactions de base de données. Vous pouvez mettre à jour les éléments d’une partition logique via une [transaction avec isolement de capture instantanée](database-transactions-optimistic-concurrency.md). Lorsque de nouveaux éléments sont ajoutés à un conteneur, de nouvelles partitions logiques sont créées de façon transparente par le système. Vous n’avez pas à vous soucier de la suppression d’une partition logique quand les données sous-jacentes sont supprimées.
 
 Il n’existe aucune limite au nombre de partitions logiques dans votre conteneur. Chaque partition logique peut stocker jusqu’à 20 Go de données. Les bons choix de clé de partition procurent une large gamme de valeurs possibles. Par exemple, dans un conteneur dont tous les éléments contiennent une propriété `foodGroup`, les données de la partition logique `Beef Products` peuvent croître jusqu’à 20 Go. La [sélection d’une clé de partition](#choose-partitionkey) avec une large gamme de valeurs possibles garantit que le conteneur peut être mis à l’échelle.
 
@@ -38,7 +38,8 @@ Un conteneur est mis à l’échelle en distribuant les données et le débit su
 
 Le nombre de partitions physiques dans votre conteneur dépend des éléments suivants :
 
-* La quantité de débit approvisionnée (chaque partition physique peut fournir un débit allant jusqu’à 10 000 unités de requête par seconde).
+* La quantité de débit approvisionnée (chaque partition physique peut fournir un débit allant jusqu’à 10 000 unités de requête par seconde). La limite de 10 000 RU/s pour les partitions physiques implique que les partitions logiques doivent également avoir une limite de 10 000 RU/s, car chaque partition logique est seulement mappée à une seule partition physique.
+
 * Le stockage de données total (chaque partition physique peut stocker jusqu’à 50 Go de données).
 
 > [!NOTE]

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4db523624922d8ddcb8c1868b84927926d9ed3d5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644652"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103808"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partager et recevoir des données à partir de Stockage Blob Azure et d’Azure Data Lake Storage
 
@@ -201,7 +201,7 @@ La performance de capture instantanée de stockage est affectées par un certain
 
 * Accès simultané aux magasins de données sources et cibles.  
 * Emplacement des magasins de données sources et cibles. 
-* Pour un instantané incrémentiel, le nombre de fichiers dans le jeu de données partagé peut avoir un impact sur le temps nécessaire pour trouver la liste des fichiers dont l’heure de dernière modification est postérieure à la dernière capture instantanée réussie. 
+* Pour un instantané incrémentiel, le nombre de fichiers contenus dans le jeu de données partagé peut avoir un impact sur le temps nécessaire pour trouver la liste des fichiers dont la dernière modification est postérieure à la dernière capture instantanée réussie. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83a19dea56693a1caff2c982b9f772543fe1cf2e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510825"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073745"
 ---
 Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client. Les tailles isolées vivent et fonctionnent sur une génération de matériel spécifique et seront déconseillées lors de sa mise hors service.
 
@@ -31,6 +31,7 @@ Les offres actuelles de machines virtuelles isolées sont les suivantes :
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
+* Standard_DC8_v2
 
 
 > [!NOTE]
@@ -48,6 +49,7 @@ Les tailles de machines virtuelles isolées ont une durée de vie matérielle li
 | Standard_GS5  | 15 février 2022 |
 | Standard_E64i_v3  | 15 février 2022 |
 | Standard_E64is_v3  | 15 février 2022 |
+| Standard_DC8_v2 | 15 février 2022 |
 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
@@ -82,7 +84,7 @@ Les tailles de machines virtuelles isolées ont une durée de vie matérielle li
 | Date | Action |
 |---|---|
 | 15 février 2021<sup>1</sup> | Annonce de la mise hors service de l'isolation de G5/GS5/E64i_v3/E64is_v3 |
-| 15 février 2022 | Mise hors service de la garantie d'isolation de G5/GS5/E64i_v3/E64is_v3 |
+| 28 février 2022 | Mise hors service de la garantie d'isolation de G5/GS5/E64i_v3/E64is_v3 |
 
 <sup>1</sup> Les clients existants utilisant ces tailles recevront un e-mail d'annonce avec des instructions détaillées sur les étapes suivantes.  
 

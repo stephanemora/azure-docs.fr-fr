@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 47569309f35848e82488abd549751f6f1e5a1baa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afb30f4648f1649bf6cc6cc6a3bf02f433f49d45
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954868"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774928"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -192,7 +192,7 @@ Les configurations de cluster se trouvent maintenant derrière un contrôle d’
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Pourquoi est-ce que je vois « Privilèges insuffisants pour effectuer l’opération » lors de l’exécution de la commande Azure CLI pour attribuer le rôle Opérateur de cluster HDInsight à un autre utilisateur ou principal de service ?
 
-En plus d’avoir le rôle Propriétaire, l’utilisateur ou le principal de service qui exécute la commande doit disposer des autorisations Azure AD suffisantes pour rechercher les ID d’objet de la personne responsable. Ce message indique des autorisations Azure AD insuffisantes. Essayez de remplacer l’argument `-–assignee` par `–assignee-object-id` et fournissez l’ID d’objet de la personne responsable en tant que paramètre au lieu du nom (ou l’ID du principal dans le cas d’une identité managée). Pour plus d’informations, consultez la section des paramètres facultatifs de la [documentation relative à az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
+En plus d’avoir le rôle Propriétaire, l’utilisateur ou le principal de service qui exécute la commande doit disposer des autorisations Azure AD suffisantes pour rechercher les ID d’objet de la personne responsable. Ce message indique des autorisations Azure AD insuffisantes. Essayez de remplacer l’argument `-–assignee` par `–assignee-object-id` et fournissez l’ID d’objet de la personne responsable en tant que paramètre au lieu du nom (ou l’ID du principal dans le cas d’une identité managée). Pour plus d’informations, consultez la section des paramètres facultatifs de la [documentation relative à az role assignment create](/cli/azure/role/assignment#az_role_assignment_create).
 
 Si cela ne fonctionne toujours pas, contactez votre administrateur Azure AD pour obtenir les autorisations appropriées.
 

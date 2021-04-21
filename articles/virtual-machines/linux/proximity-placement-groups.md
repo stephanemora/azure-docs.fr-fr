@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: a347c9284608340811f9c2388df26129baeb8837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4f91afa86a0d99b4ce42e96295bf2ae1f9fcd9f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505645"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771440"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Déployer des machines virtuelles dans des groupes de placements avec Azure CLI
 
@@ -23,7 +23,7 @@ Le groupe de placements de proximité est un regroupement logique utilisé pour 
 
 
 ## <a name="create-the-proximity-placement-group"></a>Créer le groupe de placements de proximité
-Créez un groupe de placements de proximité à l’aide de [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
+Créez un groupe de placements de proximité à l’aide de [`az ppg create`](/cli/azure/ppg#az_ppg_create). 
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location westus
@@ -36,7 +36,7 @@ az ppg create \
 
 ## <a name="list-proximity-placement-groups"></a>Liste de groupes de placements de proximité
 
-Vous pouvez répertorier tous vos groupes de placements de proximité à l’aide de la commande [az ppg list](/cli/azure/ppg#az-ppg-list).
+Vous pouvez répertorier tous vos groupes de placements de proximité à l’aide de la commande [az ppg list](/cli/azure/ppg#az_ppg_list).
 
 ```azurecli-interactive
 az ppg list -o table
@@ -44,7 +44,7 @@ az ppg list -o table
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Créez une machine virtuelle dans le groupe placements de proximité avec la commande [new az vm](/cli/azure/vm#az-vm-create).
+Créez une machine virtuelle dans le groupe placements de proximité avec la commande [new az vm](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \
@@ -57,14 +57,14 @@ az vm create \
    -l westus
 ```
 
-Vous pouvez voir la machine virtuelle dans le groupe de placements de proximité avec [az ppg show](/cli/azure/ppg#az-ppg-show).
+Vous pouvez voir la machine virtuelle dans le groupe de placements de proximité avec [az ppg show](/cli/azure/ppg#az_ppg_show).
 
 ```azurecli-interactive
 az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
 ```
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité
-Vous pouvez également créer un groupe à haute disponibilité dans votre groupe de placements de proximité. Utilisez le même paramètre `--ppg` avec la cmdlet [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create) pour créer un groupe à haute disponibilité et toutes les machines virtuelles dans le groupe à haute disponibilité seront également créées dans le même groupe de placements de proximité.
+Vous pouvez également créer un groupe à haute disponibilité dans votre groupe de placements de proximité. Utilisez le même paramètre `--ppg` avec la cmdlet [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) pour créer un groupe à haute disponibilité et toutes les machines virtuelles dans le groupe à haute disponibilité seront également créées dans le même groupe de placements de proximité.
 
 ## <a name="scale-sets"></a>Groupes identiques
 

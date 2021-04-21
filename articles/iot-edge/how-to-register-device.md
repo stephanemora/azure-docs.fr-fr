@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: d75f184a324a9d418b0af2e3cf5790205af0fa42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5d761cfa947b3fd4e5f718e603219c650e8dd72
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200714"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481869"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>Inscrire un appareil IoT Edge dans IoT Hub
 
@@ -111,7 +111,7 @@ Dans l’écran de sortie, vous voyez le résultat de la commande. Les informati
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Utilisez la commande [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) pour créer une identité d’appareil dans votre hub IoT. Par exemple :
+Utilisez la commande [az iot hub device-identity create](/cli/azure/iot/hub/device-identity) pour créer une identité d’appareil dans votre hub IoT. Par exemple :
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -185,7 +185,7 @@ Actuellement, l’extension Azure IoT pour Visual Studio Code ne prend pas en ch
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Utilisez la commande [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) pour créer une identité d’appareil dans votre hub IoT. Par exemple :
+Utilisez la commande [az iot hub device-identity create](/cli/azure/iot/hub/device-identity) pour créer une identité d’appareil dans votre hub IoT. Par exemple :
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled --auth-method x509_thumbprint --primary-thumbprint [SHA thumbprint] --secondary-thumbprint [SHA thumbprint]
@@ -249,7 +249,7 @@ Vous pouvez également sélectionner **Obtenir les informations de l’appareil*
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Affichez des appareils IoT Edge avec Azure CLI
 
-Utilisez la commande [az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) pour voir tous les appareils dans votre hub IoT. Par exemple :
+Utilisez la commande [az iot hub device-identity list](/cli/azure/iot/hub/device-identity) pour voir tous les appareils dans votre hub IoT. Par exemple :
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -259,7 +259,7 @@ Tout appareil inscrit en tant qu’appareil IoT Edge a la propriété **capabili
 
 ### <a name="retrieve-the-connection-string-with-the-azure-cli"></a>Récupérer la chaîne de connexion avec Azure CLI
 
-Pour configurer votre appareil, vous avez besoin de la chaîne de connexion qui établit un lien entre votre appareil physique et son identité dans le hub IoT. Utilisez la commande [az iot hub device-identity connection-string show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) pour retourner la chaîne de connexion d’un appareil unique :
+Pour configurer votre appareil, vous avez besoin de la chaîne de connexion qui établit un lien entre votre appareil physique et son identité dans le hub IoT. Utilisez la commande [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string) pour retourner la chaîne de connexion d’un appareil unique :
 
    ```azurecli
    az iot hub device-identity connection-string show --device-id [device id] --hub-name [hub name]

@@ -4,17 +4,17 @@ description: Apprendre à contrôler les admissions pod à l’aide de PodSecuri
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4e72bd28910f471656feb27d10c123930305494e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611767"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031220"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Aperçu - Sécuriser votre cluster à l’aide de stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La fonctionnalité décrite dans ce document, stratégie de sécurité de pod (préversion), commencera à être dépréciée avec Kubernetes version 1.21, et sera supprimée dans la version 1.25.** Kubernetes Upstream étant proche de ce jalon, la communauté Kubernetes va travailler afin de documenter des alternatives viables. L’annonce de dépréciation précédente a été effectuée à un moment où il n’existait pas d’option viable pour les clients. Maintenant que la communauté Kubernetes travaille à une alternative, il n’est plus urgent de déprécier avant Kubernetes.
+> **La fonctionnalité décrite dans ce document, stratégie de sécurité de pod (préversion), commencera à être [dépréciée](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) avec Kubernetes version 1.21, et sera supprimée dans la version 1.25.** Kubernetes Upstream étant proche de ce jalon, la communauté Kubernetes va travailler afin de documenter des alternatives viables. L’annonce de dépréciation précédente a été effectuée à un moment où il n’existait pas d’option viable pour les clients. Maintenant que la communauté Kubernetes travaille à une alternative, il n’est plus urgent de déprécier avant Kubernetes. 
 >
 > Une fois que la stratégie de sécurité des pods (préversion) sera déconseillée, vous devrez désactiver la fonctionnalité sur tous les clusters existants à l’aide de la fonctionnalité déconseillée pour effectuer les futures mises à niveau de cluster et continuer à bénéficier du support Azure.
 

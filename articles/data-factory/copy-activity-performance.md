@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75f9080b43333168802a72e60751eec2a765c6d4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102616075"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580817"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guide sur les performances et la scalabilité de l’activité de copie
 
@@ -62,7 +62,10 @@ Cette utilisation complète signifie que vous pouvez estimer le débit global en
 * Banque de données de destination
 * Bande passante réseau entre les magasins de données source et de destination
 
-Le tableau ci-dessous calcule la durée de la copie. La durée dépend de la taille des données et de la limite de bande passante réseau/de magasin de données pour votre environnement.
+Le tableau ci-dessous montre le calcul de la durée du déplacement des données. La durée dans chaque cellule est calculée en fonction d’un réseau donné et de la bande passante de la banque de données, ainsi que d’une taille de charge utile donnée.
+
+> [!NOTE]
+> La durée fournie ci-dessous vise à représenter des performances atteignables dans une solution d’intégration de données de bout en bout implémentée à l’aide d’ADF, à l’aide d’une ou de plusieurs techniques d’optimisation des performances décrites dans [Fonctionnalités d’optimisation des performances de copie](#copy-performance-optimization-features), notamment l’utilisation de ForEach pour partitionner et générer plusieurs activités de copie simultanées. Nous vous recommandons de suivre les étapes indiquées dans [Procédure de réglage des performances](#performance-tuning-steps) pour optimiser les performances de copie pour votre jeu de données et votre configuration système spécifiques. Vous devez utiliser les nombres obtenus dans vos tests de réglage des performances pour la planification du déploiement de la production, la planification de la capacité et la projection de la facturation.
 
 &nbsp;
 

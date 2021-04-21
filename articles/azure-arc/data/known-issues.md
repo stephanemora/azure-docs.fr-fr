@@ -9,20 +9,51 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ee652047a33d73ece2d7648905fa590d90b1fb2f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121998"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029503"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Problèmes connus – Services de données avec Azure Arc (préversion)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## <a name="march-2021"></a>Mars 2021
+
+### <a name="data-controller"></a>Contrôleur de données
+
+- Vous pouvez créer un contrôleur de données en mode de connexion directe avec le portail Azure. Le déploiement avec d’autres outils de services de données avec Azure Arc n’est pas pris en charge. Plus précisément, vous ne pouvez pas déployer un contrôleur de données en mode de connexion directe avec l’un des outils suivants pendant cette version.
+   - Azure Data Studio
+   - Azure Data CLI (`azdata`)
+   - Outils natifs Kubernetes
+
+   L’article [Déployer le contrôleur de données Azure Arc | Mode de connexion directe](deploy-data-controller-direct-mode.md) explique comment créer le contrôleur de données dans le portail. 
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc enabled PostgreSQL Hyperscale
+
+- Le déploiement d’un groupe de serveurs Postgres Hyperscale avec Azure Arc dans un contrôleur de données Arc pour le mode de connexion directe n’est pas pris en charge.
+- Le passage d’une valeur non valide au paramètre `--extensions` lors de la modification de la configuration d’un groupe de serveurs pour activer des extensions supplémentaires réinitialise de manière incorrecte la liste des extensions activées à ce qu’elle était au moment de la création du groupe de serveurs et empêche l’utilisateur de créer des extensions supplémentaires. La seule solution de contournement disponible dans ce cas est de supprimer le groupe de serveurs et de le redéployer.
+
 ## <a name="february-2021"></a>Février 2021
 
-- Le mode de cluster connecté est désactivé
+### <a name="data-controller"></a>Contrôleur de données
+
+- Le mode de cluster de connexion directe est désactivé.
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc enabled PostgreSQL Hyperscale
+
+- La limite de restauration dans le temps n’est pas prise en charge pour l’instant sur le stockage NFS.
+- Il n’est pas possible d’activer et de configurer l’extension pg_cron en même temps. Vous devez utiliser deux commandes pour cela. Une commande pour l’activer et une autre pour la configurer. 
+
+   Par exemple :
+   ```console
+   § azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+   § azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+   ```
+
+   La première commande nécessite un redémarrage du groupe de serveurs. Ainsi, avant d’exécuter la deuxième commande, assurez-vous que l’état du groupe de serveurs est passé de Mise à jour à Prêt. Si vous exécutez la deuxième commande avant la fin du redémarrage, elle échouera. Si c’est le cas, attendez simplement quelques instants de plus et exécutez à nouveau la deuxième commande.
 
 ## <a name="introduced-prior-to-february-2021"></a>Introduit avant février 2021
 
@@ -43,12 +74,6 @@ ms.locfileid: "102121998"
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Décochez les cases des différentes zones pour n'en spécifier aucune.":::
 
-### <a name="postgresql"></a>PostgreSQL
-
-- L’hyperscale PostgreSQL avec Azure Arc activé retourne un message d’erreur incorrect lorsqu’il ne peut pas effectuer une restauration jusqu’au point relatif dans le temps que vous indiquez. Par exemple, si vous avez spécifié un instant dans le passé pour la restauration qui est antérieur aux éléments que contiennent vos sauvegardes, la restauration échoue avec un message d’erreur tel que : `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}`
-Dans ce cas, redémarrez la commande après avoir donné un point dans le temps qui se situe dans la plage de dates pour lesquelles vous avez des sauvegardes. Vous allez déterminer cette plage en répertoriant vos sauvegardes et en observant les dates auxquelles elles ont été faites.
-- La limite de restauration dans le temps n’est prise en charge que sur les groupes de serveurs. Le serveur cible d’une opération de restauration à un point dans le temps ne peut pas être le serveur à partir duquel vous avez effectué la sauvegarde. Il doit s’agir d’un groupe de serveurs différent. Toutefois, la restauration complète est prise en charge pour le même groupe de serveurs.
-- Un ID de sauvegarde est requis lors d’une restauration complète. Par défaut, si vous n’indiquez pas d’ID de sauvegarde, la sauvegarde la plus récente sera utilisée. Cela ne fonctionne pas dans cette version.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

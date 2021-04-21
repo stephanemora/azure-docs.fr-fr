@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: duau
-ms.openlocfilehash: a1e1bd107e8b3b9209f99d1abfc4d7e391c3c4a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 376aa04228113c56f0f797f737833802c9eca021
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98184337"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029486"
 ---
 # <a name="how-traffic-manager-works"></a>Fonctionnement de Traffic Manager
 
@@ -30,7 +30,7 @@ Traffic Manager offre deux principaux avantages :
 
 Quand un client tente de se connecter à un service, il doit d’abord résoudre le nom DNS du service à une adresse IP. Le client se connecte ensuite à l’adresse IP pour accéder au service.
 
-**L’essentiel ici est de comprendre que Traffic Manager fonctionne au niveau DNS.**  Traffic Manager utilise DNS pour diriger les clients vers des points de terminaison de service spécifiques en fonction des règles de la méthode de routage du trafic. Les clients se connectent **directement** au point de terminaison sélectionné. Traffic Manager n’est pas un proxy ou une passerelle. Traffic Manager ne voit pas le trafic entre le client et le service.
+**L’essentiel ici est de comprendre que Traffic Manager fonctionne au niveau DNS, c’est-à-dire au niveau de la couche Application (couche 7).**  Traffic Manager utilise DNS pour diriger les clients vers des points de terminaison de service spécifiques en fonction des règles de la méthode de routage du trafic. Les clients se connectent **directement** au point de terminaison sélectionné. Traffic Manager n’est pas un proxy ou une passerelle. Traffic Manager ne voit pas le trafic entre le client et le service.
 
 ## <a name="traffic-manager-example"></a>Exemple Traffic Manager
 

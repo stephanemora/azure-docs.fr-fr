@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Stream Analytics
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Stream Analytics. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 5cab2caee2057afacc8db7fe7e701b36f1e84fb3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: bfe79c6949bcc2520a35e6bb8901a2a56c97489a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095496"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499975"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Définitions intégrées d’Azure Policy pour Azure Stream Analytics
 

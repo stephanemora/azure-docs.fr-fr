@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: b1f742c1de259f6c1c06d9b31a8788699f0b8426
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99537219"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580032"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimer et gérer la capacité d’un service Recherche cognitive Azure
 
@@ -48,9 +48,9 @@ Dans Recherche cognitive, la gestion de shards est un détail d’implémentatio
 
 + Anomalies d’autocomplétion : Les requêtes autocomplétées, où les correspondances portent sur les premiers caractères d’un terme partiellement entré, acceptent un paramètre approximatif qui pardonne les petits écarts orthographiques. Pour l’autocomplétion, la correspondance approximative est limitée aux termes contenus dans le shard actif. Par exemple, si un shard contient « Microsoft » et que le terme partiel « micor » est entré, le moteur de recherche établit une correspondance avec « Microsoft » dans ce shard, mais pas dans ceux qui contiennent les autres parties de l’index.
 
-## <a name="how-to-evaluate-capacity-requirements"></a>Comment évaluer les besoins en capacité
+## <a name="approaching-estimation"></a>Estimation imminente
 
-La capacité et les coûts d’exécution du service vont de pair. Les niveaux imposent des limites dans deux catégories : le stockage et le contenu (nombre d’index sur un service, par exemple). Il est important de prendre en compte les deux, car la limite atteinte en premier représente la limite effective.
+La capacité et les coûts d’exécution du service vont de pair. Les niveaux imposent des limites à deux niveaux : le contenu (nombre d’index sur un service, par exemple) et le stockage. Il est important de prendre en compte les deux, car la limite atteinte en premier représente la limite effective.
 
 Les quantités d’index et d’autres objets sont généralement dictées par les exigences commerciales et techniques. Par exemple, vous pouvez avoir plusieurs versions du même index pour le développement actif, les tests et la production.
 
@@ -58,7 +58,9 @@ Les besoins de stockage dépendent de la taille des index que vous prévoyez de 
 
 Pour la recherche en texte intégral, la structure de données principale constitue une structure d’[index inversé](https://en.wikipedia.org/wiki/Inverted_index), dont les caractéristiques diffèrent de celles des données sources. Dans le cas d’un index inversé, la taille et la complexité sont déterminées par le contenu, et non nécessairement par la quantité de données qui l’alimentent. Une source de données volumineuse avec un haut niveau de redondance peut générer un index plus restreint qu’un jeu de données plus modeste présentant un contenu extrêmement variable. Il est donc généralement impossible de déduire la taille de l’index d’après celle du jeu de données d’origine.
 
-> [!NOTE] 
+Les attributs de l’index, tels que l’activation des filtres et du tri, ont un impact sur les exigences de stockage. L’utilisation de générateurs de suggestions a également des implications sur le stockage. Pour plus d’informations, consultez [Attributs et taille de l’index](search-what-is-an-index.md#index-size).
+
+> [!NOTE]
 > Même si l’estimation des besoins futurs en matière d’index et de stockage semble très approximative, elle en vaut la peine. Si la capacité d’un niveau se révèle insuffisante, vous devrez approvisionner un nouveau service à un niveau supérieur, puis [recharger vos index](search-howto-reindex.md). Un service ne peut faire l'objet d'aucune mise à niveau sur place d'un niveau vers un autre.
 >
 
@@ -87,7 +89,7 @@ Des ressources dédiées peuvent prendre en charge un échantillonnage et des te
     + Commencez à un niveau élevé, à S2 ou même S3, si les tests comprennent des charges d’interrogation et d’indexation à grande échelle.
     + Enfin, si vous indexez une grande quantité de données et que la charge de requêtes est relativement faible, comme dans le cas d’une application métier interne, commencez par le niveau À stockage optimisé L1 ou L2.
 
-1. [Générez un index initial](search-what-is-an-index.md) pour déterminer comment les données sources se traduisent par un index. C’est l’unique façon d’estimer la taille de l’index.
+1. [Générez un index initial](search-what-is-an-index.md) pour déterminer comment les données sources se traduisent par un index. C’est l’unique façon d’estimer la taille de l’index. 
 
 1. [Surveillez le stockage, les limites de service, le volume de requêtes et la latence](search-monitor-usage.md) dans le portail. Le portail vous indique le nombre de requêtes par seconde, les requêtes limitées et la latence de recherche. Toutes ces valeurs peuvent vous aider à décider si vous avez sélectionné le niveau adéquat.
 
@@ -111,7 +113,7 @@ Les niveaux À stockage optimisé sont utiles pour les charges de travail de don
 
 **Contrats de niveau de service**
 
-Le niveau Gratuit et les fonctionnalités d’évaluation ne fournissent pas de [Contrats de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Pour tous les niveaux facturables, les SLA entrent en vigueur lorsque vous approvisionnez une redondance suffisante pour votre service. Vous devez disposer d’au moins deux réplicas pour les SLA de requête (lecture). Vous devez posséder au moins trois réplicas pour les SLA de requête et d’indexation (lecture-écriture). Le nombre de partitions n’affecte pas les SLA.
+Le niveau Gratuit et les fonctionnalités d’évaluation ne sont pas couverts par des [Contrats de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Pour tous les niveaux facturables, les SLA entrent en vigueur lorsque vous approvisionnez une redondance suffisante pour votre service. Vous devez disposer d’au moins deux réplicas pour les SLA de requête (lecture). Vous devez posséder au moins trois réplicas pour les SLA de requête et d’indexation (lecture-écriture). Le nombre de partitions n’affecte pas les SLA.
 
 ## <a name="tips-for-capacity-planning"></a>Conseils pour la planification de la capacité
 
@@ -119,24 +121,30 @@ Le niveau Gratuit et les fonctionnalités d’évaluation ne fournissent pas de 
 
 + N’oubliez pas que le seul inconvénient du sous-approvisionnement réside dans le fait que vous devrez peut-être supprimer un service si les exigences réelles sont supérieures à vos prévisions. Pour éviter toute interruption de service, vous devrez créer un service à un niveau supérieur et l’exécuter côte à côte jusqu’à ce que toutes les applications et requêtes ciblent le nouveau point de terminaison.
 
-## <a name="when-to-add-partitions-and-replicas"></a>Quand ajouter des partitions et des réplicas
+## <a name="when-to-add-capacity"></a>Moment opportun pour ajouter de la capacité
 
-Au départ, un service se voit allouer un niveau minimal de ressources consistant en une partition et un réplica.
+Au départ, un service se voit allouer un niveau minimal de ressources consistant en une partition et un réplica. Le [niveau que vous choisissez](search-sku-tier.md) détermine la taille et la vitesse des partitions, et chaque niveau est optimisé par rapport à un ensemble de caractéristiques adaptées à différents scénarios. Si vous choisissez un niveau tarifaire supérieur, vous aurez sans doute besoin de moins de partitions que si vous optez pour le niveau S1. L’une des questions auxquelles vous devrez répondre au moyen de tests autonomes est de savoir si une partition plus grande et plus coûteuse offre de meilleures performances que deux partitions moins chères sur un service provisionné à un niveau inférieur.
 
 Un seul service doit avoir suffisamment de ressources pour gérer toutes les charges de travail (indexation et requêtes). Aucune charge de travail ne s’exécute en arrière-plan. Vous pouvez planifier l’indexation à des moments où les demandes de requête sont naturellement moins fréquentes, mais à part cela, le service n’établit pas de priorité entre les tâches. De plus, un certain degré de redondance lisse les performances des requêtes lorsque les services ou les nœuds sont mis à jour en interne.
 
-En règle générale, les applications de recherche tendent à avoir besoin de plus de réplicas que de partitions, en particulier lorsque les opérations de service favorisent les charges de travail de requête. La section [Haute disponibilité](#HA) explique pourquoi.
+Voici quelques conseils pour déterminer s’il convient d’ajouter de la capacité :
 
-Le [niveau que vous choisissez](search-sku-tier.md) détermine la taille et la vitesse des partitions, et chaque niveau est optimisé par rapport à un ensemble de caractéristiques adaptées à différents scénarios. Si vous choisissez un niveau tarifaire supérieur, vous aurez sans doute besoin de moins de partitions que si vous optez pour le niveau S1. L’une des questions auxquelles vous devrez répondre au moyen de tests autonomes est de savoir si une partition plus grande et plus coûteuse offre de meilleures performances que deux partitions moins chères sur un service provisionné à un niveau inférieur.
++ Respect des critères de haute disponibilité pour le contrat de niveau de service
++ La fréquence des erreurs HTTP 503 augmente
++ Des volumes de requêtes volumineux sont attendus
+
+En règle générale, les applications de recherche tendent à avoir besoin de plus de réplicas que de partitions, en particulier lorsque les opérations de service favorisent les charges de travail de requête. Chaque réplica est une copie de votre index, ce qui permet au service d’équilibrer la charge des requêtes sur plusieurs copies. L’équilibrage de la charge et la réplication d’un index sont entièrement gérés par la Recherche cognitive Azure, mais vous pouvez à tout moment changer le nombre de réplicas alloués à votre service. Vous pouvez allouer jusqu'à 12 réplicas dans un service de recherche Standard, et 3 dans un service de recherche de base. L’allocation de réplicas peut s’effectuer à partir du [portail Azure](search-create-service-portal.md) ou de l’une des options de programmation.
 
 Les applications de recherche nécessitant une actualisation des données en temps réel ou presque ont proportionnellement besoin de plus de partitions que de réplicas. L’ajout de partitions répartit les opérations de lecture/écriture sur un plus grand nombre de ressources de calcul. Il vous offre également davantage d’espace disque pour stocker des documents et des index supplémentaires.
 
-Plus les index sont grands, plus ils sont longs à interroger. Par conséquent, peut-être constaterez-vous que chaque augmentation incrémentielle des partitions nécessite une augmentation plus faible mais proportionnelle des réplicas. La complexité et le volume de vos requêtes auront une incidence sur la vitesse d’exécution des requêtes.
+Enfin, plus les index sont grands, plus ils sont longs à interroger. Par conséquent, peut-être constaterez-vous que chaque augmentation incrémentielle des partitions nécessite une augmentation plus faible mais proportionnelle des réplicas. La complexité et le volume de vos requêtes auront une incidence sur la vitesse d’exécution des requêtes.
 
 > [!NOTE]
 > L’ajout de réplicas ou de partitions augmente le coût d’exécution du service et peut introduire de légères variations dans la façon dont les résultats sont classés. N’oubliez pas d’utiliser la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour bien comprendre l’impact de l’ajout de nœuds supplémentaires sur votre facturation. Le [graphique ci-dessous](#chart) peut vous aider à déterminer le nombre d’unités de recherche requises pour une configuration spécifique. Pour plus d’informations sur l’impact des réplicas supplémentaires sur le traitement des requêtes, consultez [Classement des résultats](search-pagination-page-layout.md#ordering-results).
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Comment allouer des réplicas et partitions
+<a name="adjust-capacity"></a>
+
+## <a name="add-or-reduce-replicas-and-partitions"></a>Ajouter ou réduire des réplicas et des partitions
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/), puis sélectionnez le service de recherche.
 
@@ -158,7 +166,7 @@ Plus les index sont grands, plus ils sont longs à interroger. Par conséquent, 
 
    :::image type="content" source="media/search-capacity-planning/3-save-confirm.png" alt-text="Enregistrer les modifications" border="true":::
 
-   La prise d’effet des changements de capacité peut nécessiter quelques heures. Une fois que le processus a démarré, vous ne pouvez pas l’annuler, et il n’y a pas de supervision en temps réel des ajustements de réplicas et de partitions. Toutefois, le message suivant reste visible pendant que les changements prennent effet.
+   La prise d’effet des changements de capacité peut nécessiter de 15 minutes à quelques heures. Une fois que le processus a démarré, vous ne pouvez pas l’annuler, et il n’y a pas de supervision en temps réel des ajustements de réplicas et de partitions. Toutefois, le message suivant reste visible pendant que les changements prennent effet.
 
    :::image type="content" source="media/search-capacity-planning/4-updating.png" alt-text="Message de statut dans le portail" border="true":::
 
@@ -192,31 +200,7 @@ Les unités de recherche, leur tarification et leur capacité sont détaillées 
 > Le nombre de réplicas et de partitions est divisible par 12 de manière égale (plus précisément, 1, 2, 3, 4, 6, 12). Recherche cognitive Azure divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties équitablement sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un index, chaque partition contiendra quatre partitions de l'index. Le partitionnement d’un index réalisé par la Recherche cognitive Azure est un détail d'implémentation susceptible d’être modifié dans des futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
 >
 
-<a id="HA"></a>
-
-## <a name="high-availability"></a>Haute disponibilité
-
-Nous vous recommandons généralement de démarrer avec une partition et un ou deux réplicas, puis de monter en puissance à mesure que les volumes de requête se créent. Les charges de travail de requêtes s’exécutent principalement sur des réplicas. Si vous nécessitez une haute disponibilité ou un débit plus important, vous aurez probablement besoin de réplicas supplémentaires.
-
-Recommandations générales pour la haute disponibilité :
-
-+ Deux réplicas pour la haute disponibilité des charges de travail en lecture seule (requêtes)
-
-+ Trois réplicas minimum pour la haute disponibilité des charges de travail en lecture/écriture (les requêtes et l’indexation en tant que documents individuels sont ajoutées, mises à jour ou supprimées)
-
-Les contrats de niveau de service (SLA) pour la Recherche cognitive Azure sont ciblés au moment des opérations de requête et des mises à jour d’index qui se composent d’ajout, de mise à jour ou de suppression de documents.
-
-Le niveau De base est plafonné à une partition et trois réplicas. Si vous souhaitez pouvoir répondre immédiatement aux fluctuations de la demande sur le plan de l’indexation et du débit des requêtes, songez à passer à l’un des niveaux Standard.  Si vous trouvez que vos besoins de stockage augmentent beaucoup plus rapidement que votre débit de requête, envisagez l’un des niveaux de stockage optimisé.
-
-## <a name="about-queries-per-second-qps"></a>À propos des requêtes par seconde
-
-En raison du grand nombre de facteurs intervenant dans les performances des requêtes, Microsoft ne publie pas les nombres attendus de requêtes par seconde. Les estimations de requêtes par seconde doivent être développées indépendamment par chaque client à l’aide des constructions de niveau de service, de configuration, d’index et de requête valides pour votre application. La taille et la complexité des index et des requêtes ainsi que la quantité de trafic sont les principaux facteurs qui déterminent le nombre de requêtes par seconde. Si ces facteurs sont inconnus, il est impossible d’établir des estimations significatives.
-
-Les estimations sont plus prévisibles si elles sont calculées sur des services qui s’exécutent sur des ressources dédiées (niveaux De base et Standard). Vous pouvez mieux estimer les requêtes par seconde, car vous contrôlez davantage de paramètres. Pour obtenir de l’aide sur la manière d’aborder les estimations, consultez [Performances et optimisation de Recherche cognitive Azure](search-performance-optimization.md).
-
-Pour les niveaux à stockage optimisé (L1 et L2), attendez-vous à un plus faible débit des requêtes et à une latence plus élevée que les niveaux Standard.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Comment estimer et gérer les coûts](search-sku-manage-costs.md)
+> [Gérer les coûts](search-sku-manage-costs.md)

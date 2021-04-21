@@ -1,25 +1,25 @@
 ---
-title: Quotas et limites des services de reconnaissance vocale
+title: Quotas et limites du service Batch
 titleSuffix: Azure Cognitive Services
-description: Référence rapide, description détaillée et meilleures pratiques concernant les quotas et limites de la reconnaissance vocale de la solution Azure Cognitive Services
+description: Aide-mémoire, description détaillée et bonnes pratiques concernant les quotas et limites du service Speech Azure Cognitive Services
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f851d7999b063a2b1334564902d81343e3789439
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937054"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011171"
 ---
-# <a name="speech-services-quotas-and-limits"></a>Quotas et limites des services de reconnaissance vocale
+# <a name="speech-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
-Cet article contient une référence rapide et la **description détaillée** des quotas et des limites de la reconnaissance vocale d’Azure Cognitive Services pour tous les [niveaux de prix](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Il présente également les meilleures pratiques pour éviter la limitation des demandes. 
+Cet article contient un aide-mémoire et la **description détaillée** des quotas et des limites de la reconnaissance vocale d’Azure Cognitive Services pour tous les [niveaux tarifaires](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Il présente également les meilleures pratiques pour éviter la limitation des demandes. 
 
 ## <a name="quotas-and-limits-quick-reference"></a>Référence rapide sur les quotas et limites
 Passer à [Quotas et limites de la synthèse vocale](#text-to-speech-quotas-and-limits-per-speech-resource)
@@ -98,9 +98,13 @@ Les sections suivantes décrivent des cas spécifiques d’ajustement des quotas
 Accédez à [Synthèse vocale. Augmentation de la limite de demandes simultanées de transcription pour Custom Voice](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice).
 
 ### <a name="speech-to-text-increasing-online-transcription-concurrent-request-limit"></a>Reconnaissance vocale : augmentation de la limite du nombre de demandes simultanées de transcription en ligne
-Par défaut, le nombre de demandes simultanées est limité à 20 par ressource vocale (modèle de base) ou point de terminaison personnalisé (modèle personnalisé). Pour le niveau tarifaire standard, vous pouvez augmenter ce montant. Avant de soumettre la demande, assurez-vous d’avoir bien compris le contenu de [cette section](#detailed-description-quota-adjustment-and-best-practices), ainsi que les [meilleures pratiques](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+Par défaut, le nombre de demandes simultanées est limité à 100 par ressource vocale (modèle de base) et à 20 par point de terminaison personnalisé (modèle personnalisé). Pour le niveau tarifaire standard, vous pouvez augmenter ce montant. Avant de soumettre la demande, assurez-vous d’avoir bien compris le contenu de [cette section](#detailed-description-quota-adjustment-and-best-practices), ainsi que les [meilleures pratiques](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-L’amélioration de la limite de demandes simultanées n’affecte **pas** directement vos coûts. Les services de reconnaissance vocale utilisent le modèle « Payez uniquement pour ce que vous utilisez ». La limite définit la hauteur à laquelle le service peut mettre à l’échelle avant de commencer à limiter vos demandes.
+>[!NOTE]
+> Si vous utilisez des modèles personnalisés, sachez qu’une ressource Speech peut être associée à de nombreux points de terminaison personnalisés hébergeant de nombreux déploiements de modèles personnalisés. Pour chaque point de terminaison personnalisé, le nombre maximal de demandes simultanées (20) par défaut est défini lors de la création. Si vous devez l’ajuster, vous devez le faire **séparément** pour chaque point de terminaison personnalisé. Notez également que la valeur du nombre maximal de demandes simultanées pour le modèle de base d’une ressource Speech n’a **aucun** effet sur les points de terminaison personnalisés associés à cette ressource.
+
+
+L’amélioration de la limite de demandes simultanées n’affecte **pas** directement vos coûts. Le service Speech utilise le modèle « Payez uniquement pour ce que vous utilisez ». La limite définit la hauteur à laquelle le service peut mettre à l’échelle avant de commencer à limiter vos demandes.
 
 Les limites de demandes simultanées pour les modèles **De base** et **Personnalisés** doivent être ajustées **séparément**.
 
@@ -168,7 +172,7 @@ En règle générale, il est fortement recommandé de tester la charge de travai
 ### <a name="text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice"></a>Synthèse vocale : extension de la limite de demandes simultanées de transcription pour Custom Voice
 Par défaut, le nombre de demandes simultanées pour un point de terminaison Custom Voice est limité à 10. Pour le niveau tarifaire standard, vous pouvez augmenter ce montant. Avant de soumettre la demande, assurez-vous d’avoir bien compris le contenu de [cette section](#detailed-description-quota-adjustment-and-best-practices), ainsi que les [meilleures pratiques](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-L’amélioration de la limite de demandes simultanées n’affecte **pas** directement vos coûts. Les services de reconnaissance vocale utilisent le modèle « Payez uniquement pour ce que vous utilisez ». La limite définit la hauteur à laquelle le service peut mettre à l’échelle avant de commencer à limiter vos demandes.
+L’amélioration de la limite de demandes simultanées n’affecte **pas** directement vos coûts. Le service Speech utilise le modèle « Payez uniquement pour ce que vous utilisez ». La limite définit la hauteur à laquelle le service peut mettre à l’échelle avant de commencer à limiter vos demandes.
 
 La valeur existante du paramètre Limite de demandes simultanées n’est **pas visible** via le portail Azure, des outils en ligne de commande ou des demandes d’API. Pour vérifier la valeur existante, créez une demande de support Azure.
 

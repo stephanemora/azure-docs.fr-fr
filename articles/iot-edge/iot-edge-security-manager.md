@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 468f1b91d6c6157cd2af6de9599bad7f43c1ad8f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ed73c114c015ce38fefa02d2b71e27e8f85dca39
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492555"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028670"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestionnaire de sécurité Azure IoT Edge
 
@@ -119,12 +119,17 @@ Le silicium sécurisé est nécessaire à l’approbation d’ancrage dans le ma
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Maintenance et intégration de gestionnaire de sécurité IoT Edge
 
-Le gestionnaire de sécurité IoT Edge a pour but d’identifier et d’isoler les composants chargés d’assurer la sécurité et l’intégrité de la plateforme Azure IoT Edge pour un renforcement personnalisé. Les tierces parties, telles que les fabricants d’appareils, doivent utiliser les fonctionnalités de sécurité personnalisées qui sont disponibles pour les composants matériels de leurs appareils.  Reportez-vous à la section Étapes suivantes pour obtenir des liens qui montrent comment renforcer le gestionnaire de sécurité Azure IoT avec le module de plateforme sécurisée (TPM) sur les plateformes Linux et Windows. Ces exemples utilisent des logiciels ou des modules de plateforme sécurisée virtuels, mais ils s’appliquent directement à l’utilisation des appareils TPM discrets.  
+Le gestionnaire de sécurité IoT Edge a pour but d’identifier et d’isoler les composants chargés d’assurer la sécurité et l’intégrité de la plateforme Azure IoT Edge pour un renforcement personnalisé. Les tierces parties, telles que les fabricants d’appareils, doivent utiliser les fonctionnalités de sécurité personnalisées qui sont disponibles pour les composants matériels de leurs appareils.  
+
+Découvrez comment renforcer le gestionnaire de sécurité d’Azure IoT avec la technologie Trusted Platform Module (TPM) à l’aide de TPM logiciels ou virtuels :  
+
+Créer et provisionner un [appareil IoT Edge à l’aide d’un TPM virtuel sur une machine virtuelle Linux](how-to-auto-provision-simulated-device-linux.md)
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Créer et provisionner un [appareil IoT Edge avec un TPM simulé sur Windows](how-to-auto-provision-simulated-device-windows.md)
+:::moniker-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lire le blog sur [Sécuriser la périphérie intelligente](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
-
-Créer et provisionner un [appareil IoT Edge à l’aide d’un TPM virtuel sur une machine virtuelle Linux](how-to-auto-provision-simulated-device-linux.md)
-
-Créer et provisionner un [appareil IoT Edge avec un TPM simulé sur Windows](how-to-auto-provision-simulated-device-windows.md)
