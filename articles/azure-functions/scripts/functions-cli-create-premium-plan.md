@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 714dd8d886f567bcdf07c93803662ef4b2c635f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d9f72fa433364f8d71ba44207d570bb827cd243
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94565158"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786199"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Créer une application de fonction dans un plan Premium - Azure CLI
 
@@ -36,10 +36,10 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crée un compte de stockage Azure. |
-| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Crée un plan Premium dans une [référence SKU](../functions-premium-plan.md#available-instance-skus) spécifique. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crée une application de fonction dans le plan App Service. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az_functionapp_plan_create) | Crée un plan Premium dans une [référence SKU](../functions-premium-plan.md#available-instance-skus) spécifique. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crée une application de fonction dans le plan App Service. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3a52d7ea8c940a33f4fbd2b9ad69f4f889615e7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d4508572d284347af9df961b324f44ec1518f88
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934337"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786114"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Créer une application de fonction pour une exécution de code sans serveur 
 
@@ -37,9 +37,9 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crée un compte de stockage Azure. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crée une Function App. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crée une Function App. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

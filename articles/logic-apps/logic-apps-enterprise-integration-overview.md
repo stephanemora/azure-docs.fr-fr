@@ -7,17 +7,17 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
-ms.date: 08/01/2019
-ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 09d253aae4c054db5efdc252f62986044e1d366b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86536400"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771854"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Solutions d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack
 
-Pour les solutions B2B (Business-to-Business) et une communication fluide entre les organisations, vous pouvez générer des workflows d’intégration d’entreprise scalables automatisés en utilisant Enterprise Integration Pack (EIP) avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Les organisations peuvent échanger des messages électroniques, même si elles utilisent des formats et des protocoles différents. EIP transforme différents formats en un format que les systèmes de votre organisation peuvent traiter et prend en charge les protocoles standard, notamment [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Vous pouvez également améliorer la sécurité des messages en utilisant à la fois le chiffrement et les signatures numériques. EIP prend en charge les [connecteurs d’intégration d’entreprise](../connectors/apis-list.md#integration-account-connectors) et normes industrielles ci-dessous :
+Pour les solutions B2B (Business-to-Business) et une communication fluide entre les organisations, vous pouvez générer des workflows d’intégration d’entreprise scalables automatisés en utilisant Enterprise Integration Pack (EIP) avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Les organisations peuvent échanger des messages électroniques, même si elles utilisent des formats et des protocoles différents. EIP transforme différents formats en un format que les systèmes de votre organisation peuvent traiter et prend en charge les protocoles standard, notamment [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Vous pouvez également améliorer la sécurité des messages en utilisant à la fois le chiffrement et les signatures numériques. EIP prend en charge les [connecteurs d’intégration d’entreprise](../connectors/managed.md#enterprise-connectors) et normes industrielles ci-dessous :
 
 * Échange de données informatisé (EDI)
 * Intégration des applications de l’entreprise (EAI)

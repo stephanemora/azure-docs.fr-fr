@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: cca08e1be0f81c26d0838566ac4900d36580b8b8
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ca46ce3355edf2b77400011d023cd6af330a3b58
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066294"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770430"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Qu’est-ce qu’Azure Data Box Disk ?
 
@@ -35,7 +35,7 @@ Les fournisseurs Azure et non-Azure peuvent ingérer des données d’Azure Data
 
 - **SharePoint Online** : utilisez Azure Data Box et l’Outil de migration SharePoint (SPMT) pour migrer le contenu de votre partage de fichiers vers SharePoint Online. Data Box vous permet de ne plus dépendre de votre liaison WAN pour transférer les données. Pour plus d’informations, consultez [Utiliser Azure Data Box Heavy pour migrer le contenu de votre partage de fichiers vers SharePoint Online](data-box-heavy-migrate-spo.md).
 
-- **Azure File Sync** : réplique les fichiers de votre Data Box vers un partage de fichiers Azure, ce qui vous permet de centraliser vos services de fichiers dans Azure tout en conservant un accès local à vos données. Pour plus d’informations, consultez [Déployer Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md).
+- **Azure File Sync** : réplique les fichiers de votre Data Box vers un partage de fichiers Azure, ce qui vous permet de centraliser vos services de fichiers dans Azure tout en conservant un accès local à vos données. Pour plus d’informations, consultez [Déployer Azure File Sync](../storage/file-sync/file-sync-deployment-guide.md).
 
 - **Magasins HDFS** : migrez des données d’un magasin HDFS (Hadoop Distributed File System) local de votre cluster Hadoop vers un stockage Azure à l’aide de Data Box. Pour plus d’informations, consultez [Migrer un magasin HDFS local vers Stockage Azure à l’aide d’Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 

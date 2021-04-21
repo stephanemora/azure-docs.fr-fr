@@ -1,15 +1,18 @@
 ---
 title: Guide de démarrage rapide – Déployer un conteneur Docker dans une instance de conteneur – Portail
 description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolé.
-ms.topic: quickstart
 ms.date: 08/24/2020
-ms.custom: seodec18, mvc, devx-track-js
-ms.openlocfilehash: c8477bd91c3a02a2cd02d341c38c16da251902ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devx-track-js
+- mode-portal
+ms.openlocfilehash: c0189bbd04e454205b34a6415ab6109f95b6f51a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004804"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536236"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide du portail Azure
 

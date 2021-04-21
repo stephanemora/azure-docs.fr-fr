@@ -3,19 +3,18 @@ title: Gérer Azure Key Vault à l’aide de l’interface de ligne de commande
 description: Utilisez cet article pour automatiser les tâches courantes dans Key Vault à l’aide de l’interface de ligne de commande Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c084df60fa2293a614726be44669a1465b399d2c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4037e66e653bc6e958020a5ef8722f2febb53d0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557205"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772177"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -221,7 +220,7 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 ## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a>Définir des stratégies avancées d’accès au coffre de clés
 
-Utilisez [mise à jour du paramètre keyvault az](/cli/azure/keyvault#az-keyvault-update) pour activer des stratégies avancées pour le coffre de clés.
+Utilisez [mise à jour du paramètre keyvault az](/cli/azure/keyvault#az_keyvault_update) pour activer des stratégies avancées pour le coffre de clés.
 
  Activer Key Vault pour le déploiement : autorise les machines virtuelles à récupérer des certificats stockés en tant que secrets dans le coffre.
 
