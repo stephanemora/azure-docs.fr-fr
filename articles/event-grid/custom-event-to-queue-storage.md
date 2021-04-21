@@ -4,12 +4,12 @@ description: 'Démarrage rapide : Utilisez Azure Event Grid et Azure CLI pour p
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb7712fbc5a0498695a8737d627f407eb6dfa575
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493258"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766822"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Démarrage rapide : Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid
 
@@ -29,7 +29,7 @@ Cet article vous donne les commandes permettant d’utiliser Azure CLI.
 
 Les rubriques Event Grid sont des ressources Azure et doivent être placées dans un groupe de ressources Azure. Un groupe de ressources est une collection logique dans laquelle des ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). 
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). 
 
 L’exemple suivant crée un groupe de ressources nommé *gridResourceGroup* à l’emplacement *westus2*.
 

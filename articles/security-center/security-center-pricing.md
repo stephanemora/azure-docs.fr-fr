@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 03/23/2021
-ms.openlocfilehash: 1825f5be8a4f8a8ddfba931dfbc7e77186b4331f
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: aa65989953f761ff915383fcb59da7f36ea98dab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889448"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600480"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center gratuit et Azure Defender activé
 Azure Defender est gratuit pendant les 30 premiers jours. Une fois les 30 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
@@ -119,7 +119,7 @@ Ces données correspondent à un tarif journalier moyenné sur l’ensemble des 
 
 ### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>Quels sont les types de données inclus dans l’allocation quotidienne de données de 500 Mo ?
 
-La facturation de Security Center est étroitement liée à la facturation de Log Analytics. Security Center permet une attribution de 500 Mo/nœud/jour par rapport au sous-ensemble de [types de données de sécurité](/azure/azure-monitor/reference/tables/tables-category.md#security)suivant :
+La facturation de Security Center est étroitement liée à la facturation de Log Analytics. Security Center permet une attribution de 500 Mo/nœud/jour par rapport au sous-ensemble de [types de données de sécurité](/azure/azure-monitor/reference/tables/tables-category#security)suivant :
 - WindowsEvent
 - SecurityAlert
 - SecurityBaseline

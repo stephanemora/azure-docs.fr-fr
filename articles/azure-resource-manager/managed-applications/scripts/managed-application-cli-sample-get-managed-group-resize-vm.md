@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 711b516d1ba1154e574b0d8bbd8d86a02d7df018
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 179b1b64656d3f97778e183d57797e4b3660fece
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87497815"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775436"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obtenir des ressources dans un groupe de ressources managé et redimensionner des machines virtuelles avec Azure CLI
 
@@ -34,9 +34,9 @@ Ce script utilise les commandes suivantes pour déployer l’application managé
 
 | Commande | Notes |
 |---|---|
-| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | Répertorier les applications managées. Fournir des valeurs de requête pour affiner les résultats. |
-| [az resource list](/cli/azure/resource#az-resource-list) | Répertoriez les ressources. Fournir un groupe de ressources et des valeurs de requête pour affiner le résultat. |
-| [az vm resize](/cli/azure/vm#az-vm-resize) | Mettre à jour la taille d’une machine virtuelle. |
+| [az managedapp list](/cli/azure/managedapp#az_managedapp_list) | Répertorier les applications managées. Fournir des valeurs de requête pour affiner les résultats. |
+| [az resource list](/cli/azure/resource#az_resource_list) | Répertoriez les ressources. Fournir un groupe de ressources et des valeurs de requête pour affiner le résultat. |
+| [az vm resize](/cli/azure/vm#az_vm_resize) | Mettre à jour la taille d’une machine virtuelle. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

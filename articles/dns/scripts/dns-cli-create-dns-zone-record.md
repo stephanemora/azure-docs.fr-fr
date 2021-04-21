@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/20/2019
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 348b7911930711a25c88595b6360341ef6e00468
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5692c7a81d34ec9005c1c4675c71d63e697c5f47
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94954424"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783698"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exemple de script Azure CLI : créer une zone et un enregistrement DNS
 
@@ -41,11 +41,11 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | Crée une zone Azure DNS. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) | Crée une zone Azure DNS. |
 | [az network dns record-set a add-record](/cli/azure/network/dns/record-set) | Ajoute un enregistrement *A* à une zone DNS. |
 | [az network dns record-set list](/cli/azure/network/dns/record-set) | Répertorie tous les jeux d’enregistrements *A* dans une zone DNS. |
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

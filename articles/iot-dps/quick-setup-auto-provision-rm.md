@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 505859075ce58c5db6873544123710a11135651a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198606"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788976"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec un modèle ARM
 
@@ -136,7 +136,7 @@ Vous connecter à votre compte Azure et sélectionner votre abonnement.
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
-1. Pour vérifier le déploiement, exécutez la [commande suivante pour lister les ressources](/cli/azure/resource#az-resource-list) et recherchez le nouveau service de provisionnement et le hub IoT dans la sortie :
+1. Pour vérifier le déploiement, exécutez la [commande suivante pour lister les ressources](/cli/azure/resource#az_resource_list) et recherchez le nouveau service de provisionnement et le hub IoT dans la sortie :
 
     ```azurecli
      az resource list -g "${projectName}rg"
@@ -171,4 +171,3 @@ Dans ce guide de démarrage rapide, vous avez déployé un hub IoT et une instan
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide pour provisionner un appareil](./quick-create-simulated-device-symm-key.md)
-
