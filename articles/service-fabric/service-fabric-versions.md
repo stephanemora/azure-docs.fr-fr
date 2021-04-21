@@ -3,12 +3,12 @@ title: Mettre à niveau la version de votre cluster Azure Service Fabric
 description: Découvrez les versions de cluster dans Azure Service Fabric, notamment un lien vers les versions les plus récentes à partir du blog de l’équipe Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 3e859a04ffb0b885aab0f31e83afad8380cbcc95
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1f06d7cb5f8fa1182969447168dfb4297473075a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010199"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257532"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Mettre à niveau la version de votre cluster Azure Service Fabric
 
@@ -85,14 +85,15 @@ Les versions de Service Fabric dans le tableau contiennent les modifications né
 
  | Système d’exploitation | Runtime Service Fabric actuel dans le cluster | Date de publication du CU/correctif |
   | --- | --- |--- |
-  | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |
-  | Windows | 7.2.* | 7.2.* |
-  | Linux Ubuntu 16.04 | 7.0.* | 7.0.472.1  |
+  | Windows | 7.2.* | 7.2.477.9590 |
+  | Windows | 8.0.* | 8.0.514.9590 |
   | Linux Ubuntu 16.04 | 7.1.* | 7.1.455.1  |
   | Linux Ubuntu 18.04 | 7.1.* | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7.2.* | 7.2.* |
-  | Linux Ubuntu 18.04 | 7.2.* | 7.2.* |
+  | Linux Ubuntu 16.04 | 7.2.* | 7.2.476.1 |
+  | Linux Ubuntu 18.04 | 7.2.* | 7.2.476.1804 |
+  | Linux Ubuntu 16.04 | 8.0.* | 8.0.513.1 |
+  | Linux Ubuntu 18.04 | 8.0.* | 8.0.513.1804 |
 
 ## <a name="supported-versions"></a>Versions prises en charge
 
@@ -125,13 +126,14 @@ Le tableau suivant répertorie les versions de Service Fabric et leurs dates de 
 | 7.1.459.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 juillet 2021 |
 | 7.1.503.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 juillet 2021 |
 | 7.1.510.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 juillet 2021 |
-| 7.2.413.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.2.432.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.2.433.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.2.445.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.2.452.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.2.457.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.2.477.* | 7.0.478.* |Inférieure ou égale à la version 4.2 |Version actuelle ; par conséquent, pas de date de fin |
+| 7.2.413.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |30 novembre 2021 |
+| 7.2.432.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |30 novembre 2021 |
+| 7.2.433.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |30 novembre 2021 |
+| 7.2.445.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |30 novembre 2021 |
+| 7.2.452.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |30 novembre 2021 |
+| 7.2.457.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |30 novembre 2021 |
+| 7.2.477.* | 7.0.478.* |Inférieure ou égale à la version 4.2 |30 novembre 2021 |
+| 8.0.514.* | 7.1.510.* |Inférieure ou égale à la version 5.0 |Version actuelle ; par conséquent, pas de date de fin |
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -216,3 +218,4 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
+| 8.0 RTO | 8.0.514.9590 | 8.0.513.1 |

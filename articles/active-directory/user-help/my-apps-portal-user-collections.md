@@ -1,5 +1,5 @@
 ---
-title: Collections (préversion) dans le portail Mes applications – Azure AD
+title: Organiser les applications en collections dans le portail Mes applications Azure AD
 description: Découvrez comment créer, modifier, supprimer, masquer et afficher des collections d’applications dans Mes applications.
 services: active-directory
 author: curtand
@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/07/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ac5dede27262d3ce8bc44b4b278ed623063f8e1
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095118"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209661"
 ---
-# <a name="user-collections-preview-in-my-apps"></a>Collections d’utilisateurs (préversion) dans Mes applications
+# <a name="organize-apps-using-collections-from-my-apps"></a>Organiser les applications avec les collections de Mes applications
 
 Mes applications est votre guichet unique pour le lancement et la gestion de toutes vos applications professionnelles ou scolaires. Créez des collections pour organiser vos applications et faciliter la recherche des applications dont vous avez besoin.
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 Cet article explique comment effectuer les opérations suivantes :
 
@@ -55,7 +53,7 @@ Cet article explique comment effectuer les opérations suivantes :
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="Ajout d’applications de la liste à votre collection":::
 
-1. Ensuite, vous pouvez réorganiser ou supprimer des applications, ou sélectionner **Ajouter des applications** pour sélectionner d’autres applications pour la collection. Lorsque vous êtes satisfait de vos choix, sélectionnez **Créer**.  
+1. Dan le volet **Créer**, vous pouvez réorganiser ou supprimer des applications, ou vous pouvez sélectionner **Ajouter des applications** pour choisir d’autres applications pour la collection. Lorsque vous êtes satisfait de vos choix, sélectionnez **Créer**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="Sélectionnez le bouton Créer pour enregistrer la collection dans Mes applications":::
 

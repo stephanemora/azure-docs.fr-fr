@@ -4,16 +4,17 @@ description: Ce tutoriel fournit des instructions détaillées sur l’utilisati
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
-ms.service: data-factory
+ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: cb0fd5464f7025d71dd384c56233aefa6a6cd364
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37696d2f4054e46125b39f3d5efa794ce54f94b5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98218720"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567721"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Démarrage rapide : Transformer des données avec des flux de données de mappage
 

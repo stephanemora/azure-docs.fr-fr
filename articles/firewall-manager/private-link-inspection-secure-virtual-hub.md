@@ -7,14 +7,17 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: jocorte
-ms.openlocfilehash: a1237077b9e0a1af67d34c85d8ea8d526bd71372
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7322bab635d398fc7a5335546ba6fef327ff24b2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281283"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259351"
 ---
 # <a name="secure-traffic-destined-to-private-endpoints-in-azure-virtual-wan"></a>Sécuriser le trafic destiné aux points de terminaison privés dans Azure Virtual WAN
+
+> [!NOTE]
+> Cet article s’applique uniquement au hub virtuel sécurisé. Si vous souhaitez inspecter le trafic destiné à des points de terminaison privés à l’aide du Pare-feu Azure dans un réseau virtuel de hub, consultez [Utiliser le Pare-feu Azure pour inspecter le trafic destiné à un point de terminaison privé](../private-link/inspect-traffic-with-azure-firewall.md).
 
 Le [point de terminaison privé Azure](../private-link/private-endpoint-overview.md) est le composant fondamental d’[Azure Private Link](../private-link/private-link-overview.md). Les points de terminaison privés permettent aux ressources Azure déployées dans un réseau virtuel de communiquer en privé avec des ressources de liaisons privées.
 
@@ -64,7 +67,7 @@ Le diagramme suivant illustre les flux du DNS et des trafics de données des dif
 
 :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/private-link-inspection-virtual-wan-architecture.png" alt-text="Flux de trafic" border="true":::
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Voici les principaux problèmes que vous pouvez rencontrer lorsque vous tentez de filtrer le trafic destiné à des points de terminaison privés via un hub virtuel sécurisé :
 

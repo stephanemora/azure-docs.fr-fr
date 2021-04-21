@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709937"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581609"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Collecter et analyser des données de journal pour Recherche cognitive Azure
 
-Les journaux de diagnostic ou opérationnels fournissent des informations sur les opérations détaillées de Recherche cognitive Azure et sont utiles pour surveiller les processus de charge de travail et de service. En interne, Microsoft conserve les informations système sur le back-end pendant une courte période (environ 30 jours), suffisante pour l’investigation et l’analyse si vous créez un ticket de support. Toutefois, si vous voulez être propriétaire des données opérationnelles, vous devez configurer un paramètre de diagnostic pour spécifier l’emplacement où les informations de journalisation sont collectées.
+Les journaux de diagnostic ou opérationnels fournissent des informations sur les opérations détaillées de Recherche cognitive Azure, et sont utiles pour superviser les processus et l’intégrité des services. En interne, Microsoft conserve les informations système sur le back-end pendant une courte période (environ 30 jours), suffisante pour l’investigation et l’analyse si vous créez un ticket de support. Toutefois, si vous voulez être propriétaire des données opérationnelles, vous devez configurer un paramètre de diagnostic pour spécifier l’emplacement où les informations de journalisation sont collectées.
 
 La journalisation des diagnostics est activée via l’intégration à [Azure Monitor](../azure-monitor/index.yml). 
 
