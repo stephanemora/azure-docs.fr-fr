@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98c0a6f88da717256e78a748902317a90a369a9c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579237"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533620"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -59,62 +59,6 @@ Pour vérifier les rôles attribués à un utilisateur pour un abonnement :
 3. Pour répertorier tous les rôles attribués à un utilisateur donné, utilisez **Get-AzRoleAssignment -SignInName [e-mail utilisateur] -IncludeClassicAdministrators**. 
 
 Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement pour qu’il vous donne les droits d’accès nécessaires pour exécuter les commandes. Pour plus d'informations, consultez [Ajouter ou supprimer des attributions de rôle Azure à l'aide d'Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-
-
-## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Dans quelles régions Traffic Analytics est disponible ?
-
-Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
-- Centre du Canada
-- Centre-USA Ouest
-- USA Est
-- USA Est 2
-- Centre-Nord des États-Unis
-- États-Unis - partie centrale méridionale
-- USA Centre
-- USA Ouest
-- USA Ouest 2
-- France Centre
-- Europe Ouest
-- Europe Nord
-- Brésil Sud
-- Ouest du Royaume-Uni
-- Sud du Royaume-Uni
-- Australie Est
-- Sud-Australie Est 
-- Asie Est
-- Asie Sud-Est
-- Centre de la Corée
-- Inde centrale
-- Inde Sud
-- Japon Est
-- OuJapon Est
-- Gouvernement américain - Virginie
-- Chine orientale 2
-
-L’espace de travail Log Analytics doit exister dans les régions suivantes :
-- Centre du Canada
-- Centre-USA Ouest
-- USA Est
-- USA Est 2
-- Centre-Nord des États-Unis
-- États-Unis - partie centrale méridionale
-- USA Centre
-- USA Ouest
-- USA Ouest 2
-- France Centre
-- Europe Ouest
-- Europe Nord
-- Ouest du Royaume-Uni
-- Sud du Royaume-Uni
-- Australie Est
-- Sud-Australie Est
-- Asie Est
-- Asie Sud-Est 
-- Centre de la Corée
-- Inde centrale
-- Japon Est
-- Gouvernement américain - Virginie
-- Chine orientale 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Puis-je activer des journaux de flux pour des NSG qui se trouvent dans des régions différentes de mon espace de travail ?
 

@@ -2,21 +2,21 @@
 title: Intégration et déploiement continus pour un pool SQL dédié
 description: Expérience DevOps de base de données de classe Entreprise destinée aux pools SQL dédiés dans Azure Synapse Analytics avec prise en charge intégrée de l’intégration et du déploiement continus à l’aide d’Azure Pipelines.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d43039c98e991cd23a8e5c4fb866a8e3dcab6fc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95bf3a8c614b8b7c0269257cb62b3c3a0f60be13
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585636"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568282"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Intégration et déploiement continus pour un pool SQL dédié dans Azure Synapse Analytics
 

@@ -2,21 +2,21 @@
 title: Facilité de gestion et monitorage – Vue d’ensemble
 description: Vue d’ensemble de la supervision et de la facilité de gestion en matière d’utilisation des ressources, d’activité des journaux et des requêtes, de recommandations et de protection des données (sauvegarde et restauration) avec le pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/27/2018
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 56ec38140d53788de7cc94f3cb6046177ad2bed4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd9dc5b08de1a81b8da13aee875060fbe242baf5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585466"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568214"
 ---
 # <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Facilité de gestion et surveillance avec un pool SQL dédié dans Azure Synapse Analytics
 

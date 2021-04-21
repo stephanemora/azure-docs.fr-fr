@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 6da003612d98d107390c9f20a5172786c30665a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0a3653d2cc840d745b1bb5788406b8d374c76d0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709750"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533789"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -292,7 +292,7 @@ Azure AD fournit des insights supplémentaires sur l’utilisation des applicat
 
 #### <a name="application-audit-logs"></a>Journaux d’audit des applications
 
-Ces journaux fournissent des informations détaillées sur les connexions aux applications configurées avec le proxy d’application, ainsi que sur l’appareil et l’utilisateur qui accèdent à l’application. Les [journaux d’audit](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) sont accessibles via le portail Azure et l’[API Audit](/graph/api/resources/directoryaudit?view=graph-rest-beta) desquels ils peuvent être exportés. Des [rapports d’utilisation et d’insights](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) sont également disponibles pour votre application.
+Ces journaux fournissent des informations détaillées sur les connexions aux applications configurées avec le proxy d’application, ainsi que sur l’appareil et l’utilisateur qui accèdent à l’application. Les [journaux d’audit](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) sont accessibles via le portail Azure et l’[API Audit](/graph/api/resources/directoryaudit) desquels ils peuvent être exportés. Des [rapports d’utilisation et d’insights](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) sont également disponibles pour votre application.
 
 #### <a name="application-proxy-connector-monitoring"></a>Supervision du connecteur Proxy d’application
 

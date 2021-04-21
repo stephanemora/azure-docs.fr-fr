@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0706fad1e5340625c32eab691ac3e4d58eeafc9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fad9356d3379e76aa259d67711d18f14a4e266f
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012101"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505273"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gérer des unités administratives dans Azure Active Directory
 
@@ -100,7 +100,7 @@ Dans Azure AD, vous pouvez supprimer une unité administrative dont vous n’ave
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADMSAdministrativeUnit -ObjectId $adminUnitObj.ObjectId
+Remove-AzureADMSAdministrativeUnit -Id $adminUnitObj.Id
 ```
 
 Vous pouvez modifier les valeurs entre guillemets si nécessaire, en fonction de l’environnement spécifique.
