@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 65ea6513046cd0372720e5a9438941dda2a74877
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9bd80d5644587c6dcc074a91bf91382d0692bc18
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934354"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786150"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Créer une application de fonction Python serverless avec l’interface de ligne de commande Azure
 
@@ -39,9 +39,9 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crée un compte de stockage Azure. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crée une Function App. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crée une Function App. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

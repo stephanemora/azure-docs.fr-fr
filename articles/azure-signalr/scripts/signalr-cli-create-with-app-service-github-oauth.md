@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/22/2018
 ms.author: zhshang
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ee9f0253f2ec27b4afbbb6c5dc1ff3f5c129fe8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c46ac350c1bf7f7593f334a9a7fa5df1af7b19d8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841799"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787320"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Créer une application web utilisant le service SignalR et l’authentification GitHub
 
@@ -107,14 +107,14 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Crée une ressource Azure SignalR Service. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Répertorie les clés qui seront utilisées par votre application lors de la transmission des mises à jour en temps réel de contenus avec SignalR. |
-| [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Crée un plan Azure App Service pour l’hébergement des applications web. |
-| [az webapp create](/cli/azure/webapp#az-webapp-create) | Crée une application web Azure utilisant le plan d’hébergement App Service. |
-| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Ajoute de nouveaux paramètres pour l’application web. Ces paramètres d’application sont utilisés pour stocker la chaîne de connexion SignalR et les secrets d’application GitHub OAuth. |
-| [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) | Met à jour les informations d’identification du déploiement. |
-| [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) | Récupère une URL pour un point de terminaison de référentiel Git à cloner et à établir comme instance de réception pour le déploiement d’application web. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az signalr create](/cli/azure/signalr#az_signalr_create) | Crée une ressource Azure SignalR Service. |
+| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | Répertorie les clés qui seront utilisées par votre application lors de la transmission des mises à jour en temps réel de contenus avec SignalR. |
+| [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) | Crée un plan Azure App Service pour l’hébergement des applications web. |
+| [az webapp create](/cli/azure/webapp#az_webapp_create) | Crée une application web Azure utilisant le plan d’hébergement App Service. |
+| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Ajoute de nouveaux paramètres pour l’application web. Ces paramètres d’application sont utilisés pour stocker la chaîne de connexion SignalR et les secrets d’application GitHub OAuth. |
+| [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) | Met à jour les informations d’identification du déploiement. |
+| [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_local_git) | Récupère une URL pour un point de terminaison de référentiel Git à cloner et à établir comme instance de réception pour le déploiement d’application web. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

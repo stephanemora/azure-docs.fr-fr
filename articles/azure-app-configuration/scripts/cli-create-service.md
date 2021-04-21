@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/24/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4554ca64dccaa69e3a6fb63e5c28a6bcbb1a32e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a341e9772c67da7781a5cec92f286c037c55ce9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96930838"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768895"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Créer un magasin Azure App Configuration
 
@@ -69,9 +69,9 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources et
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Crée une ressource de magasin App Configuration. |
-| [az appconfig credential list](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Liste les clés d’accès d’un magasin App Configuration. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az appconfig create](/cli/azure/appconfig#az_appconfig_create) | Crée une ressource de magasin App Configuration. |
+| [az appconfig credential list](/cli/azure/appconfig/credential#az_appconfig_credential_list) | Liste les clés d’accès d’un magasin App Configuration. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

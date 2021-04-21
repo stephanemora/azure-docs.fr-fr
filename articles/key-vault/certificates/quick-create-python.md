@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b8f36d7490e24247f1f8482c9dece86b68015d73
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 62249f579909c3f8bfa9bcdf4e77e45453fcb68b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376101"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792018"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client de certificats Azure Key Vault pour Python
 
@@ -183,7 +183,7 @@ Pour lire un certificat à partir de Key Vault, utilisez la méthode [get_certif
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-Vous pouvez aussi vérifier que le certificat a été défini avec la commande Azure CLI [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+Vous pouvez aussi vérifier que le certificat a été défini avec la commande Azure CLI [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 ### <a name="delete-a-certificate"></a>Supprimer un certificat
 
@@ -196,7 +196,7 @@ deleted_certificate = poller.result()
 
 La méthode `begin_delete_certificate` est asynchrone et retourne un objet observateur. L’appel de la méthode `result` de l’observateur attend la fin de son exécution.
 
-Vous pouvez vérifier que le certificat est supprimé avec la commande Azure CLI [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+Vous pouvez vérifier que le certificat est supprimé avec la commande Azure CLI [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 Une fois supprimé, un certificat reste à l’état supprimé mais récupérable pour un temps. Si vous réexécutez le code, utilisez un nom de certificat différent.
 
@@ -213,7 +213,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble Azure Key Vault](../general/overview.md)
-- [Sécuriser l’accès à un coffre de clés](../general/secure-your-key-vault.md)
+- [Sécuriser l’accès à un coffre de clés](../general/security-overview.md)
 - [Guide du développeur Azure Key Vault](../general/developers-guide.md)
 - [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
 - [S’authentifier auprès de Key Vault](../general/authentication.md)

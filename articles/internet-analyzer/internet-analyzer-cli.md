@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: a9a9fe93ebe302a76d69249dc56933e1bcc924d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 46caae53ed81de335c2b9d5ddbd3fd7f89424fdd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200085"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780412"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Créer un test Internet Analyzer avec l’interface de ligne de commande (préversion)
 
@@ -50,7 +50,7 @@ L’interface CLI d’Internet Analyzer expose les types de ressources suivants�
 
 5. Sélectionnez votre ID d’abonnement qui a obtenu l’accès à la préversion publique d’Internet Analyzer.
 
-    Après vous être connecté, vous voyez une liste des abonnements associés à votre compte Azure. Les informations d’abonnement avec `isDefault: true` correspond à l’abonnement actuellement activé après vous être connecté. Pour sélectionner un autre abonnement, utilisez la commande [az account set](/cli/azure/account#az-account-set) avec l’ID d’abonnement auquel vous voulez passer. Pour plus d’informations sur la sélection d’abonnements, consultez [Utiliser plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
+    Après vous être connecté, vous voyez une liste des abonnements associés à votre compte Azure. Les informations d’abonnement avec `isDefault: true` correspond à l’abonnement actuellement activé après vous être connecté. Pour sélectionner un autre abonnement, utilisez la commande [az account set](/cli/azure/account#az_account_set) avec l’ID d’abonnement auquel vous voulez passer. Pour plus d’informations sur la sélection d’abonnements, consultez [Utiliser plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     Il existe des méthodes pour se connecter de manière non interactive, qui sont dévelopées en détail dans [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
 
