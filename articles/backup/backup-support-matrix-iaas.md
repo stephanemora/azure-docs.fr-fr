@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: a0150a4c1a8fbd756de6fc16142f0115b05098ed
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 1f63d0c3ad448a8ab9b91764d4c369fefddea25d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967827"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516720"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -28,7 +28,7 @@ Voici comment vous pouvez sauvegarder et restaurer des machines virtuelles Azure
 **Scénario** | **Sauvegarde** | **Agent** |**Restauration**
 --- | --- | --- | ---
 sauvegarde directe de machines virtuelles Azure  | Sauvegardez la totalité de la machine virtuelle.  | Aucun autre agent n’est nécessaire sur la machine virtuelle Azure. La Sauvegarde Azure installe et utilise une extension l’[agent de machine virtuelle Azure](../virtual-machines/extensions/agent-windows.md) qui s’exécute sur la machine virtuelle. | Restaurez comme ceci :<br/><br/> - **Créez une machine virtuelle de base**. Ceci est pratique si la machine virtuelle n’a pas de configuration spéciale, comme plusieurs adresses IP.<br/><br/> - **Restaurer le disque de la machine virtuelle**. Restaurez le disque. Ensuite, attachez-le à une machine virtuelle existante ou créez une machine virtuelle à partir du disque avec PowerShell.<br/><br/> - **Remplacer un disque de la machine virtuelle**. Si une machine virtuelle existe et qu’elle utilise des disques managés (non chiffrés), vous pouvez restaurer un disque et l’utiliser pour remplacer un disque existant sur la machine virtuelle.<br/><br/> - **Restaurer des fichiers/dossiers spécifiques**. Vous pouvez restaurer des fichiers/dossiers d’une machine virtuelle, au lieu de la totalité de la machine virtuelle.
-Sauvegarde directe de machines virtuelles Azure (Windows uniquement)  | Sauvegardez des fichiers/dossiers/volumes spécifiques. | Installation de [l'agent Azure Recovery Services](backup-azure-file-folder-backup-faq.md).<br/><br/> Vous pouvez exécuter l’agent MARS en même temps que l’extension de sauvegarde pour l’agent de machine virtuelle Azure pour sauvegarder la machine virtuelle au niveau des fichiers/dossiers. | Restaurer des fichiers/dossiers spécifiques.
+Sauvegarde directe de machines virtuelles Azure (Windows uniquement)  | Sauvegardez des fichiers/dossiers/volumes spécifiques. | Installation de [l'agent Azure Recovery Services](backup-azure-file-folder-backup-faq.yml).<br/><br/> Vous pouvez exécuter l’agent MARS en même temps que l’extension de sauvegarde pour l’agent de machine virtuelle Azure pour sauvegarder la machine virtuelle au niveau des fichiers/dossiers. | Restaurer des fichiers/dossiers spécifiques.
 Sauvegarder la machine virtuelle Azure sur le serveur de sauvegarde  | Sauvegarder des fichiers/dossiers/volumes ; état du système/fichiers complets ; données d’application sur System Center DPM ou sur le serveur de sauvegarde Microsoft Azure (MABS).<br/><br/> DPM/MABS effectue ensuite la sauvegarde dans le coffre de sauvegarde. | Installez l’agent de protection DPM/MABS sur la machine virtuelle. L’agent MARS est installé sur DPM/MABS.| Restaurer des fichiers/dossiers/volumes ; état du système/fichiers complets ; données d’application.
 
 En savoir plus sur la sauvegarde [à l’aide d’un serveur de sauvegarde](backup-architecture.md#architecture-back-up-to-dpmmabs) et sur les [prérequis de la prise en charge](backup-support-matrix-mabs-dpm.md).

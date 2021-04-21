@@ -4,13 +4,13 @@ description: Découvrez les types d’informations d’identification de déploi
 ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
-ms.custom: seodec18
-ms.openlocfilehash: c7d3c7c8b5da40a4e9ccd9085af5a850b9ebc3dd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: b77a26f61e1168846156de990806bbed2f7c41e3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052345"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789534"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
 Pour sécuriser le déploiement d’applications à partir d’un ordinateur local, [Azure App Service](./overview.md) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.
@@ -24,7 +24,7 @@ Pour sécuriser le déploiement d’applications à partir d’un ordinateur loc
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set). Remplacez \<username> et \<password> par un nom d’utilisateur et un mot de passe de déploiement. 
+Exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set). Remplacez \<username> et \<password> par un nom d’utilisateur et un mot de passe de déploiement. 
 
 - Le nom d’utilisateur doit être unique dans Azure et, pour les push Git locaux, ne doit pas contenir le symbole « @ ». 
 - Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles. 

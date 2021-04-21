@@ -3,12 +3,12 @@ title: Tâche multiétape pour compiler, tester et corriger des images
 description: Présentation des tâches multiétapes, une fonctionnalité d’ACR Tasks dans Azure Container Registry qui assure des workflows basés sur des tâches permettant de compiler, de tester et de corriger des images de conteneurs dans le cloud.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: fc671006beb1934b32fcd6ccf967a5bf9ff817fb
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d57044fa8a0db7d661eb50284b34a6bbec9a1879
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169196"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781016"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
 
@@ -164,6 +164,6 @@ Vous trouverez ici des références et des exemples de tâches multiétapes :
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-run]: /cli/azure/acr#az_acr_run
 [az-acr-task]: /cli/azure/acr/task

@@ -4,12 +4,12 @@ description: Découvrez comment sauvegarder un serveur Exchange dans une sauveg
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3a7fae5a1f5ec933c015546ddf2bdb2898e3904
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91262992"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515496"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans Azure avec le serveur de sauvegarde Azure
 
@@ -107,4 +107,4 @@ Pour les points de récupération en ligne, il existe cinq types de récupérati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
+* [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.yml)

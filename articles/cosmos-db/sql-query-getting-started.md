@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 04/09/2021
 ms.author: tisande
-ms.openlocfilehash: d5d5bc0a108cd08283ea29ce3bdc2de49310c5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad43d83782a2c7e9eb5cc20128be89a45f0213d1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499558"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312176"
 ---
 # <a name="getting-started-with-sql-queries"></a>Bien démarrer avec les requêtes SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Le reste de cette documentation montre comment commencer à écrire des requête
 
 ## <a name="upload-sample-data"></a>Charger l’exemple de données
 
-Dans votre compte Cosmos DB de l’API SQL, ouvrez [Explorateur de données](./data-explorer.md) pour créer un conteneur appelé `Families`. Une fois qu’il a été créé, utilisez le navigateur de structures de données pour le trouver et l’ouvrir. Dans votre conteneur `Families`, l’option `Items` se trouve juste en dessous du nom du conteneur. Ouvrez cette option. Un bouton s’affiche dans la barre de menus, au centre de l’écran, pour créer un « nouvel élément ». Vous allez utiliser cette fonctionnalité pour créer les éléments JSON ci-dessous.
+Dans votre compte Cosmos DB de l’API SQL, ouvrez [Explorateur de données](./data-explorer.md) pour créer un conteneur appelé `Families`. Une fois que le conteneur a été créé, utilisez le navigateur de structures de données pour le trouver et l’ouvrir. Dans votre conteneur `Families`, l’option `Items` se trouve juste en dessous du nom du conteneur. Ouvrez cette option. Un bouton s’affiche dans la barre de menus, au centre de l’écran, pour créer un « nouvel élément ». Vous allez utiliser cette fonctionnalité pour créer les éléments JSON ci-dessous.
 
 ### <a name="create-json-items"></a>Créer des éléments JSON
 

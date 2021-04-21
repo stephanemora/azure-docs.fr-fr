@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fd704d45aa7dc10835a205f12ce26fc01a7ea44f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ac1e77d99707cdaa34ef42eb9b327a62f4e864c0
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584497"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365363"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Comment Azure Cosmos DB fournit-il une haute disponibilité ?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,6 +64,9 @@ Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre bas
 * Les comptes multirégion configurés avec plusieurs régions d’écriture sont hautement disponibles pour les écritures et les lectures. Les basculements régionaux sont détectés et traités dans le client Azure Cosmos DB. Ils sont également instantanés et ne nécessitent aucune modification à partir de l’application.
 
 * Les comptes dans une seule région peuvent perdre leur disponibilité en raison d’une panne régionale. Il est toujours recommandé de configurer **au moins deux régions** (de préférence, au moins deux régions d’écriture) avec votre compte Azure Cosmos pour garantir une haute disponibilité en permanence.
+
+> [!IMPORTANT]
+> Lorsque vous utilisez des API SQL, vous devez configurer le Kit de développement logiciel (SDK) Cosmos DB pour utiliser toutes les régions de lecture spécifiées afin de tirer parti de la disponibilité accrue. Pour plus d’informations, reportez-vous à cet [article](troubleshoot-sdk-availability.md).
 
 ### <a name="multi-region-accounts-with-a-single-write-region-write-region-outage"></a>Comptes multirégion avec une seule région d’écriture (panne de région d'écriture)
 
@@ -145,7 +148,7 @@ La fonctionnalité Zones de disponibilité peut être activée via :
 
 * Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective). Pour obtenir le RPO et le RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](./consistency-levels.md#rto)
 
-## <a name="what-to-expect-during-a-region-outage"></a>À quoi s’attendre lors d’une panne régionale
+## <a name="what-to-expect-during-a-cosmos-db-region-outage"></a>À quoi s’attendre lors d’une panne régionale de Cosmos DB
 
 Pour les comptes à une seule région, les clients subiront une perte de disponibilité en lecture et en écriture.
 
@@ -153,9 +156,9 @@ Les comptes multirégions auront des comportements différents selon le tableau 
 
 | Régions d’écriture | Basculement automatique | À quoi s’attendre | Procédure à suivre |
 | -- | -- | -- | -- |
-| Région d’écriture unique | Non activé | En cas de panne dans une région de lecture, tous les clients seront redirigés vers d’autres régions. Aucune perte de disponibilité en lecture ou en écriture. Pas de perte de données. <p/> En cas de panne dans la région d’écriture, les clients subiront une perte de disponibilité en écriture. La perte de données dépend du niveau de cohérence sélectionné. <p/> Cosmos DB restaurera automatiquement la disponibilité en écriture à la fin de la panne. | Pendant la panne, assurez-vous qu’il y a suffisamment de capacité approvisionnée dans les régions restantes pour prendre en charge le trafic de lecture. <p/> Ne déclenche *pas* de basculement manuel pendant la panne, car ce dernier ne fonctionnera pas. <p/> Lorsque la panne est terminée, réajustez la capacité approvisionnée comme il convient. |
-| Région d’écriture unique | activé | En cas de panne dans une région de lecture, tous les clients seront redirigés vers d’autres régions. Aucune perte de disponibilité en lecture ou en écriture. Pas de perte de données. <p/> En cas de panne dans la région d’écriture, les clients subiront une perte de disponibilité en écriture jusqu’à ce que Cosmos DB élise automatiquement une nouvelle région comme nouvelle région d’écriture selon vos préférences. La perte de données dépend du niveau de cohérence sélectionné. | Pendant la panne, assurez-vous qu’il y a suffisamment de capacité approvisionnée dans les régions restantes pour prendre en charge le trafic de lecture. <p/> Ne déclenche *pas* de basculement manuel pendant la panne, car ce dernier ne fonctionnera pas. <p/> Une fois la panne terminée, vous pouvez récupérer les données non répliquées dans la région défaillante à partir de votre [flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed), déplacer la région d’écriture vers la région d’origine et réajuster la capacité approvisionnée comme il convient. |
-| Régions d’écriture multiples | Non applicable | Aucune perte de disponibilité en lecture ou en écriture. <p/> Perte de données en fonction du niveau de cohérence sélectionné. | Pendant la panne, assurez-vous qu’il y a suffisamment de capacité approvisionnée dans les régions restantes pour prendre en charge le trafic supplémentaire. <p/> Une fois la panne terminée, vous pouvez récupérer les données non répliquées dans la région défaillante à partir de votre [flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed) et réajuster la capacité approvisionnée comme il convient. |
+| Région d’écriture unique | Non activé | En cas de panne dans une région de lecture, tous les clients seront redirigés vers d’autres régions. Aucune perte de disponibilité en lecture ou en écriture. Pas de perte de données. <p/> En cas de panne dans la région d’écriture, les clients subiront une perte de disponibilité en écriture. Si le niveau de cohérence fort n’est pas sélectionné, il est possible que certaines données n’aient pas été répliquées dans les régions actives restantes. Cela dépend du niveau de cohérence sélectionné, comme décrit dans [cette section](consistency-levels.md#rto). Si la zone touchée subit une perte définitive des données, les données non répliquées peuvent être perdues. <p/> Cosmos DB restaurera automatiquement la disponibilité en écriture à la fin de la panne. | Pendant la panne, assurez-vous qu’il y a suffisamment d’unités de requête approvisionnées dans les régions restantes pour prendre en charge le trafic de lecture. <p/> Ne déclenche *pas* de basculement manuel pendant la panne, car ce dernier ne fonctionnera pas. <p/> Lorsque la panne est terminée, réajustez les unités de requête approvisionnées en conséquence. |
+| Région d’écriture unique | activé | En cas de panne dans une région de lecture, tous les clients seront redirigés vers d’autres régions. Aucune perte de disponibilité en lecture ou en écriture. Pas de perte de données. <p/> En cas de panne dans la région d’écriture, les clients subiront une perte de disponibilité en écriture jusqu’à ce que Cosmos DB élise automatiquement une nouvelle région comme nouvelle région d’écriture selon vos préférences. Si le niveau de cohérence fort n’est pas sélectionné, il est possible que certaines données n’aient pas été répliquées dans les régions actives restantes. Cela dépend du niveau de cohérence sélectionné, comme décrit dans [cette section](consistency-levels.md#rto). Si la zone touchée subit une perte définitive des données, les données non répliquées peuvent être perdues. | Pendant la panne, assurez-vous qu’il y a suffisamment d’unités de requête approvisionnées dans les régions restantes pour prendre en charge le trafic de lecture. <p/> Ne déclenche *pas* de basculement manuel pendant la panne, car ce dernier ne fonctionnera pas. <p/> Une fois la panne terminée, vous pouvez replacer la région d’écriture dans la région d’origine et réajuster les RU approvisionnées en conséquence. Les comptes utilisant des API SQL peuvent également récupérer les données non répliquées dans la région défaillante à partir de votre [flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed). |
+| Régions d’écriture multiples | Non applicable | Aucune perte de disponibilité en lecture ou en écriture. <p/> Les données récemment mises à jour dans la région défaillante peuvent être indisponibles dans les régions actives restantes. Les niveaux de cohérence session, garantie de préfixe et éventuelle garantissent une obsolescence inférieure à 15 minutes. L’obsolescence limitée garantit moins de K mises à jour ou T secondes, selon la configuration. Si la zone touchée subit une perte définitive des données, les données non répliquées peuvent être perdues. | Pendant la panne, assurez-vous qu’il y a suffisamment d’unités de requête approvisionnées dans les régions restantes pour prendre en charge le trafic supplémentaire. <p/> Lorsque la panne est terminée, vous pouvez réajuster les unités de requête approvisionnées en conséquence. Si possible, Cosmos DB récupérera automatiquement les données non répliquées dans la région défaillante en utilisant la méthode de résolution des conflits configurée pour les comptes de l’API SQL et Dernière écriture prioritaire pour les comptes utilisant d’autres API. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

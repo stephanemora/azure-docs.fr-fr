@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8400fcacbfa4c76aceb079b788255e3d3b83ce33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c52279108a8fd8d5a7ac8bbd7c8eb215097b21b0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877306"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791352"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>CI/CD Azure Spring Cloud avec GitHub Actions
 
@@ -340,5 +340,5 @@ Si votre action s’exécute par erreur, par exemple si vous n’avez pas défin
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Key Vault pour GitHub Actions avec Spring Cloud](./spring-cloud-github-actions-key-vault.md)
-* [Principaux du service Azure Active Directory](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+* [Principaux du service Azure Active Directory](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 * [GitHub Actions pour Azure](https://github.com/Azure/actions/)

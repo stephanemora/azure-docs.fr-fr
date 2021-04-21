@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cc605a08147da1d076b302e515a4ebe8d411a782
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: d5604f177484d33255d2923d72b00fae124c0f9a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963612"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783590"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Exemple Azure CLI : Réinitialiser les informations d’identification
 
@@ -47,4 +47,4 @@ az ams account sp reset-credentials \
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [az ams](/cli/azure/ams)
-* [Réinitialiser les informations d’identification](/cli/azure/ams/account/sp#az-ams-account-sp-reset-credentials)
+* [Réinitialiser les informations d’identification](/cli/azure/ams/account/sp#az_ams_account_sp_reset_credentials)

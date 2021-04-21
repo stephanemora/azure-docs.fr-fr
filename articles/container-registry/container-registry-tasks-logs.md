@@ -3,12 +3,12 @@ title: Afficher les journaux d’exécution des tâches - Tâches
 description: Guide pratique pour afficher et gérer les journaux d’exécution générés par les tâches ACR.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce5f33853be2aa48bcfd1916c7f8b94b9702f38c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93027174"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781052"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Afficher et gérer les journaux d’exécution des tâches
 
@@ -18,9 +18,9 @@ Cet article explique comment afficher et gérer des journaux d’exécution des 
 
 ## <a name="view-streamed-logs"></a>Afficher les journaux diffusés en continu
 
-Quand vous déclenchez une tâche manuellement, la sortie du journal est diffusée directement sur la console. Par exemple, lorsque vous déclenchez une tâche manuellement à l’aide de la commande [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run) ou [az acr task run](/cli/azure/acr/task#az-acr-task-run), la sortie de journal est diffusée en continu sur la console. 
+Quand vous déclenchez une tâche manuellement, la sortie du journal est diffusée directement sur la console. Par exemple, lorsque vous déclenchez une tâche manuellement à l’aide de la commande [az acr build](/cli/azure/acr#az_acr_build), [az acr run](/cli/azure/acr#az_acr_run) ou [az acr task run](/cli/azure/acr/task#az_acr_task_run), la sortie de journal est diffusée en continu sur la console. 
 
-L’exemple de commande [az acr run](/cli/azure/acr#az-acr-run) suivant déclenche manuellement une tâche qui exécute un conteneur extrait du même registre :
+L’exemple de commande [az acr run](/cli/azure/acr#az_acr_run) suivant déclenche manuellement une tâche qui exécute un conteneur extrait du même registre :
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
@@ -58,7 +58,7 @@ Run ID: cf4 was successful after 5s
 
 ## <a name="view-stored-logs"></a>Afficher les journaux stockés 
 
-Azure Container Registry stocke les journaux d’exécution de toutes les tâches. Vous pouvez afficher les journaux d’exécution stockés dans le portail Azure. Ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) pour afficher un journal sélectionné. Par défaut, les journaux d’activité sont conservés 30 jours.
+Azure Container Registry stocke les journaux d’exécution de toutes les tâches. Vous pouvez afficher les journaux d’exécution stockés dans le portail Azure. Ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) pour afficher un journal sélectionné. Par défaut, les journaux d’activité sont conservés 30 jours.
 
 Si une tâche est déclenchée automatiquement, par exemple par une mise à jour du code source, l’accès aux journaux stockés est l’*unique* moyen d’afficher les journaux d’exécution. Les déclencheurs de tâches automatiques incluent les validations de code source ou les requêtes de tirage, les mises à jour d’image de base et les déclencheurs de minuteur.
 
@@ -70,7 +70,7 @@ Pour afficher les journaux d’exécution dans le portail :
 
 ![Afficher l’exécution d’une tâche dans le portail de connexion](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-Pour afficher un journal à l’aide de l’interface de ligne de commande Azure, exécutez [az acr task logs](/cli/azure/acr/task#az-acr-task-logs), puis spécifiez un ID d’exécution, un nom de tâche ou une image spécifique créée par une tâche de génération. Si un nom de tâche est spécifié, la commande affiche le journal de la dernière exécution créée.
+Pour afficher un journal à l’aide de l’interface de ligne de commande Azure, exécutez [az acr task logs](/cli/azure/acr/task#az_acr_task_logs), puis spécifiez un ID d’exécution, un nom de tâche ou une image spécifique créée par une tâche de génération. Si un nom de tâche est spécifié, la commande affiche le journal de la dernière exécution créée.
 
 L’exemple suivant génère le journal pour l’exécution dont l’ID est *CF4* :
 
@@ -83,7 +83,7 @@ az acr task logs --registry mycontainerregistry1220 \
 
 Vous souhaiterez peut-être stocker les journaux d’exécution des tâches sur un système de fichiers local, ou utiliser une autre solution d’archivage telle que le Stockage Azure.
 
-Par exemple, créez un répertoire local *tasklogs* et redirigez la sortie de la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) vers un fichier local :
+Par exemple, créez un répertoire local *tasklogs* et redirigez la sortie de la commande [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) vers un fichier local :
 
 ```azurecli
 mkdir ~/tasklogs
@@ -101,13 +101,13 @@ Vous pouvez également enregistrer les fichiers journaux locaux dans le Stockage
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

@@ -3,12 +3,12 @@ title: Sauvegarder des ordinateurs Windows en utilisant l’agent MARS
 description: Utilisez l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des ordinateurs Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54628c15ffb51c7157132c9a91f41c16873df340
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98702766"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519168"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Sauvegarder les fichiers et dossiers de Windows Server sur Azure
 
@@ -158,4 +158,4 @@ Pour plus d’informations, consultez [Créer une stratégie de sauvegarde](#cre
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [restaurer des fichiers dans Azure](backup-azure-restore-windows-server.md).
-* Consultez les [questions courantes sur la sauvegarde des fichiers et des dossiers](backup-azure-file-folder-backup-faq.md).
+* Consultez les [questions courantes sur la sauvegarde des fichiers et des dossiers](backup-azure-file-folder-backup-faq.yml).

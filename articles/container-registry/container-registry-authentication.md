@@ -3,12 +3,12 @@ title: Options d’authentification du Registre
 description: Options d’authentification pour un registre de conteneurs Azure privé, y compris la connexion auprès d’une identité Azure Active Directory, au moyen de principaux de service et à l’aide d’informations d’identification d’administrateur facultatives.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: d12895502ecd30991fbef836903a8ceea445b770
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 7ff55d569e2659262ce9f323e4db2ea7ed671d20
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285499"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784278"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Authentification avec un registre de conteneurs Azure
 
@@ -31,7 +31,7 @@ Le tableau suivant liste les méthodes d’authentification disponibles et les s
 
 ## <a name="individual-login-with-azure-ad"></a>Connexion individuelle avec Azure AD
 
-Si vous utilisez directement votre registre, par exemple si vous extrayez des images et en envoyez depuis une station de travail de développement vers un registre que vous avez créé, authentifiez-vous à l’aide de votre identité Azure individuelle. Connectez-vous à [Azure CLI](/cli/azure/install-azure-cli) avec [az login](/cli/azure/reference-index#az-login), puis exécutez la commande [az acr login](/cli/azure/acr#az-acr-login) :
+Si vous utilisez directement votre registre, par exemple si vous extrayez des images et en envoyez depuis une station de travail de développement vers un registre que vous avez créé, authentifiez-vous à l’aide de votre identité Azure individuelle. Connectez-vous à [Azure CLI](/cli/azure/install-azure-cli) avec [az login](/cli/azure/reference-index#az_login), puis exécutez la commande [az acr login](/cli/azure/acr#az_acr_login) :
 
 ```azurecli
 az login
@@ -111,7 +111,7 @@ docker login myregistry.azurecr.io
 
 Pour connaître les pratiques recommandées de gestion des informations d’identification pour la connexion, consultez la référence de la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
-Pour activer l’utilisateur administrateur pour un registre existant, vous pouvez utiliser le paramètre `--admin-enabled` de la commande [az acr update](/cli/azure/acr#az-acr-update) dans Azure CLI :
+Pour activer l’utilisateur administrateur pour un registre existant, vous pouvez utiliser le paramètre `--admin-enabled` de la commande [az acr update](/cli/azure/acr#az_acr_update) dans Azure CLI :
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

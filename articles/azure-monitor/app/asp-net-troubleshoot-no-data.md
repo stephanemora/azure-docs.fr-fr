@@ -4,12 +4,12 @@ description: Vous ne voyez pas de données dans Azure Application Insights ? E
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: fbf53f6d4a928215d25874f4e405147c73cbf81f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3b550e434db5b616ffedef7ebe9891b36fa431a2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056570"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311224"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Résolution des problèmes liés à l’absence de données - Application Insights pour .NET et .NET Core
 
@@ -28,6 +28,10 @@ ms.locfileid: "106056570"
 *Je subis une perte de données dans une application console ou sur une application web lorsqu’elle est sur le point de s’arrêter.*
 
 * Le canal du kit de développement logiciel (SDK) conserve les données de télémétrie dans la mémoire tampon et les envoie par lots. Si l’application est en cours d’arrêt, il peut être nécessaire d’appeler explicitement [Flush()](api-custom-events-metrics.md#flushing-data). Le comportement de `Flush()` dépend du véritable [canal](telemetry-channels.md#built-in-telemetry-channels) utilisé.
+
+## <a name="request-count-collected-by-application-insights-sdk-does-not-match-the-iis-log-count-for-my-application"></a>Le nombre de demandes collectées par le kit de développement logiciel (SDK) Application Insights ne correspond pas au nombre de journaux IIS pour mon application
+
+Le nombre de journaux IIS (Internet Information Services) de tous les ISS ayant trait aux requêtes et intrinsèquement peut différer du nombre total de requêtes ayant trait à une application. En raison de cela, il n’est pas garanti que le nombre de demandes collectées par les kits de développement logiciel (SDK) corresponde au nombre total de journaux IIS. 
 
 ## <a name="no-data-from-my-server"></a>Aucune donnée de mon serveur
 *J’ai installé l’application sur mon serveur web et maintenant je ne vois pas les données de télémétrie à partir de celui-ci. Cela a fonctionné correctement sur mon ordinateur de développement.*

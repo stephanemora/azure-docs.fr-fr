@@ -11,12 +11,12 @@ author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a1cb71917fdb30ffccda21bedffe1c7f2a428c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 699ff88e4181dada5eacaa3f13469722cdf7ceaa
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557953"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530449"
 ---
 # <a name="authentication-methods-activity"></a>Activité des méthodes d’authentification 
 
@@ -139,6 +139,6 @@ Le rapport détaillé de l’inscription affiche les informations suivantes pour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utilisation de l’API de rapport d’utilisation des méthodes d’authentification](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Utilisation de l’API de rapport d’utilisation des méthodes d’authentification](/graph/api/resources/authenticationmethods-usage-insights-overview)
 - [Choix des méthodes d’authentification pour votre organisation](concept-authentication-methods.md)
 - [Expérience d’inscription combinée](concept-registration-mfa-sspr-combined.md)

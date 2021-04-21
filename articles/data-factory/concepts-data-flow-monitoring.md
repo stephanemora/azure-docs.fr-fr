@@ -3,17 +3,16 @@ title: Supervision des flux de données de mappage
 description: Guide pratique pour superviser visuellement les flux de données de mappage dans Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/22/2020
-ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 82aba428627cba1a3df26fc67c5da0cde52d368c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004865"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309065"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
@@ -77,9 +76,15 @@ Vous pouvez également voir le minutage détaillé de chaque étape de transform
 }
 ```
 
-### <a name="post-processing-time"></a>Temps de post-traitement
+### <a name="sink-processing-time"></a>Temps de traitement du récepteur
 
 Lorsque vous sélectionnez une icône de transformation de récepteur dans votre mappage, le panneau déroulant à droite affiche un point de données supplémentaire appelé « temps de post-traitement » en bas. Il s’agit du temps consacré à l’exécution de votre travail sur le cluster Spark *après* que vos données ont été chargées, transformées et écrites. Ce temps peut comprendre la fermeture de pools de connexions, l’arrêt de pilotes, la suppression de fichiers, la fusion de fichiers, etc. Lorsque vous effectuez des actions dans votre flux, telles que le « déplacement de fichiers » et la « sortie vers un seul fichier », vous voyez probablement une augmentation de la valeur du temps de post-traitement.
+
+* Durée de l'étape d'écriture : temps nécessaire à l'écriture des données à un emplacement intermédiaire pour Synapse SQL
+* Durée SQL de l'opération de table : temps passé à déplacer les données des tables temporaires vers la table cible
+* Durée pré- et post-SQL : temps passé à exécuter des commandes pré/post-SQL
+* Durée pré-commandes et durée post-commandes : temps passé à exécuter des opérations pré/post pour les sources/récepteurs basés sur des fichiers. Par exemple, déplacement ou suppression de fichiers après le traitement.
+* Durée de la fusion : temps consacré à la fusion du fichier. Les fichiers fusionnés sont utilisés pour les récepteurs basés sur des fichiers lors de l'écriture dans un seul fichier ou lorsque « Nom de fichier en tant que données de colonne » est utilisé. Si le temps consacré à cette métrique est important, évitez d'utiliser ces options.
   
 ## <a name="error-rows"></a>Lignes d’erreur
 

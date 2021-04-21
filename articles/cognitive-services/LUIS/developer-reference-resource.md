@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 08a1965aadf8f50625e54d7c5e3b3f6a44c0bbd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04c7d4a7e725d99c7dba94779d365312f8b960af
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98946166"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787104"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Ressources de développement SDK, REST et CLI pour implémenter LUIS (Language Understanding)
 
@@ -23,7 +23,7 @@ Utilisez la couche de gestion d’Azure Cognitive Services pour créer, modifier
 
 Recherchez de la documentation de référence basée sur l’outil :
 
-* [Azure CLI](/cli/azure/cognitiveservices#az-cognitiveservices-list)
+* [Azure CLI](/cli/azure/cognitiveservices#az_cognitiveservices_list)
 
 * [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/#cognitive_services)
 

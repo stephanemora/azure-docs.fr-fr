@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: article
-ms.date: 04/05/2021
+ms.topic: conceptual
+ms.date: 04/19/2021
 tags: connectors
-ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a19253e117f748b4d4045bfd2a29552018bba91e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385851"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781556"
 ---
 # <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -83,7 +83,7 @@ La liste suivante décrit les principales fonctionnalités SFTP-SSH qui diffère
 
 * Fournit l’action **Renommer le fichier**, qui renomme un fichier sur le serveur SFTP.
 
-* Met en cache la connexion au serveur SFTP *pendant jusqu’à 1 heure*. Cette fonctionnalité permet d’améliorer les performances et de réduire la fréquence à laquelle le connecteur tente de se connecter au serveur. Pour définir la durée de ce comportement de mise en cache, modifiez la propriété [**ClientAliveInterval** ](https://man.openbsd.org/sshd_config#ClientAliveInterval) dans la configuration SSH sur votre serveur SFTP.
+* Met en cache la connexion au serveur SFTP *pendant jusqu’à 1 heure*. Cette fonctionnalité permet d’améliorer les performances et de réduire la fréquence à laquelle le connecteur tente de se connecter au serveur. Pour définir la durée de ce comportement de mise en cache, modifiez la propriété [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) dans la configuration SSH sur votre serveur SFTP.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -123,7 +123,7 @@ Quand un déclencheur détecte un nouveau fichier, il vérifie que le nouveau fi
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Décalage et dérive de la périodicité du déclencheur
 
-Les déclencheurs basés sur la connexion, où vous devez d’abord créer une connexion, par exemple le déclencheur SFTP-SSH, diffèrent des déclencheurs intégrés qui s’exécutent en mode natif dans Azure Logic Apps, tels que le [déclencheur de récurrence](../connectors/connectors-native-recurrence.md). Dans les déclencheurs récurrents basés sur la connexion, la planification de la périodicité n'est pas le seul pilote à contrôler l'exécution, et le fuseau horaire détermine uniquement l'heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d’autres facteurs qui peuvent décaler les heures d’exécution ou produire un comportement inattendu. Par exemple, un comportement inattendu peut inclure de ne pas respecter la planification spécifiée lors des passages à l’heure d’été et à l’heure d’hiver. Pour que l’heure fixée pour la périodicité ne change pas au moment du passage à l’heure d’été, ajustez la périodicité manuellement. De cette façon, votre workflow continue à s’exécuter à l’heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver. Pour plus d’informations, consultez [Périodicité des déclencheurs basés sur la connexion](../connectors/apis-list.md#recurrence-connection-based).
+Les déclencheurs basés sur la connexion, où vous devez d’abord créer une connexion, par exemple le déclencheur SFTP-SSH, diffèrent des déclencheurs intégrés qui s’exécutent en mode natif dans Azure Logic Apps, tels que le [déclencheur de récurrence](../connectors/connectors-native-recurrence.md). Dans les déclencheurs récurrents basés sur la connexion, la planification de la périodicité n'est pas le seul pilote à contrôler l'exécution, et le fuseau horaire détermine uniquement l'heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d’autres facteurs qui peuvent décaler les heures d’exécution ou produire un comportement inattendu. Par exemple, un comportement inattendu peut inclure de ne pas respecter la planification spécifiée lors des passages à l’heure d’été et à l’heure d’hiver. Pour que l’heure fixée pour la périodicité ne change pas au moment du passage à l’heure d’été, ajustez la périodicité manuellement. De cette façon, votre workflow continue à s’exécuter à l’heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver. Pour plus d’informations, consultez [Périodicité des déclencheurs basés sur la connexion](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
 
 <a name="convert-to-openssh"></a>
 

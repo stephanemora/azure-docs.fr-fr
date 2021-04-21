@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 836c7bf9aefd4b2cb7d52c66bbd37e7ba38a467c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686459"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377308"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
 Cette rubrique décrit les différentes opérations que vous pouvez effectuer à l’aide d’Azure Active Directory (Azure AD) Connect Health.
@@ -35,12 +35,13 @@ Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie d
 >
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Pour activer les notifications par courrier électronique Azure AD Connect Health
-1. Ouvrez le panneau **Alertes** pour le service pour lequel vous souhaitez recevoir des notifications par courrier électronique.
-2. Dans la barre d’action, cliquez sur **Paramètres de notification**.
-3. Placez le commutateur de notifications par courrier électronique sur la position **ON**.
-4. Cochez la case si vous souhaitez que tous les administrateurs généraux reçoivent des notifications par courrier électronique.
-5. Si vous souhaitez recevoir des notifications par courrier électronique à d’autres adresses, indiquez-les dans la zone **Destinataires d’e-mail supplémentaires**. Pour supprimer une adresse e-mail de cette liste, cliquez avec le bouton droit sur l’entrée, puis sélectionnez **Supprimer**.
-6. Pour valider les modifications, cliquez sur **Enregistrer**. Les modifications prennent effet après l’enregistrement.
+1. Dans le portail Azure, recherchez Azure AD Connect Health.
+2. Sélectionnez **Erreurs de synchronisation**.
+3. Sélectionnez **Paramètres de notification**.
+5. Placez le commutateur de notifications par courrier électronique sur la position **ON**.
+6. Cochez la case si vous souhaitez que tous les administrateurs généraux reçoivent des notifications par courrier électronique.
+7. Si vous souhaitez recevoir des notifications par courrier électronique à d’autres adresses, indiquez-les dans la zone **Destinataires d’e-mail supplémentaires**. Pour supprimer une adresse e-mail de cette liste, cliquez avec le bouton droit sur l’entrée, puis sélectionnez **Supprimer**.
+8. Pour valider les modifications, cliquez sur **Enregistrer**. Les modifications prennent effet après l’enregistrement.
 
 >[!NOTE] 
 > En cas de problème de traitement des demandes de synchronisation dans notre service principal, ce service envoie un e-mail de notification avec les détails de l’erreur à l’adresse de messagerie du contact administratif de votre locataire. Nous avons reçu des commentaires de clients pour qui, dans certains cas, le volume de ces messages est trop important, ce qui nous permet de modifier la façon dont nous envoyons ces messages. 

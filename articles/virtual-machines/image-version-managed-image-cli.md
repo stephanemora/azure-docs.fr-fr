@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cae82072785838d410453b2eb83685905b0ba04e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d0644b9ec9009fe5d1db7701834cb9788f86ab0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553780"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790164"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clonage d’une image managée dans une version d’image avec Azure CLI
 Si vous souhaitez cloner une image managée existante dans Shared Image Gallery, vous pouvez créer directement une image Shared Image Gallery à partir de l’image managée. Une fois que vous avez testé votre nouvelle image, vous pouvez supprimer l’image managée source. Vous pouvez également effectuer une migration depuis une image managée vers une galerie d’images partagées à l’aide de [PowerShell](image-version-managed-image-powershell.md).
@@ -43,7 +43,7 @@ Les noms de définition d’image peuvent contenir des lettres majuscules ou min
 
 Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./shared-image-galleries.md#image-definitions).
 
-Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 Dans cet exemple, la définition d’image est nommée *myImageDefinition* et est destinée à une image de système d’exploitation Linux [généralisée](./shared-image-galleries.md#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
 
@@ -65,7 +65,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Créer la version de l’image
 
-Créez des versions avec la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). L’ID de l’image managée sert de base de référence pour la création de la version d’image. Vous pouvez utiliser [az image list](/cli/azure/image?view#az-image-list) pour obtenir les ID de vos images. 
+Créez des versions avec la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create). L’ID de l’image managée sert de base de référence pour la création de la version d’image. Vous pouvez utiliser [az image list](/cli/azure/image?view#az_image_list) pour obtenir les ID de vos images. 
 
 ```azurecli-interactive
 az image list --query "[].[name, id]" -o tsv

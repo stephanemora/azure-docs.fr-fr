@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: daa0a6b15d4c187efdea96fd8067b08c89fa0e82
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d1b05560c02f3bf4de199a3d5cad48907ee16fb
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599865"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365805"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure dans le système Red Hat Enterprise Linux
 
@@ -559,6 +559,71 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 Suivez les étapes décrites sur la page [Configurer Pacemaker sur Red Hat Enterprise Linux dans Azure](high-availability-guide-rhel-pacemaker.md) pour créer un cluster Pacemaker de base pour ce serveur HANA.
 
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implémenter le hook de réplication de système Python SAPHanaSR
+
+Il s’agit d’une étape importante pour optimiser l’intégration au cluster et améliorer la détection lorsqu’un basculement de cluster est nécessaire. Il est vivement recommandé de configurer le hook Python SAPHanaSR.    
+
+1. **[A]** Installez le « hook de réplication de système » HANA. Le hook doit être installé sur les deux nœuds HANA DB.           
+
+   > [!TIP]
+   > Le hook Python ne peut être implémenté que pour HANA 2.0.        
+
+   1. Préparer le hook en tant que `root`.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Arrêter HANA sur les deux nœuds. Exécutez en tant que <sid\>adm :  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Réglez `global.ini` sur chaque nœud du cluster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** Le cluster nécessite une configuration de sudoers sur chaque nœud de cluster pour <sid\>adm. Dans cet exemple, il est possible de créer un nouveau fichier. Exécutez les commandes en tant que `root`.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Démarrez SAP HANA sur les deux nœuds. Exécutez en tant que <sid\>adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Vérifiez l’installation de hook. Exécutez en tant que <sid\>adm sur le site de réplication de système HANA actif.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+Pour plus d’informations sur l’implémentation du hook de réplication de système SAP HANA, consultez [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
+ 
 ## <a name="create-sap-hana-cluster-resources"></a>Créer les ressources de cluster SAP HANA
 
 Installez les agents de la ressource SAP HANA sur **tous les nœuds**. N’oubliez pas d’activer un référentiel qui contient le package. Vous ne devez pas ajouter des répertoires supplémentaires si vous utilisez l’image en haute disponibilité RHEL 8.x.  
@@ -686,7 +751,6 @@ Pour effectuer des étapes supplémentaires lors de l’approvisionnement d’un
    - Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-secondarylb**).
    - Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple,**hana-secondaryIP**, **hana-backend** et **hana-secondaryhp**).
    - Sélectionnez **Ports HA**.
-   - Augmentez le **délai d’inactivité** à 30 minutes.
    - Veillez à **activer l’IP flottante** .
    - Sélectionnez **OK**.
 

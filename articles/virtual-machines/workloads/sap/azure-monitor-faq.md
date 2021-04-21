@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 3732189c1d2e09b648a2fba0a39e7e4113a76d48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b84f07f637b0a8925dec96c8c609101247ffd64
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675942"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377122"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Questions fréquentes (FAQ) sur Azure Monitor pour solutions SAP (préversion)
 ## <a name="frequently-asked-questions"></a>Forum aux questions
@@ -60,13 +60,28 @@ Le rôle Contributeur.
 Les préversions sont exclues des contrats de niveau de service. Veuillez lire le contrat de licence complet via l’image Azure Monitor pour solutions SAP de la Place de marché.  
 
  - **Puis-je surveiller l’intégralité de son paysage avec cette solution ?**  
-Vous pouvez actuellement surveiller la base de données HANA, l’infrastructure sous-jacente, le cluster à haute disponibilité et Microsoft SQL Server en préversion publique.  
+Vous pouvez actuellement superviser la base de données HANA, l’infrastructure sous-jacente, le cluster à haute disponibilité, le serveur Microsoft SQL, la disponibilité SAP NetWeaver et les métriques de disponibilité de l’instance d’application SAP en préversion publique.  
 
  - **Ce service remplace-t-il le gestionnaire de solutions SAP ?**  
 Non. Les clients peuvent toujours utiliser le gestionnaire de solutions SAP pour l’analyse des processus d’entreprise.  
 
  - **Quelle est la valeur de ce service par rapport aux solutions traditionnelles comme SAP HANA Cockpit/Studio ?**  
 Azure Monitor pour solutions SAP n’est pas spécifique à la base de données HANA. Azure Monitor pour solutions SAP prend également en charge AnyDB.  
+
+- **Quelles sont les versions de SAP NetWeaver prises en charge ?**  
+SAP NetWeaver 7.0 ou ultérieur.  
+
+- **Quelles sont les configurations SAP NetWeaver prises en charge ?**  
+Les configurations de serveur d’applications SAP NetWeaver ABAP, Java et double pile sont prises en charge.
+
+- **Pourquoi est-ce que je dois ôter la protection des méthodes pour la supervision des applications SAP NetWeaver ?**  
+Dans les versions de SAP >= à 7.3, la plupart des méthodes de service web sont protégées par défaut. Pour extraire des métriques de disponibilité et de performances en appelant ces méthodes, vous devez ôter la protection des méthodes suivantes : GetQueueStatistic, ABAPGetWPTable, GetProcessList, EnqGetStatistic et GetSystemInstancelist.
+
+- **La suppression de la protection des méthodes web SAPCONTROL présente-t-elle un risque ?**  
+En général, la suppression de la protection des méthodes web SAPCONTROL ne pose pas de problème de sécurité [en soi](https://launchpad.support.sap.com/#/notes/1439348). Toutefois, si les clients souhaitent restreindre ou interdire l’accès aux méthodes web non protégées via les ports du serveur (5XX13/5XX14) de sapstartsrv, vous pouvez le faire en ajoutant un filtre dans la liste de contrôle d’accès SAP. La [note OSS](https://service.sap.com/sap/support/notes/1495075) décrit la configuration requise. 
+
+- **Est-ce que je dois redémarrer mes instances SAP après avoir effectué des configurations système pour configurer le fournisseur SAP NetWeaver ?**  
+Oui, une fois que vous avez ôté la protection des méthodes par le biais de modifications de configuration SAP, vous devez redémarrer les systèmes SAP concernés afin de vous assurer que les modifications de configuration sont mises à jour.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

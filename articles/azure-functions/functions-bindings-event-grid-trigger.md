@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17968f2c137eef51eecdb6c7098c7056944dc970
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250126"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782186"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Déclencheur Azure Event Grid pour Azure Functions
 
@@ -446,7 +446,7 @@ Pour plus d’informations sur la création d’abonnements à l’aide du Porta
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour créer un abonnement avec [Azure CLI](/cli/azure/get-started-with-azure-cli), utilisez la commande [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
+Pour créer un abonnement avec [Azure CLI](/cli/azure/get-started-with-azure-cli), utilisez la commande [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create).
 
 La commande a besoin de l’URL de point de terminaison qui appelle la fonction. L’exemple suivant illustre le modèle d’URL spécifique à la version :
 
@@ -571,7 +571,7 @@ Pour qu’un déclencheur Event Grid soit testé en local, les requêtes HTTP Ev
 1. [Générez une requête](#generate-a-request) et copiez le corps de la requête à partir de l’application de visionneuse.
 1. [Publiez (POST) manuellement la requête](#manually-post-the-request) sur l’URL localhost de votre fonction de déclenchement Event Grid.
 
-À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update).
+À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_update).
 
 ### <a name="create-a-viewer-web-app"></a>Créer une application web de visionneuse
 

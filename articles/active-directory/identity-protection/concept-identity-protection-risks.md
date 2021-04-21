@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 04/13/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18e504579c750caf452ef74844c4a388ec96448a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87516ddcce32ab205b13139c057a2ab999146b74
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97954483"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376356"
 ---
 # <a name="what-is-risk"></a>Quel est le risque ?
 
@@ -83,7 +83,7 @@ Bien que Microsoft ne communique pas en détail sur l'évaluation du risque, nou
 
 ### <a name="password-hash-synchronization"></a>Synchronisation de hachage du mot de passe
 
-Les détections de risque comme les informations d’identification divulguées et la vaporisation de mots de passe nécessitent la présence de hachages de mot de passe pour la détection. Pour plus d’informations sur la synchronisation de hachage du mot de passe, consultez l’article [Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
+Les détections de risque comme les informations d’identification divulguées nécessitent la présence de hachages de mot de passe. Pour plus d’informations sur la synchronisation de hachage du mot de passe, consultez l’article [Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Informations d’identification divulguées
 

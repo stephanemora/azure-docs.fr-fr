@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/31/2021
-ms.openlocfilehash: 74cd5ce5912e5a656342a43b7c2b165fdf3c32d4
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.date: 04/08/2021
+ms.openlocfilehash: 7f9a8cb54458999d8f20a258bc36241dfdbd0de8
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490292"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376033"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
@@ -25,10 +25,28 @@ Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions
 
 
 > [!TIP]
-> Nos équipes de chasse des menaces Microsoft mettent à la disposition de la [communauté Azure Sentinel](https://github.com/Azure/Azure-Sentinel) des requêtes, playbooks, workbooks et notebooks, notamment des [requêtes de chasse](https://github.com/Azure/Azure-Sentinel) spécifiques que vos équipes peuvent adapter et utiliser. 
+> Nos équipes de chasse des menaces Microsoft mettent à la disposition de la [communauté Azure Sentinel](https://github.com/Azure/Azure-Sentinel) des requêtes, playbooks, workbooks et notebooks, notamment des [requêtes de chasse](https://github.com/Azure/Azure-Sentinel) spécifiques que vos équipes peuvent adapter et utiliser.
 >
 > Vous pouvez également contribuer ! Rejoignez-nous dans la [communauté GitHub des chasseurs de menaces Azure Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
-> 
+>
+
+## <a name="april-2021"></a>Avril 2021
+
+- [Chronologie des incidents (préversion publique)](#incident-timeline-public-preview)
+
+### <a name="incident-timeline-public-preview"></a>Chronologie des incidents (préversion publique)
+
+Le premier onglet d’une page de détails d’incident est maintenant **Chronologie**, qui affiche une chronologie des alertes et des signets dans l’incident. La chronologie d’un incident peut vous aider à mieux comprendre l’incident et à retracer la chronologie de l’activité de l’attaquant parmi les alertes et les signets associés.
+
+- Sélectionnez un élément dans la chronologie pour afficher ses détails, sans quitter le contexte de l’incident
+- Filtrez le contenu de la chronologie pour afficher uniquement les alertes ou les signets, ou les éléments d’une gravité ou d’une tactique MITRE spécifique.
+- Vous pouvez sélectionner le lien **ID d’alerte système** pour afficher l’intégralité de l’enregistrement, ou le lien **Événements** pour afficher les événements associés dans la zone **Journaux**.
+
+Par exemple :
+
+:::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Onglet Chronologie de l’incident":::
+
+Pour plus d’informations, consultez [Didacticiel : Examiner les incidents avec Azure Sentinel](tutorial-investigate-cases.md).
 
 ## <a name="march-2021"></a>Mars 2021
 

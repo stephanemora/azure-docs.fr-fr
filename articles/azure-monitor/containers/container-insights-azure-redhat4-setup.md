@@ -3,12 +3,12 @@ title: Configurer Azure Red Hat OpenShift v4.x avec Container Insights | Micros
 description: Cet article décrit comment configurer l’analyse d’un cluster Kubernetes avec Azure Monitor, hébergé sur Azure Red Hat OpenShift version 4 ou ultérieure.
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 7c44a7c6eea6182316d626e3e8501f9aa63eef78
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 11c702d1f46725a12e90a01dc1b38467344a1123
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221515"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784638"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>Configurer Azure Red Hat OpenShift v4.x avec Container Insights
 
@@ -20,7 +20,7 @@ Container Insights offre une expérience de surveillance riche pour les cluster
 
 Vous pouvez activer Container Insights pour un ou plusieurs déploiements existants d’Azure Red Hat OpenShift v4.x à l’aide des méthodes prises en charge décrites dans cet article.
 
-Pour un cluster existant, exécutez [le script Bash dans Azure CLI](/cli/azure/openshift#az-openshift-create&preserve-view=true).
+Pour un cluster existant, exécutez [le script Bash dans Azure CLI](/cli/azure/openshift#az_openshift_create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Fonctionnalités prises en charge et non prises en charge
 

@@ -8,12 +8,12 @@ author: v-amallick
 ms.author: v-amallick
 ms.collection: windows
 ms.date: 07/05/2019
-ms.openlocfilehash: 171a438b8ac2a74437c15a749d6974945877a1ee
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: c10be941206dd60887c9d82025506d1ea15c51a2
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293751"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517247"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
 
@@ -114,4 +114,4 @@ La commande renvoie un **conteneur de sauvegarde** de cette ressource et l’ét
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus](../../backup/backup-sql-server-azure-troubleshoot.md) sur les instructions de résolution des problèmes liés à la sauvegarde de la machine virtuelle Azure SQL Server
-- [Questions courantes](../../backup/faq-backup-sql-server.md) sur la sauvegarde de bases de données SQL Server s’exécutant sur des machines virtuelles Azure et utilisant le service Sauvegarde Azure.
+- [Questions courantes](../../backup/faq-backup-sql-server.yml) sur la sauvegarde de bases de données SQL Server s’exécutant sur des machines virtuelles Azure et utilisant le service Sauvegarde Azure.

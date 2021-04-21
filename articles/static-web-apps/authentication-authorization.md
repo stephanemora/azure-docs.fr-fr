@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 9c8dd723c9cde5c0534d9fd5ca4084c7ed15d213
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 29821733b73717634aa8f0ab72270f058ffd3ddc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218632"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309388"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Authentification et autorisation pour les applications Azure Static Web Apps - Préversion
 
@@ -24,7 +24,7 @@ Azure Static Web Apps simplifie l’expérience d’authentification en gérant 
 - Google<sup>1</sup>
 - Twitter
 
-Les [invitations](#invitations) spécifiques au fournisseur associent les utilisateurs à des rôles, et les utilisateurs autorisés bénéficient d’un accès aux [itinéraires](routes.md) via les règles définies dans le fichier _routes.json_.
+Les [invitations](#invitations) spécifiques au fournisseur associent les utilisateurs à des rôles, et les utilisateurs autorisés bénéficient d'un accès aux [itinéraires](routes.md) via les règles définies dans le fichier _staticwebapp.config.json_.
 
 Tous les fournisseurs d’authentification sont activés par défaut. Pour restreindre un fournisseur d’authentification, [bloquez l’accès](#block-an-authorization-provider) avec une règle d’acheminement personnalisée.
 
@@ -32,18 +32,18 @@ Les rubriques relatives à l’authentification et à l’autorisation ont beauc
 
 ## <a name="roles"></a>Rôles
 
-Tous les utilisateurs qui accèdent à une application web statique appartiennent à un ou plusieurs rôles.  Les utilisateurs peuvent appartenir à deux rôles intégrés :
+Tous les utilisateurs qui accèdent à une application web statique appartiennent à un ou plusieurs rôles. Les utilisateurs peuvent appartenir à deux rôles intégrés :
 
 - **Anonyme** : tous les utilisateurs appartiennent automatiquement au rôle _anonyme_.
 - **Authentifié** : tous les utilisateurs qui sont connectés appartiennent au rôle _authentifié_ .
 
-Au-delà des rôles intégrés, vous pouvez créer des rôles, les affecter à des utilisateurs via des invitations et les référencer dans le fichier _routes.json_.
+Au-delà des rôles intégrés, vous pouvez créer des rôles, les attribuer à des utilisateurs via des invitations et les référencer dans le fichier _staticwebapp.config.json_.
 
 ## <a name="role-management"></a>Gestion des rôles
 
 ### <a name="add-a-user-to-a-role"></a>Ajouter un utilisateur à un rôle
 
-Pour ajouter des utilisateurs à votre site web, vous générez des invitations qui vous permettent d’associer les utilisateurs à des rôles spécifiques. Les rôles sont définis et gérés dans le fichier _routes.json_.
+Pour ajouter des utilisateurs à votre site web, vous générez des invitations qui vous permettent d’associer les utilisateurs à des rôles spécifiques. Les rôles sont définis et gérés dans le fichier _staticwebapp.config.json_.
 
 <a name="invitations" id="invitations"></a>
 
@@ -53,25 +53,25 @@ Les invitations sont spécifiques à chaque fournisseur d’autorisation. Tenez 
 
 <a name="provider-user-details" id="provider-user-details"></a>
 
-| Fournisseur d’autorisation | Expose  |
-| ---------------------- | ----------------- |
-| Azure Active Directory | de l’adresse de messagerie     |
-| Facebook               | de l’adresse de messagerie     |
-| GitHub                 | username          |
-| Google<sup>1</sup>     | de l’adresse de messagerie     |
-| Twitter                | username          |
+| Fournisseur d’autorisation | Expose |
+| ---------------------- | ---------------- |
+| Azure Active Directory | de l’adresse de messagerie    |
+| Facebook               | de l’adresse de messagerie    |
+| GitHub                 | username         |
+| Google<sup>1</sup>     | de l’adresse de messagerie    |
+| Twitter                | username         |
 
 1. Accédez à la ressource Web Apps statique dans le [Portail Azure](https://portal.azure.com).
 1. Sous _Paramètres_, cliquez sur l’onglet **Gestion des rôles**.
 1. Cliquez sur le bouton **Inviter**.
 1. Sélectionnez un _fournisseur d’autorisation_ dans la liste des options.
 1. Ajoutez le nom d’utilisateur ou l’adresse e-mail du destinataire dans la zone _Détails sur l’invité_.
-    - Pour GitHub et Twitter, entrez le nom d’utilisateur. Pour tous les autres, entrez l’adresse e-mail du destinataire.
+   - Pour GitHub et Twitter, entrez le nom d’utilisateur. Pour tous les autres, entrez l’adresse e-mail du destinataire.
 1. Sélectionnez le domaine de votre site statique dans la liste déroulante _Domaine_.
-    - Le domaine que vous sélectionnez est le domaine qui apparaît dans l’invitation. Si vous avez un domaine personnalisé associé à votre site, vous souhaiterez probablement choisir ce domaine personnalisé.
+   - Le domaine que vous sélectionnez est le domaine qui apparaît dans l’invitation. Si vous avez un domaine personnalisé associé à votre site, vous souhaiterez probablement choisir ce domaine personnalisé.
 1. Ajoutez une liste séparée par des virgules de noms de rôles dans la zone _Rôle_.
 1. Entrez le nombre d’heures pendant lesquelles vous souhaitez que l’invitation reste valide.
-    - La limite maximale possible est de 168 heures, soit 7 jours.
+   - La limite maximale possible est de 168 heures, soit 7 jours.
 1. Cliquez sur le bouton **Générer**.
 1. Copiez le lien dans la zone _Lien d’invitation_.
 1. Envoyez le lien d’invitation à la personne à laquelle vous accordez l’accès à votre application.

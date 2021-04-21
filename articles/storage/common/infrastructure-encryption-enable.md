@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23b3ca919be030490cca06f31dac623d7f80be44
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92746569"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790380"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Créer un compte de stockage avec le chiffrement d’infrastructure activé à des fins de double chiffrement des données
 
@@ -58,21 +58,21 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour vous inscrire avec Azure CLI, appelez la commande [az feature register](/cli/azure/feature#az-feature-register).
+Pour vous inscrire avec Azure CLI, appelez la commande [az feature register](/cli/azure/feature#az_feature_register).
 
 ```azurecli
 az feature register --namespace Microsoft.Storage \
     --name AllowRequireInfraStructureEncryption
 ```
 
-Pour vérifier l’état de votre inscription à l’aide d’Azure CLI, appelez la commande [az feature](/cli/azure/feature#az-feature-show).
+Pour vérifier l’état de votre inscription à l’aide d’Azure CLI, appelez la commande [az feature](/cli/azure/feature#az_feature_show).
 
 ```azurecli
 az feature show --namespace Microsoft.Storage \
     --name AllowRequireInfraStructureEncryption
 ```
 
-Une fois votre inscription approuvée, vous devez réinscrire le fournisseur de ressources Stockage Azure. Pour réinscrire le fournisseur de ressources à l’aide d’Azure CLI, appelez la commande [az provider register](/cli/azure/provider#az-provider-register).
+Une fois votre inscription approuvée, vous devez réinscrire le fournisseur de ressources Stockage Azure. Pour réinscrire le fournisseur de ressources à l’aide d’Azure CLI, appelez la commande [az provider register](/cli/azure/provider#az_provider_register).
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -122,7 +122,7 @@ New-AzStorageAccount -ResourceGroupName <resource_group> `
 
 Pour utiliser Azure CLI afin créer un compte de stockage avec le chiffrement d’infrastructure activé, vérifiez que Azure CLI version 2.8.0 ou ultérieure est installé. Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](/cli/azure/install-azure-cli).
 
-Ensuite, créez un compte de stockage à usage générale v2 en appelant la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create) et incluez `--require-infrastructure-encryption option` pour activer le chiffrement d’infrastructure.
+Ensuite, créez un compte de stockage à usage générale v2 en appelant la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create) et incluez `--require-infrastructure-encryption option` pour activer le chiffrement d’infrastructure.
 
 L’exemple suivant montre comment créer un compte de stockage à usage général v2 configuré pour le stockage géoredondant avec accès en lecture (RA-GRS) et chiffrement d’infrastructure activé pour le double chiffrement des données. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
@@ -197,7 +197,7 @@ $account.Encryption.RequireInfrastructureEncryption
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour vérifier que le chiffrement d’infrastructure est activé pour un compte de stockage avec Azure CLI, appelez la commande [az storage account show](/cli/azure/storage/account#az-storage-account-show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `requireInfrastructureEncryption` dans la propriété `encryption` et vérifiez qu’il est défini sur `true`.
+Pour vérifier que le chiffrement d’infrastructure est activé pour un compte de stockage avec Azure CLI, appelez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `requireInfrastructureEncryption` dans la propriété `encryption` et vérifiez qu’il est défini sur `true`.
 
 L'exemple de code suivant récupère la valeur de la propriété `requireInfrastructureEncryption`. N’oubliez pas de remplacer les valeurs des espaces réservés entre crochets par vos propres valeurs :
 
@@ -216,4 +216,4 @@ N/A
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
-- [Clés gérées par le client pour le chiffrement du Stockage Azure](customer-managed-keys-overview.md)
+- [Clés gérées par le client pour le chiffrement du service Stockage Azure](customer-managed-keys-overview.md)

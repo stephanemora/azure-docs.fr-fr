@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 591f01004cfba247112f702625ab05ddc0aaede3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b5bb9fd6e3d34fc4a6b0ae90a2cd76fc84e9ce1
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652923"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366519"
 ---
 # <a name="restore-a-dropped-azure-database-for-postgresql-server"></a>Restaurer un serveur Azure Database pour PostgreSQL supprimé
 
@@ -43,7 +43,7 @@ Pour restaurer un serveur Azure Database pour PostgreSQL supprimé, vous avez be
 
     ![Créer un serveur à l’aide de l’API REST](./media/howto-restore-dropped-server/create-server-from-rest-api-azure.png)
   
- 6. Faites défiler la section du corps de la requête et collez le code suivant en remplaçant « Dropped Server Location », « submissionTimestamp » et « resourceId ». Pour « restorePointInTime », spécifiez une valeur de « submissionTimestamp » moins **15 minutes** pour vous assurer que la commande ne génère pas d’erreur.
+ 6. Faites défiler la page jusqu’à la section Request Body et collez-y le code suivant en remplaçant « Dropped Server Location » (par exemple, CentralUS, EastUS, etc.), « submissionTimestamp » et « resourceId ». Pour « restorePointInTime », spécifiez une valeur de « submissionTimestamp » moins **15 minutes** pour vous assurer que la commande ne génère pas d’erreur.
     
     ```json
     {

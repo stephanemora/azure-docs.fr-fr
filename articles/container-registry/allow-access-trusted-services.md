@@ -3,12 +3,12 @@ title: Accéder à un registre ayant un accès réseau restreint à l’aide du 
 description: Activer une instance de service Azure de confiance pour accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint pour tirer (pull) ou envoyer (push) des images
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b0d7feb223bcfcec4e8b2c786b211f4e3c3c3eb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716480"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785867"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permettre à des services de confiance d’accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint (préversion)
 
@@ -49,7 +49,7 @@ Les instances des services suivants peuvent accéder à un registre de conteneur
 
 ## <a name="allow-trusted-services---cli"></a>Autoriser les services approuvés – CLI
 
-Par défaut, le paramètre Autoriser les services approuvés est activé dans un nouveau registre de conteneurs Azure. Désactivez ou activez le paramètre en exécutant la commande [az acr update](/cli/azure/acr#az-acr-update).
+Par défaut, le paramètre Autoriser les services approuvés est activé dans un nouveau registre de conteneurs Azure. Désactivez ou activez le paramètre en exécutant la commande [az acr update](/cli/azure/acr#az_acr_update).
 
 Pour désactiver :
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 654d47102685c04d6440d7c155e4d6eb931abcae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554074"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788112"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
@@ -79,7 +79,7 @@ Pour activer l’authentification Azure AD pour vos machines virtuelles Linux da
 
 ## <a name="create-a-linux-virtual-machine"></a>Créer une machine virtuelle Linux
 
-Créez un groupe de ressources avec [az group create](/cli/azure/group#az-group-create), puis une machine virtuelle avec [az vm create](/cli/azure/vm#az-vm-create) à l’aide d’une distribution prise en charge dans une région qui l’est également. L’exemple suivant illustre le déploiement d’une machine virtuelle nommée *myVM* qui utilise *Ubuntu 16.04 LTS* dans un groupe de ressources nommé *myResourceGroup* dans la région *southcentralus*. Dans les exemples suivants, vous pouvez indiquer votre propre groupe de ressources et les noms de vos machines virtuelles comme il vous convient.
+Créez un groupe de ressources avec [az group create](/cli/azure/group#az_group_create), puis une machine virtuelle avec [az vm create](/cli/azure/vm#az_vm_create) à l’aide d’une distribution prise en charge dans une région qui l’est également. L’exemple suivant illustre le déploiement d’une machine virtuelle nommée *myVM* qui utilise *Ubuntu 16.04 LTS* dans un groupe de ressources nommé *myResourceGroup* dans la région *southcentralus*. Dans les exemples suivants, vous pouvez indiquer votre propre groupe de ressources et les noms de vos machines virtuelles comme il vous convient.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -99,7 +99,7 @@ La création de la machine virtuelle et des ressources de support ne nécessite 
 > [!NOTE]
 > Si vous déployez cette extension sur une machine virtuelle précédemment créée, assurez-vous que cette dernière dispose d’au moins 1 Go de mémoire allouée, faute de quoi l’installation de l’extension échouera
 
-Pour vous connecter à une machine virtuelle Linux avec des informations d’identification Azure AD, installez le journal Azure Active Directory dans l’extension de machine virtuelle. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) pour installer l’extension *AADLoginForLinux* sur la machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup* :
+Pour vous connecter à une machine virtuelle Linux avec des informations d’identification Azure AD, installez le journal Azure Active Directory dans l’extension de machine virtuelle. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez la commande [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) pour installer l’extension *AADLoginForLinux* sur la machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup* :
 
 ```azurecli-interactive
 az vm extension set \
@@ -121,7 +121,7 @@ La stratégie de contrôle d’accès en fonction du rôle Azure (Azure RBAC) d�
 > [!NOTE]
 > Pour autoriser un utilisateur à se connecter à la machine virtuelle via le protocole SSH, vous devez attribuer le rôle *Connexion de l’administrateur aux machines virtuelles* ou *Connexion de l’utilisateur aux machines virtuelles*. Les rôles Connexion de l’administrateur aux machines virtuelles et Connexion de l’utilisateur aux machines virtuelles utilisant dataActions, ils ne peuvent pas être attribués à l’étendue du groupe d’administration. Actuellement, ces rôles peuvent être attribués uniquement à l’étendue de l’abonnement, du groupe de ressources ou de la ressource. Un utilisateur Azure auquel le rôle *Propriétaire* ou *Contributeur* est attribué pour une machine virtuelle ne possède pas automatiquement les privilèges pour se connecter à la machine virtuelle via le protocole SSH. 
 
-L’exemple suivant illustre l’utilisation de la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) pour attribuer le rôle *Connexion de l’administrateur aux machines virtuelles* à la machine virtuelle de votre utilisateur Azure actuel. Le nom d’utilisateur de votre compte Azure actif est obtenu à l’aide de la commande [az account show](/cli/azure/account#az-account-show), et *l’étendue* est définie sur la machine virtuelle créée dans une étape précédente avec [az vm show](/cli/azure/vm#az-vm-show). L’étendue peut également être attribuée au niveau d’un groupe de ressources ou d’un abonnement, et les autorisations d’héritage Azure RBAC normales s’appliquent. Pour plus d’informations, consultez [Azure RBAC](../../role-based-access-control/overview.md).
+L’exemple suivant illustre l’utilisation de la commande [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour attribuer le rôle *Connexion de l’administrateur aux machines virtuelles* à la machine virtuelle de votre utilisateur Azure actuel. Le nom d’utilisateur de votre compte Azure actif est obtenu à l’aide de la commande [az account show](/cli/azure/account#az_account_show), et *l’étendue* est définie sur la machine virtuelle créée dans une étape précédente avec [az vm show](/cli/azure/vm#az_vm_show). L’étendue peut également être attribuée au niveau d’un groupe de ressources ou d’un abonnement, et les autorisations d’héritage Azure RBAC normales s’appliquent. Pour plus d’informations, consultez [Azure RBAC](../../role-based-access-control/overview.md).
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -134,7 +134,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Si votre domaine AAD et le domaine du nom d’utilisateur d’ouverture de session ne correspondent pas, vous devez spécifier l’ID d’objet de votre compte d’utilisateur avec *--assignee-object-id*, pas seulement le nom d’utilisateur pour *--assignee*. Vous pouvez obtenir l’ID d’objet de votre compte d’utilisateur avec [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> Si votre domaine AAD et le domaine du nom d’utilisateur d’ouverture de session ne correspondent pas, vous devez spécifier l’ID d’objet de votre compte d’utilisateur avec *--assignee-object-id*, pas seulement le nom d’utilisateur pour *--assignee*. Vous pouvez obtenir l’ID d’objet de votre compte d’utilisateur avec [az ad user list](/cli/azure/ad/user#az_ad_user_list).
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour gérer l’accès aux ressources de votre abonnement Azure, consultez les rubriques relatives à l’utilisation d’[Azure CLI](../../role-based-access-control/role-assignments-cli.md), du [portail Azure](../../role-based-access-control/role-assignments-portal.md) ou d’[Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -147,7 +147,7 @@ Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une a
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Se connecter à la machine virtuelle Linux
 
-Commencez par afficher l’adresse IP publique de votre machine virtuelle à l’aide de la commande [az vm show](/cli/azure/vm#az-vm-show) :
+Commencez par afficher l’adresse IP publique de votre machine virtuelle à l’aide de la commande [az vm show](/cli/azure/vm#az_vm_show) :
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv

@@ -2,13 +2,13 @@
 title: Créer un fichier de paramètres
 description: Créer un fichier de paramètres pour transmettre des valeurs pendant le déploiement d’un modèle d’Azure Resource Manager
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: d557bcdfe246dc2c9bfccde17b7f9590c2686358
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89276641"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312040"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Créer un fichier de paramètres Resource Manager
 
@@ -210,6 +210,8 @@ Pour plus d’informations, consultez [Déployer des ressources à l’aide de m
 
 > [!NOTE]
 > Il n’est pas possible d’utiliser un fichier de paramètres avec le panneau de modèle personnalisé dans le portail.
+
+Si vous utilisez le [projet de groupe de ressources Azure dans Visual Studio](create-visual-studio-deployment-project.md), vérifiez que l’**Action de génération** du fichier de paramètres est définie sur **Contenu**.
 
 ## <a name="file-name"></a>Nom de fichier
 

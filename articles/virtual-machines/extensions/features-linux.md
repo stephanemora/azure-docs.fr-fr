@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: 8ff7b2940ca9ce3e5dc5913c0e676a32857771e7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bdbbc4c421b83fd041c7d900fb0edd01c4d636e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046876"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785088"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -65,7 +65,7 @@ Pour rediriger les requêtes de trafic d’agent, l’agent Linux prend en charg
 
 ## <a name="discover-vm-extensions"></a>Détecter les extensions de machine virtuelle
 
-De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Pour en obtenir la liste complète, utilisez la commande [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list). L’exemple suivant liste toutes les extensions disponibles à l’emplacement *westus* :
+De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Pour en obtenir la liste complète, utilisez la commande [az vm extension image list](/cli/azure/vm/extension/image#az_vm_extension_image_list). L’exemple suivant liste toutes les extensions disponibles à l’emplacement *westus* :
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -79,7 +79,7 @@ Vous pouvez exécuter une extension sur une machine virtuelle existante à l’a
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Vous pouvez exécuter les extensions de machine virtuelle Azure sur une machine virtuelle existante avec la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). L’exemple suivant exécute l’extension de script personnalisé sur une machine virtuelle nommée *myVM* dans un groupe de ressources nommé *myResourceGroup*. Remplacez l’exemple de nom de groupe de ressources, le nom de la machine virtuelle et le script à exécuter (https:\//raw.githubusercontent.com/me/project/hello.sh) par vos propres informations. 
+Vous pouvez exécuter les extensions de machine virtuelle Azure sur une machine virtuelle existante avec la commande [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set). L’exemple suivant exécute l’extension de script personnalisé sur une machine virtuelle nommée *myVM* dans un groupe de ressources nommé *myResourceGroup*. Remplacez l’exemple de nom de groupe de ressources, le nom de la machine virtuelle et le script à exécuter (https:\//raw.githubusercontent.com/me/project/hello.sh) par vos propres informations. 
 
 ```azurecli
 az vm extension set `
@@ -277,7 +277,7 @@ Si vous souhaitez obtenir les dernières corrections de bogues des versions mine
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Vérification si l’extension est définie avec la propriété autoUpgradeMinorVersion sur une machine virtuelle
 
-Le modèle de machine virtuelle vous permet de déterminer si l’extension a été provisionnée avec la propriété "autoUpgradeMinorVersion". Pour vérifier ce point, utilisez la commande [az vm show](/cli/azure/vm#az-vm-show), et indiquez le groupe de ressources et le nom de machine virtuelle comme suit :
+Le modèle de machine virtuelle vous permet de déterminer si l’extension a été provisionnée avec la propriété "autoUpgradeMinorVersion". Pour vérifier ce point, utilisez la commande [az vm show](/cli/azure/vm#az_vm_show), et indiquez le groupe de ressources et le nom de machine virtuelle comme suit :
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
@@ -346,7 +346,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 ### <a name="view-extension-status"></a>Afficher l’état de l’extension
 
-Une fois qu’une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez la commande [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) pour retourner l’état de l’extension comme suit :
+Une fois qu’une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez la commande [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) pour retourner l’état de l’extension comme suit :
 
 ```azurecli
 az vm get-instance-view \
@@ -379,7 +379,7 @@ L’état d’exécution de l’extension est également visible dans le portail
 
 ### <a name="rerun-a-vm-extension"></a>Réexécuter une extension de machine virtuelle
 
-Dans certains cas, vous pouvez avoir besoin de réexécuter une extension de machine virtuelle. Pour ce faire, supprimez-la, puis réexécutez-la avec la méthode d’exécution de votre choix. Pour supprimer une extension, utilisez [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) comme suit :
+Dans certains cas, vous pouvez avoir besoin de réexécuter une extension de machine virtuelle. Pour ce faire, supprimez-la, puis réexécutez-la avec la méthode d’exécution de votre choix. Pour supprimer une extension, utilisez [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete) comme suit :
 
 ```azurecli
 az vm extension delete \

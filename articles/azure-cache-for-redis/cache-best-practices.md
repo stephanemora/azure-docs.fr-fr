@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 84a6bba390b0f6b101bd8243cf47b79af9618999
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae8d952a31a4f1b42cc4a653ffa81d88b3e813f8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521643"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311972"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bonnes pratiques en matière d’utilisation du cache Azure pour Redis 
 En suivant ces bonnes pratiques, vous pouvez optimiser les performances et la rentabilité d’utilisation de votre instance du cache Azure pour Redis.
@@ -57,6 +57,7 @@ Il y a plusieurs points à prendre en compte en ce qui concerne l’utilisation 
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.JS](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
+ * [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
  * [Fournisseur d’état de session ASP.NET](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 

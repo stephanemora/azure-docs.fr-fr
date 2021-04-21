@@ -3,12 +3,12 @@ title: Bonnes pratiques concernant les registres
 description: Découvrez comment utiliser votre instance Azure Container Registry de manière efficace en suivant ces meilleures pratiques.
 ms.topic: article
 ms.date: 01/07/2021
-ms.openlocfilehash: 01c8c7f547be9dd225022fb3315a4bdecc48c2bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0811cc4a5bffc21ffba19e64a3887eab6bc36fbb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100578132"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784134"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Meilleures pratiques pour Azure Container Registry
 
@@ -63,7 +63,7 @@ Lorsque vous vous authentifiez avec Azure Container Registry, vous pouvez vous t
 
 | Type | Exemple de scénario | Méthode recommandée |
 |---|---|---|
-| Identité individuelle | Un développeur qui extrait des images ou transmet des images à partir de son ordinateur de développement. | [az acr login](/cli/azure/acr#az-acr-login) |
+| Identité individuelle | Un développeur qui extrait des images ou transmet des images à partir de son ordinateur de développement. | [az acr login](/cli/azure/acr#az_acr_login) |
 | Identité de service / sans affichage | Pipelines de génération et de déploiement dans lequel l’utilisateur n’intervient pas directement. | [Principal du service](container-registry-authentication.md#service-principal) |
 
 Pour obtenir des informations détaillées sur ceux-ci et sur d’autres scénarios d’authentification auprès d’Azure Container Registry, consultez [S’authentifier auprès d’un registre de conteneurs Azure](container-registry-authentication.md).
@@ -108,8 +108,8 @@ Pour obtenir des recommandations visant à améliorer la posture de sécurité d
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-show-usage]: /cli/azure/acr#az_acr_show_usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

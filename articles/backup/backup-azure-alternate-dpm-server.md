@@ -3,12 +3,12 @@ title: Récupérer des données depuis un serveur de sauvegarde Azure
 description: Récupérez les données que vous avez protégées dans un coffre Recovery Services depuis n’importe quel serveur de sauvegarde Azure inscrit auprès de ce coffre.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: ed8c937f97ec7a74662a8b46a354b0a6db39a2b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 780c88175397fb06e704e57062ae5c6d3b93d8b8
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98806015"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519586"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Récupérer des données depuis Azure Backup Server
 
@@ -90,4 +90,4 @@ Pour récupérer des données depuis un serveur de sauvegarde Azure :
 Lire les autres forums aux questions :
 
 * [Questions courantes](backup-azure-vm-backup-faq.yml) sur la sauvegarde des machines virtuelles Azure
-* [Questions courantes](backup-azure-file-folder-backup-faq.md) sur l’agent Sauvegarde Azure.
+* [Questions courantes](backup-azure-file-folder-backup-faq.yml) sur l’agent Sauvegarde Azure.

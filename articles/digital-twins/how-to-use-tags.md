@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 70bf46de072a97eca810dda60a5331df14172ed6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d45ef8c32e61b5567798b7c42af28badb222601
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100555151"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376713"
 ---
 # <a name="add-tags-to-digital-twins"></a>Ajouter des étiquettes à des jumeaux numériques 
 
@@ -41,6 +41,10 @@ Une fois que la propriété `tags` fait partie d’un modèle de jumeau numériq
 Voici un exemple qui remplit la propriété `tags` de marqueur pour trois jumeaux :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
+
+Voici un exemple de code permettant de définir le marqueur `tags` d'un jumeau à l'aide du [kit de développement logiciel (SDK) .NET](/dotnet/api/overview/azure/digitaltwins/client) :
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 
 ### <a name="query-with-marker-tags"></a>Requête avec des balises de marqueur
 

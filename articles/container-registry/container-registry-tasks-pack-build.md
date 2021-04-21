@@ -3,13 +3,13 @@ title: Créer une image avec Cloud Native Buildpack
 description: Utilisez la commande AZ ACR Pack Build pour créer une image conteneur à partir d’une application et effectuer une transmission de type envoi (push) vers Azure Container Registry, sans utiliser de fichier dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-js
+ms.openlocfilehash: 1700c8fda8ac91e7d447d35c0989da2d5fc3aefe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92736638"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780926"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Générer et envoyer (push) une image à partir d’une application à l’aide d’un Cloud Native Buildpack
 
@@ -107,4 +107,4 @@ Pour plus d’informations sur les fonctionnalités des tâches ACR, consultez [
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr/task
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build

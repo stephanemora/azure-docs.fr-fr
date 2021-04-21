@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: bbad7dcaa1d92df4969c88e4ba86a62987509e39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 200df14e7d18c4bdfb903bef46c169f6f7bf5ca5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98632797"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781772"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -215,11 +215,11 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 | Applet de commande | Level | Description |
 | --- | --- | --- |
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Serveur|Crée une règle de pare-feu IP de serveur|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Serveur|Liste les règles de pare-feu IP sur un serveur|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Serveur|Affiche les détails d’une règle de pare-feu IP|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Serveur|Met à jour une règle de pare-feu IP|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Serveur|Supprime une règle de pare-feu IP|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Serveur|Crée une règle de pare-feu IP de serveur|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Serveur|Liste les règles de pare-feu IP sur un serveur|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Serveur|Affiche les détails d’une règle de pare-feu IP|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Serveur|Met à jour une règle de pare-feu IP|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Serveur|Supprime une règle de pare-feu IP|
 
 L’exemple suivant définit une règle de pare-feu IP au niveau du serveur à l’aide de l’interface de ligne de commande :
 

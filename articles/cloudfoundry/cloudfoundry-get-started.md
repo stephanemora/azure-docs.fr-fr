@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: d3b13dffcf251f79a04182d32f23fd40e6ed6044
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f80f07cad0e82ee35fe71223e1282ea24f791bb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562892"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530921"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry sur Azure
 
@@ -39,7 +39,7 @@ Microsoft offre un support de type « Meilleur effort » pour OSS CF, par le 
 
 Pivotal Cloud Foundry inclut la même plateforme principale que la version OSS, ainsi qu’un ensemble d’outils de gestion propriétaires et un support pour entreprise. Pour exécuter PCF sur Azure, vous devez acquérir une licence auprès de Pivotal. L’offre PCF sur la Place de marché Microsoft Azure inclut une licence d’évaluation de 90 jours.
 
-Les outils incluent [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), une application web qui simplifie le déploiement et la gestion d’une solution Cloud Foundry Foundation, et [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), une application web pour la gestion des utilisateurs et des applications.
+Les outils incluent [Pivotal Operations Manager](https://docs.pivotal.io/ops-manager/2-10/install/), une application web qui simplifie le déploiement et la gestion d’une solution Cloud Foundry Foundation, et [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), une application web pour la gestion des utilisateurs et des applications.
 
 Outre les canaux de support répertoriés ci-avant pour OSS CF, une licence PCF vous autorise à contacter Pivotal pour vos besoins en support. Microsoft et Pivotal ont également mis en place des flux de travail de support qui vous permettent de les contacter et qui acheminent votre demande de façon appropriée selon la nature du problème.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: a799d7c32ad632303931adf838ca8e2e715b2adc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e689e620a5aeb7c5028f1a1b30dd6def8e447ab
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860182"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529997"
 ---
 # <a name="microsoft-graph-api"></a>API Microsoft Graph
 
@@ -32,9 +32,9 @@ Microsoft Graph expose les API REST et les bibliothèques clientes pour accéder
 
 Microsoft Graph prend actuellement en charge deux versions : v1.0 et bêta. La version v1.0 comprend les API généralement disponibles. Utilisez la version v1.0 pour toutes les applications de production. La version bêta comprend les API actuellement en préversion. Comme nos API bêta sont susceptibles d’introduire des changements cassants, nous vous recommandons d’utiliser la version bêta uniquement pour tester des applications en phase de développement. N’utilisez pas les API bêta dans vos applications de production. Pour plus d’informations, consultez [Gestion de versions, support et stratégies de changements cassants pour Microsoft Graph](/graph/versioning-and-support).
 
-Pour commencer à utiliser les API bêta, consultez [Référence de point de terminaison bêta Microsoft Graph](/graph/api/overview?view=graph-rest-beta)
+Pour commencer à utiliser les API bêta, consultez [Référence de point de terminaison bêta Microsoft Graph](/graph/api/overview?view=graph-rest-beta&preserve-view=true)
 
-Pour commencer à utiliser les API v1.0, consultez [Référence version 1.0 de l’API REST Microsoft Graph](/graph/api/overview)
+Pour commencer à utiliser les API v1.0, consultez [Référence version 1.0 de l’API REST Microsoft Graph](/graph/api/overview?view=graph-rest-1.0&preserve-view=true)
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -57,4 +57,4 @@ Une fois le démarrage rapide terminé, vous disposez d’une application prête
 
 L’afficheur Microsoft Graph est un outil web que vous pouvez utiliser pour générer et tester des demandes à l’aide des API Microsoft Graph. Vous pouvez accéder à l’afficheur Microsoft Graph sur : `https://developer.microsoft.com/graph/graph-explorer`.
 
-Postman est un autre outil que vous pouvez utiliser pour générer et tester des demandes à l’aide des API Microsoft Graph. Vous pouvez télécharger Postman à l’adresse : `https://www.getpostman.com/`. Pour interagir avec Microsoft Graph dans Postman, utilisez la collection Microsoft Graph dans Postman. Pour plus d’informations, consultez [Utiliser Postman avec l’API Microsoft Graph](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+Postman est un autre outil que vous pouvez utiliser pour générer et tester des demandes à l’aide des API Microsoft Graph. Vous pouvez télécharger Postman à l’adresse : `https://www.getpostman.com/`. Pour interagir avec Microsoft Graph dans Postman, utilisez la collection Microsoft Graph dans Postman. Pour plus d’informations, consultez [Utiliser Postman avec l’API Microsoft Graph](/graph/use-postman).

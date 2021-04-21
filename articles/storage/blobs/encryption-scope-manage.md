@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c29282637f6854248c98dff59f8fae46ad1a9d39
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 656443b0bc9d0e45f43634b1b4c21145de7a5bb5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640525"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792540"
 ---
 # <a name="create-and-manage-encryption-scopes"></a>Créer et gérer des étendues de chiffrement
 
@@ -111,7 +111,7 @@ Pour créer une étendue de chiffrement avec Azure CLI, commencez par installer 
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Créer une étendue de chiffrement protégée par des clés gérées par Microsoft
 
-Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) avec le paramètre `--key-source` comme `Microsoft.Storage`. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
+Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) avec le paramètre `--key-source` comme `Microsoft.Storage`. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -123,7 +123,7 @@ az storage account encryption-scope create \
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>Créer une étendue de chiffrement protégée par des clés gérées par clients
 
-Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) avec le paramètre `--key-source` comme `Microsoft.Storage`. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
+Pour créer une étendue de chiffrement protégée par des clés gérées par Microsoft, appelez la commande [az storage account encryption-scope create](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_create) avec le paramètre `--key-source` comme `Microsoft.Storage`. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
 
 Pour créer une nouvelle étendue de chiffrement protégée par des clés gérées par le client dans un coffre de clés ou un HSM managé, configurez d’abord les clés gérées par le client pour le compte de stockage. Vous devez affecter une identité gérée au compte de stockage, puis utiliser l’identité gérée pour configurer la stratégie d’accès du coffre de clés afin que le compte de stockage dispose des autorisations nécessaires pour y accéder. Pour plus d’informations, consultez [Clés gérées par le client pour le chiffrement Stockage Azure](../common/customer-managed-keys-overview.md).
 
@@ -202,7 +202,7 @@ Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Pour répertorier les étendues de chiffrement disponibles pour un compte de stockage avec Azure CLI, appelez la commande [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-list). N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
+Pour répertorier les étendues de chiffrement disponibles pour un compte de stockage avec Azure CLI, appelez la commande [az storage account encryption-scope list](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_list). N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
 
 ```azurecli-interactive
 az storage account encryption-scope list \
@@ -246,7 +246,7 @@ New-AzStorageContainer -Name $containerName1 `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Pour créer un conteneur avec une étendue de chiffrement par défaut avec Azure CLI, appelez la commande [az storage container create](/cli/azure/storage/container#az-storage-container-create), en spécifiant l’étendue du paramètre `--default-encryption-scope`. Pour forcer tous les objets blob d’un conteneur à utiliser l’étendue par défaut du conteneur, définissez le paramètre `--prevent-encryption-scope-override` sur `true`.
+Pour créer un conteneur avec une étendue de chiffrement par défaut avec Azure CLI, appelez la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create), en spécifiant l’étendue du paramètre `--default-encryption-scope`. Pour forcer tous les objets blob d’un conteneur à utiliser l’étendue par défaut du conteneur, définissez le paramètre `--prevent-encryption-scope-override` sur `true`.
 
 L’exemple suivant utilise votre compte Azure AD pour autoriser l’opération à créer le conteneur. Vous pouvez également utiliser la clé d'accès au compte. Pour plus d’informations, consultez [Autoriser l’accès aux données d’objet blob et de file d’attente avec Azure CLI](./authorize-data-operations-cli.md).
 
@@ -303,7 +303,7 @@ Set-AzStorageBlobContent -Context $ctx `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Pour charger un objet blob avec une étendue de chiffrement spécifiée dans Azure CLI, appelez la commande [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) et fournissez l'étendue de chiffrement pour l’objet blob.
+Pour charger un objet blob avec une étendue de chiffrement spécifiée dans Azure CLI, appelez la commande [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) et fournissez l'étendue de chiffrement pour l’objet blob.
 
 Si vous utilisez Azure Cloud Shell, suivez les étapes décrites dans [Télécharger un objet BLOB](storage-quickstart-blobs-cli.md#upload-a-blob) pour créer un fichier dans le répertoire racine. Vous pouvez ensuite télécharger ce fichier vers un objet blob à l’aide de l’exemple suivant.
 
@@ -354,7 +354,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Pour modifier la clé qui protège une étendue de chiffrement d’une clé gérée par le client à une clé gérée par Microsoft avec Azure CLI, appelez la commande [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) et transmettez le paramètre `--key-source` avec la valeur `Microsoft.Storage` :
+Pour modifier la clé qui protège une étendue de chiffrement d’une clé gérée par le client à une clé gérée par Microsoft avec Azure CLI, appelez la commande [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) et transmettez le paramètre `--key-source` avec la valeur `Microsoft.Storage` :
 
 ```azurecli-interactive
 az storage account encryption-scope update \
@@ -398,7 +398,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Pour désactiver une étendue de chiffrement avec Azure CLI, appelez la commande [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-update) et incluez le paramètre `--state` avec la valeur `Disabled`, comme indiqué dans l’exemple suivant. Pour réactiver une étendue de chiffrement, appelez la même commande avec le paramètre `--state` défini sur `Enabled`. N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
+Pour désactiver une étendue de chiffrement avec Azure CLI, appelez la commande [az storage account encryption-scope update](/cli/azure/storage/account/encryption-scope#az_storage_account_encryption_scope_update) et incluez le paramètre `--state` avec la valeur `Disabled`, comme indiqué dans l’exemple suivant. Pour réactiver une étendue de chiffrement, appelez la même commande avec le paramètre `--state` défini sur `Enabled`. N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs :
 
 ```azurecli-interactive
 az storage account encryption-scope update \

@@ -9,13 +9,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.custom: seodec18
-ms.openlocfilehash: 150bf38ebb248f15bf1ed82186c16b6b3f7ac40b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e2846b7ba07ec0a7678a8287fe6a84bc169497a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728723"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785124"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-cli"></a>Créer un environnement Azure Time Series Insights Gen2 à l’aide de l’interface Azure CLI
 
@@ -74,7 +74,7 @@ Pour [supprimer le compte de stockage](/cli/azure/storage/account#az_storage_acc
 az storage account delete --name $storage --resource-group $rg
 ```
 
-Pour [supprimer un groupe de ressources](/cli/azure/group#az-group-delete) et toutes ses ressources, exécutez la commande suivante :
+Pour [supprimer un groupe de ressources](/cli/azure/group#az_group_delete) et toutes ses ressources, exécutez la commande suivante :
 
 ```azurecli-interactive
 az group delete --name $rg

@@ -3,12 +3,12 @@ title: Restaurer tous les fichiers dans un volume à l’aide de MARS
 description: Découvrez comment restaurer tous les fichiers d’un volume à l’aide de l’agent MARS.
 ms.topic: conceptual
 ms.date: 01/17/2021
-ms.openlocfilehash: 44c12809fc94f78721ab1788cb352076dfebabe4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d04e9f77b9f92594def9381f973c999e96b2cb2
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612584"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516499"
 ---
 # <a name="restore-all-the-files-in-a-volume-using-the-mars-agent"></a>Restaurer tous les fichiers d’un volume à l’aide de l’agent MARS
 
@@ -92,7 +92,7 @@ Ces étapes incluent la terminologie suivante :
 
 1. Fournissez le fichier d’informations d’identification correspondant à l’exemple de coffre, puis cliquez sur **Suivant**.
 
-    Si le fichier d’informations d’identification du coffre n’est pas valide (ou a expiré), [téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’exemple de coffre](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) dans le portail Azure. Une fois que vous avez fourni des informations d’identification de coffre valides, le nom du coffre de sauvegarde correspondant s’affiche.
+    Si le fichier d’informations d’identification du coffre n’est pas valide (ou a expiré), [téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’exemple de coffre](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) dans le portail Azure. Une fois que vous avez fourni des informations d’identification de coffre valides, le nom du coffre de sauvegarde correspondant s’affiche.
 
 1. Dans la page **Sélectionner un serveur de sauvegarde**, sélectionnez l’ordinateur source dans la liste des ordinateurs affichés et fournissez la phrase secrète. Sélectionnez ensuite **Suivant**.
 
@@ -130,4 +130,4 @@ Ces étapes incluent la terminologie suivante :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).
-- Consultez les [questions courantes sur la sauvegarde des fichiers et des dossiers](backup-azure-file-folder-backup-faq.md).
+- Consultez les [questions courantes sur la sauvegarde des fichiers et des dossiers](backup-azure-file-folder-backup-faq.yml).

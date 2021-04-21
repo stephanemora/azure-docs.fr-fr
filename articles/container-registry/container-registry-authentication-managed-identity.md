@@ -3,12 +3,12 @@ title: Authentifier avec l’identité gérée
 description: Donnez accès aux images de votre registre de conteneurs privé à l’aide d’une identité managée Azure affectée par l’utilisateur ou par le système.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 2ab27e8548882b5bd296dc45e4bb74d3d6ba357b
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 213f49356fdc2444f8bc2cb4635e96015aff0a61
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285482"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781538"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
 
@@ -242,13 +242,13 @@ Dans cet article, vous avez découvert les identités managées avec Azure Conta
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - Internal -->
-[az-login]: /cli/azure/reference-index#az-login
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-vm-create]: /cli/azure/vm#az-vm-create
-[az-vm-show]: /cli/azure/vm#az-vm-show
-[az-vm-identity-assign]: /cli/azure/vm/identity#az-vm-identity-assign
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-login]: /cli/azure/reference-index#az_login
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-vm-create]: /cli/azure/vm#az_vm_create
+[az-vm-show]: /cli/azure/vm#az_vm_show
+[az-vm-identity-assign]: /cli/azure/vm/identity#az_vm_identity_assign
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-identity-show]: /cli/azure/identity#az_identity_show
 [azure-cli]: /cli/azure/install-azure-cli

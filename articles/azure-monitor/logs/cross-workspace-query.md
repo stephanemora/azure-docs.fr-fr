@@ -4,13 +4,13 @@ description: Cet article explique comment interroger les ressources à partir de
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 57ed43b25c9031138a91f0870d316e1ae7a07a5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/11/2021
+ms.openlocfilehash: 19cc85751fc5e4a165b646ac89d9d6b6e90c4408
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030964"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379551"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Exécuter une requête de journal dans Azure Monitor qui s’étend sur plusieurs espaces de travail et applications
 
@@ -27,7 +27,7 @@ Il existe deux méthodes pour interroger des données stockées dans plusieurs e
 ## <a name="cross-resource-query-limits"></a>Limites de requête inter-ressources 
 
 * Le nombre de ressources Application Insights et d’espaces de travail Log Analytics que vous pouvez inclure dans une seule requête est limité à 100.
-* Les requêtes inter-ressources ne sont pas prises en charge dans le Concepteur de vue. Vous pouvez créer une requête dans Log Analytics et l’épingler au tableau de bord Azure pour [visualiser une requête de journal](../visualize/tutorial-logs-dashboards.md). 
+* Les requêtes inter-ressources ne sont pas prises en charge dans le Concepteur de vue. Vous pouvez créer une requête dans Log Analytics et l’épingler au tableau de bord Azure pour [visualiser une requête de journal](../visualize/tutorial-logs-dashboards.md) ou l’inclure à [Workbooks](../visualize/workbooks-overview.md).
 * Les requêtes de ressources croisées dans les alertes de journal sont uniquement prises en charge dans l’[API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) actuelle. Si vous utilisez l’API Log Analytics Alerts héritée, vous devez [basculer sur l’API actuelle](../alerts/alerts-log-api-switch.md).
 
 
@@ -41,6 +41,9 @@ Il est possible d’identifier un espace de travail de plusieurs manières :
 
 * Nom de la ressource : il s’agit d’un nom convivial de l’espace de travail, parfois appelé *nom du composant*. 
 
+    >[!IMPORTANT]
+    >Étant donné que les noms des applications et des espaces de travail ne sont pas uniques, cet identificateur peut être ambigu. Il est recommandé d’avoir une référence basée sur un nom qualifié, un ID d’espace de travail ou un ID de ressource Azure.
+
     `workspace("contosoretail-it").Update | count`
 
 * Nom qualifié : il s’agit du « nom complet » de l’espace de travail, composé du nom de l’abonnement, du groupe de ressources et du nom du composant au format suivant : *nomAbonnement/groupeRessources/nomComposant*. 
@@ -48,8 +51,7 @@ Il est possible d’identifier un espace de travail de plusieurs manières :
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Étant donné que les noms des abonnements Azure ne sont pas uniques, cet identificateur peut être ambigu. 
-    >
+    >Étant donné que les noms des abonnements Azure ne sont pas uniques, cet identificateur peut être ambigu.
 
 * ID de l’espace de travail : il s’agit de l’identificateur unique et immuable affecté à chaque espace de travail, représenté sous la forme d’un identificateur global unique (GUID).
 

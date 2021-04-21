@@ -3,12 +3,12 @@ title: Règles d’accès du pare-feu
 description: Configurez des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu en autorisant l’accès à des noms de domaine d’API REST et de point de terminaison de données ou à des plages d’adresses IP spécifiques au service.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6aea4415468eb21e8d010b74597fc68e4ebf573f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935986"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783932"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu
 
@@ -197,5 +197,5 @@ Si vous devez accéder à Microsoft Container Registry (MCR) derrière un pare-f
 
 <!-- LINKS - Internal -->
 
-[az-acr-update]: /cli/azure/acr#az-acr-update
-[az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
+[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-show-endpoints]: /cli/azure/acr#az_acr_show_endpoints

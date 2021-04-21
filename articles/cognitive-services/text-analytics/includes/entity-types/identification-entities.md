@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 03/11/2021
 ms.author: aahi
-ms.openlocfilehash: 352b81bf2dfeca1d7413e7cac131264d06c7b92e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a74c0cad971389168d643c9504f5bb809438a1ea
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599302"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106097774"
 ---
 ### <a name="financial-account-identification"></a>Identification de compte financier
 
@@ -34,7 +34,7 @@ Cette catégorie contient l’entité suivante :
     :::column span="2":::
         **Détails**
 
-        Numéros de routage de transit ABA (American Banker Association).
+        Numéros de routage de transit ABA (American Banker Association). Également retourné avec `domain=phi`.
 
         Pour accéder à cette catégorie d’entité, ajoutez `ABARoutingNumber` au `pii-categories` paramètre. `ABARoutingNumber` est également retourné dans la réponse de l’API si elle est détectée.
       
@@ -62,7 +62,7 @@ Cette catégorie contient l’entité suivante :
     :::column span="2":::
         **Détails**
 
-        Codes SWIFT pour les informations sur les instructions de paiement.
+        Codes SWIFT pour les informations sur les instructions de paiement. Également retourné avec `domain=phi`.
 
         Pour accéder à cette catégorie d’entité, ajoutez `SWIFTCode` au `pii-categories` paramètre. `SWIFTCode` est retourné dans la réponse de l’API si elle est détectée.
       
@@ -89,9 +89,9 @@ Cette catégorie contient l’entité suivante :
     :::column span="2":::
         **Détails**
 
-        Numéros de carte de crédit. 
+        Numéros de carte de crédit. Également retourné avec `domain=phi`.
 
-        Pour accéder à cette catégorie d’entité, ajoutez `CreditCardNumber` au `pii-categories` paramètre. `CreditCardNumber` est également retourné dans la réponse de l’API si elle est détectée.
+        Pour accéder à cette catégorie d’entité, ajoutez `CreditCardNumber` au `pii-categories` paramètre. `CreditCardNumber` est retourné dans la réponse de l’API si elle est détectée.
 
     :::column-end:::
     :::column span="2":::
@@ -116,7 +116,7 @@ Cette catégorie contient l’entité suivante :
     :::column span="2":::
         **Détails**
 
-        Codes IBAN pour les informations sur les instructions de paiement.
+        Codes IBAN pour les informations sur les instructions de paiement. Également retourné avec `domain=phi`.
 
         Pour accéder à cette catégorie d’entité, ajoutez `InternationlBankingAccountNumber` au `pii-categories` paramètre. `InternationlBankingAccountNumber` est retourné dans la réponse de l’API si elle est détectée.
       
@@ -144,12 +144,12 @@ Les entités suivantes sont regroupées et listées par pays :
     :::column span="":::
         **Entité**
 
-        Numéro d’identité nationale (DNI) en Argentine
+        Numéro d’identité nationale (DNI) en Argentine 
 
     :::column-end:::
     :::column span="2":::
-        **Détails**
-
+        **Détails** Également retourné avec `domain=phi`.
+        
         Pour accéder à cette catégorie d’entité, ajoutez `ARNationalIdentityNumber` au `pii-categories` paramètre. `ARNationalIdentityNumber` est retourné dans la réponse de l’API si elle est détectée.
       
     :::column-end:::

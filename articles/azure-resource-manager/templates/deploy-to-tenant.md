@@ -3,12 +3,12 @@ title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b17b8741d1701720de86d8039be3b6cd28ace5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491484"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781898"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Déploiements de locataires avec des modèles Resource Manager
 
@@ -98,7 +98,7 @@ Les commandes utilisées pour les déploiements de locataires sont différentes 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour Azure CLI, utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create) :
+Pour Azure CLI, utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create) :
 
 ```azurecli-interactive
 az deployment tenant create \

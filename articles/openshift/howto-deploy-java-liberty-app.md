@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: 08fd3ab112498a983b438d5ba1f1f100816cbf5d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2a308c7de754f395a3ef8a1bd97ed2441d27d21d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212992"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783572"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Déployer une application Java avec Open Liberty/WebSphere Liberty sur un cluster Azure Red Hat OpenShift 4
 
@@ -40,7 +40,7 @@ Remplissez les prérequis suivants pour suivre ce guide.
 
    Si vous envisagez d’exécuter des applications gourmandes en mémoire sur le cluster, spécifiez la taille de machine virtuelle appropriée pour les nœuds Worker à l’aide du paramètre `--worker-vm-size`. Par exemple, `Standard_E4s_v3` est la taille de machine virtuelle minimale pour installer l’opérateur Elasticsearch sur un cluster. Pour plus d'informations, consultez les pages suivantes :
 
-   * [Azure CLI pour créer un cluster](/cli/azure/aro#az-aro-create)
+   * [Azure CLI pour créer un cluster](/cli/azure/aro#az_aro_create)
    * [Tailles de machines virtuelles prises en charge pour la mémoire optimisée](./support-policies-v4.md#memory-optimized)
    * [Conditions préalables à l’installation de l’opérateur Elasticsearch](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 

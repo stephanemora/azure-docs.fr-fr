@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: damendo
-ms.openlocfilehash: 6e330d2595487366ff7b8979490cb8a897f89520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54f1ef8f135c16b841df55094327c6bc5be521be
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102503145"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778603"
 ---
 # <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Présentation de la vue Obtenir les règles de sécurité efficaces dans Azure Network Watcher
 
@@ -37,7 +37,7 @@ Les règles peuvent être sélectionnées et un nouveau panneau s’ouvre pour a
 Vous pouvez également utiliser la fonctionnalité *Groupes de sécurité en vigueur* par le biais d’autres méthodes listées ci-dessous :
 * [REST API](/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
 * [PowerShell](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
-* [Azure CLI](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
+* [Azure CLI](/cli/azure/network/nic#az_network_nic_list_effective_nsg)
 
 Découvrez comment effectuer un audit de vos paramètres de groupe de sécurité réseau en consultant [Automate NSG auditing with Azure Network Watcher Security group view](network-watcher-nsg-auditing-powershell.md) (Automatiser l’audit des groupes de sécurité réseau avec l’affichage des groupes de sécurité réseau Azure Network Watcher)
 

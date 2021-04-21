@@ -5,16 +5,16 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 73ee4d4be16284880b10df4a52b422a08c04c6a0
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 137adbb045a4c449193f9029b9c72f09ddc439b1
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284185"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388463"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guide de migration : Access vers Azure SQL Database
 
@@ -56,7 +56,7 @@ Pour créer une évaluation, procédez comme suit :
 
    ![Capture d’écran de la commande « Créer un rapport » dans l’Explorateur de métadonnées Access.](./media/access-to-sql-database-guide/create-report.png)
 
-1. Examinez le rapport HTML pour comprendre les statistiques de conversion et les erreurs ou avertissements. Vous pouvez également ouvrir le rapport dans Excel pour obtenir un inventaire des objets Access et comprendre l’effort nécessaire pour effectuer des conversions de schémas. Le dossier de rapport situé dans SSMAProjects est l’emplacement par défaut du rapport. Exemple :
+1. Examinez le rapport HTML pour comprendre les statistiques de conversion et les erreurs ou avertissements. Vous pouvez également ouvrir le rapport dans Excel pour obtenir un inventaire des objets Access et comprendre l’effort nécessaire pour effectuer des conversions de schémas. Le dossier de rapport situé dans SSMAProjects est l’emplacement par défaut du rapport. Par exemple :
 
    `drive:\<username>\Documents\SSMAProjects\MyAccessMigration\report\report_<date>`
 

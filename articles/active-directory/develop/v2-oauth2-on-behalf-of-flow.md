@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c8ea1580047910cb2d6634aad885d61e99113f3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98756093"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529971"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
@@ -191,6 +191,49 @@ Il s’agit d’une extension non standard pour le flux On-Behalf-Of OAuth 2.0 
 
 > [!TIP]
 > Quand vous appelez un service web protégé par SAML à partir d’une application web front-end, vous pouvez simplement appeler l’API et lancer un flux d’authentification interactif normal avec la session existante de l’utilisateur. Vous devez seulement utiliser un flux OBO quand un appel de service à service nécessite un jeton SAML pour fournir le contexte de l’utilisateur.
+ 
+ ### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Obtenir un jeton SAML en utilisant une demande OBO avec un secret partagé
+
+Une demande de service à service pour obtenir une assertion SAML contient les paramètres suivants :
+
+| Paramètre | Type | Description |
+| --- | --- | --- |
+| grant_type |Obligatoire | Type de la demande de jeton. Pour une demande qui utilise un JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |Obligatoire | Valeur du jeton d’accès utilisé dans la requête.|
+| client_id |Obligatoire | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
+| client_secret |Obligatoire | Clé enregistrée pour le service appelant dans Azure AD. Vous devez avoir noté cette valeur au moment de l’inscription. |
+| resource |obligatoire | URI de l’ID d’application du service de destination (ressource sécurisée). Il s’agit de la ressource qui sera l’audience du jeton SAML. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
+| requested_token_use |obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
+| requested_token_type | Obligatoire | Spécifie le type de jeton demandé. La valeur peut être **urn:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1**, en fonction des exigences de la ressource. |
+
+La réponse contient un jeton SAML encodé en UTF8 et Base64url.
+
+- **SubjectConfirmationData pour une assertion SAML provenant d’un appel OBO** : si l’application cible nécessite une valeur de destinataire dans **SubjectConfirmationData**, la valeur doit être une URL de réponse sans caractère générique dans la configuration de la ressource d’application.
+- **Le nœud SubjectConfirmationData** : le nœud ne peut pas contenir d’attribut **InResponseTo**, dans la mesure où il ne fait pas partie d’une réponse SAML. L’application qui reçoit le jeton SAML doit pouvoir accepter l’assertion SAML sans attribut **InResponseTo**.
+
+- **Consentement** : un consentement doit avoir été accordé pour recevoir un jeton SAML contenant des données utilisateur sur un flux OAuth. Pour plus d’informations sur les autorisations et sur l’obtention d’un consentement de l’administrateur, consultez [Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+
+### <a name="response-with-saml-assertion"></a>Réponse avec instruction d’assertion SAML
+
+| Paramètre | Description |
+| --- | --- |
+| token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| scope |Étendue de l’accès accordé dans le jeton. |
+| expires_in |Durée de validité du jeton d’accès (en secondes). |
+| expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
+| resource |URI de l’ID d’application du service de destination (ressource sécurisée). |
+| access_token |Paramètre qui retourne l’assertion SAML. |
+| refresh_token |Le jeton d’actualisation. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration de l’instruction d’assertion SAML actuelle. |
+
+- token_type : Support
+- expires_in : 3296
+- ext_expires_in : 0
+- expires_on : 1529627844
+- resource : `https://api.contoso.com`
+- access_token : \<SAML assertion\>
+- issued_token_type : urn:ietf:params:oauth:token-type:saml2
+- refresh_token : \<Refresh token\>
+
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtention du consentement pour l’application de niveau intermédiaire
 

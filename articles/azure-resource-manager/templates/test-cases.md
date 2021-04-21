@@ -2,15 +2,15 @@
 title: Cas de test pour la boîte à outils de test
 description: Décrit les tests qui sont exécutés par la boîte à outils de test de modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7805d6dbdb8b93968a2792ed6dfaf2ac8fea9ae5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064141"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363391"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Cas de test par défaut de la boîte à outils de test de modèle Resource Manager
 
@@ -637,7 +637,7 @@ L’exemple suivant **réussit** ce test.
 
 Nom du test : **ManagedIdentityExtension ne doit pas être utilisée**
 
-N’appliquez pas l’extension ManagedIdentity à une machine virtuelle. Pour plus d’informations, consultez [Comment cesser d’utiliser l’extension de machine virtuelle pour les identités managées et commencer à utiliser Azure Instance Metadata Service](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+N’appliquez pas l’extension ManagedIdentity à une machine virtuelle. Déconseillée depuis 2019, l'extension ne doit plus être utilisée.
 
 ## <a name="outputs-cant-include-secrets"></a>Les sorties ne peuvent pas comprendre de secrets
 

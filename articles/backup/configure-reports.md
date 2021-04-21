@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0f3638e7649fc02f050c575ee621ce9dc237c24f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562322"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517264"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -212,4 +212,4 @@ Les widgets du rapport de sauvegarde reposent sur des requêtes Kusto, qui s’e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez la supervision et la création de rapports avec Sauvegarde Azure](./backup-azure-monitor-alert-faq.md)
+[Découvrez la supervision et la création de rapports avec Sauvegarde Azure](./backup-azure-monitor-alert-faq.yml)

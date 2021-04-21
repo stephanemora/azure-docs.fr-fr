@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 642a9a9f798492d85ee2a9784a1fe5ad4f854d58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdf702abb10b7330a4ca0f5478751df4bce3d7f3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574119"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783374"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -61,7 +61,7 @@ Le nombre de tables de routes que vous pouvez créer par abonnement et par empla
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create) |
+| Azure CLI | [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) |
 | PowerShell | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) |
 
 ## <a name="view-route-tables"></a>Afficher les tables de routage
@@ -72,7 +72,7 @@ Accédez au [portail Azure](https://portal.azure.com) pour gérer votre réseau 
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table list](/cli/azure/network/route-table#az-network-route-table-list) |
+| Azure CLI | [az network route-table list](/cli/azure/network/route-table#az_network_route_table_list) |
 | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
 
 ## <a name="view-details-of-a-route-table"></a>Afficher les détails d’une table de routage
@@ -95,7 +95,7 @@ Pour en savoir plus sur les paramètres Azure communs, consultez les information
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table show](/cli/azure/network/route-table#az-network-route-table-show) |
+| Azure CLI | [az network route-table show](/cli/azure/network/route-table#az_network_route_table_show) |
 | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
 
 ## <a name="change-a-route-table"></a>Modifier une table de routage
@@ -110,7 +110,7 @@ Les modifications les plus courantes consistent à [ajouter](#create-a-route) de
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table update](/cli/azure/network/route-table#az-network-route-table-update) |
+| Azure CLI | [az network route-table update](/cli/azure/network/route-table#az_network_route_table_update) |
 | PowerShell | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) |
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associer une table de routage à un sous-réseau
@@ -135,7 +135,7 @@ Si votre réseau virtuel est connecté à une passerelle VPN Azure, n’associez
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Dissocier une table de routage d’un sous-réseau
@@ -158,7 +158,7 @@ Quand vous dissociez une table de routage d’un sous-réseau, Azure achemine le
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## <a name="delete-a-route-table"></a>Supprimer une table de routage
@@ -175,7 +175,7 @@ Vous ne pouvez pas supprimer une table de routes qui est associée à des sous-r
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table delete](/cli/azure/network/route-table#az-network-route-table-delete) |
+| Azure CLI | [az network route-table delete](/cli/azure/network/route-table#az_network_route_table_delete) |
 | PowerShell | [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable) |
 
 ## <a name="create-a-route"></a>Créer un itinéraire
@@ -202,7 +202,7 @@ Le nombre de routes par table de routes que vous pouvez créer par abonnement et
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) |
+| Azure CLI | [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) |
 | PowerShell | [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig) |
 
 ## <a name="view-routes"></a>Afficher des itinéraires
@@ -219,7 +219,7 @@ Une table de routage peut contenir plusieurs itinéraires ou aucun. Pour en savo
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table route list](/cli/azure/network/route-table/route#az-network-route-table-route-list) |
+| Azure CLI | [az network route-table route list](/cli/azure/network/route-table/route#az_network_route_table_route_list) |
 | PowerShell | [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig) |
 
 ## <a name="view-details-of-a-route"></a>Afficher les détails d’un itinéraire
@@ -236,7 +236,7 @@ Une table de routage peut contenir plusieurs itinéraires ou aucun. Pour en savo
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table route show](/cli/azure/network/route-table/route#az-network-route-table-route-show) |
+| Azure CLI | [az network route-table route show](/cli/azure/network/route-table/route#az_network_route_table_route_show) |
 | PowerShell | [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig) |
 
 ## <a name="change-a-route"></a>Modifier un itinéraire
@@ -255,7 +255,7 @@ Une table de routage peut contenir plusieurs itinéraires ou aucun. Pour en savo
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table route update](/cli/azure/network/route-table/route#az-network-route-table-route-update) |
+| Azure CLI | [az network route-table route update](/cli/azure/network/route-table/route#az_network_route_table_route_update) |
 | PowerShell | [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig) |
 
 ## <a name="delete-a-route"></a>Supprimer un itinéraire
@@ -274,7 +274,7 @@ Une table de routage peut contenir plusieurs itinéraires ou aucun. Pour en savo
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network route-table route delete](/cli/azure/network/route-table/route#az-network-route-table-route-delete) |
+| Azure CLI | [az network route-table route delete](/cli/azure/network/route-table/route#az_network_route_table_route_delete) |
 | PowerShell | [Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig) |
 
 ## <a name="view-effective-routes"></a>Afficher les itinéraires effectifs
@@ -297,7 +297,7 @@ Les routes effectives de chaque interface réseau attachée à une machine virtu
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) |
+| Azure CLI | [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table) |
 | PowerShell | [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) |
 
 ## <a name="validate-routing-between-two-endpoints"></a>Valider le routage entre deux points de terminaison
@@ -326,7 +326,7 @@ Après un court délai d’attente, Azure vous indique le type de tronçon suiva
 
 | Outil | Commande |
 | ---- | ------- |
-| Azure CLI | [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) |
+| Azure CLI | [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop) |
 | PowerShell | [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) |
 
 ## <a name="permissions"></a>Autorisations

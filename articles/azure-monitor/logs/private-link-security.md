@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 76c6d7caf3c63779e12443304688192f7311720a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 43707a99792ae3c4d817f47d770629287b8a774b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594561"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374333"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -229,7 +229,7 @@ La restriction de l’accès comme expliqué ci-dessus ne s’applique pas à Az
 
 ### <a name="log-analytics-solution-packs-download"></a>Télécharger des packs de solutions Log Analytics
 
-Pour permettre à l’agent Log Analytics de télécharger des packs de solutions, ajoutez les noms de domaine complets appropriés à la liste d’autorisation de votre pare-feu. 
+Pour permettre à l’agent Log Analytics de télécharger des packs de solutions, ajoutez les noms de domaine complets appropriés à la liste d’autorisation de votre pare-feu. 
 
 
 | Environnement cloud | Ressource de l'agent | Ports | Sens |
@@ -237,6 +237,10 @@ Pour permettre à l’agent Log Analytics de télécharger des packs de solution
 |Azure (public)     | scadvisorcontent.blob.core.windows.net         | 443 | Règle de trafic sortant
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Règle de trafic sortant
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Règle de trafic sortant
+
+
+>[!NOTE]
+> À compter du 19 avril 2021, le paramètre ci-dessus ne sera pas nécessaire, et vous pourrez accéder au compte de stockage des packs de solutions par le biais de la liaison privée. La nouvelle fonctionnalité demande de recréer l’AMPLS (le 19 avril 2021 ou plus tard) et le point de terminaison privé qui y est connecté. Elle ne s’applique pas aux AMPLS et aux points de terminaison privés existants.
 
 ## <a name="configure-application-insights"></a>Configurer Application Insights
 

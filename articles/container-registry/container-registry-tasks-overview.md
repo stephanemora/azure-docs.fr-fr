@@ -3,12 +3,12 @@ title: Vue d’ensemble d’ACR Tasks
 description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a42a2bfcdc1621689421940c4db2fcf4f5e64b89
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606784"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780998"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -127,7 +127,7 @@ Par défaut, ACR Tasks génère des images pour le système d’exploitation Lin
 
 ## <a name="view-task-output"></a>Afficher la sortie des tâches
 
-Chaque exécution de tâche génère une sortie de journal que vous pouvez inspecter pour déterminer si les étapes de la tâche ont été exécutées avec succès. Quand vous déclenchez manuellement une tâche, la sortie de journal pour l’exécution de la tâche est envoyée en streaming à la console et stockée pour une récupération ultérieure. Lorsqu’une tâche est déclenchée automatiquement, par exemple par une validation de code source ou une mise à jour d’image de base, les journaux des tâches sont uniquement stockés. Affichez les journaux d’exécution dans le portail Azure ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
+Chaque exécution de tâche génère une sortie de journal que vous pouvez inspecter pour déterminer si les étapes de la tâche ont été exécutées avec succès. Quand vous déclenchez manuellement une tâche, la sortie de journal pour l’exécution de la tâche est envoyée en streaming à la console et stockée pour une récupération ultérieure. Lorsqu’une tâche est déclenchée automatiquement, par exemple par une validation de code source ou une mise à jour d’image de base, les journaux des tâches sont uniquement stockés. Affichez les journaux d’exécution dans le portail Azure ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az_acr_task_logs).
 
 Apprenez-en davantage sur [l’affichage et la gestion des journaux des tâches](container-registry-tasks-logs.md).
 
@@ -143,11 +143,11 @@ Si vous le souhaitez, vous pouvez installer l’[extension Docker pour Visual St
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

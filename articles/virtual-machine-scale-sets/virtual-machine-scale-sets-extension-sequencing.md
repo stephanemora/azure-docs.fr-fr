@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1b5aea1f0f0101231408dc9ad7b57a30f2c86256
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83121029"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788154"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Séquencer le provisionnement des extensions dans des groupes de machines virtuelles identiques
 Les extensions de machine virtuelle Azure apportent diverses fonctionnalités, telles que la configuration et la gestion après le déploiement, la supervision, la sécurité, et bien plus encore. Les déploiements de production utilisent généralement une combinaison de plusieurs extensions configurées pour les instances de machine virtuelle afin d’obtenir les résultats souhaités.
@@ -223,7 +223,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez la commande [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) pour ajouter l’extension Intégrité de l’application à la définition du modèle de groupe identique. Le séquencement des extensions nécessite l’utilisation d’Azure CLI 2.0.55 ou ultérieur.
+Utilisez la commande [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) pour ajouter l’extension Intégrité de l’application à la définition du modèle de groupe identique. Le séquencement des extensions nécessite l’utilisation d’Azure CLI 2.0.55 ou ultérieur.
 
 L’exemple suivant ajoute l’[extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md) au modèle d’un groupe identique basé sur Windows. L’extension Intégrité de l’application est provisionnée après le provisionnement de l’[extension Script personnalisé](../virtual-machines/extensions/custom-script-windows.md), déjà définie dans le groupe identique.
 

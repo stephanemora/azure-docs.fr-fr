@@ -4,12 +4,12 @@ description: Apprenez-en davantage sur les groupes de conteneurs dans Azure Cont
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 72ebe6186da179bc5a1effddcc14327455eb7557
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2cb3eac5baa5b1035749d28b9fb99bbb45b9ee6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89612417"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790884"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
 
@@ -123,4 +123,4 @@ Découvrez comment déployer un groupe de plusieurs conteneurs avec un modèle A
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
 [empty-directory]: container-instances-volume-emptydir.md
-[az-container-export]: /cli/azure/container#az-container-export
+[az-container-export]: /cli/azure/container#az_container_export

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: cf100861705bf1654b7206445c884b5fe315b06d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 148b24aea42072f1901c76c7a09a126340ef9951
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792631"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784368"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Informations de référence sur l’API de gestion pour Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -60,18 +60,18 @@ Pour créer et configurer des instances managées avec [Azure CLI](/cli/azure), 
 
 | Applet de commande | Description |
 | --- | --- |
-|[az sql mi create](/cli/azure/sql/mi#az-sql-mi-create) |Crée une instance managée.|
-|[az sql mi list](/cli/azure/sql/mi#az-sql-mi-list)|Liste les instances managées disponibles.|
-|[az sql mi show](/cli/azure/sql/mi#az-sql-mi-show)|Obtient les détails concernant une instance managée.|
-|[az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)|Met à jour une instance managée.|
-|[az sql mi delete](/cli/azure/sql/mi#az-sql-mi-delete)|Supprime une instance managée.|
+|[az sql mi create](/cli/azure/sql/mi#az_sql_mi_create) |Crée une instance managée.|
+|[az sql mi list](/cli/azure/sql/mi#az_sql_mi_list)|Liste les instances managées disponibles.|
+|[az sql mi show](/cli/azure/sql/mi#az_sql_mi_show)|Obtient les détails concernant une instance managée.|
+|[az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)|Met à jour une instance managée.|
+|[az sql mi delete](/cli/azure/sql/mi#az_sql_mi_delete)|Supprime une instance managée.|
 |[az sql mi op list](/cli/azure/sql/mi/op#az_sql_mi_op_list)|Obtient une liste des opérations de gestion effectuées sur l’instance gérée.|
 |[az sql mi op show](/cli/azure/sql/mi/op#az_sql_mi_op_show)|Obtient l’opération de gestion spécifique effectuée sur l’instance managée.|
 |[az sql mi op cancel](/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Annule l’opération de gestion spécifique effectuée sur l’instance gérée.|
-|[az sql midb create](/cli/azure/sql/midb#az-sql-midb-create) |Crée une base de données managée.|
-|[az sql midb list](/cli/azure/sql/midb#az-sql-midb-list)|Liste les bases de données managées disponibles.|
-|[az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)|Restaure une base de données managée.|
-|[az sql midb delete](/cli/azure/sql/midb#az-sql-midb-delete)|Supprime une base de données managée.|
+|[az sql midb create](/cli/azure/sql/midb#az_sql_midb_create) |Crée une base de données managée.|
+|[az sql midb list](/cli/azure/sql/midb#az_sql_midb_list)|Liste les bases de données managées disponibles.|
+|[az sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore)|Restaure une base de données managée.|
+|[az sql midb delete](/cli/azure/sql/midb#az_sql_midb_delete)|Supprime une base de données managée.|
 
 ## <a name="transact-sql-create-and-configure-instance-databases"></a>Transact-SQL : Créer et configurer des bases de données d’instance
 

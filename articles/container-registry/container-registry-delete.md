@@ -3,12 +3,12 @@ title: Supprimer des ressources d’image
 description: Explique en détail comment gérer efficacement la taille du registre en supprimant les données d’image conteneur à l’aide de commandes d’interfaces de lignes de commande Azure.
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af277d0c02960c989b4e9119f2ecbfd8f6d7ce07
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78403343"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783986"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Supprimer des images conteneur dans Azure Container Registry à l’aide de l’interface de ligne de commande Azure
 
@@ -289,6 +289,6 @@ Pour plus d’informations sur le stockage des images dans Azure Container Regis
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
+[az-acr-repository-untag]: /cli/azure/acr/repository#az_acr_repository_untag

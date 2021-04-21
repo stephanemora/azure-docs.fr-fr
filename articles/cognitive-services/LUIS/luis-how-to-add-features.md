@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1a0fb15be92e25b576cd29e671eed3c6a5b948f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95999924"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313264"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Utiliser des fonctionnalités pour améliorer le signal de liste de mots
 
@@ -37,7 +37,7 @@ Passez en revue les [concepts](luis-concept-feature.md) pour comprendre quand et
 
     Une fois que vous avez entré suffisamment de valeurs pour LUIS, des suggestions apparaissent. Vous pouvez cliquer sur **+ Ajouter** pour toutes les valeurs proposées ou sélectionner des termes individuels.
 
-1. Laissez la case **Ces valeurs sont interchangeables** cochée si les expressions peuvent être utilisées indifféremment.
+1. Laissez la case **Ces valeurs sont interchangeables** cochée si les expressions peuvent être utilisées indifféremment. La fonctionnalité de liste d’expressions interchangeables sert de liste de synonymes pour l’entraînement. Une liste d’expressions non interchangeables sert de caractéristiques distinctes pour l’entraînement (ce qui signifie que les caractéristiques sont similaires, mais que l’intention change quand vous échangez des expressions).
 
 1. La liste d’expressions peut s’appliquer à l’application entière avec le paramètre **Global** ou à un modèle spécifique (intention ou entité). Si vous créez la liste d’expressions en tant que _fonctionnalité_ à partir d’une intention ou d’une entité, le bouton bascule n’est pas défini sur global. Dans ce cas, la signification du bouton bascule est que la fonctionnalité est propre à ce modèle uniquement, par conséquent _non globale_ à l’application.
 

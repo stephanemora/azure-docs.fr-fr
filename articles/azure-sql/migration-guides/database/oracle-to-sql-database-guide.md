@@ -5,16 +5,16 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 9ae7e8c4544d2e8bd9dc4ff846aabb0c7f7f9358
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 45fbc1f85c5d7f66716fbf69deb430ce74575435
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284253"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388480"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guide de migration : Oracle vers Azure SQL Database
 
@@ -35,7 +35,7 @@ Avant de commencer la migration de votre schéma Oracle vers SQL Database :
  
 ## <a name="pre-migration"></a>Prémigration
 
-Une fois les prérequis satisfaits, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre [migration vers le cloud Azure](https://azure.microsoft.com/migration). Cette partie du processus inclut de dresser l’inventaire des bases de données que vous devez migrer, d’évaluer celles-ci en lien avec des problèmes de migration ou des blocages potentiels, et de résoudre les problèmes que vous pourriez avoir découverts.
+Une fois que vous avez rempli les prérequis, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre [migration vers le cloud Azure](https://azure.microsoft.com/migration). Cette partie du processus inclut de dresser l’inventaire des bases de données que vous devez migrer, d’évaluer celles-ci en lien avec des problèmes de migration ou des blocages potentiels, et de résoudre les problèmes que vous pourriez avoir découverts.
 
 ### <a name="assess"></a>Évaluer
 
@@ -117,7 +117,7 @@ Pour publier votre schéma et migrer vos données :
 
    ![Capture d’écran montrant la révision de Synchroniser avec la base de données.](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
-1. Migrez les données en cliquant avec le bouton droit sur la base de données ou l’objet que vous souhaitez migrer dans l’**explorateur de métadonnées Oracle**, puis en sélectionnant **Migrer les données**. Vous pouvez également sélectionner l’onglet **Migrer les données**. Pour migrer des données pour une base de données entière, activez la case à cocher en regard du nom de la base de données. Pour migrer des données à partir de tables individuelles, développez la base de données, développez **Tables**, puis activez les case à cocher en regard des tables. Pour omettre certaines données de tables individuelles, désactivez les cases à cocher.
+1. Migrez les données en cliquant avec le bouton droit sur la base de données ou l’objet que vous souhaitez migrer dans l’**explorateur de métadonnées Oracle**, puis en sélectionnant **Migrer les données**. Vous pouvez également sélectionner l’onglet **Migrer les données**. Pour migrer des données pour une base de données entière, activez la case à cocher en regard du nom de la base de données. Pour migrer des données à partir de tables individuelles, développez la base de données, développez **Tables**, puis cochez les cases en regard des tables. Pour omettre certaines données de tables individuelles, décochez les cases.
 
    ![Capture d’écran montrant l’onglet Migrer les données.](./media/oracle-to-sql-database-guide/migrate-data.png)
 
@@ -130,7 +130,7 @@ Pour publier votre schéma et migrer vos données :
 
    ![Capture d’écran montrant la validation dans SQL Server Management Studio.](./media/oracle-to-sql-database-guide/validate-data.png)
 
-Vous pouvez également utiliser SQL Server Integration Services pour effectuer la migration. Pour en savoir plus, consultez :
+Vous pouvez également utiliser SQL Server Integration Services pour effectuer la migration. Pour plus d'informations, consultez les rubriques suivantes :
 
 - [Prise en main de SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services pour le déplacement de données Azure et hybrides](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
@@ -183,7 +183,7 @@ L’équipe d’ingénierie SQL des données a développé ces ressources. La ch
   - [Vue d’ensemble d’Azure SQL Database](../../database/sql-database-paas-overview.md)
   - [Outil de calcul du coût total de possession (TCO) Azure](https://azure.microsoft.com/pricing/tco/calculator/)
 
-- Pour en savoir plus sur le framework et le cycle d’adoption des migrations cloud, consultez :
+- Pour en savoir plus sur l’infrastructure et le cycle d’adoption des migrations cloud, consultez :
    -  [Cloud Adoption Framework pour Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
    -  [Ressources de migration vers le cloud](https://azure.microsoft.com/migration/resources)

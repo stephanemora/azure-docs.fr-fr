@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: bbe36e072d10b81c421331b2212d8b161afd2693
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdc299ef1945e3ee0810f1c314fc07edfb4f4873
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87094183"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313298"
 ---
-# <a name="microsoftcommonarmapicontrol-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.ArmApiControl
+# <a name="microsoftsolutionsarmapicontrol-ui-element"></a>Microsoft.Solutions.ArmApiControl UI element
 
 ArmApiControl vous permet d’obtenir les résultats d’une opération d’API Azure Resource Manager. Utilisez les résultats pour alimenter du contenu dynamique dans d’autres contrôles.
 
@@ -46,7 +46,14 @@ La sortie du contrôle n’est pas affichée à l’utilisateur. Au lieu de cela
 ## <a name="remarks"></a>Notes
 
 - La propriété `request.method` spécifie la méthode HTTP. Seuls `GET` ou `POST` sont autorisés.
-- La propriété `request.path` spécifie le chemin d’accès relatif de l’URL. Il peut s’agir d’un chemin d’accès statique ou être construit dynamiquement en faisant référence aux valeurs de sortie des autres contrôles.
+- La propriété `request.path` spécifie une URL qui doit être un chemin relatif à un point de terminaison ARM. Il peut s’agir d’un chemin d’accès statique ou être construit dynamiquement en faisant référence aux valeurs de sortie des autres contrôles.
+
+  Par exemple, un appel ARM au fournisseur de ressources `Microsoft.Network/expressRouteCircuits` :
+
+  ```json
+  "path": "<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
+  ```
+
 - La propriété `request.body` est facultative. Utilisez-la pour spécifier un corps JSON envoyé avec la requête. Le corps peut être du contenu statique ou être construit dynamiquement en faisant référence aux valeurs de sortie d’autres contrôles.
 
 ## <a name="example"></a>Exemple
@@ -81,5 +88,5 @@ Pour obtenir un exemple d’utilisation d’ArmApiControl pour vérifier la disp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
-* Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).
+- Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
+- Pour obtenir une description des propriétés communes des éléments d’interface utilisateur, consultez la page [Éléments de CreateUiDefinition](create-uidefinition-elements.md).

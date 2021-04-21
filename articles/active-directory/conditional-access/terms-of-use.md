@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4c8e18979ff1575e1a050244a96e7858cdce46b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919627"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530244"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -50,7 +50,7 @@ Les stratégies de conditions d’utilisation d’Azure AD vous permettent d’
 - Lister qui a accepté ou refusé vos stratégies de conditions d’utilisation
 - Aider à faire face à la réglementation sur la confidentialité.
 - Consulter le journal de la stratégie de conditions d’utilisation pour en vérifier la conformité et procéder à un audit
-- Créer et gérer des stratégies de conditions d’utilisation avec des [API Microsoft Graph](/graph/api/resources/agreement?view=graph-rest-beta) (actuellement en préversion)
+- Créer et gérer des stratégies de conditions d’utilisation avec des [API Microsoft Graph](/graph/api/resources/agreement) (actuellement en préversion)
 
 ## <a name="prerequisites"></a>Prérequis
 

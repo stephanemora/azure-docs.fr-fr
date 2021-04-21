@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 03/31/2021
 ms.author: kenwith
-ms.openlocfilehash: 102c0f7363b8d4f635762a33b82825e9ae71dfc6
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: f7a2429161cebe867d844b4ca7aa08ec3613edcd
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120790"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388208"
 ---
 # <a name="syncing-extension-attributes-for-app-provisioning"></a>Synchronisation des attributs d’extension pour l’approvisionnement d’applications
 
@@ -28,10 +28,10 @@ Pour les utilisateurs dans Windows Server Active Directory, vous devez synchroni
 ## <a name="create-an-extension-attribute-on-a-cloud-only-user"></a>Créer un attribut d’extension sur un utilisateur cloud uniquement
 Vous pouvez utiliser Microsoft Graph et PowerShell pour étendre le schéma d’utilisateur pour les utilisateurs dans Azure AD. Dans la plupart des cas, ces attributs d’extension sont automatiquement découverts.
 
-Si vous avez plus de 1000 principaux de service, il est possible que des extensions manquent dans la liste des attributs sources. Si un attribut que vous avez créé ne s’affiche pas automatiquement, vérifiez que l’attribut a été créé et ajoutez-le manuellement à votre schéma. Pour vérifier qu’il a été créé, utilisez Microsoft Graph et [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). Pour l’ajouter manuellement à votre schéma, consultez [Modification de la liste des attributs pris en charge](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+Si vous avez plus de 1000 principaux de service, il est possible que des extensions manquent dans la liste des attributs sources. Si un attribut que vous avez créé ne s’affiche pas automatiquement, vérifiez que l’attribut a été créé et ajoutez-le manuellement à votre schéma. Pour vérifier qu’il a été créé, utilisez Microsoft Graph et [Graph Explorer](/graph/graph-explorer/graph-explorer-overview). Pour l’ajouter manuellement à votre schéma, consultez [Modification de la liste des attributs pris en charge](customize-application-attributes.md#editing-the-list-of-supported-attributes).
 
 ### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-microsoft-graph"></a>Créer un attribut d’extension sur un utilisateur cloud uniquement à l’aide de Microsoft Graph
-Vous pouvez étendre le schéma des utilisateurs Azure AD à l’aide de [Microsoft Graph](/graph/overview.md). 
+Vous pouvez étendre le schéma des utilisateurs Azure AD à l’aide de [Microsoft Graph](/graph/overview). 
 
 Tout d’abord, répertoriez les applications de votre locataire pour récupérer l’ID de l’application sur laquelle vous travaillez. Pour en savoir plus, consultez [Lister extensionProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
 
@@ -54,7 +54,7 @@ Content-type: application/json
 }
 ```
 
-La demande précédente a créé un attribut d’extension au format `extension_appID_extensionName`. Vous pouvez maintenant mettre à jour un utilisateur avec cet attribut d’extension. Pour en savoir plus, consultez [Mettre à jour un utilisateur](/graph/api/user-update.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+La demande précédente a créé un attribut d’extension au format `extension_appID_extensionName`. Vous pouvez maintenant mettre à jour un utilisateur avec cet attribut d’extension. Pour en savoir plus, consultez [Mettre à jour un utilisateur](/graph/api/user-update?view=graph-rest-1.0&tabs=http&preserve-view=true).
 ```json
 PATCH https://graph.microsoft.com/v1.0/users/{id}
 Content-type: application/json
@@ -63,7 +63,7 @@ Content-type: application/json
   "extension_inputAppId_extensionName": "extensionValue"
 }
 ```
-Enfin, vérifiez l’attribut de l’utilisateur. Pour en savoir plus, consultez [Obtenir un utilisateur](/graph/api/user-get.md?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true).
+Enfin, vérifiez l’attribut de l’utilisateur. Pour en savoir plus, consultez [Obtenir un utilisateur](/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true).
 
 ```json
 GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName

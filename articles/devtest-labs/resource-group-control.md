@@ -3,12 +3,12 @@ title: Spécifier un groupe de ressources pour les machines virtuelles dans Azur
 description: Découvrez comment spécifier un groupe de ressources pour les machines virtuelles dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6f576a20fc8fada9dd515e8ba2a266761a3e586
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483361"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377486"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Spécifier un groupe de ressources pour les machines virtuelles de labo dans Azure DevTest Labs
 
@@ -76,7 +76,7 @@ Si vous utilisez un modèle Azure Resource Manager pour créer un laboratoire, u
         {
             "type": "microsoft.devtestlab/labs",
             "name": "[parameters('lab_name')]",
-            "apiVersion": "2018_10_15_preview",
+            "apiVersion": "2018-10-15-preview",
             "location": "eastus",
             "tags": {},
             "scale": null,
@@ -103,7 +103,7 @@ Vous disposez des options suivantes en tant que propriétaire du labo lors de l�
 Ce paramètre s’applique aux nouvelles machines virtuelles créées dans le labo. Les anciennes machines virtuelles de votre labo qui ont été créées dans leurs propres groupes de ressources ne sont pas affectées par ces modifications. Les environnements créés dans votre labo demeurent dans leurs groupes de ressources.
 
 Comment utiliser cette API :
-- Utiliser l’API de version **2018_10_15_preview**.
+- Utilisez l’API version **2018_10_15_preview**.
 - Si vous spécifiez un nouveau groupe de ressources, assurez-vous de disposer des **autorisations d’écriture sur les groupes de ressources** dans votre abonnement. Si vous manquez d’autorisations d’écriture, la création de nouvelles machines virtuelles dans le groupe de ressources spécifié entraîne un échec.
 - Lors de l’utilisation de l’API, passez l’**ID complet du groupe de ressources**. Par exemple : `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Assurez-vous que le groupe de ressources fait partie du même abonnement que le labo. 
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82d272f22295a5b68d1e8de3fb5a70c45d4c14a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89069657"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791208"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gérer les clés d’accès au compte de stockage
 
@@ -54,7 +54,7 @@ $storageAccountKey = `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour répertorier les clés d’accès à votre compte avec Azure CLI, appelez la commande [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list), comme dans l’exemple suivant. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs. 
+Pour répertorier les clés d’accès à votre compte avec Azure CLI, appelez la commande [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list), comme dans l’exemple suivant. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs. 
 
 ```azurecli-interactive
 az storage account keys list \
@@ -116,7 +116,7 @@ Pour opérer la rotation des clés d’accès de votre compte de stockage avec P
 Pour opérer la rotation des clés d’accès de votre compte de stockage avec Azure CLI :
 
 1. Mettez à jour les chaînes de connexion dans votre code d’application pour désigner la clé d’accès secondaire du compte de stockage.
-1. Appelez la commande [az storage account keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) pour régénérer la clé d’accès primaire, comme illustré dans l’exemple suivant :
+1. Appelez la commande [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) pour régénérer la clé d’accès primaire, comme illustré dans l’exemple suivant :
 
     ```azurecli-interactive
     az storage account keys renew \

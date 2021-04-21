@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b16a2d9f779232e59eb883f6a254be22990f5c78
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505934"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520018"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guide de déploiement de la plateforme SAP BusinessObjects BI pour Linux sur Azure
 
@@ -560,7 +560,7 @@ Dans le cadre du processus de sauvegarde, un instantané est créé et les donn�
 
 Pour **Azure NetApp Files**, vous pouvez créer des instantanés à la demande et planifier un instantané automatique en utilisant des stratégies d’instantané. Les instantanés fournissent une copie à un moment donné de votre volume ANF. Pour plus d’informations, consultez [Gérer les instantanés avec Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
-La sauvegarde **Azure Files** est intégrée au service [Sauvegarde Azure](../../../backup/backup-overview.md) natif, qui centralise la fonction de sauvegarde et de restauration ainsi que la sauvegarde de machines virtuelles et simplifie le travail d’exploitation. Pour plus d’informations, consultez [Sauvegarde des partages de fichiers Azure](../../../backup/azure-file-share-backup-overview.md) et [Forum aux questions – Sauvegarde des fichiers Azure](../../../backup/backup-azure-files-faq.md).
+La sauvegarde **Azure Files** est intégrée au service [Sauvegarde Azure](../../../backup/backup-overview.md) natif, qui centralise la fonction de sauvegarde et de restauration ainsi que la sauvegarde de machines virtuelles et simplifie le travail d’exploitation. Pour plus d’informations, consultez [Sauvegarde des partages de fichiers Azure](../../../backup/azure-file-share-backup-overview.md) et [Forum aux questions – Sauvegarde des fichiers Azure](../../../backup/backup-azure-files-faq.yml).
 
 #### <a name="backup--restore-for-cms-database"></a>Sauvegarder et restaurer la base de données CMS
 

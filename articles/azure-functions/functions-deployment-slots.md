@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 73282145abd8bfe804b47fda3bf5f12dc691ff3a
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 5f003b68283217f7877dc650ae4f07ddc5a31012
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551354"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789336"
 ---
 # <a name="azure-functions-deployment-slots"></a>Emplacements de déploiement Azure Functions
 
@@ -124,7 +124,7 @@ Tous les emplacements sont mis à l’échelle du nombre de rôles de travail da
 
 ## <a name="add-a-slot"></a>Ajouter un emplacement
 
-Vous pouvez ajouter un emplacement via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create) ou le portail. Les étapes suivantes montrent comment créer un emplacement sur le portail :
+Vous pouvez ajouter un emplacement via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_create) ou le portail. Les étapes suivantes montrent comment créer un emplacement sur le portail :
 
 1. Accédez à votre application de fonction.
 
@@ -138,7 +138,7 @@ Vous pouvez ajouter un emplacement via l’[interface de ligne de commande](/cli
 
 ## <a name="swap-slots"></a>Permuter des emplacements
 
-Vous pouvez permuter des emplacements via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap) ou le portail. Les étapes suivantes expliquent comment permuter des emplacements dans le portail :
+Vous pouvez permuter des emplacements via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_swap) ou le portail. Les étapes suivantes expliquent comment permuter des emplacements dans le portail :
 
 1. Accédez à l’application de fonction.
 1. Sélectionnez **Deployment slots** (Emplacements de déploiement), puis **Swap** (Échanger).
@@ -157,7 +157,7 @@ Si une permutation provoque une erreur ou si vous souhaitez simplement « annul
 
 ## <a name="remove-a-slot"></a>Supprimer un emplacement
 
-Vous pouvez supprimer un emplacement via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete) ou le portail. Les étapes suivantes montrent comment supprimer un emplacement sur le portail :
+Vous pouvez supprimer un emplacement via l’[interface de ligne de commande](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_delete) ou le portail. Les étapes suivantes montrent comment supprimer un emplacement sur le portail :
 
 1. Dans l’application de fonction, accédez à **Deployment slots** (Emplacements de déploiement), puis sélectionnez le nom de l’emplacement.
 
@@ -179,11 +179,11 @@ Vous pouvez supprimer un emplacement via l’[interface de ligne de commande](/c
 
 [Azure CLI](/cli/azure/functionapp/deployment/slot) vous permet d’automatiser les actions suivantes pour un emplacement :
 
-- [create](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create)
-- [delete](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete)
-- [list](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list)
-- [swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap)
-- [auto-swap](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-auto-swap)
+- [create](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_create)
+- [delete](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_delete)
+- [list](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_list)
+- [swap](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_swap)
+- [auto-swap](/cli/azure/functionapp/deployment/slot#az_functionapp_deployment_slot_auto_swap)
 
 ## <a name="change-app-service-plan"></a>Changer le plan App Service
 

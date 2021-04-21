@@ -10,12 +10,12 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 0738f7e427c2ff094c9b6df7539ba67dff80d095
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed248480803370a75b40c18ee7d0e2641254d84a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589852"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790452"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configuration d’une préférence de routage réseau pour le Stockage Azure
 
@@ -82,7 +82,7 @@ Pour faire du routage Internet votre préférence de routage, procédez comme su
 
    - Pour lancer Azure Cloud Shell, connectez-vous au [Portail Azure](https://portal.azure.com).
 
-   - Pour vous connecter à votre installation locale de l’interface CLI, exécutez la commande [az login](/cli/azure/reference-index#az-login) :
+   - Pour vous connecter à votre installation locale de l’interface CLI, exécutez la commande [az login](/cli/azure/reference-index#az_login) :
 
      ```azurecli
      az login
@@ -146,7 +146,7 @@ Cette préférence n’a une incidence que sur le point de terminaison propre à
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Pour configurer un point de terminaison propre à l’itinéraire, utilisez la commande [az storage account update](/azure/storage/account#az-storage-account-update). 
+1. Pour configurer un point de terminaison propre à l’itinéraire, utilisez la commande [az storage account update](/azure/storage/account#az_storage_account_update). 
 
    - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft, définissez le paramètre `--publish-microsoft-endpoints` sur `true`. 
 

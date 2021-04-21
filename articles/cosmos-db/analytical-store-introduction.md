@@ -4,15 +4,15 @@ description: Découvrez le magasin transactionnel (basé sur des lignes) et anal
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eaabc663ba243423bddf7ef6abfe41182e06b4f9
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046210"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364603"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -134,6 +134,7 @@ Il existe deux modes de représentation de schéma dans le magasin analytique. C
 La représentation de schéma bien définie crée une représentation tabulaire simple des données indépendantes du schéma dans le magasin transactionnel. La représentation de schéma bien définie prend en compte les considérations suivantes :
 
 * Une propriété a toujours le même type sur plusieurs éléments.
+* Nous autorisons un seul changement de type, de la valeur Null vers tout autre type de données. La première occurrence non Null définit le type de données de la colonne.
 
   * Par exemple, `{"a":123} {"a": "str"}` n’a pas de schéma bien défini, car `"a"` est parfois une chaîne et parfois un nombre. Dans ce cas, le magasin analytique inscrit le type de données `"a"` en tant que type de données `“a”` dans l’élément au début de la durée de vie du conteneur. Le document sera toujours inclus dans le magasin analytique, mais les éléments dans lesquels le type de données de `"a"` diffère ne le seront pas.
   

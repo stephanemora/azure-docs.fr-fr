@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 4bf792dd02e7cddcc40ef868e4a602fdb03ab3c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 513f262f5d09cf56c4506a4f20c9aa41507c2abd
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052277"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515275"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -134,7 +134,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Network Watcher | Oui | Oui | Non |  |
 |Notification Hubs | Oui | Non | Non |  |
 |Ouvrir des jeux de données | Non | Non | Non |  |
-|Stratégie | Non | Non | Non |  |
+|Policy | Non | Non | Non |  |
 |Power Automate | Non | Non | Non |  |
 |Power BI Embedded | Oui | Oui | Non |  |
 |Private Link | Non | Non | Non |  |
@@ -167,7 +167,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Réseau virtuel | Oui | Oui | [Oui](insights/network-insights-overview.md) |  |
 |Réseau virtuel - Journaux de flux NSG | Non | Oui | Non |  |
 |Passerelle VPN | Oui | Oui | Non |  |
-|Windows Virtual Desktop | Non | Non | Non |  |
+|Windows Virtual Desktop | Non | Oui | Non |  |
 
 ## <a name="virtual-machine-agents"></a>Agents de machine virtuelle
 Le tableau suivant répertorie les agents qui peuvent collecter des données à partir du système d’exploitation invité des machines virtuelles et envoyer des données à Monitor. Chaque agent peut collecter des données différentes et les envoyer à des métriques ou des journaux dans Azure Monitor. 

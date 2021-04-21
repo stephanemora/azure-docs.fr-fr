@@ -6,23 +6,27 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 21dbab6c8d4fb12fe79434a6994dd7f5b8a49190
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 0d7598e332539b8203d55bbcb1cf497811c32540
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502706"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366553"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurer l’attachement d’application MSIX avec le portail Azure
 
 Cet article vous guide tout au long de la configuration de l’attachement d’application MSIX dans un environnement Windows Virtual Desktop.
 
-## <a name="requirements"></a>Spécifications
+## <a name="requirements"></a>Configuration requise
+
+>[!IMPORTANT]
+>Avant de commencer, veillez à renseigner et à envoyer [ce formulaire](https://aka.ms/enablemsixappattach) pour activer l’attachement d’application MSIX dans votre abonnement. Si votre demande n’est pas approuvée, l’attachement d’application MSIX ne fonctionnera pas. L’approbation des demandes peut prendre jusqu’à 24 heures pendant les jours ouvrables. Vous recevrez un e-mail lorsque votre demande aura été acceptée et traitée.
 
 Voici ce dont vous avez besoin pour configurer l’attachement d’application MSIX :
 
 - Un déploiement Windows Virtual Desktop opérationnel. Pour apprendre à déployer Windows Virtual Desktop (classique), consultez [Création d’un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Pour apprendre à déployer Windows Virtual Desktop avec intégration Azure Resource Manager, consultez [Création d’un pool d’hôtes avec le Portail Azure](./create-host-pools-azure-marketplace.md).
 - Un pool d’hôtes Windows Virtual Desktop avec au moins un hôte de session actif.
+- Ce pool d’hôtes doit se trouver dans l’environnement de validation. 
 - Outil de d’empaquetage MSIX.
 - Une application empaquetée au format MSIX et développée en image MSIX qui est chargée dans un partage de fichiers.
 - Un partage de fichiers dans votre déploiement Windows Virtual Desktop où le package MSIX sera stocké.

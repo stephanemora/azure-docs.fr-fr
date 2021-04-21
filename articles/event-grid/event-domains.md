@@ -2,13 +2,13 @@
 title: Domaines d’événements dans Azure Event Grid
 description: Cet article décrit comment utiliser les domaines d’événements pour gérer le flux d’événements personnalisés vers vos organisations, clients ou applications.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/13/2021
+ms.openlocfilehash: 32c06ac55f667ec9807c7952127c2cf0f0384024
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198653"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374707"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Comprendre les domaines d’événements pour gérer les rubriques Event Grid
 
@@ -23,7 +23,7 @@ Cet article décrit comment utiliser les domaines d’événements pour gérer l
 
 Un domaine d’événements est un outil de gestion pour un nombre élevé de rubriques Event Grid relatives à la même application. Vous pouvez le considérer comme une méta-rubrique pouvant compter des milliers de rubriques individuelles.
 
-Les domaines d’événements mettent à votre disposition la même architecture que celle qu’utilisent les services Azure (par exemple, Stockage et IoT Hub) pour publier leurs événements. Ils vous permettent de publier des événements dans des milliers de rubriques. Les domaines vous donnent également le contrôle sur l’authentification et l’autorisation sur chaque rubrique pour que vous puissiez partitionner vos abonnés.
+Les domaines d’événements vous fournissent la même architecture que celle qu’utilisent les services Azure (par exemple, Stockage et IoT Hub) pour publier leurs événements. Ils vous permettent de publier des événements dans des milliers de rubriques. Les domaines vous donnent également le contrôle sur l’authentification et l’autorisation sur chaque rubrique pour que vous puissiez partitionner vos abonnés.
 
 ## <a name="example-use-case"></a>Exemple de cas d’usage
 [!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
@@ -43,6 +43,9 @@ Pour plus d’informations sur ces rôles, voir [Rôles intégrés pour Event Gr
 ## <a name="subscribing-to-topics"></a>S’abonner aux rubriques
 
 S’abonner aux événements d’une rubrique dans un domaine d’événements revient à [créer un abonnement à un événement dans une rubrique personnalisée](./custom-event-quickstart.md) ou à s’abonner à un événement d’un service Azure.
+
+> [!IMPORTANT]
+> La rubrique de domaine est considérée comme une ressource **managée automatiquement** dans Event Grid. Vous pouvez créer un abonnement aux événements au niveau de l’étendue de la rubrique de domaine sans créer la rubrique de domaine. Dans ce cas, Event Grid crée automatiquement la rubrique de domaine en votre nom. Bien entendu, vous pouvez toujours choisir de créer la rubrique de domaine manuellement. Ce comportement vous permet de vous préoccuper d’une ressource en moins lorsque vous travaillez avec un grand nombre de rubriques de domaine. Lorsque le dernier abonnement à une rubrique de domaine est supprimé, la rubrique domaine est également supprimée, peu importe qu’elle ait été créée manuellement ou automatiquement. 
 
 ### <a name="domain-scope-subscriptions"></a>Abonnements à l’étendue de domaine
 
@@ -94,7 +97,7 @@ Voici les limites et quotas liés aux domaines d'événements :
 - 50 abonnements à l’étendue de domaine 
 - Taux d'ingestion de 5 000 événements par seconde (dans un domaine)
 
-Si ces limites ne répondent pas à vos besoins, contactez l’équipe produit en ouvrant un ticket de support ou en envoyant un e-mail à [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
+Si ces limites ne vous conviennent pas, ouvrez un ticket de support ou envoyez un e-mail à [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## <a name="pricing"></a>Tarifs
 Les domaines d’événements utilisent la même [tarification des opérations](https://azure.microsoft.com/pricing/details/event-grid/) que toutes les autres fonctionnalités dans Event Grid.

@@ -1,21 +1,20 @@
 ---
 title: Vue d’ensemble des classeurs Azure Monitor
 description: Découvrez comment les classeurs fournissent un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure.
-manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: e401eb4a5608db6e5767298f53046099a42679b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a02e5fced0a9e338a32d8d8beaa9e4b5fca994e8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100598485"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309473"
 ---
 # <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
-Les classeurs fournissent un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure. Ils vous permettent d’exploiter plusieurs sources de données à travers l’écosystème Azure et de les combiner dans des expériences interactives unifiées. 
+Les classeurs fournissent un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure. Ils vous permettent d’exploiter plusieurs sources de données à travers l’écosystème Azure et de les combiner dans des expériences interactives unifiées.
 
 Voici une procédure vidéo expliquant la création de classeurs.
 
@@ -39,7 +38,7 @@ Les classeurs sont actuellement compatibles avec les sources de données suivant
 
 ## <a name="visualizations"></a>Visualisations
 
-Les classeurs fournissent un ensemble complet de fonctionnalités pour la visualisation de vos données. Pour obtenir des exemples détaillés de chaque type de visualisation, vous pouvez consulter les exemples de liens ci-dessous :
+Les classeurs fournissent un ensemble complet de fonctionnalités pour la visualisation de vos données. Pour obtenir des exemples détaillés de chaque type de visualisation, vous pouvez consulter les liens ci-dessous :
 
 * [Text](../visualize/workbooks-text-visualizations.md)
 * [Graphiques](../visualize/workbooks-chart-visualizations.md)
@@ -49,7 +48,7 @@ Les classeurs fournissent un ensemble complet de fonctionnalités pour la visual
 * [Graphes](../visualize/workbooks-graph-visualizations.md)
 * [Barre composite](../visualize/workbooks-composite-bar.md)
 
-![Exemples de visualisations de classeur](./media/workbooks-overview/visualizations.png)
+:::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Exemples de visualisations de classeur" border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -57,19 +56,40 @@ Pour explorer l’expérience des classeurs, accédez d’abord au service Azure
 
 Sélectionnez ensuite **Classeurs**.
 
-![Capture d’écran du bouton Classeurs mis en surbrillance dans une zone rouge](./media/workbooks-overview/workbooks.png)
+:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Capture d’écran du bouton Classeurs mis en surbrillance dans une zone rouge" border="false":::
 
 ### <a name="gallery"></a>Galerie
 
-Vous accédez à la galerie de classeurs :
+La galerie facilite l'organisation, le tri et la gestion des classeurs de tous les types.
 
-![Capture d’écran de la vue Galerie des classeurs Azure Monitor](./media/workbooks-overview/gallery.png)
+:::image type="content" source="./media/workbooks-overview/gallery-all-tab.png" alt-text="Capture d'écran de la galerie sous l'onglet Tous." lightbox="media/workbooks-overview/gallery-all-tab.png":::
+
+#### <a name="gallery-tabs"></a>Onglets de la galerie
+
+La galerie comporte quatre onglets qui facilitent l'organisation des différents types de classeurs.
+
+| Onglet              | Description                                       |
+|------------------|---------------------------------------------------|
+| Tous | Affiche les quatre premiers éléments de chaque type (Classeurs, Modèles publics et Mes modèles). Les classeurs sont triés par date de modification, ce qui vous permet de voir les huit classeurs modifiés les plus récents.|
+| Classeurs | Affiche la liste de tous les classeurs disponibles que vous avez créés ou qui sont partagés avec vous. |
+| Modèles publics | Affiche la liste de tous les modèles de classeurs fonctionnels, prêts à l'emploi et disponibles publiés par Microsoft. Regroupés par catégorie. |
+| Mes modèles | Affiche la liste de tous les modèles de classeurs déployés disponibles que vous avez créés ou qui sont partagés avec vous. Regroupés par catégorie. |
+
+#### <a name="features"></a>Fonctionnalités
+
+* Dans chaque onglet, une grille contient des informations sur les classeurs : description, date de la dernière modification, balises, abonnement, groupe de ressources, région et état partagé. Vous pouvez également trier les classeurs à l'aide de ces informations.
+* Filtrez par groupe de ressources, abonnement, nom de classeur/modèle ou catégorie de modèle.
+* Sélectionnez plusieurs classeurs à supprimer ou à supprimer en bloc.
+* Chaque classeur comporte un menu contextuel (points de suspension/trois points) qui donne accès à une liste d'actions rapides.
+    * Afficher la ressource - Accédez à l'onglet des ressources du classeur pour voir l'ID de ressource du classeur, ajouter des balises, gérer les verrous, etc.
+    * Supprimez ou renommez le classeur.
+    * Épinglez le classeur au tableau de bord.
 
 ### <a name="workbooks-versus-workbook-templates"></a>Classeurs et modèles de classeur
 
-Vous pouvez voir un _classeur_ en vert et un certain nombre de _modèles de classeur_ en violet. Les modèles servent de rapports organisés qui sont conçus pour une réutilisation flexible par plusieurs utilisateurs et équipes. L’ouverture d’un modèle crée un classeur temporaire rempli avec le contenu du modèle. 
+Vous pouvez voir un _classeur_ en vert et un certain nombre de _modèles de classeur_ en violet. Les modèles servent de rapports organisés qui sont conçus pour une réutilisation flexible par plusieurs utilisateurs et équipes. L’ouverture d’un modèle crée un classeur temporaire rempli avec le contenu du modèle.
 
-Vous pouvez ajuster les paramètres du classeur basé sur un modèle et effectuer une analyse sans craindre de perturber les futures expériences de création de rapports pour vos collègues. Si vous ouvrez un modèle, effectuez des ajustements, puis sélectionnez l’icône Enregistrer, vous enregistrerez le modèle en tant que classeur, qui s’afficherait alors en vert, laissant le modèle d’origine intact. 
+Vous pouvez ajuster les paramètres du classeur basé sur un modèle et effectuer une analyse sans craindre de perturber les futures expériences de création de rapports pour vos collègues. Si vous ouvrez un modèle, effectuez des ajustements, puis sélectionnez l’icône Enregistrer, vous enregistrerez le modèle en tant que classeur, qui s’afficherait alors en vert, laissant le modèle d’origine intact.
 
 En coulisses, les modèles diffèrent également des classeurs enregistrés. L’enregistrement d’un classeur crée une ressource Azure Resource Manager associée, tandis que le classeur temporaire créé lors de l’ouverture d’un modèle n’est associé à aucune ressource unique. Pour en savoir plus sur la gestion du contrôle d’accès dans les classeurs, consultez [l’article consacré au contrôle d’accès des classeurs](../visualize/workbooks-access-control.md).
 
@@ -77,7 +97,7 @@ En coulisses, les modèles diffèrent également des classeurs enregistrés. L�
 
 Sélectionnez **Analyse de l’échec de l’application** pour voir un des modèles de classeur d’application par défaut.
 
-![Capture d’écran du modèle d’analyse d’échec de l’application](./media/workbooks-overview/failure-analysis.png)
+:::image type="content" source="./media/workbooks-overview/failure-analysis.png" alt-text="Capture d’écran du modèle d’analyse d’échec de l’application" border="false" lightbox="./media/workbooks-overview/failure-analysis.png":::
 
 Comme indiqué précédemment, l’ouverture du modèle crée un classeur temporaire pour que vous puissiez interagir avec. Par défaut, le classeur s’ouvre en mode lecture, qui affiche uniquement les informations relatives à l’expérience d’analyse prévue qui a été créée par l’auteur du modèle d’origine.
 
@@ -87,34 +107,35 @@ Dans le cas de ce classeur particulier, l’expérience est interactive. Vous po
 
 Pour comprendre comment ce modèle de classeur est assemblé, vous devez basculer en mode édition en sélectionnant **Modifier**.
 
-![Capture d’écran du bouton Modifier dans les classeurs.](./media/workbooks-overview/edit.png)
+:::image type="content" source="./media/workbooks-overview/edit.png" alt-text="Capture d’écran du bouton Modifier dans les classeurs." border="false" :::
 
 Une fois que vous êtes passé en mode édition, vous remarquerez un certain nombre de zones **Modifier** à de chaque aspect individuel de votre classeur.
 
-![Capture d’écran du bouton Modifier](./media/workbooks-overview/edit-mode.png)
+:::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Capture d’écran du bouton Modifier" border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
 
 Si vous sélectionnez le bouton modifier se trouvant immédiatement sous la grille de données de requête, nous pouvons voir que cette partie de notre classeur se compose d’une requête Kusto sur les données d’une ressource Application Insights.
 
-![Capture d’écran de la requête Kusto sous-jacente](./media/workbooks-overview/kusto.png)
+:::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Capture d’écran de la requête Kusto sous-jacente" border="false" lightbox="./media/workbooks-overview/kusto.png":::
 
-En cliquant sur les autres boutons **Modifier** sur la droite, vous pouvez afficher un certain nombre de composants principaux qui composent les classeurs, comme des [zones de texte](../visualize/workbooks-text-visualizations.md) des éléments d’interface utilisateur pour la [sélection de paramètres](../visualize/workbooks-parameters.md) et d’autres [types de graphiques ou de visualisations](#visualizations). 
+
+En cliquant sur les autres boutons **Modifier** sur la droite, vous pouvez afficher un certain nombre de composants principaux qui composent les classeurs, comme des [zones de texte](../visualize/workbooks-text-visualizations.md) des éléments d’interface utilisateur pour la [sélection de paramètres](../visualize/workbooks-parameters.md) et d’autres [types de graphiques ou de visualisations](#visualizations).
 
 Explorez les modèles prédéfinis en mode édition, puis modifiez-les en fonction de vos besoins et enregistrez votre propre classeur personnalisé pour commencer à découvrir ce qui est possible avec les classeurs Azure Monitor.
 
 ## <a name="pinning-visualizations"></a>Épingler des visualisations
 
-Les étapes de sélection de texte, de requête et de métriques d’un classeur peuvent être épinglées à l’aide du bouton Épingler sur ces éléments lorsque le classeur est en mode d’épinglage, ou si l’auteur du classeur a activé les paramètres de cet élément pour rendre l’icône d’épingle visible. 
+Les étapes de sélection de texte, de requête et de métriques d’un classeur peuvent être épinglées à l’aide du bouton Épingler sur ces éléments lorsque le classeur est en mode d’épinglage, ou si l’auteur du classeur a activé les paramètres de cet élément pour rendre l’icône d’épingle visible.
 
 Pour accéder au mode épinglage, cliquez sur **Modifier** pour passer en mode édition, puis sélectionnez l’icône en forme d’épingle bleue dans la barre supérieure. Une icône d’épingle est ensuite affichée au-dessus de la zone *Modifier* de chaque composant du classeur sur le côté droit de l’écran.
 
-![Épingler l’expérience](./media/workbooks-overview/pin-experience.png)
+:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Capture d'écran de l'expérience d'épinglage." border="false":::
 
 > [!NOTE]
 > L’état du classeur est enregistré au moment de l’épinglage et les classeurs épinglés sur un tableau de bord ne sont pas mis à jour si le classeur sous-jacent est modifié. Pour mettre à jour une partie de classeur épinglée, vous devez supprimer et réépingler cette partie.
 
 ## <a name="dashboard-time-ranges"></a>Intervalles de temps du tableau de bord
 
-Les parties de requête des classeurs épinglés respectent l’intervalle de temps du tableau de bord si l’élément épinglé est configuré pour utiliser un paramètre *Intervalle de temps*. La valeur de l’intervalle de temps du tableau de bord sera utilisée comme valeur du paramètre d’intervalle de temps, et toute modification de l’intervalle de temps du tableau de bord entraînera la mise à jour de l’élément épinglé. Si une partie épinglée utilise l’intervalle de temps du tableau de bord, vous verrez le sous-titre de la partie épinglée mis à jour pour afficher l’intervalle de temps du tableau de bord chaque fois que l’intervalle de temps change. 
+Les parties de requête des classeurs épinglés respectent l’intervalle de temps du tableau de bord si l’élément épinglé est configuré pour utiliser un paramètre *Intervalle de temps*. La valeur de l’intervalle de temps du tableau de bord sera utilisée comme valeur du paramètre d’intervalle de temps, et toute modification de l’intervalle de temps du tableau de bord entraînera la mise à jour de l’élément épinglé. Si une partie épinglée utilise l’intervalle de temps du tableau de bord, vous verrez le sous-titre de la partie épinglée mis à jour pour afficher l’intervalle de temps du tableau de bord chaque fois que l’intervalle de temps change.
 
 En outre, les parties de classeur épinglées à l’aide d’un paramètre d’intervalle de temps sont actualisées automatiquement à une cadence déterminée par l’intervalle de temps du tableau de bord. L’heure de la dernière exécution de la requête s’affiche dans le sous-titre de la partie épinglée.
 

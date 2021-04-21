@@ -3,12 +3,12 @@ title: Identités managées pour les ressources Azure avec Service Bus
 description: Cet article explique comment utiliser des identités managées pour accéder aux entités Azure Service Bus (files d’attente, rubriques et abonnements).
 ms.topic: article
 ms.date: 01/21/2021
-ms.openlocfilehash: bd985acd9b775d6baef0abf488952e28c17aef2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0558e00ac7e8ce67d2e5194b02d2de06f2d38ff1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954308"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785430"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Azure Service Bus
 La fonctionnalité [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) vous permet de créer une identité sécurisée associée au déploiement sous lequel s’exécute le code de votre application. Vous pouvez ensuite associer cette identité à des rôles de contrôle d’accès qui accordent des autorisations personnalisées pour l’accès aux ressources Azure nécessaires à votre application.
@@ -45,7 +45,7 @@ Avant d’attribuer un rôle Azure à un principal de sécurité, déterminez l�
 
 La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès aux ressources Service Bus, en commençant par la plus petite étendue :
 
-- **File d’attente**, **rubrique** ou **abonnement** : l’attribution de rôle s’applique à l’entité Service Bus spécifique. Actuellement, le Portail Azure ne prend pas en charge l’affectation d’utilisateurs, de groupes ou d’identités managées aux rôles Azure Service Bus au niveau de l’abonnement. Voici un exemple d’utilisation de la commande Azure CLI : [az-role-assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) pour attribuer une identité à un rôle Azure Service Bus : 
+- **File d’attente**, **rubrique** ou **abonnement** : l’attribution de rôle s’applique à l’entité Service Bus spécifique. Actuellement, le Portail Azure ne prend pas en charge l’affectation d’utilisateurs, de groupes ou d’identités managées aux rôles Azure Service Bus au niveau de l’abonnement. Voici un exemple d’utilisation de la commande Azure CLI : [az-role-assignment-create](/cli/azure/role/assignment?#az_role_assignment_create) pour attribuer une identité à un rôle Azure Service Bus : 
 
     ```azurecli
     az role assignment create \
@@ -92,7 +92,7 @@ Une fois que vous avez créé l’application, suivez ces étapes :
 Une fois ce paramètre activé, une identité de service est créée dans votre annuaire Azure Active Directory (Azure AD) et configurée dans l’hôte App Service.
 
 > [!NOTE]
-> Lorsque vous utilisez une identité managée, la chaîne de connexion doit être au format suivant : `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity`.
+> Lorsque vous utilisez une identité managée, la chaîne de connexion doit être au format suivant : `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=ManagedIdentity`.
 
 À présent, attribuez cette identité de service à un rôle dans l’étendue requise dans vos ressources Service Bus.
 

@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 4e82be0e81e5e8c0182e061a0fba0f880bd45cc6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3e5b064ec37b855186f633677e2b1a3f615a6736
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632388"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783860"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -105,7 +105,7 @@ ACR commence la synchronisation des images entre les réplicas configurés. Une 
 
 ## <a name="delete-a-replica"></a>Supprimer un réplica
 
-Une fois que vous avez configuré un réplica pour votre registre, vous pouvez le supprimer à tout moment s’il n’est plus nécessaire. Supprimez un réplica à l’aide du portail Azure ou d’autres outils, tels que la commande [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) dans Azure CLI.
+Une fois que vous avez configuré un réplica pour votre registre, vous pouvez le supprimer à tout moment s’il n’est plus nécessaire. Supprimez un réplica à l’aide du portail Azure ou d’autres outils, tels que la commande [az acr replication delete](/cli/azure/acr/replication#az_acr_replication_delete) dans Azure CLI.
 
 Pour supprimer un réplica dans le portail Azure :
 
@@ -163,5 +163,5 @@ Découvrez la série de didacticiels en trois parties relative à la [géorépli
 > [!div class="nextstepaction"]
 > [Géoréplication dans Azure Container Registry](container-registry-tutorial-prepare-registry.md)
 
-[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
-[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update
+[az-acr-replication-list]: /cli/azure/acr/replication#az_acr_replication_list
+[az-acr-replication-update]: /cli/azure/acr/replication#az_acr_replication_update

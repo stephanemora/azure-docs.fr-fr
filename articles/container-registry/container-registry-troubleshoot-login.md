@@ -3,12 +3,12 @@ title: Résoudre des problèmes de connexion à un registre
 description: Symptômes, causes et résolution de problèmes courants de connexion à un registre de conteneurs Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47186cc8256836e5367ecee520787b67662eb42f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052076"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780728"
 ---
 # <a name="troubleshoot-registry-login"></a>Résoudre des problèmes de connexion au registre
 
@@ -36,7 +36,7 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 
 ## <a name="further-diagnosis"></a>Diagnostics plus poussés 
 
-Exécutez la commande [az acr check-health](/cli/azure/acr#az-acr-check-health) pour obtenir des informations supplémentaires sur l’intégrité de l’environnement de registre, et éventuellement l’accès à un registre cible. Par exemple, diagnostiquez des erreurs de configuration de Docker ou des problèmes de connexion à Azure Active Directory. 
+Exécutez la commande [az acr check-health](/cli/azure/acr#az_acr_check_health) pour obtenir des informations supplémentaires sur l’intégrité de l’environnement de registre, et éventuellement l’accès à un registre cible. Par exemple, diagnostiquez des erreurs de configuration de Docker ou des problèmes de connexion à Azure Active Directory. 
 
 Pour des exemples de commandes, consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md). Si des erreurs sont signalées, examinez les [Informations de référence sur les erreurs](container-registry-health-error-reference.md) et les sections suivantes pour obtenir les solutions recommandées.
 
@@ -64,7 +64,7 @@ Lorsque vous utilisez `docker login`, indiquez le nom complet du serveur de conn
 docker login myregistry.azurecr.io
 ```
 
-Lorsque vous utilisez la commande [az acr login](/cli/azure/acr#az-acr-login) avec une identité Azure Active Directory, commencez par vous [connecter à Azure CLI](/cli/azure/authenticate-azure-cli), puis spécifiez le nom de ressource Azure du registre. Le nom de la ressource est le nom fourni lors de la création du registre, par exemple *myregistry* (sans suffixe de domaine). Exemple :
+Lorsque vous utilisez la commande [az acr login](/cli/azure/acr#az_acr_login) avec une identité Azure Active Directory, commencez par vous [connecter à Azure CLI](/cli/azure/authenticate-azure-cli), puis spécifiez le nom de ressource Azure du registre. Le nom de la ressource est le nom fourni lors de la création du registre, par exemple *myregistry* (sans suffixe de domaine). Exemple :
 
 ```azurecli
 az acr login --name myregistry
@@ -72,7 +72,7 @@ az acr login --name myregistry
 
 Liens connexes :
 
-* [la connexion az acr est réussie, mais docker a échoué avec l’erreur : non autorisé : authentification requise](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required )
+* [la connexion az acr est réussie, mais docker a échoué avec l’erreur : non autorisé : authentification requise](container-registry-faq.md#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 
 ### <a name="confirm-credentials-to-access-registry"></a>Confirmer les informations d’identification pour accéder au registre
 
@@ -94,7 +94,7 @@ Liens connexes :
 * [Se connecter avec un jeton délimité par le dépôt](container-registry-repository-scoped-permissions.md)
 * [Se connecter avec un compte d’administrateur](container-registry-authentication.md#admin-account)
 * [Codes d’erreur d’authentification et d’autorisation Azure AD](../active-directory/develop/reference-aadsts-error-codes.md)
-* Référence [az acr login](/cli/azure/acr#az-acr-login)
+* Référence [az acr login](/cli/azure/acr#az_acr_login)
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Vérifier que les informations d’identification autorisent l’accès au registre
 
@@ -125,7 +125,7 @@ Les jetons et les informations d’identification d’Active Directory peuvent e
 
 Liens connexes :
 
-* [Réinitialiser les informations d’identification du principal de service](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset)
+* [Réinitialiser les informations d’identification du principal de service](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset)
 * [Régénérer les mots de passe des jetons](container-registry-repository-scoped-permissions.md#regenerate-token-passwords)
 * [Connexion individuelle avec Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
 

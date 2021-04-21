@@ -6,18 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f09e744dfdd7be73c62c70bcfa91804f14aaa68
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558412"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313672"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribution de l’utilisation client Azure
 
-L’attribution de l’utilisation client associe l’utilisation des ressources Azure dans les abonnements clients créés lors du déploiement de votre adresse IP en tant que partenaire. La formation de ces associations dans les systèmes Microsoft internes offre une meilleure visibilité de l’empreinte Azure exécutant vos logiciels. Pour les [offres Azure Application dans la place de marché commerciale](#commercial-marketplace-azure-apps), cette fonctionnalité de suivi vous aide à vous aligner sur les équipes de vente Microsoft et à gagner du crédit pour les programmes partenaires Microsoft.
+L’attribution de l’utilisation client associe l’utilisation des ressources Azure dans les abonnements clients créés lors du déploiement de votre adresse IP en tant que partenaire. La formation de ces associations dans les systèmes Microsoft internes offre une meilleure visibilité de l’empreinte Azure exécutant vos logiciels. Pour les [offres Azure Application dans la place de marché commerciale](#commercial-marketplace-azure-apps), cette fonctionnalité de suivi vous aide à vous aligner sur les équipes de vente Microsoft et à gagner du crédit pour les programmes partenaires Microsoft. L’attribution de l’utilisation client n’est pas applicable aux [offres de machines virtuelles Azure sur la Place de marché commerciale](./azure-vm-create.md). L’éditeur de la Place de marché n’a rien à faire pour s’assurer que la consommation Azure des offres de machines virtuelles est suivie dans les abonnements des clients finaux.
 
 L’attribution de l’utilisation de client prend en charge trois options de déploiement :
 

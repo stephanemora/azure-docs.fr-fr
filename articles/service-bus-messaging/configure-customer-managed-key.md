@@ -3,12 +3,12 @@ title: Configurer votre propre clé pour chiffrer les données Azure Service Bus
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Service Bus au repos.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88de4ccc2c6997622540664dc15b21f052df622a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378313"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788584"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure
 Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise Stockage Azure pour stocker les données. Toutes les données stockées avec Stockage Azure sont chiffrées à l'aide de clés gérées par Microsoft. Si vous utilisez votre propre clé (méthode également appelée Bring Your Own Key (BYOK) ou clé gérée par le client), les données sont toujours chiffrées à l'aide de la clé gérée par Microsoft, mais, en outre, la clé gérée par Microsoft est chiffrée à l'aide de la clé gérée par le client. Cette fonctionnalité vous permet de créer, de faire tourner, de désactiver et de révoquer l'accès aux clés gérées par le client et utilisées pour chiffrer les clés gérées par Microsoft. L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
@@ -39,12 +39,12 @@ Pour activer des clés gérées par le client dans le portail Azure, procédez c
 Après avoir activé une clé gérée par le client, vous devez l’associer à votre espace de noms Azure Service Bus. Service Bus prend uniquement en charge Azure Key Vault. Si vous activez l'option **Chiffrement à l'aide de la clé gérée par le client** dans la section précédente, vous devez importer la clé dans Azure Key Vault. En outre, les fonctionnalités **Suppression réversible** et **Ne pas vider** doivent être configurées pour la clé. Ces paramètres peuvent être configurés à l'aide de [PowerShell](../key-vault/general/key-vault-recovery.md) ou de l'[interface CLI](../key-vault/general/key-vault-recovery.md).
 
 1. Pour créer un coffre de clés, suivez le [guide de démarrage rapide](../key-vault/general/overview.md) d'Azure Key Vault. Pour plus d'informations sur l'importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../key-vault/general/about-keys-secrets-certificates.md).
-1. Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d'un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
+1. Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d'un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault#az_keyvault_create).
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. Pour ajouter la protection contre le vidage à un coffre existant (où la suppression réversible est déjà activée), utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update).
+1. Pour ajouter la protection contre le vidage à un coffre existant (où la suppression réversible est déjà activée), utilisez la commande [az keyvault update](/cli/azure/keyvault#az_keyvault_update).
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
@@ -70,7 +70,7 @@ Après avoir activé une clé gérée par le client, vous devez l’associer à 
     > [!IMPORTANT]
     > Si vous envisagez d’utiliser une clé gérée par le client avec la géorécupération d’urgence, veuillez consulter cette section. 
     >
-    > Pour activer le chiffrement d’une clé gérée par Microsoft à l’aide d’une clé gérée par le client, une [stratégie d’accès](../key-vault/general/secure-your-key-vault.md) est configurée pour l’identité managée de Service Bus sur le coffre Azure Key Vault spécifié. Cela garantit un accès contrôlé à Azure Key Vault à partir de l’espace de noms Azure Service Bus.
+    > Pour activer le chiffrement d’une clé gérée par Microsoft à l’aide d’une clé gérée par le client, une [stratégie d’accès](../key-vault/general/security-overview.md) est configurée pour l’identité managée de Service Bus sur le coffre Azure Key Vault spécifié. Cela garantit un accès contrôlé à Azure Key Vault à partir de l’espace de noms Azure Service Bus.
     >
     > Pour cette raison :
     > 
@@ -91,7 +91,7 @@ Vous pouvez faire pivoter votre clé dans le coffre de clés à l'aide du mécan
 
 ## <a name="revoke-access-to-keys"></a>Révoquer l'accès aux clés
 
-La révocation de l’accès aux clés de chiffrement ne videra pas les données de Service Bus. Cependant, il sera impossible d’accéder aux données à partir de l’espace de noms Service Bus. Vous pouvez révoquer la clé de chiffrement en appliquant une stratégie d'accès ou en supprimant la clé. Pour en savoir plus sur les stratégies d'accès et sur la sécurisation de votre coffre de clés, consultez [Sécuriser l'accès à un coffre de clés](../key-vault/general/secure-your-key-vault.md).
+La révocation de l’accès aux clés de chiffrement ne videra pas les données de Service Bus. Cependant, il sera impossible d’accéder aux données à partir de l’espace de noms Service Bus. Vous pouvez révoquer la clé de chiffrement en appliquant une stratégie d'accès ou en supprimant la clé. Pour en savoir plus sur les stratégies d'accès et sur la sécurisation de votre coffre de clés, consultez [Sécuriser l'accès à un coffre de clés](../key-vault/general/security-overview.md).
 
 Une fois la clé de chiffrement révoquée, le service Service Bus devient inutilisable sur l’espace de noms chiffré. Si l’accès à la clé est activé ou si la clé supprimée est restaurée, le service Service Bus choisira la clé afin de vous permettre d’accéder aux données à partir de l’espace de noms Service Bus chiffré.
 

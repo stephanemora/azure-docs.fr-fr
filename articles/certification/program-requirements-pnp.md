@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
-ms.openlocfilehash: bbe9a3f18463285521dde0ee64b369cffcd71d75
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: b26fab6f8b92e3cb996f545f1f6201d32b1eaced
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975669"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310510"
 ---
 # <a name="iot-plug-and-play-certification-requirements"></a>Critères de certification IoT Plug-and-Play
 
@@ -29,7 +29,7 @@ Les promesses de la certification IoT Plug-and-Play sont les suivantes :
 3.  Intégration facile avec les solutions Azure IoT à l’aide des [API de jumeau numérique](../iot-pnp/concepts-digital-twin.md) : Azure IOT Hub et Azure IOT central
 4.  Véracité du produit validée sur les appareils certifiés
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 **[Obligatoire] Appareil-à-cloud : l’objectif du test est de s’assurer que les appareils qui envoient la télémétrie fonctionnent avec IoT Hub**
 
@@ -51,7 +51,7 @@ Les promesses de la certification IoT Plug-and-Play sont les suivantes :
 | **SE**                  | Sans dépendance                                                     |
 | **Type de validation**     | Automatisé                                                    |
 | **Validation**          | L’appareil doit implémenter un transfert facile de la propriété d’étendue d’ID DPS sans avoir à recompiler le code incorporé. Microsoft fournit le [workflow du portail](https://certify.azure.com) pour exécuter les tests afin de valider que l’appareil prend en charge DPS : **1.** L’utilisateur doit sélectionner l’une des méthodes d’attestation (X.509, TPM et clé SAP) **2.** Selon la méthode d’attestation, l’utilisateur doit effectuer une action correspondante, telle que **a)** charger le certificat X.509 dans l’étendue gérée par AICS ; **b)** implémenter la clé SAP ou la paire de clés de type EK (Endorsement Key) dans l’appareil |
-| **Ressources**           | **a)** [Vue d’ensemble du service Device Provisioning](../iot-dps/about-iot-dps.md), **b)** [Exemple de fichier de configuration pour le transfert d’étendue d’ID DPS](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/digitaltwin_client/samples/digitaltwin_sample_ll_device/sample_config) |
+| **Ressources**           | **a)** [Vue d’ensemble du service Device Provisioning](../iot-dps/about-iot-dps.md), **b)** [Exemple de fichier de configuration pour le transfert d’étendue d’ID DPS](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/serializer/samples/devicetwin_simplesample) |
 
 **[Obligatoire] DTDL v2 : le but du test est de s’assurer que les modèles et interfaces d’appareil définis sont conformes au Langage DTDL (Digital Twins Definition Language) v2.**                                                              
 
@@ -95,7 +95,7 @@ Les promesses de la certification IoT Plug-and-Play sont les suivantes :
 | **S’applique à**          | N’importe quel appareil                                                   |
 | **SE**                  | Sans dépendance                                                     |
 | **Type de validation**     | Automatisé                                                    |
-| **Validation**          | Le [flux de travail du portail](https://certify.azure.com) vérifie que le code de l’appareil implémente l’[interface d’informations sur l’appareil](https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-previewureiot:DeviceManagement:DeviceInformation:1) **1.** Vérifie que les valeurs sont envoyées par le code de l’appareil à IoT Hub **2.** Vérifie que l’interface est implémentée dans le DCM (cette implémentation changera en DTDL v2) **3.** Vérifie que les propriétés sont inaccessibles en écriture (lecture seule) **4.** Vérifie que le type de schéma est string et/ou long et non null |
+| **Validation**          | Le [flux de travail du portail](https://certify.azure.com) vérifie que le code de l’appareil implémente l’interface d’informations sur l’appareil **1.** Vérifie que les valeurs sont envoyées par le code de l’appareil à IoT Hub **2.** Vérifie que l’interface est implémentée dans le DCM (cette implémentation changera en DTDL v2) **3.** Vérifie que les propriétés sont inaccessibles en écriture (lecture seule) **4.** Vérifie que le type de schéma est string et/ou long et non null |
 | **Ressources**           | [Interface définie par Microsoft](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
 | **Recommandé par Azure**  | N/A                                                          |
 

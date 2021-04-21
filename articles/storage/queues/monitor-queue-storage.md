@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 8f49485d00379f5845569976e793f06d56a8967d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65aff45cc304f59e45fc3bed925b93ee6c622fd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506818"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788400"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Surveiller le service Stockage File d'attente
 
@@ -216,7 +216,7 @@ Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure
 
 Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous paierez pour le volume des journaux qui sont envoyés au compte de stockage. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page sur la [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
@@ -238,7 +238,7 @@ Pour obtenir une description de chaque paramètre, consultez [Archiver des journ
 
 Si vous choisissez de diffuser vos journaux vers un hub d’événements, vous paierez pour le volume des journaux envoyés au hub d’événements. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page sur la [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -252,7 +252,7 @@ Pour obtenir une description de chaque paramètre, consultez [Diffuser des donn�
 
 #### <a name="send-logs-to-log-analytics"></a>Envoyer des journaux d’activité à Log Analytics
 
-Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -322,7 +322,7 @@ Vous pouvez lire les valeurs des métriques au niveau de votre compte de stockag
 
 #### <a name="list-the-account-level-metric-definition"></a>Dresser la liste de la définition des métriques de niveau compte
 
-Vous pouvez dresser la liste de la définition des métriques de votre compte de stockage ou du service de Stockage File d'attente. Utilisez la commande [`az monitor metrics list-definitions`](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
+Vous pouvez dresser la liste de la définition des métriques de votre compte de stockage ou du service de Stockage File d'attente. Utilisez la commande [`az monitor metrics list-definitions`](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions).
 
 Dans cet exemple, remplacez l'espace réservé `<resource-ID>` par l'ID de ressource du compte de stockage complet ou par l'ID de ressource de la file d'attente. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
 
@@ -332,7 +332,7 @@ Dans cet exemple, remplacez l'espace réservé `<resource-ID>` par l'ID de resso
 
 #### <a name="read-account-level-metric-values"></a>Lire les valeurs des métriques de niveau compte
 
-Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du service Stockage File d'attente. Utilisez la commande [`az monitor metrics list`](/cli/azure/monitor/metrics#az-monitor-metrics-list).
+Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du service Stockage File d'attente. Utilisez la commande [`az monitor metrics list`](/cli/azure/monitor/metrics#az_monitor_metrics_list).
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

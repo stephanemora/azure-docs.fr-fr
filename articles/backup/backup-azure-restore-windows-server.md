@@ -3,12 +3,12 @@ title: Restaurer des fichiers sur Windows Server avec l’agent MARS
 description: Dans cet article, découvrez comment restaurer des données stockées dans Azure sur un serveur Windows ou un ordinateur Windows avec l’agent Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ca0787ec38e1bc22b62e756c7ee56c5c9e93493
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91813251"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517332"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurer des fichiers sur Windows Server avec l’agent MARS
 
@@ -107,7 +107,7 @@ Ces étapes incluent la terminologie suivante :
 
 5. Fournissez le fichier d’informations d’identification correspondant à l’exemple de coffre, puis cliquez sur **Suivant**.
 
-    Si le fichier d’informations d’identification du coffre n’est pas valide (ou a expiré), [téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’exemple de coffre](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) dans le portail Azure. Une fois que vous avez fourni des informations d’identification de coffre valides, le nom du coffre de sauvegarde correspondant s’affiche.
+    Si le fichier d’informations d’identification du coffre n’est pas valide (ou a expiré), [téléchargez un nouveau fichier d’informations d’identification de coffre à partir de l’exemple de coffre](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) dans le portail Azure. Une fois que vous avez fourni des informations d’identification de coffre valides, le nom du coffre de sauvegarde correspondant s’affiche.
 
 6. Dans la page **Sélectionner un serveur de sauvegarde**, sélectionnez l’ordinateur source dans la liste des ordinateurs affichés et fournissez la phrase secrète. Sélectionnez ensuite **Suivant**.
 
@@ -145,4 +145,4 @@ Ces étapes incluent la terminologie suivante :
 
 * Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).
 
-* Recherchez [Questions courantes sur la sauvegarde de fichiers et de dossiers](backup-azure-file-folder-backup-faq.md).
+* Recherchez [Questions courantes sur la sauvegarde de fichiers et de dossiers](backup-azure-file-folder-backup-faq.yml).

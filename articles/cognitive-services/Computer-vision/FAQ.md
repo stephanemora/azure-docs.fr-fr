@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aac3a38b82b86edc47f48e50d26b5b269486701
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "68564605"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375234"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur l’API Vision par ordinateur
 
@@ -31,44 +31,16 @@ ms.locfileid: "68564605"
 
 ---
 
-**Question** : *L’API Vision par ordinateur peut-elle être utilisée localement sans connexion Internet ?*
 
-**Réponse** : Actuellement, nous ne proposons pas de solution locale.
+**Question** : *Puis-je déployer la fonctionnalité OCR (Read) localement ?*
+
+**Réponse** : Oui, l’API cloud OCR (Read) est également disponible en tant que conteneur Docker pour un déploiement local. Découvrez [comment déployer les conteneurs OCR](/computer-vision-how-to-install-containers).
 
 ---
 
 **Question** : *L’API Vision par ordinateur peut-elle être utilisée pour lire des plaques d’immatriculation ?*
 
-**Réponse** : L’API Vision par ordinateur offre une fonctionnalité efficace de détection de texte avec l’OCR, mais celle-ci n’est pas optimisée pour les plaques d’immatriculation pour le moment. Nous essayons en permanence d’améliorer nos services et avons ajouté l’OCR pour la détection automatique des plaques d’immatriculation à notre liste de demandes de fonctionnalités.
+**Réponse** : L’API Vision comprend les fonctionnalités OCR de deep learning avec la fonctionnalité Read la plus récente. Nous essayons constamment d’améliorer nos services afin qu’ils fonctionnent dans tous les scénarios.
 
 ---
 
-**Question** : *Quels sont les types de surfaces d’écriture pris en charge pour la reconnaissance d’écriture manuscrite ?*
-
-**Réponse** : La technologie fonctionne avec différents types de surfaces, y compris les tableaux blancs, un livre blanc et les pense-bêtes jaunes.
-
----
-
-**Question** : *Quelle est la durée de l’opération de reconnaissance d’écriture manuscrite ?*
-
-**Réponse** : La durée de cette opération varie en fonction de la longueur du texte. Pour les textes plus longs, elle peut prendre plusieurs secondes. Par conséquent, une fois l’opération de reconnaissance d’écriture manuscrite terminée, vous devez attendre avant de récupérer les résultats à l’aide de l’opération Get Handwritten Text Operation Result.
-
----
-
-**Question** : *De quelle façon la technologie de reconnaissance d’écriture manuscrite traite-t-elle le texte inséré à l’aide d’un caret au milieu d’une ligne ?*
-
-**Réponse** : Ce type de texte est renvoyé sous la forme d’une ligne distincte par l’opération de reconnaissance d’écriture manuscrite.
-
----
-
-**Question** : *Comment la technologie de reconnaissance d’écriture manuscrite gère-t-elle les mots ou les lignes barrés ?*
-
-**Réponse** : Si les mots sont barrés avec plusieurs lignes pour les masquer complètement, l’opération de reconnaissance d’écriture manuscrite ne les prend pas en compte. Toutefois, si les mots sont barrés à l’aide d’une seule ligne, ce passage est traité comme un bruit et les mots seront tout de même pris en compte par l’opération de reconnaissance d’écriture manuscrite.
-
----
-
-**Question** : *Quelles sont les orientations de texte prises en charge pour la technologie de reconnaissance d’écriture manuscrite ?*
-
-**Réponse** : Les textes orientés de 30 à 40 degrés maximum peuvent être pris en compte par l’opération de reconnaissance d’écriture manuscrite.
-
----

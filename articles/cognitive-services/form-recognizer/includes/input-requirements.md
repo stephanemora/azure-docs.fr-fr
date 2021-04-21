@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
-ms.openlocfilehash: 324fde5198fe3469e3979cf5cd102715118a49aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfd2b32094aae06675ea8ee9157370f9d2833e91
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467286"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518221"
 ---
 Form Recognizer fonctionne sur les documents d’entrée qui répondent aux critères suivants :
 
@@ -22,6 +22,5 @@ Form Recognizer fonctionne sur les documents d’entrée qui répondent aux crit
 * La taille totale du jeu de données d’apprentissage doit être de 500 pages maximum.
 * Si vos fichiers PDF sont verrouillés par mot de passe, vous devez supprimer le verrou avant de les soumettre.
 * S’ils sont numérisés à partir de documents papier, la qualité de numérisation des formulaires doit être supérieure.
-* Le texte doit utiliser l’alphabet latin (lettres de l’alphabet).
 * Pour un apprentissage non supervisé (sans données étiquetées), les données doivent contenir des clés et des valeurs.
 * Pour un apprentissage non supervisé (sans données étiquetées), les clés doivent s’afficher au-dessus ou à gauche des valeurs. Elles ne peuvent pas s’afficher ni en dessous ni à droite.

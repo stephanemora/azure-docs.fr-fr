@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a044f42d0774d940521964b68b38a0f35bcdbb
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103573742"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387953"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs de service Speech
 
@@ -536,76 +536,6 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ```
 
  La fonction `SetSpeechSynthesisVoiceName` est appelée, car les conteneurs avec un moteur de synthèse vocale mis à jour requièrent le nom de voix.
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Comment puis-je utiliser la v1.7 du kit de développement logiciel (SDK) Speech avec un conteneur Speech ?</b>
-</summary>
-
-**Réponse :** Il existe trois points de terminaison sur le conteneur Speech pour différentes utilisations, qui sont définis en tant que modes Speech. Voir ci-dessous :
-
-## <a name="speech-modes"></a>Modes Speech
-
-[!INCLUDE [speech-modes](includes/speech-modes.md)]
-
-Ils sont destinés à des fins différentes et sont utilisés différemment.
-
-[Exemples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py) Python :
-- Pour une reconnaissance unique (mode interactif) avec un point de terminaison personnalisé (autrement dit, `SpeechConfig` avec un paramètre de point de terminaison), consultez `speech_recognize_once_from_file_with_custom_endpoint_parameters()`.
-- Pour la reconnaissance continue (mode conversation) et simplement modifier pour utiliser un point de terminaison personnalisé comme indiqué ci-dessus, consultez `speech_recognize_continuous_from_file()`.
-- Pour activer la dictée dans des exemples comme ci-dessus (uniquement si vous en avez vraiment besoin), juste après avoir créé `speech_config`, ajoutez le code `speech_config.enable_dictation()`.
-
-Dans C#, pour activer la dictée, appelez la fonction `SpeechConfig.EnableDictation()`.
-
-### <a name="fromendpoint-apis"></a>API `FromEndpoint`
-| Langage | Détails de l’API |
-|----------|:------------|
-| C++ | <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| JavaScript | Non pris en charge actuellement, ni de prise en charge prévue. |
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Comment puis-je utiliser la v1.8 du kit de développement logiciel (SDK) Speech avec un conteneur Speech ?</b>
-</summary>
-
-**Réponse :** Il existe une nouvelle API `FromHost`. Elle ne remplace pas les API existantes. Elle ajoute simplement une autre façon de créer une configuration vocale à l’aide d’un hôte personnalisé.
-
-### <a name="fromhost-apis"></a>API `FromHost`
-
-| Langage | Détails de l’API |
-|--|:-|
-| C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| C++ | <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Objective-C | <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| JavaScript | Non prise en charge pour le moment |
-
-> Paramètres : hôte (obligatoire), clé d’abonnement (facultative si vous pouvez utiliser le service sans celui-ci).
-
-Le format de l’hôte est `protocol://hostname:port`, où `:port` est facultatif (voir ci-dessous) :
-- Si le conteneur s’exécute localement, le nom d’hôte est `localhost`.
-- Si le conteneur s’exécute sur un serveur distant, utilisez le nom d’hôte ou l’adresse IPv4 de ce serveur.
-
-Exemples de paramètres d’hôte pour la reconnaissance vocale :
-- `ws://localhost:5000` : connexion non sécurisée à un conteneur local à l’aide du port 5000
-- `ws://some.host.com:5000` : connexion non sécurisée à un conteneur s’exécutant sur un serveur distant
-
-Exemples de Python de ci-dessus, mais utilisez le paramètre `host` au lieu de `endpoint` :
-
-```python
-speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
-```
 
 <br>
 </details>

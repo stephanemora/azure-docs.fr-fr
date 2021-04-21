@@ -2,24 +2,24 @@
 title: Configurer le flux de travail de consentement de l’administrateur-Azure Active Directory | Microsoft Docs
 description: Découvrez comment configurer un moyen pour les utilisateurs finaux de demander l’accès aux applications qui requièrent le consentement de l’administrateur.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d89ea0cbc7d1e0379a9cbfce40f11d4f8ac93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9811c3d1833a02ad3cbaf22b9f0b31fd2da5bb6d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643760"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375183"
 ---
-# <a name="configure-the-admin-consent-workflow-preview"></a>Configurer le workflow du consentement administrateur (préversion)
+# <a name="configure-the-admin-consent-workflow"></a>Configurer le workflow du consentement administrateur
 
 Cet article explique comment activer la fonctionnalité de workflow du consentement de l’administrateur, qui donne aux utilisateurs finaux la possibilité de demander l’accès aux applications qui requièrent le consentement de l’administrateur.
 
@@ -38,7 +38,7 @@ Pour activer le workflow de consentement de l’administrateur et choisir les r�
 3. Dans la zone de recherche de filtre, tapez « **Azure Active Directory** », puis sélectionnez l’élément **Azure Active Directory**.
 4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**. 
 5. Sous **Gérer**, sélectionnez **Paramètres utilisateur**.
-6. Sous **Demandes de consentement d’administrateur (préversion)** , définissez **Les utilisateurs peuvent demander le consentement d’administrateur pour les applications qu’ils ne peuvent pas accepter** sur **Oui**.
+6. Sous **Demandes de consentement d’administrateur**, affectez la valeur **Oui** à **Les utilisateurs peuvent demander le consentement d’administrateur pour les applications qu’ils ne peuvent pas accepter**.
 
    ![Configurer les paramètres de workflow de consentement administrateur](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -78,7 +78,7 @@ Pour passer en revue les demandes de consentement de l’administrateur et prend
 2. Sélectionnez **Tous les services** en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
 3. Dans la zone de recherche de filtre, tapez « **Azure Active Directory** », puis sélectionnez l’élément **Azure Active Directory**.
 4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**.
-5. Sous **Activité**, sélectionnez **Demandes de consentement d’administrateur (préversion)** .
+5. Sous **Activité**, sélectionnez **Demandes de consentement d’administrateur**.
 
    > [!NOTE]
    > Les réviseurs ne verront que les demandes d’administrateur qui ont été créées après qu’ils ont été désignés réviseurs.
@@ -112,11 +112,7 @@ Les demandeurs recevront des notifications par courrier électronique dans les c
  
 ## <a name="audit-logs"></a>Journaux d’audit 
  
-Le tableau ci-dessous décrit les scénarios et les valeurs d’audit disponibles pour le flux de travail de consentement de l’administrateur. 
-
-> [!NOTE]
-> Le contexte utilisateur de l’intervenant d’audit est actuellement manquant dans tous les scénarios. Il s’agit d’une limitation connue dans la préversion.
-
+Le tableau ci-dessous décrit les scénarios et les valeurs d’audit disponibles pour le flux de travail de consentement de l’administrateur.
 
 |Scénario  |Audit Service  |Catégorie d’audit  |Activité d’audit  |Intervenant d’audit  |Limites du journal d’audit  |
 |---------|---------|---------|---------|---------|---------|

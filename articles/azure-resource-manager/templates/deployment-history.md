@@ -4,12 +4,12 @@ description: Décrit comment afficher les opérations de déploiement d’Azure 
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 898af2365dfbb0f61b6b87e7532c9256269d799a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e7ed2096a696efdc9a2654a8fd0c294c82cbd4f7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732769"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781862"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Afficher l’historique des déploiements avec Azure Resource Manager
 
@@ -61,13 +61,13 @@ Pour obtenir l’ID de corrélation, utilisez :
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour lister le déploiement pour un groupe de ressources, utilisez [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list).
+Pour lister le déploiement pour un groupe de ressources, utilisez [az deployment group list](/cli/azure/group/deployment#az_deployment_group_list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Pour obtenir un déploiement spécifique, utilisez [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show).
+Pour obtenir un déploiement spécifique, utilisez [az deployment group show](/cli/azure/group/deployment#az_deployment_group_show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -81,13 +81,13 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Pour répertorier les déploiements d’un groupe de ressources, utilisez l’opération suivante. Pour obtenir le numéro de version le plus récent de l’API à utiliser dans la requête, consultez [Déploiements – Liste par groupe de ressources](/rest/api/resources/resources/deployments/listbyresourcegroup).
+Pour répertorier les déploiements d’un groupe de ressources, utilisez l’opération suivante. Pour obtenir le numéro de version le plus récent de l’API à utiliser dans la requête, consultez [Déploiements – Liste par groupe de ressources](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
-Pour obtenir un déploiement spécifique, utilisez l’opération suivante. Pour obtenir le numéro de version le plus récent de l’API à utiliser dans la requête, consultez [Déploiements – Récupérer](/rest/api/resources/resources/deployments/get).
+Pour obtenir un déploiement spécifique, utilisez l’opération suivante. Pour obtenir le numéro de version le plus récent de l’API à utiliser dans la requête, consultez [Déploiements – Récupérer](/rest/api/resources/deployments/get).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -147,7 +147,7 @@ Pour obtenir le message d’état d’opérations ayant échoué, utilisez la co
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour afficher les opérations de déploiement relatives au déploiement vers un groupe de ressources, utilisez la commande [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list). Vous devez disposer d’Azure CLI 2.6.0 ou version ultérieure.
+Pour afficher les opérations de déploiement relatives au déploiement vers un groupe de ressources, utilisez la commande [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment-operation-group-list). Vous devez disposer d’Azure CLI 2.6.0 ou version ultérieure.
 
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
@@ -167,7 +167,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Pour récupérer des opérations de déploiement, utilisez l’opération suivante. Pour obtenir le numéro de version le plus récent de l’API à utiliser dans la requête, consultez [Opérations de déploiement – Liste](/rest/api/resources/resources/deploymentoperations/list).
+Pour récupérer des opérations de déploiement, utilisez l’opération suivante. Pour obtenir le numéro de version le plus récent de l’API à utiliser dans la requête, consultez [Opérations de déploiement – Liste](/rest/api/resources/deploymentoperations/list).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -214,4 +214,3 @@ La réponse comprend un message d’erreur.
 * Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](common-deployment-errors.md).
 * Pour en savoir plus sur la gestion des déploiements dans l’historique, consultez [Suppressions automatiques de l’historique de déploiement](deployment-history-deletions.md).
 * Pour valider votre déploiement avant son exécution, consultez [Déployer un groupe de ressources avec le modèle Azure Resource Manager](deploy-powershell.md).
-

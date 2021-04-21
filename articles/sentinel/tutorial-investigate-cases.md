@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 04/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8980a8920b4f41f5a8e6afe106415032eef2055b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98790984"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375834"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutoriel : Examiner les incidents avec Azure Sentinel
 
@@ -51,9 +51,15 @@ Un incident peut inclure plusieurs alertes. C’est une agrégation de toutes le
 
 1. Pour commencer un examen, sélectionnez un incident spécifique. Sur la droite, vous pouvez voir des informations détaillées sur l’incident, notamment sa gravité, le résumé du nombre d’entités impliquées, les événements bruts qui ont déclenché cet incident et l’ID unique de l’incident.
 
-1. Pour afficher plus de détails sur les alertes et les entités de l’incident, sélectionnez **Afficher tous les détails** dans la page incident et passez en revue les onglets pertinents qui résument les informations sur l’incident. Dans l’onglet **Alertes**, examinez l’alerte elle-même. Vous pouvez voir toutes les informations pertinentes sur l’alerte : la requête ayant déclenché l’alerte, le nombre de résultats retournés par la requête et la capacité d’exécuter des playbooks sur les alertes. Pour aller encore plus en détail dans l’incident, sélectionnez le nombre d’**Événements**. Cela ouvre la requête ayant généré les résultats et les événements ayant déclenché l’alerte dans Log Analytics. Dans l’onglet **Entités**, vous pouvez voir toutes les entités mappées comme faisant partie de la définition d’une règle d’alerte.
+1. Pour afficher plus de détails sur les alertes et les entités de l’incident, sélectionnez **Afficher tous les détails** dans la page incident et passez en revue les onglets pertinents qui résument les informations sur l’incident. 
 
-    ![Afficher les détails de l’alerte](media/tutorial-investigate-cases/alert-details.png)
+    ![Afficher les détails de l’alerte](media/tutorial-investigate-cases/incident-timeline.png)
+
+    Par exemple :
+
+    - Sous l’onglet **Chronologie**, passez en revue la chronologie des alertes et des signets dans l’incident, qui peut vous aider à reconstruire la chronologie de l’activité d’un attaquant.
+    - Dans l’onglet **Alertes**, examinez l’alerte elle-même. Vous pouvez voir toutes les informations pertinentes sur l’alerte : la requête ayant déclenché l’alerte, le nombre de résultats retournés par la requête et la capacité d’exécuter des playbooks sur les alertes. Pour aller encore plus en détail dans l’incident, sélectionnez le nombre d’**Événements**. Cela ouvre la requête ayant généré les résultats et les événements ayant déclenché l’alerte dans Log Analytics. 
+    - Dans l’onglet **Entités**, vous pouvez voir toutes les entités mappées comme faisant partie de la définition d’une règle d’alerte.
 
 1. Si vous étudiez activement un incident, il est judicieux de définir l’état de l’incident sur **En cours** jusqu’à ce que vous le fermiez.
 

@@ -3,12 +3,12 @@ title: Partenaires qui s’intègrent dans Azure Monitor
 description: Découvrez-en plus sur les partenaires Azure Monitor et comment vous pouvez accéder à la documentation pour les intégrer.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2a8e03d4bcfac81a5a718c3572227d48da23ea5a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101016"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374355"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 
@@ -296,6 +296,14 @@ Avec la supervision Azure Site24x7, vous pouvez :
 ## <a name="solarwinds"></a>SolarWinds
 
 [Documentation SolarWinds](https://www.solarwinds.com/topics/azure-monitoring)
+
+## <a name="speartip"></a>SpearTip
+
+![Logo SpearTip](./media/partners/speartip.png)
+
+Le centre des opérations de sécurité de SpearTip, qui fonctionne 24 heures sur 24 et 7 jours sur 7, surveille en permanence les environnements Azure à la recherche de cybermenaces. Grâce à l’intégration de ShadowSpear à Azure Monitor, les événements de sécurité sont collectés et analysés pour détecter les menaces avancées, tandis que les ingénieurs de SpearTip enquêtent et réagissent pour stopper les acteurs de la menace dans leur élan. L’intégration est transparente et apporte une valeur immédiate dès qu’elle est déployée.
+
+[Documentation de SpearTip](https://www.speartip.com/identify/)
 
 ## <a name="splunk"></a>Splunk
 

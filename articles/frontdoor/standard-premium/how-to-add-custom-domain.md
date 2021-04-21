@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69e216c8893f9361a18354e5d165ecc0499601aa
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588747"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387919"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Créer un domaine personnalisé sur un SKU Standard/Premium d’Azure Front Door (préversion) à l’aide du portail Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "104588747"
 
 Quand vous utilisez Azure Front Door Standard/Premium pour la livraison d’applications, vous avez besoin d’un domaine personnalisé si vous souhaitez que votre propre nom de domaine soit visible dans vos requêtes d’utilisateur final. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation.
 
-Quand vous créez un profil Azure Front Door Standard/Premium, l’hôte front-end par défaut a le sous-domaine azurefd.net. Ce sous-domaine est inclus dans l’URL quand Azure Front Door Standard/Premium distribue le contenu à partir de votre back-end par défaut. Par exemple : `https://contoso-frontend.azurefd.net/activeusers.htm`. Par commodité, Azure Front Door permet d’associer un domaine personnalisé à l’hôte par défaut. Avec cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL et non un nom de domaine appartenant à Azure Front Door Standard/Premium. Par exemple : https://www.contoso.com/photo.png.
+Quand vous créez un profil Azure Front Door Standard/Premium, l’hôte front-end par défaut a le sous-domaine azurefd.net. Ce sous-domaine est inclus dans l’URL quand Azure Front Door Standard/Premium distribue le contenu à partir de votre back-end par défaut. Par exemple : `https://contoso-frontend.azurefd.net/activeusers.htm`. Par commodité, Azure Front Door permet d’associer un domaine personnalisé à l’hôte par défaut. Avec cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL et non un nom de domaine appartenant à Azure Front Door Standard/Premium. Par exemple, « https://www.contoso.com/photo.png ».
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (préversion) est actuellement disponible en préversion publique.

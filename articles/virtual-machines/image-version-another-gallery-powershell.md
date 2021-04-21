@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d9bbe40e35bdad6fac5c5ccb0b15b909e77b938c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35346836767bc1da8c498e23fd3b42afe7a9c350
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564014"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531203"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copiez une image à partir d’une autre galerie en utilisant PowerShell
 
@@ -123,7 +123,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## <a name="create-the-image-version"></a>Créer la version de l’image
 
-Créez une version d’image à l’aide de la cmdlet [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). Vous devez transmettre l’ID de l’image source dans le paramètre `--managed-image` pour créer la version d’image dans votre bibliothèque de destination. 
+Créez une version d’image à l’aide de la cmdlet [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). Vous devez transmettre l’ID de l’image source dans le paramètre `-Source` pour créer la version d’image dans votre bibliothèque de destination. 
 
 Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 

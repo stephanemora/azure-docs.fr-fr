@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: a04243093b89b6a2498efc48f80cbd7a47d57337
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8316dd0abfa437d4bf88e8268dfe034344c6614c
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437721"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389330"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Créer des certificats pour votre instance Azure Stack Edge Pro avec l’outil Azure Stack Hub Readiness Checker 
 
@@ -140,7 +140,7 @@ Tout d’abord, vous allez générer une structure de dossiers appropriée, puis
 
 2. Pour générer la structure de dossiers appropriée, à l’invite, tapez :
 
-    `New-AzsCertificateFolder -CertificateType AzureStackEdge -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
+    `New-AzsCertificateFolder -CertificateType AzureStackEdgeDevice -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
 
 3. Convertissez le mot de passe PFX en chaîne sécurisée. Tapez :       
 
@@ -148,7 +148,7 @@ Tout d’abord, vous allez générer une structure de dossiers appropriée, puis
 
 4. Ensuite, validez les certificats. Tapez :
 
-    `Invoke-AzsCertificateValidation -CertificateType AzureStackEdge -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
+    `Invoke-AzsCertificateValidation -CertificateType AzureStackEdgeDevice -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

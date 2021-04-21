@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 0a5d84585f28f6d13cbceb1fec41d6cdabf6d08c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87df7efcbab89c87a42e611f5fc1219239de6873
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255625"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530515"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Utiliser SCIM et Microsoft Graph ensemble pour provisionner des utilisateurs et enrichir votre application avec les données dont elle a besoin.
 
@@ -117,5 +117,5 @@ Mon application crée des informations sur un utilisateur dont les clients ont b
 
 ## <a name="related-articles"></a>Articles connexes
 
-- [Consultez la documentation Microsoft Graph sur la synchronisation](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Consultez la documentation Microsoft Graph sur la synchronisation](/graph/api/resources/synchronization-overview)
 - [Intégrer une application SCIM personnalisée à Azure AD](use-scim-to-provision-users-and-groups.md)

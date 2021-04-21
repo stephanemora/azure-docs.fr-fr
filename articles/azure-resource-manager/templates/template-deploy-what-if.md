@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: ff024ff97baa8a80ae6b1fcdafba010e482afd98
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 7e300f896bb11ed7c77738836f894cff41cc8bf3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074620"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781826"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Opération what-if de déploiement de modèle ARM
 
@@ -95,17 +95,17 @@ Les commandes précédentes retournent un résumé sous forme de texte que vous 
 
 Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez :
 
-* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) pour les déploiements de groupes de ressources
-* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) pour les déploiements au niveau de l’abonnement
-* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) pour les déploiements de groupes de gestion
-* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) pour les déploiements de locataires
+* [az deployment group what-if](/cli/azure/deployment/group#az_deployment_group_what_if) pour les déploiements de groupes de ressources
+* [az deployment sub what-if](/cli/azure/deployment/sub#az_deployment_sub_what_if) pour les déploiements au niveau de l’abonnement
+* [az deployment mg what-if](/cli/azure/deployment/mg#az_deployment_mg_what_if) pour les déploiements de groupes de gestion
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az_deployment_tenant_what_if) pour les déploiements de locataires
 
 Vous pouvez utiliser le commutateur `--confirm-with-what-if` (ou sa forme courte `-c`) pour afficher un aperçu des modifications et être invité à poursuivre le déploiement. Ajoutez ce commutateur à :
 
-* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
-* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
-* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
-* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
+* [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)
+* [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create).
+* [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create)
 
 Par exemple, utilisez `az deployment group create --confirm-with-what-if` ou `-c` pour des déploiements de groupe de ressources.
 

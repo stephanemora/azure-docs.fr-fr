@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure dans le portail Azure
 description: Découvrir comment utiliser le portail Azure pour sauvegarder des partages de fichiers Azure sauvegardés dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7f44a71388468be432bdfcb0eb2bf67c0fcc8ef
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88890346"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519933"
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 
@@ -132,7 +132,7 @@ Les étapes suivantes expliquent comment configurer la sauvegarde de partages de
        ![Créer un coffre](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >Si le compte de stockage est inscrit auprès d’un coffre ou qu’il y a peu de partages protégés dans le compte de stockage hébergeant le partage de fichiers que vous tentez de protéger, le nom du coffre Recovery Services est prérempli et vous n’êtes pas autorisé à le modifier. [Apprenez-en davantage ici](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
+      >Si le compte de stockage est inscrit auprès d’un coffre ou qu’il y a peu de partages protégés dans le compte de stockage hébergeant le partage de fichiers que vous tentez de protéger, le nom du coffre Recovery Services est prérempli et vous n’êtes pas autorisé à le modifier. [Apprenez-en davantage ici](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-).
 
 1. Pour sélectionner une **Stratégie de sauvegarde**, procédez de l’une des façons suivantes :
 

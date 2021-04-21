@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ff752b673c49047551c48c4c8693b00d7b5edeb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708558"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787402"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)
 L’[extension Diagnostics Azure](diagnostics-extension-overview.md) est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité, des charges de travail de machines virtuelles Azure et d’autres ressources de calcul. Cet article fournit des détails sur l’installation et la configuration de l’extension de diagnostic Windows et une description de la façon dont les données sont stockées dans un compte Stockage Azure.
@@ -77,7 +77,7 @@ Vous pouvez installer et configurer l’extension de diagnostics sur une machine
 Pour plus d’informations sur le déploiement de l’extension de diagnostic à l’aide de vos modèles Azure Resource Manager, consultez [Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md). 
 
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
-Vous pouvez utiliser Azure CLI pour déployer l’extension Diagnostics Azure sur une machine virtuelle existante à l’aide de la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set), comme indiqué dans l’exemple suivant. 
+Vous pouvez utiliser Azure CLI pour déployer l’extension Diagnostics Azure sur une machine virtuelle existante à l’aide de la commande [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set), comme indiqué dans l’exemple suivant. 
 
 ```azurecli
 az vm extension set \

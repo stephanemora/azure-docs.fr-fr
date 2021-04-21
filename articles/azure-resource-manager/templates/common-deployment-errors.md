@@ -4,12 +4,12 @@ description: Décrit comment résoudre les erreurs courantes lors du déploiemen
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: 40e6317a1d879704ef00e928a971ae08fc9e0f72
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 07c197f1b54522b96a3bfa2d6a5ce7b368be3b35
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564345"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789174"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -68,7 +68,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | RequestDisallowedByPolicy | Votre abonnement inclut une stratégie de ressource qui empêche une action que vous tentez d’exécuter au cours du déploiement. Recherchez la stratégie qui bloque l’action. Si possible, modifiez votre déploiement pour respecter les limitations de la stratégie. | [Résoudre les erreurs de stratégie](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Spécifiez un nom de ressource qui n’inclut pas de nom réservé. | [Noms de ressource réservés](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Attendez que la suppression soit terminée. | |
-| ResourceGroupNotFound | Vérifiez le nom du groupe de ressources cible pour le déploiement. Le groupe de ressources cible doit déjà exister dans votre abonnement. Vérifiez le contexte de votre abonnement. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | Vérifiez le nom du groupe de ressources cible pour le déploiement. Le groupe de ressources cible doit déjà exister dans votre abonnement. Vérifiez le contexte de votre abonnement. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Votre déploiement fait référence à une ressource qui ne peut pas être résolue. Vérifiez que votre utilisation de la fonction **reference** inclut les paramètres requis pour votre scénario. | [Résoudre les erreurs de référence](error-not-found.md) |
 | ResourceQuotaExceeded | Le déploiement tente de créer des ressources qui dépassent le quota autorisé pour l’abonnement, le groupe de ressources ou la région. Si possible, modifiez votre infrastructure pour respecter les quotas. Dans le cas contraire, vous pouvez demander une modification de vos quotas. | [Résoudre les erreurs de quota](error-resource-quota.md) |
 | SkuNotAvailable | Sélectionnez la référence SKU (par exemple, la taille de la machine virtuelle) disponible pour l’emplacement que vous avez sélectionné. | [Résoudre les erreurs de référence SKU](error-sku-not-available.md) |

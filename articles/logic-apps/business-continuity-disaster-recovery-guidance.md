@@ -3,15 +3,15 @@ title: Continuité d’activité et reprise d’activité
 description: Concevez votre stratégie de protection des données, récupérez rapidement après des événements perturbants, restaurez les ressources requises par les fonctions métier critiques et assurez la continuité d’activité pour Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: f974a99c59b19b5df7bf6ffcc66c2dc133743f0a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89658207"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790536"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuité d’activité et reprise d’activité pour Azure Logic Apps
 
@@ -46,7 +46,7 @@ Pour la stratégie de basculement, vos applications logiques et emplacements doi
 
 * Les deux instances de l’application logique ont le même type d’hôte. Donc, soit les deux instances sont déployées dans des régions dans un Azure multilocataire mondial, soit les deux instances sont déployées dans des environnements ISE, ce qui permet à vos applications logiques d’accéder directement aux ressources d’un réseau virtuel Azure. Pour connaître les meilleures pratiques et obtenir plus d’informations sur les régions appairées, consultez [Continuité d’activité et reprise d’activité (BCDR) : régions couplées Azure](../best-practices-availability-paired-regions.md).
 
-  Par exemple, les emplacements principal et secondaire doivent être des environnements ISE lorsque l’application logique principale s’exécute dans un environnement ISE et utilise des [connecteurs avec version ISE](../connectors/apis-list.md#ise-connectors), des actions HTTP pour appeler des ressources dans le réseau virtuel Azure, ou les deux. Dans ce scénario, votre application logique secondaire doit également avoir une configuration similaire à l’application logique principale dans l’emplacement secondaire.
+  Par exemple, les emplacements principal et secondaire doivent être des environnements ISE lorsque l’application logique principale s’exécute dans un environnement ISE et utilise des [connecteurs avec version ISE](../connectors/managed.md#ise-connectors), des actions HTTP pour appeler des ressources dans le réseau virtuel Azure, ou les deux. Dans ce scénario, votre application logique secondaire doit également avoir une configuration similaire à l’application logique principale dans l’emplacement secondaire.
 
   > [!NOTE]
   > Pour des scénarios plus avancés, vous pouvez combiner un Azure multilocataire et un environnement ISE en tant qu’emplacements. Toutefois, veillez à prendre en compte et à comprendre les [ différences entre l’exécution des applications logiques dans un environnement ISE et l’exécution dans un Azure multilocataire](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).

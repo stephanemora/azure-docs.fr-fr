@@ -4,15 +4,15 @@ description: Open Service Mesh (OSM) dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 0052c8d2f9b85c34d50a3e9d01253ecaf2d02bab
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: bbc07a7ee3f996c778cfc1b9d1764f10a613c50b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106711"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782942"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Module complémentaire Open Service Mesh AKS (préversion)
 
@@ -107,7 +107,7 @@ Pour le scénario de déploiement d’un nouveau cluster AKS, vous commencerez 
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Dans Azure, vous allouez les ressources associées à un groupe de ressources. Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé _myOsmAksGroup_ à l’emplacement _eastus2_ (région) :
+Dans Azure, vous allouez les ressources associées à un groupe de ressources. Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé _myOsmAksGroup_ à l’emplacement _eastus2_ (région) :
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>
@@ -2150,7 +2150,7 @@ Dans la page **Configure your Prometheus data source below** (Configurez votre s
 
 Les tableaux de bord OSM sont disponibles à la fois via :
 
-- [notre référentiel](/charts/osm/grafana), et peuvent être importés sous forme de blobs json via le portail d’administration web ; ou
+- [notre référentiel](https://github.com/grafana/grafana), et peuvent être importés sous forme de blobs json via le portail d’administration web ; ou
 - [en ligne à l’adresse grafana.com](https://grafana.com/grafana/dashboards/14145).
 
 Pour importer un tableau de bord, recherchez le signe `+` dans le menu de gauche et sélectionnez `import`.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5209e715fab422a50e31810b5eb0d370d5fc61cd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98874245"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792522"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
@@ -99,7 +99,7 @@ Les étapes suivantes décrivent brièvement comment utiliser la synchronisation
 
 1. [Créez un compte de stockage dans Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture pour vos comptes de stockage, vous obtenez un accès en lecture à vos données à partir de la région secondaire, en cas d’urgence. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Créer un partage de fichiers](../storage/files/storage-how-to-create-file-share.md).
-3. [Démarrer la synchronisation de fichiers](../storage/files/storage-sync-files-deployment-guide.md) sur votre serveur de fichiers Azure.
+3. [Démarrer la synchronisation de fichiers](../storage/file-sync/file-sync-deployment-guide.md) sur votre serveur de fichiers Azure.
 4. Créez un groupe de synchronisation. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir au moins un point de terminaison cloud, qui représente un partage de fichiers Azure. Un groupe de synchronisation doit également contenir un point de terminaison de serveur, qui représente un chemin d’accès sur un serveur Windows.
 5. Vos fichiers restent désormais synchronisés sur votre partage de fichiers Azure et sur votre serveur local.
 6. En cas d’urgence dans votre environnement local, effectuer un basculement en utilisant un [plan de récupération](site-recovery-create-recovery-plans.md). Ajoutez le script pour [monter le partage de fichiers Azure](../storage/files/storage-how-to-use-files-windows.md) et accéder au partage dans votre machine virtuelle.
@@ -148,7 +148,7 @@ Procédez comme suit pour utiliser la synchronisation de fichiers :
 
 1. [Créez un compte de stockage dans Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture (recommandé) pour vos comptes de stockage, vous bénéficiez d’un accès en lecture à vos données à partir de la région secondaire en cas d’urgence. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Créer un partage de fichiers](../storage/files/storage-how-to-create-file-share.md).
-3. [Déployer la synchronisation de fichiers](../storage/files/storage-sync-files-deployment-guide.md) dans votre serveur de fichiers local.
+3. [Déployer la synchronisation de fichiers](../storage/file-sync/file-sync-deployment-guide.md) dans votre serveur de fichiers local.
 4. Créez un groupe de synchronisation. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir au moins un point de terminaison cloud, qui représente un partage de fichiers Azure. Un groupe de synchronisation doit également contenir un point de terminaison de serveur, qui représente un chemin d’accès sur un serveur Windows local.
 5. Vos fichiers restent désormais synchronisés sur votre partage de fichiers Azure et sur votre serveur local.
 6. En cas d’urgence dans votre environnement local, effectuer un basculement en utilisant un [plan de récupération](site-recovery-create-recovery-plans.md). Ajoutez le script pour monter le partage de fichiers Azure et accéder au partage dans votre machine virtuelle.
