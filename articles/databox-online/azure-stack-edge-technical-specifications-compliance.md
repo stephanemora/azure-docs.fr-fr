@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/02/2020
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b36bb34f4c9081d807998cb8287797443625a6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91bb558d47e56ebbcbdf25b0276c2a247ec81b47
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460301"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312635"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Spécifications techniques d’Azure Stack Edge Pro
 
@@ -23,16 +23,21 @@ Les composants matériels de l’appareil Microsoft Azure Stack Edge Pro sont co
 
 L’appareil Azure Stack Edge Pro présente les spécifications suivantes en matière de calcul et de mémoire :
 
-| Caractéristique           | Valeur                  |
-|-------------------------|----------------------------|
-| UC    | 2 processeurs 10 cœurs Intel Xeon Silver 4114 2.2G                    |
-| Mémoire              | 128 Go de RAM (8 x16 Go RDIMM)                 |
+| Caractéristique           | Valeur                             |
+|-------------------------|-----------------------------------|
+| Type de processeur                | Deux processeurs Intel Xeon Silver 4114 2,2 GHz |
+| Processeur (brut)                | 20 cœurs au total, 40 processeurs virtuels au total    |
+| Processeur (utilisable)             | 32 processeurs virtuels                          |
+| Type de mémoire             | 8 x 16 Go RDIMM                   |
+| Mémoire (brute)             | 128 Go de RAM (8 x 16 Go)           |
+| Mémoire (utilisable)          | 102 Go de RAM                        |
+
 
 ## <a name="fpga-specifications"></a>Spécifications FPGA
 
 Pour les scénarios de Machine Learning (ML), chaque appareil Azure Stack Edge Pro dispose d’un FPGA (Field Programmable Gate Array).
 
-| Caractéristique           | Valeur                  |
+| Caractéristique           | Valeur                      |
 |-------------------------|----------------------------|
 | FPGA   | Intel Arria 10 <br> Les modèles à réseau neuronal profond disponibles sont les mêmes que ceux [pris en charge par les instances cloud FPGA](../machine-learning/how-to-deploy-fpga-web-service.md#fpga-support-in-azure).|
 
@@ -42,7 +47,7 @@ L’appareil Azure Stack Edge Pro est équipé de deux blocs d’alimentation de
 
 | Caractéristique           | Bloc d’alimentation de 750 W                  |
 |-------------------------|----------------------------|
-| Puissance de sortie maximale    | 750 W                     |
+| Puissance de sortie maximale    | 750 W                      |
 | Fréquence               | 50/60 Hz                   |
 | Sélection de la plage de tension | Détermination automatique : 100-240 V AC |
 | Enfichable à chaud           | Oui                        |
@@ -64,7 +69,7 @@ Votre appareil Azure Stack Edge Pro dispose de 6 interfaces réseau : PORT1 à
 |-------------------------|----------------------------|
 |  Interfaces réseau    | 2 interfaces 1 GbE : une pour la gestion, non configurable par l’utilisateur, utilisée pour l’installation initiale. L’autre interface peut être configurée par l’utilisateur, utilisée pour le transfert de données et est définie en mode DHCP par défaut. <br>2 interfaces 25 GbE : peuvent également fonctionner comme interfaces 10 GbE. Ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut). <br> 2 interfaces 25 GbE : ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut).                  |
 
-Les cartes réseau utilisées sont les suivantes : 
+Les cartes réseau utilisées sont les suivantes :
 
 | Caractéristique           | Description                 |
 |-------------------------|----------------------------|
@@ -82,7 +87,7 @@ Les appareils Azure Stack Edge Pro sont dotés de 9 disques SSD NVMe de 2,5", 
 |    Nombre de disques SSD     |    8                  |
 |    Capacité de disque SSD unique                     |    1,6 To             |
 |    Capacité totale                          |    12,8 To            |
-|    Capacité utilisable totale*                  |    ~ 12,5 To            |
+|    Capacité utilisable totale*                  |    ~ 12,5 To          |
 
 **Une partie de l’espace est réservé à un usage interne.*
 
@@ -94,19 +99,19 @@ Les tableaux suivants répertorient les dimensions et les caractéristiques de p
 
 Le tableau suivant répertorie les dimensions du boîtier en millimètres et en pouces.
 
-|     Boîtier     |     Millimètres     |     Pouces     |
-|-------------------|---------------------|----------------|
-|    Hauteur         |    44,45            |    1,75"          |
-|    Largeur          |    434,1           |    17,09"          |
-|    Longueur          |    740,4           |    29,15"          |
+|     Boîtier     |     Millimètres    |     Pouces     |
+|-------------------|--------------------|----------------|
+|    Hauteur         |    44,45           |    1,75"       |
+|    Largeur          |    434,1           |    17,09"      |
+|    Longueur         |    740,4           |    29,15"      |
 
 Le tableau suivant présente les dimensions du boîtier livré en millimètres et en pouces.
 
-|     Package     |     Millimètres     |     Pouces     |
+|     Package       |     Millimètres     |     Pouces     |
 |-------------------|---------------------|----------------|
-|    Hauteur         |    311,2            |    12,25"          |
-|    Largeur          |    642,8          |    25,31"          |
-|    Longueur          |   1 051,1          |    41,38"          |
+|    Hauteur         |    311,2            |    12,25"      |
+|    Largeur          |    642,8            |    25,31"      |
+|    Longueur         |   1 051,1           |    41,38"      |
 
 ### <a name="enclosure-weight"></a>Poids du boîtier
 

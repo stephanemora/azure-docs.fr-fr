@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e360ae3cf0c463add9e6445a96c118d9f40ce9cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de50540345ac6170d229549cad736dafb04e488c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878034"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792360"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Créer un groupe identique à partir d’une image généralisée avec Azure CLI
 
@@ -24,7 +24,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, c
 
 Remplacez les noms de ressources en fonction des besoins dans cet exemple. 
 
-Répertoriez les définitions d’images d’une galerie avec la commande [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) pour voir le nom et l’ID des définitions.
+Répertoriez les définitions d’images d’une galerie avec la commande [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) pour voir le nom et l’ID des définitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -36,7 +36,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Créez le groupe identique à l’aide de [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
+Créez le groupe identique à l’aide de [`az vmss create`](/cli/azure/vmss#az_vmss_create). 
 
 Utilisez l’ID de définition d’image pour `--image` afin de créer les instances de groupe identique à partir de la version la plus récente de l’image disponible. Vous pouvez également créer les instances de groupe identique à partir d’une version spécifique en fournissant l’ID de version de l’image pour `--image`. Souvenez-vous que l’utilisation d’une version d’image spécifique signifie que l’automatisation peut échouer si cette version d’image spécifique n’est pas disponible car elle a été effacée ou supprimée de la région. Nous vous recommandons d’utiliser l’ID de définition d’image pour créer votre machine virtuelle, sauf si une version d’image spécifique est requise.
 

@@ -6,19 +6,16 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 143f0a9d23cdc70425147faa95258ec753b92691
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: d1ca4a843c6731cde7ed70d65fc230a21ef6e7c4
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365378"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389432"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Créer des scripts PowerShell pour l’attachement d’application MSIX
 
 Cet article vous guide tout au long de la configuration des scripts PowerShell pour l’attachement d’application MSIX.
-
->[!IMPORTANT]
->Avant de commencer, veillez à renseigner et à envoyer [ce formulaire](https://aka.ms/enablemsixappattach) pour activer l’attachement d’application MSIX dans votre abonnement. Si votre demande n’est pas approuvée, l’attachement d’application MSIX ne fonctionnera pas. L’approbation des demandes peut prendre jusqu’à 24 heures pendant les jours ouvrables. Vous recevrez un e-mail lorsque votre demande aura été acceptée et traitée.
 
 ## <a name="install-certificates"></a>Installer des certificats
 

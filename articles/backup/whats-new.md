@@ -3,12 +3,12 @@ title: Nouveautés de Sauvegarde Azure
 description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 68e0e5cc0876840c30ab9e428a2b96bd7d667756
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612481"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516329"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
 
@@ -89,7 +89,7 @@ Pour plus d’informations, consultez [Modèles Azure Resource Manager pour la S
 
 Sauvegarde Azure prend maintenant en charge les sauvegardes incrémentielles pour les bases de données SAP HANA hébergées sur des machines virtuelles Azure. Cela permet d’obtenir des sauvegardes plus rapides et plus rentables de vos données SAP HANA.
 
-Pour plus d’informations, consultez [diverses options disponibles lors de la création d’une stratégie de sauvegarde](sap-hana-faq-backup-azure-vm.md#policy) et la procédure de [création d’une stratégie de sauvegarde pour les bases de données SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+Pour plus d’informations, consultez [diverses options disponibles lors de la création d’une stratégie de sauvegarde](/sap-hana-faq-backup-azure-vm.yml#policy) et la procédure de [création d’une stratégie de sauvegarde pour les bases de données SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## <a name="backup-center-in-preview"></a>Centre de sauvegarde (en préversion)
 

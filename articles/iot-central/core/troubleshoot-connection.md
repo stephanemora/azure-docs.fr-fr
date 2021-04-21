@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: ae40571b958897b5f06c4ae72a9049a585561872
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 494608f9dd8fbf986dcda6eeb782a64f6a2ca008
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064713"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378565"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Déterminer la raison pour laquelle les données de vos appareils ne s’affichent pas dans Azure IoT Central
 
@@ -158,6 +158,14 @@ Si vous constatez des problèmes liés à votre flux d’authentification :
 | 412 | L’`ETag` de la requête ne correspond pas à l’`ETag` de la ressource existante, conformément à la RFC7232. | [Créez un ticket auprès du support technique](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 429 | Les opérations sont limitées par le service. Pour connaître les limites de service spécifiques, consultez [Limites du service IoT Hub Device Provisioning](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Réduisez la fréquence des messages, répartissez les responsabilités entre plusieurs appareils. |
 | 500 | Une erreur interne s’est produite. | [Créez un ticket auprès du support technique](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) pour voir s’il est en mesure de vous aider davantage. |
+
+### <a name="file-upload-error-codes"></a>Codes d’erreur de chargement du fichier
+
+Voici une liste des codes d’erreur courants que vous pouvez voir lorsqu’un appareil tente de charger un fichier vers le cloud. N’oubliez pas que pour que votre appareil puisse charger un fichier, vous devez configurer les [chargements de fichiers d’appareil](howto-configure-file-uploads.md) dans votre application.
+
+| Code d'erreur | Description | Atténuation possible |
+| - | - | - |
+| 403006  | Vous avez dépassé le nombre d’opérations simultanées de chargement de fichiers. Notez que chaque client d’appareil est limité à 10 chargements de fichiers simultanés. | Assurez-vous que l’appareil informe rapidement IoT Central que l’opération de chargement de fichier est terminée. Si cela ne fonctionne pas, essayez de réduire le délai d’expiration de la requête. |
 
 ## <a name="payload-shape-issues"></a>Problèmes de forme de charge utile
 

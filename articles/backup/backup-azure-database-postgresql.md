@@ -2,14 +2,14 @@
 title: Sauvegarder Azure Database pour PostgreSQL
 description: Découvrir la sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4730cad32203642f0d1b84529a5822d7595d6bf8
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737570"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375084"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 
@@ -135,10 +135,9 @@ Les instructions suivantes constituent un guide pas à pas de la configuration d
 
 1. Définissez les paramètres de **Conservation**. Vous pouvez ajouter une ou plusieurs règles de conservation. Chaque règle de conservation nécessite des entrées pour des sauvegardes spécifiques, et le magasin de données et la durée de conservation de ces sauvegardes.
 
-1. Vous pouvez choisir de stocker vos sauvegardes dans un des deux magasins de données (ou niveaux) : **Magasin de données des sauvegardes** (niveau standard) ou **Magasin de données des archives** (en préversion). Vous pouvez choisir entre **deux options de hiérarchisation** pour définir quand les sauvegardes sont hiérarchisées dans les deux magasins de données :
+1. Vous pouvez choisir de stocker vos sauvegardes dans un des deux magasins de données (ou niveaux) : **Magasin de données des sauvegardes** (niveau standard) ou **Magasin de données des archives** (en préversion).
 
-    - Choisissez de copier **Immédiatement** si vous préférez avoir une copie de sauvegarde simultanément dans le magasin de données des sauvegardes et dans le magasin de données des archivages.
-    - Choisissez de déplacer **À l’expiration** si vous préférez déplacer la sauvegarde vers le magasin de données des archivages quand elle expire dans le magasin de données des sauvegardes.
+   Vous pouvez choisir **À l’expiration** si vous préférez déplacer la sauvegarde vers le magasin de données des archivages quand elle expire dans le magasin de données des sauvegardes.
 
 1. La **règle de conservation par défaut** est appliquée en l’absence d’une autre règle de conservation, et sa valeur par défaut est de trois mois.
 
@@ -197,7 +196,21 @@ Suivez ce guide pas à pas pour déclencher une restauration :
 
     ![Restaurer sous forme de fichiers](./media/backup-azure-database-postgresql/restore-as-files.png)
 
+1. Si le point de récupération se trouve dans le niveau archive, vous devez réalimenter le point de récupération avant la restauration.
+   
+   ![Paramètres de réhydratation](./media/backup-azure-database-postgresql/rehydration-settings.png)
+   
+   Fournissez les paramètres supplémentaires suivants requis pour la réhyratation :
+   - **Priorité de réhydratation :** La valeur par défaut est **Standard**.
+   - **Durée de réhydratation :** La durée maximale pour la réhydratation est de 30 jours et la durée de réhydratation minimale est de 10 jours. La valeur par défaut est **15**.
+   
+   Le point de récupération est stocké dans le **Magasin de données de sauvegarde** pour la durée de réalimentation spécifiée.
+
+
 1. Vérifiez les informations, puis sélectionnez **Restaurer**. Ceci va déclencher un travail de restauration correspondant qui peut être suivi sous **Travaux de sauvegarde**.
+
+>[!NOTE]
+>La prise en charge de l’archivage pour Azure Database pour PostgreSQL est en préversion publique limitée.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Autorisations prérequises pour configurer la sauvegarde et la restauration
 
@@ -220,7 +233,7 @@ Choisissez dans la liste des règles de conservation qui ont été définies dan
 
 ### <a name="stop-protection"></a>Arrêter la protection
 
-Vous pouvez arrêter la protection sur un élément de sauvegarde. Ceci va également supprimer les points de récupération associés à cet élément de sauvegarde. Nous ne fournissons pas encore la possibilité d’arrêter la protection tout en conservant les points de récupération existants.
+Vous pouvez arrêter la protection sur un élément de sauvegarde. Ceci va également supprimer les points de récupération associés à cet élément de sauvegarde. Si les points de récupération ne sont pas dans le niveau archive pendant un minimum de six mois, la suppression de ces points de récupération entraînera un coût de suppression anticipé. Nous ne fournissons pas encore la possibilité d’arrêter la protection tout en conservant les points de récupération existants.
 
 ![Arrêter la protection](./media/backup-azure-database-postgresql/stop-protection.png)
 
@@ -242,7 +255,7 @@ Cette section fournit des informations de dépannage pour la sauvegarde des base
 
 ### <a name="usererrormsimissingpermissions"></a>UserErrorMSIMissingPermissions
 
-Donnez à l’identité MSI du coffre de sauvegarde un accès en **Lecture** sur le serveur Postgres que vous voulez sauvegarder ou restaurer :
+Donnez à l’identité MSI du coffre de sauvegarde un accès en **Lecture** sur le serveur Postgres que vous voulez sauvegarder ou restaurer.
 
 Pour établir une connexion sécurisée à la base de données PostgreSQL, Sauvegarde Azure utilise le modèle d’authentification [ Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md). Cela signifie que le coffre de sauvegarde aura accès seulement aux ressources auxquelles l’utilisateur a explicitement accordé une autorisation.
 
@@ -254,21 +267,17 @@ Une identité MSI système est automatiquement affectée au coffre au moment de 
 
     ![Volet Contrôle d’accès](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. Sélectionnez **Ajouter une attribution de rôle**.
+1. Sélectionnez **Ajouter des attributions de rôle**.
 
     ![Ajouter une attribution de rôle](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
 1. Dans le volet contextuel droit qui s’ouvre, entrez les informations suivantes :<br>
 
-    **Rôle :** Lecteur<br>
-    **Attribuer l’accès à :** Choisissez **Coffre de sauvegarde**<br>
-    Si vous ne trouvez pas l’option **Coffre de sauvegarde** dans la liste déroulante, choisissez l’option **Utilisateur, groupe ou principal du service Azure AD**<br>
+   - **Rôle :** Sélectionnez le rôle **Lecteur** dans la liste déroulante.<br>
+   - **Attribuer l’accès à :** Choisissez l’option **Utilisateur, groupe ou principal du service** dans la liste déroulante.<br>
+   - **Sélectionnez :** Entrez le nom du coffre de sauvegarde où vous voulez sauvegarder ce serveur et ses bases de données.<br>
 
-    ![Sélectionner un rôle](./media/backup-azure-database-postgresql/select-role.png)
-
-    **Sélectionnez :** Entrez le nom du coffre de sauvegarde où vous voulez sauvegarder ce serveur et ses bases de données.<br>
-
-    ![Entrer le nom du coffre de sauvegarde](./media/backup-azure-database-postgresql/enter-backup-vault-name.png)
+    ![Sélectionner un rôle](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
 
 ### <a name="usererrorbackupuserauthfailed"></a>UserErrorBackupUserAuthFailed
 

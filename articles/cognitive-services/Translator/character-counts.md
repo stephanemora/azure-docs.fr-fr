@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 6e81736e3151c9e97a8926b1f67c0a7a0d4c2f3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53fc22e1dbdac3240f72e8d64fbaee690597950f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895881"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107373925"
 ---
 # <a name="how-the-translator-counts-characters"></a>Comment le service Translator compte les caractères
 
@@ -38,5 +38,7 @@ Pour les scripts basés sur des idéogrammes tels que les idéogrammes chinois e
 Le nombre de requêtes, de mots, d’octets ou de phrases est sans importance dans la comptabilisation des caractères.
 
 Les appels aux méthodes Detect et BreakSentence ne sont pas comptés dans l’utilisation de caractères. Toutefois, nous nous attendons à ce que la quantité d’appels aux méthodes Detect et BreakSentence soit raisonnable par rapport à l’utilisation des autres fonctions comptées. Si le nombre d’appels Detect ou BreakSentence que vous effectuez dépasse le nombre des autres méthodes comptabilisées multiplié par 100, Microsoft se réserve le droit de limiter votre utilisation des méthodes Detect et BreakSentence.
+
+Chaque caractère soumis à la fonction de traduction est compté, même lorsque le contenu n’est pas modifié ou que la langue source et la langue cible sont identiques.
 
 Vous trouverez plus d’informations sur les comptes de caractères dans la [FAQ du service Translator](https://www.microsoft.com/en-us/translator/faq.aspx).

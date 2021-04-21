@@ -2,13 +2,13 @@
 title: Exécuter des applications MPI avec des tâches multi-instances
 description: Découvrez comment exécuter des applications MPI (Message Passing Interface) en utilisant des tâches de type multi-instances dans Azure Batch.
 ms.topic: how-to
-ms.date: 03/25/2021
-ms.openlocfilehash: 02764f8dd8a6bb3e4224b8b44fe78ab7e15ba85d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 04/13/2021
+ms.openlocfilehash: e96cfb89b186d69f6ad969949b8df609956114d2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219844"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389398"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Batch
 
@@ -49,7 +49,13 @@ CloudPool myCloudPool =
         poolId: "MultiInstanceSamplePool",
         targetDedicatedComputeNodes: 3
         virtualMachineSize: "standard_d1_v2",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+        VirtualMachineConfiguration: new VirtualMachineConfiguration(
+        imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+        nodeAgentSkuId: "batch.node.windows amd64");
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.

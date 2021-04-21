@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 7204f32b8fec411fba2afa39b011a8755aea3744
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 21ac73b461ebcb171f48621aa27a16dfc0e8c936
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309677"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781712"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -125,9 +125,9 @@ Un basculement peut être initié à l’aide de PowerShell, de l’API REST ou 
 
 |Type de déploiement|PowerShell|API REST| Azure CLI|
 |:---|:---|:---|:---|
-|Base de données|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Basculement de base de données](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
-|Pool élastique|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Basculement de pool élastique](/javascript/api/@azure/arm-sql/elasticpools#failover_string__string__string__msRest_RequestOptionsBase)|[az rest](/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
-|Instance gérée|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instances gérées - Basculement](/rest/api/sql/managed%20instances%20-%20failover/failover)|[Basculement az sql mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Base de données|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Basculement de base de données](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az_rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
+|Pool élastique|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Basculement de pool élastique](/javascript/api/@azure/arm-sql/elasticpools#failover_string__string__string__msRest_RequestOptionsBase)|[az rest](/cli/azure/reference-index#az_rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
+|Instance gérée|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instances gérées - Basculement](/rest/api/sql/managed%20instances%20-%20failover/failover)|[Basculement az sql mi](/cli/azure/sql/mi/#az_sql_mi_failover)|
 
 > [!IMPORTANT]
 > La commande de basculement n’est pas disponible pour les réplicas secondaires accessibles en lecture des bases de données Hyperscale.
