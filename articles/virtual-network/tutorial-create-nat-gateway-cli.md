@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: 5dd431a5a7377c409be0794511c5f402d1c5a3a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: 60436b8d4a0f338f4ece59ad4cd11c14c9e4c352
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102636743"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762638"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Tutoriel : Créer une passerelle NAT avec l’interface Azure CLI
 
@@ -92,7 +92,7 @@ Créez un réseau virtuel nommé **myVnet** avec un sous-réseau nommé **mySubn
 
 Créez un hôte Azure Bastion nommé **myBastionHost** pour accéder à la machine virtuelle. 
 
-Utilisez [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) pour créer un sous-réseau Azure Bastion.
+Utilisez [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) pour créer un sous-réseau Azure Bastion.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -111,7 +111,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Utilisez [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) pour créer l’hôte bastion. 
+Utilisez [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) pour créer l’hôte bastion. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -141,7 +141,7 @@ Tout le trafic sortant vers les destinations Internet utilise désormais la pass
 
 Dans cette section, vous allez créer une machine virtuelle pour tester la passerelle NAT afin de vérifier l’adresse IP publique de la connexion sortante.
 
-Créez la machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create).
+Créez la machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \

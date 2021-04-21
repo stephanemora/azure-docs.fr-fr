@@ -3,16 +3,18 @@ title: 'Démarrage rapide : Création de votre première application web statiq
 description: Apprenez à déployer un site statique sur Azure Static Web Apps avec le portail Azure.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
-ms.topic: quickstart
-ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/03/2020
+ms.topic: quickstart
+ms.service: static-web-apps
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 78af2290a2e71d349303d3913f8a40510eb9c6a0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149526"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531583"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Démarrage rapide : Création de votre premier site statique dans le portail Azure
 

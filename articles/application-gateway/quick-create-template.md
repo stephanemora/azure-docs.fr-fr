@@ -4,17 +4,20 @@ titleSuffix: Azure Application Gateway
 description: Dans ce guide de démarrage rapide, découvrez comment utiliser un modèle Resource Manager pour créer une passerelle Azure Application Gateway qui dirige le trafic web vers les machines virtuelles d’un pool de back-ends.
 services: application-gateway
 author: vhorne
-ms.service: application-gateway
-ms.topic: quickstart
-ms.date: 01/20/2021
 ms.author: victorh
-ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 05e7cd8d7018759a3c8670a610b4c98ac0a86a7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 01/20/2021
+ms.topic: quickstart
+ms.service: application-gateway
+ms.custom:
+- mvc
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: dd100361ba5d4ff175e340ced782999e52c720c4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660053"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538442"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Modèle ARM
 

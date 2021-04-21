@@ -2,17 +2,19 @@
 title: Utiliser la préversion d’azure/service-bus JavaScript avec des rubriques et des abonnements
 description: Découvrez comment écrire un programme JavaScript qui utilise la préversion la plus récente du package @azure/service-bus pour envoyer des messages à une rubrique Service Bus et recevoir des messages à partir d’un abonnement à la rubrique.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: 59f1bb29099f2b921e687ca9de46365bc34f1b91
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98179994"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537248"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Démarrage rapide : Rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus en préversion
 Dans ce tutoriel, vous allez découvrir comment utiliser le package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) dans un programme JavaScript pour envoyer des messages à une rubrique Service Bus et recevoir des messages à partir d’un abonnement Service Bus à cette rubrique.

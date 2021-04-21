@@ -4,17 +4,19 @@ titleSuffix: Azure DNS
 description: Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un démarrage rapide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide d’Azure PowerShell.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f2563c33d02490732f73fcf9d1a78f548ec2d3e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 9c457b435ca17ce9dc86e1a83a4d1a56d9623b17
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92282217"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537872"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Démarrage rapide : Créer un enregistrement et une zone Azure DNS à l’aide d’Azure PowerShell
 
@@ -111,4 +113,3 @@ Maintenant que vous avez créé vos premiers enregistrement et zone DNS à l’a
 
 > [!div class="nextstepaction"]
 > [Créer des enregistrements DNS pour une application web dans un domaine personnalisé](./dns-web-sites-custom-domain.md)
-

@@ -3,16 +3,16 @@ title: 'Tutoriel : Publier les versions d’une API à l’aide de Gestion des 
 description: Suivez les étapes de ce tutoriel pour apprendre à publier plusieurs versions d’API dans Gestion des API.
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: dc3d3b4658bd9a26363b6d41377d448059e30c0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5930979258372e4269c4d453ffbc5e0d46258088
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889669"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483607"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutoriel : Publier plusieurs versions de votre API 
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à :
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Ajouter une nouvelle version

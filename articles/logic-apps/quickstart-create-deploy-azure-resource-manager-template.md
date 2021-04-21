@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.date: 06/30/2020
-ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/01/2021
+ms.openlocfilehash: bdeb80dc487d8418e21a40a29e5d2baab49d7b05
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213995"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771890"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Démarrage rapide : Créer et déployer un workflow d’application logique à l’aide d’un modèle Resource Manager
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 
 Ce guide de démarrage rapide utilise le modèle [**Créer une application logique**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), que vous trouverez dans la [galerie des modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates), trop longue pour être présentée ici. Passez plutôt en revue le [« fichier azuredeploy.json »](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) du modèle de démarrage rapide dans la galerie des modèles.
 
-Ce modèle de démarrage rapide crée un workflow d’application logique qui utilise le déclencheur de périodicité, configuré pour s’exécuter toutes les heures, ainsi qu’une [action *intégrée*](../connectors/apis-list.md#connector-types) HTTP, qui appelle une URL qui retourne l’état d’Azure. Une action intégrée est native dans la plateforme Azure Logic Apps.
+Ce modèle de démarrage rapide crée un workflow d’application logique qui utilise le déclencheur de périodicité, configuré pour s’exécuter toutes les heures, ainsi qu’une [action *intégrée*](../connectors/built-in.md) HTTP, qui appelle une URL qui retourne l’état d’Azure. Une action intégrée est native dans la plateforme Azure Logic Apps.
 
 Ce modèle crée la ressource Azure suivante :
 
@@ -303,7 +303,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Pour plus d’informations, consultez [Azure CLI : az group delete](/cli/azure/group#az-group-delete).
+Pour plus d’informations, consultez [Azure CLI : az group delete](/cli/azure/group#az_group_delete).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

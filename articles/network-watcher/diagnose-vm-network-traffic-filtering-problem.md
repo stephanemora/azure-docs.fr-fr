@@ -5,23 +5,26 @@ description: Dans ce guide de démarrage rapide, vous allez apprendre à diagnos
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: network-watcher
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: network-watcher
-ms.workload: infrastructure
-ms.date: 04/20/2018
 ms.author: damendo
-ms.custom: mvc
-ms.openlocfilehash: 320e660c8bec50f50f0e048fff12cf1ab91e4870
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+editor: ''
+ms.date: 04/20/2018
+ms.assetid: ''
+ms.topic: quickstart
+ms.service: network-watcher
+ms.workload: infrastructure
+ms.tgt_pltfrm: network-watcher
+ms.devlang: na
+tags:
+- azure-resource-manager
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: e8a9ce38e29f743fd40a6998d8bdc300080b2cee
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065444"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537757"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
 
@@ -81,7 +84,7 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
     | Machine virtuelle   | Sélectionner myVm                                                                                       |
     | interface réseau | myvm - le nom de l’interface réseau créée par le portail lorsque vous avez créé la machine virtuelle est différent. |
     | Protocol          | TCP                                                                                               |
-    | Sens         | Règle de trafic sortant                                                                                          |
+    | Direction         | Règle de trafic sortant                                                                                          |
     | Adresse IP locale  | 10.0.0.4                                                                                          |
     | Port local      | 60000                                                                                                |
     | Adresse IP distante | 13.107.21.200 : l’une des adresses de <www.bing.com>.                                             |

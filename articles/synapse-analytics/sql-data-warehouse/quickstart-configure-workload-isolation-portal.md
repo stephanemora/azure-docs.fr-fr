@@ -3,20 +3,22 @@ title: 'Démarrage rapide : Configurer l’isolation de la charge de travail - 
 description: Utilisez le portail Azure pour configurer l’isolation de la charge de travail du pool SQL dédié.
 services: synapse-analytics
 author: ronortloff
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 05/04/2020
 ms.author: rortloff
+manager: craigg
 ms.reviewer: jrasnick
-ms.custom: azure-synapse
-ms.openlocfilehash: 5773691852ddc723ec84503edee37c678bbbcfd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2020
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- azure-synapse
+- mode-portal
+ms.openlocfilehash: c15f21064012c195315a7f91908b3160591dc6f8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98677502"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534251"
 ---
 # <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Démarrage rapide : Configurer l’isolation de la charge de travail du pool SQL dédié à l’aide d’un groupe de charge de travail dans le portail Azure
 

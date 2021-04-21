@@ -1,16 +1,21 @@
 ---
 title: Utiliser des rubriques et abonnements Azure Service Bus avec Java
 description: Dans ce guide de démarrage rapide, vous écrivez du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis vous recevez les messages des abonnements à cette rubrique.
-ms.devlang: Java
-ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: c44f3329626c42bdbb9e206c9dbf258c97b1aa57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+- seo-java-july2019
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: c20a9372ddc951b7d4184a7abeda9537006c4865
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97655643"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533367"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Démarrage rapide : Utiliser des rubriques et des abonnements Service Bus avec Java
 Dans ce guide de démarrage rapide, vous écrivez du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis vous recevez les messages des abonnements à cette rubrique. 

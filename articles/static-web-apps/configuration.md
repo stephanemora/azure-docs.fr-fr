@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 3ecd38b725307c7a3d75787795130c5106de85a7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9494bcc9941491bbb82c6a948dce720cb9e51424
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312244"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502281"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurer Azure Static Web Apps
 
@@ -33,7 +33,7 @@ L’emplacement recommandé pour le fichier _staticwebapp.config.json_ est le do
 Pour plus de détails, consultez l’[exemple de fichier config](#example-configuration-file).
 
 > [!IMPORTANT]
-> Le [fichier _staticwebapp.config.json_](./routes.md) est ignoré si un fichier _staticwebapp.config.json_ existe.
+> Le [fichier _routes.json_](./routes.md) est ignoré si un fichier _staticwebapp.config.json_ existe.
 
 ## <a name="routes"></a>Itinéraires
 
