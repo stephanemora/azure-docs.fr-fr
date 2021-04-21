@@ -3,19 +3,18 @@ title: Accéder à Key Vault derrière un pare-feu - Azure Key Vault | Microso
 description: Découvrez quels ports, hôtes ou adresses IP ouvrir pour permettre à une application cliente de coffre de clés derrière un pare-feu d’accéder à un coffre de clés.
 services: key-vault
 author: amitbapat
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 04/15/2021
 ms.author: ambapat
-ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57a89128ab5223264db43e5d59428dc7e6d23ec9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93289161"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751631"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accès à Azure Key Vault derrière un pare-feu
 

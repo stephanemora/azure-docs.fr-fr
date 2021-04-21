@@ -4,12 +4,12 @@ description: 'Tutoriel : Utilisez Azure Event Grid et Azure CLI pour publier un
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fcbc76f3ab58aac6beca3e142eba3a9b62c28a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566824"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770400"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutoriel : Acheminer des événements personnalisés vers des connexions hybrides Azure Relay avec Azure CLI et Event Grid
 
@@ -27,7 +27,7 @@ Azure Event Grid est un service de gestion d’événements pour le cloud. Les c
 
 Les rubriques Event Grid sont des ressources Azure et doivent être placées dans un groupe de ressources Azure. Un groupe de ressources est une collection logique dans laquelle des ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). 
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). 
 
 L’exemple suivant crée un groupe de ressources nommé *gridResourceGroup* à l’emplacement *westus2*.
 

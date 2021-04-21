@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e22d28215c06de96d31faec71f4fb595bb74a4a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88032183825443aa3a3945530e2203e5500248a6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87495265"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791316"
 ---
 # <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Utiliser l’interface CLI pour copier une base de données d’Azure SQL Database sur un nouveau serveur
 
@@ -55,7 +55,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Description |
 |---|---|
-| [az sql db copy](/cli/azure/sql/db#az-sql-db-copy) | Crée une copie d’une base de données qui utilise la capture instantanée à l’heure actuelle. |
+| [az sql db copy](/cli/azure/sql/db#az_sql_db_copy) | Crée une copie d’une base de données qui utilise la capture instantanée à l’heure actuelle. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

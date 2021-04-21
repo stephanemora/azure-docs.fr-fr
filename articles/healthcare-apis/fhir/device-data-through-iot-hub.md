@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 36d6d8b4d4435b1db99f2721c817c9c06ca60945
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 77d54ef0c9bef40af47c2fc48b9d4b5d6315b119
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019185"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780392"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutoriel : Recevoir des données d’appareil via Azure IoT Hub
 
@@ -44,7 +44,7 @@ Azure IoT Hub prend en charge une fonctionnalité appelée [routage des messages
 La configuration d’un routage de message s’effectue en deux étapes.
 
 ### <a name="add-an-endpoint"></a>Ajout d’un point de terminaison
-Cette étape consiste à définir un point de terminaison vers lequel le hub IoT Hub va router les données. Créez ce point de terminaison en utilisant la commande PowerShell [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) ou la commande CLI [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create) selon vos préférences.
+Cette étape consiste à définir un point de terminaison vers lequel le hub IoT Hub va router les données. Créez ce point de terminaison en utilisant la commande PowerShell [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) ou la commande CLI [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az_iot_hub_routing_endpoint_create) selon vos préférences.
 
 Voici la liste des paramètres à utiliser avec la commande pour créer un point de terminaison :
 
@@ -59,7 +59,7 @@ Voici la liste des paramètres à utiliser avec la commande pour créer un point
 |ConnectionString|connection-string|Chaîne de connexion à votre Connecteur Azure oT pour FHIR. Utilisez la valeur que vous avez obtenue à l’étape précédente.|
 
 ### <a name="add-a-message-route"></a>Ajout d’une route de message
-Cette étape consiste à définir une route de message en utilisant le point de terminaison créé précédemment. Créez une route en utilisant la commande PowerShell [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) ou la commande CLI [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create), selon vos préférences.
+Cette étape consiste à définir une route de message en utilisant le point de terminaison créé précédemment. Créez une route en utilisant la commande PowerShell [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) ou la commande CLI [az iot hub route create](/cli/azure/iot/hub/route#az_iot_hub_route_create), selon vos préférences.
 
 Voici la liste des paramètres à utiliser avec la commande pour ajouter un itinéraire de message :
 

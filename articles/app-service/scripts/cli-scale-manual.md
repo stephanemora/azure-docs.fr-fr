@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9b909d041cf6acba0f3b12ad69018ebc371ff599
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c2dbd7368cb8cc43c069b54d286e3e7f4f733c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97005611"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787644"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Mettre à l’échelle une application App Service manuellement avec Azure CLI
 
@@ -38,10 +38,10 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Crée un plan App Service. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Crée une application App Service. |
-| [`az appservice plan update`](/cli/azure/appservice/plan#az-appservice-plan-update) | Met à jour les propriétés du plan App Service. |
+| [`az group create`](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Crée un plan App Service. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Crée une application App Service. |
+| [`az appservice plan update`](/cli/azure/appservice/plan#az_appservice_plan_update) | Met à jour les propriétés du plan App Service. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

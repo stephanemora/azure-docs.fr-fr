@@ -2,19 +2,18 @@
 title: Activer la suppression réversible sur tous les objets de coffre de clés - Azure Key Vault | Microsoft Docs
 description: Utilisez ce document pour adopter la suppression réversible pour tous les coffres de clés et pour apporter des modifications à l’application et à l’administration afin d’éviter les erreurs conflictuelles.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.author: sudbalas
-ms.openlocfilehash: b96f2ca4f925846bd252e5cfd35088d832f5c216
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 7e1b2ee95864affa6e5e72e1f8354767dc95bdb1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98572865"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753323"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La suppression réversible sera activée sur tous les coffres de clés
 

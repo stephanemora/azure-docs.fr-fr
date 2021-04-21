@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: duau
-ms.openlocfilehash: 3862197acd3b3181180d264c4d2a2c8dbf6a1401
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 4291a7d46c723f799cf9d09ca0e7a3f6d614971f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378854"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389738"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
 
@@ -70,10 +70,8 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 5. Passez à [Valider le domaine](#validate-the-domain).
 
 > [!NOTE]
-> Pour les certificats managés AFD, la limite de 64 caractères de DigiCert est appliquée. En cas de dépassement de cette limite, la validation échoue.
-
-> [!NOTE]
-> L’activation du protocole HTTPS via un certificat managé Front Door n’est pas prise en charge pour les apex/domaines racine (exemple : contoso.com). Vous pouvez utiliser votre propre certificat pour ce scénario.  Pour plus d’informations, passez à l’option 2.
+> * Pour les certificats managés AFD, la limite de 64 caractères de DigiCert est appliquée. En cas de dépassement de cette limite, la validation échoue.
+> * L’activation du protocole HTTPS via un certificat managé Front Door n’est pas prise en charge pour les apex/domaines racine (exemple : contoso.com). Vous pouvez utiliser votre propre certificat pour ce scénario.  Pour plus d’informations, passez à l’option 2.
 
 ### <a name="option-2-use-your-own-certificate"></a>Option n°2 : utiliser votre propre certificat ;
 

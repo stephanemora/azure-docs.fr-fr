@@ -1,15 +1,15 @@
 ---
 title: Détails de conformité réglementaire pour CMMC niveau 3
 description: Détails de l’initiative intégrée de conformité réglementaire CMMC niveau 3 Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: f6b30de446269d764d5dfa8be97245d0df577862
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: f6a62284879d0b4b7e846f2abac056fba49cea3e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094011"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107506259"
 ---
 # <a name="details-of-the-cmmc-level-3-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée de conformité réglementaire CMMC niveau 3
 

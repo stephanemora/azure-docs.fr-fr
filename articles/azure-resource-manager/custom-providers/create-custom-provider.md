@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 721fe31f514cb948c93dc2a779a92ef3b2775ef9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888859"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779234"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Démarrage rapide : Créer un fournisseur personnalisé et déployer des ressources personnalisées
 
@@ -27,7 +27,7 @@ Préparez votre environnement pour l’interface Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Les exemples Azure CLI utilisent `az rest` pour les demandes `REST`. Pour plus d’informations, consultez [az rest](/cli/azure/reference-index#az-rest).
+Les exemples Azure CLI utilisent `az rest` pour les demandes `REST`. Pour plus d’informations, consultez [az rest](/cli/azure/reference-index#az_rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -52,7 +52,7 @@ Pour déployer le fournisseur personnalisé, utilisez Azure CLI, PowerShell ou 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Cet exemple vous invite à entrer un groupe de ressources, un emplacement et le nom de l’application de fonction du fournisseur. Les noms sont stockés dans des variables qui sont utilisées dans d’autres commandes. Les commandes [az group create](/cli/azure/group#az-group-create) et [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) déploient les ressources.
+Cet exemple vous invite à entrer un groupe de ressources, un emplacement et le nom de l’application de fonction du fournisseur. Les noms sont stockés dans des variables qui sont utilisées dans d’autres commandes. Les commandes [az group create](/cli/azure/group#az_group_create) et [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) déploient les ressources.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&

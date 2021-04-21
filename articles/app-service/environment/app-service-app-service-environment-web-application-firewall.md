@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56d931f2346e5a0b615d3f11dce3b06396e586b4
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90973703"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588715"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -66,7 +66,7 @@ Lorsque vous êtes connecté, un tableau de bord comme celui illustré dans l’
 
 ![Tableau de bord de gestion][ManagementDashboard]
 
-Cliquez sur l’onglet **Services** pour configurer votre WAF pour les services qu’il protège. Pour plus d’informations sur la configuration de votre WAF Barracuda, consultez [la documentation appropriée](https://techlib.barracuda.com/waf/getstarted1). Dans l’exemple suivant, une application App Service traitant le trafic sur HTTP et HTTPS a été configurée.
+Cliquez sur l’onglet **Services** pour configurer votre WAF pour les services qu’il protège. Pour plus d’informations sur la configuration de votre WAF Barracuda, consultez [la documentation appropriée](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259884/configure-the-barracuda-web-application-firewall-from-the-web-interface/). Dans l’exemple suivant, une application App Service traitant le trafic sur HTTP et HTTPS a été configurée.
 
 ![Ajouter des services de gestion][ManagementAddServices]
 

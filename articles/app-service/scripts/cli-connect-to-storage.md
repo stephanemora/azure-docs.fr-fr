@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 508fef1a7467af6874271b5ef37c30a9a16dec95
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 8f1eba39f8487df6dd62364574426315aed4c20d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97006311"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782294"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Connecter une application App Service à un compte de stockage à l’aide de l’interface CLI
 
@@ -39,12 +39,12 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Crée un plan App Service. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Crée une application App Service. |
-| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Crée un compte de stockage. |
-| [`az storage account show-connection-string`](/cli/azure/storage/account#az-storage-account-show-connection-string) | Obtient la chaîne de connexion pour un compte de stockage. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Crée ou met à jour un paramètre d’application pour une application App Service. Les paramètres d’application sont exposés en tant que variables d’environnement pour votre application. |
+| [`az group create`](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Crée un plan App Service. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Crée une application App Service. |
+| [`az storage account create`](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage. |
+| [`az storage account show-connection-string`](/cli/azure/storage/account#az_storage_account_show_connection_string) | Obtient la chaîne de connexion pour un compte de stockage. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Crée ou met à jour un paramètre d’application pour une application App Service. Les paramètres d’application sont exposés en tant que variables d’environnement pour votre application. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

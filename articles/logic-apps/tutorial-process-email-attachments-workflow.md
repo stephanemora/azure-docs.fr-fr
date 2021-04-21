@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 02/27/2020
-ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 7809ba52b270f07da9e04bc18c7c12e2268f1b73
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99576361"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792234"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutoriel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure
 
@@ -47,7 +47,7 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 * Téléchargez et installez [l’Explorateur Stockage Microsoft Azure gratuit](https://storageexplorer.com/). Cet outil vous permet de vérifier que votre conteneur de stockage est correctement configuré.
 
-* Si votre application logique doit communiquer via un pare-feu qui limite le trafic vers des adresses IP spécifiques, ce pare-feu doit autoriser l’accès *à la fois* aux adresses IP [entrantes](logic-apps-limits-and-config.md#inbound) et [sortantes](logic-apps-limits-and-config.md#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouve votre application logique. Si votre application logique utilise également des [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’elle utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](logic-apps-limits-and-config.md#outbound) dans la région Azure de votre application logique.
+* Si votre application logique doit communiquer via un pare-feu qui limite le trafic vers des adresses IP spécifiques, ce pare-feu doit autoriser l’accès *à la fois* aux adresses IP [entrantes](logic-apps-limits-and-config.md#inbound) et [sortantes](logic-apps-limits-and-config.md#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouve votre application logique. Si votre application logique utilise également des [connecteurs managés](../connectors/managed.md), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’elle utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](logic-apps-limits-and-config.md#outbound) dans la région Azure de votre application logique.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configurer le stockage pour y enregistrer les pièces jointes
 
@@ -104,7 +104,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
       ![Conteneur de stockage terminé](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Pour créer un conteneur de stockage, vous pouvez également utiliser [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) ou [Azure CLI](/cli/azure/storage/container#az-storage-container-create).
+   Pour créer un conteneur de stockage, vous pouvez également utiliser [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) ou [Azure CLI](/cli/azure/storage/container#az_storage_container_create).
 
 À présent, connectez l’Explorateur Stockage à votre compte de stockage.
 
