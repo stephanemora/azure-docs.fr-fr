@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 2bb80ba421617d5fd1699826deda00e56f1e43af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 401124ed4b2794d891ca224ba3dc1c78edcae8d5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943673"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783410"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Ajouter ou supprimer une délégation de sous-réseau
 
@@ -113,7 +113,7 @@ Le rôle intégré [Contributeur réseau](../role-based-access-control/built-in-
 
 Dans le cadre de cette section, vous allez déléguer le sous-réseau que vous avez créé à la section précédente à un service Azure. 
 
-Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) pour mettre à jour le sous-réseau nommé **mySubnet** avec une délégation à un service Azure.  Dans cet exemple **Microsoft.DBforPostgreSQL/serversv2** est utilisé pour l’exemple de délégation :
+Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) pour mettre à jour le sous-réseau nommé **mySubnet** avec une délégation à un service Azure.  Dans cet exemple **Microsoft.DBforPostgreSQL/serversv2** est utilisé pour l’exemple de délégation :
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -123,7 +123,7 @@ Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-netwo
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-Pour vérifier que la délégation a été appliquée, utilisez [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show). Vérifiez que le service est délégué au sous-réseau sous la propriété **serviceName** :
+Pour vérifier que la délégation a été appliquée, utilisez [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show). Vérifiez que le service est délégué au sous-réseau sous la propriété **serviceName** :
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -152,7 +152,7 @@ Pour vérifier que la délégation a été appliquée, utilisez [az network vnet
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Supprimer une délégation de sous-réseau d’un service Azure
 
-Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) pour supprimer la délégation du sous-réseau nommé **mySubnet** :
+Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) pour supprimer la délégation du sous-réseau nommé **mySubnet** :
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -161,7 +161,7 @@ Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-netwo
   --vnet-name myVnet \
   --remove delegations
 ```
-Pour vérifier que la délégation a été retirée, utilisez [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show). Vérifiez que le service est retiré du sous-réseau sous la propriété **serviceName** :
+Pour vérifier que la délégation a été retirée, utilisez [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show). Vérifiez que le service est retiré du sous-réseau sous la propriété **serviceName** :
 
 ```azurecli-interactive
   az network vnet subnet show \

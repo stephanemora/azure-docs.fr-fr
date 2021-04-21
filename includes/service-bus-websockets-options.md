@@ -5,21 +5,24 @@ services: service-bus-messaging
 author: clemensv
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 11/24/2020
+ms.date: 04/08/2021
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: ca483d0b71bde945a7e46da785dd6a76b3a8f177
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08fccf366321b075542f36b86c9bf22d5d877167
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98693395"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304413"
 ---
-L’option de protocole AMQP sur WebSockets s’exécute sur le port TCP 443, tout comme l’API HTTP/REST, mais son fonctionnement est identique au mode AMQP classique. Cette option présente une latence de connexion initiale un peu plus élevée en raison des allers-retours de liaison supplémentaire et d’une surcharge légèrement plus importante en cas de compromis pour le partage du port HTTPS. Si ce mode est sélectionné, le port TCP 443 s’avère suffisant à des fins de communication. Les options suivantes permettent de sélectionner le mode AMQP classique ou le mode AMQP WebSockets :
+L’option de protocole AMQP sur WebSockets s’exécute sur le port TCP 443, tout comme l’API HTTP/REST, mais son fonctionnement est identique au mode AMQP classique. Cette option présente une latence de connexion initiale plus élevée en raison des allers-retours de liaison supplémentaire et d’une surcharge légèrement plus importante en cas de compromis pour le partage du port HTTPS. Si ce mode est sélectionné, le port TCP 443 s’avère suffisant à des fins de communication. Les options suivantes permettent de sélectionner le mode AMQP WebSockets. 
 
 | Language | Option   |
 | -------- | ----- |
-| .NET     | Propriété [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) avec [TransportType.Amqp](/dotnet/api/microsoft.azure.servicebus.transporttype) ou [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype) |
-| Java     | [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings) avec [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype) ou [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype) |
-| Nœud  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions) présente un argument de constructeur `webSocket`. |
-| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) avec [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) ou [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+| .NET (Azure.Messaging.ServiceBus)    | Créez [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient.-ctor) en utilisant un constructeur qui prend [ServiceBusClientOptions](/dotnet/api/azure.messaging.servicebus.servicebusclientoptions) comme paramètre. Définissez [ServiceBusClientOptions.TransportType](/dotnet/api/azure.messaging.servicebus.servicebusclientoptions.transporttype) sur [ServiceBusTransportType.AmqpWebSockets](/dotnet/api/azure.messaging.servicebus.servicebustransporttype). |
+| .NET (Microsoft.Azure.ServiceBus)    | Lors de la création d’objets clients, utilisez des constructeurs qui acceptent [TransportType](/dotnet/api/microsoft.azure.servicebus.transporttype), [ServiceBusConnection](/dotnet/api/microsoft.azure.servicebus.servicebusconnection) ou [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder) comme paramètres. <p>Pour la construction qui prend `transportType` comme paramètre, définissez le paramètre sur [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype).</p> <p>Pour le constructeur qui prend `ServiceBusConnection` comme paramètre, définissez [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) sur [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype).</p> <p>Si vous utilisez `ServiceBusConnectionStringBuilder`, utilisez des constructeurs qui vous donnent la possibilité de spécifier le `transportType`.</p> |
+| Java (com.azure.messaging.servicebus)     | Lorsque vous créez des clients, définissez [ServiceBusClientBuilder.transportType](/java/api/com.azure.messaging.servicebus.servicebusclientbuilder.transporttype) sur [AmqpTransportType.AMQP.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype). |
+| Java (com.microsoft.azure.servicebus)    | Lorsque vous créez des clients, définissez `transportType` dans [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings#com_microsoft_azure_servicebus_ClientSettings_ClientSettings_com_microsoft_azure_servicebus_security_TokenProvider_com_microsoft_azure_servicebus_primitives_RetryPolicy_java_time_Duration_com_microsoft_azure_servicebus_primitives_TransportType_) sur [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype). |
+| JavaScript  | Lorsque vous créez des objets clients Service Bus, utilisez la propriété `webSocketOptions` dans [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions). |
+| Python | Lorsque vous créez des clients Service Bus, définissez [ServiceBusClient.transport_type](/python/api/azure-servicebus/azure.servicebus.servicebusclient) sur [TransportType.AmqpOverWebSocket](/python/api/azure-servicebus/azure.servicebus.transporttype). |
+

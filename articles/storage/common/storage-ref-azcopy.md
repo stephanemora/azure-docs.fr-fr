@@ -8,16 +8,16 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 19d5a5214ae4d2d6c0a18b68863211aa1f6573c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3b4f7737320cc0359192f947271a0f4beb3c478
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878984"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502995"
 ---
 # <a name="azcopy"></a>azcopy
 
-AzCopy est un outil en ligne de commande qui permet de déplacer des données vers et à partir du stockage Azure.
+AzCopy est un outil en ligne de commande qui permet de déplacer des données vers et à partir du stockage Azure. Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour télécharger AzCopy, et découvrez comment vous pouvez fournir des informations d’identification au service de stockage.
 
 ## <a name="synopsis"></a>Synopsis
 
@@ -28,9 +28,9 @@ Pour signaler des problèmes ou pour en savoir plus sur l’outil, consultez [ht
 ## <a name="related-conceptual-articles"></a>Articles conceptuels associés
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
+- [Tutoriel : Migrer des données locales vers le stockage cloud avec AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Transférer des données avec AzCopy et le Stockage Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
-- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Options
 

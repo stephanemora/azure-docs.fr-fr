@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: cf7940af03c02d96f6ed2ca452322ad012bc6a2d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175386"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105355"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
@@ -124,6 +124,12 @@ Pour s’assurer que la taille du jeton ne dépasse pas les limites de taille d�
   ...
 }
 ```
+
+## <a name="id-token-lifetime"></a>Durée de vie du jeton d’identification
+
+Par défaut, un jeton d’identification est valable pendant une heure. Après une heure, le client doit acquérir un nouveau jeton d’identification.
+
+Vous pouvez ajuster la durée de vie d’un jeton d’identification pour contrôler la fréquence à laquelle l’application cliente arrête la session de l’application, ainsi que la fréquence à laquelle elle demande à l’utilisateur de s’authentifier à nouveau (en mode silencieux ou interactif). Pour plus d’informations, consultez [Durées de vie des jetons configurables](active-directory-configurable-token-lifetimes.md).
 
 ## <a name="validating-an-id_token"></a>Valider un jeton id_token
 

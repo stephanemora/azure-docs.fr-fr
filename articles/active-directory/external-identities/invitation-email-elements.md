@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 04/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc80c208b5a48a45b8c47d640dc381f5559c3d4d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860590"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304764"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -38,6 +38,9 @@ L’objet de l’e-mail suit ce modèle :
 ### <a name="from-address"></a>Adresse de l’expéditeur
 
 Nous utilisons un modèle similaire à LinkedIn pour l’adresse De. Ce modèle doit préciser que, même si l’e-mail est envoyé par invites@microsoft.com, l’invitation provient d’une autre organisation. Le format est le suivant : Microsoft Invitations <invites@microsoft.com> ou Invitations Microsoft pour le compte de &lt;nom_locataire&gt; <invites@microsoft.com>. 
+
+> [!NOTE]
+> Pour le service Azure géré par 21Vianet en Chine, l’adresse de l’expéditeur est Invites@oe.21vianet.com.
 
 ### <a name="reply-to"></a>Adresse de réponse
 

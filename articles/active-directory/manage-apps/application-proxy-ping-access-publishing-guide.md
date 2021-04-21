@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23008d785c27b901f3487d3eddff7cb8e7529f6e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643794"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600078"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -193,14 +193,14 @@ Exemple d’insertion d’adresse e-mail dans l’élément access_token que Pin
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Utilisation d’une stratégie de mappage de revendications (facultatif)
 
-[Stratégie de mappage de revendications (préversion)](../develop/active-directory-claims-mapping.md#claims-mapping-policy-properties) pour les attributs qui n’existent pas dans Azure AD. Le mappage de revendications vous permet de migrer les anciennes applications locales vers le cloud en ajoutant des revendications personnalisées supplémentaires qui sont soutenues par vos objets ADFS ou utilisateur.
+[Stratégie de mappage de revendications (préversion)](../develop/reference-claims-mapping-policy-type.md#claims-mapping-policy-properties) pour les attributs qui n’existent pas dans Azure AD. Le mappage de revendications vous permet de migrer les anciennes applications locales vers le cloud en ajoutant des revendications personnalisées supplémentaires qui sont soutenues par vos objets ADFS ou utilisateur.
 
-Pour que votre application utilise une revendication personnalisée et comprenne des champs supplémentaires, [créez une stratégie de mappage de revendications personnalisées et attribuez-la à l’application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Pour que votre application utilise une revendication personnalisée et comprenne des champs supplémentaires, [créez une stratégie de mappage de revendications personnalisées et attribuez-la à l’application](../develop/active-directory-claims-mapping.md).
 
 > [!NOTE]
 > Pour utiliser une revendication personnalisée, vous devez également disposer d’une stratégie personnalisée définie et affectée à l’application. Cette stratégie doit inclure tous les attributs personnalisés nécessaires.
 >
-> Vous pouvez effectuer la définition et l’affectation de la stratégie via PowerShell ou Microsoft Graph. Si vous utilisez PowerShell, vous devez d’abord utiliser `New-AzureADPolicy`, puis l’attribuer à l’application avec `Add-AzureADServicePrincipalPolicy`. Pour plus d’informations, consultez [Attribution de stratégie de mappage de revendications](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> Vous pouvez effectuer la définition et l’affectation de la stratégie via PowerShell ou Microsoft Graph. Si vous utilisez PowerShell, vous devez d’abord utiliser `New-AzureADPolicy`, puis l’attribuer à l’application avec `Add-AzureADServicePrincipalPolicy`. Pour plus d’informations, consultez [Attribution de stratégie de mappage de revendications](../develop/active-directory-claims-mapping.md).
 
 Exemple :
 ```powershell

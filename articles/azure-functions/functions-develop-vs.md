@@ -4,12 +4,12 @@ description: Découvrez comment développer et tester Azure Functions à l’aid
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cba0a9ad63e319af0a5eaa1c1c018c3b285c28a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97655813"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765572"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -237,7 +237,7 @@ Vous pouvez également gérer les paramètres d’application d’une des maniè
 
 * [Utilisez le portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Utilisez l’option de publication `--publish-local-settings` dans Azure Functions Core Tools](functions-run-local.md#publish).
-* [Utilisez Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)
+* [Utilisez Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set)
 
 ## <a name="monitoring-functions"></a>Surveillance des fonctions
 

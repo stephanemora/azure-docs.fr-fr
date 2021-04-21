@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e81cbd7e6584f4a280ab9507a989b52d3b188f2d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5e4ec2749cec8444382e2b6e7c856e74c57ebb59
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566606"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777164"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
@@ -24,7 +24,7 @@ Nous recommandons d’utiliser un coffre par application et par environnement (d
 
 ## <a name="control-access-to-your-vault"></a>Contrôler l’accès à votre coffre
 
-Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement comme les certificats, chaînes de connexion et mots de passe. Comme il s’agit de données sensibles et critiques, vous devez sécuriser l’accès à vos coffres de clés en acceptant seulement les applications et les utilisateurs autorisés. Cet [article](secure-your-key-vault.md) fournit une vue d’ensemble du modèle d’accès aux coffres de clés. Il décrit l’authentification et l’autorisation, puis explique comment sécuriser l’accès à vos coffres de clés.
+Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement comme les certificats, chaînes de connexion et mots de passe. Comme il s’agit de données sensibles et critiques, vous devez sécuriser l’accès à vos coffres de clés en acceptant seulement les applications et les utilisateurs autorisés. Cet [article](security-overview.md) fournit une vue d’ensemble du modèle d’accès aux coffres de clés. Il décrit l’authentification et l’autorisation, puis explique comment sécuriser l’accès à vos coffres de clés.
 
 Voici quelques suggestions concernant le contrôle de l’accès à votre coffre :
 1. Verrouiller l’accès à votre abonnement, au groupe de ressources et aux coffres de clés (Azure RBAC)
@@ -44,9 +44,9 @@ Veillez à effectuer des sauvegardes régulières de votre coffre lors de la mis
 
 ### <a name="azure-cli-backup-commands"></a>Interface de ligne de commande Azure de sauvegarde
 
-* [Certificat de sauvegarde](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Clé de sauvegarde](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Secret de sauvegarde](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
+* [Certificat de sauvegarde](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
+* [Clé de sauvegarde](/cli/azure/keyvault/key#az_keyvault_key_backup)
+* [Secret de sauvegarde](/cli/azure/keyvault/secret#az_keyvault_secret_backup)
 
 
 ## <a name="turn-on-logging"></a>Activer la journalisation

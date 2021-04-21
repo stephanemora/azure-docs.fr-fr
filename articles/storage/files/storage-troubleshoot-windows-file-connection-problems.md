@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 115c083a75adab96e416fc200bf7db287a99ff4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878508"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788418"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Résoudre les problèmes liés à Azure Files sous Windows (SMB)
 
@@ -111,7 +111,7 @@ TcpTestSucceeded : True
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Solution 1 - Utiliser Azure File Sync
-Azure File Sync peut transformer votre serveur Windows local en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme une solution de contournement pour accéder à Azure Files à partir de clients dont le port 445 est bloqué. [Découvrez comment configurer Azure File Sync](./storage-sync-files-extend-servers.md).
+Azure File Sync peut transformer votre serveur Windows local en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme une solution de contournement pour accéder à Azure Files à partir de clients dont le port 445 est bloqué. [Découvrez comment configurer Azure File Sync](../file-sync/file-sync-extend-servers.md).
 
 #### <a name="solution-2---use-vpn"></a>Solution 2 - Utiliser un VPN
 En configurant un VPN pour votre compte de stockage spécifique, le trafic passera par un tunnel sécurisé plutôt que par Internet. Suivez les [instructions pour configurer un VPN](storage-files-configure-p2s-vpn-windows.md) pour accéder à Azure Files depuis Windows.

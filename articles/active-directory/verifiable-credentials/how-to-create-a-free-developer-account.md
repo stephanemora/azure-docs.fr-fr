@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 1e8bb59c09622a39dad680940ff34e643ee0cc3b
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a50c8b083c1cd453dbe3c51c63ec9cf53859c3bd
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222739"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587263"
 ---
 # <a name="how-to-create-a-free-azure-active-directory-developer-tenant"></a>Comment créer un locataire de développeur Azure Active Directory gratuit
 
@@ -45,7 +45,7 @@ Si vous décidez de vous inscrire au programme gratuit Microsoft 365 pour dével
 
 À ce stade, vous avez créé un locataire avec 25 licences utilisateur E5. Les licences E5 incluent les licences Azure AD P2. Si vous le souhaitez, vous pouvez ajouter des exemples de packs de données avec des utilisateurs, des groupes, la messagerie et SharePoint pour vous aider à tester votre environnement de développement. Pour le service d’émission de justificatifs vérifiable, ils ne sont pas requis.
 
-Pour plus de commodité, vous pouvez ajouter votre propre compte professionnel en tant qu’[invité](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) dans le locataire nouvellement créé et utiliser ce compte pour administrer le locataire. Si vous souhaitez que le compte invité puisse gérer le service de justificatifs vérifiables, vous devez affecter le rôle « Administrateur général » à cet utilisateur.
+Pour plus de commodité, vous pouvez ajouter votre propre compte professionnel en tant qu’[invité](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal) dans le locataire nouvellement créé et utiliser ce compte pour administrer le locataire. Si vous souhaitez que le compte invité puisse gérer le service de justificatifs vérifiables, vous devez affecter le rôle « Administrateur général » à cet utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: f587de4ee2ce051cb771db90d7f9ce00ce66b07f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 36ce494c7fd51a1341834d5c231e32e60c5a32b9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772703"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751991"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utiliser des clés de chiffrement gérées par le client pour Azure HPC Cache
 
@@ -56,7 +56,7 @@ Autorisations d’accès au coffre de clés :
 
 * L’utilisateur qui crée le cache Azure HPC Cache doit disposer d’autorisations équivalentes à celles du [rôle Contributeur de Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor). Les mêmes autorisations sont requises pour configurer et gérer Azure Key Vault.
 
-  Pour plus d’informations, consultez [Sécuriser l’accès à un coffre de clés](../key-vault/general/secure-your-key-vault.md).
+  Pour plus d’informations, consultez [Sécuriser l’accès à un coffre de clés](../key-vault/general/security-overview.md).
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Configurer Azure Key Vault
 

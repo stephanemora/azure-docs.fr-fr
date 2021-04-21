@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9db7576cb2278cc2ef0d8b93ef04bb633962cd0e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563368"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255747"
 ---
 # <a name="configure-directory-services"></a>Configurer les services d’annuaire
 
@@ -44,7 +44,7 @@ Sous **Informations Active Directory**, indiquez ces valeurs :
 
 * **Nom de domaine DNS AD** : indiquez le nom de domaine complet du serveur AD que le cache contacte pour obtenir les informations d’identification.
 
-* **Nom du serveur du cache (compte de l’ordinateur)**  : définissez le nom attribué à ce cache HPC lorsqu’il contacte le domaine AD. Spécifiez un nom qui permette d’identifier facilement ce cache. Le nom peut comporter 15 caractères maximum, des lettres minuscules ou majuscules, des chiffres et des traits d’union (-).
+* **Nom du serveur du cache (compte de l’ordinateur)**  : définissez le nom attribué à ce cache HPC lorsqu’il contacte le domaine AD. Spécifiez un nom qui permette d’identifier facilement ce cache. Le nom peut comporter 15 caractères maximum, des lettres minuscules ou majuscules, des chiffres et des traits d’union (-).
 
 Dans la section **Informations d’identification**, indiquez un nom d’utilisateur et un mot de passe d’administrateur AD qu’Azure HPC Cache peut utiliser pour accéder au serveur AD. Ces informations sont chiffrées lorsqu’elles sont stockées et ne peuvent pas être interrogées.
 

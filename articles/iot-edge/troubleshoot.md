@@ -8,12 +8,12 @@ ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 56eff095cca1b24678f742e4c3ce8dfb1aaea2dd
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 6fa49af946a1e5fc631eeb1ee9b9c7c99d3adff8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275581"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308266"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Résoudre les problèmes de votre appareil IoT Edge
 
@@ -64,6 +64,18 @@ L’outil de résolution des problèmes exécute de nombreuses vérifications qu
 * La *Vérification de disponibilité de la production* recherche les meilleures pratiques de production recommandées, comme l’état des certificats d’autorité de l’appareil et la configuration du fichier journal du module.
 
 L’outil de vérification IoT Edge utilise un conteneur pour exécuter ses diagnostics. L’image conteneur, `mcr.microsoft.com/azureiotedge-diagnostics:latest`, est disponible via [Microsoft Container Registry](https://github.com/microsoft/containerregistry). S’il vous faut exécuter une vérification portant sur un appareil sans accès direct à Internet, vos appareils doivent pouvoir accéder à l’image conteneur.
+
+<!-- <1.2> -->
+:::moniker range=">=iotedge-2020-11"
+
+Dans un scénario utilisant des appareils IoT Edge imbriqués, vous pouvez accéder à l’image de diagnostic sur les appareils enfants en acheminant le tirage (pull) de l’image par les appareils parents.
+
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
+```
+
+<!-- </1.2> -->
+:::moniker-end
 
 Pour plus d’informations sur chacune des vérifications de diagnostic exécutées par cet outil, notamment ce qu’il faut faire si vous obtenez une erreur ou un avertissement, consultez [Vérifications de dépannage IoT Edge](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
@@ -161,7 +173,7 @@ Sur Linux :
 
      ```bash
      [Service]
-     Environment=IOTEDGE_LOG=edgelet=debug
+     Environment=IOTEDGE_LOG=debug
      ```
 
   3. Redémarrez le démon de sécurité IoT Edge :

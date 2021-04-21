@@ -3,12 +3,12 @@ title: Afficher les journaux d’activité Azure pour surveiller les ressources
 description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Affiche le Portail Microsoft Azure, PowerShell, l’interface de ligne de commande Azure et REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7612146a0f9407663631f87c57f30ea4c590c7a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91371590"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773924"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Afficher les journaux d’activité pour surveiller les actions sur les ressources
 
@@ -140,7 +140,7 @@ Vous pouvez utiliser Resource Graph pour afficher l’historique des modificatio
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Pour récupérer des entrées de journal, exécutez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) avec un décalage pour indiquer la période.
+Pour récupérer des entrées de journal, exécutez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) avec un décalage pour indiquer la période.
 
 ```azurecli-interactive
 az monitor activity-log list --resource-group ExampleGroup --offset 7d

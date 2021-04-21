@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3336a086fbe8f4291f752836a610cd80b773ec2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41edef58910fe2b772831ef083e5aca8bb52a321
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98790814"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482266"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence pour Azure Digital Twins
 
@@ -73,4 +73,4 @@ Pour connaître les meilleures pratiques en matière de haute disponibilité/ré
 En savoir plus sur la prise en main des solutions Azure Digital Twins :
  
 * [*Qu’est-ce qu’Azure Digital Twins ?*](overview.md)
-* [*Démarrage rapide : Explorer un exemple de scénario*](quickstart-adt-explorer.md)
+* [*Démarrage rapide : Explorer un exemple de scénario*](quickstart-azure-digital-twins-explorer.md)

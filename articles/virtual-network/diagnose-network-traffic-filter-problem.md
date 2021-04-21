@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: 73562d8d32f265fa43ca80d2f8d4f84b1b631ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6835d06015923a70301c95370c76efbd0c2163e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98223667"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776732"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -115,7 +115,7 @@ Dans la précédente sortie, le nom d’interface réseau est *myVMVMNic*.
 
 Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez aussi exécuter `az login` et vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Obtenez les règles de sécurité effectives d’une interface réseau avec [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). L’exemple suivant obtient les règles de sécurité effectives d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
+Obtenez les règles de sécurité effectives d’une interface réseau avec [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg). L’exemple suivant obtient les règles de sécurité effectives d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
 ```azurecli-interactive
 az network nic list-effective-nsg \

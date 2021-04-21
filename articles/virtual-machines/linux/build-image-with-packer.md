@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.collection: linux
-ms.openlocfilehash: 4d85106cb78b5f4799a78d18463d83594f54dbac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b40646109265b803945b43d7cc855688c5b47c5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556738"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764654"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Comment utiliser Packer pour créer des images de machines virtuelles Linux dans Azure
 Chaque machine virtuelle dans Azure est créée à partir d’une image qui définit la distribution Linux et la version du système d’exploitation. Les images peuvent inclure des configurations et des applications pré-installées. La Place de marché Microsoft Azure fournit de nombreuses images internes et de tiers pour les distributions et environnements d’application les plus courants. Vous pouvez également créer vos propres images personnalisées selon vos besoins. Cet article explique comment utiliser l’outil open source [Packer](https://www.packer.io/) pour définir et générer des images personnalisées dans Azure.
@@ -209,7 +209,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Si vous souhaitez créer des machines virtuelles dans un autre groupe de ressources ou dans une autre région que votre image Packer, spécifiez l’ID de l’image plutôt que son nom. Pour obtenir l’ID d’image, exécutez la commande [az image show](/cli/azure/image#az-image-show).
+Si vous souhaitez créer des machines virtuelles dans un autre groupe de ressources ou dans une autre région que votre image Packer, spécifiez l’ID de l’image plutôt que son nom. Pour obtenir l’ID d’image, exécutez la commande [az image show](/cli/azure/image#az_image_show).
 
 La création de la machine virtuelle ne nécessite que quelques minutes. Une fois la machine virtuelle créée, notez la valeur de `publicIpAddress` qui s’affiche dans l’interface Azure CLI. Cette adresse est utilisée pour accéder au site NGINX à l’aide d’un navigateur web.
 

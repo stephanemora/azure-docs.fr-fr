@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 7b618a19f6e6a3510b3d587970124e5a7c12b309
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d6a2d97e7ea91710075d2e00cd5f57e6f174a031
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106090088"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504856"
 ---
 |Nom |Description |Stratégies |Version |
 |---|---|---|---|
@@ -18,7 +18,7 @@ ms.locfileid: "106090088"
 |[PBMM fédéral du Canada](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Cette initiative inclut des stratégies d’audit et de déploiement d’extension de machine virtuelle qui répondent à une partie des contrôles du Canada Federal PBMM. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, consultez [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint). |59 |5.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark v1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |Cette initiative comprend des stratégies qui répondent à une partie des recommandations de CIS Microsoft Azure Foundations Benchmark. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, consultez [https://aka.ms/cisazure110-initiative](https://aka.ms/cisazure110-initiative). |99 |10.0.0 |
 |[\[Préversion\] : CIS Microsoft Azure Foundations Benchmark v1.3.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |Cette initiative comprend des stratégies qui répondent à une partie des recommandations de CIS Microsoft Azure Foundations Benchmark. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, consultez [https://aka.ms/cisazure130-initiative](https://aka.ms/cisazure130-initiative). |104 |1.0.1-preview |
-|[\[Préversion\] : CMMC Level 3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json) |Cette initiative implique des stratégies qui répondent à un sous-ensemble de spécifications CMMC de niveau 3. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, consultez [https://aka.ms/cmmc-initiative](https://aka.ms/cmmc-initiative). |183 |3.0.0-preview |
+|[\[Préversion\] : CMMC Level 3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json) |Cette initiative implique des stratégies qui répondent à un sous-ensemble de spécifications CMMC de niveau 3. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, consultez [https://aka.ms/cmmc-initiative](https://aka.ms/cmmc-initiative). |183 |3.1.0-preview |
 |[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Cette initiative inclut des stratégies d’audit et de déploiement d’extension de machine virtuelle répondant à une partie des contrôles de FedRAMP H. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, consultez [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint). |71 |4.0.1 |
 |[FedRAMP Moderate](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Cette initiative inclut des stratégies d’audit et de déploiement d’extension de machine virtuelle répondant à une partie des contrôles de FedRAMP M. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, consultez [https://aka.ms/fedrampm-blueprint](https://aka.ms/fedrampm-blueprint). |62 |4.0.1 |
 |[HITRUST/HIPAA](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Cette initiative inclut des stratégies d’audit et de déploiement d’extension de machine virtuelle répondant à une partie des contrôles de HITRUST/HIPAA. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, consultez [https://aka.ms/hipaa-blueprint](https://aka.ms/hipaa-blueprint). |122 |5.1.0 |

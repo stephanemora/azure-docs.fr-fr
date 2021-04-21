@@ -3,12 +3,12 @@ title: Scénarios d’utilisation d’un réseau virtuel
 description: Scénarios, ressources et limitations relatifs au déploiement de groupes de conteneurs sur un réseau virtuel Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6de99c68c3f05e4734dd46a579d28a6f1a3b824e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606886"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763772"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Ressources et scénarios relatifs aux réseaux virtuels
 
@@ -85,5 +85,5 @@ Dans le diagramme suivant, plusieurs groupes de conteneurs ont été déployés 
 [aci-vnet-01]: ./media/container-instances-virtual-network-concepts/aci-vnet-01.png
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[az-container-create]: /cli/azure/container#az_container_create
+[az-network-profile-list]: /cli/azure/network/profile#az_network_profile_list

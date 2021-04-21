@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 57c83a94925e94088085efacf1192416f63e6383
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4f1f432da33bded4fc0f04170673e5943dec5fb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232033"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311326"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flux de travail GitHub Actions pour Azure Static Web Apps - Préversion
 
@@ -22,7 +22,7 @@ Les déploiements sont initiés par des [déclencheurs](#triggers), qui exécute
 
 ## <a name="file-location"></a>Emplacement du fichier
 
-Quand vous liez votre référentiel GitHub à Azure Static Web Apps, un fichier de flux de travail est ajouté au référentiel.
+Quand vous liez votre dépôt GitHub à Azure Static Web Apps, un fichier de workflow est ajouté au dépôt.
 
 Procédez comme suit pour afficher le fichier de flux de travail généré.
 
@@ -38,11 +38,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - main
+      - main
 
 jobs:
   build_and_deploy_job:
@@ -50,33 +50,33 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
-    - name: Build And Deploy
-      id: builddeploy
-      uses: Azure/static-web-apps-deploy@v0.0.1-preview
-      with:
-        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-        repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
-        action: 'upload'
-        ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-        app_location: '/' # App source code path
-        api_location: 'api' # Api source code path - optional
-        output_location: 'dist' # Built app content directory - optional
-        ###### End of Repository/Build Configurations ######
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+          action: 'upload'
+          ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+          app_location: '/' # App source code path
+          api_location: 'api' # Api source code path - optional
+          output_location: 'dist' # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
-    - name: Close Pull Request
-      id: closepullrequest
-      uses: Azure/static-web-apps-deploy@v0.0.1-preview
-      with:
-        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-        action: 'close'
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+          action: 'close'
 ```
 
 ## <a name="triggers"></a>Déclencheurs
@@ -87,11 +87,11 @@ Le [déclencheur](https://help.github.com/actions/reference/events-that-trigger-
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - main
+      - main
 ```
 
 Avec les paramètres associés à la propriété `on`, vous pouvez définir les branches qui déclenchent un travail et définir les déclencheurs à activer pour les différents états de demandes de tirage (pull request).
@@ -104,21 +104,21 @@ Chaque déclencheur d’événements requiert un gestionnaire d’événements. 
 
 Dans le fichier de flux de travail Static Web Apps, deux travaux sont disponibles.
 
-| Nom  | Description |
-|---------|---------|
-|`build_and_deploy_job` | S’exécute quand vous envoyez des validations ou que vous ouvrez une demande de tirage (pull request) sur la branche indiquée dans la propriété `on`. |
-|`close_pull_request_job` | S’exécute UNIQUEMENT lorsque vous fermez une demande de tirage (pull request) qui supprime l’environnement intermédiaire créé à partir des demandes de tirage (pull requests). |
+| Nom                     | Description                                                                                                    |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `build_and_deploy_job`   | S’exécute quand vous envoyez des validations ou que vous ouvrez une demande de tirage (pull request) sur la branche indiquée dans la propriété `on`.          |
+| `close_pull_request_job` | S’exécute UNIQUEMENT lorsque vous fermez une demande de tirage (pull request) qui supprime l’environnement intermédiaire créé à partir des demandes de tirage (pull requests). |
 
 ## <a name="steps"></a>Étapes
 
-Les étapes sont les tâches séquentielles des travaux. Chaque étape effectue des actions comme l’installation de dépendances, l’exécution de tests et le déploiement de votre application en production.
+Les étapes sont les tâches séquentielles des travaux. Chaque étape effectue des actions telles que l’installation de dépendances, l’exécution de tests et le déploiement de votre application en production.
 
 Le fichier de flux de travail définit les étapes suivantes.
 
-| Travail  | Étapes  |
-|---------|---------|
-| `build_and_deploy_job` |<ol><li>Extrait le référentiel dans l’environnement de l’action.<li>Compile et déploie le référentiel sur Azure Static Web Apps.</ol>|
-| `close_pull_request_job` | <ol><li>Indique à Azure Static Web Apps qu’une demande de tirage (pull request) a été fermée.</ol>|
+| Travail                      | Étapes                                                                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `build_and_deploy_job`   | <ol><li>Extrait le référentiel dans l’environnement de l’action.<li>Compile et déploie le référentiel sur Azure Static Web Apps.</ol> |
+| `close_pull_request_job` | <ol><li>Indique à Azure Static Web Apps qu’une demande de tirage (pull request) a été fermée.</ol>                                                        |
 
 ## <a name="build-and-deploy"></a>Générer et déployer
 
@@ -126,21 +126,17 @@ L’étape `Build and Deploy` compile et déploie sur votre instance Azure Stati
 
 ```yml
 with:
-    azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-    repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
-    action: 'upload'
-    ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-    app_location: '/' # App source code path
-    api_location: 'api' # Api source code path - optional
-    output_location: 'dist' # Built app content directory - optional
-    ###### End of Repository/Build Configurations ######
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+  action: 'upload'
+  ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+  app_location: '/' # App source code path
+  api_location: 'api' # Api source code path - optional
+  output_location: 'dist' # Built app content directory - optional
+  ###### End of Repository/Build Configurations ######
 ```
 
-| Propriété | Description | Obligatoire |
-|---|---|---|
-| `app_location` | Emplacement du code de votre application.<br><br>Par exemple, entrez `/` si le code source de votre application se trouve à la racine du référentiel ou `/app` si le code de votre application se trouve dans un répertoire appelé `app`. | Oui |
-| `api_location` | Emplacement de votre code Azure Functions.<br><br>Par exemple, entrez `/api` si le code de votre application se trouve dans un dossier appelé `api`. Si aucune application Azure Functions n’est détectée dans le dossier, la génération n’échoue pas, le flux de travail suppose que vous ne voulez pas d’API. | Non |
-| `output_location` | Emplacement du répertoire de sortie de compilation par rapport à `app_location`.<br><br>Par exemple, si le code source de votre application se trouve dans `/app`, et que le script de compilation place les fichiers dans le dossier `/app/build`, définissez `build` comme valeur `output_location`. | Non |
+[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
 Les valeurs `repo_token`, `action`et `azure_static_web_apps_api_token` sont définies pour vous par Azure Static Web Apps et ne doivent pas être modifiées manuellement.
 
@@ -150,20 +146,46 @@ Vous pouvez bénéficier d’un contrôle plus précis sur les commandes qui s�
 
 Le déploiement appelle toujours `npm install` avant toute commande personnalisée.
 
-| Commande            | Description |
-|---------------------|-------------|
-| `app_build_command` | Définit une commande personnalisée à exécuter pendant le déploiement de l’application de contenu statique.<br><br>Par exemple, pour configurer une build de production pour une application Angular, créez un script NPM nommé `build-prod` pour exécuter `ng build --prod` et entrez `npm run build-prod` comme commande personnalisée. Si elle n’est pas renseignée, le flux de travail tente d’exécuter les commandes `npm run build` ou `npm run build:azure`.  |
-| `api_build_command` | Définit une commande personnalisée à exécuter pendant le déploiement de l’application API Azure Functions. |
+| Commande             | Description                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `app_build_command` | Définit une commande personnalisée à exécuter pendant le déploiement de l’application de contenu statique.<br><br>Par exemple, pour configurer une build de production pour une application Angular, créez un script NPM nommé `build-prod` pour exécuter `ng build --prod` et entrez `npm run build-prod` comme commande personnalisée. Si elle n’est pas renseignée, le flux de travail tente d’exécuter les commandes `npm run build` ou `npm run build:azure`. |
+| `api_build_command` | Définit une commande personnalisée à exécuter pendant le déploiement de l’application API Azure Functions.                                                                                                                                                                                                                                                                                                  |
 
-## <a name="route-file-location"></a>Emplacement du fichier de routage
+## <a name="skip-app-build"></a>Ignorer la génération d’application
 
-Vous pouvez personnaliser le flux de travail pour rechercher le fichier [routes.json](routes.md) dans n’importe quel dossier de votre référentiel. La propriété suivante peut être définie dans la section `with` d’un travail.
+Si vous avez besoin d’un contrôle total sur la façon dont votre application front-end est générée, vous pouvez ajouter des étapes de génération personnalisée dans votre workflow. Vous pouvez ensuite configurer l’action Static Web Apps de façon à ignorer le processus de génération automatique et à déployer simplement l’application générée à l’étape précédente.
 
-| Propriété            | Description |
-|---------------------|-------------|
-| `routes_location` | Définit l’emplacement du répertoire où se trouve le fichier _routes.json_. Cet emplacement est relatif par rapport à la racine du référentiel. |
+Pour ignorer la génération de l’application, affectez la valeur `true` à `skip_app_build`, et définissez `app_location` sur l’emplacement du dossier à déployer.
 
- L’emplacement de votre fichier de _routes.json_ est particulièrement important si l’étape de compilation de votre framework frontal ne déplace pas ce fichier vers `output_location` par défaut.
+```yml
+with:
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+  action: 'upload'
+  ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+  app_location: 'dist' # Application build output generated by a previous step
+  api_location: 'api' # Api source code path - optional
+  output_location: '' # Leave this empty
+  skip_app_build: true
+  ###### End of Repository/Build Configurations ######
+```
+
+| Propriété         | Description                                                 |
+| ---------------- | ----------------------------------------------------------- |
+| `skip_app_build` | Affectez la valeur `true` pour ignorer la génération de l’application front-end. |
+
+> [!NOTE]
+> Vous ne pouvez ignorer la génération que pour l’application front-end. Si votre application a une API, elle sera quand même générée par l’action GitHub Static Web Apps.
+
+## <a name="route-file-location"></a>Emplacement du fichier de routes
+
+Vous pouvez personnaliser le workflow de façon à rechercher le fichier [staticwebapp.config.json](routes.md) dans n’importe quel dossier de votre dépôt. La propriété suivante peut être définie dans la section `with` d’un travail.
+
+| Propriété          | Description                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `routes_location` | Définit l’emplacement du répertoire où se trouve le fichier _staticwebapp.config.json_. Cet emplacement est relatif par rapport à la racine du référentiel. |
+
+L’emplacement de votre fichier _staticwebapp.config.json_ est particulièrement important si l’étape de génération de votre framework front-end ne déplace pas ce fichier vers `output_location` par défaut.
 
 ## <a name="environment-variables"></a>Variables d'environnement
 
@@ -185,11 +207,11 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
+          action: 'upload'
           ###### Repository/Build Configurations
-          app_location: "/"
-          api_location: "api"
-          output_location: "public"
+          app_location: '/'
+          api_location: 'api'
+          output_location: 'public'
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
@@ -197,7 +219,7 @@ jobs:
 
 ## <a name="monorepo-support"></a>Prise en charge de référentiel unique
 
-Un référentiel unique est un référentiel qui contient du code pour plusieurs applications. Par défaut, un fichier de flux de travail Static Web Apps fait le suivi de tous les fichiers dans un référentiel, mais vous pouvez l’ajuster pour cibler une seule application. Par conséquent, pour les référentiels uniques, chaque application statique possède son propre fichier de configuration. Ces fichiers cohabitent dans le dossier *.github/workflows* du référentiel.
+Un référentiel unique est un référentiel qui contient du code pour plusieurs applications. Par défaut, un fichier de flux de travail Static Web Apps fait le suivi de tous les fichiers dans un référentiel, mais vous pouvez l’ajuster pour cibler une seule application. Par conséquent, pour les référentiels uniques, chaque application statique possède son propre fichier de configuration. Ces fichiers cohabitent dans le dossier _.github/workflows_ du référentiel.
 
 ```files
 ├── .github
@@ -239,9 +261,9 @@ on:
 
 Dans ce cas, seules les modifications apportées aux fichiers suivants déclenchent une nouvelle génération :
 
-- Tous les fichiers contenus dans le dossier *app1*
-- Tous les fichiers contenus dans le dossier *api1*
-- Modifications apportées au fichier de flux de travail *azure-static-web-apps-purple-pond.yml* de l’application
+- Tous les fichiers contenus dans le dossier _app1_
+- Tous les fichiers contenus dans le dossier _api1_
+- Modifications apportées au fichier de flux de travail _azure-static-web-apps-purple-pond.yml_ de l’application
 
 ## <a name="next-steps"></a>Étapes suivantes
 

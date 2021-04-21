@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: c7be10e14daf3ee769e86d51f648cc6b656a416a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5450e4846c3c49c89830ae65c50a95ee0c8d6eb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300644"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803485"
 ---
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Vérifier les fonctionnalités CI/CD IoT Edge avec les pipelines de build et de mise en production
 
@@ -36,3 +36,5 @@ Pour déclencher un travail de build, envoyez (push) une validation dans le dép
 6. Cliquez sur la phase **dev** pour afficher les journaux de mise en production.
 
     ![Journaux de mise en production](./media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/release-logs.png)
+
+7. Si votre pipeline échoue, commencez par examiner les journaux. Vous pouvez afficher les journaux en accédant au résumé de l’exécution du pipeline et en sélectionnant le travail et la tâche. Si une tâche donnée échoue, vérifiez les journaux de cette tâche. Pour obtenir des instructions détaillées sur la configuration et l’utilisation des journaux, consultez l’article [Consulter les journaux pour diagnostiquer les problèmes de pipeline](/azure/devops/pipelines/troubleshooting/review-logs).

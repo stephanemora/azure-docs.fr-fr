@@ -3,12 +3,12 @@ title: Verrouiller des images
 description: Définissez des attributs pour une image conteneur ou un référentiel afin qu’il ne puisse pas être supprimé ou remplacé dans un registre de conteneurs Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 340beb1bb6666ddf0de7de38adee6be71f5f52bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77659694"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772340"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Verrouiller une image dans un registre de conteneurs Azure
 
@@ -154,9 +154,8 @@ Pour afficher les attributs définis pour une version d’image ou un référent
 Pour plus d’informations sur les opérations de suppression, consultez [Supprimer des images conteneur dans Azure Container Registry][container-registry-delete].
 
 <!-- LINKS - Internal -->
-[az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-update]: /cli/azure/acr/repository#az_acr_repository_update
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-delete]: container-registry-delete.md
-

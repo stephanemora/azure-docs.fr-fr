@@ -3,12 +3,12 @@ title: Créer un pool avec des adresses IP publiques spécifiées
 description: Découvrez comment créer un pool Batch qui utilise vos propres adresses IP publiques.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82a37f96a91bdad37c1a7828ef0cf71b3581ca82
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91849326"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768392"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Créer un pool Azure Batch avec des adresses IP publiques spécifiées
 
@@ -24,7 +24,7 @@ Pour plus d’informations sur la création de pools sans adresses IP publiques
 
 - **Un réseau virtuel Azure**. Vous devez utiliser un [réseau virtuel](batch-virtual-network.md) du même abonnement Azure que celui dans lequel vous créez votre pool et vos adresses IP. Seuls les réseaux virtuels basés sur Azure Resource Manager peuvent être utilisés. Vérifiez que le réseau virtuel satisfait l’ensemble des [conditions générales](batch-virtual-network.md#vnet-requirements).
 
-- **Au moins une adresse IP publique Azure**. Pour créer une ou plusieurs adresses IP publiques, vous pouvez utiliser le [portail Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), l’[interface de ligne de commande Azure](/cli/azure/network/public-ip#az-network-public-ip-create) ou [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Veillez à respecter la configuration requise indiquée ci-dessous.
+- **Au moins une adresse IP publique Azure**. Pour créer une ou plusieurs adresses IP publiques, vous pouvez utiliser le [portail Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), l’[interface de ligne de commande Azure](/cli/azure/network/public-ip#az_network_public_ip_create) ou [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Veillez à respecter la configuration requise indiquée ci-dessous.
 
 > [!NOTE]
 > Batch alloue automatiquement des ressources réseau supplémentaires dans le groupe de ressources contenant les adresses IP publiques. Pour chaque groupe de 100 nœuds dédiés, Batch alloue généralement un groupe de sécurité réseau (NSG) et un équilibreur de charge. Ces ressources sont limitées par les quotas de ressources de l’abonnement. Lors de l’utilisation de grands pools, vous devrez peut-être [demander une augmentation du quota](batch-quota-limit.md#increase-a-quota) pour une ou plusieurs de ces ressources.
@@ -100,4 +100,3 @@ Corps de la requête
 - Apprenez-en davantage sur le [workflow et les ressources principales du service Batch](batch-service-workflow-features.md) telles que les pools, les nœuds, les travaux et les tâches.
 - Apprenez-en davantage sur la [création d’un pool sur un sous-réseau d’un réseau virtuel Azure](batch-virtual-network.md).
 - Découvrez comment [créer un pool Azure Batch sans adresses IP publiques](./batch-pool-no-public-ip-address.md).
-

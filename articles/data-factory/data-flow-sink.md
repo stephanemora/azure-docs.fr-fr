@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
-ms.openlocfilehash: 5548d82326ec4ac2306e2c8945bedc20236a4e54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 8970fc2d5f11d106f34cf2f4c05a1c61bdc6c438
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009349"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107412"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -120,7 +120,35 @@ Vous trouverez ci-dessous un didacticiel vidéo sur l’utilisation automatique 
 
 ## <a name="data-preview-in-sink"></a>Aperçu des données dans le récepteur
 
-Lors de la récupération (fetch) d'un aperçu des données sur un cluster de débogage, aucune donnée n'est écrite dans votre récepteur. Une capture instantanée des données est renvoyée, mais rien n'est écrit à l'emplacement de destination. Pour tester l'écriture de données dans votre récepteur, exécutez un débogage de pipeline à partir du canevas du pipeline.
+Lors de la récupération d’un aperçu des données sur un mode débogage, aucune donnée n’est écrite dans votre récepteur. Une capture instantanée des données est renvoyée, mais rien n'est écrit à l'emplacement de destination. Pour tester l'écriture de données dans votre récepteur, exécutez un débogage de pipeline à partir du canevas du pipeline.
+
+## <a name="data-flow-script"></a>Script de flux de données
+
+### <a name="example"></a>Exemple
+
+Ci-dessous se trouve un exemple de transformation de récepteur et de son script de flux de données :
+
+```
+sink(input(
+        movie as integer,
+        title as string,
+        genres as string,
+        year as integer,
+        Rating as integer
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:false,
+    updateable:true,
+    upsertable:false,
+    keys:['movie'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true,
+    saveOrder: 1,
+    errorHandlingOption: 'stopOnFirstError') ~> sink1
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Aide et bonnes pratiques
 description: Découvrez les meilleures pratiques et des conseils pour la sauvegarde de la charge de travail Cloud et locale dans le Cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14476533cf896434182e1d63f89c6a1279b36362
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593338"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519061"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Sauvegardez des charges de travail Cloud et locales vers le Cloud
 
@@ -261,4 +261,4 @@ En tant qu’administrateur ou utilisateur de sauvegarde, vous devez être en me
 Nous vous recommandons de lire les articles suivants comme points de départ pour l’utilisation de la sauvegarde Azure :
 
 * [Vue d’ensemble du service Sauvegarde Azure](backup-overview.md)
-* [Questions fréquentes (FAQ)](backup-azure-backup-faq.md)
+* [Questions fréquentes (FAQ)](backup-azure-backup-faq.yml)

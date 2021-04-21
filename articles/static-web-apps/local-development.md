@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 8a45d490d060febc18d77c8487c9f562fd2a914a
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: e19d39a32d48ec55473bb957595d47ec5148e74b
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275504"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588783"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurer le développement local pour Azure Static Web Apps en préversion
 
@@ -43,7 +43,7 @@ Le graphique suivant montre comment les demandes sont gérées localement.
 :::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Flux de demandes et de réponses de l'interface CLI Azure Static Web App":::
 
 > [!IMPORTANT]
-> Naviguez jusqu'à [http://localhost:4280](http://localhost:4280) pour accéder à l'application servie par l'interface CLI.
+> Naviguez jusqu'à `http://localhost:4280` pour accéder à l'application servie par l'interface CLI.
 
 - Les **demandes** adressées au port `4280` sont transférées vers le serveur approprié en fonction de leur type.
 
@@ -79,7 +79,7 @@ Ouvrez un terminal dans le dossier racine de votre site Azure Static Web Apps ex
 
     `swa start`
 
-1. Accédez à [http://localhost:4280](http://localhost:4280) pour afficher l'application dans le navigateur.
+1. Accédez à http://localhost:4280 pour afficher l'application dans le navigateur.
 
 ### <a name="other-ways-to-start-the-cli"></a>Autres façons de démarrer l'interface CLI
 

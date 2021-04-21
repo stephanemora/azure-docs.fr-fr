@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 03/30/2020
-ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 0da1fd7b98b86ebd75926cc8a2d2bb5294d048ca
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247180"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308142"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utiliser un point de terminaison HTTPS pour gérer les prospects de marketplaces commerciaux
 
@@ -31,13 +31,13 @@ Cet article explique comment créer un flux dans Power Automate pour générer l
 
     ![Connexion à Mes flux](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. Sous **+ Nouveau**, sélectionnez **+ Instantané - à partir de zéro**.
+1. Sous **+ Nouveau**, sélectionnez **+ Flux de cloud instantané**.
 
-    ![Mes flux + Automatisé – à partir de zéro](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    ![Mes flux + Automatisé – à partir de zéro](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
 
 1. Nommez votre flux, puis sous **Choisir comment déclencher ce flux**, sélectionnez **Lors de la réception d’une requête HTTP**.
 
-    ![Bouton Ignorer dans la fenêtre Générer un flux automatisé](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    ![Bouton Ignorer dans la fenêtre Générer un flux automatisé](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
 
 1. Cliquez sur l’étape du flux pour la développer.
 
@@ -132,14 +132,18 @@ Cet article explique comment créer un flux dans Power Automate pour générer l
     ```
 
 >[!NOTE]
->À ce stade de la configuration, vous pouvez choisir de vous connecter à un système CRM ou de configurer une notification par e-mail. Suivez les instructions restantes en fonction de votre choix.
+>À ce stade de la configuration, vous pouvez choisir de vous connecter à un système CRM ou de configurer une notification par e-mail. Suivez les instructions restantes en fonction de votre choix.
 
 ### <a name="connect-to-a-crm-system"></a>Se connecter à un système CRM
 
 1. Sélectionnez **+ Nouvelle étape**.
-1. Choisissez le système CRM de votre choix en le recherchant dans **Rechercher parmi les actions et les connecteurs**. Sélectionnez-le sous l’onglet **Actions** avec l’action pour créer un nouvel enregistrement. La capture d’écran suivante montre **Créer un enregistrement (Dynamics 365)** comme exemple.
+1. Choisissez le système CRM de votre choix en le recherchant dans **Rechercher parmi les actions et les connecteurs**. La capture d’écran suivante montre Créer un enregistrement (Common Data Service) à titre d’exemple.
 
     ![Créer un enregistrement](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+
+1. Sélectionnez l’**onglet Actions** avec l’action pour **créer un nouvel enregistrement**.
+
+    ![Sélectionner « Créer un enregistrement »](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. Indiquez le **nom de l’organisation** associé au système CRM. Sélectionnez **Prospects** dans la liste déroulante **Nom de l’entité**.
 

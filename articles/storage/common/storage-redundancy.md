@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 04/16/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 37e508a0f4af940773a92271075239c204e52834
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 3665421ddbdd9cf079ff4aab9377fc9164a1599c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010711"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575358"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -73,7 +73,7 @@ Le tableau suivant répertorie les types de comptes de stockage qui prennent en 
 
 | Type de compte de stockage | Régions prises en charge | Services pris en charge |
 |--|--|--|
-| Universel v2<sup>1</sup> | (Afrique) Afrique du Sud Nord<br /> (Asie-Pacifique) Asie Est<br /> (Asie-Pacifique) Asie Sud-Est<br /> (Asie-Pacifique) Australie Est<br /> (Asie-Pacifique) Inde Centre<br /> (Asie-Pacifique) Japon Est<br /> (Asie-Pacifique) Corée Centre<br /> (Canada) Canada Centre<br /> (Europe) Europe Nord<br /> (Europe) Europe Ouest<br /> (Europe) France Centre<br /> (Europe) Allemagne Centre-Ouest<br /> (Europe) Norvège Est<br /> (Europe) Suisse Nord<br /> (Europe) Royaume-Uni Sud<br /> (Moyen-Orient) Émirats arabes unis Nord<br /> (Amérique du Sud) Brésil Sud<br /> (États-Unis) USA Centre<br /> (États-Unis) USA Est<br /> (États-Unis) USA Est 2<br /> (États-Unis) USA Centre Nord<br />(États-Unis) USA Centre Sud<br /> (États-Unis) USA Ouest<br /> (USA) USA Ouest 2 | Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
+| Universel v2<sup>1</sup> | (Afrique) Afrique du Sud Nord<br /> (Asie-Pacifique) Asie Sud-Est<br /> (Asie-Pacifique) Australie Est<br /> (Asie-Pacifique) Japon Est<br /> (Canada) Canada Centre<br /> (Europe) Europe Nord<br /> (Europe) Europe Ouest<br /> (Europe) France Centre<br /> (Europe) Allemagne Centre-Ouest<br /> (Europe) Royaume-Uni Sud<br /> (Amérique du Sud) Brésil Sud<br /> (États-Unis) USA Centre<br /> (États-Unis) USA Est<br /> (États-Unis) USA Est 2<br /> (États-Unis) USA Centre Sud<br /> (États-Unis) USA Ouest<br /> (USA) USA Ouest 2 | Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
 | BlockBlobStorage<sup>1</sup> | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br /> Europe occidentale<br /> France Centre <br /> Japon Est<br /> Sud du Royaume-Uni <br /> USA Est <br /> USA Est 2 <br /> USA Ouest 2| Objets blob de blocs Premium uniquement |
 | FileStorage | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br /> Europe occidentale<br /> France Centre <br /> Japon Est<br /> Sud du Royaume-Uni <br /> USA Est <br /> USA Est 2 <br /> USA Ouest 2 | Partages de fichiers Premium uniquement |
 

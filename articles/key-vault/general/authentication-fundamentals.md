@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 25f00024fb7371fd08bf6c4ceec3177cfaca029b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c43995a8b3a072d98db0ba2c8219694f17e49a26
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103572806"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363425"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Concepts de base de l’authentification Key Vault
 
@@ -104,7 +104,7 @@ Toutefois, les stratégies d’accès classiques n’accordent pas d’autorisat
 > [!IMPORTANT]
 > Les stratégies classiques d’accès au coffre de clés et les attributions de rôles Azure Active Directory sont indépendantes les unes des autres. L’attribution du rôle « Contributeur » à un principal de sécurité au niveau d’un abonnement ne lui permet pas automatiquement d’effectuer des opérations de plan de données sur chaque coffre de clés dans l’étendue de l’abonnement. Le principal de sécurité doit toujours recevoir, ou s’octroyer, des autorisations de stratégie d’accès pour effectuer des opérations de plan de données.
 
-### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Option no 2 d’accès au plan de données :  Contrôle d’accès Azure en fonction du rôle (RBAC) pour Key Vault (préversion)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault"></a>Option n°2 d'accès au plan de données : Contrôle d'accès Azure en fonction du rôle (RBAC) pour Key Vault
 
 Une nouvelle façon d’accorder l’accès au plan de données du coffre de clés est d’utiliser le contrôle d’accès Azure en fonction du rôle (Azure RBAC) pour le coffre de clés.
 

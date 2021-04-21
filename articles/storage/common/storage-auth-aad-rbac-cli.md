@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93d9a81ab75efe4ea38189a7280e041e545a2b7d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375984"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785322"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utiliser Azure CLI pour affecter un rôle Azure gérant l’accès à des données d’objet blob et de file d’attente
 
@@ -36,7 +36,7 @@ Cet article décrit comment utiliser Azure CLI pour répertorier les rôles Azur
 
 ## <a name="list-available-azure-roles"></a>Répertorier les rôles Azure disponibles
 
-Pour répertorier les rôles Azure intégrés disponibles avec Azure CLI, utilisez la commande [az role definition list](/cli/azure/role/definition#az-role-definition-list) :
+Pour répertorier les rôles Azure intégrés disponibles avec Azure CLI, utilisez la commande [az role definition list](/cli/azure/role/definition#az_role_definition_list) :
 
 ```azurecli-interactive
 az role definition list --out table
@@ -56,7 +56,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>Attribuer un rôle Azure à un principal de sécurité
 
-Pour attribuer un rôle Azure à un principal de sécurité, utilisez la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Le format de la commande peut varier selon l’étendue de l’affectation. Les exemples suivants montrent comment attribuer un rôle à un utilisateur dans des étendues diverses, mais vous pouvez utiliser la même commande pour attribuer un rôle à n’importe quel principal de sécurité.
+Pour attribuer un rôle Azure à un principal de sécurité, utilisez la commande [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create). Le format de la commande peut varier selon l’étendue de l’affectation. Les exemples suivants montrent comment attribuer un rôle à un utilisateur dans des étendues diverses, mais vous pouvez utiliser la même commande pour attribuer un rôle à n’importe quel principal de sécurité.
 
 > [!IMPORTANT]
 > Lorsque vous créez un compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée via Azure AD. Vous devez explicitement vous attribuer un rôle Azure RBAC pour l'accès aux données. Vous pouvez l’attribuer au niveau de votre abonnement, groupe de ressources, compte de stockage, conteneur ou file d’attente.

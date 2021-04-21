@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 81779d942b31f940d579de623ecb39c35d3a8b14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 592c128a05b66b268c954ccd32b06863df5b25d1
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642139"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029112"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -75,7 +75,7 @@ Nous vous recommandons d’utiliser FileDatasets pour vos flux de travail d’ap
 Créez un FileDataset avec le [kit de développement logiciel (SDK) Python](#create-a-filedataset) ou [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 ### <a name="tabulardataset"></a>TabularDataset
 
-Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans une tramedonnées pandas ou Spark afin de pouvoir travailler avec des bibliothèques de formation et de préparation des données familières sans avoir à quitter votre notebook. Vous pouvez créer un objet `TabularDataset` à partir de fichiers .csv, .tsv, .parquet et .jsonl, et à partir de [résultats de requête SQL](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
+Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans une tramedonnées pandas ou Spark afin de pouvoir travailler avec des bibliothèques de formation et de préparation des données familières sans avoir à quitter votre notebook. Vous pouvez créer un objet `TabularDataset` à partir de fichiers .csv, .tsv, [.parquet](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) et [.jsonl](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-json-lines-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none--invalid-lines--error---encoding--utf8--) et à partir de [résultats de requête SQL](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
 
 Avec TabularDatasets, vous pouvez spécifier un horodatage à partir d’une colonne dans les données ou à partir de là où les données du modèle de chemin sont stockées pour activer une caractéristique de série chronologique. Cette spécification permet un filtrage chronologique facile et efficace. Pour un exemple, consultez [Démonstration de l’API pour une série chronologique tabulaire avec des données météo NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
@@ -133,7 +133,9 @@ Pour réutiliser et partager des jeux de données dans des expériences au sein 
 
 ### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
 
-Utilisez la méthode [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
+Utilisez la méthode [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Pour lire les fichiers au format .parquet, utilisez la méthode [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-). Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
+
+Consultez la [documentation de référence de TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) pour plus d’informations sur les formats de fichiers pris en charge, ainsi que sur la syntaxe et les modèles de conception. 
 
 Si votre stockage se trouve derrière un réseau virtuel ou un pare-feu, définissez le paramètre `validate=False` dans votre méthode `from_delimited_files()`. Cela permet de contourner l’étape de validation initiale et vous permet de créer votre jeu de données à partir de ces fichiers sécurisés. Apprenez-en davantage sur l’utilisation de [magasins de données et de jeux de données dans un réseau virtuel](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
 

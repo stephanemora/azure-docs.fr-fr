@@ -3,12 +3,12 @@ title: Déployer plusieurs instances de ressources
 description: Utilisez l’opération copy et les tableaux dans un modèle Azure Resource Manager (modèle ARM) pour déployer un même type de ressource plusieurs fois.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 3af676cce544c125e441857f06556b9ff7eee697
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5ddb0cabf0acae1ffe9b9e77e6defa70f9cbd61b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385704"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479965"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Itération de ressource dans les modèles ARM
 
@@ -47,7 +47,7 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs ressources par :
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
     <resource-properties>
-  }
+  }]
   ```
 
 - Itération sur les éléments d’un tableau
@@ -56,7 +56,7 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs ressources par :
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
     <resource-properties>
-  }
+  }]
   ```
 
 - Utilisation de l’index de boucle
@@ -65,7 +65,7 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs ressources par :
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
     <resource-properties>
-  }
+  }]
   ```
 
 ---

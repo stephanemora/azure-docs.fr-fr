@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 276dd7aa1925fefaaa94dfdd5d7a5baba5164f56
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593150"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790254"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide des protocoles SMB et de système de fichiers NFS. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
@@ -103,7 +103,7 @@ Le tableau suivant indique les limites de tests réalisés par Microsoft, ainsi 
 
 Pour Azure File Sync, les performances sont essentielles dans deux phases :
 
-1. **Approvisionnement initial unique** : pour optimiser les performances au moment de l’approvisionnement initial, consultez [Intégrer Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) pour plus d’informations sur un déploiement optimal.
+1. **Approvisionnement initial unique** : pour optimiser les performances au moment de l’approvisionnement initial, consultez [Intégrer Azure File Sync](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync) pour plus d’informations sur un déploiement optimal.
 2. **Synchronisation continue** : une fois que les données sont initialement approvisionnées dans les partages de fichiers Azure, Azure File Sync synchronise plusieurs points de terminaison.
 
 Pour vous aider à planifier votre déploiement pour chacune des phases, voici les résultats observés durant le test interne sur un système avec une configuration
@@ -134,7 +134,7 @@ Le taux de performances est de 20 objets par seconde. Les clients peuvent estim
 
 **Synchronisation initiale des données de Windows Server vers le partage de fichiers Azure** : de nombreux déploiements Azure File Sync commencent avec un partage de fichiers Azure vide, car toutes les données se trouvent sur le serveur Windows. Dans ce cas, l’énumération initiale de la modification cloud est rapide, et la plupart du temps est consacrée à la synchronisation des modifications de Windows Server vers le ou les partages de fichiers Azure. 
 
-Pendant que la synchronisation charge des données sur le partage de fichiers Azure, il n’y a aucun temps d’arrêt sur le serveur de fichiers local, et les administrateurs peuvent [configurer des limites réseau](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) afin de limiter la quantité de bande passante utilisée pour le chargement des données en arrière-plan.
+Pendant que la synchronisation charge des données sur le partage de fichiers Azure, il n’y a aucun temps d’arrêt sur le serveur de fichiers local, et les administrateurs peuvent [configurer des limites réseau](../file-sync/file-sync-server-registration.md#set-azure-file-sync-network-limits) afin de limiter la quantité de bande passante utilisée pour le chargement des données en arrière-plan.
 
 La synchronisation initiale est généralement limitée par le taux de chargement initial de 20 fichiers par seconde par groupe de synchronisation. Les clients peuvent estimer le temps nécessaire pour charger toutes leurs données sur Azure à l’aide de la formule suivante, qui donne la durée en jours :  
 
@@ -164,4 +164,4 @@ En règle générale pour votre déploiement, gardez ces quelques points à l’
 
 ## <a name="see-also"></a>Voir aussi
 - [Planification d’un déploiement Azure Files](storage-files-planning.md)
-- [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)
+- [Planification d’un déploiement de synchronisation de fichiers Azure](../file-sync/file-sync-planning.md)

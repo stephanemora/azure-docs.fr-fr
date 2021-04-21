@@ -3,13 +3,13 @@ title: Registre redondant interzone pour la haute disponibilité
 description: Découvrez comment activer la redondance de zone dans Azure Container Registry. Créez un registre de conteneurs ou une réplication dans une zone de disponibilité Azure. La redondance de zone est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 02/23/2021
-ms.custom: references_regions
-ms.openlocfilehash: a190ea68f41196fb11c20259b9953f516d6f5370
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 8c1ab42aa505448bd81ff42eba54727b24773c60
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203859"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479013"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Activer la redondance de zone dans Azure Container Registry à des fins de résilience et de haute disponibilité
 

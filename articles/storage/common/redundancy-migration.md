@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ce3bda82e634cd80560d7915a08fa33218173779
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: eb8bbf852803df53c43cef90bd2229bfcddd60d4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967191"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766184"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -79,7 +79,7 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour modifier l’option de redondance de votre compte de stockage avec Azure CLI, appelez la commande [az storage account update](/cli/azure/storage/account#az-storage-account-update) et spécifiez le paramètre `--sku` :
+Pour modifier l’option de redondance de votre compte de stockage avec Azure CLI, appelez la commande [az storage account update](/cli/azure/storage/account#az_storage_account_update) et spécifiez le paramètre `--sku` :
 
 ```azurecli-interactive
 az storage account update \

@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: c9ecb670cea022988efda8ec690c0724310cdb4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7f8aa990f5a5e64d2d5c59b52457149187acddd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934847"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773978"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Utiliser Java et Gradle pour créer et publier une fonction sur Azure
 
@@ -114,7 +114,7 @@ az login
 ```
 
 > [!TIP]
-> Si votre compte peut accéder à plusieurs abonnements, utilisez [az account set](/cli/azure/account#az-account-set) pour définir l’abonnement par défaut pour cette session. 
+> Si votre compte peut accéder à plusieurs abonnements, utilisez [az account set](/cli/azure/account#az_account_set) pour définir l’abonnement par défaut pour cette session. 
 
 Utilisez la commande suivante pour déployer votre projet vers une nouvelle application de fonction. 
 

@@ -5,12 +5,12 @@ author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 04/12/2021
-ms.openlocfilehash: 85be4100d62971ef7f69840ae3e9b117fbc3c047
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: fc9af94b07add5728201baaa8fa6992728a60a8c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305223"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786006"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -175,7 +175,7 @@ Pour vérifier l'utilisation actuelle des règles d'alerte de métrique, procéd
 
 - PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - API REST - [Répertorier par abonnement](/rest/api/monitor/metricalerts/listbysubscription)
-- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
+- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>Gérer les règles d'alerte à l'aide de modèles Resource Manager, de l'API REST, de PowerShell ou d'Azure CLI
 

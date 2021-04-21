@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 399bb001432759556cd0ba8bf15f7738dd4edb7c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988218"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781484"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Envoyer (push) et tirer (pull) un artefact OCI à l’aide d’un registre de conteneurs Azure
 
@@ -46,7 +46,7 @@ Pour lire le mot de passe à partir de Stdin, utilisez `--password-stdin`.
 
 [Connectez-vous](/cli/azure/authenticate-azure-cli) à Azure CLI avec votre identité pour envoyer (push) et tirer (pull) des artefacts à partir du registre de conteneurs.
 
-Ensuite, utilisez la commande Azure CLI [az acr login](/cli/azure/acr#az-acr-login) pour accéder au registre. Par exemple, pour vous authentifier auprès d’un registre nommé *myregistry* :
+Ensuite, utilisez la commande Azure CLI [az acr login](/cli/azure/acr#az_acr_login) pour accéder au registre. Par exemple, pour vous authentifier auprès d’un registre nommé *myregistry* :
 
 ```azurecli
 az login
@@ -173,7 +173,7 @@ Créez et envoyez un nouvel artefact OCI au registre de destination en utilisant
 oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
-Exécutez la commande [az acr build](/cli/azure/acr#az-acr-build) pour générer l’image hello-world en utilisant le nouvel artefact comme contexte de génération :
+Exécutez la commande [az acr build](/cli/azure/acr#az_acr_build) pour générer l’image hello-world en utilisant le nouvel artefact comme contexte de génération :
 
 ```azurecli
 az acr build --registry myregistry --image builds/hello-world:v1 \
@@ -194,5 +194,5 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-repository-show]: /cli/azure/acr/repository?#az-acr-repository-show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete

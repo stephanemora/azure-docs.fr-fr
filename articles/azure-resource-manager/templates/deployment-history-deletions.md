@@ -3,12 +3,12 @@ title: Suppressions de l’historique de déploiement
 description: Décrit la manière dont Azure Resource Manager supprime automatiquement les déploiements de l’historique de déploiement. Les déploiements sont supprimés lorsque l’historique approche de la limite des 800 déploiements.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 83383411ec317e228dabb14273e2b566792c774c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b55c022c35c43be6818bb3c551d5db85b1927ebb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732463"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781844"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Suppressions automatiques de l’historique de déploiement
 
@@ -84,7 +84,7 @@ Pour réactiver les suppressions automatiques, utilisez l’API REST Azure ou Az
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour Azure CLI, utilisez [az feature register](/cli/azure/feature#az-feature-register).
+Pour Azure CLI, utilisez [az feature register](/cli/azure/feature#az_feature_register).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -96,7 +96,7 @@ Pour afficher l’état actuel de votre abonnement, utilisez :
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-Pour réactiver les suppressions automatiques, utilisez [az Feature Unregister](/cli/azure/feature#az-feature-unregister).
+Pour réactiver les suppressions automatiques, utilisez [az Feature Unregister](/cli/azure/feature#az_feature_unregister).
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -104,7 +104,7 @@ az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGr
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Pour l’API REST, utilisez [Fonctionnalités – Inscrire](/rest/api/resources/features/features/register).
+Pour l’API REST, utilisez [Fonctionnalités – Inscrire](/rest/api/resources/features/register).
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
@@ -116,7 +116,7 @@ Pour afficher l’état actuel de votre abonnement, utilisez :
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
 ```
 
-Pour réactiver les suppressions automatiques, utilisez [fonctionnalités - annuler l’inscription](/rest/api/resources/features/features/unregister)
+Pour réactiver les suppressions automatiques, utilisez [fonctionnalités - annuler l’inscription](/rest/api/resources/features/unregister)
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01

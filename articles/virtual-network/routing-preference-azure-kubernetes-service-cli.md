@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: ac70f48a3c484f8865c54e09c59662a14a259e74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9eaad12e254150109498be0fac2f285f33a5965c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678429"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776570"
 ---
 # <a name="configure-routing-preference-for-a-kubernetes-cluster-using-azure-cli"></a>Configurer la préférence de routage d’un cluster Kubernetes à l’aide d’Azure CLI
 
@@ -31,14 +31,14 @@ Cet article montre comment configurer une préférence de routage via un réseau
 - Cet article demande la version 2.0.49 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources dans la région Azure **USA Est** :
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources dans la région Azure **USA Est** :
 
 ```azurecli
   az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-a-public-ip-address"></a>Créer une adresse IP publique
 
-Créez une adresse IP publique avec la préférence de routage de type **Internet** au moyen de la commande [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
+Créez une adresse IP publique avec la préférence de routage de type **Internet** au moyen de la commande [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 La commande suivante crée une adresse IP publique avec la préférence de routage **Internet** dans la région Azure **USA Est**.
 
@@ -87,4 +87,3 @@ Pour la validation, recherchez l’adresse IP publique créée à l’étape pr�
 
 - En savoir plus sur la [préférence de routage dans les adresses IP publiques](routing-preference-overview.md). 
 - [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure CLI](configure-routing-preference-virtual-machine-cli.md).
-

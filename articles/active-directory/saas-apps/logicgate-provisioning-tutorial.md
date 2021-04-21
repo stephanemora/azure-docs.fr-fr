@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: Zhchia
-ms.openlocfilehash: 7258aaba738b63db4d37af78389003d36874dcb9
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c9c938ab344a7d861af713fa42e2e39afa1df1b3
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877351"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589463"
 ---
 # <a name="tutorial-configure-logicgate-for-automatic-user-provisioning"></a>Tutoriel : Configurer LogicGate pour l’approvisionnement automatique d’utilisateurs
 
@@ -139,7 +139,7 @@ Cette opération démarre le cycle de synchronisation initiale de tous les utili
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :
 
 1. Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
-2. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
+2. Consultez la [barre de progression](/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

@@ -2,19 +2,25 @@
 title: Ressources sans limite du nombre à 800
 description: Répertorie les types de ressources Azure qui peuvent avoir plus de 800 instances dans un groupe de ressources.
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 6736118f0713a27a91618173e06423530e6f10cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: d132773ff35d53dc373c759326efc8179f4993d6
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563111"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366536"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Ressources non limitées à 800 instances par groupe de ressources
 
 Par défaut, vous pouvez déployer jusqu’à 800 instances d’un type de ressource dans chaque groupe de ressources. Toutefois, certains types de ressources sont exemptés de la limite de 800 instances. Cet article répertorie les types de ressources Azure qui peuvent avoir plus de 800 instances dans un groupe de ressources. Tous les autres types de ressources sont limités à 800 instances.
 
 Pour certains types de ressources, vous devez contacter le support pour que la limite d’instance de 800 soit supprimée. Ces types de ressources sont mentionnés dans cet article.
+
+
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+
+* resourceHealthAlertRules
+* smartDetectorAlertRules
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -75,6 +81,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 
 * flexibleServers
 * serverGroups
+* serverGroupsv2
 * servers
 * serversv2
 
@@ -107,7 +114,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 * machines - prend en charge jusqu’à 5 000 instances
-* extensions - prend en charge un nombre illimité d’instances d’extension de machine virtuelle
+* machines/extensions - prend en charge un nombre illimité d’instances d’extension de machine virtuelle
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -129,6 +136,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/volumeGroups
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -179,6 +187,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
+* autoScaleVCores – Par défaut, limité à 800 instances. Cette limite peut être augmentée en contactant le support.
 * capacities – Par défaut, limité à 800 instances. Cette limite peut être augmentée en contactant le support.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay

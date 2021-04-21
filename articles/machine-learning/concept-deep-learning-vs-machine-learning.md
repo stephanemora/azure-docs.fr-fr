@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 01/14/2020
+ms.date: 04/12/2021
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 48de06d28442b4d05cd3a7ab287732c0999e434c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9e87796c3557f21bb6192c7d7d0c0925d08d786
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101659696"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311751"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
@@ -99,7 +99,7 @@ Avec une transformation appropriée des données, un réseau neuronal est capabl
 
 L’analyse de texte basée sur des méthodes de deep learning implique l’analyse de grandes quantités de données texte (par exemple, des documents médicaux ou des justificatifs de frais), la reconnaissance de modèles, et la création d’informations structurées et concises à partir des résultats.
 
-Les entreprises utilisent le deep learning pour analyser le texte et détecter le délit d’initié et la conformité aux réglementations gouvernementales. Un autre exemple courant concerne la fraude aux assurances : l’analyse de texte a souvent été utilisée pour analyser de grandes quantités de documents dans le but de reconnaître d’éventuelles fraudes dans les déclarations de sinistres. 
+Les entreprises utilisent le deep learning pour analyser le texte et détecter le délit d’initié et la conformité aux réglementations gouvernementales. Un autre exemple courant concerne la fraude aux assurances : l’analyse de texte a souvent été utilisée pour analyser de grandes quantités de documents dans le but de reconnaître d’éventuelles fraudes dans les déclarations de sinistres.
 
 ## <a name="artificial-neural-networks"></a>Réseaux neuronaux artificiels
 
@@ -111,15 +111,33 @@ Les sections suivantes explorent la plupart des typologies de réseau neuronal a
 
 Le réseau neuronal feedforward est le type de réseau neuronal artificiel le plus simple. Dans un réseau feedforward, les informations circulent dans une seule direction, de la couche d’entrée vers la couche de sortie. Les réseaux neuronaux feedforward transforment une entrée en la faisant passer par une série de couches masquées. Chaque couche est constituée d’un ensemble de neurones, et est entièrement connectée à tous les neurones de la couche précédente. La dernière couche entièrement connectée (couche de sortie) représente les prédictions générées.
 
-### <a name="recurrent-neural-network"></a>Réseau de neurones récurrents
+### <a name="recurrent-neural-network-rnn"></a>Réseau de neurones récurrents (RNN)
 
 Les réseaux neuronaux récurrents sont un type de réseau neuronal artificiel largement utilisé. Ces réseaux enregistrent la sortie d’une couche et la renvoient à la couche d’entrée pour aider à prédire le résultat de la couche. Les réseaux neuronaux récurrents ont des capacités d’apprentissage exceptionnelles. Ils sont largement utilisés pour accomplir des tâches complexes comme la prévision de séries chronologiques, l’apprentissage d’écriture manuscrite et la reconnaissance linguistique.
 
-### <a name="convolutional-neural-network"></a>Réseau neuronal convolutif
+### <a name="convolutional-neural-network-cnn"></a>Réseau neuronal convolutif (CNN)
 
 Un réseau neuronal convolutif est un réseau neuronal artificiel particulièrement efficace qui présente une architecture unique. Les couches sont organisées en trois dimensions : largeur, hauteur et profondeur. Les neurones d’une couche ne sont pas connectés à tous les neurones de la couche suivante, mais uniquement à une petite région de neurones de celle-ci. Le résultat final est réduit à un seul vecteur de notes de probabilité, organisées dans la dimension de la profondeur. 
 
 Des réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la reconnaissance vidéo, la reconnaissance d’images et les systèmes de recommandation.
+
+### <a name="generative-adversarial-network-gan"></a>Réseaux antagonistes génératifs (GAN)
+
+Les réseaux antagonistes génératifs sont des modèles génératifs dont l'apprentissage a pour but de générer du contenu réaliste tel que des images. Ils se décomposent en deux réseaux appelés générateur et discriminateur. L'apprentissage de ces deux réseaux s'effectue simultanément. Pendant l'apprentissage, le générateur utilise un bruit aléatoire pour générer de nouvelles données synthétiques qui ressemblent à des données réelles. Le discriminateur prend la sortie du générateur comme entrée et utilise des données réelles pour déterminer si le contenu généré est réel ou synthétique. Les réseaux sont en concurrence. Le générateur essaie de générer du contenu synthétique qui ne peut être distingué du contenu réel, et le discriminateur essaie de classer correctement les entrées comme réelles ou synthétiques. La sortie est ensuite utilisée pour mettre à jour les pondérations des deux réseaux afin de les aider à mieux atteindre leurs objectifs respectifs.
+
+Les réseaux antagonistes génératifs sont utilisés pour résoudre les problèmes tels que la traduction image-image et l'évolution liée à l'âge.
+
+### <a name="transformers"></a>Transformateurs
+
+Les transformateurs constituent une architecture de modèle adaptée à la résolution de problèmes contenant des séquences telles que du texte ou des données de séries chronologiques. Ils sont constitués de deux couches : [l'encodeur et le décodeur](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)#Encoder). L’encodeur prend une entrée et la mappe avec une représentation numérique contenant des informations telles que le contexte. Le décodeur utilise les informations de l'encodeur pour produire une sortie telle qu'un texte traduit. Ce qui différencie les transformateurs des autres architectures contenant des encodeurs et des décodeurs, ce sont les sous-couches d'attention. L'attention consiste à se concentrer sur des parties spécifiques d'une entrée en fonction de l'importance de leur contexte par rapport à d'autres entrées contenues dans une séquence. Par exemple, lors du résumé d'un article de presse, toutes les phrases ne sont pas pertinentes pour décrire l'idée principale. En se concentrant sur les mots clés de l'article, le résumé peut se faire en une seule phrase, le titre.
+
+Les transformateurs sont utilisés pour résoudre les problèmes de traitement du langage naturel tels que la traduction, la génération de texte, la réponse aux questions et le résumé de texte.
+
+Exemples d'implémentations connues des transformateurs :
+
+- BERT (Bidirectional Encoder Representations from Transformers)
+- GPT-2 (Generative Pre-trained Transformer 2)
+- GPT-3 (Generative Pre-trained Transformer 3)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

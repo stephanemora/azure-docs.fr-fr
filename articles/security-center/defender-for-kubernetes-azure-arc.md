@@ -5,20 +5,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 664e985e0da1a9eeb43c99775b1685bb7645ff20
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 940cae8829a99ee7ffacdb41844237acc85b7761
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492645"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029197"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Défendre des clusters Kubernetes avec Azure Arc s’exécutant dans des environnements locaux et multicloud
 
-Pour défendre vos clusters locaux avec les mêmes fonctionnalités de détection des menaces que celles offertes aujourd’hui pour les clusters Azure Kubernetes Service, activez Azure Arc sur les clusters et déployez l’**Extension de cluster Azure Defender pour Kubernetes**
+L’**Extension de cluster Azure Defender pour Kubernetes** peut défendre vos clusters locaux avec les mêmes fonctionnalités de détection des menaces que celles offertes pour les clusters Azure Kubernetes Service. Activez [Kubernetes avec Azure Arc](../azure-arc/kubernetes/overview.md) sur vos clusters et déployez l’extension comme décrit dans cette page. 
 
-Vous pouvez également utiliser l’extension pour protéger des clusters Kubernetes déployés sur des machines d’autres fournisseurs de cloud, bien qu’ils ne soient pas sur leurs services Kubernetes managés.
+L’extension peut également protéger des clusters Kubernetes sur d’autres fournisseurs de cloud, mais pas sur leurs services Kubernetes managés.
 
 > [!TIP]
 > Nous avons mis en place des exemples de fichiers destinés à faciliter le processus d’installation dans [Exemples d’installation sur GitHub](https://aka.ms/kubernetes-extension-installation-examples).
@@ -27,7 +27,7 @@ Vous pouvez également utiliser l’extension pour protéger des clusters Kubern
 
 | Aspect | Détails |
 |--------|---------|
-| État de publication | **PRÉVERSION** [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+| État de publication | **Préversion**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Rôles et autorisations obligatoires | L’[administrateur de sécurité](../role-based-access-control/built-in-roles.md#security-admin) peut ignorer les alertes<br>Le [Lecteur de sécurité](../role-based-access-control/built-in-roles.md#security-reader) peut afficher les résultats |
 | Tarifs | Nécessite [Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md) |
 | Distributions Kubernetes prises en charge | [Service Azure Kubernetes sur Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [Moteur AKS](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 ou plus récente) |
@@ -85,7 +85,7 @@ Une recommandation dédiée dans Azure Security Center offre ce qui suit :
 
 ### <a name="use-azure-cli-to-deploy-the-azure-defender-extension"></a>Utiliser Azure CLI pour déployer l’extension Azure Defender
 
-1. Connectez-vous à Azure :
+1. Connexion à Azure :
 
     ```azurecli
     az login
@@ -273,7 +273,7 @@ La liste complète des alertes prises en charge est disponible dans le [tableau 
 
 ## <a name="removing-the-azure-defender-extension"></a>Suppression de l’extension Azure Defender
 
-Vous pouvez supprimer l’extension à l’aide du portail Azure, d’Azure CLI ou de l’API REST, comme expliqué dans les onglets ci-dessous.
+Vous pouvez supprimer l’extension à l’aide du portail Azure, d’Azure CLI ou de l’API REST, comme expliqué dans les onglets ci-dessous.
 
 ### <a name="azure-portal---arc"></a>[**Azure portal – Arc**](#tab/k8s-remove-arc)
 

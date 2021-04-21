@@ -14,12 +14,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 865ee3a5aeb8a2dd06d8759ba04d02259d2b4bee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffd4ec6eff94589abbc8af70ecf9c0f7dc168962
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359963"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766930"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utiliser PowerShell ou Azure CLI pour configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -85,7 +85,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ## <a name="define-cluster-metadata"></a>Définir les métadonnées du cluster
 
-Le groupe de commandes [az sql vm group](/cli/azure/sql/vm/group) d’Azure CLI gère les métadonnées du service Cluster de basculement Windows Server (WSFC) qui héberge le groupe de disponibilité. Les métadonnées de cluster englobent le domaine Active Directory, les comptes de cluster, les comptes de stockage à utiliser en tant que témoin de cloud et la version de SQL Server. Utilisez [az sql vm group create](/cli/azure/sql/vm/group#az-sql-vm-group-create) pour définir les métadonnées de WSFC de sorte qu’à la première machine virtuelle SQL Server ajoutée, le cluster soit créé comme défini. 
+Le groupe de commandes [az sql vm group](/cli/azure/sql/vm/group) d’Azure CLI gère les métadonnées du service Cluster de basculement Windows Server (WSFC) qui héberge le groupe de disponibilité. Les métadonnées de cluster englobent le domaine Active Directory, les comptes de cluster, les comptes de stockage à utiliser en tant que témoin de cloud et la version de SQL Server. Utilisez [az sql vm group create](/cli/azure/sql/vm/group#az_sql_vm_group_create) pour définir les métadonnées de WSFC de sorte qu’à la première machine virtuelle SQL Server ajoutée, le cluster soit créé comme défini. 
 
 L’extrait de code suivant définit les métadonnées du cluster :
 
@@ -130,7 +130,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## <a name="add-vms-to-the-cluster"></a>Ajouter des machines virtuelles au cluster
 
-Ajouter la première machine virtuelle SQL Server au cluster permet de créer le cluster. La commande [az sql vm add-to-group](/cli/azure/sql/vm#az-sql-vm-add-to-group) crée le cluster avec le nom précédemment attribué, installe le rôle de cluster sur les machines virtuelles SQL Server et les ajoute au cluster. Les utilisations suivantes de la commande `az sql vm add-to-group` ajoutent des machines virtuelles SQL Server supplémentaires au cluster nouvellement créé. 
+Ajouter la première machine virtuelle SQL Server au cluster permet de créer le cluster. La commande [az sql vm add-to-group](/cli/azure/sql/vm#az_sql-vm_add_to_group) crée le cluster avec le nom précédemment attribué, installe le rôle de cluster sur les machines virtuelles SQL Server et les ajoute au cluster. Les utilisations suivantes de la commande `az sql vm add-to-group` ajoutent des machines virtuelles SQL Server supplémentaires au cluster nouvellement créé. 
 
 L’extrait de code suivant crée le cluster et lui ajoute la première machine virtuelle SQL Server : 
 
@@ -245,7 +245,7 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 
 ## <a name="create-listener"></a>Créer un écouteur
 
-Après avoir créé manuellement le groupe de disponibilité, vous pouvez créer l’écouteur à l’aide de la commande [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-create). 
+Après avoir créé manuellement le groupe de disponibilité, vous pouvez créer l’écouteur à l’aide de la commande [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener#az_sql_vm_group_ag_listener_create). 
 
 L’*ID de ressource de sous-réseau* est la valeur de `/subnets/<subnetname>` ajoutée à l’ID de ressource de la ressource de réseau virtuel. Pour identifier l’ID de ressource de sous-réseau :
    1. Accédez au groupe de ressources sur le [portail Azure](https://portal.azure.com). 
@@ -299,7 +299,7 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 ---
 
 ## <a name="modify-number-of-replicas"></a>Modifier le nombre de réplicas 
-Le déploiement d’un groupe de disponibilité sur des machines virtuelles SQL Server hébergées dans Azure ajoute une couche de complexité supplémentaire. Le fournisseur de ressources et le groupe de machines virtuelles gèrent désormais les ressources. De ce fait, quand vous ajoutez ou supprimez des réplicas dans le groupe de disponibilité, il est nécessaire d’effectuer une étape supplémentaire de mise à jour des métadonnées de l’écouteur avec des informations sur les machines virtuelles SQL Server. Quand vous modifiez le nombre de réplicas dans le groupe de disponibilité, vous devez aussi utiliser la commande [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-update) pour mettre à jour l’écouteur avec les métadonnées des machines virtuelles SQL Server. 
+Le déploiement d’un groupe de disponibilité sur des machines virtuelles SQL Server hébergées dans Azure ajoute une couche de complexité supplémentaire. Le fournisseur de ressources et le groupe de machines virtuelles gèrent désormais les ressources. De ce fait, quand vous ajoutez ou supprimez des réplicas dans le groupe de disponibilité, il est nécessaire d’effectuer une étape supplémentaire de mise à jour des métadonnées de l’écouteur avec des informations sur les machines virtuelles SQL Server. Quand vous modifiez le nombre de réplicas dans le groupe de disponibilité, vous devez aussi utiliser la commande [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener#az_sql_vm_group_ag_listener_update) pour mettre à jour l’écouteur avec les métadonnées des machines virtuelles SQL Server. 
 
 
 ### <a name="add-a-replica"></a>Ajouter un réplica

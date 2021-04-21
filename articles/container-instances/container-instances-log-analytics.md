@@ -3,12 +3,12 @@ title: Collecter et analyser les journaux de ressources
 description: Découvrez comment envoyer des journaux de ressources et des données d’événement à partir de groupes de conteneurs dans Azure Container Instances vers les journaux d'activité Azure Monitor
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e46a1df65a4cfe5d10a58704aff485aa2834b55f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579330"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763916"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
@@ -172,4 +172,4 @@ Pour plus d’informations sur la surveillance des ressources processeur et mém
 [query_lang]: /azure/data-explorer/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create

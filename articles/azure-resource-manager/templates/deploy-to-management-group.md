@@ -3,12 +3,12 @@ title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: dc7418d9e93fb50590c5e2502b3a3ffb3847273f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74e00921a1170a7750f4a2d239bb778150ac2cae
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043306"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781934"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Déploiements de groupes d’administration avec des modèles Resource Manager
 
@@ -75,7 +75,7 @@ Pour opérer un déploiement vers un groupe d’administration, utilisez les com
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour Azure CLI, utilisez [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create) :
+Pour Azure CLI, utilisez [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create) :
 
 ```azurecli-interactive
 az deployment mg create \

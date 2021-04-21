@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a6e46efd7f998437c3998df9a989ef9e1500e888
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af197f2dd144e7541f669fdd67b58c38d91b4400
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664832"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777128"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MariaDB à l’aide d’Azure CLI.
 
@@ -57,7 +57,7 @@ La période de rétention de sauvegarde détermine jusqu’à quelle date une re
 
 Vous pouvez restaurer le serveur à une version antérieure. Les données restaurées sont copiées dans un nouveau serveur et le serveur existant est conservé tel quel. Par exemple, si une table est accidentellement supprimée à midi aujourd’hui, vous pouvez restaurer le serveur à l’état qu’il présentait juste avant midi. Vous pouvez ensuite récupérer la table et les données manquantes à partir de la copie restaurée du serveur.
 
-Pour restaurer le serveur, utilisez la commande [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) de l’interface Azure CLI.
+Pour restaurer le serveur, utilisez la commande [az mariadb server restore](/cli/azure/mariadb/server#az_mariadb_server_restore) de l’interface Azure CLI.
 
 ### <a name="run-the-restore-command"></a>Exécuter la commande de restauration
 

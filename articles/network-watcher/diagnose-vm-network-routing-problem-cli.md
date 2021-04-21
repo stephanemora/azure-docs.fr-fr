@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 415fcc72116cc36644b58b619404d96ff63b024d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ca7a3b25b1355e21782c1d9f736d20a14cbd4ac
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065903"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785448"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnostiquer un problème de routage réseau d’une machine virtuelle - Azure CLI
 
@@ -31,19 +31,19 @@ Dans cet article, vous déployez une machine virtuelle, puis vous vérifiez les 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Cet article demande la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée. 
+- Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée. 
 
 - Les commandes Azure CLI mentionnées dans cet article sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Avant de pouvoir créer une machine virtuelle, vous devez créer un groupe de ressources pour qu’il contienne la machine virtuelle. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
+Avant de pouvoir créer une machine virtuelle, vous devez créer un groupe de ressources pour qu’il contienne la machine virtuelle. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create). Si des clés SSH n’existent pas déjà dans un emplacement de clé par défaut, la commande les crée. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`. L’exemple suivant crée une machine virtuelle nommée *myVm* :
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). Si des clés SSH n’existent pas déjà dans un emplacement de clé par défaut, la commande les crée. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`. L’exemple suivant crée une machine virtuelle nommée *myVm* :
 
 ```azurecli-interactive
 az vm create \
@@ -61,7 +61,7 @@ Pour tester une communication réseau avec Network Watcher, commencez par active
 
 ### <a name="enable-network-watcher"></a>Activer Network Watcher
 
-Si vous disposez déjà d’un observateur réseau activé dans la région USA Est, passez à l’étape [Utiliser le tronçon suivant](#use-next-hop). Utilisez la commande [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) pour créer un observateur réseau dans la région USA Est :
+Si vous disposez déjà d’un observateur réseau activé dans la région USA Est, passez à l’étape [Utiliser le tronçon suivant](#use-next-hop). Utilisez la commande [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) pour créer un observateur réseau dans la région USA Est :
 
 ```azurecli-interactive
 az network watcher configure \
@@ -72,7 +72,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Utiliser le tronçon suivant
 
-Azure crée automatiquement des itinéraires vers les destinations par défaut. Vous pouvez créer des itinéraires personnalisés pour remplacer les itinéraires par défaut. Parfois, les itinéraires personnalisés peuvent entraîner l’échec de la communication. Pour tester le routage à partir d’une machine virtuelle, utilisez la commande [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) afin de déterminer le tronçon de routage suivant lorsque le trafic est destiné à une adresse spécifique.
+Azure crée automatiquement des itinéraires vers les destinations par défaut. Vous pouvez créer des itinéraires personnalisés pour remplacer les itinéraires par défaut. Parfois, les itinéraires personnalisés peuvent entraîner l’échec de la communication. Pour tester le routage à partir d’une machine virtuelle, utilisez la commande [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop) afin de déterminer le tronçon de routage suivant lorsque le trafic est destiné à une adresse spécifique.
 
 Testez la communication sortante de la machine virtuelle vers l’une des adresses IP pour www.bing.com :
 
@@ -104,7 +104,7 @@ La sortie retournée vous informe que **Aucun** est la valeur de **NextHopType**
 
 ## <a name="view-details-of-a-route"></a>Afficher les détails d’un itinéraire
 
-Pour procéder à une analyse plus approfondie du routage, passez en revue les itinéraires réels de l’interface réseau avec la commande [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) :
+Pour procéder à une analyse plus approfondie du routage, passez en revue les itinéraires réels de l’interface réseau avec la commande [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table) :
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -154,7 +154,7 @@ Comme vous pouvez le voir dans la sortie de la commande `az network watcher nic 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [az group delete](/cli/azure/group#az-group-delete) pour le supprimer, ainsi que toutes les ressources qu’il contient :
+Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [az group delete](/cli/azure/group#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient :
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

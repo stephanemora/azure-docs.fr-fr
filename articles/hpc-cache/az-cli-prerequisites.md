@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 13f45c96a830110bd0f4a2d4a2b422921d7a2e31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30621eceefd69cd3e08de137bb34f1079a17a406
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94654454"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780476"
 ---
 # <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Configurer Azure CLI pour Azure HPC Cache
 
@@ -23,7 +23,7 @@ Suivez ces étapes pour préparer votre environnement avant d’utiliser Azure C
 
 ## <a name="set-default-resource-group-optional"></a>Définir le groupe de ressources par défaut (facultatif)
 
-La plupart des commandes hpc-cache nécessitent que vous transmettiez le groupe de ressources du cache. Vous pouvez définir le groupe de ressources par défaut en utilisant [az configure](/cli/azure/reference-index#az-configure).
+La plupart des commandes hpc-cache nécessitent que vous transmettiez le groupe de ressources du cache. Vous pouvez définir le groupe de ressources par défaut en utilisant [az configure](/cli/azure/reference-index#az_configure).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

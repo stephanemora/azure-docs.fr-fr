@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: aaaabe758b036335062907c8e5549ae876c63997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77460d1675b806e04c72e5f46da0ec4274d99d41
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594731"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762530"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -222,7 +222,7 @@ Définit l’image source comme une version d’image existante dans une galerie
    } 
 ```
 
-`imageVersionId` doit être l’ID de ressource de la version d’image. Utilisez [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) pour répertorier les versions d’image.
+`imageVersionId` doit être l’ID de ressource de la version d’image. Utilisez [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) pour répertorier les versions d’image.
 
 
 ## <a name="properties-buildtimeoutinminutes"></a>Propriétés : buildTimeoutInMinutes

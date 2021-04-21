@@ -3,12 +3,12 @@ title: Sauvegarder des bases de données SQL Server à l'aide du serveur de sauv
 description: Cet article présente les étapes de configuration de la sauvegarde des bases de données SQL Server à l'aide du serveur de sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e79b5263b248312b7170288be24ab5fc196042a7
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91316917"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518658"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Sauvegarder des bases de données SQL Server sur Azure à l'aide du serveur de sauvegarde Azure
 
@@ -180,4 +180,4 @@ Pour récupérer une entité protégée, telle qu'une base de données SQL Serve
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations, consultez [Forum aux questions sur Sauvegarde Azure](backup-azure-backup-faq.md).
+Pour plus d'informations, consultez [Forum aux questions sur Sauvegarde Azure](backup-azure-backup-faq.yml).

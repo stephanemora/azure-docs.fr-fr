@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67e807e948caf1fec014457814c1b7f105630f9f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99095356"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784422"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour serveurs dans Azure SQL Database
 
@@ -225,7 +225,7 @@ Cette section montre comment utiliser le [portail Azure][http-azure-portal-link-
 
 ## <a name="powershell-alternative"></a>Alternative PowerShell
 
-Un script peut également créer des règles de réseau virtuel à l’aide de la cmdlet PowerShell **New-AzSqlServerVirtualNetworkRule** ou [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Un script peut également créer des règles de réseau virtuel à l’aide de la cmdlet PowerShell **New-AzSqlServerVirtualNetworkRule** ou [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>API REST de remplacement
 

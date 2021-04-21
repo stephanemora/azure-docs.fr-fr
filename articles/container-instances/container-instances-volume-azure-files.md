@@ -4,12 +4,12 @@ description: Découvrir comment monter un volume Azure Files pour conserver l’
 ms.topic: article
 ms.date: 03/24/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 09a4d9922a4f9ba4296fc194d72c621fecb8342d
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: c541d4faa8728d99fd07396bc056a3e69dc93fe8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968898"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763736"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Monter un partage de fichiers Azure dans Azure Container Instances
 
@@ -290,6 +290,6 @@ Découvrez comment monter d’autres types de volumes dans Azure Container Insta
 [storage-explorer]: https://storageexplorer.com
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

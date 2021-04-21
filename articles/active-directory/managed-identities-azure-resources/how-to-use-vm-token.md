@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 541f76ad825f492679530902c571096ca4b01902
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ee7739d9dbfd34190dc1e856b98fdd21be15743
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98726229"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364938"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -80,22 +80,6 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `object_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément object_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
 | `client_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément client_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
 | `mi_res_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément mi_res_id (ID de la ressource Azure) de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur. |
-
-Exemple de requête utilisant le point de terminaison d’extension de machine virtuelle d’identités managées pour ressources Azure *(dont l’abandon est prévu en janvier 2019)* :
-
-```http
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
-Metadata: true
-```
-
-| Élément | Description |
-| ------- | ----------- |
-| `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
-| `http://localhost:50342/oauth2/token` | Le point de terminaison d’identités managées pour ressources Azure, où 50342 est le port par défaut configurable. |
-| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, `https://management.azure.com/`. |
-| `Metadata` | Un champ d’en-tête de requête HTTP, requis par les identités managées pour ressources Azure afin d’atténuer une attaque par falsification de requête côté serveur (SSRF). Cette valeur doit être définie sur « true », en minuscules.|
-| `object_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément object_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
-| `client_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément client_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
 
 Exemple de réponse :
 
@@ -342,10 +326,11 @@ echo The managed identities for Azure resources access token is $access_token
 
 ## <a name="token-caching"></a>Mise en cache de jeton
 
-Si le sous-système d’identités managées pour ressources Azure utilisé (extension de machine virtuelle IMDS/d’identités managées pour ressources Azure) met en cache des jetons, nous vous recommandons également d’implémenter la mise en cache des jetons dans votre code. Vous devez donc vous préparer pour les scénarios dans lesquels la ressource indique que le jeton a expiré. 
+Bien que le sous-système des identités managées pour les ressources Azure mette en cache les jetons, nous vous recommandons également d’implémenter la mise en cache des jetons dans votre code. Vous devez donc vous préparer pour les scénarios dans lesquels la ressource indique que le jeton a expiré. 
 
 Les appels sur le câble à Azure AD réussissent uniquement quand :
-- une absence de mise en cache se produit en raison de l’absence de jeton dans le cache du sous-système d’identités managées pour ressources Azure
+
+- Une absence de mise en cache se produit en raison de l’absence de jeton dans le cache du sous-système des identités managées pour les ressources Azure.
 - Le jeton mis en cache a expiré.
 
 ## <a name="error-handling"></a>Gestion des erreurs
@@ -377,7 +362,7 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 | 400 Demande incorrecte | bad_request_102 | En-tête de métadonnées requis non spécifié | Le champ d’en-tête de métadonnées `Metadata` est absent de votre requête, ou bien il n’est pas correctement formaté. La valeur spécifiée doit être `true`, en minuscules. Un « Exemple de requête » est disponible à la section REST précédente.|
 | 401 Non autorisé | unknown_source | Source inconnue *\<URI\>* | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://localhost:50342/oauth2/token`. Un « Exemple de requête » est disponible à la section REST précédente.|
 |           | invalid_request | Il manque un paramètre nécessaire à la requête, elle comprend une valeur de paramètre non valide, plus d’un paramètre à la fois, ou bien elle est incorrecte. |  |
-|           | unauthorized_client | Le client n’est pas autorisé à demander un jeton d’accès avec cette méthode. | Occasionné par une demande n’ayant pas utilisé de bouclage local pour appeler l’extension, ou sur une machine virtuelle dont les identités managées pour ressources Azure ne sont pas correctement configurées. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md). |
+|           | unauthorized_client | Le client n’est pas autorisé à demander un jeton d’accès avec cette méthode. | Occasionnée par une requête sur une machine virtuelle dont les identités managées pour les ressources Azure ne sont pas correctement configurées. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md). |
 |           | access_denied | Le propriétaire de la ressource ou le serveur d’autorisation a refusé la requête. |  |
 |           | unsupported_response_type | Le serveur d’autorisation ne prend pas en charge l’obtention d’un jeton d’accès par cette méthode. |  |
 |           | invalid_scope | L’étendue demandée est incorrecte, inconnue ou non valide. |  |

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 90ea52b0ed5ee2d8e36caab18491eecd6e1295fd
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: ad5bb6e45479b4cccfa0b002427066439135e468
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222813"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588443"
 ---
 # <a name="link-your-domain-to-your-decentralized-identifier-did"></a>Lier votre domaine à votre identificateur décentralisé (DID)
 
@@ -122,7 +122,7 @@ Si l’une des conditions ci-dessus n’est pas remplie, Microsoft Authenticator
 
 4. Copiez votre DID et ouvrez l’[Explorateur de réseaux ION](https://identity.foundation/ion/explorer) pour vérifier que le même domaine est inclus dans le document DID. 
 
-5. Hébergez la ressource de configuration connue à l’emplacement spécifié. Exemple : https://www.example.com/.well-known/did-configuration.json
+5. Hébergez la ressource de configuration connue à l’emplacement spécifié. Exemple : `https://www.example.com/.well-known/did-configuration.json`
 
 6. Pour procéder à la validation, testez l’émission ou la présentation avec Microsoft Authenticator. Vérifiez que le paramètre d’Authenticator « Warn about unsafe apps » (Signaler les applications non sécurisées) est activé.
 

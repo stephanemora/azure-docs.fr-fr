@@ -3,12 +3,12 @@ title: Informations de référence sur YAML - ACR Tasks
 description: Référence pour la définition de tâches dans YAML pour ACR Tasks, y compris les propriétés de tâche, les types d’étapes, les propriétés d’étape et les variables intégrées.
 ms.topic: article
 ms.date: 07/08/2020
-ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 126fcbce0569b2be6d9302cbbb718fa11e3e8046
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88067581"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780944"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -629,6 +629,6 @@ Pour les builds à une seule étape, consultez la [vue d’ensemble d’ACR Tas
 [acr-tasks]: https://github.com/Azure-Samples/acr-tasks
 
 <!-- LINKS - Internal -->
-[az-acr-run]: /cli/azure/acr#az-acr-run
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-configure]: /cli/azure/reference-index#az-configure
+[az-acr-run]: /cli/azure/acr#az_acr_run
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-configure]: /cli/azure/reference-index#az_configure

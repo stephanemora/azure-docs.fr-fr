@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4d7123aa22d95e3e4c3850be775ddad96f28d280
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064305"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785304"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -90,7 +90,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="afs-region-availability"></a>
   **Quelles sont les régions prises en charge par Azure File Sync ?**  
-    Vous trouverez la liste des régions disponibles sur la section [Disponibilité des régions](storage-sync-files-planning.md#azure-file-sync-region-availability) du guide de planification Azure File Sync. Nous allons en permanence ajouter des supports pour des régions supplémentaires, y compris les régions privées.
+    Vous trouverez la liste des régions disponibles sur la section [Disponibilité des régions](../file-sync/file-sync-planning.md#azure-file-sync-region-availability) du guide de planification Azure File Sync. Nous allons en permanence ajouter des supports pour des régions supplémentaires, y compris les régions privées.
 
 * <a id="cross-domain-sync"></a>
   **Un même groupe de synchronisation peut-il contenir des serveurs joints à un domaine et des serveurs non joints à un domaine ?**  
@@ -119,28 +119,28 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="sizeondisk-versus-size"></a>
   **Pourquoi la propriété *Taille* sur le disque pour un fichier ne correspond-elle pas à la propriété *Taille* après l’utilisation d’Azure File Sync ?**  
-  Consultez [Comprender la hiérarchisation Cloud Azure File Sync](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
+  Consultez [Comprender la hiérarchisation Cloud Azure File Sync](../file-sync/file-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **Comment puis-je savoir si un fichier a été hiérarchisé ?**  
-  Consultez [Comment gérer des fichiers hiérarchisés Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
+  Voir [Introduction à la hiérarchisation cloud](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Un fichier que je souhaite utiliser a été hiérarchisé. Comment puis-je rappeler le fichier sur le disque pour l’utiliser localement ?**  
-  Consultez [Comment gérer des fichiers hiérarchisés Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+  Voir [Introduction à la hiérarchisation cloud](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **Comment faire pour imposer la hiérarchisation d’un fichier ou répertoire ?**  
-  Consultez [Comment gérer des fichiers hiérarchisés Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
+  Voir [Introduction à la hiérarchisation cloud](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **Comment *l’espace libre du volume* est-il interprété quand il y a plusieurs points de terminaison de serveur sur un volume ?**  
-  Consultez [Choisir des stratégies de hiérarchisation Cloud Azure File Sync](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
+  Voir [Introduction à la hiérarchisation cloud](../file-sync/file-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **La hiérarchisation cloud est désactivée. Pourquoi y a-t-il des fichiers hiérarchisés dans l’emplacement du point de terminaison de serveur ?**  
     Il existe deux raisons pour lesquelles des fichiers hiérarchisés peuvent se trouver à l’emplacement du point de terminaison de serveur :
 
-    - Lorsque vous ajoutez un nouveau point de terminaison de serveur à un groupe de synchronisation existant, si vous choisissez l’option rappeler l’espace de noms ou rappeler l’espace de noms uniquement pour le mode de téléchargement initial, les fichiers s’affichent comme étant hiérarchisés jusqu’à ce qu’ils soient téléchargés localement. Pour éviter cela, sélectionnez l’option Éviter les fichiers hiérarchisés pour le mode de téléchargement initial. Pour rappeler manuellement des fichiers, utilisez la cmdlet [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
+    - Lorsque vous ajoutez un nouveau point de terminaison de serveur à un groupe de synchronisation existant, si vous choisissez l’option rappeler l’espace de noms ou rappeler l’espace de noms uniquement pour le mode de téléchargement initial, les fichiers s’affichent comme étant hiérarchisés jusqu’à ce qu’ils soient téléchargés localement. Pour éviter cela, sélectionnez l’option Éviter les fichiers hiérarchisés pour le mode de téléchargement initial. Pour rappeler manuellement des fichiers, utilisez la cmdlet [Invoke-StorageSyncFileRecall](../file-sync/file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
     - Si la hiérarchisation cloud a été activée sur le point de terminaison de serveur, puis désactivée, les fichiers restent hiérarchisés jusqu’à ce qu’ils soient accessibles.
 
@@ -150,11 +150,11 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
     Ce comportement n’est pas spécifique à Azure File Sync. L’Explorateur Windows affiche une « croix grise » pour tous les fichiers dont l’attribut est hors connexion. L’icône X s’affiche lors de l’accès aux fichiers sur SMB. Pour obtenir une explication détaillée de ce comportement, consultez [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
 
-    Pour plus d’informations sur la gestion des fichiers hiérarchisés, consultez [Comment gérer des fichiers hiérarchisés](storage-sync-how-to-manage-tiered-files.md).
+    Pour plus d’informations sur la gestion des fichiers hiérarchisés, consultez [Comment gérer des fichiers hiérarchisés](../file-sync/file-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Quels fichiers ou dossiers sont automatiquement exclus par Azure File Sync ?**  
-  Voir [Fichiers ignorés](storage-sync-files-planning.md#files-skipped).
+  Voir [Fichiers ignorés](../file-sync/file-sync-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   **Puis-je utiliser Azure File Sync avec Windows Server 2008 R2, Linux ou mon périphérique de stockage NAS (Network-Attached Storage) ?**  
@@ -162,7 +162,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Pourquoi les fichiers hiérarchisés existent-ils en dehors de l’espace de noms du point de terminaison du serveur ?**  
-    Avant la version 3 de l’agent Azure File Sync, Azure File Sync bloquait le déplacement des fichiers hiérarchisés à l’extérieur du point de terminaison du serveur, mais sur le même volume que le point de terminaison du serveur. Les opérations de copie, les déplacements de fichiers non hiérarchisés et les déplacements de fichiers hiérarchisés vers d’autres volumes n’étaient pas concernés. Ce comportement était dû au fait que l’Explorateur de fichiers et les autres API Windows supposent de manière implicite que les opérations de déplacement sur un même volume sont des opérations de changement de nom (presque) instantanées. Cela signifie que les déplacements donneront l’impression que l’Explorateur de fichiers ou d’autres méthodes de déplacement (par exemple, la ligne de commande ou PowerShell) ne répondent plus pendant qu’Azure File Sync rappelle les données à partir du cloud. À partir de la [version 3.0.12.0 de l’agent Azure File Sync](storage-files-release-notes.md#supported-versions), Azure File Sync vous permettra de déplacer un fichier hiérarchisé en dehors du point de terminaison du serveur. Nous évitons ainsi les effets négatifs mentionnés précédemment en autorisant l’existence du fichier hiérarchisé sous la forme d’un fichier hiérarchisé en dehors du point de terminaison du serveur, puis en rappelant le fichier en arrière-plan. Cela signifie que les déplacements sur un même volume sont instantanés et que nous faisons tout le travail visant à rappeler le fichier sur le disque une fois le déplacement terminé. 
+    Avant la version 3 de l’agent Azure File Sync, Azure File Sync bloquait le déplacement des fichiers hiérarchisés à l’extérieur du point de terminaison du serveur, mais sur le même volume que le point de terminaison du serveur. Les opérations de copie, les déplacements de fichiers non hiérarchisés et les déplacements de fichiers hiérarchisés vers d’autres volumes n’étaient pas concernés. Ce comportement était dû au fait que l’Explorateur de fichiers et les autres API Windows supposent de manière implicite que les opérations de déplacement sur un même volume sont des opérations de changement de nom (presque) instantanées. Cela signifie que les déplacements donneront l’impression que l’Explorateur de fichiers ou d’autres méthodes de déplacement (par exemple, la ligne de commande ou PowerShell) ne répondent plus pendant qu’Azure File Sync rappelle les données à partir du cloud. À partir de la [version 3.0.12.0 de l’agent Azure File Sync](../file-sync/file-sync-release-notes.md#supported-versions), Azure File Sync vous permettra de déplacer un fichier hiérarchisé en dehors du point de terminaison du serveur. Nous évitons ainsi les effets négatifs mentionnés précédemment en autorisant l’existence du fichier hiérarchisé sous la forme d’un fichier hiérarchisé en dehors du point de terminaison du serveur, puis en rappelant le fichier en arrière-plan. Cela signifie que les déplacements sur un même volume sont instantanés et que nous faisons tout le travail visant à rappeler le fichier sur le disque une fois le déplacement terminé. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
   **Je rencontre un problème avec Azure File Sync sur mon serveur (synchronisation, hiérarchisation cloud, etc.). Dois-je supprimer et recréer le point de terminaison de mon serveur ?**  
@@ -170,7 +170,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     
 * <a id="afs-resource-move"></a>
   **Puis-je déplacer le service de synchronisation de stockage et/ou le compte de stockage vers un groupe de ressources, un abonnement ou un locataire Azure AD différents ?**  
-   Oui. Le service de synchronisation de stockage et/ou le compte de stockage peuvent être déplacés vers un autre groupe de ressources, un autre abonnement ou un autre locataire Azure AD. Une fois le service de synchronisation de stockage ou le compte de stockage déplacé, vous devez donner à l’application Microsoft.StorageSync l’accès au compte de stockage (consultez [Vérifiez qu’Azure File Sync a accès au compte de stockage](./storage-sync-files-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+   Oui. Le service de synchronisation de stockage et/ou le compte de stockage peuvent être déplacés vers un autre groupe de ressources, un autre abonnement ou un autre locataire Azure AD. Une fois le service de synchronisation de stockage ou le compte de stockage déplacé, vous devez donner à l’application Microsoft.StorageSync l’accès au compte de stockage (consultez [Vérifiez qu’Azure File Sync a accès au compte de stockage](../file-sync/file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Lors de la création du point de terminaison cloud, le service de synchronisation du stockage et le compte de stockage doivent se trouver dans le même locataire Azure AD. Une fois le point de terminaison cloud créé, le service de synchronisation du stockage et le compte de stockage peuvent être déplacés vers des locataires Azure AD différents.
@@ -494,4 +494,4 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 ## <a name="see-also"></a>Voir aussi
 * [Résoudre les problèmes d’Azure Files dans Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Résoudre les problèmes d’Azure Files dans Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Résoudre les problèmes d’Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Résoudre les problèmes d’Azure File Sync](../file-sync/file-sync-troubleshoot.md)

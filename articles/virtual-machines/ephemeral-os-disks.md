@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24b1be2ca55b057c887c8782ce7eea1150f143da
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485756"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762620"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Disques de système d’exploitation éphémères pour les machines virtuelles Azure
 
@@ -71,7 +71,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>Interface de ligne de commande
 
-Pour utiliser un disque éphémère pour un déploiement de machine virtuelle par CLI, définissez le paramètre `--ephemeral-os-disk` dans [az vm create](/cli/azure/vm#az-vm-create) sur `true` et le paramètre `--os-disk-caching` sur `ReadOnly`.
+Pour utiliser un disque éphémère pour un déploiement de machine virtuelle par CLI, définissez le paramètre `--ephemeral-os-disk` dans [az vm create](/cli/azure/vm#az_vm_create) sur `true` et le paramètre `--os-disk-caching` sur `ReadOnly`.
 
 ```azurecli-interactive
 az vm create \
@@ -84,7 +84,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Pour les groupes identiques, vous utilisez le même paramètre `--ephemeral-os-disk true` pour [az-vmss-create](/cli/azure/vmss#az-vmss-create) et définissez le paramètre `--os-disk-caching` sur `ReadOnly`.
+Pour les groupes identiques, vous utilisez le même paramètre `--ephemeral-os-disk true` pour [az-vmss-create](/cli/azure/vmss#az_vmss_create) et définissez le paramètre `--os-disk-caching` sur `ReadOnly`.
 
 ## <a name="portal"></a>Portail
 
@@ -251,4 +251,4 @@ A : Les disques éphémères ne prennent pas en charge :
 > 
  
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez créer une machine virtuelle avec un disque de système d’exploitation éphémère à l’aide [d’Azure CLI](/cli/azure/vm#az-vm-create).
+Vous pouvez créer une machine virtuelle avec un disque de système d’exploitation éphémère à l’aide [d’Azure CLI](/cli/azure/vm#az_vm_create).

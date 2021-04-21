@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 081ead434dbdc3b9c348e3fa35068a638bab6e62
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555276"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776858"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption avec Azure AD pour les machines virtuelles Windows (version précédente)
 
@@ -37,7 +37,7 @@ Vous pouvez activer le chiffrement de disque sur de nouvelles machines virtuelle
 2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, les paramètres, les conditions légales et le contrat. Cliquez sur **Acheter** pour déployer une nouvelle machine virtuelle IaaS où le chiffrement est activé.
 
 3. Après avoir déployé le modèle, vérifiez l’état du chiffrement de la machine virtuelle avec la méthode de votre choix :
-     - Vérifiez avec l’interface CLI en utilisant la commande [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
+     - Vérifiez avec l’interface CLI en utilisant la commande [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show). 
 
          ```azurecli-interactive 
          az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
@@ -124,7 +124,7 @@ Utilisez la cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compu
      ```
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with--azure-cli"></a><a name="bkmk_RunningWinVMCLI"></a> Activer le chiffrement sur des machines virtuelles existantes ou en cours d’exécution avec Azure CLI
-Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) pour activer le chiffrement sur une machine virtuelle IaaS en cours d’exécution dans Azure.
+Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) pour activer le chiffrement sur une machine virtuelle IaaS en cours d’exécution dans Azure.
 
 - **Chiffrer une machine virtuelle en cours d’exécution avec un secret client :**
 
@@ -141,13 +141,13 @@ Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az-vm-en
      >[!NOTE]
      > La syntaxe de la valeur du paramètre disk-encryption-keyvault est la chaîne d’identificateur complet : /subscriptions/[GUID_ID_abonnement]/resourceGroups/[nom_groupe_ressources]/providers/Microsoft.KeyVault/vaults/[nom_coffre_clés] </br> La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de la clé KEK comme dans : https://[nom_coffre_clés].vault.azure.net/keys/[nom_clé_kek]/[ID_unique_clé_kek] 
 
-- **Vérifier que les disques sont chiffrés :** Pour vérifier l’état du chiffrement d’une machine virtuelle IaaS, utilisez la commande [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
+- **Vérifier que les disques sont chiffrés :** Pour vérifier l’état du chiffrement d’une machine virtuelle IaaS, utilisez la commande [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show). 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Désactiver le chiffrement :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
+- **Désactiver le chiffrement :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable). 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
@@ -319,7 +319,7 @@ Vous pouvez désactiver le chiffrement avec Azure PowerShell, Azure CLI ou un mo
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-- **Désactiver le chiffrement avec Azure CLI :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). 
+- **Désactiver le chiffrement avec Azure CLI :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable). 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```

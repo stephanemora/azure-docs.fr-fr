@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 706b2306fbe9f2a744d2874a8b55f78fa2fc8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8009d98ddbfa778cf5f357248ecd943b810e06e3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300624"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803559"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Créer un pipeline de mise en production pour un déploiement continu
 
@@ -63,8 +63,18 @@ Créer un pipeline et ajouter une nouvelle phase :
     * **ACR_PASSWORD** : votre mot de passe Azure Container Registry.
     * **ACR_USER** : votre nom d'utilisateur Azure Container Registry.
 
-    Si votre projet contient d'autres variables, vous pouvez spécifier le nom et la valeur dans cet onglet. **Générer le manifeste de déploiement** ne reconnaît que les variables de type `${VARIABLE}`. Par conséquent, veillez à utiliser ce type dans vos fichiers `*.template.json`.
-
+    Si votre projet contient d’autres variables, vous pouvez spécifier le nom et la valeur dans cet onglet. **Générer le manifeste de déploiement** ne reconnaît que les variables de type `${VARIABLE}`. Par conséquent, veillez à utiliser ce type dans vos fichiers `*.template.json`.
+    
+    ```json-interactive
+    "registryCredentials": {
+      "<ACR name>": { // Your Azure Container Registry **Registry name** value
+        "username": "${ACR_USER}",
+        "password": "${ACR_PASSWORD}",
+        "address": "${ACR_ADDRESS}"
+      }
+    }
+    ```
+    
     ![Configurer les variables pour votre pipeline de mise en production sous l’onglet Variables](./media/iot-edge-create-release-pipeline-for-continuous-deployment/configure-variables.png)
 
 10. Sélectionnez la deuxième tâche **Azure IoT Edge** et configurez-la avec les valeurs suivantes :
@@ -79,6 +89,9 @@ Créer un pipeline et ajouter une nouvelle phase :
     | Choisir un ou plusieurs appareils | Indiquez si vous souhaitez que le pipeline de mise en production soit déployé sur un ou plusieurs appareils. Si vous le déployez sur un seul appareil, entrez l'**ID d’appareil IoT Edge**. Si vous le déployez sur plusieurs appareils, spécifiez la **condition cible** des appareils. La condition cible est un filtre qui correspond à un ensemble d'appareils IoT Edge dans IoT Hub. Pour utiliser les étiquettes d’appareils comme condition, vous devez mettre à jour les étiquettes d’appareils correspondantes avec le jumeau d’appareil IoT Hub. Mettez à jour l'**ID de déploiement IoT Edge** et la **priorité de déploiement IoT Edge** dans les paramètres avancés. Pour plus d’informations sur la création d’un déploiement pour plusieurs appareils, consultez [Comprendre les déploiements automatiques IoT Edge](../articles/iot-edge/module-deployment-monitoring.md). |
     | ID d’appareil ou condition cible | Selon la sélection précédente, spécifiez un ID d’appareil ou une [condition cible](../articles/iot-edge/module-deployment-monitoring.md#target-condition) pour le déploiement sur plusieurs appareils. |
     | Avancé | Pour l’ID de déploiement IoT Edge, spécifiez `$(System.TeamProject)-$(Release.EnvironmentName)`. Cette variable mappe le projet et le nom de la version avec votre ID de déploiement IoT Edge. |
+    
+
+    Si votre tâche implique l’utilisation d’une image qui réside dans un registre de confiance Docker privé et qui n’est pas visible dans le cloud public, vous pouvez définir la variable d’environnement **SKIP_MODULE_IMAGE_VALIDATION** sur `true` pour ignorer la validation de l’image. 
 
     ![Ajouter des tâches Azure IoT Edge pour votre phase de développement](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 

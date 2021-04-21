@@ -3,30 +3,30 @@ title: Migrer vers Azure Kubernetes Service (AKS)
 description: Effectuez une migration vers Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: e0c3e331dba08fc95f471e3ad40dfcbb10cc2f0c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d5e3543fd6b7cd1b5534d6e363e51f1778cc7fc9
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670628"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012125"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrer vers Azure Kubernetes Service (AKS)
 
-Cet article vous aide à planifier et à exécuter une migration réussie vers le service Azure Kubernetes (AKS). En fournissant des détails sur la configuration recommandée actuelle pour AKS, ce guide vous assiste dans la prise de décisions importantes. Cet article ne couvre pas tous les scénarios et, lorsque cela est approprié, propose des liens vers des informations plus détaillées sur la planification d’une migration réussie.
+Pour vous aider à planifier et à exécuter la migration vers le service Azure Kubernetes (AKS), ce guide fournit des détails sur la configuration recommandée d’AKS. Bien que cet article ne couvre pas tous les scénarios, il propose des liens vers des informations plus détaillées sur la planification d’une migration réussie.
 
-Ce document peut être utilisé pour faciliter la prise en charge des scénarios suivants :
+Ce document facilite la prise en charge des scénarios suivants :
 
-* Conteneurisation de certaines applications et migration de celles-ci vers AKS à l’aide d’[Azure Migrate](../migrate/migrate-services-overview.md)
-* Migration d’un cluster AKS reposant sur des [Groupes à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) vers [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md)
-* Migration d’un cluster AKS pour utiliser un [Équilibreur de charge de référence SKU Standard](./load-balancer-standard.md)
-* Migration à partir d’[Azure Container Service (ACS) - Mise hors service le 31 janvier 2020](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) vers AKS
-* Migration à partir du [Moteur AKS](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) vers AKS
-* Migration à partir de clusters Kubernetes non basés sur Azure vers AKS
-* Déplacement des ressources existantes vers une autre région
+* Conteneurisation de certaines applications et migration de celles-ci vers AKS à l’aide d’[Azure Migrate](../migrate/migrate-services-overview.md).
+* Migration d’un cluster AKS reposant sur des [Groupes à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) vers [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
+* Migration d’un cluster AKS pour utiliser un [Équilibreur de charge de référence SKU Standard](./load-balancer-standard.md).
+* Migration à partir d’[Azure Container Service (ACS) - Mise hors service le 31 janvier 2020](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) vers AKS.
+* Migration à partir du [Moteur AKS](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) vers AKS.
+* Migration à partir de clusters Kubernetes non basés sur Azure vers AKS.
+* Déplacement des ressources existantes vers une autre région.
 
-Lors de la migration, assurez-vous que la version de votre Kubernetes cible entre dans le cadre de la prise en charge pour AKS. Si vous utilisez une version antérieure, elle peut ne pas se trouver dans la plage compatible et nécessiter une mise à niveau des versions pour être prise en charge par AKS. Consultez la section [Versions de Kubernetes prises en charge dans AKS](./supported-kubernetes-versions.md) pour plus d’informations.
+Lors de la migration, assurez-vous que la version de votre Kubernetes cible entre dans le cadre de la prise en charge pour AKS. Les versions antérieures peuvent ne pas figurer dans la plage prise en charge et nécessitent un changement de version qui sera pris en charge par AKS. Pour plus d’informations, consultez la section [Versions de Kubernetes prises en charge dans AKS](./supported-kubernetes-versions.md).
 
 Si vous effectuez une migration vers une version plus récente de Kubernetes, consultez [Stratégie de prise en charge des versions et des différences de version Kubernetes](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions).
 
@@ -50,20 +50,29 @@ Dans cet article, nous allons résumer les détails de la migration pour les poi
 
 ## <a name="use-azure-migrate-to-migrate-your-applications-to-aks"></a>Utiliser Azure Migrate pour migrer vos applications vers AKS
 
-Azure Migrate fournit une plateforme unifiée pour évaluer et migrer vers Azure des serveurs, une infrastructure, des applications et des données locaux. Pour AKS, vous pouvez utiliser Azure Migrate pour effectuer les opérations suivantes :
+Azure Migrate fournit une plateforme unifiée pour évaluer et migrer vers Azure des serveurs, une infrastructure, des applications et des données locaux. Pour AKS, vous pouvez utiliser Azure Migrate pour effectuer les tâches suivantes :
 
 * [Conteneuriser les applications ASP.NET et migrer vers AKS](../migrate/tutorial-containerize-aspnet-kubernetes.md)
 * [Conteneuriser les applications web Java et migrer vers AKS](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>AKS avec Standard Load Balancer et Virtual Machine Scale Sets
 
-AKS est un service managé offrant des fonctionnalités uniques, avec un traitement de gestion moindre. Comme il s’agit d’un service managé, vous devez sélectionner à partir d’un ensemble de [régions](./quotas-skus-regions.md) celles que AKS prend en charge. La transition entre votre cluster existant et AKS peut nécessiter la modification de vos applications existantes, afin qu’elles restent saines dans le plan de contrôle managé par AKS.
+AKS est un service managé offrant des fonctionnalités uniques, avec un traitement de gestion moindre. AKS étant un service managé, vous devez sélectionner à partir d’un ensemble de [régions](./quotas-skus-regions.md) celles que AKS prend en charge. Vous devrez peut-être modifier vos applications existantes pour les conserver dans le plan de contrôle géré par AKS lors de la transition de votre cluster existant vers AKS.
 
-Nous vous recommandons d’utiliser des clusters AKS s’appuyant sur [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) et l’équilibreur [Azure Standard Load Balancer](./load-balancer-standard.md) pour être sûr d’obtenir des fonctionnalités telles que des [pools de nœuds multiples](./use-multiple-node-pools.md), [Zones de disponibilité](../availability-zones/az-overview.md), des [plages d’adresses IP autorisées](./api-server-authorized-ip-ranges.md), la [mise à l’échelle automatique de cluster](./cluster-autoscaler.md), [Azure Policy pour AKS](../governance/policy/concepts/policy-for-kubernetes.md) et d’autres fonctionnalités inédites à mesure qu’elles sont publiées.
+Nous vous conseillons d’utiliser des clusters AKS avec des [Groupes de machines virtuelles identiques](../virtual-machine-scale-sets/index.yml) et [Azure Standard Load Balancer](./load-balancer-standard.md) pour vous assurer de disposer des fonctionnalités suivantes :
+* [Pools multinœuds](./use-multiple-node-pools.md),
+* [Zones de disponibilité](../availability-zones/az-overview.md),
+* [Plages IP autorisées](./api-server-authorized-ip-ranges.md),
+* [Autoscaler de cluster](./cluster-autoscaler.md),
+* [Découvrir Azure Policy pour AKS Engine](../governance/policy/concepts/policy-for-kubernetes.md) et
+* D’autres nouvelles fonctionnalités à mesure qu’elles sont publiées.
 
 Les clusters AKS s’appuyant sur des [groupes à haute disponibilité de machines virtuelles](../virtual-machines/availability.md#availability-sets) ne prennent pas en charge la plupart de ces fonctionnalités.
 
-L’exemple suivant crée un cluster AKS avec un pool de nœuds unique soutenu par un groupe de machines virtuelles identiques. Il utilise un équilibreur de charge standard. Il active également la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3* nœuds :
+L’exemple suivant crée un cluster AKS avec un pool de nœuds unique soutenu par un groupe de machines virtuelles identiques. Le cluster :
+* Il utilise un équilibreur de charge standard. 
+* Il active la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster.
+* Il définit un minimum de *1* et un maximum de *3* nœuds.
 
 ```azurecli-interactive
 # First create a resource group
@@ -83,7 +92,7 @@ az aks create \
 
 ## <a name="existing-attached-azure-services"></a>Services Azure attachés existants
 
-Au cours de la migration de clusters, vous avez peut-être attaché des services Azure externes. Ceux-ci ne demandent pas de recréer des ressources, mais demandent de mettre à jour les connexions des précédents clusters vers les nouveaux clusters pour conserver les fonctionnalités.
+Au cours de la migration des clusters, vous avez peut-être attaché des services Azure externes. Bien que les services suivants ne demandent pas à recréer les ressources, ils exigent de mettre à jour les connexions des précédents clusters vers les nouveaux clusters pour conserver les fonctionnalités.
 
 * Azure Container Registry
 * Log Analytics
@@ -94,52 +103,54 @@ Au cours de la migration de clusters, vous avez peut-être attaché des services
 
 ## <a name="ensure-valid-quotas"></a>Garantie de la validité des quotas
 
-Étant donné que des machines virtuelles supplémentaires seront déployées dans votre abonnement pendant la migration, vous devez vérifier que vos quotas et vos limites sont définis sur des valeurs suffisantes pour ces ressources. Vous pouvez être amené à demander une augmentation du [quota de processeurs virtuels](../azure-portal/supportability/per-vm-quota-requests.md).
+Comme d’autres machines virtuelles seront déployées dans votre abonnement pendant la migration, vous devez vérifier que vos quotas et vos limites sont définis sur des valeurs suffisantes pour ces ressources. Si nécessaire, demandez une augmentation du [quota de processeurs virtuels](../azure-portal/supportability/per-vm-quota-requests.md).
 
-Vous devrez peut-être demander une augmentation des [quotas réseau](../azure-portal/supportability/networking-quota-requests.md) pour vous assurer de ne pas épuiser les adresses IP. Pour plus d’informations, consultez [Réseau et plages d’adresses IP pour AKS](./configure-kubenet.md).
+Vous devrez peut-être demander une augmentation des [quotas réseau](../azure-portal/supportability/networking-quota-requests.md) pour vous assurer de ne pas épuiser les adresses IP. Pour plus d’informations, consultez [Mise en réseau et plages d’adresses IP pour AKS](./configure-kubenet.md).
 
 Pour plus d’informations, consultez [Azure subscription and service limits (Limites de service et d’abonnement Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md). Pour vérifier vos quotas actuels, dans le Portail Azure, accédez au [panneau Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), sélectionnez votre abonnement, puis sélectionnez **Utilisation + quotas**.
 
 ## <a name="high-availability-and-business-continuity"></a>Haute disponibilité et continuité de l’activité
 
-Si votre application ne peut pas gérer les temps d’arrêt, vous devez suivre les bonnes pratiques établies pour les scénarios de migration en haute disponibilité.  Les pratiques recommandées pour la planification de la continuité d’activité complexe, la reprise d’activité et l’optimisation du temps d’activité n’entrent pas dans le cadre de ce document.  Apprenez-en davantage sur le sujet en consultant [Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)](./operator-best-practices-multi-region.md).
+Si votre application ne peut pas gérer les temps d’arrêt, vous devez suivre les meilleures pratiques établies pour les scénarios de migration en haute disponibilité. Plus d’informations sur les [pratiques recommandées pour la planification de la continuité d’activité complexe, la reprise d’activité et l’optimisation du temps d’activité dans Azure Kubernetes Service (AKS)](./operator-best-practices-multi-region.md).
 
-Pour les applications complexes, la migration s’effectue généralement en plusieurs fois, et non en une fois. Cela signifie donc que l’ancien environnement et le nouvel environnement auront besoin de communiquer par le biais du réseau. Les applications qui utilisaient les services `ClusterIP` pour communiquer devront peut-être être exposées en tant que type `LoadBalancer` et sécurisées de manière adéquate.
+Pour les applications complexes, vous effectuez généralement une migration progressive plutôt qu’en une seule fois, ce qui signifie que les anciens et nouveaux environnements devront peut-être communiquer sur le réseau. Les applications qui utilisaient les services `ClusterIP` pour communiquer devront peut-être être exposées en tant que type `LoadBalancer` et sécurisées de manière adéquate.
 
 Pour effectuer la migration, vous devez rediriger les clients vers les nouveaux services qui exécutent AKS. Nous vous recommandons de rediriger le trafic en mettant à jour le DNS pour qu’il pointe vers l’équilibreur de charge se trouvant devant votre cluster AKS.
 
-[Azure Traffic Manager](../traffic-manager/index.yml) peut diriger les clients vers le cluster Kubernetes et l’instance d’application souhaités.  Traffic Manager est un équilibreur de charge de trafic DNS qui peut répartir le trafic réseau entre les régions.  Pour optimiser les performances et la redondance, faites transiter l’ensemble du trafic d’application par Traffic Manager avant qu’il parvienne à votre cluster AKS.  Dans un déploiement impliquant plusieurs clusters, les clients doivent se connecter à un nom DNS Traffic Manager qui pointe vers les services de chaque cluster AKS. Définissez ces services en utilisant des points de terminaison Traffic Manager. Chaque point de terminaison est l’*adresse IP d’équilibreur de charge de service*. Cette configuration vous permet de diriger le trafic réseau du point de terminaison Traffic Manager d’une région vers le point de terminaison d’une autre région.
+[Azure Traffic Manager](../traffic-manager/index.yml) peut diriger les clients vers le cluster Kubernetes et l’instance d’application souhaités. Traffic Manager est un équilibreur de charge de trafic DNS qui peut répartir le trafic réseau entre les régions. Pour optimiser les performances et la redondance, faites transiter l’ensemble du trafic d’application par Traffic Manager avant qu’il parvienne à votre cluster AKS. 
+
+Dans un déploiement impliquant plusieurs clusters, les clients doivent se connecter à un nom DNS Traffic Manager qui pointe vers les services sur chaque cluster AKS. Définissez ces services en utilisant des points de terminaison Traffic Manager. Chaque point de terminaison est l’*adresse IP d’équilibreur de charge de service*. Cette configuration vous permet de diriger le trafic réseau du point de terminaison Traffic Manager d’une région vers le point de terminaison d’une autre région.
 
 ![AKS avec Traffic Manager](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
-[Azure Front Door Service](../frontdoor/front-door-overview.md) représente une autre solution pour le routage du trafic des clusters AKS.  Azure Front Door Service vous permet de définir, de gérer et de superviser le routage global de votre trafic web en privilégiant l’optimisation des performances et le basculement instantané global à des fins de haute disponibilité. 
+[Azure Front Door Service](../frontdoor/front-door-overview.md) représente une autre solution pour le routage du trafic des clusters AKS. Avec Azure Front Door Service vous pouvez définir, gérer et superviser le routage global de votre trafic web en privilégiant l’optimisation des performances et le basculement instantané global à des fins de haute disponibilité. 
 
 ### <a name="considerations-for-stateless-applications"></a>Considérations relatives aux applications sans état
 
-La migration des applications sans état est le cas de migration le plus simple. Appliquez vos définitions de ressources (YAML ou Helm) au nouveau cluster, vérifiez que tout fonctionne comme prévu et redirigez le trafic pour activer votre nouveau cluster.
+La migration des applications sans état est le cas de migration le plus simple :
+1. Appliquez vos définitions de ressources (YAML ou Helm) au nouveau cluster.
+1. Vérifiez que tout fonctionne correctement.
+1. Redirigez le trafic pour activer votre nouveau cluster.
 
 ### <a name="considerations-for-stateful-applications"></a>Points à prendre en compte sur les applications avec état
 
 Planifiez soigneusement la migration des applications avec afin d’éviter la perte de données ou un temps d’arrêt imprévu.
 
-Si vous utilisez Azure Files, vous pouvez monter le partage de fichiers en tant que volume dans le nouveau cluster :
-* [Monter le service Azure Files statique en tant que volume](./azure-files-volume.md#mount-file-share-as-an-persistent-volume)
-
-Si vous utilisez des disques managés Azure, vous pouvez monter le disque uniquement s’il n’est pas attaché à une machine virtuelle :
-* [Monter un disque Azure statique en tant que volume](./azure-disk-volume.md#mount-disk-as-volume)
-
-Si aucune de ces approches ne fonctionne, vous pouvez utiliser les options de sauvegarde et de restauration :
-* [Velero sur Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
+* Si vous utilisez Azure Files, vous pouvez monter le partage de fichiers en tant que volume dans le nouveau cluster. Voir [Monter le service Azure Files statique en tant que volume](./azure-files-volume.md#mount-file-share-as-an-persistent-volume).
+* Si vous utilisez des disques managés Azure, vous pouvez monter le disque uniquement s’il n’est pas attaché à une machine virtuelle. Voir [Monter le service Azure Disk statique en tant que volume](./azure-disk-volume.md#mount-disk-as-volume).
+* Si aucune de ces approches ne fonctionne, vous pouvez utiliser les options de sauvegarde et de restauration. Voir [Velero sur Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md).
 
 #### <a name="azure-files"></a>Azure Files
 
-Contrairement aux disques, Azure Files peut être monté sur plusieurs hôtes en même temps. Dans votre cluster AKS, Azure et Kubernetes ne vous empêchent pas de créer un pod toujours utilisé par votre cluster ACS. Pour éviter une perte de données et un comportement inattendu, vérifiez que les clusters n’écrivent pas dans les mêmes fichiers en même temps.
+Contrairement aux disques, Azure Files peut être monté sur plusieurs hôtes en même temps. Dans votre cluster AKS, Azure et Kubernetes ne vous empêchent pas de créer un pod toujours utilisé par votre cluster AKS. Pour éviter une perte de données et un comportement inattendu, vérifiez que les clusters n’écrivent pas dans les mêmes fichiers en même temps.
 
-Si votre application peut héberger plusieurs réplicas pointant vers le même partage de fichiers, suivez les étapes de migration sans état et déployez vos définitions YAML sur votre nouveau cluster. Si ce n’est pas le cas, essayez la méthode suivante :
+Si votre application peut héberger plusieurs réplicas pointant vers le même partage de fichiers, suivez les étapes de migration sans état et déployez vos définitions YAML sur votre nouveau cluster. 
 
-* Vérifiez que votre application fonctionne correctement.
-* Pointez votre trafic en direct vers votre nouveau cluster AKS.
-* Déconnectez l’ancien cluster.
+Si ce n’est pas le cas, essayez la méthode suivante :
+
+1. Vérifiez que votre application fonctionne correctement.
+1. Pointez votre trafic en direct vers votre nouveau cluster AKS.
+1. Déconnectez l’ancien cluster.
 
 Si vous souhaitez commencer avec un partage vide et copier les données sources, vous pouvez utiliser les commandes [`az storage file copy`](/cli/azure/storage/file/copy) pour migrer vos données.
 
@@ -148,14 +159,15 @@ Si vous souhaitez commencer avec un partage vide et copier les données sources,
 
 Si vous migrez des volumes persistants existants vers AKS, vous suivez généralement les étapes ci-après :
 
-* Suspendre l’écriture dans l’application. (Cette étape est facultative et nécessite un temps d’arrêt.)
-* Prendre des instantanés des disques.
-* Créer des disques managés à partir d’instantanés.
-* Créer des volumes persistants dans AKS.
-* Modifier les spécifications du pod pour qu’il [utilise les volumes existants](./azure-disk-volume.md) plutôt que PersistentVolumeClaims (provisionnement statique).
-* Déployez votre application sur AKS.
-* Vérifiez que votre application fonctionne correctement.
-* Pointez votre trafic en direct vers votre nouveau cluster AKS.
+1. Suspendre l’écriture dans l’application. 
+    * Cette étape est facultative et nécessite un temps d’arrêt.
+1. Prendre des instantanés des disques.
+1. Créer des disques managés à partir d’instantanés.
+1. Créer des volumes persistants dans AKS.
+1. Modifier les spécifications du pod pour qu’il [utilise les volumes existants](./azure-disk-volume.md) plutôt que PersistentVolumeClaims (provisionnement statique).
+1. Déployez votre application sur AKS.
+1. Vérifiez que votre application fonctionne correctement.
+1. Pointez votre trafic en direct vers votre nouveau cluster AKS.
 
 > [!IMPORTANT]
 > Si vous ne souhaitez pas suspendre les écritures, vous devez répliquer les données vers le nouveau déploiement. Dans le cas contraire, vous risquez de manquer les données écrites après que vous avez pris les instantanés de disque.
@@ -178,7 +190,9 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 ### <a name="moving-existing-resources-to-another-region"></a>Déplacement des ressources existantes dans une autre région
 
-Vous pouvez déplacer votre cluster AKS dans une [autre région prise en charge par AKS][region-availability]. Nous vous recommandons de créer un cluster dans l’autre région, puis de déployer vos ressources et vos applications sur le nouveau cluster. Par ailleurs, si vous disposez de services tels que [Azure Dev Spaces][azure-dev-spaces], en cours d’exécution sur votre cluster AKS, vous devez également installer et configurer ces services sur votre cluster dans la nouvelle région.
+Vous pouvez déplacer votre cluster AKS dans une [autre région prise en charge par AKS][region-availability]. Nous vous recommandons de créer un cluster dans l’autre région, puis de déployer vos ressources et vos applications sur le nouveau cluster. 
+
+Par ailleurs, si vous disposez de services tels que [Azure Dev Spaces][azure-dev-spaces], en cours d’exécution sur votre cluster AKS, vous devez installer et configurer ces services sur votre cluster dans la nouvelle région.
 
 
 Dans cet article, nous avons synthétisé les détails de la migration pour :

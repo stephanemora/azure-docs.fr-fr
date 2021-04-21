@@ -6,17 +6,17 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 08/10/2020
-ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: b0aa9d5dec25d8d600ecbcde59a57e67917c6411
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026231"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011147"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Fonctions de l’API SQL d’Hyperscale (Citus)
 
-Cette section contient des informations de référence pour les fonctions définies par l’utilisateur fournies par Hyperscale (Citus). Ces fonctions permettent de fournir des fonctionnalités distribuées supplémentaires à Hyperscale (Citus) autres que les commandes SQL standard.
+Cette section contient des informations de référence pour les fonctions définies par l’utilisateur fournies par Hyperscale (Citus). Ces fonctions permettent de fournir une fonctionnalité distribuée à Hyperscale (Citus).
 
 > [!NOTE]
 >
@@ -178,6 +178,48 @@ SELECT create_distributed_function(
 );
 ```
 
+### <a name="alter_columnar_table_set"></a>alter_columnar_table_set
+
+La fonction alter_columnar_table_set () modifie les paramètres d’une [table en colonnes](concepts-hyperscale-columnar.md). L’appel de cette fonction sur une table qui n’est pas en colonnes génère une erreur. Tous les arguments, à l’exception du nom de la table, sont facultatifs.
+
+Pour afficher les options actuelles de toutes les tables en colonnes, consultez le tableau suivant :
+
+```postgresql
+SELECT * FROM columnar.options;
+```
+
+Les valeurs par défaut des paramètres de colonnes pour les tables récemment créées peuvent être remplacées par ces GUC :
+
+* columnar.compression
+* columnar.compression_level
+* columnar.stripe_row_count
+* columnar.chunk_row_count
+
+#### <a name="arguments"></a>Arguments
+
+**table_name :** nom de la table en colonnes.
+
+**chunk_row_count :** (facultatif) nombre maximal de lignes par bloc pour les nouvelles données insérées. Les blocs de données existants ne seront pas modifiés et peuvent avoir plus de lignes que cette valeur maximale. La valeur par défaut est 10 000.
+
+**stripe_row_count :** (facultatif) nombre maximal de lignes par frange pour les nouvelles données insérées. Les franges de données existantes ne seront pas modifiées et peuvent avoir plus de lignes que cette valeur maximale. La valeur par défaut est 150000.
+
+**compression :** (facultatif) `[none|pglz|zstd|lz4|lz4hc]` type de compression pour les données récemment insérées. Les données existantes ne seront pas recompressées ou décompressées. La valeur par défaut et suggérée est zstd (si le support a été compilé).
+
+**compression_level :** (facultatif) Les paramètres valides sont compris entre 1 et 19. Si la méthode de compression ne prend pas en charge le niveau choisi, le niveau le plus proche est sélectionné à la place.
+
+#### <a name="return-value"></a>Valeur retournée
+
+N/A
+
+#### <a name="example"></a>Exemple
+
+```postgresql
+SELECT alter_columnar_table_set(
+  'my_columnar_table',
+  compression => 'none',
+  stripe_row_count => 10000);
+```
+
 ## <a name="metadata--configuration-information"></a>Métadonnées/Informations de configuration
 
 ### <a name="master_get_table_metadata"></a>master\_get\_table\_metadata
@@ -220,7 +262,7 @@ SELECT * from master_get_table_metadata('github_events');
 
 ### <a name="get_shard_id_for_distribution_column"></a>get\_shard\_id\_for\_distribution\_column
 
-Hyperscale (Citus) attribue chaque ligne d’une table distribuée à une partition en fonction de la valeur de la colonne de distribution de la ligne et de la méthode de distribution de la table. Dans la plupart des cas, le mappage précis est un détail de bas niveau que l’administrateur de base de données peut ignorer. Toutefois, il peut être utile de déterminer la partition d’une ligne, que ce soit pour des tâches de maintenance de base de données manuelles ou simplement par curiosite. La fonction `get_shard_id_for_distribution_column` fournit ces informations pour les tables de hachage distribuées et par plage, ainsi que les tables de référence. Elle ne fonctionne pas pour la distribution append.
+Hyperscale (Citus) attribue chaque ligne d’une table distribuée à une partition en fonction de la valeur de la colonne de distribution de la ligne et de la méthode de distribution de la table. Dans la plupart des cas, le mappage précis est un détail de bas niveau que l’administrateur de base de données peut ignorer. Toutefois, il peut être utile de déterminer la partition d’une ligne, que ce soit pour des tâches de maintenance de base de données manuelles ou simplement par curiosite. La fonction `get_shard_id_for_distribution_column` fournit ces informations pour les tables de référence, distribuées par hachage et par plage. Elle ne fonctionne pas pour la distribution append.
 
 #### <a name="arguments"></a>Arguments
 

@@ -3,12 +3,12 @@ title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: f557a3a15da33b7394d22784bcd2c1c914ad6201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3598fe290fd993cbbc662ba9d3a3c5ba8c207bc0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889431"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781916"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Déploiements d’abonnements avec des modèles ARM
 
@@ -92,7 +92,7 @@ Pour déployer sur un abonnement, utilisez les commandes de déploiement au nive
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour l’interface de ligne de commande Azure, utilisez [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
+Pour l’interface de ligne de commande Azure, utilisez [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
 
 ```azurecli-interactive
 az deployment sub create \

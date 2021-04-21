@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 31b2a993267e6e8abbf7184d745889b74e587c50
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521065"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311768"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Chiffrement des données avec Azure Machine Learning
 
@@ -37,7 +37,7 @@ L'indicateur `hbi_workspace` contrôle la quantité de [données que Microsoft c
 * Nettoie votre disque de travail local entre les exécutions.
 * Transmet en toute sécurité les informations d’identification de votre compte de stockage, de votre registre de conteneurs et de votre compte SSH de la couche d’exécution à vos clusters de calcul en utilisant votre coffre de clés.
 * Active le filtrage IP pour s’assurer que les pools Batch sous-jacents ne peuvent pas être appelés par des services externes autres que AzureMachineLearningService.
-* Notez que les instances de calcul ne sont pas prises en charge dans l’espace de travail HBI.
+* Les instances de calcul sont prises en charge dans l'espace de travail HBI.
 
 ### <a name="azure-blob-storage"></a>Stockage Blob Azure
 

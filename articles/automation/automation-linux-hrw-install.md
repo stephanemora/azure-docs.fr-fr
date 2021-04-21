@@ -3,14 +3,14 @@ title: Déployer un Runbook Worker hybride Linux dans Azure Automation
 description: Cet article explique comment déployer un runbook Worker hybride Azure Automation qui vous permet d’exécuter des runbooks sur les machines Linux de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/02/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: a37f3de48dd675ef1b41f84747f0db3ce1598337
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 21bb3a353874e401d86741584d102b5c217e69cc
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293666"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030047"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -111,7 +111,7 @@ Deux méthodes permettent de déployer un Runbook Worker hybride. Vous pouvez im
 
 ### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importer un runbook à partir de la Galerie de runbooks
 
-La procédure d’importation est détaillée dans [Importer un runbook PowerShell à partir de GitHub avec le portail Azure](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). Le nom du runbook à importer est **Create Automation Linux HybridWorker**.
+La procédure d’importation est détaillée dans [Importer des runbooks à partir de GitHub avec le portail Azure](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). Le nom du runbook à importer est **Create Automation Linux HybridWorker**.
 
 Le runbook utilise les paramètres suivants.
 

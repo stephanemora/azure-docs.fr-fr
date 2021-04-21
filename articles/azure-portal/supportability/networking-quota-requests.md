@@ -6,12 +6,12 @@ ms.author: anavin
 ms.date: 01/23/2020
 ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: e945dec2ce8514c3e4f1edecdecd13c5c43f7c75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 801f0424e7ec15fbde58f35975f4c7eca4c9a5de
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745449"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775562"
 ---
 # <a name="networking-limit-increase"></a>Augmentation de la limite réseau
 
@@ -19,7 +19,7 @@ Utilisez le [portail Azure](https://portal.azure.com) pour augmenter votre quota
 
 Pour voir l’utilisation et le quota actuels de votre réseau dans le portail Azure, ouvrez votre abonnement, puis sélectionnez **Utilisation + quotas**. Vous pouvez également utiliser les options suivantes pour voir l’utilisation et les limites de votre réseau.
 
-* [CLI d’utilisation](/cli/azure/network#az-network-list-usages)
+* [CLI d’utilisation](/cli/azure/network#az_network_list_usages)
 * [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
 * [L’API d’utilisation du réseau](/rest/api/virtualnetwork/virtualnetworks/listusage)
 

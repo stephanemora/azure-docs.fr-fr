@@ -3,19 +3,18 @@ title: Déplacement d’un coffre Azure Key Vault vers un autre abonnement | Mic
 description: Conseils pour le déplacement d’un coffre de clés vers un autre abonnement.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c23f961b8aeaae3e338f9c513a9f2b9d07b64abb
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 65dc9da03a6b763d419c51e53bf756550e8b56a4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056400"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751847"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -124,5 +123,5 @@ Si vous utilisez une identité managée, vous devrez également mettre à jour l
 - En savoir plus sur les [clés, secrets et certificats](about-keys-secrets-certificates.md)
 - Pour obtenir des informations conceptuelles, notamment sur l’interprétation des journaux Key Vault, consultez [Journalisation de Key Vault](logging.md).
 - [Guide du développeur Key Vault](../general/developers-guide.md)
-- [Sécurisez votre coffre de clés](secure-your-key-vault.md)
+- [Sécurisez votre coffre de clés](security-overview.md)
 - [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](network-security.md)

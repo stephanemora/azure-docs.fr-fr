@@ -3,19 +3,18 @@ title: Attribuer une stratégie d’accès Azure Key Vault
 description: Comment utiliser le portail Azure, Azure CLI ou Azure PowerShell pour attribuer une stratégie d’accès Key Vault à un principal de sécurité ou à une identité d’application.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4637715b2ba885d58ebb4c5f3ed40a79be2f815b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 1c7c31f38d6a59f4ded17e1e1fd7e985ce59922a
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968728"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751415"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Attribuer une stratégie d’accès Key Vault à l’aide d’Azure PowerShell
 
@@ -80,5 +79,5 @@ Vous avez uniquement besoin d’inclure `-PermissionsToSecrets`, `-PermissionsTo
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Sécurité d’Azure Key Vault : Gestion des identités et des accès](security-overview.md#identity-management)
-- [Sécuriser votre coffre de clés](secure-your-key-vault.md)
+- [Sécuriser votre coffre de clés](security-overview.md)
 - [Guide du développeur Azure Key Vault](developers-guide.md)

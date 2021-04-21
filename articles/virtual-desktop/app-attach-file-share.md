@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d8aaa8d5013c426ac1ab6b367309c51be4929cee
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: a2d4ebee02d85d10d5db8ec2de0bb1be334770dc
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366400"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717654"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach"></a>Configurer un partage de fichiers pour l’attachement d’application MSIX
 
@@ -77,7 +77,7 @@ Pour affecter des autorisations de machines virtuelles hôtes de session pour le
 
 4. Créez un compte de stockage.
 
-5. Créez un partage de fichiers sous le compte de stockage en suivant les instructions fournies dans [Créer un partage de fichiers Azure](../storage/files/storage-how-to-create-file-share.md#create-file-share).
+5. Créez un partage de fichiers sous le compte de stockage en suivant les instructions fournies dans [Créer un partage de fichiers Azure](../storage/files/storage-how-to-create-file-share.md#create-a-file-share).
 
 6. Joignez le compte de stockage à AD DS en suivant les instructions fournies dans [Première partie : activer l’authentification AD DS pour vos partages de fichiers Azure](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 

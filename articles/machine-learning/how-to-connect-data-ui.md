@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a0265984c4ae83b8869071017e2fb571a7ff548c
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508229"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027650"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Se connecter aux données avec Azure Machine Learning Studio
 
@@ -69,7 +69,7 @@ L’exemple suivant montre à quoi ressemble le formulaire quand vous créez un 
 Après avoir créé un magasin de données, créez un jeu de données pour interagir avec vos données. Les jeux de données intègrent vos données dans un objet consommable évalué tardivement pour les tâches de Machine Learning, comme la formation. [En savoir plus sur les jeux de données](how-to-create-register-datasets.md).
 
 Il existe deux types de jeux de données, FileDataset et TabularDataset. 
-[FileDataset](how-to-create-register-datasets.md#filedataset) crée des références à des fichiers uniques ou multiples, ou URL publiques. [TabularDataset](how-to-create-register-datasets.md#tabulardataset) représente vos données dans un format tabulaire. 
+[FileDataset](how-to-create-register-datasets.md#filedataset) crée des références à des fichiers uniques ou multiples, ou URL publiques. [TabularDataset](how-to-create-register-datasets.md#tabulardataset) représente vos données dans un format tabulaire. Vous pouvez créer un objet TabularDatasets à partir de fichiers .csv, .tsv, .parquet et .jsonl, et à partir de résultats de requête SQL.
 
 L’animation et les étapes suivantes montrent comment créer un jeu de données dans [Azure Machine Learning Studio](https://ml.azure.com).
 

@@ -4,20 +4,20 @@ description: Découvrez quels systèmes d’exploitation peuvent exécuter le ru
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/11/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f59e2ca06f4ec435522cd06815b22d706a2d894c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b60deee6ccb95245839ee740c2b237b98315d483
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772414"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313196"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Systèmes pris en charge Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Cet article fournit des détails sur les systèmes et les composants pris en charge par IoT Edge, qu’ils soient officiels ou en préversion.
 
@@ -52,18 +52,39 @@ Azure IoT Edge s’exécute sur la plupart des systèmes d’exploitation capabl
   * Microsoft a réalisé des tests informels sur les plateformes ou a connaissance d’un partenaire qui exécute Azure IoT Edge correctement sur la plateforme
   * Les packages d’installation pour d’autres plateformes peuvent fonctionner sur ces plateformes
 
-La famille du système d’exploitation hôte doit toujours correspondre à la famille du système d’exploitation invité utilisé dans le conteneur d’un module. En d’autres termes, vous ne pouvez utiliser que des conteneurs Linux sur Linux et des conteneurs Windows sur Windows. Lorsque vous utilisez Windows, seuls les conteneurs isolés du processus sont pris en charge, pas les conteneurs isolés Hyper-V.  
+La famille du système d’exploitation hôte doit toujours correspondre à la famille du système d’exploitation invité utilisé dans le conteneur d’un module.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+En d’autres termes, vous ne pouvez utiliser que des conteneurs Linux sur Linux et des conteneurs Windows sur Windows. Lorsque vous utilisez des conteneurs Windows, seuls les conteneurs isolés du processus sont pris en charge, et non les conteneurs isolés Hyper-V.  
 
 IoT Edge pour Linux sur Windows utilise IoT Edge sur une machine virtuelle Linux qui s’exécute sur un hôte Windows. Il est ainsi possible d’exécuter des modules Linux sur un appareil Windows.
+:::moniker-end
+<!-- end 1.1 -->
 
 ### <a name="tier-1"></a>Niveau 1
 
 Les systèmes qui figurent dans les tableaux ci-dessous sont pris en charge par Microsoft, soit en disponibilité générale soit en préversion publique, et sont testés avec chaque nouvelle version.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Azure IoT Edge prend en charge les modules créés en tant que conteneurs Linux ou Windows. Les conteneurs Linux peuvent être déployés sur des appareils Linux ou bien sur des appareils Windows avec IoT Edge pour Linux sur Windows. Les conteneurs Windows ne peuvent être déployés que sur des appareils Windows.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Azure IoT Edge version 1.2 prend uniquement en charge les modules créés en tant que conteneurs Linux.
+
+Aucune méthode n'est actuellement prise en charge pour exécuter IoT Edge version 1.2 sur des appareils Windows. [IoT Edge pour Linux sous Windows](iot-edge-for-linux-on-windows.md) est la méthode recommandée pour exécuter IoT Edge sur les appareils Windows, mais il n'exécute actuellement que IoT Edge 1.1. Pour plus d'informations, reportez-vous à la version [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) de cet article.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 #### <a name="linux-containers"></a>Conteneurs Linux
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Les modules créés en tant que conteneurs Linux peuvent être déployés sur des appareils Linux ou Windows. Pour les appareils Linux, le runtime IoT Edge est installé directement sur l’appareil hôte. Pour les appareils Windows, une machine virtuelle Linux précréée avec le runtime IoT Edge s’exécute sur l’appareil hôte.
 
 Bien qu'[IoT Edge pour Linux sur Windows](iot-edge-for-linux-on-windows.md) soit actuellement en préversion publique, il s'agit de la méthode recommandée pour exécuter IoT Edge sur des appareils Windows.
@@ -78,12 +99,27 @@ Bien qu'[IoT Edge pour Linux sur Windows](iot-edge-for-linux-on-windows.md) soit
 | Windows Server 2019 | Préversion publique |  |  |
 
 Tous les systèmes d’exploitation Windows doivent être de la version 1809 (build 17763) ou d’une version ultérieure.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+| Système d’exploitation | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Préversion publique |
+
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >La prise en charge d'Ubuntu Server 16.04 a pris fin avec la mise en production d'IoT Edge version 1.1.
 
 #### <a name="windows-containers"></a>Conteneurs Windows
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 >[!IMPORTANT]
 >IoT Edge 1.1 LTS est le dernier canal à prendre en charge les conteneurs Windows. À partir de la version 1.2, les conteneurs Windows ne seront plus pris en charge. Envisagez d'utiliser ou de migrer vers [IoT Edge pour Linux sur Windows](iot-edge-for-linux-on-windows.md) pour exécuter IoT Edge sur les appareils Windows.
 
@@ -99,6 +135,17 @@ Tous les systèmes d’exploitation Windows doivent être de la version 1809 (bu
 
 >[!NOTE]
 >La prise en charge de Windows 10 IoT Standard a pris fin avec la mise en production d'IoT Edge version 1.1.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+IoT Edge 1.1 LTS est le dernier canal à prendre en charge les conteneurs Windows. À partir de la version 1.2, les conteneurs Windows ne sont pas pris en charge.
+
+Pour plus d'informations sur les systèmes d'exploitation pris en charge pour les conteneurs Windows, reportez-vous à la version [IOT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) de cet article.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="tier-2"></a>Niveau 2
 
@@ -124,9 +171,15 @@ Les systèmes listés dans le tableau ci-dessous sont considérés comme compati
 
 Les ressources de mise en production et les notes de publication d’IoT Edge sont disponibles sur la page [Azure-iotedge](https://github.com/Azure/azure-iotedge/releases). Cette section reflète les informations de ces notes de publication pour vous aider à voir plus facilement quels sont les composants de chaque version.
 
-Les composants IoT Edge peuvent être installés ou mis à jour individuellement et sont rétrocompatibles avec les composants des versions antérieures. Le tableau suivant répertorie les composants inclus dans chaque version :
+Le tableau suivant répertorie les composants inclus dans chaque version, à partir de la version 1.2.0. Les composants répertoriés dans ce tableau peuvent être installés ou mis à jour individuellement, et sont rétrocompatibles avec les versions antérieures.
 
-| Libérer | Démon de sécurité | Hub Edge<br>Agent Edge | Libiothsm | Moby |
+| Libérer | aziot-edge | edgeHub<br>edgeAgent | aziot-identity-service |
+| ------- | ---------- | -------------------- | ---------------------- |
+| **1.2** | 1.2.0      | 1.2.0                | 1.2.0                  |
+
+Le tableau suivant répertorie les composants inclus dans chaque version, jusqu'à la version 1.1 LTS : Les composants répertoriés dans ce tableau peuvent être installés ou mis à jour individuellement, et sont rétrocompatibles avec les versions antérieures.
+
+| Libérer | iotedge | edgeHub<br>edgeAgent | libiothsm | moby |
 |--|--|--|--|--|
 | **1.1 LTS**<sup>1</sup> | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 |   |
 | **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
@@ -145,7 +198,8 @@ IoT Edge utilise le kit SDK Microsoft.Azure.Devices.Client. Pour plus d’inform
 
 | Version d’IoT Edge | Version du kit SDK Microsoft.Azure.Devices.Client |
 |------------------|--------------------------------------------|
-| 1.1 (LTS)      | 1.28.0                                     |
+| 1.2.0            | 1.33.4-NestedEdge
+| 1.1 (LTS)        | 1.28.0                                     |
 | 1.0.10           | 1.28.0                                     |
 | 1.0.9            | 1.21.1                                     |
 | 1.0.8            | 1.20.3                                     |
@@ -158,10 +212,28 @@ IoT Edge utilise le kit SDK Microsoft.Azure.Devices.Client. Pour plus d’inform
 Azure IoT Edge peut être exécuté sur des machines virtuelles. Il est courant d’utiliser une machine virtuelle comme appareil IoT Edge quand les clients souhaitent doter l’infrastructure existante de l’intelligence Edge. La famille du système d’exploitation de la machine virtuelle hôte doit correspondre à la famille du système d’exploitation invité utilisé dans le conteneur d’un module. Cette exigence est la même que lorsqu’Azure IoT Edge est exécuté directement sur un appareil. Azure IoT Edge est indépendant de la technologie de virtualisation sous-jacente et fonctionne sur les machines virtuelles alimentées par des plateformes telles que Hyper-V et vSphere.
 
 <br>
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+<center>
+
+![Azure IoT Edge sur une machine virtuelle](./media/support/edge-on-vm-with-windows.png)
+
+</center>
+
+::: moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
 <center>
 
 ![Azure IoT Edge sur une machine virtuelle](./media/support/edge-on-vm.png)
+
 </center>
+
+:::moniker-end
 
 ## <a name="minimum-system-requirements"></a>Configuration système minimale requise
 

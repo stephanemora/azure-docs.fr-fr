@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1d64233fc477ec25f91bb73c744b10210571df41
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586639"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588341"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques Python pour Apache Spark dans Azure Synapse Analytics
 
@@ -76,7 +76,8 @@ dependencies:
   - matplotlib
   - koalas==1.7.0
 ```
-Pour en savoir plus sur la création d’un environnement à partir du fichier environment.yml, consultez la section [Créer un environnement à partir d’un fichier environment.yml](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
+Pour en savoir plus sur la création d’un environnement à partir du fichier environment.yml, consultez la section [Créer un environnement à partir d’un fichier environment.yml](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment
+).
 
 #### <a name="update-python-packages"></a>Mettre à jour les packages Python
 Une fois que vous avez identifié le fichier de spécification d’environnement ou l’ensemble de bibliothèques que vous souhaitez installer sur le pool Spark, accédez à Azure Synapse Studio ou au Portail Azure pour mettre à jour les bibliothèques du pool Spark. Ici, vous pouvez fournir la spécification de l’environnement et sélectionner les bibliothèques d’espace de travail à installer. 

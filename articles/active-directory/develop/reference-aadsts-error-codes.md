@@ -12,12 +12,12 @@ ms.date: 03/17/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 56ffa8c33c409e274318407a70f33edaabb5073d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75d838e8ce785a4f59b056bf0dec736b982ea716
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578496"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283811"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -123,7 +123,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50055 | InvalidPasswordExpiredPassword : le mot de passe a expiré. |
 | AADSTS50056 | Le mot de passe est nul ou non valide. Le mot de passe pour cet utilisateur n’existe pas dans le magasin. |
 | AADSTS50057 | UserDisabled : le compte d’utilisateur est désactivé. Le compte a été désactivé par un administrateur. |
-| AADSTS50058 | UserInformationNotProvided : cela signifie qu’un utilisateur n’est pas connecté. Il s’agit d’une erreur courante qui est attendue lorsqu’un utilisateur n’est pas authentifié et n’est pas encore connecté.</br>Si cette erreur est encouragée dans un contexte d’authentification unique où l’utilisateur s’est connecté précédemment, cela signifie que la session d’authentification unique est introuvable ou invalide.</br>Cette erreur peut être retournée à l’application si prompt=none est spécifié. |
+| AADSTS50058 | UserInformationNotProvided : cela signifie qu’un utilisateur n’est pas connecté. Il s’agit d’une erreur courante qui est attendue lorsqu’un utilisateur n’est pas authentifié et n’est pas encore connecté.</br>Si cette erreur est rencontrée dans un contexte d'authentification unique où l'utilisateur s'est précédemment connecté, cela signifie que la session d'authentification unique est introuvable ou invalide.</br>Cette erreur peut être retournée à l’application si prompt=none est spécifié. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided : les informations d’identification de locataire sont introuvables dans la requête ou déduites des informations d’identification fournies. L’utilisateur peut contacter l’administrateur du locataire pour qu’il l’aide à résoudre le problème. |
 | AADSTS50061 | SignoutInvalidRequest : la requête de déconnexion n’est pas valide. |
 | AADSTS50064 | CredentialAuthenticationError : la validation des informations d’identification sur le nom d’utilisateur ou le mot de passe a échoué. |

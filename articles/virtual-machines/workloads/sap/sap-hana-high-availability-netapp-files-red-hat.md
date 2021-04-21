@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: c5f94329920f8c850c0a47dd607ade8e83658b29
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 774344c4215088482b110de91f8951bae4a41d25
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599916"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365822"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Haute disponibilité du scale-up SAP HANA avec Azure NetApp Files sur Red Hat Enterprise Linux
 
@@ -259,7 +259,6 @@ Vous devez d’abord créer les volumes Azure NetApp Files. Effectuez ensuite le
         1.  Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-lb**).
         1.  Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple,**hana-frontend**, **hana-backend** et **hana-hp**).
         1.  Sélectionnez **Ports HA**.
-        1.  Augmentez le **délai d’inactivité** à 30 minutes.
         1.  Veillez à **activer l’IP flottante** .
         1.  Sélectionnez **OK**.
 
@@ -472,6 +471,71 @@ Cette section décrit les étapes nécessaires au bon fonctionnement du cluster 
 ### <a name="create-a-pacemaker-cluster"></a>Créez un cluster Pacemaker
 
 Suivez les étapes décrites sur la page [Configurer Pacemaker sur Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) dans Azure pour créer un cluster Pacemaker de base pour ce serveur HANA.
+
+### <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implémenter le hook de réplication de système Python SAPHanaSR
+
+Il s’agit d’une étape importante pour optimiser l’intégration au cluster et améliorer la détection lorsqu’un basculement de cluster est nécessaire. Il est vivement recommandé de configurer le hook Python SAPHanaSR.    
+
+1. **[A]** Installez le « hook de réplication de système » HANA. Le hook doit être installé sur les deux nœuds de base de données HANA.           
+
+   > [!TIP]
+   > Le hook Python peut être implémenté uniquement pour HANA 2.0.        
+
+   1. Préparez le hook en tant que `root`.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Arrêtez HANA sur les deux nœuds. Exécutez en tant que <sid\>adm :  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Réglez `global.ini` sur chaque nœud du cluster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** Le cluster nécessite une configuration de sudoers sur chaque nœud de cluster pour <sid\>adm. Dans cet exemple, il est possible de créer un nouveau fichier. Exécutez les commandes en tant que `root`.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+
+3. **[A]** Démarrez SAP HANA sur les deux nœuds. Exécutez en tant que <sid\>adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Vérifiez l’installation de hook. Exécutez en tant que <sid\>adm sur le site de réplication de système HANA actif.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
+
+    ```
+
+Pour plus d’informations sur l’implémentation du hook de réplication de système SAP HANA, consultez [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
 
 ### <a name="configure-filesystem-resources"></a>Configurer les ressources du système de fichiers
 

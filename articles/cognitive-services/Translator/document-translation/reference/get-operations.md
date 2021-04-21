@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/25/2021
 ms.author: v-jansk
-ms.openlocfilehash: c42f3081a831c267c7bc605267b99e2a916ea3d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd7cee564aa3a00e21d1e707d08a18115d519925
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613757"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484674"
 ---
 # <a name="document-translation-get-operations"></a>Traduction de documentation : get operations
 
@@ -96,7 +96,7 @@ Les informations suivantes sont retournées dans une réponse positive.
 |summary.cancelled|entier|Nombre de documents annulés.|
 |summary.totalCharacterCharged|entier|Nombre total de caractères facturés.|
 
-###<a name="error-response"></a>Réponse d’erreur
+### <a name="error-response"></a>Réponse d’erreur
 
 |Nom|Type|Description|
 |--- |--- |--- |
@@ -157,7 +157,7 @@ Code d’état : 500
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez notre guide de démarrage rapide pour en savoir plus sur l’utilisation du service Traduction de documentation et de la bibliothèque de client.
+Suivez notre guide de démarrage rapide pour en savoir plus sur l’utilisation du service Traduction de document et de la bibliothèque de client.
 
 > [!div class="nextstepaction"]
-> [Bien démarrer avec la traduction de documents](../get-started-with-document-translation.md)
+> [Bien démarrer avec la traduction de documentation](../get-started-with-document-translation.md)

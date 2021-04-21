@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0283a84650abaadd454b4f5bca83d1473e443fb8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fbc3502952e11830ef9abb06cb709fcc60288343
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561812"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739527"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update pour IoT Hub et IoT Plug-and-Play
 
@@ -64,7 +64,7 @@ Les métadonnées de service contiennent des champs que le service Device Update
 |Nom|schéma|Sens|Description|
 |----|------|---------|-----------|
 |action|entier|cloud à appareil|Il s’agit d’un entier qui correspond à une action que l’agent doit effectuer. Valeurs listées ci-dessous.|
-|updateManifest|string|cloud à appareil|Utilisé pour décrire le contenu d’une mise à jour. Généré à partir du [manifeste d’importation](import-update.md#create-device-update-import-manifest)|
+|updateManifest|string|cloud à appareil|Utilisé pour décrire le contenu d’une mise à jour. Généré à partir du [manifeste d’importation](import-update.md#create-a-device-update-import-manifest)|
 |updateManifestSignature|Objet JSON|cloud à appareil|Signature web JSON (au JWS) avec clés web JSON utilisées pour la vérification de la source.|
 |fileUrls|Mappage|cloud à appareil|Mappage de `FileHash` à `DownloadUri`. Indique à l’agent quels fichiers télécharger et le hachage à utiliser pour vérifier que les fichiers ont été téléchargés correctement.|
 

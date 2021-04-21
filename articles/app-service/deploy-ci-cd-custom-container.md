@@ -7,14 +7,14 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: msangapu
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6519f3fe7335ed41f4d5ef67771aaa738a33e4a8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643356"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782600"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Déploiement continu avec des conteneurs personnalisés dans Azure App Service
 
@@ -176,7 +176,7 @@ Vous pouvez personnaliser le fournisseur de build GitHub Actions comme suit :
 
 Cette configuration facultative remplace l’authentification par défaut par les profils de publication dans le fichier de workflow généré.
 
-**Générez** un principal de service à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) dans [Azure CLI](/cli/azure/). Dans l’exemple suivant, remplacez *\<subscription-id>* , *\<group-name>* et *\<app-name>* par vos propres valeurs. **Enregistrez** l’intégralité de la sortie JSON pour l’étape suivante, y compris le niveau supérieur `{}`.
+**Générez** un principal de service à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) dans [Azure CLI](/cli/azure/). Dans l’exemple suivant, remplacez *\<subscription-id>* , *\<group-name>* et *\<app-name>* par vos propres valeurs. **Enregistrez** l’intégralité de la sortie JSON pour l’étape suivante, y compris le niveau supérieur `{}`.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
@@ -213,7 +213,7 @@ Dans le fichier de workflow généré par le **Centre de déploiement**, **modif
 
 ## <a name="automate-with-cli"></a>Automatiser avec CLI
 
-Pour configurer le registre de conteneurs et l’image Docker, **exécutez** [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set).
+Pour configurer le registre de conteneurs et l’image Docker, **exécutez** [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set).
 
 # <a name="azure-container-registry"></a>[Azure Container Registry](#tab/acr)
 
@@ -240,14 +240,14 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 -----
 
 ::: zone pivot="container-linux"
-Pour configurer une application multiconteneur (Docker Compose), **préparez** un fichier Docker Compose localement, puis **exécutez** [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set) avec le paramètre `--multicontainer-config-file`. Si votre fichier Docker Compose contient des images privées, **ajoutez** des paramètres `--docker-registry-server-*`, comme indiqué dans l’exemple précédent.
+Pour configurer une application multiconteneur (Docker Compose), **préparez** un fichier Docker Compose localement, puis **exécutez** [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) avec le paramètre `--multicontainer-config-file`. Si votre fichier Docker Compose contient des images privées, **ajoutez** des paramètres `--docker-registry-server-*`, comme indiqué dans l’exemple précédent.
 
 ```azurecli-interactive
 az webapp config container set --resource-group <group-name> --name <app-name> --multicontainer-config-file <docker-compose-file>
 ```
 ::: zone-end
 
-Pour configurer CI/CD à partir du registre de conteneurs sur votre application, **exécutez** la commande [az webapp deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) avec le paramètre `--enable-cd`. La commande génère l’URL du webhook, mais vous devez créer manuellement le webhook dans votre registre séparément. L’exemple suivant active CI/CD sur votre application, puis utilise l’URL du webhook dans la sortie pour créer le webhook dans Azure Container Registry.
+Pour configurer CI/CD à partir du registre de conteneurs sur votre application, **exécutez** la commande [az webapp deployment container config](/cli/azure/webapp/deployment/container#az_webapp_deployment-container-config) avec le paramètre `--enable-cd`. La commande génère l’URL du webhook, mais vous devez créer manuellement le webhook dans votre registre séparément. L’exemple suivant active CI/CD sur votre application, puis utilise l’URL du webhook dans la sortie pour créer le webhook dans Azure Container Registry.
 
 ```azurecli-interactive
 ci_cd_url=$(az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true --query CI_CD_URL --output tsv)

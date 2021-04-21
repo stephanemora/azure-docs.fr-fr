@@ -2,7 +2,6 @@
 title: Attribuer des rôles Azure à l’aide de l’API REST - Azure RBAC
 description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide de l’API REST et du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
@@ -10,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: d012173adb5e238282e107b832ed9c6895237e48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3baf44a4240b23b41ce2e80dc22dbda4c7d0672a
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556066"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363714"
 ---
 # <a name="assign-azure-roles-using-the-rest-api"></a>Attribuer des rôles Azure à l’aide de l’API REST
 
@@ -109,6 +108,26 @@ Voici un exemple de sortie :
     "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
     "type": "Microsoft.Authorization/roleAssignments",
     "name": "{roleAssignmentId1}"
+}
+```
+
+### <a name="new-service-principal"></a>Nouveau principal de service
+
+Dans certains cas, si vous créez un principal de service et que vous tentez immédiatement de lui attribuer un rôle, cette attribution peut échouer. Par exemple, si vous créez une identité managée et que vous tentez d’attribuer un rôle à ce principal de service, l’attribution de rôle peut échouer. Cet échec est souvent lié au délai de réplication. Le principal du service est créé dans une région. Toutefois, l’attribution de rôle peut s’effectuer dans une autre région, qui n’a pas encore répliqué le principal de service.
+
+Pour résoudre ce scénario, utilisez l’API REST [Role Assignments - Create](/rest/api/authorization/roleassignments/create) et affectez la valeur `ServicePrincipal` à la propriété `principalType`. Vous devez également définir `apiVersion` sur `2018-09-01-preview` ou une version ultérieure.
+
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2018-09-01-preview
+```
+
+```json
+{
+  "properties": {
+    "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+    "principalId": "{principalId}",
+    "principalType": "ServicePrincipal"
+  }
 }
 ```
 

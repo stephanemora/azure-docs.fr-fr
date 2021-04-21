@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 04/09/2021
-ms.openlocfilehash: 47686f457e2579ca8a643de6671c886effefa6f1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ae1b3cc41d709c28ba517d672eb98cb60a837a8d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313519"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779072"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database
 
@@ -27,7 +27,7 @@ Après avoir choisi le nombre de vCores ou de DTU, vous pouvez mettre à l’éc
 * [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](single-database-manage.md#the-azure-portal)
 * [PowerShell](/powershell/module/az.sql/set-azsqldatabase)
-* [Azure CLI](/cli/azure/sql/db#az-sql-db-update)
+* [Azure CLI](/cli/azure/sql/db#az_sql_db_update)
 * [REST API](/rest/api/sql/databases/update)
 
 
@@ -133,7 +133,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 ### <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
 - Le stockage peut être configuré jusqu’à la limite de taille maximale du stockage de données par incréments de 1 Go. Le stockage de données minimum configurable est de 1 Go. Pour les limites de stockage de données dans chaque objectif de service, consultez les pages de documentation sur les limites de ressources pour les [Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore](resource-limits-vcore-single-databases.md) et les [Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU](resource-limits-dtu-single-databases.md).
-- Vous pouvez configurer le stockage de données d'une base de données unique en augmentant ou en diminuant sa taille maximale à l'aide du [portail Azure](https://portal.azure.com), de [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), de [PowerShell](/powershell/module/az.sql/set-azsqldatabase), d'[Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de l'[API REST](/rest/api/sql/databases/update). Si la valeur de taille maximale est spécifiée en octets, elle doit être un multiple de 1 Go (1073741824 octets).
+- Vous pouvez configurer le stockage de données d'une base de données unique en augmentant ou en diminuant sa taille maximale à l'aide du [portail Azure](https://portal.azure.com), de [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), de [PowerShell](/powershell/module/az.sql/set-azsqldatabase), d'[Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de l'[API REST](/rest/api/sql/databases/update). Si la valeur de taille maximale est spécifiée en octets, elle doit être un multiple de 1 Go (1073741824 octets).
 - Le volume de données qui peut être stocké dans les fichiers de données d'une base de données est limité par la taille maximale configurée pour le stockage de données. En plus de ce stockage, Azure SQL Database alloue automatiquement 30 % de stockage supplémentaire pour le journal des transactions.
 - Azure SQL Database alloue automatiquement 32 Go par vCore pour la base de données `tempdb`. Quel que soit le niveau de service, `tempdb` se trouve toujours sur le stockage SSD local.
 - Le prix du stockage d'une base de données unique ou d'un pool élastique est égal à la somme des volumes de stockage de données et de stockage des journaux de transactions multipliée par le prix unitaire du stockage du niveau de service. Le coût de `tempdb` est inclus dans le prix. Pour plus d'informations sur le prix du stockage, consultez [Tarification d'Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
@@ -144,7 +144,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 ### <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
 - Le prix des DTU pour une base de données unique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, voir l’article [Base de données unique : tailles de stockage et tailles de calcul](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Vous pouvez approvisionner un espace de stockage supplémentaire pour une base de données unique en augmentant la taille maximale à l’aide du Portail Azure, de [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), de [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az-sql-db-update) ou de [l’API REST](/rest/api/sql/databases/update).
+- Vous pouvez approvisionner un espace de stockage supplémentaire pour une base de données unique en augmentant la taille maximale à l’aide du Portail Azure, de [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), de [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [d’Azure CLI](/cli/azure/sql/db#az_sql_db_update) ou de [l’API REST](/rest/api/sql/databases/update).
 - Le prix de l’espace de stockage supplémentaire pour une base de données unique est égal à la quantité de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification d'Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

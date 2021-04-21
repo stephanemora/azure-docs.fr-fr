@@ -3,12 +3,12 @@ title: Guide de dépannage pour Azure Service Bus | Microsoft Docs
 description: Découvrez des conseils et recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27249d7e016ea8aee0552bbbf1687647760d4b6f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031288"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786564"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guide de dépannage pour Azure Service Bus
 Cet article fournit des conseils et des recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus. 
@@ -52,7 +52,7 @@ Aidez-vous des étapes suivantes pour résoudre les problèmes de connectivité,
     ```
     Vous pouvez utiliser des commandes équivalentes dans d’autres outils, par exemple `tnc`, `ping`, etc. 
 - Si les étapes précédentes n’ont pas résolu le problème, obtenez une trace réseau et analysez-la à l’aide d’un outil tel que [Wireshark](https://www.wireshark.org/). Contactez le [support Microsoft](https://support.microsoft.com/) si nécessaire. 
-- Pour trouver les adresses IP appropriées à ajouter à la liste d’autorisation de vos connexions, consultez [Quelles adresses IP dois-je ajouter à la liste d’autorisation](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+- Pour trouver les adresses IP appropriées à ajouter à la liste d’autorisation de vos connexions, consultez [Quelles adresses IP dois-je ajouter à la liste d’autorisation](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allow-list-). 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problèmes qui peuvent se produire avec les mises à niveau/redémarrages du service

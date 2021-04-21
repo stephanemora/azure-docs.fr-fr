@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 9fe4f21a5c9e9e26a2f94b8a60cba47916842fe3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98787010"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501788"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 
@@ -208,7 +208,7 @@ ID de version de l’application
 
 Envoyez un fichier d’énoncés, appelé *jeu de données*, pour les tests par lot. Le jeu de données est un fichier au format JSON contenant au maximum 1 000 énoncés étiquetés. Vous pouvez tester jusqu’à 10 jeux de données dans une application. Si vous avez besoin d’en tester davantage, supprimez un jeu de données, puis ajoutez-en un nouveau. Toutes les entités personnalisées de ce modèle s’affichent dans le filtre d’entités de test de lot, même s’il n’y a aucune entité correspondante dans les données du fichier de commandes.
 
-Le fichier de traitement par lot est constitué d’énoncés. Chaque énoncé doit avoir une prédiction d’intention attendue ainsi que toute [entité de machine-learning](luis-concept-entity-types.md#types-of-entities) censée être détectée.
+Le fichier de traitement par lot est constitué d’énoncés. Chaque énoncé doit avoir une prédiction d’intention attendue ainsi que toute [entité de machine-learning](luis-concept-entity-types.md#machine-learned-ml-entity) censée être détectée.
 
 ### <a name="batch-syntax-template-for-intents-with-entities"></a>Modèle de syntaxe de lot pour les intentions avec des entités
 

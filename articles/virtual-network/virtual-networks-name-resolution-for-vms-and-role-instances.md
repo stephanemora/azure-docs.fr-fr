@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bbaf2fb99f1268a752fab4322078b0566a054d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80a0b4634a2e84181271b515d2f6f63271cce7f2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222851"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784962"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -176,7 +176,7 @@ Lorsque vous utilisez la résolution de noms fournie par Azure, le protocole DHC
 
 Si nécessaire, vous pouvez déterminer le suffixe DNS interne à l’aide de PowerShell ou de l’API :
 
-* Pour les réseaux virtuels des modèles de déploiement Azure Resource Manager, le suffixe est disponible via [l’API REST d’interface réseau](/rest/api/virtualnetwork/networkinterfaces), la cmdlet PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) et la commande [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
+* Pour les réseaux virtuels des modèles de déploiement Azure Resource Manager, le suffixe est disponible via [l’API REST d’interface réseau](/rest/api/virtualnetwork/networkinterfaces), la cmdlet PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) et la commande [az network nic show](/cli/azure/network/nic#az_network_nic_show) Azure CLI.
 * Dans les modèles de déploiement classiques, le suffixe est disponible via l’appel de [l’API Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) ou l’applet de commande [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm).
 
 Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir votre propre solution DNS. Votre solution DNS doit :

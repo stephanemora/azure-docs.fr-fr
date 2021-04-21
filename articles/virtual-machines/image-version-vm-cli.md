@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7c35be8821b6763531b43ec85b10325e91f8bc5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bfe8b1255c88878c2dc4661e9daa3e16397e9f4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556858"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792270"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Créer une version d’image à partir d’une machine virtuelle dans Azure à l’aide d’Azure CLI
 
@@ -36,13 +36,13 @@ Au cours de cet article, remplacez les noms de ressources si nécessaire.
 
 ## <a name="get-information-about-the-vm"></a>Obtenir des informations sur la machine virtuelle
 
-Vous pouvez obtenir la liste des machines virtuelles disponibles à l’aide de la commande [az vm list](/cli/azure/vm#az-vm-list). 
+Vous pouvez obtenir la liste des machines virtuelles disponibles à l’aide de la commande [az vm list](/cli/azure/vm#az_vm_list). 
 
 ```azurecli-interactive
 az vm list --output table
 ```
 
-Une fois que vous connaissez le nom de la machine virtuelle et le groupe de ressources dans lequel elle se trouve, récupérez l’ID de la machine virtuelle à l’aide de la commande [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). 
+Une fois que vous connaissez le nom de la machine virtuelle et le groupe de ressources dans lequel elle se trouve, récupérez l’ID de la machine virtuelle à l’aide de la commande [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). 
 
 ```azurecli-interactive
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
@@ -59,7 +59,7 @@ Assurez-vous que le type de votre définition d’image est approprié. Si vous 
 
 Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./shared-image-galleries.md#image-definitions).
 
-Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 Dans cet exemple, la définition d’image est nommée *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](./shared-image-galleries.md#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
 
@@ -78,7 +78,7 @@ az sig image-definition create \
 
 ## <a name="create-the-image-version"></a>Créer la version de l’image
 
-Créez une version d’image à partir de la machine virtuelle à l’aide de la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Créez une version d’image à partir de la machine virtuelle à l’aide de la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
 Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 

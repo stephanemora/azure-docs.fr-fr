@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: wiassaf
 ms.date: 03/10/2021
-ms.openlocfilehash: 1a86522975ffb7b5b2bd514402dd97a76aa2506e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ce07af74c3f01fd78ef15ab0e7d43b91361e556
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014602"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784471"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -74,7 +74,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-La copie de la base de données est une opération asynchrone, mais la base de données cible est créée de suite après que la demande est acceptée. Si vous devez annuler une opération de copie en cours, déposez la base de données cible à l’aide de la commande [az sql db delete](/cli/azure/sql/db#az-sql-db-delete).
+La copie de la base de données est une opération asynchrone, mais la base de données cible est créée de suite après que la demande est acceptée. Si vous devez annuler une opération de copie en cours, déposez la base de données cible à l’aide de la commande [az sql db delete](/cli/azure/sql/db#az_sql_db_delete).
 
 * * *
 

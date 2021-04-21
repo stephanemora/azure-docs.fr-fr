@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8859293b4853cbfa8c3b3dd0e7d1bfe4f75fc40
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99626992"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766166"
 ---
 # <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 
@@ -80,7 +80,7 @@ Chaque dimension correspond à différents composants du [modèle d’applicatio
 
 ### <a name="azure-monitor-cli"></a>Interface de ligne de commande Azure Monitor
 
-Une liste complète des commandes est disponible dans les [documents de l’interface de ligne de commande Azure Monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list), mais nous avons inclus quelques exemples utiles ci-dessous 
+Une liste complète des commandes est disponible dans les [documents de l’interface de ligne de commande Azure Monitor](/cli/azure/monitor/metrics#az_monitor_metrics_list), mais nous avons inclus quelques exemples utiles ci-dessous 
 
 Dans chaque exemple, l’ID de ressource suit ce modèle
 
@@ -124,4 +124,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur Service Fabric mesh, voir la [vue d’ensemble de Service Fabric mesh](service-fabric-mesh-overview.md).
-* Pour en savoir plus sur les commandes des métriques Azure Monitor, consultez les [documents de l’interface de ligne de commande Azure Monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list).
+* Pour en savoir plus sur les commandes des métriques Azure Monitor, consultez les [documents de l’interface de ligne de commande Azure Monitor](/cli/azure/monitor/metrics#az_monitor_metrics_list).

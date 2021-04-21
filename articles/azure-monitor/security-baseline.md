@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bd3bb5e3060752d086f80f44a8f136cb861669c0
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: f002c7196b864d4a04beda1124d0519af612b716
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078517"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600231"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Base de référence de sécurité Azure pour Azure Monitor
 
@@ -214,7 +214,7 @@ Vous pouvez aussi activer un accès Juste-à-temps/Juste assez à l’aide des r
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4 : Utiliser l’authentification unique (SSO) Azure Active Directory
 
-**Conseil** : dans la mesure du possible, utilisez l’authentification unique (SSO) d’Azure Active Directory (Azure AD) au lieu de configurer des informations d’identification autonomes individuelles par service. Suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
+**Conseil** : dans la mesure du possible, utilisez l’authentification unique (SSO) d’Azure Active Directory (Azure AD) au lieu de configurer des informations d’identification autonomes individuelles par service. Suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
 
 - [Présentation de l’authentification SSO avec Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -605,7 +605,7 @@ Si vous utilisez des fonctionnalités APM de streaming en direct, sécurisez le 
 
 - [Créer un coffre de clés](../key-vault/secrets/quick-create-portal.md)
 
-- [Fournir une authentification Key Vault avec une identité managée](/azure/key-vault/general/assign-access=policy-portal)
+- [Fournir une authentification Key Vault avec une identité managée](/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad)
 
 **Responsabilité** : Customer
 

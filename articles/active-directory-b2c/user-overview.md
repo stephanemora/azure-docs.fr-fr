@@ -11,12 +11,12 @@ ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4b35cfeded13a50e5e27c240b0826f1d108ff7eb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043595"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529442"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ Vous pouvez inviter des utilisateurs externes dans votre locataire en tant qu’
 
 Lorsque vous invitez un utilisateur dans votre locataire, vous fournissez l’adresse e-mail du destinataire et un message décrivant l’invitation. Le lien d’invitation dirige l’utilisateur vers la page de consentement. Si une boîte de réception n’est pas attachée à l’adresse de messagerie, l’utilisateur peut accéder à la page de consentement en accédant à une page de Microsoft en utilisant les informations d’identification d’invité. L’utilisateur est alors obligé d’utiliser l’invitation de la même façon qu’en cliquant sur le lien dans l’e-mail. Par exemple : `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Vous pouvez également utiliser l’[API Microsoft Graph](/graph/api/invitation-post?view=graph-rest-beta) pour inviter un utilisateur.
+Vous pouvez également utiliser l’[API Microsoft Graph](/graph/api/invitation-post) pour inviter un utilisateur.
 
 ## <a name="consumer-user"></a>Utilisateur consommateur
 

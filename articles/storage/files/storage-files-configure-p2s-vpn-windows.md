@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6253deb53229172cd499a6aa14b8d8f19bc07b63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de342267292c6a93c4a1ba2eae232403ccaf9514
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629255"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785268"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurer un VPN point à site (P2S) sur Windows pour l’utiliser avec Azure Files
 Vous pouvez utiliser une connexion VPN point à site (P2S) pour monter vos partages de fichiers Azure sur SMB en dehors d’Azure, sans ouvrir le port 445. Une connexion VPN point à site est une connexion VPN entre Azure et un client individuel. Pour utiliser une connexion VPN P2S avec Azure Files, une connexion VPN P2S doit être configurée pour chaque client qui souhaite se connecter. Si de nombreux clients doivent se connecter à vos partages de fichiers Azure depuis votre réseau local, vous pouvez utiliser une connexion VPN site à site (S2S) au lieu d’une connexion point à site pour chaque client. Pour plus d’informations, consultez [Configurer un VPN site à site pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
 
 Nous vous recommandons fortement de lire [Considérations sur le réseau pour l’accès direct à un partage de fichiers Azure](storage-files-networking-overview.md) avant de poursuivre avec cet article de procédure pour une présentation complète des options réseau disponibles pour Azure Files.
 
-L’article décrit en détail la procédure à suivre pour configurer un VPN point à site sur Windows (client Windows et Windows Server) afin de monter directement des partages de fichiers Azure locaux. Si vous souhaitez router le trafic Azure File Sync via un VPN, consultez [Configuration les paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+L’article décrit en détail la procédure à suivre pour configurer un VPN point à site sur Windows (client Windows et Windows Server) afin de monter directement des partages de fichiers Azure locaux. Si vous souhaitez router le trafic Azure File Sync via un VPN, consultez [Configuration les paramètres de proxy et de pare-feu d’Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prérequis
 - La version la plus récente du module Azure PowerShell. Pour plus d’informations sur l’installation d’Azure PowerShell, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps) et sélectionnez votre système d’exploitation. Si vous préférez utiliser Azure CLI sur Windows, vous pouvez le faire ; les instructions ci-dessous s’appliquent cependant à Azure PowerShell.

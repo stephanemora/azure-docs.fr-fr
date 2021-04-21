@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: a02da7237252811d89e2c19a29f49f0bf9bb3804
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22804015ebf0344c00e60c88f780fe22ba440b52
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945727"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774986"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Clusters Apache Hadoop avec des comptes de stockage avec transfert sécurisé dans Azure HDInsight
 
@@ -35,7 +35,7 @@ Pour mettre à jour un compte de stockage existant avec PowerShell, consultez [E
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour la commande Azure CLI [az storage account create](/cli/azure/storage/account#az-storage-account-create), vérifiez que le paramètre `--https-only` est défini sur `true`.
+Pour la commande Azure CLI [az storage account create](/cli/azure/storage/account#az_storage_account_create), vérifiez que le paramètre `--https-only` est défini sur `true`.
 
 Pour mettre à jour un compte de stockage existant avec Azure CLI, consultez [Exiger un transfert sécurisé avec Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 5550c53289228f154fab485b4b7bbff17555aad7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045737"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783896"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -484,7 +484,7 @@ Contactez votre administrateur réseau ou vérifiez la configuration et la conne
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Pourquoi ma requête tirer (pull) ou envoyer (push) échoue-t-elle avec une opération non autorisée ?
 
 Voici quelques scénarios dans lesquels les opérations peuvent ne pas être autorisées :
-* Les registres classiques ne sont plus pris en charge. Effectuez une mise à niveau vers un [niveau de service](./container-registry-skus.md) pris en charge à l’aide de la commande [az acr update](/cli/azure/acr#az-acr-update) ou du portail Azure.
+* Les registres classiques ne sont plus pris en charge. Effectuez une mise à niveau vers un [niveau de service](./container-registry-skus.md) pris en charge à l’aide de la commande [az acr update](/cli/azure/acr#az_acr_update) ou du portail Azure.
 * L’image ou le référentiel peuvent être verrouillés afin qu’il ne soit pas possible de les supprimer ou de les mettre à jour. Vous pouvez utiliser la commande [az acr show repository](./container-registry-image-lock.md) pour afficher les attributs actuels.
 * Certaines opérations ne sont pas autorisées si l’image est en contrôle. En savoir plus sur le [contrôle](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Votre registre a peut-être atteint sa [limite de stockage](container-registry-skus.md#service-tier-features-and-limits).

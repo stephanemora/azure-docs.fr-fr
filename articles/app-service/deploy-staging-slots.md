@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: b93fb61cc58360ddfcf15d2af2c936203d869500
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802962"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771530"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -248,7 +248,7 @@ Une fois le paramètre enregistré, le pourcentage de clients spécifié est rou
 Lorsqu’un client est automatiquement routé vers un emplacement particulier, il est « épinglé » à cet emplacement pendant toute la durée de cette session cliente. Dans le navigateur client, vous pouvez voir à quel emplacement votre session est épinglée en examinant le cookie `x-ms-routing-name` dans les en-têtes HTTP. Une requête qui est acheminée vers l’emplacement « intermédiaire » contient le cookie `x-ms-routing-name=staging`. Une requête qui est acheminée vers l’emplacement de production a le cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > À côté du portail Azure, vous pouvez également utiliser la commande [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) dans Azure CLI pour définir les pourcentages de routage à partir d’outils CI/CD comme les pipelines DevOps ou d’autres systèmes d’automatisation.
+   > À côté du portail Azure, vous pouvez également utiliser la commande [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) dans Azure CLI pour définir les pourcentages de routage à partir d’outils CI/CD comme les pipelines DevOps ou d’autres systèmes d’automatisation.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Acheminer le trafic de production manuellement

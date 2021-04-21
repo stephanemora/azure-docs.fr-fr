@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: dfabb3ef521b496a073d502efd4fd672cfcf3b8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef8b4ddcbf09fa3ec0e3b07ae797693aed095c88
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597738"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107104964"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurer Start/Stop VMs during off-hours
 
@@ -57,7 +57,7 @@ Vous pouvez activer cette solution pour prendre un charge un abonnement et un gr
     > [!NOTE]
     > La valeur correspondant aux **Noms de groupe de ressources cibles** est stockée comme valeur pour `External_Start_ResourceGroupNames` et `External_Stop_ResourceGroupNames`. Pour plus de granularité, vous pouvez modifier chacune de ces variables pour cibler des groupes de ressources différents. Utilisez `External_Start_ResourceGroupNames` pour l'action de démarrage et `External_Stop_ResourceGroupNames` pour l’action d’arrêt. Les machines virtuelles sont automatiquement ajoutées aux planifications de démarrage et d’arrêt.
 
-## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>Scénario 2 : Démarrer/arrêter les machines virtuelles dans un certain ordre en utilisant des balises
+## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>Scénario 2 : Démarrer/arrêter les machines virtuelles dans un certain ordre en utilisant des balises
 
 Dans un environnement comprenant deux composants ou plus sur plusieurs machines virtuelles prenant en charge une charge de travail distribuée, il est important de prendre en charge l’ordre de démarrage et d’arrêt des composants. 
 

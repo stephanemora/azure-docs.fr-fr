@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 890c4a8a5aec3b15b150908c64bb114bd85a61a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9835ba2b6db2d71d0ff5825f2eb1996133e75537
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256760"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530822"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Vérifier l’état de l’approvisionnement d’utilisateurs
 
@@ -30,7 +30,7 @@ Lorsque vous configurez pour la première fois l’approvisionnement automatique
 - Le type de cycle d’approvisionnement (initial ou incrémentiel) en cours d’exécution ou qui a été complété.
 - Une **barre de progression** qui montre l’accomplissement de l’approvisionnement en pourcentage. Le pourcentage reflète le nombre de pages approvisionnées. Remarque : chaque page peut contenir plusieurs utilisateurs ou groupes. Le pourcentage ne reflète donc pas directement le nombre d’utilisateurs, de groupes ou de rôles approvisionnés.
 - Un bouton **Actualiser** que vous pouvez utiliser pour mettre à jour la vue.
-- Le nombre d’**utilisateurs** et de **groupes** dans le magasin de données du connecteur. Le nombre augmente dès qu’un objet est ajouté à l’étendue de l’approvisionnement. Le nombre ne diminue pas lors de la suppression réversible ou définitive d’un utilisateur, étant donné que cela ne supprime pas l’objet du magasin de données du connecteur. Le nombre est recalculé lors de la première synchronisation qui suit la [réinitialisation](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta) du CDS. 
+- Le nombre d’**utilisateurs** et de **groupes** dans le magasin de données du connecteur. Le nombre augmente dès qu’un objet est ajouté à l’étendue de l’approvisionnement. Le nombre ne diminue pas lors de la suppression réversible ou définitive d’un utilisateur, étant donné que cela ne supprime pas l’objet du magasin de données du connecteur. Le nombre est recalculé lors de la première synchronisation qui suit la [réinitialisation](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true) du CDS. 
 - Un lien **Afficher les journaux d’audit**, qui ouvre les journaux de provisionnement Azure AD pour plus d’informations sur toutes les opérations exécutées par le service de provisionnement d’utilisateurs, notamment l’état de provisionnement d’utilisateurs individuels (voir la section [Utiliser des journaux de provisionnement](#use-provisioning-logs-to-check-a-users-provisioning-status) ci-dessous).
 
 À la fin d’un cycle d’approvisionnement, la section **Statistiques à ce jour** affiche le nombre cumulatif d’utilisateurs et de groupes qui ont été approvisionnés à ce jour, ainsi que la date d’achèvement et la durée du dernier cycle. L’**ID d’activité** identifie uniquement le cycle d’approvisionnement le plus récent. L’**ID de tâche** est un identificateur unique de la tâche d’approvisionnement et est spécifique à l’application dans votre client.

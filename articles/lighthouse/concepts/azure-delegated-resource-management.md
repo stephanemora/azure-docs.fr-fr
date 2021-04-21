@@ -3,16 +3,16 @@ title: Gestion des ressources déléguées Azure
 description: La gestion des ressources déléguées Azure est un élément clé d’Azure Lighthouse, qui permet aux fournisseurs de services de gérer les ressources déléguées à l’échelle avec souplesse et précision.
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93a3de257fe88de4915eff3582ff38fc03ef380e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92203855"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767760"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 
-La gestion des ressources déléguées Azure est un élément clé d’[Azure Lighthouse](../overview.md). Grâce à la gestion des ressources déléguées Azure, les fournisseurs de services peuvent simplifier les expériences d’engagement et d’intégration des clients, tout en gérant les ressources déléguées à grande échelle avec agilité et précision. Les clients gardent le contrôle sur les fournisseurs de services qui peuvent accéder à leur locataire. Ils gardent également le contrôle sur les utilisateurs qui peuvent accéder à leur locataire, les ressources auxquelles ils peuvent accéder et les actions qui peuvent être effectuées.
+La gestion des ressources déléguées Azure est un élément clé d’[Azure Lighthouse](../overview.md). Grâce à la gestion des ressources déléguées Azure, les fournisseurs de services peuvent simplifier les expériences d’engagement et d’intégration des clients, tout en gérant les ressources déléguées à grande échelle avec agilité et précision. Les clients conservent le contrôle des personnes autorisées à accéder à leur locataire, des ressources auxquelles elles peuvent accéder et des actions qu’elles peuvent entreprendre.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>Qu’est-ce que la gestion des ressources déléguées Azure ?
 

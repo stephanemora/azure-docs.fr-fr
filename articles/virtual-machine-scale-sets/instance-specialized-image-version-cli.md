@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2ecc2bfe6bdc06ede61e6c4d1e6eccfc9ef6323a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5fc88c00d548c0a034984976557d316fdac7620f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878000"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792342"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Créer un groupe identique à l’aide d’une version d’image spécialisée avec Azure CLI
 
@@ -25,7 +25,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, c
 
 Remplacez les noms de ressources en fonction des besoins dans cet exemple. 
 
-Répertoriez les définitions d’images d’une galerie avec la commande [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) pour voir le nom et l’ID des définitions.
+Répertoriez les définitions d’images d’une galerie avec la commande [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) pour voir le nom et l’ID des définitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -37,7 +37,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Créez le groupe identique avec [`az vmss create`](/cli/azure/vmss#az-vmss-create), en utilisant le paramètre `--specialized` pour indiquer que l’image est une image spécialisée.
+Créez le groupe identique avec [`az vmss create`](/cli/azure/vmss#az_vmss_create), en utilisant le paramètre `--specialized` pour indiquer que l’image est une image spécialisée.
 
 Utilisez l’ID de définition d’image pour `--image` afin de créer les instances de groupe identique à partir de la version la plus récente de l’image disponible. Vous pouvez également créer les instances de groupe identique à partir d’une version spécifique en fournissant l’ID de version de l’image pour `--image`. Souvenez-vous que l’utilisation d’une version d’image spécifique signifie que l’automatisation peut échouer si cette version d’image spécifique n’est pas disponible car elle a été effacée ou supprimée de la région. Nous vous recommandons d’utiliser l’ID de définition d’image pour créer votre machine virtuelle, sauf si une version d’image spécifique est requise.
 

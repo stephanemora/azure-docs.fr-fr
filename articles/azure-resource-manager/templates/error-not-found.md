@@ -3,12 +3,12 @@ title: Erreurs liées à des ressources introuvables
 description: Explique comment résoudre les erreurs liées à une ressource introuvable. L’erreur peut survenir pendant le déploiement d’un modèle Azure Resource Manager ou au cours d’opérations de gestion.
 ms.topic: troubleshooting
 ms.date: 03/23/2021
-ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 5e3a72eaad99721cec9500956179a3ae9d9cf8d2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950873"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762134"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Résoudre les erreurs liées à des ressources introuvables
 
@@ -43,7 +43,7 @@ Quand vous obtenez cette erreur pendant que vous effectuez une tâche de gestion
 * Nom de groupe ressources
 * Abonnement
 
-Si vous utilisez PowerShell ou Azure CLI, vérifiez que vous exécutez bien la commande dans l’abonnement qui contient la ressource. Vous pouvez changer d’abonnement avec [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) ou [az account set](/cli/azure/account#az-account-set). De nombreuses commandes proposent également un paramètre d’abonnement qui vous permet de spécifier un abonnement différent du contexte actuel.
+Si vous utilisez PowerShell ou Azure CLI, vérifiez que vous exécutez bien la commande dans l’abonnement qui contient la ressource. Vous pouvez changer d’abonnement avec [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) ou [az account set](/cli/azure/account#az_account_set). De nombreuses commandes proposent également un paramètre d’abonnement qui vous permet de spécifier un abonnement différent du contexte actuel.
 
 Si vous ne parvenez pas à vérifier les propriétés, connectez-vous au [portail](https://portal.azure.com). Recherchez la ressource que vous essayez d’utiliser et examinez le nom de la ressource, le groupe de la ressource et l’abonnement.
 

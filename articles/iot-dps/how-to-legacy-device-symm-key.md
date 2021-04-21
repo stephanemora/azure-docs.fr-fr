@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d193d30428d24ccf65c3f70885192acad2fdc9f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051107"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228326"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Comment approvisionner des appareils à l’aide de groupes d’inscription avec des clés symétriques
 
@@ -30,6 +30,16 @@ Cet article traite d’une station de travail Windows. Toutefois, vous pouvez ef
 > [!NOTE]
 > L’exemple utilisé dans cet article est écrit en C. Un [exemple de clé symétrique d’approvisionnement d’appareil en C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) est également disponible. Pour utiliser cet exemple, téléchargez ou clonez le référentiel [azure-iot-samples-csharp ](https://github.com/Azure-Samples/azure-iot-samples-csharp) et suivez les instructions en ligne de l’exemple de code. Vous pouvez suivre les instructions de cet article pour créer un groupe d’inscription de clé symétrique à l’aide du portail et pour rechercher l’étendue de l’ID et les clés primaires et secondaires du groupe d’inscription nécessaires à l’exécution de l’exemple. Vous pouvez également créer des inscriptions individuelles à l’aide de l’exemple.
 
+## <a name="prerequisites"></a>Prérequis
+
+* Avoir effectué les étapes décrites dans le guide de démarrage rapide [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
+
+Les prérequis suivants s’appliquent à un environnement de développement Windows. Pour Linux ou macOS, consultez la section appropriée de [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) dans la documentation du kit de développement logiciel (SDK).
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 avec la charge de travail [« Développement Desktop en C++ »](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) activée. Visual Studio 2015 et Visual Studio 2017 sont également pris en charge.
+
+* Dernière version de [Git](https://git-scm.com/download/) installée.
+
 ## <a name="overview"></a>Vue d’ensemble
 
 Un ID d’inscription unique est défini pour chaque appareil en fonction des informations qui identifient cet appareil. Par exemple, l’adresse MAC ou un numéro de série.
@@ -40,16 +50,6 @@ Le code de l’appareil montré dans cet article suit le même modèle que le [D
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
-## <a name="prerequisites"></a>Prérequis
-
-* Avoir effectué les étapes décrites dans le guide de démarrage rapide [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
-
-Les prérequis suivants s’appliquent à un environnement de développement Windows. Pour Linux ou macOS, consultez la section appropriée de [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) dans la documentation du kit de développement logiciel (SDK).
-
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 avec la charge de travail [« Développement Desktop en C++ »](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) activée. Visual Studio 2015 et Visual Studio 2017 sont également pris en charge.
-
-* Dernière version de [Git](https://git-scm.com/download/) installée.
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Préparer un environnement de développement pour le SDK Azure IoT pour C
 
@@ -283,6 +283,15 @@ Notez que cette opération laisse la clé d’appareil dérivée incluse dans l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md) 
-* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
-* Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md)
+* Pour en savoir plus sur le réapprovisionnement, consultez :
+
+> [!div class="nextstepaction"]
+> [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md)
+
+> [!div class="nextstepaction"]
+> [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
+
+* Pour en savoir plus sur la suppression des privilèges d’accès, consultez :
+
+> [!div class="nextstepaction"]
+> [Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement](how-to-unprovision-devices.md)

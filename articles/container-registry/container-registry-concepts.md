@@ -3,12 +3,12 @@ title: À propos des registres, des référentiels, des images et des artefacts
 description: Introduction aux concepts clés des registres de conteneurs Azure, des référentiels et images conteneur et d’autres artefacts.
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 27c4604820dda50686b6cb3f36e69b38283750c3
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 64ab3812b3f23a7b3a480d3530c82bd39f2d29a5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381920"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784080"
 ---
 # <a name="about-registries-repositories-and-artifacts"></a>À propos des registres, des référentiels et des artefacts
 
@@ -184,6 +184,4 @@ En savoir plus sur le [stockage de registre](container-registry-storage.md) et l
 Découvrez comment [envoyer et tirer](container-registry-get-started-docker-cli.md) des images dans Azure Container Registry.
 
 <!-- LINKS - Internal -->
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
-
-
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests

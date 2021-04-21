@@ -3,19 +3,18 @@ title: Accorder à des applications l’autorisation d’accéder à un coffre d
 description: Découvrez comment donner accès aux clés, secrets et certificats à l’aide d’un contrôle d’accès en fonction du rôle Azure.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 8/30/2020
+ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 216df0d128e0557345db8f82f6010e1ef681593c
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 966f704bd47b4b238ed72579a6103bd2e4348849
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968779"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772214"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure
 
@@ -237,7 +236,7 @@ La page Créer un secret (Secrets \> +Générer/Importer) doit afficher l’erre
 
 ### <a name="creating-custom-roles"></a>Création de rôles personnalisés 
 
-[Commande az role definition create](/cli/azure/role/definition#az-role-definition-create)
+[Commande az role definition create](/cli/azure/role/definition#az_role_definition_create)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli

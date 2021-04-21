@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/30/2021
-ms.openlocfilehash: 491d5f14cc8f456d228a5bc6efaa6686575979c1
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4010f7e2d0d20216107a45109056478694c940ca
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078738"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772502"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Créer des workflows avec état et sans état dans Visual Studio Code à l’aide de l’extension Azure Logic Apps (préversion)
 
@@ -360,7 +360,7 @@ Actuellement, la fonctionnalité de création est uniquement disponible dans Vis
    ![Capture d’écran montrant le volet de l’Explorateur avec la liste « Activer les connecteurs dans Azure » ouverte et l’option « Utiliser les connecteurs d’Azure » sélectionnée.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
    > [!NOTE]
-   > Actuellement, les flux de travail sans état prennent en charge uniquement les *actions* pour les [connecteurs gérés](../connectors/apis-list.md#managed-api-connectors) déployés dans Azure, pas pour des déclencheurs. Bien que vous ayez la possibilité d’activer des connecteurs dans Azure pour votre flux de travail sans état, le concepteur n’affiche aucun déclencheur de connecteur managé à sélectionner.
+   > Actuellement, les flux de travail sans état prennent en charge uniquement les *actions* pour les [connecteurs gérés](../connectors/managed.md) déployés dans Azure, pas pour des déclencheurs. Bien que vous ayez la possibilité d’activer des connecteurs dans Azure pour votre flux de travail sans état, le concepteur n’affiche aucun déclencheur de connecteur managé à sélectionner.
 
 1. Dans la liste **Sélectionner un abonnement**, sélectionnez l’abonnement Azure à utiliser pour votre projet d’application logique.
 

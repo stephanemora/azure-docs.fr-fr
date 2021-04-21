@@ -1,22 +1,25 @@
 ---
-title: Comment analyser Azure Synapse Analytics
-description: Ce guide pratique explique en détail comment analyser Azure Synapse Analytics.
+title: Comment analyser des pools SQL dédiés
+description: Ce guide pratique explique en détail comment analyser des pools SQL dédiés.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: d287f5dc239339f79d2d8237e7739de7793920c4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 7d6a0b04306c2ed6ae4887c79962cbb5528643fc
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108606"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106970"
 ---
-# <a name="register-and-scan-azure-synapse-analytics"></a>Inscrire et analyser Azure Synapse Analytics
+# <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Inscrire et analyser des pools SQL dédiés (anciennement SQL DW)
 
-Cet article explique comment inscrire et analyser une instance d’Azure Synapse Analytics (anciennement SQL DW) dans Purview.
+> [!NOTE]
+> Si vous cherchez à inscrire et à analyser une base de données SQL dédiée au sein d’un espace de travail Synapse, vous devez suivre les instructions fournies [ici](register-scan-synapse-workspace.md).
+
+Cet article explique comment inscrire et analyser une instance de pool SQL dédié (anciennement SQL DW) dans Purview.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -24,7 +27,8 @@ Azure Synapse Analytics (anciennement SQL DW) prend en charge les analyses compl
 
 ### <a name="known-limitations"></a>Limitations connues
 
-Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) dans Azure Synapse Analytics.
+> * Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) dans Azure Synapse Analytics.
+> * Azure Purview prend en charge 300 colonnes au maximum sous l’onglet Schéma. Au-delà, il affiche « Additional-Columns-Truncated » (Colonnes-Supplémentaires-Tronquées). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -114,14 +118,14 @@ Lorsque la méthode d’authentification sélectionnée est **Authentification S
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse.
 
-## <a name="register-an-azure-synapse-analytics-instance-formerly-sql-dw"></a>Inscrire une instance Azure Synapse Analytics (anciennement SQL DW)
+## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>Inscrire un pool SQL dédié (anciennement SQL DW)
 
 Pour inscrire un nouveau serveur Azure Synapse Analytics dans votre Data Catalog, procédez comme suit :
 
 1. Accédez à votre compte Purview.
 1. Sélectionnez **Sources** dans le volet de navigation de gauche.
 1. Sélectionnez **Inscrire**.
-1. Sur **Inscrire des sources**, sélectionnez **Azure Synapse Analytics (anciennement SQL DW)**
+1. Dans **Inscrire des sources**, sélectionnez **Pool SQL dédié (anciennement SQL DW)** .
 1. Sélectionnez **Continue** (Continuer)
 
 Sur l’écran **Inscrire des sources (Azure Synapse Analytics)** , procédez comme suit :

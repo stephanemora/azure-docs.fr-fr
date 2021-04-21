@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 07af586bac71ee9b33ef314756454cb3c52ec912
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 8b46ca16fc32a7b96c071a745f49bf5d5557f34b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305920"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530231"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Utilisation de la condition d’emplacement dans une stratégie d’accès conditionnel 
 
@@ -165,7 +165,7 @@ Lorsqu’un proxy cloud est disponible, une stratégie utilisée pour exiger un 
 
 ### <a name="api-support-and-powershell"></a>Prise en charge des API et PowerShell
 
-Une version préliminaire de l’API Graph pour les emplacements nommés est disponible. pour plus d’informations, consultez [API namedLocation](/graph/api/resources/namedlocation?view=graph-rest-beta).
+Une version préliminaire de l’API Graph pour les emplacements nommés est disponible. pour plus d’informations, consultez [API namedLocation](/graph/api/resources/namedlocation).
 
 > [!NOTE]
 > Les emplacements nommés que vous créez à l’aide de PowerShell s’affichent uniquement dans les emplacements nommés (préversion). Vous ne pouvez pas voir les emplacements nommés dans l’ancienne vue.  

@@ -8,19 +8,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c5381a93308b5b3c8988cb8e25df541af1043418
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 44ba2e39de37703de66aefd1fe843d0ca5002b6b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031305"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256971"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Vérification des e-mails personnalisée avec SendGrid
 
-Utilisez un e-mail personnalisé dans Azure Active Directory B2C (Azure AD B2C) afin d’envoyer un e-mail personnalisé aux utilisateurs qui s'inscrivent pour utiliser vos applications. En utilisant [DisplayControls](display-controls.md) (actuellement en préversion) et le SendGrid fournisseur d’e-mails tiers, vous pouvez utiliser votre propre modèle d’e-mail ainsi qu’une adresse *De :* et un objet, en bénéficiant également du support de la localisation et des paramètres personnalisés du mot de passe à usage unique (OTP).
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Utilisez un e-mail personnalisé dans Azure Active Directory B2C (Azure AD B2C) afin d’envoyer un e-mail personnalisé aux utilisateurs qui s'inscrivent pour utiliser vos applications. En utilisant le fournisseur d’e-mails tiers SendGrid, vous pouvez utiliser votre propre modèle d’e-mail ainsi qu’une adresse *De :* et un objet, en bénéficiant également du support de la localisation et des paramètres personnalisés du mot de passe à usage unique (OTP).
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 La vérification d’e-mail personnalisée nécessite l’utilisation d'un fournisseur d’e-mails tiers comme [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com) ou [SparkPost](https://sparkpost.com), d’une API REST personnalisée ou de tout fournisseur d'e-mails basé sur HTTP (y compris le vôtre). Cet article décrit la configuration d'une solution basée sur SendGrid.
 
@@ -556,3 +567,5 @@ Vous trouverez un exemple de stratégie de vérification d’e-mail personnalis�
 
 - [Vérification d’e-mail personnalisée - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 - Pour plus d'informations sur l'utilisation d'une API REST personnalisée ou d’un fournisseur de messagerie SMTP basé sur HTTP, voir [Définir un profil technique RESTful dans une stratégie personnalisée Azure AD B2C](restful-technical-profile.md).
+
+::: zone-end

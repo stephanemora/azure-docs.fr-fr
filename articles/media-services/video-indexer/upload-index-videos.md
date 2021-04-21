@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cc9051190bd314ac93e3de2689a6aa0ec2b6235
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 90fca4342b1fe04adef97a1a4c1c2166ca7ec51e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108079"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532488"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -62,11 +62,11 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 
 ## <a name="upload-and-index-with-api"></a>Télécharger et indexer avec API
 
-Utilisez l’API [Télécharger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour télécharger et indexer vos vidéos en fonction d’une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets. 
+Utilisez l’API [Télécharger une vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) pour télécharger et indexer vos vidéos en fonction d’une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets. 
 
 ### <a name="configurations-and-params"></a>Configurations et paramètres
 
-Cette section décrit certains des paramètres facultatifs et les moments où vous souhaitez les définir. Pour obtenir les informations les plus récentes sur les paramètres, consultez l’API [Télécharger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?).
+Cette section décrit certains des paramètres facultatifs et les moments où vous souhaitez les définir. Pour obtenir les informations les plus récentes sur les paramètres, consultez l’API [Télécharger une vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video).
 
 #### <a name="externalid"></a>externalID 
 
@@ -110,7 +110,7 @@ Le paramètre **priority** est uniquement pris en charge dans les comptes payant
 
 Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder. Il passe ensuite à l’indexation et à l’analyse de la vidéo. Lorsque Video Indexer a terminé l’analyse, vous recevrez une notification avec l’ID de la vidéo.  
 
-Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution**.
+Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution**.
 
 Pour SingleBitrate, le coût de l’encodeur standard s’applique à chaque sortie. Si la hauteur de la vidéo est supérieure ou égale à 720, Video Indexer l’encode au format 1280 x 720. Sinon, au format 640 x 468.
 Le paramètre par défaut est [l’encodage sensible au contenu](../latest/encode-content-aware-concept.md).

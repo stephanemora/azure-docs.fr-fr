@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11d22fd83106bb1802514d0c7d5f67724664464d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99226639"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788382"
 ---
 # <a name="understand-azure-files-billing"></a>Comprendre la facturation d’Azure Files
 Azure Files propose deux modèles de facturation distincts : provisionné et paiement à l’utilisation. Le modèle provisionné est disponible uniquement pour les partages de fichiers Premium, qui sont déployés dans le type de compte de stockage **FileStorage**. Le modèle de paiement à l’utilisation est disponible uniquement pour les partages de fichiers standard, qui sont déployés dans le type de compte de stockage **Usage général version 2 (GPv2)** . Cet article explique comment fonctionnent les deux modèles pour vous aider à comprendre votre facture mensuelle Azure Files.
@@ -116,5 +116,5 @@ Il existe cinq catégories de transactions de base : écriture, liste , lecture
 
 ## <a name="see-also"></a>Voir aussi
 - [Page des tarifs d’Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)
-- [Planification d’un déploiement Azure Files](./storage-files-planning.md) et [Planification d’un déploiement Azure File Sync](./storage-sync-files-planning.md).
-- [Créer un partage de fichiers](./storage-how-to-create-file-share.md) et [Déployer Azure File Sync](./storage-sync-files-deployment-guide.md).
+- [Planification d’un déploiement Azure Files](storage-files-planning.md) et [Planification d’un déploiement Azure File Sync](../file-sync/file-sync-planning.md).
+- [Créer un partage de fichiers](storage-how-to-create-file-share.md) et [Déployer Azure File Sync](../file-sync/file-sync-deployment-guide.md).

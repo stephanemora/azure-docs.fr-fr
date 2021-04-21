@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c2d4181a80f48f5f6dd5775e6eb3bd172a65df8
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98703273"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209627"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -72,7 +72,7 @@ Pour bien démarrer avec SSPR, suivez le tutoriel suivant :
 
 ## <a name="require-users-to-register-when-they-sign-in"></a>Obliger les utilisateurs à s’inscrire durant la connexion
 
-Vous pouvez activer l’option qui permet d’obliger un utilisateur à s’inscrire à SSPR, s’il se connecte à des applications via Azure AD. Ce workflow inclut les applications suivantes :
+Vous pouvez activer l’option qui permet d’obliger un utilisateur à s’inscrire à SSPR s’il utilise l’authentification moderne ou un navigateur web pour se connecter à des applications via Azure AD. Ce workflow inclut les applications suivantes :
 
 * Microsoft 365
 * Portail Azure

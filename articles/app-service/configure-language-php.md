@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c40bc01553b9e848d668c0a699e9dcc9929f079e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90055297"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779324"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configurer une application PHP pour Azure App Service
 
@@ -243,7 +243,7 @@ getenv("DB_HOST")
 
 L’infrastructure web de votre choix peut utiliser un sous-répertoire en tant que racine du site. Par exemple, [Laravel](https://laravel.com/) utilise le sous-répertoire *public/* en tant que racine du site.
 
-Pour personnaliser la racine du site, définissez le chemin d’accès de l’application virtuelle pour l’application à l’aide de la commande [`az resource update`](/cli/azure/resource#az-resource-update). L’exemple suivant définit la racine du site sur le sous-répertoire *public/* de votre référentiel. 
+Pour personnaliser la racine du site, définissez le chemin d’accès de l’application virtuelle pour l’application à l’aide de la commande [`az resource update`](/cli/azure/resource#az_resource_update). L’exemple suivant définit la racine du site sur le sous-répertoire *public/* de votre référentiel. 
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -492,4 +492,3 @@ Si une application PHP se comporte différemment dans App Service ou présente d
 > [Questions fréquentes (FAQ) sur App Service sur Linux](faq-app-service-linux.md)
 
 ::: zone-end
-

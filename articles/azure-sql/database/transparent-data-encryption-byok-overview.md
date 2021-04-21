@@ -8,16 +8,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 098d874d7de85aa7c66f92703eea9b4d12cee8df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101691244"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305291"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -86,13 +86,13 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Exigences pour la configuration du protecteur TDE
 
-- Le protecteur TDE peut uniquement être une clé asymétrique, RSA ou RSA HSM. Les longueurs de clé prises en charge sont 2 048 et 3 072 octets.
+- Le protecteur TDE peut uniquement être une clé asymétrique, RSA ou RSA HSM. Les longueurs de clé prises en charge sont 2048 octets et 3072 octets.
 
 - La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d’expiration (si définie) doit être une date et une heure ultérieures.
 
 - La clé doit être dans l’état *activé*.
 
-- Si vous importez une clé existante dans le coffre de clés, veillez à la fournir dans les formats de fichiers pris en charge (.pfx, .byok ou .backup).
+- Si vous importez une clé existante dans le coffre de clés, veillez à la fournir dans les formats de fichiers pris en charge (`.pfx`, `.byok` ou `.backup`).
 
 > [!NOTE]
 > Azure SQL prend désormais en charge l’utilisation d’une clé RSA stockée dans un HSM géré en tant que protecteur TDE. Cette fonctionnalité est disponible en **préversion publique**. Azure Key Vault HSM géré est un service cloud entièrement géré, à haut niveau de disponibilité et à un seul locataire, qui vous permet de protéger les clés de chiffrement de vos applications cloud à l’aide de modules de sécurité matériels certifiés FIPS 140-2 de niveau 3. En savoir plus sur les [HSM managés](../../key-vault/managed-hsm/index.yml).
@@ -131,11 +131,11 @@ Lorsque le chiffrement transparent des données est configuré pour utiliser une
 > [!NOTE]
 > Si la base de données est inaccessible en raison d’une interruption réseau intermittente, aucune action n’est requise et les bases de données sont automatiquement remises en ligne.
 
-Après la restauration de l’accès à la clé, la sauvegarde de la base de données en ligne nécessite du temps et des étapes supplémentaires, qui peuvent varier en fonction du temps écoulé sans avoir accès à la clé ni à la taille des données dans la base de données :
+Une fois l’accès à la clé rétabli, la remise en ligne de la base de données nécessite un temps et des étapes supplémentaires, qui peuvent varier en fonction du temps écoulé sans accès à la clé et de la taille des données dans la base de données :
 
-- Si l’accès à la clé est restauré dans un délai de 8 heures, la base de données sera automatiquement réparée dans l’heure suivante.
+- Si l’accès à la clé est rétabli dans les huit heures, la base de données sera automatiquement réparée dans l’heure qui suit.
 
-- Si l’accès à la clé est restauré dans un délai supérieur à huit heures, la réparation automatique n’est pas possible et la restauration de la base de données nécessite des étapes supplémentaires dans le portail et peut prendre beaucoup de temps, en fonction de la taille de la base de données. Une fois la base de données de nouveau en ligne, les paramètres précédemment configurés au niveau du serveur, tels que la configuration du [groupe de basculement](auto-failover-group-overview.md), l’historique de la limite de restauration dans le temps ainsi que les balises **seront perdus**. Par conséquent, il est recommandé d’implémenter un système de notification qui vous permet d’identifier et de résoudre les problèmes d’accès aux clés sous-jacentes dans un délai de 8 heures.
+- Si l’accès à la clé est rétabli après plus de huit heures, la réparation automatique n’est pas possible, et le rétablissement de la base de données nécessite des étapes supplémentaires sur le portail et peut prendre un temps considérable en fonction de la taille de la base de données. Une fois la base de données de nouveau en ligne, les paramètres précédemment configurés au niveau du serveur, tels que la configuration du [groupe de basculement](auto-failover-group-overview.md), l’historique de la limite de restauration dans le temps ainsi que les balises **seront perdus**. Par conséquent, il est recommandé d’implémenter un système de notification qui vous permet d’identifier et de résoudre les problèmes d’accès aux clés sous-jacentes dans un délai de 8 heures.
 
 Vous trouverez ci-dessous une vue des étapes supplémentaires requises sur le portail pour remettre en ligne une base de données inaccessible.
 
@@ -164,7 +164,7 @@ Pour surveiller l’état de la base de données et activer l’alerte pour la p
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Une base de données inaccessible qui a perdu l’accès au protecteur TDE apparaît comme « Non disponible » après le refus de la première connexion à la base de données.
 - [Journal d’activité](../../service-health/alerts-activity-log-service-notifications-portal.md) : lorsque l’accès au protecteur TDE dans le coffre de clés géré par le client échoue, des entrées sont ajoutées au Journal d’activité.  La création d’alertes pour ces événements vous permet de rétablir l’accès dès que possible.
-- [Les groupes d’actions](../../azure-monitor/alerts/action-groups.md) peuvent être définis de manière à vous envoyer des notifications et des alertes en fonction de vos préférences, par exemple par e-mail/SMS/envoi (push)/notification vocale, application logique, webhook, ITSM ou Runbook Automation.
+- Des [groupes d’actions](../../azure-monitor/alerts/action-groups.md) peuvent être définis de manière à vous envoyer des notifications et des alertes en fonction de vos préférences, par exemple par e-mail/SMS/push/voix, application logique, webhook, ITSM ou Runbook Automation.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Sauvegarde et restauration de la base de données avec TDE managé par le client
 
@@ -175,7 +175,7 @@ Pour restaurer une sauvegarde chiffrée avec un protecteur TDE de Key Vault, ass
 > [!IMPORTANT]
 > À tout moment, il ne peut pas y avoir plus d’un protecteur TDE défini pour un serveur. C’est la clé marquée avec « Faire de la clé le protecteur TDE par défaut » dans le panneau Portail Azure. Toutefois, plusieurs clés supplémentaires peuvent être liées à un serveur sans les marquer comme protecteur TDE. Ces clés ne sont pas utilisées pour la protection de la clé de chiffrement, mais elles peuvent être utilisées lors de la restauration à partir d’une sauvegarde, si le fichier de sauvegarde est chiffré avec la clé avec l’empreinte numérique correspondante.
 
-Si la clé nécessaire à la restauration d’une sauvegarde n’est plus disponible sur le serveur cible, le message d’erreur suivant est renvoyé lors de la tentative de restauration : « Le serveur cible `<Servername>` n’a pas accès à tous les URI AKV créés entre \<Timestamp #1> et \<Timestamp #2>. Veuillez réessayer l’opération après avoir restauré tous les URI AKV. »
+Si la clé nécessaire à la restauration d’une sauvegarde n’est plus disponible sur le serveur cible, le message d’erreur suivant est renvoyé lors de la tentative de restauration : « Le serveur cible `<Servername>` n’a pas accès à tous les URI AKV créés entre \<Timestamp #1> et \<Timestamp #2>. Réessayez l’opération après avoir restauré tous les URI AKV. »
 
 Pour l’atténuer, exécutez la cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) pour le serveur cible ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) pour l’instance gérée cible afin de retourner la liste des clés disponibles et d’identifier celles qui sont manquantes. Pour garantir la restauration possible de toutes les sauvegardes, vérifiez que le serveur cible pour la sauvegarde dispose d’un accès à toutes les clés nécessaires. Ces clés n’ont pas besoin d’être marquées comme protecteur TDE.
 
@@ -185,7 +185,7 @@ Attention particulière pour les fichiers journaux : Les fichiers journaux sauve
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Haute disponibilité avec TDE managé par le client
 
-Même dans les cas où aucune géoredondance n’est configurée pour le serveur, il est fortement recommandé de configurer le serveur pour utiliser deux coffres de clés différents dans deux régions différentes, avec le même matériel de clé. La clé du coffre de clés secondaire dans l’autre région ne doit pas être marquée comme protecteur TDE et n’est même pas autorisée. En cas de panne affectant le coffre de clés principal, et uniquement dans ce cas, le système bascule automatiquement vers l’autre clé liée avec la même empreinte numérique dans le coffre de clés secondaire, le cas échéant. Notez cependant que ce basculement ne se produira pas si le protecteur TDE est inaccessible en raison de droits d’accès révoqués ou parce que la clé ou le coffre de clés est supprimé, car cela peut indiquer que le client voulait intentionnellement empêcher le serveur d’accéder à la clé. Le fait de fournir le même matériel de clé à deux coffres de clés dans différentes régions est possible en créant la clé en dehors du coffre de clés et en l’important dans les deux coffres de clés. 
+Même dans les cas où aucune géoredondance n’est configurée pour le serveur, il est fortement recommandé de configurer le serveur pour utiliser deux coffres de clés différents dans deux régions différentes, avec le même matériel de clé. La clé du coffre de clés secondaire dans l’autre région ne doit pas être marquée comme protecteur TDE et n’est même pas autorisée. En cas de panne affectant le coffre de clés principal, et uniquement dans ce cas, le système bascule automatiquement vers l’autre clé liée avec la même empreinte numérique dans le coffre de clés secondaire, le cas échéant. Notez cependant que ce commutateur ne se produira pas si le protecteur TDE est inaccessible en raison de droits d’accès révoqués ou parce que la clé ou le coffre de clés est supprimé, car il peut indiquer que le client voulait intentionnellement empêcher le serveur d’accéder à la clé. Il est possible de fournir une même clé à deux coffres de clés situés dans des régions différentes en créant la clé en dehors du coffre de clés et en l’important dans les deux coffres de clés. 
 
 Vous pouvez également le faire en générant une clé à l’aide du coffre de clés primaire colocalisé dans la même région que le serveur et en clonant la clé dans un coffre de clés situé dans une autre région Azure. Utilisez la cmdlet [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) pour récupérer la clé au format chiffré depuis le coffre de clés primaire, puis utilisez la cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) et spécifiez un coffre de clés dans la deuxième région pour cloner la clé. Vous pouvez également utiliser le portail Azure pour sauvegarder et restaurer la clé. L’opération de sauvegarde/restauration de clé est autorisée uniquement entre des coffres de clés au sein du même abonnement Azure et de la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
@@ -193,7 +193,7 @@ Vous pouvez également le faire en générant une clé à l’aide du coffre de 
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>Fonctionnement de TDE managé par le client et à récupération d'urgence de géoréplication
 
-Dans les scénarios de [géo-réplication active](active-geo-replication-overview.md) et de [groupes de basculement](auto-failover-group-overview.md), chaque serveur impliqué requiert un coffre de clés distinct, qui doit être colocalisé avec le serveur dans la même région Azure. Le client est responsable du maintien de la cohérence du matériel de clé dans les coffres de clés, afin que la géo-secondaire soit synchronisée et puisse prendre le relais à l’aide de la même clé de son coffre de clés local si la base de données primaire devient inaccessible en raison d’une panne dans la région et qu’un basculement est déclenché. Jusqu’à quatre bases de données secondaires peuvent être configurées et le chaînage (bases de données secondaires de secondaires) n’est pas pris en charge.
+Dans les scénarios de [géoréplication active](active-geo-replication-overview.md) et de [groupes de basculement](auto-failover-group-overview.md), chaque serveur impliqué requiert un coffre de clés distinct, qui doit être colocalisé avec le serveur dans la même région Azure. Le client est responsable du maintien de la cohérence du matériel de clé dans les coffres de clés, afin que la géo-secondaire soit synchronisée et puisse prendre le relais à l’aide de la même clé de son coffre de clés local si la base de données primaire devient inaccessible en raison d’une panne dans la région et qu’un basculement est déclenché. Jusqu’à quatre bases de données secondaires peuvent être configurées et le chaînage (bases de données secondaires de secondaires) n’est pas pris en charge.
 
 Pour éviter tout problème lors de l’établissement ou de la géoréplication en raison d’un matériel de clé incomplet, il est important de suivre les règles suivantes lors de la configuration des TDE managés par le client :
 
