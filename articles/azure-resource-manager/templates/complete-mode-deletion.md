@@ -2,13 +2,13 @@
 title: Effectuer la suppression du mode
 description: Montre comment les types de ressources gèrent la suppression du mode complet dans les modèles Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 9b1c12c061149d60f1e279c78c141cd8b245218c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.date: 04/16/2021
+ms.openlocfilehash: 6986f600274beaaa67f2f6ce64cbc3d0ceaf322e
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228025"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576059"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Suppression de ressources Azure pour les déploiements en mode complet
 
@@ -916,8 +916,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | galleries | Oui |
 > | galleries / applications | Non |
 > | galleries / applications / versions | Non |
-> | galleries / images | Non |
-> | galleries / images / versions | Non |
+> | galleries / images | Oui |
+> | galleries / images / versions | Oui |
 > | hostGroups | Oui |
 > | hostGroups / hosts | Oui |
 > | images | Oui |

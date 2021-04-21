@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a21e0ae235d5b5c514f3d82b76b4d17394035872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99243dbfac7fddb8a4fe9d64ed64ab706245ec3c
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576887"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587627"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Base de référence de sécurité Azure pour Azure IoT Hub
 
@@ -52,7 +52,7 @@ Maintenez le nombre de ports physiques ouverts au strict minimum sur vos apparei
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
 
@@ -66,7 +66,7 @@ Maintenez le nombre de ports physiques ouverts au strict minimum sur vos apparei
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="13-protect-critical-web-applications"></a>1.3 : Protéger les applications web critiques
 
@@ -116,7 +116,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7 : Gérer le trafic à destination des applications web
 
@@ -197,7 +197,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés peut être nécessaire pour les alertes liées à ce contrôle.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être nécessaire pour les alertes liées à ce contrôle.
 
 **Définitions intégrées à Azure Policy - Microsoft.Devices** :
 
@@ -219,7 +219,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
@@ -313,7 +313,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
 
@@ -323,7 +323,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
@@ -359,7 +359,7 @@ Vous pouvez également activer l’accès juste-à-temps aux comptes d’adminis
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3.8 : Gérer les ressources Azure uniquement à partir d’emplacements approuvés
 
@@ -414,7 +414,7 @@ Utilisez les journaux de ressources Azure Monitor pour surveiller les tentatives
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
 
@@ -501,7 +501,7 @@ Pour la plateforme Azure sous-jacente gérée par Microsoft, Microsoft traite to
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
@@ -587,7 +587,7 @@ Pour la plateforme Azure sous-jacente gérée par Microsoft, Microsoft traite to
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4 : Dresser et tenir un inventaire des ressources Azure approuvées
 
@@ -671,7 +671,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 

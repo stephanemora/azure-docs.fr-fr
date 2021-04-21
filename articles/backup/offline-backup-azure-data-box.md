@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box
 description: Découvrez comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales volumineuses hors connexion à partir de l’agent MARS dans un coffre Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78adc479ce5733e208d2334d30d7b88e4edf8d6b
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96752581"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576089"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box
 
@@ -292,7 +292,7 @@ Si aucun autre serveur n’a d’amorçage hors connexion configuré et si aucun
 
 À partir du serveur sur lequel vous essayez de configurer la sauvegarde hors connexion, réalisez les actions suivantes.
 
-1. Accédez à l’onglet **Gérer l’application de certificat d’ordinateur** > **Personnel** et recherchez le certificat portant le nom `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Accédez à l’onglet **Gérer l’application de certificat d’ordinateur** > **Personnel** et recherchez le certificat portant le nom `CB_AzureADCertforOfflineSeeding_<Timestamp>`.
 
 2. Sélectionnez le certificat, cliquez avec le bouton droit sur **Toutes les tâches** et sélectionnez **Exporter** sans clé privée au format .cer.
 

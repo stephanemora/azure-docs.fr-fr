@@ -4,12 +4,12 @@ description: Article qui montre comment effectuer certaines tâches de mise en r
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a28a59a0de40bba7914d1920b42034fbbc223ddc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c123b20e163731f9a872a969f2f1564479b6e308
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608496"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718428"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuration d’Azure Functions avec un réseau virtuel
 
@@ -30,7 +30,7 @@ Pour configurer une fonction avec un compte de stockage limité à un réseau pr
 
 1. Créez ou configurez un autre compte de stockage.  Il s’agit du compte de stockage que nous sécurisons avec les points de terminaison de service et auquel nous connectons notre fonction.
 
-1. [Créez un partage de fichiers](../storage/files/storage-how-to-create-file-share.md#create-file-share) dans le compte de stockage sécurisé.
+1. [Créez un partage de fichiers](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) dans le compte de stockage sécurisé.
 
 1. Activez les points de terminaison de service ou le point de terminaison privé pour le compte de stockage.  
     * Si vous utilisez des connexions de point de terminaison privé, le compte de stockage a besoin d’un point de terminaison privé pour les sous-ressources `file` et `blob`.  Si vous utilisez certaines capacités, telles que Durable Functions, `queue` et `table` doivent également être accessibles par le biais d’une connexion de point de terminaison privé.

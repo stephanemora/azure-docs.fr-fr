@@ -4,12 +4,12 @@ description: Développer des fonctions avec Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3eb3b3b015f401e872a879c46ec6f8c69df5f87f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c87be334847974627299f8e21109fe201675f0c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455414"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762170"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -374,7 +374,7 @@ Azure Functions prend en charge les versions de Python suivantes :
 
 <sup>*</sup>Distributions CPython officielles
 
-Pour demander une version de Python particulière lorsque vous créez votre application de fonction dans Azure, utilisez l’option `--runtime-version` de la commande [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create). La version du runtime Functions est définie par l’option `--functions-version`. La version Python est définie lors de la création de l’application de fonction et ne peut pas être modifiée.
+Pour demander une version de Python particulière lorsque vous créez votre application de fonction dans Azure, utilisez l’option `--runtime-version` de la commande [`az functionapp create`](/cli/azure/functionapp#az_functionapp_create). La version du runtime Functions est définie par l’option `--functions-version`. La version Python est définie lors de la création de l’application de fonction et ne peut pas être modifiée.
 
 Lors d’une exécution locale, le runtime utilise la version de Python disponible.
 

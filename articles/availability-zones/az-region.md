@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: fd4443e4ef6bcecacc03ce190bbf438288c9ec60
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: b59062395c0b05f36dd0f5bd00fbd1acb3ccb2a9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364054"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529805"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Services Azure prenant en charge les zones de disponibilité
 
@@ -121,6 +121,7 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 |-----------------------------------------------------------------|:----------------------------:|
 |     [Environnements App Service](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy)                                    | :large_blue_diamond:  |
 |     [Services de domaine Azure Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services/overview)                      | :large_blue_diamond:  |
+|     [Gestion des API Azure](https://docs.microsoft.com/azure/api-management/zone-redundancy)                      | :large_blue_diamond:  |
 |     [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview)                                               | :large_blue_diamond:  |
 |     [Cache Azure pour Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-high-availability)                              | :large_blue_diamond:  |
 |     [Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-performance-optimization#availability-zones)               | :large_blue_diamond:  |
@@ -141,7 +142,7 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 |     [Event Grid](https://docs.microsoft.com/azure/event-grid/overview)                                                  | :large_blue_diamond:  |
 |     [Network Watcher](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
 |     Network Watcher : [Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                          | :large_blue_diamond:  |
-|     [Power BI Embedded](https://docs.microsoft.com/power-bi/admin/service-admin-failover#what-does-high-availability)                                           | :large_blue_diamond:  |
+|     [Power BI Embedded](https://docs.microsoft.com/power-bi/admin/service-admin-failover#what-does-high-availability)                                           | :large_blue_diamond:  |
 |     [Stockage Blob Premium](https://docs.microsoft.com/azure/storage/blobs/storage-blob-performance-tiers#:~:text=Table%201%20%20%20%20Area%20%20,%20%20Currently%20supports%20only%20locally-redundan%20...%20)                                        | :large_blue_diamond:  |
 |     Stockage : [Azure Premium Files](https://docs.microsoft.com/azure/storage/files/storage-files-planning)                                | :large_blue_diamond:  |
 |     Machines virtuelles : [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                     | :large_blue_diamond:  |
@@ -202,7 +203,7 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 |     Microsoft Azure Peering Service                           | :globe_with_meridians: |
 |     Portail Microsoft Azure                                    | :globe_with_meridians: |
 |     Microsoft Cloud App Security                                | :globe_with_meridians: |
-|     Microsoft Graph                                             | :globe_with_meridians: |
+|     Microsoft Graph                                             | :globe_with_meridians: |
 |     Security Center                                           | :globe_with_meridians: |
 |     Traffic Manager                                           | :globe_with_meridians: |
 

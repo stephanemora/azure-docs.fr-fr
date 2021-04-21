@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fb5203629915914ab9af22d89e5f2865078a8e44
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 82fc5707800e06e3221754bfa29d8e981ccdbd2d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012605"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782582"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -122,7 +122,7 @@ Vous devez fournir l’URL de registre complète, y compris `http://` ou `https:
 
 **Quel est le format du nom d’image dans l’option de registre privé ?**
 
-Ajoutez le nom complet de l’image, comprenant l’URL de registre privé (par exemple, myacr.azurecr.io/dotnet:latest). Les noms d’image qui utilisent un port personnalisé [ne peuvent pas être entrés par le biais du portail](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Pour définir `docker-custom-image-name`, utilisez [l’outil en ligne de commande `az`](/cli/azure/webapp/config/container#az-webapp-config-container-set).
+Ajoutez le nom complet de l’image, comprenant l’URL de registre privé (par exemple, myacr.azurecr.io/dotnet:latest). Les noms d’image qui utilisent un port personnalisé [ne peuvent pas être entrés par le biais du portail](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Pour définir `docker-custom-image-name`, utilisez [l’outil en ligne de commande `az`](/cli/azure/webapp/config/container#az_webapp_config_container_set).
 
 **Je veux exposer plusieurs ports sur l’image de mon conteneur personnalisé.**
 

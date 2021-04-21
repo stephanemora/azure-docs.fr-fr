@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 84960e6247edc708bedb899c96ebf7522397269a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 309b106d2141c8257c5163efe7ff45a7bae5d5c3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580366"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759648"
 ---
 # <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Installer et configurer xrdp pour utiliser le Bureau à distance avec Ubuntu
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Création d’une règle de groupe de sécurité réseau pour le trafic du Bureau à distance
 Pour autoriser le trafic du Bureau à distance à atteindre votre machine virtuelle Linux, une règle de groupe de sécurité réseau doit être créée pour permettre au TCP sur le port 3389 d’atteindre votre machine virtuelle. Pour plus d’informations sur les règles de groupe de sécurité réseau, consultez [Présentation du groupe de sécurité réseau](../../virtual-network/network-security-groups-overview.md) Vous pouvez également [utiliser le portail Azure pour créer une règle de groupe de sécurité réseau](../windows/nsg-quickstart-portal.md).
 
-L’exemple suivant permet de créer une règle de groupe de sécurité réseau avec [az vm open-port](/cli/azure/vm#az-vm-open-port) sur le port *3389*. À partir d’Azure CLI, et non de la session SSH sur votre machine virtuelle, ouvrez la règle de groupe de sécurité réseau suivante :
+L’exemple suivant permet de créer une règle de groupe de sécurité réseau avec [az vm open-port](/cli/azure/vm#az_vm_open_port) sur le port *3389*. À partir d’Azure CLI, et non de la session SSH sur votre machine virtuelle, ouvrez la règle de groupe de sécurité réseau suivante :
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

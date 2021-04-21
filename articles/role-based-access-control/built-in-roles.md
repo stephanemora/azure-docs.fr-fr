@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: 4e559ea1e531e2d472faeef60ebc6d528da0cfd0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f4112d4b9bf55e45ec865f5c8606ead9088a7983
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307926"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752387"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -216,10 +216,10 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | [Opérateur Automation](#automation-operator) | Les opérateurs d’Automation sont en mesure de démarrer, d’arrêter, de suspendre et de reprendre des travaux | d3881f73-407a-4167-8283-e981cbba0404 |
 > | [Opérateur de runbook Automation](#automation-runbook-operator) | Propriétés de lecture du runbook : pour pouvoir créer des travaux depuis le runbook. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
 > | [Rôle d'utilisateur de cluster Kubernetes avec Azure Arc](#azure-arc-enabled-kubernetes-cluster-user-role) | Répertorie les actions relatives aux informations d'identification de l'utilisateur du cluster. | 00493d72-78f6-4148-b6c5-d3ce8e4799dd |
-> | [Administrateur Kubernetes Azure Arc](#azure-arc-kubernetes-admin) | Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
-> | [Administrateur de cluster Kubernetes Azure Arc](#azure-arc-kubernetes-cluster-admin) | Gérez toutes les ressources du cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
-> | [Visionneuse Kubernetes Azure Arc](#azure-arc-kubernetes-viewer) | Affichez toutes les ressources dans le cluster/l’espace de noms, à l’exception des secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
-> | [Enregistreur Kubernetes Azure Arc](#azure-arc-kubernetes-writer) | Vous permet de mettre à jour tout ce qui se trouve dans le cluster/espace de noms, à l'exception des rôles (de cluster) et des liaisons de rôles (de cluster). | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | [Azure Arc Kubernetes Admin](#azure-arc-kubernetes-admin) | Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
+> | [Azure Arc Kubernetes Cluster Admin](#azure-arc-kubernetes-cluster-admin) | Gérez toutes les ressources du cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
+> | [Azure Arc Kubernetes Viewer](#azure-arc-kubernetes-viewer) | Affichez toutes les ressources dans le cluster/l’espace de noms, à l’exception des secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
+> | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Vous permet de mettre à jour tout ce qui se trouve dans le cluster/espace de noms, à l'exception des rôles (de cluster) et des liaisons de rôles (de cluster). | 5b999177-9696-4545-85c7-50de3797e5a1 |
 > | [Intégration de machine connectée à Azure](#azure-connected-machine-onboarding) | Peut intégrer des machines connectées à Azure. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | [Administrateur des ressources de la machine connectée à Azure](#azure-connected-machine-resource-administrator) | Peut lire, écrire, supprimer et réintégrer des machines connectées à Azure. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [Lecteur de facturation](#billing-reader) | Autorise l’accès en lecture aux données de facturation | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
@@ -8210,7 +8210,7 @@ Permet d’effectuer une action sur les certificats d’un coffre de clés, à l
 
 ### <a name="key-vault-contributor"></a>Contributeur Key Vault
 
-Permet de gérer les coffres de clés, mais ne vous permet pas d’attribuer des rôles dans Azure RBAC ni d’accéder à des secrets, des clés ou des certificats. [En savoir plus](../key-vault/general/secure-your-key-vault.md)
+Permet de gérer les coffres de clés, mais ne vous permet pas d’attribuer des rôles dans Azure RBAC ni d’accéder à des secrets, des clés ou des certificats. [En savoir plus](../key-vault/general/security-overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -9632,7 +9632,7 @@ Répertorie les actions relatives aux informations d'identification de l'utilisa
 }
 ```
 
-### <a name="azure-arc-kubernetes-admin"></a>Administrateur Kubernetes Azure Arc
+### <a name="azure-arc-kubernetes-admin"></a>Azure Arc Kubernetes Admin
 
 Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la mise à jour ou de la suppression de quotas de ressources et d’espaces de noms. [En savoir plus](../azure-arc/kubernetes/azure-rbac.md)
 
@@ -9749,7 +9749,7 @@ Gérez toutes les ressources sous cluster/espace de noms, à l’exception de la
 }
 ```
 
-### <a name="azure-arc-kubernetes-cluster-admin"></a>Administrateur de cluster Kubernetes Azure Arc
+### <a name="azure-arc-kubernetes-cluster-admin"></a>Azure Arc Kubernetes Cluster Admin
 
 Gérez toutes les ressources du cluster. [En savoir plus](../azure-arc/kubernetes/azure-rbac.md)
 
@@ -9802,7 +9802,7 @@ Gérez toutes les ressources du cluster. [En savoir plus](../azure-arc/kubernete
 }
 ```
 
-### <a name="azure-arc-kubernetes-viewer"></a>Visionneuse Kubernetes Azure Arc
+### <a name="azure-arc-kubernetes-viewer"></a>Azure Arc Kubernetes Viewer
 
 Affichez toutes les ressources dans le cluster/l’espace de noms, à l’exception des secrets. [En savoir plus](../azure-arc/kubernetes/azure-rbac.md)
 
@@ -9911,7 +9911,7 @@ Affichez toutes les ressources dans le cluster/l’espace de noms, à l’except
 }
 ```
 
-### <a name="azure-arc-kubernetes-writer"></a>Enregistreur Kubernetes Azure Arc
+### <a name="azure-arc-kubernetes-writer"></a>Azure Arc Kubernetes Writer
 
 Vous permet de mettre à jour tout ce qui se trouve dans le cluster/espace de noms, à l'exception des rôles (de cluster) et des liaisons de rôles (de cluster). [En savoir plus](../azure-arc/kubernetes/azure-rbac.md)
 
@@ -12144,7 +12144,7 @@ Lecteur d’espace de travail de virtualisation de poste de travail. [En savoir 
 
 ### <a name="disk-backup-reader"></a>Lecteur de sauvegarde de disque
 
-Fournit une autorisation sur le coffre de sauvegarde pour effectuer une sauvegarde de disque. [En savoir plus](../backup/disk-backup-faq.md)
+Fournit une autorisation sur le coffre de sauvegarde pour effectuer une sauvegarde de disque. [En savoir plus](../backup/disk-backup-faq.yml)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

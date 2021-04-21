@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c2b2217fc6b32e5191bb67ffdaa10b796adf84b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91570535"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762764"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gérer un groupe de machines virtuelles identiques avec l’interface Azure CLI
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des commandes Azure CLI courantes qui vous permettent d’effectuer ces tâches.
@@ -100,7 +100,7 @@ Quelques minutes sont nécessaires pour mettre à jour la capacité de votre gro
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrêter et démarrer des machines virtuelles dans un groupe identique
-Pour arrêter une ou plusieurs machines virtuelles dans un groupe identique, utilisez la commande [az vmss stop](/cli/azure/vmss#az-vmss-stop). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs machines virtuelles à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont arrêtées. Pour arrêter plusieurs machines virtuelles, séparez les ID d’instance à l’aide d’une espace.
+Pour arrêter une ou plusieurs machines virtuelles dans un groupe identique, utilisez la commande [az vmss stop](/cli/azure/vmss#az_vmss_stop). Le paramètre `--instance-ids` vous permet de spécifier une ou plusieurs machines virtuelles à arrêter. Si vous ne spécifiez pas d’ID d’instance, toutes les machines virtuelles dans le groupe identique sont arrêtées. Pour arrêter plusieurs machines virtuelles, séparez les ID d’instance à l’aide d’une espace.
 
 L’exemple suivant arrête l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Indiquez vos propres valeurs comme suit :
 

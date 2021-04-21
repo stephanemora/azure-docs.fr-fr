@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 6e6c692e8fc13d1703df44c99e9969ba4db5f119
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c388cb070c66fc3a2322c358bc4113ed2106c77
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872096"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761846"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
@@ -32,7 +32,7 @@ Microsoft fournit les utilitaires suivants pour la mise à l’échelle des clus
 |---|---|
 |[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az_hdinsight_resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Azure Classic CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Ouvrez le volet de votre cluster HDInsight, sélectionnez **Taille de cluster** dans le menu de gauche, puis, dans le volet Taille de cluster, entrez le nombre de nœuds Worker, puis sélectionnez Enregistrer.|  
 

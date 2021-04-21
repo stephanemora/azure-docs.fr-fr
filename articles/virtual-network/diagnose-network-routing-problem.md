@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f84b74b054a073f2c1ae5ba2ac7d0d0a968367c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84705047"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767670"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostiquer un problème de routage sur une machine virtuelle
 
@@ -87,7 +87,7 @@ Dans la précédente sortie, le nom d’interface réseau est *myVMNic1*.
 
 Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/bash), ou en exécutant l’interface CLI à partir de votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez aussi exécuter `az login` et vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Obtenez les itinéraires effectifs d’une interface réseau avec [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMNic1*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
+Obtenez les itinéraires effectifs d’une interface réseau avec [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMNic1*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
 ```azurecli-interactive
 az network nic show-effective-route-table \

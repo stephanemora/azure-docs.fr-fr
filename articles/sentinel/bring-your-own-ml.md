@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: f8d795dcf64230140e1dd07e3f30ca3aa6825ab4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2164b8ac6e62b8826d5879da07384769c503bfb5
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807001"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598599"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Intégrer votre propre Machine Learning (BYO-ML) dans Azure Sentinel
 
@@ -137,7 +137,7 @@ az monitor log-analytics workspace data-export list --resource-group "RG_NAME" -
 
 ### <a name="export-custom-data"></a>Exporter des données personnalisées
 
-Concernant vos données personnalisées qui ne sont pas prises en charge par l’exportation automatique de Log Analytics, vous pouvez utiliser une application logique ou d’autres solutions pour les déplacer. Vous pouvez vous référer au blog et au script [Exportation de données de Log Analytics vers un magasin d’objets blob](https://www.borninthecloud.com/exporting-log-analytics-data-to-blob-store/?preview=true).
+Concernant vos données personnalisées qui ne sont pas prises en charge par l’exportation automatique de Log Analytics, vous pouvez utiliser une application logique ou d’autres solutions pour les déplacer. Vous pouvez vous référer au blog et au script [Exportation de données de Log Analytics vers un magasin d’objets blob](https://techcommunity.microsoft.com/t5/azure-monitor/log-analytics-data-export-preview/ba-p/1783530).
 
 ### <a name="correlate-with-data-outside-of-azure-sentinel"></a>Établir une corrélation avec des données en dehors d’Azure Sentinel
 

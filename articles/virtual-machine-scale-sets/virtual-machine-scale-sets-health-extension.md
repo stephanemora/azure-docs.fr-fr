@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 381573ae40f6c31a1c7dbf18bc60be5944fff39e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84783042"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762890"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Utilisation de l’extension Intégrité de l’application avec des groupes de machines virtuelles identiques
 La surveillance de l’intégrité de votre application est un signal important pour la gestion et la mise à niveau votre déploiement. Les groupes de machines virtuelles identiques prennent en charge les [mises à niveau propagées](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), notamment les [mises à niveau automatiques d’image de système d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md), qui reposent sur l’analyse du fonctionnement des instances individuelles pour mettre à niveau votre déploiement. Vous pouvez également utiliser l’extension d’intégrité pour surveiller l’intégrité des applications de chaque instance de votre groupe identique et effectuer des réparations d’instance à l’aide de [réparations automatiques d’instances](virtual-machine-scale-sets-automatic-instance-repairs.md).
@@ -141,7 +141,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Utilisez la commande [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) pour ajouter l’extension Intégrité de l’application à la définition du modèle de groupe identique.
+Utilisez la commande [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) pour ajouter l’extension Intégrité de l’application à la définition du modèle de groupe identique.
 
 L’exemple suivant ajoute l’extension Intégrité de l’application au modèle d’un groupe identique basé sur Linux.
 

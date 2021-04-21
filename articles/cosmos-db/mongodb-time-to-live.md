@@ -9,12 +9,12 @@ ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6ef3092c611e1eede2be1e0994ce69959a46f1d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f044e03fa3f8aece677e3918b2add8190041c7ac
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93340921"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589514"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Faire expirer des données avec l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -72,12 +72,6 @@ Les documents suivants ont des valeurs de durée de vie non valides. Les documen
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.5}) //TTL value contains non-zero decimal part. 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(2147483649)}) //TTL value is greater than Int32.MaxValue (2,147,483,648). 
 ``` 
-
-## <a name="how-to-activate-the-per-document-ttl-feature"></a>Comment activer la fonctionnalité de durée de vie par document
-
-La fonctionnalité de durée de vie par document peut être activée avec l’API Azure Cosmos DB pour MongoDB.
-
-:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Capture d’écran de l’activation de la fonctionnalité de durée de vie par document dans le portail":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Faire expirer automatiquement des données avec la durée de vie dans Azure Cosmos DB](../cosmos-db/time-to-live.md)

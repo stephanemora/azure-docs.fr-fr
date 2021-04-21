@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 565e6fd5aae3068605b617deccb0d04785c1e248
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a94f3cc6b2387857d19c7b98fa0be64dd6646ec9
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057624"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713855"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Sérialiser des données de télémétrie à l'aide de Protocol Buffers
 
@@ -57,7 +57,7 @@ Les instructions figurant dans cet article supposent que vous utilisez Windows. 
 
 Téléchargez les [Microservices de surveillance à distance](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) à partir de GitHub et décompressez-les à l'emplacement approprié sur votre ordinateur local. Ce référentiel inclut le microservice d'adaptateur de stockage dont vous avez besoin pour suivre les étapes de ce guide pratique.
 
-Téléchargez et décompressez le [microservice de simulation d’appareil](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) à partir de GitHub à un emplacement approprié sur votre machine locale.
+Téléchargez et décompressez le [microservice de simulation d’appareil](https://github.com/Azure/azure-iot-pcs-device-simulation/archive/master.zip) à partir de GitHub à un emplacement approprié sur votre machine locale.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Exécuter le microservice d’adaptateur de stockage
 
@@ -277,4 +277,4 @@ Rares sont les fonctionnalités IoT Hub qui prennent nativement en charge Protob
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à personnaliser la simulation d’appareil afin d’utiliser Protobuf pour l’envoi de données de télémétrie, l’étape suivante consiste à visiter le dépôt GitHub pour en savoir plus sur la [simulation d’appareil](https://github.com/Azure/device-simulation-dotnet).
+Maintenant que vous avez appris à personnaliser la simulation d’appareil afin d’utiliser Protobuf pour l’envoi de données de télémétrie, l’étape suivante consiste à visiter le dépôt GitHub pour en savoir plus sur la [simulation d’appareil](https://github.com/Azure/azure-iot-pcs-device-simulation).

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b85e1fc74688f2883531bd3a6e724a2ce326a9db
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98927419"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600248"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utiliser des identités managées affectées par le système pour accéder aux données Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,10 +93,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 À présent, nous disposons d’une application de fonction dotée d’une identité managée affectée par le système avec le rôle **Contributeur de compte DocumentDB** dans les autorisations d’Azure Cosmos DB. Le code d’application de fonction suivant obtient les clés d’Azure Cosmos DB, crée un objet CosmosClient, obtient la température de l’aquarium, puis enregistre cette dernière dans Cosmos DB.
 
-Cet exemple utilise l’[API Répertorier les clés](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) pour accéder à vos clés de compte Azure Cosmos DB.
+Cet exemple utilise l’[API Répertorier les clés](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listkeys) pour accéder à vos clés de compte Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Si vous voulez attribuer le rôle [Lecteur de compte Cosmos DB](#grant-access-to-your-azure-cosmos-account), vous allez devoir utiliser l’[API Répertorier les clés en lecture seule](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). Seules les clés en lecture seule seront remplies.
+> Si vous voulez attribuer le rôle [Lecteur de compte Cosmos DB](#grant-access-to-your-azure-cosmos-account), vous allez devoir utiliser l’[API Répertorier les clés en lecture seule](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listreadonlykeys). Seules les clés en lecture seule seront remplies.
 
 L’API Répertorier les clés retourne l’objet `DatabaseAccountListKeysResult`. Ce type n’est pas défini dans les bibliothèques C#. Le code suivant montre l'implémentation de cette classe :  
 

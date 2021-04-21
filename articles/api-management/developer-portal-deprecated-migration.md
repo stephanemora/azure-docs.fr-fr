@@ -5,20 +5,16 @@ description: Découvrez comment migrer du portail des développeurs hérité ver
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/15/2020
+ms.date: 04/15/2021
 ms.author: apimpm
-ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4f9f3822b58886f7d453d52402b078d8401133f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92325917"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738879"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migrer vers le nouveau portail des développeurs
 
@@ -33,19 +29,19 @@ Cet article décrit les étapes à suivre pour migrer du portail hérité décon
 
 ## <a name="improvements-in-new-developer-portal"></a>Améliorations apportées au nouveau portail des développeurs
 
-Le nouveau portail des développeurs résout de nombreuses limitations du portail déconseillé. Il comporte un [éditeur visuel par glisser-déposer pour modifier le contenu](api-management-howto-developer-portal-customize.md) et un panneau dédié aux concepteurs pour définir le style du site web. Les pages, les personnalisations et la configuration sont enregistrées en tant que ressources Azure Resource Manager dans votre service Gestion des API, ce qui vous permet d’[automatiser les déploiements du portail](api-management-howto-developer-portal.md#automate). Enfin, le codebase du portail est open source, [vous pouvez donc l’enrichir avec des fonctionnalités personnalisées](api-management-howto-developer-portal.md#managed-vs-self-hosted).
+Le nouveau portail des développeurs résout de nombreuses limitations du portail déconseillé. Il comporte un [éditeur visuel par glisser-déposer pour modifier le contenu](api-management-howto-developer-portal-customize.md) et un panneau dédié aux concepteurs pour définir le style du site web. Les pages, les personnalisations et la configuration sont enregistrées en tant que ressources Azure Resource Manager dans votre service Gestion des API, ce qui vous permet d’[automatiser les déploiements du portail](automate-portal-deployments.md). Enfin, le codebase du portail est open source, [vous pouvez donc l’enrichir avec des fonctionnalités personnalisées](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 
 ## <a name="how-to-migrate-to-new-developer-portal"></a>Comment migrer vers le nouveau portail des développeurs
 
 Le nouveau portail des développeurs est incompatible avec le portail déconseillé ; la migration automatisée n’est pas possible. Vous devez recréer manuellement le contenu (pages, texte, fichiers multimédias) et personnaliser l’apparence du nouveau portail. Les étapes précises varient en fonction des personnalisations et de la complexité de votre portail. Pour obtenir de l’aide, consultez le [tutoriel sur le portail des développeurs](api-management-howto-developer-portal-customize.md). La configuration restante, par exemple la liste des API, des produits, des utilisateurs et des fournisseurs d’identité, est automatiquement partagée entre les deux portails.
 
 > [!IMPORTANT]
-> Si vous avez déjà lancé le nouveau portail des développeurs, mais que vous n’avez effectué aucune modification, [réinitialisez le contenu par défaut](api-management-howto-developer-portal.md#preview-to-ga) pour le mettre à jour à la version la plus récente.
+> Si vous avez déjà lancé le nouveau portail des développeurs, mais que vous n’avez effectué aucune modification, réinitialisez le contenu par défaut pour le mettre à jour à la version la plus récente.
 
 Lorsque vous migrez depuis le portail déconseillé, gardez à l’esprit les modifications suivantes :
 
 - Si vous exposez votre portail des développeurs à l’aide d’un domaine personnalisé, [attribuez un domaine](configure-custom-domain.md) au nouveau portail des développeurs. Utilisez l’option **Portail des développeurs** dans la liste déroulante du portail Azure.
-- [Appliquez une stratégie CORS](api-management-howto-developer-portal.md#cors) sur vos API pour activer la console de test interactive.
+- [Appliquez une stratégie CORS](developer-portal-faq.md#cors) sur vos API pour activer la console de test interactive.
 - Si vous injectez du code CSS personnalisé pour appliquer un style au portail, vous devez [reproduire le style à l’aide du panneau de conception intégré](api-management-howto-developer-portal-customize.md). L’injection de code CSS n’est pas autorisée dans le nouveau portail.
 - Vous pouvez injecter du code JavaScript personnalisé uniquement dans la [version auto-hébergée du nouveau portail](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 - Si votre instance Gestion des API se trouve dans un réseau virtuel et est exposée à Internet via Application Gateway, [consultez cet article de la documentation](api-management-howto-integrate-internal-vnet-appgateway.md) pour connaître les étapes précises de configuration. Vous devez :

@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 9b8c1bb5669f058aba00f44ce62e48c7fab233f9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: dc2eac4e784d4224581078348f12b231befe1f35
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057743"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714107"
 ---
 # <a name="create-an-advanced-device-model"></a>Créer un modèle d’appareil avancé
 
@@ -30,11 +30,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre les étapes de ce guide pratique, vous avez besoin d’une instance déployée de la simulation d’appareil dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la simulation d’appareil, consultez [Déploiement de la simulation d’appareil](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) sur GitHub.
+Si vous n’avez pas encore déployé la simulation d’appareil, consultez [Déploiement de la simulation d’appareil](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) sur GitHub.
 
 ### <a name="open-device-simulation"></a>Ouvrir la Simulation d’appareil
 
-Si vous n’avez pas encore déployé la simulation d’appareil, consultez [Déploiement de la simulation d’appareil](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) sur GitHub.
+Si vous n’avez pas encore déployé la simulation d’appareil, consultez [Déploiement de la simulation d’appareil](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) sur GitHub.
 
 ## <a name="device-models"></a>Modèles d’appareils
 

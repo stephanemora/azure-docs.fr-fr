@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/11/2021
-ms.openlocfilehash: 4d83609eea57c2350881360ef757b1a291627c23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 3070083040424b877159955dc2138f15319f05c8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374726"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766386"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
@@ -33,7 +33,7 @@ L’exécution d’applications logiques dans votre propre instance dédiée dis
 
 * Accès direct aux ressources qui se trouve à l’intérieur de votre réseau virtuel ou y sont connectées
 
-  Les applications logiques créées et exécutées dans un environnement ISE peuvent utiliser des [connecteurs spécifiquement conçus qui s’exécutent dans votre environnement ISE](../connectors/apis-list.md#ise-connectors). S’il existe un connecteur ISE pour une source de données ou un système local, vous pouvez vous connecter directement sans avoir à utiliser la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Pour plus d’informations, consultez [Dédié ou multilocataire](#difference) et [Accès aux systèmes locaux](#on-premises) plus loin dans cette rubrique.
+  Les applications logiques créées et exécutées dans un environnement ISE peuvent utiliser des [connecteurs spécifiquement conçus qui s’exécutent dans votre environnement ISE](../connectors/managed.md#ise-connectors). S’il existe un connecteur ISE pour une source de données ou un système local, vous pouvez vous connecter directement sans avoir à utiliser la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Pour plus d’informations, consultez [Dédié ou multilocataire](#difference) et [Accès aux systèmes locaux](#on-premises) plus loin dans cette rubrique.
 
 * Accès continu aux ressources qui se trouvent en dehors de votre réseau virtuel ou n’y sont pas connectées
 
@@ -53,7 +53,7 @@ Quand vous créez et exécutez des applications logiques dans un ISE, vous bén�
 
 * Les déclencheurs et les actions intégrés (par exemple, HTTP) présentent l’étiquette **CORE** et s’exécutent dans le même environnement ISE que vos applications logiques.
 
-* Les connecteurs managés qui comportent l’étiquette **ISE** sont spécialement conçus pour les environnements ISE et *s’exécutent toujours dans le même environnement ISE que votre application logique*. Voici par exemple quelques [connecteurs qui proposent des versions d’environnements ISE](../connectors/apis-list.md#ise-connectors) :<p>
+* Les connecteurs managés qui comportent l’étiquette **ISE** sont spécialement conçus pour les environnements ISE et *s’exécutent toujours dans le même environnement ISE que votre application logique*. Voici par exemple quelques [connecteurs qui proposent des versions d’environnements ISE](../connectors/managed.md#ise-connectors) :<p>
 
   * Stockage Fichier, stockage Table et stockage Blob Azure
   * Azure Service Bus, Files d’attente Azure, Azure Event Hubs
@@ -79,7 +79,7 @@ Les applications logiques qui s’exécutent dans un environnement ISE peuvent a
 
 * Le connecteur **ISE**, s’il est disponible, pour une source de données ou un système local
 
-  Si un connecteur ISE est disponible, vous pouvez accéder directement au système ou à la source de données sans la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Si toutefois vous devez accéder à SQL Server à partir d’un environnement ISE et utiliser l’Authentification Windows, vous devez opter pour la version hors environnement ISE du connecteur et la passerelle de données locale. La version ISE du connecteur ne prend pas en charge l’Authentification Windows. Pour plus d’informations, consultez [Connecteurs ISE](../connectors/apis-list.md#ise-connectors) et [Connexion à partir d’un environnement de service d’intégration](../connectors/apis-list.md#integration-service-environment).
+  Si un connecteur ISE est disponible, vous pouvez accéder directement au système ou à la source de données sans la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Si toutefois vous devez accéder à SQL Server à partir d’un environnement ISE et utiliser l’Authentification Windows, vous devez opter pour la version hors environnement ISE du connecteur et la passerelle de données locale. La version ISE du connecteur ne prend pas en charge l’Authentification Windows. Pour plus d’informations, consultez [Connecteurs ISE](../connectors/managed.md#ise-connectors) et [Connexion à partir d’un environnement de service d’intégration](../connectors/managed.md#integration-account-connectors).
 
 * Un connecteur personnalisé
 

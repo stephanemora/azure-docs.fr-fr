@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 69dec2ce00b263f3536e30ba0a5376e6d922b79c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6c44c87221442797f063877385ac5eb7f8585850
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308351"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719094"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Haute disponibilité pour Azure Cache pour Redis
 
@@ -22,7 +22,7 @@ Azure Cache pour Redis implémente la haute disponibilité en utilisant plusieur
 | Option | Description | Disponibilité | standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Réplication standard](#standard-replication)| Configuration répliquée à deux nœuds dans un centre de données avec basculement automatique | 99.9 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |✔|✔|-|
-| [Redondance de zone](#zone-redundancy) | Configuration répliquée à plusieurs nœuds dans les zones de disponibilité, avec basculement automatique | Jusqu’à 99,99 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|PRÉVERSION|PRÉVERSION|
+| [Redondance de zone](#zone-redundancy) | Configuration répliquée à plusieurs nœuds dans les zones de disponibilité, avec basculement automatique | Jusqu’à 99,99 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|PRÉVERSION|✔|
 | [Géoréplication](#geo-replication) | Instances de cache liées dans deux régions, avec basculement contrôlé par l’utilisateur | Jusqu’à 99,999 % (voir les [détails](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|PRÉVERSION|
 
 ## <a name="standard-replication"></a>Réplication standard

@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 04/07/2021
-ms.openlocfilehash: ae416c9acd03b3ee239a858aae550fb87293465a
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 1dd0666c2946896ed324fb3986bb7946890b73de
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012783"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388701"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database pour PostgreSQL - Options de configuration d’Hyperscale (Citus)
 
@@ -78,7 +78,7 @@ Pour l’ensemble du cluster Hyperscale (Citus), les IOPS agrégées présentent
 > [!IMPORTANT]
 > Le niveau de base Hyperscale (Citus) est actuellement en préversion.  Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 >
-> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans [Fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
+> Vous pouvez consulter la liste complète des nouvelles fonctionnalités dans les [fonctionnalités d’évaluation pour Hyperscale (Citus)](hyperscale-preview-features.md).
 
 Le [niveau de base](concepts-hyperscale-tiers.md) Hyperscale (Citus) est un groupe de serveurs avec un seul nœud.  Étant donné qu’il n’existe pas de distinction entre les nœuds coordinateur et Worker, il est moins compliqué de choisir des ressources de calcul et de stockage.
 
@@ -110,6 +110,7 @@ La quantité totale de stockage que vous approvisionnez définit également la c
 Les groupes de serveurs Hyperscale (Citus) sont disponibles dans les régions Azure suivantes :
 
 * États-Unis:
+    * Brésil Sud
     * Centre du Canada
     * USA Centre
     * USA Est*
@@ -122,6 +123,7 @@ Les groupes de serveurs Hyperscale (Citus) sont disponibles dans les régions Az
     * Centre de la Corée
     * Asie Sud-Est
 * Europe :
+    * France Centre
     * Europe Nord
     * Sud du Royaume-Uni
     * Europe Ouest

@@ -2,20 +2,19 @@
 title: Déplacer un coffre Azure Key Vault vers un autre groupe de ressources | Microsoft Docs
 description: Conseils pour déplacer un coffre de clés vers un autre groupe de ressources.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/29/2020
-ms.author: sudbalas
-ms.openlocfilehash: b26ebbbf256d7bde8f7f790cc0779c2eda729d1c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 14ecbcaa35153438601a3dabb70f5b38006ded1b
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066630"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749561"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Déplacer un coffre Azure Key Vault d’un groupe de ressources à un autre
 

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 945a67f81010a61adf814f6f6f422eba5001b48d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d5fc2b14a655251e59a9209e078b0534f08baf9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998547"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763232"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurer et consulter les journaux des requêtes lentes à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux des requêtes lentes Azure Database pour MySQL à l’aide d’Azure CLI, l’utilitaire en ligne de commande Azure.
@@ -41,14 +41,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Répertorier les journaux d’activité pour le serveur Azure Database pour MySQL
-Si **log_output** est configurée sur « fichier », vous pouvez accéder aux journaux directement à partir du stockage local du serveur. Pour lister les fichiers journaux des requêtes lentes disponibles pour votre serveur, exécutez la commande [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list).
+Si **log_output** est configurée sur « fichier », vous pouvez accéder aux journaux directement à partir du stockage local du serveur. Pour lister les fichiers journaux des requêtes lentes disponibles pour votre serveur, exécutez la commande [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list).
 
 Vous pouvez répertorier les fichiers journaux pour le serveur **mydemoserver.mysql.database.azure.com** sous le groupe de ressources **myresourcegroup**. Puis, dirigez la liste des fichiers journaux vers un fichier texte appelé **log\_files\_list.txt**.
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Télécharger des journaux d’activité à partir du serveur
-Si **log_output** est configurée sur « Fichier », vous pouvez télécharger des fichiers journaux individuels à partir de votre serveur avec la commande [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download).
+Si **log_output** est configurée sur « Fichier », vous pouvez télécharger des fichiers journaux individuels à partir de votre serveur avec la commande [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download).
 
 Utilisez l’exemple suivant pour télécharger le fichier journal spécifique pour le serveur **mydemoserver.mysql.database.azure.com** sous le groupe de ressources **myresourcegroup** dans votre environnement local.
 ```azurecli-interactive
