@@ -7,20 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0dcd763240205bd396fc8cd0301c2046098473b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7279c5578d969db9178ce85734e3a43f9eccdf8d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98070131"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780044"
 ---
 # <a name="what-is-azure-files"></a>Qu’est-ce qu’Azure Files ?
 Azure Files offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard ou le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) standard. Les partages de fichiers Azure peuvent être montés simultanément par des déploiements dans le cloud ou en local. Les partages de fichiers SMB Azure Files sont accessibles à partir des clients Windows, Linux et macOS. Les partages de fichiers NFS Azure Files sont accessibles à partir des clients Linux ou macOS. De plus, les partages de fichiers SMB Azure Files peuvent être mis en cache sur les serveurs Windows avec Azure File Sync, pour un accès rapide à proximité de l’endroit où les données sont utilisées.
-
-## <a name="videos"></a>Videos
-| Présentation d’Azure File Sync | Azure Files et Sync (Ignite 2019)  |
-|-|-|
-| [![Capture vidéo de la présentation d’Azure File Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Capture vidéo de la présentation d’Azure Files et Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
 
 Voici quelques vidéos sur les cas d’utilisation courants d’Azure Files :
 * [Remplacer votre serveur de fichiers par un partage de fichiers Azure serverless](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)

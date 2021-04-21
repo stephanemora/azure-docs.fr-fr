@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 921127ffdd35007cc3fa2eaaa95cdb3fac8bbe15
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90606552"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782268"
 ---
 Vous pouvez voir la file d’attente dans le [portail Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) ou dans l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com/). Vous pouvez également voir la file d’attente dans Azure CLI, en effectuant les étapes suivantes :
 
@@ -35,13 +35,13 @@ Vous pouvez voir la file d’attente dans le [portail Azure](../articles/storage
     
     ---
     
-1. (Facultatif) Utilisez la commande [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) pour voir les files d’attente de stockage dans votre compte. La sortie de cette commande doit inclure une file d’attente nommée `outqueue`, qui a été créée au moment où la fonction a écrit son premier message dans cette file d’attente.
+1. (Facultatif) Utilisez la commande [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) pour voir les files d’attente de stockage dans votre compte. La sortie de cette commande doit inclure une file d’attente nommée `outqueue`, qui a été créée au moment où la fonction a écrit son premier message dans cette file d’attente.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. Utilisez la commande [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) pour lire le message de cette file d’attente, qui doit être le premier nom que vous avez utilisé quand vous avez précédemment testé la fonction. La commande lit et supprime le premier message dans la file d’attente. 
+1. Utilisez la commande [`az storage message get`](/cli/azure/storage/message#az_storage_message_get) pour lire le message de cette file d’attente, qui doit être le premier nom que vous avez utilisé quand vous avez précédemment testé la fonction. La commande lit et supprime le premier message dans la file d’attente. 
 
     # <a name="bash"></a>[bash](#tab/bash)
     

@@ -3,18 +3,18 @@ title: Présentation d’IoT Plug-and-Play | Microsoft Docs
 description: Découvrez IoT Plug-and-Play. IoT Plug-and-Play est basé sur un langage de modélisation ouvert qui permet aux appareils IoT intelligents de déclarer leurs fonctionnalités. Les appareils IoT présentent cette déclaration, appelée modèle d’appareil, lorsqu’ils se connectent aux solutions cloud. La solution cloud peut ensuite comprendre automatiquement l’appareil et commencer à interagir avec lui, tout cela sans écrire de code.
 author: rido-min
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 03/21/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: eb39939f4a48a549479605dcccc346094359875f
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 91a09db16524ebc7e4c04069b69b1c42c67538c6
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079010"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739707"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Qu’est ce qu’IoT Plug-and-Play ?
 

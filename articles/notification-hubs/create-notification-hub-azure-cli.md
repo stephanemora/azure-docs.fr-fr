@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c565be3aea43fc4dc86fd793e0dc2dea0b08d4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8400eb051c09fac4cb88863ad2fac12d2ca0a1b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563747"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789858"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Créer un hub de notification Azure avec Azure CLI
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Azure Notification Hubs, comme toutes les ressources Azure, doit être déployé dans un groupe de ressources.  Les groupes de ressources vous permettent d’organiser et de gérer les ressources Azure connexes.  Pour en savoir plus sur les groupes de ressources, consultez [Qu’est-ce qu’Azure Resource Manager ?](../azure-resource-manager/management/overview.md)
 
-Pour ce guide de démarrage rapide, créez un groupe de ressources nommé **spnhubrg** dans la zone **eastus** à l’aide de la commande [az group create](/cli/azure/group#az-group-create) suivante.
+Pour ce guide de démarrage rapide, créez un groupe de ressources nommé **spnhubrg** dans la zone **eastus** à l’aide de la commande [az group create](/cli/azure/group#az_group_create) suivante.
 
 ```azurecli
 az group create --name spnhubrg --location eastus

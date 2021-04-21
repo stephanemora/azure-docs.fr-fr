@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 4423eea6c35ad44d55ad17f5703a95c6273422b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ebd2759d4dfb8ee79130f9b4876eba8d45226d04
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585857"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718788"
 ---
 # <a name="iot-central-device-development-guide"></a>Guide de développement d’appareils IoT Central
 
@@ -125,7 +125,7 @@ Pour en savoir plus sur les conventions IoT Plug-and-Play, consultez [Convention
 
 ### <a name="device-sdks"></a>Kits de développement logiciel (SDK) d’appareil
 
-Utilisez l’un des [kits Azure IoT device SDK](#languages-and-sdks) pour implémenter le comportement de votre appareil. Le code doit :
+Utilisez l’un des [kits Azure IoT device SDK](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) pour implémenter le comportement de votre appareil. Le code doit :
 
 - Inscrire l’appareil auprès de DPS et utiliser les informations de DPS pour se connecter au hub IoT interne de votre application IoT Central.
 - Annoncer le DTMI du modèle de capacité implémenté par l’appareil.
