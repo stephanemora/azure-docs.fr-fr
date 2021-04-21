@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19fc2e1629e7f67063e3cc3eec8cb3707b6dd2e4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688074"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775850"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Démarrage rapide : Créer une instance Gestion des API Azure avec l’interface de ligne de commande Azure
 
@@ -30,7 +30,7 @@ Ce guide de démarrage rapide décrit les étapes permettant de créer une insta
 
 Les instances du service Gestion des API Azure, comme toutes les ressources Azure, doivent être déployées dans un groupe de ressources. Les groupes de ressources vous permettent d’organiser et de gérer les ressources Azure connexes.
 
-Commencez par créer un groupe de ressources nommé *myResourceGroup* dans la localisation USA Centre à l’aide de la commande [az group create](/cli/azure/group#az-group-create) suivante :
+Commencez par créer un groupe de ressources nommé *myResourceGroup* dans la localisation USA Centre à l’aide de la commande [az group create](/cli/azure/group#az_group_create) suivante :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location centralus
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location centralus
 
 ## <a name="create-a-new-service"></a>Créer un service
 
-Maintenant que vous avez un groupe de ressources, vous pouvez créer une instance Gestion des API. Créez-en une à l’aide de la commande [az apim create](/cli/azure/apim#az-apim-create) et fournissez un nom de service et les détails de l’éditeur. Le nom de service doit être unique au sein d’Azure. 
+Maintenant que vous avez un groupe de ressources, vous pouvez créer une instance Gestion des API. Créez-en une à l’aide de la commande [az apim create](/cli/azure/apim#az_apim_create) et fournissez un nom de service et les détails de l’éditeur. Le nom de service doit être unique au sein d’Azure. 
 
 Dans l’exemple suivant, *myapim* est utilisé comme nom de service. Mettez à jour le nom de façon à utiliser une valeur unique. Mettez également à jour le nom de l’organisation de l’éditeur de l’API et l’adresse e-mail pour la réception des notifications. 
 
@@ -53,7 +53,7 @@ Par défaut, la commande crée l’instance au niveau Développeur, ce qui const
 > [!TIP]
 > La création et l’activation d’un service Gestion des API à ce niveau peuvent prendre entre 30 et 40 minutes. La commande précédente utilise l’option `--no-wait` pour rendre la main immédiatement pendant la création du service.
 
-Vérifiez l’état du déploiement en exécutant la commande [az apim show](/cli/azure/apim#az-apim-show) :
+Vérifiez l’état du déploiement en exécutant la commande [az apim show](/cli/azure/apim#az_apim_show) :
 
 ```azurecli-interactive
 az apim show --name myapim --resource-group myResourceGroup --output table
@@ -79,7 +79,7 @@ Une fois votre instance Gestion des API en ligne, vous êtes prêt à l’utilis
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources et l’instance Gestion des API.
+Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources et l’instance Gestion des API.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

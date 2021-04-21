@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 2412d3d2851d1b4d251b50ff3068b7dcafcccee8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eddcab2c0a34ef437e4f2f1e2203fee9065133a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642036"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781880"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Importer un fichier BACPAC Ruby dans une base de données dans Azure SQL Database ou Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -128,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Utilisez la commande [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) pour soumettre une demande d’importation de base de données à Azure. Selon la taille de la base de données, l’importation peut prendre un certain temps avant d’aboutir. Le modèle de provisionnement basé sur DTU prend en charge les valeurs de taille maximale de sélection de base de données pour chaque niveau. Lorsque vous importez une base de données, [utilisez l’une de ces valeurs prises en charge](/sql/t-sql/statements/create-database-transact-sql). 
+Utilisez la commande [az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) pour soumettre une demande d’importation de base de données à Azure. Selon la taille de la base de données, l’importation peut prendre un certain temps avant d’aboutir. Le modèle de provisionnement basé sur DTU prend en charge les valeurs de taille maximale de sélection de base de données pour chaque niveau. Lorsque vous importez une base de données, [utilisez l’une de ces valeurs prises en charge](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ea833b72b9522cdfca836a7b13f7b411402103e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee298b33736ae25b365cc54ee1bb5ec9f38bfb62
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562693"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763599"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Créer un verrou de ressource pour l’API Azure Cosmos DB pour MongoDB à l’aide d’Azure CLI
 [!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
@@ -34,10 +34,10 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | Crée un verrou. |
-| [az lock list](/cli/azure/lock#az-lock-list) | Liste les informations sur les verrous. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Affiche les propriétés d’un verrou. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | Supprime un verrou. |
+| [az lock create](/cli/azure/lock#az_lock_create) | Crée un verrou. |
+| [az lock list](/cli/azure/lock#az_lock_list) | Liste les informations sur les verrous. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Affiche les propriétés d’un verrou. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | Supprime un verrou. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

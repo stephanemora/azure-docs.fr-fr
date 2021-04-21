@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221124"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529532"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutoriel : Créer un équilibreur de charge Azure inter-région à l’aide du portail Azure
 
@@ -133,7 +133,6 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
     | Port | Entrez **80**.|
     | Port principal | Entrez **80**. |
     | Pool principal | Sélectionnez **MyBackendPool**.|
-    | Sonde d’intégrité | Sélectionnez **myHealthProbe**. |
     | Délai d’inactivité (minutes) | Déplacez le curseur jusqu’à **15**. |
     | Réinitialisation du protocole TCP | Sélectionnez **Enabled**. |
 

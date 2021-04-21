@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 771c79f56a31c83f2152886ad6cf68367776f83f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100586348"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767225"
 ---
 # <a name="app-service-overview"></a>Vue d'ensemble d'App Service
 
@@ -44,7 +44,7 @@ App Service sur Linux peut aussi héberger des applications web en mode natif su
 
 ### <a name="built-in-languages-and-frameworks"></a>Langages et infrastructures intégrés
 
-App Service sur Linux prend en charge un certain nombre d’images intégrées spécifiques à au langage. Déployez simplement votre code. Les langages pris en charge incluent : Node.js, Java (JRE 8 et JRE 11), PHP, Python, .NET Core et Ruby. Exécutez [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) pour afficher les derniers langages et versions pris en charge. Si le runtime requis par votre application n’est pas pris en charge dans les images intégrées, vous pouvez la déployer avec un conteneur personnalisé.
+App Service sur Linux prend en charge un certain nombre d’images intégrées spécifiques à au langage. Déployez simplement votre code. Les langages pris en charge incluent : Node.js, Java (JRE 8 et JRE 11), PHP, Python, .NET Core et Ruby. Exécutez [`az webapp list-runtimes --linux`](/cli/azure/webapp#az_webapp_list_runtimes) pour afficher les derniers langages et versions pris en charge. Si le runtime requis par votre application n’est pas pris en charge dans les images intégrées, vous pouvez la déployer avec un conteneur personnalisé.
 
 Les runtimes obsolètes sont régulièrement supprimés des panneaux Créer et Configuration de Web Apps dans le portail. Ces runtimes sont masqués dans le portail quand ils sont dépréciés par l’organisation qui en fait la maintenance ou quand ils ont des vulnérabilités significatives. Ces options sont masquées pour guider les clients vers les runtimes les plus récents qui fonctionneront le mieux. 
 

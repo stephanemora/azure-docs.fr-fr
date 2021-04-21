@@ -1,15 +1,17 @@
 ---
 title: Recevoir des alertes de journal d’activité sur les notifications de service Azure à l’aide d’un modèle Resource Manager
 description: Soyez informé par SMS, e-mail ou webhook en cas de service Azure.
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 730c023de61275d95fe594642149770af42b34b9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594960"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535748"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Démarrage rapide : Créer des alertes de journal d’activité sur les notifications de service à l’aide d’un modèle Resource Manager
 
