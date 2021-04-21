@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 91556087cd3e7ccd85550c721f70b8608fdc4ffd
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 9ebc6e266c93e55bc250e8450356f8b695dd9080
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168448"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714989"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
@@ -95,7 +95,7 @@ La figure ci-dessous met en évidence la zone de limite géographique en bleu. L
 
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
-Pour stocker les données de suivi des infractions de la voiture, créez un [compte de stockage universel v2](../storage/common/storage-account-overview.md#general-purpose-v2-accounts) dans votre groupe de ressources. Si vous n’avez pas créé de groupe de ressources, suivez les instructions de la section [Créer un groupe de ressources](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Dans ce tutoriel, vous allez nommer votre groupe de ressources *ContosoRental*.
+Pour stocker les données de suivi des infractions de la voiture, créez un [compte de stockage universel v2](../storage/common/storage-account-overview.md) dans votre groupe de ressources. Si vous n’avez pas créé de groupe de ressources, suivez les instructions de la section [Créer un groupe de ressources](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Dans ce tutoriel, vous allez nommer votre groupe de ressources *ContosoRental*.
 
 Pour créer un compte de stockage, suivez les instructions de la section [Créer un compte de stockage](../storage/common/storage-account-create.md?tabs=azure-portal). Dans ce tutoriel, nommez le compte de stockage *contosorentalstorage* (en règle générale, vous pouvez le nommer comme vous le souhaitez).
 

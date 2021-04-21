@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 40ec86030e136a06fe240e473a469681dcfa7c4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81bbf0b49919db68407a85b9ea2f731c5f8e1d91
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557759"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769874"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI
 
@@ -61,7 +61,7 @@ Une galerie d’images est la ressource principale utilisée pour activer le par
 
 Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de galerie ne peut pas contenir de tirets.   Les noms de galerie doivent être uniques dans votre abonnement. 
 
-Créez une galerie d’images à l’aide de [az sig create](/cli/azure/sig#az-sig-create). L’exemple suivant crée un groupe de ressources nommé *myGalleryRG* dans *USA Est* et une galerie nommée *myGallery*.
+Créez une galerie d’images à l’aide de [az sig create](/cli/azure/sig#az_sig_create). L’exemple suivant crée un groupe de ressources nommé *myGalleryRG* dans *USA Est* et une galerie nommée *myGallery*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus
@@ -70,13 +70,13 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="get-information-about-the-vm"></a>Obtenir des informations sur la machine virtuelle
 
-Vous pouvez obtenir la liste des machines virtuelles disponibles à l’aide de la commande [az vm list](/cli/azure/vm#az-vm-list). 
+Vous pouvez obtenir la liste des machines virtuelles disponibles à l’aide de la commande [az vm list](/cli/azure/vm#az_vm_list). 
 
 ```azurecli-interactive
 az vm list --output table
 ```
 
-Une fois que vous connaissez le nom de la machine virtuelle et le groupe de ressources dans lequel elle se trouve, récupérez l’ID de la machine virtuelle à l’aide de la commande [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view). 
+Une fois que vous connaissez le nom de la machine virtuelle et le groupe de ressources dans lequel elle se trouve, récupérez l’ID de la machine virtuelle à l’aide de la commande [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). 
 
 ```azurecli-interactive
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
@@ -92,7 +92,7 @@ Les noms de définition d’image peuvent contenir des lettres majuscules ou min
 
 Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../shared-image-galleries.md#image-definitions).
 
-Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
+Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create). 
 
 Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](../shared-image-galleries.md#generalized-and-specialized-images). 
 
@@ -112,7 +112,7 @@ Copiez l’ID de la définition d’image à partir de la sortie pour l’utilis
 
 ## <a name="create-the-image-version"></a>Créer la version de l’image
 
-Créez une version d’image à partir de la machine virtuelle à l’aide de la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+Créez une version d’image à partir de la machine virtuelle à l’aide de la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
 Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -140,7 +140,7 @@ az sig image-version create \
  
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Créez la machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create), en spécifiant le paramètre --specialized pour indiquer que l’image est une image spécialisée. 
+Créez la machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create), en spécifiant le paramètre --specialized pour indiquer que l’image est une image spécialisée. 
 
 Utilisez l’ID de définition d’image pour `--image` afin de créer la machine virtuelle à partir de la version la plus récente de l’image disponible. Vous pouvez également créer la machine virtuelle à partir d’une version spécifique en fournissant l’ID de version de l’image pour `--image`. 
 
@@ -158,7 +158,7 @@ az vm create --resource-group myResourceGroup \
 
 Vous pouvez partager des images entre abonnements à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC). Vous pouvez partager des images au niveau de la galerie, de la définition d’image ou de la version d’image. Tout utilisateur disposant d’autorisations de lecture sur une version d’image, même dans plusieurs abonnements, peut déployer une machine virtuelle à partir de la version d’image.
 
-Nous vous recommandons de partager l’accès avec d’autres utilisateurs au niveau de la galerie. Pour obtenir l’ID d’objet de votre galerie, utilisez [az sig show](/cli/azure/sig#az-sig-show).
+Nous vous recommandons de partager l’accès avec d’autres utilisateurs au niveau de la galerie. Pour obtenir l’ID d’objet de votre galerie, utilisez [az sig show](/cli/azure/sig#az_sig_show).
 
 ```azurecli-interactive
 az sig show \
@@ -167,7 +167,7 @@ az sig show \
    --query id
 ```
 
-Utilisez l’ID d’objet en tant qu’étendue, ainsi qu’une adresse e-mail et [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) pour donner aux utilisateurs un accès à la galerie d’images partagées. Remplacez `<email-address>` et `<gallery iD>` par vos propres informations.
+Utilisez l’ID d’objet en tant qu’étendue, ainsi qu’une adresse e-mail et [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour donner aux utilisateurs un accès à la galerie d’images partagées. Remplacez `<email-address>` et `<gallery iD>` par vos propres informations.
 
 ```azurecli-interactive
 az role assignment create \

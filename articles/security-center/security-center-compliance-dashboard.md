@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370260"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739005"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 
@@ -26,7 +26,7 @@ Le **tableau de bord Conformité avec la réglementation** d’Azure Security Ce
 
 Security Center évalue continuellement votre environnement cloud hybride afin d’analyser les facteurs de risque en fonction des contrôles et des bonnes pratiques du point de vue des normes appliqués à vos abonnements. Le tableau de bord reflète l’état de votre conformité à ces normes. 
 
-Quand vous activez Security Center dans un abonnement Azure, le [benchmark de sécurité Azure](../security/benchmarks/introduction.md) lui est automatiquement attribué. Ce benchmark, largement respecté et centré sur le cloud, est basé sur les contrôles du [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) et du [NIST (National Institute of Standards and Technology)](https://www.nist.gov/).
+Quand vous activez Security Center dans un abonnement Azure, le [benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction) lui est automatiquement attribué. Ce benchmark, largement respecté et centré sur le cloud, est basé sur les contrôles du [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) et du [NIST (National Institute of Standards and Technology)](https://www.nist.gov/).
 
 Le tableau de bord de conformité réglementaire montre l’état de toutes les évaluations au sein de votre environnement pour les normes et réglementations de votre choix. Si vous suivez les recommandations et réduisez les facteurs de risque de votre environnement, votre niveau de conformité s’améliore.
 

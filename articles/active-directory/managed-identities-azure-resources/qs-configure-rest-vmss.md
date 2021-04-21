@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb14a6a82535ac5a7d36213b082d08aedbb44da5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 585e31ab566cc990af2819fcf9cdde0506560208
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99090618"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780170"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer des identités managées sur un groupe de machines virtuelles identiques en utilisant des appels d’API REST
 
@@ -60,13 +60,13 @@ Dans cette section, découvrez comment activer et désactiver une identité mana
 
 Pour créer un groupe de machines virtuelles identiques dans lequel une identité managée affectée par le système est activée, vous devez créer un groupe de machines virtuelles identiques et récupérer un jeton d’accès pour utiliser CURL afin d’appeler le point de terminaison Resource Manager avec la valeur de type d’identité managée affectée par le système.
 
-1. Créez un [groupe de ressources](../../azure-resource-manager/management/overview.md#terminology) pour l’imbrication et le déploiement de votre groupe de machines virtuelles identiques et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
+1. Créez un [groupe de ressources](../../azure-resource-manager/management/overview.md#terminology) pour l’imbrication et le déploiement de votre groupe de machines virtuelles identiques et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az_group_create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Créez une [interface réseau](/cli/azure/network/nic#az-network-nic-create) pour votre groupe de machines virtuelles identiques :
+2. Créez une [interface réseau](/cli/azure/network/nic#az_network_nic_create) pour votre groupe de machines virtuelles identiques :
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -325,7 +325,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    az account get-access-token
    ```
 
-2. Créez une [interface réseau](/cli/azure/network/nic#az-network-nic-create) pour votre groupe de machines virtuelles identiques :
+2. Créez une [interface réseau](/cli/azure/network/nic#az_network_nic_create) pour votre groupe de machines virtuelles identiques :
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

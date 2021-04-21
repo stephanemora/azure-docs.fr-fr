@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
-ms.openlocfilehash: 9481b6d2740d27b8c3d1309e205edda6017868fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d2f4d8fc7a2a7011a2417467f7131c4cfb26edc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005745"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788220"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
 
@@ -160,7 +160,7 @@ En production, votre application de navigateur aurait une URL publique au lieu d
 
 ### <a name="enable-cors"></a>Activez CORS 
 
-Dans Cloud Shell, activez CORS pour votre URL de client à l’aide de la commande [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add). Remplacez l’espace réservé _&lt;app-name>_ .
+Dans Cloud Shell, activez CORS pour votre URL de client à l’aide de la commande [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add). Remplacez l’espace réservé _&lt;app-name>_ .
 
 ```azurecli-interactive
 az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-origins 'http://localhost:5000'

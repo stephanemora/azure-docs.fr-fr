@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f441a1cf97c069c4755b436bbb8cb9268b469eb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7d6b5f02a752e7bbdc1d4da83b60b1a86aba5626
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199745"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775022"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutoriel : Partie 2 : Visualiser les messages routés
 
@@ -282,7 +282,7 @@ Connectez-vous à votre compte [Power BI](https://powerbi.microsoft.com/). Accé
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Utiliser Azure CLI pour nettoyer des ressources
 
-Pour supprimer le groupe de ressources, utilisez la commande [az group delete](/cli/azure/group#az-group-delete). `$resourceGroup` a été défini sur **ContosoResources** au début de ce tutoriel.
+Pour supprimer le groupe de ressources, utilisez la commande [az group delete](/cli/azure/group#az_group_delete). `$resourceGroup` a été défini sur **ContosoResources** au début de ce tutoriel.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

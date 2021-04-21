@@ -4,12 +4,12 @@ description: Créez un registre de conteneurs Azure, configurez la géoréplicat
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6abf1b7a524bc7dd28f1704a362749ac84de2389
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5f5627462f016c857d956be46c276dda78e9b2b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97826082"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780656"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutoriel : Préparer un registre de conteneurs Azure géorépliqué
 
@@ -98,7 +98,7 @@ Accédez à votre nouveau registre de conteneurs dans le portail Azure, puis sé
 
 Maintenant que vous avez configuré la géoréplication, vous allez générer une image conteneur et l’envoyer à votre registre. Vous devez vous connecter à votre registre avant de lui envoyer (par push) des images.
 
-Utilisez la commande [az acr login](/cli/azure/acr#az-acr-login) pour vous authentifier et mettre en cache les informations d’identification de votre registre. Remplacez `<acrName>` par le nom du registre créé précédemment.
+Utilisez la commande [az acr login](/cli/azure/acr#az_acr_login) pour vous authentifier et mettre en cache les informations d’identification de votre registre. Remplacez `<acrName>` par le nom du registre créé précédemment.
 
 ```azurecli
 az acr login --name <acrName>

@@ -2,20 +2,20 @@
 title: Intégration du contrôle de code source
 description: Expérience DevOps de base de données pour l’entreprise destinée au pool SQL dédié avec intégration du contrôle de code source natif à l’aide d’Azure Repos (Git et GitHub).
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
 ms.date: 08/23/2019
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 0864ab90f35e4af0443b418bc139ee5f8a7db665
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53adbc0288c28c3b18632539c3f812bbca82da92
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585534"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566152"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Intégration du contrôle de code source pour le pool SQL dédié dans Azure Synapse Analytics
 
