@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: de8f0e64189014b303463dd8bd6c827990b88f9a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 63194ab87e0f2228b8585e962394aa1ebfff48d6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178454"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767244"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Générer une application Ruby et Postgres dans Azure App Service sur Linux
 
@@ -147,7 +147,7 @@ Une fois la commande terminée, recherchez les lignes de sortie qui commencent p
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `--location <location-name>` peut être défini sur n’importe quelle [région Azure](https://azure.microsoft.com/global-infrastructure/regions/). Vous pouvez récupérer les régions disponibles pour votre abonnement à l’aide de la commande [`az account list-locations`](/cli/azure/account#az-account-list-locations). Pour les applications de production, placez votre base de données et votre application dans le même emplacement.
+> `--location <location-name>` peut être défini sur n’importe quelle [région Azure](https://azure.microsoft.com/global-infrastructure/regions/). Vous pouvez récupérer les régions disponibles pour votre abonnement à l’aide de la commande [`az account list-locations`](/cli/azure/account#az_account_list_locations). Pour les applications de production, placez votre base de données et votre application dans le même emplacement.
 
 ## <a name="connect-app-to-azure-postgres"></a>Connexion de l’application à Azure Postgres
 
@@ -255,7 +255,7 @@ Dans cette étape, vous allez déployer l’application Rails connectée à Post
 
 ### <a name="configure-database-settings"></a>Configuration des paramètres de la base de données
 
-Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) dans Cloud Shell.
+Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) dans Cloud Shell.
 
 La commande Cloud Shell suivante configure les paramètres d’application `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` et `DB_PASSWORD`. Remplacez les espaces réservés _&lt;appname>_ et _&lt;postgres-server-name>_ .
 

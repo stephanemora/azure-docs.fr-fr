@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 0a72bea08052e5cd17502a21a98b41cb5582a3b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd982ab6dc66674e705f080511282bcfeb909872
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96493625"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787170"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Utiliser Azure CLI pour superviser et mettre à l’échelle une base de données unique dans Azure SQL Database
 
@@ -43,7 +43,7 @@ az account set -s $subscription # ...or use 'az login'
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
 
 > [!TIP]
-> Utilisez [az sql db op list](/cli/azure/sql/db/op?#az-sql-db-op-list) pour obtenir la liste des opérations effectuées sur la base de données et [az sql db op cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel) pour annuler une opération de mise à jour sur la base de données.
+> Utilisez [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) pour obtenir la liste des opérations effectuées sur la base de données et [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) pour annuler une opération de mise à jour sur la base de données.
 
 ### <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -60,7 +60,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Script | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Commandes de serveur. |
-| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Affiche les données de taille d’une base de données. |
+| [az sql db show-usage](/cli/azure/sql#az_sql_show_usage) | Affiche les données de taille d’une base de données. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

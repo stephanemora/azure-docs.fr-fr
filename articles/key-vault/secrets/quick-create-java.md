@@ -8,12 +8,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: f1a502722156bc010dab917afdbd1d49ae93681a
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b45bb353ae32f1037fde7dc5d518472089edf12f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375982"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766332"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client de secrets Azure Key Vault pour Java
 Bien démarrer avec la bibliothèque de client de secrets Azure Key Vault pour Java. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.
@@ -175,7 +175,7 @@ Maintenant que votre application est authentifiée, vous pouvez placer un secret
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-Vous pouvez vérifier que le secret a été défini à l’aide de la commande [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) :
+Vous pouvez vérifier que le secret a été défini à l’aide de la commande [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) :
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -200,7 +200,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-Vous pouvez vérifier que le secret a été supprimé à l’aide de la commande [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) :
+Vous pouvez vérifier que le secret a été supprimé à l’aide de la commande [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show) :
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -281,4 +281,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et stock
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
-- Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/secure-your-key-vault.md)
+- Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/security-overview.md)

@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1a1b11d517fdfea0aa3a0f553b63276bc20f90be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 521f9332590eca5cdf94fadc4b59ab4d482eb658
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98805460"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768556"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Sauvegarder une machine virtuelle dans Azure avec Azure CLI
 
@@ -26,7 +26,7 @@ Ce démarrage rapide permet la sauvegarde sur une machine virtuelle Azure exista
 
 Un coffre Recovery Services est un conteneur logique qui stocke les données de sauvegarde de chaque ressource protégée, telles que des machines virtuelles Azure. Lorsque le travail de sauvegarde d’une ressource protégée s’exécute, il crée un point de récupération à l’intérieur du coffre Recovery Services. Vous pouvez ensuite utiliser un de ces points de récupération pour restaurer des données à un moment donné dans le temps.
 
-Créez un coffre Recovery Services avec [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Spécifiez le même groupe de ressources et le même emplacement que ceux de la machine virtuelle que vous souhaitez protéger. Si vous avez utilisé la fonction de [démarrage rapide de machine virtuelle](../virtual-machines/linux/quick-create-cli.md), alors vous avez créé les éléments suivants :
+Créez un coffre Recovery Services avec [az backup vault create](/cli/azure/backup/vault#az_backup_vault_create). Spécifiez le même groupe de ressources et le même emplacement que ceux de la machine virtuelle que vous souhaitez protéger. Si vous avez utilisé la fonction de [démarrage rapide de machine virtuelle](../virtual-machines/linux/quick-create-cli.md), alors vous avez créé les éléments suivants :
 
 - un groupe de ressources appelé *myResourceGroup* ;
 - une machine virtuelle nommée *myVM* ;
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Par défaut, le coffre Recovery Services est défini pour le stockage géoredondant. Le stockage géoredondant s’assure que les données de sauvegarde sont répliquées dans une région Azure secondaire située à des centaines de kilomètres de la région primaire. Si vous devez modifier le paramètre de redondance de stockage, utilisez l’applet de commande [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set).
+Par défaut, le coffre Recovery Services est défini pour le stockage géoredondant. Le stockage géoredondant s’assure que les données de sauvegarde sont répliquées dans une région Azure secondaire située à des centaines de kilomètres de la région primaire. Si vous devez modifier le paramètre de redondance de stockage, utilisez l’applet de commande [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az_backup_vault_backup_properties_set).
 
 ```azurecli
 az backup vault backup-properties set \
@@ -49,7 +49,7 @@ az backup vault backup-properties set \
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Activer la sauvegarde pour une machine virtuelle Azure
 
-Créez une stratégie de protection pour définir à quel moment exécuter un travail de sauvegarde, ainsi que la durée de stockage des points de récupération. La stratégie de protection par défaut exécute un travail de sauvegarde chaque jour, et conserve les points de récupération pendant 30 jours. Vous pouvez utiliser ces valeurs de stratégie par défaut pour protéger rapidement votre machine virtuelle. Pour activer la protection des sauvegardes pour une machine virtuelle, utilisez la commande [az backup protection enable-for-vm](/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Spécifiez le groupe de ressources et la machine virtuelle à protéger, puis la stratégie à utiliser :
+Créez une stratégie de protection pour définir à quel moment exécuter un travail de sauvegarde, ainsi que la durée de stockage des points de récupération. La stratégie de protection par défaut exécute un travail de sauvegarde chaque jour, et conserve les points de récupération pendant 30 jours. Vous pouvez utiliser ces valeurs de stratégie par défaut pour protéger rapidement votre machine virtuelle. Pour activer la protection des sauvegardes pour une machine virtuelle, utilisez la commande [az backup protection enable-for-vm](/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Spécifiez le groupe de ressources et la machine virtuelle à protéger, puis la stratégie à utiliser :
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -75,7 +75,7 @@ az backup protection enable-for-vm \
 
 ## <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
 
-Pour démarrer une sauvegarde maintenant sans attendre que la stratégie par défaut exécute le travail à l’heure planifiée, utilisez [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now). Ce premier travail de sauvegarde crée un point de récupération complet. Chaque travail de sauvegarde après cette sauvegarde initiale crée des points de récupération incrémentielle. Les points de récupération incrémentielle constituent un mode de stockage rapide et efficace, car ils transfèrent uniquement les modifications apportées depuis la dernière sauvegarde.
+Pour démarrer une sauvegarde maintenant sans attendre que la stratégie par défaut exécute le travail à l’heure planifiée, utilisez [az backup protection backup-now](/cli/azure/backup/protection#az_backup_protection_backup_now). Ce premier travail de sauvegarde crée un point de récupération complet. Chaque travail de sauvegarde après cette sauvegarde initiale crée des points de récupération incrémentielle. Les points de récupération incrémentielle constituent un mode de stockage rapide et efficace, car ils transfèrent uniquement les modifications apportées depuis la dernière sauvegarde.
 
 Les paramètres suivants sont utilisés pour sauvegarder la machine virtuelle :
 
@@ -96,7 +96,7 @@ az backup protection backup-now \
 
 ## <a name="monitor-the-backup-job"></a>Surveiller le travail de sauvegarde
 
-Pour surveiller l’état des travaux de sauvegarde, utilisez [az backup job list](/cli/azure/backup/job#az-backup-job-list) :
+Pour surveiller l’état des travaux de sauvegarde, utilisez [az backup job list](/cli/azure/backup/job#az_backup_job_list) :
 
 ```azurecli-interactive
 az backup job list \
@@ -118,7 +118,7 @@ Lorsque l’*état* des rapports des travaux de sauvegarde correspond à *Termin
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
-Lorsqu’elle n’est plus nécessaire, vous pouvez désactiver la protection sur la machine virtuelle, supprimer les points de restauration et le coffre Recovery Services, puis supprimer le groupe de ressources et les ressources de machine virtuelle associées. Si vous avez utilisé une machine virtuelle existante, vous pouvez ignorer la commande finale [az group delete](/cli/azure/group#az-group-delete) pour laisser en place le groupe de ressources et la machine virtuelle.
+Lorsqu’elle n’est plus nécessaire, vous pouvez désactiver la protection sur la machine virtuelle, supprimer les points de restauration et le coffre Recovery Services, puis supprimer le groupe de ressources et les ressources de machine virtuelle associées. Si vous avez utilisé une machine virtuelle existante, vous pouvez ignorer la commande finale [az group delete](/cli/azure/group#az_group_delete) pour laisser en place le groupe de ressources et la machine virtuelle.
 
 Si vous souhaitez consulter un didacticiel de sauvegarde qui explique comment restaurer des données de votre machine virtuelle, accédez à la section [Étapes suivantes](#next-steps).
 

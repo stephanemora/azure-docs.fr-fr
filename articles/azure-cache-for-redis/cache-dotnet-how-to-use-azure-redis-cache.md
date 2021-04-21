@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 1834f21a3e25308f6be86eba2961cc983b14a5db
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 71e973e359c21c9ec6a77de93b8b56dfa16da342
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721543"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739167"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans le .NET Framework
 
@@ -40,11 +40,11 @@ Modifiez le fichier *CacheSecrets.config* et ajoutez le contenu suivant :
 
 ```xml
 <appSettings>
-    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
+    <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
 </appSettings>
 ```
 
-Remplacez `<cache-name>` par le nom d’hôte de votre cache.
+Remplacez `<host-name>` par le nom d’hôte de votre cache.
 
 Remplacez `<access-key>` par la clé primaire de votre cache.
 

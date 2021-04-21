@@ -8,12 +8,12 @@ ms.date: 03/29/2021
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d53f4b640154e4d7b02115d5043b37f6bb6e89ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 390fdd4d9e9d0bc62589484ab0c4ba7468bcaf4b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731137"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773096"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Activer le pare-feu d’applications web à l’aide d’Azure CLI
 
@@ -38,7 +38,7 @@ Si vous préférez, vous pouvez suivre cette procédure en utilisant [Azure Powe
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez un groupe de ressources Azure nommé *myResourceGroupAG* à l’aide de la commande [az group create](/cli/azure/group#az-group-create).
+Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez un groupe de ressources Azure nommé *myResourceGroupAG* à l’aide de la commande [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
@@ -107,7 +107,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Créer un groupe de machines virtuelles identiques
 
-Dans cet exemple, vous créez un groupe de machines virtuelles identiques qui fournit deux serveurs pour le pool principal dans la passerelle d’application. Les machines virtuelles dans le groupe identique sont associées au sous-réseau *myBackendSubnet*. Pour créer le groupe identique, vous pouvez utiliser la commande [az vmss create](/cli/azure/vmss#az-vmss-create).
+Dans cet exemple, vous créez un groupe de machines virtuelles identiques qui fournit deux serveurs pour le pool principal dans la passerelle d’application. Les machines virtuelles dans le groupe identique sont associées au sous-réseau *myBackendSubnet*. Pour créer le groupe identique, vous pouvez utiliser la commande [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 Remplacez \<username> et \<password> par vos valeurs avant de procéder à l’exécution.
 
@@ -145,7 +145,7 @@ Dans cet article, la passerelle d’application utilise un compte de stockage po
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage nommé *myagstore1* à l’aide de la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create).
+Créez un compte de stockage nommé *myagstore1* à l’aide de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -158,7 +158,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Configuration de la collecte des diagnostics
 
-Configurez des diagnostics pour enregistrer des données dans les journaux d’activité ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog et ApplicationGatewayFirewallLog. Remplacez `<subscriptionId>` par votre identificateur d’abonnement, puis configurez les diagnostics à l’aide de la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Configurez des diagnostics pour enregistrer des données dans les journaux d’activité ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog et ApplicationGatewayFirewallLog. Remplacez `<subscriptionId>` par votre identificateur d’abonnement, puis configurez les diagnostics à l’aide de la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -172,7 +172,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Pour obtenir l’adresse IP publique de la passerelle d’application, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
+Pour obtenir l’adresse IP publique de la passerelle d’application, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
 
 ```azurecli-interactive
 az network public-ip show \

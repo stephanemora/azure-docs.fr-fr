@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: df9eee825f0becbe4efde4aacb2fe895f2d0132c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e88491c21948ddc28868e203ee5c8c7a52783f4
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879137"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503539"
 ---
 # <a name="azcopy-doc"></a>azcopy doc
 
@@ -34,7 +34,6 @@ azcopy doc [flags]
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
 - [Transférer des données avec AzCopy et le Stockage Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
-- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Options
 

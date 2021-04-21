@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 2c19ee2b8e7ec3c695b2c76c46402c118c559b40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0012c3d208998786ef5aa34320f3bccc4e51ebe6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736236"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782780"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -57,7 +57,7 @@ Tout d’abord, activez l’authentification Azure AD auprès de SQL Database en
 
 Si votre locataire Azure AD n’a pas encore d’utilisateur, créez-en un en suivant les étapes de la section [Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-Recherchez l’ID d’objet de l’utilisateur Azure AD en utilisant [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) et remplacez *\<user-principal-name>* par votre propre valeur. Le résultat est enregistré dans une variable.
+Recherchez l’ID d’objet de l’utilisateur Azure AD en utilisant [`az ad user list`](/cli/azure/ad/user#az_ad_user_list) et remplacez *\<user-principal-name>* par votre propre valeur. Le résultat est enregistré dans une variable.
 
 ```azurecli-interactive
 azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -66,7 +66,7 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > Pour afficher la liste de tous les noms d’utilisateur dans Azure AD, exécutez `az ad user list --query [].userPrincipalName`.
 >
 
-Ajoutez cet utilisateur Azure AD en tant qu’administrateur Active Directory à l’aide de la commande [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) dans Cloud Shell. Dans la commande suivante, remplacez *\<server-name>* par le nom du serveur (sans le suffixe `.database.windows.net`).
+Ajoutez cet utilisateur Azure AD en tant qu’administrateur Active Directory à l’aide de la commande [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) dans Cloud Shell. Dans la commande suivante, remplacez *\<server-name>* par le nom du serveur (sans le suffixe `.database.windows.net`).
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -176,7 +176,7 @@ Ensuite, configurez votre application App Service pour qu’elle se connecte à 
 
 ### <a name="enable-managed-identity-on-app"></a>Activer une identité managée sur l’application
 
-Pour activer une identité managée pour votre application Azure, utilisez la commande [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) dans Cloud Shell. Dans la commande suivante, remplacez *\<app-name>* par votre propre valeur.
+Pour activer une identité managée pour votre application Azure, utilisez la commande [az webapp identity assign](/cli/azure/webapp/identity#az_webapp_identity_assign) dans Cloud Shell. Dans la commande suivante, remplacez *\<app-name>* par votre propre valeur.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app-name>

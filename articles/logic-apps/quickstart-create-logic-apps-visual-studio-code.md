@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/28/2020
-ms.openlocfilehash: f46c093bffcc26b5f7975d25ccaca648bdc527da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 03cfb49dabd5039453f84ef0e636d3948af70d8d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99054684"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764834"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Démarrage rapide : Créer et gérer des définitions de workflow d’applications logiques avec Visual Studio Code
 
@@ -52,7 +52,7 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
 
     Pour plus d’informations, consultez la [Place de marché des extensions](https://code.visualstudio.com/docs/editor/extension-gallery). Pour contribuer à la version open source de cette extension, accédez à l’[extension Azure Logic Apps pour Visual Studio Code sur GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
-* Si votre application logique doit communiquer via un pare-feu qui limite le trafic vers des adresses IP spécifiques, ce pare-feu doit autoriser l’accès *à la fois* aux adresses IP [entrantes](logic-apps-limits-and-config.md#inbound) et [sortantes](logic-apps-limits-and-config.md#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouve votre application logique. Si votre application logique utilise également des [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’elle utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](logic-apps-limits-and-config.md#outbound) dans la région Azure de votre application logique.
+* Si votre application logique doit communiquer via un pare-feu qui limite le trafic vers des adresses IP spécifiques, ce pare-feu doit autoriser l’accès *à la fois* aux adresses IP [entrantes](logic-apps-limits-and-config.md#inbound) et [sortantes](logic-apps-limits-and-config.md#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouve votre application logique. Si votre application logique utilise également des [connecteurs managés](../connectors/managed.md), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’elle utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](logic-apps-limits-and-config.md#outbound) dans la région Azure de votre application logique.
 
 <a name="access-azure"></a>
 

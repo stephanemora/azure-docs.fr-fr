@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/07/2020
-ms.openlocfilehash: 54aebb48986b94dbebea400e6b6ee155a54f514b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc477fdd842025722a2bcfcd0172ab9d57fb0d4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566212"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790707"
 ---
 # <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-graph-for-azure-cosmos-db-api-for-mongodb"></a>Opérations de débit (RU/s) avec Azure CLI sur une base de données ou un graphe de l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
@@ -41,15 +41,15 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crée un compte Azure Cosmos DB. |
-| [az cosmosdb mongodb database create](/cli/azure/cosmosdb/mongodb/database#az-cosmosdb-mongodb-database-create) | Crée une base de données d’API MongoDB Azure Cosmos. |
-| [az cosmosdb mongodb collection create](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create) | Crée une collection d’API MongoDB Azure Cosmos. |
-| [az cosmosdb mongodb database throughput update](/cli/azure/cosmosdb/mongodb/database/throughput#az-cosmosdb-mongodb-database-throughput-update) | Mettez à jour les unités de requête/s pour une base de données d’API MongoDB Azure Cosmos. |
-| [az cosmosdb mongodb collection throughput update](/cli/azure/cosmosdb/mongodb/collection/throughput#az-cosmosdb-mongodb-collection-throughput-update) | Mettez à jour les unités de requête/s pour une collection d’API MongoDB Azure Cosmos. |
-| [az cosmosdb mongodb database throughput migrate](/cli/azure/cosmosdb/mongodb/database/throughput#az-cosmosdb-mongodb-database-throughput-migrate) | Migrez le débit d’une base de données. |
-| [az cosmosdb mongodb collection throughput migrate](/cli/azure/cosmosdb/mongodb/collection/throughput#az-cosmosdb-mongodb-collection-throughput-migrate) | Migrez le débit d’une collection. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Crée un compte Azure Cosmos DB. |
+| [az cosmosdb mongodb database create](/cli/azure/cosmosdb/mongodb/database#az_cosmosdb_mongodb_database_create) | Crée une base de données d’API MongoDB Azure Cosmos. |
+| [az cosmosdb mongodb collection create](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_create) | Crée une collection d’API MongoDB Azure Cosmos. |
+| [az cosmosdb mongodb database throughput update](/cli/azure/cosmosdb/mongodb/database/throughput#az_cosmosdb_mongodb_database_throughput_update) | Mettez à jour les unités de requête/s pour une base de données d’API MongoDB Azure Cosmos. |
+| [az cosmosdb mongodb collection throughput update](/cli/azure/cosmosdb/mongodb/collection/throughput#az_cosmosdb_mongodb_collection_throughput_update) | Mettez à jour les unités de requête/s pour une collection d’API MongoDB Azure Cosmos. |
+| [az cosmosdb mongodb database throughput migrate](/cli/azure/cosmosdb/mongodb/database/throughput#az_cosmosdb_mongodb_database_throughput_migrate) | Migrez le débit d’une base de données. |
+| [az cosmosdb mongodb collection throughput migrate](/cli/azure/cosmosdb/mongodb/collection/throughput#az_cosmosdb_mongodb_collection_throughput-migrate) | Migrez le débit d’une collection. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

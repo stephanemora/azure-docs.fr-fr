@@ -8,16 +8,16 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: f3504ca4a706e92081209f4eaaa86af9f71c52b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caff6a2496e907da1bdc140860c47476d1842df4
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880909"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600673"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutoriel : utiliser Video Indexer avec Logic Apps et Power Automate
 
-L’[API REST Video Indexer v2](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) Azure Media Services prend en charge la communication de serveur à serveur et de client à serveur, et permet aux utilisateurs de Video Indexer d’intégrer facilement des insights vidéo et audio dans leur logique d’application pour profiter de nouvelles expériences et opportunités de monétisation.
+L’[API REST Video Indexer v2](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) Azure Media Services prend en charge la communication de serveur à serveur et de client à serveur, et permet aux utilisateurs de Video Indexer d’intégrer facilement des insights vidéo et audio dans leur logique d’application pour profiter de nouvelles expériences et opportunités de monétisation.
 
 Pour faciliter encore davantage l’intégration, nous prenons en charge les connecteurs [Logic Apps](https://azure.microsoft.com/services/logic-apps/) et [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) qui sont compatibles avec notre API. Vous pouvez utiliser les connecteurs pour configurer des workflows personnalisés afin d’indexer et d’extraire efficacement des insights à partir d’une grande quantité de fichiers vidéo et audio, sans écrire une seule ligne de code. De plus, l’utilisation des connecteurs pour l’intégration offre une meilleure visibilité de l’intégrité de votre workflow et un moyen simple de le déboguer.  
 

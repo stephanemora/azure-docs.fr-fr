@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: aa247d868e19831b3e6f1c3f68e605fb209a0664
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 042cb42d16fdc5394940b62709b5d25187775014
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218313"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772646"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutoriel : Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure CLI
 
@@ -286,7 +286,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Pour obtenir l’adresse IP publique de la passerelle d’application, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm` ou `http://40.121.222.19:8081/images/test.htm`.
+Pour obtenir l’adresse IP publique de la passerelle d’application, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm` ou `http://40.121.222.19:8081/images/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \

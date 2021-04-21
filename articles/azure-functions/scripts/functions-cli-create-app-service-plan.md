@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 020bd064628554703bb375c06c72e68d4536a2a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea368714ded56d77a10e24b853144bdf1dd42dfe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934439"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786312"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Créer une Function App dans un plan App Service
 
@@ -36,10 +36,10 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crée un compte de stockage Azure. |
-| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Crée un plan Premium. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crée une application de fonction dans le plan App Service. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée un compte de stockage Azure. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az_functionapp_plan_create) | Crée un plan Premium. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crée une application de fonction dans le plan App Service. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

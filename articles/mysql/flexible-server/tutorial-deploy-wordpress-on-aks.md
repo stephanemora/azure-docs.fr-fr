@@ -6,13 +6,13 @@ author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.custom: mvc
-ms.openlocfilehash: 6f2b3d9f38fc04428678a71c9942fc7aa2182dc8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: vc, devx-track-azurecli
+ms.openlocfilehash: 0c6211f4cd647addd6f1d18a153695d16a9d9952
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217191"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770144"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutoriel : Déployer l’application WordPress sur AKS avec Azure Database pour MySQL - Serveur flexible
 
@@ -60,7 +60,7 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 
 ## <a name="create-aks-cluster"></a>Créer un cluster AKS
 
-Utilisez la commande [az aks create](/cli/azure/aks#az-aks-create) pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. L’exécution de cette commande prend plusieurs minutes.
+Utilisez la commande [az aks create](/cli/azure/aks#az_aks_create) pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. L’exécution de cette commande prend plusieurs minutes.
 
 ```azurecli-interactive
 az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -73,13 +73,13 @@ Au bout de quelques minutes, la commande se termine et retourne des informations
 
 ## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
-Pour gérer un cluster Kubernetes, vous utilisez [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), le client de ligne de commande Kubernetes. Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé. Pour installer `kubectl` en local, utilisez la commande [az aks install-cli](/cli/azure/aks#az-aks-install-cli) :
+Pour gérer un cluster Kubernetes, vous utilisez [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), le client de ligne de commande Kubernetes. Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé. Pour installer `kubectl` en local, utilisez la commande [az aks install-cli](/cli/azure/aks#az_aks_install_cli) :
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials). Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser.
+Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group wordpress-project --name myAKSCluster
@@ -327,4 +327,3 @@ az group delete --name wordpress-project --yes --no-wait
 - Découvrez comment [mettre votre cluster à l’échelle](../../aks/tutorial-kubernetes-scale.md)
 - Découvrez comment gérer votre [serveur flexible MySQL](./quickstart-create-server-cli.md)
 - Découvrez comment [configurer les paramètres serveur](./how-to-configure-server-parameters-cli.md) pour votre serveur de base de données.
-

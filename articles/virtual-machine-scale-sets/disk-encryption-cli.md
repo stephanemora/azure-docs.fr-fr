@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d347be4e6727cdda659620befe20824678160020
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565569"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792432"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Chiffrer des disques de système d’exploitation et de données attachés dans un groupe de machines virtuelles identiques avec l’interface Azure CLI
 
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Activer le chiffrement
 
-Pour chiffrer des instances de machine virtuelle dans un groupe identique, vous devez d’abord obtenir certaines informations sur l’ID de ressource du coffre de clés avec [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Les variables obtenues sont ensuite utilisées pour démarrer le processus de chiffrement avec [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) :
+Pour chiffrer des instances de machine virtuelle dans un groupe identique, vous devez d’abord obtenir certaines informations sur l’ID de ressource du coffre de clés avec [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Les variables obtenues sont ensuite utilisées pour démarrer le processus de chiffrement avec [az vmss encryption enable](/cli/azure/vmss/encryption#az_vmss_encryption_enable) :
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 Le démarrage du processus de chiffrement peut prendre une ou deux minutes.
 
-Si la stratégie de mise à niveau sur le groupe identique créé précédemment a la valeur *automatic*, les instances de machine virtuelle démarrent automatiquement le processus de chiffrement. Sur les groupes identiques où la stratégie de mise à niveau est en mode manuel, démarrez la stratégie de chiffrement sur les instances de machine virtuelle avec [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
+Si la stratégie de mise à niveau sur le groupe identique créé précédemment a la valeur *automatic*, les instances de machine virtuelle démarrent automatiquement le processus de chiffrement. Sur les groupes identiques où la stratégie de mise à niveau est en mode manuel, démarrez la stratégie de chiffrement sur les instances de machine virtuelle avec [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances).
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Activer le chiffrement à l’aide de KEK pour encapsuler la clé
 
@@ -131,7 +131,7 @@ https://[nom-coffre-clés].vault.azure.net/keys/[nom-clé-kek]/[id-clé-kek-uniq
 
 ## <a name="check-encryption-progress"></a>Vérifier la progression du chiffrement
 
-Pour vérifier l’état du chiffrement de disque, utilisez [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show) :
+Pour vérifier l’état du chiffrement de disque, utilisez [az vmss encryption show](/cli/azure/vmss/encryption#az_vmss_encryption_show) :
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
@@ -166,7 +166,7 @@ Une fois les instances de machine virtuelle chiffrées, le code d’état indiqu
 
 ## <a name="disable-encryption"></a>Désactiver le chiffrement
 
-Si vous ne souhaitez plus utiliser les disques d’instances de machine virtuelle chiffrés, désactivez le chiffrement avec [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable), comme ceci :
+Si vous ne souhaitez plus utiliser les disques d’instances de machine virtuelle chiffrés, désactivez le chiffrement avec [az vmss encryption disable](/cli/azure/vmss/encryption#az_vmss_encryption_disable), comme ceci :
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

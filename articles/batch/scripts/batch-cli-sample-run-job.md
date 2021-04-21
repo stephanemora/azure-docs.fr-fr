@@ -4,12 +4,12 @@ description: Ce script crée une tâche Batch et ajoute une série de tâches a
 ms.topic: sample
 ms.date: 12/12/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b67925f48a9d2dbe0b4559d46d783b500e7a0773
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e51fa96370b46c9a5a5d5ed6fd7593a06e45430
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93100913"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768158"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Exemple CLI : Exécution d’un travail et de tâches avec Azure Batch
 
@@ -37,16 +37,16 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Crée le compte Batch. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
-| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | Crée un pool de nœuds de calcul.  |
-| [az batch job create](/cli/azure/batch/job#az-batch-job-create) | Crée un travail Batch.  |
-| [az batch task create](/cli/azure/batch/task#az-batch-task-create) | Ajoute une tâche au travail Batch spécifié.  |
-| [az batch job set](/cli/azure/batch/job#az-batch-job-set) | Met à jour les propriétés d’un travail Batch.  |
-| [az batch job show](/cli/azure/batch/job#az-batch-job-show) | Récupère les détails relatifs au travail Batch spécifié.  |
-| [az batch task show](/cli/azure/batch/task#az-batch-task-show) | Récupère les détails relatifs à une tâche du travail Batch spécifié.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Crée le compte Batch. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Effectue l’authentification par rapport au compte Batch spécifié pour renforcer les interactions avec la CLI.  |
+| [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) | Crée un pool de nœuds de calcul.  |
+| [az batch job create](/cli/azure/batch/job#az_batch_job_create) | Crée un travail Batch.  |
+| [az batch task create](/cli/azure/batch/task#az_batch_task_create) | Ajoute une tâche au travail Batch spécifié.  |
+| [az batch job set](/cli/azure/batch/job#az_batch_job_set) | Met à jour les propriétés d’un travail Batch.  |
+| [az batch job show](/cli/azure/batch/job#az_batch_job_show) | Récupère les détails relatifs au travail Batch spécifié.  |
+| [az batch task show](/cli/azure/batch/task#az_batch_task_show) | Récupère les détails relatifs à une tâche du travail Batch spécifié.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

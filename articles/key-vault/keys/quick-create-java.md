@@ -8,12 +8,12 @@ ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: 124e56fad35be0f3ac5b08ee9dd66454b9d077c5
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 75cb7b6c9225e8579561f980df10da8994257133
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374690"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777182"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client de clés Azure Key Vault pour Java
 Découvrez comment démarrer avec la bibliothèque de client de clés Azure Key Vault pour Java. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.
@@ -176,7 +176,7 @@ Votre application étant authentifiée, vous pouvez créer une clé dans votre c
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-Vous pouvez vérifier que la clé a été définie à l’aide de la commande [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) :
+Vous pouvez vérifier que la clé a été définie à l’aide de la commande [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) :
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -201,7 +201,7 @@ SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-Vous pouvez vérifier que la clé a été supprimée avec la commande [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) :
+Vous pouvez vérifier que la clé a été supprimée avec la commande [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) :
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -271,4 +271,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et cré�
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - Consultez la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
 - Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
-- Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/secure-your-key-vault.md)
+- Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/security-overview.md)
