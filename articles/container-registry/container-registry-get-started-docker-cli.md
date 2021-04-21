@@ -4,12 +4,12 @@ description: Transmission et extraction d’images Docker à/de votre registre d
 ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 982a49af271648caeb62e5759530aa6049be4382
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 48f5f1707881ac8461e12212be631d3b80c16ca7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308300"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783824"
 ---
 # <a name="push-your-first-image-to-your-azure-container-registry-using-the-docker-cli"></a>Transmettre votre première image à votre registre de conteneurs Azure à l’aide de l’interface de ligne de commande Docker
 
@@ -24,7 +24,7 @@ Dans les étapes suivantes, vous allez télécharger une [image Nginx](https://s
 
 ## <a name="log-in-to-a-registry"></a>Se connecter à un Registre
 
-Il existe [plusieurs façons de s’authentifier](container-registry-authentication.md) auprès de votre registre de conteneurs privé. La méthode recommandée avec une ligne de commande consiste à utiliser la commande Azure CLI [az acr login](/cli/azure/acr#az-acr-login). Par exemple, pour vous connecter à un registre nommé *myregistry*, connectez-vous à Azure CLI, puis authentifiez-vous auprès de votre registre :
+Il existe [plusieurs façons de s’authentifier](container-registry-authentication.md) auprès de votre registre de conteneurs privé. La méthode recommandée avec une ligne de commande consiste à utiliser la commande Azure CLI [az acr login](/cli/azure/acr#az_acr_login). Par exemple, pour vous connecter à un registre nommé *myregistry*, connectez-vous à Azure CLI, puis authentifiez-vous auprès de votre registre :
 
 ```azurecli
 az login
@@ -114,7 +114,7 @@ Si vous n’avez plus besoin de l’image Nginx, vous pouvez la supprimer locale
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Pour supprimer des images de votre registre de conteneurs Azure, vous pouvez utiliser la commande Azure CLI [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Par exemple, la commande suivante supprime le manifeste référencé par l'étiquette `samples/nginx:latest`, toutes les données de couche uniques et toutes les autres étiquettes référençant le manifeste.
+Pour supprimer des images de votre registre de conteneurs Azure, vous pouvez utiliser la commande Azure CLI [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete). Par exemple, la commande suivante supprime le manifeste référencé par l'étiquette `samples/nginx:latest`, toutes les données de couche uniques et toutes les autres étiquettes référençant le manifeste.
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: b8e72cab6d6220b71e93550eec7649752201180a
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 42e244249ecb0539637918ae2439bdb4f5da4b38
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256580"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588477"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutoriel pour configurer Nevis avec Azure Active Directory B2C pour une authentification sans mot de passe
 
-Dans cet exemple de tutoriel, découvrez comment étendre Azure AD B2C avec [Nevis](https://www.nevis.net/solution/authentication-cloud) pour activer l’authentification sans mot de passe. Nevis offre une expérience utilisateur axée sur l’interface mobile, qui est entièrement personnalisée en fonction de votre marque. En combinaison avec l’application Nevis Access, Nevis fournit une authentification forte du client et garantit le respect des obligations relatives aux transactions PSD2 (Payment Services Directive 2).
+Dans cet exemple de tutoriel, découvrez comment étendre Azure AD B2C avec [Nevis](https://www.nevis.net/en/solution/authentication-cloud) pour activer l’authentification sans mot de passe. Nevis offre une expérience utilisateur axée sur l’interface mobile, qui est entièrement personnalisée en fonction de votre marque. En combinaison avec l’application Nevis Access, Nevis fournit une authentification forte du client et garantit le respect des obligations relatives aux transactions PSD2 (Payment Services Directive 2).
 
 ## <a name="prerequisites"></a>Prérequis
 

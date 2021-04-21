@@ -3,13 +3,13 @@ title: Définitions de schéma d’alerte dans Azure Monitor
 description: Comprendre les définitions de schéma d’alerte courant pour Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 709ec2dee1be6930ca7c09de334aede8a76e95f4
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.date: 04/12/2021
+ms.openlocfilehash: 5ec2adc4594c71f640b027d799b0a3c133ca2333
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491710"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308657"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
@@ -110,7 +110,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 
 ## <a name="alert-context"></a>Contexte de l’alerte
 
-### <a name="metric-alerts"></a>Alertes de métrique
+### <a name="metric-alerts-excluding-availability-tests"></a>Alertes de métriques (à l’exception des tests de disponibilité)
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -136,6 +136,37 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
               }
             ],
             "metricValue": 31.1105
+          }
+        ],
+        "windowStartTime": "2019-03-22T13:40:03.064Z",
+        "windowEndTime": "2019-03-22T13:45:03.064Z"
+      }
+    }
+}
+```
+
+### <a name="metric-alerts-availability-tests"></a>Alertes de métriques (tests de disponibilité)
+
+#### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
+
+**Exemples de valeurs**
+```json
+{
+  "alertContext": {
+      "properties": null,
+      "conditionType": "WebtestLocationAvailabilityCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "Failed Location",
+            "metricNamespace": null,
+            "operator": "GreaterThan",
+            "threshold": "2",
+            "timeAggregation": "Sum",
+            "dimensions": [],
+            "metricValue": 5,
+            "webTestName": "myAvailabilityTest-myApplication"
           }
         ],
         "windowStartTime": "2019-03-22T13:40:03.064Z",

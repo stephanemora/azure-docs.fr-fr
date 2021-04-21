@@ -3,12 +3,12 @@ title: Référence YAML pour le groupe de conteneurs
 description: Informations de référence pour le fichier YAML pris en charge par Azure Container Instances pour configurer un groupe de conteneurs
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: d0ec8d13eebba1c60f5a52f8c43bdd8b90eeb913
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efbea7b64ccdf685d4c82bd406f2aa09227e53e1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87084758"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771134"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Informations de référence YAML : Azure Container Instances
 
@@ -468,5 +468,4 @@ Consultez le tutoriel [Déployer un groupe multiconteneur à l’aide d’un fic
 Consultez des exemples d’utilisation d’un fichier YAML pour déployer des groupes de conteneurs dans un [réseau virtuel](container-instances-vnet.md) ou pour [monter un volume externe](container-instances-volume-azure-files.md).
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-
+[az-container-create]: /cli/azure/container#az_container_create

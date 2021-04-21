@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/17/2020
-ms.openlocfilehash: 59e6e73c99569b0a35c56d65c1a7ccdfcb394c0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 905224119b9df4e4003b1736443406e9548a49e3
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026418"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012527"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Mettre à l’échelle un groupe de serveurs Hyperscale (Citus)
 
@@ -21,6 +21,11 @@ Azure Database pour PostgreSQL – Hyperscale (Citus) est capable d’effectuer 
 ## <a name="add-worker-nodes"></a>Ajouter des nœuds Worker
 
 Pour ajouter des nœuds, accédez à l’onglet **Calcul + stockage** dans votre groupe de serveurs Hyperscale (Citus).  Faites coulisser le curseur **Nombre de nœuds Worker** pour modifier la valeur.
+
+> [!NOTE]
+>
+> Un groupe de serveurs Hyperscale (Citus) créé avec le [niveau de base (préversion)](concepts-hyperscale-tiers.md) n’a aucun Worker. Le fait d’augmenter le nombre de Worker fait passer automatiquement le groupe de serveurs au niveau standard.
+> Après avoir fait passer un groupe de serveurs au niveau standard, vous ne pouvez pas revenir au niveau de base.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Curseurs de ressources":::
 

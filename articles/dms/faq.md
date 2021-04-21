@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f4d65c97bfccd223453583b25ee0586c5bc0b1ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29240f371d39ef2d3234e3207cc91768478bf3ff
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091443"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748500"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service
 
@@ -32,9 +32,7 @@ Azure Database Migration Service est un service complètement managé conçu pou
 * Investissement continu dans les migrations sans problèmes.
 
 **Q. Quelles sont les paires sources/cibles actuellement prises en charge par Azure Database Migration Service ?**
-Le service prend actuellement en charge différentes paires sources/cibles, ou différents scénarios de migration. Pour obtenir la liste complète des états de chaque scénario de migration disponible, consultez l’article [État des scénarios de migration pris en charge par Azure Database Migration Service](./resource-scenario-status.md).
-
-D’autres scénarios de migration sont disponibles en préversion et nécessitent l’envoi d’une demande via le site DMS Preview. Pour obtenir la liste complète des scénarios en préversion et vous inscrire pour participer à une de ces offres, consultez le [site DMS Preview](https://aka.ms/dms-preview/).
+Le service prend actuellement en charge différentes paires sources/cibles, ou différents scénarios de migration. Pour obtenir la liste complète des états de chaque scénario de migration disponible, consultez l’article [État des scénarios de migration pris en charge par Azure Database Migration Service](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/dms/resource-scenario-status.md).
 
 **Q. Quelles sont les versions de SQL Server prises en charge comme sources par Azure Database Migration Service ?**
 En ce qui concerne la migration à partir de SQL Server, les sources prises en charge par Azure Database Migration Service vont de SQL Server 2005 à SQL Server 2019.

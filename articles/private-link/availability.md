@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 26485c84749b7d4c91159476b3f683c2b0f3831b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 866eb9feb152c0094cd5281fe4820ccc4589386f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555062"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778316"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilité d’Azure Private Link
 
@@ -96,7 +96,7 @@ Les tableaux suivants listent les services Private Link et les régions où ils 
 |:-------------------|:-----------------|:----------------|:--------|
 | Stockage Blob Azure (Data Lake Storage Gen2 inclus)       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Blob.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Files | Toutes les régions publiques<br/> Toutes les régions administratives      | |   GA <br/> [Découvrez comment créer des points de terminaison réseau Azure Files.](../storage/files/storage-files-networking-endpoints.md)   |
-| Azure File Sync | Toutes les régions publiques      | |   GA <br/> [Découvrez comment créer des points de terminaison réseau Azure Files.](../storage/files/storage-sync-files-networking-endpoints.md)   |
+| Azure File Sync | Toutes les régions publiques      | |   GA <br/> [Découvrez comment créer des points de terminaison réseau Azure Files.](../storage/file-sync/file-sync-networking-endpoints.md)   |
 | Stockage File d’attente Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage File d’attente.](tutorial-private-endpoint-storage-portal.md) |
 | Stockage Table Azure       |  Toutes les régions publiques<br/> Toutes les régions administratives       |  Pris en charge avec le type de compte V2 universel | GA <br/> [Découvrez comment créer un point de terminaison privé pour Stockage Table.](tutorial-private-endpoint-storage-portal.md)  |
 | Azure Batch | Toutes les régions publiques sauf : Allemagne CENTRE, Allemagne NORD-EST <br/> Toutes les régions administratives  | | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Batch.](../batch/private-connectivity.md) |

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 16f937286b967aaea8ec6a16e97835b2de5a0331
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628575"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765494"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Il s’agit d’une limitation actuelle du composant sous-jacent qui vérifie le
 
 **Comment faire pour mettre à l’échelle mon instance managée ?**
 
-Vous pouvez mettre à l’échelle votre instance gérée à partir du [Portail Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), de [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), d’[Azure CLI](/cli/azure/sql/mi#az-sql-mi-update) ou de [modèles ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Vous pouvez mettre à l’échelle votre instance gérée à partir du [Portail Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), de [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), d’[Azure CLI](/cli/azure/sql/mi#az_sql_mi_update) ou de [modèles ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Puis-je déplacer mon instance managée d’une région vers une autre ?**
 
@@ -102,7 +102,7 @@ Oui, vous pouvez. Pour obtenir des instructions, consultez [Déplacer des ressou
 
 **Comment faire pour supprimer mon instance managée ?**
 
-Vous pouvez supprimer les instances gérées via le Portail Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-delete) ou les [API REST Resource Manager](/rest/api/sql/managedinstances/delete).
+Vous pouvez supprimer les instances gérées via le Portail Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_delete) ou les [API REST Resource Manager](/rest/api/sql/managedinstances/delete).
 
 **Combien de temps faut-il pour créer ou mettre à jour une instance ou pour restaurer une base de données ?**
 

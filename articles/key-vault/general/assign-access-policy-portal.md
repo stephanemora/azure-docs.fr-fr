@@ -3,19 +3,18 @@ title: Attribuer une stratégie d’accès Azure Key Vault (portail)
 description: Guide pratique pour utiliser le portail Azure afin d’attribuer une stratégie d’accès Key Vault à un principal de sécurité ou à une identité d’application.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a64a91e6f41f3fba7584630380ffb878979b4389
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 443b269e7155fc206ee50e7907a7acded2c22f53
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968762"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751487"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure
 
@@ -55,5 +54,5 @@ Pour plus d’informations sur la création de groupes dans Azure Active Directo
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Sécurité d’Azure Key Vault : Gestion des identités et des accès](security-overview.md#identity-management)
-- [Sécuriser votre coffre de clés](secure-your-key-vault.md)
+- [Sécuriser votre coffre de clés](security-overview.md)
 - [Guide du développeur Azure Key Vault](developers-guide.md)

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84bb4766b3a896823dd0bef023f8042965a85846
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530737"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532867"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examiner la sortie Video Indexer
 
@@ -46,8 +46,8 @@ Pour plus d’informations, voir [View and edit video insights](video-indexer-vi
 
 ## <a name="insightsoutput-produced-by-api"></a>Insights/sortie produits par l’API
 
-1. Pour récupérer le fichier JSON, appelez [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
-1. Si vous êtes également intéressé par des artefacts spécifiques, appelez [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+1. Pour récupérer le fichier JSON, appelez [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index)
+1. Si vous êtes également intéressé par des artefacts spécifiques, appelez [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url)
 
     Dans l’appel d’API, spécifiez le type d’artefact demandé (OCR, Faces, Key frames etc.)
 
@@ -100,7 +100,7 @@ Cette section présente le résumé des insights.
 |privacyMode|La décomposition peut avoir l’un des modes suivants : **Privé**, **Public**. **Public** : tous les membres de votre compte et toutes les personnes disposant d’un lien vers la vidéo peuvent la visionner. **Privé** : tous les membres de votre compte peuvent la visionner.|
 |duration|Contient la durée d’un insight. La durée est exprimée en secondes.|
 |thumbnailVideoId|ID de la vidéo à partir de laquelle la vidéo miniature a été réalisée.
-|thumbnailId|ID de la miniature de la vidéo. Pour obtenir la vidéo miniature réelle, appelez la méthode [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) et transmettez-lui les attributs thumbnailVideoId et thumbnailId.|
+|thumbnailId|ID de la miniature de la vidéo. Pour obtenir la vidéo miniature réelle, appelez la méthode [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) et transmettez-lui les attributs thumbnailVideoId et thumbnailId.|
 |faces/animatedCharacters|Peut contenir zéro ou plusieurs visages. Pour plus d’informations, consultez la section [faces/animatedCharacters](#facesanimatedcharacters).|
 |mots clés|Peut contenir zéro ou plusieurs mots clés. Pour plus d’informations, consultez la section [keywords](#keywords).|
 |sentiments|Peut contenir zéro ou plusieurs sentiments. Pour plus d’informations, consultez la section [sentiments](#sentiments).|
@@ -127,7 +127,7 @@ Cette section présente le résumé des insights.
 |metadata|Métadonnées externes de la vidéo (si elles sont spécifiées par l’utilisateur).|
 |isAdult|Indique si la vidéo a été vérifiée manuellement et identifiée comme une vidéo pour adultes.|
 |insights|Objet insights. Pour plus d’informations, consultez la section [insights](#insights).|
-|thumbnailId|ID de la miniature de la vidéo. Pour obtenir la vidéo miniature réelle, appelez la méthode [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) et transmettez-lui l’ID de la vidéo et l’attribut thumbnailId.|
+|thumbnailId|ID de la miniature de la vidéo. Pour obtenir la vidéo miniature réelle, appelez la méthode [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) et transmettez-lui l’ID de la vidéo et l’attribut thumbnailId.|
 |publishedUrl|URL de diffusion en continu de la vidéo.|
 |publishedUrlProxy|URL à partir de laquelle diffuser la vidéo en continu (pour les appareils Apple).|
 |viewToken|Jeton d’affichage de courte durée pour la diffusion en continu de la vidéo.|

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: ccd56afc8c4ea7e236946fc6afa54e471203fe31
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 04/08/2021
+ms.openlocfilehash: 14f0d15d48193267c224f3497c24651ca3249b0b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065978"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028583"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Se connecter à une instance de calcul Azure Machine Learning dans Visual Studio Code (préversion)
 
@@ -25,8 +25,75 @@ Une [Instance de calcul Azure Machine Learning](concept-compute-instance.md) est
 
 Il existe deux façons de se connecter à une instance de calcul à partir de Visual Studio Code :
 
+* Instance de calcul distante. Cette option vous fournit un environnement de développement complet pour créer vos projets Machine Learning.
 * Serveur Jupyter Notebook distant. Cette option vous permet de définir une instance de calcul en tant que serveur Jupyter Notebook distant.
-* [Développement à distance de Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview). Le développement à distance de Visual Studio Code vous permet d’utiliser un conteneur, un ordinateur distant ou Sous-système Windows pour Linux (WSL) en tant qu’environnement de développement complet.
+
+## <a name="configure-a-remote-compute-instance"></a>Configurer une instance de calcul distante
+
+Pour configurer une instance de calcul distante pour le développement, vous devez respecter quelques conditions préalables.
+
+* Extension Azure Machine Learning de Visual Studio Code. Pour plus d’informations, consultez le [guide d’installation de l’extension Azure Machine Learning de Visual Studio Code](tutorial-setup-vscode-extension.md).
+* Espace de travail Azure Machine Learning. [Utilisez l’extension Azure Machine Learning de Visual Studio Code pour créer un espace de travail](how-to-manage-resources-vscode.md#create-a-workspace) si vous n’en avez pas déjà un.
+* Instance de calcul Azure Machine Learning. [Utilisez l’extension Azure Machine Learning Visual Studio Code pour créer une instance de calcul](how-to-manage-resources-vscode.md#create-compute-instance) si vous n’en avez pas.
+
+Pour vous connecter à votre instance de calcul distante :
+
+# <a name="vs-code"></a>[Code Visual Studio](#tab/extension)
+
+### <a name="azure-machine-learning-extension"></a>Extension Azure Machine Learning
+
+1. Dans VS Code, lancez l’extension Azure Machine Learning.
+1. Développez le nœud **Instances de calcul** dans votre extension.
+1. Cliquez avec le bouton droit sur l’instance de calcul à laquelle vous souhaitez vous connecter, puis sélectionnez **Se connecter à l’instance de calcul**.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Se connecter à l’instance de calcul dans l’extension Visual Studio Code Azure ML" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+
+### <a name="command-palette"></a>Palette de commandes
+
+1. Dans VS Code, ouvrez la palette de commandes en sélectionnant **Affichage > Palette de commandes**.
+1. Entrez **Azure ML : Se connecter à l’instance de calcul** dans la zone de texte.
+1. Sélectionnez votre abonnement.
+1. Sélectionnez votre espace de travail.
+1. Sélectionnez votre instance de calcul ou créez-en une nouvelle.
+
+# <a name="studio"></a>[Studio](#tab/studio)
+
+Accédez à [ml.azure.com](https://ml.azure.com).
+
+> [!IMPORTANT]
+> Pour vous connecter à votre instance de calcul distante à partir de Visual Studio Code, assurez-vous que le compte auquel vous êtes connecté dans Azure Machine Learning studio est le même que celui que vous utilisez dans Visual Studio Code.
+
+### <a name="compute"></a>Calcul
+
+1. Sélectionnez l’onglet **Calcul**.
+1. Dans la colonne *URI de l’application*, sélectionnez **VS Code** pour l’instance de calcul à laquelle vous souhaitez vous connecter.
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Se connecter à l’instance de calcul dans VS Code Azure ML studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
+
+### <a name="notebook"></a>Notebook
+
+1. Sélectionnez l’onglet **Notebook**.
+1. Dans l’onglet *Notebook*, sélectionnez le fichier que vous souhaitez modifier.
+1. Sélectionnez **Éditeurs > Modifier dans VS Code (préversion)** .
+
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Se connecter à l’instance de calcul dans VS Code Azure ML Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+
+---
+
+Une nouvelle fenêtre s’ouvre pour votre instance de calcul distante. Lorsque vous tentez d’établir une connexion à une instance de calcul distante, les tâches suivantes sont effectuées :
+
+1. Autorisation. Certaines vérifications sont effectuées pour s’assurer que l’utilisateur qui tente d’établir une connexion est autorisé à utiliser l’instance de calcul.
+1. VS Code Remote Server est installé sur l’instance de calcul.
+1. Une connexion WebSocket est établie pour une interaction en temps réel.
+
+Une fois la connexion établie, elle est persistante. Un jeton est émis au début de la session et est actualisé automatiquement pour maintenir la connexion avec votre instance de calcul.
+
+Après vous être connecté à votre instance de calcul distante, utilisez l’éditeur pour :
+
+* [Créer et gérer des fichiers sur votre instance de calcul distante ou sur le partage de fichiers](https://code.visualstudio.com/docs/editor/codebasics).
+* Utiliser le [terminal intégré VS Code](https://code.visualstudio.com/docs/editor/integrated-terminal) afin d’[exécuter des commandes et des applications sur votre instance de calcul distante](how-to-access-terminal.md).
+* [Déboguer vos scripts et vos applications](https://code.visualstudio.com/Docs/editor/debugging).
+* [Utiliser VS Code pour gérer vos référentiels Git](concept-train-model-git-integration.md).
 
 ## <a name="configure-compute-instance-as-remote-notebook-server"></a>Configurer une instance de calcul en tant que serveur de notebook distant
 
@@ -62,93 +129,6 @@ Pour se connecter à une instance de calcul :
 
 > [!TIP]
 > Vous pouvez également utiliser des fichiers de script Python (.py) contenant des cellules de code de type Jupyter. Pour plus d’informations, consultez la [documentation interactive de Visual Studio Code relative à Python](https://code.visualstudio.com/docs/python/jupyter-support-py).
-
-## <a name="configure-compute-instance-remote-development"></a>Configurer le développement à distance de l’instance de calcul
-
-Pour bénéficier d’une expérience de développement à distance complète, vous devez respecter quelques conditions préalables :
-
-* [Extension Remote SSH de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* Instance de calcul compatible SSH. Pour plus d’informations, consultez le guide [Créer une instance de calcul](how-to-create-manage-compute-instance.md).
-
-> [!NOTE]
-> Sur les plateformes Windows, vous devez [installer un client SSH compatible OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) s’il n’en existe pas déjà un. PuTTY n’est pas pris en charge sur Windows, car la commande SSH doit se trouver dans le chemin d’accès.
-
-### <a name="get-the-ip-and-ssh-port-for-your-compute-instance"></a>Obtenir le port IP et SSH pour votre instance de calcul
-
-1. Accédez à Azure Machine Learning Studio à l’adresse https://ml.azure.com/.
-2. Sélectionnez votre [espace de travail](concept-workspace.md).
-1. Cliquez sur l’onglet **Instances de calcul**.
-1. Dans la colonne **URI de l’application**, cliquez sur le lien **SSH** de l’instance de calcul que vous souhaitez utiliser comme calcul distant. 
-1. Dans la boîte de dialogue, notez l’adresse IP et le port SSH. 
-1. Enregistrez votre clé privée dans le répertoire ~/.ssh/ de votre ordinateur local ; par exemple, ouvrez un éditeur pour un nouveau fichier et collez la clé dans : 
-
-   **Linux** :
-
-   ```sh
-   vi ~/.ssh/id_azmlcitest_rsa  
-   ```
-
-   **Windows** :
-
-   ```cmd
-   notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa
-   ```
-
-   La clé privée ressemble à ce qui suit :
-
-   ```text
-   -----BEGIN RSA PRIVATE KEY-----
-
-   MIIEpAIBAAKCAQEAr99EPm0P4CaTPT2KtBt+kpN3rmsNNE5dS0vmGWxIXq4vAWXD
-   ..... 
-   ewMtLnDgXWYJo0IyQ91ynOdxbFoVOuuGNdDoBykUZPQfeHDONy2Raw==
-
-   -----END RSA PRIVATE KEY-----
-   ```
-
-1. Modifiez les autorisations sur le fichier pour vous assurer que vous êtes le seul à pouvoir lire le fichier.  
-
-   ```sh
-   chmod 600 ~/.ssh/id_azmlcitest_rsa
-   ```
-
-### <a name="add-instance-as-a-host"></a>Ajouter une instance en tant qu’hôte
-
-Ouvrez le fichier `~/.ssh/config` (Linux) ou `C:\Users<username>.ssh\config` (Windows) dans un éditeur et ajoutez une entrée semblable au contenu ci-dessous :
-
-```
-Host azmlci1 
-
-    HostName 13.69.56.51 
-
-    Port 50000 
-
-    User azureuser 
-
-    IdentityFile ~/.ssh/id_azmlcitest_rsa
-```
-
-Voici quelques détails sur les champs :
-
-|Champ|Description|
-|----|---------|
-|Host|Utilisez le raccourci de votre choix pour l’instance de calcul |
-|HostName|Il s’agit de l’adresse IP de l’instance de calcul |
-|Port|Il s’agit du port affiché dans la boîte de dialogue SSH ci-dessus |
-|Utilisateur|Il doit être défini sur `azureuser` |
-|IdentityFile|Doit pointer vers le fichier où vous avez enregistré la clé privée |
-
-À présent, vous devez être en mesure d’utiliser SSH pour votre instance de calcul, à l’aide de la syntaxe abrégée que vous avez utilisée précédemment, `ssh azmlci1`.
-
-### <a name="connect-vs-code-to-the-instance"></a>Connecter VS Code à l’instance
-
-1. Cliquez sur l’icône Remote-SSH dans la barre d’activité Visual Studio Code pour afficher vos configurations SSH.
-
-1. Cliquez avec le bouton droit sur la configuration d’hôte SSH que vous venez de créer.
-
-1. Sélectionnez **Se connecter à l’hôte dans la fenêtre active**. 
-
-À partir de là, vous travaillez entièrement sur l’instance de calcul et vous pouvez modifier, déboguer, utiliser Git, utiliser des extensions, etc., tout comme vous pouvez le faire avec votre Visual Studio Code local.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

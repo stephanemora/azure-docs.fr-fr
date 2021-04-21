@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2ab7a007a92bd2306a7a97781af5653f932d0b7
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539544"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580617"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Comment estimer et gérer les coûts d’un service Recherche cognitive Azure
 
@@ -64,7 +64,7 @@ Le coût minimal est la première unité de recherche (une réplique x une parti
 
 Au-delà des frais minimaux, vous pouvez ajouter des réplicas et des partitions indépendants les uns des autres. Les augmentations incrémentielles de capacité via des réplicas et partitions augmentent votre facture selon la formule suivante : **(réplicas x partitions x tarif de facturation)** , où le tarif facturé dépend du niveau tarifaire sélectionné.
 
-Lorsque vous estimez le coût d’une solution de recherche, gardez à l’esprit que la tarification et la capacité ne sont pas linéaires (le fait de doubler la capacité fait plus que doubler le coût). Pour découvrir un exemple du mode de fonctionnement de la formule, consultez la section [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions) (Allocation de réplicas et de partitions).
+Lorsque vous estimez le coût d’une solution de recherche, gardez à l’esprit que la tarification et la capacité ne sont pas linéaires (le fait de doubler la capacité fait plus que doubler le coût au même niveau). En outre, à un moment donné, le passage à un niveau supérieur peut vous offrir des performances supérieures et plus rapides à environ le même prix. Pour plus d’informations et un exemple, consultez [Mettre à niveau vers un niveau Standard S2](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
 ### <a name="bandwidth-charges"></a>Frais liés à la bande passante
 

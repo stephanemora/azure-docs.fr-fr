@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 04/06/2021
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: b4a3f7f613f75f2f285437b7ae6f816adf56d999
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: d816854c8d8a78931060c6e56fffbaee1fde5150
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580093"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771710"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Résoudre les problèmes liés à Azure RBAC
 
@@ -138,7 +138,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-De même, si vous répertoriez cette attribution de rôle à l’aide d’Azure CLI, `principalName` est vide à l’écran. Par exemple, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) retourne une attribution de rôle similaire à ce qui suit :
+De même, si vous répertoriez cette attribution de rôle à l’aide d’Azure CLI, `principalName` est vide à l’écran. Par exemple, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) retourne une attribution de rôle similaire à ce qui suit :
 
 ```
 {

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 04/09/2021
 ms.author: alkohli
-ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f4f7e5f69e6b496395b74dbdcd58b3ada0a7f349
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632031"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285194"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Sécurité et protection des données pour Azure Stack Edge Pro R et Azure Stack Edge Mini R
 
@@ -100,17 +100,23 @@ Les données de vos disques sont protégées par deux couches de chiffrement :
 > [!NOTE]
 > Le disque du système d’exploitation possède un chiffrement de logiciel BitLocker XTS-AES-256 à couche unique.
 
-Lorsque l’appareil est activé, vous êtes invité à enregistrer un fichier de clé qui contient des clés de récupération permettant de récupérer les données sur l’appareil si ce dernier ne démarre pas. Le fichier comporte deux clés :
+Avant d’activer l’appareil, vous devez configurer le chiffrement au repos sur votre appareil. Il s’agit d’un paramètre obligatoire. Tant qu’il n’est pas configuré correctement, vous ne pouvez pas activer l’appareil. 
 
-- Une clé récupère la configuration de l’appareil sur les volumes du système d’exploitation.
-<!-- - Second key is to unlock the BitLocker on the data disks. -->
-- La deuxième clé déverrouille le chiffrement matériel dans les disques de données.
+En usine, une fois les appareils imagés, le chiffrement BitLocker du niveau de volume est activé. Une fois que vous recevez l’appareil, vous devez configurer le chiffrement au repos. Le pool de stockage et les volumes sont recréés et vous pouvez fournir des clés BitLocker pour activer le chiffrement au repos et ainsi créer une autre couche de chiffrement pour vos données au repos. 
+
+La clé de chiffrement au repos est une clé codée Base-64 de 32 caractères, que vous fournissez et qui est utilisée pour protéger la clé de chiffrement réelle. Microsoft n’a pas accès à cette clé de chiffrement au repos qui protège vos données. La clé est enregistrée dans un fichier de clé dans la page **Détails du cloud** après l’activation de l’appareil.
+
+Lorsque l’appareil est activé, vous êtes invité à enregistrer le fichier de clé qui contient des clés de récupération permettant de récupérer les données sur l’appareil si ce dernier ne démarre pas. Certains scénarios de récupération vous inviteront à saisir le fichier de clé que vous avez enregistré. Le fichier de clé possède les clés de récupération suivantes :
+
+- Une clé qui déverrouille la première couche de chiffrement.
+- Une clé qui déverrouille le chiffrement matériel dans les disques de données.
+- Une clé qui permet de récupérer la configuration de l’appareil sur les volumes du système d’exploitation.
+- Une clé qui protège les données transitant par le service Azure.
 
 > [!IMPORTANT]
 > Enregistrez le fichier de clé dans un emplacement sécurisé en dehors de l’appareil. Si l’appareil ne démarre pas et que vous n’avez pas la clé, cela peut entraîner une perte de données.
 
-- Certains scénarios de récupération vous inviteront à saisir le fichier de clé que vous avez enregistré. 
-<!--- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.-->
+
 
 #### <a name="restricted-access-to-data"></a>Accès restreint aux données
 
@@ -132,7 +138,6 @@ Lorsque l’appareil subit une réinitialisation matérielle, une réinitialisat
 ### <a name="protect-data-in-storage-accounts"></a>Protection des données dans les comptes de stockage
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
-
 - Faites tourner puis [synchronisez vos clés de compte de stockage](azure-stack-edge-gpu-manage-storage-accounts.md) régulièrement pour mieux protéger votre compte de stockage des utilisateurs non autorisés.
 
 ## <a name="manage-personal-information"></a>Gestion des informations personnelles

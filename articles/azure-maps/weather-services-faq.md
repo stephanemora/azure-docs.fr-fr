@@ -1,6 +1,6 @@
 ---
-title: Questions fréquentes (FAQ) sur les services météo Microsoft Azure Maps (préversion)
-description: Trouvez des réponses aux questions les plus fréquentes sur les données et les fonctionnalités des services météo Azure Maps (préversion).
+title: Questions fréquentes (FAQ) sur les services Météo de Microsoft Azure Maps
+description: Trouvez des réponses aux questions les plus fréquentes sur les données et les fonctionnalités des services Météo d'Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9c8e971b4fda313ffede58455dd6d057d6848ce4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 440ff94f4d5f3514d97d3e76299b60e462cebff3
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678127"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257549"
 ---
-# <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les services météo Azure Maps (préversion)
-
-> [!IMPORTANT]
-> Les services météo d’Azure Maps sont disponibles en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-maps-weather-services-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les services Météo d'Azure Maps
 
 Cet article répond aux questions les plus fréquentes sur les données et les fonctionnalités des [services météo](/rest/api/maps/weather) Azure Maps. Les rubriques suivantes sont traitées :
 
@@ -55,7 +51,7 @@ Ces jeux de données sont examinés en temps réel par souci de justesse pour le
 
 De nombreux systèmes de prévisions météorologiques sont utilisés pour formuler des prévisions mondiales. Plus de 150 modèles de prévision numérique sont utilisés chaque jour, à la fois dans des jeux de données externes et internes. Cela comprend les modèles publics tels que le modèle européen ECMWF et le modèle américain Global Forecast System (GFS). De plus, AccuWeather intègre des modèles haute résolution propriétaires qui concentrent les prévisions sur des régions spécifiques et des domaines régionaux stratégiques afin de prédire le temps avec davantage de précision. Les algorithmes de fusion et de pondération uniques d’AccuWeather ont été développés sur plusieurs décennies. Ces algorithmes tirent pleinement parti des nombreuses entrées de prévision pour fournir des prévisions avec un haut niveau de justesse.
 
-## <a name="weather-services-preview-coverage-and-availability"></a>Couverture et disponibilité des services météo (préversion)
+## <a name="weather-services-coverage-and-availability"></a>Couverture et disponibilité des services météo
 
 **Quel type de couverture puis-je attendre pour différents pays ou régions ?**
 
@@ -77,11 +73,11 @@ Les API de prévisions météo Azure Maps sont mises en cache pendant une pério
 
 ## <a name="developing-with-azure-maps-sdks"></a>Développer avec les SDK Azure Maps
 
-**Le SDK web Azure Maps prend-il en charge l’intégration des services Météo (préversion) de manière native ?**
+**Le SDK Web d'Azure Maps prend-il en charge l'intégration des services Météo de manière native ?**
 
 Le Kit de développement logiciel (SDK) web Azure Maps fournit un module des services. Le module des services est une bibliothèque d’assistance qui facilite l’utilisation des services REST Azure Maps dans des applications web ou Node.js avec JavaScript ou TypeScript. Pour bien démarrer, consultez notre [documentation](./how-to-use-services-module.md).
 
-**Le SDK Android Azure Maps prend-il en charge l’intégration des services Météo (préversion) de manière native ?**
+**Le SDK Android d'Azure Maps prend-il en charge l'intégration des services Météo de manière native ?**
 
 Les SDK Android Azure Maps prennent en charge les calques de vignettes Mercator, qui peuvent avoir une notation x/y/zoom, une notation Quadkey ou une notation de cadre englobant EPSG 3857.
 
@@ -103,7 +99,7 @@ Oui. En plus des vignettes radar et satellite en temps réel, les utilisateurs d
 
 **Mettez-vous à disposition des icônes pour les différentes conditions météorologiques ?**
 
-Oui. Les icônes et leur code sont [disponibles ici](./weather-services-concepts.md#weather-icons). Notez que seules certaines des API du service Météo (préversion), comme l’[API Get Current Conditions](/rest/api/maps/weather/getcurrentconditionspreview), retournent l’*iconCode* dans la réponse. Pour plus d’informations, consultez l’[exemple de code](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location) open source « Current Weather Conditions ».
+Oui. Les icônes et leur code sont [disponibles ici](./weather-services-concepts.md#weather-icons). Notez que seules certaines des API du service Météo (préversion), comme l’[API Get Current Conditions](/rest/api/maps/weather/getcurrentconditions), retournent l’*iconCode* dans la réponse. Pour plus d’informations, consultez l’[exemple de code](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location) open source « Current Weather Conditions ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -114,15 +110,15 @@ Si les Questions fréquentes ne répondent pas à votre question, vous pouvez no
 * Support Microsoft Pour créer une demande de support, dans le portail Azure, sous l’onglet [Aide](https://portal.azure.com/), sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) pour effectuer des demandes de fonctionnalités.
 
-Découvrez comment effectuer des demandes de données météorologiques en temps réel et prévisionnelles à l’aide des services Météo Azure Maps (préversion) :
+Apprenez à effectuer des demandes de données météorologiques en temps réel et des demandes de prévisions à l'aide des services Météo d'Azure Maps :
 > [!div class="nextstepaction"]
 > [Demander des données météorologiques en temps réel](how-to-request-weather-data.md)
 
-Article relatif aux concepts des services Météo Azure Maps (préversion) :
+Articles sur les concepts des services Météo d'Azure Maps :
 > [!div class="nextstepaction"]
 > [Concepts des services Météo](weather-coverage.md)
 
-Explorez la documentation relative à l’API des services Météo Azure Maps (préversion) :
+Explorez la documentation relative à l'API des services Météo d'Azure Maps :
 
 > [!div class="nextstepaction"]
 > [Services météo Azure Maps](/rest/api/maps/weather)

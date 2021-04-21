@@ -3,12 +3,12 @@ title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c934d2295fa702425e8df0a03636b9f9208cfa4
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89376976"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515071"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
@@ -323,4 +323,4 @@ Déterminez si le partage de fichiers sauvegardé a été définitivement suppri
 Pour plus d’informations sur la sauvegarde des partages de fichiers Azure, consultez les références suivantes :
 
 - [Sauvegarder des partages de fichiers Azure](backup-afs.md)
-- [FAQ sur la sauvegarde des partages de fichiers Azure](backup-azure-files-faq.md)
+- [FAQ sur la sauvegarde des partages de fichiers Azure](backup-azure-files-faq.yml)
