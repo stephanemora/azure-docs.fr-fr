@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapie : Déployer une application web ASP.NET'
+title: 'Démarrage rapide : Déployer une application web ASP.NET'
 description: Découvrez comment exécuter des applications web dans Azure App Service en déployant votre première application ASP.NET.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
