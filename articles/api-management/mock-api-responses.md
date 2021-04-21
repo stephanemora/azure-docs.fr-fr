@@ -3,16 +3,16 @@ title: Tutoriel - Simuler des réponses d’API dans Gestion des API - Portail A
 description: Dans ce tutoriel, vous utilisez Gestion des API pour définir une stratégie sur une API afin qu’elle retourne une réponse factice si le back-end n’est pas disponible pour envoyer des réponses réelles.
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7617a36ed800f1765ed7723568a4b612fcb6518
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547241"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587576"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutoriel : Simuler des réponses de l’API
 

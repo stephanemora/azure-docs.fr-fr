@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1d7b6cd6d61be6df66d215613222c12a0f2c9c5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a595d677cf0964083526cb7e2c73471148be0fd4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606706"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778417"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Démarrage rapide : Créer un serveur Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI
 
@@ -21,7 +21,7 @@ Ce guide de démarrage rapide montre comment utiliser les commandes [Azure CLI](
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Cet article demande la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
+- Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
     > [!TIP]
     >  Songez à utiliser la commande Azure CLI simplifiée [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up), disponible actuellement en préversion. Essayez le guide de [démarrage rapide](./quickstart-create-server-up-azure-cli.md).
@@ -34,11 +34,11 @@ Ce guide de démarrage rapide montre comment utiliser les commandes [Azure CLI](
         az account set --subscription <subscription id>
         ```
 
-    - Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour obtenir l’ensemble de vos abonnements, utilisez [az account list](/cli/azure/account#az-account-list).
+    - Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour obtenir l’ensemble de vos abonnements, utilisez [az account list](/cli/azure/account#az_account_list).
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Créer un serveur Azure Database pour PostgreSQL
 
-Créez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) à l’aide de la commande [az group create](/cli/azure/group#az-group-create), puis créez votre serveur PostgreSQL à l’intérieur de ce groupe de ressources. Vous devez fournir un nom unique. L’exemple suivant crée un groupe de ressources nommé `myresourcegroup` à l’emplacement `westus`.
+Créez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) à l’aide de la commande [az group create](/cli/azure/group#az_group_create), puis créez votre serveur PostgreSQL à l’intérieur de ce groupe de ressources. Vous devez fournir un nom unique. L’exemple suivant crée un groupe de ressources nommé `myresourcegroup` à l’emplacement `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -62,7 +62,7 @@ sku-name|GP_Gen5_2| Nom du niveau tarifaire et de la configuration de calcul. Su
 
 >[!IMPORTANT] 
 >- La version PostgreSQL par défaut sur votre serveur est 9.6. Pour voir toutes les versions prises en charge, consultez [Versions majeures de PostgreSQL prises en charge](./concepts-supported-versions.md).
->- Pour voir tous les arguments de la commande **az postgres server create**, consultez [ce document de référence](/cli/azure/postgres/server#az-postgres-server-create).
+>- Pour voir tous les arguments de la commande **az postgres server create**, consultez [ce document de référence](/cli/azure/postgres/server#az_postgres_server_create).
 >- Le protocole SSL est activé par défaut sur votre serveur. Pour plus d’informations sur le protocole SSL, consultez [Configurer la connectivité SSL](./concepts-ssl-connection-security.md).
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurer une règle de pare-feu au niveau du serveur 
