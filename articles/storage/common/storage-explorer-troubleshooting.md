@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 593ccac7326a0a04884fe433cac85cb8eaf79319
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439457"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228229"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -289,20 +289,20 @@ Si vous souhaitez conserver les connexions non endommagées, vous pouvez suivre 
 
 Une fois que vous les avez toutes passées en revue, pour tous les noms de connexion qui ne sont pas rajoutés, vous devez effacer leurs données endommagées (le cas échéant) et les rajouter en suivant les étapes normales dans l’Explorateur Stockage :
 
-# <a name="windows"></a>[Windows](#tab/Windows)
+### <a name="windows"></a>[Windows](#tab/Windows)
 
 1. Dans le menu **Démarrer**, recherchez le **Gestionnaire d’informations d’identification** et ouvrez-le.
 2. Accédez à **Informations d’identification Windows**.
 3. Sous **Informations d’identification génériques**, recherchez les entrées qui comportent la clé `<connection_type_key>/<corrupted_connection_name>` (par exemple, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Supprimez ces entrées et rajoutez les connexions.
 
-# <a name="macos"></a>[macOS](#tab/macOS)
+### <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Ouvrez Spotlight (Commande + Barre d’espace) et recherchez **Trousseau d’accès**.
 2. Recherchez les entrées qui comportent la clé `<connection_type_key>/<corrupted_connection_name>` (par exemple, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Supprimez ces entrées et rajoutez les connexions.
 
-# <a name="linux"></a>[Linux](#tab/Linux)
+### <a name="linux"></a>[Linux](#tab/Linux)
 
 La gestion des informations d’identification locales varie en fonction de la distribution Linux. Si votre distribution Linux n’intègre pas d’outil de gestion des informations d’identification locales à interface graphique utilisateur (GUI), vous pouvez installer un outil tiers pour gérer vos informations d’identification locales. Par exemple, vous pouvez utiliser [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), outil GUI open source de gestion des informations d’identification locales Linux.
 
@@ -356,7 +356,7 @@ L’Explorateur Stockage exige l’installation de .NET Core sur votre système.
 > [!NOTE]
 > L’Explorateur Stockage 1.7.0 et versions antérieures nécessitent .NET Core 2.0. Si vous disposez d’une version plus récente de .NET Core, vous devrez appliquer une [mise à jour corrective de l’Explorateur Stockage](#patching-storage-explorer-for-newer-versions-of-net-core). Si vous exécutez l’Explorateur Stockage 1.8.0 ou une version ultérieure, vous devez utiliser .NET Core 2.1.
 
-# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
+### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
 2. Installez le [runtime .NET Core](/dotnet/core/install/linux) :
@@ -369,7 +369,7 @@ L’Explorateur Stockage exige l’installation de .NET Core sur votre système.
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
+### <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
 2. Installez le [runtime .NET Core](/dotnet/core/install/linux) :
@@ -382,7 +382,7 @@ L’Explorateur Stockage exige l’installation de .NET Core sur votre système.
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
+### <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Téléchargez le fichier .tar.gz de l’Explorateur Stockage.
 2. Installez le [runtime .NET Core](/dotnet/core/install/linux) :
@@ -431,6 +431,98 @@ Si le bouton **Ouvrir dans l’Explorateur** du portail Azure ne fonctionne pas,
 * Mozilla Firefox
 * Google Chrome
 * Microsoft Internet Explorer
+
+## <a name="gathering-logs"></a>Collecte des journaux
+
+Lorsque vous signalez un problème à GitHub, il peut vous être demandé de rassembler certains journaux pour aider à diagnostiquer votre problème.
+
+### <a name="storage-explorer-logs"></a>Journaux Explorateur Stockage
+
+À partir de la version 1.16.0, Explorateur Stockage consigne plusieurs éléments dans ses propres journaux d’application. Vous pouvez facilement accéder à ces journaux en cliquant sur Aide > Ouvrir le répertoire des journaux. Par défaut, Explorateur Stockage consigne à un faible niveau de verbosité. Pour modifier le niveau de verbosité, ajoutez une variable d’environnement portant le nom `STG_EX_LOG_LEVEL` et l’une des valeurs suivantes :
+- `silent`
+- `critical`
+- `error`
+- `warning`
+- `info` (niveau par défaut)
+- `verbose`
+- `debug`
+
+Les journaux sont divisés en dossiers pour chaque session d’Explorateur Stockage que vous exécutez. Pour tous les fichiers journaux que vous devez partager, il est recommandé de les placer dans une archive zip, avec les fichiers de différentes sessions dans différents dossiers.
+
+### <a name="authentication-logs"></a>Journaux d’authentification
+
+Pour les problèmes liés à la connexion ou à la bibliothèque d’authentification d’Explorateur Stockage, vous devrez probablement rassembler les journaux d’authentification. Les journaux d’authentification sont stockés à l’adresse suivante :
+- Windows : `C:\Users\<your username>\AppData\Local\Temp\servicehub\logs`
+- macOS et Linux : `~/.ServiceHub/logs`
+
+En règle générale, vous pouvez suivre les étapes suivantes pour rassembler les journaux :
+
+1. Accédez à Paramètres > Connexion > cochez la case Journalisation détaillée de l’authentification. Si Explorateur Stockage ne parvient pas à démarrer en raison d’un problème avec sa bibliothèque d’authentification, cette opération sera effectuée pour vous.
+2. Fermez l’Explorateur Stockage.
+1. Facultatif/recommandé : Effacez les journaux existants dans le dossier `logs`. Cela permet de réduire la quantité d’informations que vous devez nous envoyer.
+4. Ouvrez Explorateur Stockage et reproduisez votre problème.
+5. Fermez Explorateur Stockage.
+6. Compressez le contenu du dossier `log`.
+
+### <a name="azcopy-logs"></a>Journaux AzCopy
+
+Si vous avez des difficultés à transférer des données, vous devrez peut-être obtenir les journaux AzCopy. Vous pouvez facilement trouver les journaux AzCopy à l’aide de deux méthodes différentes :
+- Pour les transferts qui ont échoué et qui sont encore dans le journal d’activité, cliquez sur « Accéder au fichier journal AzCopy ».
+- Pour les transferts qui ont échoué dans le passé, accédez au dossier des journaux AzCopy. Ce dossier se trouve à l’emplacement suivant :
+  - Windows : `C:\Users\<your username>\.azcopy`
+  - macOS et Linux : `~/.azcopy
+
+### <a name="network-logs"></a>Journaux réseau
+
+Pour certains problèmes, vous devrez fournir des journaux des appels réseau effectués par Explorateur Stockage. Sous Windows, vous pouvez le faire en utilisant Fiddler.
+
+> [!NOTE]
+> Les traces Fiddler peuvent contenir des mots de passe que vous avez entrés/envoyés dans votre navigateur pendant la collecte de la trace. Veillez à lire les instructions sur la façon de nettoyer une trace Fiddler. Ne chargez pas les traces Fiddler sur GitHub. Il vous sera indiqué où vous pouvez envoyer votre trace Fiddler en toute sécurité.
+
+Partie 1 : Installer et configurer Fiddler
+
+1. Installez Fiddler.
+2. Démarrez Fiddler.
+3. Cliquez sur Tools (Outils) > Options.
+4. Cliquez sur l’onglet HTTPS.
+5. Vérifiez que les cases Capture connects (Capturer les connexions) et Decrypt HTTPS traffic (Décrypter le trafic HTTPS) sont cochées.
+6. Cliquez sur le bouton Actions.
+7. Choisissez « Trust Root Certificate » (Faire confiance au certificat racine), puis « Yes » (Oui) dans la boîte de dialogue suivante.
+8. Cliquez à nouveau sur le bouton Actions.
+9. Choisissez « Export Root Certificate to Desktop » (Exporter le certificat racine vers le Bureau).
+10. Accédez à votre Bureau.
+11. Recherchez le fichier FiddlerRoot.cer.
+12. Double-cliquez sur ce fichier pour l’ouvrir.
+13. Accédez à l’onglet Details (Détails).
+14. Cliquez sur « Copy to File… » (Copier dans un fichier).
+15. Dans l’Assistant d’exportation, choisissez les options suivantes :
+    - X.509 encodé en base64
+    - Pour le nom de fichier, parcourez (bouton « Browse… ») jusqu’à C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs, puis vous pouvez l’enregistrer comme n’importe quel nom de fichier.
+16. Fermez la fenêtre du certificat.
+17. Démarrez Explorateur Stockage.
+18. Accédez à Edit (Modifier) > Configure Proxy (Configurer un proxy).
+19. Dans la boîte de dialogue, choisissez « Use app proxy settings » (Utiliser les paramètres du proxy d’application), puis définissez l’URL sur http://localhost et le port sur 8888.
+20. Cliquez sur OK.
+21. Redémarrez l’Explorateur de stockage
+22. Vous devez commencer à voir les appels réseau provenant d’un processus`storageexplorer:` s’afficher dans Fiddler.
+
+Partie 2 : Reproduire le problème
+1. Fermez toutes les applications autres que Fiddler.
+2. Effacez le journal de Fiddler (icône X en haut à gauche, à côté du menu View [Affichage]).
+3. Facultatif/recommandé : Laissez Fiddler défini pendant quelques minutes. Si vous voyez des appels réseau apparaître, cliquez dessus avec le bouton droit et choisissez « Filter Now » (Filtrer) > « Hide <process name> » (Masquer <nom du processus>).
+4. Démarrez Explorateur Stockage.
+5. Reproduisez le problème
+6. Cliquez sur File (Fichier) > Save (Enregistrer) > All Sessions… (Toutes les sessions…), et enregistrez dans un endroit que vous n’oublierez pas.
+7. Fermez Fiddler et Explorateur Stockage.
+
+Partie 3 : Nettoyer la trace Fiddler
+1. Double-cliquez sur la trace Fiddler (fichier .saz).
+2. Appuyez sur `ctrl`+`f`.
+3. Dans la boîte de dialogue qui s’affiche, vérifiez que les options suivantes sont définies : Search = Requests and responses (Rechercher = Requêtes et réponses), Examine = Headers and bodies (Examiner = En-têtes et corps).
+4. Recherchez les mots de passe que vous avez utilisés lors de la collecte de la trace Fiddler, toutes les entrées qui sont mises en évidence, cliquez avec le bouton droit et choisissez Remove (Supprimer) > Selected sessions (Sessions sélectionnées).
+5. Si vous avez certainement entré des mots de passe dans votre navigateur lors de la collecte de la trace, mais que vous ne trouvez aucune entrée lorsque vous utilisez Ctrl+F et que vous ne souhaitez pas modifier vos mots de passe (les mots de passe que vous avez utilisés sont utilisés pour d’autres comptes), n’hésitez pas à ne pas nous envoyer le fichier .saz. Mieux vaut prévenir que guérir. :)
+6. Enregistrez à nouveau la trace sous un nouveau nom.
+7. Facultatif : Supprimez la trace d’origine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

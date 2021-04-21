@@ -5,13 +5,13 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: fca01c77a1ff47cbeee167eb408ed9f29a1307bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/06/2021
+ms.openlocfilehash: 35cbaf2b6d2618d116d2dd322ae5ac28f578cecc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634326"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303540"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Cycle de vie du support pour Azure Red Hat OpenShift 4
 
@@ -33,7 +33,7 @@ Chaque chiffre de la version indique la compatibilité générale avec la versio
 * **Version mineure** : elles sont publiées tous les trois mois environ. Les mises à niveau de versions mineures peuvent inclure des ajouts de fonctionnalités, des améliorations, des dépréciations, des suppressions, des correctifs de bogues, des renforcements de la sécurité et d’autres améliorations.
 * **Correctifs** : ils sont généralement publiés toutes les semaines, ou selon les besoins. Les mises à niveau de versions correctives peuvent inclure des correctifs de bogues, des renforcements de la sécurité et d’autres améliorations.
 
-Les clients doivent chercher à exécuter la dernière version mineure de la version principale qu’ils possèdent. Par exemple, si votre cluster de production tourne sur la version 4.4 alors que la dernière version mineure en disponibilité générale pour la série 4 est la version 4.5, passez dès que possible à la version 4.5.
+Les clients doivent chercher à exécuter la dernière version mineure de la version principale qu’ils possèdent. Par exemple, si votre cluster de production tourne sur la version 4.4 alors que la dernière version mineure en disponibilité générale pour la série 4 est la version 4.5, passez dès que possible à la version 4.5. 
 
 ### <a name="upgrade-channels"></a>Canaux de mise à niveau
 
@@ -106,12 +106,16 @@ Consultez le guide suivant pour connaître [l’historique des versions de Red H
 
 **Que se passe-t-il quand un utilisateur met à niveau un cluster OpenShift avec une version mineure non prise en charge ?**
 
-Si vous utilisez la version N-2 ou une version antérieure, vous êtes hors support et il vous sera demandé d’effectuer une mise à niveau. Une fois votre mise à niveau de la version N-2 à la version N-1 réussie, vous bénéficierez à nouveau de nos stratégies de support. Par exemple :
+Si vous utilisez la version N-2 ou une version antérieure, vous êtes hors support et il vous sera demandé d’effectuer une mise à niveau pour continuer à profiter du support. Une fois votre mise à niveau de la version N-2 à la version N-1 réussie, vous bénéficiez à nouveau du support. La mise à niveau à partir d’une version N-3 ou d’une version antérieure vers une version prise en charge peut s’avérer difficile, voire impossible. Nous vous recommandons de conserver votre cluster avec la dernière version de OpenShift pour éviter d’éventuels problèmes de mise à niveau. Par exemple :
 * Si la version d’Azure Red Hat OpenShift la plus ancienne prise en charge est 4.4.z et que vous possédez la version 4.3.z ou une version antérieure, vous êtes hors support.
-* Une fois la mise à niveau de la version 4.3.z à la version 4.4.z ou une version ultérieure réussie, vous bénéficiez à nouveau de nos stratégies de support.
+* Une fois la mise à niveau de la version 4.3.z à la version 4.4.z ou une version ultérieure réussie, vous bénéficiez à nouveau de nos stratégies de support. 
 
 Le retour d’un cluster à une version antérieure, ou restauration, n’est pas pris en charge. Seule la mise à niveau vers une version plus récente est possible.
 
 **Que signifie « être hors support » ?**
 
-Si vous êtes « hors support », cela signifie que la version que vous utilisez ne figure pas dans la liste des versions prises en charge et qu’il peut vous être demandé de mettre à niveau le cluster vers une version prise en charge en cas de demande de support, à moins que vous ne vous trouviez dans la période de grâce de 30 jours suivant la dépréciation de la version. Par ailleurs, Azure Red Hat OpenShift n’offre aucune garantie d’exécution ni aucun contrat SLA pour les clusters qui ne figurent pas dans la liste des versions prises en charge à la fin de la période de grâce de 30 jours.
+Si votre cluster ARO exécute une version d’OpenShift qui ne figure pas dans la liste des versions prises en charge ou qui utilise une [configuration de cluster non prise en charge](https://docs.microsoft.com/azure/openshift/support-policies-v4), votre cluster est « hors support ». Par conséquent :
+- Lorsque vous ouvrez un ticket de support pour votre cluster, vous êtes invité à mettre à niveau le cluster vers une version prise en charge. avant de recevoir le support, sauf si vous vous trouvez dans la période de grâce de 30 jours après la fin de la prise en charge de la version. 
+- Toutes les garanties de runtime ou de SLA pour les clusters en dehors du support sont annulées.
+- Les clusters hors support seront corrigés de manière optimale.
+- Les clusters hors support ne seront pas analysés.

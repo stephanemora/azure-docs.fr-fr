@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9d057afc130b75bdd62031e6d2b9372bc9a37615
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7297e0ba8ae64a262983c9e89de1bbe7187610ec
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615021"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306430"
 ---
 # <a name="ncv2-series"></a>Série NCv2
 
@@ -22,6 +22,7 @@ La configuration NC24rs v2 fournit une interface réseau à haut débit et à fa
 
 [Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Disques Ultra](disks-types.md#ultra-disk) : pris en charge ([En savoir plus](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sur la disponibilité, l’utilisation et les performances) <br>
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>

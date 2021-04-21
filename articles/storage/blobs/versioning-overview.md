@@ -1,62 +1,66 @@
 ---
 title: Contrôle de version des objets blob
 titleSuffix: Azure Storage
-description: Le contrôle de version du stockage d’objets blob conserve automatiquement des versions antérieures d’un objet, et les identifie à l’aide d’horodateurs. Vous pouvez restaurer les versions antérieures d’un objet blob pour récupérer vos données si celles-ci sont modifiées ou supprimées par erreur.
+description: Le contrôle de version du stockage Blob conserve automatiquement les versions antérieures d’un objet et les identifie à l’aide d’horodateurs. Vous pouvez restaurer une version antérieure d’un blob pour récupérer vos données si celles-ci sont modifiées ou supprimées par erreur.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 268de3e8ea168ac721362d42149389b9f37c86fe
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380812"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305053"
 ---
 # <a name="blob-versioning"></a>Contrôle de version des objets blob
 
-Vous pouvez activer le contrôle de version du stockage d’objets blob pour gérer automatiquement les versions précédentes d’un objet.  Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
-
-Le contrôle de version des objets blob est activé sur le compte de stockage et s’applique à tous les objets blob du compte de stockage. Une fois que vous avez activé le contrôle de version des objets blob pour un compte de stockage, le stockage Azure gère automatiquement les versions de chaque objet blob dans le compte de stockage.
-
-Microsoft recommande d’utiliser le contrôle de version des objets blob pour gérer les versions précédentes des objets blob afin de bénéficier d’une meilleure protection des données. Dans la mesure du possible, utilisez le contrôle de version des objets blob plutôt que les instantanés d’objets blob pour gérer les versions précédentes. Les instantanés d’objets blob offrent des fonctionnalités similaires en ce qu’ils conservent les versions antérieures des objets blob, mais les instantanés doivent être gérés manuellement par votre application.
-
-Pour savoir comment activer le contrôle de version des objets blob, consultez [Activer et gérer le contrôle de version des objets blob](versioning-enable.md).
-
-> [!IMPORTANT]
-> Le contrôle de version des objets blob ne peut pas vous aider à récupérer après la suppression accidentelle d’un compte ou d’un conteneur de stockage. Pour empêcher toute suppression accidentelle du compte de stockage, configurez un verrou sur la ressource du compte de stockage. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md). Pour protéger les conteneurs contre les suppressions accidentelles, configurez la suppression réversible de conteneur pour le compte de stockage. Pour plus d’informations, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
+Vous pouvez activer le contrôle de version du stockage d’objets blob pour gérer automatiquement les versions précédentes d’un objet. Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## <a name="recommended-data-protection-configuration"></a>Configuration recommandée de la protection des données
+
+Le contrôle de version des blobs fait partie d’une stratégie complète de protection des données pour les données blob. Pour une protection optimale de vos données blob, Microsoft recommande d’activer toutes les fonctionnalités de protection des données suivantes :
+
+- Gestion des versions des objets blob, pour gérer automatiquement les versions précédentes d’un objet blob. Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur. Pour savoir comment activer le contrôle de version des blobs, consultez [Activer et gérer le contrôle de version des blobs](versioning-enable.md).
+- Suppression réversible de conteneur, pour restaurer un conteneur supprimé. Pour savoir comment activer la suppression réversible de conteneur, consultez [Activer et gérer la suppression réversible pour les conteneurs](soft-delete-container-enable.md).
+- Suppression réversible de blob, pour restaurer un blob, un instantané ou une version supprimés. Pour savoir comment activer la suppression réversible de blob, consultez [Activer et gérer la suppression réversible pour les blobs](soft-delete-blob-enable.md).
+
+Pour en savoir plus sur les recommandations de Microsoft en matière de protection des données, consultez [Vue d’ensemble de la protection des données](data-protection-overview.md).
+
 ## <a name="how-blob-versioning-works"></a>Fonctionnement du contrôle de version des objets blob
 
-La version capture l’état de l’objet blob à un moment donné. Lorsque le contrôle de version des objets blob est activé sur un compte de stockage, le stockage Azure crée automatiquement une nouvelle version de l’objet blob chaque fois que cet objet blob est modifié ou supprimé.
+La version capture l’état de l’objet blob à un moment donné. Chaque version est identifiée par un ID de version. Lorsque le contrôle de version des blobs est activé pour un compte de stockage, Stockage Azure crée automatiquement une nouvelle version avec un ID unique lorsqu’un blob est créé pour la première fois et chaque fois que le blob est modifié par la suite.
 
-Lorsque vous créez un objet blob et que le contrôle de version est activé, le nouvel objet blob est la version actuelle de l’objet blob (ou l’objet blob de base). Si vous modifiez par la suite cet objet blob, le stockage Azure crée une version qui capture l’état de l’objet blob avant sa modification. L’objet blob modifié devient la nouvelle version actuelle. Une nouvelle version est créée chaque fois que vous modifiez l’objet blob.
+Un ID de version peut identifier la version actuelle ou une version antérieure. Un blob ne peut avoir qu’une seule version actuelle à la fois.
 
-Le diagramme suivant montre comment les versions sont créées lors des opérations d’écriture et de suppression, et comment une version précédente peut être promue en version actuelle :
+Lorsque vous créez un blob, une seule version existe et cette version est la version actuelle. Lorsque vous modifiez un blob existant, la version actuelle devient une version antérieure. Une nouvelle version est créée pour capturer l’état mis à jour, et cette nouvelle version est la version actuelle. Lorsque vous supprimez un objet blob, la version actuelle de l’objet blob devient la version antérieure et qu’il n’y a plus de version actuelle. Toutes les versions antérieures du blob sont conservées.
+
+Le diagramme suivant montre la façon dont les versions sont créées lors d’opérations d’écriture et dont une version antérieure peut être promue en version actuelle :
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagramme montrant le fonctionnement du contrôle de version des objets blob":::
 
-Le fait de disposer d’un grand nombre de versions par blob peut augmenter la latence des opérations de listage des blobs. Microsoft recommande de conserver moins de 1000 versions par blob. Vous pouvez utiliser la gestion de cycle de vie pour supprimer automatiquement les anciennes versions. Pour plus d’informations sur la gestion de cycle de vie, consultez [Optimiser les coûts en automatisant les niveaux d’accès de Stockage Blob Azure](storage-lifecycle-management-concepts.md).
-
-Lorsque vous supprimez un objet blob pour lequel le contrôle de version est activé, le stockage Azure crée une version qui capture l’état de l’objet blob avant sa suppression. La version actuelle de l’objet blob est ensuite supprimée, mais les versions de l’objet blob sont conservées, afin qu’il soit possible de le recréer si nécessaire. 
-
 Les versions d’objets blob sont immuables. Vous ne pouvez pas modifier le contenu ou les métadonnées d’une version existante de l’objet blob.
 
-Le contrôle de version des objets blob est disponible pour les comptes de stockage d’objets blob et d’objets blob de blocs à usage général v2. Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont actuellement pas pris en charge.
+Le fait de disposer d’un grand nombre de versions par blob peut augmenter la latence des opérations de listage des blobs. Microsoft recommande de conserver moins de 1000 versions par blob. Vous pouvez utiliser la gestion de cycle de vie pour supprimer automatiquement les anciennes versions. Pour plus d’informations sur la gestion de cycle de vie, consultez [Optimiser les coûts en automatisant les niveaux d’accès de Stockage Blob Azure](storage-lifecycle-management-concepts.md).
+
+Le contrôle de version des blobs est disponible pour les comptes de stockage Blob hérités, les comptes d’objets blobs de blocs Premium et les comptes v2 universels Standard. Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 ne sont actuellement pas pris en charge.
 
 La version 2019-10-10 et les versions ultérieures de l’API REST de stockage Azure prennent en charge le contrôle de version des objets blob.
 
+> [!IMPORTANT]
+> Le contrôle de version des objets blob ne peut pas vous aider à récupérer après la suppression accidentelle d’un compte ou d’un conteneur de stockage. Pour empêcher toute suppression accidentelle du compte de stockage, configurez un verrou sur la ressource du compte de stockage. Pour plus d’informations sur le verrouillage d’un compte de stockage, consultez [Appliquer un verrou Azure Resource Manager à un compte de stockage](../common/lock-account-resource.md).
+
 ### <a name="version-id"></a>ID de version
 
-Chaque version d’objet blob est identifiée par un ID de version. La valeur de l’ID de version est l’horodateur qui correspond au moment où l’objet blob a été écrit ou mis à jour. L’ID de version est affecté au moment de la création de la version.
+Chaque version du blob est identifiée par un ID de version unique. La valeur de l’ID de version est l’horodateur qui correspond au moment où le blob a été mis à jour. L’ID de version est affecté au moment de la création de la version.
 
-Vous pouvez effectuer des opérations de lecture ou de suppression sur une version spécifique d’un objet blob en fournissant son ID de version. Si vous omettez l’ID de version, l’opération agit sur la version actuelle (l’objet blob de base).
+Vous pouvez effectuer des opérations de lecture ou de suppression sur une version spécifique d’un objet blob en fournissant son ID de version. Si vous omettez l’ID de version, l’opération agit sur la version actuelle.
 
 Lorsque vous appelez une opération d’écriture pour créer ou modifier un objet blob, le stockage Azure retourne l’en-tête *x-ms-version-ID* dans la réponse. Cet en-tête contient l’ID de version de la version actuelle de l’objet blob qui a été créé par l’opération d’écriture.
 
@@ -66,40 +70,21 @@ L’ID de version reste le même pendant toute la durée de vie de la version.
 
 Lorsque le contrôle de version des objets blob est activé, chaque opération d’écriture dans un objet blob crée une nouvelle version. Les opérations d’écriture incluent [Put Blob](/rest/api/storageservices/put-blob), [Put block List](/rest/api/storageservices/put-block-list), [Copy Blob](/rest/api/storageservices/copy-blob)et [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata).
 
-Si l’opération d’écriture crée un nouvel objet blob, l’objet blob qui en résulte est la version actuelle de l’objet blob. Si l’opération d’écriture modifie un objet blob existant, les nouvelles données sont capturées dans l’objet blob mis à jour, qui correspond à la version actuelle, et le stockage Azure crée une version qui enregistre l’état précédent de l’objet blob.
+Si l’opération d’écriture crée un nouvel objet blob, l’objet blob qui en résulte est la version actuelle de l’objet blob. Si l’opération d’écriture modifie un blob existant, la version actuelle devient une version antérieure et une nouvelle version actuelle est créée pour capturer le blob mis à jour.
 
-Par souci de simplicité, les diagrammes présentés dans cet article affichent l’ID de version sous forme d’une valeur entière simple. En réalité, l’ID de version est un horodateur. La version actuelle est affichée en bleu et les versions précédentes sont affichées en gris.
-
-Le diagramme suivant montre comment les opérations d’écriture affectent les versions d’objets blob. Lorsqu’un objet blob est créé, il s’agit de la version actuelle. Lorsque ce même objet blob est modifié, une nouvelle version est créée pour enregistrer l’état précédent de l’objet blob, et l’objet blob mis à jour devient la version actuelle.
+Le diagramme suivant montre comment les opérations d’écriture affectent les versions d’objets blob. Par souci de simplicité, les diagrammes présentés dans cet article affichent l’ID de version sous forme d’une valeur entière simple. En réalité, l’ID de version est un horodateur. La version actuelle est affichée en bleu et les versions précédentes sont affichées en gris.
 
 :::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagramme montrant comment les opérations d’écriture affectent les objets blob avec contrôle de version.":::
 
 > [!NOTE]
 > Un objet blob qui a été créé avant l’activation du contrôle de version pour le compte de stockage n’a pas d’ID de version. Lorsque cet objet blob est modifié, il devient la version actuelle et une version est créée pour enregistrer l’état de l’objet blob avant sa mise à jour. La version se voit attribuer un ID de version qui correspond à son heure de création.
 
-### <a name="versioning-on-delete-operations"></a>Contrôle de version sur les opérations de suppression
+Lorsque le contrôle de version des blobs est activé pour un compte de stockage, toutes les opérations d’écriture sur les objets blobs de blocs déclenchent la création d’une nouvelle version, à l’exception de l’opération [Put Block](/rest/api/storageservices/put-block).
 
-Lorsque vous supprimez un objet blob, la version actuelle de l’objet blob devient la version antérieure et l’objet blob de base est supprimé. Toutes les versions précédentes existantes de l’objet blob sont conservées lorsque l’objet blob est supprimé.
-
-L’opération [Delete Blob](/rest/api/storageservices/delete-blob) sans ID de version supprime l’objet blob de base. Pour supprimer une version en particulier, indiquez l’ID de cette version sur l’opération de suppression.
-
-Le diagramme suivant montre l’effet d’une opération de suppression sur un objet blob avec contrôle de version :
-
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagramme montrant la suppression d’un objet blob avec contrôle de version.":::
-
-L’écriture de nouvelles données dans l’objet blob crée une nouvelle version de cet objet blob. Les versions existantes ne sont pas affectées, comme indiqué dans le diagramme suivant.
-
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagramme montrant la recréation d’un objet blob avec contrôle de version après suppression.":::
-
-### <a name="blob-types"></a>Types d’objet blob
-
-Lorsque le contrôle de version d’objet blob est activé pour un compte de stockage, toutes les opérations d’écriture et de suppression sur les objets blob de blocs déclenchent la création d’une nouvelle version, à l’exception de l’opération [Put Block](/rest/api/storageservices/put-block).
-
-Pour les objets blob de pages et les objets blob d’ajout, seul un sous-ensemble d’opérations d’écriture et de suppression déclenche la création d’une version. Ces opérations comprennent :
+Pour les objets blobs de pages et les objets blobs d’ajout, seul un sous-ensemble d’opérations d’écriture déclenche la création d’une version. Ces opérations comprennent :
 
 - [Put Blob](/rest/api/storageservices/put-blob)
 - [Put Block List](/rest/api/storageservices/put-block-list)
-- [Delete Blob](/rest/api/storageservices/delete-blob)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Copy Blob](/rest/api/storageservices/copy-blob)
 
@@ -108,7 +93,21 @@ Les opérations suivantes ne déclenchent pas de création d’une nouvelle vers
 - [Put Page](/rest/api/storageservices/put-page) (objet blob de pages)
 - [Append Block](/rest/api/storageservices/append-block) (objet blob d’ajouts)
 
-Toutes les versions d’un objet blob doivent être du même type d’objet blob. Si un objet blob a des versions antérieures, vous ne pouvez pas remplacer cet objet blob d’un type par un autre type, sauf si vous supprimez d’abord l’objet blob et toutes ses versions.
+Toutes les versions d’un objet blob doivent être du même type d’objet blob. Si un blob a des versions antérieures, vous ne pouvez pas remplacer un blob d’un type par un autre type, sauf si vous supprimez d’abord le blob et toutes ses versions.
+
+### <a name="versioning-on-delete-operations"></a>Contrôle de version sur les opérations de suppression
+
+Lorsque vous appelez l’opération [Delete Blob](/rest/api/storageservices/delete-blob) sans spécifier un ID de version, la version actuelle devient une version antérieure et il n’y a plus de version actuelle. Toutes les versions antérieures du blob sont conservées.
+
+Le diagramme suivant montre l’effet d’une opération de suppression sur un objet blob avec contrôle de version :
+
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagramme montrant la suppression d’un objet blob avec contrôle de version.":::
+
+Pour supprimer la version spécifique d’un blob, indiquez l’ID de cette version sur l’opération de suppression. Si la suppression réversible des blobs est également activée pour le compte de stockage, la version est conservée dans le système jusqu’à ce que la période de rétention de la suppression réversible soit écoulée.
+
+L’écriture de nouvelles données dans le blob crée une nouvelle version actuelle de ce blob. Les versions existantes ne sont pas affectées, comme indiqué dans le diagramme suivant.
+
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagramme montrant la recréation d’un objet blob avec contrôle de version après suppression.":::
 
 ### <a name="access-tiers"></a>Niveaux d’accès
 
@@ -132,27 +131,29 @@ Le diagramme suivant montre comment la modification d’un objet blob après la 
 
 ## <a name="blob-versioning-and-soft-delete"></a>Contrôle de version des objets blob et suppression réversible
 
-Le contrôle de version des objets blob et la suppression réversible des objets blob vous assurent une protection optimale des données. Lorsque vous activez la suppression réversible, vous spécifiez la durée pendant laquelle le stockage Azure doit conserver un objet blob supprimé de façon réversible. Toute version d’objet blob supprimée de manière réversible reste dans le système et peut être rétablie dans la période de rétention de la suppression réversible. Pour plus d’informations sur la suppression réversible d’objets blob, consultez [Suppression réversible pour les objets blob de Stockage Azure](./soft-delete-blob-overview.md).
+Microsoft recommande d’activer le contrôle de version et la suppression réversible d’objets blob pour vos comptes de stockage afin d’obtenir une protection optimale des données. Pour plus d’informations sur la suppression réversible d’objets blob, consultez [Suppression réversible pour les objets blob de Stockage Azure](./soft-delete-blob-overview.md).
+
+### <a name="overwriting-a-blob"></a>Remplacement d’un blob
+
+Si le contrôle de version des objets blob et la suppression réversible d’objets blob sont tous deux activés sur un compte de stockage, alors le remplacement d’un objet blob crée automatiquement une nouvelle version. La nouvelle version n’est pas supprimée de manière réversible et n’est pas supprimée à l’expiration de la période de rétention de la suppression réversible. Aucun instantané supprimé de manière réversible n’est créé.
 
 ### <a name="deleting-a-blob-or-version"></a>Suppression d’un objet blob ou d’une version
 
-La suppression réversible offre une protection supplémentaire pour la suppression des versions d’objets blob. Si le contrôle de version et la suppression réversible sont activés sur le compte de stockage, lorsque vous supprimez un objet blob, le stockage Azure crée une nouvelle version pour enregistrer l’état de l’objet blob juste avant la suppression et supprime la version actuelle. La nouvelle version n’est pas supprimée de manière réversible et n’est pas supprimée à l’expiration de la période de rétention de la suppression réversible.
+Si le contrôle de version et la suppression réversible sont tous deux activés pour un compte de stockage, lorsque vous supprimez un blob, la version actuelle du blob devient une version antérieure. Aucune nouvelle version n’est créée et aucun instantané supprimé de manière réversible n’est créé. La période de rétention de la suppression réversible n’est pas en vigueur pour le blob supprimé.
 
-Lorsque vous supprimez une version précédente de l’objet blob, la version est supprimée de manière réversible. La version supprimée de façon réversible est conservée pendant toute la période de rétention spécifiée dans les paramètres de suppression réversible du compte de stockage et est définitivement supprimée à l’expiration de la période de rétention de la suppression réversible.
+La suppression réversible offre une protection supplémentaire pour la suppression des versions d’objets blob. Lorsque vous supprimez une version antérieure du blob, cette version est supprimée de manière réversible. La version supprimée de manière réversible est conservée jusqu’à ce que la période de rétention de la suppression réversible soit écoulée, après quoi elle est définitivement supprimée.
 
-Pour supprimer une version précédente d’un objet blob, supprimez-le explicitement en spécifiant son ID de version.
+Pour supprimer une version antérieure d’un blob, appelez l’opération **Delete Blob** et spécifiez l’ID de version.
 
 Le diagramme suivant montre ce qui se passe lorsque vous supprimez un objet blob ou une version d’un objet blob.
 
 :::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagramme montrant la suppression d’une version avec suppression réversible activée.":::
 
-Si le contrôle de version et la suppression réversible sont activés sur le compte de stockage, aucun instantané supprimé de manière réversible n’est créé lors de la modification ou de la suppression d’un objet blob ou d’une version d’objet blob.
-
 ### <a name="restoring-a-soft-deleted-version"></a>Restauration d’une version supprimée de manière réversible
 
-Vous pouvez restaurer une version d’objet blob supprimée de manière réversible en appelant l’opération [Undelete Blob](/rest/api/storageservices/undelete-blob) sur la version, tant que la période de rétention de la suppression réversible est active. L’opération **Undelete Blob** restaure toutes les versions supprimées de manière réversible de l’objet blob.
+Vous pouvez utiliser l’opération [Annuler la suppression d’un objet blob](/rest/api/storageservices/undelete-blob) pour restaurer des versions supprimées pendant la période de rétention de la suppression réversible. L’opération **Annuler la suppression d’un objet blob** restaure toujours toutes les versions supprimées de manière réversible de l’objet blob. Il n’est pas possible de restaurer une seule version supprimée de manière réversible.
 
-La restauration de versions supprimées de manière réversible avec l’opération **Undelete Blob** ne promeut aucune version à la version actuelle. Pour restaurer la version actuelle, restaurez tout d’abord toutes les versions supprimées de manière réversible, puis utilisez l’opération [Copy Blob](/rest/api/storageservices/copy-blob) pour copier une version précédente afin de restaurer l’objet blob.
+La restauration de versions supprimées de manière réversible avec l’opération **Undelete Blob** ne promeut aucune version à la version actuelle. Pour restaurer la version actuelle, restaurez tout d’abord toutes les versions supprimées de manière réversible, puis utilisez l’opération [Copy Blob](/rest/api/storageservices/copy-blob) pour copier une version antérieure vers une nouvelle version actuelle.
 
 Le diagramme suivant montre comment restaurer des versions d’objets blob supprimés de manière réversible avec l’opération **Undelete Blob** et comment restaurer la version actuelle de l’objet blob avec l’opération **Copy Blob**.
 
@@ -193,8 +194,8 @@ Le tableau suivant indique les actions de contrôle d’accès en fonction du r�
 
 | Description | Opération de service d’objet blob | Action obligatoire sur les données RBAC | Prise en charge de rôle intégré Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Suppression de la version actuelle de l’objet blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Contributeur aux données Blob du stockage |
-| Suppression d’une version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Propriétaire des données Blob du stockage |
+| Suppression de la version actuelle | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Contributeur aux données Blob du stockage |
+| Suppression d’une version précédente | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Propriétaire des données Blob du stockage |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Paramètres de la signature d’accès partagé (SAP)
 

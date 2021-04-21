@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 06b37e8b25d932115384124a45156c801fb9708f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53ad6dd922c1ccebd79aebcd2966b23b38de00e7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361670"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776894"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données blob avec Azure CLI
 
@@ -63,7 +63,7 @@ L’exemple suivant montre comment créer un conteneur à partir d’Azure CLI �
     > [!IMPORTANT]
     > La propagation des attributions de rôles Azure peut prendre plusieurs minutes.
 
-1. Appelez la commande [az storage container create](/cli/azure/storage/container#az-storage-container-create) avec le paramètre `--auth-mode` défini sur `login` pour créer le conteneur à l’aide de vos informations d’identification Azure AD. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+1. Appelez la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create) avec le paramètre `--auth-mode` défini sur `login` pour créer le conteneur à l’aide de vos informations d’identification Azure AD. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
     ```azurecli
     az storage container create \

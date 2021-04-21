@@ -10,13 +10,13 @@ ms.date: 03/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f59e4238c983cdb336500a68c52730ae5346b1c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 08bc36500bbd95633d1cb1d02bf10a7397401aa4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91612419"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780116"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Déterminer le modèle de clé de chiffrement Stockage Azure utilisé pour le compte de stockage
 
@@ -62,7 +62,7 @@ Si la valeur de la propriété **KeySource** est `Microsoft.Storage`, le compte 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Pour vérifier le modèle de chiffrement associé au compte de stockage à l’aide d’Azure CLI, appelez la commande [az storage account show](/cli/azure/storage/account#az-storage-account-show), puis vérifiez la propriété **keySource** relative au compte.
+Pour vérifier le modèle de chiffrement associé au compte de stockage à l’aide d’Azure CLI, appelez la commande [az storage account show](/cli/azure/storage/account#az_storage_account_show), puis vérifiez la propriété **keySource** relative au compte.
 
 ```azurecli-interactive
 key_source=$(az storage account show \
@@ -79,4 +79,4 @@ Si la valeur de la propriété **keySource** est `Microsoft.Storage`, le compte 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
-- [Clés gérées par le client pour le chiffrement du Stockage Azure](customer-managed-keys-overview.md)
+- [Clés gérées par le client pour le chiffrement du service Stockage Azure](customer-managed-keys-overview.md)

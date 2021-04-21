@@ -3,12 +3,12 @@ title: Déploiement Push de fichier Zip pour Azure Functions
 description: Utilisez les fonctionnalités de déploiement de fichier Zip du service de déploiement Kudu pour publier vos Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb6867d7719f9650acb00f80ac3a933713ce0e23
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018425"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777648"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Déploiement zip pour Azure Functions
 
@@ -66,7 +66,7 @@ Vous pouvez également télécharger un fichier .zip à partir d’un dépôt Gi
 
 ## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Déployer à l’aide d’Azure CLI
 
-Vous pouvez utiliser Azure CLI pour déclencher un déploiement Push. Effectuez le déploiement Push d’un fichier .zip sur votre application de fonction à l’aide de la commande [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Pour exécuter cette commande, vous devez utiliser Azure CLI version 2.0.21 ou ultérieure. Pour vérifier votre version d’Azure CLI, utilisez la commande `az --version`.
+Vous pouvez utiliser Azure CLI pour déclencher un déploiement Push. Effectuez le déploiement Push d’un fichier .zip sur votre application de fonction à l’aide de la commande [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip). Pour exécuter cette commande, vous devez utiliser Azure CLI version 2.0.21 ou ultérieure. Pour vérifier votre version d’Azure CLI, utilisez la commande `az --version`.
 
 Dans la commande suivante, remplacez l’espace réservé `<zip_file_path>` par le chemin vers l’emplacement de votre fichier .zip. Remplacez également `<app_name>` par le nom unique de votre application de fonction, et `<resource_group>` par le nom de votre groupe de ressources.
 

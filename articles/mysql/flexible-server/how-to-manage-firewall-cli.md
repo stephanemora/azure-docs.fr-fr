@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4c699b00ebbecdbee985babe47c036cce6e0cb4b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0692e7e7452fef9577414e9aa5340d933f50b30e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109962"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776948"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
 
@@ -37,13 +37,13 @@ Si vous préférez installer et utiliser l’interface de ligne de commande en l
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devrez vous connecter à votre compte avec la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **ID**, qui fait référence à l’**ID d’abonnement** de votre compte Azure.
+Vous devrez vous connecter à votre compte avec la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **ID**, qui fait référence à l’**ID d’abonnement** de votre compte Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Notez la valeur **ID** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
+Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az_account_set). Notez la valeur **ID** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
 az account set --subscription <subscription id>

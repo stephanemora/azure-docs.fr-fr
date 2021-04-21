@@ -1,33 +1,36 @@
 ---
 title: Syntaxe des requêtes de recherche Graph
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser la syntaxe de requête de recherche dans le concepteur Azure Machine Learning pour rechercher des nœuds dans le graphique de pipeline.
+description: Procédure d’utilisation de la syntaxe de requête de recherche dans le concepteur Azure Machine Learning pour rechercher des nœuds dans le graphique de pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 8/24/2020
-ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: likebupt
+ms.author: keli19
+ms.date: 03/24/2021
+ms.openlocfilehash: 74cf0b897529e8bb198b6f82a57e187662a4a285
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93420765"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259220"
 ---
 # <a name="graph-search-query-syntax"></a>Syntaxe des requêtes de recherche Graph
 
-Dans cet article, vous allez découvrir la syntaxe de requête de recherche de graphique dans Azure Machine Learning. La fonctionnalité de recherche de graphique vous permet de rechercher un nœud en fonction de son nom et de ses propriétés. 
+Dans cet article, vous allez découvrir la fonctionnalité de recherche de graphiques dans Azure Machine Learning. 
 
- ![Capture d’écran animée montrant un exemple d’expérience de recherche de graphique](media/search/graph-search.gif)
+La recherche de graphiques vous permet de parcourir rapidement un nœud lorsque vous déboguez ou créez un pipeline. Vous pouvez taper le mot clé ou la requête dans la zone d’entrée de la barre d’outils, ou sous l’onglet de recherche dans le panneau gauche pour déclencher la recherche. Tous les résultats correspondants sont mis en surbrillance en jaune dans le canevas, et si vous sélectionnez un résultat dans le panneau gauche, le nœud du canevas est mis en surbrillance en rouge.
 
-La recherche de graphique prend en charge la recherche par mot clé en texte intégral sur le nom de nœud et les commentaires. Vous pouvez également filtrer la propriété de nœud, par exemple runStatus, duration, computeTarget. La recherche par mot clé est basée sur la requête Lucene. Une requête de recherche complète ressemble à ceci :  
+![Capture d’écran montrant un exemple d’expérience de recherche de graphiques](media/search/graph-search-0322.png)
 
-**[requête Lucene | [requête de filtre]** 
+La recherche de graphique prend en charge la recherche par mot clé en texte intégral sur le nom de nœud et les commentaires. Vous pouvez également filtrer sur la propriété de nœud, par exemple avec runStatus, durée, computeTarget. La recherche par mot clé est basée sur la requête Lucene. Une requête de recherche complète ressemble à ceci :  
+
+**[[lucene query] | [filter query]]** 
 
 Vous pouvez utiliser une requête Lucene ou une requête de filtre. Pour utiliser les deux, servez-vous du séparateur **|** . La syntaxe de la requête de filtre est plus stricte que la requête Lucene. Par conséquent, si l’entrée du client peut être analysée avec les deux, la requête de filtre sera appliquée.
 
+Par exemple, `data OR model | compute in {cpucluster}` sert à rechercher les nœuds dont le nom ou le commentaire contient `data` ou `model` et dont le calcul est cpucluster.
  
 
 ## <a name="lucene-query"></a>Requête Lucene
@@ -68,6 +71,8 @@ Vous pouvez utiliser les propriétés de nœud suivantes comme clés :
 - compute
 - duration
 - reuse
+- Publier
+- tags
 
 Et vous pouvez utiliser les opérateurs suivants :
 

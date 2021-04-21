@@ -4,14 +4,14 @@ description: Explique comment configurer des paramètres supplémentaires pour l
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b3996df3c75ff31d0825be1d332dbd055305963
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773230"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259759"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurer des paramètres Azure HPC Cache supplémentaires
 
@@ -24,7 +24,7 @@ Pour afficher les paramètres, ouvrez la page **Mise en réseau** du cache dans 
 ![capture d’écran de la page de mise en réseau du portail Azure](media/networking-page.png)
 
 > [!NOTE]
-> Une version précédente de cette page comprenait un paramètre de squash racine au niveau du cache, mais ce paramètre a été déplacé vers les [stratégies d’accès client](access-policies.md).
+> Une version précédente de cette page comprenait un paramètre de squash racine au niveau du cache, mais ce paramètre a été déplacé vers les [stratégies d'accès client](access-policies.md).
 
 <!-- >> [!TIP]
 > The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
@@ -47,24 +47,26 @@ Pour plus d’informations sur les paramètres MTU dans les réseaux virtuels Az
 
 ## <a name="customize-ntp"></a>Personnaliser NTP
 
-Votre cache utilise par défaut le serveur de temps time.microsoft.com, basé sur Azure. Si vous souhaitez que votre cache utilise un autre serveur NTP, spécifiez-le dans la section **Configuration NTP**. Utilisez un nom de domaine complet ou une adresse IP.
+Votre cache utilise par défaut le serveur de temps time.windows.com, basé sur Azure. Si vous souhaitez que votre cache utilise un autre serveur NTP, spécifiez-le dans la section **Configuration NTP**. Utilisez un nom de domaine complet ou une adresse IP.
 
 ## <a name="set-a-custom-dns-configuration"></a>Définir une configuration DNS personnalisée
 
 > [!CAUTION]
-> Ne modifiez pas la configuration DNS de votre cache si vous n’en avez pas besoin. Les erreurs de configuration peuvent avoir des conséquences désastreuses. Si votre configuration ne peut pas résoudre les noms de service Azure, l’instance de cache HPC deviendra inaccessible de façon définitive.
+> Ne modifiez pas la configuration DNS de votre cache si vous n’en avez pas besoin. Les erreurs de configuration peuvent avoir des conséquences désastreuses. Si votre configuration ne peut pas résoudre les noms de service Azure, l'instance de HPC Cache deviendra inaccessible de façon définitive.
+>
+> Contactez vos représentants Azure avant de tenter une configuration DNS personnalisée.
 
 Azure HPC Cache est automatiquement configuré pour utiliser le système Azure DNS, sécurisé et pratique. Toutefois, certaines configurations inhabituelles requièrent que le cache utilise un système DNS local distinct au lieu du système Azure. La section **Configuration DNS** de la page **Mise en réseau** est utilisée pour spécifier ce type de système.
 
 Vérifiez auprès de vos représentants Azure ou consultez le service et le support de Microsoft pour déterminer si vous devez ou non utiliser une configuration DNS de cache personnalisée.
 
-Si vous configurez votre propre système DNS local pour Azure HPC Cache, vous devez vous assurer que la configuration peut résoudre les noms de point de terminaison Azure pour les services Azure. Vous devez configurer votre environnement DNS personnalisé pour transférer certaines demandes de résolution de noms à Azure DNS ou à un autre serveur, le cas échéant.
+Si vous configurez votre propre système DNS local pour Azure HPC Cache, vous devez vous assurer que votre serveur DNS local est en mesure de résoudre directement les noms des points de terminaison de service Azure. HPC Cache ne fonctionnera pas si votre serveur DNS peut uniquement résoudre les noms publics.
 
 Vérifiez que votre configuration DNS peut résoudre correctement ces éléments avant de l’utiliser pour Azure HPC Cache :
 
 * ``*.core.windows.net``
 * Les services de téléchargement de la liste de révocation de certificats (CRL) et de vérification du protocole OCSP (Online Certificate Status Protocol). Une liste partielle est fournie dans la [section relative aux règles de pare-feu](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) à la fin de cet [article sur Azure TLS](../security/fundamentals/tls-certificate-changes.md), mais vous devez consulter un représentant technique de Microsoft pour comprendre toutes les exigences
-* Le nom de domaine complet de votre serveur NTP (time.microsoft.com ou un serveur personnalisé)
+* Le nom de domaine complet de votre serveur NTP (time.windows.com ou un serveur personnalisé)
 
 Si vous devez définir un serveur DNS personnalisé pour votre cache, utilisez les champs fournis :
 

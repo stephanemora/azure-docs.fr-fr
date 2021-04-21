@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a03c3987c0cada69f6a7d47d7c1aa7cbf6d5015a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775763"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258875"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -197,6 +197,8 @@ Il s’agit d’une vue d’ensemble générale de la procédure. Les étapes so
    * Autorisez l’application de cache à accéder à votre compte de stockage Azure (cf. [Autorisations](#permissions) plus haut). Vous pouvez effectuer cette opération la première fois que vous créez une cible de stockage. Suivez la procédure indiquée dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) pour accorder au cache les rôles d’accès requis.
 
      Si vous n’êtes pas le propriétaire du compte de stockage, demandez au propriétaire d’effectuer cette étape.
+
+Pour en savoir plus sur l’utilisation de cibles de stockage ADLS-NFS avec Azure HPC cache, voir [Utilisation du stockage BLOB monté sur NFS avec Azure HPC Cache](nfs-blob-considerations.md).
 
 ## <a name="set-up-azure-cli-access-optional"></a>Configuration de l’accès Azure CLI (facultatif)
 

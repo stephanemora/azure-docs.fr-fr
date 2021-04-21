@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 774eb05ae43e393db3d11e8e21a427736614809b
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: a37b740333e599d19248ffa9b21be3e4d6fe78b3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285108"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306294"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -25,7 +25,7 @@ Certaines des fonctionnalités de la Vision par ordinateur prennent en charge pl
 
 Les API OCR de Vision par ordinateur prennent en charge plusieurs langues. Elles n’exigent pas de spécifier un code de langue. Consultez la [Vue d’ensemble de la reconnaissance optique de caractères (OCR)](overview-ocr.md) pour plus d’informations.
 
-|Langage| Code langue | API OCR | Read 3.0/3.1 | Read v3.2 preview |
+|Langage| Code langue | API OCR | Read 3.0/3.1 | Read v3.2 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Afrikaans|`af`| | |✔ |
 |Albanais |`sq`| | |✔ |
@@ -46,7 +46,7 @@ Les API OCR de Vision par ordinateur prennent en charge plusieurs langues. Elles
 |Danois | `da` |✔ | |✔ |
 |Néerlandais | `nl` |✔ |✔ |✔ |
 |Anglais | `en` |✔ |✔ |✔ |
-|Estonien  |`crh`| | |✔ |
+|Estonien  |`et`| | |✔ |
 |Fidjien |`fj`| | |✔ |
 |Filipino  |`fil`| | |✔ |
 |Finnois | `fi` |✔ | |✔ |

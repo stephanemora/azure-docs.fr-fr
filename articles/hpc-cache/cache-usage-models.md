@@ -4,14 +4,14 @@ description: Décrit les différents modèles d’utilisation du cache et la man
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 3ad252520ca0cf7acdb3c84ef1da87c8076f3172
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: a22f4b257476e96c51ae491b8570e3798f7b3ab7
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775712"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259725"
 ---
 # <a name="understand-cache-usage-models"></a>Comprendre les modèles d’utilisation du cache
 
@@ -39,7 +39,7 @@ Les modèles d’utilisation intégrés à Azure HPC Cache présentent différen
 
 ## <a name="choose-the-right-usage-model-for-your-workflow"></a>Choisir le modèle d’utilisation approprié pour votre workflow
 
-Vous devez choisir un modèle d’utilisation pour chaque cible de stockage montée sur NFS que vous utilisez. Les cibles de stockage Blob Azure disposent d’un modèle d’utilisation intégré qui ne peut pas être personnalisé.
+Vous devez choisir un modèle d’utilisation pour chaque cible de stockage de protocole NFS que vous utilisez. Les cibles de stockage Blob Azure disposent d’un modèle d’utilisation intégré qui ne peut pas être personnalisé.
 
 Les modèles d’utilisation du cache HPC vous permettent de choisir la manière d’équilibrer la vitesse de réponse avec le risque d’obtenir des données obsolètes. Si vous souhaitez optimiser la vitesse de lecture des fichiers, vous pourriez ne pas vous préoccuper du fait que les fichiers dans le cache sont vérifiés par rapport aux fichiers sur le serveur principal. En revanche, si vous souhaitez vous assurer que vos fichiers sont toujours à jour avec le stockage étendu, choisissez un modèle qui effectue des vérifications fréquemment.
 
@@ -77,6 +77,29 @@ Ce tableau récapitule les différences entre les modèles d’utilisation :
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
 Si vous avez des questions sur le modèle d’utilisation le mieux adapté à votre workflow Azure HPC Cache, contactez votre représentant Azure ou ouvrez une demande de support pour obtenir de l’aide.
+
+## <a name="know-when-to-remount-clients-for-nlm"></a>Savoir quand remonter les clients pour NLM
+
+Dans certains cas, vous devrez peut-être remonter les clients si vous modifiez le modèle d’utilisation d’une cible de stockage. Ceci est nécessaire en raison de la façon dont les différents modèles d’utilisation gèrent les demandes du gestionnaire de verrous réseau (NLM).
+
+Le cache HPC se situe entre les clients et le système de stockage principal. En règle générale, le cache transfère les demandes NLM par le biais du système de stockage principal, mais dans certains cas, le cache lui-même reconnaît la demande NLM et retourne une valeur au client. Dans le cache HPC Azure, cela se produit uniquement lorsque vous utilisez le modèle d’utilisation **Lecture intensive, écritures peu fréquentes** (ou dans une cible de stockage d’objets blob standard, qui ne dispose pas de modèles d’utilisation configurables).
+
+Il y a un risque de conflit de fichiers si vous passez d’un modèle d’utilisation à des **Écritures fortes, peu fréquentes** à un modèle d’utilisation différent. Il n’existe aucun moyen de transférer l’état NLM actuel du cache vers le système de stockage, ou vice versa. L’état du verrou du client est donc inexact.
+
+Remontez les clients pour vous assurer qu’ils disposent du bon état NLM avec le nouveau gestionnaire de verrous.
+
+Si vos clients envoient une demande NLM alors que le modèle d’utilisation ou le stockage principal ne la prend pas en charge, ils recevront une erreur.
+
+### <a name="disable-nlm-at-client-mount-time"></a>Désactiver NLM au moment du montage du client
+
+Il n’est pas toujours facile de savoir si vos systèmes clients vont envoyer des requêtes NLM.
+
+Vous pouvez désactiver NLM lorsque les clients montent le cluster à l’aide de l’option ``-o nolock`` de la commande ``mount``.
+
+Le comportement exact de l’option ``nolock`` dépend du système d’exploitation client. Vous devez donc vérifier la documentation de montage (manuel 5 NFS) de votre système d’exploitation client. Dans la plupart des cas, il déplace le verrou localement sur le client. Soyez prudent si votre application verrouille des fichiers sur plusieurs clients.
+
+> [!NOTE]
+> ADLS-NFS ne prend pas en charge le NLM. Vous devez désactiver le NLM avec l’option de montage précédente lors de l’utilisation d’une cible de stockage ADLS-NFS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

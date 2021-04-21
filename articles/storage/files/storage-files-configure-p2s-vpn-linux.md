@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 74422318718e318a00d7bd7ebaf8e4093ef75aa6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9608e3bdaab033d58796a3841e8cd92d7a8a81ef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629272"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777974"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configurer un VPN point à site (P2S) sous Linux pour une utilisation avec Azure Files
 Vous pouvez utiliser une connexion VPN point à site (P2S) pour monter vos partages de fichiers Azure sur SMB en dehors d’Azure, sans ouvrir le port 445. Une connexion VPN point à site est une connexion VPN entre Azure et un client individuel. Pour utiliser une connexion VPN P2S avec Azure Files, une connexion VPN P2S doit être configurée pour chaque client qui souhaite se connecter. Si de nombreux clients doivent se connecter à vos partages de fichiers Azure depuis votre réseau local, vous pouvez utiliser une connexion VPN site à site (S2S) au lieu d’une connexion point à site pour chaque client. Pour plus d’informations, consultez [Configurer un VPN site à site pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
 
 Avant de poursuivre cet article, nous vous recommandons vivement de lire l’article [Vue d’ensemble de la mise en réseau Azure Files](storage-files-networking-overview.md), qui fournit une présentation complète des options de mise en réseau disponibles pour Azure Files.
 
-L'article décrit en détail la procédure à suivre pour configurer un VPN point à site sous Linux afin de monter des partages de fichiers Azure localement. Si vous souhaitez router le trafic Azure File Sync via un VPN, consultez [Configuration les paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+L'article décrit en détail la procédure à suivre pour configurer un VPN point à site sous Linux afin de monter des partages de fichiers Azure localement. Si vous souhaitez router le trafic Azure File Sync via un VPN, consultez [Configuration les paramètres de proxy et de pare-feu d’Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prérequis
 - Version la plus récente de l'interface Azure CLI. Pour plus d'informations sur l'installation d'Azure CLI, consultez [Installer l'interface CLI Azure PowerShell](/cli/azure/install-azure-cli) et sélectionnez votre système d'exploitation. Si vous préférez utiliser le module Azure PowerShell sous Linux, rien ne vous en empêche. Sachez toutefois que les instructions ci-dessous s'appliquent à Azure CLI.

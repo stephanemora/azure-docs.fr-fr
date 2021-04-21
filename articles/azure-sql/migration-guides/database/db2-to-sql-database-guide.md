@@ -10,17 +10,17 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5dd6735b5ef17f97de1d2272bd98f6b87b0bc84b
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f20af8c61bbfbbbbc20c29470648c3df6a272396
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553071"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285494"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-database"></a>Guide de migration : IBM Db2 vers Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Ce guide vous apprend à migrer vos bases de données IBM Db2 vers Azure SQL Database à l’aide de l’outil Assistant Migration SQL Server pour Db2. 
+Dans ce guide, vous allez découvrir [comment migrer](https://azure.microsoft.com/migration/migration-journey) vos bases de données IBM Db2 vers Azure SQL Database à l’aide de l’Assistant [Migration SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) pour Db2. 
 
 Pour obtenir d’autres guides de migration, consultez les [Guides de migration de base de données Azure](https://docs.microsoft.com/data-migration). 
 
@@ -35,7 +35,7 @@ Pour migrer votre base de données Db2 vers SQL Database, vous devez :
 
 ## <a name="pre-migration"></a>Prémigration
 
-Une fois que vous avez rempli les prérequis, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre migration. 
+Une fois les prérequis satisfaits, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre [migration vers le cloud Azure](https://azure.microsoft.com/migration).
 
 ### <a name="assess-and-convert"></a>Évaluer et convertir
 
@@ -43,21 +43,21 @@ Utilisez l’Assistant Migration SQL Server (SSMA) pour Db2 afin d’examiner de
 
 Pour créer une évaluation, effectuez les étapes suivantes :
 
-1. Ouvrez [SSMA pour Db2.](https://www.microsoft.com/download/details.aspx?id=54254) 
+1. Ouvrez [SSMA pour Db2](https://www.microsoft.com/download/details.aspx?id=54254). 
 1. Sélectionnez **Fichier** > **Nouveau projet**. 
 1. Indiquez un nom de projet et un emplacement où enregistrer votre projet. Sélectionnez ensuite Azure SQL Database en tant que cible de migration dans la liste déroulante, puis sélectionnez **OK**.
 
    :::image type="content" source="media/db2-to-sql-database-guide/new-project.png" alt-text="Capture d’écran montrant les détails du projet à spécifier.":::
 
 
-1. Dans **Se connecter à Db2**, entrez des valeurs pour les détails de connexion Db2. 
+1. Dans **Se connecter à Db2**, entrez les informations relatives à la connexion Db2. 
 
-   :::image type="content" source="media/db2-to-sql-database-guide/connect-to-db2.png" alt-text="Capture d’écran montrant les options de connexion à votre instance Db2.":::
+   :::image type="content" source="media/db2-to-sql-database-guide/connect-to-db2.png" alt-text="Capture d’écran montrant les options de connexion à votre instance de Db2.":::
 
 
 1. Cliquez-droit sur le schéma DB2 à migrer, puis choisissez **Créer un rapport**. Cette opération génère un rapport HTML. Vous pouvez également choisir **Créer un rapport** à partir de la barre de navigation après avoir sélectionné le schéma.
 
-   :::image type="content" source="media/db2-to-sql-database-guide/create-report.png" alt-text="Capture d’écran montrant comment créer une requête.":::
+   :::image type="content" source="media/db2-to-sql-database-guide/create-report.png" alt-text="Capture d’écran montrant comment créer un rapport.":::
 
 1. Examinez le rapport HTML pour comprendre les statistiques de conversion et les erreurs ou avertissements. Vous pouvez également ouvrir le rapport dans Excel pour obtenir un inventaire des objets DB2 et de l’effort nécessaire pour effectuer des conversions de schémas. Le dossier de rapport situé dans *SSMAProjects* est l’emplacement par défaut du rapport.
 
@@ -68,13 +68,13 @@ Pour créer une évaluation, effectuez les étapes suivantes :
 
 ### <a name="validate-data-types"></a>Valider les types de données
 
-Validez les mappages de types de données par défaut et changez-les en fonction des exigences si nécessaire. Pour ce faire, procédez comme suit : 
+Validez les mappages de types de données par défaut et changez-les en fonction des besoins, si nécessaire. Pour ce faire, procédez comme suit : 
 
 1. Sélectionnez **Outils** dans le menu. 
 1. Sélectionnez **Paramètres du projet**. 
 1. Sélectionnez l’onglet **Mappage de types**.
 
-   :::image type="content" source="media/db2-to-sql-database-guide/type-mapping.png" alt-text="Capture d’écran montrant comment sélectionner le mappage du schéma et du type.":::
+   :::image type="content" source="media/db2-to-sql-database-guide/type-mapping.png" alt-text="Capture d’écran montrant comment sélectionner le mappage de schéma et de type.":::
 
 1. Vous pouvez changer le mappage de type pour chaque table en sélectionnant la table dans **l’Explorateur de métadonnées Db2**. 
 
@@ -98,9 +98,9 @@ Pour convertir le schéma, effectuez les étapes suivantes :
 
 1. Une fois la conversion effectuée, comparez et examinez la structure du schéma afin d’identifier les problèmes potentiels. Résolvez les problèmes en fonction des recommandations.
 
-   :::image type="content" source="media/db2-to-sql-database-guide/compare-review-schema-structure.png" alt-text="Capture d’écran montrant la comparaison et l’examen de la structure du schéma afin d’identifier les problèmes potentiels.":::
+   :::image type="content" source="media/db2-to-sql-database-guide/compare-review-schema-structure.png" alt-text="Capture d’écran montrant la comparaison et l’examen de la structure du schéma pour identifier les problèmes potentiels.":::
 
-1. Dans le volet **Sortie**, sélectionnez **Passer en revue les résultats**. Dans le volet **Liste d’erreurs**, passez en revue les erreurs. 
+1. Dans le volet **Sortie**, sélectionnez **Examiner les résultats**. Dans le volet **Liste d’erreurs**, passez en revue les erreurs. 
 1. Enregistrez le projet localement pour un exercice de correction de schéma hors connexion. Dans le menu **Fichier**, sélectionnez **Enregistrer le projet**. Cela vous permet d’évaluer les schémas source et cible hors connexion et d’apporter une correction avant de pouvoir publier le schéma sur SQL Database.
 
 ## <a name="migrate"></a>Migrer
@@ -122,13 +122,13 @@ Pour publier votre schéma et migrer vos données, effectuez les étapes suivant
 
    :::image type="content" source="media/db2-to-sql-database-guide/data-migration-report.png" alt-text="Capture d’écran montrant où passer en revue le rapport de migration des données.":::
 
-1. Connectez-vous à votre base de données dans Azure SQL Database à l’aide de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Validez la migration en passant en revue les données et le schéma.
+1. Connectez-vous à votre base de données dans Azure SQL Database à l’aide de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Validez la migration en vérifiant les données et le schéma.
 
    :::image type="content" source="media/db2-to-sql-database-guide/compare-schema-in-ssms.png" alt-text="Capture d’écran montrant la comparaison du schéma dans SQL Server Management Studio.":::
 
-## <a name="post-migration"></a>Post-migration 
+## <a name="post-migration"></a>Postmigration 
 
-Une fois la migration terminée, vous devez effectuer une série de tâches post-migration pour vous assurer que tout fonctionne de la manière la plus fluide et efficace possible.
+Une fois la migration effectuée, vous devez exécuter une série de tâches postmigration pour vérifier que tout fonctionne de manière fluide et efficace.
 
 ### <a name="remediate-applications"></a>Corriger les applications 
 
@@ -141,7 +141,7 @@ Les tests comprennent les activités suivantes :
 1. **Développer des tests de validation** : pour tester la migration d’une base de données, vous devez utiliser des requêtes SQL. Vous devez créer les requêtes de validation à exécuter sur les bases de données source et cible. Vos requêtes de validation doivent couvrir l’étendue que vous avez définie.
 1. **Configurer l’environnement de test** : l’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
 1. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
-1. **Exécuter des tests de performances** : exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
+1. **Exécuter des tests de performances** : Exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
 
 ## <a name="advanced-features"></a>Fonctionnalités avancées 
 
@@ -157,8 +157,8 @@ Pour obtenir une aide supplémentaire, consultez les ressources suivantes, qui o
 |---------|---------|
 |[Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Cet outil fournit les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données « les mieux adaptés » pour une charge de travail donnée. Il propose une génération de rapports et des calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme.|
 |[Package de découverte et d’évaluation de ressources de données DB2 zOS](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|Après avoir exécuté le script SQL sur une base de données, vous pouvez exporter les résultats vers un fichier sur le système de fichiers. Plusieurs formats de fichier sont pris en charge, notamment *.csv, afin que vous puissiez capturer les résultats dans des outils externes, comme des feuilles de calcul. Cette méthode peut être utile si vous voulez partager facilement des résultats avec des équipes pour lesquelles le banc d’essai n’est pas installé.|
-|[Artefacts et scripts d’inventaire IBM DB2 LUW](https://github.com/Microsoft/DataMigrationTeam/tree/master/IBM%20Db2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Cette ressource comprend une requête SQL qui accède à des tables système IBM Db2 LUW version 11.1 et fournit un nombre d’objets par schéma et type d’objet, une estimation des « données brutes » dans chaque schéma et le dimensionnement des tables présentes dans chaque schéma, avec les résultats stockés au format CSV.|
-|[Échelle pure DB2 LUW sur Azure - Guide de configuration](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Db2%20PureScale%20on%20Azure.pdf)|Ce guide sert de point de départ pour un plan d’implémentation de DB2. Même si les besoins métier sont différents, le même modèle de base s’applique. Ce modèle d’architecture peut également être utilisé pour les applications OLAP sur Azure.|
+|[Artefacts et scripts d’inventaire IBM DB2 LUW](https://github.com/microsoft/DataMigrationTeam/blob/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|Cette ressource comprend une requête SQL qui accède à des tables système IBM Db2 LUW version 11.1 et fournit un nombre d’objets par schéma et type d’objet, une estimation des « données brutes » dans chaque schéma et le dimensionnement des tables présentes dans chaque schéma, avec les résultats stockés au format CSV.|
+|[Échelle pure DB2 LUW sur Azure - Guide de configuration](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/DB2%20PureScale%20on%20Azure.pdf)|Ce guide sert de point de départ pour un plan d’implémentation de DB2. Même si les besoins métier sont différents, le même modèle de base s’applique. Ce modèle d’architecture peut également être utilisé pour les applications OLAP sur Azure.|
 
 L’équipe d’ingénierie SQL des données a développé ces ressources. La charte fondamentale de cette équipe a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux projets de migration de plateforme de données vers la plateforme Azure Data de Microsoft.
 
@@ -170,11 +170,12 @@ L’équipe d’ingénierie SQL des données a développé ces ressources. La ch
 
 - Pour en savoir plus sur Azure SQL Database, consultez :
    - [Vue d’ensemble de SQL Database](../../database/sql-database-paas-overview.md)
-   - [Calculatrice du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Outil de calcul du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 - Pour en savoir plus sur l’infrastructure et le cycle d’adoption des migrations cloud, consultez :
    -  [Cloud Adoption Framework pour Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
+   -  [Ressources de migration vers le cloud](https://azure.microsoft.com/migration/resources) 
 
 - Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Pour plus d’informations sur l’exécution des tests A/B de la couche d’accès aux données, consultez [Assistant Expérimentation de base de données](/sql/dea/database-experimentation-assistant-overview).

@@ -1,18 +1,21 @@
 ---
-title: Windows Server Failover Cluster sur Azure VMware Solution vSAN avec disques partagés natifs
-description: Configurez Windows Server Failover Cluster (WSFC) sur Azure VMware Solution et tirez parti de solutions pour lesquelles la fonctionnalité WSFC est requise.
+title: Configurer un cluster de basculement Windows Server sur un vSAN Azure VMware Solution
+description: Configurez un cluster de basculement Windows Server sur un vSAN Azure VMware Solution avec disques partagés natifs.
 ms.topic: how-to
-ms.date: 03/09/2021
-ms.openlocfilehash: 8162e15675d8bbde9267126c785f152d1cb860bd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: f1bc8199eb0d3317e4b6e07a6a297b4ebfe95cc8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562237"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308679"
 ---
-# <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Windows Server Failover Cluster sur Azure VMware Solution vSAN avec disques partagés natifs
+# <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Configurer un cluster de basculement Windows Server sur un vSAN Azure VMware Solution
 
-Cet article est consacré à la configuration de Windows Server Failover Cluster sur Azure VMware Solution. L'implémentation présentée dans cet article est fournie à des fins de preuve de concept et en tant que projet pilote. Nous vous recommandons d'utiliser une configuration Cluster-in-a-Box (CIB) jusqu'à ce que les stratégies de positionnement soient disponibles.
+Dans cet article, vous allez apprendre à configurer un cluster de basculement Windows Server sur un vSAN Azure VMware Solution avec disques partagés natifs. 
+
+>[!IMPORTANT]
+>L'implémentation présentée dans cet article est fournie à des fins de preuve de concept et en tant que projet pilote. Nous vous recommandons d'utiliser une configuration Cluster-in-a-Box (CIB) jusqu'à ce que les stratégies de positionnement soient disponibles.
 
 Windows Server Failover Cluster (WSFC), anciennement connu sous le nom de Microsoft Service Cluster Service (MSCS), est une fonctionnalité du système d'exploitation (SE) Windows Server. WSFC est une fonctionnalité vitale pour l'entreprise, et elle est nécessaire pour de nombreuses applications. Par exemple, WSFC est requis pour les configurations suivantes :
 
@@ -43,7 +46,7 @@ Azure VMware Solution offre une prise en charge native de la fonctionnalité WSF
 
 Le diagramme suivant illustre l'architecture des nœuds virtuels WSFC sur un cloud privé Azure VMware Solution. Il montre où réside Azure VMware Solution, serveurs virtuels WSFC (encadré rouge) compris, par rapport à la plateforme Azure au sens large. Ce diagramme illustre une architecture hub-and-spoke classique, mais une configuration similaire est possible en utilisant Azure Virtual WAN. Ces deux configurations sont équivalentes en termes de valeur ajoutée apportée par les autres services Azure.
 
-[![Diagramme illustrant l'architecture des nœuds virtuels WSFC sur un cloud privé Azure VMware Solution](media/windows-server-failover-cluster/windows-server-failover-architecture.png)](media/windows-server-failover-cluster/windows-server-failover-architecture.png#lightbox)
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagramme d'architecture des nœuds virtuels d'un cluster de basculement Windows Server sur un cloud privé Azure VMware Solution." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
 

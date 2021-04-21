@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72bf8e76217e8a3bcecd381d8d61815c539dd196
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97694677"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209585"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers Parquet à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
@@ -119,7 +119,7 @@ ORDER BY
 
 Vous n’avez pas besoin d'utiliser la clause OPENROWSET WITH lors de la lecture de fichiers Parquet. Les noms de colonnes et les types de données sont automatiquement lus à partir des fichiers Parquet.
 
-L’exemple ci-dessous montre les fonctionnalités d’inférence automatique du schéma des fichiers Parquet. Il renvoie le nombre de lignes en septembre 2017 sans spécifier de schéma.
+L’exemple ci-dessous montre les fonctionnalités d’inférence automatique du schéma des fichiers Parquet. Il renvoie le nombre de lignes de septembre 2018 sans spécifier de schéma.
 
 > [!NOTE]
 > Vous n’avez pas besoin de spécifier de colonnes dans la clause OPENROWSET WITH lors de la lecture de fichiers Parquet. Dans ce cas, le service de requête du pool SQL serverless utilise les métadonnées dans le fichier Parquet et lie les colonnes par nom.
@@ -128,7 +128,7 @@ L’exemple ci-dessous montre les fonctionnalités d’inférence automatique du
 SELECT TOP 10 *
 FROM  
     OPENROWSET(
-        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        BULK 'puYear=2018/puMonth=9/*.snappy.parquet',
         DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
     ) AS nyc

@@ -1,36 +1,28 @@
 ---
-title: Préversion d’attachement d’application MSIX Windows Virtual Desktop avec PowerShell – Azure
+title: Attachement d'application MSIX pour Windows Virtual Desktop à l'aide de PowerShell - Azure
 description: Comment configurer l’attachement d’application MSIX pour Windows Virtual Desktop à l’aide de PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8b6bad32ec653fb2ba63c6940cf6a89a13a8afd0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: ebc403553443a9ea04525323b751fbdb51d23c6e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448319"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500581"
 ---
-# <a name="set-up-msix-app-attach-preview-using-powershell"></a>Configurer l’attachement d’application MSIX (préversion) avec PowerShell
+# <a name="set-up-msix-app-attach-using-powershell"></a>Configurer l’attachement d’application MSIX avec PowerShell
 
-> [!IMPORTANT]
-> L’application MSIX est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-En plus du portail Azure, vous pouvez configurer manuellement l’attachement d’application MSIX (préversion) avec PowerShell. Cet article vous guide pas à pas dans l’utilisation de PowerShell pour configurer l’attachement d’application MSIX.
+En plus du portail Azure, vous pouvez configurer manuellement l'attachement d'application MSIX à l'aide de PowerShell. Cet article vous guide pas à pas dans l’utilisation de PowerShell pour configurer l’attachement d’application MSIX.
 
 ## <a name="requirements"></a>Configuration requise
-
->[!IMPORTANT]
->Avant de commencer, veillez à renseigner et à envoyer [ce formulaire](https://aka.ms/enablemsixappattach) pour activer l’attachement d’application MSIX dans votre abonnement. Si votre demande n’est pas approuvée, l’attachement d’application MSIX ne fonctionnera pas. L’approbation des demandes peut prendre jusqu’à 24 heures pendant les jours ouvrables. Vous recevrez un e-mail lorsque votre demande aura été acceptée et traitée.
 
 Voici ce dont vous avez besoin pour configurer l’attachement d’application MSIX :
 
 - Un déploiement Windows Virtual Desktop opérationnel. Pour apprendre à déployer Windows Virtual Desktop (classique), consultez [Création d’un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Pour apprendre à déployer Windows Virtual Desktop avec intégration Azure Resource Manager, consultez [Création d’un pool d’hôtes avec le Portail Azure](./create-host-pools-azure-marketplace.md).
 - Un pool d’hôtes Windows Virtual Desktop avec au moins un hôte de session actif.
-- Ce pool d’hôtes doit se trouver dans l’environnement de validation.
 - Un groupe d’applications distant de bureau.
 - Outil de d’empaquetage MSIX.
 - Une application empaquetée au format MSIX et développée en image MSIX qui est chargée dans un partage de fichiers.

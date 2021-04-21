@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: bb17918774d23dbeb2747fa55eefc4956812e254
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed31a2202a0eacbdc257e127e111d21215c27de4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775695"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258195"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Résolution des problèmes de configuration NAS et des cibles de stockage NFS
 
@@ -81,7 +81,7 @@ Prenons par exemple un système qui affiche trois exportations :
 
 L’exportation ``/ifs/accounting/payroll`` est un enfant de ``/ifs/accounting``, et ``/ifs/accounting`` un enfant de ``/ifs``.
 
-Si vous ajoutez l’exportation ``payroll`` en tant que cible de stockage du cache HPC, le cache monte en fait ``/ifs/`` et accède au répertoire payroll à partir de là. Azure HPC Cache a donc besoin d’un accès racine à ``/ifs`` pour accéder à l’exportation ``/ifs/accounting/payroll``.
+Si vous ajoutez l’exportation ``payroll`` en tant que cible de stockage de HPC Cache, le cache monte en fait ``/ifs/`` et accède au répertoire payroll à partir de là. Azure HPC Cache a donc besoin d’un accès racine à ``/ifs`` pour accéder à l’exportation ``/ifs/accounting/payroll``.
 
 Cette exigence est liée à la façon dont le cache indexe les fichiers et évite les collisions de fichiers, à l’aide des descripteurs de fichiers fournis par le système de stockage.
 

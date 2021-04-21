@@ -7,21 +7,21 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: c262ba87698c04da69728f7a370040c0679ec44e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 03b29e6ddd16731073b33fef14d5aafb54df2abe
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877357"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227855"
 ---
-# <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Guide pratique pour diagnostiquer et résoudre les problèmes dans Azure Spring Cloud par soi-même
+# <a name="self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Diagnostiquer et résoudre les problèmes dans Azure Spring Cloud par vous-même
 
 **Cet article s'applique à :** ✔️ Java ✔️ C#
 
 L service de diagnostics Azure Spring Cloud est une expérience interactive vous permettant de résoudre les problèmes de votre application sans besoin de configuration. La fonctionnalité de diagnostic Azure Spring Cloud identifie les incidents et vous guide vers les informations qui vous aident au dépannage et à la résolution des problèmes.
 
 ## <a name="prerequisites"></a>Prérequis
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour effectuer cet exercice, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 * Une instance du service Azure Spring Cloud déployée. Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application via Azure CLI](spring-cloud-quickstart.md).

@@ -9,12 +9,12 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3d71a7ad2507909dacf54e7f1c49b6e768033113
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5e8123c252d99b2999eeef42fecae189a05e382b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600477"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778118"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -571,7 +571,7 @@ Les ressources de certains services, **quand ils sont inscrits dans votre abonne
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Création d’une image personnalisée et installation de l’artefact. [Plus d’informations](../../devtest-labs/devtest-lab-overview.md) |
 | Azure Event Grid         | Microsoft.EventGrid        | Permettez la publication d’événements Stockage Blob et autorisez Event Grid à effectuer des publications dans les files d’attente de stockage. En savoir plus sur les [événements Stockage Blob](../../event-grid/overview.md#event-sources) et la [publication dans les files d’attente](../../event-grid/event-handlers.md). |
 | Hubs d'événements Azure         | Microsoft.EventHub         | Archivage des données avec Event Hubs Capture. [En savoir plus](../../event-hubs/event-hubs-capture-overview.md) |
-| Azure File Sync          | Microsoft.StorageSync      | Vous permet de transformer votre serveur de fichiers local en cache pour les partages de fichiers Azure. Autoriser la synchronisation sur plusieurs sites, une récupération d’urgence rapide et une sauvegarde sur le cloud. [En savoir plus](../files/storage-sync-files-planning.md) |
+| Azure File Sync          | Microsoft.StorageSync      | Vous permet de transformer votre serveur de fichiers local en cache pour les partages de fichiers Azure. Autoriser la synchronisation sur plusieurs sites, une récupération d’urgence rapide et une sauvegarde sur le cloud. [En savoir plus](../file-sync/file-sync-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Approvisionnez le contenu initial du système de fichiers par défaut pour un nouveau cluster HDInsight. [Plus d’informations](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) |
 | Azure Import/Export      | Microsoft.ImportExport     | Permet l’importation de données dans le stockage Azure et l’exportation de données à partir du stockage Azure avec le service Import/Export du stockage Azure. [Plus d’informations](../../import-export/storage-import-export-service.md)  |
 | Azure Monitor            | Microsoft.Insights         | Autorise l’écriture de données de supervision dans un compte de stockage sécurisé, à savoir les journaux de ressources, les journaux de connexion et d’audit Azure Active Directory et les journaux Microsoft Intune. [Plus d’informations](../../azure-monitor/roles-permissions-security.md) |

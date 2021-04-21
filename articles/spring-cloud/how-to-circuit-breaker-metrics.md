@@ -1,22 +1,22 @@
 ---
-title: Collecter les métriques du disjoncteur Spring Cloud Resilience4J
-description: Comment collecter les métriques du disjoncteur Spring Cloud Resilience4J.
+title: Collecter les métriques du disjoncteur Spring Cloud Resilience4J à l’aide de Micrometer
+description: Comment collecter les métriques du disjoncteur Spring Cloud Resilience4J à l’aide de Micrometer dans Azure Spring Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9fc8ccc5ba21f02885b2002d5040051baac92068
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0b24e8e07b4038d6def9945b7c347bb81ae5378b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877335"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258178"
 ---
-# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Collecter les métriques du disjoncteur Spring Cloud Resilience4J (préversion)
+# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Collecter les métriques du disjoncteur Spring Cloud Resilience4J à l’aide de Micrometer (préversion)
 
-Ce document explique comment collecter les métriques de disjoncteur Spring Cloud Resilience4J avec l’agent In-process Java Application Insights.  Grâce à cette fonctionnalité, vous pouvez surveiller les métriques du disjoncteur Resilience4J à partir d’Application Insights.
+Ce document explique comment collecter les métriques de disjoncteur Spring Cloud Resilience4J avec l’agent In-process Java Application Insights. Grâce à cette fonctionnalité, vous pouvez surveiller les métriques du disjoncteur Resilience4J à partir d’Application Insights avec Micrometer.
 
 Pour en illustrer le fonctionnement, nous allons utiliser [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo).
 

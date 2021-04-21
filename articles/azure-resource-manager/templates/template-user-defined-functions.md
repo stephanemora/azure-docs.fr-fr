@@ -2,13 +2,13 @@
 title: Fonctions définies par l’utilisateur dans les modèles
 description: Explique comment définir et utiliser des fonctions définies par l'utilisateur dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 802ac6e1c70db8caa58aecde3efe814430c79682
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379622"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307773"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Fonctions définies par l'utilisateur dans un modèle Azure Resource Manager
 
@@ -107,6 +107,7 @@ La définition d’une fonction utilisateur est soumise à certaines restriction
 * La fonction ne peut utiliser que des paramètres définis dans l’autre fonction. Quand vous utilisez la fonction [parameters](template-functions-deployment.md#parameters) dans une fonction définie par l’utilisateur, vous êtes limité aux paramètres de cette fonction.
 * La fonction ne peut pas appeler d’autres fonctions définies par l’utilisateur.
 * La fonction ne peut pas utiliser la fonction [reference](template-functions-resource.md#reference) ni aucune des fonctions [list](template-functions-resource.md#list).
+* La fonction ne peut pas utiliser la fonction [dateTimeAdd](template-functions-date.md#datetimeadd).
 * Les paramètres de la fonction ne peuvent pas avoir de valeur par défaut.
 
 ## <a name="next-steps"></a>Étapes suivantes

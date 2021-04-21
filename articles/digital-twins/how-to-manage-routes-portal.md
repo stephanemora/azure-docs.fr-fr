@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 31f960b39e771e7bfbf67c6e52c5da8e1fc6e0ec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8a8cc6563d8e3cae942c4dfb43afa3d05f6f2b75
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932452"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257299"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](how-to-interpret-event-data.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
+Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](concepts-event-notifications.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
 
 Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires à l’aide du [portail Azure](https://portal.azure.com).
 
@@ -202,4 +202,4 @@ Voici les filtres d’itinéraire pris en charge. Les détails de la colonne *Sc
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur les différents types de messages d’événements que vous pouvez recevoir :
-* [*Guide pratique pour interpréter des données d’événement*](how-to-interpret-event-data.md)
+* [*Concepts : Notifications d'événements*](concepts-event-notifications.md)

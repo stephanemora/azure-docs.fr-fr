@@ -5,20 +5,23 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a094755dfb9381b1e4d6abdf1c0e6342d7427c1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91318073"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308437"
 ---
 # <a name="laying-out-files-for-conversion"></a>Disposition des fichiers pour la conversion
 
 Pour pouvoir traiter correctement un une ressource, le service de conversion doit être en mesure de trouver tous les fichiers d’entrée.
 Il s’agit du fichier de ressource principal en cours de conversion et généralement d’autres fichiers référencés par des chemins d’accès à l’intérieur du fichier de ressource.
-La demande de conversion d’une ressource reçoit deux paramètres qui déterminent la façon dont le service de conversion trouve ces fichiers, à savoir : le chemin d’accès `input.folderPath` (facultatif) et le chemin d’accès `input.inputAssetPath`.
+La demande de conversion d’une ressource reçoit deux paramètres qui déterminent la façon dont le service de conversion trouve ces fichiers, à savoir : le chemin d’accès `settings.inputLocation.blobPrefix` (facultatif) et le chemin d’accès `settings.inputLocation.relativeInputAssetPath`.
 Tout cela est entièrement documenté dans la page [API REST Conversion](conversion-rest-api.md).
-En ce qui concerne la disposition des fichiers, il est important de noter que le chemin d’accès `folderPath` détermine l’ensemble complet des fichiers qui sont à la disposition du service de conversion lors du traitement de la ressource.
+En ce qui concerne la disposition des fichiers, il est important de noter que le chemin d’accès `BlobPrefix` détermine l’ensemble complet des fichiers qui sont à la disposition du service de conversion lors du traitement de la ressource.
+
+> [!Note]
+> Le service télécharge tous les fichiers sous input.BlobPrefix. Assurez-vous que les noms et les chemins d’accès des fichiers ne dépassent pas les [limites de longueur du chemin d’accès de Windows](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) afin d’éviter les problèmes sur le service. 
 
 ## <a name="placing-files-so-they-can-be-found"></a>Placement des fichiers pour faciliter leur localisation
 

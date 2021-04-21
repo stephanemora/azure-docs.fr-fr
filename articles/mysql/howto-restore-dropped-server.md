@@ -1,24 +1,24 @@
 ---
 title: Restaurer un serveur Azure Database pour MySQL supprimé
-description: Cet article décrit comment restaurer un serveur Azure Database pour MySQL supprimé à l’aide du portail Azure.
+description: Cet article décrit comment restaurer un serveur supprimé dans Azure Database pour MySQL à l’aide du portail Azure.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5fc1ab1b3dfbc324668873749c143846c2015cd4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97657088"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306277"
 ---
-# <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Restaurer un serveur Azure Database pour MySQL supprimé
+# <a name="restore-a-deleted-azure-database-for-mysql-server"></a>Restaurer un serveur Azure Database pour MySQL supprimé
 
-Lorsqu’un serveur est supprimé, la sauvegarde du serveur de base de données peut être conservée jusqu’à cinq jours dans le service. La sauvegarde de base de données est accessible et peut être restaurée uniquement à partir de l’abonnement Azure sur lequel le serveur a été initialement installé. Vous pouvez suivre les étapes recommandées ci-dessous pour récupérer une ressource de serveur MySQL supprimée dans les cinq jours suivant la suppression du serveur. Les étapes recommandées ne fonctionnent que si la sauvegarde du serveur est toujours disponible et n’a pas été supprimée du système. 
+Lorsqu’un serveur est supprimé, la sauvegarde du serveur de base de données peut être conservée jusqu’à cinq jours dans le service. La sauvegarde de base de données est accessible et peut être restaurée uniquement à partir de l’abonnement Azure sur lequel le serveur a été initialement installé. Vous pouvez suivre les étapes recommandées ci-dessous pour récupérer une ressource de serveur MySQL supprimée dans les cinq jours suivant la suppression du serveur. Les étapes recommandées ne fonctionnent que si la sauvegarde du serveur est toujours disponible et n’a pas été supprimée du système. 
 
 ## <a name="pre-requisites"></a>Conditions préalables
-Pour restaurer un serveur Azure Database pour MySQL supprimé, vous avez besoin des éléments suivants :
+Pour restaurer un serveur Azure Database pour MySQL supprimé, vous avez besoin des éléments suivants :
 - Nom de l’abonnement Azure hébergeant le serveur d’origine
 - Emplacement où le serveur a été créé
 
@@ -42,7 +42,7 @@ Pour restaurer un serveur Azure Database pour MySQL supprimé, vous avez besoin 
  
      [![Créer un serveur à l’aide de l’API REST](./media/howto-restore-dropped-server/create-server-from-rest-api.png)](./media/howto-restore-dropped-server/create-server-from-rest-api.png#lightbox)
   
- 6. Faites défiler la section du corps de la requête et collez le code suivant en remplaçant « Dropped Server Location », « submissionTimestamp » et « resourceId ». Pour « restorePointInTime », spécifiez une valeur de « submissionTimestamp » moins **15 minutes** pour vous assurer que la commande ne génère pas d’erreur.
+ 6. Faites défiler la page jusqu’à la section Request Body et collez-y ce qui suit :
  
     ```json
     {
@@ -55,10 +55,14 @@ Pour restaurer un serveur Azure Database pour MySQL supprimé, vous avez besoin 
             }
     }
     ```
+7. Remplacez les valeurs suivantes dans le corps de la demande ci-dessus :
+   * « Dropped server Location » par la région Azure où le serveur supprimé a été initialement créé.
+   * « submissionTimestamp » et « resourceId » par les valeurs capturées à l’étape 3. 
+   * Pour « restorePointInTime », spécifiez une valeur de « submissionTimestamp » moins **15 minutes** pour vous assurer que la commande ne génère pas d’erreur.
+   
+8. Si vous voyez le code de réponse 201 ou 202, cela signifie que la requête de restauration a été correctement envoyée. 
 
-7. Si vous voyez le code de réponse 201 ou 202, cela signifie que la requête de restauration a été correctement envoyée. 
-
-8. La création du serveur peut prendre du temps en fonction de la taille de la base de données et des ressources de calcul approvisionnées sur le serveur d’origine. L’état de la restauration peut être surveillé à partir du journal d’activité en filtrant sur 
+9. La création du serveur peut prendre du temps en fonction de la taille de la base de données et des ressources de calcul approvisionnées sur le serveur d’origine. L’état de la restauration peut être surveillé à partir du journal d’activité en filtrant sur 
    - **Abonnement** = votre abonnement
    - **Type de ressource** = serveurs Azure Database pour MySQL (Microsoft.DBforMySQL/servers) 
    - **Opération** = mettre à jour la création de serveur MySQL

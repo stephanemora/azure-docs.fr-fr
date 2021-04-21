@@ -3,12 +3,12 @@ title: Comment cibler des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez comment spécifier la version du runtime d’une application de fonction hébergée dans Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: e9aa5546b5f07b724fe22bc1e20a2e97feb2aec2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a9f8fca1c39fd0251df3e3a8da3d789aae4d3d6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102435560"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779270"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
@@ -106,7 +106,7 @@ az functionapp config appsettings set --name <FUNCTION_APP> \
 
 Remplacez `<FUNCTION_APP>` par le nom de votre application de fonction. Remplacez également `<RESOURCE_GROUP>` par le nom du groupe de ressources de votre application de fonction. Remplacez également `<VERSION>` par une version spécifique, ou `~3`, `~2` ou `~1`.
 
-Dans l’exemple de code précédent, choisissez **Essayer** pour exécuter la commande dans [Azure Cloud Shell](../cloud-shell/overview.md). Vous pouvez également exécuter [Azure CLI localement](/cli/azure/install-azure-cli) pour exécuter cette commande. Pour une exécution locale, vous devez d’abord exécuter la commande [az login](/cli/azure/reference-index#az-login) pour vous connecter.
+Dans l’exemple de code précédent, choisissez **Essayer** pour exécuter la commande dans [Azure Cloud Shell](../cloud-shell/overview.md). Vous pouvez également exécuter [Azure CLI localement](/cli/azure/install-azure-cli) pour exécuter cette commande. Pour une exécution locale, vous devez d’abord exécuter la commande [az login](/cli/azure/reference-index#az_login) pour vous connecter.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -165,7 +165,7 @@ az functionapp config set --name <FUNCTION_APP> \
 
 Remplacez `<FUNCTION_APP>` par le nom de votre application de fonction. Remplacez également `<RESOURCE_GROUP>` par le nom du groupe de ressources de votre application de fonction. Remplacez également `<LINUX_FX_VERSION>` par la valeur d’une image, comme expliqué ci-dessus.
 
-Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](/cli/azure/reference-index#az-login) pour vous connecter.
+Vous pouvez exécuter cette commande à partir de [Azure Cloud Shell](../cloud-shell/overview.md) en choisissant **Essayer** dans l’exemple de code qui précède. Vous pouvez également utiliser [Azure CLI en local](/cli/azure/install-azure-cli) pour exécuter cette commande après avoir lancé la commande [az login](/cli/azure/reference-index#az_login) pour vous connecter.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

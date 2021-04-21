@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2027e3555a7eb616ad024ec00bf6b0f8f452167c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739332"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258518"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 
@@ -226,86 +226,11 @@ Utilisez l’activité de copie pour indexer les données des autres connecteurs
 
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>Le runtime d’intégration auto-hébergé est-il disponible pour les flux de données ?
 
-Le runtime d’intégration auto-hébergé est une construction de pipeline ADF que vous pouvez utiliser avec l’activité de copie pour acquérir ou déplacer des données vers et depuis des sources de données et des récepteurs basés sur des machines virtuelles ou locaux. Effectuez d’abord une indexation des données avec une copie, puis le transfert de données pour la transformation, puis une copie ultérieure si vous devez replacer ces données transformées dans le magasin local.
+Le runtime d’intégration auto-hébergé est une construction de pipeline ADF que vous pouvez utiliser avec l’activité de copie pour acquérir ou déplacer des données vers et depuis des sources de données et des récepteurs basés sur des machines virtuelles ou locaux. Les machines virtuelles que vous utilisez pour un runtime d’intégration auto-hébergé peuvent également être placées dans le même réseau virtuel (VNET) que vos magasins de données protégés pour accéder à ces magasins de données à partir d’ADF. Grâce aux flux de données, vous obtiendrez les mêmes résultats finaux en utilisant l’IR Azure avec le VNET managé à la place.
 
 ### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Le moteur de calcul du flux de données gère-t-il plusieurs locataires ?
 
 Les clusters ne sont jamais partagés. Nous garantissons l’isolement de chaque travail exécuté dans des exécutions de production. Dans le cas d’un scénario de débogage, une personne obtient un cluster, et tous les débogages lancés par cet utilisateur sont dirigés vers ce cluster.
-
-## <a name="wrangling-data-flows"></a>Flux de wrangling data
-
-### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quelles sont les régions prises en charge pour le flux de wrangling data ?
-
-Le flux de wrangling data est actuellement pris en charge dans les fabriques de données créées dans les régions suivantes :
-
-* Australie Est
-* Centre du Canada
-* Inde centrale
-* USA Est
-* USA Est 2
-* Japon Est
-* Europe Nord
-* Asie Sud-Est
-* États-Unis - partie centrale méridionale
-* Sud du Royaume-Uni
-* Centre-USA Ouest
-* Europe Ouest
-* USA Ouest
-* USA Ouest 2
-
-### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quelles sont les limitations et les contraintes imposées par l’utilisation d’un flux de wrangling data ?
-
-Les noms de jeux de données peuvent uniquement contenir des caractères alphanumériques. Les banques de données suivantes sont prises en charge :
-
-* Jeu de données DelimitedText dans le Stockage Blob Azure à l’aide de l’authentification par clé de compte
-* Jeu de données DelimitedText dans Azure Data Lake Storage Gen2 utilisant la clé de compte ou l’authentification du principal de service
-* Jeu de données DelimitedText dans Azure Data Lake Storage Gen1 utilisant l’authentification du principal de service
-* Azure SQL Database et Data Warehouse utilisant l’authentification SQL. Reportez-vous aux types SQL pris en charge. Il n’existe aucune prise en charge de Polybase ou de phase intermédiaire pour l’entrepôt de données.
-
-À ce stade, l’intégration du service Key Vault lié n’est pas prise en charge dans les flux de wrangling data.
-
-### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Quelle est la différence entre le mappage et les flux de wrangling data ?
-
-Le mappage de flux de données permet de transformer des données à grande échelle sans aucun codage. Vous pouvez concevoir une tâche de transformation de données dans le canevas de flux de données en créant une série de transformations. Commencez par un certain nombre de transformations sources, suivies par des étapes de transformation de données. Réalisez votre flux de données avec un récepteur qui servira de destination à vos résultats. Le mappage du flux de données est très utile lors du mappage et de la transformation des données avec des schémas connus et inconnus dans les récepteurs et les sources.
-
-Les flux de wrangling data vous permettent d’effectuer une préparation et une exploration agiles des données à l’aide de l’éditeur web hybride Power Query en ligne à grande échelle via l’exécution de Spark. Si votre organisation fait partie des entreprises de plus en plus nombreuses à adopter la technologie des lacs de données, vous devez parfois simplement explorer un jeu de données ou créer un jeu de données dans le lac. Vous n’effectuez pas de mappage vers une cible connue. Les flux de wrangling data sont utilisés dans des scénarios analytiques moins formels et basés sur des modèles.
-
-### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Quelle est la différence entre les flux de données Power Platform et les flux de wrangling data ?
-
-Les Dataflows Power Platform permettent aux utilisateurs d’importer et de transformer des données provenant d'un large éventail de sources de données dans le Common Data Service et Azure Data Lake afin de créer des applications PowerApps, des rapports Power BI ou des automatisations Flow. Les Dataflows Power Platform utilisent les expériences éprouvées de préparation de données Power Query, similaires à Power BI et Excel. Les Dataflows Power Platform permettent également une réutilisation aisée au sein d'une organisation et gèrent automatiquement l’orchestration (par exemple, actualiser automatiquement les flux de données qui dépendent d’un autre flux de données lorsque l’ancien flux de données est actualisé).
-
-Azure Data Factory (ADF) est un service d’intégration de données géré qui permet aux ingénieurs de données et aux intégrateurs de données citoyens de créer des flux de travail hybrides complexes d’extraction-transformation-chargement (ETL) et d’extraction-chargement-transformation (ELT). Le flux de wrangling data dans ADF offre aux utilisateurs un environnement sans code et serverless, qui simplifie la préparation des données dans le cloud et s’adapte à n’importe quelle taille de données. Aucune gestion d’infrastructure n’est requise. Il utilise la technologie de préparation des données Power Query (également utilisée dans Power Platform flux, Excel, Power BI) pour préparer et mettre en forme les données. Conçus pour gérer l’ensemble des complexités et des défis d’échelle de l’intégration du Big Data, les flux de wrangling data permettent aux utilisateurs de préparer rapidement des données à grande échelle via l’exécution de Spark. Les utilisateurs peuvent créer des pipelines de données résilients dans un environnement visuel accessible avec notre interface basée sur un navigateur et laisser ADF gérer les complexités de l’exécution de Spark. Établissez des calendriers pour vos pipelines et surveillez les exécutions de vos flux de données à partir du portail de supervision ADF. Gérez facilement les contrats SLA de disponibilité des données avec les alertes et la supervision enrichie de la disponibilité dans ADF, ainsi que les fonctionnalités d’intégration et de déploiement continus prédéfinies pour enregistrer et gérer vos flux dans un environnement managé. Établissez des alertes et affichez des plans d’exécution pour valider que votre logique fonctionne comme prévu lorsque vous optimisez vos flux de données.
-
-### <a name="supported-sql-types"></a>Types SQL pris en charge
-
-Le flux de wrangling data prend en charge les types de données suivantes dans SQL. Vous obtiendrez une erreur de validation pour l’utilisation d’un type de données qui n’est pas pris en charge.
-
-* short
-* double
-* real
-* float
-* char
-* NCHAR
-* varchar
-* NVARCHAR
-* entier
-* int
-* bit
-* boolean
-* SMALLINT
-* TINYINT
-* bigint
-* long
-* text
-* Date
-* DATETIME
-* datetime2
-* smalldatetime
-* timestamp
-* UNIQUEIDENTIFIER
-* Xml
-
-D’autres types de données seront pris en charge à l’avenir.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

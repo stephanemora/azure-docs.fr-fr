@@ -2,13 +2,13 @@
 title: Sessions de messagerie Azure Service Bus | Microsoft Docs
 description: Cet article explique comment utiliser des sessions pour permettre un traitement conjoint et ordonné de séquences illimitées de messages associés.
 ms.topic: article
-ms.date: 01/20/2021
-ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: c9a1c4fdccbbc8b38805e23d4895448959126f10
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98680751"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308472"
 ---
 # <a name="message-sessions"></a>Sessions de message
 Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles **premier entré, premier sorti (FIFO**) et **requête-réponse**. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
@@ -19,24 +19,27 @@ Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et ch
 ## <a name="first-in-first-out-fifo-pattern"></a>Modèle premier entré, premier sorti (FIFO)
 Pour garantir l’application de la méthode FIFO dans Service Bus, utilisez des sessions. Service Bus n’est pas normatif concernant la nature de la relation entre les messages, et ne définit aucun modèle spécifique pour déterminer le début et la fin d’une séquence de messages.
 
-Lors de l’envoi de messages dans une rubrique ou dans une file d’attente, tout expéditeur peut créer une session en définissant la propriété [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) sur un identificateur défini par l’application unique pour la session. Au niveau du protocole AMQP 1.0, cette valeur est mappée sur la propriété *group-id*.
+Lors de l’envoi de messages dans une rubrique ou dans une file d’attente, tout expéditeur peut créer une session en définissant la propriété d’**ID de session** sur un identificateur défini par l’application qui est unique à la session. Au niveau du protocole AMQP 1.0, cette valeur est mappée sur la propriété *group-id*.
 
-Dans les files d’attente ou abonnements prenant en compte la session, les sessions entrent en action quand au moins un message présente la valeur [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) de la session. Une fois qu’une session existe, aucune heure ou API ne définissent son expiration ou sa disparition. Il est théoriquement possible de recevoir un message pour une session le jour même, puis le message suivant un an après, et si la valeur **SessionId** correspond, Service Bus considère alors qu’il s’agit de la même session.
+Dans les files d’attente ou abonnements prenant en compte la session, les sessions entrent en action quand au moins un message existe avec l’ID de session. Une fois qu’une session existe, aucune heure ou API ne définissent son expiration ou sa disparition. Il est théoriquement possible de recevoir un message pour une session le jour même, puis le message suivant un an après et, si l’ID de session correspond, Service Bus considère alors qu’il s’agit de la même session.
 
-Toutefois, en général, une application détermine précisément le début et la fin d’un ensemble de messages associés. Service Bus ne définit pas de règles spécifiques.
+Toutefois, en général, une application détermine précisément le début et la fin d’un ensemble de messages associés. Service Bus ne définit pas de règles spécifiques. Par exemple, votre application pourrait définir la propriété **Label** du premier message sur **start**, celle des messages intermédiaires sur **content** et celle du dernier message sur **end**. La position relative des messages de contenu peut être calculée comme étant égale à la différence entre la valeur *SequenceNumber* du message actuel et la valeur *SequenceNumber* du message présentant la valeur **start**.
 
-Un exemple de délimitation d’une séquence dans le cadre du transfert d’un fichier consiste à définir la propriété **Label** du premier message sur **start**, celle des messages intermédiaires sur **content**, et celle du dernier message sur **end**. La position relative des messages de contenu peut être calculée comme étant égale à la différence entre la valeur *SequenceNumber* du message actuel et la valeur *SequenceNumber* du message présentant la valeur **start**.
+Vous activez cette fonctionnalité en définissant la propriété [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) sur la file d’attente ou l’abonnement par le biais d’Azure Resource Manager, ou en définissant l’indicateur dans le portail. Cette opération est obligatoire avant de tenter d’utiliser les opérations API associées.
 
-La fonctionnalité de session dans Service Bus autorise une opération de réception spécifique, sous la forme [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) dans les API C# et Java. Vous activez cette fonctionnalité en définissant la propriété [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) sur la file d’attente ou l’abonnement par le biais d’Azure Resource Manager, ou en définissant l’indicateur dans le portail. Cette opération est obligatoire avant de tenter d’utiliser les opérations API associées.
+Dans le portail, vous pouvez activer des sessions lors de la création d’une entité (file d’attente ou abonnement) comme indiqué dans les exemples suivants. 
 
-Dans le portail, définissez l’indicateur avec la case à cocher suivante :
+:::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Activer la session au moment de la création de la file d’attente":::
 
-![Capture d’écran de la boîte de dialogue Créer une file d’attente avec l’option Activer les sessions sélectionnée et mise en évidence en rouge.][2]
+:::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Activer la session au moment de la création de l’abonnement":::
 
-> [!NOTE]
-> Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications client ***ne peuvent plus*** envoyer/recevoir des messages standard. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en recevant la session.
 
-Les API relatives aux sessions existent sur les clients de file d’attente et d’abonnement. Il existe un modèle impératif qui contrôle le moment de la réception des sessions et des messages, ainsi qu’un modèle basé sur un gestionnaire, similaire à *OnMessage*, qui simplifie la gestion de la boucle de réception.
+> [!IMPORTANT]
+> Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications client ***ne peuvent plus*** envoyer/recevoir des messages standard. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en acceptant la session.
+
+Les API relatives aux sessions existent sur les clients de file d’attente et d’abonnement. Il existe un modèle impératif qui contrôle le moment où les sessions et les messages sont reçus, ainsi qu’un modèle basé sur un gestionnaire qui simplifie la gestion de la boucle de réception. 
+
+Pour obtenir des exemples, utilisez les liens de la section [Étapes suivantes](#next-steps). 
 
 ### <a name="session-features"></a>Fonctionnalités de session
 
@@ -44,11 +47,9 @@ Les sessions assurent un démultiplexage simultané de flux de messages entrelac
 
 ![Diagramme montrant comment la fonctionnalité Sessions préserve la livraison chronologique des messages.][1]
 
-Un destinataire [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) est créé par le client qui accepte une session. Le client appelle [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. Dans le modèle de rappel réactif, il inscrit un gestionnaire de sessions.
+Un destinataire de session est créé par un client qui accepte une session. Lorsque la session est acceptée et détenue par un client, ce dernier détient un verrou exclusif sur tous les messages portant l’**ID de session** de cette session dans la file d’attente ou l’abonnement. Il détient également des verrous exclusifs sur tous les messages avec l’**ID de session** qui arriveront plus tard.
 
-Lorsque l’objet [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) est accepté et détenu par un client, celui-ci maintient un verrouillage exclusif sur tous les messages présentant la valeur [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) de cette session dans la file d’attente ou dans l’abonnement, ainsi que sur tous les messages présentant cette valeur **SessionId** qui continuent d’arriver pendant toute la durée de la session.
-
-Ce verrouillage est désactivé lors de l’appel des méthodes **Close** ou **CloseAsync**, ou lorsque le verrouillage arrive à expiration dans les cas où l’application ne parvient pas à effectuer l’opération de fermeture. Le verrouillage de session doit être traité de la même façon qu’un verrouillage exclusif sur un fichier, ce qui signifie que l’application doit fermer la session dès qu’elle n’en a plus besoin ou qu’elle n’attend plus aucun message.
+Le verrou est libéré lorsque vous appelez les méthodes connexes de fermeture sur le récepteur ou lorsque le verrou expire. Il existe également des méthodes sur le récepteur pour renouveler les verrous. Au lieu de cela, vous pouvez utiliser la fonctionnalité de renouvellement automatique du verrouillage, dans laquelle vous pouvez spécifier la durée pendant laquelle vous souhaitez que le verrou soit renouvelé. Le verrouillage de session doit être traité de la même façon qu’un verrouillage exclusif sur un fichier, ce qui signifie que l’application doit fermer la session dès qu’elle n’en a plus besoin ou qu’elle n’attend plus aucun message.
 
 Lorsque plusieurs destinataires simultanés extraient des données de la file d’attente, les messages appartenant à une session spécifique sont envoyés au destinataire concerné qui détient actuellement le verrouillage pour cette session. Grâce à cette opération, un flux de messages entrelacé dans une file d’attente ou dans un abonnement est correctement démultiplexé vers différents destinataires qui peuvent également résider sur des machines clientes distinctes, étant donné que la gestion des verrouillages se produit côté service, au sein de Service Bus.
 
@@ -64,11 +65,9 @@ La fonction d’état de session active une annotation définie par l’applicat
 
 Du point de vue de Service Bus, l’état d’une session de messagerie est un objet binaire opaque qui peut contenir une taille de données équivalant à un message, autrement dit 256 Ko pour Service Bus Standard et 1 Mo dans le cas de Service Bus Premium. L’état de traitement relatif à une session peut être stocké dans l’état de session, ou l’état de session peut pointer vers un emplacement de stockage ou un enregistrement de base de données contenant cette information.
 
-Les API de gestion de l’état de session, [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) et [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), sont disponibles dans l’objet [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) des API C# et Java. Une session pour laquelle aucun état de session n’a été précédemment défini renvoie une référence **null** pour **GetState**. L’annulation de l’état de session précédemment défini s’effectue à l’aide de [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+Les méthodes de gestion de l’état de la session, SetState et GetState, se trouvent sur l’objet de destinataire de session. Une session pour laquelle aucun état de session n’a été précédemment défini renvoie une référence null pour GetState. L’état de session précédemment défini peut être effacé en transmettant la valeur Null à la méthode SetState sur le récepteur.
 
 L’état de session persiste tant qu’il n’est pas effacé (retour de la valeur **Null**), même si tous les messages dans une session donnée sont consommés.
-
-Toutes les sessions existantes dans une file d’attente ou un abonnement peuvent être énumérées à l’aide de la méthode **SessionBrowser** de l’API Java et au moyen de [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) sur [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) et [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) dans le client .NET Framework.
 
 L’état de session stocké dans une file d’attente ou dans un abonnement est pris en compte dans le quota de stockage de cette entité. Lorsque l’application a terminé avec une session, il est donc recommandé de faire en sorte que l’application supprime l’état de session conservé afin d’éviter un coût de gestion externe.
 
@@ -88,17 +87,17 @@ Le [modèle requête-réponse](https://www.enterpriseintegrationpatterns.com/pat
 Plusieurs applications peuvent envoyer leurs requêtes à une seule file d’attente de requêtes, avec un paramètre d’en-tête spécifique défini pour identifier de manière unique l’application de l’expéditeur. L’application du destinataire peut traiter les requêtes arrivant dans la file d’attente et envoyer des réponses sur une file d’attente activée par la session, en définissant l’ID de session sur l’identificateur unique que l’expéditeur a envoyé sur le message de requête. L’application qui a envoyé la requête peut alors recevoir des messages sur l’ID de session spécifique et traiter correctement les réponses.
 
 > [!NOTE]
-> L’application qui envoie les requêtes initiales doit connaître l’ID de session et utiliser `SessionClient.AcceptMessageSession(SessionID)` pour verrouiller la session sur laquelle elle attend la réponse. Il est judicieux d’utiliser un GUID qui identifie de façon unique l’instance de l’application en tant qu’ID de session. Il ne doit y avoir aucun gestionnaire de session ou `AcceptMessageSession(timeout)` sur la file d’attente pour s’assurer que les réponses sont disponibles pour verrouillage et traitement par des destinataires spécifiques.
+> L’application qui envoie les requêtes initiales doit connaître l’ID de session et l’utiliser pour accepter la session afin que la session sur laquelle elle attend la réponse soit verrouillée. Il est judicieux d’utiliser un GUID qui identifie de façon unique l’instance de l’application comme ID de session. Il ne doit y avoir aucun gestionnaire de session ni de délai d’attente spécifié sur le destinataire de session pour la file d’attente afin de garantir que les réponses sont disponibles pour verrouillage et traitement par des destinataires spécifiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les [exemples Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou les [exemples Microsoft.ServiceBus.Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) pour obtenir un exemple d’utilisation du client .NET Framework pour traiter les messages prenant en charge la session. 
+- [Exemples Azure.Messaging.ServiceBus pour .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Bibliothèque de client Azure Service Bus pour Java – Exemples](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Bibliothèque de client Azure Service Bus pour Python – Exemples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Bibliothèque de client Azure Service Bus pour JavaScript – Exemples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Bibliothèque de client Azure Service Bus pour TypeScript – Exemples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Exemples Microsoft.Azure.ServiceBus pour .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (exemples de Sessions et de SessionState)  
 
-Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
-
-* [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+Pour en savoir plus sur la messagerie Service Bus, consultez [Files d’attentes, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md).
 
 [1]: ./media/message-sessions/sessions.png
-[2]: ./media/message-sessions/queue-sessions.png

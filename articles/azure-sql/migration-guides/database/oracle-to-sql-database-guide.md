@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 3154b180b09325a348ddfca5c375e6e69d87e347
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 9ae7e8c4544d2e8bd9dc4ff846aabb0c7f7f9358
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553734"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284253"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guide de migration : Oracle vers Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Ce guide explique comment migrer des schémas Oracle vers Azure SQL Database à l’aide de l’Assistant Migration SQL Server pour Oracle (SSMA pour Oracle).
+Ce guide explique [comment migrer](https://azure.microsoft.com/migration/migration-journey) des schémas Oracle vers Azure SQL Database à l’aide de l’Assistant [Migration SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) pour Oracle (SSMA pour Oracle).
 
 Pour obtenir d’autres guides de migration, consultez les [Guides de migration de base de données Azure](https://docs.microsoft.com/data-migration).
 
@@ -29,13 +29,13 @@ Pour obtenir d’autres guides de migration, consultez les [Guides de migration 
 Avant de commencer la migration de votre schéma Oracle vers SQL Database :
 
 - Vérifiez que votre environnement source est pris en charge.
-- Téléchargez [SSMA pour Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+- Téléchargez [SSMA pour Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 - Identifiez un instance [SQL Database](../../database/single-database-create-quickstart.md) cible.
 - Obtenez les [autorisations nécessaires pour SSMA pour Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) et un [fournisseur](/sql/ssma/oracle/connect-to-oracle-oracletosql).
  
 ## <a name="pre-migration"></a>Prémigration
 
-Une fois que vous avez rempli les prérequis, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre migration. Cette partie du processus inclut de dresser l’inventaire des bases de données que vous devez migrer, d’évaluer celles-ci en lien avec des problèmes de migration ou des blocages potentiels, et de résoudre les problèmes que vous pourriez avoir découverts.
+Une fois les prérequis satisfaits, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre [migration vers le cloud Azure](https://azure.microsoft.com/migration). Cette partie du processus inclut de dresser l’inventaire des bases de données que vous devez migrer, d’évaluer celles-ci en lien avec des problèmes de migration ou des blocages potentiels, et de résoudre les problèmes que vous pourriez avoir découverts.
 
 ### <a name="assess"></a>Évaluer
 
@@ -43,7 +43,7 @@ L’Assistant SSMA pour Oracle vous permet d’examiner les données et objets d
 
 Pour créer une évaluation :
 
-1. Ouvrez [SSMA pour Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+1. Ouvrez [SSMA pour Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 1. Sélectionnez **Fichier**, puis **Nouveau projet**.
 1. Entrez un nom de projet et un emplacement où enregistrer votre projet. Sélectionnez ensuite **Azure SQL Database** en tant que cible de migration dans la liste déroulante, puis sélectionnez **OK**.
 
@@ -130,7 +130,7 @@ Pour publier votre schéma et migrer vos données :
 
    ![Capture d’écran montrant la validation dans SQL Server Management Studio.](./media/oracle-to-sql-database-guide/validate-data.png)
 
-Vous pouvez également utiliser SQL Server Integration Services pour effectuer la migration. Pour plus d'informations, consultez les rubriques suivantes :
+Vous pouvez également utiliser SQL Server Integration Services pour effectuer la migration. Pour en savoir plus, consultez :
 
 - [Prise en main de SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services pour le déplacement de données Azure et hybrides](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
@@ -150,9 +150,9 @@ Une fois les données migrées vers l’environnement cible, toutes les applicat
 L’approche de test pour la migration de base de données comprend les activités suivantes :
 
 1. **Développer des tests de validation** : pour tester la migration d’une base de données, vous devez utiliser des requêtes SQL. Vous devez créer les requêtes de validation à exécuter sur les bases de données source et cible. Vos requêtes de validation doivent couvrir l’étendue que vous avez définie.
-1. **Configurer un environnement de test** : l’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
-1. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
-1. **Exécuter des tests de performances** : exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
+1. **Configurer un environnement de test** : L’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
+1. **Exécuter des tests de validation** : Exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
+1. **Exécuter des tests de performances** : Exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
 
 ### <a name="optimize"></a>Optimiser
 
@@ -181,11 +181,12 @@ L’équipe d’ingénierie SQL des données a développé ces ressources. La ch
 
 - Pour en savoir plus sur SQL Database, consultez :
   - [Vue d’ensemble d’Azure SQL Database](../../database/sql-database-paas-overview.md)
-  - [Outil de calcul du coût total de possession (TCO) Azure](https://azure.microsoft.com/en-us/pricing/tco/calculator/)
+  - [Outil de calcul du coût total de possession (TCO) Azure](https://azure.microsoft.com/pricing/tco/calculator/)
 
-- Pour en savoir plus sur l’infrastructure et le cycle d’adoption des migrations cloud, consultez :
+- Pour en savoir plus sur le framework et le cycle d’adoption des migrations cloud, consultez :
    -  [Cloud Adoption Framework pour Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
+   -  [Ressources de migration vers le cloud](https://azure.microsoft.com/migration/resources)
 
 - Pour le contenu vidéo, consultez :
     - [Vue d’ensemble du parcours de migration, ainsi que des outils et services recommandés pour effectuer l’évaluation et la migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)

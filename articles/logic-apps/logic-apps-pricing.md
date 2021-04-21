@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: a3c20dd85c94c359259cf69e25bb9083d56857fc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699026"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777146"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modèles de tarification et de facturation pour Azure Logic Apps
 
@@ -27,9 +27,9 @@ Par exemple, la demande d’un déclencheur d’interrogation est toujours compt
 
 | Éléments | Description |
 |-------|-------------|
-| Déclencheurs et actions [intégrés](../connectors/apis-list.md#built-in) | Exécutés en mode natif dans le service Logic Apps et sont comptabilisés selon le tarif [**Actions**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Par exemple, le déclencheur HTTP et le déclencheur Requête sont des déclencheurs intégrés, tandis que l’action HTTP et l’action Réponse sont des actions intégrées. Les opérations de données, les opérations de traitement par lots, les opérations de variables et les [actions de contrôle de workflow](../connectors/apis-list.md#control-workflow), telles que les boucles, les conditions, les basculements, les branches parallèles, etc., sont également des actions intégrées. |
-| Déclencheurs et actions de [connecteur standard](../connectors/apis-list.md#managed-connectors) <p><p>Déclencheurs et actions de [connecteur personnalisé](../connectors/apis-list.md#custom) | Comptabilisés selon le [tarif du connecteur standard](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| Déclencheurs et actions de [connecteur entreprise](../connectors/apis-list.md#managed-connectors) | Comptabilisés selon le [tarif du connecteur entreprise](https://azure.microsoft.com/pricing/details/logic-apps/). Toutefois, durant la préversion publique, les connecteurs entreprise sont comptabilisés selon le [tarif du connecteur *standard*](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Déclencheurs et actions [intégrés](../connectors/built-in.md) | Exécutés en mode natif dans le service Logic Apps et sont comptabilisés selon le tarif [**Actions**](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>Par exemple, le déclencheur HTTP et le déclencheur Requête sont des déclencheurs intégrés, tandis que l’action HTTP et l’action Réponse sont des actions intégrées. Les opérations de données, les opérations de traitement par lots, les opérations de variables et les [actions de contrôle de workflow](../connectors/built-in.md), telles que les boucles, les conditions, les basculements, les branches parallèles, etc., sont également des actions intégrées. |
+| Déclencheurs et actions de [connecteur standard](../connectors/managed.md) <p><p>Déclencheurs et actions de [connecteur personnalisé](../connectors/apis-list.md#custom-apis-and-connectors) | Comptabilisés selon le [tarif du connecteur standard](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| Déclencheurs et actions de [connecteur entreprise](../connectors/managed.md) | Comptabilisés selon le [tarif du connecteur entreprise](https://azure.microsoft.com/pricing/details/logic-apps/). Toutefois, durant la préversion publique, les connecteurs entreprise sont comptabilisés selon le [tarif du connecteur *standard*](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | Actions dans des [boucles](logic-apps-control-flow-loops.md) | Chaque action qui s’exécute dans une boucle est comptabilisée pour chaque cycle de boucle qui s’exécute. <p><p>Par exemple, supposons que vous ayez une boucle « for each » qui comprend des actions qui traitent une liste. Le service Logic Apps comptabilise chaque action qui s’exécute dans cette boucle en multipliant le nombre d’éléments dans la liste par le nombre d’actions dans la boucle, puis ajoute l’action qui démarre la boucle. Le calcul pour une liste de 10 éléments est donc (10 * 1) + 1, ce qui donne 11 exécutions d’action. |
 | Nouvelles tentatives | Pour gérer les exceptions et les erreurs les plus simples, vous pouvez configurer une [stratégie de nouvelles tentatives](logic-apps-exception-handling.md#retry-policies) sur les déclencheurs et les actions qui sont pris en charge. Ces nouvelles tentatives, ainsi que la demande initiale, sont facturées à des tarifs qui varient selon que le déclencheur ou l’action est de type intégré, Standard ou Entreprise. Par exemple, une action qui s’exécute avec deux nouvelles tentatives est facturée pour trois exécutions d’action. |
 | [Conservation des données et consommation du stockage](#data-retention) | Comptabilisée selon le tarif de conservation des données, que vous pouvez trouver sur la [page de tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/), sous le tableau **Détails des prix**. |
@@ -80,8 +80,8 @@ Un modèle de tarification fixe s’applique aux applications logiques qui s’e
 
 | Éléments | Description |
 |-------|-------------|
-| Déclencheurs et actions [intégrés](../connectors/apis-list.md#built-in) | Affichent l’étiquette **Core** et s’exécutent dans le même ISE que vos applications logiques. |
-| [Connecteurs standard](../connectors/apis-list.md#managed-connectors) <p><p>[Connecteurs d’entreprise](../connectors/apis-list.md#enterprise-connectors) | – Les connecteurs managés qui comportent l’étiquette **ISE** sont spécialement conçus pour fonctionner sans la passerelle de données locale et s’exécutent dans le même ISE que vos applications logiques. La tarification d’un ISE comprend autant de connexions entreprise que vous le souhaitez. <p><p>– Les connecteurs qui ne portent pas l’étiquette ISE s’exécutent dans le service Logic Apps multilocataire. Toutefois, la tarification d’un ISE comprend ces exécutions pour les applications logiques qui s’exécutent dans un ISE. |
+| Déclencheurs et actions [intégrés](../connectors/built-in.md) | Affichent l’étiquette **Core** et s’exécutent dans le même ISE que vos applications logiques. |
+| [Connecteurs standard](../connectors/managed.md) <p><p>[Connecteurs d’entreprise](../connectors/managed.md#enterprise-connectors) | – Les connecteurs managés qui comportent l’étiquette **ISE** sont spécialement conçus pour fonctionner sans la passerelle de données locale et s’exécutent dans le même ISE que vos applications logiques. La tarification d’un ISE comprend autant de connexions entreprise que vous le souhaitez. <p><p>– Les connecteurs qui ne portent pas l’étiquette ISE s’exécutent dans le service Logic Apps multilocataire. Toutefois, la tarification d’un ISE comprend ces exécutions pour les applications logiques qui s’exécutent dans un ISE. |
 | Actions dans des [boucles](logic-apps-control-flow-loops.md) | La tarification d’un ISE comprend chaque action qui s’exécute dans une boucle pour chaque cycle de boucle qui s’exécute. <p><p>Par exemple, supposons que vous ayez une boucle « for each » qui comprend des actions qui traitent une liste. Pour connaître le nombre total d’exécutions d’action, multipliez le nombre d’éléments dans la liste par le nombre d’actions dans la boucle, puis ajoutez l’action qui démarre la boucle. Le calcul pour une liste de 10 éléments est donc (10 * 1) + 1, ce qui donne 11 exécutions d’action. |
 | Nouvelles tentatives | Pour gérer les exceptions et les erreurs les plus simples, vous pouvez configurer une [stratégie de nouvelles tentatives](logic-apps-exception-handling.md#retry-policies) sur les déclencheurs et les actions qui sont pris en charge. La tarification d’un ISE comprend les nouvelles tentatives, ainsi que la demande initiale. |
 | [Conservation des données et consommation du stockage](#data-retention) | Les applications logiques dans un ISE n’entraînent pas de coûts de rétention ni de stockage. |

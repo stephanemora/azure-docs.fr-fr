@@ -8,13 +8,13 @@ ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/10/2020
-ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2020
+ms.openlocfilehash: a7a7bbb8b911f86b81cdeafe3fe57e1fdf820681
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98680177"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228280"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporter et supprimer vos données client dans Language Understanding (LUIS) dans Cognitive Services
 
@@ -85,7 +85,15 @@ Les ressources United States (également appelées API programmatiques) sont hé
 
 * Zones géographiques Azure pas prises en charge par les régions de création d’Europe ou d’Australie
 
-Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique États-Unis d’Azure pour l’apprentissage actif. 
+Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique États-Unis d’Azure pour l’apprentissage actif.
+
+### <a name="switzerland-north"></a>Suisse Nord
+
+Les ressources de création Suisse Nord (également appelées API programmatiques) sont hébergées dans la zone géographique Suisse d’Azure et prennent en charge le déploiement de points de terminaison dans les zones géographiques Azure suivantes :
+
+* Suisse 
+
+Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Suisse d’Azure pour l’apprentissage actif.
 
 ## <a name="disable-active-learning"></a>Désactiver l’apprentissage actif
 

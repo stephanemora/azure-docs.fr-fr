@@ -2,13 +2,13 @@
 title: Déploiements Gestionnaire des ressources et classiques
 description: Décrit les différences entre le modèle de déploiement de Resource Manager et le modèle de déploiement classique (ou de gestion des services).
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: c2009034c431e53d162cb0f2c1f0d9815c8d1942
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185842"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306929"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Déploiement Azure Resource Manager et déploiement Classic : comprendre les modèles de déploiement et l’état de vos ressources
 
@@ -17,7 +17,7 @@ ms.locfileid: "96185842"
 
 Dans cet article, vous découvrez les modèles de déploiement classique et Azure Resource Manager. Resource Manager et les modèles de déploiement classique représentent deux façons différentes de déployer et de gérer vos solutions Azure. Vous les utilisez avec deux ensembles différents d’API et les ressources déployées peuvent contenir des différences importantes. Les deux modèles ne sont pas compatibles entre eux. Cet article décrit ces différences.
 
-Pour simplifier le déploiement et la gestion des ressources, Microsoft recommande l’utilisation de Resource Manager pour les nouvelles ressources. Microsoft recommande, si possible, un nouveau déploiement des ressources existantes via Resource Manager.
+Pour simplifier le déploiement et la gestion des ressources, Microsoft recommande l’utilisation de Resource Manager pour les nouvelles ressources. Microsoft recommande, si possible, un nouveau déploiement des ressources existantes via Resource Manager. Si vous avez utilisé les services cloud, vous pouvez migrer votre solution vers les [Services Cloud (support étendu)](../../cloud-services-extended-support/overview.md).
 
 Si vous découvrez Resource Manager, nous vous recommandons de commencer par passer en revue la terminologie définie dans l’article [Vue d’ensemble d’Azure Resource Manager](overview.md).
 
@@ -40,7 +40,7 @@ Quand Resource Manager a été ajouté, toutes les ressources ont été rétroac
 
 Il existe trois scénarios à connaître :
 
-1. Azure Cloud Services ne prend pas en charge le modèle de déploiement Resource Manager.
+1. [Services cloud (classic)](../../cloud-services/cloud-services-choose-me.md) ne prend pas en charge le modèle de déploiement Resource Manager. [Services cloud (support étendu)](../../cloud-services-extended-support/overview.md) prend en charge le modèle de déploiement Resource Manager.
 2. Les machines virtuelles, les comptes de stockage et les réseaux virtuels prennent en charge les modèles de déploiement classique et Resource Manager.
 3. Tous les autres services Azure prennent en charge Resource Manager.
 
@@ -95,7 +95,7 @@ Voici les composants et leurs relations concernant le déploiement classique :
 
 La solution classique pour l’hébergement d’une machine virtuelle comprend les éléments suivants :
 
-* Un service cloud nécessaire qui agit en tant que conteneur pour héberger des machines virtuelles (calcul). Les machines virtuelles sont automatiquement approvisionnées avec une carte d’interface réseau et une adresse IP attribuée par Azure. En outre, le service cloud présente une instance d’équilibrage de charge externe, une adresse IP publique et des points de terminaison par défaut permettant un accès à distance et un trafic PowerShell distant pour les machines virtuelles Windows et un trafic Secure Shell (SSH) pour les machines virtuelles Linux.
+* Services cloud (classic) agit en tant que conteneur pour héberger des machines virtuelles (calcul). Les machines virtuelles sont automatiquement approvisionnées avec une carte d’interface réseau et une adresse IP attribuée par Azure. En outre, le service cloud présente une instance d’équilibrage de charge externe, une adresse IP publique et des points de terminaison par défaut permettant un accès à distance et un trafic PowerShell distant pour les machines virtuelles Windows et un trafic Secure Shell (SSH) pour les machines virtuelles Linux.
 * Un compte de stockage obligatoire qui stocke les disques durs virtuels d’une machine virtuelle, y compris le système d’exploitation ainsi que les disques de données temporaires et supplémentaires (stockage).
 * Un réseau virtuel facultatif qui agit en tant que conteneur supplémentaire dans lequel vous pouvez créer une structure de sous-réseaux et choisir le sous-réseau sur lequel se trouve la machine virtuelle (réseau).
 

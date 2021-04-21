@@ -4,13 +4,13 @@ description: Cet article contient des réponses aux questions fréquemment posé
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
-ms.date: 05/06/2020
-ms.openlocfilehash: b5e25e9ed25ced96d38994928bcb6275ce79420f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 97b7c02a418a87a0700414e19bc939bda899d073
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612794"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503811"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -158,10 +158,6 @@ Voir la référence sur les [limites](luis-limits.md).
 ### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>Je souhaite créer une application LUIS avec un nombre d’intentions supérieur au nombre maximal. Que dois-je faire ?
 
 Voir [Meilleures pratiques pour les intentions](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
-
-### <a name="i-want-to-build-an-app-in-luis-with-more-than-the-maximum-number-of-entities-what-should-i-do"></a>Je souhaite créer une application dans LUIS avec un nombre d’entités supérieur au nombre maximal. Que dois-je faire ?
-
-Voir [Meilleures pratiques pour les entités](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities).
 
 ### <a name="what-are-the-limits-on-the-number-and-size-of-phrase-lists"></a>Quelles sont les limites de nombre et de taille des listes de phrases ?
 Pour connaître la longueur maximale d’une [liste de phrases](./luis-concept-feature.md), voir la référence [limites](luis-limits.md).

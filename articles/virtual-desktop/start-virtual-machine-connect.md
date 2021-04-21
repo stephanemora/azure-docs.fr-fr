@@ -3,15 +3,15 @@ title: Démarrer une machine virtuelle lors de la connexion – Azure
 description: Comment configurer la fonctionnalité de démarrage de machine virtuelle lors de la connexion.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 04/10/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d9ce9811cd660c9a9b1fcb6f9e24cadd65d3c2bc
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445599"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303954"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Démarrer une machine virtuelle lors de la connexion (préversion)
 
@@ -35,8 +35,7 @@ Les clients Bureau à distance prenant en charge la fonctionnalité de démarrag
 
 Vous pouvez trouver des annonces sur les mises à jour et la prise en charge de client sur le [Forum Tech Community](https://aka.ms/wvdtc).
 
->[!IMPORTANT]
->Actuellement, la fonctionnalité de démarrage de machine virtuelle lors de la connexion ne prend en charge que PowerShell et l’API REST, pas le portail Azure. Pour plus d’informations, consultez [Créer ou mettre à jour un pool d’hôtes](/rest/api/desktopvirtualization/hostpools/createorupdate).
+Le cloud Azure Government ne prend actuellement pas en charge Démarrer la machine virtuelle à la connexion.
 
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Créer un rôle personnalisé pour démarrer une machine virtuelle lors de la connexion
 
@@ -115,6 +114,24 @@ La fonctionnalité de démarrage de machine virtuelle lors de la connexion est u
 
 >[!IMPORTANT]
 > Vous ne pouvez configurer cette fonctionnalité que dans des pools d’hôtes existants. Cette fonctionnalité n’est pas disponible lorsque vous créez un pool d’hôtes.
+
+### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+
+Pour utiliser le portail Azure afin de configurer l'option Démarrer la machine virtuelle à la connexion :
+
+1. Ouvrez votre navigateur web et accédez au [portail Azure](https://portal.azure.com/?feature.startVMonConnect=true#home). Nous vous recommandons d'ouvrir le portail Azure dans une fenêtre InPrivate.
+
+2. Sur le portail Azure, accédez à **Windows Virtual Desktop**.
+
+3. Sélectionnez **Pools d'hôtes**, puis recherchez le pool d'hôtes qui contient les bureaux personnels auxquels vous avez attribué le rôle.
+
+   >[!NOTE]
+   > Le pool d'hôtes dans lequel vous configurez cette fonctionnalité doit contenir des bureaux personnels auxquels des rôles ont directement été attribués. Si les bureaux du pool d'hôtes ne sont pas correctement configurés, le processus de configuration ne fonctionnera pas.
+
+4. Dans le pool d'hôtes, sélectionnez **Propriétés**. Sous **Démarrer la machine virtuelle à la connexion**, sélectionnez **Oui**, puis sélectionnez **Enregistrer** pour appliquer le paramètre instantanément.
+
+    > [!div class="mx-imgBorder"]
+    > ![Capture d'écran de la fenêtre Propriétés. L'option Démarrer la machine virtuelle à la connexion est surlignée en rouge.](media/properties-start-vm-on-connect.png)
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
 

@@ -2,14 +2,14 @@
 title: Tableau de prise en charge de Sauvegarde Azure pour la sauvegarde de SQL Server dans les machines virtuelles Azure
 description: Propose un résumé des limitations et des paramètres de prise en charge de la sauvegarde de SQL Server dans les machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7038b47bd4aba8f7747eef455f1e8dd3c77a695
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734791"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257341"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Tableau de prise en charge de la sauvegarde de SQL Server dans les machines virtuelles Azure
 
@@ -30,11 +30,10 @@ Vous pouvez utiliser le service Sauvegarde Azure pour sauvegarder des bases de d
 |Paramètre  |Limite maximale |
 |---------|---------|
 |Nombre de bases de données pouvant être protégées sur un serveur (et dans un coffre)    |   2000      |
-|Taille de la base de données prise en charge (au-delà, des problèmes de performances peuvent survenir)   |   2 To      |
+|Taille de la base de données prise en charge (au-delà, des problèmes de performances peuvent survenir)   |   6 To*      |
 |Nombre de fichiers pris en charge dans une base de données    |   1 000      |
 
->[!NOTE]
-> [Téléchargez le planificateur de ressources détaillé](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) pour calculer le nombre approximatif de bases de données protégées recommandé par serveur en fonction des ressources de machine virtuelle, de la bande passante et de la stratégie de sauvegarde.
+_* La taille limite de la base de données dépend du taux de transfert de données pris en charge et de la configuration de la limite de durée de sauvegarde. Il ne s'agit pas de la limite absolue. [En savoir plus](#backup-throughput-performance) sur les performances de débit de sauvegarde._
 
 * La sauvegarde SQL Server peut être configurée dans le portail Azure ou **PowerShell**. CLI n’est pas pris en charge.
 * La solution est prise en charge pour les deux types de [déploiements](../azure-resource-manager/management/deployment-models.md) : machines virtuelles Azure Resource Manager et machines virtuelles classiques.
@@ -93,6 +92,17 @@ Complète | Principal
 Différentielle | Principal
 Journal |  Secondary
 Copie complète uniquement |  Secondary
+
+## <a name="backup-throughput-performance"></a>Performances de débit de sauvegarde
+
+Le service Sauvegarde Azure prend en charge un taux de transfert de données cohérent de 200 Mbits/s pour les sauvegardes complètes et différentielles de bases de données SQL volumineuses (de 500 Go). Pour des performances optimales, vérifiez que les conditions suivantes sont réunies :
+
+- La machine virtuelle sous-jacente (contenant l'instance de SQL Server qui héberge la base de données) est configurée avec le débit réseau requis. Si le débit maximal de la machine virtuelle est inférieur à 200 Mbits/s, le service Sauvegarde Azure ne pourra pas transférer les données à la vitesse optimale.<br></br>En outre, le débit configuré pour le disque qui contient les fichiers de base de données doit être suffisant. [En savoir plus](../virtual-machines/disks-performance.md) sur le débit et les performances des disques des machines virtuelles Azure. 
+- Les processus exécutés sur la machine virtuelle ne consomment pas la bande passante de celle-ci. 
+- Les planifications de sauvegarde sont réparties sur un sous-ensemble de bases de données. Plusieurs sauvegardes exécutées simultanément sur une machine virtuelle se partagent le taux de consommation du réseau. [En savoir plus](faq-backup-sql-server.md#can-i-control-how-many-concurrent-backups-run-on-the-sql-server) sur le contrôle du nombre de sauvegardes simultanées.
+
+>[!NOTE]
+> [Téléchargez le planificateur de ressources détaillé](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) pour calculer le nombre approximatif de bases de données protégées recommandé par serveur en fonction des ressources de machine virtuelle, de la bande passante et de la stratégie de sauvegarde.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

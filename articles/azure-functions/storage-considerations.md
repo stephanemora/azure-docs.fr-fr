@@ -3,12 +3,12 @@ title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5faa85a4fac9fc0b8639f33c475283f4f043c627
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517261"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779252"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -71,7 +71,7 @@ Les autres données client gérées par la plateforme ne sont stockées au sein 
 
 _Cette fonctionnalité est actuellement disponible uniquement sous Linux._ 
 
-Vous pouvez monter des partages Azure Files existants dans vos applications de fonction Linux. Monter un partage vers votre application de fonction Linux vous permet d’accéder à des modèles Machine Learning existants ou à d’autres données dans vos fonctions. Vous pouvez utiliser la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) pour monter un partage existant dans votre application de fonction Linux. 
+Vous pouvez monter des partages Azure Files existants dans vos applications de fonction Linux. Monter un partage vers votre application de fonction Linux vous permet d’accéder à des modèles Machine Learning existants ou à d’autres données dans vos fonctions. Vous pouvez utiliser la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) pour monter un partage existant dans votre application de fonction Linux. 
 
 Dans cette commande, `share-name` est le nom du partage Azure Files existant, et `custom-id` peut représenter n’importe quelle chaîne qui définit de façon unique le partage lorsqu’il est monté sur l’application de fonction. En outre, `mount-path` est le chemin d’accès à partir duquel le partage est accessible dans votre application de fonction. `mount-path` doit être au format `/dir-name`, et ne peut pas commencer par `/home`.
 

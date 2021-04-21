@@ -1,6 +1,6 @@
 ---
-title: Concepts relatifs au service Météo (préversion) de Microsoft Azure Maps
-description: Découvrez les concepts qui s’appliquent au service Météo (préversion) de Microsoft Azure Maps.
+title: Concepts relatifs aux services Météo dans Microsoft Azure Maps
+description: Découvrez les concepts qui s'appliquent aux services Météo de Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76d4eb08ba9cc0394610fdd00f6faba02278e8e3
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904735"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258008"
 ---
-# <a name="weather-services-preview-in-azure-maps"></a>Service Météo (préversion) d’Azure Maps
-
-> [!IMPORTANT]
-> Le service Météo d’Azure Maps est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="weather-services-in-azure-maps"></a>Services météo dans Azure Maps
 
 Cet article présente les concepts qui s’appliquent au [service Météo](/rest/api/maps/weather) d’Azure Maps. Nous vous recommandons de consulter cet article avant de commencer à utiliser les API météo.
 

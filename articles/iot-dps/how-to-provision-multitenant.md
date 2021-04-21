@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04ab4ae4d3de6f33f800011b9b0802665d5fb16e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727428"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228314"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Comment provisionner des appareils multilocataires 
 
@@ -26,11 +26,12 @@ Il est courant de combiner ces deux scénarios. Par exemple, une solution IoT mu
 
 Cet article utilise un exemple d’appareil simulé du [SDK Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) afin de montrer comment provisionner des appareils dans un scénario de solution multilocataire entre plusieurs régions. Dans cet article, vous allez effectuer les étapes suivantes :
 
-* Utiliser Azure CLI pour créer deux hubs IoT régionaux (**USA Ouest** et **USA Est**)
-* Créer une inscription multilocataire
-* Utiliser Azure CLI pour créer deux machines virtuelles Linux régionales jouant le rôle d’appareils dans les mêmes régions (**USA Ouest** et **USA Est**)
-* Configurer l’environnement de développement nécessaire au SDK Azure IoT pour C sur les deux machines virtuelles Linux
-* Simuler les appareils afin de vérifier qu’ils sont provisionnés pour le même locataire dans la région la plus proche
+> [!div class="checklist"]
+> * Utiliser Azure CLI pour créer deux hubs IoT régionaux (**USA Ouest** et **USA Est**)
+> * Créer une inscription multilocataire
+> * Utiliser Azure CLI pour créer deux machines virtuelles Linux régionales jouant le rôle d’appareils dans les mêmes régions (**USA Ouest** et **USA Est**)
+> * Configurer l’environnement de développement nécessaire au SDK Azure IoT pour C sur les deux machines virtuelles Linux
+> * Simuler les appareils afin de vérifier qu’ils sont provisionnés pour le même locataire dans la région la plus proche
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -417,8 +418,11 @@ Pour supprimer le groupe de ressources par nom :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> Pour en savoir plus sur le réaprovisionnement, consultez [Concepts du réaprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md)
+* Pour en savoir plus sur le réapprovisionnement, consultez
 
 > [!div class="nextstepaction"]
-> Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md)
+> [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md)
+
+* Pour en savoir plus sur la suppression des privilèges d'accès, consultez
+> [!div class="nextstepaction"]
+> [Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement](how-to-unprovision-devices.md)

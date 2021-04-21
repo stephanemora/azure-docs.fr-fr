@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 3d8cd9891329e86ce47dac6d8d44af529c104b61
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: a550087f552238820ecff079ff1dc2523c4172d3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107386663"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776784"
 ---
 Vous pouvez activer et gérer Azure Disk Encryption par le biais d’[Azure CLI](/cli/azure) et d’[Azure PowerShell](/powershell/azure/new-azureps-module-az). Pour ce faire, vous devez installer les outils localement et vous connecter à votre abonnement Azure.
 
@@ -21,7 +21,7 @@ Vous pouvez activer et gérer Azure Disk Encryption par le biais d’[Azure CLI]
 
 [Azure CLI 2.0](/cli/azure) est un outil en ligne de commande pour la gestion des ressources Azure. L’interface CLI est conçue pour interroger les données de manière flexible, pour prendre en charge les opérations de longue durée en tant que processus non bloquants et pour simplifier l’écriture de scripts. Vous pouvez l’installer localement en effectuant les étapes décrites dans [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-Pour [vous connecter à votre compte Azure avec Azure CLI](/cli/azure/authenticate-azure-cli), utilisez la commande [az login](/cli/azure/reference-index#az-login).
+Pour [vous connecter à votre compte Azure avec Azure CLI](/cli/azure/authenticate-azure-cli), utilisez la commande [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -33,7 +33,7 @@ Si vous voulez sélectionner un locataire sous lequel vous connecter, utilisez :
 az login --tenant <tenant>
 ```
 
-Si vous avez plusieurs abonnements et que vous voulez spécifier un de ceux-ci, récupérez la liste de vos abonnements avec [az account list](/cli/azure/account#az-account-list) et spécifiez le compte avec [az account set](/cli/azure/account#az-account-set).
+Si vous avez plusieurs abonnements et que vous voulez spécifier un de ceux-ci, récupérez la liste de vos abonnements avec [az account list](/cli/azure/account#az_account_list) et spécifiez le compte avec [az account set](/cli/azure/account#az_account_set).
      
 ```azurecli
 az account list

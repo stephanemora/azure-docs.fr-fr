@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08e75f9eb5ea111cc977d02f66b945de4eae5126
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98659935"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306169"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Sauvegarde et restauration dans Azure Database for MariaDB
 
@@ -19,33 +19,47 @@ Azure Database for MariaDB crée automatiquement des sauvegardes de serveur et l
 
 ## <a name="backups"></a>Sauvegardes
 
-Azure Database for MariaDB accepte les sauvegardes complètes, différentielles et de journal des transactions. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
+Azure Database for MariaDB effectue des sauvegardes des fichiers de données et du journal des transactions. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez [éventuellement la configurer](howto-restore-server-portal.md#set-backup-configuration) sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
 
-Ces fichiers de sauvegarde ne sont pas exposés à l’utilisateur et ne peuvent pas être exportés. Ces sauvegardes ne peuvent être utilisées que pour des opérations de restauration dans Azure Database for MariaDB. Vous pouvez utiliser [mysqldump](howto-migrate-dump-restore.md) pour copier une base de données.
+Ces fichiers de sauvegarde ne sont pas exposés à l’utilisateur et ne peuvent pas être exportés. Ces sauvegardes sont utilisables uniquement pour les opérations de restauration dans Azure Database pour MySQL. Vous pouvez utiliser [mysqldump](howto-migrate-dump-restore.md) pour copier une base de données.
 
-### <a name="backup-frequency"></a>Fréquence de sauvegarde
+Le type et la fréquence de sauvegarde dépendent du stockage back-end pour les serveurs.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Serveurs avec jusqu’à 4 To de stockage
+### <a name="backup-type-and-frequency"></a>Type et fréquence de sauvegarde
 
-Pour les serveurs qui prennent en charge jusqu’à 4 To de stockage, les sauvegardes complètes se produisent une fois par semaine. Les sauvegardes différentielles se produisent deux fois par jour. Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes.
+#### <a name="basic-storage-servers"></a>Serveurs de stockage de base
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Serveurs avec jusqu’à 16 To de stockage
-Dans un sous-ensemble de [régions Azure](concepts-pricing-tiers.md#storage), tous les serveurs nouvellement approvisionnés peuvent prendre en charge un stockage jusqu’à 16 To de stockage. Les sauvegardes sur ces serveurs de stockage volumineux sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement. 
+Le stockage De base est le stockage back-end qui prend en charge les [serveurs de niveau De base](concepts-pricing-tiers.md). Les sauvegardes sur les serveurs de stockage de base sont basées sur des captures instantanées. Une capture instantanée de base de données complète est effectuée quotidiennement. Aucune sauvegarde différentielle n’est effectuée pour les serveurs de stockage de base, et toutes les sauvegardes de captures instantanées sont uniquement des sauvegardes complètes de base de données.
 
-Les sauvegardes de captures instantanées différentielles se produisent au moins une fois par jour. Les sauvegardes de captures instantanées différentielles ne se produisent pas selon une planification fixe. Les sauvegardes de captures instantanées différentielles ont lieu toutes les 24 heures, à moins que le journal des transactions (binlog dans MariaDB) dépasse 50 Go depuis la dernière sauvegarde différentielle. Au cours d’une journée, six captures instantanées différentielles maximum sont autorisées. 
+Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes.
 
-Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes. 
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Serveurs de stockage à usage général jusqu’à 4 To de stockage
+
+Le stockage à usage général est le stockage back-end qui prend en charge les serveurs de niveau [Usage général](concepts-pricing-tiers.md) et [Mémoire optimisée](concepts-pricing-tiers.md). Pour les serveurs avec un stockage à usage général jusqu’à 4 To, les sauvegardes complètes se produisent une fois par semaine. Les sauvegardes différentielles se produisent deux fois par jour. Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes. Les sauvegardes sur un stockage à usage général jusqu’à 4 To ne sont pas basées sur des captures instantanées et consomment de la bande passante en E/S. Pour les grandes bases de données (>1 To) sur un stockage de 4 To, nous vous recommandons d’envisager :
+
+- Le provisionnement de plus d’IOPS pour prendre en compte les E/S des sauvegardes OU
+- Une migration vers un stockage à usage général qui prend en charge jusqu’à 16 To de stockage si l’infrastructure de stockage sous-jacente est disponible dans vos [régions Azure](./concepts-pricing-tiers.md#storage) favorites. Il n’existe aucun coût supplémentaire pour le stockage à usage général qui prend en charge jusqu’à 16 To de stockage. Pour obtenir de l’aide sur la migration vers un stockage de 16 To, veuillez ouvrir un ticket de support à partir du portail Azure.
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Serveurs de stockage à usage général avec un stockage jusqu’à 16 To
+
+Dans un sous-ensemble de [régions Azure](./concepts-pricing-tiers.md#storage), tous les serveurs nouvellement provisionnés peuvent prendre en charge jusqu’à 16 To de stockage à usage général. En d’autres termes, le stockage jusqu’à 16 To est le stockage à usage général par défaut pour toutes les [régions](concepts-pricing-tiers.md#storage) où il est pris en charge. Les sauvegardes sur ces serveurs de stockage de 16 To sont basées sur des captures instantanées. La première sauvegarde de capture instantanée complète est planifiée immédiatement après la création d’un serveur. La première sauvegarde complète de capture instantanée est conservée en tant que sauvegarde de base du serveur. Les sauvegardes de captures instantanées suivantes sont des sauvegardes différentielles uniquement.
+
+Les sauvegardes de captures instantanées différentielles se produisent au moins une fois par jour. Les sauvegardes de captures instantanées différentielles ne se produisent pas selon une planification fixe. Les sauvegardes de captures instantanées différentielles ont lieu toutes les 24 heures, à moins que le journal des transactions (binlog dans MariaDB) dépasse 50 Go depuis la dernière sauvegarde différentielle. Au cours d’une journée, six captures instantanées différentielles maximum sont autorisées.
+
+Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes.
+ 
 
 ### <a name="backup-retention"></a>Rétention des sauvegardes
 
 Les sauvegardes sont conservées en fonction du paramètre de période de rétention de sauvegarde sur le serveur. Vous pouvez sélectionner une période de rétention comprise entre 7 et 35 jours. La période de conservation par défaut est 7 jours. Vous pouvez définir la période de rétention lors de la création du serveur ou ultérieurement en mettant à jour la configuration de la sauvegarde à l’aide du [portail Azure](howto-restore-server-portal.md#set-backup-configuration) ou d’[Azure CLI](howto-restore-server-cli.md#set-backup-configuration). 
 
 La période de rétention de sauvegarde détermine jusqu’à quelle date une restauration à un point dans le temps peut être récupérée, dans la mesure où elle est basée sur les sauvegardes disponibles. La période de rétention de sauvegarde peut également être traitée comme une fenêtre de récupération du point de vue de la restauration. Toutes les sauvegardes requises pour effectuer une restauration à un instant dans le passé au cours de la période de rétention de sauvegarde sont conservées dans le stockage de sauvegarde. Par exemple, si la période de conservation des sauvegardes est définie sur 7 jours, la fenêtre de récupération est considérée comme les 7 derniers jours. Dans ce scénario, toutes les sauvegardes nécessaires à la restauration du serveur au cours des 7 derniers jours sont conservées. Avec une fenêtre de rétention de sauvegarde de sept jours :
+
 - Les serveurs avec un stockage jusqu’à 4 To peuvent conserver jusqu’à 2 sauvegardes complètes de base de données, toutes les sauvegardes différentielles et les sauvegardes du journal des transactions effectuées depuis la première sauvegarde complète de la base de données.
 -   Les serveurs avec un stockage jusqu’à 16 To conservent la capture instantanée complète de base de données, toutes les captures instantanées différentielles et les sauvegardes du journal des transactions au cours des 8 derniers jours.
 
-#### <a name="long-term-retention-of-backups"></a>Rétention à long terme des sauvegardes
-La rétention à long terme des sauvegardes au-delà de 35 jours n’est pas encore prise en charge de manière native par le service. Vous avez la possibilité d’utiliser mysqldump pour effectuer des sauvegardes et les stocker pour une conservation à long terme. Notre équipe de support technique a publié un [article pas à pas](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) pour vous permettre de savoir comment y parvenir. 
+#### <a name="long-term-retention-of-backups"></a>Conservation à long terme des sauvegardes
+La conservation à long terme des sauvegardes au-delà de 35 jours n’est pas encore prise en charge de manière native par le service. Vous avez la possibilité d’utiliser mysqldump pour effectuer des sauvegardes et les stocker pour une conservation à long terme. Notre équipe de support technique a publié un [article pas à pas](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) pour vous permettre de savoir comment y parvenir. 
 
 ### <a name="backup-redundancy-options"></a>Options de redondance de sauvegarde
 
@@ -74,7 +88,7 @@ Deux types de restauration sont disponibles :
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
 > [!IMPORTANT]
-> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées.Pour protéger les ressources du serveur, après le déploiement, contre une suppression accidentelle ou des changements inattendus, les administrateurs peuvent utiliser [les verrous de gestion](../azure-resource-manager/management/lock-resources.md).
+> Une fois supprimés, les serveurs ne peuvent être restaurés que dans un délai de **cinq jours**, au terme duquel les sauvegardes sont supprimées. La sauvegarde de base de données est accessible et peut être restaurée uniquement à partir de l’abonnement Azure qui héberge le serveur. Pour restaurer un serveur supprimé, reportez-vous aux [étapes documentées](howto-restore-dropped-server.md). À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 

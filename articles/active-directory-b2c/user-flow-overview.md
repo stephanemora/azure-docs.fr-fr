@@ -1,94 +1,110 @@
 ---
-title: Flux d’utilisateur dans Azure Active Directory B2C | Microsoft Docs
+title: Flux d’utilisateurs et stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
 titleSuffix: Azure AD B2C
-description: Découvrez plus d’informations sur le framework de stratégie extensible d’Azure Active Directory B2C et la création de différents flux d’utilisateur.
+description: En savoir plus sur les flux d’utilisateurs intégrés et l’infrastructure de stratégies extensibles personnalisées de Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 04/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e4dbc5178bec3a5b1f0931267465879f604f36f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94840189"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226001"
 ---
-# <a name="user-flows-in-azure-active-directory-b2c"></a>Flux d’utilisateur dans Azure Active Directory B2C
+# <a name="user-flows-and-custom-policies-overview"></a>Vue d’ensemble des flux d’utilisateurs et des stratégies personnalisées
 
-Pour vous aider à configurer les tâches d’identité les plus courantes pour vos applications, le portail Azure AD B2C inclut des stratégies configurables prédéfinies, appelées **flux d’utilisateur**. Un flux d’utilisateur vous permet de déterminer la façon dont les utilisateurs interagissent avec votre application quand ils effectuent différentes opérations : connexion, inscription, modification d’un profil, réinitialisation d’un mot de passe, etc. Avec les flux d’utilisateur, vous pouvez contrôler les éléments suivants :
+Dans Azure AD B2C, vous pouvez définir la logique métier que les utilisateurs suivent pour accéder à votre application. Par exemple, vous pouvez déterminer la séquence des étapes suivies par les utilisateurs lorsqu’ils se connectent, s’inscrivent, modifient un profil ou réinitialisent un mot de passe. À l’issue de la séquence, l’utilisateur acquiert un jeton et accède à votre application. 
 
-- Types de compte utilisés pour la connexion, comme les comptes de réseaux sociaux de type Facebook ou les comptes locaux
-- Attributs à collecter auprès du consommateur, comme le prénom, le code postal et la pointure
-- Authentification multifacteur Azure AD
-- Personnalisation de l’interface utilisateur
-- Informations que l’application reçoit sous forme de revendications dans un jeton
+Dans Azure AD B2C, il existe deux moyens de fournir des expériences d’utilisateurs d’identités :
 
-Vous pouvez créer plusieurs flux d’utilisateur de types différents dans votre locataire et les utiliser dans vos applications selon vos besoins. Les flux d’utilisateurs peuvent être réutilisés entre les différentes applications. Cette flexibilité vous permet de définir et de modifier les expériences relatives à l’identité avec peu ou pas de modification du code. Votre application déclenche un flux d’utilisateur à l’aide d’une demande d’authentification HTTP standard qui inclut un paramètre de flux d’utilisateur. La réponse reçue est un [jeton](tokens-overview.md) personnalisé.
+* Les **flux utilisateur** sont des stratégies prédéfinies, intégrées et configurables que nous fournissons, afin que vous puissiez créer des expériences d’inscription, de connexion et de modification de stratégie en quelques minutes.
 
-Les exemples suivants montrent le paramètre de chaîne de requête « p » qui spécifie le flux d’utilisateur à utiliser :
+* Les **stratégies personnalisées** vous permettent de créer vos propres parcours utilisateur pour des scénarios d’expérience d’identité complexes.
 
-```
-https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
-&redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
-&response_mode=form_post                            // 'query', 'form_post' or 'fragment'
-&response_type=id_token
-&scope=openid
-&nonce=dummy
-&state=12345                                        // Any value provided by your application
-&p=b2c_1_siup                                       // Your sign-up user flow
-```
+La capture d’écran suivante montre l’interface utilisateur des paramètres de flux d’utilisateurs et les fichiers de configuration de stratégies personnalisées.
 
-```
-https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
-&redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
-&response_mode=form_post                            // 'query', 'form_post' or 'fragment'
-&response_type=id_token
-&scope=openid
-&nonce=dummy
-&state=12345                                        // Any value provided by your application
-&p=b2c_1_siin                                       // Your sign-in user flow
-```
+![La capture d’écran montre l’interface utilisateur des paramètres de flux d’utilisateurs et les fichiers de configuration de stratégies personnalisées.](media/user-flow-overview/user-flow-vs-custom-policy.png)
 
-## <a name="user-flow-versions"></a>Versions de flux utilisateur
+Cet article donne une brève vue d’ensemble des flux d’utilisateurs et des stratégies personnalisées, et vous aide à décider quelle méthode correspond le mieux à vos besoins professionnels.
 
-Azure AD B2C inclut plusieurs types de flux d’utilisateur.
+## <a name="user-flows"></a>Flux d’utilisateurs
 
-- **Inscription et connexion** : Gère les expériences d’inscription et de connexion avec une seule configuration. Les utilisateurs sont dirigés vers le chemin approprié en fonction du contexte. Des flux d’utilisateur d’**inscription** et de **connexion** distincts sont également inclus. Toutefois, nous recommandons généralement le flux d’utilisateur d’inscription et de connexion combiné.
-- **Modification de profil** : Permet aux utilisateurs de modifier leurs informations de profil.
-- **Réinitialisation de mot de passe** : Vous permet de configurer si et comment les utilisateurs peuvent réinitialiser leur mot de passe.
+Pour configurer les tâches d’identité les plus courantes, le portail Azure inclut plusieurs stratégies configurables et prédéfinies, appelées *flux d’utilisateurs*.
 
-Pour la plupart des types de flux d’utilisateur, une version **recommandée** et une version **standard** sont généralement disponibles. Pour plus d’informations, consultez [Versions de flux utilisateur](user-flow-versions.md).
+Vous pouvez configurer des paramètres de flux utilisateur comme ceux mentionnés ici, pour contrôler les comportements d’expérience d’identité dans vos applications :
 
-> [!IMPORTANT]
-> Si vous avez déjà travaillé avec des flux d’utilisateur dans Azure AD B2C, vous remarquerez que nous avons changé la manière dont nous référençons les versions de flux d’utilisateur. Avant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). Maintenant, nous avons regroupé les flux d’utilisateur en deux versions :
->
->- Les flux d’utilisateur **recommandés** sont les nouvelles préversions des flux d’utilisateur. Ils sont minutieusement testés et combinent toutes les fonctionnalités des versions **V2** et **V1.1** héritées. À l’avenir, les nouveaux flux d’utilisateur recommandés seront maintenus et mis à jour. Quand vous passez à ces nouveaux flux d’utilisateur recommandés, vous avez accès aux nouvelles fonctionnalités à mesure qu’elles sont publiées.
->- Les flux d’utilisateur **standard**, anciennement **V1**, sont en disponibilité générale et sont prêts pour la production. Si vous utilisez des flux d’utilisateur stratégiques, qui dépendent de versions très stables, vous pouvez continuer à utiliser des flux d’utilisateur standard tout en gardant à l’esprit que ces versions ne seront pas mises à jour ni maintenues.
->
->Tous les flux d’utilisateur en préversion hérités (V1.1 et V2) seront dépréciés d’ici le **1er août 2021**. Dans la mesure du possible, nous vous recommandons vivement de [basculer vers les nouveaux flux d’utilisateur **recommandés**](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) dès que possible pour continuer à tirer parti des dernières fonctionnalités et mises à jour.
+* Types de compte utilisés pour la connexion, comme les comptes de réseaux sociaux de type Facebook, ou les comptes locaux qui utilisent une adresse e-mail et un mot de passe pour cette connexion
+* Attributs à collecter auprès du consommateur, comme le prénom, le code postal ou le pays/la région de résidence
+* Azure AD Multi-Factor Authentication (MFA)
+* Personnalisation de l’interface utilisateur
+* Ensemble de revendications dans un jeton que votre application reçoit dès que l’utilisateur a terminé le flux utilisateur
+* Gestion des sessions
+* ... et bien plus
 
-## <a name="linking-user-flows"></a>Liaison de flux d’utilisateur
+La plupart des scénarios d’identité courants pour les applications peuvent se définir et s’implémenter efficacement avec les flux d’utilisateurs. Nous vous recommandons d’utiliser les flux d’utilisateurs intégrés, sauf si vous avez des scénarios de parcours utilisateur complexes qui nécessitent toute la flexibilité offerte par les stratégies personnalisées.
 
-Un flux d’utilisateur **Inscription ou connexion** avec des comptes locaux comprend un lien **Mot de passe oublié ?** sur la première page. Lorsque vous cliquez sur ce lien, le flux d’utilisateur de réinitialisation du mot de passe n’est pas automatiquement déclenché.
+## <a name="custom-policies"></a>Stratégies personnalisées
 
-À la place, le code d’erreur `AADB2C90118` est retourné à votre application. Votre application doit gérer ce code d’erreur en exécutant un flux d’utilisateur spécifique qui réinitialise le mot de passe. Pour voir un exemple, examinons un [simple exemple ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) qui illustre la liaison des flux d’utilisateur.
+Les stratégies personnalisées sont des fichiers config qui définissent le comportement de votre expérience utilisateur locataire Azure AD B2C. Si les flux d’utilisateurs sont prédéfinis sur le portail Azure AD B2C pour les tâches d’identité les plus courantes, les stratégies personnalisées, elles, peuvent être entièrement modifiés par un développeur d’identité pour effectuer de nombreuses tâches différentes.
 
-## <a name="email-address-storage"></a>Stockage d’adresse e-mail
+Une stratégie personnalisée est entièrement configurable et basée sur des stratégies. Elle orchestre la confiance entre les entités dans les protocoles standards. Par exemple, OpenID Connect, OAuth, SAML et d’autres non standards, par exemple, les échanges de revendications de système à système basés sur un API REST. L’infrastructure crée des expériences conviviales en marque blanche.
 
-Vous pouvez avoir besoin d’une adresse e-mail dans le cadre d’un flux d’utilisateur. Si l’utilisateur s’authentifie avec un fournisseur d’identité de réseau social, l’adresse e-mail est stockée dans la propriété **otherMails**. Si un compte local est basé sur un nom d’utilisateur, l’adresse e-mail est stockée dans une propriété détaillée d’authentification forte. Si un compte local est basé sur une adresse e-mail, l’adresse e-mail est stockée dans la propriété **signInNames**.
+La stratégie personnalisée vous donne la possibilité de construire des parcours utilisateur avec toutes sortes de combinaisons d’étapes. Par exemple :
 
-L’adresse e-mail n’est pas forcément vérifiée dans tous les cas. Un administrateur de locataire peut désactiver la vérification d’e-mail dans les stratégies de base des comptes locaux. Même si la vérification de l’adresse e-mail est activée, les adresses ne sont pas vérifiés si elles proviennent d’un fournisseur d’identité de réseau social et qu’elles n’ont pas été changées.
+* Fédération avec d’autres fournisseurs d’identités
+* Défis d’authentification multifacteur (MFA) internes ou de tiers
+* Collecte d’entrées utilisateur
+* Intégration à des systèmes externes à l’aide de la communication API REST
 
-Seules les propriétés **otherMails** et **signInNames** sont exposées via l’API Microsoft Graph. L’adresse e-mail dans la propriété détaillée de l’authentification forte n’est pas disponible.
+Chaque parcours utilisateur est défini par une stratégie. Vous pouvez générer autant de stratégies que vous le souhaitez pour offrir une expérience utilisateur optimale pour votre organisation.
+
+![Schéma montrant un exemple de parcours utilisateur complexe activé par IEF](media/user-flow-overview/custom-policy-diagram.png)
+
+Une stratégie personnalisée est définie par plusieurs fichiers XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent des aspects de l’expérience d’identité, entre autres : le schéma des revendications, les transformations de revendications, les définitions de contenu, les fournisseurs de revendications, les profils techniques et les étapes d’orchestration du parcours utilisateur.
+
+La puissante flexibilité des stratégies personnalisées représente la solution la mieux adaptée lorsque vous devez créer des scénarios d’identité complexes. Les développeurs qui configurent des stratégies personnalisées doivent définir les relations de confiance dans leurs moindres détails pour inclure les points de terminaison de métadonnées et les définitions exactes des échanges de revendications, et configurer les secrets, les clés et les certificats selon les besoins de chaque fournisseur d’identité.
+
+Apprenez-en davantage sur les stratégies personnalisées avec [Stratégies personnalisées dans Azure Active Directory B2C](custom-policy-overview.md).
+
+## <a name="comparing-user-flows-and-custom-policies"></a>Comparaison des flux d’utilisateur et des stratégies personnalisées
+
+Le table suivante fournit une comparaison détaillée des scénarios que vous pouvez rencontrer avec les flux d’utilisateurs et les stratégies personnalisées Azure AD B2C.
+
+| Context | Flux d’utilisateurs | Stratégies personnalisées |
+|-|-------------------|-----------------|
+| Utilisateurs cibles | Tous les développeurs d’applications avec ou sans expertise de l’identité | Professionnels de l’identité, intégrateurs système, consultants et équipes d’identité internes. Ils sont à l’aise avec les flux OpenID Connect et comprennent les fournisseurs d’identité et l’authentification basée sur les revendications. |
+| Mode de configuration | Portail Azure avec interface utilisateur (UI) conviviale | Modification directe des fichiers XML, puis chargement sur le portail Azure |
+| Personnalisation de l’interface utilisateur | [Personnalisation complète de l’interface utilisateur](customize-ui-with-html.md), y compris HTML, CSS et [JavaScript](javascript-and-page-layout.md).<br><br>[Support multilingue](language-customization.md) avec des chaînes personnalisées. | Identique |
+| Personnalisation des attributs | Attributs standard et personnalisés | Identique |
+| Gestion des jetons et des sessions | [Personnalisez des jetons](configure-tokens.md) et [le comportement de sessions](session-behavior.md). | Identique |
+| Identity Providers | [Fournisseur local prédéfini](identity-provider-local.md) ou [social](add-identity-provider.md), tel que la fédération avec des locataires Azure Active Directory. | OIDC basé sur les normes, OAUTH et SAML  L’authentification est également possible via l’intégration avec les API REST. |
+| Tâches d’identité | [Inscrivez-vous ou connectez-vous](add-sign-up-and-sign-in-policy.md)avec des comptes locaux et de nombreux comptes sociaux.<br><br>[Réinitialisation de mots de passe en libre service](add-password-reset-policy.md).<br><br>[Modification de profil](add-profile-editing-policy.md).<br><br>Authentification multifacteur<br><br>Flux de jetons d’accès | Réalisation des mêmes tâches que les flux d’utilisateur à l’aide de fournisseurs d’identité personnalisés ou utilisation des étendues personnalisées<br><br>Provisionnement d’un compte d’utilisateur dans un autre système au moment de l’inscription<br><br>Envoi d’un e-mail de bienvenue avec votre propre fournisseur de service de messagerie<br><br>Utilisation d’un magasin d’utilisateurs en dehors d’Azure AD B2C<br><br>Validation des informations fournies par l’utilisateur avec un système approuvé à l’aide d’une API |
+
+## <a name="application-integration"></a>Intégration d’applications
+
+Vous pouvez créer plusieurs flux d’utilisateurs ou stratégies personnalisées de types différents dans votre locataire et les utiliser dans vos applications selon vos besoins. Les flux d’utilisateurs et les stratégies personnalisées peuvent être réutilisés entre les applications. Cette flexibilité vous permet de définir et de modifier les expériences relatives à l’identité avec peu ou pas de modification du code. 
+
+Lorsqu’un utilisateur veut se connecter à votre application, l’application initie une requête d’autorisation sur un point de terminaison fourni par un flux d’utilisateurs ou une stratégie personnalisée. Le flux d’utilisateur ou la stratégie personnalisée définit et contrôle l’expérience de l’utilisateur. Lorsque qu’un flux d’utilisateurs se termine, Azure AD B2C génère un jeton, puis redirige l’utilisateur vers votre application.
+
+![Application mobile, avec des flèches montrant le flux circulant entre l’application et la page de connexion Azure AD B2C](media/user-flow-overview/app-integration.png)
+
+Plusieurs applications peuvent utiliser le même flux utilisateur ou la même stratégie personnalisée. Une seule application peut utiliser plusieurs flux utilisateur ou stratégies personnalisées.
+
+Par exemple, pour se connecter à une application, l’application utilise le flux utilisateur *d’inscription ou de connexion*. Une fois l’utilisateur connecté, il peut vouloir modifier son profil. Pour modifier le profil, l’application initie une autre requête d’autorisation, cette fois-ci au moyen du flux d’utilisateurs de la *modification de profil*.
+
+Votre application déclenche un flux d’utilisateurs à l’aide d’une requête d’authentification HTTP standard qui inclut un flux d’utilisateurs ou une stratégie personnalisée. La réponse reçue est un [jeton](tokens-overview.md) personnalisé.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour créer les flux d’utilisateur recommandés, suivez les instructions du [Tutoriel : Créer un flux d’utilisateur](tutorial-create-user-flows.md).
+- Pour créer les flux d’utilisateur recommandés, suivez les instructions du [Tutoriel : Créer un flux d’utilisateur](tutorial-create-user-flows.md).
+- Pour plus d’informations, consultez [Versions de flux d’utilisateurs dans Azure AD B2C](user-flow-versions.md).
+- En savoir plus sur les [ Stratégies personnalisées d’Azure AD B2C](custom-policy-overview.md).

@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2021
 ms.author: v-erkel
-ms.openlocfilehash: 10d68ce679fe42f5deeaae364bc46adb23436a27
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 45a7169330b11e98a8618b08205217212414ca5d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587149"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258926"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Contourner les paramètres de pare-feu de compte de stockage Blob
 
 Un paramètre particulier utilisé dans les pare-feu de compte de stockage peut faire échouer la création de la cible de stockage d’objets blob. L’équipe Azure HPC Cache travaille sur un correctif logiciel pour résoudre ce problème, mais vous pouvez le contourner en suivant les instructions de cet article.
 
-Le paramètre de pare-feu qui autorise l’accès uniquement à partir de « réseaux sélectionnés » peut empêcher le cache de créer ou de modifier une cible de stockage Blob. Cette configuration se trouve dans la page de paramètres **Pare-feu et réseaux virtuels** du compte de stockage.
+Le paramètre de pare-feu qui autorise l’accès uniquement à partir de « réseaux sélectionnés » peut empêcher le cache de créer ou de modifier une cible de stockage Blob. Cette configuration se trouve dans la page de paramètres **Pare-feu et réseaux virtuels** du compte de stockage. (Ce problème ne s’applique pas aux cibles de stockage ADLS-NFS.)
 
 Le problème est que le service de cache utilise un réseau virtuel de service masqué distinct des environnements des clients. Il n’est pas possible d’autoriser explicitement ce réseau à accéder à votre compte de stockage.
 

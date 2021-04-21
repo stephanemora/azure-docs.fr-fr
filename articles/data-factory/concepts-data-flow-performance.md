@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/15/2021
-ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/10/2021
+ms.openlocfilehash: cee7993116e746c7b827faaf94724033501f1318
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561683"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309048"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -132,14 +132,17 @@ Les flux de données sont tarifés sur la base de vCores/heure, mode de calcul i
 
 ### <a name="time-to-live"></a>Durée de vie
 
-Par défaut, chaque activité de flux de données a pour effet de démarrer un nouveau cluster en fonction de la configuration du runtime d’intégration. Le démarrage du cluster prend quelques minutes et le traitement des données ne peut pas commencer tant que le processus de démarrage n’est pas terminé. Si vos pipelines contiennent plusieurs flux de données **séquentiels**, vous pouvez activer une valeur de durée de vie (TTL). La spécification d’une valeur de durée de vie a pour effet que le cluster reste actif pendant un certain temps après la fin de son exécution. Si un nouveau travail commence à utiliser le runtime d’intégration (IR) pendant la durée de vie (TTL), il va réutiliser le cluster existant et le temps de démarrage sera donc fortement réduit. Une fois le deuxième travail terminé, le cluster reste actif pendant la durée de vie.
+Par défaut, chaque activité de flux de données a pour effet de démarrer un nouveau cluster Spark en fonction de la configuration d’Azure IR. Le démarrage des clusters froids prend quelques minutes et le traitement des données ne peut pas commencer tant que le processus de démarrage n’est pas terminé. Si vos pipelines contiennent plusieurs flux de données **séquentiels**, vous pouvez activer une valeur de durée de vie (TTL). La spécification d’une valeur de durée de vie a pour effet que le cluster reste actif pendant un certain temps après la fin de son exécution. Si un nouveau travail commence à utiliser le runtime d’intégration (IR) pendant la durée de vie (TTL), il va réutiliser le cluster existant et le temps de démarrage sera donc fortement réduit. Une fois le deuxième travail terminé, le cluster reste actif pendant la durée de vie.
 
-Une seule tâche peut être exécutée sur un seul cluster à la fois. Si un cluster est disponible, mais que deux flux de données démarrent, un seul utilise par le cluster actif. Le deuxième travail démarre son propre cluster isolé.
+Vous pouvez également réduire au minimum le temps de démarrage des clusters chauds en définissant l’option « Réutilisation rapide » dans le runtime d’intégration Azure sous Propriétés du flux de données. Si vous définissez cette option sur true, ADF ne supprimera pas le cluster existant après chaque travail et le réutilisera à la place, ce qui permet de maintenir actif l’environnement Compute que vous avez défini dans votre IR Azure jusqu’à la fin de la période spécifiée dans votre TTL. Cette option permet de réduire au maximum le temps de démarrage de vos activités de flux de données lorsqu’elles sont exécutées à partir d’un pipeline.
 
-Si la plupart de vos flux de données s’exécutent en parallèle, il n’est pas recommandé d’activer la durée de vie. 
+Toutefois, si la plupart de vos flux de données s’exécutent en parallèle, il n’est pas recommandé d’activer la TTL de l’IR que vous utilisez pour ces activités. Une seule tâche peut être exécutée sur un seul cluster à la fois. Si un cluster est disponible, mais que deux flux de données démarrent, un seul utilise par le cluster actif. Le deuxième travail démarre son propre cluster isolé.
 
 > [!NOTE]
 > La durée de vie n’est pas disponible lors de l’utilisation du runtime d’intégration de résolution automatique.
+ 
+> [!NOTE]
+> La réutilisation rapide de clusters existants est une fonctionnalité d’Azure Integration Runtime qui est actuellement en préversion publique.
 
 ## <a name="optimizing-sources"></a>Optimisation des sources
 
@@ -304,9 +307,10 @@ Si vos flux de données s’exécutent en parallèle, il est recommandé de ne p
 
 ### <a name="execute-data-flows-sequentially"></a>Exécuter des flux de données séquentiellement
 
-Si vous exécutez vos activités de flux de données dans l’ordre, il est recommandé de définir une durée de vie dans la configuration d’Azure IR. ADF réutilise les ressources de calcul, ce qui accélère le démarrage du cluster. Chaque activité sera toujours isolée pour recevoir un nouveau contexte Spark pour chaque exécution.
+Si vous exécutez vos activités de flux de données dans l’ordre, il est recommandé de définir une durée de vie dans la configuration d’Azure IR. ADF réutilise les ressources de calcul, ce qui accélère le démarrage du cluster. Chaque activité sera toujours isolée pour recevoir un nouveau contexte Spark pour chaque exécution. Pour réduire encore davantage le temps entre les activités séquentielles, cochez la case « Réutiliser rapidement » sur l’IR Azure pour indiquer à ADF de réutiliser le cluster existant.
 
-L’exécution des travaux dans l’ordre prendra probablement le plus de temps pour s’exécuter de bout en bout, mais elle fournit une séparation propre des opérations logiques.
+> [!NOTE]
+> La réutilisation rapide de clusters existants est une fonctionnalité d’Azure Integration Runtime qui est actuellement en préversion publique.
 
 ### <a name="overloading-a-single-data-flow"></a>Surcharge d’un seul flux de données
 

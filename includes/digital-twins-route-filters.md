@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 811e59e8fd2fea1d8ee90014d4a5ea11229eec63
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98860124"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257300"
 ---
 | Nom du filtre | Description | Schéma du texte du filtre | Valeurs prises en charge | 
 | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "98860124"
 | Schéma de données | ID de modèle DTDL | `dataschema = '<model-dtmi-ID>'` | **Pour la télémétrie** : le schéma de données est l'ID de modèle du jumeau ou du composant qui émet les données de télémétrie. Par exemple : `dtmi:example:com:floor4;2` <br>**Pour les notifications (création/suppression)**  : Le schéma de données est accessible dans le corps de la notification à `$body.$metadata.$model`. <br>**Pour les notifications (mise à jour)**  : Le schéma de données est accessible dans le corps de la notification à `$body.modelId`|
 | Type de contenu | Type de contenu de la valeur de données | `datacontenttype = '<contentType>'` | Le type de contenu est `application/json` |
 | Version de spécification | Version du schéma d’événement que vous utilisez | `specversion = '<version>'` | La version doit être `1.0`. Cela indique le schéma CloudEvents version 1.0. |
-| Corps de la notification | Référencer n’importe quelle propriété dans le champ `data` d’une notification | `$body.<property>` | Consultez [*Guide pratique pour comprendre les données d’événements*](../articles/digital-twins/how-to-interpret-event-data.md) afin d’obtenir des exemples de notifications. Toute propriété du champ `data` peut être référencée à l’aide de `$body`
+| Corps de la notification | Référencer n’importe quelle propriété dans le champ `data` d’une notification | `$body.<property>` | Consultez [*Concepts : Notifications d'événements*](../articles/digital-twins/concepts-event-notifications.md) pour accéder à des exemples de notifications. Toute propriété du champ `data` peut être référencée à l’aide de `$body`
 
 Les types de données suivants sont pris en charge en tant que valeurs retournées par les références aux données ci-dessus :
 

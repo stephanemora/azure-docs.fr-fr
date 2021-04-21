@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6d15e2b8bfcddfd1f554ab2a27083fe5256e9e2b
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462675"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226326"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
@@ -94,19 +94,14 @@ Voici un exemple de requête spécifiant une valeur pour les trois paramètres 
 
 Lorsque vous effectuez une interrogation basée sur les **relations** des jumeaux numériques, sachez que le langage du magasin de requêtes d’Azure Digital Twins présente une syntaxe spéciale.
 
-Les relations sont tirées (pull) puis ajoutées à l’étendue de la requête dans la clause `FROM`. Ce qui le distingue principalement des langages de type SQL « classiques » est que chaque expression de la clause `FROM` n’est pas une table. En effet, la clause `FROM` exprime une traversée de relation entre les entités, et elle est écrite avec une version Azure Digital Twins de `JOIN`.
+Les relations sont tirées (pull) puis ajoutées à l’étendue de la requête dans la clause `FROM`. Contrairement aux langages de type SQL « classiques », chaque expression de cette clause `FROM` n’est pas une table. La clause `FROM` exprime plutôt un parcours des relations entre les entités. Pour parcourir les relations, Azure Digital Twins utilise une version personnalisée de `JOIN`.
 
-Rappelez-vous qu’avec les fonctionnalités de [modèle](concepts-models.md) d’Azure Digital Twins, les relations n’existent pas indépendamment des jumeaux. Cela signifie que le `JOIN` du langage d’Azure Digital Twins est légèrement différent du `JOIN` SQL général, puisque les relations ne peuvent pas être interrogées de manière indépendante et doivent être liées à un jumeau.
-Pour incorporer cette différence, le mot clé `RELATED` est utilisé dans la clause `JOIN` afin de référencer l’ensemble de relations d’un jumeau.
+Rappelez-vous qu’avec les fonctionnalités de [modèle](concepts-models.md) d’Azure Digital Twins, les relations n’existent pas indépendamment des jumeaux. Cela signifie que les relations ne peuvent pas être interrogées indépendamment et doivent être liées à un jumeau.
+Pour gérer cela, le mot clé `RELATED` est utilisé dans la clause `JOIN` pour extraire l’ensemble d’un certain type de relation provenant de la collection de jumeaux. La requête doit ensuite filtrer dans la clause `WHERE` le(s) jumeau(x) spécifique(s) à utiliser dans la requête de relation (à l’aide des valeurs `$dtId` des jumeaux).
 
-La section suivante fournit plusieurs exemples.
+Les sections suivantes fournissent des exemples.
 
-> [!TIP]
-> D’un point de vue conceptuel, cette fonctionnalité imite les fonctionnalités orientées document de CosmosDB, où `JOIN` peut être effectué sur les objets enfants d’un document. CosmosDB utilise le mot clé `IN` pour indiquer que `JOIN` est destiné à itérer au sein des éléments de tableau du document de contexte actuel.
-
-### <a name="relationship-based-query-examples"></a>Exemples de requêtes basées sur les relations
-
-Pour obtenir un jeu de données comprenant des relations, utilisez une instruction `FROM` suivie de N instructions `JOIN`, où les instructions `JOIN` expriment les relations basées sur le résultat d’une instruction `FROM` ou `JOIN` précédente.
+### <a name="basic-relationship-query"></a>Requête de relation de base
 
 Voici un exemple de requête basée sur les relations. Cet extrait de code sélectionne tous les jumeaux numériques dont la propriété *ID* a la valeur « ABC », ainsi que tous les jumeaux numériques associés à ces jumeaux via une relation de *contenance*.
 
@@ -114,6 +109,18 @@ Voici un exemple de requête basée sur les relations. Cet extrait de code séle
 
 > [!NOTE]
 > Le développeur n’a pas besoin de mettre en corrélation ce `JOIN` avec une valeur de clé dans la clause `WHERE` (ni de spécifier une valeur de clé inline avec la définition `JOIN`). Cette corrélation est calculée automatiquement par le système, puisque les propriétés de relation identifient l’entité cible.
+
+### <a name="query-by-the-source-or-target-of-a-relationship"></a>Interroger selon la source ou la cible d’une relation
+
+Vous pouvez utiliser la structure de requête de relation pour identifier un jumeau numérique qui est la source ou la cible d’une relation.
+
+Par exemple, vous pouvez commencer avec un jumeau source et suivre ses relations pour trouver les jumeaux cibles des relations. Voici un exemple de requête qui recherche les jumeaux cibles des relations de *flux* provenant du *jumeau source* du jumeau.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+
+Vous pouvez également commencer avec la cible de la relation et effectuer le suivi de la relation pour retrouver le jumeau source. Voici un exemple de requête qui permet de trouver le jumeau source d’une relation de *flux* avec le *jumeau cible* du jumeau.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
 
 ### <a name="query-the-properties-of-a-relationship"></a>Interroger les propriétés d’une relation
 
@@ -128,7 +135,9 @@ Dans l’exemple ci-dessus, notez que *reportedCondition* est une propriété de
 
 ### <a name="query-with-multiple-joins"></a>Interroger avec plusieurs clauses JOIN
 
-Jusqu’à cinq `JOIN`s sont pris en charge dans une requête unique. Cela vous permet de parcourir plusieurs niveaux de relations à la fois.
+Jusqu’à cinq `JOIN`s sont pris en charge dans une requête unique. Cela vous permet de parcourir plusieurs niveaux de relations à la fois. 
+
+Pour effectuer une requête à plusieurs niveaux de la relation, utilisez une instruction `FROM` suivie de N instructions `JOIN`, où les instructions `JOIN` expriment les relations basées sur le résultat d’une instruction `FROM` ou `JOIN` précédente.
 
 Voici un exemple de requête à plusieurs JOIN, qui permet d’obtenir toutes les ampoules contenues dans les panneaux lumineux des pièces 1 et 2.
 

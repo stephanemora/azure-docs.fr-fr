@@ -2,13 +2,13 @@
 title: Vue d’ensemble de la sauvegarde des disques Azure
 description: Découvrez la solution de sauvegarde des disques Azure.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: 9449fdc57909cb143d381ae074913c79d24c8893
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 42f37c1f500be719e0bd79bad41226ab3ab2d911
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107293"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285137"
 ---
 # <a name="overview-of-azure-disk-backup"></a>Vue d’ensemble de la sauvegarde de disques Azure
 
@@ -31,19 +31,19 @@ La sauvegarde des disques Azure est une solution sans agent avec cohérence en c
 
 La solution de sauvegarde des disques Azure est utile dans les scénarios suivants :
 
-- Besoin de sauvegardes fréquentes par jour sans que l’application soit inactive
-- Applications en cours d’exécution dans un scénario de cluster : les clusters de basculement Windows Server et Linux écrivent sur des disques partagés
-- Besoin spécifique d’une sauvegarde sans agent en raison de problèmes de sécurité ou de performances sur l’application
+- Besoin de sauvegardes fréquentes par jour sans que l’application soit inactive.
+- Applications en cours d’exécution dans un scénario de cluster : les clusters de basculement Windows Server et Linux écrivent sur des disques partagés.
+- Besoin spécifique d’une sauvegarde sans agent en raison de problèmes de sécurité ou de performances sur l’application.
 - La sauvegarde cohérente des applications de la machine virtuelle n’est pas possible, car les applications métier ne prennent pas en charge le service de cliché instantané des volumes (VSS).
 
 Envisagez la sauvegarde des disques Azure dans les scénarios suivants :
 
-- Une application stratégique s’exécute sur une machine virtuelle Azure qui demande plusieurs sauvegardes par jour pour atteindre l’objectif de point de récupération, mais sans affecter les performances de l’environnement de production ou de l’application.
-- Votre organisation ou la réglementation du secteur limite l’installation des agents en raison de problèmes de sécurité.
-- L’exécution de pré-scripts ou post-scripts personnalisés et l’appel d’un gel-dégel sur les machines virtuelles Linux pour bénéficier d’une sauvegarde cohérente avec les applications entraînent une surcharge injustifiée au niveau de la disponibilité des charges de travail de production.
-- Les applications conteneurisées qui s’exécutent sur le service Azure Kubernetes (cluster AKS) utilisent des disques managés comme stockage persistant. Aujourd’hui, vous devez sauvegarder le disque managé via des scripts d’automatisation difficiles à gérer.
-- Un disque managé comporte des données d’entreprise critiques, utilisées comme un partage de fichiers, ou contient des fichiers de sauvegarde de base de données, et vous souhaitez optimiser le coût de la sauvegarde en n’investissant pas dans la sauvegarde des machines virtuelles Azure.
-- Vous avez de nombreuse machines virtuelles Linux et Windows à disque unique (autrement dit, une machine virtuelle dotée d’un seul disque de système d’exploitation et d’aucun disque de données attaché) qui hébergent des machines sans état ou de serveur web ou qui servent d’environnement intermédiaire avec des paramètres de configuration d’application, et vous avez besoin d’une solution de sauvegarde économique pour protéger le disque du système d’exploitation. Par exemple, pour déclencher une sauvegarde à la demande rapide avant la mise à niveau ou la mise à jour corrective de la machine virtuelle.
+- Une application stratégique s’exécute sur une machine virtuelle Azure qui exige plusieurs sauvegardes par jour pour atteindre l’objectif de point de récupération, mais sans avoir d’impact sur les performances de l’environnement de production ou de l’application.
+- La réglementation de votre organisation ou de votre secteur d’activité restreint l’installation d’agents pour des raisons de sécurité.
+- L’exécution de pré-scripts ou de post-scripts personnalisés et l’appel d’un gel-dégel sur les machines virtuelles Linux pour bénéficier d’une sauvegarde cohérente avec les applications entraînent une surcharge excessive au niveau de la disponibilité des charges de travail de production.
+- Les applications conteneurisées qui s’exécutent sur Azure Kubernetes Service (cluster AKS) utilisent des disques managés comme stockage persistant. Aujourd’hui, vous devez sauvegarder le disque managé via des scripts d’automatisation difficiles à gérer.
+- Un disque managé comporte des données commerciales critiques, est utilisé comme un partage de fichiers ou contient des fichiers de sauvegarde de base de données, et vous souhaitez optimiser le coût de la sauvegarde en n’investissant pas dans la sauvegarde des machines virtuelles Azure.
+- Vous avez de nombreuse machines virtuelles Linux et Windows à disque unique (autrement dit, une machine virtuelle dotée d’un seul disque de système d’exploitation et d’aucun disque de données attaché) qui hébergent un serveur web ou des machines sans état ou qui servent d’environnement intermédiaire avec des paramètres de configuration d’application, et vous avez besoin d’une solution de sauvegarde économique pour protéger le disque du système d’exploitation. Par exemple, pour déclencher une sauvegarde rapide à la demande avant la mise à niveau ou la mise à jour corrective de la machine virtuelle.
 - Une machine virtuelle exécute une configuration de système d’exploitation qui n’est pas prise en charge par la solution de sauvegarde des machines virtuelles Azure (par exemple, la version 32 bits de Windows Server 2008).
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Fonctionnement du processus de sauvegarde et de restauration
@@ -62,12 +62,12 @@ Envisagez la sauvegarde des disques Azure dans les scénarios suivants :
 
 - Le coffre de sauvegarde utilise l’identité managée pour accéder à d’autres ressources Azure. Pour configurer la sauvegarde d’un disque managé et restaurer à partir d’une sauvegarde antérieure, l’identité managée du coffre de sauvegarde nécessite un ensemble d’autorisations sur le disque source, le groupe de ressources d’instantanés où les instantanés sont créés et gérés, ainsi que le groupe de ressources cibles où vous souhaitez restaurer la sauvegarde. Vous pouvez accorder des autorisations à l’identité managée à l’aide du contrôle d’accès en fonction du rôle Azure (RBAC Azure). L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Découvrez-en plus sur les [identités managées](../active-directory/managed-identities-azure-resources/overview.md).
 
-- Actuellement, la sauvegarde des disques Azure prend en charge la sauvegarde opérationnelle des disques managés et ne copie pas les sauvegardes dans le stockage du coffre de sauvegarde. Reportez-vous à la [matrice de prise en charge ](disk-backup-support-matrix.md) pour obtenir la liste détaillée des scénarios pris en charge et non pris en charge, ainsi que la disponibilité dans les régions.
+- Actuellement, la sauvegarde des disques Azure prend en charge la sauvegarde opérationnelle des disques managés et ne copie pas les sauvegardes dans le stockage du coffre de sauvegarde. Reportez-vous à la [matrice de prise en charge ](disk-backup-support-matrix.md) pour obtenir la liste détaillée des scénarios pris en charge et non pris en charge, ainsi que pour connaître la disponibilité dans les régions.
 
 ## <a name="pricing"></a>Tarifs
 
-La sauvegarde Azure offre une solution de gestion du cycle de vie des instantanés pour la protection des disques Azure. Les instantanés de disque créés par la sauvegarde Azure sont stockés dans le groupe de ressources de votre abonnement Azure et occasionnent des frais de **stockage d’instantanés**. Vous pouvez consulter [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/) pour plus d’informations sur les tarifs des instantanés. Comme les instantanés ne sont pas copiés dans le coffre de sauvegarde, la sauvegarde Azure ne facture aucuns frais d’**instance protégée** et le coût de **stockage de sauvegarde** ne s’applique pas. De plus, les instantanés incrémentiels occupent les modifications d’ordre différentiel depuis le dernier instantané et sont toujours stockés dans le stockage standard, quel que soit le type de stockage des disques managés parents, et sont facturés en fonction des tarifs du stockage standard. C’est pourquoi la sauvegarde des disques Azure une solution économique.
+La sauvegarde Azure offre une solution de gestion du cycle de vie des instantanés pour la protection des disques Azure. Les instantanés de disque créés par la sauvegarde Azure sont stockés dans le groupe de ressources de votre abonnement Azure et occasionnent des frais de **stockage d’instantanés**. Vous pouvez consulter [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/) pour plus d’informations sur les tarifs des instantanés.<br></br>Comme les instantanés ne sont pas copiés dans le coffre de sauvegarde, la sauvegarde Azure ne facture aucuns frais d’**instance protégée** et le coût de **stockage de sauvegarde** ne s’applique pas. De plus, les instantanés incrémentiels occupent les modifications d’ordre différentiel comme le dernier instantané et sont toujours stockés dans le stockage standard, quel que soit le type de stockage des disques managés parents, et sont facturés selon la tarification du stockage standard. C’est pourquoi la sauvegarde des disques Azure une solution économique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Matrice de prise en charge de sauvegarde de disques Azure](disk-backup-support-matrix.md)
+[Matrice de prise en charge de sauvegarde de disques Azure](disk-backup-support-matrix.md)

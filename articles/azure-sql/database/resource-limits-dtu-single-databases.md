@@ -10,24 +10,36 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/20/2019
-ms.openlocfilehash: c530d584282cebba78c095798944e48d7efe2c66
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 3afc2a1e3b279e7c4fd350e96787454e01e01f79
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625627"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303217"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat DTU.
 
-Pour connaître les limites de ressources des pools élastiques du modèle d’achat DTU, consultez [Limites des ressources DTU : pools élastiques](resource-limits-dtu-elastic-pools.md). Pour connaître les limites de ressources vCore, consultez [Limites de ressources vCore : bases de données uniques](resource-limits-vcore-single-databases.md) et [Limites de ressources vCore : pools élastiques](resource-limits-vcore-elastic-pools.md). Pour plus d’informations concernant les différents modèles d’achat, consultez l’article décrivant les [modèles d’achat et niveaux de service](purchasing-models.md).
+* Pour connaître les limites du modèle d’achat DTU pour les bases de données uniques sur un serveur, consultez [Vue d’ensemble des limites de ressources sur un serveur](resource-limits-logical-server.md).
+* Pour les limites de ressources du modèle d’achat DTU d’Azure SQL Database, consultez [limites de ressources DTU pour les bases de données uniques](resource-limits-dtu-single-databases.md) et celles pour les [pools élastiques](resource-limits-dtu-elastic-pools.md).
+* Pour connaître les limites de ressources vCore, consultez [Limites de ressources vCore : Azure SQL Database](resource-limits-vcore-single-databases.md) et [Limites de ressources vCore : pools élastiques](resource-limits-vcore-elastic-pools.md).
+* Pour plus d’informations concernant les différents modèles d’achat, consultez l’article décrivant les [modèles d’achat et niveaux de service](purchasing-models.md).
+
+Chaque réplica en lecture seule a ses propres ressources, telles que les DTU, les rôles de travail et les sessions. Chaque réplica en lecture seule est soumis aux limites de ressources détaillées plus loin dans cet article. 
+
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de données unique : tailles de stockage et tailles de calcul
 
-Les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de service et taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](single-database-manage.md#the-azure-portal), de [Transact-SQL](single-database-manage.md#transact-sql-t-sql), de [PowerShell](single-database-manage.md#powershell), [d’Azure CLI](single-database-manage.md#the-azure-cli) ou de [l’API REST](single-database-manage.md#rest-api).
+Les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de service et taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données via :
+
+* [Transact-SQL](single-database-manage.md#transact-sql-t-sql) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](single-database-manage.md#powershell)
+* [Azure CLI](single-database-manage.md#the-azure-cli)
+* [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](single-database-scale.md)
