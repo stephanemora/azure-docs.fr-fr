@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 94ff29d2c3272b61ff09fa0e564fcf2fcd281130
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b2c1e663c659935e7e820f30a281099058a4cf34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94566042"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770990"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-cassandra-api-keyspace-and-table-using-azure-cli"></a>Créer un verrou de ressource pour un espace de clés et une table d’API Cassandra Azure Cosmos avec Azure CLI
 [!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
@@ -34,10 +34,10 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | Crée un verrou. |
-| [az lock list](/cli/azure/lock#az-lock-list) | Liste les informations sur les verrous. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Affiche les propriétés d’un verrou. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | Supprime un verrou. |
+| [az lock create](/cli/azure/lock#az_lock_create) | Crée un verrou. |
+| [az lock list](/cli/azure/lock#az_lock_list) | Liste les informations sur les verrous. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Affiche les propriétés d’un verrou. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | Supprime un verrou. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

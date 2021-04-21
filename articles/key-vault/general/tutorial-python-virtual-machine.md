@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 2fc77d0cdfb6bd8a62555951c0b6dc7e9b732f93
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 25182105db831724565c6bf3dbbbb79832b677f7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203536"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772057"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle dans Python
 
@@ -81,7 +81,7 @@ Notez la valeur de `publicIpAddress` dans la sortie.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Affecter une identité à la machine virtuelle
 
-Créez une identité attribuée par le système pour la machine virtuelle avec la commande Azure CLI [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) :
+Créez une identité attribuée par le système pour la machine virtuelle avec la commande Azure CLI [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign) :
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"

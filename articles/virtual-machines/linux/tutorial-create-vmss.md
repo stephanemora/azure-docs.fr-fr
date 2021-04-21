@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: c38fb976ca597647493f3dc3d32be79040ded6eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d31bde05158e89168f2a67b820c8743d4cd2729
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91320181"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769892"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutoriel : Créer un groupe de machines virtuelles identiques et déployer une application à haute disponibilité sur Linux avec Azure CLI
 
@@ -91,13 +91,13 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique
-Pour pouvoir créer un groupe identique, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupScaleSet* à l’emplacement *eastus*:
+Pour pouvoir créer un groupe identique, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupScaleSet* à l’emplacement *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Créez à présent un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss#az-vmss-create). L’exemple suivant crée un groupe identique nommé *myScaleSet*, utilise le fichier cloud-init pour personnaliser la machine virtuelle et génère des clés SSH si elles n’existent pas :
+Créez à présent un groupe de machines virtuelles identiques avec [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe identique nommé *myScaleSet*, utilise le fichier cloud-init pour personnaliser la machine virtuelle et génère des clés SSH si elles n’existent pas :
 
 ```azurecli-interactive
 az vmss create \
@@ -116,7 +116,7 @@ La création et la configuration des l’ensemble des ressources et des machines
 ## <a name="allow-web-traffic"></a>Autoriser le trafic web
 Un équilibrage de charge a été créé automatiquement dans le cadre du groupe de machines virtuelles identiques. L’équilibrage de charge répartit le trafic sur un ensemble de machines virtuelles définies à l’aide de règles d’équilibrage de charge. Vous trouverez plus d’informations sur les concepts de l’équilibrage de charge et la configuration dans le didacticiel suivant, intitulé [Équilibrage de charge des machines virtuelles dans Azure](tutorial-load-balancer.md).
 
-Pour autoriser le trafic à atteindre l’application web, créez une règle avec [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). L’exemple suivant crée une règle nommée *myLoadBalancerRuleWeb* :
+Pour autoriser le trafic à atteindre l’application web, créez une règle avec [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). L’exemple suivant crée une règle nommée *myLoadBalancerRuleWeb* :
 
 ```azurecli-interactive
 az network lb rule create \
@@ -131,7 +131,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Test de l'application
-Pour voir votre application Node.js sur le web, obtenez l’adresse IP publique de votre équilibrage de charge avec [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). L’exemple suivant obtient l’adresse IP pour *myScaleSetLBPublicIP* qui a été créée dans le cadre du groupe identique :
+Pour voir votre application Node.js sur le web, obtenez l’adresse IP publique de votre équilibrage de charge avec [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). L’exemple suivant obtient l’adresse IP pour *myScaleSetLBPublicIP* qui a été créée dans le cadre du groupe identique :
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ Pour voir le groupe identique en action, vous pouvez forcer l’actualisation de
 Tout au long du cycle de vie du groupe identique, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Azure CLI offre un moyen rapide d’effectuer ces tâches. Voici quelques tâches courantes.
 
 ### <a name="view-vms-in-a-scale-set"></a>Afficher les machines virtuelles d’un groupe identique
-Pour afficher une liste des machines virtuelles exécutées dans votre groupe identique, utilisez [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) comme suit :
+Pour afficher une liste des machines virtuelles exécutées dans votre groupe identique, utilisez [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) comme suit :
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -172,7 +172,7 @@ Le résultat ressemble à l’exemple suivant :
 
 
 ### <a name="manually-increase-or-decrease-vm-instances"></a>Augmenter ou diminuer manuellement les instances de machines virtuelles
-Pour afficher le nombre d’instances présentes dans un groupe identique, utilisez [az vmss show](/cli/azure/vmss#az-vmss-show) et interrogez *sku.capacity* :
+Pour afficher le nombre d’instances présentes dans un groupe identique, utilisez [az vmss show](/cli/azure/vmss#az_vmss_show) et interrogez *sku.capacity* :
 
 ```azurecli-interactive
 az vmss show \
@@ -182,7 +182,7 @@ az vmss show \
     --output table
 ```
 
-Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles dans le groupe identique avec [az vmss scale](/cli/azure/vmss#az-vmss-scale). L’exemple suivant fixe le nombre de machines virtuelles présentes dans votre groupe identique à *3* :
+Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles dans le groupe identique avec [az vmss scale](/cli/azure/vmss#az_vmss_scale). L’exemple suivant fixe le nombre de machines virtuelles présentes dans votre groupe identique à *3* :
 
 ```azurecli-interactive
 az vmss scale \
@@ -192,7 +192,7 @@ az vmss scale \
 ```
 
 ### <a name="get-connection-info"></a>Obtenir des informations de connexion
-Pour obtenir des informations de connexion sur les machines virtuelles dans vos groupes identiques, utilisez [az vmss list-instance-connection-info](/cli/azure/vmss#az-vmss-list-instance-connection-info). Cette commande renvoie l’adresse IP publique et le port pour chaque machine virtuelle pour vous permettre de vous connecter avec SSH :
+Pour obtenir des informations de connexion sur les machines virtuelles dans vos groupes identiques, utilisez [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). Cette commande renvoie l’adresse IP publique et le port pour chaque machine virtuelle pour vous permettre de vous connecter avec SSH :
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -205,7 +205,7 @@ az vmss list-instance-connection-info \
 Vous pouvez créer et utiliser des disques de données avec des groupes identiques. Dans un tutoriel précédent, vous avez appris comment [gérer des disques Azure](tutorial-manage-disks.md). Ce tutoriel inclut également une description des meilleures pratiques et des améliorations des performances pour créer des applications sur des disques de données plutôt que sur le disque du système d’exploitation.
 
 ### <a name="create-scale-set-with-data-disks"></a>Créer un groupe identique avec des disques de données
-Pour créer un groupe identique et y rattacher des disques de données, ajoutez le paramètre `--data-disk-sizes-gb` à la commande [az vmss create](/cli/azure/vmss#az-vmss-create). L’exemple suivant crée un groupe identique avec des disques de données de *50* Go associés à chaque instance :
+Pour créer un groupe identique et y rattacher des disques de données, ajoutez le paramètre `--data-disk-sizes-gb` à la commande [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe identique avec des disques de données de *50* Go associés à chaque instance :
 
 ```azurecli-interactive
 az vmss create \
@@ -222,7 +222,7 @@ az vmss create \
 Lorsque les instances sont supprimées d’un groupe identique, les disques de données associés sont également supprimés.
 
 ### <a name="add-data-disks"></a>Ajouter des disques de données
-Pour ajouter un disque de données à des instances de votre groupe identique, utilisez [az vmss disk attach](/cli/azure/vmss/disk#az-vmss-disk-attach). L’exemple suivant ajoute un disque de données de *50* Go chaque instance :
+Pour ajouter un disque de données à des instances de votre groupe identique, utilisez [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). L’exemple suivant ajoute un disque de données de *50* Go chaque instance :
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -233,7 +233,7 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>Détacher des disques de données
-Pour supprimer un disque de données dans des instances de votre groupe identique, utilisez [az vmss disk detach](/cli/azure/vmss/disk#az-vmss-disk-detach). L’exemple suivant supprime le disque de données au numéro d’unité logique *2* de chaque instance :
+Pour supprimer un disque de données dans des instances de votre groupe identique, utilisez [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). L’exemple suivant supprime le disque de données au numéro d’unité logique *2* de chaque instance :
 
 ```azurecli-interactive
 az vmss disk detach \

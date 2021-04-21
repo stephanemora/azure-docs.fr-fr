@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 32c331b10fcc73b5449588595370f8f69ef9893c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 140709a0ddb548c126ceca208fdeef2db77616bf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872045"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761796"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutoriel : Créer un pipeline de données de bout en bout pour dériver des insights de ventes dans Azure HDInsight
 
@@ -90,7 +90,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    Si vous ne savez pas quelle région spécifier, vous pouvez récupérer la liste des régions prises en charge pour votre abonnement avec la commande [az account list-locations](/cli/azure/account#az-account-list-locations).
+    Si vous ne savez pas quelle région spécifier, vous pouvez récupérer la liste des régions prises en charge pour votre abonnement avec la commande [az account list-locations](/cli/azure/account#az_account_list_locations).
 
     La commande déploie les ressources suivantes :
 

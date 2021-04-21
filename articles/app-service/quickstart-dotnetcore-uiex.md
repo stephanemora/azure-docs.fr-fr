@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff86bedf47395b50dc25e552b8b3ed4176e23b65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214233"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769100"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Démarrage rapide : Créer une application web ASP.NET Core dans Azure
 
@@ -26,7 +26,7 @@ Une fois que vous avez terminé, vous disposez d’un <abbr title="Conteneur log
 
 ## <a name="1-prepare-your-environment"></a>1. Préparation de votre environnement
 
-- **Procurez-vous un compte Azure** avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/dotnet/).
+- **Procurez-vous un compte Azure** avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">subscription</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/dotnet/).
 - **Installez <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>** avec la charge de travail **Développement ASP.NET et web**.
 
 <details>
@@ -256,7 +256,7 @@ az login
     <li>Si la commande <code>az</code> n’est pas reconnue, vérifiez qu’Azure CLI est installé, comme décrit dans <a href="#1-prepare-your-environment">Préparer votre environnement</a>.</li>
     <li>Remplacez <code>&lt;app-name&gt;</code> par un nom unique sur l’ensemble d’Azure (<em>les caractères valides sont <code>a-z</code>, <code>0-9</code> et <code>-</code></em>). Un bon modèle consiste à utiliser une combinaison du nom de votre société et d’un identificateur d’application.</li>
     <li>L’argument <code>--sku F1</code> crée l’application web sur le niveau tarifaire Gratuit. Omettez cet argument pour utiliser un niveau Premium plus rapide, ce qui entraîne un coût horaire.</li>
-    <li>Vous pouvez éventuellement inclure l’argument <code>--location &lt;location-name&gt;</code> où <code>&lt;location-name&gt;</code> est une région Azure disponible. Vous pouvez récupérer une liste de régions autorisées pour votre compte Azure en exécutant la commande <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a>.</li>
+    <li>Vous pouvez éventuellement inclure l’argument <code>--location &lt;location-name&gt;</code> où <code>&lt;location-name&gt;</code> est une région Azure disponible. Vous pouvez récupérer une liste de régions autorisées pour votre compte Azure en exécutant la commande <a href="/cli/azure/appservice#az_appservice_list_locations"><code>az account list-locations</code></a>.</li>
     </ul>
     </details>
     
@@ -268,7 +268,7 @@ az login
     <ul>
     <li>Créer un groupe de ressources par défaut</li>
     <li>Créer un plan App Service par défaut.</li>
-    <li><a href="/cli/azure/webapp#az-webapp-create">Créez une application App Service</a> avec le nom spécifié.</li>
+    <li><a href="/cli/azure/webapp#az_webapp_create">Créez une application App Service</a> avec le nom spécifié.</li>
     <li><a href="/azure/app-service/deploy-zip">Déployez les fichiers zip</a> à partir du répertoire de travail actif sur l’application web.</li>
     <li>Lors de son exécution, elle fournit des messages sur la création de ressources, la journalisation et le déploiement du fichier ZIP.</li>
     </ul>
@@ -302,14 +302,14 @@ http://<app_name>.azurewebsites.net
 
 <hr/> 
 
-## <a name="7-update-and-redeploy-the-code"></a>7. Mettre à jour et redéployer le code
+## <a name="7-update-and-redeploy-the-code&quot;></a>7. Mettre à jour et redéployer le code
 
 1. **Ouvrez le fichier _Startup.cs_**  dans le répertoire local. 
 
 1. **Apportez une petite modification** au texte de l’appel de la méthode `context.Response.WriteAsync`.
 
     ```csharp
-    await context.Response.WriteAsync("Hello Azure!");
+    await context.Response.WriteAsync(&quot;Hello Azure!");
     ```
     
 1. **Enregistrez vos modifications**.

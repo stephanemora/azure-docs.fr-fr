@@ -4,12 +4,12 @@ description: Créer une application de fonction Function App et déployer le cod
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f89da9fc146d753442f2a8c8aa38861e66c9a3d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f31c6a76412939d179cdd282e5e643ab7e8531b5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934371"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786217"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Créer une fonction dans Azure déployée à partir d’Azure DevOps
 
@@ -40,10 +40,10 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 | Commande | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crée le compte de stockage requis par l’application de fonction. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crée une application de fonction dans le [plan Consommation](../consumption-plan.md) serverless. |
-| [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Associe une Function App à un référentiel Git ou Mercurial. |
+| [az group create](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crée le compte de stockage requis par l’application de fonction. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crée une application de fonction dans le [plan Consommation](../consumption-plan.md) serverless. |
+| [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config) | Associe une Function App à un référentiel Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

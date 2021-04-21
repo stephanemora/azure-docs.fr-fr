@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: fa5d34d195cfed2d5dbfa6954d83b28487bf0bba
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d315fa5b588c6e5f2e4643ca18626e400e6ca01b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167751"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785646"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutoriel : Mettre à l’échelle et protéger rapidement une application web à l’aide d’Azure Front Door et d’Azure Web Application Firewall (WAF)
 
@@ -144,7 +144,7 @@ Nous vous recommandons de vous assurer que seuls des périphéries d’Azure Fro
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque vous n’avez plus besoin des ressources utilisées dans ce tutoriel, utilisez la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, Front Door et la stratégie WAF :
+Lorsque vous n’avez plus besoin des ressources utilisées dans ce tutoriel, utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, Front Door et la stratégie WAF :
 
 ```azurecli-interactive
   az group delete \
