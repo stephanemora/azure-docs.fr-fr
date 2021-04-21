@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 492246b5dfb19664ea54ce8b5462c7d77f8d951b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 19809d7150c8a461f97282d1583d0d870d6af8bb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94562710"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770648"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-gremlin-api-database-and-graph-using-azure-cli"></a>Créer un verrou de ressource pour une base de données et un graphe d’API Gremlin Azure Cosmos DB à l’aide d’Azure CLI
 [!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
@@ -34,10 +34,10 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | Crée un verrou. |
-| [az lock list](/cli/azure/lock#az-lock-list) | Liste les informations sur les verrous. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Affiche les propriétés d’un verrou. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | Supprime un verrou. |
+| [az lock create](/cli/azure/lock#az_lock_create) | Crée un verrou. |
+| [az lock list](/cli/azure/lock#az_lock_list) | Liste les informations sur les verrous. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Affiche les propriétés d’un verrou. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | Supprime un verrou. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

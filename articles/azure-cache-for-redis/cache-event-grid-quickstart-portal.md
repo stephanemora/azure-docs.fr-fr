@@ -1,17 +1,19 @@
 ---
 title: 'Démarrage rapide : Router les événements Azure Cache pour Redis vers le point de terminaison web avec le portail Azure'
 description: Utilisez Azure Event Grid pour vous abonner aux événements Azure Cache pour Redis, envoyer les événements à un Webhook et prendre en charge les événements dans une application web
+author: curib
+ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-author: curib
-ms.author: cauribeg
-ms.openlocfilehash: 5bdd6b0e6f97f7e5a738ab17d68282cf402004b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: e021f386f255f1cef61e28cbd4fd6116fc2aa727
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99056485"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529310"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-the-azure-portal"></a>Démarrage rapide : Router les événements Azure Cache pour Redis vers le point de terminaison web avec le portail Azure
 
@@ -123,4 +125,3 @@ Maintenant que vous savez créer des rubriques et des abonnements d’événemen
 
 - [Réaction aux événements Azure Cache pour Redis](cache-event-grid.md)
 - [À propos d’Event Grid](../event-grid/overview.md)
-

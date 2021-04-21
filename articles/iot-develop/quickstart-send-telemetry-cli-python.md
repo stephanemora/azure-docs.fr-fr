@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/24/2021
-ms.openlocfilehash: f28ad8f93769bc95c87095a545f608827c319dd3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea0b161a9038666e1e7ddd5a6c6af2078afff8aa
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106817"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766518"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-azure-iot-hub-python"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT (Python)
 
@@ -122,12 +122,12 @@ Si vous n’avez plus besoin des ressources Azure créées dans ce démarrage ra
 > La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects.
 
 Pour supprimer un groupe de ressources par nom :
-1. Exécutez la commande [az group delete](/cli/azure/group#az-group-delete). Cette commande supprime le groupe de ressources, le hub IoT et l’inscription de l’appareil que vous avez créés.
+1. Exécutez la commande [az group delete](/cli/azure/group#az_group_delete). Cette commande supprime le groupe de ressources, le hub IoT et l’inscription de l’appareil que vous avez créés.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Exécutez la commande [az group list](/cli/azure/group#az-group-list) pour confirmer la suppression du groupe de ressources.  
+1. Exécutez la commande [az group list](/cli/azure/group#az_group_list) pour confirmer la suppression du groupe de ressources.  
 
     ```azurecli
     az group list
