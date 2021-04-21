@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 9eda0acc15badfe7bb2e754d887786aa990d6e24
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6f1a23170d84e39e5d531ae4e3a64b59d29bd677
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034963"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538841"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Surveiller l’intégrité d’un espace de travail Log Analytics dans Azure Monitor
 Pour maintenir les performances et la disponibilité de votre espace de travail Log Analytics dans Azure Monitor, vous devez être en mesure de détecter de façon proactive les problèmes qui surviennent. Cet article décrit comment surveiller l’intégrité de votre espace de travail Log Analytics à l’aide des données du tableau [Opération](/azure/azure-monitor/reference/tables/operation). Ce tableau, qui figure dans tous les espaces de travail Log Analytics, présente les erreurs et les avertissements qui surviennent dans votre espace de travail. Nous vous conseillons de consulter ces données régulièrement et de créer des alertes pour être informé en amont des incidents importants survenus dans votre espace de travail.
@@ -110,7 +110,7 @@ L’exemple suivant crée une alerte Avertissement lorsque la collecte de donné
 - Cible : Sélectionnez votre espace de travail Log Analytics.
 - Critères :
   - Nom du signal : Recherche personnalisée dans les journaux
-  - Requête de recherche : `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - Requête de recherche : `_LogOperation | where Category == "Ingestion" | where Operation == "Data collection Status" | where Level == "Warning"`
   - Basé sur : Nombre de résultats
   - Condition : Supérieur à
   - Seuil : 0

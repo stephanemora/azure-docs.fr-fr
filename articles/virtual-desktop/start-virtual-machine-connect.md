@@ -3,15 +3,15 @@ title: Démarrer une machine virtuelle lors de la connexion – Azure
 description: Comment configurer la fonctionnalité de démarrage de machine virtuelle lors de la connexion.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303954"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389806"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Démarrer une machine virtuelle lors de la connexion (préversion)
 
@@ -119,7 +119,7 @@ La fonctionnalité de démarrage de machine virtuelle lors de la connexion est u
 
 Pour utiliser le portail Azure afin de configurer l'option Démarrer la machine virtuelle à la connexion :
 
-1. Ouvrez votre navigateur web et accédez au [portail Azure](https://portal.azure.com/?feature.startVMonConnect=true#home). Nous vous recommandons d'ouvrir le portail Azure dans une fenêtre InPrivate.
+1. Ouvrez votre navigateur web et accédez au [portail Azure](https://portal.azure.com).
 
 2. Sur le portail Azure, accédez à **Windows Virtual Desktop**.
 

@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6a1ead2fe3c1ec4e2206d1ffbaea4e5ec57433
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 44b4e4bccde07d078c9749ee76c1653e6d431e63
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222519"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532078"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -140,7 +140,7 @@ Si vous n’avez plus de relation avec un annuaire ou un domaine Azure AD extern
 
 ## <a name="managing-a-connected-organization-programmatically"></a>Gestion d’une organisation connectée par programmation
 
-Vous pouvez également créer, répertorier, mettre à jour et supprimer des organisations connectées à l’aide de Microsoft Graph. Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour gérer les objets [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) et définir des commanditaires pour eux.
+Vous pouvez également créer, répertorier, mettre à jour et supprimer des organisations connectées à l’aide de Microsoft Graph. Un utilisateur doté d’un rôle approprié avec une application disposant de l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’API pour gérer les objets [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true) et définir des commanditaires pour eux.
 
 ## <a name="state-properties-of-connected-organizations"></a>Propriétés d’état des organisations connectées
 

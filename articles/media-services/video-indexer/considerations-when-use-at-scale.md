@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: b955c0f494b757fd29c400194ef8b11314a89a03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f941d81df670f017d24a7c5011c55fcc4f082605
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96483608"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531571"
 ---
 # <a name="things-to-consider-when-using-video-indexer-at-scale"></a>Points à prendre en compte lors de l’utilisation de Video Indexer à grande échelle
 
@@ -45,7 +45,7 @@ Prenez ensuite en compte certains des problèmes qui peuvent affecter vos perfor
 
 :::image type="content" source="./media/considerations-when-use-at-scale/first-consideration.png" alt-text="Premier point à prendre en compte lors de l’utilisation de Video Indexer à grande échelle":::
 
-Lorsque vous chargez des vidéos à partir d’une URL, il vous suffit de fournir un chemin d’accès à l’emplacement d’un fichier multimédia, et Video Indexer se charge du reste (consultez le champ `videoUrl` dans l’API [charger une vidéo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload)).
+Lorsque vous chargez des vidéos à partir d’une URL, il vous suffit de fournir un chemin d’accès à l’emplacement d’un fichier multimédia, et Video Indexer se charge du reste (consultez le champ `videoUrl` dans l’API [charger une vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)).
 
 > [!TIP]
 > Utilisez le paramètre `videoUrl` facultatif de l’API de chargement de vidéos.
@@ -58,7 +58,7 @@ En général, lors de la phase de preuve de concept, lorsque vous commencez à u
 
 Dans Azure Media Services, lorsque vous souhaitez augmenter la puissance de calcul et la parallélisation, vous devez prêter attention aux [unités réservées](../latest/concept-media-reserved-units.md) Multimédia. Les unités réservées déterminent les paramètres de vos tâches de traitement multimédia. Le nombre d’unités réservées affecte le nombre de tâches multimédia qui peuvent être traitées simultanément dans chaque compte. Leur type détermine la vitesse de traitement, et une vidéo peut nécessiter plus d’une unité réservée si son indexation est complexe. Lorsque vos unités réservées sont occupées, les nouvelles tâches sont conservées dans une file d’attente jusqu’à ce qu’une autre ressource soit disponible.
 
-Pour fonctionner efficacement et éviter d’avoir des ressources qui restent partiellement inactives, Video Indexer offre un système de mise à l’échelle automatique qui éteint les unités réservées lorsque moins de traitement est nécessaire et les réactive en période d’affluence (jusqu’à la pleine utilisation de toutes vos unités réservées). Vous pouvez activer cette fonctionnalité en [activant la mise à l’échelle automatique](manage-account-connected-to-azure.md#autoscale-reserved-units) dans les paramètres du compte ou à l’aide de l’[API de mise à jour de Azure Media Services pour les comptes payants](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
+Pour fonctionner efficacement et éviter d’avoir des ressources qui restent partiellement inactives, Video Indexer offre un système de mise à l’échelle automatique qui éteint les unités réservées lorsque moins de traitement est nécessaire et les réactive en période d’affluence (jusqu’à la pleine utilisation de toutes vos unités réservées). Vous pouvez activer cette fonctionnalité en [activant la mise à l’échelle automatique](manage-account-connected-to-azure.md#autoscale-reserved-units) dans les paramètres du compte ou à l’aide de l’[API de mise à jour de Azure Media Services pour les comptes payants](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services).
 
 :::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="Deuxième point à prendre en compte lors de l’utilisation de Video Indexer à grande échelle":::
 
@@ -76,7 +76,7 @@ Video Indexer est conçu pour gérer l’indexation à grande échelle, et lorsq
 
 Nous vous recommandons, au lieu d’interroger l’état de votre requête dès que vous avez envoyé la demande de chargement, d’ajouter une [URL de rappel](upload-index-videos.md#callbackurl) et d’attendre la mise à jour de Video Indexer. Dès qu’il y a un changement d’état dans votre demande de chargement, vous recevez une notification POST vers l’URL que vous avez spécifiée.
 
-Vous pouvez ajouter une URL de rappel comme l’un des paramètres de l’[API Charger la vidéo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload). Consultez les exemples de code dans le [référentiel GitHub](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). 
+Vous pouvez ajouter une URL de rappel comme l’un des paramètres de l’[API Charger la vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). Consultez les exemples de code dans le [référentiel GitHub](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). 
 
 Pour l’URL de rappel, vous pouvez également utiliser Azure Functions, une plateforme basée sur les événements serverless qui peut être déclenchée par HTTP et implémenter un flux suivant.
 

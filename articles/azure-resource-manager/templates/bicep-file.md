@@ -3,12 +3,12 @@ title: Structure et syntaxe des fichiers Bicep
 description: Décrit la structure et les propriétés d’un fichier Bicep en utilisant une syntaxe déclarative.
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.openlocfilehash: 09993ae9c08f53144de8e94e6555ad93bec681f6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1b8eddd388878be8f653f963ef967cf2c0af685f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168686"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537860"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Comprendre la structure et la syntaxe des fichiers Bicep
 
@@ -297,7 +297,7 @@ param existingKeyVaultName string
 
 ## <a name="multi-line-strings"></a>Chaînes à lignes multiples
 
-Vous pouvez scinder une chaîne en plusieurs lignes. Utilisez trois caractères guillemets simples `'''` pour commencer et terminer la chaîne à plusieurs lignes. 
+Vous pouvez scinder une chaîne en plusieurs lignes. Utilisez trois caractères guillemets simples `'''` pour commencer et terminer la chaîne à plusieurs lignes.
 
 Les caractères de la chaîne à plusieurs lignes sont traités tels quels. Les caractères d’échappement ne sont pas nécessaires. Vous ne pouvez pas inclure `'''` dans la chaîne à plusieurs lignes. L’interpolation de chaîne n’est pas prise en charge actuellement.
 

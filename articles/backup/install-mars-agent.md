@@ -3,12 +3,12 @@ title: Installer l’agent Microsoft Azure Recovery Services (MARS)
 description: Découvrez comment installer l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des machines Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea48aaa6aad4a51463c4c028ead22f31163f810
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986868"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519219"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installer l’agent MARS de sauvegarde Azure
 
@@ -158,7 +158,7 @@ Si vous avez déjà installé l’agent sur des machines, veillez à exécuter l
 
     ![Ajouter des informations d’identification de coffre à l’aide de l’Assistant Inscription de serveur](./media/backup-configure-vault/register1.png)
 
-1. Dans la page **Paramètre de chiffrement**, spécifiez une phrase secrète pour chiffrer et déchiffrer les sauvegardes de la machine. Pour plus d’informations sur les caractères de phrase secrète autorisés, [voyez ici](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase).
+1. Dans la page **Paramètre de chiffrement**, spécifiez une phrase secrète pour chiffrer et déchiffrer les sauvegardes de la machine. Pour plus d’informations sur les caractères de phrase secrète autorisés, [voyez ici](backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-).
 
     * Enregistrez la phrase secrète dans un emplacement sécurisé. Il vous sera nécessaire pour restaurer une sauvegarde.
     * En cas de perte ou d’oubli de la phrase secrète, Microsoft ne peut pas vous aider à récupérer les données de sauvegarde.

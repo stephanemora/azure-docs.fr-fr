@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34a6eaa653ad0d2f93db0dcd04eec0f5532a4c7
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 81a909d946b55ee8b06d68aa8bee53bc50d2190e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107025"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532300"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -210,7 +210,7 @@ Pour découvrir comment sécuriser plus efficacement votre organisation à l’a
 **Catégorie de service :** MS Graph  
 **Fonctionnalité de produit :** B2B/B2C
 
-[L’API MS Graph pour la personnalisation de l’entreprise](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties?view=graph-rest-1.0) est disponible pour l’expérience de connexion Azure AD ou Microsoft 365, afin d’autoriser la gestion par programmation des paramètres de personnalisation.
+[L’API MS Graph pour la personnalisation de l’entreprise](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties) est disponible pour l’expérience de connexion Azure AD ou Microsoft 365, afin d’autoriser la gestion par programmation des paramètres de personnalisation.
 
 ---
 
@@ -308,7 +308,7 @@ Les clients peuvent à présent réinviter des utilisateurs invités externes ex
 **Catégorie de service :** Provisionnement d’applications  
 **Fonctionnalité de produit :** Gestion du cycle de vie des identités
  
-Les clients peuvent désormais utiliser application.readwrite.ownedby comme permission d’application pour appeler les API de synchronisation. Attention ! Cette fonction est prise en charge uniquement pour l’approvisionnement par Azure AD des applications tiers (par exemle, AWS, Data Bricks, etc.). Elle n’est actuellement pas prise en charge pour l’approvisionnement RH (Workday/Successfactors) ou la synchronisation Cloud (AD vers Azure AD). [Plus d’informations](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+Les clients peuvent désormais utiliser application.readwrite.ownedby comme permission d’application pour appeler les API de synchronisation. Attention ! Cette fonction est prise en charge uniquement pour l’approvisionnement par Azure AD des applications tiers (par exemle, AWS, Data Bricks, etc.). Elle n’est actuellement pas prise en charge pour l’approvisionnement RH (Workday/Successfactors) ou la synchronisation Cloud (AD vers Azure AD). [Plus d’informations](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true)
  
 ---
 
@@ -904,7 +904,7 @@ L’agent de provisionnement cloud a été publié préversion publique et est d
  
 Auparavant, vous pouviez récupérer les clés BitLocker via le point de terminaison /bitlocker. Nous allons déprécier ce point de terminaison, et les clients devront commencer à consommer l’API qui se trouve désormais sous /informationProtection. 
 
-Consultez [API de récupération BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) pour obtenir des mises à jour de la documentation qui reflète ces modifications.
+Consultez [API de récupération BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) pour obtenir des mises à jour de la documentation qui reflète ces modifications.
 
 ---
 
@@ -1072,7 +1072,7 @@ L’expérience de l’Assistant d’intégration (préversion) est maintenant d
 
 Vous pouvez maintenant afficher l’ID de modèle de chaque rôle Azure AD dans le portail Azure. Dans Azure AD, sélectionnez la **description** du rôle sélectionné. 
 
-Il est recommandé aux clients d’utiliser des ID de modèle de rôle dans leur code et leur script PowerShell plutôt que le nom complet. L’utilisation d’ID de modèle de rôle est prise en charge dans les objets [directoryRoles](/graph/api/resources/directoryrole) et [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta). Pour plus d’informations sur les ID de modèle de rôle, consultez [Rôles intégrés d’Azure AD](../roles/permissions-reference.md).
+Il est recommandé aux clients d’utiliser des ID de modèle de rôle dans leur code et leur script PowerShell plutôt que le nom complet. L’utilisation d’ID de modèle de rôle est prise en charge dans les objets [directoryRoles](/graph/api/resources/directoryrole) et [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta&preserve-view=true). Pour plus d’informations sur les ID de modèle de rôle, consultez [Rôles intégrés d’Azure AD](../roles/permissions-reference.md).
 
 ---
 

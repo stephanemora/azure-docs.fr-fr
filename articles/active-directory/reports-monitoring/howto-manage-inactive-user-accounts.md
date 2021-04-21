@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb4ebbd0b1715d9de3905060952a35ad42060119
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2ea62a8d602cc472269b52c230529aa3f9b86ed4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167547"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535098"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Procédure : Gérer les comptes d’utilisateur inactifs dans Azure AD
 
@@ -57,7 +57,7 @@ Cette section liste ce que vous devez savoir sur la propriété lastSignInDateTi
 
 ### <a name="how-can-i-access-this-property"></a>Comment je peux accéder à cette propriété ?
 
-La propriété **lastSignInDateTime** est exposée par le [type de ressource signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta) de l’[API REST Microsoft Graph](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+La propriété **lastSignInDateTime** est exposée par le [type de ressource signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) de l’[API REST Microsoft Graph](/graph/overview#whats-in-microsoft-graph).   
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>La propriété lastSignInDateTime est-elle disponible via l’applet de commande Get-AzureAdUser ?
 
@@ -90,5 +90,5 @@ Pour générer un horodatage lastSignInDateTime, vous avez besoin d’une connex
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats](tutorial-access-api-with-certificates.md)
-* [Informations de référence sur l’API d’audit](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Informations de référence sur l’API de création de rapports relatifs à l’activité de connexion](/graph/api/resources/signin?view=graph-rest-beta)
+* [Informations de référence sur l’API d’audit](/graph/api/resources/directoryaudit) 
+* [Informations de référence sur l’API de création de rapports relatifs à l’activité de connexion](/graph/api/resources/signin)

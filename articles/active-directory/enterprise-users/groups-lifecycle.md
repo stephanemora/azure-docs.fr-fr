@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34ac4a3b7f55c42711e4bc33c75bba964b49c65e
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 8af1a5e73592dc1c3392f0bc1fecfe6139a54710
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551626"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529836"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Microsoft 365
 
@@ -111,7 +111,7 @@ Si le groupe que vous restaurez contient des documents, des sites SharePoint ou 
 
 ## <a name="how-to-retrieve-microsoft-365-group-expiration-date"></a>Comment récupérer la date d’expiration du groupe Microsoft 365
 
-En plus du Volet d’accès dans lequel les utilisateurs peuvent afficher les détails du groupe, tels que la date d’expiration et la dernière date de renouvellement, la date d’expiration d’un groupe Microsoft 365 peut être récupérée à partir de la version bêta de l’API REST Microsoft Graph. expirationDateTime a été activé en tant que propriété de groupe dans la version bêta de Microsoft Graph. Il peut être récupéré à l’aide d’une requête GET. Pour plus d’informations, consultez [cet exemple](/graph/api/group-get?view=graph-rest-beta#example).
+En plus du Volet d’accès dans lequel les utilisateurs peuvent afficher les détails du groupe, tels que la date d’expiration et la dernière date de renouvellement, la date d’expiration d’un groupe Microsoft 365 peut être récupérée à partir de la version bêta de l’API REST Microsoft Graph. expirationDateTime a été activé en tant que propriété de groupe dans la version bêta de Microsoft Graph. Il peut être récupéré à l’aide d’une requête GET. Pour plus d’informations, consultez [cet exemple](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
 
 > [!NOTE]
 > Pour gérer les appartenances aux groupes dans le Volet d’accès, « Restreindre l’accès aux groupes dans le volet d’accès » doit être défini sur « Non » dans les paramètres généraux des groupes Azure Active Directory.

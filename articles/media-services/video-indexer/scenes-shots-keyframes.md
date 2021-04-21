@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a738152296aacbb5914e859a65976bd0f6dbf0a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93041906"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532413"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scènes, captures et images clés
 
@@ -54,7 +54,7 @@ Décompressez et ouvrez le dossier. Dans le dossier *_KeyframeThumbnail*, vous t
 
 #### <a name="with-the-video-indexer-api"></a>Avec l’API Video Indexer
 
-Pour récupérer des images clés à l’aide de l’API Video Indexer, chargez et indexez votre vidéo à l’aide de l’appel [Charger la vidéo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?). Une fois la tâche d’indexation terminée, appelez [Obtenir l’index vidéo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Vous obtiendrez ainsi toutes les informations que Video Indexer a extraites de votre contenu dans un fichier JSON.  
+Pour récupérer des images clés à l’aide de l’API Video Indexer, chargez et indexez votre vidéo à l’aide de l’appel [Charger la vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). Une fois la tâche d’indexation terminée, appelez [Obtenir l’index vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index). Vous obtiendrez ainsi toutes les informations que Video Indexer a extraites de votre contenu dans un fichier JSON.  
 
 Vous obtiendrez une liste d’ID d’images clés dans les métadonnées de chaque plan. 
 
@@ -98,7 +98,7 @@ Vous obtiendrez une liste d’ID d’images clés dans les métadonnées de chaq
 ]
 ```
 
-Vous devrez ensuite exécuter chacun de ces ID d’images clés sur l’appel [Obtenir des miniatures](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?). Chacune des images clés sera alors téléchargée sur votre ordinateur. 
+Vous devrez ensuite exécuter chacun de ces ID d’images clés sur l’appel [Obtenir des miniatures](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail). Chacune des images clés sera alors téléchargée sur votre ordinateur. 
 
 ## <a name="editorial-shot-type-detection"></a>Détection du type de plan éditorial
 

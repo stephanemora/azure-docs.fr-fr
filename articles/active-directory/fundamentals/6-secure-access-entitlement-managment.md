@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89744b63a555cc02d35815b4066ce572b7f77e38
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98725176"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531886"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Gérer l’accès externe avec Gestion des droits d’utilisation 
 
@@ -96,13 +96,13 @@ Pour plus d’informations sur les révisions d’accès, consultez [Planificati
 
 Vous pouvez exécuter les [fonctions de Gestion des droits d'utilisation à l’aide de Microsoft Graph](/graph/tutorial-access-package-api), notamment
 
-* [Gérer les packages d'accès](/graph/api/resources/accesspackage?view=graph-rest-beta)
+* [Gérer les packages d'accès](/graph/api/resources/accesspackage?view=graph-rest-beta&preserve-view=true)
 
-* [Gérer les révisions d’accès](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
+* [Gérer les révisions d’accès](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)
 
-* [Gérer les organisations connectées](/graph/api/resources/connectedorganization?view=graph-rest-beta)
+* [Gérer les organisations connectées](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true)
 
-* [Gérer les paramètres de Gestion des droits d'utilisation](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
+* [Gérer les paramètres de Gestion des droits d'utilisation](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta&preserve-view=true)
 
 ## <a name="recommendations"></a>Recommandations 
 
@@ -112,7 +112,7 @@ Nous vous recommandons d’utiliser les pratiques pour régir l’accès externe
 
 * Si vous avez déjà des utilisateurs B2B dans votre répertoire, vous pouvez également les attribuer directement aux packages d’accès appropriés.
 
-* Vous pouvez attribuer l’accès dans le [Portail Azure](../governance/entitlement-management-access-package-assignments.md) ou via [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta).
+* Vous pouvez attribuer l’accès dans le [Portail Azure](../governance/entitlement-management-access-package-assignments.md) ou via [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta&preserve-view=true).
 
 **Utilisez vos paramètres de gouvernance des identités pour supprimer les utilisateurs de votre répertoire lorsque leurs packages d’accès expirent**.
 

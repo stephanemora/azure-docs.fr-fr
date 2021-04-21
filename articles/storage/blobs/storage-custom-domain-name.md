@@ -9,12 +9,12 @@ ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 52fc7b9c1229421fd46b8110857a0a7a8a4f916a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45ae3d80202bfb29074461f899798d278eb0895b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100520423"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538354"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure
 
@@ -414,7 +414,7 @@ Si vous n’avez pas besoin que les utilisateurs accèdent à votre objet blob o
 
    * [Redirection HTTP vers HTTPS avec Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
 
-   * [Tarification et facturation lors de l’utilisation de Stockage Blob avec Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#http-to-https-redirection).
+   * [Tarification et facturation lors de l’utilisation de Stockage Blob avec Azure CDN](../../cdn/cdn-storage-custom-domain-https.md#pricing-and-billing).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.date: 02/12/2021
 ms.author: iangithinji
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92dea75855ab1e5486b39d072692e72b26c4da1c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 1af80979a4712f6d25d994835128f9d5d2205f42
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377766"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534739"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -226,7 +226,7 @@ Pour appliquer une stratégie de découverte du domaine d’accueil après l’a
 
 Vous avez besoin de **l’ID d’objet** des principaux de service auxquels vous souhaitez affecter la stratégie. Il existe plusieurs façons de rechercher **l’ID d’objet** des principaux de service.
 
-Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). Vous pouvez également accéder à [l’outil Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation.
+Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](/graph/api/resources/serviceprincipal). Vous pouvez également accéder à [l’outil Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation.
 
 Étant donné que vous utilisez PowerShell, vous pouvez utiliser l’applet de commande suivante pour lister les principaux de service et leurs identifiants.
 

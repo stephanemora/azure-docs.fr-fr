@@ -2,21 +2,21 @@
 title: Résoudre les problèmes de pool SQL dédié (anciennement SQL DW)
 description: Résolution des problèmes de pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/13/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 949a89dd4e84bdb44ad15eaff9ca160fdd21b395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af653585ec1b57b5fd697dc755e495a96e04e677
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602126"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565404"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Résoudre les problèmes de pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -86,6 +86,6 @@ Pour obtenir une aide supplémentaire lors de la recherche d’une solution à v
 * [Demandes de fonctionnalités](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Création d’un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md)
-* [Page de questions Microsoft Q&R](/answers/topics/azure-synapse-analytics.html)
+* [Page de questions Microsoft Q&A](/answers/topics/azure-synapse-analytics.html)
 * [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

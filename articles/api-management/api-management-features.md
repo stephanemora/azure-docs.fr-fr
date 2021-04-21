@@ -4,20 +4,16 @@ description: Comparez les niveaux de service de Gestion des API en fonction des 
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f111729d7d7707ed4f40ce8f89ce76975fb47400
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92077845"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536450"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparaison des fonctionnalités des niveaux de la Gestion des API Azure
 
@@ -31,6 +27,7 @@ Chacun des [niveaux tarifaires](https://aka.ms/apimpricing) de la Gestion des AP
 | Intégration à Azure AD<sup>1</sup>                                                             | Non          | Oui       | Non    | Oui      | Oui     |
 | Prise en charge du réseau virtuel                                                               | Non          | Oui       | Non    | Non       | Oui     |
 | Déploiement multi-régions                                                                      | Non          | Non        | Non    | Non       | Oui     |
+| Zones de disponibilité                                                                           | Non          | Non        | Non    | Non       | Oui     |
 | Noms de domaine personnalisés multiples                                                                 | Non          | Oui        | Non    | Non       | Oui     |
 | Portail des développeurs<sup>2</sup>                                                                 | Non          | Oui       | Oui   | Oui      | Oui     |
 | Cache intégré                                                                               | Non          | Oui       | Oui   | Oui      | Oui     |
@@ -42,7 +39,7 @@ Chacun des [niveaux tarifaires](https://aka.ms/apimpricing) de la Gestion des AP
 | [Sauvegarde et restauration](api-management-howto-disaster-recovery-backup-restore.md)               | Non          | Oui       | Oui   | Oui      | Oui     |
 | [Gestion sur Git](api-management-configuration-repository-git.md)                        | Non          | Oui       | Oui   | Oui      | Oui     |
 | API de gestion directe                                                                        | Non          | Oui       | Oui   | Oui      | Oui     |
-| Journaux d’activité et métriques Azure Monitor                                                               | Oui         | Oui       | Oui   | Oui      | Oui     |
+| Journaux d’activité et métriques Azure Monitor                                                               | Non          | Oui       | Oui   | Oui      | Oui     |
 | Adresse IP statique                                                                                    | Non          | Oui       | Oui   | Oui      | Oui     |
 
 <sup>1</sup> Permet l’utilisation de Microsoft Azure AD (et Azure AD B2C) en tant que fournisseur d’identité pour la connexion utilisateur sur le portail des développeurs.<br/>

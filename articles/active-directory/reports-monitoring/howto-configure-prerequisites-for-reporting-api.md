@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca618dc234ff4383083ff5eb21299fb1e3e7128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00c519ef06637c5193b347f0bbc906c6232a7ca8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348736"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532535"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prérequis pour accéder à l’API de création de rapports Azure Active Directory
 
@@ -224,5 +224,5 @@ Pour vérifier que votre application est exécutée avec le bon ensemble d’aut
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats](tutorial-access-api-with-certificates.md)
-* [Informations de référence sur l’API d’audit](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Informations de référence sur l’API de création de rapports relatifs à l’activité de connexion](/graph/api/resources/signin?view=graph-rest-beta)
+* [Informations de référence sur l’API d’audit](/graph/api/resources/directoryaudit) 
+* [Informations de référence sur l’API de création de rapports relatifs à l’activité de connexion](/graph/api/resources/signin)

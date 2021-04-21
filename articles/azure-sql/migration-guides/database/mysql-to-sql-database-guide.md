@@ -5,23 +5,23 @@ ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 8952e6e1bda8763d403c02dcd5815f1e1c0941e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d4510aa5cda61dac88102c89b3e03da231380bd6
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641876"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389449"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>Guide de migration : MySQL vers Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Dans ce guide, vous découvrez comment migrer votre base de données MySQL vers une base de données Azure SQL à l’aide de l’Assistant Migration SQL Server pour MySQL (SSMA pour MySQL). 
+Dans ce guide, vous allez découvrir [comment migrer](https://azure.microsoft.com/migration/migration-journey) votre base de données MySQL vers une base de données Azure SQL à l’aide de l’Assistant [Migration SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) pour MySQL (SSMA pour MySQL). 
 
-Pour obtenir d’autres guides de migration, consultez le [Guide de migration de base de données Azure](https://docs.microsoft.com/data-migration). 
+Pour d’autres guides sur la migration, consultez [Guide sur la migration de bases de données Azure](https://docs.microsoft.com/data-migration). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Avant de commencer à migrer votre base de données MySQL vers une base de donn�
 
 ## <a name="pre-migration"></a>Prémigration 
 
-Une fois que vous avez rempli les prérequis, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre migration.
+Une fois que vous avez rempli les prérequis, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre [migration vers le cloud Azure](https://azure.microsoft.com/migration).
 
 ### <a name="assess"></a>Évaluer 
 
@@ -65,7 +65,7 @@ Pour créer une évaluation, procédez comme suit :
 
 ### <a name="validate-the-data-types"></a>Valider les types de données
 
-Validez les mappages de types de données par défaut et changez-les en fonction des exigences, si nécessaire. Pour ce faire : 
+Validez les mappages de types de données par défaut et changez-les en fonction des besoins, si nécessaire. Pour ce faire : 
 
 1. Sélectionnez **Outils**, puis **Paramètres du projet**.  
 1. Sélectionnez l’onglet **Mappage de types**. 
@@ -147,11 +147,11 @@ L’approche de test pour la migration de base de données comprend les activit�
 
 1. **Développer des tests de validation** : pour tester la migration d’une base de données, vous devez utiliser des requêtes SQL. Vous devez créer les requêtes de validation à exécuter sur les bases de données source et cible. Vos requêtes de validation doivent couvrir l’étendue que vous avez définie.
 
-1. **Configurer un environnement de test** : l’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
+1. **Configurer un environnement de test** : L’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
 
-1. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
+1. **Exécuter des tests de validation** : Exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
 
-1. **Exécuter des tests de performances** : exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
+1. **Exécuter des tests de performances** : Exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
 
 ### <a name="optimize"></a>Optimiser
 
@@ -163,7 +163,7 @@ Pour plus d’informations sur ces problèmes et les étapes spécifiques pour l
 
 Pour plus d’informations sur l’exécution de ce scénario de migration, consultez la ressource suivante. Elle a été développée pour soutenir un engagement de projet de migration réel.
 
-| Intitulé | Description |
+| Titre | Description |
 | --- | --- |
 | [Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour des charges de travail spécifiées. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
 
@@ -178,3 +178,6 @@ L’équipe d’ingénierie SQL des données a développé ces ressources. La ch
 - Pour obtenir d’autres guides de migration, consultez le [Guide de migration de base de données Azure](https://datamigration.microsoft.com/). 
 
 - Pour obtenir des vidéos sur la migration, consultez [Vue d’ensemble du parcours de migration, outils et services de migration et d’évaluation recommandés](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
+
+- Pour plus de [ressources sur la migration cloud](https://azure.microsoft.com/migration/resources/), consultez [Solutions de migration cloud](https://azure.microsoft.com/migration).
+

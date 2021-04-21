@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d8c4876faf9ebc2619309aa0095a8ffe1e9e93d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 468e885bab6aab4becb5aaaec7b4d52ce5ef5e07
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500544"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535987"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Vue d’ensemble du provisionnement des journaux sur le Portail Azure Active Directory (préversion)
 
@@ -61,7 +61,7 @@ Les clients peuvent interagir avec les journaux de provisionnement de quatre man
 
 - Accès aux journaux à partir du Portail Azure (cf. section suivante)
 - Diffusion en continu des journaux de provisionnement dans [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md), méthode qui permet une conservation étendue des données et la création de tableaux de bord, d’alertes et de requêtes personnalisés
-- Interrogation de l’[API Microsoft Graph](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) pour obtenir les journaux de provisionnement.
+- Interrogation de l’[API Microsoft Graph](/graph/api/resources/provisioningobjectsummary) pour obtenir les journaux de provisionnement.
 - Téléchargement des journaux de provisionnement sous la forme d’un fichier CSV ou JSON
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Accéder aux journaux à partir du portail Azure
@@ -251,7 +251,7 @@ Appuyez-vous sur le tableau suivant pour mieux comprendre comment résoudre les 
 |InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD s’est authentifié auprès de l’application cible, mais n’a pas été autorisé à effectuer la mise à jour. Passez en revue toutes les instructions fournies par l’application cible et le [tutoriel](../saas-apps/tutorial-list.md) de l’application correspondante.|
 |UnprocessableEntity|L’application cible a renvoyé une réponse inattendue. Il se peut que la configuration de l’application cible ne soit pas correcte ou qu’un problème de service lié à l’application cible l’empêche de fonctionner.|
 |WebExceptionProtocolError |Une erreur de protocole HTTP s’est produite lors de la connexion à l’application cible. Il n’y a rien à faire. Cette tentative sera automatiquement mise hors service dans 40 minutes.|
-|InvalidAnchor|Un utilisateur qui a été précédemment créé ou mis en correspondance par le service d’approvisionnement n’existe plus. Vérifiez que l’utilisateur existe. Pour forcer une nouvelle correspondance de tous les utilisateurs, utilisez l’API Microsoft Graph pour [redémarrer le travail](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). <br><br>Le redémarrage du provisionnement déclenche un cycle initial, ce qui peut prendre du temps. Le redémarrage du provisionnement supprime également le cache utilisé par le service de provisionnement pour fonctionner. De ce fait, tous les utilisateurs et groupes du locataire devront être réévalués, et certains événements de provisionnement risquent d’être abandonnés.|
+|InvalidAnchor|Un utilisateur qui a été précédemment créé ou mis en correspondance par le service d’approvisionnement n’existe plus. Vérifiez que l’utilisateur existe. Pour forcer une nouvelle correspondance de tous les utilisateurs, utilisez l’API Microsoft Graph pour [redémarrer le travail](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). <br><br>Le redémarrage du provisionnement déclenche un cycle initial, ce qui peut prendre du temps. Le redémarrage du provisionnement supprime également le cache utilisé par le service de provisionnement pour fonctionner. De ce fait, tous les utilisateurs et groupes du locataire devront être réévalués, et certains événements de provisionnement risquent d’être abandonnés.|
 |NotImplemented | L’application cible a retourné une réponse inattendue. Il se peut que la configuration de l’application ne soit pas correcte ou qu’un problème de service lié à l’application cible l’empêche de fonctionner. Passez en revue toutes les instructions fournies par l’application cible et le [tutoriel](../saas-apps/tutorial-list.md) de l’application correspondante. |
 |MandatoryFieldsMissing, MissingValues |L’utilisateur n’a pas pu être créé, car des valeurs requises sont manquantes. Corrigez les valeurs d’attribut manquantes dans l’enregistrement source ou vérifiez dans votre configuration d’attributs de correspondance qu’aucun champ obligatoire n’est omis. [En savoir plus](../app-provisioning/customize-application-attributes.md) sur la configuration des attributs correspondants.|
 |SchemaAttributeNotFound |L’opération n’a pas pu être effectuée, car l’un des attributs spécifiés n’existe pas dans l’application cible. Consultez la [documentation](../app-provisioning/customize-application-attributes.md) sur la personnalisation des attributs et vérifiez que votre configuration est correcte.|
@@ -269,4 +269,4 @@ Appuyez-vous sur le tableau suivant pour mieux comprendre comment résoudre les 
 
 * [Vérifier l’état de l’approvisionnement d’utilisateurs](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD](../app-provisioning/application-provisioning-config-problem.md)
-* [API Graph pour les journaux de provisionnement](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [API Graph pour les journaux de provisionnement](/graph/api/resources/provisioningobjectsummary)

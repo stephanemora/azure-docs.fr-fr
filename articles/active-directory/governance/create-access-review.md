@@ -15,12 +15,12 @@ ms.date: 3/3/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7143c3f9786d41c32ae954ab219197a9cfaa1050
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: f4d6502ffdd13272d396852b11a11d13f929b11b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176873"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532271"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -159,7 +159,7 @@ Si vous avez attribué le rôle de réviseur à des clients invités, mais que c
 
 ## <a name="create-reviews-via-apis"></a>Créer des révisions via des API
 
-Vous pouvez également créer des révisions d’accès avec des API. Ce que vous faites pour gérer les révisions d’accès des groupes et des utilisateurs d’applications dans le portail Azure peut également être effectué avec les API Microsoft Graph. Pour en savoir plus, voir [Informations de référence sur les API des révisions d’accès d’Azure AD](/graph/api/resources/accessreviews-root?view=graph-rest-beta). Pour obtenir un exemple de code, voir [Exemple de récupération de révisions d’accès Azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+Vous pouvez également créer des révisions d’accès avec des API. Ce que vous faites pour gérer les révisions d’accès des groupes et des utilisateurs d’applications dans le portail Azure peut également être effectué avec les API Microsoft Graph. Pour en savoir plus, voir [Informations de référence sur les API des révisions d’accès d’Azure AD](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true). Pour obtenir un exemple de code, voir [Exemple de récupération de révisions d’accès Azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

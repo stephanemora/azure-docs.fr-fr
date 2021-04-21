@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 0d425111e151d60ab38a60e38cd1805cef39f606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 26b5331aa9242978f0f097c8e90bc807fc65f745
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641763"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531940"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -365,8 +365,8 @@ Avoir accès à l’activité de connexion, aux audits et aux événements à ri
 
 #### <a name="logs-recommended-reading"></a>Lectures recommandées pour les journaux
 
-- [Informations de référence sur l’API d’audit Azure Active Directory](/graph/api/resources/directoryaudit?view=graph-rest-beta)
-- [Informations de référence sur l’API de création de rapports sur l’activité de connexion Azure Active Directory](/graph/api/resources/signin?view=graph-rest-beta)
+- [Informations de référence sur l’API d’audit Azure Active Directory](/graph/api/resources/directoryaudit)
+- [Informations de référence sur l’API de création de rapports sur l’activité de connexion Azure Active Directory](/graph/api/resources/signin)
 - [Obtenir des données à l’aide de l’API Génération de rapports Azure AD avec des certificats](../reports-monitoring/tutorial-access-api-with-certificates.md)
 - [Microsoft Graph pour Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)
 - [Informations de référence de l’API Activité de gestion Office 365](/office/office-365-management-api/office-365-management-activity-api-reference)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3ca4464f40c0807e51adffca8e3e68c622314de6
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 913f21b90043209cae1ec9963619389bcb452781
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256886"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529432"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Déployer des stratégies personnalisées avec Azure Pipelines
 
@@ -29,7 +29,7 @@ Trois étapes principales sont nécessaires pour permettre à Azure Pipelines de
 1. Configurer un pipeline Azure
 
 > [!IMPORTANT]
-> La gestion de stratégies Azure AD B2C personnalisées avec un pipeline Azure utilise actuellement des opérations en **préversion** disponibles sur le point de terminaison `/beta` de l’API Microsoft Graph. L’utilisation de ces API dans les applications de production n’est pas prise en charge. Pour plus d’informations, voir la [référence du point de terminaison beta de l’API REST Microsoft Graph](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta).
+> La gestion de stratégies Azure AD B2C personnalisées avec un pipeline Azure utilise actuellement des opérations en **préversion** disponibles sur le point de terminaison `/beta` de l’API Microsoft Graph. L’utilisation de ces API dans les applications de production n’est pas prise en charge. Pour plus d’informations, voir la [référence du point de terminaison beta de l’API REST Microsoft Graph](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta&preserve-view=true).
 
 ## <a name="prerequisites"></a>Prérequis
 
