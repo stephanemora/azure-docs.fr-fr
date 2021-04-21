@@ -3,19 +3,18 @@ title: Questions fréquentes (FAQ) – Importation de certificat Azure Key Vault
 description: Obtenez des réponses aux questions fréquemment posées sur l’importation de certificats Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: d8a06471129f8d79e1ced150f7410392b91d498b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 97dfc2db837f728b8cb4ece9a064f99006c9996b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728026"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767814"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Questions fréquentes (FAQ) sur l’importation de certificats Azure Key Vault
 
@@ -43,7 +42,7 @@ Non, il n’est pas possible d’effectuer des opérations liées au certificat 
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Lorsque j’importe un certificat via le portail Azure, j’obtiens le message « Une erreur s’est produite ». Comment approfondir les investigations ?
      
-Pour voir une erreur plus descriptive, importez le fichier de certificat via [Azure CLI](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) ou [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).
+Pour voir une erreur plus descriptive, importez le fichier de certificat via [Azure CLI](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) ou [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Comment résoudre le problème « Type d’erreur : Accès refusé ou l’utilisateur n’est pas autorisé à importer un certificat » ?
     

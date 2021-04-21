@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f074ff389971fa56da7838a9a46ec5c4d42dc5a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688414"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739095"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -69,7 +69,7 @@ La stratégie `cors` ajoute la prise en charge du partage des ressources cross-o
 
 CORS permet à un navigateur et à un serveur d'interagir et de déterminer si les demandes cross-origin doivent être autorisées ou non, par exemple dans le cas d'appels XMLHttpRequests passés via JavaScript sur une page web vers d'autres domaines). Cette stratégie offre plus de flexibilité que de simplement autoriser les demandes de même origine, mais elle est plus sûre que d'autoriser toutes les demandes cross-origin.
 
-Vous devez appliquer la stratégie CORS pour activer la console interactive dans le portail des développeurs. Pour plus d’informations, reportez-vous à la [documentation du portail des développeurs](./api-management-howto-developer-portal.md#cors).
+Vous devez appliquer la stratégie CORS pour activer la console interactive dans le portail des développeurs. Pour plus d’informations, reportez-vous à la [documentation du portail des développeurs](./developer-portal-faq.md#cors).
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 

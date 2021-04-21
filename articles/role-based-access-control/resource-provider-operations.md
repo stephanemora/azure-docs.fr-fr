@@ -9,16 +9,16 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: e11e03ec7379dede6bf998f639a237201c297e72
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d6126e9d782765b992ae2fd51016984389c9b187
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303625"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778298"
 ---
 # <a name="azure-resource-provider-operations"></a>Opérations de fournisseur de ressources Azure
 
-Cette section liste les opérations pour les fournisseurs de ressources Azure, qui sont utilisées dans les rôles intégrés. Vous pouvez utiliser ces opérations dans vos propres [rôles personnalisés Azure](custom-roles.md) pour fournir un contrôle d’accès précis aux ressources dans Azure. Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir les dernières opérations, utilisez [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
+Cette section liste les opérations pour les fournisseurs de ressources Azure, qui sont utilisées dans les rôles intégrés. Vous pouvez utiliser ces opérations dans vos propres [rôles personnalisés Azure](custom-roles.md) pour fournir un contrôle d’accès précis aux ressources dans Azure. Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir les dernières opérations, utilisez [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [az provider operation list](/cli/azure/provider/operation#az_provider_operation_list).
 
 Cliquez sur le nom du fournisseur de ressources dans le tableau suivant pour afficher la liste des opérations.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72778c431c561f5345dde3d6803e814d6fdebfba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c27b042b78931fd58e43e4bbb06699abe510f385
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549122"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762548"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Étendre des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 
@@ -23,13 +23,13 @@ Cet article explique comment étendre des disques managés pour une machine virt
 > Assurez-vous que l’état d’intégrité de votre système de fichiers soit toujours sain, votre type de table de partition de disque prendra en charge la nouvelle taille. Veillez également à sauvegarder vos données avant de redimensionner les disques. Pour plus d’informations, consultez le [démarrage rapide de Sauvegarde Azure](../../backup/quick-backup-vm-portal.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Étendre un disque managé Azure
-Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az-login).
+Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
 
 Cet article nécessite une machine virtuelle existante dans Azure avec au moins un disque de données attaché et préparé. Si vous n’avez pas encore de machine virtuelle à utiliser, consultez [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks) (Créer et préparer une machine virtuelle avec des disques de données).
 
 Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels que *myResourceGroup* et *myVM*, par vos propres valeurs.
 
-1. Il est impossible d’effectuer des opérations sur les disques durs virtuels avec la machine virtuelle en cours d’exécution. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#az-vm-deallocate). L’exemple suivant libère la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
+1. Il est impossible d’effectuer des opérations sur les disques durs virtuels avec la machine virtuelle en cours d’exécution. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#az_vm_deallocate). L’exemple suivant libère la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -38,7 +38,7 @@ Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels q
     > [!NOTE]
     > La machine virtuelle doit être libérée pour développer le disque dur virtuel. L’arrêt de la machine virtuelle avec `az vm stop` ne libère pas les ressources de calcul. Pour publier les ressources de calcul, utilisez `az vm deallocate`.
 
-1. Affichez la liste des disques managés dans un groupe de ressources avec la commande [az disk list](/cli/azure/disk#az-disk-list). L’exemple suivant affiche la liste des disques managés dans le groupe de ressources nommé *myResourceGroup* :
+1. Affichez la liste des disques managés dans un groupe de ressources avec la commande [az disk list](/cli/azure/disk#az_disk_list). L’exemple suivant affiche la liste des disques managés dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az disk list \
@@ -47,7 +47,7 @@ Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels q
         --output table
     ```
 
-    Développez le disque requis avec la commande [az disk update](/cli/azure/disk#az-disk-update). L’exemple ci-après étend la taille du disque managé nommé *myDataDisk* à *200* Go :
+    Développez le disque requis avec la commande [az disk update](/cli/azure/disk#az_disk_update). L’exemple ci-après étend la taille du disque managé nommé *myDataDisk* à *200* Go :
 
     ```azurecli
     az disk update \
@@ -59,7 +59,7 @@ Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels q
     > [!NOTE]
     > Lorsque vous étendez un disque managé, la taille mise à jour est arrondie à la taille de disque managé la plus proche. Pour obtenir un tableau des tailles et des niveaux de disques managés disponibles, consultez [Vue d’ensemble d’Azure Disques managés - Tarification et facturation](../managed-disks-overview.md).
 
-1. Démarrez votre machine virtuelle avec [az vm start](/cli/azure/vm#az-vm-start). L’exemple suivant démarre la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
+1. Démarrez votre machine virtuelle avec [az vm start](/cli/azure/vm#az_vm_start). L’exemple suivant démarre la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -69,7 +69,7 @@ Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels q
 ## <a name="expand-a-disk-partition-and-filesystem"></a>Étendre une partition de disque et un système de fichiers
 Pour utiliser un disque étendu, étendez la partition et le système de fichiers sous-jacents.
 
-1. Établissez une connexion SSH à votre machine virtuelle à l’aide des informations d’identification appropriées. Vous pouvez visualiser l’adresse IP publique de votre machine virtuelle avec la commande [az vm show](/cli/azure/vm#az-vm-show) :
+1. Établissez une connexion SSH à votre machine virtuelle à l’aide des informations d’identification appropriées. Vous pouvez visualiser l’adresse IP publique de votre machine virtuelle avec la commande [az vm show](/cli/azure/vm#az_vm_show) :
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --output tsv

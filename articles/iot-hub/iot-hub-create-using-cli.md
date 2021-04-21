@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: e9757b94330f889869080a0e961ab2728cee86f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eff0085a4a739e0831b25b1bd28cd234fdbcde3d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94659911"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766440"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Création d’un IoT Hub à l’aide de l’interface de ligne de commande Azure
 
@@ -42,7 +42,7 @@ Utilisez l’interface de ligne de commande Azure pour créer un groupe de resso
    > ```
    >
 
-2. Exécutez la [commande suivante pour créer un IoT Hub](/cli/azure/iot/hub#az-iot-hub-create) dans votre groupe de ressources en utilisant un nom globalement unique pour votre IoT Hub :
+2. Exécutez la [commande suivante pour créer un IoT Hub](/cli/azure/iot/hub#az_iot_hub_create) dans votre groupe de ressources en utilisant un nom globalement unique pour votre IoT Hub :
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
@@ -58,14 +58,14 @@ La commande précédente crée un IoT Hub dans le niveau de tarification S1 pour
 
 Vous pouvez utiliser Azure CLI pour [supprimer une ressource](/cli/azure/resource), par exemple un hub IoT, ou un groupe de ressources et toutes ses ressources, y compris les hubs IoT.
 
-Pour [supprimer un hub IoT](/cli/azure/iot/hub#az-iot-hub-delete), exécutez la commande suivante :
+Pour [supprimer un hub IoT](/cli/azure/iot/hub#az_iot_hub_delete), exécutez la commande suivante :
 
 ```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
-Pour [supprimer un groupe de ressources](/cli/azure/group#az-group-delete) et toutes ses ressources, exécutez la commande suivante :
+Pour [supprimer un groupe de ressources](/cli/azure/group#az_group_delete) et toutes ses ressources, exécutez la commande suivante :
 
 ```azurecli-interactive
 az group delete --name {your resource group name}

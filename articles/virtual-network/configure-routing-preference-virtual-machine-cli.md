@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ad8f2d150c3cf17c4b24c6dc92188be9017dcfa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9155c3114d5a5a1b8729351dc189bc1e5c22369
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666008"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764474"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure CLI
 
@@ -28,7 +28,7 @@ Cet article explique comment créer une machine virtuelle avec une adresse IP pu
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 1. Si vous utilisez Cloud Shell, passez à l’étape 2. Ouvrez une session de commande et connectez-vous à Azure avec `az login`.
-2. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources dans la région Azure USA Est :
+2. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources dans la région Azure USA Est :
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
@@ -54,7 +54,7 @@ Avant de déployer un machine virtuelle, vous devez créer des ressources résea
 
 ### <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
-Créez un groupe de sécurité réseau pour les règles qui régiront les communications entrantes et sortantes dans votre VNet avec la commande [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)
+Créez un groupe de sécurité réseau pour les règles qui régiront les communications entrantes et sortantes dans votre VNet avec la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)
 
 ```azurecli
 az network nsg create \
@@ -65,7 +65,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). L’exemple suivant crée un réseau virtuel nommé *myVNET* avec des sous-réseaux nommés *mySubNet* :
+Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). L’exemple suivant crée un réseau virtuel nommé *myVNET* avec des sous-réseaux nommés *mySubNet* :
 
 ```azurecli
 # Create a virtual network
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>Créer une carte réseau
 
-Créez une carte réseau virtuelle pour la machine virtuelle avec la commande [az network nic create](/cli/azure/network/nic#az-network-nic-create). L’exemple suivant crée une carte réseau virtuelle qui sera attachée à la machine virtuelle.
+Créez une carte réseau virtuelle pour la machine virtuelle avec la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create). L’exemple suivant crée une carte réseau virtuelle qui sera attachée à la machine virtuelle.
 
 ```azurecli-interactive
 # Create a NIC
@@ -101,7 +101,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create). L’exemple suivant crée une machine virtuelle Windows Server 2019, ainsi que les composants de réseau virtuel nécessaires s’ils n’existent pas.
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create). L’exemple suivant crée une machine virtuelle Windows Server 2019, ainsi que les composants de réseau virtuel nécessaires s’ils n’existent pas.
 
 ```azurecli
 az vm create \
@@ -115,7 +115,7 @@ az vm create \
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [az group delete](/cli/azure/group#az-group-delete) pour le supprimer, ainsi que toutes les ressources qu’il contient :
+Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [az group delete](/cli/azure/group#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient :
 
 ```azurecli
 az group delete --name myResourceGroup --yes

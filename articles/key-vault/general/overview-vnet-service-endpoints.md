@@ -4,17 +4,16 @@ description: Découvrez comment les points de terminaison de service de réseau 
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: ae22f07a70f3317b62776e5024b7a3d1084516a1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 985cbe1128d1dd64fda86ef062750dc5dd068ffe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643486"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751730"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -27,7 +26,7 @@ Il existe une exception importante à cette restriction. Si un utilisateur a cho
 Vous pouvez configurer des [pare-feux et réseaux virtuels Key Vault](network-security.md) pour refuser par défaut l’accès au trafic en provenance de tous les réseaux (y compris le trafic Internet). Vous pouvez accorder l’accès au trafic en provenance de réseaux virtuels Azure ou de plages d’adresses IP Internet publiques spécifiques, ce qui vous permet de créer une limite réseau sécurisée pour vos applications.
 
 > [!NOTE]
-> Les règles de pare-feu et de réseau virtuel Key Vault s’appliquent seulement au [plan de données](secure-your-key-vault.md#data-plane-access-control) de Key Vault. Les opérations du plan de contrôle Key Vault (comme les opérations de création, de suppression et de modification, la définition de stratégies d’accès, la définition de pare-feu et de règles de réseau virtuel ainsi que le déploiement de secrets et de clés par le biais de modèles ARM) ne sont pas affectées par les règles de pare-feu et de réseau virtuel.
+> Les règles de pare-feu et de réseau virtuel Key Vault s’appliquent seulement au [plan de données](security-overview.md#privileged-access) de Key Vault. Les opérations du plan de contrôle Key Vault (comme les opérations de création, de suppression et de modification, la définition de stratégies d’accès, la définition de pare-feu et de règles de réseau virtuel ainsi que le déploiement de secrets et de clés par le biais de modèles ARM) ne sont pas affectées par les règles de pare-feu et de réseau virtuel.
 
 Voici quelques exemples d’utilisation de points de terminaison de service :
 

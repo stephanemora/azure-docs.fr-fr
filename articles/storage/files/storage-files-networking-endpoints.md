@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 079d7aa9b654a318c7269a41605c3e146b08f127
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42e83facec7817b6588bf69977fea5ab74b6b10d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96621329"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759876"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configuration des points de terminaison réseau Azure Files
 
@@ -23,7 +23,7 @@ Azure Files fournit deux principaux types de points de terminaison pour accéder
 
 Le compte de stockage Azure comprend à la fois des points de terminaison publics et des points de terminaison privés. Un compte de stockage est une construction de gestion qui représente un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente.
 
-Cet article se concentre sur la configuration des points de terminaison d’un compte de stockage pour accéder directement au partage de fichiers Azure. La plupart des détails fournis dans ce document s’appliquent également à la façon dont Azure File Sync interagit avec les points de terminaison publics et privés du compte de stockage. Toutefois, pour plus d’informations sur la configuration des réseaux dans le cadre d’un déploiement Azure File Sync, consultez [Configuration des paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+Cet article se concentre sur la configuration des points de terminaison d’un compte de stockage pour accéder directement au partage de fichiers Azure. La plupart des détails fournis dans ce document s’appliquent également à la façon dont Azure File Sync interagit avec les points de terminaison publics et privés du compte de stockage. Toutefois, pour plus d’informations sur la configuration des réseaux dans le cadre d’un déploiement Azure File Sync, consultez [Configuration des paramètres de proxy et de pare-feu d’Azure File Sync](../file-sync/file-sync-firewall-and-proxy.md).
 
 Avant de lire le présent guide, nous vous recommandons de lire [Considérations relatives aux réseaux Azure Files](storage-files-networking-overview.md).
 

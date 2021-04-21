@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb01a3e0fc5bc11a4d3de62b16aafb7dd308e34a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 348f1b4e6182739b3afbc96597853a5b887877c1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724269"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748769"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [attributions de rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
@@ -32,7 +32,7 @@ Le jeu d'autorisations par défaut reçu varie selon que l'utilisateur est membr
 
 **Zone** | **Autorisations d’un utilisateur membre** | **Autorisations d’utilisateur invité par défaut** | **Autorisations d’utilisateur invité restreintes (préversion)**
 ------------ | --------- | ---------- | ----------
-Utilisateurs et contacts | <ul><li>Énumérer la liste de tous les utilisateurs et contacts<li>Lire toutes les propriétés publiques des utilisateurs et des contacts</li><li>Inviter des invités<li>Changer son propre mot de passe<li>Gérer son propre numéro de téléphone mobile<li>Gérer sa propre photo<li>Invalider ses propres jetons d’actualisation</li></ul> | <ul><li>Lire ses propres propriétés<li>Lire le nom d’affichage, l’e-mail, le nom de connexion, la photo, le nom d’utilisateur principal et les propriétés de type d’utilisateur des autres utilisateurs et contacts<li>Changer son propre mot de passe<li>Rechercher un autre utilisateur par ObjectId (si autorisé)<li>Lire les informations sur le gestionnaire et le rapport direct d’autres utilisateurs</li></ul> | <ul><li>Lire ses propres propriétés<li>Changer son propre mot de passe</li></ul>
+Utilisateurs et contacts | <ul><li>Énumérer la liste de tous les utilisateurs et contacts<li>Lire toutes les propriétés publiques des utilisateurs et des contacts</li><li>Inviter des invités<li>Changer son propre mot de passe<li>Gérer son propre numéro de téléphone mobile<li>Gérer sa propre photo<li>Invalider ses propres jetons d’actualisation</li></ul> | <ul><li>Lire ses propres propriétés<li>Lire le nom d’affichage, l’e-mail, le nom de connexion, la photo, le nom d’utilisateur principal et les propriétés de type d’utilisateur des autres utilisateurs et contacts<li>Changer son propre mot de passe<li>Rechercher un autre utilisateur par ObjectId (si autorisé)<li>Lire les informations sur le gestionnaire et le rapport direct d’autres utilisateurs</li></ul> | <ul><li>Lire ses propres propriétés<li>Changer son propre mot de passe</li><li>Gérer son propre numéro de téléphone mobile</li></ul>
 Groupes | <ul><li>Créer des groupes de sécurité<li>Créer des groupes Microsoft 365<li>Énumérer la liste de tous les groupes<li>Lire toutes les propriétés des groupes<li>Lire les appartenances aux groupes non masquées<li>Lire les appartenances aux groupes Microsoft 365 masquées pour un groupe rejoint<li>Gérer les propriétés, l’appartenance et l’adhésion des groupes que possède l’utilisateur<li>Ajouter des invités aux groupes acquis<li>Gérer les paramètres d’appartenance dynamique<li>Supprimer des groupes acquis<li>Restaurer les groupes Microsoft 365 détenus</li></ul> | <ul><li>Lire les propriétés des groupes non masqués, y compris l’appartenance et la propriété (même de groupes non joints)<li>Lire les appartenances aux groupes Microsoft 365 masquées pour les groupes rejoints<li>Rechercher des groupes par nom d’affichage ou ObjectId (si autorisé)</li></ul> | <ul><li>Lire des ID d’objet pour des groupes joints<li>Lire l’appartenance et la propriété des groupes joints dans certaines applications Microsoft 365 (si autorisé)</li></ul>
 Applications | <ul><li>Inscrire (créer) une application<li>Énumérer la liste de toutes les applications<li>Lire les propriétés des applications inscrites et d’entreprise<li>Gérer les propriétés d’application, les affectations et les informations d’identification des applications acquises<li>Créer ou supprimer le mot de passe d’application pour un utilisateur<li>Supprimer des applications acquises<li>Restaurer des applications acquises</li></ul> | <ul><li>Lire les propriétés des applications inscrites et d’entreprise</li></ul> | <ul><li>Lire les propriétés des applications inscrites et d’entreprise
 Périphériques</li></ul> | <ul><li>Énumérer la liste de tous les appareils<li>Lire toutes les propriétés des appareils<li>Gérer toutes les propriétés des appareils acquis</li></ul> | Aucune autorisation | Aucune autorisation
@@ -134,7 +134,6 @@ Les utilisateurs peuvent effectuer les actions suivantes sur les groupes qu’il
 | microsoft.directory/groups/appRoleAssignments/update | Mettez à jour la propriété groups.appRoleAssignments dans Azure Active Directory. |
 | microsoft.directory/groups/basic/update | Mettez à jour des propriétés de base sur des groupes dans Azure Active Directory. |
 | microsoft.directory/groups/delete | Supprimez des groupes dans Azure Active Directory. |
-| microsoft.directory/groups/dynamicMembershipRule/update | Mettez à jour la propriété groups.dynamicMembershipRule dans Azure Active Directory. |
 | microsoft.directory/groups/members/update | Mettez à jour la propriété groups.members dans Azure Active Directory. |
 | microsoft.directory/groups/owners/update | Mettez à jour la propriété groups.owners dans Azure Active Directory. |
 | microsoft.directory/groups/restore | Restaurez des groupes dans Azure Active Directory. |

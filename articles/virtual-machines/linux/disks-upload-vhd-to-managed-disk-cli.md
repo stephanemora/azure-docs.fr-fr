@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 473e87904742395eca6b7eeba0875cd93789104d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 285f0acd5097ce68cddee6f732b17944dffb0eba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91978983"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762566"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Charger un disque dur virtuel sur Azure ou copier un disque dans une autre région - Azure CLI
 
@@ -44,7 +44,7 @@ Ce type de disque managé présente deux états uniques :
 
 Avant de pouvoir créer un disque HDD standard vierge pour le chargement, vous devez connaître la taille de fichier (en octets) du disque dur virtuel que vous souhaitez charger. Pour l’obtenir, vous pouvez utiliser `wc -c <yourFileName>.vhd` ou `ls -al <yourFileName>.vhd`. Cette valeur est utilisée lors de la spécification du paramètre **--upload-size-bytes**.
 
-Créez un disque dur standard vierge pour le chargement en spécifiant les paramètres **-–for-upload** et **--upload-size-bytes** dans une applet de commande [disk create](/cli/azure/disk#az-disk-create) :
+Créez un disque dur standard vierge pour le chargement en spécifiant les paramètres **-–for-upload** et **--upload-size-bytes** dans une applet de commande [disk create](/cli/azure/disk#az_disk_create) :
 
 Remplacez `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` par les valeurs de votre choix. Le paramètre `--upload-size-bytes` contient un exemple de valeur : `34359738880`. Remplacez cet exemple par la valeur appropriée.
 

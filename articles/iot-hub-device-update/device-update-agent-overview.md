@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0d97287657b1e1fe7d540e8811c90794aaa5fece
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561234"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739563"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Vue d’ensemble de la mise à jour des appareils pour IoT Hub Agent
 
@@ -60,7 +60,7 @@ Le Gestionnaire de mise à jour du simulateur est utilisé par la couche de plat
 * [Simulateur de mise à jour d’image](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/swupdate_handler/inc/aduc/swupdate_simulator_handler.hpp)
 * [Simulateur APT de mise à jour de package](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/apt_handler/inc/aduc/apt_simulator_handler.hpp)
 
-Remarque : Le champ InstalledCriteria de l’interface PnP AzureDeviceUpdateCore doit être le hachage SHA256 du contenu. Il s’agit du même hachage que celui qui est présent dans l’[objet de manifeste d’importation](import-update.md#create-device-update-import-manifest). [Découvrez-en plus](device-update-plug-and-play.md) sur `installedCriteria` et l’interface `AzureDeviceUpdateCore`.
+Remarque : Le champ InstalledCriteria de l’interface PnP AzureDeviceUpdateCore doit être le hachage SHA256 du contenu. Il s’agit du même hachage que celui qui est présent dans l’[objet de manifeste d’importation](import-update.md#create-a-device-update-import-manifest). [Découvrez-en plus](device-update-plug-and-play.md) sur `installedCriteria` et l’interface `AzureDeviceUpdateCore`.
 
 ### <a name="swupdate-update-handler"></a>Gestionnaire de mise à jour `SWUpdate`
 

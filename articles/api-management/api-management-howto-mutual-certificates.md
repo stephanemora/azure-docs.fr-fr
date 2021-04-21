@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 01/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 2e4a398ab71878134887fb8fba025cd8aa6122ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5d261368260a1c9658ae0bef8bdf63a7ca6bafe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492824"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750623"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Sécuriser les services principaux à l’aide d’une authentification par certificat client dans Gestion des API Azure
 
@@ -32,7 +32,7 @@ Gestion des API offre deux options pour gérer les certificats utilisés pour s�
 L’utilisation de certificats de coffre de clés est recommandée, car elle permet d’améliorer la sécurité de Gestion des API :
 
 * Les certificats stockés dans des coffres de clés peuvent être réutilisés entre les services.
-* Des [stratégies d’accès](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) granulaires peuvent être appliquées à des certificats stockés dans des coffres de clés.
+* Des [stratégies d’accès](../key-vault/general/security-overview.md#privileged-access) granulaires peuvent être appliquées à des certificats stockés dans des coffres de clés.
 * Les certificats mis à jour dans le coffre de clés sont automatiquement permutés dans Gestion des API. Après la mise à jour dans le coffre de clés, un certificat dans Gestion des API est mis à jour dans un délai de quatre heures. Vous pouvez également actualiser manuellement le certificat à l’aide du portail Azure ou par le biais de l’API REST de gestion.
 
 ## <a name="prerequisites"></a>Prérequis

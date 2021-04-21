@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8fca05f8718fc5e44da33b19447895f5daafc905
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466409"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107716742"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -137,28 +137,12 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
 - Partage de fichiers Azure Files : Comment [créer](./backup-afs.md) et [modifier](./manage-afs-backup.md#modify-policy) une stratégie.
 - SAP HANA : Comment [créer](./backup-azure-sap-hana-database.md#create-a-backup-policy) et [modifier](./sap-hana-db-manage.md#change-policy) une stratégie.
 - MARS : Comment [créer](./backup-windows-with-mars-agent.md#create-a-backup-policy) et [modifier](./backup-azure-manage-mars.md#modify-a-backup-policy) une stratégie.
-- [Existe-t-il des limitations relatives à la planification de la sauvegarde en fonction du type de charge de travail ?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
-- [Qu’advient-il des points de récupération existants si je change la stratégie de conservation ?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+- [Existe-t-il des limitations relatives à la planification de la sauvegarde en fonction du type de charge de travail ?](./backup-azure-backup-faq.yml#are-there-limits-on-backup-scheduling-)
+- [Qu’advient-il des points de récupération existants si je change la stratégie de conservation ?](./backup-azure-backup-faq.yml#what-happens-when-i-change-my-backup-policy-)
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architecture : Sauvegarde de machine virtuelle Azure prédéfinie
 
-1. Quand vous activez la sauvegarde pour une machine virtuelle Azure, une sauvegarde s’exécute conformément à la planification que vous spécifiez.
-1. Lors de la première sauvegarde, une extension de sauvegarde est installée sur la machine virtuelle si celle-ci est en cours d’exécution.
-    - Pour les machines virtuelles Windows, l’extension VMSnapshot est installée.
-    - Pour les machines virtuelles Linux, l’extension Linux VMSnapshot est installée.
-1. L’extension prend un instantané au niveau du stockage.
-    - Pour les machines virtuelles Windows en cours d’exécution, le service Sauvegarde se coordonne avec le service VSS (Volume Shadow Copy Service) Windows pour prendre un instantané de cohérence d’application de la machine virtuelle. Par défaut, Sauvegarde Azure effectue des sauvegardes VSS complètes. Si Sauvegarde Azure ne peut pas prendre d’instantané cohérent au niveau de l’application, il prend un instantané cohérent au niveau fichier.
-    - Pour les machines virtuelles Linux, Sauvegarde Azure prend une capture instantanée cohérente au niveau fichier. Pour les instantanés de cohérence d’application, vous devez personnaliser manuellement le pré-script et le post-script.
-    - La sauvegarde est optimisée grâce à la sauvegarde de chaque disque de machine virtuelle en parallèle. Pour chaque disque en cours de sauvegarde, Sauvegarde Azure lit les blocs sur le disque et stocke uniquement les données modifiées.
-1. Une fois l’instantané pris, les données sont transférées vers le coffre.
-    - Seuls les blocs de données qui ont changé depuis la dernière sauvegarde sont copiés.
-    - Les données ne sont pas chiffrées. Sauvegarde Azure peut sauvegarder des machines virtuelles Azure chiffrées avec Azure Disk Encryption.
-    - Les données d’instantanés peuvent ne pas être immédiatement copiées dans le coffre. Aux heures de pointe, la sauvegarde peut prendre quelques heures. La durée de sauvegarde totale d’une machine virtuelle est inférieure à 24 heures pour les stratégies de sauvegarde quotidienne.
-1. Une fois les données envoyées au coffre, un point de récupération est créé. Par défaut, les instantanés sont conservés pendant 2 jours avant d’être supprimés. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre. Consultez [Fonctionnalité de restauration instantanée de Sauvegarde Azure](./backup-instant-restore-capability.md).
-
-Vous n’avez pas besoin d’autoriser explicitement la connectivité Internet pour sauvegarder vos machines virtuelles Azure.
-
-![Sauvegarde des machines virtuelles Azure](./media/backup-architecture/architecture-azure-vm.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Architecture : Sauvegarde directe de serveurs Windows locaux ou de fichiers ou dossiers de machines virtuelles Azure
 

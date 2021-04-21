@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5424b776b977d8a6939bbb28c5d4c9c428cac444
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4fdff2515dde941b2e9037a21ad931ac27b6fef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179610"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764222"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Découvrez comment utiliser des identités managées pour Azure App Configuration
 
@@ -99,12 +99,12 @@ Les étapes suivantes vous guident dans la création d’une identité attribué
 
 ## <a name="removing-an-identity"></a>Suppression d’une identité
 
-Vous pouvez supprimer une identité attribuée par le système en désactivant la fonctionnalité à l’aide de la commande [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) dans Azure CLI. Les identités attribuées par l’utilisateur peuvent être supprimées individuellement. Si vous supprimez une identité attribuée par le système de cette façon, vous la supprimez également d’AAD. Les identités attribuées par le système sont aussi automatiquement supprimées d’AAD lorsque la ressource d’application est supprimée.
+Vous pouvez supprimer une identité attribuée par le système en désactivant la fonctionnalité à l’aide de la commande [az appconfig identity remove](/cli/azure/appconfig/identity#az_appconfig_identity_remove) dans Azure CLI. Les identités attribuées par l’utilisateur peuvent être supprimées individuellement. Si vous supprimez une identité attribuée par le système de cette façon, vous la supprimez également d’AAD. Les identités attribuées par le système sont aussi automatiquement supprimées d’AAD lorsque la ressource d’application est supprimée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Créer une application ASP.NET Core avec Azure App Configuration](quickstart-aspnet-core-app.md)
 
-[az appconfig identity assign]: /cli/azure/appconfig/identity#az-appconfig-identity-assign
-[az login]: /cli/azure/reference-index#az-login
+[az appconfig identity assign]: /cli/azure/appconfig/identity#az_appconfig_identity_assign
+[az login]: /cli/azure/reference-index#az_login

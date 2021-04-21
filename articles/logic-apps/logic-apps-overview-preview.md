@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/10/2021
-ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/24/2021
+ms.openlocfilehash: 27889e8309c0efaf1e2869fc39d099f38f64f7c4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102636333"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764816"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Présentation : Préversion Azure Logic Apps
 
@@ -80,7 +80,7 @@ Avec le type d’application logique monolocataire, vous pouvez créer ces types
   Pour faciliter le débogage, vous pouvez activer l’historique des exécutions pour un workflow sans état (ce qui a un certain impact sur les performances), puis le désactiver lorsque vous avez terminé. Pour plus d’informations, consultez [Créer des workflows avec état et sans état dans Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless) ou [Créer des workflows avec état et sans état dans le portail Azure](create-stateful-stateless-workflows-visual-studio-code.md#enable-run-history-stateless).
 
   > [!NOTE]
-  > Actuellement, les flux de travail sans état prennent en charge uniquement les *actions* pour les [connecteurs gérés](../connectors/apis-list.md#managed-api-connectors) déployés dans Azure, pas pour des déclencheurs. Pour démarrer votre workflow, sélectionnez le [déclencheur intégré Requête, Event Hubs ou Service Bus](../connectors/apis-list.md#built-ins). Ces déclencheurs s’exécutent en mode natif dans le runtime d’Azure Logic Apps (préversion). Pour plus d’informations sur les déclencheurs, actions et connecteurs limités, non disponibles ou non pris en charge, consultez [Capacités modifiées, limitées, non disponibles ou non prises en charge](#limited-unavailable-unsupported).
+  > Actuellement, les flux de travail sans état prennent en charge uniquement les *actions* pour les [connecteurs gérés](../connectors/managed.md) déployés dans Azure, pas pour des déclencheurs. Pour démarrer votre workflow, sélectionnez le [déclencheur intégré Requête, Event Hubs ou Service Bus](../connectors/built-in.md). Ces déclencheurs s’exécutent en mode natif dans le runtime d’Azure Logic Apps (préversion). Pour plus d’informations sur les déclencheurs, actions et connecteurs limités, non disponibles ou non pris en charge, consultez [Capacités modifiées, limitées, non disponibles ou non prises en charge](#limited-unavailable-unsupported).
 
 <a name="nested-behavior"></a>
 
@@ -194,13 +194,13 @@ Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont a
   > [!NOTE]
   > Pour s’exécuter localement dans Visual Studio Code, les déclencheurs et les actions basés sur un webhook nécessitent une configuration supplémentaire. Pour plus d’informations, consultez [Créer des workflows avec état et sans état dans Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
 
-  * Pour les *workflows sans état*, l’onglet **Azure** ne s’affiche pas lorsque vous sélectionnez un déclencheur, car vous pouvez sélectionner uniquement des [*actions* de connecteur géré, et non des déclencheurs](../connectors/apis-list.md#managed-api-connectors). Bien que vous puissiez activer les connecteurs gérés déployés par Azure pour les workflows sans état, le concepteur n’affiche aucun déclencheur de connecteur géré que vous pouvez ajouter.
+  * Pour les *workflows sans état*, l’onglet **Azure** ne s’affiche pas lorsque vous sélectionnez un déclencheur, car vous pouvez sélectionner uniquement des [*actions* de connecteur géré, et non des déclencheurs](../connectors/managed.md). Bien que vous puissiez activer les connecteurs gérés déployés par Azure pour les workflows sans état, le concepteur n’affiche aucun déclencheur de connecteur géré que vous pouvez ajouter.
 
-  * Pour les *workflows avec état*, à l’exception des déclencheurs et des actions répertoriés comme non disponibles ci-dessous, vous pouvez utiliser à la fois [les déclencheurs et les actions des connecteurs gérés](../connectors/apis-list.md#managed-api-connectors).
+  * Pour les *workflows avec état*, à l’exception des déclencheurs et des actions répertoriés comme non disponibles ci-dessous, vous pouvez utiliser à la fois [les déclencheurs et les actions des connecteurs gérés](../connectors/managed.md).
 
   * Ces déclencheurs et actions ont été modifiés ou sont actuellement limités, non pris en charge ou non disponibles :
 
-    * Les [*déclencheurs* de la passerelle de données locale](../connectors/apis-list.md#on-premises-connectors) ne sont pas disponibles, mais les actions de la passerelle *le sont*.
+    * Les [*déclencheurs* de la passerelle de données locale](../connectors/managed.md#on-premises-connectors) ne sont pas disponibles, mais les actions de la passerelle *le sont*.
 
     * L’action intégrée, [Azure Functions – Choisir une fonction Azure](logic-apps-azure-functions.md) est désormais **Azure Function Operations – Appeler une fonction Azure**. Cette action ne fonctionne actuellement que pour les fonctions créées à partir du modèle **Déclencheur HTTP**.
 
@@ -221,7 +221,7 @@ Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont a
 
       * Les actions **Opérations de code inlined** ont des [limites mises à jour](logic-apps-overview-preview.md#inline-code-limits).
 
-    * Certains [déclencheurs et actions B2B intégrés pour les comptes d’intégration](../connectors/apis-list.md#integration-account-connectors) ne sont pas disponibles, par exemple, les actions de codage et de décodage **Fichier plat**.
+    * Certains [déclencheurs et actions B2B intégrés pour les comptes d’intégration](../connectors/managed.md#integration-account-connectors) ne sont pas disponibles, par exemple, les actions de codage et de décodage **Fichier plat**.
 
     * L’action intégrée, [Azure Logic Apps – Choisir un workflow d’application logique](logic-apps-http-endpoint.md) est désormais **Workflow Operations – Appeler un workflow dans cette application de workflow**.
 

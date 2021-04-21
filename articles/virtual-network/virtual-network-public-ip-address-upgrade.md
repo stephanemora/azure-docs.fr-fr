@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74df338fd888bd7f654ddfc2fc5f9dddf10e84ab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100522884"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598412"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Mettre à niveau des adresses IP publiques
 
@@ -146,7 +146,7 @@ Un nouveau groupe de ressources dans Azure Resource Manager est créé à l’ai
 ## <a name="limitations"></a>Limites
 
 * Pour pouvoir mettre à niveau une adresse IP publique De base, celle-ci ne doit être associée à aucune ressource Azure.  Consultez [cette page](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) pour en savoir plus sur la façon de dissocier des adresses IP publiques.  De même, pour pouvoir migrer une adresse IP réservée, celle-ci ne doit être associée à aucun service cloud.  Consultez [cette page](./remove-public-ip-address-vm.md) pour en savoir plus sur la façon de dissocier des adresses IP réservées.  
-* Les adresses IP publiques mises à niveau d’une référence SKU De base à Standard n’ont toujours aucune [zone de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) et, par conséquent, ne peuvent pas être associées à une ressource Azure redondante interzone ou zonale.  Notez que cela s’applique uniquement aux régions qui proposent des zones de disponibilité.
+* Les adresses IP publiques dont la référence SKU a été mise à niveau de De base vers Standard n’ont toujours aucune [zone de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) garantie.  Gardez cela à l’esprit lorsque vous choisissez les ressources auxquelles associer l’adresse IP.
 * Vous ne pouvez pas passer du niveau Standard au niveau De base.
 
 ## <a name="next-steps"></a>Étapes suivantes

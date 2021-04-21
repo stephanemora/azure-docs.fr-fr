@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 73747222b9131fa85ae6ac01c9dedd5b0bbe1d63
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 774f4be6a5aa0e0e772086c52938881c6637b261
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543401"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588188"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Application d’Azure Hybrid Benefit aux machines virtuelles Linux
 
@@ -212,7 +212,7 @@ R : Oui, c’est possible. Vous pouvez utiliser le type de licence `RHEL_BYOS` 
 
 *Q : Puis-je utiliser Azure Hybrid Benefit sur des groupes de machines virtuelles identiques pour RHEL et SLES ?*
 
-R : Oui, Azure Hybrid Benefit sur des groupes de machines virtuelles identiques pour RHEL et SLES est en préversion. Vous pouvez en [savoir plus sur cet avantage et sur son fonctionnement ici](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux-vmss). 
+R : Oui, Azure Hybrid Benefit sur des groupes de machines virtuelles identiques pour RHEL et SLES est en préversion. Vous pouvez en [savoir plus sur cet avantage et sur son fonctionnement ici](/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
 
 *Q : Puis-je utiliser Azure Hybrid Benefit sur des instances réservées pour RHEL et SLES ?*
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bf89830745207e264e3d8080ac84d1cac5ddb708
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 29db5b82d73bf96465581ccd6a663455464bbeb9
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079112"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599568"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Base de référence de sécurité Azure pour Azure SQL Database
 
@@ -250,7 +250,7 @@ De plus, vous pouvez streamer la télémétrie de diagnostic dans Azure SQL Anal
 
 **Aide** : Azure Active Directory (Azure AD) n’intègre pas le concept des mots de passe par défaut. Lors du provisionnement d’une instance Azure SQL Database, il vous est recommandé d’intégrer l’authentification à Azure AD.
 
-- [Guide pratique pour configurer et gérer l’authentification Azure AD avec Azure SQL](/azure/sql-database/azure-sql/database/authentication-aad-configure)
+- [Guide pratique pour configurer et gérer l’authentification Azure AD avec Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
 
 **Responsabilité** : Customer
 

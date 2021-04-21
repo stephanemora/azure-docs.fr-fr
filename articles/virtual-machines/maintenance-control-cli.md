@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c57f66eca5d15024c6b10e8fad12ddb575b9f894
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562960"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765896"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Contrôler les mises à jour avec le contrôle de maintenance et Azure CLI
 
@@ -93,7 +93,7 @@ az maintenance assignment create \
 
 Pour appliquer une configuration à un hôte dédié, vous devez inclure `--resource-type hosts`, `--resource-parent-name` avec le nom du groupe hôte et `--resource-parent-type hostGroups`. 
 
-Le paramètre `--resource-id` est l’ID de l’hôte. Vous pouvez utiliser [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) pour obtenir l’ID de votre hôte dédié.
+Le paramètre `--resource-id` est l’ID de l’hôte. Vous pouvez utiliser [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view) pour obtenir l’ID de votre hôte dédié.
 
 ```azurecli-interactive
 az maintenance assignment create \

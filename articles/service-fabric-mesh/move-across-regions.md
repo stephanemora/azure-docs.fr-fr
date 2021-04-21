@@ -6,12 +6,12 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f3fcdc56b4e8d7873872212cb62f57a7669b459
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99626085"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726625"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Déplacer une application Service Fabric Mesh vers une autre région Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "99626085"
 
 Cet article décrit comment déplacer votre application Service Fabric Mesh et ses ressources vers une autre région Azure. Vous pouvez être amené à déplacer vos ressources vers une autre région pour diverses raisons. Par exemple, en réponse à des pannes, pour obtenir des fonctionnalités ou des services disponibles dans des régions spécifiques uniquement, pour répondre à des exigences de stratégie et de gouvernance internes, ou en réponse à des exigences de planification de la capacité.
 
- [Service Fabric Mesh ne prend pas en charge](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) la possibilité de déplacer directement des ressources dans des régions Azure. Pour autant, vous pouvez déplacer des ressources indirectement en déployant une copie de votre modèle Azure Resource Manager actuel vers la nouvelle région cible, puis en redirigeant le trafic d'entrée et les dépendances vers l'application Service Fabric Mesh nouvellement créée.
+ [Service Fabric Mesh ne prend pas en charge](../azure-resource-manager/management/move-support-resources.md#microsoftservicefabricmesh) la possibilité de déplacer directement des ressources dans des régions Azure. Pour autant, vous pouvez déplacer des ressources indirectement en déployant une copie de votre modèle Azure Resource Manager actuel vers la nouvelle région cible, puis en redirigeant le trafic d'entrée et les dépendances vers l'application Service Fabric Mesh nouvellement créée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,7 +43,7 @@ Cet article décrit comment déplacer votre application Service Fabric Mesh et s
 
 2. Avec votre modèle exporté, suivez les étapes décrites dans [Déployer des ressources à partir d’un modèle personnalisé](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) à l’aide du portail Azure. Vous pouvez également utiliser [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) ou l'[API REST](../azure-resource-manager/templates/deploy-rest.md).
 
-3. Pour plus d'informations sur le déplacement de ressources connexes, telles que les [comptes Stockage Azure](../storage/common/storage-account-move.md), reportez-vous aux conseils correspondant aux services individuels répertoriés dans la rubrique [Déplacement des ressources Azure entre les régions](../azure-resource-manager/management/move-region.md).
+3. Pour plus d'informations sur le déplacement de ressources connexes, telles que les [comptes Stockage Azure](../storage/common/storage-account-move.md), reportez-vous aux conseils correspondant aux services individuels répertoriés dans la rubrique [Déplacement des ressources Azure entre les régions](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions).
 
 ## <a name="verify"></a>Vérifier
 
@@ -61,8 +61,8 @@ Pour terminer le déplacement de l'application Service Fabric Mesh, [supprimez l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Déplacer des ressources Azure entre les régions](../azure-resource-manager/management/move-region.md)
-* [Prise en charge du déplacement des ressources Azure entre les régions](../azure-resource-manager/management/region-move-support.md)
+* [Déplacer des ressources Azure entre les régions](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions)
+* [Prise en charge du déplacement des ressources Azure entre les régions](../azure-resource-manager/management/move-support-resources.md)
 * [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Prise en charge de l’opération de déplacement pour les ressources](../azure-resource-manager/management/move-support-resources.md
 )

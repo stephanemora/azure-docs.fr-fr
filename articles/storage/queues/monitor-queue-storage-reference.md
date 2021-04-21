@@ -4,17 +4,17 @@ description: Informations de référence sur les journaux et les métriques pour
 author: normesta
 services: azure-monitor
 ms.author: normesta
-ms.date: 10/02/2020
+ms.date: 04/20/2021
 ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
-ms.custom: monitoring
-ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-monitoring
+ms.openlocfilehash: 506f5a46688f597b8ac5db341c5bbe5eb5fb67c8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576698"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763142"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du service Stockage File d’attente Azure
 
@@ -42,7 +42,7 @@ Ce tableau montre des [métriques du Stockage File d’attente](../../azure-moni
 | ------------------- | ----------------- |
 | **QueueCapacity** | Quantité de stockage de files d’attente utilisée par le compte de stockage. <br><br> Unité : `Bytes` <br> Type d’agrégation : `Average` <br> Exemple de valeur : `1024` |
 | **QueueCount** | Nombre de files d’attente dans le compte de stockage. <br><br> Unité : `Count` <br> Type d’agrégation : `Average` <br> Exemple de valeur : `1024` |
-| **QueueMessageCount** | Nombre approximatif de messages en file d’attente dans le compte de stockage. <br><br> Unité : `Count` <br> Type d’agrégation : `Average` <br> Exemple de valeur : `1024` |
+| **QueueMessageCount** | Nombre de messages de file d’attente non expirés dans le compte de stockage. <br><br> Unité : `Count` <br> Type d’agrégation : `Average` <br> Exemple de valeur : `1024` |
 
 ### <a name="transaction-metrics"></a>Métriques de transaction
 

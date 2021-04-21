@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dab6b504fe026324251b7284fc3abdb52bb9911a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381730"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738951"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire
 
@@ -38,7 +38,7 @@ Microsoft suit les normes réglementaires et améliore automatiquement sa couver
 
 ## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>Quelles sont les normes de conformité réglementaire disponibles dans Security Center ?
 
-Par défaut, le **Benchmark de sécurité Azure** est attribué à chaque abonnement. Il s’agit de l’ensemble des directives propres à Azure et créées par Microsoft contenant les meilleures pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. [En savoir plus sur le Benchmark de sécurité Azure](../security/benchmarks/introduction.md).
+Par défaut, le **Benchmark de sécurité Azure** est attribué à chaque abonnement. Il s’agit de l’ensemble des directives propres à Azure et créées par Microsoft contenant les meilleures pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 Vous pouvez également ajouter des normes telles que les suivantes :
 
@@ -122,6 +122,6 @@ Dans cet article, vous avez découvert comment **ajouter des normes de conformit
 
 Pour obtenir des informations connexes, consultez les pages suivantes :
 
-- [Benchmark de sécurité Azure](../security/benchmarks/introduction.md)
+- [Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Tableau de bord de conformité réglementaire de Security Center](security-center-compliance-dashboard.md) : découvrez comment suivre et exporter vos données de conformité réglementaire avec Security Center et des outils externes
 - [Utilisation de stratégies de sécurité](tutorial-security-policy.md)

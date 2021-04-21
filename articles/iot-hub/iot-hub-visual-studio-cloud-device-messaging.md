@@ -7,36 +7,24 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8461a77d06a63c2ac319323a91b5577ca4dce1cf
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74079493"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567028"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utiliser Cloud Explorer pour Visual Studio afin d’envoyer et de recevoir des messages entre votre appareil et un hub IoT
 
 ![Diagramme de bout en bout](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
+Dans cet article, vous allez apprendre à utiliser Cloud Explorer pour Visual Studio afin de superviser les messages appareil-à-cloud et d’envoyer des messages cloud-à-appareil. Les messages appareil-à-cloud peuvent être des données de capteur collectées par votre appareil, puis envoyées vers votre hub IoT. Les messages cloud-à-appareil peuvent être des commandes envoyées à votre appareil par votre hub IoT. Par exemple, faire clignoter une LED qui est connectée à votre appareil.
+
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) est une extension Visual Studio utile qui vous permet de visualiser vos ressources Azure, d’inspecter leurs propriétés et d’exécuter des actions de développeur essentielles à partir de Visual Studio. Cet article explique comment utiliser Cloud Explorer pour envoyer et recevoir des messages entre votre appareil et votre hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-learn"></a>Contenu
-
-Dans cet article, vous allez apprendre à utiliser Cloud Explorer pour Visual Studio afin de superviser les messages appareil-à-cloud et d’envoyer des messages cloud-à-appareil. Les messages appareil-à-cloud peuvent être des données de capteur collectées par votre appareil, puis envoyées vers votre hub IoT. Les messages cloud-à-appareil peuvent être des commandes envoyées à votre appareil par votre hub IoT. Par exemple, faire clignoter une LED qui est connectée à votre appareil.
-
-## <a name="what-you-do"></a>Procédure
-
-Dans cet article, vous effectuez les tâches suivantes :
-
-- Utiliser Cloud Explorer pour Visual Studio afin de superviser les messages appareil-à-cloud.
-
-- Utiliser Cloud Explorer pour Visual Studio pour envoyer des messages cloud-à-appareil.
-
-## <a name="what-you-need"></a>Ce dont vous avez besoin
-
-Vous devez respecter les prérequis suivants :
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure actif.
 

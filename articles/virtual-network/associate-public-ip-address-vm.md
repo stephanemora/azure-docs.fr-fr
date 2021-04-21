@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 6ea16da3844b8098d87d65e1016f92c69ae34067
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e8fe92f88a5934c55febf42a0768274211ed76f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945164"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767706"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associer une adresse IP publique à une machine virtuelle
 
 Dans cet article, vous allez apprendre à associer une adresse IP publique à une machine virtuelle (VM). Si vous souhaitez vous connecter à une machine virtuelle à partir d’internet, la machine virtuelle doit être associée à une adresse IP publique. Si vous souhaitez créer une machine virtuelle avec une adresse IP publique, vous pouvez le faire en utilisant le [Portail Microsoft Azure](virtual-network-deploy-static-pip-arm-portal.md), l’[interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md), ou [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Les adresses IP publiques ont un coût nominal. Pour en savoir plus, consultez les [tarifs](https://azure.microsoft.com/pricing/details/ip-addresses/). Le nombre d’adresses IP publiques que vous pouvez utiliser dans un abonnement est limité. Pour plus d’informations, consultez la section [Limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
 
 Vous pouvez utiliser le [Portail Microsoft Azure](#azure-portal), l’[interface de ligne de commande Azure](#azure-cli), ou [PowerShell](#powershell) pour associer une adresse IP publique à une machine virtuelle.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -65,7 +67,7 @@ Vous pouvez utiliser le [Portail Microsoft Azure](#azure-portal), l’[interface
 Installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) ou utilisez Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Sélectionnez le bouton **Essayer** dans les commandes de l’interface de ligne de commande qui suit. En sélectionnant **Essayer**, vous appelez un Cloud Shell avec lequel vous pouvez vous connecter à votre compte Azure.
 
 1. Si vous utilisez l’interface de ligne de commande localement dans Bash, connectez-vous à Azure à l’aide de `az login`.
-2. Une adresse IP publique est associée à une configuration IP d’une interface réseau jointe à une machine virtuelle. Utilisez la commande [az network nic-ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) pour associer une adresse IP publique à une configuration IP. L’exemple suivant associe une adresse IP publique existante nommée *myVMPublicIP* à la configuration IP nommée *ipconfigmyVM* d’une interface réseau existante nommée *myVMVMNic* qui existe dans un groupe de ressources nommé *myResourceGroup*.
+2. Une adresse IP publique est associée à une configuration IP d’une interface réseau jointe à une machine virtuelle. Utilisez la commande [az network nic-ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) pour associer une adresse IP publique à une configuration IP. L’exemple suivant associe une adresse IP publique existante nommée *myVMPublicIP* à la configuration IP nommée *ipconfigmyVM* d’une interface réseau existante nommée *myVMVMNic* qui existe dans un groupe de ressources nommé *myResourceGroup*.
   
    ```azurecli-interactive
    az network nic ip-config update \
@@ -75,7 +77,7 @@ Installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cl
      --public-ip-address myVMPublicIP
    ```
 
-   - Si vous n’avez pas d’adresse IP publique, utilisez la commande [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) pour en créer une. Par exemple, la commande suivante crée une adresse IP publique nommée *myVMPublicIP* dans un groupe de ressources nommé *myResourceGroup*.
+   - Si vous n’avez pas d’adresse IP publique, utilisez la commande [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) pour en créer une. Par exemple, la commande suivante crée une adresse IP publique nommée *myVMPublicIP* dans un groupe de ressources nommé *myResourceGroup*.
   
      ```azurecli-interactive
      az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
@@ -84,7 +86,7 @@ Installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cl
      > [!NOTE]
      > La commande précédente crée une adresse IP publique avec les valeurs par défaut pour plusieurs paramètres que vous pouvez personnaliser. Pour en savoir plus sur tous les paramètres d’adresse IP publique, consultez [Créer une adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address). L’adresse est attribuée à partir d’un pool d’adresses IP publiques utilisées pour chaque région Azure. Pour obtenir une liste des pools d’adresses utilisées dans chaque région, consultez l’article [Plages d’adresses IP de centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-   - Si vous ne connaissez pas le nom d’une interface réseau jointe à votre machine virtuelle, utilisez la commande [az vm nic list](/cli/azure/vm/nic#az-vm-nic-list) pour les afficher. Par exemple, la commande suivante répertorie les noms des interfaces réseau jointes à une machine virtuelle nommée *myVM* dans un groupe de ressources nommé *myResourceGroup*:
+   - Si vous ne connaissez pas le nom d’une interface réseau jointe à votre machine virtuelle, utilisez la commande [az vm nic list](/cli/azure/vm/nic#az_vm_nic_list) pour les afficher. Par exemple, la commande suivante répertorie les noms des interfaces réseau jointes à une machine virtuelle nommée *myVM* dans un groupe de ressources nommé *myResourceGroup*:
 
      ```azurecli-interactive
      az vm nic list --vm-name myVM --resource-group myResourceGroup
@@ -98,13 +100,13 @@ Installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cl
 
      Dans l’exemple précédent, *myVMVMNic* est le nom de l’interface réseau.
 
-   - Si vous ne connaissez pas le nom d’une configuration IP pour une interface réseau, utilisez la commande [az network nic ip-config list](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-list) pour les récupérer. Par exemple, la commande suivante répertorie les noms des configurations IP d’une interface réseau nommée *myVMVMNic* dans un groupe de ressources nommé *myResourceGroup*:
+   - Si vous ne connaissez pas le nom d’une configuration IP pour une interface réseau, utilisez la commande [az network nic ip-config list](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_list) pour les récupérer. Par exemple, la commande suivante répertorie les noms des configurations IP d’une interface réseau nommée *myVMVMNic* dans un groupe de ressources nommé *myResourceGroup*:
 
      ```azurecli-interactive
      az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
      ```
 
-3. Affichez l’adresse IP publique attribuée à la configuration IP avec la commande [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses). L’exemple suivant montre les adresses IP attribuées à une machine virtuelle existante nommée *myVM* dans un groupe de ressources nommé *myResourceGroup*.
+3. Affichez l’adresse IP publique attribuée à la configuration IP avec la commande [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses). L’exemple suivant montre les adresses IP attribuées à une machine virtuelle existante nommée *myVM* dans un groupe de ressources nommé *myResourceGroup*.
 
    ```azurecli-interactive
    az vm list-ip-addresses --name myVM --resource-group myResourceGroup --out table

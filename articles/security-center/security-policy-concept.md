@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 4dc29c8b52a3d0953445666672a716af013ee408
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4eea2611997732a263e9e824bc150b45ed145ecd
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176431"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738969"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>Que sont les stratégies, les initiatives et les recommandations de sécurité ?
 
@@ -35,7 +35,7 @@ Une initiative de sécurité définit la configuration souhaitée de vos charges
 
 À l’instar des stratégies de sécurité, les initiatives de Security Center sont également créées dans Azure Policy. Vous pouvez utiliser [Azure Policy](../governance/policy/overview.md) pour gérer vos stratégies, créer des initiatives et attribuer des initiatives à plusieurs abonnements ou à des groupes d’administration complets.
 
-L’initiative par défaut attribuée automatiquement à chaque abonnement dans Azure Security Center est Azure Security Benchmark. Ce benchmark de sécurité Azure constitue l’ensemble des directives propres à Azure et créées par Microsoft, qui contient les bonnes pratiques de sécurité et de conformité s’inscrivant dans les cadres de conformité courants. Ce point de référence, largement respecté et centré sur le cloud, est basé sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/). Découvrez le [Benchmark de sécurité Azure](../security/benchmarks/introduction.md).
+L’initiative par défaut attribuée automatiquement à chaque abonnement dans Azure Security Center est Azure Security Benchmark. Ce benchmark de sécurité Azure constitue l’ensemble des directives propres à Azure et créées par Microsoft, qui contient les bonnes pratiques de sécurité et de conformité s’inscrivant dans les cadres de conformité courants. Ce point de référence, largement respecté et centré sur le cloud, est basé sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/). Découvrez le [Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 Security Center offre les options suivantes pour l’utilisation des initiatives de sécurité :
 

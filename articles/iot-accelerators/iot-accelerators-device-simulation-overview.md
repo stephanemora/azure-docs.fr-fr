@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 979643c76b8bded51e30232228b7fe7485a1f53b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 27a23ff924c2fa9e9e35fec010ca2a177868eacc
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057675"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713909"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Vue d’ensemble de l’accélérateur de solution Simulation d’appareil
 
@@ -32,11 +32,11 @@ Avec la simulation d’appareil, vous pouvez définir des modèles d’appareils
 
 Vous pouvez effectuer des simulations pour un à plusieurs milliers d’appareils se connectant à un hub IoT. Pour faciliter le test, vous pouvez si nécessaire déployer un hub IoT avec la simulation d’appareil pour un environnement autonome.
 
-La simulation d’appareil est gratuite. Cependant, la simulation d’appareil se déploie sur votre abonnement Azure dans le cloud et consomme des ressources Azure. Si la simulation d’appareil ne répond pas à vos besoins, le [code source est également disponible sur GitHub](https://github.com/Azure/device-simulation-dotnet) : vous pouvez donc le copier et le modifier.
+La simulation d’appareil est gratuite. Cependant, la simulation d’appareil se déploie sur votre abonnement Azure dans le cloud et consomme des ressources Azure. Si la simulation d’appareil ne répond pas à vos besoins, le [code source est également disponible sur GitHub](https://github.com/Azure/azure-iot-pcs-device-simulation) : vous pouvez donc le copier et le modifier.
 
 ## <a name="sample-simulations"></a>Exemples de simulations
 
-Quand vous déployez la simulation d’appareil, vous recevez des exemples de simulations et d’appareils. Vous pouvez utiliser ces exemples pour apprendre à utiliser la simulation d’appareil. Pour commencer, exécutez un [exemple de simulation](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md). Vous pouvez également [créer votre propre simulation en utilisant un des nombreux exemples d’appareils fournis](iot-accelerators-device-simulation-create-simulation.md).
+Quand vous déployez la simulation d’appareil, vous recevez des exemples de simulations et d’appareils. Vous pouvez utiliser ces exemples pour apprendre à utiliser la simulation d’appareil. Pour commencer, exécutez un [exemple de simulation](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md). Vous pouvez également [créer votre propre simulation en utilisant un des nombreux exemples d’appareils fournis](iot-accelerators-device-simulation-create-simulation.md).
 
 ![Configuration de la simulation](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -63,4 +63,4 @@ Les modèles d’appareils avancés vous permettent de :
 Dans cet article, vous avez découvert l’accélérateur de solution Simulation d’appareil et ses fonctionnalités. Pour déployer l’accélérateur de solution, visitez le dépôt GitHub :
 
 > [!div class="nextstepaction"]
-> [Déployer et exécuter une simulation d’appareil IoT dans Azure](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)
+> [Déployer et exécuter une simulation d’appareil IoT dans Azure](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md)

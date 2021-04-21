@@ -4,15 +4,15 @@ description: Découvrez comment activer SMB Multichannel sur des partages de fic
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2f867fa6d4b7e1d864a85106b5d957a53d38eb76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: da4e1a58aef28e5c47100a0311ff81a5af04a918
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732534"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718973"
 ---
 # <a name="enable-smb-multichannel-on-a-filestorage-account-preview"></a>Activer SMB Multichannel sur un compte FileStorage (préversion) 
 
@@ -66,7 +66,7 @@ Une fois que vous avez créé un compte FileStorage, vous pouvez suivre les inst
 1. Sélectionnez **Partages de fichiers** sous **Service Fichier**, puis sélectionnez **Paramètres du partage de fichiers**.
 1. Basculez **SMB Multichannel** sur **actif** (ou **inactif** pour désactiver), puis sélectionnez **enregistrer**.
 
-:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Capture d’écran du compte de stockage, SMB Multichannel est activé.":::
+:::image type="content" source="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png" alt-text="Capture d’écran du compte de stockage, SMB Multichannel est activé."  lightbox="media/storage-files-enable-smb-multichannel/enable-smb-multichannel-on-storage-account.png":::
 
 Si l’option SMB Multichannel n’est pas visible sous **Paramètres du partage de fichiers** ou si vous voyez une erreur Échec de la mise à jour du paramètre lors de la mise à jour de la configuration, vérifiez que votre abonnement est inscrit et que votre compte se trouve dans l’une des [régions prises en charge](#regional-availability) avec un type de compte et une réplication pris en charge.
 

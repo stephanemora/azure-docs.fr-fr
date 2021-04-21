@@ -11,12 +11,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.openlocfilehash: 467cae97f9b4efe4782ac802cccd84271d475ea7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b3dd754e226436cb26cbb808bf37e4262efa344
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955429"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599551"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Charges de travail mainframe prises en charge sur Azure
 
@@ -52,7 +52,7 @@ Pour obtenir plus d’aide vis-à-vis de l’émulation de systèmes et services
 
 ## <a name="code-conversion"></a>Conversion de code
 
-- Technologie de conversion système [Asysco](https://www.asysco.com/azure-cloud/) couvrant le code source, les données, le traitement par lots, la planification, les moniteurs TP, les interfaces, la sécurité, la gestion et bien plus.
+- Technologie de conversion système [Asysco](https://asysco.com/) couvrant le code source, les données, le traitement par lots, la planification, les moniteurs TP, les interfaces, la sécurité, la gestion et bien plus.
 - Services de bout en bout [Asysco AMT Services](https://www.asysco.com/migration-services/) pour les projets de migration, y compris l’inventaire et l’analyse, la formation à la conception, les simulations, la mise en ligne et la prise en charge postmigration.
 - [Blu Age](https://www.bluage.com/) outils de numérisation d’applications métier et de bases de données héritées.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) services pour convertir les composants mainframe COBOL, CICS et VSAM en Java.

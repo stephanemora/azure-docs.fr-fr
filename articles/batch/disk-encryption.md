@@ -3,26 +3,21 @@ title: Créer un pool avec le chiffrement de disque activé
 description: Découvrez comment utiliser la configuration du chiffrement de disque pour chiffrer des nœuds avec une clé gérée par la plateforme.
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 04/16/2021
 ms.author: peshultz
-ms.custom: references_regions
-ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 01d2ea03768a09c1ad4e019b9e8ed43a26443637
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99055312"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728515"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Créer un pool avec le chiffrement de disque activé
 
 Quand vous créez un pool Azure Batch en utilisant une [configuration de machine virtuelle](nodes-and-pools.md#virtual-machine-configuration), vous pouvez chiffrer des nœuds de calcul dans le pool avec une clé gérée par la plateforme en spécifiant la configuration du chiffrement de disque.
 
 Cet article explique comment créer un pool Batch avec le chiffrement de disque activé.
-
-> [!IMPORTANT]
-> La prise en charge du chiffrement sur l’hôte à l’aide d’une clé gérée par la plateforme dans Azure Batch est actuellement en préversion publique pour les régions USA Est, USA Ouest 2, USA Centre Sud, US Gov Virginie et US Gov Arizona.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Pourquoi utiliser un pool avec une configuration du chiffrement de disque ?
 

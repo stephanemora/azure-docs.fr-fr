@@ -3,19 +3,18 @@ title: Créer un coffre de clés Azure et une stratégie d’accès de coffre à
 description: Cet article explique comment créer des coffres de clés Azure et des stratégies d’accès à l’aide d’un modèle Azure Resource Manager.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 3/14/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e489efd335d2a46a0e55d4ceb9bdee809ae6c39d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e70906cbf26c899744bfbe137da4ce9cfa651b20
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595241"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753143"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Comment créer un coffre de clés Azure et une stratégie d’accès à l’aide d’un modèle Resource Manager
 
@@ -218,6 +217,6 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Sécuriser l’accès à un coffre de clés](secure-your-key-vault.md)
+- [Sécuriser l’accès à un coffre de clés](security-overview.md)
 - [S’authentifier auprès d’un coffre de clés](authentication.md)
 - [Guide du développeur de coffre de clés Azure](developers-guide.md)

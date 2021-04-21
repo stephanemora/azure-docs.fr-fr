@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 15daeb0e6bf320a0727d8e6ea502063a30e67ad0
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 862feace6aab4f49ad3482c4ccd6510669c876a1
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106230897"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576531"
 ---
 # <a name="comparison-matrix"></a>Matrice de comparaison
 
@@ -85,7 +85,7 @@ La matrice de comparaison suivante montre les fonctionnalités de base des diff�
 | **Distribution de l’âge dans le temps**      | Non      | Oui | Oui | Oui            |
 | **Temps d’accès**                     | Non      | Oui | Oui | Oui            |
 | **Heure de modification**                   | Non      | Oui | Oui | Oui            |
-| **Heure de création**                   | Non      | Oui | Oui | Oui (SMB uniquement) |
+| **Heure de création**                   | Non      | Oui | Oui | Oui            |
 | **État du rapport par fichier/objet** | Partiel | Oui | Oui | Oui            |
 
 ## <a name="licensing"></a>Licence
@@ -146,6 +146,6 @@ La matrice de comparaison suivante montre les fonctionnalités de base des diff�
 - [Vue d’ensemble de la migration du stockage](../../../common/storage-migration-overview.md)
 - [Choisir une solution Azure pour transférer des données](/azure/storage/common/storage-choose-data-transfer-solution?toc=/azure/storage/blobs/toc.json)
 - [Migrer vers des partages de fichiers Azure](/azure/storage/files/storage-files-migration-overview)
-- [Migrer vers Data Lake Storage avec WANdisco LiveData Platform for Azure](/azure/storage/blobs/migrate-gen2-wandisco-live-data-platform)
+- [Migrer vers Data Lake Storage avec WANdisco LiveData Platform for Azure](/azure/storage/blobs/migrate-gen2-wandisco-live-data-platform)
 - [Copier ou déplacer des données vers le Stockage Azure avec AzCopy](https://aka.ms/azcopy)
 - [Migrer des jeux de données volumineux vers le Stockage Blob Azure avec AzReplicate (exemple d’application)](https://github.com/Azure/AzReplicate/tree/master/)

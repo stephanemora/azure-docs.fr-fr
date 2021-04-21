@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 528ba4a1be3650a81772d78a438f03611b9bd761
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 26b6adefd2d334c9fe570bfa7e63bb06b55b9d20
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102107055"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588766"
 ---
 # <a name="create-a-custom-conda-channel-for-package-management"></a>Créer un canal Conda personnalisé pour la gestion des packages 
 Lors de l’installation de packages Python, le gestionnaire de package Conda utilise des canaux pour rechercher des packages. Il se peut que vous deviez créer un canal Conda personnalisé pour diverses raisons. Par exemple, il se peut que :
@@ -92,7 +92,7 @@ conda index channel1/linux-64
 conda index channel1 
 ```
 
-Pour plus d’informations, vous pouvez également [consulter le guide de l’utilisateur Conda](https://docs.conda.io/projects/conda/latest/user-guide/tasks/create-custom-channels.html) pour créer des canaux personnalisés. 
+Pour plus d’informations, vous pouvez également [consulter le guide de l’utilisateur Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/create-custom-channels.html) pour créer des canaux personnalisés. 
 
 ## <a name="storage-account-permissions"></a>Autorisations du compte de stockage
 À présent, nous devons valider les autorisations sur le compte de stockage. Pour définir ces autorisations, accédez au chemin d’accès dans lequel le canal personnalisé sera créé. Ensuite, créez un jeton SAP pour ```privatechannel```, qui dispose d’autorisations de lecture, de liste et d’exécution. 

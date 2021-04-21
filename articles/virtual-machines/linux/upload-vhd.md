@@ -16,12 +16,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 9d549d77b4a60f7543f69a9fd89e8b538c95d010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ecad48592ecfb6723548a27997cfe1b81545b24a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564609"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759596"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
 
@@ -50,7 +50,7 @@ Pour exécuter la procédure ci-après, vous avez besoin des éléments suivants
 > 
 
 
-- Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az-login).
+- Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
 Dans les exemples suivants, remplacez les noms de paramètres par vos propres valeurs, telles que `myResourceGroup`, `mystorageaccount` et `mydisks`.
 
@@ -121,7 +121,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Créez votre machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create) et attachez (--attach-os-disk) le disque managé en tant que disque du système d’exploitation. L’exemple ci-après crée une machine virtuelle nommée *myNewVM* à l’aide du disque managé que vous avez créé à partir du VHD chargé :
+Créez votre machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create) et attachez (--attach-os-disk) le disque managé en tant que disque du système d’exploitation. L’exemple ci-après crée une machine virtuelle nommée *myNewVM* à l’aide du disque managé que vous avez créé à partir du VHD chargé :
 
 ```azurecli
 az vm create \

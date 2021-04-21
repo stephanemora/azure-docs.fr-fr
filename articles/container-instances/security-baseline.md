@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: be742de41979a218aeca588ce72a8ce80c8c59e5
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8790e05edbaeb40debd997ea9b35d31b25947761
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078603"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598786"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de référence de sécurité Azure pour Container Instances
 
@@ -30,7 +30,7 @@ Pour voir comment Container Instances est entièrement mappé à Azure Security 
 
 Contrôlez l’accès réseau sortant à partir d’un sous-réseau délégué à Azure Container Instances à l’aide de Pare-feu Azure. 
 
-- [Déployer des instances de conteneur dans un réseau virtuel Azure](/azure/container-instances/container-instance-vnet)
+- [Déployer des instances de conteneur dans un réseau virtuel Azure](/azure/container-instances/container-instances-vnet)
 
 - [Guide pratique pour déployer et configurer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -50,7 +50,7 @@ Contrôlez l’accès réseau sortant à partir d’un sous-réseau délégué �
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="13-protect-critical-web-applications"></a>1.3 : Protéger les applications web critiques
 
@@ -108,7 +108,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7 : Gérer le trafic à destination des applications web
 
@@ -232,7 +232,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="29-enable-dns-query-logging"></a>2.9 : Activer la journalisation des requêtes DNS
 
@@ -290,7 +290,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4 : Utiliser l’authentification unique (SSO) Azure Active Directory
 
-**Conseil** : dans la mesure du possible, utilisez l’authentification unique (SSO) d’Azure Active Directory (Azure AD) au lieu de configurer des informations d’identification autonomes individuelles par service. Suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
+**Conseil** : dans la mesure du possible, utilisez l’authentification unique (SSO) d’Azure Active Directory (Azure AD) au lieu de configurer des informations d’identification autonomes individuelles par service. Suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
 
 Si vous utilisez un registre informatique privé comme le registre de conteneurs Azure avec Azure Container Instances, pour un accès individuel au registre de conteneurs, utilisez la connexion individuelle intégrée à Azure AD.
 

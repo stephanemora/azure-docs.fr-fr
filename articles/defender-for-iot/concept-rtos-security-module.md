@@ -3,12 +3,12 @@ title: Explication conceptuelle des fondements du micro-agent Defender-IoT pour 
 description: Découvrez les fondements des concepts et du flux de travail du micro-agent Defender-IoT pour Azure RTOS.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 83557930aeeccbb557382583e4d6666a000ce52c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04b86d401bcb9fc919c36b28cf4f80ea3bfd7030
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779271"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750479"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-preview"></a>Micro-agent Defender-IoT pour Azure RTOS (préversion)
 
@@ -16,7 +16,7 @@ Cet article vous aide à mieux comprendre le micro-agent Defender-IoT pour Azure
 
 ## <a name="azure-rtos-iot-defender-iot-micro-agent"></a>Micro-agent Defender-IoT pour Azure RTOS
 
-Le micro-agent Defender-IoT pour Azure RTOS offre une solution de sécurité complète pour les appareils Azure RTOS dans le cadre de l’offre NetX Duo. Dans l’offre NetX Duo, Azure RTOS comprend le micro-agent Defender-IoT Azure Iot intégré. Une fois activé, celui-ci fournit une couverture contre les menaces courantes sur vos appareils avec système d’exploitation en temps réel (RTOS). 
+Le micro-agent Defender-IoT pour Azure RTOS offre une solution de sécurité complète pour les appareils Azure RTOS dans le cadre de l’offre NetX Duo. Dans l’offre NetX Duo, Azure RTOS comprend le micro-agent Defender-IoT Azure Iot intégré. Une fois activé, celui-ci fournit une couverture contre les menaces courantes sur vos appareils avec système d’exploitation en temps réel (RTOS).
 
 Le micro-agent Defender-IoT pour Azure RTOS s’exécute en arrière-plan et offre une expérience utilisateur fluide, tout en envoyant des messages de sécurité à l’aide des connexions uniques de chaque client à son IoT Hub. Le micro-agent Defender-IoT pour Azure RTOS est activé par défaut.  
 
