@@ -3,12 +3,12 @@ title: Créer par programmation des tableaux de bord Azure
 description: Utilisez un tableau de bord du portail Azure comme modèle pour créer par programmation des tableaux de bord Azure. Comprend une référence JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 416eeb772e347b28fcb4a4dcc93c746562ea3571
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095176"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767056"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -117,7 +117,7 @@ Après avoir configuré votre modèle, déployez-le en utilisant l'une des méth
 
 * [API REST](/rest/api/resources/deployments)
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-* [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
+* [Azure CLI](/cli/azure/group/deployment#az_group_deployment_create)
 * [Page de déploiement du modèle sur le portail Azure](https://portal.azure.com/#create/Microsoft.Template)
 
 Vous verrez ensuite deux versions de notre exemple de document JSON de tableau de bord. La première est la version que nous avons exportée à partir du portail et qui était déjà liée à une ressource. La seconde est la version de modèle que vous pouvez lier par programmation à toute machine virtuelle et déployer à l'aide d'Azure Resource Manager.

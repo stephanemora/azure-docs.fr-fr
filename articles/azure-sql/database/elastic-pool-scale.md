@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 04/09/2021
-ms.openlocfilehash: 3d935332854816ae62dea8e30f08bee2b92a4eab
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1125ea0c6c625ece010b2acb416ad223e37aea84
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107302979"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787122"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Mettre à l’échelle un pool élastique dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Après avoir choisi le nombre de vCores ou d’unités de transaction de base de
 * [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](elastic-pool-manage.md#azure-portal)
 * [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool)
-* [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)
+* [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)
 * [REST API](/rest/api/sql/elasticpools/update)
 
 
@@ -107,7 +107,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 ### <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
 - Le prix des eDTU pour un pool élastique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et les limites de taille maximale incluses, consultez [Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes) ou [Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore](resource-limits-vcore-elastic-pools.md).
-- Vous pouvez configurer du stockage supplémentaire pour un pool élastique en augmentant sa taille maximale à l’aide du [portail Azure](elastic-pool-manage.md#azure-portal), de [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](/rest/api/sql/elasticpools/update).
+- Vous pouvez configurer du stockage supplémentaire pour un pool élastique en augmentant sa taille maximale à l’aide du [portail Azure](elastic-pool-manage.md#azure-portal), de [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) ou de [l’API REST](/rest/api/sql/elasticpools/update).
 - Le prix de l’espace de stockage supplémentaire pour un pool élastique est égal à la quantité de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

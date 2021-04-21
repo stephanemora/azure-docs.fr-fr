@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c1a0853dc59b2e2ceabfd47d81aac364a2b5716
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463508"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589429"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
 
@@ -26,10 +26,6 @@ Azure Database Migration Service est conçu pour prendre en charge différents s
 ## <a name="offline-versus-online-migrations"></a>Migrations hors connexion et en ligne
 
 Avec Azure Database Migration Service, vous pouvez opter pour une migration hors connexion ou en ligne. Avec les migrations *hors connexion*, les temps d’arrêt de l’application commencent en même temps que la migration. Pour limiter le temps d’arrêt au temps nécessaire pour basculer vers le nouvel environnement une fois la migration terminée, utilisez une migration *en ligne*. Nous vous recommandons de tester une migration hors connexion pour déterminer si le temps d’arrêt est acceptable ; dans le cas contraire, privilégiez une migration en ligne.
-
-## <a name="migration-scenario-status"></a>État du scénario de migration
-
-L’état des scénarios de migration pris en charge par Azure Database Migration Service varie dans le temps. En règle générale, les scénarios sont d’abord publiés en **préversion privée**. Pour participer à une préversion privée, les clients doivent soumettre une candidature par le biais du [site DMS Preview](https://aka.ms/dms-preview). Au terme de la préversion privée, le scénario passe à l’état de **préversion publique**. Les utilisateurs d’Azure Database Migration Service peuvent essayer des scénarios de migration en préversion directement à partir de l’interface utilisateur. Aucune inscription n’est nécessaire.  Toutefois, il se peut que les scénarios de migration en préversion publique ne soient pas disponibles dans toutes les régions et subissent des modifications supplémentaires avant la version finale. Au terme de la préversion publique, le scénario passe à l’état de **disponibilité générale**. La disponibilité générale est l’état de la version finale : les fonctionnalités sont complètes et accessibles à tous les utilisateurs.
 
 ## <a name="migration-scenario-support"></a>Prise en charge du scénario de migration
 

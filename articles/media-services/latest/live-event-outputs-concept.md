@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: dec4eec16ba24baf31d911db882625479c33fb3b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 44ab9e4ff83fec2ddfbd1cb44f503298d12789d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278624"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766296"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Événements en direct et sorties en direct dans Media Services
 
@@ -117,13 +117,13 @@ Consultez également les [conventions de nommage des points de terminaison de st
 Une fois l’événement en direct créé, vous pouvez obtenir des URL de réception que vous devez fournir à l’encodeur live local. L’encodeur live utilise ces URL pour entrer un flux temps réel. Pour plus d’informations, consultez [Encodeurs live locaux recommandés](encode-recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
-> À compter de la version d’API 2020-05-01, les URL de redirection sont appelées noms d’hôte statiques (useStaticHostname: true)
+> À compter de la version d’API 2020-05-01, les URL de redirection sont appelées noms d’hôte statiques (useStaticHostname: true).
 
 
 > [!NOTE]
 > Pour qu’une URL de réception soit statique et prévisible pour une utilisation dans une configuration d’encodeur matériel, définissez la propriété **useStaticHostname** sur true et définissez la propriété **accessToken** sur le même GUID à chaque création. 
 
-### <a name="example-liveevent-and-liveeventinput-configuration-settings-for-a-static-non-random-ingest-rtmp-url"></a>Exemples de paramètres de configuration LiveEvent et LiveEventInput pour une URL RTMP de réception statique (non aléatoire).
+### <a name="example-liveevent-and-liveeventinput-configuration-settings-for-a-static-non-random-ingest-rtmp-url"></a>Exemples de paramètres de configuration LiveEvent et LiveEventInput pour une URL RTMP de réception statique (non aléatoire)
 
 ```csharp
              LiveEvent liveEvent = new LiveEvent(
@@ -166,10 +166,10 @@ Une fois l’événement en direct créé, vous pouvez obtenir des URL de récep
 
     Utiliser les API suivantes pour activer l’URL du nom d’hôte statique et définir le jeton d’accès sur un GUID valide (par exemple `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
 
-    |Language|Activer l’URL du nom d’hôte statique|Définir le jeton d’accès|
+    |Langage|Activer l’URL du nom d’hôte statique|Définir le jeton d’accès|
     |---|---|---|
     |REST|[properties.useStaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useStaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
-    |Interface de ligne de commande|[--use-static-hostname](/cli/azure/ams/live-event#az-ams-live-event-create)|[--access-token](/cli/azure/ams/live-event#optional-parameters)|
+    |Interface de ligne de commande|[--use-static-hostname](/cli/azure/ams/live-event#az_ams_live_event_create)|[--access-token](/cli/azure/ams/live-event#optional-parameters)|
     |.NET|[LiveEvent.useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Règles de nommage de l’URL de réception en direct

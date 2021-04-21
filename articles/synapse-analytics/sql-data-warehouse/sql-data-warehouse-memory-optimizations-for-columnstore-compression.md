@@ -2,21 +2,21 @@
 title: Améliorer les performances d’un index columnstore pour un pool SQL dédié
 description: Réduisez les besoins en mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes dans chaque rowgroup dans un pool SQL dédié.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b15f71698af8c340b58f3399390857790313b8ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1336359bdd0768ba1d1554554d266cacfb483a43
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585483"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566509"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Optimisation de la qualité du rowgroup pour les index columnstore dans un pool SQL dédié 
 

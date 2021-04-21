@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0e076f3b248942870ba58a51c85c3df1f1277a4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100545817"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750605"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 
@@ -42,7 +42,7 @@ Les valeurs de secret peuvent être stockées en tant que chaînes chiffrées da
 L’utilisation de secrets Key Vault est recommandée car elle permet d’améliorer la sécurité de Gestion des API :
 
 * Les secrets stockés dans les coffres de clés peuvent être réutilisés dans les services
-* Des [stratégies d’accès](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) granulaires peuvent être appliquées aux secrets
+* Des [stratégies d’accès](../key-vault/general/security-overview.md#privileged-access) granulaires peuvent être appliquées aux secrets
 * Les secrets mis à jour dans le coffre de clés sont automatiquement permutés dans Gestion des API. Après la mise à jour dans le coffre de clés, une valeur nommée dans Gestion des API est mise à jour dans les 4 heures. Vous pouvez également actualiser manuellement le secret à l’aide du portail Azure ou par le biais de l’API REST de gestion.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Conditions préalables à l’intégration d’un coffre de clés

@@ -6,18 +6,18 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 4c8f4b490c46ed8061201ba6362999f0e426ecb7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bed0ccbc25c6fcc43d8fb0948182f229bce63edf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596324"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764708"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
 
 Le chiffrement des données d’Azure Database pour MySQL à l’aide d’une clé gérée par le client vous permet de mettre en place votre propre scénario Bring Your Own Key (BYOK) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement géré par le client, vous êtes responsable du cycle de vie des clés, des autorisations d'utilisation des clés et de l'audit des opérations sur les clés, et contrôlez totalement le processus.
 
-Le chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client est défini au niveau du serveur. Pour un serveur donné, une clé gérée par le client, appelée clé de chiffrement de clé (KEK), sert à chiffrer la clé de chiffrement de données (DEK) utilisée par le service. La KEK est une clé asymétrique stockée dans une instance d'[Azure Key Vault](../key-vault/general/secure-your-key-vault.md) détenue et gérée par le client. La clé de chiffrement de clé (KEK) et la clé de chiffrement de données (DEK) sont décrites plus en détail plus loin dans cet article.
+Le chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client est défini au niveau du serveur. Pour un serveur donné, une clé gérée par le client, appelée clé de chiffrement de clé (KEK), sert à chiffrer la clé de chiffrement de données (DEK) utilisée par le service. La KEK est une clé asymétrique stockée dans une instance d'[Azure Key Vault](../key-vault/general/security-overview.md) détenue et gérée par le client. La clé de chiffrement de clé (KEK) et la clé de chiffrement de données (DEK) sont décrites plus en détail plus loin dans cet article.
 
 Key Vault est un système de gestion de clés externe basé sur le cloud. Il fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, éventuellement sauvegardé par les modules de sécurité matériels (HSM) validés FIPS 140-2 niveau 2. Il n'autorise pas l'accès direct à une clé stockée, mais fournit des services de chiffrement et de déchiffrement aux entités autorisées. Key Vault peut générer la clé, l'importer ou [la faire transférer à partir d'un appareil HSM local](../key-vault/keys/hsm-protected-keys.md).
 
@@ -99,7 +99,7 @@ Lorsque vous configurez le chiffrement des données avec une clé gérée par le
 * Si nous créons un réplica en lecture pour votre base de données Azure pour MySQL pour lequel le chiffrement des données est activé, le serveur de réplication se trouve dans l’état *Inaccessible*. Vous pouvez résoudre ce problème à l’aide du [portail Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou de l’[interface CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Si vous supprimez le coffre de clés, la base de données Azure pour MySQL ne peut plus accéder à la clé et passe à l’état *Inaccessible*. Récupérez le [Key Vault](../key-vault/general/key-vault-recovery.md) et revalidez le chiffrement des données pour rendre le serveur *Disponible*.
 * Si nous supprimons la clé du coffre de clés, la base de données Azure pour MySQL ne peut plus accéder à la clé et passe à l’état *Inaccessible*. Récupérez la [clé](../key-vault/general/key-vault-recovery.md) et revalidez le chiffrement des données pour rendre le serveur *Disponible*.
-* Si la clé stockée dans le coffre de clés Azure expire, elle devient non valide et la base de données Azure pour MySQL passe à l’état *Inaccessible*. Étendez la date d’expiration de la clé à l’aide de [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes), puis revalidez le chiffrement de données pour rendre le serveur *Disponible*.
+* Si la clé stockée dans le coffre de clés Azure expire, elle devient non valide et la base de données Azure pour MySQL passe à l’état *Inaccessible*. Étendez la date d’expiration de la clé à l’aide de [CLI](/cli/azure/keyvault/key#az_keyvault_key_set-attributes), puis revalidez le chiffrement de données pour rendre le serveur *Disponible*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Révocation accidentelle de l'accès aux clés de Key Vault
 

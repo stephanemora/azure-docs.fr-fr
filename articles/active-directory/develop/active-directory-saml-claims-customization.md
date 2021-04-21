@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25e737afb524cb8c6f45ac8e99f46a8064ae7855
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103600947"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598837"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -77,7 +77,7 @@ Sélectionnez la source souhaitée pour la revendication `NameIdentifier` (ou Na
 | Extensions d’annuaire | Extensions d’annuaire [ synchronisées à partir d’Active Directory local à l’aide d’Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Attributs d’extension 1-15 | Attributs d’extension local utilisés pour étendre le schéma Azure AD |
 
-Pour plus d’informations, consultez [Tableau 3 : Validez les valeurs d’ID par source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+Pour plus d’informations, consultez [Tableau 3 : Validez les valeurs d’ID par source](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
 
 Vous pouvez également attribuer une valeur constante (statique) quelconque à toute revendication que vous définissez dans Azure AD. Suivez les étapes ci-dessous pour attribuer une valeur constante :
 
