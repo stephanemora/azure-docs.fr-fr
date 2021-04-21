@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 964fda8168867c115502c7262dc1d41e55075866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7dca5e36144fe17b39f76bb61543f59a1c6d7772
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91317648"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790182"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>Router le trafic via une appliance virtuelle réseau – Exemple de script Azure CLI
 
@@ -58,8 +58,8 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 | [az network nsg create](/cli/azure/network/nsg) | Crée un groupe de sécurité réseau (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Crée des règles NSG qui autorisent des ports HTTP et HTTPS entrants sur la machine virtuelle. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Associe les NSG et les tables de routage aux sous-réseaux. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Crée une table de routage pour tous les itinéraires. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Créer des itinéraires pour acheminer le trafic entre les sous-réseaux et Internet via la machine virtuelle. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Crée une table de routage pour tous les itinéraires. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Créer des itinéraires pour acheminer le trafic entre les sous-réseaux et Internet via la machine virtuelle. |
 | [az vm create](/cli/azure/vm) | Crée une machine virtuelle et lui associe la carte d’interface réseau. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration. |
 | [az group delete](/cli/azure/group) | Supprime un groupe de ressources, ainsi que toutes ses ressources. |
 
