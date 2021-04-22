@@ -13,22 +13,22 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2d0d3335468147575eb53a99940866baa18375
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df4cb32720d80dd23289be7e760c9934e9a8db8a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222519"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501499"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory
 
 Azure Active Directory (Azure AD) offre la possibilité de limiter ce que peuvent voir les utilisateurs invités externes au sein de leur organisation dans Azure AD. Les utilisateurs invités sont définis par défaut sur un niveau d’autorisation limité dans Azure AD, tandis que les utilisateurs membres disposent de l’ensemble complet d’autorisations utilisateur par défaut. Cette préversion d’un nouveau niveau d’autorisation des utilisateurs invités dans les paramètres de collaboration externe de l’organisation Azure AD offre un accès encore plus restreint. Les choix d’accès invité possibles sont maintenant les suivants :
 
-Niveau d’autorisation         | Niveau d’accès
-----------------         | ------------
-Identique aux utilisateurs membres     | Les invités ont le même accès aux ressources Azure AD que les utilisateurs membres
-Accès limité (par défaut) | Les invités peuvent voir l’appartenance de tous les groupes non masqués
-**Accès restreint (nouveau)**  | **Les invités ne peuvent voir l’appartenance d’aucun groupe**
+Niveau d’autorisation         | Niveau d’accès | Valeur
+----------------         | ------------ | -----
+Identique aux utilisateurs membres     | Les invités ont le même accès aux ressources Azure AD que les utilisateurs membres | a0b1b346-4d3e-4e8b-98f8-753987be4970
+Accès limité (par défaut) | Les invités peuvent voir l’appartenance de tous les groupes non masqués | 10dae51f-b6af-4016-8d66-8c2a99b929b3
+**Accès restreint (nouveau)**  | **Les invités ne peuvent voir l’appartenance d’aucun groupe** | **2af84b1e-32c8-42b7-82bc-daa82404023b**
 
 Lorsque l’accès invité est restreint, les invités ne peuvent afficher que leur propre profil utilisateur. L’autorisation de voir d’autres utilisateurs n’est pas accordée, même si l’invité effectue une recherche par nom d’utilisateur principal ou par objectId. L’accès restreint empêche également les utilisateurs invités de consulter l’appartenance des groupes dont ils sont membres. Pour plus d’informations sur les autorisations utilisateur globales par défaut, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../fundamentals/users-default-permissions.md).
 
