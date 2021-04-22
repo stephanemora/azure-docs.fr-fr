@@ -146,22 +146,24 @@
           href: document-translation/create-sas-tokens.md
     - name: Informations de référence
       items:
-        - name: Obtenir des formats de document
-          href: document-translation/reference/get-document-formats.md
-        - name: Obtenir des formats de glossaire
-          href: document-translation/reference/get-glossary-formats.md
-        - name: Obtenir une source de stockage de documents
-          href: document-translation/reference/get-document-storage-source.md
-        - name: Envoyer une demande de lot
-          href: document-translation/reference/submit-batch-request.md
-        - name: Obtenir l’état des documents d’opération
-          href: document-translation/reference/get-operation-documents-status.md
+        - name: Obtenir les formats de document pris en charge
+          href: document-translation/reference/get-supported-document-formats.md
+        - name: Obtenir les formats de glossaire pris en charge
+          href: document-translation/reference/get-supported-glossary-formats.md
+        - name: Obtenir les sources de stockage prises en charge
+          href: document-translation/reference/get-supported-storage-sources.md
+        - name: Commencer la traduction
+          href: document-translation/reference/start-translation.md
         - name: Obtenir l’état des documents
+          href: document-translation/reference/get-documents-status.md
+        - name: Obtenir l’état d’un document
           href: document-translation/reference/get-document-status.md
-        - name: Obtenir des opérations
-          href: document-translation/reference/get-operations.md
-        - name: Annuler une opération
-          href: document-translation/reference/cancel-operation.md
+        - name: Obtenir l’état des traductions
+          href: document-translation/reference/get-translations-status.md
+        - name: Obtenir l’état de la traduction
+          href: document-translation/reference/get-translation-status.md
+        - name: Annuler la traduction
+          href: document-translation/reference/cancel-translation.md
 - name: Guides pratiques
   items:
     - name: Préparation pour l’entreprise

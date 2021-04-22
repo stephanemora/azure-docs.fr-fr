@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: iangithinji
 ms.reviewer: baselden
-ms.openlocfilehash: 83e506c0a3d0b9718f94d48ea8e6b23f43e811f3
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b0fd3dae2ff9c6de39462d19dc41a32ba51171e0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377936"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534870"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -177,7 +177,7 @@ Les applications qui nécessitent les fonctionnalités de protocole suivantes ne
 
 Les applications qui nécessitent les revendications suivantes dans les fonctionnalités de jeton ne peuvent actuellement pas être migrées.
 
-* Les revendications des magasins d’attributs autres que l’annuaire Azure AD, sauf si ces données sont synchronisées avec Azure AD. Pour plus d’informations, consultez la page [Vue d’ensemble de l’API de synchronisation Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta).
+* Les revendications des magasins d’attributs autres que l’annuaire Azure AD, sauf si ces données sont synchronisées avec Azure AD. Pour plus d’informations, consultez la page [Vue d’ensemble de l’API de synchronisation Azure AD](/graph/api/resources/synchronization-overview).
 * Émission d’attributs à plusieurs valeurs d’annuaire. Par exemple, nous ne pouvons pas émettre une revendication à plusieurs valeurs pour les adresses proxy pour l’instant.
 
 ## <a name="map-app-settings-from-ad-fs-to-azure-ad"></a>Mapper les paramètres de l’application d’AD FS à Azure AD

@@ -390,15 +390,12 @@
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Suivre et superviser l’entraînement
           items:
-            - name: 'Démarrer, superviser ou annuler des exécutions'
+            - name: 'Suivre, superviser et analyser des exécutions'
               displayName: 'cancel, fail, status, child run'
-              href: how-to-manage-runs.md
-            - name: Activer les journaux d’activité
-              displayName: 'troubleshoot, log, files, tracing'
-              href: how-to-track-experiments.md
-            - name: Afficher les journaux et les métriques pour les exécutions
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Journaliser et afficher les métriques et les fichiers journaux
               displayName: 'troubleshoot, log, files, tracing, metrics'
-              href: how-to-monitor-view-training-logs.md
+              href: how-to-log-view-metrics.md
             - name: Visualiser les exécutions avec TensorBoard
               displayName: 'log, monitor, metrics'
               href: how-to-monitor-tensorboard.md
@@ -440,9 +437,6 @@
         - name: Utiliser le ML automatisé avec Databricks
           displayName: automl
           href: how-to-configure-databricks-automl-environment.md
-        - name: Utiliser des cibles de calcul distantes
-          displayName: automl automated auto ml
-          href: how-to-auto-train-remote.md
         - name: Entraîner automatiquement un modèle de prévision
           displayName: time series
           href: how-to-auto-train-forecast.md
@@ -625,7 +619,7 @@
       displayName: 'environments, curated environments'
       href: resource-curated-environments.md
     - name: Azure CLI
-      href: /cli/azure/ext/azure-cli-ml/ml
+      href: /cli/azure/ml
 - name: Ressources
   items:
     - name: Notes de publication
