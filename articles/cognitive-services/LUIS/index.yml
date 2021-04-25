@@ -3,7 +3,7 @@ title: Documentation de Language Understanding (LUIS)
 summary: Découvrez comment le service LUIS (Language Understanding) permet à vos applications de comprendre le sens des propos d’une personne.
 metadata:
   ms.topic: landing-page
-  ms.date: 04/13/2021
+  ms.date: 04/16/2021
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentation Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Le service LUIS (Language Understanding) permet à votre application de comprendre le sens des propos d’une personne. Le service LUIS utilise l’apprentissage automatique pour permettre aux développeurs de créer des applications qui peuvent recevoir une entrée d’utilisateur dans un langage naturel et en extraire du sens.
-  ms.openlocfilehash: 793638552b35dd6dc65395e9c568c55a8ef9f946
-  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+  ms.openlocfilehash: 6c0b126f222e4dcb1bcd2dedcad38fe80b338f81
+  ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/14/2021
-  ms.locfileid: "107497045"
+  ms.lasthandoff: 04/25/2021
+  ms.locfileid: "107947408"
 landingContent:
 - title: À propos de Language Understanding (LUIS)
   linkLists:
@@ -58,7 +58,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: 'Portail : Créer une application LUIS'
-      url: get-started-portal-build-app.md
+      url: luis-get-started-create-app.md
     - text: Utilisation du SDK C#
       url: ./client-libraries-rest-api.md?pivots=rest-api
     - text: Utilisation du SDK Python
@@ -85,8 +85,6 @@ landingContent:
       url: ./luis-how-to-batch-test.md
   - linkListType: quickstart
     links:
-    - text: 'Portail : Déployer l’application sur le point de terminaison de prédiction'
-      url: get-started-portal-deploy-app.md
     - text: Utiliser le kit de développement logiciel (SDK)
       url: ./client-libraries-rest-api.md?pivots=rest-api
   - linkListType: how-to-guide
