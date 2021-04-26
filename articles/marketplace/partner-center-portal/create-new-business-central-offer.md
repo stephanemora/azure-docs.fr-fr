@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 12/02/2020
-ms.openlocfilehash: 65df5f178ce0ec845fca6343c51049b6bf426e18
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 001f7453c29e7a8525fb88a96dd9a867468460e3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106035"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501431"
 ---
 # <a name="create-a-dynamics-365-for-business-central-offer"></a>Créer une offre Dynamics 365 pour Business Central
 
@@ -33,7 +33,7 @@ Avant de commencer, et si vous ne l’avez pas déjà fait, [créez un compte Ma
 
 ## <a name="new-offer"></a>Nouvelle offre
 
-Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
+Entrez un **ID d’offre**. Cette valeur est un identificateur unique pour chaque offre dans votre compte.
 
 - Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
 - L’ID d’offre associé à l’ID d’éditeur doit contenir moins de 40 caractères.
@@ -118,11 +118,11 @@ Cette page vous permet de définir les détails de l’offre, notamment le nom d
 > [!NOTE]
 > Fournissez les détails de l’offre dans une seule langue uniquement. Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression « This application is available only in [langue non anglaise] ». Vous pouvez également de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu du référencement de l’offre.
 
-Voici un exemple de la façon dont les informations de l’offre s’affichent dans Microsoft AppSource (les prix répertoriés sont fournis à titre d’exemple uniquement et ne reflètent pas les coûts réels) :
-<!-- update screen? -->
+Voici un exemple de la façon dont les informations de l’offre s’affichent dans Microsoft AppSource (les prix listés sont fournis à titre d’exemple uniquement et ne reflètent pas les coûts réels) :
+
 :::image type="content" source="media/example-d365-business-central.png" alt-text="Illustre la façon dont cette offre s’affiche dans Microsoft AppSource.":::
 
-#### <a name="call-out-descriptions"></a>Descriptions de légende
+### <a name="call-out-descriptions"></a>Descriptions de légende
 
 1. Logo
 2. Products
@@ -174,11 +174,11 @@ Fournissez des logos et des images qui seront utilisés pour montrer votre offre
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
->Si vous rencontrez un problème de chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
+>Si vous rencontrez un problème de chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service `https://upload.xboxlive.com` utilisé par l’Espace partenaires.
 
 #### <a name="logos"></a>Logos
 
-Fournissez un fichier PNG pour le logo de **Grande taille**. L'Espace partenaires l'utilisera pour créer d’autres tailles requises. Plus tard, vous pourrez éventuellement le remplacer par une autre image.
+Fournissez un fichier PNG pour le logo de **Grande taille**. L'Espace partenaires utilise ce fichier initial pour créer d’autres tailles requises. Vous pouvez éventuellement remplacer l’image redimensionnée par votre propre image ultérieurement.
 
 Ces logos sont utilisés à différents emplacements dans la liste :
 
@@ -194,7 +194,7 @@ Ajoutez des captures d’écran qui illustrent le fonctionnement de votre offre.
 
 Vous pouvez éventuellement ajouter jusqu’à quatre vidéos qui illustrent votre offre. Les vidéos doivent être hébergées sur un site externe. Pour chaque vidéo, entrez son nom, son adresse et une image miniature correspondante (1280 x 720 pixels).
 
-Pour obtenir des ressources supplémentaires concernant la place de marché, consultez [Meilleures pratiques pour les annonces d’offre d’une place de marché](../gtm-offer-listing-best-practices.md).
+Pour obtenir d’autres ressources concernant la place de marché, consultez [Meilleures pratiques pour les annonces d’offre d’une place de marché](../gtm-offer-listing-best-practices.md).
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -225,6 +225,8 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 Cette page définit les détails techniques utilisés pour se connecter à votre offre. Cette connexion permet d’approvisionner votre offre pour le client final, s’il choisit de l’acquérir.
 
+Les extensions soumises pour votre offre doivent satisfaire aux exigences spécifiées dans la [liste de contrôle de validation technique](/dynamics365/business-central/dev-itpro/developer/devenv-checklist-submission).
+
 ### <a name="file-upload"></a>Chargement de fichiers
 
 Si vous avez précédemment sélectionné **Module complémentaire**, vous allez charger le fichier de package de votre offre, ainsi que les fichiers de package pour toute extension sur laquelle il a des dépendances.
@@ -242,14 +244,6 @@ Obligatoire si votre offre doit être installée avec une autre extension qui n�
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
-<!-- ## Test drive technical configuration
-
-This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
-
-To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
-
-When you've finished setting up your test drive, select **Save draft** before continuing.
--->
 ## <a name="supplemental-content"></a>Contenu supplémentaire
 
 Cette page vous permet de fournir des informations supplémentaires pour que nous puissions valider votre offre. Ces informations ne sont pas montrées aux clients ni publiées sur la Place de marché.
@@ -285,9 +279,9 @@ Après avoir complété toutes les sections obligatoires de l’offre, sélectio
 S’il s’agit de votre première publication de cette offre, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre.
-    - **Non démarrée** : la section n’a pas encore été modifiée et doit être complétée.
-    - **Incomplète** : la section comporte des erreurs qui doivent être corrigées ou nécessite un complément d’informations. Revenir à la ou les sections et les mettre à jour.
-    - **Complète** : la section est complète, toutes les données obligatoires ont été fournies et aucune erreur n’est présente. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
+  - **Non démarrée** : la section n’a pas encore été modifiée et doit être complétée.
+  - **Incomplète** : la section comporte des erreurs qui doivent être corrigées ou nécessite un complément d’informations. Revenir à la ou les sections et les mettre à jour.
+  - **Complète** : la section est complète, toutes les données obligatoires ont été fournies et aucune erreur n’est présente. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
 - Dans la sections **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail quand une préversion de l’offre sera disponible pour examen et approbation. Retournez dans l’Espace partenaires et sélectionnez **Mise en service** pour publier votre offre au public.
 

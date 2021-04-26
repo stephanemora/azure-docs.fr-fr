@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b984a17c8c10c3dff7c57b7d0223ba8b4197012
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: edb7ebc94d2706d1bf20db8ed9a869107163ff8d
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640117"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387987"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Effectuer l'apprentissage de modèles avec des jeux de données Azure Machine Learning 
 
@@ -44,7 +44,7 @@ Pour créer des jeux de données et effectuer un entraînement avec eux, vous av
 
 Si vous disposez de données structurées qui ne sont pas encore inscrites en tant que jeu de données, créez un TabularDataset et utilisez-le directement dans votre script de formation pour votre expérience locale ou distante.
 
-Dans cet exemple, vous créez un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) non inscrit et le spécifiez comme argument de script dans l’objet ScriptRunConfig pour la formation. Si vous souhaitez réutiliser ce TabularDataset avec d’autres expériences dans votre espace de travail, consultez [Comment inscrire des jeux de données dans votre espace de travail](how-to-create-register-datasets.md#register-datasets).
+Dans cet exemple, vous créez un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) non inscrit et le spécifiez comme argument de script dans l’objet [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig) pour la formation. Si vous souhaitez réutiliser ce TabularDataset avec d’autres expériences dans votre espace de travail, consultez [Comment inscrire des jeux de données dans votre espace de travail](how-to-create-register-datasets.md#register-datasets).
 
 ### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
 
@@ -119,16 +119,25 @@ run.wait_for_completion(show_output=True)
 
 Si vous avez des données non structurées, créez un [FileDataset](/python/api/azureml-core/azureml.data.filedataset) et montez ou téléchargez vos fichiers de données pour les mettre à la disposition de votre cible de calcul à distance pour la formation. Découvrez quand utiliser [le montage ou le téléchargement](#mount-vs-download) pour vos expériences de formation à distance. 
 
-L’exemple suivant crée un FileDataset et monte le jeu de données sur la cible de calcul en le transmettant comme argument au script de formation. 
+L’exemple suivant 
+
+* crée un FileDataset d’entrée, `mnist_ds`, pour vos données de formation ;
+* spécifie l’emplacement où écrire les résultats de la formation et donne l’instruction de promouvoir ces résultats sous forme de FileDataset ;
+* monte le jeu de données d’entrée sur la cible de calcul.
 
 > [!Note]
 > Si vous utilisez une image de base Docker personnalisée, vous devez installer fuse via `apt-get install -y fuse` en tant que dépendance pour que le montage du jeu de données fonctionne. Découvrez la procédure de [création d’une image de build personnalisée](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
 
+Pour l’exemple de notebook, consultez [Procédure de configuration d’une exécution de formation avec entrée et sortie de données](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
+
 ### <a name="create-a-filedataset"></a>Créer un FileDataset
 
-L’exemple suivant crée un FileDataset non inscrit à partir d’URL web. Pour en savoir plus sur la création des jeux de données à partir d’autres sources, consultez [cette page](how-to-create-register-datasets.md).
+L’exemple suivant crée un FileDataset non inscrit, `mnist_data`, à partir d’URL. Ce FileDataset correspond aux données d’entrée pour votre exécution de formation.
+
+Pour en savoir plus sur la création des jeux de données à partir d’autres sources, consultez [cette page](how-to-create-register-datasets.md).
 
 ```Python
+
 from azureml.core.dataset import Dataset
 
 web_paths = [
@@ -137,22 +146,49 @@ web_paths = [
             'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
             'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
             ]
+
 mnist_ds = Dataset.File.from_files(path = web_paths)
+
+```
+### <a name="where-to-write-training-output"></a>Emplacement d’écriture de la sortie de la formation
+
+Vous pouvez spécifier l’emplacement d’écriture de vos résultats de formation avec un [objet OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). 
+
+Les objets OutputFileDatasetConfig vous permettent d’effectuer les opérations suivantes : 
+
+* monter ou charger la sortie d’une exécution dans le stockage cloud que vous spécifiez ;
+* enregistrer la sortie en tant que FileDataset dans les types de stockage pris en charge suivants :
+    * Objet blob Azure
+    * Partage de fichiers Azure
+    * Azure Data Lake Storage Gen1 et Gen2
+* suivre la traçabilité des données entre les exécutions de formation.
+
+Le code suivant spécifie que les résultats de formation doivent être enregistrés sous la forme d’un FileDataset dans le dossier `outputdataset` du magasin de données d’objets Blob par défaut, `def_blob_store`. 
+
+```python
+from azureml.core import Workspace
+from azureml.data import OutputFileDatasetConfig
+
+ws = Workspace.from_config()
+
+def_blob_store = ws.get_default_datastore()
+output = OutputFileDatasetConfig(destination=(def_blob_store, 'sample/outputdataset'))
 ```
 
 ### <a name="configure-the-training-run"></a>Configurer l’exécution de l’apprentissage
 
-Nous vous recommandons de transmettre le jeu de données comme argument lors du montage via le paramètre `arguments` du constructeur `ScriptRunConfig`. En procédant ainsi, vous obtiendrez le chemin de données (point de montage) dans votre script de formation via des arguments. Ainsi, vous serez en mesure d’utiliser le même script de formation pour le débogage local et la formation à distance sur toute plateforme cloud.
+Nous vous recommandons de transmettre le jeu de données comme argument lors du montage via le paramètre `arguments` du constructeur `ScriptRunConfig`. En procédant ainsi, vous obtenez le chemin d’accès des données (point de montage) dans votre script de formation via des arguments. Ainsi, vous pourrez utiliser le même script de formation pour le débogage local et la formation à distance sur toute plateforme cloud.
 
-L’exemple suivant crée un ScriptRunConfig qui passe dans le FileDataset via `arguments`. Une fois que vous avez envoyé l’exécution, les fichiers de données référencés par le jeu de données `mnist_ds` sont montés sur la cible de calcul.
+L’exemple suivant crée un ScriptRunConfig qui passe dans le FileDataset via `arguments`. Une fois l’exécution envoyée, les fichiers de données référencés par le jeu de données `mnist_ds` sont montés sur la cible de calcul et les résultats de la formation sont enregistrés dans le dossier `outputdataset` spécifié dans le magasin de données par défaut.
 
 ```python
 from azureml.core import ScriptRunConfig
 
+input_data= mnist_ds.as_named_input('input').as_mount()# the dataset will be mounted on the remote compute 
+
 src = ScriptRunConfig(source_directory=script_folder,
-                      script='train_mnist.py',
-                      # the dataset will be mounted on the remote compute and the mounted path passed as an argument to the script
-                      arguments=['--data-folder', mnist_ds.as_mount(), '--regularization', 0.5],
+                      script='dummy_train.py',
+                      arguments=[input_data, output],
                       compute_target=compute_target,
                       environment=myenv)
 
@@ -161,40 +197,31 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### <a name="retrieve-data-in-your-training-script"></a>Récupérer les données dans votre script d’apprentissage
+### <a name="simple-training-script"></a>Script de formation simple
 
-Le code suivant montre comment récupérer les données dans votre script.
+Le script suivant est envoyé via ScriptRunConfig. Il lit le jeu de données `mnist_ds ` comme entrée et écrit le fichier dans le dossier `outputdataset` dans le magasin de données d’objets Blob par défaut, `def_blob_store`.
 
 ```Python
-%%writefile $script_folder/train_mnist.py
+%%writefile $source_directory/dummy_train.py
 
-import argparse
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+import sys
 import os
-import numpy as np
-import glob
 
-from utils import load_data
+print("*********************************************************")
+print("Hello Azure ML!")
 
-# retrieve the 2 arguments configured through `arguments` in the ScriptRunConfig
-parser = argparse.ArgumentParser()
-parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')
-parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
-args = parser.parse_args()
+mounted_input_path = sys.argv[1]
+mounted_output_path = sys.argv[2]
 
-data_folder = args.data_folder
-print('Data folder:', data_folder)
-
-# get the file paths on the compute
-X_train_path = glob.glob(os.path.join(data_folder, '**/train-images-idx3-ubyte.gz'), recursive=True)[0]
-X_test_path = glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0]
-y_train_path = glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0]
-y_test = glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0]
-
-# load train and test set into numpy arrays
-X_train = load_data(X_train_path, False) / 255.0
-X_test = load_data(X_test_path, False) / 255.0
-y_train = load_data(y_train_path, True).reshape(-1)
-y_test = load_data(y_test, True).reshape(-1)
+print("Argument 1: %s" % mounted_input_path)
+print("Argument 2: %s" % mounted_output_path)
+    
+with open(mounted_input_path, 'r') as f:
+    content = f.read()
+    with open(os.path.join(mounted_output_path, 'output.csv'), 'w') as fw:
+        fw.write(content)
 ```
 
 ## <a name="mount-vs-download"></a>Différences entre montage et téléchargement
@@ -257,7 +284,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="notebook-examples"></a>Exemples de notebooks
 
-+ Les [notebooks de jeux de données](https://aka.ms/dataset-tutorial) illustrent et développent les concepts abordés dans cet article.
++ Pour obtenir des exemples de jeux de données supplémentaires et des concepts, consultez les [notebooks du jeu de données](https://aka.ms/dataset-tutorial).
 + Découvrez comment [paramétrer des jeux de données dans vos pipelines ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
 ## <a name="troubleshooting"></a>Résolution des problèmes

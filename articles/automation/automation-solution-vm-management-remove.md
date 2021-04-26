@@ -3,14 +3,14 @@ title: Présentation de la suppression de Start/Stop VMs during off-hours d’Az
 description: Cet article décrit comment supprimer la fonctionnalité Start/Stop VMs during off-hours et dissocier un compte Automation de l’espace de travail Log Analytics.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/04/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0bab5d8e82ce432e9b3834fe4c003316545eb338
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ec76197bfde6bb679f70c44ab01712f9f52bfd2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122083"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533958"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Supprimer Start/Stop VMs during off-hours d’un compte Automation
 
@@ -21,6 +21,9 @@ Après avoir activé la fonctionnalité Start/Stop VMs during off-hours pour gé
 * Supprimez la fonctionnalité d’un compte Automation et d’un espace de travail lié, qui prennent en charge d’autres objectifs de gestion et de surveillance.
 
 La suppression de cette fonctionnalité n’a pour effet que de supprimer les runbooks associés. Elle ne supprime pas les planifications ou les variables créées pendant le déploiement ou personnalisées par la suite.
+
+> [!NOTE]
+> Avant de continuer, vérifiez qu’aucun [verrou Resource Manager](../azure-resource-manager/management/lock-resources.md) n’est appliqué au niveau de l’abonnement, du groupe de ressources ou de la ressource, ce qui empêche toute suppression ou modification accidentelle des ressources critiques. Lorsque vous déployez la solution Start/Stop VMs during off-hours, elle définit le niveau de verrouillage sur **CanNotDelete** pour plusieurs ressources dépendantes dans le compte Automation (en particulier ses runbooks et variables). Tous les verrous doivent être supprimés pour que vous puissiez supprimer le compte Automation.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Supprimer le groupe de ressources dédié
 

@@ -4,12 +4,12 @@ description: Apprenez à créer votre première fonction Azure pour une exécuti
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: ea5b6a9e51b6982a33dc748f72557ed539b8e2e0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 336e531f4ec64141770fc26d7e6eea9ebfedf922
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385987"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517134"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
 
@@ -64,9 +64,9 @@ Créez ensuite une fonction dans la nouvelle application de fonction.
 
     Si l’URL de la demande incluait une [clé d’accès](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), cela signifie que vous avez choisi le niveau d’accès **Fonction** au lieu de l’option **Anonyme** lors de la création de la fonction. Dans ce cas, vous devez ajouter `&name=<your_name>`.
 
-1. Lorsque votre fonction s’exécute, des informations de suivi sont écrites dans les journaux d’activité. Pour afficher la sortie de suivi, revenez à la page **Code + test** dans le portail, puis développez la flèche **Journaux** en bas de la page.
+1. Lorsque votre fonction s’exécute, des informations de suivi sont écrites dans les journaux d’activité. Pour afficher la sortie de suivi, revenez à la page **Code + test** dans le portail, puis développez la flèche **Journaux** en bas de la page. Appelez à nouveau votre fonction pour voir la sortie de trace écrite dans les journaux. 
 
-   ![Affichage des journaux de fonction dans le portail Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+    :::image type="content" source="media/functions-create-first-azure-function/function-view-logs.png" alt-text="Visionneuse du journal Functions dans le portail Azure":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

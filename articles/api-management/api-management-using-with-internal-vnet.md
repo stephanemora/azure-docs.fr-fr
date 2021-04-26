@@ -5,21 +5,17 @@ description: Découvrez comment installer et configurer la Gestion des API Azure
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: kjoshi
 editor: ''
-ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 03/09/2021
+ms.topic: how-to
+ms.date: 04/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 10154f496d76ce6b9eb19d610fdff8d7a4023c2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4298b291e5d183c31d30a548751599aeb3746c47
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565952"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534612"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -37,6 +33,8 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 * Activer les scénarios de cloud hybride en exposant vos API cloud et sur site par le biais d’une passerelle commune.
 * Gérer vos API hébergées dans plusieurs emplacements géographiques à l’aide d’un seul point de terminaison de passerelle.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Prérequis
@@ -48,16 +46,19 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + **Une instance du service Gestion des API Azure**. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
-+ Lorsqu’un service Gestion des API est déployé dans un réseau virtuel, une [liste de ports](./api-management-using-with-vnet.md#required-ports) est utilisée et ces derniers doivent être ouverts. 
+
+[!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
+
+Lorsqu’un service Gestion des API est déployé dans un réseau virtuel, une [liste de ports](./api-management-using-with-vnet.md#required-ports) est utilisée et ces derniers doivent être ouverts. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Créer une Gestion des API dans un réseau virtuel interne
-Le service Gestion des API dans un réseau virtuel interne est hébergé derrière un [équilibreur de charge interne (classique)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Il s'agit là de la seule option disponible et elle ne peut pas être modifiée.
+Le service Gestion des API d’un réseau virtuel interne est hébergé derrière une référence SKU de base de l’équilibreur de charge interne si le service est créé avec l’API client version 2020-12-01. Pour le service créé avec des clients dotés de l’API version 2021-01-01-preview et ayant une adresse IP publique provenant de l’abonnement du client, il est hébergé derrière une référence standard d’équilibreur de charge interne. Pour plus d’informations, consultez la page [Références SKU Azure Load Balancer](../load-balancer/skus.md).
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Activer une connexion de réseau virtuel à l’aide du portail Azure
 
 1. Accédez à votre instance Gestion des API Azure dans le [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Réseau virtuel**.
-3. Configurez l’instance Gestion des API pour la déployer à l’intérieur du réseau virtuel.
+1. Sélectionnez **Réseau virtuel**.
+1. Configurez le type d’accès **Interne**. Pour obtenir le détail des étapes, consultez [Activer la connectivité aux réseaux virtuels à l’aide du portail Azure](api-management-using-with-vnet.md#enable-vnet-connectivity-using-the-azure-portal).
 
     ![Menu pour configurer une Gestion des API Azure dans un réseau virtuel interne][api-management-using-internal-vnet-menu]
 
@@ -72,18 +73,19 @@ Une fois le déploiement réussi, l'adresse IP virtuelle **privée** et l'adress
 
 ### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Déployer Gestion des API dans Réseau virtuel
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
+Vous pouvez également activer une connectivité de réseau virtuel à l’aide des méthodes suivantes.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
-Vous pouvez également activer une connectivité de réseau virtuel à l’aide d’applets de commande PowerShell.
+### <a name="api-version-2020-12-01"></a>API version 2020-12-01
 
-* Créer un service Gestion des API au sein d’un réseau virtuel : utilisez la cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) pour créer un service Gestion des API Azure au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type réseau virtuel interne.
+* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-internal-vnet) Azure Resource Manager
 
-* Mettre à jour le déploiement existant d'un service Gestion des API au sein d’un réseau virtuel : utilisez la cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) pour déplacer un service Gestion des API existant au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type de réseau virtuel interne.
+     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
+
+* Applets de commande Azure PowerShell : [créez](/powershell/module/az.apimanagement/new-azapimanagement) ou [mettez à jour](/powershell/module/az.apimanagement/update-azapimanagementregion) une instance Gestion des API dans un réseau virtuel
 
 ## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuration DNS
-Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre serveur DNS. Il est recommandé de configurer une zone privée Azure DNS et de la lier au service de gestion des API de réseau virtuel dans lequel elle est déployée.  [Cliquez ici](../dns/private-dns-getstarted-portal.md) pour savoir comment configurer une zone privée dans Azure DNS.
+Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre serveur DNS. Il est recommandé de configurer une zone privée Azure DNS et de la lier au service de gestion des API de réseau virtuel dans lequel elle est déployée. Apprenez à [configurer une zone privée dans Azure DNS](../dns/private-dns-getstarted-portal.md).
 
 > [!NOTE]
 > Le service Gestion des API n’écoute pas les demandes provenant des adresses IP. Il répond uniquement aux demandes pour le nom d’hôte configuré sur ses points de terminaison de service. Ces points de terminaison incluent une passerelle, le portail Azure, le portail des développeurs, un point de terminaison de gestion directe et Git.

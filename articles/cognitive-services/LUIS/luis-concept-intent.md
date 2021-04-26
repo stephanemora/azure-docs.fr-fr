@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 8e76e3e7683d43a7a39bc0c168a29016a988c705
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025906"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499408"
 ---
 # <a name="intents-in-your-luis-app"></a>Intentions dans votre application LUIS
 
@@ -53,7 +53,7 @@ L’intention correspond à l’action que l’application doit effectuer pour l
 
 |Intentionnel   | Entité | Exemple d’énoncé   |
 |------------------|------------------------------|------------------------------|
-| BulletinMétéo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "demain","resolution":"2018-05-23" } | « Quel temps fait-il à `Seattle` `tomorrow` ? » |
+| BulletinMétéo | { "type": "location", "entity": "Seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "demain","resolution":"2018-05-23" } | « Quel temps fait-il à `Seattle` `tomorrow` ? » |
 | BulletinMétéo | { "type": "date_range", "entity": "ce weekend" } | Montre-moi les prévisions pour `this weekend` |
 ||||
 
@@ -74,7 +74,7 @@ Si vous souhaitez identifier les intentions négatives et positives, par exemple
 
 ## <a name="intents-and-patterns"></a>Intentions et les modèles
 
-Si vous avez des exemples d’énoncé, qui peuvent être définis en partie ou intégralement sous la forme d’une expression régulière, envisagez d’utiliser [l’entité d’expression régulière](luis-concept-entity-types.md#regular-expression-entity) appariée à un [modèle](luis-concept-patterns.md).
+Si vous avez des exemples d’énoncé, qui peuvent être définis en partie ou intégralement sous la forme d’une expression régulière, envisagez d’utiliser [l’entité d’expression régulière](luis-concept-entity-types.md#regex-entity) appariée à un [modèle](luis-concept-patterns.md).
 
 L’utilisation d’une entité de l’expression régulière garantit l’extraction de données, de sorte que le modèle est mis en correspondance. Les critères spéciaux garantissent qu'une intention exacte est renvoyée.
 

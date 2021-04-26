@@ -4,18 +4,18 @@ description: Cet article contient une collection d’exemples de commandes AzCop
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ec341243811eaa271511baba04ea1c48a4fefdab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b3340c00d856b13edefc7728d5baa327399a441
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728893"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502927"
 ---
-# <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Synchroniser avec Stockage Blob Azure à l’aide d’AzCopy v10
+# <a name="synchronize-with-azure-blob-storage-by-using-azcopy"></a>Synchroniser avec Stockage Blob Azure à l’aide d’AzCopy
 
 Vous pouvez synchroniser le stockage local avec Stockage Blob Azure à l’aide de l’utilitaire en ligne de commande AzCopy v10. 
 
@@ -41,7 +41,11 @@ Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour
 
 - Si vous affectez la valeur `true` à l’indicateur `--delete-destination`, AzCopy supprime les fichiers sans invite. Si vous souhaitez qu’une invite s’affiche avant que l’utilitaire AzCopy ne supprime un fichier, définissez l’indicateur `--delete-destination` sur `prompt`.
 
+- Si vous envisagez de définir l'indicateur `--delete-destination` sur `prompt` ou `false`, pensez à utiliser la commande [copy](storage-ref-azcopy-copy.md) au lieu de la commande [sync](storage-ref-azcopy-sync.md) et à définir le paramètre `--overwrite` sur `ifSourceNewer`. La commande [copy](storage-ref-azcopy-copy.md) consomme moins de mémoire et génère des coûts de facturation inférieurs, car une opération de copie ne doit pas indexer la source ou la destination avant de déplacer des fichiers. 
+
 - Pour empêcher les suppressions accidentelles, veillez à activer la fonctionnalité de [suppression réversible](../blobs/soft-delete-blob-overview.md) avant d’utiliser l’indicateur `--delete-destination=prompt|true`.
+
+- L’ordinateur sur lequel vous exécutez la commande de synchronisation doit avoir une horloge système précise, car les heures de la dernière modification sont essentielles pour déterminer si un fichier doit être transféré. Si votre système connaît des décalages d’horloge significatifs, évitez de modifier les fichiers de la destination à un moment trop proche de celui où vous envisagez d’exécuter une commande de synchronisation.
 
 ## <a name="update-a-container-with-changes-to-a-local-file-system"></a>Mettre à jour un conteneur avec les modifications apportées à un système de fichiers local
 
@@ -50,10 +54,15 @@ Dans ce cas, le conteneur est la destination, et le système de fichiers local e
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
-| **Exemple** | `azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
+**Syntaxe**
+
+`azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+
+**Exemple**
+
+```azcopy
+azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive
+```
 
 ## <a name="update-a-local-file-system-with-changes-to-a-container"></a>Mettre à jour un système de fichiers local avec les modifications apportées à un conteneur
 
@@ -62,10 +71,15 @@ Dans ce cas, le système de fichiers local est la destination, et le conteneur e
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
-| **Exemple** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
+**Syntaxe**
+
+`azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive`
+
+**Exemple**
+
+```azcopy
+azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive
+```
 
 ## <a name="update-a-container-with-changes-in-another-container"></a>Mettre à jour un conteneur avec les modifications d’un autre conteneur
 
@@ -74,10 +88,15 @@ Le premier conteneur qui s’affiche dans cette commande est la source. Le deuxi
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
-| **Exemple** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+**Syntaxe**
+
+`azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive`
+
+**Exemple**
+
+```azcopy
+azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive
+```
 
 ## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>Mettre à jour un répertoire avec les modifications apportées à un répertoire dans un autre conteneur
 
@@ -86,10 +105,15 @@ Le premier répertoire qui s’affiche dans cette commande est la source. Le deu
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
-| **Exemple** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
+**Syntaxe**
+
+`azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive`
+
+**Exemple**
+
+```azcopy
+azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive
+```
 
 ## <a name="synchronize-with-optional-flags"></a>Synchroniser avec des indicateurs facultatifs
 
@@ -101,7 +125,10 @@ Vous pouvez ajuster votre opération de synchronisation à l’aide d’indicate
 |Exclure des fichiers en fonction d’un modèle|**--exclude-path**|
 |Spécifier le niveau de détail des entrées de journal liées à la synchronisation|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 
-Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-sync.md#options).
+Pour obtenir la liste complète des indicateurs, consultez [Options](storage-ref-azcopy-sync.md#options).
+
+> [!NOTE]
+> Par défaut, l'indicateur `--recursive` est défini sur `true`. Les indicateurs `--exclude-pattern` et `--include-pattern` ne s’appliquent qu’à des noms de fichier et non à d’autres parties du chemin d’accès de fichier. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -111,6 +138,13 @@ Vous trouverez plus d’exemples dans ces articles :
 - [Exemples : Téléchargement](storage-use-azcopy-blobs-download.md)
 - [Exemples : Copier entre comptes](storage-use-azcopy-blobs-copy.md)
 - [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
+- [Exemples : Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Exemples : Azure Files](storage-use-azcopy-files.md)
 - [Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
+
+Consultez les articles suivants pour configurer les paramètres, optimiser les performances et résoudre les problèmes :
+
+- [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
+- [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
+- [Résoudre les problèmes d’AzCopy V10 dans le stockage Azure à l’aide de fichiers journaux](storage-use-azcopy-configure.md)
+

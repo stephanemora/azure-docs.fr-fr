@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 53058d27e94c9fdf18d726369f6a1b75a9f34db9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d56e03cd650032a775c30b02d939cf934f384fae
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567540"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568605"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Déployer Azure Data Services sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -21,7 +21,7 @@ ms.locfileid: "105567540"
 
 Cet article décrit le processus de création d’un contrôleur de données Azure Arc, puis de déploiement d’Azure Data Services sur votre appareil Azure Stack Edge Pro avec GPU. 
 
-Le contrôleur de données Azure Arc est le plan de contrôle local qui permet d’utiliser Azure Data Services dans des environnements gérés par le client. Une fois que vous avez créé le contrôleur de données Azure Arc sur le cluster Kubernetes qui s’exécute sur votre appareil Azure Stack Edge Pro, vous pouvez déployer des Azure Data Services, tel que SQL Managed Instance (version préliminaire) sur ce contrôleur de données.
+Le contrôleur de données Azure Arc est le plan de contrôle local qui permet d’utiliser Azure Data Services dans des environnements gérés par le client. Une fois que vous avez créé le contrôleur de données Azure Arc sur le cluster Kubernetes qui s’exécute sur votre appareil GPU Azure Stack Edge Pro, vous pouvez déployer des Azure Data Services, tels que SQL Managed Instance (préversion) sur ce contrôleur de données.
 
 La procédure de création d’un contrôleur de données et de déploiement d’une SQL Managed Instance implique l’utilisation de PowerShell et `kubectl`, un outil natif qui fournit un accès par ligne de commande au cluster Kubernetes sur l’appareil.
 
@@ -30,9 +30,9 @@ La procédure de création d’un contrôleur de données et de déploiement d�
 
 Avant de commencer, assurez-vous que :
 
-1. Vous avez accès à un appareil Azure Stack Edge Pro et vous avez activé votre appareil comme décrit dans [Activer Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
+1. Vous avez accès à un appareil GPU Azure Stack Edge Pro et vous avez activé votre appareil comme décrit dans [Activer Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
-1. Vous avez activé le rôle de calcul sur l’appareil. Un cluster Kubernetes a également été créé sur l’appareil quand vous avez configuré le calcul sur l’appareil conformément aux instructions données dans [Configurer le calcul sur votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
+1. Vous avez activé le rôle de calcul sur l’appareil. Un cluster Kubernetes a également été créé sur l’appareil quand vous avez configuré le calcul sur l’appareil conformément aux instructions données dans [Configurer le calcul sur votre appareil GPU Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 1. Vous avez accès au point de terminaison de l’API Kubernetes depuis la page **Appareil** de votre interface utilisateur web locale. Pour plus d’informations, consultez les instructions données dans [Obtenir le point de terminaison de l’API Kubernetes](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints).
 
@@ -171,7 +171,7 @@ Le contrôleur de données est une collection de pods déployés sur votre clust
     Le déploiement peut prendre environ 5 minutes.
 
     > [!NOTE]
-    > Le contrôleur de données créé sur le cluster Kubernetes sur votre appareil Azure Stack Edge Pro fonctionne uniquement en mode déconnecté dans la version actuelle.
+    > Le contrôleur de données créé sur le cluster Kubernetes sur votre appareil GPU Azure Stack Edge Pro fonctionne uniquement en mode déconnecté dans la version actuelle. Le mode déconnecté est destiné au contrôleur de données et non à votre appareil.
 
 ### <a name="monitor-data-creation-status"></a>Surveiller l’état de création des données
 

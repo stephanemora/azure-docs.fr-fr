@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 455d78ed21403952046448dd4447b5ec54f77c00
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96452343"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566977"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Prévision météo à l’aide des données de capteur d’un hub IoT Hub dans Azure Machine Learning studio (classique)
 
@@ -23,25 +23,11 @@ ms.locfileid: "96452343"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-L’apprentissage automatique (Machine Learning) utilise des ordinateurs pour exécuter des modèles prédictifs qui apprennent à partir de données existantes afin de prévoir les tendances, résultats et comportements futurs. Azure Machine Learning Studio (classique) est un service d’analyse prédictive cloud qui permet de créer et de déployer rapidement des modèles prédictifs sous forme de solutions d’analyse.
+L’apprentissage automatique (Machine Learning) utilise des ordinateurs pour exécuter des modèles prédictifs qui apprennent à partir de données existantes afin de prévoir les tendances, résultats et comportements futurs. Azure Machine Learning Studio (classique) est un service d’analyse prédictive cloud qui permet de créer et de déployer rapidement des modèles prédictifs sous forme de solutions d’analyse. Dans cet article, vous allez apprendre à utiliser Azure Machine Learning Studio (classique) pour effectuer des prévisions météo (risque de pluie) à l’aide des données de température et d’humidité de votre hub Azure IoT. Les chances de sortie sont la sortie d’un modèle de prévision météo préparé. Le modèle est basé sur des données historiques pour prévoir les chances de pluie en fonction de la température et de l’humidité.
 
-## <a name="what-you-learn"></a>Contenu
+## <a name="prerequisites"></a>Prérequis
 
-Vous allez apprendre à utiliser Azure Machine Learning studio (classique) pour effectuer des prévisions météo (risque de pluie) à l’aide des données de température et d’humidité de votre hub IoT Azure. Les chances de sortie sont la sortie d’un modèle de prévision météo préparé. Le modèle est basé sur des données historiques pour prévoir les chances de pluie en fonction de la température et de l’humidité.
-
-## <a name="what-you-do"></a>Procédure
-
-- Déployez le modèle de prévision météo comme un service web.
-- Préparation de votre instance IoT Hub pour l’accès aux données via l’ajout d’un groupe de consommateurs.
-- Créez un travail Stream Analytics et configurez-le pour :
-  - Lire les données de température et d’humidité en temps réel à partir de votre IoT Hub.
-  - Appelez le service web pour obtenir les chances de pluie.
-  - Enregistrer les résultats dans un stockage d'objets blob Azure.
-- Utilisez Microsoft Azure Storage Explorer pour afficher les prévisions météorologiques.
-
-## <a name="what-you-need"></a>Ce dont vous avez besoin
-
-- Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil, par exemple [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Ceux-ci couvrent les exigences suivantes :
+- Suivez le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoyer des données de télémétrie](quickstart-send-telemetry-dotnet.md). Ces articles demandent les éléments suivants :
   - Un abonnement Azure actif.
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.

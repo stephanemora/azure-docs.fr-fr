@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: cb3c74a2176ee7fcac53afb5185e8c62e66f4dfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 7155a829655645e13e0485ed7d51305ec50e5b0a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798797"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502757"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entités par culture dans votre modèle LUIS
 
@@ -23,7 +23,7 @@ Language Understanding (LUIS) fournit des entités prédéfinies.
 ## <a name="entity-resolution"></a>Résolution des entités
 Lorsqu’une application comporte une entité prédéfinie, LUIS inclut la résolution d’entité correspondante dans la réponse du point de terminaison. Tous les exemples d’énoncés sont également étiquetés avec l’entité.
 
-Le comportement des entités prédéfinies n’est pas modifiable. Cependant, vous pouvez améliorer la résolution en [ajoutant l’entité prédéfinie en tant que fonctionnalité à une entité ou à une sous-entité de Machine Learning](luis-concept-entity-types.md#effective-prebuilt-entities).
+Le comportement des entités prédéfinies n’est pas modifiable, mais vous pouvez améliorer la résolution en [ajoutant l’entité prédéfinie en tant que fonctionnalité à une entité ou à une sous-entité de Machine Learning](luis-concept-entity-types.md#prebuilt-entity).
 
 ## <a name="availability"></a>Disponibilité
 Sauf indication contraire, les entités prédéfinies sont disponibles dans tous les paramètres régionaux de l’application LUIS (cultures). Le tableau suivant montre les entités prédéfinies qui sont pris en charge pour chaque culture.

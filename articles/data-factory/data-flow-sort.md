@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a6567f8576e2507704956233bc593b203b48239
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81606337"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588732"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Transformation de tri dans le flux de données de mappage
 
@@ -22,7 +22,7 @@ ms.locfileid: "81606337"
 La transformation de tri permet de trier les lignes entrantes sur le flux de données actuel. Il est possible de sélectionner les colonnes une par une et de les trier par ordre croissant ou décroissant.
 
 > [!NOTE]
-> Les flux de données de mappage s’exécutent sur des clusters Spark qui distribuent les données entre plusieurs nœuds et partitions. Si vous choisissez de repartitionner vos données dans une transformation ultérieure, vous risquez de perdre le tri en raison de ce remaniement.
+> Les flux de données de mappage s’exécutent sur des clusters Spark qui distribuent les données entre plusieurs nœuds et partitions. Si vous choisissez de repartitionner vos données dans une transformation ultérieure, vous risquez de perdre le tri en raison de ce remaniement. La meilleure façon de conserver l’ordre de tri dans votre flux de données consiste à définir une partition unique sous l’onglet Optimiser de la transformation et à conserver la transformation de tri aussi proche que possible du récepteur.
 
 ## <a name="configuration"></a>Configuration
 

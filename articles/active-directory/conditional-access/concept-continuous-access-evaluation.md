@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 74009759bb9ca2a0516148fc1387b150b67452ab
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305971"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387902"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -53,7 +53,7 @@ L’évaluation continue de l’accès est implémentée en permettant à des se
 Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches SharePoint Online de l’organisation, ainsi qu’à Teams à partir d’applications clientes Microsoft 365 quelques minutes après la survenance de l’un de ces événements critiques. 
 
 > [!NOTE] 
-> Les équipes ne prennent pas encore en charge les événements à risque pour les utilisateurs.
+> Teams et SharePoint Online ne prennent pas encore en charge les événements à risque.
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Évaluation de la stratégie d’accès conditionnel (préversion)
 
