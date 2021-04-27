@@ -6,13 +6,13 @@ ms.author: tcare
 ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: a94784f2f3fc622e0232033d63bc957279a7d34c
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: 9a228ce6f8b18afb77b656765abbad0bb4ae877f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076307"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589140"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutoriel : Implémenter une CI/CD avec GitOps à l’aide de clusters Kubernetes avec Azure Arc
 
@@ -47,13 +47,13 @@ Ce tutoriel suppose que vous maîtrisez Azure DevOps, Azure Repos et Pipelines, 
 
   ```azurecli
   az extension add --name connectedk8s
-  az extension add --name k8s-configuration
+  az extension add --name k8sconfiguration
   ```
   * Pour mettre à jour ces extensions vers la dernière version, exécutez les commandes suivantes :
 
     ```azurecli
     az extension update --name connectedk8s
-    az extension update --name k8s-configuration
+    az extension update --name k8sconfiguration
     ```
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>Importer des applications et des référentiels GitOps dans Azure Repos
@@ -166,8 +166,7 @@ kubectl create secret docker-registry <secret-name> \
     --docker-password=<service-principal-password>
 ```
 
-> [!TIP]
-> Pour éviter d’avoir à définir un imagePullSecret pour chaque pod, envisagez d’ajouter l’imagePullSecret au compte de service dans les espaces de noms `dev` et `stage`. Pour plus d’informations, consultez le [tutoriel Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account).
+Pour éviter d’avoir à définir un imagePullSecret pour chaque pod, envisagez d’ajouter l’imagePullSecret au compte de service dans les espaces de noms `dev` et `stage`. Pour plus d’informations, consultez le [tutoriel Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account).
 
 ## <a name="create-environment-variable-groups"></a>Créer des groupes de variables d’environnement
 

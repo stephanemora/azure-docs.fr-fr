@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40c5e0ff2c2301607f5a548ff05c742c5c5a948d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045499"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517060"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Inscrire et analyser une source Oracle (préversion)
 
@@ -38,9 +38,7 @@ La source Oracle prend en charge l’**Analyse complète** pour extraire les mé
 
 5.  Les versions de base de données Oracle prises en charge sont 6i à 19c.
 
-6.  Autorisation de l’utilisateur : pour garantir la réussite de l’analyse pour la première fois, vous devez disposer d’une autorisation de type Administrateur système complet.
-
-    Pour les analyses suivantes, un accès en lecture seule aux tables système est requis. L’utilisateur doit avoir l’autorisation de créer une session, ainsi que le rôle SELECT\_CATALOG\_ROLE attribué. L’utilisateur peut également disposer de l’autorisation SELECT pour chaque table système à partir de laquelle ce connecteur interroge des métadonnées :
+6.  Autorisation utilisateur : un accès en lecture seule aux tables système est nécessaire. L’utilisateur doit avoir l’autorisation de créer une session, ainsi que le rôle SELECT\_CATALOG\_ROLE attribué. L’utilisateur peut également disposer de l’autorisation SELECT pour chaque table système à partir de laquelle ce connecteur interroge des métadonnées :
        > grant create session to \[utilisateur\];\
         grant select on all\_users to \[utilisateur\];\
         grant select on dba\_objects to \[utilisateur\];\

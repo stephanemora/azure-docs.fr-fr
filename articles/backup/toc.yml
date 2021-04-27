@@ -77,25 +77,25 @@
     - name: Forum Aux Questions (FAQ)
       items:
         - name: FAQ sur les coffres Recovery Services
-          href: backup-azure-backup-faq.md
+          href: backup-azure-backup-faq.yml
         - name: Questions fréquentes (FAQ) sur le Centre de sauvegarde
           href: backup-center-faq.yml
         - name: FAQ sur la sauvegarde des machines virtuelles Azure
           href: backup-azure-vm-backup-faq.yml
         - name: FAQ sur l’agent MARS
-          href: backup-azure-file-folder-backup-faq.md
+          href: backup-azure-file-folder-backup-faq.yml
         - name: FAQ sur la sauvegarde des fichiers Azure
-          href: backup-azure-files-faq.md
+          href: backup-azure-files-faq.yml
         - name: FAQ sur la sauvegarde des disques Azure
-          href: disk-backup-faq.md
+          href: disk-backup-faq.yml
         - name: FAQ sur la sauvegarde des bases de données SQL Server sur des machines virtuelles Azure
-          href: faq-backup-sql-server.md
+          href: faq-backup-sql-server.yml
         - name: FAQ sur la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
-          href: sap-hana-faq-backup-azure-vm.md
+          href: sap-hana-faq-backup-azure-vm.yml
         - name: FAQ sur le serveur de sauvegarde Azure et DPM
-          href: backup-azure-dpm-azure-server-faq.md
+          href: backup-azure-dpm-azure-server-faq.yml
         - name: FAQ sur l’alerte de supervision Sauvegarde Azure
-          href: backup-azure-monitor-alert-faq.md
+          href: backup-azure-monitor-alert-faq.yml
     - name: Architecture de sauvegarde
       href: backup-architecture.md
     - name: Aide et bonnes pratiques
@@ -224,10 +224,18 @@
       items:
         - name: Vue d’ensemble
           href: disk-backup-overview.md
-        - name: Sauvegarde
-          href: backup-managed-disks.md
-        - name: Restaurer
-          href: restore-managed-disks.md
+        - name: À partir du portail Azure
+          items:
+            - name: Sauvegarde
+              href: backup-managed-disks.md
+            - name: Restaurer
+              href: restore-managed-disks.md
+        - name: Avec PowerShell
+          items:
+            - name: Sauvegarde
+              href: backup-managed-disks-ps.md
+            - name: Restaurer
+              href: restore-managed-disks-ps.md
     - name: Sauvegarde des objets BLOB Azure
       items:
         - name: Vue d’ensemble
@@ -452,7 +460,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/backup-security-baseline
     - name: Niveau d’accès
       items:
         - name: Niveau de stockage archive
@@ -492,7 +500,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: PowerShell – Agent Sauvegarde Azure
-      href: /powershell/module/msonlinebackup/msonlinebackup
+      href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
     - name: REST - Sauvegarde
       href: /rest/api/backup/
     - name: REST - Coffre Recovery Services

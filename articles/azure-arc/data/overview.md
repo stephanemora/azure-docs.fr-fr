@@ -1,20 +1,21 @@
 ---
 title: Présentation des services de données avec Azure Arc
 description: Présente les services de données avec Azure Arc
+ms.custom: references_regions
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: overview
-ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d866dcb5b2a0be9e6468b3d40258e37ac93834e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97609137"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107716094"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Présentation des services de données avec Azure Arc (préversion)
 
@@ -46,6 +47,16 @@ Azure Arc offre également d'autres avantages liés au cloud, tels qu'un déploi
 ## <a name="disconnected-scenario-support"></a>Prise en charge de scénarios déconnectés
 
 De nombreux services tels que l'approvisionnement en libre-service, les sauvegardes/restaurations automatisées et la supervision peuvent être exécutés localement dans votre infrastructure, avec ou sans connexion directe à Azure. La connexion directe à Azure ouvre la voie à des options supplémentaires d'intégration à d'autres services Azure tels qu'Azure Monitor, et la possibilité d'utiliser le portail Azure et les API Azure Resource Manager n'importe où dans le monde pour gérer vos services de données avec Azure Arc.
+
+## <a name="supported-regions"></a>Régions prises en charge
+
+Le tableau suivant décrit les scénarios actuellement pris en charge pour les services de données avec Arc.
+
+|Régions Azure  |Mode de connexion directe  |Mode de connexion indirecte  |
+|---------|---------|---------|
+|USA Est|Disponible|Disponible
+|Europe Ouest |Disponible |Disponible
+|Europe Nord|Disponible|Disponible
 
 ## <a name="next-steps"></a>Étapes suivantes
 

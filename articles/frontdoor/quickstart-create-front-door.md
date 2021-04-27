@@ -4,26 +4,30 @@ description: Ce guide de démarrage rapide montre comment utiliser Azure Front D
 services: front-door
 documentationcenter: na
 author: duongau
-manager: KumudD
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 1869098362e37ea18c7ca9a9f827b0e5ec98ea3c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+manager: KumudD
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 74b7c16904c86751076d40056027999fe44cb868
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067569"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727864"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible
 
 Commencez à utiliser Azure Front Door à l’aide du portail Azure pour configurer la haute disponibilité pour une application web.
 
 Dans ce démarrage rapide, Azure Front Door regroupe deux instances d’une application web qui s’exécutent dans différentes régions Azure. Vous créez une configuration Front Door basée sur des back-ends de pondération et de priorité égales. Cette configuration dirige le trafic vers le site le plus proche qui exécute l’application. Azure Front Door supervise en permanence l’application web. Le service assure le basculement automatique vers le site disponible suivant quand le site le plus proche n’est pas disponible.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement Front Door avec le portail Azure." border="false":::
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -65,8 +69,8 @@ Une fois le déploiement terminé, créez une seconde application web. Utilisez 
 | ---              | ---  |
 | **Groupe de ressources**   | Sélectionnez **Créer** et entrez *FrontDoorQS_rg2* |
 | **Nom**             | Entrez un nom unique pour votre application web, dans cet exemple, *WebAppContoso-2*  |
-| **Région**           | Une autre région, dans cet exemple, *USA Centre Sud* |
-| **Plan App Service** > **Plan Windows**         | Sélectionnez **Nouveau** et entrez *myAppServicePlanSouthCentralUS*, puis sélectionnez **OK** |
+| **Région**           | Une autre région ; dans cet exemple,c’est *USA Est* |
+| **Plan App Service** > **Plan Windows**         | Sélectionnez **Nouveau** et entrez *myAppServicePlanEastUS*, puis sélectionnez **OK**. |
 
 ## <a name="create-a-front-door-for-your-application"></a>Créer une porte d’entrée pour votre application
 

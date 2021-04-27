@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0d6d5a08ea85ebb666acc0336f1e1d7ec5e097da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82e9fc93bf8c816fcbfd5869156745dea630313
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044666"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517553"
 ---
 # <a name="claim-sets"></a>Ensembles de revendications
 
@@ -30,11 +30,66 @@ Les revendications générées dans le processus d’attestation d’enclaves à
 
 Revendications devant être utilisées par les auteurs de stratégie pour définir des règles d’autorisation dans une stratégie d’attestation SGX :
 
-- **x-ms-sgx-is-debuggable** : valeur booléenne qui indique si le débogage est activé ou non pour l’enclave.
-- **x-ms-sgx-product-id** : valeur de l’ID produit de l’enclave SGX 
-- **x-ms-sgx-mrsigner** : valeur encodée hexadécimale du champ « mrsigner » de la déclaration
-- **x-ms-sgx-mrenclave** : valeur encodée hexadécimale du champ « mrenclave » de la déclaration
-- **x-ms-sgx-svn** : numéro de version de sécurité encodé dans la déclaration 
+- **x-ms-sgx-is-debuggable** : valeur booléenne indiquant si le débogage est activé ou non pour l’enclave.
+  
+  Il est possible de charger des enclaves SGX quand le débogage est désactivé ou activé. Lorsque l’indicateur a la valeur true dans l’enclave, il active les fonctionnalités de débogage pour le code de l’enclave. La possibilité d’accéder à la mémoire de l’enclave en fait partie. Par conséquent, il est recommandé de définir l’indicateur sur true uniquement à des fins de développement. S’il est activé dans l’environnement de production, les garanties de sécurité SGX ne seront pas maintenues.
+  
+  Les utilisateurs Azure Attestation peuvent se servir de la stratégie d’attestation afin de vérifier si le débogage est désactivé pour l’enclave SGX. Une fois la règle de stratégie ajoutée, l’attestation échouera quand un utilisateur malveillant activera la prise en charge du débogage pour obtenir l’accès au contenu de l’enclave.
+
+- **x-ms-sgx-product-id** : valeur entière indiquant l’ID de produit de l’enclave SGX.
+
+  L’auteur de l’enclave affecte un ID de produit à chaque enclave. L’ID de produit permet à l’auteur de l’enclave de segmenter les enclaves signées à l’aide du même MRSIGNER. En ajoutant une règle de validation dans la stratégie d’attestation, les clients peuvent vérifier s’ils utilisent les enclaves prévues. L’attestation échouera si l’ID de produit de l’enclave ne correspond pas à la valeur publiée par l’auteur de l’enclave.
+
+- **x-ms-sgx-mrsigner** : valeur de chaîne identifiant l’auteur de l’enclave SGX.
+
+  MRSIGNER représente le hachage de la clé publique de l’auteur de l’enclave qui sert à signer le code binaire de l’enclave. En validant MRSIGNER via une stratégie d’attestation, les clients peuvent vérifier si les fichiers binaires approuvés s’exécutent à l’intérieur d’une enclave. Lorsque la revendication de stratégie ne correspond pas à la stratégie MRSIGNER de l’auteur de l’enclave, le fichier binaire de l’enclave n’est alors pas signé par une source approuvée et l’attestation échoue.
+  
+  Lorsque l’auteur d’une enclave préfère effectuer une rotation de MRSIGNER pour des raisons de sécurité, la stratégie Azure Attestation doit être mise à jour pour prendre en charge les nouvelles et les anciennes valeurs MRSIGNER avant la mise à jour des fichiers binaires. Dans le cas contraire, les contrôles d’autorisation échoueront, entraînant des échecs d’attestation.
+  
+  La stratégie d’attestation doit être mise à jour à l’aide du format ci-dessous. 
+ 
+  #### <a name="before-key-rotation"></a>Avant la rotation des clés
+ 
+   ```
+    version= 1.0;
+    authorizationrules 
+    {
+    [ type=="x-ms-sgx-is-debuggable", value==false]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    };
+  ```
+
+   #### <a name="during-key-rotation"></a>Lors de la rotation des clés
+
+    ```
+      version= 1.0;
+      authorizationrules 
+      {
+      [ type=="x-ms-sgx-is-debuggable", value==false]&&
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+      [ type=="x-ms-sgx-is-debuggable", value==false ]&& 
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+      };
+    ```
+
+   #### <a name="after-key-rotation"></a>Après la rotation des clés
+
+    ```
+      version= 1.0;
+      authorizationrules 
+      { 
+      [ type=="x-ms-sgx-is-debuggable", value==false]&& 
+      [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
+      };
+    ```
+
+- **x-ms-sgx-mrenclave** : valeur de chaîne identifiant le code et les données chargées dans la mémoire de l’enclave. 
+
+  MRENCLAVE est une des mesures de l’enclave pouvant être utilisée pour vérifier les fichiers binaires de l’enclave. Il s’agit du hachage du code qui s’exécute dans l’enclave. La mesure change à chaque modification apportée au code binaire de l’enclave. En validant MRENCLAVE au moyen d’une stratégie d’attestation, les clients peuvent vérifier si les fichiers binaires prévus s’exécutent dans une enclave. Cela étant, comme MRENCLAVE est censé changer fréquemment à la moindre modification du code existant, il est recommandé de vérifier les fichiers binaires de l’enclave à l’aide de la validation MRSIGNER dans une stratégie d’attestation.
+
+- **x-ms-sgx-svn** : valeur entière indiquant le numéro de la version de sécurité de l’enclave SGX
+
+  L’auteur de l’enclave attribue un numéro de version de sécurité (SVN, Security Version Number) à chaque version de l’enclave SGX. Lorsqu’un problème de sécurité est découvert dans le code de l’enclave, l’auteur de l’enclave incrémente la valeur du SVN après la correction de vulnérabilité. Pour empêcher l’interaction avec le code d’enclave non sécurisé, les clients peuvent ajouter une règle de validation dans la stratégie d’attestation. Si le SVN du code de l’enclave ne correspond pas à la version recommandée par l’auteur de l’enclave, l’attestation échouera.
 
 Les revendications ci-dessous sont considérées comme dépréciées, mais sont entièrement prises en charge et continueront à être incluses à l’avenir. Nous vous recommandons d’utiliser les noms des revendications non dépréciées.
 

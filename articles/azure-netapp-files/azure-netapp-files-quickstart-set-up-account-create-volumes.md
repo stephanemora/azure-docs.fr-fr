@@ -8,16 +8,16 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77d5ce2cc903be51b7a38d6edc34bb8424c52ddb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888808"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786096"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS
 
-Cet article explique comment configurer Azure NetApp Files et créer un volume rapidement.
+Cet article explique comment rapidement configurer Azure NetApp Files et créer un volume NFS. 
 
 Lors de ce démarrage rapide, vous allez configurer les éléments suivants :
 
@@ -27,6 +27,8 @@ Lors de ce démarrage rapide, vous allez configurer les éléments suivants :
 - Un volume NFS pour Azure NetApp Files
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+Si vous souhaitez voir toutes les fonctionnalités qu’il est possible d’activer pour un volume NFS, et les considérations à prendre en compte, consultez [Créer un volume NFS](azure-netapp-files-create-volumes.md). 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -145,7 +147,7 @@ Pour plus d’informations, consultez [S’inscrire à Azure NetApp Files](azure
     > Pour obtenir le nom de région qui est pris en charge par nos outils en ligne de commande, utilisez `az account list-locations --query "[].{Region:name}" --out table`
     >
 
-2. Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#az-group-create) :
+2. Créez un groupe de ressources à l’aide de la commande [az group create](/cli/azure/group#az_group_create) :
 
     ```azurecli-interactive
     az group create \
@@ -153,7 +155,7 @@ Pour plus d’informations, consultez [S’inscrire à Azure NetApp Files](azure
         --location $LOCATION
     ```
 
-3. Créez un compte Azure NetApp Files avec la commande [az netappfiles account create](/cli/azure/netappfiles/account#az-netappfiles-account-create) :
+3. Créez un compte Azure NetApp Files avec la commande [az netappfiles account create](/cli/azure/netappfiles/account#az_netappfiles_account_create) :
 
     ```azurecli-interactive
     az netappfiles account create \
@@ -224,7 +226,7 @@ L’extrait de code suivant montre comment créer un compte NetApp dans un modè
     SERVICE_LEVEL="Premium" # Valid values are Standard, Premium and Ultra
     ```
 
-2. Créer un pool de capacités à l’aide de la commande [az netappfiles pool create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create)
+2. Créer un pool de capacités à l’aide de la commande [az netappfiles pool create](/cli/azure/netappfiles/pool#az_netappfiles_pool_create)
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -248,7 +250,7 @@ L’extrait de code suivant montre comment créer un pool de capacités dans un 
 
 ---
 
-## <a name="create-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -341,7 +343,7 @@ L’extrait de code suivant montre comment créer un pool de capacités dans un 
     SUBNET_NAME="myANFSubnet"
     ```
 
-1. Créez un réseau virtuel sans sous-réseau à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
+1. Créez un réseau virtuel sans sous-réseau à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
 
     ```azurecli-interactive
     az network vnet create \
@@ -352,7 +354,7 @@ L’extrait de code suivant montre comment créer un pool de capacités dans un 
 
     ```
 
-2. Créez un sous-réseau délégué à l’aide de la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create).
+2. Créez un sous-réseau délégué à l’aide de la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create).
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -363,7 +365,7 @@ L’extrait de code suivant montre comment créer un pool de capacités dans un 
         --delegations "Microsoft.NetApp/volumes"
     ```
 
-3. Créez le volume à l’aide de la commande [az netappfiles volume create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create).
+3. Créez le volume à l’aide de la commande [az netappfiles volume create](/cli/azure/netappfiles/volume#az_netappfiles_volume_create).
 
     ```azurecli-interactive
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -447,7 +449,7 @@ Lorsque vous avez terminé et si vous le souhaitez, vous pouvez supprimer le gro
 > [!IMPORTANT]
 > Toutes les ressources dans les groupes de ressources vont être définitivement supprimés et une annulation n’est pas possible.
 
-1. Supprimez le groupe de ressources à l’aide de la commande [az group delete](/cli/azure/group#az-group-delete).
+1. Supprimez le groupe de ressources à l’aide de la commande [az group delete](/cli/azure/group#az_group_delete).
 
     ```azurecli-interactive
     az group delete \

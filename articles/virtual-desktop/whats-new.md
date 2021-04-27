@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 242dd2476783a3d1db6b74452d35e87c5cd189b6
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107055"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516550"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -42,11 +42,19 @@ L’agent Windows Virtual Desktop se met à jour au moins une fois par mois.
 
 Voici les modifications apportées à l'agent Windows Virtual Desktop :
 
+- Version 1.0.2990.800 : cette mise à jour a été publiée le 13 avril 2021 et présente les changements suivants :
+    - Mise à jour des messages d’erreur de l’agent.
+    - Ajout d’une exception qui vous empêche d’installer des agents non-Windows 7 sur des machines virtuelles Windows 7.
+    - Mise à jour de la logique du service Pulsation.
+- Version 1.0.2944.1400 : cette mise à jour a été publiée le 7 avril 2021 et présente les changements suivants :
+    - Ajout de liens vers le guide de dépannage de l’agent Windows Virtual Desktop dans les journaux de l’observateur d’événements concernant les erreurs de l’agent.
+    - Ajout d’une exception pour une meilleure gestion des erreurs.
+    - Ajout de l’outil WVDAgentUrlTool.exe qui permet aux clients de vérifier à quelles URL obligatoires ils peuvent accéder.
 - Version 1.0.2866.1500 : cette mise à jour publiée le 26 mars 2021 corrige un problème lié à la vérification de l'intégrité de la pile.
 - Version 1.0.2800.2802 : cette mise à jour publiée le 10 mars 2021 comporte des améliorations générales et des correctifs de bogues.
 - Version 1.0.2800.2800 : cette mise à jour publiée le 2 mars 2021 corrige un problème de connexion inversée.
 - Version 1.0.2800.2700 : cette mise à jour publiée le 10 février 2021 comporte des améliorations générales et des correctifs de bogues.
-- Version 1.0.2800.2700 : cette mise à jour publiée le 4 février 2021 corrige un problème d'accès refusé.
+- Version 1.0.2800.2700 : cette mise à jour publiée le 4 février 2021 corrige un problème d'accès refusé dans l’orchestration.
 
 ## <a name="fslogix-updates"></a>Mises à jour FSLogix
 

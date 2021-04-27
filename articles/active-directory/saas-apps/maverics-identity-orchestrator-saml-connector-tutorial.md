@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 19f6b0601afe9ad84f02c93d7f6e1ae3a71a06a4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 402f6cd6961108cdf1e9c94fb4f93309fbf15ead
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585092"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599024"
 ---
 # <a name="integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Intégrer l’authentification unique Azure AD avec Maverics Identity Orchestrator SAML Connector
 
@@ -35,7 +35,7 @@ Ce tutoriel sur l’accès hybride montre comment migrer une application web loc
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Maverics Identity Orchestrator SAML Connector pour lequel l’authentification unique est activée. Pour obtenir le logiciel Maverics, contactez l’[équipe commerciale Strata](mailto:sales@strata.io).
-* Au moins une application qui utilise l’authentification basée sur l’en-tête. Les exemples fonctionnent sur une application appelée Sonar, qui est hébergée sur https://app.sonarsystems.com, et une application appelée Connectulum, hébergée sur https://app.connectulum.com.
+* Au moins une application qui utilise l’authentification basée sur l’en-tête. Les exemples fonctionnent sur une application appelée Connectulum, qui est hébergée sur `https://app.connectulum.com`.
 * Une machine Linux pour héberger Maverics Orchestrator
   * Système d’exploitation : REHL 7.7 ou version ultérieure, CentOS 7+
   * Disque : >= 10 Go
@@ -107,7 +107,7 @@ tls:
     keyFile: /etc/maverics/maverics.key
 ```
 
-Pour vérifier que TLS est configuré comme prévu, redémarrez le service Maverics, puis effectuez une demande auprès du point de terminaison d’état. Dans votre navigateur, demandez https://sonar.maverics.com/status.
+Pour vérifier que TLS est configuré comme prévu, redémarrez le service Maverics, puis effectuez une demande auprès du point de terminaison d’état.
 
 ## <a name="step-2-proxy-an-application"></a>Étape 2 : Traiter une application par proxy
 
@@ -131,7 +131,7 @@ appgateways:
     upstream: https://app.sonarsystems.com
 ```
 
-Pour vérifier que le traitement proxy fonctionne comme prévu, redémarrez le service Maverics, puis effectuez une demande auprès de l’application par le biais du proxy Maverics. Dans votre navigateur, demandez https://sonar.maverics.com. Vous pouvez éventuellement effectuer une demande auprès de ressources d’application spécifiques, par exemple `https://sonar.maverics.com/RESOURCE`, où `RESOURCE` est une ressource d’application valide de l’application en amont protégée.
+Pour vérifier que le traitement proxy fonctionne comme prévu, redémarrez le service Maverics, puis effectuez une demande auprès de l’application par le biais du proxy Maverics. Vous pouvez éventuellement effectuer une demande auprès de ressources d’application spécifiques.
 
 ## <a name="step-3-register-an-enterprise-application-in-azure-ad"></a>Étape 3 : Inscrire une application d’entreprise dans Azure AD
 
@@ -325,7 +325,7 @@ connectors:
 
 Vous avez peut-être remarqué que le code ajoute un champ `host` à vos définitions de passerelle d’application. Le champ `host` permet à Maverics Orchestrator de distinguer vers quel hôte en amont diriger le trafic proxy.
 
-Pour vérifier que la passerelle d’application qui vient d’être ajoutée fonctionne comme prévu, effectuez une demande à https://connectulum.maverics.com.
+Pour vérifier que la passerelle d’application qui vient d’être ajoutée fonctionne comme prévu, effectuez une demande à `https://connectulum.maverics.com`.
 
 ## <a name="advanced-scenarios"></a>Scénarios avancés
 

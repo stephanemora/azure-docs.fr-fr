@@ -46,8 +46,9 @@
         - name: Utiliser des instances de conteneur
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
-        - name: Documentation sur les conteneurs Cognitive Services
+        - name: Documentation sur tous les conteneurs Cognitive Services
           href: ../containers/index.yml
+          maintainContext: true
     - name: Sauvegarder et récupérer des modèles
       href: disaster-recovery.md
     - name: Préparation pour l’entreprise

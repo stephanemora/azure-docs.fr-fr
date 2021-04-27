@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9f368a4aebc4d5de38ebbab800241366650633e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92553e9d598823ee1b812a4f07480dec380b2490
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936581"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739419"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler pour le provisionnement automatique d’utilisateurs
 
@@ -76,6 +76,10 @@ Avant de configurer et d’activer le provisionnement automatique d’utilisateu
 ## <a name="configuring-automatic-user-provisioning-to-zscaler"></a>Configuration du provisionnement automatique d’utilisateurs sur Zscaler
 
 Cette section vous guide tout au long des étapes de configuration du service de provisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans Zscaler en fonction des assignations d’utilisateurs et/ou de groupes dans Azure AD.
+
+
+> [!NOTE]
+> Ouvrez un [ticket de support](https://help.zscaler.com/) pour créer un domaine sur Zscaler.
 
 > [!TIP]
 > Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Zscaler en suivant les instructions fournies dans le [didacticiel sur l’authentification unique Zscaler](zscaler-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.

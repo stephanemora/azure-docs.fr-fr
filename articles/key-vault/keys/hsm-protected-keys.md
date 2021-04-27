@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: a7e709ba9a4de5ff77524a2d2b1b64a5933131a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 171e0c03dc6f246d0f56d11f793ca711b0082f49
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489410"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588290"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importer des clés protégées par HSM dans un coffre de clés
 
@@ -33,7 +33,7 @@ Le transfert de clés protégées par HSM vers un coffre de clés est pris en ch
 
 |Nom du fournisseur|Type de fournisseur|Modèles HSM pris en charge|Méthode de transfert de clé HSM prise en charge|
 |---|---|---|---|
-|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricant,<br/>HSM en tant que service|<ul><li>Famille nShield de modules HSM</li><li>nShield en tant que service</ul>|**Méthode 1 :** [nCipher BYOK](hsm-protected-keys-ncipher.md) (dépréciée)<br/>**Méthode 2 :** [Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md) (recommandée)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricant,<br/>HSM en tant que service|<ul><li>Famille nShield de modules HSM</li><li>nShield en tant que service</ul>|**Méthode 1 :** [nCipher BYOK](hsm-protected-keys-ncipher.md) (dépréciée). Cette méthode ne sera pas prise en charge après le <strong>30 juin 2021</strong><br/>**Méthode 2 :** [Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md) (recommandée)|
 |Thales|Fabricant|<ul><li>Famille Luna HSM 7 avec microprogramme version 7.3 ou ultérieure</li></ul>| [Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
 |Fortanix|Fabricant,<br/>HSM en tant que service|<ul><li>SDKMS (Self-Defending Key Management Service)</li><li>Equinix SmartKey</li></ul>|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
 |Marvell|Fabricant|Tous les modules HSM LiquidSecurity avec<ul><li>Version 2.0.4 ou ultérieure du microprogramme</li><li>Version 3.2 ou ultérieure du microprogramme</li></ul>|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|

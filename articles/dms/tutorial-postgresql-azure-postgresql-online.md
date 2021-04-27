@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: bb4dd08b4f30982ec4572fd4e130a89112578175
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 37f33a217467619240d3339363c6a2fcd8800a12
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203553"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505545"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutoriel : Effectuer la migration en ligne de PostgreSQL vers Azure DB pour PostgreSQL via Azure CLI à l’aide de DMS
 
@@ -155,7 +155,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 
 6. S’il existe un type de données ENUM dans des tables, il est recommandé de le mettre à jour temporairement en type de données « character varying » dans la table cible. À la fin de la réplication des données, rétablissez le type de données sur ENUM.
 
-## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>Approvisionnement d’une instance de DMS à l’aide de l’interface CLI
+## <a name="provisioning-an-instance-of-dms-using-the-azure-cli"></a>Provisionnement d’une instance de DMS à l’aide de l’interface Azure CLI
 
 1. Installez l’extension de synchronisation dms :
    * Connectez-vous à Azure en exécutant la commande suivante :

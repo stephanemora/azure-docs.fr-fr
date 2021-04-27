@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: ea097119111d5dbd5eba3c11aba549d201186e3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 394b3390386c60e2a64f52dd944dfcdb0d33951e
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592181"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727021"
 ---
 # <a name="what-is-azure-sql"></a>Qu'est-ce que SQL Azure ? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -98,18 +98,19 @@ Azure SQL Database propose les options de déploiement suivantes  :
 ### <a name="sql-server-on-azure-vm"></a>SQL Server sur une machine virtuelle Azure
 
 [SQL Server sur une machine virtuelle Azure](virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) appartient à la catégorie *IaaS (Infrastructure en tant que service)* et vous permet d’exécuter SQL Server sur une machine virtuelle complètement managée dans Azure. 
-- Idéales pour les migrations et applications nécessitant un accès au niveau du système d’exploitation. Les machines virtuelles SQL dans Azure sont prêtes pour le portage virtuel (lift-and-shift) pour des applications existantes qui requièrent une migration rapide vers le cloud avec un minimum de changements, voire sans aucun changement. Les machines virtuelles SQL offrent un contrôle administratif complet sur l’instance SQL Server et le système d’exploitation sous-jacent pour la migration vers Azure. 
-- Scénarios de développement et de test rapides lorsque vous ne souhaitez pas acheter du matériel SQL Server local non destiné à la production. Les machines virtuelles SQL s’exécutent également sur du matériel standardisé détenu, hébergé et entretenu par Microsoft. Quand vous utilisez des machines virtuelles SQL, vous pouvez payer à l’utilisation pour une licence SQL Server déjà incluse dans une image SQL Server ou utiliser simplement une licence existante. Vous pouvez également arrêter ou redémarrer la machine virtuelle en fonction des besoins. 
 - SQL Server installé et hébergé dans le cloud s’exécute sur des machines virtuelles Windows Server ou Linux opérant sur Azure, également appelées infrastructure en tant que service (IaaS). Les machines virtuelles SQL constituent une bonne option pour la migration d’applications et de bases de données SQL Server locales sans aucun changement de base de données. Toutes les dernières versions et éditions de SQL Server sont disponibles pour l’installation dans une machine virtuelle IaaS. 
-
-    La différence la plus significative par rapport à SQL Database et aux instances SQL Managed Instance est que SQL Server sur des machines virtuelles Azure permet un contrôle total du moteur de base de données. Vous pouvez choisir quand la maintenance/mise à jour corrective démarrera, de passer d’un mode de récupération simple à un mode utilisant les journaux de transactions, d’arrêter ou de démarrer le service quand c’est nécessaire et vous pouvez personnaliser entièrement le moteur de base de données SQL Server. Ce contrôle supplémentaire est assorti d’une la responsabilité de gestion accrue de la machine virtuelle.
+- Idéales pour les migrations et applications nécessitant un accès au niveau du système d’exploitation. Les machines virtuelles SQL dans Azure sont prêtes pour le portage virtuel (lift-and-shift) pour des applications existantes qui requièrent une migration rapide vers le cloud avec un minimum de changements, voire sans aucun changement. Les machines virtuelles SQL offrent un contrôle administratif complet sur l’instance SQL Server et le système d’exploitation sous-jacent pour la migration vers Azure. 
+- La différence la plus significative par rapport à SQL Database et aux instances SQL Managed Instance est que SQL Server sur des machines virtuelles Azure permet un contrôle total du moteur de base de données. Vous pouvez choisir quand la maintenance/mise à jour corrective démarrera, de passer d’un mode de récupération simple à un mode utilisant les journaux de transactions, d’arrêter ou de démarrer le service quand c’est nécessaire et vous pouvez personnaliser entièrement le moteur de base de données SQL Server. Ce contrôle supplémentaire est assorti d’une la responsabilité de gestion accrue de la machine virtuelle.
+- Scénarios de développement et de test rapides lorsque vous ne souhaitez pas acheter du matériel SQL Server local non destiné à la production. Les machines virtuelles SQL s’exécutent également sur du matériel standardisé détenu, hébergé et entretenu par Microsoft. Quand vous utilisez des machines virtuelles SQL, vous pouvez payer à l’utilisation pour une licence SQL Server déjà incluse dans une image SQL Server ou utiliser simplement une licence existante. Vous pouvez également arrêter ou redémarrer la machine virtuelle en fonction des besoins. 
 - Optimisé pour la migration d’applications existantes vers Azure ou l’extension d’applications locales existantes au cloud dans des déploiements hybrides. En outre, vous pouvez utiliser SQL Server sur une machine virtuelle pour développer et tester des applications traditionnelles SQL Server. Avec les machines virtuelles SQL, vous disposez de droits d’administration complets sur une instance SQL Server dédiée et sur une machine virtuelle dans le cloud. C'est le choix idéal lorsqu'une organisation possède déjà les ressources informatiques disponibles pour maintenir les machines virtuelles. Ces fonctionnalités vous permettent de créer un système hautement personnalisé afin de répondre aux exigences de performances de disponibilité de votre application.
 
-Le tableau ci-dessous répertorie d’autres différences. Cependant, *SQL Database et SQL Managed Instance sont optimisés pour réduire au minimum les coûts de gestion globaux liés au provisionnement et à la gestion de nombreuses bases de données.* Les coûts d’administration en cours sont réduits car vous n’avez pas à gérer les machines virtuelles, le système d’exploitation ou le logiciel de base de données. Vous n’avez pas à gérer les mises à niveau, la haute disponibilité, ni les [sauvegardes](database/automated-backups-overview.md). 
-
-En règle générale, SQL Database et SQL Managed Instance peuvent augmenter considérablement le nombre de bases de données gérées par un informaticien ou un développeur. Les [pools élastiques](database/elastic-pool-overview.md) prennent également en charge les architectures d’applications SaaS multi-locataires grâce à des fonctionnalités incluant l’isolation des locataires et la possibilité de mettre à l’échelle pour réduire les coûts en partageant des ressources entre les bases de données. [SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md) prend en charge les fonctionnalités incluses dans l’instance permettant de migrer facilement des applications existantes, ainsi que de partager des ressources entre bases de données.
 
 ### <a name="comparison-table"></a>Tableau de comparaison
+
+Le tableau ci-dessous liste d’autres différences. Cependant, *SQL Database et SQL Managed Instance sont optimisés pour réduire au minimum les coûts de gestion globaux liés au provisionnement et à la gestion de nombreuses bases de données.* Les coûts d’administration en cours sont réduits car vous n’avez pas à gérer les machines virtuelles, le système d’exploitation ou le logiciel de base de données. Vous n’avez pas à gérer les mises à niveau, la haute disponibilité, ni les [sauvegardes](database/automated-backups-overview.md). 
+
+En règle générale, SQL Database et SQL Managed Instance peuvent augmenter considérablement le nombre de bases de données gérées par un informaticien ou un développeur. Les [pools élastiques](database/elastic-pool-overview.md) prennent également en charge les architectures d’applications SaaS multi-locataires grâce à des fonctionnalités incluant l’isolation des locataires et la possibilité de mettre à l’échelle pour réduire les coûts en partageant des ressources entre les bases de données. [SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md) prend en charge les fonctionnalités incluses dans l’instance permettant de migrer facilement des applications existantes, ainsi que de partager des ressources entre bases de données. En revanche, [SQL Server sur machines virtuelles Azure](virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) offrent aux administrateurs de bases de données une expérience très similaire à celle de l’environnement local avec lequel ils sont familiarisés. 
+
 
 | Azure SQL Database | Azure SQL Managed Instance | SQL Server sur une machine virtuelle Azure |
 | :--- | :--- | :--- |

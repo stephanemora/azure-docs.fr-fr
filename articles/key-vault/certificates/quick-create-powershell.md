@@ -3,20 +3,19 @@ title: 'Démarrage rapide : Définir et récupérer un certificat dans Azure Ke
 description: Démarrage rapide montrant comment définir et récupérer un certificat dans Azure Key Vault à l’aide d’Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 587815cf9628df35f1e1efdbc6a7a3c89a27ed55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a641ca1206cb41ded0513db72daa278dc3753c85
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071915"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750389"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault avec Azure PowerShell
 
@@ -62,6 +61,18 @@ Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "Exampl
 ```
 
 Vous venez de créer un coffre de clés, d’y stocker un certificat et de récupérer ce dernier.
+
+**Résolution des problèmes** :
+
+L’opération a retourné un code d’état non valide : « Forbidden ».
+
+Si vous recevez cette erreur, cela signifie que le compte qui accède à Azure Key Vault ne dispose pas des autorisations nécessaires pour créer des certificats.
+
+Exécutez la commande Azure PowerShell suivante pour attribuer les autorisations nécessaires :
+
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

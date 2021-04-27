@@ -6,12 +6,12 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0090d981e93cee12f2feaaf7d2c12f341564f6ec
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649544"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482328"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Tutoriel : Importer et gérer des API à l’aide de l’extension Gestion des API pour Visual Studio Code
 
@@ -101,7 +101,7 @@ Pour tester l’API importée que vous avez importée et les stratégies appliqu
 ### <a name="test-an-api-operation"></a>Tester une opération d’API
 
 1. Dans le volet de l’Explorateur, développez le nœud **Opérations** sous l’API *demo-conference-api* que vous avez importée.
-1. Sélectionnez une opération, par exemple *GetSpeakers*.
+1. Sélectionnez une opération comme *GetSpeakers*, puis cliquez avec le bouton droit sur l’opération et sélectionnez **Opération de test**.
 1. Dans la fenêtre de l’éditeur, en regard de **Ocp-Apim-Subscription-Key**, remplacez `{{SubscriptionKey}}` par la clé d’abonnement que vous avez copiée.
 1. Sélectionnez **Envoyer une demande**. 
 

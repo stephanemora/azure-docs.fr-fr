@@ -8,30 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traitement des formulaires, traitement de données automatisé
-ms.openlocfilehash: 43182892aa80f6226ffb5177d0be2e24d15ead5c
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: b4631892f1c35c665c4468a6e0b3ad481a19e8df
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467202"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516397"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library-or-rest-api"></a>Démarrage rapide : Utiliser la bibliothèque de client Form Recognizer ou l’API REST
 
-Découvrez comment bien démarrer avec Form Recognizer dans le langage de développement de votre choix. Azure Form Recognizer est un service cognitif qui vous permet de créer des logiciels de traitement de données automatisé à l’aide des technologies du Machine Learning. Identifiez et extrayez du texte, des paires clé/valeur, des marques de sélection, des données de table et plus de vos formulaires : le service génère des données structurées qui incluent les relations dans le fichier d’origine. Vous pouvez utiliser Form Recognizer via l’API REST ou le kit SDK. Suivez les étapes suivantes pour installer le package du SDK et essayer l’exemple de code pour les tâches de base. 
+Découvrez comment bien démarrer avec Form Recognizer dans le langage de développement de votre choix. Azure Form Recognizer est un service cognitif qui vous permet de créer des logiciels de traitement de données automatisé à l’aide des technologies du Machine Learning. Identifiez et extrayez du texte, des paires clé/valeur, des marques de sélection, des données de table et plus de vos formulaires : le service génère des données structurées qui incluent les relations dans le fichier d’origine. Vous pouvez utiliser Form Recognizer via l’API REST ou le kit SDK. Suivez les étapes suivantes pour installer le package du SDK et essayer l’exemple de code pour les tâches de base.
 
 Utilisez Form Recognizer pour :
 
 * [Analyser la disposition](#analyze-layout)
-* [Analyser les factures](#analyze-invoices)
-* [Entraîner un modèle personnalisé](#train-a-custom-model)
-* [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
 * [Analyser les reçus](#analyze-receipts)
 * [Analyser les cartes de visite](#analyze-business-cards)
+* [Analyser les factures](#analyze-invoices)
+* [Analyser les documents d’identité](#analyze-identity-documents)
+* [Entraîner un modèle personnalisé](#train-a-custom-model)
+* [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
 * [Gérer vos connecteurs personnalisés](#manage-your-custom-models)
 
 ::: zone pivot="programming-language-csharp"

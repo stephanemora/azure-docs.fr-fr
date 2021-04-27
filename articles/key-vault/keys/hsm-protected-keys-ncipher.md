@@ -10,17 +10,17 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: f7761cf011a3a678bb7609e1063ac6ebec90d395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8230404d71b0fe46e8a7cc536d2b5f3a4c5004f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499184"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588392"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importer des clés protégées par HSM pour Key Vault (nCipher)
 
 > [!WARNING]
-> La méthode d’importation de clé HSM décrite dans ce document est **dépréciée** et ne sera pas prise en charge à l’avenir. Elle fonctionne uniquement avec la famille nCipher nShield de modules HSM avec le microprogramme 12.40.2 ou 12.50 et un correctif logiciel. L’utilisation de la [nouvelle méthode pour importer des clés HSM](hsm-protected-keys-byok.md) est fortement recommandée.
+> La méthode d’importation de clé HSM décrite dans ce document est **dépréciée** et ne sera pas prise en charge après le 30 juin 2021. Elle fonctionne uniquement avec la famille nCipher nShield de modules HSM avec le microprogramme 12.40.2 ou 12.50 et un correctif logiciel. L’utilisation de la [nouvelle méthode pour importer des clés HSM](hsm-protected-keys-byok.md) est fortement recommandée.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 3ad9d7963da3719773afb4a39fc882ba0dddbf85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0744b98b0264a79072e60ddb7627a4b527bdf1e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92520249"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD auprès de Wingspan eTMF, 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Wingspan eTMF](https://www.wingspan.com/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’équipe de support technique de Wingspan eTMF. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -126,7 +126,7 @@ Pour configurer l’authentification unique Azure AD auprès de Wingspan eTMF, 
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>Configurer l’authentification unique Wingspan eTMF
 
-Pour configurer l’authentification unique côté **Wingspan eTMF**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique Wingspan eTMF](https://www.wingspan.com/contact-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Wingspan eTMF**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’équipe du support technique de Wingspan eTMF. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -180,7 +180,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-wingspan-etmf-test-user"></a>Créer un utilisateur de test Wingspan eTMF
 
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans Wingspan eTMF. Rapprochez-vous de l’[équipe de support Wingspan eTMF](https://www.wingspan.com/contact-us/) pour ajouter les utilisateurs dans la plateforme Wingspan eTMF. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé Britta Simon dans Wingspan eTMF. Rapprochez-vous de l’équipe de support Wingspan eTMF pour ajouter les utilisateurs dans la plateforme Wingspan eTMF. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

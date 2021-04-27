@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance faciale, logiciel de reconnaissance faciale, analyse faciale, correspondance de visage, application de reconnaissance faciale, recherche de visage par image, recherche de reconnaissance faciale
-ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 30707dd844769f730f135a451cd5306ca7e402cb
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258739"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726985"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
@@ -33,7 +33,7 @@ Cette documentation contient les types d’articles suivants :
 * Les [guides de démarrage rapide](./Quickstarts/client-libraries.md) sont des instructions pas à pas qui vous permettent d’effectuer des appels au service et d’obtenir des résultats en peu de temps. 
 * Les [guides patiques](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
 * Les [articles conceptuels](./concepts/face-detection.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
-* Les [tutoriels](./Tutorials/FaceAPIinCSharpTutorial.md) sont des guides plus longs qui montrent comment utiliser ce service en tant que composant dans des solutions métier plus larges.
+* Les [tutoriels](./enrollment-overview.md) sont des guides plus longs qui montrent comment utiliser ce service en tant que composant dans des solutions métier plus larges.
 
 ## <a name="face-detection"></a>Détection des visages
 
@@ -64,7 +64,7 @@ Pour plus d’informations sur l’identification de personnes, consultez le gui
 
 ## <a name="find-similar-faces"></a>Rechercher des visages semblables
 
-L’API de recherche de visages semblables permet de mettre en correspondance un visage cible avec un ensemble de visages candidats, en cherchant à obtenir un plus petit ensemble de visages ressemblant au visage cible. Cette API s’avère utile pour effectuer une recherche de visage par image. 
+L’API de recherche de visages semblables permet de mettre en correspondance un visage cible avec un ensemble de visages candidats, en cherchant à obtenir un plus petit ensemble de visages ressemblant au visage cible. Cette opération est utile pour effectuer une recherche de visage par image. 
 
 Deux modes de travail, **matchPerson** et **matchFace**, sont pris en charge. Le mode **matchPerson** renvoie des visages semblables après avoir filtré les résultats pour la même personne à l’aide de l’[API de vérification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Le mode **matchFace** ignore le filtre de correspondance de personne. Il renvoie la liste des visages candidats semblables susceptibles ou non d’appartenir à la même personne.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Clarizen | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clarizen.
+title: 'Tutoriel : Intégration d’Azure Active Directory à Clarizen One | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clarizen One.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,134 +9,126 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/21/2019
+ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7e90ff4c69e03482a1608185bc947ccb8604187
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97672936"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516827"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Didacticiel : Intégration d’Azure Active Directory à Clarizen
+# <a name="tutorial-azure-active-directory-integration-with-clarizen-one"></a>Tutoriel : Intégration d’Azure Active Directory à Clarizen One
 
-Dans ce didacticiel, vous allez apprendre à intégrer Clarizen à Azure Active Directory (Azure AD).
-L’intégration de Clarizen dans Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer Clarizen One à Azure Active Directory (Azure AD). Quand vous intégrez Clarizen One à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Clarizen.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Clarizen (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
-
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Contrôler dans Azure AD qui a accès à Clarizen One.
+* Permettre à vos utilisateurs de se connecter automatiquement à Clarizen One avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à Clarizen, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement Clarizen pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement à Clarizen One pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Clarizen prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+* Clarizen One prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
 
-## <a name="adding-clarizen-from-the-gallery"></a>Ajout de Clarizen à partir de la galerie
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-Pour configurer l’intégration de Clarizen à Azure AD, vous devez ajouter Clarizen à partir de la galerie à votre liste d’applications SaaS gérées.
+## <a name="add-clarizen-one-from-the-gallery"></a>Ajouter Clarizen One à partir de la galerie
 
-**Pour ajouter Clarizen à partir de la galerie, procédez comme suit :**
+Pour configurer l’intégration de Clarizen One à Azure AD, vous devez ajouter Clarizen One à partir de la galerie à votre liste d’applications SaaS managées.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Clarizen One** dans la zone de recherche.
+1. Sélectionnez **Clarizen One** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-clarizen-one"></a>Configurer et tester l’authentification unique Azure AD pour Clarizen One
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
+Configurez et testez l’authentification unique Azure AD pour Clarizen One à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans Clarizen One.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+Pour configurer et tester l’authentification unique Azure AD avec Clarizen One, effectuez les étapes suivantes :
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Clarizen One](#configure-clarizen-one-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Clarizen One](#create-clarizen-one-test-user)** pour avoir un équivalent de B.Simon dans Clarizen One associé à sa représentation dans Azure AD.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-    ![Bouton Nouvelle application](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-4. Dans la zone de recherche, tapez **Clarizen**, sélectionnez **Clarizen** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-    ![Clarizen dans la liste des résultats](common/search-new-app.png)
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Clarizen One**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès de Clarizen sur un utilisateur de test nommé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Clarizen associé doit être établie.
-
-Pour configurer et tester l’authentification unique Azure AD avec Clarizen, vous devez suivre les indications des sections suivantes :
-
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Clarizen](#configure-clarizen-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Clarizen](#create-clarizen-test-user)** pour avoir un équivalent de Britta Simon dans Clarizen, associé à sa représentation dans Azure AD.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
-
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
-
-Pour configurer l’authentification unique Azure AD auprès de Clarizen, effectuez les étapes suivantes :
-
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Clarizen**, sélectionnez **Authentification unique**.
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. Sur la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Clarizen](common/idp-intiated.png)
+    a. Dans la zone de texte **Identificateur**, tapez la valeur : `Clarizen`
 
-    a. Dans la zone de texte **Identificateur**, tapez une valeur : `Clarizen`
-
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
-
-    > [!NOTE]
-    > Il ne s’agit pas des valeurs réelles. Vous devrez utiliser les véritables valeurs d’identificateur et d’URL de réponse. Nous vous suggérons d’utiliser ici la valeur unique d’une chaîne en guise d’identificateur. Pour obtenir les valeurs réelles, contactez [l’équipe de support technique Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
+    b. Dans la zone **URL de réponse**, tapez l’URL : `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
 
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Clarizen**, copiez la ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer Clarizen One**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
-    b. Identificateur Azure AD
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-    c. URL de déconnexion
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
-### <a name="configure-clarizen-single-sign-on"></a>Configurer l’authentification unique Clarizen
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Clarizen en tant qu’administrateur.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Clarizen One.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Clarizen One**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-clarizen-one-sso"></a>Configurer l’authentification unique Clarizen One
+
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Clarizen One en tant qu’administrateur.
 
 1. Cliquez sur votre nom d’utilisateur, puis sur **Settings** (Paramètres).
 
-    ![Sélection de l’option « Settings » (Paramètres) sous votre nom d’utilisateur](./media/clarizen-tutorial/tutorial_clarizen_001.png "Paramètres")
+    ![Sélection de l’option « Settings » (Paramètres) sous votre nom d’utilisateur](./media/clarizen-tutorial/setting.png "Paramètres")
 
 1. Cliquez sur l’onglet **Global Settings** (Paramètres globaux). En regard de la zone **Federated Authentication** (Authentification fédérée), cliquez sur **edit** (modifier).
 
-    ![Onglet « Global Settings »](./media/clarizen-tutorial/tutorial_clarizen_002.png "Paramètres globaux")
+    ![Onglet « Global Settings »](./media/clarizen-tutorial/authentication.png "Paramètres globaux")
 
 1. Dans la boîte de dialogue **Federated Authentication** (Authentification fédérée), procédez comme suit :
 
-    ![Boîte de dialogue « Federated Authentication »](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
+    ![Boîte de dialogue « Federated Authentication »](./media/clarizen-tutorial/federated-authentication.png "Federated Authentication")
 
     a. Sélectionnez **Activer l'authentification fédérée**.
 
@@ -150,78 +142,27 @@ Pour configurer l’authentification unique Azure AD auprès de Clarizen, effect
 
     f. Cliquez sur **Enregistrer**.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-clarizen-one-test-user"></a>Créer un utilisateur de test Clarizen One
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
-
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple : BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Clarizen.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Clarizen**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-2. Dans la liste des applications, sélectionnez **Clarizen**.
-
-    ![Lien Clarizen dans la liste des applications](common/all-applications.png)
-
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
-
-### <a name="create-clarizen-test-user"></a>Créer un utilisateur de test Clarizen
-
-L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans Clarizen.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Clarizen One.
 
 **Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
-Pour permettre aux utilisateurs Azure AD de se connecter à Clarizen, vous devez approvisionner des comptes d’utilisateurs. Dans le cas de Clarizen, l’approvisionnement est une tâche manuelle.
+Pour permettre aux utilisateurs Azure AD de se connecter à Clarizen One, vous devez provisionner des comptes d’utilisateur. Dans le cas de Clarizen One, le provisionnement est une tâche manuelle.
 
-1. Connectez-vous à votre site d’entreprise Clarizen en tant qu’administrateur.
+1. Connectez-vous à votre site d’entreprise Clarizen One en tant qu’administrateur.
 
 2. Cliquez sur **People**.
 
-    ![Clic sur « People »](./media/clarizen-tutorial/create_aaduser_001.png "Personnes")
+    ![Clic sur « People »](./media/clarizen-tutorial/people.png "Personnes")
 
 3. Cliquez sur **Inviter des utilisateurs**.
 
-    ![Bouton « Invite User »](./media/clarizen-tutorial/create_aaduser_002.png "Inviter des utilisateurs")
+    ![Bouton « Invite User »](./media/clarizen-tutorial/user.png "Inviter des utilisateurs")
 
 1. Dans la boîte de dialogue **Invite People** (Inviter un contact), procédez comme suit :
 
-    ![Boîte de dialogue « Invite People »](./media/clarizen-tutorial/create_aaduser_003.png "Inviter des personnes")
+    ![Boîte de dialogue « Invite People »](./media/clarizen-tutorial/invite-people.png "Inviter des personnes")
 
     a. Dans la zone **Email** (E-mail), tapez l’adresse e-mail du compte de Britta Simon.
 
@@ -230,17 +171,14 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Clarizen, vous devez
     > [!NOTE]
     > Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer.
 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+* Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance de Clarizen One pour laquelle vous avez configuré l’authentification unique.
 
-Quand vous cliquez sur la vignette Clarizen dans le volet d’accès, vous devez vous connecter automatiquement à l’application Clarizen pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Clarizen One dans Mes applications, vous êtes connecté automatiquement à l’instance de Clarizen One pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
-
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Une fois que vous avez configuré Clarizen One, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b58040917ed3d3345a35b7acbe31b6b500f05562
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: c0ca74b6cf63e3c81d830eca76eea6815548faa1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073729"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732580"
 ---
 ### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>Ai-je besoin d’une IP publique sur ma machine virtuelle pour me connecter via Azure Bastion ?
 
@@ -51,7 +51,7 @@ Cette fonctionnalité ne fonctionne pas avec les ordinateurs joints à l’exten
 
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Quels sont les navigateurs pris en charge ?
 
-Utilisez le navigateur Microsoft Edge ou Google Chrome sous Windows. Pour Apple Mac, utilisez le navigateur Google Chrome. Microsoft Edge Chromium est également pris en charge sur Windows et Mac, respectivement.
+Le navigateur doit prendre en charge HTML 5. Utilisez le navigateur Microsoft Edge ou Google Chrome sous Windows. Pour Apple Mac, utilisez le navigateur Google Chrome. Microsoft Edge Chromium est également pris en charge sur Windows et Mac, respectivement.
 
 ### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Où Azure bastion stocke-t-il les données client ?
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: iangithinji
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: d81ad34c81a451f1faecb6cb33c0cc427567f122
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 202ccf6f540ec78c2bb30e0f0a0173609bba578c
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379602"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751451"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Options d’authentification unique dans Azure AD
 
@@ -86,13 +86,12 @@ Avec l’authentification par mot de passe, les utilisateurs se connectent à l�
 
 L’authentification unique par mot de passe utilise le processus d’authentification existant fourni par l’application. Quand vous activez l’authentification unique par mot de passe pour une application, Azure AD collecte et stocke de façon sécurisée les noms d’utilisateur et les mots de passe pour l’application. Les informations d’identification de l’utilisateur sont stockées à l’état chiffré dans l’annuaire.
 
+De plus, l’administrateur peut activer des stratégies d’accès conditionnel Azure AD ou l’authentification multifacteur pour l’authentification unique basée sur un mot de passe.
+
 Choisissez l’authentification unique par mot de passe quand :
 
 - Une application ne prend pas en charge le protocole d’authentification unique SAML.
 - Une application s’authentifie avec un nom d’utilisateur et un mot de passe au lieu de jetons d’accès et d’en-têtes.
-
->[!NOTE]
->Vous ne pouvez pas appliquer de stratégies d’accès conditionnel ni d’authentification multifacteur pour l’authentification unique par mot de passe.
 
 L’authentification unique par mot de passe est prise en charge pour toutes les applications cloud qui ont une page de connexion HTML. L’utilisateur peut utiliser un des navigateurs suivants :
 

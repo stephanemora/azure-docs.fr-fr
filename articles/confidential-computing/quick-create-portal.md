@@ -2,18 +2,20 @@
 title: 'Démarrage rapide : Créer une machine virtuelle d’informatique confidentielle Azure dans le portail Azure'
 description: Commencez vos déploiements en apprenant à créer rapidement une machine virtuelle d’informatique confidentielle dans le portail Azure.
 author: JBCook
+ms.author: JenCook
+ms.date: 04/23/2020
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 04/23/2020
-ms.author: JenCook
-ms.openlocfilehash: 3f0984acd66bd5d6c148be8451938d3152fb9ca7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: f43229570f6bab942cc57a2ea3be163d37f02f89
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566666"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536181"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Démarrage rapide : Déployer une machine virtuelle d’informatique confidentielle Azure dans le portail Azure
 
@@ -148,7 +150,7 @@ Pour en savoir plus la connexion aux machines virtuelles Linux, consultez [Créa
 
 Suivez les instructions pas à pas pour installer le [SDK OE](https://github.com/openenclave/openenclave) sur votre machine virtuelle de la série DCsv2 exécutant une image Ubuntu 18.04 LTS Gen 2. 
 
-Si votre machine virtuelle s’exécute sur Ubuntu 16.04 LTS Gen 2, vous devez suivre les [instructions d’installation pour Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md).
+Si votre machine virtuelle s’exécute sur Ubuntu 18.04 LTS Gen 2, vous devez suivre les [instructions d’installation pour Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md).
 
 #### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Configurer les dépôts APT Intel et Microsoft
 

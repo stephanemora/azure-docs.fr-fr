@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 13b62646728eb03a7470d9bb57741bcb90cc24fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02fcd8fc14a300b7031677185a91d7e6c9aa3b09
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92447702"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518352"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Grammarly
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Grammarly prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+* Grammarly prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
 * Grammarly prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 > [!NOTE]
@@ -53,7 +53,6 @@ Pour configurer l’intégration de Grammarly dans Azure AD, vous devez l’ajo
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Grammarly** dans la zone de recherche.
 1. Sélectionnez **Grammarly** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-grammarly"></a>Configurer et tester l’authentification unique Azure AD pour Grammarly
 
@@ -74,7 +73,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Grammarly**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -131,12 +130,12 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans Grammarly. Gr
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-1. Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance de Grammarly pour laquelle vous avez configuré l’authentification unique. 
+* Cliquez sur Tester cette application dans le portail Azure ; vous devez être connecté automatiquement à l’instance de Grammarly pour laquelle vous avez configuré l’authentification unique.
 
-2. Vous pouvez utiliser le panneau d’accès Microsoft. Le fait de cliquer sur la vignette Grammarly dans le panneau d’accès doit vous connecter automatiquement à l’application Grammarly pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Grammarly dans Mes applications, vous devez être connecté automatiquement à l’instance de Grammarly pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Grammarly, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré Grammarly, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

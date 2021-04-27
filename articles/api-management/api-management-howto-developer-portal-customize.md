@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 11/16/2020
 ms.author: apimpm
-ms.openlocfilehash: 90544fbafe7393630c3f3fbc694ae367eccb7f90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c341dee3106530715248355da4412b97ed30980
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96012973"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739617"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutoriel : Accéder et personnaliser le portail des développeurs
 
@@ -45,6 +45,35 @@ Suivez les étapes ci-dessous pour accéder à la version managée du portail.
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre instance APIM.
 1. Sélectionnez le bouton **Portail des développeurs** dans la barre de navigation supérieure. Un nouvel onglet de navigateur s’ouvre, en affichant une version d’administration du portail.
 
+
+## <a name="developer-portal-architectural-concepts"></a>Concepts architecturaux du portail des développeurs
+
+Les composants du portail se divisent en deux catégories logiques : le *code* et le *contenu*.
+
+### <a name="code"></a>Code
+
+Le code, qui est conservé dans le [dépôt GitHub](https://github.com/Azure/api-management-developer-portal) du portail des développeurs Gestion des API comprend les éléments suivants :
+
+- **Widgets** : représentent des éléments visuels et associent du code HTML, du code JavaScript, des possibilités d’application de styles, des paramètres et un mappage du contenu. (exemples : image, paragraphe de texte, formulaire, liste d’API, etc.) ;
+- **Définitions de styles** : spécifient comment des styles peuvent être appliqués aux widgets
+- **Moteur** : génère des pages web statiques à partir du contenu du portail, écrit en JavaScript
+- **Éditeur visuel** : offre une expérience de personnalisation et de création dans le navigateur
+
+### <a name="content"></a>Contenu
+
+Le contenu est divisé en deux sous-catégories : le *contenu du portail* et le *contenu de la Gestion des API*.
+
+Le *contenu du portail*, propre au portail, comprend les éléments suivants :
+
+- **Pages** : par exemples, la page de destination, les tutoriels sur les API, les billets de blog
+- **Contenus multimédias** : images, animations et autres contenus basés sur des fichiers
+- **Dispositions** : modèles qui sont mis en correspondance avec une URL et qui définissent le mode d’affichage des pages
+- **Styles** : valeurs des définitions de styles, comme les polices, les couleurs, les bordures
+- **Paramètres** : configurations comme favicon, les métadonnées de site web
+
+    Le contenu du portail, à l’exception des contenus multimédias, est exprimé sous la forme de documents JSON.
+
+Le *contenu Gestion des API* comprend des entités telles que les API, les Opérations, les Produits et les Abonnements.
 ## <a name="understand-the-portals-administrative-interface"></a>Comprendre l’interface d’administration du portail
 
 ### <a name="default-content"></a>Contenu par défaut 
@@ -138,7 +167,7 @@ Une fois publié, le portail est accessible à la même URL que le panneau d’a
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Appliquer la stratégie CORS sur les API
 
-Pour permettre aux visiteurs de votre portail de tester les API via la console interactive intégrée, activez CORS (cross-origin resource sharing) sur vos API. Pour plus d’informations, consultez [Vue d’ensemble du portail des développeurs Gestion des API Azure](api-management-howto-developer-portal.md#cors).
+Pour permettre aux visiteurs de votre portail de tester les API via la console interactive intégrée, activez CORS (cross-origin resource sharing) sur vos API. Pour plus d’informations, consultez les [Questions fréquentes du portail des développeurs Gestion des API Azure](developer-portal-faq.md#cors).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

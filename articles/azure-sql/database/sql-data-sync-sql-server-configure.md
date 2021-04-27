@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 75de7b122bff75ea13e3b66bb0b79452142dc36c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968609"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500088"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutoriel : configurer SQL Data Sync entre des bases de données d'Azure SQL Database et SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -236,6 +236,11 @@ Pour les questions fréquemment posées sur l’agent client, consultez [FAQ sur
 **Est-il nécessaire d’approuver manuellement la liaison privée avant de pouvoir commencer à l’utiliser ?**
 
 Oui, vous devez approuver manuellement le point de terminaison privé managé par le service dans la page Connexions de point de terminaison privé du portail Azure pendant le déploiement du groupe de synchronisation ou à l’aide de PowerShell.
+
+**Pourquoi est-ce que j’obtiens une erreur de pare-feu quand la tâche de synchronisation provisionne ma base de données Azure ?**
+
+Cela peut se produire si des ressources Azure ne sont pas autorisées à accéder à votre serveur. Vérifiez que le paramètre « Autoriser les services et les ressources Azure à accéder à ce serveur » de la base de données Azure a la valeur « Oui ».
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

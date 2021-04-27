@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 04/16/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1aafcd8ace846d7da65d95d4148872d5a6eddeee
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577986"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587848"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -145,7 +145,7 @@ Le script ci-après présente un exemple d’utilisation de l’applet de comman
 
 L’applet de commande `Initialize-ADSyncDomainJoinedComputerSync` :
 
-* Utilise le module Active Directory PowerShell et les outils Azure Active Directory Domain Services (Azure AD DS). Ces outils supposent que les services web Active Directory s’exécutent sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures.
+* Utilise le module Active Directory PowerShell et les outils Active Directory Domain Services (AD DS). Ces outils supposent que les services web Active Directory s’exécutent sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures.
 * Est pris en charge seulement par le module MSOnline PowerShell version 1.1.166.0. Pour télécharger ce module, utilisez ce [lien](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Si les outils AD DS ne sont pas installés, `Initialize-ADSyncDomainJoinedComputerSync` échoue. Vous pouvez installer les outils AD DS via le Gestionnaire de serveur, sous **Fonctionnalités** > **Outils d’administration de serveur distant** > **Outils d’administration de rôles**.
 

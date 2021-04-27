@@ -489,8 +489,9 @@
           href: ../containers/azure-container-instance-recipe.md
         - name: Questions fréquentes (FAQ) sur les conteneurs
           href: speech-container-faq.md
-        - name: Documentation sur les conteneurs Cognitive Services
+        - name: Documentation sur tous les conteneurs Cognitive Services
           href: ../containers/index.yml
+          maintainContext: true
     - name: Migration
       items:
         - name: À partir de la reconnaissance vocale Bing

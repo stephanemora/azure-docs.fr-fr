@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c37f6d89d5ebd3e18177db8add048739a62c883f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 28c54865ab9c2876d998896f5f536a11088962f8
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307943"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566424"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -138,7 +138,7 @@ Si vous spécifiez que unstructured_data_path est un dossier, une requête de po
 Vous pouvez indiquer au pool SQL serverless de parcourir les dossiers en spécifiant /* à la fin du chemin, comme dans l’exemple suivant : `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> Contrairement à Hadoop et à PolyBase, un pool SQL serverless ne retourne pas de sous-dossiers, sauf si vous spécifiez /** à la fin du chemin.
+> Contrairement à Hadoop et à PolyBase, un pool SQL serverless ne retourne pas de sous-dossiers, sauf si vous spécifiez /** à la fin du chemin. Tout comme Hadoop et PolyBase, il ne retourne pas de fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
 
 Dans l’exemple ci-dessous, si l’élément unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, une requête de pool SQL serverless va retourner des lignes de mydata.txt. Il ne retourne pas mydata2.txt et mydata3.txt, car ces fichiers se trouvent dans un sous-dossier.
 

@@ -82,8 +82,9 @@
           href: ../containers/azure-container-instance-recipe.md
         - name: Utiliser le service kubernetes (AKS)
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-        - name: Documentation sur les conteneurs Cognitive Services
+        - name: Documentation sur tous les conteneurs Cognitive Services
           href: ../containers/index.yml
+          maintainContext: true
     - name: Préparation pour l’entreprise
       items:
         - name: Configurer des réseaux virtuels

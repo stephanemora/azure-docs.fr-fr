@@ -3,7 +3,6 @@ title: Démarrage rapide Azure - Définir et récupérer un certificat dans Key 
 description: Démarrage rapide montrant comment définir et récupérer un certificat dans Azure Key Vault à l’aide du portail Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e55c0832638105ad681f74cbeb6429a6704b7fb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be138a0c97e02cace45a57d8d6b32d7c9aea83b7
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935136"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749975"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault à l’aide du portail Azure
 
@@ -61,7 +60,8 @@ Pour ajouter un certificat au coffre, vous devez effectuer deux autres opératio
     - **Méthode de création de certificat** : Générer.
     - **Nom du certificat** : ExampleCertificate.
     - **Objet** : CN=ExampleDomain
-    - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
+    - Conservez les valeurs par défaut des autres options. (par défaut, si vous ne spécifiez rien dans la stratégie Avancée, cela sera utilisé comme un certificat d’authentification client)
+ 4. Cliquez sur **Créer**.
 
 Lorsque vous recevez le message confirmant la création du certificat, vous pouvez cliquer dessus dans la liste. Certaines propriétés s’affichent. Si vous cliquez sur la version actuelle, vous voyez la valeur que vous avez spécifiée à l’étape précédente.
 

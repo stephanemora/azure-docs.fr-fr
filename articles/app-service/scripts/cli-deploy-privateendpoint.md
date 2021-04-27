@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: acebc75b579b13ebb2cfad0e18057245781165ad
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3c8d0927c3fb74c52e54ceb5ff8ba5c0361c4f46
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175275"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787828"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Créer une application App Service et déployer un point de terminaison privé à l’aide d’Azure CLI
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location francecentral
 ## <a name="create-an-app-service-plan"></a>Créer un plan App Service
 
 Vous devez créer un plan App Service pour héberger votre application web.
-Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create).
+Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 Cet exemple crée un plan App Service nommé *myAppServicePlan* à l’emplacement *francecentral*, avec la référence SKU *P1V2* et un seul Worker : 
 
 ```azurecli-interactive
@@ -52,7 +52,7 @@ az appservice plan create \
 ## <a name="create-a-web-app"></a>Créer une application web
 
 Maintenant que vous disposez d’un plan App Service, vous pouvez déployer une application web.
-Créez une application web à l’aide de la commande [az appservice plan create](/cli/azure/webapp#az-webapp-create.
+Créez une application web à l’aide de la commande [az appservice plan create](/cli/azure/webapp#az_webapp_create.
 Cet exemple crée une application web nommée *mySiteName* dans le plan nommé *myAppServicePlan*.
 
 ```azurecli-interactive
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>Configurer le sous-réseau 
 
-Vous devez mettre à jour le sous-réseau pour désactiver les stratégies réseau du point de terminaison privé. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) :
+Vous devez mettre à jour le sous-réseau pour désactiver les stratégies réseau du point de terminaison privé. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) :
 
 ```azurecli-interactive
 az network vnet subnet update \

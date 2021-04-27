@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: aba23b67574fb74b7cd571dc5d4642bb8b991b93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6dbd6fb5c989e1e8b88bf752f5009bdbb62d8c39
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566632"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535461"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Démarrage rapide : Déployer une machine virtuelle d’informatique confidentielle Azure dans la Place de marché
 
@@ -128,7 +128,7 @@ Pour en savoir plus la connexion aux machines virtuelles Linux, consultez [Créa
 
 Suivez les instructions pas à pas pour installer le [SDK OE](https://github.com/openenclave/openenclave) sur votre machine virtuelle de la série DCsv2 exécutant une image Ubuntu 18.04 LTS Gen 2. 
 
-Si votre machine virtuelle s’exécute sur Ubuntu 16.04 LTS Gen 2, vous devez suivre les [instructions d’installation pour Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md). 
+Si votre machine virtuelle s’exécute sur Ubuntu 18.04 LTS Gen 2, vous devez suivre les [instructions d’installation pour Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md). 
 
 #### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Configurer les dépôts APT Intel et Microsoft
 

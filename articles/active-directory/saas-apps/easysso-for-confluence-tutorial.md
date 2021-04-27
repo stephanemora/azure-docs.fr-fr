@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 325f6ad7d9685fac17e17b28c4ffbe31b1245cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef121112bb4ff3ff6a297677a5c713f642cb3b78
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734527"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EasySSO pour Confluence
 
@@ -37,10 +37,10 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* EasySSO pour Confluence prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
-* EasySSO pour Confluence prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* EasySSO pour Confluence prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* EasySSO pour Confluence prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
-## <a name="adding-easysso-for-confluence-from-the-gallery"></a>Ajout d’EasySSO pour Confluence à partir de la galerie
+## <a name="add-easysso-for-confluence-from-the-gallery"></a>Ajouter EasySSO pour Confluence à partir de la galerie
 
 Pour configurer l’intégration d’EasySSO pour Confluence dans Azure AD, vous devez ajouter EasySSO pour Confluence, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
@@ -50,7 +50,6 @@ Pour configurer l’intégration d’EasySSO pour Confluence dans Azure AD, vou
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **EasySSO pour Confluence** dans la zone de recherche.
 1. Sélectionnez **EasySSO pour Confluence** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-confluence"></a>Configurer et tester l’authentification unique Azure AD pour EasySSO for Confluence
 
@@ -71,7 +70,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **EasySSO for Confluence**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -129,9 +128,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **EasySSO pour Confluence**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.

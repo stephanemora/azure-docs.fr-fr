@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7d01f3d5efeee2db5f468a0fe6217d1ff3c313a7
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 493752a3857b80b43668b6bf1b20480604442955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375013"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567993"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Tutoriel : Mapper un domaine personnalisé existant à Azure Spring Cloud
 
@@ -30,7 +30,7 @@ Les certificats chiffrent le trafic web. Ces certificats TLS/SSL peuvent être s
 
 ## <a name="keyvault-private-link-considerations"></a>Considérations relatives aux liaisons privées des coffre de clés
 
-Les adresses IP de gestion Azure Spring Cloud ne font pas partie des services Microsoft Azure approuvés. Par conséquent, pour permettre à Azure Spring Cloud de charger des certificats à partir d’un coffre de clés protégé avec des connexions de points de terminaisons privés, vous devez ajouter les adresses IP suivantes au pare-feu Azure Key Vault :
+Les adresses IP de gestion d’Azure Spring Cloud ne font pas encore partie des services Microsoft Azure approuvés. Par conséquent, pour permettre à Azure Spring Cloud de charger des certificats à partir d’un coffre de clés protégé avec des connexions de points de terminaisons privés, vous devez ajouter les adresses IP suivantes au pare-feu Azure Key Vault :
 
 ```
 20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243

@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4c7925c1bc397e15d8b6e0f2f21d5e9147109b83
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2eb0e3ce2ac20c89d9c0176ca3e7b33dc839c923
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064849"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718824"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Démarrage rapide : Ajouter un appareil simulé à votre application IoT Central
 
-*Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
-
-Un modèle d’appareil définit les fonctionnalités d’un appareil qui se connecte à votre application IoT Central. Les capacités incluent la télémétrie que l’appareil envoie, les propriétés de l’appareil et les commandes auxquelles un appareil répond. À partir d’un modèle d’appareil, un créateur ou un opérateur peut ajouter des appareils réels et simulés à une application. Les appareils simulés sont utiles pour tester le comportement de votre application IoT Central avant de connecter des appareils réels.
+Un modèle d’appareil définit les fonctionnalités d’un appareil qui se connecte à votre application IoT Central. Les capacités incluent la télémétrie que l’appareil envoie, les propriétés de l’appareil et les commandes auxquelles un appareil répond. À partir d’un modèle d’appareil, vous pouvez ajouter des appareils réels et simulés à une application. Les appareils simulés sont utiles pour tester le comportement de votre application IoT Central avant de connecter des appareils réels.
 
 Dans ce guide de démarrage rapide, vous allez ajouter un modèle d’appareil pour une carte de développement ESP32-Azure IoT Kit et créer un appareil simulé. Pour suivre ce guide de démarrage rapide, vous n’avez pas besoin d’appareil réel, vous travaillez avec un appareil simulé. Un appareil ESP32 :
 
@@ -33,8 +31,6 @@ Dans ce guide de démarrage rapide, vous allez ajouter un modèle d’appareil p
 Suivez le guide de démarrage rapide [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) pour créer une application IoT Central avec le modèle **Application personnalisée > Application personnalisée**.
 
 ## <a name="create-a-device-template"></a>Créer un modèle d’appareil
-
-En tant que créateur, vous pouvez créer et modifier des modèles d’appareil dans votre application IoT Central. Après avoir publié un modèle d’appareil, vous pouvez générer un appareil simulé ou connecter des appareils réels à partir du modèle d’appareil. Les appareils simulés vous permettent de tester le comportement de votre application avant de connecter un appareil physique.
 
 Pour ajouter un nouveau modèle d’appareil à votre application, sélectionnez l’onglet **Modèles d’appareil** dans le volet de gauche.
 
@@ -56,7 +52,7 @@ Les étapes suivantes montrent comment utiliser le catalogue d’appareils pour 
 
 1. Pour ajouter un nouveau modèle d’appareil, sélectionnez **+ Nouveau** dans la page **Modèles d’appareil**.
 
-1. Dans la page **Sélectionner le type**, faites défiler jusqu’à ce que vous trouviez la vignette **ESP32-Azure IoT Kit** dans la section **Utiliser un modèle d’appareil préconfiguré**.
+1. Dans la page **Sélectionner le type**, faites défiler jusqu’à la vignette **ESP32-Azure IoT Kit** dans la section **Utiliser un modèle d’appareil préconfiguré**.
 
 1. Sélectionnez la vignette **ESP32-Azure IoT Kit**, puis sélectionnez **Suivant : Vérification**).
 
@@ -85,7 +81,7 @@ Un modèle d’appareil peut inclure des propriétés du cloud. Les propriétés
 
 ## <a name="views"></a>Les vues
 
-En tant que créateur, vous pouvez personnaliser l’application de façon à présenter à un opérateur des informations pertinentes sur l’appareil. Vos personnalisations permettent à l’opérateur de gérer les appareils connectés à l’application. Vous pouvez créer deux types de vues permettant à un opérateur d’interagir avec des appareils :
+Vous pouvez personnaliser l’application de façon à afficher des informations pertinentes au sujet de l’appareil. Les personnalisations permettent de gérer les appareils qui sont connectés à l’application. Vous pouvez créer deux types de vues pour interagir avec des appareils :
 
 * Formulaires pour voir et modifier les propriétés de l’appareil et du cloud
 * Tableaux de bord permettant de visualiser les appareils, notamment les données de télémétrie qu’ils envoient
@@ -94,13 +90,13 @@ En tant que créateur, vous pouvez personnaliser l’application de façon à pr
 
 Les vues par défaut permettent de visualiser rapidement les informations importantes de votre appareil. Vous pouvez avoir jusqu’à trois vues par défaut générées pour votre modèle d’appareil :
 
-* La vue **Commandes** permet à votre opérateur d’envoyer des commandes à votre appareil.
+* La vue **Commandes** vous permet d’envoyer des commandes à votre appareil.
 * La vue **Vue d’ensemble** utilise des graphiques et des métriques pour afficher les données de télémétrie des appareils.
 * La vue **À propos** affiche les propriétés de l’appareil.
 
-Sélectionnez le nœud **Vues** dans le modèle d’appareil. Comme vous pouvez le constater, IoT Central a généré automatiquement une vue **Vue d’ensemble** et une vue **À propos** au moment où vous avez ajouté le modèle.
+Sélectionnez le nœud **Vues** dans le modèle d’appareil. Comme vous pouvez le constater, IoT Central a généré les vues **Vue d’ensemble**, **À propos** et **Données brutes** au moment où vous avez ajouté le modèle.
 
-Pour ajouter un nouveau formulaire **Gérer l’appareil** dont peut se servir un opérateur pour gérer l’appareil :
+Pour ajouter un nouveau formulaire chargé de gérer l’appareil :
 
 1. Après avoir sélectionné le nœud **Vues**, sélectionnez la vignette **Modification des données de l’appareil et du cloud** pour ajouter une nouvelle vue.
 
@@ -120,25 +116,23 @@ Pour publier un modèle d’appareil
 
 1. Accédez à votre modèle d’appareil **Sensor Controller** à partir de la page **Modèles d’appareil**.
 
-1. Sélectionnez **Publier** :
+1. Sélectionnez **Publier** dans la barre de commandes située en haut de la page.
 
-    :::image type="content" source="media/quick-create-simulated-device/published-model.png" alt-text="Capture d’écran montrant l’emplacement de l’icône de publication":::
+1. Dans la boîte de dialogue qui s’affiche, sélectionnez **Publier**.
 
-1. Dans la boîte de dialogue **Publier ce modèle d’appareil dans l’application**, sélectionnez **Publier**.
-
-Une fois publié, un modèle d’appareil est visible dans la page **Appareils**. Dans un modèle d’appareil publié, vous ne pouvez pas modifier un modèle de capacité d’appareil sans créer de nouvelle version. En revanche, vous pouvez modifier des propriétés cloud, des personnalisations et des vues dans un modèle d’appareil publié sans gestion des versions. Après avoir apporté des modifications, sélectionnez **Publier** pour envoyer ces modifications à votre opérateur.
+Une fois publié, un modèle d’appareil est visible dans la page **Appareils**. Dans un modèle d’appareil publié, vous ne pouvez pas modifier un modèle de capacité d’appareil sans créer de nouvelle version. En revanche, vous pouvez modifier des propriétés cloud, des personnalisations et des vues dans un modèle d’appareil publié sans gestion des versions. Après avoir apporté des modifications, sélectionnez **Publier** pour pousser (push) ces modifications vers les appareils réels et simulés à utiliser.
 
 ## <a name="add-a-simulated-device"></a>Utiliser un appareil simulé
 
 Pour ajouter un appareil simulé à votre application, utilisez le modèle d’appareil **ESP32** que vous avez créé.
 
-1. Pour ajouter un nouvel appareil en tant qu’opérateur, choisissez **Appareils** dans le volet de gauche. L’onglet **Appareils** affiche **Tous les appareils** et le modèle d’appareil **Sensor Controller** pour l’appareil ESP32. Sélectionnez **Sensor Controller**.
+1. Pour ajouter un nouvel appareil, choisissez **Appareils** dans le volet de gauche. L’onglet **Appareils** affiche **Tous les appareils** et le modèle d’appareil **Sensor Controller** pour l’appareil ESP32. Sélectionnez **Sensor Controller**.
 
 1. Pour ajouter un appareil DevKit simulé, sélectionnez **+ Nouveau**. Utilisez l’**ID d’appareil** suggéré ou entrez votre propre ID d’appareil. Un ID d’appareil peut contenir des lettres, des chiffres et le caractère `-`. Vous pouvez également entrer un nom pour votre nouvel appareil. Vérifiez que **Simuler cet appareil** a la valeur **Oui**, puis sélectionnez **Créer**.
 
     :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Capture d’écran montrant l’appareil Sensor Controller simulé":::
 
-Vous pouvez désormais interagir avec les vues qui ont été créées par le créateur pour le modèle d’appareil en utilisant les données simulées :
+Vous pouvez maintenant interagir avec les vues qui ont été créées plus tôt en utilisant les données simulées :
 
 1. Sélectionnez votre appareil simulé dans la page **Appareils** :
 
@@ -150,29 +144,13 @@ Vous pouvez désormais interagir avec les vues qui ont été créées par le cr�
 
     * La vue **Commandes** vous permet d’exécuter des commandes, par exemple **redémarrer** l’appareil.
 
-    * La vue **Gérer les appareils** est le formulaire que vous avez créé pour permettre à l’opérateur de gérer l’appareil.
+    * La vue **Gérer les appareils** est le formulaire que vous avez créé pour gérer l’appareil.
 
     * La vue **Données brutes** vous permet d’afficher les valeurs de propriété et les données de télémétrie brutes envoyées par l’appareil. Cette vue est utile pour déboguer les appareils.
 
-## <a name="use-a-simulated-device-to-improve-views"></a>Utiliser un appareil simulé pour améliorer les vues
-
-Une fois que vous avez créé un appareil simulé, le générateur peut utiliser cet appareil pour continuer à améliorer les vues du modèle d’appareil.
-
-1. Choisissez **Modèles d’appareil** dans le volet gauche, puis sélectionnez le modèle **Sensor Controller**.
-
-1. Sélectionnez l’une des vues que vous souhaitez modifier, par exemple **Vue d’ensemble**, ou créez une nouvelle vue. Sélectionnez **Configurer l’appareil de préversion**, puis **Sélectionner à partir d’un d’appareil en cours d’exécution**. Vous pouvez choisir ici de n’avoir aucun appareil de préversion, d’avoir un appareil réel configuré à des fins de test ou un appareil existant que vous avez ajouté dans IoT Central.
-
-1. Choisissez votre appareil simulé dans la liste. Sélectionnez ensuite **Appliquer**. Vous pouvez maintenant voir le même appareil simulé dans votre expérience de génération de vues de modèle d’appareil. Cette vue est utile pour les graphiques et autres visualisations.
-
-    :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Capture d’écran montrant un appareil configuré":::
-
-## <a name="clean-up-resources"></a>Nettoyer les ressources
-
-[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez découvert comment créer un modèle d’appareil **Sensor Controller** pour un appareil ESP32 et ajouter un appareil simulé à votre application.
+Dans ce guide de démarrage rapide, vous avez vu comment créer un modèle d’appareil **Sensor Controller** pour un appareil ESP32 et comment ajouter un appareil simulé à votre application.
 
 Pour en savoir plus sur la surveillance des appareils connectés à votre application, passez au démarrage rapide :
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1977663f4661fca316e4839671abd76e07b5acda
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0986a1d6a75f0d464eb405841af821c606c68200
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304798"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565319"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
@@ -339,7 +339,7 @@ Spécifie le dossier, ou le chemin et le nom du fichier, où se trouvent les don
 Si vous spécifiez un dossier pour LOCATION, une requête de pool SQL serverless effectue une sélection dans la table externe et récupère les fichiers du dossier.
 
 > [!NOTE]
-> Contrairement à Hadoop et à PolyBase, un pool SQL serverless ne retourne pas de sous-dossiers, sauf si vous spécifiez /** à la fin du chemin.
+> Contrairement à Hadoop et à PolyBase, un pool SQL serverless ne retourne pas de sous-dossiers, sauf si vous spécifiez /** à la fin du chemin. Tout comme Hadoop et PolyBase, il ne retourne pas de fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
 
 Dans cet exemple, si LOCATION='/webdata/', une requête de pool SQL serverless retourne des lignes de mydata.txt. Il ne retourne pas mydata2.txt et mydata3.txt, car ces fichiers se trouvent dans un sous-dossier.
 

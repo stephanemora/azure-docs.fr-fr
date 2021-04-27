@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 41b3552a633c9cebce1138fa042dbd154eee0cb5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: da4ada8b505c747d24738e175a1701b5ea73b4e4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314114"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536739"
 ---
 # <a name="what-is-optical-character-recognition"></a>Présentation de la Reconnaissance optique de caractères
 
@@ -42,7 +42,6 @@ L’appel **Lire** utilise des images et des documents comme entrée. Les condit
 * Formats de fichiers pris en charge : JPEG, PNG, BMP, PDF et TIFF.
 * Pour les fichiers PDF et TIFF, jusqu’à 2000 pages (seules les deux premières pages pour le niveau gratuit) sont traitées.
 * La taille de fichier doit être inférieure à 50 Mo (4 Mo pour le niveau gratuit), et les dimensions comprises entre 50 × 50 pixels et 10000 × 10000 pixels. 
-* Les dimensions des PDF ne doivent pas dépasser 17 × 17 pouces, ce qui correspond aux formats de papier Legal ou A3 (maximum).
 
 ## <a name="read-api"></a>API Lire 
 
@@ -50,6 +49,21 @@ L’appel **Lire** utilise des images et des documents comme entrée. Les condit
 
 ![Comment la reconnaissance optique de caractères convertit les images et les documents en une sortie structurée avec du texte extrait](./Images/how-ocr-works.svg)
 
+### <a name="key-features"></a>Fonctionnalités clés
+
+L’API Read comprend les fonctionnalités suivantes. 
+
+* Impression de l’extraction de texte en 73 langues
+* Extraction de texte manuscrit en anglais
+* Lignes de texte et mots avec scores de localisation et de confiance
+* Aucune identification de langue requise
+* Prise en charge des langues mixtes et du mode mixte (impression et écriture manuscrite)
+* Sélection de pages et de plages de pages à partir de grands documents multipages
+* Ordre de lecture naturel pour les lignes de texte
+* Classification de l’écriture manuscrite pour les lignes de texte
+* Disponible en tant que conteneur Docker Distroless pour un déploiement local
+
+Découvrez [comment utiliser les fonctionnalités OCR](./vision-api-how-to-topics/call-read-api.md).
 
 ## <a name="use-the-cloud-api-or-deploy-on-premise"></a>Utiliser l’API cloud ou déployer localement
 Les API cloud Read 3.x sont l’option préférée pour la plupart des clients en raison de la facilité d’intégration et de la productivité rapide prête à l’emploi. Azure et le service de Vision par ordinateur gèrent l’évolutivité, les performances, la sécurité des données et les besoins en matière de conformité tout en répondant aux besoins de vos clients.

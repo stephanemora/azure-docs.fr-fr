@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/11/2021
+ms.date: 04/20/2021
 ms.author: memildin
-ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 92138b0253d28c8bf2617ee7b17474f30ac5cafe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303149"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751200"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -30,10 +30,12 @@ Pour en savoir plus sur les changements *planifiés* qui seront bientôt disponi
 Les mises à jour du mois d’avril incluent :
 - [Les images de registre de conteneurs récemment extraites sont à présent réanalysées chaque semaine (disponibilité générale)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multicloud (préversion)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Recommandations concernant l’activation d’Azure Defender pour DNS et pour Resource Manager (préversion)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
 - [Quatre nouvelles recommandations relatives à la configuration des invités (préversion)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [Recommandations CMK déplacées dans le contrôle de sécurité des bonnes pratiques](#cmk-recommendations-moved-to-best-practices-security-control)
 - [Onze alertes Azure Defender déconseillées](#11-azure-defender-alerts-deprecated)
 - [Deux recommandations du contrôle de sécurité « Appliquer les mises à jour système » sont désormais déconseillées](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
+- [Vignette « Azure Defender pour SQL sur des machines » supprimée du tableau de bord Azure Defender](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
 
 ### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Les images de registre de conteneurs récemment extraites sont à présent réanalysées chaque semaine (disponibilité générale)
 
@@ -65,6 +67,19 @@ Cette intégration entre Azure Security Center, Azure Defender et Kubernetes ave
 Pour en savoir plus, consultez [Utiliser Azure Defender pour Kubernetes avec vos clusters Kubernetes locaux et multicloud](defender-for-kubernetes-azure-arc.md).
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recommandation d’Azure Security Center relative au déploiement de l’extension Azure Defender pour les clusters Kubernetes avec Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+
+### <a name="recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview"></a>Recommandations concernant l’activation d’Azure Defender pour DNS et pour Resource Manager (préversion)
+
+Deux nouvelles recommandations ont été ajoutées afin de simplifier le processus d’activation d’[Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md) et d’[Azure Defender pour DNS](defender-for-dns-introduction.md):
+
+- **Azure Defender pour Resource Manager doit être activé** - Defender pour Resource Manager supervise automatiquement toutes les opérations de gestion de ressources dans votre organisation. Azure Defender détecte les menaces et vous alerte sur les activités suspectes.
+- **Azure Defender pour DNS doit être activé** - Defender pour DNS fournit une couche supplémentaire de protection pour vos ressources cloud en supervisant en continu toutes les requêtes DNS émises par vos ressources Azure. Azure Defender vous avertit des activités suspectes au niveau de la couche DNS.
+
+L’activation des plans Azure Defender engendre des frais. Découvrez-en plus sur les détails de tarification par région sur la page de tarification de Security Center : https://aka.ms/pricing-security-center.
+
+> [!TIP]
+> Les recommandations en préversion ne rendent pas une ressource non saine et ne sont pas incluses dans les calculs de votre degré de sécurisation. Corrigez-les là où c’est possible, de sorte que quand la période de préversion se termine, elles soient prises en compte dans le calcul de votre degré de sécurisation. Découvrez comment répondre à ces recommandations dans [Corriger les recommandations dans Azure Security Center](security-center-remediate-recommendations.md).
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatre nouvelles recommandations relatives à la configuration des invités (préversion)
 
@@ -141,6 +156,10 @@ Les deux recommandations suivantes sont désormais déconseillées et les change
 Nous vous recommandons de vérifier vos configurations d’exportation continue et d’automatisation du workflow pour voir si ces recommandations y sont incluses. En outre, tous les tableaux de bord et autres outils de supervision susceptibles de les utiliser doivent être mis à jour en conséquence.
 
 Pour plus d’informations sur ces recommandations, consultez la [page de référence sur les recommandations de sécurité](recommendations-reference.md).
+
+### <a name="azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard"></a>Vignette « Azure Defender pour SQL sur des machines » supprimée du tableau de bord Azure Defender
+
+La zone de couverture du tableau de bord Azure Defender comprend des vignettes correspondant aux plans Azure Defender concernés de votre environnement. En raison d’un problème lié au signalement du nombre de ressources protégées et non protégées, nous avons décidé de supprimer temporairement l’état de couverture des ressources pour **Azure Defender pour SQL sur des machines** jusqu’à ce que le problème soit résolu.
 
 
 ## <a name="march-2021"></a>Mars 2021
@@ -329,7 +348,7 @@ Quand vous activez Azure Defender pour les serveurs sur un serveur Windows, une 
 La prise en charge a été étendue de façon à inclure Windows Server 2019 et [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
 
 > [!NOTE]
-> Si vous activez Defender pour point de terminaison sur une machine Windows Server 2019, vérifiez qu’elle répond aux prérequis décrits dans [Activation de l’intégration de Microsoft Defender pour point de terminaison](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+> Si vous activez Defender pour point de terminaison sur une machine Windows Server 2019, vérifiez qu’elle répond aux prérequis décrits dans [Activer l’intégration de Microsoft Defender pour point de terminaison](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
 
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Lien direct vers la stratégie dans la page des détails de la recommandation
 
@@ -411,7 +430,7 @@ Les recommandations existantes ne sont pas affectées, et les modifications sont
 
 Pour en savoir plus, consultez les pages suivantes :
 
-- [En savoir plus sur le Benchmark de sécurité Azure](../security/benchmarks/introduction.md)
+- [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>L’évaluation des vulnérabilités pour les machines locales et multicloud est en disponibilité générale
@@ -526,7 +545,7 @@ Pour plus d’informations, consultez [Demander des autorisations à l’échell
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Ajout de 35 recommandations (préversion) pour mieux détailler le benchmark de sécurité Azure
 
-Le benchmark de sécurité Azure est désormais l’initiative de stratégie par défaut d’Azure Security Center. 
+Le [Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction) est désormais l’initiative de stratégie par défaut d’Azure Security Center. 
 
 Pour étendre la couverture de ce benchmark, les 35 recommandations suivantes (en préversion) ont été ajoutées à Security Center.
 
@@ -544,7 +563,7 @@ Pour étendre la couverture de ce benchmark, les 35 recommandations suivantes (
 
 Liens connexes :
 
-- [En savoir plus sur le Benchmark de sécurité Azure](../security/benchmarks/introduction.md)
+- [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [En savoir plus sur Azure Database for MariaDB](../mariadb/overview.md)
 - [En savoir plus sur Azure Database pour MySQL](../mysql/overview.md)
 - [En savoir plus sur Azure Database pour PostgreSQL](../postgresql/overview.md)
@@ -770,7 +789,7 @@ Les mises à jour en novembre sont les suivantes :
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Ajout de 29 recommandations (préversion) pour mieux détailler le benchmark de sécurité Azure
 
-Le Benchmark de sécurité Azure constitue l’ensemble des directives propres à Azure et créées par Microsoft, qui contient les bonnes pratiques de sécurité et de conformité s’inscrivant dans les cadres de conformité courants. [En savoir plus sur le Benchmark de sécurité Azure](../security/benchmarks/introduction.md).
+Le Benchmark de sécurité Azure constitue l’ensemble des directives propres à Azure et créées par Microsoft, qui contient les bonnes pratiques de sécurité et de conformité s’inscrivant dans les cadres de conformité courants. [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 Les 29 recommandations suivantes (préversion) ont été ajoutées à Security Center pour mieux détailler ce benchmark.
 
@@ -787,7 +806,7 @@ Les recommandations en préversion ne rendent pas une ressource non saine et ne 
 
 Liens connexes :
 
-- [En savoir plus sur le Benchmark de sécurité Azure](../security/benchmarks/introduction.md)
+- [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [En savoir plus sur les applications API Azure](../app-service/app-service-web-tutorial-rest-api.md)
 - [En savoir plus sur les applications de fonction Azure](../azure-functions/functions-overview.md)
 - [En savoir plus sur les applications web Azure](../app-service/overview.md)

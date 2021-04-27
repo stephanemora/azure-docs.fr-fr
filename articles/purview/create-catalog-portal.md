@@ -3,16 +3,18 @@ title: 'Démarrage rapide : Créer un compte Azure Purview dans le portail Azur
 description: Ce guide de démarrage rapide explique comment créer un compte Azure Purview et configurer des autorisations pour commencer à l’utiliser.
 author: nayenama
 ms.author: nayenama
+ms.date: 10/23/2020
+ms.topic: quickstart
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: quickstart
-ms.date: 10/23/2020
-ms.openlocfilehash: 0346b467bc299b4eb6125df04a4449e94c035e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 158eed6d287fa384023defbb20a7a1c39ea3d838
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666458"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728587"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure
 
@@ -117,7 +119,7 @@ Si nécessaire, suivez ces étapes qui permettent de configurer votre abonnement
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Capture d’écran illustrant la création d’une instance de compte Azure Purview dans le portail Azure.":::
 
     > [!Note] 
-    > Le déplacement de compte Azure Purview entre régions n’est pas pris en charge. Pour plus d’informations à ce sujet, consultez la [page des services pris en charge par Azure](../azure-resource-manager/management/region-move-support.md).
+    > Le déplacement de compte Azure Purview entre régions n’est pas pris en charge. Pour plus d’informations à ce sujet, consultez [Prise en charge des opérations de déplacement pour les ressources](../azure-resource-manager/management/move-support-resources.md).
 
 1. Dans l’onglet **De base**, effectuez les actions suivantes :
     1. Sélectionnez un **groupe de ressources**.

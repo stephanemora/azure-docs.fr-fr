@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 476a0c2d75dcbee5c1ed4d758e0cbc9d4726ff95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b65013bbf21faa8bffdcf799a991952b69f5fead
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587194"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714467"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la consommation d’eau avec Azure IoT Central
 
@@ -200,22 +200,23 @@ L’application de suivi de la consommation d’eau que vous avez créée a troi
 
    ![Volet Règles](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-1. Sélectionnez **High pH alert** (Alerte de pH élevé), qui est l’une des règles préconfigurées dans l’application.
+1. Sélectionnez **High water flow alert** (Alerte de débit d’eau élevé), qui est l’une des règles préconfigurées dans l’application.
 
      ![Alerte de pH élevé](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    La règle `High flow alert` est configurée pour vérifier si la condition `Acidity (pH)` est `greater than` à `Max flow threshold`. Le seuil de débit maximal est une propriété cloud qui est définie dans le modèle d’appareil **Smart Valve** (Vanne intelligente). La valeur de `Max flow threshold` est définie pour chaque instance d’appareil.
+    La règle `High water flow alert` est configurée pour vérifier si la condition `Flow` est `greater than` à `Max flow threshold`. Le seuil de débit maximal est une propriété cloud qui est définie dans le modèle d’appareil **Smart Valve** (Vanne intelligente). La valeur de `Max flow threshold` est définie pour chaque instance d’appareil.
 
 À présent, nous allons créer une action de messagerie.
 
 Pour ajouter une action à la règle :
 
 1. Sélectionnez **+ E-mail**.
-1. Entrez **Alerte de conteneur plein** comme nom d’affichage (**Display name**) convivial pour l’action.
+1. Entrez **High flow alert** (Alerte de débit élevé) comme **Nom d’affichage** convivial pour l’action.
 1. Entrez l’adresse e-mail associée à votre compte Azure IoT Central dans **To** (À).
 1. Si vous le souhaitez, entrez une note à inclure dans le texte de l’e-mail.
 1. Sélectionnez **Terminé** pour terminer l’action.
-1. Sélectionnez **Enregistrer** pour enregistrer et activer la nouvelle règle.
+1. Sélectionnez **Enregistrer** pour enregistrer la nouvelle règle.
+1. Activez la règle.
 
 Si la condition configurée est remplie, vous recevrez un e-mail au bout de quelques minutes.
 

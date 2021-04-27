@@ -3,7 +3,6 @@ title: Tutoriel - Mise à jour de la fréquence de rotation automatique d’un c
 description: Tutoriel montrant comment mettre à jour la fréquence de rotation automatique d’un certificat dans Azure Key Vault à l’aide du portail Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: ec88dfc7ded7ecb1d640eb4d73ef4c8045e549cf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581812"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791982"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutoriel : Configuration de la rotation automatique d’un certificat dans Key Vault
 
@@ -80,10 +79,12 @@ Key Vault fait pivoter automatiquement les certificats via des partenariats éta
    - **Période de validité** : entrez la valeur (en mois). La création de certificats à courte durée de vie est une pratique recommandée en matière de sécurité. Par défaut, la valeur de validité d’un certificat nouvellement créé est de 12 mois.
    - **Type d’action de la durée de vie** : Sélectionnez l’action de renouvellement automatique et d’alerte du certificat, puis mettez à jour le **Pourcentage de la durée de vie** ou le **Nombre de jours avant l’expiration**. Par défaut, le renouvellement automatique d’un certificat est défini à 80 % de sa durée de vie. Dans le menu déroulant, sélectionnez l'une des options suivantes.
 
-        |  Automatically renew at a given time (Renouveler automatiquement à un moment donné)| Envoyer un e-mail à tous les contacts à un moment donné (Email all contacts at a given time) |
-        |-----------|------|
-        |La sélection de cette option *active* la rotation automatique. | La sélection de cette option *ne déclenche pas* la rotation automatique, elle alerte uniquement les contacts.|
-         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+      |  Automatically renew at a given time (Renouveler automatiquement à un moment donné)| Envoyer un e-mail à tous les contacts à un moment donné (Email all contacts at a given time) |
+      |-----------|------|
+      |La sélection de cette option *active* la rotation automatique. | La sélection de cette option *ne déclenche pas* la rotation automatique, elle alerte uniquement les contacts.|
+      
+      Vous pouvez en savoir plus sur la [configuration d’un contact e-mail ici](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+
 1. Sélectionnez **Create** (Créer).
 
 ![Cycle de vie du certificat](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
@@ -134,7 +135,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-Pour en savoir plus sur les paramètres, consultez [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
+Pour en savoir plus sur les paramètres, consultez [az keyvault certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_set_attributes).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
