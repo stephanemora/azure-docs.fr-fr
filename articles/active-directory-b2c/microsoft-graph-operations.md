@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 41336d59d51685d5daf78a1809ce6c0df2cd6124
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf62330fd677dc978c8f25a81c6a1e5bfbb612ac
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781311"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717600"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gérer Azure AD B2C avec Microsoft Graph
 
@@ -48,6 +48,9 @@ Numéro de téléphone pouvant être utilisé par un utilisateur pour se connect
 Notez que l’opération [list](/graph/api/authentication-list-phonemethods) retourne uniquement les numéros de téléphone activés. Le numéro de téléphone suivant doit être activé pour pouvoir être utilisé avec les opérations « list ». 
 
 ![Activer la connexion par téléphone](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
+> [!NOTE]
+> Dans la version bêta actuelle, cette API fonctionne uniquement si le numéro de téléphone est stocké avec un espace entre l’indicatif du pays et le numéro de téléphone. Par défaut, le service Azure AD B2C n’ajoute pas cet espace.
 
 ## <a name="self-service-password-reset-email-address-beta"></a>Adresse e-mail de réinitialisation de mot de passe en libre-service (bêta)
 
@@ -140,7 +143,7 @@ Pour plus d’informations sur l’accès aux journaux d’audit Azure AD B2C, c
 
 ## <a name="conditional-access"></a>Accès conditionnel
 
-- [Répertorier toutes les stratégies d’accès conditionnel](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
+- [Répertorier toutes les stratégies d’accès conditionnel](/graph/api/conditionalaccessroot-list-policies?tabs=http)
 - [Lire les propriétés et les relations d’une stratégie d’accès conditionnel](/graph/api/conditionalaccesspolicy-get)
 - [Créer une stratégie d’accès conditionnel](/graph/api/resources/application)
 - [Mettre à jour une stratégie d’accès conditionnel](/graph/api/conditionalaccesspolicy-update)

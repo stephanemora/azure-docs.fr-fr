@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: cb0ac41d469ad9a7670ce4b1bae23b315a17dc38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c9102f8ca724e431bb478945c5f4ba0369643d6
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871068"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714832"
 ---
 # <a name="create-and-manage-projects"></a>Créer et gérer des projets
 
@@ -46,9 +46,13 @@ Configurez un nouveau projet dans un abonnement Azure.
 5. Dans **Créer un projet**, sélectionnez l’abonnement et le groupe de ressources Azure. Créez un groupe de ressources si vous n’en avez pas.
 6. Dans **Détails du projet**, spécifiez le nom du projet ainsi que la zone géographique où vous souhaitez le créer.
     - La zone géographique est utilisée uniquement pour stocker les métadonnées collectées à partir de serveurs locaux. Vous pouvez sélectionner n’importe quelle région cible pour la migration. 
-    - Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et du [secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
+    - Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et du [secteur public](migrate-support-matrix.md#supported-geographies-azure-government). 
 
-8. Sélectionnez **Create** (Créer).
+
+    > [!Note]
+    > Utilisez la section de configuration **Avancée** pour créer un projet Azure Migrate avec une connectivité de point de terminaison privé. [En savoir plus](how-to-use-azure-migrate-with-private-endpoints.md#create-a-project-with-private-endpoint-connectivity) 
+
+7. Sélectionnez **Create** (Créer).
 
      :::image type="content" source="./media/create-manage-projects/project-details.png" alt-text="Page dans laquelle entrer les paramètres du projet":::
 

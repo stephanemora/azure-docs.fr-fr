@@ -1,5 +1,5 @@
 ---
-title: Série Msv2 (préversion) – Machines virtuelles Microsoft Azure
+title: Série de mémoire moyenne Msv2/Mdsv2 - Machines virtuelles Azure
 description: Spécifications pour les machines virtuelles de la série Msv2.
 author: ayshakeen
 ms.service: virtual-machines
@@ -7,18 +7,14 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: a7f4757467523837423d52998eb6b8204090e627
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d85623184ad52fb0d4acd4c49d08badfaf886b30
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562569"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728227"
 ---
-# <a name="msv2-and-mdsv2-series-medium-memory-preview"></a>Mémoire moyenne des séries Msv2 et Mdsv2 (préversion)
-
-
-> [!IMPORTANT]
-> Accédez à la préversion en remplissant le formulaire à l’adresse **https://aka.ms/Mv2MedMemoryPreview** .  
+# <a name="msv2-and-mdsv2-series-medium-memory"></a>Mémoire moyenne des séries Msv2 et Mdsv2
 
 Les machines virtuelles de mémoire moyenne des séries Msv2 et Mdsv2 sont dotées d’un processeur Intel® Xeon® Platinum 8280 (Cascade Lake) avec une fréquence de base pour tous les cœurs de 2,7 GHz et une fréquence turbo monocœur de 4,0 GHz. Avec ces machines virtuelles, les clients bénéficient d’une flexibilité accrue grâce aux options de disque local et sans disque. Les clients ont également accès à un ensemble de nouvelles tailles de machines virtuelles isolées avec des capacités accrues de processeur et de mémoire allant jusqu’à 192 processeurs virtuels avec 4 Tio de mémoire. 
 

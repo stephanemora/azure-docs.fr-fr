@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5eefcb55bb5447d557f097af872847576aa86eed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97704314"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519304"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guide de résolution des problèmes Microsoft Azure Attestation
 
@@ -30,7 +30,6 @@ Voici quelques exemples des erreurs renvoyées par Azure Attestation :
 **Code d’erreur** Unauthorized
 
 **Exemples de scénarios**
-  - Échec de l’attestation si l’utilisateur n’est pas affecté à un rôle Lecteur d’attestation
   - Impossible de gérer les stratégies d’attestation, car l’utilisateur n’est pas affecté aux rôles appropriés
   - Impossible de gérer les signataires de la stratégie d’attestation, car l’utilisateur n’est pas affecté aux rôles appropriés
 
@@ -47,55 +46,25 @@ At line:1 char:1
 
 **Étapes de dépannage**
 
-Pour afficher les stratégies d’attestation ou les signataires de stratégie, un utilisateur Azure AD a besoin de l’autorisation pour « Actions » :
+Afin de gérer les stratégies, un utilisateur Azure AD doit avoir les autorisations suivantes pour « Actions » :
 - Microsoft.Attestation/attestationProviders/attestation/read
-
-  Cette autorisation peut être attribuée à un utilisateur AD par le biais d’un rôle tel que « Propriétaire » (autorisations génériques), « Lecteur » (autorisations génériques) ou « Lecteur d’attestation » (autorisations spécifiques pour Azure Attestation uniquement).
-
-Pour ajouter ou supprimer des signataires de stratégie ou pour configurer des stratégies, un utilisateur Azure AD doit avoir les autorisations suivantes pour « Actions » :
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  Ces autorisations peuvent être attribuées à un utilisateur AD par le biais d’un rôle tel que « Propriétaire » (autorisations génériques), « Contributeur » (autorisations génériques) ou « Contributeur d’attestation » (autorisations spécifiques pour Azure Attestation uniquement).
+  Pour effectuer ces actions, un utilisateur Azure AD doit disposer du rôle « Contributeur d’attestation » sur le fournisseur d’attestation. Ces autorisations peuvent également être héritées avec des rôles tels que « Propriétaire » (autorisations génériques), « Contributeur » (autorisations génériques) sur l’abonnement ou le groupe de ressources.  
 
-Les clients peuvent choisir d’utiliser le fournisseur par défaut pour l’attestation ou créer leurs propres fournisseurs avec des stratégies personnalisées. Pour envoyer des demandes d’attestation à des fournisseurs d’attestations personnalisées, le rôle « Propriétaire » (autorisations génériques), « Lecteur » (autorisations génériques) ou « Lecteur d’attestation » est requis pour l’utilisateur. Les fournisseurs par défaut sont accessibles par tout utilisateur Azure AD.
+Afin de lire les stratégies, un utilisateur Azure AD doit avoir l’autorisation suivante pour « Actions » :
+- Microsoft.Attestation/attestationProviders/attestation/read
 
-Pour vérifier les rôles dans PowerShell, exécutez la commande ci-dessous :
+  Pour effectuer cette action, un utilisateur Azure AD doit disposer du rôle « Lecteur d’attestation » sur le fournisseur d’attestation. L’autorisation de lecture peut également être héritée avec des rôles tels que « Lecteur » (autorisations génériques) sur l’abonnement ou le groupe de ressources.  
+
+Pour vérifier les rôles dans PowerShell, procédez comme suit :
 
 a. Lancez PowerShell et connectez-vous à Azure via la cmdlet « Connect-AzAccount ».
 
-b. Vérifiez les paramètres d’attribution de rôle Azure.
+b. Consultez les conseils [ici](../role-based-access-control/role-assignments-list-powershell.md) pour vérifier votre attribution de rôle Azure sur le fournisseur d’attestation
 
-
-  ```powershell
-  $c = Get-AzContext
-  Get-AzRoleAssignment -ResourceGroupName $attestationResourceGroup -ResourceName $attestationProvider -ResourceType Microsoft.Attestation/attestationProviders -SignInName $c.Account.Id
-  ```
-
-  Un résultat semblable à celui-ci doit s’afficher :
-
-  ```
-  RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
-  
-  Scope              : /subscriptions/subscriptionId
-  
-  DisplayName        : displayName
-  
-  SignInName         : signInName
-  
-  RoleDefinitionName : Reader
-  
-  RoleDefinitionId   : roleDefinitionId
-  
-  ObjectId           : objectid
-  
-  ObjectType         : User
-  
-  CanDelegate        : False
- 
-  ```
-
-c. Si vous ne trouvez pas une attribution de rôle appropriée dans la liste, suivez les instructions indiquées [ici](../role-based-access-control/role-assignments-powershell.md).
+c. Si vous ne trouvez pas une attribution de rôle appropriée, suivez les instructions indiquées [ici](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="2-http--400-errors"></a>2. Erreurs HTTP–400
 

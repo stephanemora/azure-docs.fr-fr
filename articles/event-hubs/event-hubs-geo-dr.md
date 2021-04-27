@@ -2,13 +2,13 @@
 title: Géorécupération d’urgence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 ms.topic: article
-ms.date: 02/10/2021
-ms.openlocfilehash: 091c6c61b079ceb8f96f04e62fb772d91732eb2f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/14/2021
+ms.openlocfilehash: b2cf2b0ebef2b460b626e45d6b52309c9281d6ce
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311207"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739239"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -118,14 +118,6 @@ Si vous lancez le basculement, deux étapes sont requises :
 
 Si vous avez fait une erreur (par exemple, vous avez associé les mauvaises régions lors de la configuration initiale), vous pouvez rompre le couplage des deux espaces de noms à tout moment. Si vous souhaitez utiliser les espaces de noms couplés comme des espaces de noms standard, supprimez l’alias.
 
-## <a name="samples"></a>Exemples
-
-L’[exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) montre comment configurer et lancer un basculement. Cet exemple illustre les concepts suivants :
-
-- Paramètres requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Event Hubs. 
-- Étapes requises pour exécuter l’exemple de code. 
-- Envoi et réception à partir de l’espace de noms principal actuel. 
-
 ## <a name="considerations"></a>Considérations
 
 Tenez compte des points suivants :
@@ -194,19 +186,17 @@ L’avantage de cette approche est que le basculement peut se produire au niveau
 > Pour obtenir des conseils en matière de géo-reprise d’activité après sinistre d’un réseau virtuel, voir [Réseau virtuel – Continuité des activités](../virtual-network/virtual-network-disaster-recovery-guidance.md).
  
 ## <a name="next-steps"></a>Étapes suivantes
-
-* [L’exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) décrit un flux de travail simple qui crée un géocouplage et déclenche un basculement pour un scénario de récupération d’urgence.
-* La [référence d’API REST](/rest/api/eventhub/) décrit les API nécessaires pour effectuer la configuration de la géorécupération.
-
-Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
-
-- Prise en main des hubs d’événements
-    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-    - [Java](event-hubs-java-get-started-send.md)
-    - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-node-get-started-send.md)
-* [FAQ sur les hubs d’événements](event-hubs-faq.yml)
-* [Exemples d’application complets qui utilisent des concentrateurs d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+Consultez les exemples ou la documentation de référence suivants. 
+- [Exemple .NET GeoDR](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/DotNet/GeoDRClient) 
+- [Exemple Java GeoDR](https://github.com/Azure-Samples/eventhub-java-manage-event-hub-geo-disaster-recovery)
+- [.NET - Exemples Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+- [.NET - Exemples Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)
+- [Java - azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+- [Java - exemples azure-eventhubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+- [Exemples Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
+- [Exemples JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
+- [Exemples TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [Référence d’API REST](/rest/api/eventhub/)
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png

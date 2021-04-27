@@ -2,22 +2,18 @@
 title: Utilisation de la gestion des API Azure avec des réseaux virtuels
 description: Découvrez comment configurer une connexion à un réseau virtuel dans Gestion des API Azure et accéder à des services web par son intermédiaire.
 services: api-management
-documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 12/10/2020
+ms.topic: how-to
+ms.date: 04/12/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: c63b71ad00a5621babe07597720a1e9ea87f1e4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5612da51c1896aaa40ff2a0fb90e3343f676de43
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99260246"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531627"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -35,11 +31,13 @@ La gestion des API Azure peut être déployée à l’intérieur du réseau virt
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
-+ Un abonnement Azure actif.
++ **Un abonnement Azure actif.**
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ Une instance APIM. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
++ **Une instance APIM.** Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
+
+[!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
 ## <a name="enable-vnet-connection"></a><a name="enable-vpn"> </a>Activer la connexion au réseau virtuel
 
@@ -47,14 +45,14 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
 1. Accédez au [portail Azure](https://portal.azure.com) pour rechercher votre instance Gestion des API. Recherchez et sélectionnez **Services Gestion des API**.
 
-2. Choisissez votre instance Gestion des API.
+1. Choisissez votre instance Gestion des API.
 
-3. Sélectionnez **Réseau virtuel**.
-4. Configurez l’instance du service Gestion des API à déployer à l’intérieur d’un réseau virtuel.
+1. Sélectionnez **Réseau virtuel**.
+1. Configurez l’instance du service Gestion des API à déployer à l’intérieur d’un réseau virtuel.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Sélectionnez un réseau virtuel dans Portail Azure.":::
     
-5. Sélectionnez le type d’accès souhaité :
+1. Sélectionnez le type d’accès souhaité :
 
     * **Off** : Il s’agit de la valeur par défaut. Gestion des API n’est pas déployé dans un réseau virtuel.
 
@@ -66,32 +64,46 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
         ![Peering privé][api-management-vnet-private]
 
-6. Si vous avez sélectionné **Externe** ou **Interne**, vous voyez une liste de toutes les régions où votre service Gestion des API est provisionné. Choisissez un **emplacement**, puis ses **réseau virtuel** et **sous-réseau**. La liste des réseaux virtuels contient les réseaux virtuels classiques et Resource Manager, disponibles dans vos abonnements Azure, qui sont installés dans la région que vous configurez.
+1. Si vous avez sélectionné **Externe** ou **Interne**, vous voyez une liste de tous les emplacements (régions) où votre service Gestion des API est provisionné. Choisissez un **emplacement**, puis son **réseau virtuel**, son **sous-réseau** et son **adresse IP**. La liste des réseaux virtuels contient les réseaux virtuels Resource Manager, disponibles dans vos abonnements Azure, qui sont installés dans la région que vous configurez.
 
-    > [!IMPORTANT]
-    > Lorsque vous déployez une instance de la gestion des API Azure sur un réseau virtuel Resource Manager, le service doit se trouver dans un sous-réseau dédié qui ne contient aucune autre ressource à l’exception des instances de la gestion des API Azure. Si vous essayez de déployer une instance de gestion des API Azure sur un sous-réseau virtuel Resource Manager qui contient d’autres ressources, le déploiement échouera.
-
-    Sélectionnez ensuite **Appliquer**. La page **Réseau virtuel** de votre instance Gestion des API est mise à jour avec vos nouveaux choix de réseau virtuel et de sous-réseau.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Paramètres de réseau virtuel dans le portail.":::
 
+    > [!IMPORTANT]
+    > * Lorsque votre client utilise la **version 2020-12-01 ou une version antérieure de l’API** pour déployer une instance Gestion des API Azure dans un réseau virtuel Resource Manager, le service doit se trouver dans un sous-réseau dédié qui ne contient aucune ressource, à l’exception des instances Gestion des API Azure. Si vous essayez de déployer une instance de gestion des API Azure sur un sous-réseau virtuel Resource Manager qui contient d’autres ressources, le déploiement échouera.
+    > * Lorsque votre client utilise la **version d’API 2021-01-01-preview ou une version ultérieure** pour déployer une instance Gestion des API Azure dans un réseau virtuel, seul un réseau virtuel Resource Manager est pris en charge. En outre, le sous-réseau utilisé peut contenir d’autres ressources. Vous n’êtes pas obligé d’utiliser un sous-réseau dédié aux instances Gestion des API. 
+
+1. Sélectionnez **Appliquer**. La page **Réseau virtuel** de votre instance Gestion des API est mise à jour avec vos nouveaux choix de réseau virtuel et de sous-réseau.
+
+1. Poursuivez la configuration des paramètres de réseau virtuel pour les autres emplacements de votre instance Gestion des API.
+
 7. Dans la barre de navigation supérieure, sélectionnez **Enregistrer**, puis **Appliquer la configuration réseau**.
 
+    La mise à jour de l’instance Gestion des API peut prendre de 15 à 45 minutes.
+
 > [!NOTE]
-> L’adresse IP virtuelle de l’instance de gestion des API change à chaque activation ou désactivation du réseau virtuel.
-> L’adresse IP virtuelle est également modifiée si la gestion des API passe **d’externe** à **interne**, ou vice versa.
->
+> Avec les clients utilisant l’API version 2020-12-01 et les versions antérieures, l’adresse IP virtuelle de l’instance Gestion des API est modifiée chaque fois que le réseau virtuel est activé ou désactivé. L’adresse IP virtuelle est également modifiée si la Gestion des API passe d’un réseau virtuel **externe** à **interne**, ou vice versa.
 
 > [!IMPORTANT]
-> Si vous supprimez le service Gestion des API à partir d’un réseau virtuel (VNET) ou que vous modifiez celui sur lequel il est déployé, le réseau virtuel précédemment utilisé peut rester verrouillé jusqu’à six heures. Pendant ce temps, vous ne pourrez pas supprimer le réseau virtuel ou y déployer une nouvelle ressource. Ce comportement est vrai pour les clients utilisant api-version 2018-01-01 et ultérieures. Pour les clients utilisant api-version 2019-01-01 et ultérieures, le réseau virtuel est libéré dès que le service Gestion des API associé est supprimé.
+> Si vous supprimez le service Gestion des API à partir d’un réseau virtuel (VNET) ou que vous modifiez celui sur lequel il est déployé, le réseau virtuel précédemment utilisé peut rester verrouillé jusqu’à six heures. Pendant ce temps, vous ne pourrez pas supprimer le réseau virtuel ou y déployer une nouvelle ressource. Ce comportement est vrai pour les clients utilisant l’API version 2018-01-01 et versions ultérieures. Pour les clients utilisant l’API version 2019-01-01 et versions ultérieures, le réseau virtuel est libéré dès que le service Gestion des API associé est supprimé.
 
-## <a name="deploy-api-management-into-external-vnet"></a><a name="deploy-apim-external-vnet"> </a>Déployer Gestion des API dans un réseau virtuel externe
+### <a name="deploy-api-management-into-external-vnet"></a><a name="deploy-apim-external-vnet"> </a>Déployer Gestion des API dans un réseau virtuel externe
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+Vous pouvez également activer une connectivité de réseau virtuel à l’aide des méthodes suivantes.
 
-* **Création d’un service de gestion des API au sein d’un réseau virtuel** : utilisez l’applet de commande [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) pour créer un service de gestion des API Azure au sein d’un réseau virtuel.
+### <a name="api-version-2021-01-01-preview"></a>API version 2021-01-01-preview
 
-* **Déploiement d’un service de gestion des API existant au sein d’un réseau virtuel** : utilisez l’applet de commande [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) pour déplacer un service de gestion des API Azure existant au sein d’un réseau virtuel.
+* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet-publicip) Azure Resource Manager
+
+     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
+
+### <a name="api-version-2020-12-01"></a>API version 2020-12-01
+
+* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet) Azure Resource Manager
+    
+     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+
+* Applets de commande Azure PowerShell : [créez](/powershell/module/az.apimanagement/new-azapimanagement) ou [mettez à jour](/powershell/module/az.apimanagement/update-azapimanagementregion) une instance Gestion des API dans un réseau virtuel
 
 ## <a name="connect-to-a-web-service-hosted-within-a-virtual-network"></a><a name="connect-vnet"> </a>Se connecter à un service web hébergé sur un réseau virtuel
 Une fois que votre service Gestion des API est connecté au réseau virtuel, l’accès aux services principaux de ce réseau est similaire à l’accès aux services publics. Tapez simplement l’adresse IP locale ou le nom d’hôte (si un serveur DNS est configuré pour le réseau virtuel) de votre service web dans le champ **URL du service web** lorsque vous créez ou modifiez une API.
@@ -138,9 +150,9 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
     | Environnement Azure | Points de terminaison                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure (public)      | <ul><li>gcs.prod.monitoring.core.windows.net (**nouveau**)</li><li>prod.warmpath.msftcloudes.com (**sera déprécié**)</li><li>global.prod.microsoftmetrics.com(**nouveau**)</li><li>global.metrics.nsatc.net(**à déconseiller**)</li><li>shoebox2.prod.microsoftmetrics.com(**nouveau**)</li><li>shoebox2.metrics.nsatc.net(**à déconseiller**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3.metrics.nsatc.net(**à déconseiller**)</li><li>prod3-black.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3-black.prod3.metrics.nsatc.net(**à déconseiller**)</li><li>prod3-red.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3-red.prod3.metrics.nsatc.net(**à déconseiller**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com(**nouveau**)</li><li>global.metrics.nsatc.net(**à déconseiller**)</li><li>shoebox2.prod.microsoftmetrics.com(**nouveau**)</li><li>shoebox2.metrics.nsatc.net(**à déconseiller**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3.metrics.nsatc.net(**à déconseiller**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com(**nouveau**)</li><li>global.metrics.nsatc.net(**à déconseiller**)</li><li>shoebox2.prod.microsoftmetrics.com(**nouveau**)</li><li>shoebox2.metrics.nsatc.net(**à déconseiller**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3.metrics.nsatc.net(**à déconseiller**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
+    | Azure (public)      | <ul><li>gcs.prod.monitoring.core.windows.net (**nouveau**)</li><li>global.prod.microsoftmetrics.com(**nouveau**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3-black.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3-red.prod.microsoftmetrics.com(**nouveau**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com(**nouveau**)</li><li>shoebox2.prod.microsoftmetrics.com(**nouveau**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com(**nouveau**)</li><li>shoebox2.prod.microsoftmetrics.com(**nouveau**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nouveau**)</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > La modification des clusters ci-dessus avec la zone DNS **.nsatc.net** en **.microsoftmetrics.com** est essentiellement une modification de DNS. L’adresse IP du cluster ne change pas.
@@ -209,7 +221,7 @@ Chaque unité d’échelle supplémentaire de Gestion des API requiert deux adre
 + L’adresse IP publique à charge équilibrée se trouve dans le panneau Vue d’ensemble/Bases sur le portail Azure.
 
 ## <a name="limitations"></a><a name="limitations"> </a>Limitations
-* Un sous-réseau contenant des instances du service Gestion des API ne peut pas contenir d’autres types de ressource Azure.
+* Pour les clients utilisant l’API version 2020-12-01 et les versions antérieures, un sous-réseau contenant des instances Gestion des API ne peut pas contenir d’autres types de ressources Azure.
 * Le sous-réseau et le service Gestion des API doivent figurer dans le même abonnement.
 * Un sous-réseau contenant des instances du service Gestion des API ne peut pas être déplacé entre des abonnements.
 * Pour les déploiements du service Gestion des API dans plusieurs régions configurés en mode de réseau virtuel interne, les utilisateurs sont chargés de gérer leur équilibrage de charge entre les différentes régions, car ils possèdent le routage.

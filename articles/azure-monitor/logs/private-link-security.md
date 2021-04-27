@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 43707a99792ae3c4d817f47d770629287b8a774b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 97e589755602c14a11873fee5288ee8c6e24ba83
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374333"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714279"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -179,7 +179,7 @@ Le point de terminaison privé que vous avez créé devrait maintenant avoir qua
 
 #### <a name="privatelink-monitor-azure-com"></a>Privatelink-monitor-azure-com
 Cette zone couvre les points de terminaison globaux qu’Azure Monitor utilise, ce qui signifie que ces points de terminaison servent les demandes en prenant en compte toutes les ressources, pas une ressource spécifique. Cette zone devrait avoir des points de terminaison mappés pour :
-* `in.ai` : point de terminaison d’ingestion Application Insights (vous verrez une entrée mondiale et une entrée régionale)
+* `in.ai` : point de terminaison d’ingestion Application Insights (une entrée mondiale et une entrée régionale)
 * `api` : point de terminaison d’API Application Insights et Log Analytics
 * `live` : point de terminaison de métriques en direct Application Insights
 * `profiler` : point de terminaison du profileur Application Insights
@@ -196,6 +196,13 @@ Cette zone couvre le mappage spécifique de l’espace de travail aux points de 
 #### <a name="privatelink-agentsvc-azure-automation-net"></a>privatelink-agentsvc-azure-automation-net
 Cette zone couvre le mappage spécifique de l’espace de travail aux points de terminaison d’automatisation du service agent. Vous devriez voir une entrée pour chaque espace de travail lié à l’AMPLS connecté avec ce point de terminaison privé.
 [![Capture d’écran de l’agent de zone DNS privée svc-azure-automation-net.](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net.png)](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net-expanded.png#lightbox)
+
+#### <a name="privatelink-blob-core-windows-net"></a>privatelink-blob-core-windows-net
+Cette zone configure la connectivité au compte de stockage des packs de solutions des agents globaux. Par son intermédiaire, les agents peuvent télécharger des packs de solutions (également appelés packs d’administration) nouveaux ou mis à jour. Une seule entrée est requise pour gérer les agents Log Analytics, quel que soit le nombre d’espaces de travail utilisés.
+[![Capture d’écran de la zone DNS privée blob-core-windows-net.](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
+> [!NOTE]
+> Cette entrée est uniquement ajoutée aux configurations de liaison privée créées à compter du 19 avril 2021.
+
 
 ### <a name="validating-you-are-communicating-over-a-private-link"></a>Validation que vous communiquez sur une liaison privée
 * Pour valider le fait que vos demandes sont désormais envoyées via le point de terminaison privé et aux points de terminaison mappés IP privés, vous pouvez les examiner avec un suivi de réseau dans des outils voire dans votre navigateur. Par exemple, lorsque vous tentez d’interroger votre espace de travail ou votre application, assurez-vous que la demande est envoyée à l’adresse IP privée mappée au point de terminaison de l’API, dans cet exemple, *172.17.0.9*.
@@ -217,7 +224,7 @@ Accédez au portail Azure. Dans le menu de votre ressource d’espace de travail
 Toutes les étendues connectées à l’espace de travail apparaissent dans cet écran. La connexion aux étendues (AMPLS) autorise le trafic réseau à partir du réseau virtuel connecté à chaque AMPLS pour atteindre cet espace de travail. La création d’une connexion de cette manière a le même effet que si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources). Pour ajouter une nouvelle connexion, sélectionnez **Ajouter**, puis choisissez l’étendue de liaison privée Azure Monitor. Sélectionnez **Appliquer** pour la connecter. Notez qu’un espace de travail peut se connecter à 5 objets AMPLS, comme mentionné dans [Restrictions et limitations](#restrictions-and-limitations). 
 
 ### <a name="manage-access-from-outside-of-private-links-scopes"></a>Gérer l’accès depuis l’extérieur d’étendues de liaisons privées
-Les paramètres dans la partie inférieure de cette page contrôlent l’accès à partir de réseaux publics, ce qui signifie que les réseaux ne sont pas connectés via les étendues répertoriées ci-dessus. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, vous bloquez l’ingestion des journaux à partir des machines en dehors des étendues connectées. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, vous bloquez les requêtes provenant des machines en dehors des étendues. Cela inclut les requêtes exécutées via des classeurs, les tableaux de bord, les expériences client basées sur l’API, les informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui interrogent des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
+Les paramètres dans la partie inférieure de cette page contrôlent l’accès à partir de réseaux publics, ce qui signifie que les réseaux ne sont pas connectés via les étendues répertoriées. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, vous bloquez l’ingestion des journaux à partir des machines en dehors des étendues connectées. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, vous bloquez les requêtes provenant des machines en dehors des étendues. Cela inclut les requêtes exécutées via des classeurs, les tableaux de bord, les expériences client basées sur l’API, les informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui interrogent des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
 
 ### <a name="exceptions"></a>Exceptions
 La restriction de l’accès comme expliqué ci-dessus ne s’applique pas à Azure Resource Manager et présente donc les limitations suivantes :
@@ -228,19 +235,18 @@ La restriction de l’accès comme expliqué ci-dessus ne s’applique pas à Az
 > Les journaux et les métriques chargés sur un espace de travail par le biais des [paramètres de diagnostic](../essentials/diagnostic-settings.md) passent par un canal privé sécurisé de Microsoft et ne sont pas contrôlés par ces paramètres.
 
 ### <a name="log-analytics-solution-packs-download"></a>Télécharger des packs de solutions Log Analytics
+Les agents Log Analytics doivent accéder à un compte de stockage global pour télécharger des packs de solutions. Les configurations de liaison privée créées le 19 avril 2021 ou après peuvent atteindre le stockage des packs de solutions des agents sur la liaison privée. Cela est possible grâce à la nouvelle zone DNS créée pour [blob.core.windows.net](#privatelink-blob-core-windows-net).
 
-Pour permettre à l’agent Log Analytics de télécharger des packs de solutions, ajoutez les noms de domaine complets appropriés à la liste d’autorisation de votre pare-feu. 
+Si votre installation de liaison privée a été créée avant le 19 avril 2021, elle n’atteindra pas le stockage de packs de solutions via une liaison privée. Pour gérer cela, vous pouvez effectuer l’une des actions suivantes :
+* Recréez votre AMPLS et le point de terminaison privé qui y est connecté
+* Autorisez vos agents à accéder au compte de stockage via son point de terminaison public, en ajoutant les règles suivantes à la liste d’autorisation de votre pare-feu :
 
+    | Environnement cloud | Ressource de l'agent | Ports | Sens |
+    |:--|:--|:--|:--|
+    |Azure (public)     | scadvisorcontent.blob.core.windows.net         | 443 | Règle de trafic sortant
+    |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Règle de trafic sortant
+    |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Règle de trafic sortant
 
-| Environnement cloud | Ressource de l'agent | Ports | Sens |
-|:--|:--|:--|:--|
-|Azure (public)     | scadvisorcontent.blob.core.windows.net         | 443 | Règle de trafic sortant
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Règle de trafic sortant
-|Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Règle de trafic sortant
-
-
->[!NOTE]
-> À compter du 19 avril 2021, le paramètre ci-dessus ne sera pas nécessaire, et vous pourrez accéder au compte de stockage des packs de solutions par le biais de la liaison privée. La nouvelle fonctionnalité demande de recréer l’AMPLS (le 19 avril 2021 ou plus tard) et le point de terminaison privé qui y est connecté. Elle ne s’applique pas aux AMPLS et aux points de terminaison privés existants.
 
 ## <a name="configure-application-insights"></a>Configurer Application Insights
 
@@ -286,7 +292,7 @@ Comme expliqué dans [Planification de votre configuration Private Link](#planni
 
 Vous pouvez automatiser le processus décrit précédemment à l’aide de modèles Azure Resource Manager, d’interfaces REST et de ligne de commande.
 
-Pour créer et gérer des étendues de liens privés, utilisez l’[API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) ou [Azure CLI (AZ Monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
+Pour créer et gérer des étendues de liens privés, utilisez l’[API REST](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) ou [Azure CLI (AZ Monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
 Pour gérer l’accès au réseau, utilisez les indicateurs `[--ingestion-access {Disabled, Enabled}]` et `[--query-access {Disabled, Enabled}]` sur les [espaces de travail Log Analytics ](/cli/azure/monitor/log-analytics/workspace) ou les [composants Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
 

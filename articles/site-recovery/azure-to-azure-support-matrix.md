@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de la récupération d’urgence des machine
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles Azure vers une région secondaire à l’aide d’Azure Site Recovery.
 ms.topic: article
 ms.date: 11/29/2020
-ms.openlocfilehash: 02268471d58cbd473493b6001aa9f1df271077bb
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: daba23ec1382f1b5fb18bffba48d0571fe998a2f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376152"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107792450"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -46,21 +46,27 @@ Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions 
 America | Canada , Canada Centre, USA Centre Sud, Ouest du USA Centre, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre, USA Centre Nord
 Europe | Royaume-Uni Ouest, Royaume-Uni Sud, Europe Nord, Europe Ouest, Afrique du Sud Ouest, Afrique du Sud Nord, Norvège Est, France Centre, Suisse Nord, Allemagne Centre-Ouest
 Asia | Inde Sud, Inde Centre, Inde Ouest, Asie Sud-Est, Asie Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud
+JIO | Inde Ouest JIO
 Australie    | Australie Est, Australie Sud-Est, Australie Centre, Australie Centre 2
 Azure Government    | US Gov Virginie, US Gov Iowa, US Gov Arizona, US Gov Texas, US DoD Est, US DoD Centre
 Allemagne    | Centre de l’Allemagne, Nord-Est de l’Allemagne
 Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
-Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Suisse Ouest réservée pour les clients Suisse Nord, France Sud réservée pour les clients France Centre, Émirats arabes unis Centre réservée pour les clients Émirats arabes unis Nord, Norvège Ouest réservée pour les clients Norvège Est
+Brésil | Brésil Sud
+Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Suisse Ouest réservé à Suisse Nord, France Sud réservé à France Centre, Émirats arabes unis Centre réservé aux clients Émirats arabes unis Nord, Norvège Ouest pour les clients Norvège Est, Inde Centre JIO pour les clients Norvège Ouest, Brésil Sud-Est pour Brésil Sud
+
+La réplication et la récupération de machines virtuelles entre deux régions de différents continents sont limitées aux paires de régions suivantes :
+
+* Asie Sud-Est et Australie Est
+* Asie Sud-Est et Australie Sud-Est
+* Europe Ouest et USA Centre Sud.
 
 >[!NOTE]
 >
-> - Pour **Brésil Sud**, vous pouvez répliquer et basculer vers ces régions : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2 et USA Centre Nord.
-> - Brésil Sud fait uniquement office de région source à partir de laquelle les machines virtuelles peuvent répliquer à l’aide de Site Recovery. Elle ne peut pas faire office de région cible et ce, en raison de problèmes de latence dus aux distances géographiques. Notez que si vous basculez du Brésil Sud en tant que région source vers une cible, la restauration automatique vers le Brésil Sud à partir de la région cible est prise en charge.
+> - Pour **Brésil Sud**, vous pouvez répliquer et basculer vers ces régions : Brésil Sud-Est, USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2 et USA Centre Nord.
+> - Brésil Sud fait uniquement office de région source à partir de laquelle les machines virtuelles peuvent répliquer à l’aide de Site Recovery. Elle ne peut pas faire office de région cible et ce, en raison de problèmes de latence dus aux distances géographiques. Notez que si vous basculez du Brésil Sud en tant que région source vers une cible, la restauration automatique vers le Brésil Sud à partir de la région cible est prise en charge. Brésil Sud-Est ne peut être utilisé qu’en tant que région cible.
 > - Vous pouvez travailler dans des régions pour lesquelles vous disposez d'un accès approprié.
 > - Si la région où vous souhaitez créer un coffre ne s'affiche pas, assurez-vous que votre abonnement dispose d'un accès lui permettant de créer des ressources dans cette région.
 > - Si vous ne parvenez pas à voir une région au sein d’un cluster géographique lorsque vous activez la réplication, assurez-vous que votre abonnement dispose des autorisations nécessaires pour créer des machines virtuelles dans cette région.
-
-
 
 ## <a name="cache-storage"></a>Stockage du cache
 

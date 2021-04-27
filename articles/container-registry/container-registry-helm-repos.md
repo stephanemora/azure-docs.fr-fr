@@ -2,22 +2,19 @@
 title: Stocker des charts Helm
 description: Découvrez comment stocker des graphiques Helm pour vos applications Kubernetes en utilisant des référentiels dans Azure Container Registry
 ms.topic: article
-ms.date: 06/12/2020
-ms.openlocfilehash: 9897ed6e43813c16314076b0322cd263cd2ed150
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 04/15/2021
+ms.openlocfilehash: c7dcdf222e9628daedb7e1c3617efb0b9c7af185
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223079"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772376"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Envoyer (push) et tirer (pull) des graphiques Helm vers un registre de conteneurs Azure
 
 Pour gérer et déployer rapidement des applications pour Kubernetes, vous pouvez utiliser le [Gestionnaire de package Helm open source][helm]. Avec Helm, les packages d’applications sont définis en tant que [graphiques](https://helm.sh/docs/topics/charts/), lesquels sont collectés et stockés dans un [référentiel de graphiques Helm](https://helm.sh/docs/topics/chart_repository/).
 
 Cet article vous montre la procédure à suivre pour stocker des référentiels de graphiques Helm dans le registre de conteneurs Azure, et ce, en utilisant les commandes Helm 3. Dans beaucoup de scénarios, vous devez générer et charger vos propres graphiques pour les applications que vous développez. Pour plus d’informations sur la génération de vos propres graphiques Helm, consultez le [Guide pour les développeurs de graphiques Helm][develop-helm-charts]. Vous pouvez également stocker un graphique Helm existant à partir d’un autre dépôt Helm.
-
-> [!IMPORTANT]
-> La prise en charge des graphiques Helm dans Azure Container Registry est actuellement disponible en préversion. Les préversions sont mises à votre disposition après votre accord explicite des [conditions d’utilisation][terms-of-use] supplémentaires. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 ## <a name="helm-3-or-helm-2"></a>Helm 3 ou Helm 2 ?
 
@@ -26,7 +23,7 @@ Pour stocker, gérer et installer des graphiques Helm, vous utilisez un client H
 Helm 3 doit être utilisé pour le stockage des graphiques Helm dans Azure Container Registry. Avec Helm 3, vous pouvez :
 
 * Créer un ou plusieurs référentiels Helm dans un registre de conteneurs Azure.
-* Stocker les graphiques Helm 3 dans un registre en tant qu’[artefacts OCI](container-registry-image-formats.md#oci-artifacts). La prise en charge de Helm 3 pour OCI est *expérimentale*.
+* Stocker les graphiques Helm 3 dans un registre en tant qu’[artefacts OCI](container-registry-image-formats.md#oci-artifacts). Azure Container Registry assure la prise en charge de la disponibilité générale pour les [artefacts OCI](container-registry-oci-artifacts.md), y compris les graphiques Helm.
 * Authentifiez-vous auprès du registre à l’aide de la commande `helm registry login`.
 * Utilisez les commandes `helm chart` dans la CLI Helm pour envoyer (push), tirer (pull) et gérer des graphiques Helm dans un registre.
 * Utiliser `helm install` pour installer des graphiques sur un cluster Kubernetes à partir d’un cache de référentiel local.
@@ -294,12 +291,12 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-quickstart]: ../aks/kubernetes-walkthrough.md
 [acr-bestpractices]: container-registry-best-practices.md
-[az-configure]: /cli/azure/reference-index#az-configure
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-configure]: /cli/azure/reference-index#az_configure
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-helm]: /cli/azure/acr/helm
 [az-acr-repository]: /cli/azure/acr/repository
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [acr-tasks]: container-registry-tasks-overview.md

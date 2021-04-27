@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: 7799266bf9cece1ed789d6fab64ec970a09fbfcb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 178604335968c3664bde51c144759c1c040c359d
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588436"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564911"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Effectuer une recherche dans Data Catalog Azure Purview
 
@@ -55,8 +55,8 @@ Voici les opérateurs qui peuvent être utilisés pour composer une requête de 
 | NOT | Spécifie qu’une ressource ne peut pas contenir le mot clé à droite de la clause NOT. | La requête `hive NOT database` retourne les ressources qui contiennent « hive », mais pas « database ». |
 | () | Regroupe un ensemble de mots clés et d’opérateurs. Lors de la combinaison de plusieurs opérateurs, les parenthèses spécifient l’ordre des opérations. | La requête `hive AND (database OR warehouse)` retourne les ressources qui contiennent « hive » et soit « database » soit « warehouse », ou les deux. |
 | "" | Spécifie le contenu exact d’une expression à laquelle la requête doit correspondre. | La requête `"hive database"` retourne les ressources qui contiennent l’expression « hive database » dans leurs propriétés. |
-| * | Caractère générique qui correspond à un ou plusieurs caractères. Ne peut pas être le premier caractère d’un mot clé. | La requête `hiv\`* retourne les ressources dont les propriétés commencent par « hiv », par exemple « hive » ou « hive-table ». |
-| ? | Caractère générique qui correspond à un caractère unique. Ne peut pas être le premier caractère d’un mot clé. | La requête `hiv?` retourne les ressources dont les propriétés commencent par « hiv » et qui comportent quatre lettres comme « hive » ou « hiva ». |
+| * | Caractère générique qui correspond à un ou plusieurs caractères. Ne peut pas être le premier caractère d’un mot clé. | La requête `dat*` retourne les ressources dont les propriétés commencent par « dat », par exemple « data » ou « database ». |
+| ? | Caractère générique qui correspond à un caractère unique. Ne peut pas être le premier caractère d’un mot clé. | La requête `dat?` retourne les ressources dont les propriétés commencent par « dat » et qui comportent quatre lettres comme « date » ou « data ». |
 
 > [!Note]
 > Spécifiez toujours les opérateurs booléens (**AND**, **OR**, **NOT**) tout en majuscules. Dans le cas contraire, la casse n’a pas d’importance, ni d’espace supplémentaire.

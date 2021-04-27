@@ -1,45 +1,39 @@
 ---
 title: Mondes de sécurité Azure Key Vault | Microsoft Docs
-description: Azure Key Vault est un service mutualisé. Il utilise un pool de modules HSM dans chaque emplacement Azure. Tous les emplacements au sein d’une région géographique partagent une limite de chiffrement.
+description: Azure Key Vault est un service mutualisé. Il utilise un pool de modules HSM dans chaque région Azure. Toutes les régions au sein d’une région géographique partagent une limite de chiffrement.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: d21deea13aac3d40c452a183c340d3108a1a01f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d82a3cb4c08d47b6827072378b9827037d32412
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936326"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751811"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mondes de sécurité Azure Key Vault et limites géographiques
 
-Azure Key Vault est un service mutualisé qui utilise un pool de modules de sécurité matériel (HSM) dans chaque emplacement Azure. 
+Les produits Azure sont disponibles dans plusieurs [géographies Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/), chacune contenant une ou plusieurs régions. Par exemple, la géographie Europe contient deux régions : Europe Nord et Europe Ouest, tandis que la seule région de la géographie Brésil est Brésil Sud.
 
-Tous les modules de sécurité matériel présents dans les emplacements Azure au sein d’une même région géographique partagent la même limite de chiffrement (monde de sécurité Thales). Par exemple, les régions USA Est et USA Ouest partagent le même monde de sécurité car elles appartiennent à l’emplacement géographique USA. De même, tous les emplacements Azure au Japon partagent le même monde de sécurité, tout comme les emplacements Azure en Australie, en Inde, etc. 
+Azure Key Vault est un service mutualisé qui utilise un pool de modules de sécurité matériel (HSM). Tous les modules HSM d’une zone géographique partagent la même limite de chiffrement, appelée « monde de sécurité ». Chaque géographie correspond à un monde de sécurité unique, et vice versa.
+
+Les régions USA Est et USA Ouest partagent le même monde de sécurité car elles appartiennent à l’emplacement géographique États-Unis. De même, toutes les régions Azure du Japon partagent le même monde de sécurité, tout comme l’ensemble des régions Azure en Australie, et ainsi de suite.
+
+>[!NOTE]
+> US DOD EAST et US DOD CENTRAL sont des exceptions, dans la mesure où ils possèdent leurs propres mondes de sécurité.
 
 ## <a name="backup-and-restore-behavior"></a>Comportement de sauvegarde et de restauration
 
-La sauvegarde d’une clé d’un coffre de clés dans un emplacement Azure peut être restaurée dans un coffre de clés situé dans un autre emplacement Azure, tant que les deux conditions suivantes sont remplies :
+La sauvegarde d’une clé d’un coffre de clés dans une région Azure peut être restaurée dans un coffre de clés situé dans une autre région Azure, tant que les deux conditions suivantes sont remplies :
 
-- Les deux emplacements Azure appartiennent à la même région géographique
-- Les deux coffres de clés appartiennent au même abonnement Azure
+- Les deux régions Azure appartiennent à la même géographie.
+- Les deux coffres de clés appartiennent au même abonnement Azure.
 
-Par exemple, la sauvegarde d’une clé effectuée par un abonnement spécifique dans un coffre de clés dans la région Inde Ouest peut uniquement être restaurée dans un coffre de clés appartenant aux mêmes abonnement et emplacement géographique (Inde Ouest, Inde Centre ou Inde Sud).
+Par exemple, une sauvegarde effectuée à partir d’une clé dans un coffre de clés Inde Ouest peut être restaurée sur un autre coffre de clés dans le même abonnement dans la zone géographique Inde (les régions Inde Ouest, Inde Centre et Inde Sud).
 
-## <a name="regions-and-products"></a>Régions et produits
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Régions Azure](https://azure.microsoft.com/regions/)
-- [Produits Microsoft par région](https://azure.microsoft.com/regions/services/)
-
-Les régions sont mappées aux mondes de sécurité, illustrés sous forme d’en-têtes principaux dans les tableaux :
-
-Dans l’article « Produits par région », par exemple, l’onglet **États-Unis** contient les éléments USA EST, USA CENTRE, USA OUEST, tous mappés à la région États-Unis. 
-
->[!NOTE]
->US DOD EAST et US DOD CENTRAL sont des exceptions, dans la mesure où ils possèdent leurs propres mondes de sécurité. 
-
-De même, dans l’onglet **Europe**, NORTH EUROPE et WEST EUROPE sont tous deux mappés à la région Europe. Cela vaut également pour l’onglet **Asie Pacifique**.
+- Voir [Produits Microsoft par région](https://azure.microsoft.com/regions/services/)

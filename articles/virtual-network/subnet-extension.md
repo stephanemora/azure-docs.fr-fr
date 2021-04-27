@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
 ms.author: anupand
-ms.openlocfilehash: 555c903dc3375080a8b0d006d2aac7216854c939
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e39859e3cc4d28ac4b1456fcdaec65ecfb9c7f31
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539296"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728209"
 ---
 # <a name="subnet-extension"></a>Extension de sous-réseau
 La migration des charges de travail vers le cloud public requiert une planification et une coordination rigoureuses. L’une des principales considérations à prendre en compte est la possibilité de conserver vos adresses IP. Ce qui peut être important surtout si vos applications ont une dépendance d’adresse IP ou si vous avez des exigences de conformité pour utiliser des adresses IP spécifiques. Le réseau virtuel Azure résout ce problème pour vous en vous permettant de créer des réseaux virtuels et des sous-réseaux à l’aide d’une plage d’adresses IP de votre choix.
@@ -53,4 +53,4 @@ Dans l’exemple ci-dessus, l’appliance virtuelle réseau Azure et l’applian
 Dans la section suivante, vous trouverez des informations sur les solutions d’extension de sous-réseau que nous avons testées sur Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes 
-[Étendre votre sous-réseau à Azure à l’aide des solutions de fournisseurs.](https://github.com/microsoft/Azure-LISP)
+[Étendez vos sous-réseaux locaux dans Azure à l’aide du réseau étendu Azure](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-extended-network).

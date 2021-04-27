@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: d70514e81bc838b4193862e66b0c03440d006128
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ce29158c2a44f01fa06649e4b4497bf5c5076866
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307469"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512005"
 ---
 ## <a name="setting-up"></a>Configuration
 
-### <a name="create-a-new-nodejs-application"></a>Créer une application Node.js
+### <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
 
 Ouvrez votre fenêtre de terminal ou de commande, créez un répertoire pour votre application, puis accédez-y.
 
@@ -82,7 +82,7 @@ async function sendSms(resourceEndpoint, fromNumber, toNumber, message) {
 }
 ```
 
-## <a name="write-the-main-method"></a>Écrire la méthode main
+## <a name="write-the-main-function"></a>Écrire la fonction main
 
 Après avoir créé nos fonctions, nous pouvons maintenant écrire une fonction principale pour les appeler et démontrer l’utilisation des identités managées :
 ```JavaScript

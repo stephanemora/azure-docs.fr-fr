@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a5388d15b18180539eb95990a29f7ddf4f1951
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646280"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739545"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
@@ -67,7 +67,7 @@ Le locataire de la ressource est toujours responsable de l’authentification mu
 6. Fabrikam doit disposer de suffisamment de licences Azure AD Premium prenant en charge l’authentification multifacteur Azure AD. L’utilisateur de Contoso consomme alors cette licence de Fabrikam. Pour plus d’informations sur les licences B2B, consultez le [modèle de facturation pour les identités externes Azure AD](./external-identities-pricing.md).
 
 >[!NOTE]
->L’authentification multifacteur Azure AD est effectuée au niveau du locataire de la ressource pour garantir la prévisibilité.
+>L’authentification multifacteur Azure AD est effectuée au niveau du locataire de la ressource pour garantir la prévisibilité. Lorsque l’utilisateur invité se connecte, il voit la page de connexion du locataire de ressources affichée en arrière-plan, ainsi que sa propre page de connexion et son logo de société au premier plan.
 
 ### <a name="set-up-azure-ad-multi-factor-authentication-for-b2b-users"></a>Configurer l’authentification multifacteur Azure AD pour les utilisateurs B2B
 

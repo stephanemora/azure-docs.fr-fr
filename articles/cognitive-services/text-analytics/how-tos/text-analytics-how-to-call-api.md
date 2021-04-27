@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 00f9c6510a87770367472c0da6774b94034c6d72
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 5790c7c62b9d97df9683773170301b6e09a47667
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029775"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728479"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -64,6 +64,8 @@ Depuis la version v3.1-preview.3, l’API Analyse de texte fournit deux points d
 * Le point de terminaison `/analyze` pour l’Analyse de texte vous permet d’analyser le même jeu de documents texte avec plusieurs fonctionnalités d’analyse de texte en un seul appel d’API. Auparavant, pour utiliser plusieurs fonctionnalités, vous deviez effectuer des appels d’API distincts pour chaque opération. Tenez compte de cette fonctionnalité lorsque vous devez analyser de grands ensembles de documents avec plusieurs fonctionnalités d’Analyse de texte.
 
 * Le point de terminaison `/health` pour l’Analyse de texte en lien avec la santé, qui peut extraire et étiqueter des informations médicales pertinentes à partir de documents cliniques.  
+
+Notez que les points de terminaison /analyze et /health sont uniquement disponibles dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.
 
 Consultez le tableau ci-dessous pour savoir quelles fonctionnalités vous pouvez utiliser de manière asynchrone. Notez que vous ne pouvez appeler que quelques fonctionnalités à partir du point de terminaison `/analyze`. 
 

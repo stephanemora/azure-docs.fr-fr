@@ -10,15 +10,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 04/20/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f89f218c82505fd6bc261d41938d4619b32bf8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e9030558779be3e417383f9f32612ee3e834a1c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675969"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788076"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur les produits SAP et les types de machines virtuel
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instructions de configuration IBM Db2 pour Linux, UNIX et Windows pour les installations SAP sur des machines virtuelles Azure
 ### <a name="storage-configuration"></a>Configuration du stockage
-Pour obtenir une vue d’ensemble des types de stockage Azure pour la charge de travail SAP, consultez l’article [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md). Tous les fichiers de base de données doivent être stockés sur les disques montés du stockage de blocs Azure (Windows : NFFS, Linux : xfs, ext4 ou ext3). Tous les types de lecteurs réseau ou de partages distants tels que les services Azure suivants ne sont **PAS** pris en charge pour les fichiers de base de données : 
+Pour obtenir une vue d’ensemble des types de stockage Azure pour la charge de travail SAP, consultez l’article [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md). Tous les fichiers de base de données doivent être stockés sur les disques montés du stockage de blocs Azure (Windows : NFFS, Linux : xfs ou ext3). Tous les types de lecteurs réseau ou de partages distants tels que les services Azure suivants ne sont **PAS** pris en charge pour les fichiers de base de données : 
 
 * [Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
@@ -71,17 +71,20 @@ Pour en savoir plus sur les considérations relatives aux performances, consulte
 
 Vous pouvez également utiliser des pools de stockage Windows (fonctionnalité uniquement disponible dans Windows Server 2012 et versions ultérieures), comme décrit dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md), ou LVM ou mdadm sur Linux afin de créer une unité logique volumineuse sur plusieurs disques montés.
 
-<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
-
-Pour les disques contenant les chemins de stockage Db2 pour vos répertoires `sapdata` et `saptmp`, vous devez spécifier une taille de secteur de disque physique de 512 Ko. Quand vous utilisez des pools de stockage Windows, vous devez créer les pools de stockage manuellement par le biais de l’interface de ligne de commande en utilisant le paramètre `-LogicalSectorSizeDefault`. Pour plus d’informations, consultez <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+<!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 Pour une machine virtuelle Azure de la série M, la latence d’écriture dans les journaux d’activité de transactions peut être réduite par des facteurs, comparée aux performances de stockage Premium Azure, lors de l’utilisation de l’Accélérateur des écritures Azure. Par conséquent, vous devez déployer l’Accélérateur d’écriture Azure pour les disques durs virtuels qui constituent le volume des journaux des transactions Db2. Les détails peuvent être consultés dans le document [Accélérateur des écritures](../../how-to-enable-write-accelerator.md).
+
+IBM Db2 LUW 11.5 propose la prise en charge d’une taille de secteur de 4 ko. Pour les anciennes versions de Db2, une taille de secteur de 512 octets doit être utilisée. Les disques SSD Premium sont de 4 ko en natif et ont une émulation de 512 octets. Le disque Ultra utilise une taille de secteur de 4 ko par défaut. Vous pouvez activer une taille de secteur de 512 octets lors de la création d’un disque Ultra. Les détails sont disponibles dans [Utilisation de disques Ultra Azure](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). Cette taille de secteur de 512 octets est requise pour les versions d’IBM Db2 LUW inférieures à 11.5.
+
+Sur Windows et pour des pools de stockage pour les chemins de stockage Db2 pour vos répertoires `log_dir`, `sapdata` et `saptmp`, vous devez spécifier une taille de secteur de disque physique de 512 ko. Quand vous utilisez des pools de stockage Windows, vous devez créer les pools de stockage manuellement par le biais de l’interface de ligne de commande en utilisant le paramètre `-LogicalSectorSizeDefault`. Pour plus d’informations, consultez <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+
 
 ## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Recommandation relative à la structure des machines virtuelles et des disques pour le déploiement IBM Db2
 
 Les applications IBM Db2 pour SAP NetWeaver sont prises en charge sur tous les types de machines virtuelles figurant dans la note de support SAP [1928533].  Les familles de machines virtuelles recommandées pour l’exécution de la base de données IBM Db2 sont Esd_v4/Eas_v4/Es_v3 et la série M/M_v2 pour les bases de données de plusieurs téraoctets. Les performances d’écriture sur le disque du journal des transactions IBM Db2 peuvent être améliorées en activant l’accélérateur d’écriture de la série M. 
 
-Voici une configuration de base pour différentes tailles et utilisations de SAP sur des déploiements Db2 de petite à grande taille. La liste est basée sur le stockage Premium Azure. Toutefois, Azure ultra Disk est aussi entièrement pris en charge avec DB2 et peut également être utilisé. Il vous suffit d’utiliser les valeurs pour la capacité, le débit en rafale et les IOPS en rafale pour définir la configuration de disque Ultra. Vous pouvez limiter le nombre d’IOPS pour /db2/<SID>/log_dir à environ 5 000 IOPS. 
+Voici une configuration de base pour différentes tailles et utilisations de SAP sur des déploiements Db2 de petite à grande taille. La liste est basée sur le stockage Premium Azure. Toutefois, Azure ultra Disk est aussi entièrement pris en charge avec DB2 et peut également être utilisé. Utilisez les valeurs pour la capacité, le débit en rafale et les IOPS en rafale pour définir la configuration de disque Ultra. Vous pouvez limiter le nombre d’IOPS pour /db2/<SID>/log_dir à environ 5 000 IOPS. 
 
 #### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Système SAP très petit : taille de base de données de 50 à 200 Go : exemple d’un gestionnaire de solutions
 | Nom/taille de machine virtuelle |Point de montage Db2 |Disque Premium Azure |Nbre de disques |E/S par seconde |Débit [Mo/s] |Taille [Go] |IOPS en rafale |Débit rafale [Go] | Taille de l’entrelacement | Mise en cache |
@@ -234,13 +237,7 @@ Lire l’article
 
 - [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md)
 
-[azure-cli]:../../../cli-install-nodejs.md
-[azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azure/
-[azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
-[azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
+
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 

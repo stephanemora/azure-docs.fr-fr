@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: rogara
-ms.custom: include file
-ms.openlocfilehash: 4773446ec0007ffbed99bc01939d1f92f5823d99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 200bf290543747cf9abab6113b8013e2eec852a8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95561085"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107510463"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Assigner des autorisations d’accès à une identité
 
@@ -126,7 +126,7 @@ Utilisez l’Explorateur de fichiers Windows pour accorder des autorisations com
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configurer des autorisations NTFS avec icacls
 
-Utilisez la commande Windows suivante pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine. N’oubliez pas de remplacer les valeurs d’espace réservé dans l’exemple par vos propres valeurs.
+Utilisez la commande Windows suivante pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine. N’oubliez pas de remplacer les valeurs d’espace réservé de l’exemple par vos propres valeurs.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
@@ -142,7 +142,7 @@ Connectez-vous à la machine virtuelle à l’aide de l’identité Azure AD à 
 
 ![Capture d’écran montrant l’écran de connexion Azure AD pour l’authentification utilisateur](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Utilisez la commande suivante pour monter le partage de fichiers Azure. Remplacez les valeurs d’espace réservé par vos propres valeurs. Comme vous avez déjà effectué une authentification, vous n’avez pas besoin de fournir la clé de compte de stockage ni les informations d’identification AD DS locales ou Azure AD DS. L’expérience d’authentification unique est prise en charge pour l’authentification avec l’instance AD DS locale ou avec Azure AD DS. Si vous rencontrez des problèmes lors du montage avec les informations d’identification AD DS, consultez [Résoudre les problèmes liés à Azure Files sous Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) pour obtenir de l’aide.
+Utilisez la commande suivante pour monter le partage de fichiers Azure. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs. Comme vous avez déjà effectué une authentification, vous n’avez pas besoin de fournir la clé de compte de stockage ni les informations d’identification AD DS locales ou Azure AD DS. L’expérience d’authentification unique est prise en charge pour l’authentification avec l’instance AD DS locale ou avec Azure AD DS. Si vous rencontrez des problèmes lors du montage avec les informations d’identification AD DS, consultez [Résoudre les problèmes liés à Azure Files sous Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) pour obtenir de l’aide.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 86874a60d48ddcbdaca5ae779ad554ee58cc233b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6634a536828b3c19d771d135fdb3a1224d3dfdf3
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498844"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717420"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -122,7 +122,7 @@ Le degré de sécurisation, qui est basé sur les contrôles du Center for Inter
 **Détail** : utilisez [Azure Monitor pour collecter et exporter des données](../../azure-monitor/overview.md#integrate-and-export-data). Cette pratique est critique pour permettre d’investiguer sur des incidents de sécurité, et la rétention des journaux en ligne est limitée. Si vous utilisez Azure Sentinel, consultez [Connecter des sources de données](../../sentinel/connect-data-sources.md).
 
 **Bonne pratique** : accélérez vos processus d’investigation et de recherche et réduisez les faux positifs en intégrant des fonctionnalités de détection de point de terminaison et de réponse (EDR) dans votre examen de l’attaque.   
-**Détail** : [Activer l'intégration de Microsoft Defender for Endpoint](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) par le biais de votre stratégie de sécurité Security Center. Envisagez d’utiliser Azure Sentinel pour rechercher les menaces et répondre aux incidents.
+**Détail** : [Activer l’intégration de Microsoft Defender for Endpoint](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration) par le biais de votre stratégie de sécurité Security Center. Envisagez d’utiliser Azure Sentinel pour rechercher les menaces et répondre aux incidents.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Superviser le réseau selon un scénario de bout en bout
 Les clients créent un réseau de bout en bout dans Azure en combinant des ressources réseau comme un réseau virtuel, ExpressRoute, Application Gateway et des équilibreurs de charge. La surveillance est disponible sur chacune des ressources réseau.

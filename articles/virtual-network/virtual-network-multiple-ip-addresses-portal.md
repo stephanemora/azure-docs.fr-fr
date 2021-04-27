@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: a0dab64aac8bc5fa68a53fad6cd8e6f6bb4bac03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 050d3ac23562e7822d186a16675d03c1b9dc670b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217139"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739203"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Affecter plusieurs adresses IP à une machine virtuelle à l’aide du portail Azure
 
@@ -102,6 +102,9 @@ Une adresse IP publique correspond à un paramètre de configuration d’une re
 5. Cliquez sur **Enregistrer**. Les panneaux se ferment. Le cas échéant, vous pouvez créer une adresse IP publique en suivant la procédure de la section [Créer une ressource d’adresse IP publique](#create-public-ip) du présent article.
 3. Passez en revue la nouvelle configuration IP.
 4. Vous pouvez cliquer sur **Ajouter** pour ajouter des configurations IP supplémentaires, ou fermer tous les panneaux ouverts pour terminer l’ajout d’adresses IP. N’ajoutez pas l’adresse IP publique au système d’exploitation.
+
+> [!NOTE]
+> Après avoir modifié la configuration de l’adresse IP, vous devez redémarrer la machine virtuelle pour que les modifications entrent en vigueur sur la machine virtuelle.
 
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

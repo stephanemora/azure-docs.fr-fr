@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 593ccac7326a0a04884fe433cac85cb8eaf79319
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: dfc8fe0f1b4bc043feecd5c76340d48bc5421854
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228229"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568537"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -120,34 +120,62 @@ Si vous ne trouvez aucun certificat auto-signé en suivant ces étapes, contacte
 
 ## <a name="sign-in-issues"></a>Problèmes de connexion
 
-### <a name="blank-sign-in-dialog-box"></a>Boîte de dialogue de connexion vide
+### <a name="understanding-sign-in"></a>Comprendre la connexion
 
-Les boîtes de dialogue de connexion vides apparaissent le plus souvent quand les services ADFS (Active Directory Federation Services) demandent à l’Explorateur Stockage d’effectuer une redirection, ce qui n’est pas pris en charge par Electron. Pour contourner ce problème, vous pouvez essayer d’utiliser le Flux de code d’appareil pour la connexion. Pour ce faire, procédez comme suit :
+Vérifiez que vous avez lu la documentation [Se connecter à l’Explorateur Stockage](./storage-explorer-sign-in.md).
 
-1. Dans la barre d’outils verticale gauche, ouvrez **Paramètres**. Dans le panneau Paramètres, accédez à **Application** > **Se connecter**. Activez **Utiliser la connexion via le flux de code de l’appareil**.
-2. Ouvrez la boîte de dialogue **Connecter** (via l’icône de fiche dans la barre verticale à gauche ou en sélectionnant **Ajouter un compte** dans le panneau de compte).
-3. Choisissez l’environnement auquel vous voulez vous connecter.
-4. Sélectionnez **Connexion**.
-5. Suivez les instructions figurant sur le panneau.
+### <a name="frequently-having-to-reenter-credentials"></a>Il arrive souvent de devoir entrer de nouveau les informations d’identification
 
-Si vous ne parvenez pas à vous connecter au compte que vous voulez utiliser parce que votre navigateur par défaut est déjà connecté à un autre compte, effectuez l’une des tâches suivantes :
+Le fait de devoir entrer de nouveau les informations d’identification est probablement le résultat des stratégies d’accès conditionnel définies par votre administrateur AAD. Lorsque l’Explorateur Stockage vous demande de saisir à nouveau les informations d’identification à partir du panneau de compte, vous devriez voir un lien **Détails de l’erreur...** . Cliquez dessus pour voir pourquoi l’Explorateur Stockage vous demande de saisir à nouveau les informations d’identification. Les erreurs de stratégie d’accès conditionnel qui nécessitent une réentrée des informations d’identification peuvent ressembler à ceci :
+- Le jeton d’actualisation a expiré...
+- Vous devez utiliser l’authentification multifacteur pour accéder à...
+- En raison d’un changement de configuration effectué par l’administrateur...
 
-- copier manuellement le lien et le code dans une session privée de votre navigateur, ou
-- copier manuellement le lien et le code dans un autre navigateur.
+Pour réduire la fréquence de saisie des informations d’identification en raison d’erreurs telles que celles mentionnées ci-dessus, vous devez contacter votre administrateur AAD.
+
+### <a name="conditional-access-policies"></a>Stratégies d'accès conditionnel
+
+Si vous avez des stratégies d’accès conditionnel qui doivent être satisfaites pour votre compte, assurez-vous que vous utilisez la valeur de **navigateur web par défaut** pour le paramètre **Se connecter avec**. Pour plus d’informations sur ce paramètre, consultez [Modification de l’emplacement de connexion](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+
+### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>Impossible d’acquérir le jeton, le locataire est filtré
+
+Si vous voyez un message d’erreur indiquant qu’un jeton ne peut pas être acquis parce qu’un locataire est filtré, cela signifie que vous essayez d’accéder à une ressource qui se trouve dans un locataire que vous avez exclu. Pour annuler le filtrage du locataire, accédez au **panneau Compte** et assurez-vous que la case à cocher correspondant au locataire spécifié dans l’erreur est cochée. Reportez-vous à [Gestion des comptes](./storage-explorer-sign-in.md#managing-accounts) pour plus d’informations sur le filtrage des locataires dans l’Explorateur Stockage.
+
+## <a name="authentication-library-failed-to-start-properly"></a>La bibliothèque d’authentification n’a pas pu démarrer correctement
+
+Si au démarrage vous voyez un message d’erreur indiquant que la bibliothèque d’authentification de l’Explorateur Stockage n’a pas pu démarrer correctement, vérifiez que votre environnement d’installation remplit toutes les [conditions préalables](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites). Le fait de ne pas répondre aux conditions préalables est la cause la plus probable de ce message d’erreur.
+
+Si vous pensez que votre environnement d’installation remplit toutes les conditions préalables, [ouvrez un problème sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new). Lorsque vous ouvrez votre problème, veillez à inclure les éléments suivants :
+- Votre système d’exploitation.
+- La version de l’Explorateur Stockage que vous essayez d’utiliser.
+- Si vous avez vérifié les conditions préalables.
+- [Journaux d’authentification](#authentication-logs) d’un lancement infructueux de l’Explorateur Stockage. La journalisation de l’authentification détaillée est automatiquement activée après ce type d’erreur.
+
+### <a name="blank-window-when-using-integrated-sign-in"></a>Fenêtre vide lors de l’utilisation de la connexion intégrée
+
+Si vous avez choisi d’utiliser la **connexion intégrée** et que vous voyez une fenêtre de signe vide, vous devrez probablement basculer vers une autre méthode de connexion. Les boîtes de dialogue de connexion vides apparaissent le plus souvent quand un serveur ADFS (Active Directory Federation Services) demande à l’Explorateur Stockage d’effectuer une redirection, ce qui n’est pas pris en charge par Electron.
+
+Pour passer à une autre méthode de connexion en modifiant le paramètre **Se connecter avec** sous **Paramètres** > **Application** > **Connexion**. Pour plus d’informations sur les différents types de méthodes de connexion, consultez [Modification de l’emplacement de connexion](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Boucle de réauthentification ou modification du nom UPN
 
-Si vous êtes dans une boucle de réauthentification ou que vous avez changé le nom UPN de l’un de vos comptes, effectuez ces étapes :
+Si vous êtes dans une boucle de réauthentification ou que vous avez changé le nom UPN de l’un de vos comptes, essayez ces étapes :
 
-1. Supprimez tous les comptes, puis fermez l’Explorateur Stockage.
-2. Supprimez le dossier .IdentityService de votre ordinateur. Sur Windows, le dossier se situe dans `C:\users\<username>\AppData\Local`. Pour Mac et Linux, vous pouvez trouver le dossier à la racine de votre répertoire utilisateur.
-3. Si vous exécutez Mac ou Linux, vous devez aussi supprimer l’entrée Microsoft.Developer.IdentityService du magasin de clés de votre système d’exploitation. Sur Mac, le magasin de clés est l’application *Gnome Keychain*. Dans Linux, l’application est généralement appelée _Keyring_, mais le nom peut être différent selon votre distribution.
+1. Ouvrir l’explorateur de stockage
+2. Accédez à Aide > Réinitialiser
+3. Assurez-vous qu’au moins Authentification est coché. Vous pouvez désélectionner les autres éléments que vous ne souhaitez pas réinitialiser.
+4. Cliquez sur le bouton Réinitialiser
+5. Redémarrez l’Explorateur Stockage, puis réessayez de vous connecter.
 
-### <a name="conditional-access"></a>Accès conditionnel
+Si vous continuez à rencontrer des problèmes après avoir effectué une réinitialisation, essayez les étapes suivantes :
 
-En raison d’une limitation de la bibliothèque Azure AD utilisée par l’Explorateur Stockage, l’accès conditionnel n’est pas pris en charge quand l’Explorateur Stockage est utilisé sur Windows 10, Linux ou macOS.
+1. Ouvrir l’explorateur de stockage
+2. Supprimez tous les comptes, puis fermez l’Explorateur Stockage.
+3. Supprimez le dossier `.IdentityService` de votre machine. Sur Windows, le dossier se situe dans `C:\users\<username>\AppData\Local`. Pour Mac et Linux, vous pouvez trouver le dossier à la racine de votre répertoire utilisateur.
+4. Si vous exécutez Mac ou Linux, vous devez aussi supprimer l’entrée Microsoft.Developer.IdentityService du magasin de clés de votre système d’exploitation. Sur Mac, le magasin de clés est l’application *Gnome Keychain*. Dans Linux, l’application est généralement appelée _Keyring_, mais le nom peut être différent selon votre distribution.
+6. Redémarrez l’Explorateur Stockage, puis réessayez de vous connecter.
 
-## <a name="mac-keychain-errors"></a>Erreurs de trousseau Mac
+### <a name="macos-keychain-errors-or-no-sign-in-window"></a>macOS : erreurs de trousseau ou aucune fenêtre de connexion
 
 Il peut arriver que le trousseau macOS entre dans un état qui s’avère problématique pour la bibliothèque d’authentification de l’Explorateur Stockage. Pour sortir le trousseau de cet état, suivez ces étapes :
 
@@ -162,15 +190,16 @@ Il peut arriver que le trousseau macOS entre dans un état qui s’avère probl�
 6. Vous obtenez un message tel que « Le hub de service souhaite accéder au trousseau ». Entrez le mot de passe de votre compte Administrateur Mac et sélectionnez **Toujours autoriser** (ou **Autoriser** si **Toujours autoriser** n’est pas proposé).
 7. Essayez de vous connecter.
 
-### <a name="general-sign-in-troubleshooting-steps"></a>Étapes générales de résolution des problèmes de connexion
+### <a name="default-browser-doesnt-open"></a>Le navigateur par défaut ne s’ouvre pas
 
-* Si vous êtes sur macOS et que la fenêtre de connexion n’apparaît jamais sur la boîte de dialogue **En attente d’authentification**, essayez [ces étapes](#mac-keychain-errors).
-* Redémarrez l’Explorateur Stockage.
-* Si la fenêtre d’authentification est vide, patientez au moins une minute avant de fermer la boîte de dialogue d’authentification.
-* Vérifiez que vos paramètres de proxy et de certificat sont correctement configurés pour votre ordinateur et pour l’Explorateur Stockage.
-* Si vous exécutez Windows et que vous avez accès à Visual Studio 2019 sur la même machine et aux informations de connexion, essayez de vous connecter à Visual Studio 2019. Après une connexion réussie à Visual Studio 2019, vous pouvez ouvrir l’Explorateur Stockage et voir votre compte dans le panneau des comptes.
+Si votre navigateur par défaut ne s’ouvre pas quand vous essayez de vous connecter, essayez toutes les techniques suivantes :
+- Redémarrez l’Explorateur de stockage
+- Ouvrir votre navigateur manuellement avant de commencer la connexion
+- Essayez d’utiliser la **connexion intégrée**. Pour obtenir des instructions sur la façon de procéder, consultez [Modification de l’emplacement de connexion](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
-Si aucune de ces méthodes ne fonctionne, [signalez un problème dans GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+### <a name="other-sign-in-issues"></a>Autres problèmes de connexion
+
+Si aucun des éléments ci-dessus ne s’applique à votre problème de connexion ou s’il ne parvient pas à résoudre votre problème de connexion, [ouvrez un ticket sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### <a name="missing-subscriptions-and-broken-tenants"></a>Abonnements manquants et locataires en échec
 
@@ -180,9 +209,9 @@ Si vous ne parvenez pas à récupérer vos abonnements après vous être connect
 * Vérifiez que vous êtes connecté via l’environnement Azure approprié (Azure, Azure Chine 21Vianet, Azure Allemagne, Azure US Government ou Environnement personnalisé).
 * Si vous vous trouvez derrière un serveur proxy, vérifiez que vous avez correctement configuré le proxy de l’Explorateur Stockage.
 * Essayez de supprimer et de rajouter le compte.
-* S’il existe un lien « Plus d’informations », examinez les messages d’erreur signalés pour les locataires en échec. Si vous ne savez pas comment répondre aux messages d’erreur, n’hésitez pas à [signaler un problème dans GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* S’il existe un lien « Plus d’informations » ou « Détails de l’erreur », examinez les messages d’erreur signalés pour les locataires en échec. Si vous ne savez pas comment répondre aux messages d’erreur, n’hésitez pas à [signaler un problème dans GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cant-remove-an-attached-account-or-storage-resource"></a>Impossible de supprimer un compte ou une ressource de stockage attachés
+## <a name="cant-remove-an-attached-storage-account-or-resource"></a>Impossible de supprimer un compte ou une ressource de stockage attachés
 
 Si vous ne pouvez pas supprimer un compte ou une ressource de stockage attachés via l’interface utilisateur, vous pouvez supprimer manuellement toutes les ressources attachées en supprimant les dossiers suivants :
 
@@ -526,6 +555,8 @@ Partie 3 : Nettoyer la trace Fiddler
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si aucune de ces solutions ne fonctionne pour vous, [signalez un problème dans GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Vous pouvez aussi cliquer sur le bouton **Report issue to GitHub** en bas à gauche.
+Si aucune de ces solutions ne fonctionne, vous pouvez :
+- Création d’un ticket de support
+- [Ouvrez un ticket sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Vous pouvez aussi cliquer sur le bouton **Report issue to GitHub** en bas à gauche.
 
 ![Commentaires](./media/storage-explorer-troubleshooting/feedback-button.PNG)

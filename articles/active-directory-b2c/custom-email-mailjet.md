@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a40f3286b4e832f5c73e650859fa9a1d4fe4b6cb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b4bb58f106f3255ec6cd80b14b175ff413bc0dc6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256954"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725797"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Vérification des e-mails personnalisée avec Mailjet
 
@@ -35,8 +35,6 @@ Utilisez un e-mail personnalisé dans Azure Active Directory B2C (Azure AD B2C) 
 
 La vérification d’e-mails personnalisée nécessite l’utilisation d'un fournisseur d’e-mails tiers comme [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md) ou [SparkPost](https://sparkpost.com), une API REST personnalisée ou tout fournisseur d'e-mails basé sur HTTP (y compris le vôtre). Cet article décrit la configuration d'une solution qui utilise Mailjet.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="create-a-mailjet-account"></a>Créer un compte Mailjet
 
 Si vous ne disposez pas encore d’un compte, commencez par configurer un compte Mailjet (les clients Azure peuvent débloquer 6 000 e-mails avec une limite de 200 e-mails/jour). 
@@ -44,6 +42,10 @@ Si vous ne disposez pas encore d’un compte, commencez par configurer un compte
 1. Suivez les instructions de configuration dans [Créer un compte de Mailjet](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
 1. Pour pouvoir envoyer des e-mails, [inscrire et valider](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) l’adresse e-mail ou le domaine de l’expéditeur.
 2. Accédez à la [page Gestion des clés de l’API](https://app.mailjet.com/account/api_keys). Enregistrez la **Clé API** et la **Clé secrète** pour l'utiliser à une étape ultérieure. Les deux clés sont générées automatiquement lorsque votre compte est créé.  
+
+> [!IMPORTANT]
+> Mailjet offre aux clients la possibilité d’envoyer des e-mails à partir d’adresses IP partagées et [dédiées](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). Lorsque vous utilisez des adresses IP dédiées, vous devez établir votre propre réputation correctement à l’aide d’un échauffement d’adresse IP. Pour plus d’informations, consultez [Comment effectuer l’échauffement de mon adresse IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
+
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Créer une clé de stratégie Azure AD B2C
 
@@ -317,6 +319,9 @@ Sous les définitions de contenu, toujours dans `<BuildingBlocks>`, ajoutez à v
 ## <a name="add-otp-technical-profiles"></a>Ajouter des profils techniques OTP
 
 Le profil technique `GenerateOtp` génère un code pour l’adresse e-mail. Le profil technique `VerifyOtp` vérifie le code associé à l’adresse e-mail. Vous pouvez modifier la configuration du format et l’expiration du mot de passe à usage unique. Pour plus d'informations sur les profils techniques OTP, voir [Définir un profil technique de mot de passe à usage unique](one-time-password-technical-profile.md).
+
+> [!NOTE]
+> Les codes OTP générés par le protocole Web.TPEngine.Providers.OneTimePasswordProtocolProvider sont liés à la session de navigateur. Cela signifie qu’un utilisateur peut générer des codes OTP uniques dans différentes sessions de navigateur qui sont valides pour les sessions correspondantes. En revanche, un code OTP généré par le flux de l’utilisateur intégré est indépendant de la session du navigateur. Par conséquent, si un utilisateur génère un nouveau code OTP dans une nouvelle session de navigateur, il remplace le code OTP précédent.
 
 Ajoutez les profils techniques suivants à l'élément `<ClaimsProviders>`.
 

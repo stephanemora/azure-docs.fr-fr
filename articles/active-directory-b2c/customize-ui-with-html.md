@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8f9f6dc1abd08c5e53f3d44a8f6ec1b3e20786ed
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104675823"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717438"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur avec des modèles HTML dans Azure Active Directory B2C
 
@@ -261,7 +261,7 @@ Vous devez voir une page semblable à l’exemple suivant avec les éléments ce
 
 Pour configurer la personnalisation de l’interface utilisateur, copiez l’élément **ContentDefinition** et ses éléments enfants du fichier de base vers le fichier d’extension.
 
-1. Ouvrez le fichier de base de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. Ce fichier de base est un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir en suivant la rubrique prérequise [Bien démarrer avec les stratégies personnalisées](./custom-policy-get-started.md).
+1. Ouvrez le fichier de base de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. Ce fichier de base est un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir en suivant la rubrique prérequise [Bien démarrer avec les stratégies personnalisées](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Recherchez et copiez le contenu entier de l’élément **ContentDefinitions**.
 1. Ouvrez le fichier d’extension. Par exemple, *TrustFrameworkExtensions.xml*. Recherchez l’élément **BuildingBlocks**. Si l’élément n’existe pas, ajoutez-le.
 1. Collez le contenu entier de l’élément **ContentDefinitions** que vous avez copié en tant qu’enfant de l’élément **BuildingBlocks**.
@@ -388,9 +388,9 @@ Pour utiliser l’exemple :
     https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
     
-1. Enregistrez les fichiers `\*.html` et chargez-les dans le stockage Blob.
+1. Enregistrez les fichiers `\*.html` et chargez-les dans le stockage blob.
 1. Modifiez à présent la stratégie, en la faisant pointer vers votre fichier HTML, comme indiqué précédemment.
-1. Si vous constatez qu’il manque des polices, des images ou des feuilles de style CSS, vérifiez vos références dans la stratégie d’extensions et les fichiers \*.html.
+1. Si vous constatez qu’il manque des polices, des images ou des feuilles de style CSS, vérifiez vos références dans la stratégie d’extensions et les fichiers `\*.html`.
 
 ## <a name="use-company-branding-assets-in-custom-html"></a>Utiliser des ressources de marque de société dans du code HTML personnalisé
 

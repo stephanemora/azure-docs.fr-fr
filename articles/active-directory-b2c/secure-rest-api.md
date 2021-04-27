@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 04/19/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 462d69a8bde0dec2689ac30620276b5bcd335410
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97516378"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717690"
 ---
 # <a name="secure-your-restful-services"></a>Sécuriser vos services API RESTful 
 
@@ -230,9 +230,50 @@ Une revendication fournit un stockage temporaire de données lors d’une exécu
 
 ### <a name="acquiring-an-access-token"></a>Acquisition d’un jeton d’accès 
 
-Vous pouvez obtenir un jeton d’accès de l’une des manières suivantes : en l’obtenant [auprès d’un fournisseur d’identité fédéré](idp-pass-through-user-flow.md), en appelant une API REST qui retourne un jeton d’accès, à l’aide d’un [flux ROPC](../active-directory/develop/v2-oauth-ropc.md) ou à l’aide du [flux d’informations d’identification du client](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+Vous pouvez obtenir un jeton d’accès de l’une des manières suivantes : en l’obtenant [auprès d’un fournisseur d’identité fédéré](idp-pass-through-user-flow.md), en appelant une API REST qui retourne un jeton d’accès, à l’aide d’un [flux ROPC](../active-directory/develop/v2-oauth-ropc.md) ou à l’aide du [flux d’informations d’identification du client](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Le flux d’informations d’identification de client est couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l’interaction immédiate d’un utilisateur.
 
-L’exemple suivant utilise un profil technique de l’API REST pour soumettre une requête au point de terminaison du jeton Azure AD à l’aide des informations d’identification du client passées en tant qu’authentification de base HTTP. Pour effectuer la configuration dans Azure AD, consultez [Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Vous devrez peut-être modifier cette valeur pour l’interface avec votre fournisseur d’identité. 
+#### <a name="acquiring-an-azure-ad-access-token"></a>Acquisition d’un jeton d’accès Azure AD 
+
+L’exemple suivant utilise un profil technique de l’API REST pour soumettre une requête au point de terminaison du jeton Azure AD à l’aide des informations d’identification du client passées en tant qu’authentification de base HTTP. Pour plus d’informations, voir [Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
+
+Pour obtenir un jeton d’accès Azure AD, créez une application dans votre locataire Azure AD :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD.
+1. Dans le menu de gauche, sélectionnez **Azure Active Directory**. Vous pouvez également sélectionner **Tous les services**, et rechercher et sélectionner **Azure Active Directory**.
+1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
+1. Entrez un **Nom** pour l’application. Par exemple, *Client_Credentials_Auth_app*.
+1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
+1. Sélectionnez **Inscription**.
+2. Enregistrez l’**ID d’application (client)** . 
+
+
+Pour un flux d’informations d’identification de client, vous devez créer un secret d’application. Le secret client est également appelé mot de passe d’application. Le secret sera utilisé par votre application pour acquérir un jeton d’accès.
+
+1. Dans la page **Azure AD B2C – Inscriptions d’applications**, sélectionnez l’application que vous avez créée, par exemple *Client_Credentials_Auth_app*.
+1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Certificats et secrets**.
+1. Sélectionnez **Nouveau secret client**.
+1. Entrez une description pour la clé secrète client dans la zone **Description**. Par exemple, *clientsecret1*.
+1. Sous **Expire**, sélectionnez une durée pendant laquelle le secret est valide, puis sélectionnez **Ajouter**.
+1. Enregistrez la **valeur** du secret en prévision d’une utilisation dans le code de votre application cliente. Cette valeur secrète ne sera plus jamais affichée lorsque vous aurez quitté cette page. Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
+
+#### <a name="create-azure-ad-b2c-policy-keys"></a>Créer des clés de stratégie Azure AD B2C
+
+Vous devez stocker l’ID de client et la clé secrète du client que vous avez enregistrée dans votre locataire Azure AD B2C.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+6. Pour **Options**, choisissez `Manual`.
+7. Entrez un **Nom** pour la clé de stratégie, `SecureRESTClientId`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+8. Dans **Secret**, entrez l’ID de client que vous avez enregistrée.
+9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
+10. Cliquez sur **Créer**.
+11. Créez une autre clé de stratégie avec les paramètres suivants :
+    -   **Nom** : `SecureRESTClientSecret`.
+    -   **Secret** : entrez la clé secrète client que vous avez enregistrée
 
 Au niveau de ServiceUrl, remplacez your-tenant-name par le nom de votre locataire Azure AD. Consultez la référence [Profil technique RESTful](restful-technical-profile.md) pour connaître toutes les options disponibles.
 
@@ -251,7 +292,7 @@ Au niveau de ServiceUrl, remplacez your-tenant-name par le nom de votre locatair
   </CryptographicKeys>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://secureb2cfunction.azurewebsites.net/.default" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />

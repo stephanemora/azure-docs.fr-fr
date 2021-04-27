@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 04/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: efa88e1be5c5df5dd09cb5a97c8ece352496ccdb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98600131"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769694"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
-La gestion de la sécurité peut s’avérer ardue lorsque les attaques courantes liées aux identités, telles que la pulvérisation de mot de passe, la relecture et le hameçonnage, deviennent de plus en plus monnaie courante. Les paramètres de sécurité par défaut facilitent la protection de votre organisation contre ces attaques avec des paramètres de sécurité préconfigurés :
+La gestion de la sécurité peut s’avérer ardue lorsque les attaques courantes liées aux identités, telles que la pulvérisation de mot de passe, la relecture et le hameçonnage, deviennent monnaie courante. Les paramètres de sécurité par défaut facilitent la protection de votre organisation contre ces attaques avec des paramètres de sécurité préconfigurés :
 
 - En exigeant que tous les utilisateurs s’inscrivent à Azure AD Multi-Factor Authentication.
 - En exigeant des administrateurs qu’ils effectuent l’authentification multifacteur.
@@ -35,7 +35,7 @@ Vous trouverez plus d’informations sur les raisons pour lesquelles les paramè
 
 ## <a name="availability"></a>Disponibilité
 
-Microsoft met les paramètres de sécurité par défaut à la disposition de tous. Le but est de s’assurer que toutes les organisations bénéficient d’un niveau de sécurité de base activé, sans coût supplémentaire. Vous activez les paramètres de sécurité par défaut dans le Portail Azure. Si votre locataire a été créé le 22 octobre 2019 ou à une date ultérieure, il est possible que les paramètres de sécurité par défaut soient déjà activés dans votre locataire. Dans le but de protéger tous nos utilisateurs, les paramètres de sécurité par défaut sont déployés sur tous les nouveaux locataires créés.
+Microsoft met les paramètres de sécurité par défaut à la disposition de tous. Le but est de s’assurer que toutes les organisations bénéficient d’un niveau de sécurité de base activé, sans coût supplémentaire. Vous activez les paramètres de sécurité par défaut dans le Portail Azure. Si votre locataire a été créé le 22 octobre 2019 ou à une date ultérieure, il est possible que les paramètres de sécurité par défaut soient déjà activés dans votre locataire. Pour protéger tous nos utilisateurs, les paramètres de sécurité par défaut sont déployés sur tous les nouveaux locataires créés.
 
 ### <a name="whos-it-for"></a>À qui cela s’adresse-t-il ?
 
@@ -70,6 +70,9 @@ Une fois l’inscription à Azure AD Multi-Factor Authentication terminée, les 
 - Administrateur d’utilisateurs
 - Administrateur d’authentification
 
+> [!WARNING]
+> Vérifiez que votre annuaire a au moins deux comptes disposant des privilèges d’administrateur général. Ceci vous aidera dans le cas où un administrateur général est verrouillé. Pour plus d’informations, consultez l’article [Gérer les comptes d’accès d’urgence dans Azure AD](../roles/security-emergency-access.md).
+
 ### <a name="protecting-all-users"></a>Protection de tous les utilisateurs
 
 Nous avons tendance à considérer que les comptes administrateur sont les seuls qui nécessitent des couches d’authentification supplémentaires. Les administrateurs ont largement accès à des informations sensibles et peuvent modifier des paramètres à l’échelle d’un abonnement. Pourtant, les attaquants ciblent souvent les utilisateurs finaux. 
@@ -85,7 +88,7 @@ Pour permettre à vos utilisateurs d’accéder facilement à vos applications c
 - Les clients Office qui n'utilisent pas l'authentification moderne (par exemple, un client Office 2010).
 - Tout client qui utilise d’anciens protocoles de messagerie tels que IMAP, SMTP ou POP3.
 
-Aujourd’hui, la majorité des tentatives de connexion compromettantes ont pour origine l’authentification héritée. L’authentification héritée ne prend pas en charge Multi-Factor Authentication. Même si une stratégie Multi-Factor Authentication est activée sur votre annuaire, un attaquant peut s’authentifier à l’aide d’un protocole plus ancien et contourner Multi-Factor Authentication. 
+Aujourd’hui, la plupart des tentatives de connexion compromettantes ont pour origine l’authentification héritée. L’authentification héritée ne prend pas en charge Multi-Factor Authentication. Même si une stratégie Multi-Factor Authentication est activée sur votre annuaire, un attaquant peut s’authentifier à l’aide d’un protocole plus ancien et contourner Multi-Factor Authentication. 
 
 Lorsque les paramètres de sécurité par défaut sont activés dans votre locataire, toutes les demandes d’authentification effectuées par un protocole hérité sont bloquées. Les paramètres par défaut de sécurité bloquent l’authentification de base Exchange Active Sync.
 

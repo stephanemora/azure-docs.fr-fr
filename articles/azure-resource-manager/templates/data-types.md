@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
 ms.date: 03/04/2021
-ms.openlocfilehash: 7d3f15c8852e6e25c621baad9bc6f20c303ffdb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d6c8306b3dbdfe895055dc008d81cc0d85d8d6c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102125001"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538065"
 ---
 # <a name="data-types-in-arm-templates"></a>Types de données dans les modèles ARM
 
@@ -143,11 +143,9 @@ Pour les entiers passés comme paramètres inclus, la plage de valeurs peut êtr
 
 Les objets commencent par une accolade ouvrante (`{`) et se terminent par une accolade fermante (`}`). Chaque propriété d’un objet se compose d’une clé et d’une valeur. La clé et la valeur sont séparées par un signe deux-points (`:`).
 
-Dans JSON, la clé est placée entre guillemets doubles. Les propriétés sont séparées par des virgules.
-
-Dans Bicep, la clé n’est pas entourée de guillemets. N’utilisez pas de virgules entre les propriétés.
-
 # <a name="json"></a>[JSON](#tab/json)
+
+Dans JSON, la clé est placée entre guillemets doubles. Les propriétés sont séparées par des virgules.
 
 ```json
 "parameters": {
@@ -165,6 +163,8 @@ Dans Bicep, la clé n’est pas entourée de guillemets. N’utilisez pas de vir
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
+Dans Bicep, la clé n’est pas entourée de guillemets. N’utilisez pas de virgules entre les propriétés.
+
 ```bicep
 param exampleObject object = {
   name: 'test name'
@@ -173,6 +173,22 @@ param exampleObject object = {
   tier: 1
 }
 ```
+
+Les accesseurs de propriété sont utilisés pour accéder aux propriétés d’un objet. Ils sont construits à l’aide de l’opérateur `.`. Par exemple :
+
+```bicep
+var x = {
+  y: {
+    z: 'Hello`
+    a: true
+  }
+  q: 42
+}
+```
+
+À partir de la déclaration précédente, l’expression x.y.z correspond à la chaîne littérale « Hello ». De même, l’expression x.q correspond au littéral entier 42.
+
+Les accesseurs de propriété peuvent être utilisés avec n’importe quel objet. Cela comprend les paramètres et les variables des types d’objets et des littéraux d’objet. L’utilisation d’un accesseur de propriété sur une expression de type hors objet est une erreur.
 
 ---
 

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: 88d0a3dcd89ea678d77bc558fc680630bc0f2309
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e12578fa6da679587d41fb25b17b00eb1645299a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168176"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718410"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -38,7 +38,7 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 | État de sortie :                  | Disponibilité générale (GA)                                                                                                                                                                                                                                                                                      |
 | Prix :                        | Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Plateformes prises en charge :            |  • Machines Azure exécutant Windows<br> • Machines Azure Arc exécutant Windows|
-| Versions de Windows prises en charge :  |  • **Disponibilité générale (GA) -** Détection sous Windows Server 2016, 2012 R2 et 2008 R2 SP1<br> • **Préversion -** Détection sous Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) et [Windows 10 Entreprise multisession](../virtual-desktop/windows-10-multisession-faq.yml) (anciennement Entreprise pour bureaux virtuels (EVD)|
+| Versions de Windows prises en charge pour la détection :  |  • Windows Server 2019, 2016, 2012 R2 et 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Entreprise multisession](../virtual-desktop/windows-10-multisession-faq.yml) (anciennement Enterprise for Virtual Desktops ou EVD)|
 | Systèmes d’exploitation non pris en charge :  |  • Windows 10 (autre que EVD ou WVD)<br> • Linux|
 | Rôles et autorisations obligatoires : | Pour activer/désactiver l'intégration : **Administrateur de la sécurité** ou **Propriétaire**<br>Pour afficher des alertes MDATP dans Security Center : **Lecteur de sécurité**, **Lecteur**, **Contributeur du groupe de ressources**, **Propriétaire du groupe de ressources**, **Administrateur de la sécurité**, **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement**|
 | Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov                                                        |
@@ -69,20 +69,22 @@ Quand vous utilisez Azure Security Center pour superviser vos serveurs, un locat
 Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifier. Si vous disposez de votre propre licence Microsoft Defender for Endpoint et qu’il vous faut déplacer vos données vers un autre emplacement, contactez le support Microsoft pour réinitialiser le locataire.
 
 
-## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Activation de l’intégration de Microsoft Defender for Endpoint
+## <a name="enable-the-microsoft-defender-for-endpoint-integration"></a>Activation de l’intégration de Microsoft Defender for Endpoint
 
-1. Vérifiez que votre machine est conforme aux conditions requises pour Defender pour point de terminaison :
+### <a name="prerequisites"></a>Prérequis
 
-    - Pour **toutes les versions de Windows** :
-        - Configurez les paramètres réseau décrits dans [Configurer les paramètres de proxy et de connectivité Internet de l'appareil](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
-        - Si vous déployez Defender pour point de terminaison sur des machines locales, connectez-le à Azure Arc comme expliqué dans [Connecter des machines hybrides à des serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-    - En outre, pour les **machines Windows Server 2019**, vérifiez qu'elles exécutent un agent valide et disposent de l'extension MicrosoftMonitoringAgent.
+Vérifiez que votre machine est conforme aux conditions requises pour Defender pour point de terminaison :
 
+1. Configurez les paramètres réseau décrits dans [Configurer les paramètres de proxy et de connectivité Internet de l'appareil](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
+1. Si vous déployez Defender pour point de terminaison sur des machines locales, connectez-le à Azure Arc comme expliqué dans [Connecter des machines hybrides à des serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+1. Pour les machines Windows Server 2019 uniquement, vérifiez qu’elles exécutent un agent valide et disposent de l’extension MicrosoftMonitoringAgent
 1. Activez **Azure Defender pour les serveurs**. Consultez [Démarrage rapide : Activer Azure Defender](enable-azure-defender.md).
-
 1. Si vous avez déjà acheté et déployé des licences Microsoft Defender for Endpoint sur vos serveurs, supprimez-les à l’aide de la procédure décrite dans [Retirer des serveurs Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
-1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
-1. Sélectionnez l’abonnement que vous souhaitez modifier.
+1. Si vous avez déplacé votre abonnement entre locataires Azure, certaines étapes préparatoires manuelles sont également requises. Pour plus d’informations, [contactez le support technique Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+
+### <a name="enable-the-integration"></a>Activer l’intégration
+1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**, puis l’abonnement que vous souhaitez modifier.
 1. Sélectionnez **Détection des menaces**.
 1. Sélectionnez **Autoriser Microsoft Defender for Endpoint à accéder à mes données**, puis **Enregistrer**.
 

@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: b626012ad825b263e4f837159a067ed1d817d93a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 4/15/2021
+ms.openlocfilehash: dcb77e45f5e1469363eb279626a866c7f719de40
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608597"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537537"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Présentation de la co-vente avec les équipes de vente et les partenaires Microsoft
 
@@ -80,7 +80,7 @@ Les offres qui obtiennent le statut de _Co-vente Azure IP avec incentives_ bén�
 - Les frais de service de la place de marché passent de 20 % à 10 %. Cette remise s’applique à votre solution IaaS (infrastructure as a service) ou SaaS (software as a service) vendue sur la Place de marché commerciale. Pour plus d’informations, consultez [Frais de service du marketplace commercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Les partenaires fournisseurs de solutions cloud (CSP) reçoivent une prime de 10 % pour vendre votre offre SaaS ou solution IaaS. Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](cloud-solution-providers.md).
 - Les ventes de votre offre via la Place de marché Azure contribueront aux engagements Azure Consumption Commitment des clients. Pour les clients éligibles, l’offre sera accompagnée de la mention **Éligible à Azure Benefit** dans le portail Azure. Pour plus d’informations, consultez [Avantage d’Azure Consumption Commitment](azure-consumption-commitment-benefit.md).
-- Les offres qui atteignent le statut _Co-vente Azure IP avec incentives_ ou qui sont inscrites dans le [Programme Microsoft Business Applications ISV Connect](business-applications-isv-program.md) avec le statut de préparation pour la co-vente recevront un badge **Solutions Microsoft préférées** dans la page d’annonce de l’offre dans les magasins en ligne. Ce badge démontre la qualité, les performances et la capacité d’une offre à répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis.
+- Les offres qui atteignent le statut _Co-vente Azure IP avec incentives_ ou qui sont inscrites dans le [Programme Microsoft Business Applications ISV Connect](business-applications-isv-program.md) avec le statut de préparation pour la co-vente recevront un badge **Solutions Microsoft préférées** dans la page d’annonce de l’offre dans les magasins en ligne : [Place de marché Azure](https://azuremarketplace.microsoft.com/) et [AppSource](https://appsource.microsoft.com/).  Une fois qu’une offre a atteint l’état correspondant, le badge de la solution préférée peut prendre jusqu’à 30 jours pour s’afficher dans le magasin en ligne. Ce badge démontre la qualité, les performances et la capacité d’une offre à répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis.
 
 Pour découvrir comment atteindre les statuts Prêt pour la co-vente et Co-vente avec incentives, consultez [Conditions des statuts Prêt pour la co-vente et Co-vente avec incentives](co-sell-requirements.md).
 

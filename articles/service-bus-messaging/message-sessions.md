@@ -2,13 +2,13 @@
 title: Sessions de messagerie Azure Service Bus | Microsoft Docs
 description: Cet article explique comment utiliser des sessions pour permettre un traitement conjoint et ordonné de séquences illimitées de messages associés.
 ms.topic: article
-ms.date: 04/12/2021
-ms.openlocfilehash: c9a1c4fdccbbc8b38805e23d4895448959126f10
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/19/2021
+ms.openlocfilehash: e22dfb2aa7372a227f70fd2bfa8f72d2161cda17
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308472"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750749"
 ---
 # <a name="message-sessions"></a>Sessions de message
 Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles **premier entré, premier sorti (FIFO**) et **requête-réponse**. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
@@ -24,15 +24,6 @@ Lors de l’envoi de messages dans une rubrique ou dans une file d’attente, to
 Dans les files d’attente ou abonnements prenant en compte la session, les sessions entrent en action quand au moins un message existe avec l’ID de session. Une fois qu’une session existe, aucune heure ou API ne définissent son expiration ou sa disparition. Il est théoriquement possible de recevoir un message pour une session le jour même, puis le message suivant un an après et, si l’ID de session correspond, Service Bus considère alors qu’il s’agit de la même session.
 
 Toutefois, en général, une application détermine précisément le début et la fin d’un ensemble de messages associés. Service Bus ne définit pas de règles spécifiques. Par exemple, votre application pourrait définir la propriété **Label** du premier message sur **start**, celle des messages intermédiaires sur **content** et celle du dernier message sur **end**. La position relative des messages de contenu peut être calculée comme étant égale à la différence entre la valeur *SequenceNumber* du message actuel et la valeur *SequenceNumber* du message présentant la valeur **start**.
-
-Vous activez cette fonctionnalité en définissant la propriété [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) sur la file d’attente ou l’abonnement par le biais d’Azure Resource Manager, ou en définissant l’indicateur dans le portail. Cette opération est obligatoire avant de tenter d’utiliser les opérations API associées.
-
-Dans le portail, vous pouvez activer des sessions lors de la création d’une entité (file d’attente ou abonnement) comme indiqué dans les exemples suivants. 
-
-:::image type="content" source="./media/message-sessions/queue-sessions.png" alt-text="Activer la session au moment de la création de la file d’attente":::
-
-:::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Activer la session au moment de la création de l’abonnement":::
-
 
 > [!IMPORTANT]
 > Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications client ***ne peuvent plus*** envoyer/recevoir des messages standard. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en acceptant la session.
@@ -90,14 +81,19 @@ Plusieurs applications peuvent envoyer leurs requêtes à une seule file d’att
 > L’application qui envoie les requêtes initiales doit connaître l’ID de session et l’utiliser pour accepter la session afin que la session sur laquelle elle attend la réponse soit verrouillée. Il est judicieux d’utiliser un GUID qui identifie de façon unique l’instance de l’application comme ID de session. Il ne doit y avoir aucun gestionnaire de session ni de délai d’attente spécifié sur le destinataire de session pour la file d’attente afin de garantir que les réponses sont disponibles pour verrouillage et traitement par des destinataires spécifiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
+Vous pouvez activer les sessions de message lors de la création d’une file d’attente à l’aide du portail Azure, de PowerShell, de l’interface de ligne de commande, d’un modèle Resource Manager, de .NET, Java, de Python et de JavaScript. Pour plus d’informations, consultez [Activer les sessions de messages](enable-message-sessions.md). 
 
+Essayez les exemples dans le langage de votre choix pour explorer les fonctionnalités d’Azure Service Bus. 
+
+- [Exemples de bibliothèque de client Azure Service Bus pour Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Exemples de bibliothèque de client Azure Service Bus pour Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Exemples de bibliothèque de client Azure Service Bus pour JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Exemples de bibliothèque de client Azure Service Bus pour TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Exemples Azure.Messaging.ServiceBus pour .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
-- [Bibliothèque de client Azure Service Bus pour Java – Exemples](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Bibliothèque de client Azure Service Bus pour Python – Exemples](/samples/azure/azure-sdk-for-python/servicebus-samples/)
-- [Bibliothèque de client Azure Service Bus pour JavaScript – Exemples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Bibliothèque de client Azure Service Bus pour TypeScript – Exemples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Exemples Microsoft.Azure.ServiceBus pour .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) (exemples de Sessions et de SessionState)  
 
-Pour en savoir plus sur la messagerie Service Bus, consultez [Files d’attentes, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md).
+Recherchez des exemples pour les anciennes bibliothèques clientes .NET et Java ci-dessous :
+- [Exemples Microsoft.Azure.ServiceBus pour .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Exemples azure-servicebus pour Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
 [1]: ./media/message-sessions/sessions.png
+

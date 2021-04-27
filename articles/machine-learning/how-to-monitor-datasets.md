@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: e7da81e896c0d59af966cca2760b1adb163762aa
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 95fb2dfeea98b988eaeaea43efc4ea44fd6e33fd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067501"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770306"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Détecter une dérive de données (préversion) sur des jeux de données
 
@@ -28,7 +28,7 @@ Avec les analyses de jeux de données Azure Machine Learning (version prélimina
 * **Surveiller les nouvelles données** pour identifier les différences entre le jeu de données de référence et le jeu de données cible.
 * **Profiler les caractéristiques dans les données** pour suivre la façon dont les propriétés statistiques évoluent au fil du temps.
 * **Configurer des alertes sur la dérive des données** pour les premiers avertissements relatifs aux problèmes potentiels. 
-* **[Créer une version de jeu de données] (procédure-suivi des jeux de données** lorsque vous déterminez que les données ont été trop dérivées.
+* **[Créez une version de jeu de données](how-to-version-track-datasets.md)** lorsque vous déterminez que les données ont été trop dérivées.
 
 Un [jeu de données Azure Machine learning](how-to-create-register-datasets.md) est utilisé pour créer l’analyse. Le jeu de données doit inclure une colonne timestamp.
 

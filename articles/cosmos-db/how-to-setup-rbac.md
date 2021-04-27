@@ -4,14 +4,14 @@ description: Découvrez comment configurer le contrôle d’accès en fonction d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/19/2021
 ms.author: thweiss
-ms.openlocfilehash: 1a6bdf55e52a7060423d2a016f07eee3608f50d4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 209d18dfbadea89f14fd90da9a1bc57b3ccf0dfe
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063472"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728070"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurer le contrôle d’accès en fonction du rôle avec Azure Active Directory pour votre compte Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,6 +45,16 @@ Le contrôle d’accès en fonction du rôle (RBAC) de plan de données Azure Co
 
 ## <a name="permission-model"></a><a id="permission-model"></a> Modèle d’autorisation
 
+> [!IMPORTANT]
+> Ce modèle d’autorisation couvre seulement les opérations de base de données qui vous permettent de lire et d’écrire des données. Il **ne couvre aucun** type d’opération de gestion, comme la création de conteneurs ou la modification de leur débit. Cela signifie que **vous ne pouvez pas utiliser de kit de développement logiciel (SDK) de plan de données Azure Cosmos DB** pour authentifier les opérations de gestion avec une identité AAD. Au lieu de cela, vous devez utiliser [Azure RBAC](role-based-access-control.md) via un des éléments suivants :
+> - [Modèles ARM](manage-with-templates.md)
+> - [Scripts Azure PowerShell](manage-with-powershell.md),
+> - [Scripts Azure CLI](manage-with-cli.md),
+> - Bibliothèques de gestion Azure disponibles pour
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
+>   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
+
 Le tableau ci-dessous liste toutes les actions exposées par le modèle d’autorisation.
 
 | Nom | Opération(s) de base de données correspondante(s) |
@@ -64,9 +74,6 @@ Les caractères génériques sont pris en charge au niveau des *conteneurs* et d
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
-
-> [!IMPORTANT]
-> Ce modèle d’autorisation couvre seulement les opérations de base de données qui vous permettent de lire et d’écrire des données. Il **ne couvre aucun** type d’opération de gestion, comme la création de conteneurs ou la modification de leur débit. Pour authentifier les opérations de gestion avec une identité AAD, utilisez à la place [Azure RBAC](role-based-access-control.md).
 
 ### <a name="metadata-requests"></a><a id="metadata-requests"></a> Demandes de métadonnées
 

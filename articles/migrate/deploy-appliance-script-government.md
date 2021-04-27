@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: c4ca8d8ac24ac174158957e44b5eabe4a89a5340
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0bc2b69a4a1ec31cfa560d51920378fe1ab52b8
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775202"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714791"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurer une appliance dans Azure Government 
 
@@ -26,7 +26,7 @@ Suivez cet article afin de déployer une [appliance Azure Migrate](./migrate-app
 
 Le script configure l’appliance Azure Migrate serveur physique ou sur un serveur virtualisé.
 
-- Le serveur faisant office d’appliance doit exécuter Windows Server 2016, avec 32 Go de mémoire, 8 processeurs virtuels, environ 80 Go de stockage sur disque et 1 commutateur virtuel externe. Elle a besoin d’une adresse IP statique ou dynamique et d’un accès à Internet.
+- Le serveur faisant office d’appliance doit exécuter Windows Server 2016, avec 32 Go de mémoire, 8 processeurs virtuels, environ 80 Go de stockage sur disque et 1 commutateur virtuel externe. Il nécessite une adresse IP statique ou dynamique. 
 - Avant de déployer l’appliance, examinez en détail la configuration d’appliance requise pour les [serveurs sur VMware](migrate-appliance.md#appliance---vmware), [sur Hyper-V](migrate-appliance.md#appliance---hyper-v) et pour les [serveurs physiques](migrate-appliance.md#appliance---physical).
 - N’exécutez pas le script sur une appliance de Azure Migrate existante.
 

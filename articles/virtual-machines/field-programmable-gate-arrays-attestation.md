@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: 563155bb6559f8443f1453a65fa0b1574af106f7
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a3408d30a9caa24355cf3976235c3a9b8061b95f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555916"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531223"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Attestation FPGA pour les machines virtuelles de la série Azure NP (préversion)
 
@@ -52,7 +52,7 @@ https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-lates
 
 Votre fichier netlist doit être chargé dans un conteneur d’objets Blob du stockage Azure pour permettre l’accès par le service d’attestation.  
 
-Reportez-vous à cette page pour plus d’informations sur la création du compte et d’un conteneur et le chargement de votre netlist en tant qu’objet Blob dans ce conteneur : https://docs.microsoft.com/azure/storage/blobs/storage-quickstartblobs-cli.  
+Reportez-vous à cette page pour plus d’informations sur la création du compte et d’un conteneur et le chargement de votre netlist en tant qu’objet Blob dans ce conteneur : [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](/azure/storage/blobs/storage-quickstart-blobs-cli).  
 
 Vous pouvez également utiliser le portail Azure à cette fin.  
 
@@ -60,7 +60,7 @@ Vous pouvez également utiliser le portail Azure à cette fin.
 
 Il existe plusieurs façons de copier le fichier ; vous trouverez ci-dessous un exemple d’utilisation de l’applet de commande az storage upload. Les commandes az s’exécutent à la fois sur Linux et Windows. Vous pouvez choisir n’importe quel nom pour le nom de l’objet Blob, mais veillez à conserver l’extension xclbin. 
 
-```az storage blob upload --account-name <storage account to receive netlist> container-name <blob container name> --name <blob filename> --file <local file with netlist>  ```
+```az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>  ```
 
 ## <a name="download-the-attestation-scripts"></a>Télécharger les scripts d’attestation  
 
@@ -82,13 +82,13 @@ Si vous souhaitez utiliser des répertoires virtuels, vous devez inclure la hié
 
 ### <a name="powershell"></a>PowerShell   
 
-```$sas=$(az storage container generate-sas --account-name <storage acct name> -name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)  ```
+```$sas=$(az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <e.g., 2021-01-07T17:00Z> --output tsv)  ```
 
 ```.\Validate-FPGAImage.ps1 -StorageAccountName <storage acct name> -Container <blob container name> -BlobContainerSAS $sas -NetlistName <netlist blob filename>  ```
 
 ### <a name="bash"></a>Bash  
 
-``` sas=az storage container generate-sas --account-name <storage acct name> -name <blob container name> --https-only --permissions rwc --expiry <2021-01-07T17:00Z> --output tsv  ```
+``` sas=az storage container generate-sas --account-name <storage acct name> --name <blob container name> --https-only --permissions rwc --expiry <2021-01-07T17:00Z> --output tsv  ```
 
 ```validate-fpgaimage.sh --storage-account <storage acct name> --container <blob container name> --netlist-name <netlist blob filename> --blob-container-sas $sas ``` 
 

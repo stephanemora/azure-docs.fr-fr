@@ -1,17 +1,17 @@
 ---
 title: Appliance de réplication Azure Migrate
-description: Apprenez-en davantage sur l’appliance de réplication Azure Migrate pour une migration VMWare basée sur un agent.
+description: Apprenez-en davantage sur l’appliance de réplication Azure Migrate pour une migration VMware basée sur un agent.
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: ec277bcc3e361561f54e72c54526d65487c113b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f63b033c3995932662fc9b68c1397bf57b0326e
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754094"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714971"
 ---
 # <a name="replication-appliance"></a>Appliance de réplication
 
@@ -75,7 +75,7 @@ MySQL doit être installé sur l’ordinateur de l’appliance de réplication. 
 **Méthode** | **Détails**
 --- | ---
 Télécharger et installer manuellement | Téléchargez l’application MySQL et placez-la dans le dossier C:\Temp\ASRSetup, puis installez-la manuellement.<br/> Quand vous configurez l’appliance, le MySQL apparaît comme déjà installé.
-Sans téléchargement en ligne | Placez votre application d’installation de MySQL dans le dossier C:\Temp\ASRSetup. Quand vous installez l’appliance, et que vous cliquez pour télécharger et installer MySQL, le programme d’installation utilise le programme d’installation que vous avez ajouté.
+Sans téléchargement en ligne | Placez votre application d’installation de MySQL dans le dossier C:\Temp\ASRSetup. Quand vous installez l’appliance, et que vous sélectionnez Télécharger et installer MySQL, le programme d’installation utilise le programme d’installation que vous avez ajouté.
 Télécharger et installer dans Azure Migrate | Lorsque vous installez l’appliance et que vous êtes invité à installer MySQL, sélectionnez **Télécharger et installer**.
 
 ## <a name="url-access"></a>accès URL
@@ -89,7 +89,7 @@ L'appliance de réplication doit avoir accès à ces URL dans le cloud public Az
 \*.blob.core.windows.net | Utilisé pour l’accès au compte de stockage qui stocke les données répliquées
 \*.hypervrecoverymanager.windowsazure.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
 https:\//management.azure.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
-*.services.visualstudio.com | Utilisé dans le cadre de la télémétrie (facultatif)
+*.services.visualstudio.com | Utilisé à des fins de journalisation (facultatif)
 time.windows.com | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
 https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Le programme d'installation de l'appliance doit avoir accès à ces URL. Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Pour effectuer le téléchargement de MySQL. Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l'URL du CDN est également autorisée, si nécessaire.
@@ -106,10 +106,17 @@ L'appliance de réplication doit avoir accès à ces URL dans Azure Government.
 \*.blob.core.windows.net | Utilisé pour l’accès au compte de stockage qui stocke les données répliquées
 \*.hypervrecoverymanager.windowsazure.us | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
 https:\//management.usgovcloudapi.net | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
-*.services.visualstudio.com | Utilisé dans le cadre de la télémétrie (facultatif)
+*.services.visualstudio.com | Utilisé à des fins de journalisation (facultatif)
 time.nist.gov | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
 https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Le programme d'installation de l'appliance avec OVA doit avoir accès à ces URL. Azure Active Directory les utilise pour le contrôle d'accès et la gestion des identités.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Pour effectuer le téléchargement de MySQL. Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l'URL du CDN est également autorisée, si nécessaire.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Pour effectuer le téléchargement de MySQL. Dans certaines régions, le téléchargement peut être redirigé vers l’URL CDN. Vérifiez que l'URL du CDN est également autorisée, si nécessaire.  
+
+>[!Note]
+>
+> Si vous migrez un projet avec une connectivité de point de terminaison privé, vous devez accéder aux URL suivantes avant l’accès aux liaisons privées :   
+> - *.blob.core.windows.com pour accéder au compte de stockage qui stocke les données répliquées. Cette option est facultative et n’est pas obligatoire si un point de terminaison privé est attaché au compte de stockage. 
+> - https:\//management.azure.com pour la coordination et les opérations de gestion de la réplication. 
+>- https:\//login.microsoftonline.com <br/>https:\//login.windows.net <br/> https:\//www.live.com _et_ <br/> https:\//www.microsoft.com pour le contrôle d’accès et la gestion des identités par Azure Active Directory
 
 ## <a name="port-access"></a>Accès au port
 
@@ -138,7 +145,7 @@ Serveur de traitement | Le serveur de traitement reçoit les données de réplic
 
 L’appliance est mise à niveau manuellement à partir du hub Azure Migrate. Nous vous recommandons de toujours exécuter la dernière version.
 
-1. Dans Azure Migrate > Servers > Azure Migrate : Évaluation du serveur, serveurs d’infrastructure, cliquez sur **Serveurs de configuration**.
+1. Dans Azure Migrate > Serveurs > Azure Migrate : Évaluation du serveur, serveurs d’infrastructure, sélectionnez **Serveurs de configuration**.
 2. Dans les **Serveurs de configuration**, un lien apparaît dans la **Version de l’agent** lorsqu’une nouvelle version de l’appliance de réplication est disponible. 
 3. Téléchargez le programme d’installation sur la machine de l’appliance de réplication et installez la mise à niveau. Le programme d’installation détecte la version actuelle en cours d’exécution sur l’appliance.
  

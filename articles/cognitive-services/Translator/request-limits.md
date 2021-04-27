@@ -8,37 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 04/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2bc2c1361c7d2f73ff8a67e906a6db725f669d52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5beb222ec20b1e7941f9438c0aacf98879a567a
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895405"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727939"
 ---
 # <a name="request-limits-for-translator"></a>Limites de requête pour Translator
 
-Cet article fournit des seuils de limitation de requêtes pour Translator. Les services incluent la traduction, la translittération, la détection de longueur de phrase, la détection de la langue et les traductions alternatives.
+Cet article fournit les limites pour la traduction, la translittération, la détection de la longueur des phrases, la détection de la langue et d’autres traductions.
 
 ## <a name="character-and-array-limits-per-request"></a>Limites de caractères et de tableaux par requête
 
-Chaque demande de traduction est limitée à 10 000 caractères, dans toutes les langues cibles de traduction. Par exemple, l’envoi d’une demande de traduction de 3 000 caractères à traduire en 3 langues différentes génère une demande d’une taille de 3 000 x 3 = 9 000 caractères, qui satisfait la limite de demande. Vous êtes facturé au caractère, et non pas au nombre de requêtes. Il est recommandé d’envoyer des requêtes plus courtes.
+Chaque demande de traduction est limitée à 10 000 caractères, dans toutes les langues cibles de traduction. Par exemple, l’envoi d’une demande de traduction de 3 000 caractères à traduire en trois langues différentes génère une demande d’une taille de 3 000 x 3 = 9 000 caractères, qui satisfait la limite de demande. Vous êtes facturé au caractère, et non pas au nombre de requêtes. Il est recommandé d’envoyer des requêtes plus courtes.
 
 Les tableaux suivants répertorient les limites d’éléments de tableau et de caractères pour chaque opération de Translator.
 
 | Opération | Taille maximale d’un élément de tableau |    Nombre maximal d’éléments de tableau |    Taille de requête maximale (caractères) |
 |:----|:----|:----|:----|
-| Translate | 10 000    | 100   | 10 000 |
-| Transliterate | 5 000 | 10    | 5 000 |
-| Detect | 50 000 | 100 |   50 000 |
-| BreakSentence | 50 000    | 100 | 50 000 |
-| Recherche dans le dictionnaire| 100 |  10  | 1 000 |
-| Exemples de dictionnaire | 100 pour le texte et 100 pour la traduction (200 au total)| 10|   2 000 |
+| Translate | 10 000| 100| 10 000 |
+| Transliterate | 5 000| 10| 5 000 |
+| Detect | 50 000 |100 |50 000 |
+| BreakSentence | 50 000| 100 |50 000 |
+| Recherche dans le dictionnaire| 100 |10| 1 000 |
+| Exemples de dictionnaire | 100 pour le texte et 100 pour la traduction (200 au total)| 10|2 000 |
 
 ## <a name="character-limits-per-hour"></a>Limites de caractères par heure
 
-Votre limite de caractère par heure est basée sur votre niveau d’abonnement à Translator. 
+Votre limite de caractère par heure est basée sur votre niveau d’abonnement à Translator.
 
 Le quota horaire doit être utilisé uniformément pendant la période d’une heure. Par exemple, pour la limite de 2 millions de caractères par heure du niveau F0, les caractères doivent être utilisés à une vitesse maximale de 33 300 caractères par fenêtre glissante de 1 minute (2 millions de caractères divisés par 60 minutes).
 
@@ -54,11 +54,11 @@ Si vous atteignez ou dépassez ces limites, ou si vous envoyez une partie trop i
 
 Les limites pour les [abonnements multiservice](./reference/v3-0-reference.md#authentication) sont les mêmes que pour le niveau S1.
 
-Ces limites s’appliquent uniquement aux modèles de traduction standard de Microsoft. Les systèmes de traduction personnalisés qui utilisent Custom Translator sont limités à 1 800 caractères par seconde.
+Ces limites s’appliquent uniquement aux modèles de traduction standard de Microsoft. Les systèmes de traduction personnalisés qui utilisent Custom Translator sont limités à 1 800 caractères par seconde et par modèle.
 
 ## <a name="latency"></a>Latence
 
-Translator a une latence maximale de 15 secondes avec les modèles standards et de 120 secondes avec les modèles personnalisés. En général, les réponses *pour un texte de moins de 100 caractères* sont retournées dans un délai de 150 à 300 millisecondes. Les modèles de traducteurs personnalisés ont des caractéristiques de latence similaires sur le taux de requêtes soutenu et peuvent avoir une latence plus élevée lorsque le taux de requêtes est intermittent. Les temps de réponse peuvent varier en fonction de la taille de la requête et de la paire de langues. Si vous ne recevez pas de traduction ou de [réponse d’erreur](./reference/v3-0-reference.md#errors) pendant ce laps de temps, vérifiez votre code et votre connexion réseau, puis réessayez. 
+Translator a une latence maximale de 15 secondes avec les modèles standards et de 120 secondes avec les modèles personnalisés. En général, les réponses *pour un texte de moins de 100 caractères* sont retournées dans un délai de 150 à 300 millisecondes. Les modèles de traducteurs personnalisés ont des caractéristiques de latence similaires sur le taux de requêtes soutenu et peuvent avoir une latence plus élevée lorsque le taux de requêtes est intermittent. Les temps de réponse peuvent varier en fonction de la taille de la requête et de la paire de langues. Si vous ne recevez pas de traduction ou de [réponse d’erreur](./reference/v3-0-reference.md#errors) pendant ce laps de temps, vérifiez votre code et votre connexion réseau, puis réessayez.
 
 ## <a name="sentence-length-limits"></a>Limites de longueur de phrase
 

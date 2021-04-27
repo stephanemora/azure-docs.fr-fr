@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f5bfce7ef2621cbe3bbbfdd95bf9a75e427c8cbd
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552255"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531884"
 ---
 # <a name="reset-redemption-status-for-a-guest-user-preview"></a>Réinitialiser l’état d’acceptation d’un utilisateur invité (préversion)
 
@@ -37,7 +37,9 @@ Si un utilisateur souhaite se connecter avec un autre e-mail :
 3. Utilisez l’une des méthodes ci-dessous pour réinitialiser l’état d’acceptation de l’utilisateur.
 
 > [!NOTE]
->Pendant la période de préversion publique, lorsque vous réinitialisez l’adresse e-mail de l’utilisateur, nous vous recommandons de définir la propriété `mail` sur la nouvelle adresse e-mail. Ainsi, l’utilisateur peut accepter l’invitation en se connectant à votre annuaire en plus de l’utilisation du lien d’échange dans l’invitation.
+>Pendant la préversion publique, nous avons deux recommandations :
+>- Lorsque vous redéfinissez l’adresse de messagerie de l’utilisateur sur une nouvelle adresse, nous vous recommandons de définir la propriété `mail`. Ainsi, l’utilisateur peut accepter l’invitation en se connectant à votre annuaire en plus de l’utilisation du lien d’échange dans l’invitation.
+>- Lorsque vous réaffectez l’état d’un utilisateur invité B2B, veillez à le faire sous le contexte de l’utilisateur. Les appels d’application uniquement ne sont actuellement pas pris en charge.
 >
 ## <a name="use-powershell-to-reset-redemption-status"></a>Réinitialisation de l’état d’acceptation avec PowerShell
 
@@ -54,7 +56,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Réinitialisation de l’état d’acceptation avec l’API Microsoft Graph
 
-Avec [l’API d’invitation Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0), définissez la propriété `resetRedemption` sur `true` et spécifiez la nouvelle adresse e-mail dans la propriété `invitedUserEmailAddress`.
+Avec [l’API d’invitation Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-beta&preserve-view=true), définissez la propriété `resetRedemption` sur `true` et spécifiez la nouvelle adresse e-mail dans la propriété `invitedUserEmailAddress`.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

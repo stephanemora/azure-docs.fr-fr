@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 4b4ee9d1e583241f8ec9b467ae9ddfdb1360fb52
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 37ac7573a1794c97c81fe5364204f85ff14d9fa6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284700"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538083"
 ---
 # <a name="spatial-analysis-operations"></a>Opérations d’analyse spatiale
 
@@ -125,7 +125,7 @@ Il s’agit d’un exemple de paramètres DETECTOR_NODE_CONFIG pour toutes les o
 | `zones` | list| Liste de zones. |
 | `name` | string| Nom convivial de cette zone.|
 | `polygon` | list| Chaque paire de valeurs représente x et y pour les vertex d’un polygone. Le polygone représente les zones dans lesquelles les personnes sont suivies ou comptées, et les points de polygone sont basés sur des coordonnées normalisées (0-1), où le coin supérieur gauche est (0,0, 0,0) et le coin inférieur droit est (1,0, 1,0).   
-| `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. |
+| `threshold` | float| Les événements sont envoyés lorsque la personne dépasse ce nombre de pixels à l’intérieur de la zone. |
 | `type` | string| Pour **cognitiveservices.vision.spatialanalysis-personcount**, cela doit être `count`.|
 | `trigger` | string| Type de déclencheur pour l’envoi d’un événement. Les valeurs prises en charge sont `event` pour l’envoi d’événements lorsque le nombre change ou `interval` pour envoyer des événements régulièrement, que le nombre ait changé ou non.
 | `output_frequency` | int | Vitesse à laquelle les événements sont émis. Lorsque `output_frequency` = X, un envoi est effectué tous les X événements, par ex. `output_frequency` = 2 signifie qu’un événement sur deux fait l’objet d’une sortie. La valeur `output_frequency` s’applique à la fois à `event` et à `interval`. |
@@ -172,7 +172,7 @@ Voici un exemple d’entrée JSON pour le paramètre SPACEANALYTICS_CONFIG qui c
 | `line` | list| Définition de la ligne. Il s’agit d’une ligne directionnelle qui vous permet de comprendre les « Enter » par rapport aux « Exit ».|
 | `start` | Paire de valeurs| Coordonnées x, y pour le point de départ de la ligne. Les valeurs float représentent la position du vertex par rapport au coin supérieur gauche. Pour calculer les valeurs x, y absolues, vous multipliez ces valeurs par la taille de cadre. |
 | `end` | Paire de valeurs| Coordonnées x, y pour le point de fin de la ligne. Les valeurs float représentent la position du vertex par rapport au coin supérieur gauche. Pour calculer les valeurs x, y absolues, vous multipliez ces valeurs par la taille de cadre. |
-| `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. La valeur par défaut est 16. Il s’agit de la valeur recommandée pour obtenir une précision maximale. |
+| `threshold` | float| Les événements sont envoyés lorsque la personne dépasse ce nombre de pixels à l’intérieur de la zone. La valeur par défaut est 16. Il s’agit de la valeur recommandée pour obtenir une précision maximale. |
 | `type` | string| Pour **cognitiveservices.vision.spatialanalysis-personcrossingline**, cela doit être `linecrossing`.|
 |`trigger`|string|Type de déclencheur pour l’envoi d’un événement.<br>Valeurs prises en charge : « event » : se déclenche quand quelqu’un traverse la ligne.|
 | `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne). La valeur par défaut est footprint.|
@@ -216,7 +216,7 @@ Voici un exemple d’entrée JSON pour le paramètre SPACEANALYTICS_CONFIG qui c
 | `zones` | list| Liste de zones. |
 | `name` | string| Nom convivial de cette zone.|
 | `polygon` | list| Chaque paire de valeurs représente x et y pour les vertex d’un polygone. Le polygone représente les zones dans lesquelles les personnes sont suivies ou comptées. Les valeurs float représentent la position du vertex par rapport au coin supérieur gauche. Pour calculer les valeurs x, y absolues, vous multipliez ces valeurs par la taille de cadre. 
-| `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. La valeur par défaut est 48 quand le type est zonecrossing et 16 quand l’heure est DwellTime. Il s’agit des valeurs recommandées pour obtenir une précision maximale.  |
+| `threshold` | float| Les événements sont envoyés lorsque la personne dépasse ce nombre de pixels à l’intérieur de la zone. La valeur par défaut est 48 quand le type est zonecrossing et 16 quand l’heure est DwellTime. Il s’agit des valeurs recommandées pour obtenir une précision maximale.  |
 | `type` | string| Pour **cognitiveservices.vision.spatialanalysis-personcrossingpolygon**, cela doit être `zonecrossing` ou `zonedwelltime`.|
 | `trigger`|string|Type de déclencheur pour l’envoi d’un événement<br>Valeurs prises en charge : « event » : se déclenche quand une personne entre ou quitte la zone.|
 | `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne). La valeur par défaut est footprint.|
@@ -251,7 +251,7 @@ Voici un exemple d’entrée JSON pour le paramètre SPACEANALYTICS_CONFIG qui c
 | `zones` | list| Liste de zones. |
 | `name` | string| Nom convivial de cette zone.|
 | `polygon` | list| Chaque paire de valeurs représente x et y pour les vertex d’un polygone. Le polygone représente les zones dans lesquelles les utilisateurs sont comptés et la distance entre les personnes. Les valeurs float représentent la position du vertex par rapport au coin supérieur gauche. Pour calculer les valeurs x, y absolues, vous multipliez ces valeurs par la taille de cadre. 
-| `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. |
+| `threshold` | float| Les événements sont envoyés lorsque la personne dépasse ce nombre de pixels à l’intérieur de la zone. |
 | `type` | string| Pour **cognitiveservices.vision.spatialanalysis-persondistance**, cela doit être `people_distance`.|
 | `trigger` | string| Type de déclencheur pour l’envoi d’un événement. Les valeurs prises en charge sont `event` pour l’envoi d’événements lorsque le nombre change ou `interval` pour envoyer des événements régulièrement, que le nombre ait changé ou non.
 | `output_frequency` | int | Vitesse à laquelle les événements sont émis. Lorsque `output_frequency` = X, un envoi est effectué tous les X événements, par ex. `output_frequency` = 2 signifie qu’un événement sur deux fait l’objet d’une sortie. La valeur `output_frequency` s’applique à la fois à `event` et à `interval`.|

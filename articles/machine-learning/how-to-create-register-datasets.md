@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 592c128a05b66b268c954ccd32b06863df5b25d1
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: f47d610a24de2cfc8f1131f61afc8c8173a34376
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029112"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786618"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -190,9 +190,10 @@ Une fois que vous avez créé et [inscrit](#register-datasets) votre jeu de donn
 Si vous n’avez pas besoin d’effectuer une exploration des données ou un data wrangling, découvrez comment utiliser des jeux de données dans vos scripts d’apprentissage pour soumettre des expériences ML dans [Effectuer l’apprentissage avec des jeux de données](how-to-train-with-datasets.md).
 
 ### <a name="filter-datasets-preview"></a>Filtrer les jeux de données (préversion)
+
 Les capacités de filtrage dépendent du type de jeu de données dont vous disposez. 
 > [!IMPORTANT]
-> Le filtrage de jeux de données à l’aide de la méthode de la préversion publique, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-), est une fonctionnalité d’évaluation [expérimentale](/python/api/overview/azure/ml/#stable-vs-experimental) et peut changer à tout moment. 
+> Le filtrage de jeux de données à l’aide de la méthode de la préversion, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-), est une fonctionnalité d’évaluation [expérimentale](/python/api/overview/azure/ml/#stable-vs-experimental) et peut changer à tout moment. 
 > 
 **Pour TabularDatasets**, vous pouvez conserver ou supprimer des colonnes avec les méthodes [keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) et [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-).
 
@@ -229,6 +230,59 @@ labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
 # Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
 labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
 ```
+
+### <a name="partition-data-preview"></a>Données de partition (préversion)
+
+Vous pouvez partitionner un jeu de données en incluant le paramètre `partitions_format` lors de la création d’un TabularDataset ou d’un FileDataset. 
+
+> [!IMPORTANT]
+> La création de partitions de jeu de données est une fonctionnalité [expérimentale](/python/api/overview/azure/ml/#stable-vs-experimental) en préversion et peut changer à tout moment. 
+
+Lorsque vous partitionnez un jeu de données, les informations de partition de chaque chemin d’accès de fichier sont extraites dans des colonnes en fonction du format spécifié. Le format doit commencer à partir de la position de la première clé de partition et se poursuivre jusqu’à la fin du chemin d’accès au fichier. 
+
+Par exemple, étant donné le chemin d’accès `../Accounts/2019/01/01/data.jsonl` où la partition se fait par nom de service et par heure, `partition_format='/{Department}/{PartitionDate:yyyy/MM/dd}/data.jsonl'` crée une colonne de chaîne « Department » avec la valeur « Accounts » et une colonne DateTime « PartitionDate » avec la valeur `2019-01-01`.
+
+Si vos données comportent déjà des partitions existantes et que vous souhaitez conserver ce format, incluez le paramètre `partitioned_format` dans votre méthode [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true--partition-format-none-) pour créer un FileDataset. 
+
+Pour créer un TabularDataset qui conserve les partitions existantes, incluez le paramètre `partitioned_format` dans la méthode [from_parquet_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) ou [from_delimited_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--).
+
+L’exemple suivant :
+* Crée un FileDataset à partir de fichiers partitionnés.
+* Obtient les clés de partition
+* Crée un nouveau FileDataset indexé avec
+ 
+```Python
+
+file_dataset = Dataset.File.from_files(data_paths, partition_format = '{userid}/*.wav')
+ds.register(name='speech_dataset')
+
+# access partition_keys
+indexes = file_dataset.partition_keys # ['userid']
+
+# get all partition key value pairs should return [{'userid': 'user1'}, {'userid': 'user2'}]
+partitions = file_dataset.get_partition_key_values()
+
+
+partitions = file_dataset.get_partition_key_values(['userid'])
+# return [{'userid': 'user1'}, {'userid': 'user2'}]
+
+# filter API, this will only download data from user1/ folder
+new_file_dataset = file_dataset.filter(ds['userid'] == 'user1').download()
+```
+
+Vous pouvez également créer une nouvelle structure de partitions pour TabularDatasets avec la méthode [partitions_by()](/python/api/azureml-core/azureml.data.tabulardataset#partition-by-partition-keys--target--name-none--show-progress-true--partition-as-file-dataset-false-).
+
+```Python
+
+ dataset = Dataset.get_by_name('test') # indexed by country, state, partition_date
+
+# call partition_by locally
+new_dataset = ds.partition_by(name="repartitioned_ds", partition_keys=['country'], target=DataPath(datastore, "repartition"))
+partition_keys = new_dataset.partition_keys # ['country']
+```
+
+>[!IMPORTANT]
+> Les partitions TabularDataset peuvent également être appliquées dans des pipelines Azure Machine Learning comme entrée à votre ParallelRunStep dans de nombreux modèles d’application. Découvrez un exemple dans la [documentation relative à l’accélérateur de nombreux modèles](https://github.com/microsoft/solution-accelerator-many-models/blob/master/01_Data_Preparation.ipynb).
 
 ## <a name="explore-data"></a>Explorer des données
 

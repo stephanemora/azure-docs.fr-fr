@@ -6,15 +6,15 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 04/19/2021
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 0c33d766bfd3dff47ddb151e8ce4ea7b25c37548
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43268afccbe66a21d2ce78709ba372a8a6682444
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98897949"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727147"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Appairage et alignement des phrases dans des documents parallèles
 
@@ -22,7 +22,7 @@ Une fois les documents chargés, les phrases présentes dans les documents paral
 
 ## <a name="pairing-and-alignment-process"></a>Processus d’appairage et d’alignement
 
-Custom Translator apprend la traduction de phrases à raison d’une phrase à la fois. Il lit une phrase du texte source, puis la traduction de cette phrase dans le texte cible. Ensuite, il aligne les mots et les phrases de ces deux phrases les uns avec les autres. Ce processus lui permet de créer un mappage des mots et des phrases en une phrase avec les mots et les phrases équivalents dans la traduction de cette phrase. L’alignement vise à garantir que le système effectue son apprentissage sur des phrases qui sont des traductions les unes des autres.
+Custom Translator apprend la traduction de phrases à raison d’une phrase à la fois. Il lit une phrase du texte source, puis la traduction de cette phrase dans le texte cible. Ensuite, il aligne les mots et les phrases de ces deux phrases les uns avec les autres. Ce processus lui permet de créer un mappage des mots et des phrases en une phrase avec les mots et les phrases équivalents dans la traduction de la phrase. L’alignement vise à garantir que le système effectue son apprentissage sur des phrases qui sont des traductions les unes des autres.
 
 ## <a name="pre-aligned-documents"></a>Documents préalignés
 
@@ -39,12 +39,14 @@ Pour qu’un entraînement réussisse, le tableau ci-dessous indique le nombre m
 | Entrainement   | 10 000                                     | Pas de limite supérieure                 |
 | Réglage     | 500                                      | 2 500       |
 | Test    | 500                                      | 2 500  |
-| Dictionnaire | 0                                          | Pas de limite supérieure                 |
+| Dictionnaire | 0                                          | 250 000                 |
 
 > [!NOTE]
-> - L’entraînement ne commencera pas et échouera si le nombre minimal de 10 000 phrases d’entraînement n’est pas atteint. 
-> - Le réglage et le test sont facultatifs. Si vous ne les fournissez pas, le système supprime un pourcentage approprié de l’entraînement à utiliser pour la validation et le test. 
+>
+> - L’entraînement ne commencera pas et échouera si le nombre minimal de 10 000 phrases d’entraînement n’est pas atteint.
+> - Le réglage et le test sont facultatifs. Si vous ne les fournissez pas, le système supprime un pourcentage approprié de l’entraînement à utiliser pour la validation et le test.
 > - Il est possible d’entraîner un modèle en n’utilisant que des données de dictionnaire. Reportez-vous à [Qu’est-ce qu’un dictionnaire ?](./what-is-dictionary.md).
+> - Si votre dictionnaire contient plus de 250 000 phrases, le **[Traducteur de documents](https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview)** est probablement un meilleur choix.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

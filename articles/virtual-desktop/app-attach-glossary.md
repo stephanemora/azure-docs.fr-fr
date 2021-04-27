@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: deb02c161dfe41bf79b7905fde23678425aaf55f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c5c596735ad91f38d5ba4217135a9373d2856182
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448370"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538459"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossaire Attachement d’application MSIX
 
@@ -33,7 +33,7 @@ Un package MSIX est un fichier ou une application MSIX.
 
 ## <a name="msix-share"></a>Partage MSIX
 
-Un partage MSIX est un partage réseau qui contient des packages MSIX étendus. Les partages MSIX prennent en charge SMB 3 ou version ultérieure. Les applications sont transférées à partir de ce partage MSIX sans avoir à déplacer les fichiers d’application sur le lecteur système.
+Un partage MSIX est un partage réseau qui contient des packages MSIX étendus. Les partages MSIX doivent prendre en charge SMB 3 ou version ultérieure. Les partages doivent également être accessibles aux machines virtuelles dans le compte système du pool d’hôtes. Les packages MSIX sont transférés à partir de ce partage MSIX sans avoir à déplacer les fichiers d’application sur le lecteur système. 
 
 ## <a name="msix-image"></a>Image MSIX
 

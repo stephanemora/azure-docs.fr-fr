@@ -8,16 +8,16 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20f9aaf73fe0cb30b136254d57e6c9b960c16af4
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501292"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107716975"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Activer et créer des partages de fichiers volumineux
 
-Lorsque vous activez des partages de fichiers volumineux sur votre compte de stockage, vos partages de fichiers peuvent être mis à l’échelle jusqu’à 100 Tio, tout en renforçant les IOPS et les limites de débit pour les partages standard. Vous pouvez également activer cette mise à l’échelle sur vos comptes de stockage existants pour vos partages de fichiers existants. Consultez [Partage de fichiers et objectifs de mise à l’échelle des fichiers](storage-files-scale-targets.md#azure-files-scale-targets) pour obtenir des détails. 
+Lorsque vous activez des partages de fichiers volumineux sur votre compte de stockage, l’échelle de vos partages de fichiers Azure peut augmenter jusqu’à 100 Tio. Lorsque vous activez les partages de fichiers volumineux, cela peut également augmenter les limites de débit et d’E/S par seconde de votre partage de fichiers. Vous pouvez également activer cette mise à l’échelle sur vos comptes de stockage existants pour les partages de fichiers nouveaux et existants. Pour plus d’informations sur les différences de performances, consultez [Partage de fichiers et objectifs de mise à l’échelle des fichiers](storage-files-scale-targets.md#azure-files-scale-targets).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,7 +27,7 @@ Lorsque vous activez des partages de fichiers volumineux sur votre compte de sto
 
 ## <a name="restrictions"></a>Restrictions
 
-Pour le moment, vous ne pouvez utiliser qu’un stockage localement redondant (LRS) ou un stockage redondant interzone (ZRS) sur des comptes activés pour le partage de fichiers volumineux. Vous ne pouvez pas utiliser un stockage géoredondant interzone (GZRS), un stockage géoredondant (GRS), un stockage géoredondant avec accès en lecture (RA-GRS) ou un stockage géoredondant interzone avec accès en lecture (RA-GZRS).
+Pour le moment, vous ne pouvez utiliser qu’un stockage localement redondant (LRS) ou un stockage redondant interzone (ZRS) sur des comptes de stockage activés pour le partage de fichiers volumineux. Vous ne pouvez pas utiliser un stockage géoredondant interzone (GZRS), un stockage géoredondant (GRS), un stockage géoredondant avec accès en lecture (RA-GRS) ou un stockage géoredondant interzone avec accès en lecture (RA-GZRS).
 
 L’activation de partages de fichiers volumineux sur un compte est un processus irréversible. Une fois que vous l’avez activé, vous ne pouvez plus convertir votre compte en GZRS, GRS, RA-GRS ou RA-GZRS.
 
@@ -38,29 +38,12 @@ L’activation de partages de fichiers volumineux sur un compte est un processus
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le portail Azure, sélectionnez **Tous les services**. 
 1. Dans la liste des ressources, entrez **Comptes de stockage**. Lorsque vous écrivez, au fur et à mesure de votre saisie, la liste est filtrée. Sélectionnez **Comptes de stockage**.
-1. Dans la fenêtre **Comptes de stockage** qui apparaît, sélectionnez **Ajouter**.
-1. Sélectionnez l’abonnement que vous allez utiliser pour créer le compte de stockage.
-1. Sous le champ **Groupe de ressources**, sélectionnez **Créer**. Entrez le nom de votre nouveau groupe de ressources.
-
-    ![Capture d’écran montrant comment créer un groupe de ressources sur le portail](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
-
-1. Ensuite, entrez un nom pour votre compte de stockage. Le nom doit être unique dans tout Azure. Le nom doit comporter entre 3 et 24 caractères, et être constitué seulement de chiffres et de lettres minuscules.
-1. Sélectionnez l’emplacement de votre compte de stockage.
-1. Définissez la réplication sur **Stockage localement redondant** ou sur **Stockage redondant interzone**.
-1. Laissez ces champs définis sur leur valeur par défaut :
-
-   |Champ  |Valeur  |
-   |---------|---------|
-   |Modèle de déploiement     |Gestionnaire de ressources         |
-   |Performances     |standard         |
-   |Type de compte     |StorageV2 (usage général v2)         |
-   |Niveau d’accès     |À chaud         |
-
-1. Sélectionnez **Avancé**, puis activez la case d’option **Activé** à droite **Partages de fichiers volumineux**.
+1. Dans le panneau **Comptes de stockage** qui apparaît, sélectionnez **+ Nouveau**.
+1. Dans le panneau Général, renseignez les sélections comme vous le souhaitez.
+1. Vérifiez que **Performances** est défini sur **Standard**.
+1. Définissez la **Redondance** sur **Stockage localement redondant** ou sur **Stockage redondant interzone**.
+1. Sélectionnez le panneau **Avancé**, puis activez la case d’option **Activé** à droite **Partages de fichiers volumineux**.
 1. Cliquez sur **Vérifier + créer** pour passer en revue vos paramètres de compte de stockage et créer le compte.
-
-    ![Capture d’écran avec la case d’option « Activé » sur un nouveau compte de stockage dans le portail Azure](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
-
 1. Sélectionnez **Create** (Créer).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -92,12 +75,13 @@ Vous pouvez aussi activer les partages de fichiers volumineux sur vos comptes ex
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Ouvrez le [portail Azure](https://portal.azure.com) et accédez au compte de stockage où vous voulez activer les partages de fichiers volumineux.
-1. Ouvrez le compte de stockage et sélectionnez **Configuration**.
+1. Ouvrez le [portail Azure](https://portal.azure.com) et accédez au compte de stockage sur lequel vous souhaitez activer les partages de fichiers volumineux.
+1. Ouvrez le compte de stockage et sélectionnez **Partages de fichiers**.
 1. Sélectionnez **Activé** pour **Partages de fichiers volumineux**, puis sélectionnez **Enregistrer**.
 1. Sélectionnez **Vue d’ensemble** puis **Actualiser**.
+1. Sélectionnez **Capacité de partage**, puis **100 Tio** et **Enregistrer**.
 
-![Sélection de la case d’option « Activé » sur un compte de stockage existant dans le portail Azure](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Capture d’écran du compte de stockage Azure, le panneau Partages de fichiers avec des partages de 100 Tio mis en surbrillance.":::
 
 Vous avez maintenant activé les partages de fichiers volumineux sur votre compte de stockage. Ensuite, vous devez [mettre à jour le quota du partage existant](#expand-existing-file-shares) pour tirer parti de l’augmentation de la capacité et de l’échelle.
 
