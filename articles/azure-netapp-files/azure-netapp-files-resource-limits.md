@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 9b061184f97abeea79912aadbae2c2b188206c72
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f023bfa2b3941f7d667f4be34a8ee8dc1ed9a9c3
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057998"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750191"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -56,7 +56,7 @@ Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la gestio
 
 ## <a name="maxfiles-limits"></a>Limites maxfiles <a name="maxfiles"></a> 
 
-Les volumes Azure NetApp Files ont une limite appelée *maxfiles*. La limite maxfiles correspond au nombre de fichiers qu’un volume peut contenir. La limite maxfiles d’un volume Azure NetApp Files est indexée en fonction de la taille (du quota) du volume. La limite maxfiles d’un volume augmente ou diminue au rythme de 20 millions de fichiers par Tio de taille de volume provisionnée. 
+Les volumes Azure NetApp Files ont une limite appelée *maxfiles*. La limite maxfiles correspond au nombre de fichiers qu’un volume peut contenir. Les systèmes de fichiers Linux se réfèrent à la limite en tant qu’*inodes*. La limite maxfiles d’un volume Azure NetApp Files est indexée en fonction de la taille (du quota) du volume. La limite maxfiles d’un volume augmente ou diminue au rythme de 20 millions de fichiers par Tio de taille de volume provisionnée. 
 
 Le service ajuste dynamiquement la limite maxfiles d’un volume en fonction de sa taille provisionnée. Par exemple, un volume configuré initialement avec une taille de 1 Tio a une limite maxfiles de 20 millions. Les modifications ultérieures apportées à la taille du volume entraînent une réajustement automatique de la limite maxfiles selon les règles suivantes : 
 
@@ -68,7 +68,9 @@ Le service ajuste dynamiquement la limite maxfiles d’un volume en fonction de 
 |    > 3 Tio mais <= 4 Tio    |    80 millions     |
 |    > 4 Tio                 |    100 millions    |
 
-Si vous avez déjà alloué au moins 4 Tio de quota pour un volume, vous pouvez initier une [demande de support](#limit_increase) afin d’augmenter la limite maxfiles au-delà de 100 millions. Tous les 100 millions de fichiers que vous augmentez (ou une fraction de ceux-ci), vous devez augmenter le quota de volume correspondant de 4 Tio.  Par exemple, si vous augmentez la limite maxfiles de 100 millions de fichiers à 200 millions de fichiers (ou n’importe quel nombre dans cette plage), vous devez augmenter le quota de volume de 4 Tio à 8 Tio.
+Si vous avez déjà alloué au moins 4 Tio de quota pour un volume, vous pouvez initier une [demande de support](#limit_increase) afin d’augmenter la limite maxfiles (inodes) au-delà de 100 millions. Tous les 100 millions de fichiers que vous augmentez (ou une fraction de ceux-ci), vous devez augmenter le quota de volume correspondant de 4 Tio.  Par exemple, si vous augmentez la limite maxfiles de 100 millions de fichiers à 200 millions de fichiers (ou n’importe quel nombre dans cette plage), vous devez augmenter le quota de volume de 4 Tio à 8 Tio.
+
+Vous pouvez augmenter la limite maxfiles à 500 millions si votre quota de volume est d’au moins 20 Tio. <!-- ANF-11854 --> 
 
 ## <a name="request-limit-increase"></a>Demander une augmentation de limite <a name="limit_increase"></a> 
 

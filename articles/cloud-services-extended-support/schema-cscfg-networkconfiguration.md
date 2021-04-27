@@ -8,12 +8,12 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 2650da2579f13ec1588af7a25e5b28908209bc82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed2d48288bf97fe3ebaa1e8ffc1336d8a82d940e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101700182"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719022"
 ---
 # <a name="azure-cloud-services-extended-support-config-networkconfiguration-schema"></a>Schéma NetworkConfiguration Azure Cloud Services (support étendu)
 
@@ -70,7 +70,7 @@ La table suivante décrit les éléments enfants de l’élément `NetworkConfig
 | VirtualNetworkSite | facultatif. Spécifie le nom du site de réseau virtuel dans lequel vous souhaitez déployer votre service cloud. Ce paramètre ne crée pas de site de réseau virtuel. Il fait référence à un site qui a été défini précédemment dans le fichier réseau pour votre réseau virtuel. Un service cloud ne peut faire partie que d’un seul réseau virtuel. Si vous ne spécifiez pas ce paramètre, le service cloud ne sera pas déployé sur un réseau virtuel. Le nom du site de réseau virtuel est défini par une chaîne pour l’attribut `name`.|
 | InstanceAddress | facultatif. Spécifie l’association d’un rôle à un sous-réseau ou à un ensemble de sous-réseaux du réseau virtuel. Quand vous associez un nom de rôle à une adresse d’instance, vous pouvez spécifier les sous-réseaux auxquels vous souhaitez associer ce rôle. L’élément `InstanceAddress` contient un élément Subnets. Le nom du rôle associé aux sous-réseaux est défini par une chaîne pour l’attribut `roleName`.|
 | Subnet | facultatif. Spécifie le sous-réseau qui correspond au nom du sous-réseau dans le fichier de configuration réseau. Le nom du sous-réseau est défini par une chaîne pour l’attribut `name`.|
-| ReservedIP | facultatif. Spécifie l’adresse IP réservée à associer au déploiement. Vous devez utiliser l’action Créer une adresse IP réservée pour créer l’adresse IP réservée. Chaque déploiement dans un service cloud peut être associé à une adresse IP réservée. Le nom de l’adresse IP réservée est défini par une chaîne pour l’attribut `name`.|
+| ReservedIP | facultatif. Spécifie l’adresse IP réservée à associer au déploiement. La méthode d’allocation d’une adresse IP réservée doit être spécifiée comme `Static` pour les déploiements de modèle et PowerShell. Chaque déploiement dans un service cloud peut être associé à une adresse IP réservée. Le nom de l’adresse IP réservée est défini par une chaîne pour l’attribut `name`.|
 
 ## <a name="see-also"></a>Voir aussi
 [Schéma de configuration du service cloud (support étendu)](schema-cscfg-file.md).

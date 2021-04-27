@@ -7,12 +7,12 @@ ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d545610b8fa13d0c0f8b91bf92107d53b81454c3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 13abb35d0fa9ad3ee949b6edf5205de601a02956
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313842"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718554"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exempter une ressource des recommandations et du degré de sécurisation 
 
@@ -35,7 +35,7 @@ Dans ce cas, vous pouvez créer une exemption pour une recommandation pour :
 | État de sortie :                  | PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Prix :                        | Il s’agit d’une capacité premium d’Azure Policy proposée sans surcoût aux clients d’Azure Defender. Pour les autres utilisateurs, des frais pourront s’appliquer.                                                                                                                                                                 |
 | Rôles et autorisations obligatoires : | **Propriétaire** ou **Contributeur de stratégie de ressource** pour créer une exemption<br>Pour créer une règle, vous devez disposer de l’autorisation de modifier des stratégies dans Azure Policy.<br>Pour plus d’informations, consultez [Autorisations Azure RBAC dans Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Limites :                    | Les exemptions ne peuvent être créées que pour les recommandations incluses dans l’initiative par défaut de Security Center, Azure Security Benchmark, ou l’une des initiatives de normes réglementaires fournies. Les recommandations générées à partir d’initiatives personnalisées ne peuvent pas être exemptées. En savoir plus sur les relations entre les [stratégies, les initiatives et les recommandations](security-policy-concept.md). |
+| Limites :                    | Les exemptions ne peuvent être créées que pour les recommandations incluses dans l’initiative par défaut de Security Center, [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), ou l’une des initiatives de normes réglementaires fournies. Les recommandations générées à partir d’initiatives personnalisées ne peuvent pas être exemptées. En savoir plus sur les relations entre les [stratégies, les initiatives et les recommandations](security-policy-concept.md). |
 | Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 

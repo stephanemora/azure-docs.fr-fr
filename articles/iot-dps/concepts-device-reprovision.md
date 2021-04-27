@@ -3,16 +3,16 @@ title: Service Azure IoT Hub Device Provisioning – Concepts d’appareil
 description: Décrit les concepts du reprovisionnement d’appareils pour le Service Azure IoT Hub Device Provisioning (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbc83ec62c10fae00e371cd9ad95cf2860495fad
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91842850"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575766"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Concepts du reprovisionnement d’appareils IoT Hub
 
@@ -61,6 +61,9 @@ Selon le scénario, un appareil envoie généralement une demande à une instanc
     ![Diagramme montrant qu'une stratégie est appliquée lorsque des appareils associés à l'entrée d'inscription envoient une nouvelle demande d'approvisionnement.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **Ne jamais reprovisionner** : l’appareil n’est jamais réassigné à un autre hub. Cette stratégie est fournie pour gérer la compatibilité descendante.
+
+> [!NOTE]
+> DPS appellera toujours le webhook d’allocation personnalisée, quelle que soit la stratégie de reprovisionnement en cas de nouvelles [ReturnData](how-to-send-additional-data.md) pour l’appareil. Si la stratégie de reprovisionnement est définie sur **Ne jamais reprovisionner**, le webhook est appelé, mais l’appareil ne change pas son hub attribué.
 
 ### <a name="managing-backwards-compatibility"></a>Gestion de la compatibilité descendante
 

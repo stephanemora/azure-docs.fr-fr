@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: ae94ac9719a827a2d1af258398988f0972e61b3a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: a8c06b25b923d663e982e940100be7b9a2a009e1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305512"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726841"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -213,6 +213,43 @@ La gestion de `SMB Shares`, `Sessions` et `Open Files` via la console de gestion
 ### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Comment puis-je obtenir l’adresse IP d’un volume SMB via le portail ?
 
 Utilisez le lien **Affichage JSON** dans le volet de vue d’ensemble du volume et recherchez l’identificateur **startIp** sous **Propriétés** -> **mountTargets**.
+
+### <a name="smb-encryption-faqs"></a>FAQ sur le chiffrement SMB
+
+Cette section répond aux questions fréquentes sur le chiffrement SMB (SMB 3.0 et SMB 3.1.1).
+
+#### <a name="what-is-smb-encryption"></a>Présentation du chiffrement SMB  
+
+La fonctionnalité [Chiffrement SMB](/windows-server/storage/file-server/smb-security) permet un chiffrement de bout en bout des données SMB et protège les données contre les tentatives d’écoute clandestine sur des réseaux non approuvés. Le chiffrement SMB est pris en charge sur SMB 3.0 et versions ultérieures. 
+
+#### <a name="how-does-smb-encryption-work"></a>Fonctionnement du chiffrement SMB
+
+Lors de l’envoi d’une demande au stockage, le client chiffre la demande, que le stockage déchiffre ensuite. Les réponses sont chiffrées de façon similaire par le serveur et déchiffrées par le client.
+
+#### <a name="which-clients-support-smb-encryption"></a>Quels clients prennent en charge le chiffrement SMB ?
+
+Windows 10, Windows 2012 et les versions ultérieures prennent en charge le chiffrement SMB.
+
+#### <a name="with-azure-netapp-files-at-what-layer-is-smb-encryption-enabled"></a>Avec Azure NetApp Files, sur quelle couche le chiffrement SMB est-il activé ?  
+
+Le chiffrement SMB est activé au niveau du partage.
+
+#### <a name="what-forms-of-smb-encryption-are-used-by-azure-netapp-files"></a>Quelles sont les formes de chiffrement SMB utilisées par Azure NetApp Files ?
+
+SMB 3.0 utilise l’algorithme AES-CCM, tandis que SMB 3.1.1 utilise l’algorithme AES-GCM
+
+#### <a name="is-smb-encryption-required"></a>Le chiffrement SMB est-il obligatoire ?
+
+Le chiffrement SMB n’est pas obligatoire. Par conséquent, il est activé uniquement pour un partage donné si l’utilisateur demande qu’Azure NetApp Files l’active. Les partages Azure NetApp Files ne sont jamais exposés à Internet. Ils sont accessibles uniquement à partir d’un réseau virtuel donné, via VPN ou Express Route, de sorte que les partages Azure NetApp Files sont sécurisés par nature. Le choix d’activer le chiffrement SMB dépend entièrement de l’utilisateur. Tenez compte de la baisse des performances prévue avant d’activer cette fonctionnalité.
+
+#### <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a><a name="smb_encryption_impact"></a>Quel est l’impact escompté du chiffrement SMB sur les charges de travail client ?
+
+Bien que le chiffrement SMB ait un impact sur le client (surcharge du processeur pour le chiffrement et le déchiffrement des messages) et le stockage (réduction du débit), le tableau suivant met en évidence l’impact sur le stockage uniquement. Vous devez tester l’incidence des performances du chiffrement sur vos applications avant de déployer des charges de travail en production.
+
+|     Profil d’E/S       |     Impact        |
+|-  |-  |
+|     Charges de travail d’écriture et de lecture      |     10 % à 15 %        |
+|     Utilisation intensive des métadonnées        |     5 %    |
 
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 

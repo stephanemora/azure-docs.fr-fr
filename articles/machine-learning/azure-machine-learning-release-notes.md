@@ -9,18 +9,42 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 7c22381d547029aedc5965d07033e8800fcbddc3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1de495253dacac5aeab7dcff95f74aeed11782a8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313145"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750731"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](/python/api/overview/azure/ml/intro) d’Azure Machine Learning.
 
 __Flux RSS__ : Recevez une notification quand cette page est mise à jour en copiant et collant l’URL suivante dans votre lecteur de flux : `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-04-19"></a>2021-04-19
+
+### <a name="azure-machine-learning-sdk-for-python-v1270"></a>SDK Azure Machine Learning pour Python v1.27.0
++ **Résolutions de bogue et améliorations**
+  + **azureml-core**
+    + Ajout de la possibilité de remplacer la valeur de délai d’attente par défaut pour le téléchargement d’artefacts via la variable d’environnement « AZUREML_ARTIFACTS_DEFAULT_TIMEOUT ».
+    + Correction d’un bogue où les paramètres Docker de l’objet Environnement sur ScriptRunConfig ne sont pas respectés.
+    + Autoriser le partitionnement d’un jeu de données lors de sa copie vers une destination.
+    + Ajout d’un mode personnalisé à OutputDatasetConfig pour permettre le passage de jeux de données créés dans des pipelines par le biais d’une fonction de liaison. Ces améliorations de prise en charge ont été apportées afin d’activer le partitionnement tabulaire pour PRS.
+    + Ajout d’un nouveau type de calcul KubernetesCompute à azureml-core.
+  + **azureml-pipeline-core**
+    + Ajout d’un mode personnalisé à OutputDatasetConfig et fonctionnalité permettant à un utilisateur de transmettre des jeux de données créés dans des pipelines via une fonction de liaison. Les destinations des chemins de fichiers prennent en charge les espaces réservés. Ces améliorations de prise en charge ont été apportées afin d’activer le partitionnement tabulaire pour PRS.
+    + Ajout d’un nouveau type de calcul KubernetesCompute à azureml-core.
+  + **azureml-pipeline-steps**
+    + Ajout d’un nouveau type de calcul KubernetesCompute à azureml-core.
+  + **azureml-synapse**
+    + Mise à jour de l’URL de l’interface utilisateur Spark dans le widget de azureml synapse
+  + **azureml-train-automl-client**
+    + Le caractériseur STL pour la tâche de prévision utilise à présent une détection saisonnière plus robuste basée sur la fréquence de la série chronologique.
+  + **azureml-train-core**
+    + Correction d’un bogue où les paramètres Docker de l’objet Environnement ne sont pas respectés.
+    + Ajout d’un nouveau type de calcul KubernetesCompute à azureml-core.
 
 
 ## <a name="2021-04-05"></a>2021-04-05
