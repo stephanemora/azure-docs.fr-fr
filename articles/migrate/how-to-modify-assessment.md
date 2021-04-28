@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.openlocfilehash: 9bda4750f6b4340399bbbe070954dd23930b1ae1
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e2fc240e04ec375f95bef74e3fd44381ff8cceb6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104785204"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135740"
 ---
 # <a name="customize-an-assessment"></a>Personnaliser une évaluation
 
@@ -95,7 +95,7 @@ Voici ce qu’incluent les propriétés d’évaluation d’Azure SQL :
 **Utilisation en centile** | L’utilisation en centile spécifie la valeur de centile de l’échantillon de performances utilisé pour le dimensionnement adéquat.
 **Facteur de confort** | Mémoire tampon utilisée pendant l’évaluation. Il prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une instance à 10 cœurs avec 20 % d’utilisation correspond normalement à une instance à deux cœurs. Avec un facteur de confort de 2.0, le résultat est plutôt une instance à quatre cœurs.
 **Programme d’offre/de licences** | [Offre Azure](https://azure.microsoft.com/support/legal/offer-details/) dans laquelle vous êtes inscrit. Pour le moment, vous ne pouvez choisir qu’entre le paiement à l’utilisation et le Dev/Test de paiement à l’utilisation. Notez que vous pouvez bénéficier d’une remise supplémentaire en demandant une capacité de réserve et Azure Hybrid Benefit en plus de l’offre de paiement à l’utilisation.
-**Niveau de service** | Option de niveau de service la plus appropriée en fonction des besoins de votre entreprise pour la migration vers Azure SQL Database et/ou Azure SQL Managed Instance.<br/><br/>**Recommandé** si vous souhaitez qu’Azure Migrate recommande le niveau de service le plus adapté à vos serveurs. Ce peut être Usage général ou Critique pour l’entreprise. <br/><br/> **Usage général** si vous souhaitez une configuration d’Azure SQL conçue pour des charges de travail axées sur le budget. [En savoir plus](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Critique pour l’entreprise** si vous souhaitez une configuration d’Azure SQL conçue pour des charges de travail à faible latence avec une haute résilience aux échecs et aux basculements rapides. [En savoir plus](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Niveau de service** | Option de niveau de service la plus appropriée en fonction des besoins de votre entreprise pour la migration vers Azure SQL Database et/ou Azure SQL Managed Instance.<br/><br/>**Recommandé** si vous souhaitez qu’Azure Migrate recommande le niveau de service le plus adapté à vos serveurs. Ce peut être Usage général ou Critique pour l’entreprise. <br/><br/> **Usage général** si vous souhaitez une configuration d’Azure SQL conçue pour des charges de travail axées sur le budget. [En savoir plus](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> **Critique pour l’entreprise** si vous souhaitez une configuration d’Azure SQL conçue pour des charges de travail à faible latence avec une haute résilience aux échecs et aux basculements rapides. [En savoir plus](../azure-sql/database/service-tier-business-critical.md)
 **Devise** | Devise de facturation de votre compte.
 **Remise (%)** | Toute remise propre à un abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
 **Azure Hybrid Benefit** | Spécifie si vous disposez déjà d’une licence SQL Server. <br/><br/> Si c’est le cas et si vous êtes couvert par une Software Assurance active des abonnements SQL Server, vous pouvez demander Azure Hybrid Benefit au moment d’importer les licences dans Azure.
@@ -119,4 +119,3 @@ Vous pouvez également modifier les propriétés d’évaluation lors de la cré
 - [En savoir plus](concepts-assessment-calculation.md) sur le mode de calcul des évaluations de machines virtuelles Azure.
 - [En savoir plus](concepts-azure-sql-assessment-calculation.md) sur le mode de calcul des évaluations d’Azure SQL.
 - [En savoir plus](concepts-azure-vmware-solution-assessment-calculation.md) sur le mode de calcul des évaluations AVS.
-

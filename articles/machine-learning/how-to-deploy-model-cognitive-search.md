@@ -5,18 +5,18 @@ description: Découvrez comment utiliser Azure Machine Learning afin de déploye
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 03/11/2021
 ms.custom: deploy
-ms.openlocfilehash: 22c8880cbcde1f1a55fa66beee0323e0348e1164
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a6fc35db56d016362f006e401ddb156e931440b
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149611"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889481"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Déployer un modèle à utiliser avec Recherche cognitive
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.openlocfilehash: c9b8e916c82a42df7addb3c49b4452c0eb403023
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 774114a27e5bcb23bc3cdddc08f5d42b3c43bb36
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536915"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132032"
 ---
 # <a name="configure-the-max-degree-of-parallelism-maxdop-in-azure-sql-database"></a>Configurer le degré maximal de parallélisme (MAXDOP) dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,8 +44,8 @@ ms.locfileid: "107536915"
 | MAXDOP | Comportement | 
 |--|--|
 | = 1 | Le moteur de base de données utilise un seul thread série pour exécuter les requêtes. Les threads parallèles ne sont pas utilisés. | 
-| > 1 | Le moteur de base de données définit le nombre de [planificateurs](https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) supplémentaires à utiliser par les threads parallèles à la valeur MAXDOP, ou le nombre total de processeurs logiques, la valeur la plus petite étant retenue. |
-| = 0 | Le moteur de base de données définit le nombre de [planificateurs](https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) supplémentaires à utiliser par les threads parallèles au nombre total de processeurs logiques ou 64, la valeur la plus petite étant retenue. | 
+| > 1 | Le moteur de base de données définit le nombre de [planificateurs](/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) supplémentaires à utiliser par les threads parallèles à la valeur MAXDOP, ou le nombre total de processeurs logiques, la valeur la plus petite étant retenue. |
+| = 0 | Le moteur de base de données définit le nombre de [planificateurs](/sql/relational-databases/thread-and-task-architecture-guide#sql-server-task-scheduling) supplémentaires à utiliser par les threads parallèles au nombre total de processeurs logiques ou 64, la valeur la plus petite étant retenue. | 
 | | |
 
 > [!Note]

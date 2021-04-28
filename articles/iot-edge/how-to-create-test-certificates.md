@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d8cf3dbe9d1dc2ad329a0b5ab8fa9554c85ae55c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adfb46894e769a23a2ac48bdb4ac3e432d9cebce
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199095"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139054"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge
 
@@ -361,7 +361,7 @@ Lorsque vous authentifiez un appareil IoT avec des certificats auto-signés, vou
 Ensuite, vous effectuez une vérification pour prouver à IoT Hub que vous êtes propriétaire du certificat d’autorité de certification racine.
 Enfin, vous utilisez le même certificat d’autorité de certification racine pour créer des certificats d’appareil à placer sur votre appareil IoT afin qu’il puisse s’authentifier avec IoT Hub.
 
-Les certificats de cette section concernent la procédure [Configurer la sécurité X.509 dans votre Azure IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md).
+Les certificats de cette section concernent la procédure [Configurer la sécurité X.509 dans votre Azure IoT Hub](../iot-hub/tutorial-x509-scripts.md).
 
 #### <a name="windows"></a>Windows
 

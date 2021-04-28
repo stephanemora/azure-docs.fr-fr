@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 40fa1bc776c5cd457e57cf170f629b6cf92800fe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 01e274ebb9746004713c3f3e6a36f9088a597802
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585993"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140731"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Qu’est-ce qu’Azure Stack Edge Pro R ?
 
@@ -79,7 +79,7 @@ L’appareil physique Azure Stack Edge Pro R, la ressource Azure et le compte de
 
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure. Pour garantir des performances optimales, les régions où des comptes de stockage stockent les données Azure Stack Edge Pro R doivent se trouver à proximité de l’appareil. Un compte de stockage situé dans un emplacement éloigné entraîne des temps de latence longs et une baisse des performances.
 
-Le service Azure Stack Edge est un service non régional. Pour plus d'informations, consultez [Régions et zones de disponibilité dans Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Le service Azure Stack Edge ne dépend pas d’une région Azure spécifique, ce qui le rend résilient aux pannes aux niveaux de la zone et de la région.
+Le service Azure Stack Edge est un service non régional. Pour plus d'informations, consultez [Régions et zones de disponibilité dans Azure](../availability-zones/az-overview.md). Le service Azure Stack Edge ne dépend pas d’une région Azure spécifique, ce qui le rend résilient aux pannes aux niveaux de la zone et de la région.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

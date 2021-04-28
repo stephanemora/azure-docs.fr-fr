@@ -1,18 +1,18 @@
 ---
 title: Activité Switch dans Azure Data Factory
 description: L’activité Switch vous permet de contrôler le flux de traitement en fonction d’une condition.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 08d93bd3d49dc345b35a942d4d5db4eef937d3de
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: dee7e7b21f3f7deb3d76bf36e07a82eeb84ed35a
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786139"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906257"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Activité Switch dans Azure Data Factory
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: b74ebf332790fd9a08840c8c76d99e2b014dac43
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: ddb42dde242bb9c3f33a6dc3f8f52a147367f295
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103077"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139108"
 ---
 # <a name="ddos-protection-reference-architectures"></a>Architectures de référence de la protection DDoS
 
@@ -72,7 +72,7 @@ Les ressources principales de l’environnement local ne sont pas exposées à l
 
 Lorsque DDoS protection Standard est activé sur le réseau virtuel qui contient l’AppGW/WAF, DDoS Protection Standard protège votre application en atténuant le trafic et en acheminant le trafic supposé propre vers votre application. 
 
-Cet [article](https://docs.microsoft.com/azure/azure-vmware/protect-azure-vmware-solution-with-application-gateway) explique comment utiliser DDoS protection Standard avec Application Gateway pour protéger une application web s’exécutant sur une solution VMware Azure.
+Cet [article](../azure-vmware/protect-azure-vmware-solution-with-application-gateway.md) explique comment utiliser DDoS protection Standard avec Application Gateway pour protéger une application web s’exécutant sur une solution VMware Azure.
 
 ## <a name="mitigation-for-non-web-paas-services"></a>Atténuation pour les services PaaS non web
 

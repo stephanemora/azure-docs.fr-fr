@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 4ab2c599bea4b2e3e682755a80a2ee348e4de7ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8012702e9004361c8b19797bf0ca66553d307dce
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606774"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138190"
 ---
 # <a name="scaling-hpc-applications"></a>Mise à l’échelle d’applications HPC
 
@@ -112,4 +112,7 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [HPC](/azure/architecture/topics/high-performance-computing/) sur Azure.
+- Testez vos connaissances avec un [module d’apprentissage sur l’optimisation des applications HPC dans Azure](/learn/modules/optimize-tightly-coupled-hpc-apps/).
+- Consultez la [Présentation de la série HBv3](hbv3-series-overview.md) et la [Présentation de la série HC](hc-series-overview.md).
+- Consultez les dernières annonces, des exemples de charge de travail HPC et les résultats des performances sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- En savoir plus sur [HPC](/azure/architecture/topics/high-performance-computing/) sur Azure.

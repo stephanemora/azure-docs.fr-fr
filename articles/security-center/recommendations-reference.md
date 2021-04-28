@@ -4,22 +4,21 @@ description: Cet article liste les recommandations de sécurité d’Azure Secur
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: e994aead1840fd3ef9b57e92cf95e94837608d7a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 0457cba053e79907780b52aee00e25ea78987c6b
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719130"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001874"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
 Cet article liste les recommandations que vous pouvez voir dans Azure Security Center. Les recommandations présentées dans votre environnement dépendent des ressources que vous protégez et de votre configuration personnalisée.
 
-Les recommandations de Security Center sont basées sur le [Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
-Le Benchmark de sécurité Azure est l’ensemble des directives propres à Azure et créées par Microsoft contenant les bonnes pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. Ce point de référence, largement respecté et centré sur le cloud, est basé sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/).
+Les recommandations de Security Center sont basées sur le [Benchmark de sécurité Azure](../security/benchmarks/introduction.md). Le Benchmark de sécurité Azure est l’ensemble des directives propres à Azure et créées par Microsoft contenant les bonnes pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. Ce point de référence, largement respecté et centré sur le cloud, est basé sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/).
 
 Pour en savoir plus sur la façon de répondre à ces recommandations, consultez [Appliquer les recommandations d’Azure Security Center](security-center-remediate-recommendations.md).
 

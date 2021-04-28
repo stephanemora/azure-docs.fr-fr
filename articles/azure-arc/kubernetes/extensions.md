@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Déployer des extensions sur Kubernetes avec Azure Arc et gérer leur cycle de vie
-ms.openlocfilehash: 854d7418515d7927a3c0b4b8790ed4770af555ab
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 362f1f0ca62c915eb7c17c80084d15aaaa75110e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312618"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139648"
 ---
 # <a name="kubernetes-cluster-extensions"></a>Extensions de cluster Kubernetes
 
@@ -27,7 +27,7 @@ Une vue d’ensemble conceptuelle de cette fonctionnalité est disponible dans l
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Procédez à l’installation ou à la mise à niveau d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) vers une version >= 2.16.0.
+- [Procédez à l’installation ou à la mise à niveau d’Azure CLI](/cli/azure/install-azure-cli) vers une version >= 2.16.0.
 - Extensions Azure CLI `connectedk8s` (version >= 1.1.0) et `k8s-extension` (version >= 0.2.0). Installez ces extensions Azure CLI en exécutant les commandes suivantes :
   
     ```azurecli
@@ -101,7 +101,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 
 > [!NOTE]
 > * Le service ne peut pas conserver d’informations sensibles pendant plus de 48 heures. Si les agents Kubernetes avec Azure Arc n’ont pas de connectivité réseau pendant plus de 48 heures et ne peuvent pas déterminer s’il faut créer une extension sur le cluster, l’extension passe à l’état `Failed`. Une fois l’extension dans l’état `Failed`, vous devrez réexécuter `k8s-extension create` pour créer une nouvelle extension de ressource Azure.
-> * * Azure Monitor pour conteneurs est une extension singleton (une seule requise par cluster). Vous devez nettoyer toutes les installations précédentes de graphique Helm d’Azure Monitor pour conteneurs (sans extensions) avant de les réinstaller via des extensions. Suivez les instructions pour [supprimer le graphique Helm avant d’exécuter la commande `az k8s-extension create`](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-hybrid).
+> * * Azure Monitor pour conteneurs est une extension singleton (une seule requise par cluster). Vous devez nettoyer toutes les installations précédentes de graphique Helm d’Azure Monitor pour conteneurs (sans extensions) avant de les réinstaller via des extensions. Suivez les instructions pour [supprimer le graphique Helm avant d’exécuter la commande `az k8s-extension create`](../../azure-monitor/containers/container-insights-optout-hybrid.md).
 
 **Paramètres obligatoires**
 

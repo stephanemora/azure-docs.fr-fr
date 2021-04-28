@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 5407213b62902326d53b73e42ee3af1ba9b11524
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f2b2dcc7e22ce904035a6805d78e59ad14f9bff1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877358"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134786"
 ---
 # <a name="self-diagnose-running-azure-spring-cloud-in-vnet"></a>Auto-diagnostic Azure Spring Cloud dans le réseau virtuel
 Le diagnostic Azure Spring Cloud prend en charge les applications de dépannage interactives exécutées dans des réseaux virtuels sans configuration. La fonctionnalité de diagnostic Azure Spring Cloud identifie les incidents et vous guide vers les informations qui vous aident au dépannage et à la résolution des problèmes.
@@ -61,7 +61,7 @@ Si vous sélectionnez **Trafic sortant requis**, les résultats indiquent s’il
 * *Trafic sortant requis résolu sans problème dans le sous-réseau « subnet01 ».
 * *Trafic sortant requis résolu sans problème dans le sous-réseau « subnet02 ».
 
-Si un sous-réseau est bloqué par un groupe de sécurité réseau ou des règles de pare-feu et que vous n’avez pas bloqué le journal, les échecs suivants se produisent. Vous pouvez vérifier si vous avez négligé les [Responsabilités du client](spring-cloud-vnet-customer-responsibilities.md).
+Si un sous-réseau est bloqué par un groupe de sécurité réseau ou des règles de pare-feu et que vous n’avez pas bloqué le journal, les échecs suivants se produisent. Vous pouvez vérifier si vous avez négligé les [Responsabilités du client](./vnet-customer-responsibilities.md).
     
    ![Échec du point de terminaison](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
 
@@ -70,4 +70,4 @@ Si aucune donnée n’est présente dans le `Required Outbound Traffic Table Ren
    ![Point de terminaison de diagnostic inconnu](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-unknown.png)
 
 ## <a name="see-also"></a>Voir aussi
-* [Comment auto-diagnostiquer Azure Spring Cloud](spring-cloud-howto-self-diagnose-solve.md)
+* [Comment auto-diagnostiquer Azure Spring Cloud](./how-to-self-diagnose-solve.md)

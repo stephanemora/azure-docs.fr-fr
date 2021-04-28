@@ -5,15 +5,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: e8dd887d151eb553131048f232940555dbef324b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 012aa364fe9e379455b6b63f7c9e541d2d5b97ed
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025031"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726895"
 ---
 # <a name="enable-sql-insights-preview"></a>Activer SQL Insights (préversion)
 Cet article explique comment activer [SQL Insights](sql-insights-overview.md) pour analyser vos déploiements SQL. L’analyse est effectuée à partir d’une machine virtuelle Azure qui établit une connexion à vos déploiements SQL et utilise des vues de gestion dynamique (DMV) pour collecter les données d’analyse. Vous pouvez contrôler les jeux de données qui sont collectés et la fréquence de collecte à l’aide d’un profil d’analyse.
+
+> [!NOTE]
+> Pour activer SQL Insights en créant le profil de surveillance et la machine virtuelle à l’aide d’un modèle Resource Manager, consultez [Exemples de modèles Resource Manager pour SQL Insights](resource-manager-sql-insights.md).
 
 ## <a name="create-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 SQL Insights stocke ses données dans un ou plusieurs [espaces de travail Log Analytics](../logs/data-platform-logs.md#log-analytics-workspaces).  Avant de pouvoir activer SQL Insights, vous devez soit [créer un espace de travail](../logs/quick-create-workspace.md), soit en sélectionner un existant. Un seul espace de travail peut être utilisé avec plusieurs profils d’analyse, mais l’espace de travail et les profils doivent se trouver dans la même région Azure. Pour activer les fonctionnalités et y accéder dans SQL Insights, vous devez avoir le [rôle de contributeur Log Analytics](../logs/manage-access.md) dans l’espace de travail. 
@@ -21,12 +24,15 @@ SQL Insights stocke ses données dans un ou plusieurs [espaces de travail Log An
 ## <a name="create-monitoring-user"></a>Créer des règles d’analyse 
 Vous avez besoin d’un utilisateur sur les déploiements SQL que vous souhaitez analyser. Suivez les procédures ci-dessous pour les différents types de déploiements SQL.
 
+Les instructions ci-dessous décrivent le processus par type de SQL que vous pouvez surveiller.  Pour effectuer cette opération avec un script sur plusieurs ressources SQL à la fois, reportez-vous au [fichier LISEZMOI](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) et à l’[exemple de script](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1) suivants.
+
+
 ### <a name="azure-sql-database"></a>Base de données Azure SQL
 Ouvrez Azure SQL Database avec [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou [Éditeur de requête (préversion)](../../azure-sql/database/connect-query-portal.md) dans le Portail Azure.
 
 Exécutez le script suivant pour créer un utilisateur avec les autorisations requises. Remplacez *utilisateur* par un nom d’utilisateur et *mystrongpassword* par un mot de passe.
 
-```
+```sql
 CREATE USER [user] WITH PASSWORD = N'mystrongpassword'; 
 GO 
 GRANT VIEW DATABASE STATE TO [user]; 
@@ -39,11 +45,23 @@ Vérifiez que l’utilisateur a été créé.
 
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Vérifiez le script utilisateur Telegraf." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type,
+       authentication_type_desc as authentication_type
+from sys.database_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
+```
+
 ### <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
 Connectez-vous à Azure SQL Managed Instance et utilisez [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou un outil similaire pour exécuter le script suivant afin de créer l’utilisateur d’analyse avec les autorisations nécessaires. Remplacez *utilisateur* par un nom d’utilisateur et *mystrongpassword* par un mot de passe.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -58,7 +76,7 @@ GO
 Connectez-vous à votre machine virtuelle Azure exécutant SQL Server et utilisez [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou un outil similaire pour exécuter le script suivant afin de créer l’utilisateur d’analyse avec les autorisations nécessaires. Remplacez *utilisateur* par un nom d’utilisateur et *mystrongpassword* par un mot de passe.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -67,6 +85,19 @@ GRANT VIEW SERVER STATE TO [user];
 GO 
 GRANT VIEW ANY DEFINITION TO [user]; 
 GO
+```
+
+Vérifiez que l’utilisateur a été créé.
+
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type
+from sys.server_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
 ```
 
 ## <a name="create-azure-virtual-machine"></a>Créer une machine virtuelle Azure 
@@ -167,7 +198,7 @@ Entrer la chaîne de connexion dans le formulaire :
 
 ```
 sqlAzureConnections": [ 
-   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
+   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
 }
 ```
 
@@ -175,7 +206,7 @@ Obtenez les détails de l’élément de menu **Chaînes de connexion** pour la 
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="Chaîne de connexion à la base de données SQL" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
-Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion.
+Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion. SQL Insights prend en charge l’analyse d’un seul secondaire. Les données collectées seront marquées pour refléter le primaire ou le secondaire. 
 
 
 #### <a name="azure-virtual-machines-running-sql-server"></a>Machines virtuelles Azure exécutant SQL Server 
@@ -183,7 +214,7 @@ Entrer la chaîne de connexion dans le formulaire :
 
 ```
 "sqlVmConnections": [ 
-   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
+   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
 
@@ -191,15 +222,13 @@ Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel, 
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="Sécurité de la machine virtuelle SQL" lightbox="media/sql-insights-enable/sql-vm-security.png":::
 
-Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion.
-
 
 ### <a name="azure-sql-managed-instances"></a>Instances Azure SQL Managed Instance 
 Entrer la chaîne de connexion dans le formulaire :
 
 ```
 "sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
+      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
     ] 
 ```
 Obtenez les détails de l’élément de menu **Chaînes de connexion** pour l’instance gérée.
@@ -207,8 +236,7 @@ Obtenez les détails de l’élément de menu **Chaînes de connexion** pour l�
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="Chaîne de connexion SQL Managed Instance" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion.
-
+Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion. SQL Insights prend en charge l’analyse d’un seul secondaire, et les données collectées seront marquées pour refléter le primaire ou le secondaire. 
 
 
 ## <a name="monitoring-profile-created"></a>Création d’un profil d’analyse 

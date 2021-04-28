@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 4/20/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 386a95b46bd4787ea9ad2925ea1d2b2a0627a05e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b88d63f86c863b5f1c050e293912cb6628d50b00
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795886"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140026"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -46,9 +46,9 @@ CAQuietExec64:  + FullyQualifiedErrorId : UnauthorizedAccess
 CAQuietExec64:  Error 0x80070001: Command line returned an error.
 ```
 
-Ce problème se produit si la [stratégie d’exécution de PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) est configurée à l’aide d’une stratégie de groupe et que le paramètre de stratégie est « Autoriser uniquement les scripts signés ». Tous les scripts inclus avec l’agent Azure File Sync sont signés. L’installation de l’agent Azure File Sync échoue car le programme d’installation effectue l’exécution du script à l’aide du paramètre Contourner la stratégie d’exécution.
+Ce problème se produit si la [stratégie d’exécution de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) est configurée à l’aide d’une stratégie de groupe et que le paramètre de stratégie est « Autoriser uniquement les scripts signés ». Tous les scripts inclus avec l’agent Azure File Sync sont signés. L’installation de l’agent Azure File Sync échoue car le programme d’installation effectue l’exécution du script à l’aide du paramètre Contourner la stratégie d’exécution.
 
-Pour résoudre ce problème, désactivez temporairement le paramètre de stratégie de groupe [Activer l’exécution des scripts](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) sur le serveur. Une fois l’installation de l’agent terminée, vous pouvez réactiver le paramètre de stratégie de groupe.
+Pour résoudre ce problème, désactivez temporairement le paramètre de stratégie de groupe [Activer l’exécution des scripts](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) sur le serveur. Une fois l’installation de l’agent terminée, vous pouvez réactiver le paramètre de stratégie de groupe.
 
 <a id="agent-installation-on-DC"></a>**L’installation de l’agent échoue sur le contrôleur de domaine Active Directory**  
 Si vous essayez d’installer l’agent de synchronisation sur un contrôleur de domaine Active Directory où le propriétaire du rôle de contrôleur de domaine principal est sur Windows Server 2008 R2 ou un système d’exploitation antérieur, l’agent de synchronisation peut échouer.

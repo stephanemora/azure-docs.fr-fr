@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d0470759a589927b65462f258b20446af608175c
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 69677ed419fa9bac2cbcb06c394c92f68d0b7777
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284030"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930926"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configurer un compte Azure Cosmos DB avec une sauvegarde périodique
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -30,6 +30,9 @@ Azure Cosmos DB sauvegarde automatiquement vos données à intervalles régulier
   :::image type="content" source="./media/configure-periodic-backup-restore/automatic-backup.png" alt-text="Sauvegardes complètes périodiques de toutes les entités Cosmos DB dans Stockage Azure GRS." lightbox="./media/configure-periodic-backup-restore/automatic-backup.png" border="false":::
 
 * Les sauvegardes sont effectuées sans affecter les performances ou la disponibilité de votre application. Azure Cosmos DB effectue la sauvegarde des données en arrière-plan sans consommer de débit (RU) approvisionné supplémentaire et sans affecter les performances ou la disponibilité de votre base de données.
+
+> [!Note]
+> Les comptes avec Synapse Link activé ne sont pas pris en charge.
 
 ## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
 
@@ -69,7 +72,7 @@ Procédez comme suit pour modifier les options de sauvegarde par défaut pour un
 
    * **Copies des données conservées** : par défaut, deux copies de sauvegarde de vos données sont offertes gratuitement. Des frais supplémentaires sont facturés si vous avez besoin de plus de deux copies. Pour connaître le prix exact des copies supplémentaires, consultez la section Stockage consommé dans la [page relative à la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-   * **Redondance du stockage de sauvegarde** : choisissez l’option de redondance de stockage requise, consultez la section [Redondance du stockage de sauvegarde ](#backup-storage-redundancy) pour les options disponibles. Par défaut, vos comptes de mode de sauvegarde périodique existants disposent d’un stockage géoredondant. Vous pouvez choisir un autre stockage, par exemple localement redondant, pour vous assurer que la sauvegarde n’est pas répliquée vers une autre région. Les modifications apportées à un compte existant sont appliquées uniquement aux sauvegardes ultérieures. Une fois la redondance de stockage de sauvegarde d’un compte existant mise à jour, il peut s’écouler jusqu’à deux fois l’intervalle de sauvegarde pour que les modifications prennent effet et **vous perdrez l’accès pour la restauration immédiate des anciennes sauvegardes.**
+   * **Redondance du stockage de sauvegarde** : choisissez l’option de redondance de stockage requise, consultez la section [Redondance du stockage de sauvegarde](#backup-storage-redundancy) pour les options disponibles. Par défaut, vos comptes de mode de sauvegarde périodique existants disposent d’un stockage géoredondant. Vous pouvez choisir un autre stockage, par exemple localement redondant, pour vous assurer que la sauvegarde n’est pas répliquée vers une autre région. Les modifications apportées à un compte existant sont appliquées uniquement aux sauvegardes ultérieures. Une fois la redondance de stockage de sauvegarde d’un compte existant mise à jour, il peut s’écouler jusqu’à deux fois l’intervalle de sauvegarde pour que les modifications prennent effet et **vous perdrez l’accès pour la restauration immédiate des anciennes sauvegardes.**
 
    > [!NOTE]
    > Vous devez avoir le rôle [Lecteur du compte Azure Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role) attribué au niveau de l’abonnement pour configurer la redondance du stockage de sauvegarde.
