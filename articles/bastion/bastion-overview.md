@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: overview
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18672d76c262f8919489ccf132532c117666abe4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae0d4c0fc3ee3f621cc7d90238d9a8ac7b3f773c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492176"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142228"
 ---
 # <a name="what-is-azure-bastion"></a>Qu’est-ce qu’Azure Bastion ?
 
@@ -58,4 +58,4 @@ Abonnez-vous au flux RSS, puis consultez les dernières mises à jour des foncti
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Créer un hôte Azure Bastion et se connecter à une machine virtuelle Windows](tutorial-create-host-portal.md).
-* Découvrez certaines des autres [fonctionnalités de réseau](../networking/networking-overview.md) clés d’Azure.
+* Découvrez certaines des autres [fonctionnalités de réseau](../networking/fundamentals/networking-overview.md) clés d’Azure.

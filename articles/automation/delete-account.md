@@ -4,14 +4,15 @@ description: Cet article explique comment supprimer votre compte Automation dans
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 03/18/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: c3a514aa507fcf069671f987e175b7ae5be59d10
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fe2d99a610be3877b4a347e4bd0dd17df53ba326
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105734910"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834153"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Guide pratique pour supprimer votre compte Azure Automation
 
@@ -28,7 +29,10 @@ La suppression de votre compte Azure Automation peut s’effectuer à l’aide 
 * Dissocier l’espace de travail Log Analytics du compte Automation et supprimer le compte Automation
 * Supprimer la fonctionnalité de votre espace de travail lié, dissocier le compte de l’espace de travail, puis supprimer le compte Automation
 
-Cet article explique comment supprimer entièrement votre compte Automation par le biais du portail Azure, de PowerShell, d’Azure CLI ou de l’API REST.
+Cet article explique comment supprimer entièrement votre compte Automation par le biais du portail Azure, à l’aide d’Azure PowerShell, d’Azure CLI ou de l’API REST.
+
+> [!NOTE]
+> Avant de continuer, vérifiez qu’aucun [verrou Resource Manager](../azure-resource-manager/management/lock-resources.md) n’est appliqué au niveau de l’abonnement, du groupe de ressources ou de la ressource, ce qui empêche toute suppression ou modification accidentelle des ressources critiques. Si vous avez déployé la solution Start/Stop VMs during off-hours, elle définit le niveau de verrouillage sur **CanNotDelete** pour plusieurs ressources dépendantes dans le compte Automation (en particulier ses runbooks et variables). Tous les verrous doivent être supprimés pour que vous puissiez supprimer le compte Automation.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Supprimer le groupe de ressources dédié
 

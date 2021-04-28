@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 7aac3a38b82b86edc47f48e50d26b5b269486701
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 15caaad0539c9c8c61c8fef6c81761054c68f431
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375234"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073248"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur l’API Vision par ordinateur
 
 > [!TIP]
-> Si vous ne trouvez pas les réponses à vos questions dans cette FAQ, essayez d’interroger la communauté de l’API Vision par ordinateur sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou de contacter le [support technique sur UserVoice](https://cognitive.uservoice.com/).
+> Si vous ne trouvez pas les réponses à vos questions dans cette FAQ, essayez d’interroger la communauté de l’API Vision par ordinateur sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou de contacter le support technique sur UserVoice.
 
 ---
 

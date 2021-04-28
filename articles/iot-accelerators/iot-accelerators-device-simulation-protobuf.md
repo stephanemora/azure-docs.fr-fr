@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: a94f3cc6b2387857d19c7b98fa0be64dd6646ec9
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 2d2c33d0b6f86bc1a779361b86d242cde4c5df38
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713855"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873664"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Sérialiser des données de télémétrie à l'aide de Protocol Buffers
 
@@ -37,7 +37,7 @@ Les étapes décrites dans ce guide pratique montrent comment :
 Pour suivre les étapes décrites dans ce guide pratique, vous devez disposer des éléments suivants :
 
 * Visual Studio Code. Vous pouvez télécharger [Visual Studio Code pour Mac, Linux ou Windows](https://code.visualstudio.com/download).
-* .NET Core. Vous pouvez télécharger [.NET Core pour Mac, Linux ou Windows](https://www.microsoft.com/net/download).
+* .NET Core. Vous pouvez télécharger [.NET Core pour Mac, Linux ou Windows](https://dotnet.microsoft.com/download).
 * Postman. Vous pouvez télécharger [Postman pour Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Un [hub IoT déployé dans votre abonnement Azure](../iot-hub/iot-hub-create-through-portal.md). Vous avez besoin de la chaîne de connexion du hub IoT pour effectuer les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
 * Une [base de données Cosmos DB déployée dans le cadre de votre abonnement Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) qui utilise l'API SQL et qui est configurée avec une [cohérence forte](../cosmos-db/how-to-manage-database-account.md). Vous avez besoin de la chaîne de connexion de la base de données Cosmos DB pour effectuer les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.

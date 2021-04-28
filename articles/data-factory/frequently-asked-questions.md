@@ -1,17 +1,17 @@
 ---
 title: 'Azure Data Factory : Forum aux questions '
 description: Réponses aux questions les plus fréquentes concernant Azure Data Factory.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2027e3555a7eb616ad024ec00bf6b0f8f452167c
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: e40f5bfb47ff4686828457308882fb9f50ab5b4a
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258518"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906131"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 

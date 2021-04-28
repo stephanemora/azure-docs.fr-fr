@@ -1,6 +1,6 @@
 ---
-title: Échange/Basculement entre deux services Azure Cloud Services (support étendu)
-description: Échange/Basculement entre deux services Azure Cloud Services (support étendu)
+title: Échanger ou basculer des déploiements dans Azure Cloud Services (support étendu)
+description: Découvrez comment échanger des déploiements ou basculer entre eux dans Azure Cloud Services (support étendu).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
@@ -8,46 +8,65 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
 ms.custom: ''
-ms.openlocfilehash: 6f96656af9afd9874cc6273a9cea9ed43e8c69cc
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: f5e01075ffb460c7ddd70b40a6b19f7ea70dd776
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106294205"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748815"
 ---
-# <a name="swapswitch-between-two-azure-cloud-services-extended-support"></a>Échange/Basculement entre deux services Azure Cloud Services (support étendu)
-Cloud Services (support étendu) vous permet de basculer entre deux déploiements de service cloud indépendants. Contrairement à Cloud Services (classique), le concept d’emplacements n’existe pas avec le modèle Azure Resource Manager. Lorsque vous choisissez de déployer une nouvelle version de service cloud (support étendu), vous pouvez la rendre « échangeable » avec un autre service cloud existant (support étendu), ce qui vous permet de préparer et de tester votre nouvelle version à l’aide de ce déploiement. Un service cloud peut être rendu « échangeable » avec un autre service cloud uniquement au moment du déploiement du second service cloud (de la paire). Lors de l’utilisation de la méthode de déploiement basée sur un modèle ARM, cette opération s’effectue en définissant la propriété SwappableCloudService dans le profil réseau de l’objet de service cloud sur l’ID du service cloud associé. 
+# <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Échanger ou basculer des déploiements dans Azure Cloud Services (support étendu)
 
-```
+Vous pouvez basculer entre deux déploiements de service cloud indépendants dans Azure Cloud Services (support étendu). Contrairement à Azure Cloud Services (classique), le modèle Azure Resource Manager d’Azure Cloud Services (support étendu) n’utilise pas d’emplacements de déploiement. Dans Azure Cloud Services (support étendu), lorsque vous déployez une nouvelle version d’un service cloud, vous pouvez rendre le service cloud « échangeable » avec un service cloud existant dans Azure Cloud Services (support étendu).
+
+Une fois que vous avez échangé les déploiements, vous pouvez déplacer votre nouvelle version vers un environnement intermédiaire et la tester à l’aide du nouveau déploiement de service cloud. En effet, l’échange permet de promouvoir un nouveau service cloud intermédiaire vers la version de production.
+
+> [!NOTE]
+> Vous ne pouvez pas échanger un déploiement Azure Cloud Services (classique) et un déploiement Azure Cloud Services (support étendu).
+
+Vous devez rendre un service cloud échangeable avec un autre service cloud lorsque vous déployez le deuxième service d’une paire de services cloud.
+
+Vous pouvez échanger les déploiements en utilisant un modèle Azure Resource Manager (modèle ARM), le portail Azure ou l’API REST.
+
+## <a name="arm-template"></a>Modèle ARM
+
+Si vous utilisez une méthode de déploiement par modèle ARM, pour rendre les services cloud échangeables, définissez la propriété `SwappableCloudService` dans `networkProfile` dans l’objet `cloudServices` sur l’ID du service cloud associé :
+
+```json
 "networkProfile": {
  "SwappableCloudService": {
               "id": "[concat(variables('swappableResourcePrefix'), 'Microsoft.Compute/cloudServices/', parameters('cloudServicesToBeSwappedWith'))]"
             },
+        }
 ```
-> [!Note] 
-> Vous ne pouvez pas permuter entre un service cloud (classique) et un service cloud (support étendu)
 
-Utilisez **Échanger** pour basculer les URL entre les deux services cloud concernés, en promouvant un nouveau service cloud (intermédiaire) vers la version de production.
-Vous pouvez inverser les déploiements à partir de la page Cloud Services ou du tableau de bord.
+## <a name="azure-portal"></a>Portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le service cloud que vous souhaitez mettre à jour. Cette étape ouvre le panneau d'instance de service cloud.
-2. Dans le panneau, sélectionnez **Échanger**
-   :::image type="content" source="media/swap-cloud-service-1.png" alt-text="Image illustrant l’option d’échange du service cloud":::
-   
-3. L’invite de confirmation suivante s’ouvre.
-   
-   :::image type="content" source="media/swap-cloud-service-2.png" alt-text="Image illustrant la permutation du service cloud":::
-   
-4. Après avoir vérifié les informations de déploiement, sélectionnez OK pour permuter les déploiements.
-La permutation se fait rapidement, car la seule chose qui change est l'adresse IP virtuelle (VIP) des deux services cloud.
+Pour échanger un déploiement sur le portail Azure :
+
+1. Dans le menu du portail, sélectionnez **Azure Cloud Services (support étendu)** ou **Tableau de bord**.
+1. Sélectionnez le service cloud que vous souhaitez mettre à jour.
+1. Dans **Vue d’ensemble** du service cloud, sélectionnez **Échanger** :
+
+   :::image type="content" source="media/swap-cloud-service-portal-swap.png" alt-text="Capture d’écran montrant l’onglet Échanger pour le service cloud.":::
+
+1. Dans le volet de confirmation de l’échange, vérifiez les informations des déploiements, puis sélectionnez **OK** pour échanger les déploiements :
+
+   :::image type="content" source="media/swap-cloud-service-portal-confirm.png" alt-text="Capture d’écran montrant la confirmation des informations de l’échange de déploiements.":::
+
+Les déploiements s’échangent rapidement, car la seule chose qui change est l’adresse IP virtuelle du service cloud qui est déployé.
 
 Pour économiser des coûts de calcul, vous pouvez supprimer l’un des services cloud (désigné comme environnement intermédiaire pour le déploiement de votre application) après avoir vérifié que le service cloud échangé fonctionne comme prévu.
 
-L’API REST permettant d’effectuer un « échange » entre deux déploiements de services cloud (support étendu) est disponible ci-dessous :
+## <a name="rest-api"></a>API REST
+
+Pour utiliser l’API REST pour échanger avec un nouveau déploiement de service cloud dans Azure Cloud Services (support étendu), utilisez la commande et la configuration JSON suivantes :
+
 ```http
 POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Network/locations/region/setLoadBalancerFrontendPublicIpAddresses?api-version=2020-11-01
 ```
-```
+
+```json
 {
   "frontendIPConfigurations": [
     {
@@ -68,23 +87,36 @@ POST https://management.azure.com/subscriptions/subId/providers/Microsoft.Networ
     }
   ]
  }
+}
 ```
+
 ## <a name="common-questions-about-swapping-deployments"></a>Questions courantes sur l’échange de déploiements
 
-### <a name="what-are-the-prerequisites-for-swapping-between-two-cloud-services"></a>Quelles sont les conditions préalables à un échange entre deux services cloud ?
-La réussite d’un échange de services cloud (support étendu) repose sur deux conditions préalables :
-* Si vous souhaitez utiliser une adresse IP statique/réservée pour l’un des services cloud échangeables, l’autre service cloud doit également utiliser une adresse IP réservée. Sinon, l’échange échoue.
-* Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances sur le panneau Aperçu du portail Azure. Vous pouvez également utiliser la commande Get-AzRole dans Windows PowerShell.
+Vérifiez les réponses aux questions courantes sur les échanges de déploiements dans Azure Cloud Services (support étendu).
 
-Les mises à jour du système d’exploitation invité et les opérations de réparation de service peuvent également entraîner l’échec du déploiement. Pour plus d’informations, consultez Résoudre les problèmes de déploiement de service cloud.
+### <a name="what-are-the-prerequisites-for-swapping-to-a-new-cloud-services-deployment"></a>Quelles sont les conditions préalables à l’échange avec un nouveau déploiement de services Cloud ?
 
-### <a name="can-i-perform-a-vip-swap-in-parallel-with-another-mutating-operation"></a>Puis-je échanger des adresses IP virtuelles parallèlement à une autre opération de mutation ?
-Non. L’échange d’adresses IP virtuelles relève uniquement d’une modification réseau qui doit être effectuée avant toute autre opération de calcul sur le ou les services cloud. Une opération de mise à jour, de suppression ou de mise à l’échelle automatique sur le ou les services cloud alors qu’un échange d’adresses IP virtuelles est en cours ou le déclenchement d’un échange d’adresses IP virtuelles alors qu’une autre opération de calcul est en cours peut affecter l’état du service cloud, sans récupération possible. 
+Vous devez remplir deux conditions préalables essentielles pour qu’un échange de déploiements réussisse dans Azure Cloud Services (support étendu) :
 
-### <a name="does-a-swap-incur-downtime-for-my-application-how-should-i-handle-it"></a>Un échange implique-t-il un temps d’arrêt pour mon application ? Comment dois-je le gérer ?
-Comme décrit dans la section précédente, un échange de services cloud est généralement rapide, car il s’agit simplement d’une modification de configuration dans Azure Load Balancer. Dans certains cas, elle peut prendre au moins 10 secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la logique de nouvelle tentative client.
+* Si vous souhaitez utiliser une adresse IP statique ou réservée pour l’un des services cloud échangeables, l’autre service cloud doit également utiliser une adresse IP réservée. Sinon, l’échange échoue.
+* Toutes les instances de vos rôles doivent être en cours d’exécution pour que l’échange réussisse. Pour vérifier l’état de vos instances, dans le portail Azure, accédez à la section **Vue d’ensemble** du service cloud nouvellement déployé ou utilisez la commande `Get-AzRole` dans Windows PowerShell.
+
+Les mises à jour du système d’exploitation invité et les opérations de réparation de service peuvent entraîner l’échec d’un échange de déploiements. Pour plus d’informations, consultez [Résoudre les déploiements de service cloud](../cloud-services/cloud-services-troubleshoot-deployment-problems.md).
+
+### <a name="can-i-make-a-vip-swap-in-parallel-with-another-mutating-operation"></a>Puis-je effectuer un échange d’adresses IP virtuelles simultanément à une autre opération de mutation ?
+
+Non. Un échange d’adresses IP virtuelles est une modification uniquement liée au réseau qui doit être terminée avant le lancement de toute autre opération de calcul sur un service cloud. Le lancement d’une opération de mise à jour, de suppression ou de mise à l’échelle automatique pour un service cloud alors qu’un échange d’adresses IP virtuelles est en cours ou le déclenchement d’un échange d’adresses IP virtuelles alors qu’une autre opération de calcul est en cours peut entraîner une erreur irrécupérable dans le service cloud.
+
+### <a name="does-a-swap-incur-downtime-for-my-application-and-how-should-i-handle-it"></a>Un échange implique-t-il un temps d’arrêt pour mon application, et comment dois-je le gérer ?
+
+L’échange de services cloud est généralement rapide, car il s’agit seulement d’une modification de la configuration de l’équilibreur de charge Azure. Dans certains cas, l’échange peut prendre au moins 10 secondes et entraîner des échecs de connexion temporaires. Pour limiter l’effet de l’échange sur les utilisateurs, envisagez d’implémenter une logique de nouvelle tentative du client.
 
 ## <a name="next-steps"></a>Étapes suivantes 
-- Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).
-- Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
+
+* Consultez les [prérequis du déploiement](deploy-prerequisite.md) d’Azure Cloud Services (support étendu).
+* Consultez la [FAQ](faq.md) pour Azure Cloud Services (support étendu).
+* Déployez un service cloud Azure Cloud Services (support étendu) en utilisant l’une des options suivantes :
+  * [Azure portal](deploy-portal.md)
+  * [PowerShell](deploy-powershell.md)
+  * [Modèle ARM](deploy-template.md)
+  * [Visual Studio](deploy-visual-studio.md)

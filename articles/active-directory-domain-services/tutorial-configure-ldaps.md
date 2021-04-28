@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27e8c108447a3e16a5e61854eb9d43c4a8efffee
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933336"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126900"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -152,7 +152,7 @@ Pour pouvoir utiliser le certificat numérique créé à l’étape précédente
 
     Dans la page **Sécurité**, choisissez l’option **Mot de passe** pour protéger le fichier de certificat *.PFX*. L’algorithme de chiffrement doit être *TripleDES-SHA1*. Entrez et confirmez un mot de passe, puis sélectionnez **Suivant**. Ce mot de passe est utilisé dans la section suivante pour activer le protocole LDAP sécurisé pour votre domaine managé.
 
-    Si vous effectuez une exportation à l’aide de l’[applet de commande PowerShell export-pfxcertificate](/powershell/module/pkiclient/export-pfxcertificate), vous devez passer l’indicateur *-CryptoAlgorithmOption* en utilisant TripleDES_SHA1.
+    Si vous effectuez une exportation à l’aide de l’[applet de commande PowerShell export-pfxcertificate](/powershell/module/pki/export-pfxcertificate), vous devez passer l’indicateur *-CryptoAlgorithmOption* en utilisant TripleDES_SHA1.
 
     ![Capture d’écran montrant comment chiffrer le mot de passe](./media/tutorial-configure-ldaps/encrypt.png)
 
@@ -243,7 +243,7 @@ Créons une règle pour autoriser l’accès LDAP sécurisé entrant sur le port
     | Destination                       | Quelconque          |
     | Plages de ports de destination           | 636          |
     | Protocol                          | TCP          |
-    | Action                            | Allow        |
+    | Action                            | Autoriser        |
     | Priority                          | 401          |
     | Nom                              | AllowLDAPS   |
 
@@ -312,7 +312,7 @@ Pour le nom d’objet du certificat, le contrôleur de domaine utilise le nom de
 
 Le client tente d’établir la connexion TLS en utilisant le nom que vous avez fourni. Le trafic doit aller jusqu’au bout. Le contrôleur de domaine envoie la clé publique du cert d’authentification serveur. Le cert doit avoir l’utilisation appropriée dans le certificat, le nom signé dans le nom d’objet doit être compatible pour que le client sache que le serveur est le nom DNS auquel vous vous connectez (autrement dit, un caractère générique fonctionne sans faute d’orthographe) et le client doit faire confiance à l’émetteur. Vous pouvez rechercher les problèmes dans cette chaîne dans le journal système de l’observateur d’événements et filtrer les événements où la source est égale à Schannel. Une fois ces éléments en place, ils forment une clé de session.  
 
-Pour plus d’informations, consultez l’[établissement d’une liaison TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
+Pour plus d’informations, consultez l’[établissement d’une liaison TLS](/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -336,4 +336,4 @@ Dans ce didacticiel, vous avez appris à :
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
-[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate
+[New-SelfSignedCertificate]: /powershell/module/pki/new-selfsignedcertificate

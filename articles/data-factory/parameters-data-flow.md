@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.openlocfilehash: 22c4fc0680d8666d8c2dfafb8829436e27cf1ebd
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93040742"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725707"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Paramétrage de flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
-Les flux de données de mappage dans Azure Data Factory prennent en charge l’utilisation de paramètres. Définissez des paramètres dans votre définition de flux de données, et utilisez-les dans vos expressions. Les valeurs de paramètre sont définies par le pipeline appelant via l’activité d’exécution de flux de données. Vous disposez de trois options pour définir les valeurs dans les expressions d’activité de flux de données :
+Les flux de données de mappage dans Azure Data Factory et Azure Synapse Analytics prennent en charge l’utilisation de paramètres. Définissez des paramètres dans votre définition de flux de données, et utilisez-les dans vos expressions. Les valeurs de paramètre sont définies par le pipeline appelant via l’activité d’exécution de flux de données. Vous disposez de trois options pour définir les valeurs dans les expressions d’activité de flux de données :
 
 * Utiliser le langage d’expression de flux de contrôle de pipeline pour définir une valeur dynamique
 * Utiliser le langage d’expression de flux de données pour définir une valeur dynamique

@@ -10,16 +10,14 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 66edf35f292f5b681578d49b8be784de66e4d904
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7ab843b9e30d1b72c46c6e44d3a272f3b1c72083
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936527"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016434"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Types de numéros de téléphone dans Azure Communication Services
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 > [!IMPORTANT]
 > La disponibilité des numéros de téléphone est limitée aux abonnements Azure payants disposant d’une adresse de facturation aux États-Unis et aux ressources Communication Services qui ont un emplacement de données aux États-Unis. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai ou avec des crédits gratuits Azure. Pour plus d’informations, consultez la section de ce document consacrée à l’[éligibilité des abonnements](#azure-subscriptions-eligibility).

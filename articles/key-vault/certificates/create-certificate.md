@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 20f11983a76b4ea703981e257b088c13cf577935
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 72ff2a1a7b8bcff768248833183ce03a169f9a4d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123390"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752117"
 ---
 # <a name="certificate-creation-methods"></a>Méthodes de création de certificats
 
@@ -92,5 +92,5 @@ Notez que lorsqu’une commande est passée auprès du fournisseur émetteur, el
 
 ## <a name="see-also"></a>Voir aussi
 
- - Guide pratique pour créer des certificats dans Key Vault à l’aide de [Portail Azure](./quick-create-portal.md), d’[Azure CLI](./quick-create-cli.md) ou d’[Azure PowerShell](./quick-create-powershell.md)
+ - Guide pratique pour créer des certificats dans Key Vault à l’aide de [Portail Azure](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), d’[Azure CLI](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli) ou d’[Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
  - [Surveiller et gérer la création de certificats](create-certificate-scenarios.md)

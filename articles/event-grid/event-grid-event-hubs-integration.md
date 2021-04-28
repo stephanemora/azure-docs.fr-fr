@@ -3,13 +3,13 @@ title: 'Tutoriel : Envoyer des données Event Hubs vers un entrepôt de donnée
 description: Décrit comment stocker des données Event Hubs capturées dans Azure Synapse Analytics à l’aide de déclencheurs Azure Functions et Event Grid.
 ms.topic: tutorial
 ms.date: 12/07/2020
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 7b0e471e32650490e1896bb6ea171c8223b21378
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 094cf874c072e0e59a04447d26070d8ac1a0deef
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96854714"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073482"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutoriel : Diffuser en continu des Big Data dans un entrepôt de données
 Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications ou événements issus des applications et services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob ou Data Lake Storage. Cet [exemple](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous montre comment utiliser Event Grid et Azure Functions pour migrer des données Event Hubs capturées d’un Stockage Blob vers Azure Synapse Analytics, plus précisément un pool SQL dédié.

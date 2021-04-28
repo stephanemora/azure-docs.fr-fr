@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 012aa364fe9e379455b6b63f7c9e541d2d5b97ed
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 385bf6382fd25406fc9927df806f35dbf973d8fa
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726895"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142528"
 ---
 # <a name="enable-sql-insights-preview"></a>Activer SQL Insights (préversion)
 Cet article explique comment activer [SQL Insights](sql-insights-overview.md) pour analyser vos déploiements SQL. L’analyse est effectuée à partir d’une machine virtuelle Azure qui établit une connexion à vos déploiements SQL et utilise des vues de gestion dynamique (DMV) pour collecter les données d’analyse. Vous pouvez contrôler les jeux de données qui sont collectés et la fréquence de collecte à l’aide d’un profil d’analyse.
@@ -125,7 +125,7 @@ Chaque type de SQL offre des méthodes pour que votre machine virtuelle d’anal
 
 SQL Insights prend en charge l’accès à votre Azure SQL Database via son point de terminaison public, ainsi qu’à partir de son réseau virtuel.
 
-Pour accéder via le point de terminaison public, vous devez ajouter une règle dans la page **Paramètres de pare-feu** et dans la section [Paramètres du pare-feu IP](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) .  Pour spécifier l’accès à partir d’un réseau virtuel, vous pouvez définir des [règles de pare-feu de réseau virtuel](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) et définir les [balises de service requises par l’agent de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  [Cet article](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) décrit les différences entre ces deux types de règles de pare-feu.
+Pour accéder via le point de terminaison public, vous devez ajouter une règle dans la page **Paramètres de pare-feu** et dans la section [Paramètres du pare-feu IP](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules) .  Pour spécifier l’accès à partir d’un réseau virtuel, vous pouvez définir des [règles de pare-feu de réseau virtuel](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) et définir les [balises de service requises par l’agent de Azure Monitor](../agents/azure-monitor-agent-overview.md#networking).  [Cet article](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) décrit les différences entre ces deux types de règles de pare-feu.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Définir le pare-feu du serveur" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
@@ -134,11 +134,11 @@ Pour accéder via le point de terminaison public, vous devez ajouter une règle 
 
 ### <a name="azure-sql-managed-instances"></a>Instances Azure SQL Managed Instance 
 
-Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que vos ressources SQL MI, consultez [Se connecter à l’intérieur du même réseau virtuel](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-the-same-vnet). Si votre machine virtuelle d’analyse se trouve dans le réseau virtuel différent de vos ressources SQL MI, consultez [Se connecter à l’intérieur d’un autre réseau virtuel](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-a-different-vnet).
+Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que vos ressources SQL MI, consultez [Se connecter à l’intérieur du même réseau virtuel](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-the-same-vnet). Si votre machine virtuelle d’analyse se trouve dans le réseau virtuel différent de vos ressources SQL MI, consultez [Se connecter à l’intérieur d’un autre réseau virtuel](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-a-different-vnet).
 
 
 ### <a name="azure-virtual-machine-and-azure-sql-virtual-machine"></a>Machine virtuelle Azure et machine virtuelle Azure SQL  
-Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que les ressources de votre machine virtuelle SQL, consultez [Se connecter à SQL Server au sein d’un réseau virtuel](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network). Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que les ressources de votre machine virtuelle SQL, consultez  [Se connecter à SQL Server via Internet](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet).
+Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que les ressources de votre machine virtuelle SQL, consultez [Se connecter à SQL Server au sein d’un réseau virtuel](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-within-a-virtual-network). Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que les ressources de votre machine virtuelle SQL, consultez  [Se connecter à SQL Server via Internet](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-over-the-internet).
 
 ## <a name="store-monitoring-password-in-key-vault"></a>Stocker le mot de passe d’analyse dans Key Vault
 Vous devez stocker vos mots de passe de connexion utilisateur SQL dans un Key Vault au lieu de les entrer directement dans vos chaînes de connexion de profil d’analyse.

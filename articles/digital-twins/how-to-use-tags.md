@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d45ef8c32e61b5567798b7c42af28badb222601
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 5631218e40b701a4a8f5cc42531f052e133044c5
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376713"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904061"
 ---
 # <a name="add-tags-to-digital-twins"></a>Ajouter des étiquettes à des jumeaux numériques 
 
@@ -52,11 +52,11 @@ Une fois que des balises ont été ajoutées aux jumeaux numériques, les balise
 
 Voici une requête permettant d’obtenir tous les jumeaux qui sont rouges (marqués de la balise « red ») : 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 Vous pouvez également combiner des balises pour créer des requêtes plus complexes. Voici une requête permettant d’obtenir tous les jumeaux qui sont ronds et pas rouges : 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>Balises de valeur 
 
@@ -86,11 +86,11 @@ Comme avec les balises de marqueur, vous pouvez utiliser des balises de valeur p
 
 Dans l’exemple ci-dessus, `red` est utilisé en tant que balise de marqueur. Voici une requête permettant d’obtenir tous les jumeaux qui sont rouges (marqués de la balise « red ») : 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 Voici une requête permettant d’obtenir toutes les entités qui sont de petite taille (balise de valeur) et pas rouges : 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

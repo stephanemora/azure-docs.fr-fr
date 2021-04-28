@@ -8,12 +8,12 @@ ms.subservice: hpc
 ms.topic: overview
 ms.date: 04/09/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 554764b89e5da4cd6777ec89fcb2f2d5ad104ebf
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 8017b3e84c80acc71fca1442c4493bd1ec239175
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600265"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141214"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Calcul haute performance sur des machines virtuelles des séries H et N avec InfiniBand
 
@@ -47,5 +47,5 @@ Quatrièmement, pour les performances et la scalabilité, configurez de façon o
 - Découvrez plus d’informations sur [la configuration et l’optimisation](configure.md) des machines virtuelles [Série H](../../sizes-hpc.md) et [Série N](../../sizes-gpu.md) avec InfiniBand.
 - Consultez [Vue d’ensemble de la série HBv3](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md) afin de découvrir la configuration optimale des charges de travail pour les performances et la scalabilité.
 - Consultez les dernières annonces, des exemples de charge de travail HPC et les résultats des performances sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Testez vos connaissances avec un [module d’apprentissage sur l’optimisation des applications HPC dans Azure](https://docs.microsoft.com/learn/modules/optimize-tightly-coupled-hpc-apps/).
+- Testez vos connaissances avec un [module d’apprentissage sur l’optimisation des applications HPC dans Azure](/learn/modules/optimize-tightly-coupled-hpc-apps/).
 - Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

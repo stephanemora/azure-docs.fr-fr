@@ -9,14 +9,13 @@ ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/03/2021
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 710a860b1ed87f176b6f42b4963dad17acb323b1
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.topic: how-to
+ms.openlocfilehash: 863b10f0ff41c1e28a59357f07be983715adbb55
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954052"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131419"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Mettre à niveau le système d’exploitation hôte de l’instance de calcul et du cluster de calcul
 
@@ -41,7 +40,7 @@ Si vous avez des clusters de calcul ou des instances de calcul existants créés
     * Si le cluster est configuré avec __min nodes = 0__, il est automatiquement mis à niveau lorsque toutes les tâches sont terminées et qu’il est réduit à zéro nœud.
     * Si __min nodes > 0__, modifiez temporairement le nombre minimal de nœuds sur zéro et autorisez le cluster à être réduit à zéro nœud.
 
-    Pour plus d’informations sur la modification du minimum de nœuds, consultez la commande Azure CLI [az ml computetarget update amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/update#ext_azure_cli_ml_az_ml_computetarget_update_amlcompute) ou la référence du SDK pour [AmlCompute.update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-).
+    Pour plus d’informations sur la modification du minimum de nœuds, consultez la commande Azure CLI [az ml computetarget update amlcompute](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_amlcompute) ou la référence du SDK pour [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-).
 
 * __Instance de calcul Azure Machine Learning__ : créez une nouvelle instance de calcul (qui utilisera Ubuntu 18.04) et supprimez l’ancienne.
 

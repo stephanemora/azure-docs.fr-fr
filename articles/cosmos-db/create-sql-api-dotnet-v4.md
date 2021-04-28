@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/07/2021
 ms.custom: devx-track-dotnet, devx-track-azurecli
-ms.openlocfilehash: 495191dfcdfd7a4d318bef508878e951d88b3ae6
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6d3728596842702f20a96ca568ecd1a16d20c4d8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483875"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873844"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Démarrage rapide : Générer une application console à l’aide du kit SDK .NET V4 (Préversion) pour gérer les ressources du compte de l’API SQL Azure Cosmos DB.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

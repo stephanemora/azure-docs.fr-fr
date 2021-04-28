@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 4d4a801d0cf0a2355334272053ff86dd846b6bbf
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 9228faade46c2bfec3ed5170be5e256ead7d5220
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030302"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017903"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Résolution des problèmes liés à SQL Insights (préversion)
 Pour résoudre des problèmes liés à la collecte de données dans SQL insights, vérifiez l’état de la machine d’analyse dans l’onglet **Gérer le profil**. Elle aura l’un des états suivants :
@@ -28,7 +28,7 @@ L’état de la machine d’analyse est *Collecte non active* s’il n’existe 
 
 SQL Insights utilise la requête suivante pour récupérer ces informations :
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
@@ -163,14 +163,14 @@ L’état de la machine d’analyse est *Collecte avec des erreurs* s’il exist
 
 SQL Insights utilise les requêtes suivantes pour récupérer ces informations :
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
     | where TimeGenerated > ago(240m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
 ```
 
-```
+```kusto
 WorkloadDiagnosticLogs
 | summarize Errors = countif(Status == 'Error')
 ```

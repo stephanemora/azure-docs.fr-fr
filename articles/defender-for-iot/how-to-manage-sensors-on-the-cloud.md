@@ -1,16 +1,16 @@
 ---
-title: Gérer des capteurs et des abonnements dans le portail Defender pour IoT
+title: Gérer des capteurs dans le portail Defender pour IoT
 description: Découvrez comment intégrer, visualiser et gérer les capteurs dans le portail Defender pour IoT.
-ms.date: 2/18/2021
+ms.date: 04/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 5b4c8b3d10fe88816e07eb775b2bf3827d578b17
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: f407a65f60a1b969f17ebe00be39a888a09ec83d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383046"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752711"
 ---
-# <a name="manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Gérer des capteurs et des abonnements dans le portail Defender pour IoT
+# <a name="manage-sensors-in-the-defender-for-iot-portal"></a>Gérer des capteurs dans le portail Defender pour IoT
 
 Cet article explique comment intégrer, visualiser et gérer les capteurs dans le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -26,16 +26,14 @@ Pour vous inscrire :
 1. Sélectionnez **Intégrer un capteur**.
 1. Créez un nom de capteur. Nous vous recommandons d’inclure dans le nom l’adresse IP du capteur que vous avez installé ou d’utiliser un nom facilement identifiable. Cela facilite le suivi et la cohérence du nommage entre le nom d’inscription dans le [portail Azure Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) et l’adresse IP du capteur déployé qui est affichée dans la console du capteur.
 1. Associez le capteur à un abonnement Azure.
-1. Choisissez un mode d’administration du capteur à l’aide du bouton bascule **Connecté au cloud**. Si le bouton bascule est activé, le capteur est connecté au cloud. Si le bouton bascule est désactivé, le capteur est géré localement.
+1. Choisissez un mode de connexion du capteur à l’aide du bouton bascule **Connecté au cloud**. Si le bouton bascule est activé, le capteur est connecté au cloud. Si le bouton bascule est désactivé, le capteur est géré localement.
 
-   - **Capteurs connectés au cloud** : Les informations détectées par le capteur s’affichent dans la console du capteur. Les informations sur les alertes sont transmises par le biais d’un hub IoT et peuvent être partagées avec d’autres services Azure, comme Azure Sentinel.
+   - **Capteurs connectés au cloud** : Les informations détectées par le capteur s’affichent dans la console du capteur. Les informations sur les alertes sont transmises par le biais d’un hub IoT et peuvent être partagées avec d’autres services Azure, comme Azure Sentinel. En outre, les packages de renseignement sur les menaces peuvent être envoyés (push) aux capteurs à partir du portail Azure Defender pour IoT. À l’inverse, lorsque le capteur n’est pas connecté au cloud, vous devez télécharger les packages de renseignement sur les menaces, puis les charger sur les capteurs de votre entreprise. Pour autoriser Defender pour IoT à envoyer (push) des packages aux capteurs, activez le bouton bascule **Mises à jour automatiques du renseignement sur les menaces**. Pour plus d’informations, consultez [Recherche et packages de renseignement sur les menaces](how-to-work-with-threat-intelligence-packages.md).
+   Choisissez un hub IoT qui servira de passerelle entre ce capteur et le portail Azure Defender pour IoT. Définissez un nom et une zone de site. Vous pouvez également ajouter des étiquettes descriptives. Le nom du site, la zone et les étiquettes sont des entrées descriptives de la page [Sites et capteurs](#view-onboarded-sensors).
 
    - **Capteurs gérés localement** : Les informations détectées par les capteurs s’affichent dans leur console. Si vous travaillez dans un réseau hermétique et que vous souhaitez une vue unifiée de toutes les informations détectées par plusieurs capteurs gérés localement, utilisez la console de gestion locale.
 
-   Pour les capteurs connectés au cloud, le nom défini lors de l’intégration est le nom qui apparaît dans la console de capteur. Vous ne pouvez pas modifier ce nom directement à partir de la console. Pour les capteurs gérés localement, le nom appliqué pendant l’intégration est stocké dans Azure et peut être mis à jour dans la console du capteur.
-
-1. Choisissez un hub IoT qui servira de passerelle entre ce capteur et Azure Defender pour IoT.
-1. Si le capteur est connecté au cloud, associez-le à un hub IoT, puis définissez un nom de site et une zone. Vous pouvez également ajouter des étiquettes descriptives. Le nom du site, la zone et les étiquettes sont des entrées descriptives de la page [Sites et capteurs](#view-onboarded-sensors).
+   Pour les capteurs connectés au cloud, le nom défini lors de l’intégration est le nom qui apparaît dans la console de capteur. Vous ne pouvez pas modifier ce nom directement à partir de la console. Pour les capteurs gérés localement, le nom appliqué pendant l’intégration est stocké dans Azure, mais peut être mis à jour dans la console du capteur.
 
 ### <a name="download-the-sensor-activation-file"></a>Télécharger le fichier d’activation du capteur
 
@@ -48,15 +46,16 @@ Pour télécharger un fichier d’activation :
 
 ## <a name="view-onboarded-sensors"></a>Afficher les capteurs intégrés
 
-Sur le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), vous pouvez visualiser des informations de base sur les capteurs intégrés.
+Sur le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), vous pouvez visualiser des informations opérationnelles importantes sur les capteurs intégrés.
 
-1. Sélectionnez **Sites et capteurs**.
-1. Utilisez les outils de filtre et de recherche pour trouver des informations sur les capteurs et les menaces dont vous avez besoin.
+1. Sélectionnez **Sites et capteurs**. La page affiche le nombre de capteurs intégrés, le nombre de capteurs connectés au cloud et gérés localement, ainsi que les éléments suivants :
 
-- Le nombre de capteurs intégrés
-- Le nombre de capteurs connectés au cloud et gérés localement
-- Le hub associé à un capteur intégré
-- Des détails supplémentaires sur un capteur, tels que le nom affecté au capteur pendant l’intégration, la zone associée au capteur ou d’autres informations descriptives ajoutées avec des étiquettes
+- le nom du capteur attribué lors de l’intégration ;
+- le type de connexion (connecté au cloud ou géré localement) ;
+- la zone associée au capteur ;
+- la version du capteur installée ;
+- l’état de connexion du capteur au cloud ;
+- la dernière fois que le capteur a été détecté en train de se connecter au cloud.
 
 ## <a name="manage-onboarded-sensors"></a>Gérer les capteurs intégrés
 
@@ -118,24 +117,6 @@ Pour réactiver un capteur :
 8. Sélectionnez **Télécharger** et sélectionnez le fichier que vous avez enregistré à partir de la page Intégrer un capteur.
 
 9. Sélectionnez **Activer**.
-
-## <a name="offboard-a-subscription"></a>Retirer un abonnement
-
-Les abonnements sont gérés mensuellement. Quand vous retirez un abonnement, vous êtes facturé pour celui-ci jusqu’à la fin du mois. 
-
-Désinstallez tous les capteurs associés à l’abonnement avant de retirer l’abonnement. Pour plus d’informations sur la suppression d’un capteur, consultez [Supprimer un capteur](#delete-a-sensor). 
-
-Pour retirer un abonnement :
-
-1. Accédez à la page **Tarification**.
-1. Sélectionnez l’abonnement, puis l’icône **Supprimer** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false":::.
-1. Dans la fenêtre contextuelle de confirmation, activez la case à cocher pour confirmer que vous avez supprimé tous les capteurs associés à l’abonnement.
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Activez la case à cocher et sélectionnez Annuler pour annuler votre capteur.":::
-
-1. Sélectionnez le bouton **Retirer**. 
-
-L’environnement local n’est pas affecté, mais vous devez en désinstaller le capteur, ou réaffecter le capteur à un autre abonnement afin d’éviter que des données associées soient transmises à la console de gestion locale. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

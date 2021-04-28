@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 9aca1e76c825de52744da817f6a0bf236eef617c
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ff9760e72c8ba3f652310c96ef09cfcc9ad41198
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313604"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141460"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Accès aux informations utilisateur dans Azure Static Web Apps - Préversion
 
@@ -64,7 +64,7 @@ console.log(getUserInfo());
 
 ## <a name="api-functions"></a>Fonctions de l’API
 
-Les fonctions d’API disponibles dans Static Web Apps via le serveur principal Azure Functions ont accès aux mêmes informations utilisateur qu’une application cliente. Si l’API reçoit des informations identifiables par l’utilisateur, elle ne vérifie pas si l’utilisateur est authentifié ou s’il correspond à un rôle requis. Les règles de contrôle d’accès sont définies dans le fichier [`staticwebapp.config.json`](routes.md).
+Les fonctions d’API disponibles dans Static Web Apps via le serveur principal Azure Functions ont accès aux mêmes informations utilisateur qu’une application cliente. Si l’API reçoit des informations identifiables par l’utilisateur, elle ne vérifie pas si l’utilisateur est authentifié ou s’il correspond à un rôle requis. Les règles de contrôle d’accès sont définies dans le fichier [`staticwebapp.config.json`](configuration.md#routes).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

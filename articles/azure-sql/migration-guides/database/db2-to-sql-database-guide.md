@@ -10,19 +10,19 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f20af8c61bbfbbbbc20c29470648c3df6a272396
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 429a0d19a0d82ee53c228ad5bfac5ac1d5101fa2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285494"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136602"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-database"></a>Guide de migration : IBM Db2 vers Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 Dans ce guide, vous allez découvrir [comment migrer](https://azure.microsoft.com/migration/migration-journey) vos bases de données IBM Db2 vers Azure SQL Database à l’aide de l’Assistant [Migration SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) pour Db2. 
 
-Pour obtenir d’autres guides de migration, consultez les [Guides de migration de base de données Azure](https://docs.microsoft.com/data-migration). 
+Pour obtenir d’autres guides de migration, consultez les [Guides de migration de base de données Azure](/data-migration). 
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -126,7 +126,7 @@ Pour publier votre schéma et migrer vos données, effectuez les étapes suivant
 
    :::image type="content" source="media/db2-to-sql-database-guide/compare-schema-in-ssms.png" alt-text="Capture d’écran montrant la comparaison du schéma dans SQL Server Management Studio.":::
 
-## <a name="post-migration"></a>Postmigration 
+## <a name="post-migration"></a>Post-migration 
 
 Une fois la migration effectuée, vous devez exécuter une série de tâches postmigration pour vérifier que tout fonctionne de manière fluide et efficace.
 

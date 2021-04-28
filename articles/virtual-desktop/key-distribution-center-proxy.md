@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 21db7ed0cf13a3ed282929b09847c6c3ba8a36ed
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9dce264b7f2c88aed11f5b82a61f83cbac6c9697
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307246"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785106"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configurer un proxy de centre de distribution de clés Kerberos (préversion)
 
@@ -36,7 +36,7 @@ Cet article vous montre comment configurer le flux dans le client Windows Virtua
 Pour configurer un hôte de session Windows Virtual Desktop avec un proxy KDC, vous avez besoin des éléments suivants :
 
 - Un accès au portail Azure et à un compte Administrateur Azure.
-- Les ordinateurs clients distants doivent fonctionner sous Windows 10 ou Windows 7 et avoir le [client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installé.
+- Les ordinateurs clients distants doivent fonctionner sous Windows 10 ou Windows 7 et avoir le [client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installé. Actuellement, le client Web n’est pas pris en charge.
 - Un proxy KDC doit déjà être installé sur votre ordinateur. Pour savoir comment procéder, consultez [Configurer le rôle Passerelle des services Bureau à distance pour Windows Virtual Desktop](rd-gateway-role.md).
 - Le système d’exploitation de l’ordinateur doit être Windows Server 2016 ou une version ultérieure.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 59dd953b2116bc1ec7bd0a581cc181df64fbf49e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 965e7c92e17d5ba689fccc0ee6eb321fe2a36695
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721148"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138077"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles de la série HBv2 
 
@@ -59,7 +59,7 @@ L’épinglage de processus fonctionne sur les machines virtuelles de série HB
 | Prise en charge d’Orchestrator        | CycleCloud, Batch, AKS ; [options de configuration de cluster](../../sizes-hpc.md#cluster-configuration-options)  |
 
 > [!NOTE] 
-> Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques). Consultez [ce document](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) pour plus d’informations.
+> Windows Server 2012 R2 n’est pas pris en charge sur les HBv2 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques). Consultez [ce document](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

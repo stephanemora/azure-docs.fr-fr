@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurecli
+ms.custom: mvc, subject-armqs
 ms.date: 04/01/2021
-ms.openlocfilehash: bdeb80dc487d8418e21a40a29e5d2baab49d7b05
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d4b4017d6cf489068bf8c39cbcbb233f5a6e40e6
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771890"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072060"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Démarrage rapide : Créer et déployer un workflow d’application logique à l’aide d’un modèle Resource Manager
 
@@ -245,7 +245,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Pour plus d’informations, consultez [Azure CLI : az logic workflow show](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show).
+Pour plus d’informations, consultez [Azure CLI : az logic workflow show](/cli/azure/logic/workflow#az_logic_workflow_show).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

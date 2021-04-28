@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 6f08fa0b2126112fa17fd61be6f44bb5cc6d5396
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: b9b2270034853832f6795203dfaa60b6809a89ba
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552153"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138946"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -321,7 +321,7 @@ Vous pouvez opter pour des canaux marketing et de vente pris en charge par Micro
 
 - **Revendre via des fournisseurs de solutions cloud** : utilisez cette option pour permettre aux partenaires fournisseurs de solutions cloud (CSP) Microsoft de revendre votre solution dans le cadre d’une offre groupée. Pour plus d’informations sur ce programme, consultez [Programme des fournisseurs de solutions Cloud](cloud-solution-providers.md).
 
-- **Co-vendre avec Microsoft** : cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur l’éligibilité à la co-vente, consultez [Prérequis relatifs à l’état de co-vente](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option de co-vente sur Espace partenaires](commercial-marketplace-co-sell.md).
+- **Co-vendre avec Microsoft** : cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur l’éligibilité à la co-vente, consultez [Prérequis relatifs à l’état de co-vente](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option de co-vente sur Espace partenaires](./co-sell-configure.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
