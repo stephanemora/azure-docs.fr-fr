@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.date: 02/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: 8775696a35bfccc363aa2c6ec06c6c44115916b9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 971a6474b3e48f70c1e4e96a784bf1d92709cf71
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479268"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885215"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Haute performance avec un serveur Triton Inference (préversion) 
 
@@ -116,7 +116,7 @@ models
 az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
-Pour plus d’informations sur `az ml model register`, consultez la [documentation de référence](/cli/azure/ext/azure-cli-ml/ml/model).
+Pour plus d’informations sur `az ml model register`, consultez la [documentation de référence](/cli/azure/ml/model).
 
 Lors de l’inscription du modèle dans Azure Machine Learning, la valeur du paramètre `--model-path  -p` doit être le nom du dossier parent du Triton.  
 Dans l'exemple ci-dessus, `--model-path` est « models ».
@@ -339,7 +339,7 @@ print(local_service.scoring_uri)
 
 ---
 
-Après le déploiement, l’URI de scoring s’affiche. Pour ce déploiement local, ce sera `http://localhost:6789/score`. Si vous déployez sur le Cloud, vous pouvez utiliser la commande CLI [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) pour récupérer l’URI de scoring.
+Après le déploiement, l’URI de scoring s’affiche. Pour ce déploiement local, ce sera `http://localhost:6789/score`. Si vous déployez sur le Cloud, vous pouvez utiliser la commande CLI [az ml service show](/cli/azure/ml/service#az_ml_service_show) pour récupérer l’URI de scoring.
 
 Pour plus d’informations sur la création d’un client qui envoie des demandes d’inférence à l’URI de score, consultez [Consommer un modèle déployé en tant que service Web](how-to-consume-web-service.md).
 

@@ -1,20 +1,20 @@
 ---
 title: 'Démarrage rapide : Créer une fabrique de données Azure à l’aide de Python'
 description: Utilisez une fabrique de données pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 665944688533b4efa6e0e14077ae7df22d352d50
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365091"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123624"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Démarrage rapide : Créer une fabrique de données et un pipeline à l’aide de Python
 
@@ -75,7 +75,7 @@ Les pipelines peuvent ingérer des données provenant de différents magasins de
     ```
     > [!NOTE] 
     > Le package « azure-identity » peut être en conflit avec « azure-cli » sur certaines dépendances communes. Si vous rencontrez un problème d’authentification, supprimez « azure-cli » et ses dépendances, ou utilisez un nouvel ordinateur sans installer le package « azure-cli » pour le faire fonctionner.
-    > Pour les clouds souverains, vous devez utiliser les constantes spécifiques au cloud appropriées.  Consultez [Se connecter à toutes les régions à l'aide des bibliothèques Azure pour Python Multi-cloud | Microsoft Docs](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain) pour obtenir des instructions sur la connexion à Python dans les clouds souverains.
+    > Pour les clouds souverains, vous devez utiliser les constantes spécifiques au cloud appropriées.  Consultez [Se connecter à toutes les régions à l'aide des bibliothèques Azure pour Python Multi-cloud | Microsoft Docs](/azure/developer/python/azure-sdk-sovereign-domain) pour obtenir des instructions sur la connexion à Python dans les clouds souverains.
     
     
 ## <a name="create-a-data-factory-client"></a>Créer un client de fabrique de données

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e18193b40bb7c59a21a279f451673dc7d11140e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e3471d778e0589083caaf2dfedbccc4568de471
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92092900"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144652"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Récupération d’urgence Azure Spring Cloud
 
@@ -48,7 +48,7 @@ Vous aurez besoin de deux instances du service Azure Spring Cloud déployées da
 | service-sample-a | USA Est | passerelle / service d’authentification / service de compte |
 | service-sample-b | Europe Ouest | passerelle / service d’authentification / service de compte |
 
-2. Configurez un domaine personnalisé pour le suivi du service [document de domaine personnalisé](spring-cloud-tutorial-custom-domain.md) afin de configurer un domaine personnalisé pour ces deux instances de service existantes. Une fois la configuration réussie, les deux instances de service sont liées au domaine personnalisé : bcdr-test.contoso.com
+2. Configurez un domaine personnalisé pour le suivi du service [document de domaine personnalisé](./tutorial-custom-domain.md) afin de configurer un domaine personnalisé pour ces deux instances de service existantes. Une fois la configuration réussie, les deux instances de service sont liées au domaine personnalisé : bcdr-test.contoso.com
 
 3. Créez un gestionnaire de trafic et deux points de terminaison : [Créez un profil de gestionnaire de trafic à l’aide du portail Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
@@ -67,4 +67,4 @@ Voici le profil du gestionnaire de trafic :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Déployer votre première application Azure Spring Cloud](spring-cloud-quickstart.md)
+* [Démarrage rapide : Déployer votre première application Azure Spring Cloud](./quickstart.md)

@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: adc78dceb5269d65bcf76dc99af309fb5e28f450
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 65883d34a6161a0bd0faf2a11a0ab528c7e12191
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774108"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107883955"
 ---
 # <a name="manage-public-ip-addresses"></a>Gérer des adresses IP publiques
 
@@ -93,7 +93,7 @@ Pour plus d’informations sur les attributs spécifiques d’une adresse IP pub
 |---|---|---|---|
 |[Machine virtuelle](./remove-public-ip-address-vm.md)|Sélectionnez **Dissocier** pour dissocier l’adresse IP de la configuration de la carte réseau, puis sélectionnez **Supprimer**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) pour dissocier l’adresse IP de la configuration de la carte réseau ; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) pour supprimer|[az network public-ip update --remove](/cli/azure/network/public-ip#az_network_public_ip_update) pour dissocier l’adresse IP de la configuration de la carte réseau ; [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) pour supprimer |
 |Front-end de l'équilibreur de charge | Accédez à une adresse IP publique inutilisée et sélectionnez **Associer**, puis sélectionnez l’équilibreur de charge avec la configuration IP frontale appropriée pour la remplacer (l’ancienne adresse IP peut alors être supprimée à l’aide de la même méthode que pour la machine virtuelle)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) pour associer une nouvelle configuration IP frontale à un équilibreur de charge public ; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) pour supprimer ; peut également utiliser [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) pour supprimer la configuration de l’adresse IP frontale s’il en existe plusieurs |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) pour associer une nouvelle configuration IP frontale à un équilibreur de charge public ; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) pour supprimer ; peut également utiliser [az network lb frontend-ip delete](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_delete) pour supprimer la configuration de l’adresse IP frontale s’il en existe plusieurs|
-|Pare-feu|N/A| [Libérer()](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) pour libérer le pare-feu et supprimer toutes les configurations IP | [az network firewall ip-config delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) pour supprimer l’adresse IP (mais doit d’abord utiliser PowerShell pour la libérer)|
+|Pare-feu|N/A| [Libérer()](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) pour libérer le pare-feu et supprimer toutes les configurations IP | [az network firewall ip-config delete](/cli/azure/network/firewall/ip-config#az_network_firewall_ip_config_delete) pour supprimer l’adresse IP (mais doit d’abord utiliser PowerShell pour la libérer)|
 
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
@@ -112,6 +112,8 @@ Découvrez comment attribuer une adresse IP publique aux ressources suivantes :
 - [Application Gateway](../application-gateway/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Connexion site à site à l’aide d’une passerelle VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Groupe de machines virtuelles identiques](../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="permissions"></a>Autorisations
 

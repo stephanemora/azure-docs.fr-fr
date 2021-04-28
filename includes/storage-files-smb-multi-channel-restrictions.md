@@ -5,18 +5,17 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 04/26/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 06db7bcb5698f152dd5062762fdb3d59ae326e22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04ded4340eef0bfe5bc91ee2e3f2552975df2e05
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102603312"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065620"
 ---
 SMB Multichannel pour les partages de fichiers Azure présente actuellement les restrictions suivantes :
-- Peut uniquement être utilisé avec les comptes FileStorage localement redondants.
 - Pris en charge uniquement pour les clients Windows. 
 - Le nombre maximal de canaux est de quatre.
 - SMB Direct n’est pas pris en charge.

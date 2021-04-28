@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 73f3caf77bcf1f0e77f7f97ef747d4a8f35033e5
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104871195"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886637"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Superviser des instances App Service à l’aide du contrôle d’intégrité
 
@@ -51,7 +51,7 @@ En plus de la configuration des options de contrôle d’intégrité, vous pouve
 | Nom du paramètre d’application | Valeurs autorisées | Description |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | Nombre maximal d’échecs de test ping. Par exemple, quand la valeur est `2`, vos instances sont supprimées à l’issue de `2` échecs de test ping. De plus, si vous effectuez un scale-up ou un scale-out, App Service effectue un test ping sur le chemin de contrôle d’intégrité pour vérifier que de nouvelles instances sont prêtes. |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | Pour éviter de submerger les instances saines, pas plus de la moitié des instances est exclue. Par exemple, si un plan App Service est mis à l’échelle vers quatre instances et que trois d’entre elles ne sont pas saines, seules deux sont exclues au maximum. Les deux autres instances (une saine et une non saine) continuent de recevoir des requêtes. Dans le pire des cas, où aucune instance n’est saine, aucune ne sera exclue. Pour remplacer ce comportement, définissez le paramètre d’application sur une valeur comprise entre `0` et `100`. Plus la valeur est élevée, plus le nombre d’instances non saines supprimées est élevé (la valeur par défaut est 50). |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 0 - 100 | Pour éviter de submerger les instances saines, pas plus de la moitié des instances est exclue. Par exemple, si un plan App Service est mis à l’échelle vers quatre instances et que trois d’entre elles ne sont pas saines, seules deux sont exclues au maximum. Les deux autres instances (une saine et une non saine) continuent de recevoir des requêtes. Dans le pire des cas, où aucune instance n’est saine, aucune ne sera exclue. Pour remplacer ce comportement, définissez le paramètre d’application sur une valeur comprise entre `0` et `100`. Plus la valeur est élevée, plus le nombre d’instances non saines supprimées est élevé (la valeur par défaut est 50). |
 
 #### <a name="authentication-and-security"></a>Authentification et sécurité
 

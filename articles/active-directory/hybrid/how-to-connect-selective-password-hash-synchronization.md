@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a73f4eba9581965470b95111e6dda1d8014e4cb
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 02bd0f40a54bcd3f36e28fac2fa3114f87f77ebf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167496"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146326"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configuration de la synchronisation sélective du hachage de mot de passe pour Azure AD Connect
 
@@ -51,7 +51,7 @@ Les deux scénarios s’appuient sur la définition de l’attribut adminDescrip
 Cet attribut peut être défini :
 
 - à l’aide de l’interface utilisateur Utilisateurs et ordinateurs Active Directory
-- à l’aide de la cmdlet PowerShell `Set-ADUser`  Pour plus d’informations, consultez [Set-ADUser](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser).
+- à l’aide de la cmdlet PowerShell `Set-ADUser`  Pour plus d’informations, consultez [Set-ADUser](/powershell/module/activedirectory/set-aduser).
 
  
 
