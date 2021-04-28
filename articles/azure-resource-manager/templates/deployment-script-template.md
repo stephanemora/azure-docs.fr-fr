@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: jgao
-ms.openlocfilehash: 3240cce34a6fa645986a58ab43b28ad38485e97b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 77865cea4621b36d8b1de0e00f0ce8e00fdba252
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308963"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124956"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Utiliser des scripts de déploiement dans des modèles ARM
 
@@ -136,7 +136,7 @@ L’extrait JSON ci-dessous est un exemple. Pour plus d’informations, consulte
 
 Détails des valeurs de propriété :
 
-- `identity` : Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, une identité managée attribuée par l’utilisateur est facultative, sauf si vous devez effectuer des actions spécifiques à Azure dans le script.  Pour la version d’API 2019-10-01-preview, une identité managée est nécessaire, car le service de script de déploiement l’utilise pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
+- `identity` : Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, une identité managée attribuée par l’utilisateur est facultative, sauf si vous devez effectuer des actions spécifiques à Azure dans le script.  Pour la version d’API 2019-10-01-preview, une identité managée est nécessaire, car le service de script de déploiement l’utilise pour exécuter les scripts. Lorsque la propriété d’identité est spécifiée, le service de script appelle `Connect-AzAccount -Identity` avant d’appeler le script utilisateur. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge. Pour vous connecter avec une identité différente, vous pouvez appeler [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) dans le script.
 - `kind` : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
 - `forceUpdateTag` : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Si vous utilisez les fonctions `newGuid()` ou `utcNow()`, ces deux fonctions ne peuvent être utilisées que dans la valeur par défaut d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
 - `containerSettings` : Spécifiez les paramètres pour personnaliser l’instance de conteneur Azure. Le script de déploiement nécessite une nouvelle instance de conteneur Azure. Vous ne pouvez pas spécifier une instance de conteneur Azure existante. Toutefois, vous pouvez personnaliser le nom du groupe de conteneurs en utilisant `containerGroupName`. S’il n’est pas spécifié, le nom du groupe est généré automatiquement.
@@ -250,7 +250,7 @@ reference('<ResourceName>').outputs.text
 
 ## <a name="work-with-outputs-from-cli-script"></a>Travailler avec les sorties du script CLI
 
-À la différence du script de déploiement PowerShell, la prise en charge de CLI/Bash n’expose pas de variable courante permettant de stocker les sorties de script. Au lieu de cela, il existe une variable d’environnement appelée `AZ_SCRIPTS_OUTPUT_PATH` qui stocke l’emplacement où se trouve le fichier des sorties du script. Si un script de déploiement est exécuté à partir d’un modèle Resource Manager, cette variable d’environnement est automatiquement définie pour vous par l’interpréteur de commandes Bash.
+À la différence du script de déploiement PowerShell, la prise en charge de CLI/Bash n’expose pas de variable courante permettant de stocker les sorties de script. Au lieu de cela, il existe une variable d’environnement appelée `AZ_SCRIPTS_OUTPUT_PATH` qui stocke l’emplacement où se trouve le fichier des sorties du script. Si un script de déploiement est exécuté à partir d’un modèle Resource Manager, cette variable d’environnement est automatiquement définie pour vous par l’interpréteur de commandes Bash. La valeur de `AZ_SCRIPTS_OUTPUT_PATH` est */mnt/azscripts/azscriptoutput/scriptoutputs.json*.
 
 Les sorties de script de déploiement doivent être enregistrées à l’emplacement `AZ_SCRIPTS_OUTPUT_PATH` et être un objet de chaîne JSON valide. Le contenu du fichier doit être enregistré sous la forme d’une paire clé-valeur. Par exemple, un tableau de chaînes est stocké sous la forme `{ "MyResult": [ "foo", "bar"] }`.  Le stockage des résultats du tableau uniquement, par exemple `[ "foo", "bar" ]`, n’est pas valide.
 
@@ -310,6 +310,26 @@ Lorsqu’un compte de stockage existant est utilisé, le service de script crée
 Vous pouvez contrôler la façon dont PowerShell répond aux erreurs sans fin d’exécution à l’aide de la variable `$ErrorActionPreference` dans votre script de déploiement. Si la variable n’est pas définie dans votre script de déploiement, le service de script utilise la valeur par défaut **Continuer**.
 
 Le service de script définit l’état d’approvisionnement de la ressource sur **Échec** quand le script rencontre une erreur malgré le paramètre `$ErrorActionPreference`.
+
+### <a name="use-environment-variables"></a>Utiliser des variables d’environnement
+
+Le script de déploiement utilise ces variables d’environnement :
+
+|Variable d’environnement|Valeur par défaut|Réservé au système|
+|--------------------|-------------|---------------|
+|AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|N|
+|AZ_SCRIPTS_CLEANUP_PREFERENCE|OnExpiration|N|
+|AZ_SCRIPTS_OUTPUT_PATH|<AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY>/<AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME>|O|
+|AZ_SCRIPTS_PATH_INPUT_DIRECTORY|/mnt/azscripts/azscriptinput|O|
+|AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY|/mnt/azscripts/azscriptoutput|O|
+|AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME|Azure PowerShell : userscript.ps1 ; Azure CLI : userscript.sh|O|
+|AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME|primaryscripturi.config|O|
+|AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME|supportingscripturi.config|O|
+|AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME|scriptoutputs.json|O|
+|AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAM|executionresult.json|O|
+|AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|/subscriptions/|N|
+
+Pour plus d’informations sur l’utilisation de `AZ_SCRIPTS_OUTPUT_PATH`, consultez [Utiliser des sorties à partir de scripts de déploiement](#work-with-outputs-from-cli-script).
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passer des chaînes sécurisées au script de déploiement
 
@@ -377,10 +397,10 @@ Timeout             : PT1H
 
 À l’aide de Azure CLI, vous pouvez gérer les scripts de déploiement au niveau de l’abonnement ou de l’étendue du groupe de ressources :
 
-- [supprimer les scripts de déploiement az](/cli/azure/deployment-scripts#az-deployment-scripts-delete) : Supprimez un script de déploiement.
-- [lister des scripts de déploiement az](/cli/azure/deployment-scripts#az-deployment-scripts-list) : Listez tous les scripts de déploiement.
-- [montrer les scripts de déploiement az](/cli/azure/deployment-scripts#az-deployment-scripts-show) : Récupérez un script de déploiement.
-- [journal des scripts de déploiement az](/cli/azure/deployment-scripts#az-deployment-scripts-show-log) : Affichez les journaux de script de déploiement.
+- [supprimer les scripts de déploiement az](/cli/azure/deployment-scripts#az_deployment_scripts_delete) : Supprimez un script de déploiement.
+- [lister des scripts de déploiement az](/cli/azure/deployment-scripts#az_deployment_scripts_list) : Listez tous les scripts de déploiement.
+- [montrer les scripts de déploiement az](/cli/azure/deployment-scripts#az_deployment_scripts_show) : Récupérez un script de déploiement.
+- [journal des scripts de déploiement az](/cli/azure/deployment-scripts#az_deployment_scripts_show_log) : Affichez les journaux de script de déploiement.
 
 La sortie de la commande de liste ressemble à ce qui suit :
 

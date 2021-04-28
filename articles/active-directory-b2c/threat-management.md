@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55c77354e50ce96ae80ce922798fbb8c2a49f41f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85384972"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126882"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gérer les menaces aux ressources et aux données dans Azure Active Directory B2C
 
@@ -49,8 +49,8 @@ Pour gérer les paramètres de protection par mot de passe, y compris le seuil d
 
 ## <a name="view-locked-out-accounts"></a>Afficher les comptes verrouillés
 
-Pour obtenir des informations sur les comptes verrouillés, vous pouvez consulter le [rapport d’activité de connexion](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md) d’Active Directory. Sous **État**, sélectionnez **Échec**. Échec des tentatives de connexion avec un **code d’erreur de connexion** de `50053` indique un compte verrouillé :
+Pour obtenir des informations sur les comptes verrouillés, vous pouvez consulter le [rapport d’activité de connexion](../active-directory/reports-monitoring/concept-sign-ins.md) d’Active Directory. Sous **État**, sélectionnez **Échec**. Échec des tentatives de connexion avec un **code d’erreur de connexion** de `50053` indique un compte verrouillé :
 
 ![Section du rapport de connexion Azure AD montrant un compte verrouillé](./media/threat-management/portal-01-locked-account.png)
 
-Pour en savoir plus sur l’affichage du rapport d’activité de connexion dans Azure Active Directory, consultez [Codes d’erreur du rapport d’activité de connexion](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md).
+Pour en savoir plus sur l’affichage du rapport d’activité de connexion dans Azure Active Directory, consultez [Codes d’erreur du rapport d’activité de connexion](../active-directory/reports-monitoring/concept-sign-ins.md).

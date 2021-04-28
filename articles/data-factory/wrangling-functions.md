@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: f7a4041d87e00fa01ae5ae4dff0cade3b9755d31
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896661"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600933"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Fonctions de transformation dans Power Query pour le data wrangling
 
@@ -52,7 +52,7 @@ Les fonctions M suivantes ajoutent ou transforment les colonnes : [Table.AddCol
 
 * Arithmétique numérique
 * Concaténation de texte
-* Arithmétique Date et Heure (Opérateurs arithmétiques, [Date.AddDays](/powerquery-m/date-adddays), [Date.AddMonths](/powerquery-m/date-addmonths), [Date.AddQuarters](/powerquery-m/date-addquarters), [Date.AddWeeks](/powerquery-m/date-addweeks), [Date.AddYears](/powerquery-m/date-addyears))
+* Arithmétique de date et d'heure (Opérateurs arithmétiques, [Date.AddDays](/powerquery-m/date-adddays), [Date.AddMonths](/powerquery-m/date-addmonths), [Date.AddQuarters](/powerquery-m/date-addquarters), [Date.AddWeeks](/powerquery-m/date-addweeks), [Date.AddYears](/powerquery-m/date-addyears))
 * Les durées peuvent être utilisées pour les opérations arithmétiques de date et d’heure, mais doivent être transformées en un autre type avant d’être écrites dans un récepteur (opérateurs arithmétiques, [#duration](/powerquery-m/sharpduration), [Duration.Days](/powerquery-m/duration-days), [Duration.Hours](/powerquery-m/duration-hours), [Duration.Minutes](/powerquery-m/duration-minutes), [Duration.Seconds](/powerquery-m/duration-seconds), [Duration.TotalDays](/powerquery-m/duration-totaldays), [Duration.TotalHours](/powerquery-m/duration-totalhours), [Duration.TotalMinutes](/powerquery-m/duration-totalminutes), [Duration.TotalSeconds](/powerquery-m/duration-totalseconds))    
 * La plupart des fonctions numériques standard, scientifiques et trigonométriques (toutes les fonctions sous [Opérations](/powerquery-m/number-functions#operations), [Arrondi](/powerquery-m/number-functions#rounding) et [Trigonométrie](/powerquery-m/number-functions#trigonometry), *sauf* Number.Factorial, Number.Permutations et Number.Combinations)
 * Remplacement ([Replacer.ReplaceText](/powerquery-m/replacer-replacetext), [Replacer.ReplaceValue](/powerquery-m/replacer-replacevalue), [Text.Replace](/powerquery-m/text-replace), [Text.Remove](/powerquery-m/text-remove))
@@ -99,6 +99,23 @@ Conserver et supprimer les premiers éléments, Conserver la plage (fonctions M 
 | Gestion des erreurs au niveau des lignes | La gestion des erreurs au niveau des lignes n’est pas prise en charge actuellement. Par exemple, pour exclure les valeurs non numériques d’une colonne, une méthode consiste à transformer la colonne de texte en nombre. Les cellules qui ne peuvent pas être transformées sont dans un état d’erreur et doivent être filtrées. Ce scénario n’est pas possible dans M mis à l’échelle. |
 | Table.Transpose | Non pris en charge |
 | Table.Pivot | Non pris en charge |
+| Table.SplitColumn | Partiellement pris en charge |
+
+## <a name="m-script-workarounds"></a>Solutions de contournement de script M
+
+### <a name="for-splitcolumn-there-is-an-alternate-for-split-by-length-and-by-position"></a>Pour ```SplitColumn```, il existe une alternative pour le fractionnement par longueur et par position
+
+* Table.AddColumn(Source, "First characters", each Text.Start([Email], 7), type text)
+* Table.AddColumn(#"Inserted first characters", "Text range", each Text.Middle([Email], 4, 9), type text)
+
+Cette option est accessible à partir de l’option Extraire du ruban
+
+![Power Query Ajouter une colonne](media/wrangling-data-flow/pq-split.png)
+
+### <a name="for-tablecombinecolumns"></a>Pour ```Table.CombineColumns```
+
+* Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName])
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

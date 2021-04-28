@@ -2,22 +2,25 @@
 title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Event Grid
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
 ms.topic: how-to
-ms.date: 03/20/2021
-ms.openlocfilehash: 1298910db78ba468dd9744e84ee4629161e0a776
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.date: 04/13/2021
+ms.openlocfilehash: 0d92b89b1df6b6969491d39b04764f15b7a510d1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076034"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125802"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 Cet article explique comment utiliser Azure Active Directory (Azure AD) pour sécuriser la connexion entre votre **abonnement aux événements** et votre **point de terminaison webhook**. Pour obtenir une vue d’ensemble des applications et des principaux de service Azure AD, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](../active-directory/develop/v2-overview.md).
 
 Cet article utilise le Portail Azure à des fins de démonstration, mais la fonctionnalité peut également être activée à l’aide de l’interface CLI, de PowerShell ou des Kits de développement logiciel (SDK).
 
+> [!IMPORTANT]
+> Une vérification d’accès supplémentaire a été introduite dans le cadre de la création ou de la mise à jour de l’abonnement aux événements le 30 mars 2021 afin de résoudre une faille de sécurité. Le principal de service du client abonné doit être soit propriétaire, soit avoir un rôle attribué sur le principal de service de l’application de destination. Reconfigurez votre application AAD en suivant les nouvelles instructions ci-dessous.
+
 
 ## <a name="create-an-azure-ad-application"></a>Créer une application Azure AD
-Inscrivez votre webhook auprès d’Azure AD en créant une application Azure AD pour votre point de terminaison protégé. Consultez [Scénario : API web protégée](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview). Configurez votre API protégée pour qu’elle soit appelée par une application démon.
+Inscrivez votre webhook auprès d’Azure AD en créant une application Azure AD pour votre point de terminaison protégé. Consultez [Scénario : API web protégée](../active-directory/develop/scenario-protected-web-api-overview.md). Configurez votre API protégée pour qu’elle soit appelée par une application démon.
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Activer Event Grid pour utiliser votre application Azure AD
 Cette section explique comment activer Event Grid pour utiliser votre application Azure AD. 
@@ -46,9 +49,7 @@ $eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridApp
 if ($eventGridSP -match "Microsoft.EventGrid")
 {
     Write-Host "The Service principal is already defined.`n"
-}
-else
-{
+} else {
     # Create a service principal for the "Azure Event Grid" AAD Application and add it to the role
     Write-Host "Creating the Azure Event Grid service principal"
     $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
@@ -91,9 +92,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
-}
-else
-{      
+} else {      
     # Add our new role to the Azure AD Application
     Write-Host "Creating the Azure Event Grid role in Azure Ad Application: " $myWebhookAadApplicationObjectId
     $newRole = CreateAppRole -Name $eventGridRoleName -Description "Azure Event Grid Role"
@@ -107,10 +106,13 @@ Write-Host $myAppRoles
 
 ```
 
-### <a name="create-a-role-assignment"></a>Créer une attribution de rôle
+### <a name="create-role-assignment-for-the-client-creating-event-subscription"></a>Créer une attribution de rôle pour le client créant un abonnement aux événements
 L’attribution de rôle doit être créée dans l’Azure AD App webhook pour l’application ou l’utilisateur AAD qui crée l’abonnement aux événements. Utilisez l’un des scripts ci-dessous selon qu’une application ou un utilisateur AAD crée l’abonnement aux événements.
 
-#### <a name="option-a-create-a-role-assignment-for-event-subscription-aad-app"></a>Option A. Créer une attribution de rôle pour une application AAD d’abonnement aux événements 
+> [!IMPORTANT]
+> Une vérification d’accès supplémentaire a été introduite dans le cadre de la création ou de la mise à jour de l’abonnement aux événements le 30 mars 2021 afin de résoudre une faille de sécurité. Le principal de service du client abonné doit être soit propriétaire, soit avoir un rôle attribué sur le principal de service de l’application de destination. Reconfigurez votre application AAD en suivant les nouvelles instructions ci-dessous.
+
+#### <a name="create-role-assignment-for-an-event-subscription-aad-app"></a>Créer une attribution de rôle pour une application AAD d’abonnement aux événements 
 
 ```powershell
 # This is the app id of the application which will create event subscription. Set to $null if you are not assigning the role to app.
@@ -125,10 +127,11 @@ if ($eventSubscriptionWriterSP -eq $null)
 }
 
 Write-Host "Creating the Azure Ad App Role assignment for application: " $eventSubscriptionWriterAppId
-New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterSP.ObjectId -PrincipalId $eventSubscriptionWriterSP.ObjectId
+$eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
+New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterSP.ObjectId -PrincipalId $eventSubscriptionWriterSP.ObjectId
 ```
 
-#### <a name="option-b-create-a-role-assignment-for-event-subscription-aad-user"></a>Option B. Créer une attribution de rôle pour un utilisateur AAD d’abonnement aux événements 
+#### <a name="create-role-assignment-for-an-event-subscription-aad-user"></a>Créer une attribution de rôle pour un utilisateur AAD d’abonnement aux événements 
 
 ```powershell
 # This is the user principal name of the user who will create event subscription. Set to $null if you are not assigning the role to user.
@@ -138,14 +141,16 @@ $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp
     
 Write-Host "Creating the Azure Ad App Role assignment for user: " $eventSubscriptionWriterUserPrincipalName
 $eventSubscriptionWriterUser = Get-AzureAdUser -ObjectId $eventSubscriptionWriterUserPrincipalName
-New-AzureADUserAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterUser.ObjectId -PrincipalId $eventSubscriptionWriterUser.ObjectId
+$eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
+New-AzureADUserAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterUser.ObjectId -PrincipalId $eventSubscriptionWriterUser.ObjectId
 ```
 
-### <a name="add-event-grid-service-principal-to-the-role"></a>Ajouter le principal du service Event Grid au rôle
+### <a name="create-role-assignment-for-event-grid-service-principal"></a>Créer une attribution de rôle pour un principal de service Event Grid
 Exécutez la commande New-AzureADServiceAppRoleAssignment pour attribuer le principal du service Event Grid au rôle que vous avez créé à l’étape précédente.
 
 ```powershell
-New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
+$eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
+New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
 ```
 
 Exécutez les commandes suivantes pour générer des informations que vous utiliserez ultérieurement.
@@ -168,7 +173,7 @@ Lorsque vous créez un abonnement aux événements, procédez comme suit :
 1. Sous l’onglet **Fonctionnalités supplémentaires**, procédez comme suit :
     1. Sélectionnez **Utiliser l’authentification AAD**, puis configurez l’ID de locataire et l’ID d’application :
     1. Copiez l’ID de locataire Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID de locataire AAD**.
-    1. Copiez l’ID d’application Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID d’application AAD**.
+    1. Copiez l’ID d’application Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID d’application AAD**. Vous pouvez également utiliser l’URI de l’ID d’application AAD. Pour plus d’informations sur l’URI de l’ID d’application, consultez [cet article](../app-service/configure-authentication-provider-aad.md).
 
         ![Action de webhook sécurisé](./media/secure-webhook-delivery/aad-configuration.png)
 

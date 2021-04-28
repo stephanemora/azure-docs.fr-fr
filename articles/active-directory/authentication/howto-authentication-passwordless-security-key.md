@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8779ee2d3c4d83c06a2c1803e65219d43f0ef14
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 436a972693aafd220d277d7411c0da12636e9cc6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275802"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829797"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Activer la connexion par clé de sécurité sans mot de passe 
 
@@ -32,6 +32,7 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 - WebAuthN nécessite Windows 10 version 1903 ou plus**
 
 Pour utiliser des clés de sécurité pour la connexion aux services et applications web, vous devez disposer d’un navigateur qui prend en charge le protocole WebAuthN. Il s’agit notamment de Microsoft Edge, Chrome, Firefox et Safari.
+
 
 ## <a name="prepare-devices"></a>Préparer les appareils
 
@@ -90,7 +91,9 @@ Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes
 
 L’approvisionnement et déprovisionnement de clés de sécurité par l’administrateur ne sont pas disponibles.
 
-**Remarque :** La connexion en cache FIDO2 échoue sur une machine hybride jointe à Azure AD spécifique à la version win10 20H2 (lorsque LOS vers DC n’est pas disponible). Cela est actuellement en cours d’investigation avec l’équipe d’ingénierie.
+### <a name="cached-logon-on-hybrid-azure-ad-joined-devices"></a>Ouverture de session mise en cache sur des appareils avec jointure hybride Azure AD
+
+L’ouverture de session mise en cache avec des clés FIDO2 échoue sur les appareils avec jointure hybride Azure AD sur Windows 10, version 20H2. Par conséquent, les utilisateurs ne peuvent pas se connecter lorsque la ligne de vue du contrôleur de domaine local n’est pas disponible. Ce problème est actuellement en cours d’investigation.
 
 ### <a name="upn-changes"></a>Modifications de l’UPN
 

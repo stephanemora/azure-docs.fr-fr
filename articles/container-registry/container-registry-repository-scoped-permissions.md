@@ -3,12 +3,12 @@ title: Autorisations pour des référentiels dans Azure Container Registry
 description: Créer un jeton avec des autorisations étendues à des référentiels spécifiques dans un registre Premium pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions
 ms.topic: article
 ms.date: 02/04/2021
-ms.openlocfilehash: 0ac479b696a377509cee6459efd8bbb9de940d2a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8cdcd3e09603f24c37ad7323a273ca97f76fcd0c
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781394"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930494"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Créer un jeton avec des autorisations délimitées par le référentiel
 
@@ -76,7 +76,8 @@ L’exemple suivant crée un jeton dans le registre *myregistry* avec les autori
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
   --repository samples/hello-world \
-  content/write content/read
+  content/write content/read \
+  --output json
 ```
 
 La sortie affiche des détails sur le jeton. Par défaut, deux mots de passe qui n’expirent pas sont générés, mais vous pouvez également définir une date d’expiration. Il est recommandé d’enregistrer les mots de passe dans un endroit sûr pour les utiliser ultérieurement à des fins d’authentification. Les mots de passe ne peuvent pas être récupérés à nouveau, mais d’autres peuvent être générés.

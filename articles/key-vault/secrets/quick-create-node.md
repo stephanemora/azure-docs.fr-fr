@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d8f20f598243754e3fd39f649e7c84d55b64817
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 90e505a4d505cc52920f1c7727afb321f4eda462
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751667"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814151"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Démarrage rapide : Bibliothèque de client de secrets Azure Key Vault pour JavaScript (version 4)
 
@@ -285,6 +285,6 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés, stocké
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - Lire une [présentation des secrets Azure Key Vault](about-secrets.md).
-- Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/security-overview.md)
+- Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/security-features.md)
 - Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
-- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-features.md)

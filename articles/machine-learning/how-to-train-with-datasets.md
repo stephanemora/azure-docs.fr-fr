@@ -10,14 +10,14 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: edb7ebc94d2706d1bf20db8ed9a869107163ff8d
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: e3462b8e8bdf7d831b76c7821c5e8e22d3384586
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387987"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888293"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Effectuer l'apprentissage de modèles avec des jeux de données Azure Machine Learning 
 
@@ -316,7 +316,7 @@ Si vous utilisez le partage de fichiers pour d’autres charges de travail, tell
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Entraîner automatiquement des modèles Machine Learning](how-to-auto-train-remote.md) avec des TabularDatasets.
+* [Entraîner automatiquement des modèles Machine Learning](how-to-configure-auto-train.md#data-source-and-format) avec des TabularDatasets.
 
 * [Entraîner des modèles de classification d’image](https://aka.ms/filedataset-samplenotebook) avec des FileDatasets.
 

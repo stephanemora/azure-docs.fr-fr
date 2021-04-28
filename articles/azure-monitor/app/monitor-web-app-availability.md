@@ -1,50 +1,27 @@
 ---
-title: Analyse de la disponibilité et de la réactivité d’un site Web | Microsoft Docs
-description: Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
+title: Superviser la disponibilité et la réactivité d’un site web - Azure Monitor
+description: Configurez des tests ping dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/15/2021
 ms.reviewer: sdash
-ms.openlocfilehash: d7c610e374dcb7b97850d815ba8bb927cdebacfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60698862e26175425221940a4b69867cb414fe86
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103012562"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598871"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Superviser la disponibilité d’un site web
 
-Après avoir déployé votre application web ou votre site web, vous pouvez configurer des tests réguliers pour superviser sa disponibilité et sa réactivité. [Azure Application Insights](./app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application ne répond pas ou si elle répond trop lentement.
+Le nom « test ping d’URL » prête un peu à confusion. Pour être clair, ces tests n’utilisent nullement le protocole ICMP (Internet Control Message Protocol) pour vérifier la disponibilité de votre site. Au lieu cela, ils se servent de fonctionnalités de requête HTTP plus avancées pour s’assurer qu’un point de terminaison répond bien. Ils mesurent aussi les performances de cette réponse, et permettent de définir des critères de réussite personnalisés combinés à des fonctionnalités plus avancées telles que l’analyse des requêtes dépendantes et l’autorisation de nouvelles tentatives.
 
-Vous pouvez configurer des tests de disponibilité pour n’importe quel point de terminaison HTTP ou HTTPS accessible à partir du réseau Internet public. Vous n’avez pas besoin d’apporter de modifications au site web que vous testez. En fait, vous n’êtes même pas tenu d’en être le propriétaire. Vous pouvez tester la disponibilité d’une API REST dont dépend votre service.
+Pour créer un test de disponibilité, vous devez utiliser une ressource Application Insight existante ou [créer une ressource Application Insight](create-new-resource.md).
 
-### <a name="types-of-availability-tests"></a>Types de tests de disponibilité :
+Pour créer votre première requête de disponibilité, ouvrez le volet Disponibilité et sélectionnez   **Créer un test**.
 
-Il existe trois types de tests de disponibilité :
+:::image type="content" source="./media/monitor-web-app-availability/availability-create-test-001.png" alt-text="Capture d’écran de la création d’un test.":::
 
-* [Test ping d’URL](#create-a-url-ping-test): un test simple que vous pouvez créer dans le portail Azure.
-* [Tests web multiétapes](availability-multistep.md) : enregistrement d’une séquence de requêtes web, qui peuvent être répétées pour tester des scénarios plus complexes. Les tests web multiétapes sont créés dans Visual Studio Enterprise et chargés sur le portail pour y être exécutés.
-* [Tests personnalisés de suivi de la disponibilité](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) : Si vous décidez de créer une application personnalisée pour exécuter des tests de disponibilité, la méthode `TrackAvailability()` peut être utilisée pour envoyer les résultats à Application Insights.
-
-**Vous pouvez créer jusqu’à 100 tests de disponibilité par ressource Application Insights.**
-
-> [!IMPORTANT]
-> Le [test ping d’URL](#create-a-url-ping-test) et le [test web multiétapes](availability-multistep.md) s’appuient tous deux sur l’infrastructure DNS de l’Internet public pour résoudre les noms de domaine des points de terminaison testés. Cela signifie que si vous utilisez DNS privé, vous devez vous assurer que chaque nom de domaine de votre test peut également être résolu par les serveurs de noms de domaine publics ou, si ce n’est pas possible, vous pouvez utiliser des [tests personnalisés de suivi de la disponibilité](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) à la place.
-
-## <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
-
-Pour créer un test de disponibilité, vous devez tout d’abord créer une ressource Application Insights. Si vous en avez déjà créé une, passez à la section suivante pour [créer un test ping d’URL](#create-a-url-ping-test).
-
-Dans le portail Azure, sélectionnez **Créer une ressource** > **Outils de développement** > **Application Insights** et [Créer une ressource Application Insights](create-new-resource.md).
-
-## <a name="create-a-url-ping-test"></a>Créer un test Ping d’URL
-
-Le nom « test ping d’URL » prête un peu à confusion. Pour être clair, ce test n’utilise nullement le protocole ICMP (Internet Control Message Protocol) pour vérifier la disponibilité de votre site. Il se sert de fonctionnalités de requête HTTP plus avancées pour s’assurer qu’un point de terminaison répond bien. Il mesure aussi les performances de cette réponse, et permet de définir des critères de réussite personnalisés combinés à des fonctionnalités plus avancées telles que l’analyse des demandes dépendantes et l’autorisation de nouvelles tentatives.
-
-Pour créer votre première demande de disponibilité, ouvrez le volet Disponibilité et sélectionnez **Créer un test**.
-
-![Fill at least the URL of your website](./media/monitor-web-app-availability/availability-create-test-001.png)
-
-### <a name="create-a-test"></a>Créer un test
+## <a name="create-a-test"></a>Créer un test
 
 |Paramètre| Explication
 |----|----|----|
@@ -59,7 +36,7 @@ Pour créer votre première demande de disponibilité, ouvrez le volet Disponibi
 > [!NOTE]
 > Nous vous recommandons vivement de faire vos tests à partir de **cinq emplacements différents au minimum**. Cela vise à éviter les fausses alarmes qui peuvent provenir de problèmes temporaires rencontrés avec un emplacement spécifique. En outre, nous avons observé que la configuration optimale est d’avoir un **nombre d’emplacements de test égal au seuil d’emplacement de l’alerte + 2**.
 
-### <a name="success-criteria"></a>Critères de réussite
+## <a name="success-criteria"></a>Critères de réussite
 
 |Paramètre| Explication
 |----|----|----|
@@ -67,18 +44,18 @@ Pour créer votre première demande de disponibilité, ouvrez le volet Disponibi
 | **Réponse HTTP** | le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.|
 | **Correspondance du contenu** | Chaîne telle que « Bienvenue ! » Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser. **La correspondance de contenu est prise en charge uniquement pour les caractères anglais** |
 
-### <a name="alerts"></a>Alertes
+## <a name="alerts"></a>Alertes
 
 |Paramètre| Explication
 |----|----|----|
 |**Quasi-temps réel (préversion)** | Nous vous conseillons d’utiliser les alertes en quasi-temps réel. La configuration de ce type d’alerte s’effectue après avoir créé votre test de disponibilité.  |
 |**Seuil d’emplacement de l’alerte**|nous recommandons un minimum de 3 à 5 emplacements. La relation optimale entre le seuil d’emplacement de l’alerte et le nombre d’emplacements de test est **seuil d’emplacement de l’alerte** = **nombre d’emplacements de test - 2, avec un minimum de cinq emplacements de test.**|
 
-### <a name="location-population-tags"></a>Étiquettes de remplissage d’emplacement
+## <a name="location-population-tags"></a>Étiquettes de remplissage d’emplacement
 
 Les étiquettes de remplissage suivantes peuvent être utilisées pour l’attribut de géolocalisation lors du déploiement d’un test Ping d’URL de disponibilité à l’aide d’Azure Resource Manager.
 
-#### <a name="azure-gov"></a>Azure Gov
+### <a name="azure-gov"></a>Azure gov
 
 | Nom d’affichage   | Nom du remplissage     |
 |----------------|---------------------|
@@ -115,11 +92,11 @@ Vous pouvez afficher les résultats des tests de disponibilité sous forme de vu
 
 Au bout de quelques minutes, cliquez sur **Actualiser** pour voir les résultats de vos tests.
 
-![Capture d’écran montrant la page de disponibilité avec le bouton Actualiser mis en surbrillance.](./media/monitor-web-app-availability/availability-refresh-002.png)
+:::image type="content" source="./media/monitor-web-app-availability/availability-refresh-002.png" alt-text="Capture d’écran montrant la page de disponibilité avec le bouton Actualiser mis en surbrillance.":::
 
 La vue en nuage de points montre des exemples de résultats de test contenant des détails de l’étape de test de diagnostic. Le moteur de test stocke les détails de diagnostic pour les tests qui présentent des erreurs. Pour les tests réussis, les détails de diagnostic sont stockés pour un sous-ensemble des exécutions. Pointez sur les points verts/rouges pour voir le test, son nom et son emplacement.
 
-![Vue linéaire](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
+:::image type="content" source="./media/monitor-web-app-availability/availability-scatter-plot-003.png" alt-text="Vue linéaire." border="false":::
 
 Sélectionnez un test ou emplacement spécifique, ou réduisez la période de temps pour voir plus de résultats autour de la période d’intérêt. Utilisez l’Explorateur de recherche pour voir les résultats de toutes les exécutions, ou utilisez les requêtes Analytics pour exécuter des rapports personnalisés sur ces données.
 
@@ -127,28 +104,29 @@ Sélectionnez un test ou emplacement spécifique, ou réduisez la période de te
 
 Pour modifier, désactiver temporairement ou supprimer un test, cliquez sur les points de suspension à côté du nom du test. La propagation de changements de configuration vers tous les agents de test peut prendre jusqu’à 20 minutes.
 
-![Affichez les détails du test. Modifier et désactiver un test web](./media/monitor-web-app-availability/edit.png)
+:::image type="content" source="./media/monitor-web-app-availability/edit.png" alt-text="Afficher les détails d’un test. Modifier et désactiver un test web." border="false":::
 
 Vous souhaiterez peut-être désactiver les tests de disponibilité ou les règles d’alerte associées lorsque vous effectuez la maintenance de votre service.
 
 ## <a name="if-you-see-failures"></a>Si vous constatez des erreurs
 
-Cliquez sur un point rouge.
+Sélectionnez un point rouge.
 
-![Click a red dot](./media/monitor-web-app-availability/open-instance-3.png)
+:::image type="content" source="./media/monitor-web-app-availability/end-to-end.png" alt-text="Capture d’écran de l’onglet des détails de transaction de bout en bout." border="false":::
 
 À partir d’un résultat de test de disponibilité, vous pouvez voir les détails de la transaction pour tous les composants. Ici, vous pouvez :
 
+* Examiner le rapport de résolution des problèmes pour déterminer ce qui a pu provoqué l’échec de votre test, tandis que votre application est toujours disponible.
 * Vérifier la réponse reçue à partir de votre serveur.
 * Diagnostiquer la défaillance à l'aide des données de télémétrie côté serveur corrélées qui ont été collectées pendant le traitement du test de disponibilité en échec.
 * Enregistrer un problème ou un élément de travail dans Git ou Azure Boards pour suivre le problème. Le bogue contient un lien vers cet événement.
 * Ouvrir le résultat du test web dans Visual Studio.
 
-Vous pouvez en découvrir plus sur l’expérience de diagnostic des transactions de bout en bout [ici](./transaction-diagnostics.md).
+Pour en savoir plus sur l’expérience des diagnostics de transaction de bout en bout, consultez la [documentation sur les diagnostics de transaction](./transaction-diagnostics.md).
 
 Cliquez sur la ligne d'une exception pour afficher les détails de l'exception côté serveur qui a provoqué l'échec du test de disponibilité synthétique. Vous pouvez également obtenir la [capture instantanée de débogage](./snapshot-debugger.md) pour des diagnostics de niveau code plus riches.
 
-![Diagnostics côté serveur](./media/monitor-web-app-availability/open-instance-4.png)
+:::image type="content" source="./media/monitor-web-app-availability/open-instance-4.png" alt-text="Diagnostics côté serveur.":::
 
 Outre les résultats bruts, vous pouvez examiner deux mesures essentielles de la disponibilité dans [Metrics Explorer](../essentials/metrics-getting-started.md) :
 
@@ -160,12 +138,9 @@ Outre les résultats bruts, vous pouvez examiner deux mesures essentielles de la
 * [Utilisez des scripts PowerShell pour configurer un test de disponibilité](./powershell.md#add-an-availability-test) automatiquement.
 * Configurez un [webhook](../alerts/alerts-webhooks.md) qui est appelé lorsqu’une alerte est déclenchée.
 
-## <a name="troubleshooting"></a>Dépannage
-
-Consultez l’[article dédié au dépannage](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Availability alerts](availability-alerts.md) (Alertes de disponibilité)
 * [Tests web à plusieurs étapes](availability-multistep.md)
-
+* [Dépannage](troubleshoot-availability.md)

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ad57473e0950f031fbeadee2302f85557ed526f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147636"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388259"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud
 
@@ -32,13 +32,14 @@ Un même message peut correspondre à la condition de plusieurs requêtes de rou
 
 ## <a name="endpoints-and-routing"></a>Points de terminaison et routage
 
-Un IoT Hub a un [point de terminaison intégré](iot-hub-devguide-messages-read-builtin.md) unique. Vous pouvez créer des points de terminaison personnalisés pour y acheminer les messages en liant d’autres services de votre abonnement au hub. IoT Hub prend actuellement en charge les conteneurs de stockage Azure, les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus.
+Un IoT Hub a un [point de terminaison intégré](iot-hub-devguide-messages-read-builtin.md) unique. Vous pouvez créer des points de terminaison personnalisés pour y acheminer des messages en liant d’autres services de votre abonnement au hub. IoT Hub prend actuellement en charge les conteneurs de stockage Azure, les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus.
 
 Quand vous utilisez des points de terminaison de routage et personnalisés, les messages sont remis seulement au point de terminaison intégré s’ils ne correspondent à aucune requête. Pour remettre des messages au point de terminaison intégré ainsi qu’à un point de terminaison personnalisé, ajoutez un itinéraire qui envoie des messages au point de terminaison intégré des **événements**.
 
 > [!NOTE]
 > * IoT Hub prend uniquement en charge l’écriture de données dans des conteneurs de stockage Azure en tant qu’objets blob.
 > * Les files d’attente et rubriques Service Bus dont les options **Sessions** ou **Détection des doublons** sont activées ne sont pas prises en charge comme points de terminaison personnalisés.
+> * Dans le portail Azure, vous pouvez créer des points de terminaison de routage personnalisés uniquement pour les ressources Azure qui se trouvent dans le même abonnement que votre hub. Vous pouvez créer des points de terminaison personnalisés pour les ressources dans d’autres abonnements que vous possédez, mais les points de terminaison personnalisés doivent être configurés à l’aide d’une méthode différente de celle du portail Azure.
 
 Pour plus d’informations sur la création de points de terminaison personnalisés dans IoT Hub, consultez la page [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md).
 

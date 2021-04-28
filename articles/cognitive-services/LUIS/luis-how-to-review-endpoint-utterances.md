@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.openlocfilehash: ea2b44d05d25756a16b6b84f0734966b1f579848
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 339b87abad863f19a012dc6ed3a14ab13a44fc48
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97007600"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949107"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Comment améliorer l’application LUIS en examinant les énoncés de point de terminaison
 
@@ -61,7 +61,7 @@ Si vous ne savez pas si vous devez supprimer l’énoncé, déplacez-le vers l�
 
 ## <a name="disable-active-learning"></a>Désactiver l’apprentissage actif
 
-Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Pour cela, définissez la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) avec le paramètre et la valeur querystring `log=false` ou n’utilisez pas la valeur querystring, car la valeur par défaut est false.
+Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Pour cela, définissez la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) avec le paramètre et la valeur querystring `log=false` ou n’utilisez pas la valeur querystring, car la valeur par défaut est false.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

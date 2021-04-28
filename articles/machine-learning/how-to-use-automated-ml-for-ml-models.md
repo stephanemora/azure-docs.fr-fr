@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
-ms.topic: conceptual
-ms.custom: how-to, automl
-ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: how-to
+ms.custom: automl
+ms.openlocfilehash: e744f7bb4d457e18f73c308fa5eaf29918b97e88
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562720"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888311"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 
@@ -180,15 +180,15 @@ Explorez les modèles terminés pour voir les détails de l’exécution de la f
 
 [![Détails de l’itération](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
-## <a name="model-explanations"></a>Explications de modèle
+## <a name="model-explanations-preview"></a>Explications de modèle (préversion)
 
-Pour mieux comprendre votre modèle, identifiez les caractéristiques de données (brutes ou traitées) qui ont influencé les prédictions du modèle avec le tableau de bord des explications de modèle. 
+Pour mieux comprendre votre modèle, vous pouvez regarder les caractéristiques des données (brutes ou traitées) qui ont influencé les prédictions du modèle avec le tableau de bord des explications de modèle. 
 
-Le tableau de bord des explications de modèle fournit une analyse globale du modèle qui a fait l'objet de l'apprentissage, avec ses prédictions et explications. Il vous permet également d'explorer un point de données particulier et l'importance des caractéristiques individuelles. [En savoir plus sur les visualisations du tableau de bord des explications et les tracés spécifiques](how-to-machine-learning-interpretability-aml.md#visualizations).
+Le tableau de bord des explications de modèle fournit une analyse globale du modèle qui a fait l'objet de l'apprentissage, avec ses prédictions et explications. Il vous permet également d'explorer un point de données particulier et l'importance des caractéristiques individuelles. [En savoir plus sur les visualisations du tableau de bord des explications](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 Pour obtenir des explications sur un modèle particulier : 
 
-1. Dans l'onglet **Modèles**, sélectionnez le modèle que vous souhaitez utiliser. 
+1. Sous l'onglet **Modèles**, sélectionnez le modèle que vous souhaitez comprendre. 
 1. Sélectionnez le bouton **Expliquer le modèle** et fournissez un calcul utilisable pour générer les explications.
 1. Consultez l'état dans l'onglet **Exécutions enfants**. 
 1. Accédez ensuite à l'onglet **Explications (préversion)** qui contient le tableau de bord des explications. 
