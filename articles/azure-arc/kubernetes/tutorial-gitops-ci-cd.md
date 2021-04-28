@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 9a228ce6f8b18afb77b656765abbad0bb4ae877f
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: e27923ff1f29163f5d3390c2c92a11f3adfa5c87
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589140"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126612"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutoriel : Implémenter une CI/CD avec GitOps à l’aide de clusters Kubernetes avec Azure Arc
 
@@ -58,7 +58,7 @@ Ce tutoriel suppose que vous maîtrisez Azure DevOps, Azure Repos et Pipelines, 
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>Importer des applications et des référentiels GitOps dans Azure Repos
 
-Importez un [référentiel d’application](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#application-repo) et un [référentiel GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#gitops-repo) dans Azure Repos. Pour ce tutoriel, utilisez les exemples de référentiels suivants :
+Importez un [référentiel d’application](./conceptual-gitops-ci-cd.md#application-repo) et un [référentiel GitOps](./conceptual-gitops-ci-cd.md#gitops-repo) dans Azure Repos. Pour ce tutoriel, utilisez les exemples de référentiels suivants :
 
 * Référentiel d’application **arc-cicd-demo-src**
    * URL : https://github.com/Azure/arc-cicd-demo-src
@@ -337,4 +337,4 @@ Dans ce tutoriel, vous avez configuré un workflow CI/CD complet qui implémente
 Passez à notre article conceptuel pour en savoir plus sur GitOps et les configurations avec Kubernetes avec Azure Arc.
 
 > [!div class="nextstepaction"]
-> [Workflow CI/CD avec GitOps – Kubernetes avec Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
+> [Workflow CI/CD avec GitOps – Kubernetes avec Azure Arc](./conceptual-gitops-ci-cd.md)

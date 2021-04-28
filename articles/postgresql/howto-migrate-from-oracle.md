@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: 931528ec415cabde8e862db17b9f8f26502f6788
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 973dcd94d7535434914bd718deb136e4c9952245
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968932"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135542"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Migrer Oracle vers Azure Database pour PostgreSQL
 
@@ -348,10 +348,10 @@ Pour une aide à la migration dépassant le cadre de l’outil ora2pg, contactez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir une matrice des services et des outils pour la migration de bases de données et de données et pour les tâches spécialisées, consultez [Services et outils disponibles pour la migration de données](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+Pour obtenir une matrice des services et des outils pour la migration de bases de données et de données et pour les tâches spécialisées, consultez [Services et outils disponibles pour la migration de données](../dms/dms-tools-matrix.md).
 
 Documentation : 
-- [Documentation relative à Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/)
+- [Documentation relative à Azure Database pour PostgreSQL](./index.yml)
 - [Documentation relative à ora2pg](https://ora2pg.darold.net/documentation.html)
 - [Site web de PostgreSQL](https://www.postgresql.org/)
 - [Prise en charge des transactions autonomes dans PostgreSQL](http://blog.dalibo.com/2016/08/19/Autonoumous_transactions_support_in_PostgreSQL.html) 

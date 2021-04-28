@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fedebd9182c168b9b7c455d5f6726e66720e0a8b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: be67e2fb1bafaecd538f6fc671c006ac013cc849
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479157"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135272"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Collecter les métriques du disjoncteur Spring Cloud Resilience4J à l’aide de Micrometer (préversion)
 
@@ -22,7 +22,7 @@ Pour en illustrer le fonctionnement, nous allons utiliser [spring-cloud-circuit-
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Activez l’agent In-process Java à partir du [guide de l’agent In-process Java pour Application Insights](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights). 
+* Activez l’agent In-process Java à partir du [guide de l’agent In-process Java pour Application Insights](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights). 
 
 * Activez la collecte de dimensions pour les métriques Resilience4J à partir du [guide Application Insights](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
@@ -125,6 +125,6 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Application Insights](spring-cloud-howto-application-insights.md)
-* [Traçage distribué](spring-cloud-howto-distributed-tracing.md)
-* [Tableau de bord Disjoncteur](spring-cloud-tutorial-circuit-breaker.md)
+* [Application Insights](./how-to-application-insights.md)
+* [Traçage distribué](./how-to-distributed-tracing.md)
+* [Tableau de bord Disjoncteur](./tutorial-circuit-breaker.md)

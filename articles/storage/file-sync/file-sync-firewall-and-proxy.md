@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b2c77c20bfb6fff60f2242d1ac2dad7b3fc9f6fe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5c299bc88331c05c89273756ebaf377ee1378199
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795849"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124452"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -97,7 +97,7 @@ Pour configurer les paramètres de proxy à l’échelle de la machine, suivez l
 2. Définir les paramètres de proxy WinHTTP 
 
    > [!Note]  
-   > Il existe plusieurs méthodes (WPAD, fichier PAC, netsh, etc.) pour configurer un serveur Windows pour qu’il utilise un serveur proxy. Les étapes ci-dessous expliquent comment configurer les paramètres de proxy à l’aide de netsh, mais toute méthode listée dans la documentation [Configurer les paramètres du serveur proxy dans Windows](https://docs.microsoft.com/troubleshoot/windows-server/networking/configure-proxy-server-settings) est prise en charge.
+   > Il existe plusieurs méthodes (WPAD, fichier PAC, netsh, etc.) pour configurer un serveur Windows pour qu’il utilise un serveur proxy. Les étapes ci-dessous expliquent comment configurer les paramètres de proxy à l’aide de netsh, mais toute méthode listée dans la documentation [Configurer les paramètres du serveur proxy dans Windows](/troubleshoot/windows-server/networking/configure-proxy-server-settings) est prise en charge.
 
 
    - Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell pour afficher les paramètres de proxy existant :   

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc156afa2c5b5143e1543ef58203d6dea5d046c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631050"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144994"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -100,7 +100,7 @@ En plus des avantages en matière de récompenses, les partenaires d’applicati
 
 ### <a name="publisher-agreement"></a>Contrat de l’éditeur
 
-Toutes les activités décrites dans cette page sont couvertes par le [contrat d’éditeur](https://go.microsoft.com/fwlink/?LinkID=699560) Microsoft et sont couvertes par l’Addendum relatif au programme des avantages commerciaux.
+Toutes les activités décrites dans cette page sont couvertes par le [contrat d’éditeur](/legal/marketplace/msft-publisher-agreement) Microsoft et sont couvertes par l’Addendum relatif au programme des avantages commerciaux.
 
 ### <a name="cancellation-policy"></a>Politique d’annulation
 

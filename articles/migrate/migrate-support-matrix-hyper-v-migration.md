@@ -6,12 +6,12 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 90da16789344754c02d46022160db71ee261a056
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33e34e777a78e1c609d2eacdcb501c0bce1f5c9d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754060"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714917"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matrice de prise en charge pour la migration Hyper-V
 
@@ -83,7 +83,13 @@ backup.windowsazure.us | Transfert des données de réplication et coordination.
 *.hypervrecoverymanager.windowsazure.us | Utilisé pour la gestion de la réplication.
 *.blob.core.usgovcloudapi.net | Chargez des données dans des comptes de stockage.
 dc.services.visualstudio.com | Chargez les journaux d’applications utilisés pour la supervision interne.
-time.nist.gov | Vérifie la synchronisation horaire entre l’horloge système et l’heure globale.
+time.nist.gov | Vérifie la synchronisation horaire entre l’horloge système et l’heure globale.   
+
+>[!Note]
+>
+> Si votre projet de migration a une **connectivité de point de terminaison privée**, le logiciel du fournisseur de réplication sur les hôtes Hyper-V doit accéder à ces URL pour la prise en charge des liens privés. 
+> - *.blob.core.windows.com - Pour accéder au compte de stockage qui stocke les données répliquées. Cette option est facultative et n’est pas obligatoire si un point de terminaison privé est attaché au compte de stockage. 
+> - login.windows.net pour le contrôle d’accès et gestion des identités avec Active Directory.
 
 ## <a name="azure-vm-requirements"></a>Exigences des machines virtuelles Azure
 

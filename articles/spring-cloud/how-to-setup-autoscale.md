@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: eaa4a219a1020639c930f8a07bfcaa1c45d0cef8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 596c0deb833c5af7b85c1680062a24f075cf28cf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877356"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134624"
 ---
 # <a name="set-up-autoscale-for-microservice-applications"></a>Configurer la mise à l’échelle automatique pour les applications de microservice
 
@@ -25,7 +25,7 @@ La mise à l’échelle automatique est une fonctionnalité intégrée d’Azure
 Pour suivre ces procédures, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-* Une instance du service Azure Spring Cloud déployée. Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application par le biais d’Azure CLI](./spring-cloud-quickstart.md).
+* Une instance du service Azure Spring Cloud déployée. Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application par le biais d’Azure CLI](./quickstart.md).
 * Au moins une application déjà créée dans votre instance de ce service.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Accéder à la page Mise à l’échelle automatique sur le portail Azure

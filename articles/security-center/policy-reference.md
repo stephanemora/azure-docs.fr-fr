@@ -1,25 +1,25 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Security Center
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Security Center. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8023dcc29fe8ea3af853237e911524549e4d2bcb
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 7c40e40566555d9c752f0e93671f2c361f618b82
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739635"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146740"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Définitions intégrées d’Azure Policy pour Azure Security Center
 
 Cette page est un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) relatives à Azure Security Center. Les regroupements suivants de définitions de stratégie sont disponibles :
 
 - Le groupe [Initiatives](#azure-security-center-initiatives) liste les définitions d’initiative d’Azure Policy dans la catégorie « Security Center ».
-- Le groupe [Initiative par défaut](#azure-security-center-initiatives) répertorie toutes les définitions d’Azure Policy qui font partie de l’initiative par défaut de Security Center,[Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction). Ce benchmark largement respecté créé par Microsoft s’appuie sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/), et se focalise sur la sécurité du cloud.
+- Le groupe [Initiative par défaut](#azure-security-center-initiatives) répertorie toutes les définitions d’Azure Policy qui font partie de l’initiative par défaut de Security Center,[Benchmark de sécurité Azure](/security/benchmark/azure/introduction). Ce benchmark largement respecté créé par Microsoft s’appuie sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/), et se focalise sur la sécurité du cloud.
 - Le groupe [Catégorie](#azure-security-center-category) liste toutes les définitions d’Azure Policy dans la catégorie « Security Center ».
 
 Pour plus d’informations sur les stratégies de sécurité, consultez [Utilisation des stratégies de sécurité](./tutorial-security-policy.md). Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).

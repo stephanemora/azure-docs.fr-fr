@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f7f6f5d82c5fda7101e80ddcb8b17dc6bdef6532
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 588bee2922ee44f3f89b5d252b5b4a6991d26b82
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99070258"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815123"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Démarrage rapide : Créer un coffre de clés à l’aide de l’interface de ligne de commande Azure
 
@@ -43,6 +43,6 @@ Azure Key Vault est un service cloud qui fournit un magasin sécurisé pour les 
 Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et l’avez supprimé. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
 - Lire la [vue d’ensemble Azure Key Vault](overview.md)
-- Passer en revue la [Vue d’ensemble de la sécurité d’Azure Key Vault](security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité d’Azure Key Vault](security-features.md)
 - Consulter la référence des [commandes az keyvault Azure CLI](/cli/azure/keyvault)
 

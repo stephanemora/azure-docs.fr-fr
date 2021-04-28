@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 4b65d42522f40eb7d0e65356223313a924de3039
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 394e4da38f599b9662c8a764cac2a3abbbcad04b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656989"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147298"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -87,7 +87,7 @@ Par exemple, vous utilisez un appareil simulé pour envoyer 200 messages apparei
 
 Les opérations du registre des identités d’appareil sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement des appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils est prise en charge par le biais des [travaux d’importation et d’exportation](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-Lors du lancement d’opérations d’identité via des [opérations de mise à jour de registre en bloc](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) (*pas* les travaux d’importation et d’exportation en bloc), les mêmes limites de limitation s’appliquent. Par exemple, si vous souhaitez envoyer une opération en bloc pour créer 50 appareils et que vous avez une IoT Hub S1 avec 1 unité, seules deux de ces demandes en bloc sont acceptées par minute. Cela est dû au fait que la limitation de l’opération d’identité pour un IoT Hub S1 avec 1 unité est de 100/min/unité. En outre, dans ce cas, une troisième requête (et au-delà) dans la même minute est rejetée, car la limite a déjà été atteinte. 
+Lors du lancement d’opérations d’identité via des [opérations de mise à jour de registre en bloc](/rest/api/iothub/service/bulkregistry/updateregistry) (*pas* les travaux d’importation et d’exportation en bloc), les mêmes limites de limitation s’appliquent. Par exemple, si vous souhaitez envoyer une opération en bloc pour créer 50 appareils et que vous avez une IoT Hub S1 avec 1 unité, seules deux de ces demandes en bloc sont acceptées par minute. Cela est dû au fait que la limitation de l’opération d’identité pour un IoT Hub S1 avec 1 unité est de 100/min/unité. En outre, dans ce cas, une troisième requête (et au-delà) dans la même minute est rejetée, car la limite a déjà été atteinte. 
 
 ### <a name="device-connections-throttle"></a>Limitation des connexions d’appareils
 

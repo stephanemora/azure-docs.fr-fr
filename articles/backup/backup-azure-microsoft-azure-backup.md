@@ -2,13 +2,13 @@
 title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de travail
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 144a5e26f5ad10d120a49f6a0385c3a310448dbc
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98987020"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713675"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -28,7 +28,7 @@ Cet article décrit la préparation de votre environnement à la sauvegarde des 
 >
 >
 
-Les serveurs MABS (Microsoft Azure Backup Server) déployés dans une machine virtuelle Azure peuvent sauvegarder des machines virtuelles dans Azure, mais ils doivent se trouver dans le même domaine pour que l’opération de sauvegarde puisse s’effectuer. Le processus de sauvegarde d’une machine virtuelle Azure reste identique à la sauvegarde d’une machine virtuelle en local, mais le déploiement de Microsoft Azure Backup Server dans Azure présente certaines limitations. Pour plus d’informations sur ces limitations, consultez [DPM en tant que machine virtuelle Azure](/system-center/dpm/install-dpm#setup-prerequisites)
+Les serveurs MABS (Microsoft Azure Backup Server) déployés dans une machine virtuelle Azure peuvent sauvegarder des machines virtuelles dans Azure, mais ils doivent se trouver dans le même domaine pour que l’opération de sauvegarde puisse s’effectuer. Le processus de sauvegarde d’une machine virtuelle Azure reste identique à la sauvegarde d’une machine virtuelle en local, mais le déploiement de Microsoft Azure Backup Server dans Azure présente certaines limitations. Pour plus d’informations sur ces limitations, consultez [DPM en tant que machine virtuelle Azure](/system-center/dpm/install-dpm#setup-prerequisites).
 
 > [!NOTE]
 > Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../azure-resource-manager/management/deployment-models.md). Cet article fournit les informations et les procédures relatives à la restauration des machines virtuelles déployées à l’aide du modèle Resource Manager.
@@ -41,8 +41,8 @@ Azure Backup Server hérite d’une grand partie des fonctionnalités de sauvega
 
 La première étape de la mise en service d’Azure Backup Server consiste à configurer un serveur Windows Server. Il peut s’agir d’un serveur local ou d’un serveur dans Azure.
 
-* Pour protéger les charges de travail locales, le serveur MABS doit être local.
-* Pour protéger les charges de travail qui s’exécutent sur des machines virtuelles Azure, le serveur MABS doit se trouver dans Azure et être exécuté en tant que machine virtuelle Azure.
+* Pour protéger les charges de travail locales, le serveur MABS doit être local et connecté à un domaine.
+* Pour protéger les charges de travail qui s’exécutent sur des machines virtuelles Azure, le serveur MABS doit se trouver dans Azure, être exécuté en tant que machine virtuelle Azure et être connecté à un domaine.
 
 ### <a name="using-a-server-in-azure"></a>Utilisation d’un serveur dans Azure
 
@@ -72,7 +72,7 @@ Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de dédu
 >
 > L'installation du serveur de sauvegarde Azure n'est pas prise en charge sur Windows Server Core ou Microsoft Hyper-V Server.
 
-Joignez toujours le serveur de sauvegarde Azure à un domaine. Si vous envisagez de déplacer le serveur vers un autre domaine, installez d’abord le serveur de sauvegarde Azure, puis joignez-le au nouveau domaine. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
+Joignez toujours le serveur de sauvegarde Azure à un domaine. Le déplacement d’une machine Azure Backup Server vers un nouveau domaine après le déploiement *n’est pas pris en charge*.
 
 Que vous envoyiez des données de sauvegarde vers Azure ou que vous les conserviez localement, le serveur de sauvegarde Azure doit être inscrit auprès d’un coffre Recovery Services.
 
@@ -201,7 +201,7 @@ Une fois le processus d’extraction terminé, cochez la case pour lancer le fic
 
     Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](/system-center/dpm/plan-long-and-short-term-data-storage).
 
-    La capacité requise pour le stockage sur disque dépend principalement de la taille des données protégées, de la taille du point de récupération quotidien, du volume attendu, du taux de croissance des données et des objectifs de durée de rétention. Nous vous recommandons de choisir une taille de stockage sur disque égale à deux fois celle des données protégées. Cela suppose une taille de point de récupération quotidien de 10 % de la taille des données protégées et une durée de rétention de 10 jours. Pour obtenir une bonne estimation de la taille, consultez [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301). 
+    Les exigences en matière de capacité de stockage sur disque dépendent principalement de la taille des données protégées, de la taille du point de récupération quotidien, du volume attendu, du taux de croissance des données et des objectifs de durée de rétention. Nous vous recommandons de choisir une taille de stockage sur disque égale à deux fois celle des données protégées. Cela suppose une taille de point de récupération quotidien de 10 % de la taille des données protégées et une durée de rétention de 10 jours. Pour obtenir une bonne estimation de la taille, consultez [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301). 
 
 5. Fournissez un mot de passe fort pour les comptes d’utilisateur local restreints et sélectionnez **Suivant**.
 
@@ -366,7 +366,8 @@ Procédez comme suit pour mettre à niveau MABS :
 ## <a name="troubleshooting"></a>Dépannage
 
 Si le serveur de sauvegarde Microsoft Azure échoue avec des erreurs pendant la phase d’installation (ou de sauvegarde ou restauration), reportez-vous à ce [document de codes d’erreur](https://support.microsoft.com/kb/3041338) pour plus d’informations.
-Vous pouvez également vous reporter au [FAQ relatives à la sauvegarde Azure](backup-azure-backup-faq.md)
+
+Vous pouvez également vous reporter aux [FAQ relatives à Sauvegarde Azure](backup-azure-backup-faq.yml).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

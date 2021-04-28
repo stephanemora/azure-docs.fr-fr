@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: f737be68a28f95ab5402ba5ea08e85fcf1b04d37
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3a9e36f691a107f17e92ffbeb1221459d688b97e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565897"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146974"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -353,7 +353,7 @@ Lorsque le journal de flux est désactivé, la journalisation de flux pour le gr
 
 *Supprimer les journaux de flux*
 
-Lorsque le journal de flux est supprimé, non seulement la journalisation de flux pour le groupe de sécurité réseau associé est arrêtée, mais la ressource de journal de flux est également supprimée avec ses paramètres et ses associations. Pour réactiver la journalisation de flux, une nouvelle ressource de journal de flux doit être créée pour ce groupe de sécurité réseau. Un journal de flux peut être supprimé à l’aide de [PowerShell](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworkwatcherflowlog), de l’[interface CLI](https://docs.microsoft.com/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) ou de l’[API REST](https://docs.microsoft.com/rest/api/network-watcher/flowlogs/delete). La prise en charge de la suppression des journaux de flux à partir du Portail Azure est prévue.    
+Lorsque le journal de flux est supprimé, non seulement la journalisation de flux pour le groupe de sécurité réseau associé est arrêtée, mais la ressource de journal de flux est également supprimée avec ses paramètres et ses associations. Pour réactiver la journalisation de flux, une nouvelle ressource de journal de flux doit être créée pour ce groupe de sécurité réseau. Un journal de flux peut être supprimé à l’aide de [PowerShell](/powershell/module/az.network/remove-aznetworkwatcherflowlog), de l’[interface CLI](/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) ou de l’[API REST](/rest/api/network-watcher/flowlogs/delete). La prise en charge de la suppression des journaux de flux à partir du Portail Azure est prévue.    
 
 En outre, lorsqu’un groupe de sécurité réseau est supprimé, la ressource de journal de flux associée est supprimée par défaut.
 

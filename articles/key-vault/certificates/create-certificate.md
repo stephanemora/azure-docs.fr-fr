@@ -3,19 +3,18 @@ title: Méthodes de création de certificats
 description: Découvrez les différentes options permettant de créer ou d’importer un certificat Key Vault dans Azure Key Vault. Il existe plusieurs façons de créer un certificat de Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06f2de1f373f72aa5e55da17c249ff119a36950
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 20f11983a76b4ea703981e257b088c13cf577935
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581834"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123390"
 ---
 # <a name="certificate-creation-methods"></a>Méthodes de création de certificats
 
@@ -50,7 +49,7 @@ Les descriptions suivantes correspondent aux étapes écrites en vert dans le di
 ## <a name="asynchronous-process"></a>Processus asynchrone
 La création du certificat KV est un processus asynchrone. Cette opération crée une demande de certificat KV et retourne un code d’état HTTP 202 (Accepté). Vous pouvez suivre l’état de la demande en interrogeant l’objet en attente créé par cette opération. L’URI complet de l’objet en attente est retourné dans l’en-tête EMPLACEMENT.  
 
-Quand une demande de création d’un certificat KV est terminée, l’objet en attente passe de l’état « inprogress » (En cours) à « completed » (Terminé), et une nouvelle version du certificat KV est créée. Elle devient la version actuelle.  
+Quand une demande de création d’un certificat KV est terminée, l’objet en attente passe de l’état « inprogress » (En cours) à « completed » (Terminé), et une nouvelle version du certificat KV est créée. Elle devient la version actuelle.  
 
 ## <a name="first-creation"></a>Première création
  Lorsqu’un certificat KV est créé pour la première fois, un secret et une clé adressables sont également créés avec le même nom que celui du certificat. Si le nom est déjà utilisé, l’opération échoue avec un code d’état HTTP 409 (Conflit).
@@ -78,7 +77,7 @@ Le secret et la clé adressables obtiennent leurs attributs à partir des attrib
 ```  
 
 ## <a name="partnered-ca-providers"></a>Fournisseurs d’autorité de certification associés
-La création du certificat peut être effectuée manuellement ou à l’aide d’un émetteur « Self ». Key Vault s’associe également à certains fournisseurs émetteurs pour simplifier la création de certificats. Les types de certificats suivants peuvent être commandés pour Key Vault avec ces fournisseurs émetteurs partenaires.  
+La création du certificat peut être effectuée manuellement ou à l’aide d’un émetteur « Self ». Key Vault s’associe également à certains fournisseurs émetteurs pour simplifier la création de certificats. Les types de certificats suivants peuvent être commandés pour Key Vault avec ces fournisseurs émetteurs partenaires.  
 
 |Fournisseur|Type de certificat|Configuration  
 |--------------|----------------------|------------------|  
@@ -93,5 +92,5 @@ Notez que lorsqu’une commande est passée auprès du fournisseur émetteur, el
 
 ## <a name="see-also"></a>Voir aussi
 
- - Guide pratique pour créer des certificats dans Key Vault à l’aide du [Portail](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), d’[Azure CLI](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli) ou d’[Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
+ - Guide pratique pour créer des certificats dans Key Vault à l’aide de [Portail Azure](./quick-create-portal.md), d’[Azure CLI](./quick-create-cli.md) ou d’[Azure PowerShell](./quick-create-powershell.md)
  - [Surveiller et gérer la création de certificats](create-certificate-scenarios.md)
