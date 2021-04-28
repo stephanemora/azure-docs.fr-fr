@@ -5,14 +5,14 @@ author: julieMSFT
 ms.author: jrasnick
 ms.topic: troubleshooting
 ms.service: synapse-analytics
-ms.subservice: sql
+ms.subservice: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 70ce3c82790db0296d5359b5db2e6a323306c309
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 956621a1a0ea909cbedbfc05bac24c21f6ccf6e8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96576415"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141340"
 ---
 # <a name="troubleshoot-reading-utf-8-text-from-csv-or-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Résolution des problèmes de lecture de texte UTF-8 à partir de fichiers CSV ou Parquet à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 

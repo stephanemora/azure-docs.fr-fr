@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: e61d85b5f02cb73d078888badc2fa24c4506fe64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa207ca38c46f09e3660ea03e70d20e45c620845
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96620882"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127440"
 ---
 # <a name="how-to-sell-your-saas-offer"></a>Guide pratique pour vendre votre offre SaaS
 
@@ -23,7 +23,7 @@ Cet article décrit les options supplémentaires à votre disposition si vous ve
 
 La fourniture d’informations sur la page **Co-vendre avec Microsoft** est entièrement facultative. Elles sont cependant nécessaires pour atteindre l’état _Prêt pour la co-vente_ et _Prêt pour la co-vente IP_. Les équipes commerciales de Microsoft utilisent ces informations pour en savoir plus sur votre solution lors de l’évaluation de son adéquation avec les besoins des clients. Les informations que vous fournissez sous cet onglet ne sont pas directement disponibles pour les clients.
 
-Pour plus de détails et des instructions sur la configuration de l’onglet **Co-vente avec Microsoft**, consultez [Option de co-vente sur le marketplace commercial](commercial-marketplace-co-sell.md).
+Pour plus de détails et des instructions sur la configuration de l’onglet **Co-vente avec Microsoft**, consultez [Option de co-vente sur le marketplace commercial](./co-sell-configure.md).
 
 ## <a name="resell-through-csps"></a>Revendre via des fournisseurs de solutions cloud
 

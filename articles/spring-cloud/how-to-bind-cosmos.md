@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: bf761bded38ffa975610c7a7f217e911704ae3bf
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 73ab7e9bab4106af52f615982666922115af4187
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227940"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135380"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud
 
@@ -22,7 +22,7 @@ Au lieu de configurer manuellement vos applications Spring Boot, vous pouvez lie
 
 Configuration requise :
 
-* Une instance Azure Spring Cloud déployée. Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application via Azure CLI](spring-cloud-quickstart.md).
+* Une instance Azure Spring Cloud déployée. Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application via Azure CLI](./quickstart.md).
 * Un compte Azure Cosmos DB avec un niveau d’autorisation minimal de contributeur
 
 ## <a name="bind-azure-cosmos-db"></a>Lier Azure Cosmos DB
@@ -108,4 +108,4 @@ Azure Cosmos DB comprend cinq types d’API qui prennent en charge les liaisons
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez vu comment lier votre application Azure Spring Cloud à une base de données Azure Cosmos DB. Pour en savoir plus sur la liaison de services à votre application, consultez [Lier à un cache Azure Cache pour Redis](spring-cloud-howto-bind-redis.md).
+Dans cet article, vous avez vu comment lier votre application Azure Spring Cloud à une base de données Azure Cosmos DB. Pour en savoir plus sur la liaison de services à votre application, consultez [Lier à un cache Azure Cache pour Redis](./how-to-bind-redis.md).

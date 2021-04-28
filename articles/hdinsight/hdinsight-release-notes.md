@@ -5,12 +5,12 @@ ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: a648ff3aa0c042aaefe16eaae0f9d73953241b3d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 838eb517697c0625139058a19c7def764e869ed5
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065495"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588171"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notes de publication Azure HDInsight
 
@@ -67,7 +67,16 @@ HDInsight migre progressivement vers les groupes de machines virtuelles identiqu
 Les changements suivants se produiront dans les prochaines versions.
 
 ### <a name="os-version-upgrade"></a>Mise à niveau de la version du système d’exploitation
-HDInsight mettra à niveau la version du système d’exploitation d’Ubuntu 16.04 à 18.04. La mise à niveau sera terminée avant avril 2021.
+Les clusters HDInsight sont en cours d’exécution sur Ubuntu 16.04 LTS. Comme indiqué dans l’article sur le [cycle de publication d’Ubuntu](https://ubuntu.com/about/release-cycle), le noyau Ubuntu 16.04 arrivera en fin de vie (EOL) en avril 2021. Nous allons commencer à déployer la nouvelle image de cluster HDInsight 4.0 qui s’exécute sur Ubuntu 18.04 en mai 2021. Une fois disponibles, les clusters HDInsight 4.0 nouvellement créés s’exécuteront par défaut sur Ubuntu 18.04. Les clusters existants sur Ubuntu 16.04 s’exécuteront en l’état avec une prise en charge complète.
+
+HDInsight 3.6 continuera de s’exécuter sur Ubuntu 16.04. Il atteindra la fin du support standard d’ici le 30 juin 2021 et passera au support De base à compter du 1er juillet 2021. Pour plus d’informations sur les dates et les options de prise en charge, consultez [Versions d’Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Ubuntu 18.04 ne sera pas pris en charge pour HDInsight 3.6. Si vous souhaitez utiliser Ubuntu 18.04, vous devez migrer vos clusters vers HDInsight 4.0. 
+
+Vous devez supprimer et recréer vos clusters si vous souhaitez déplacer les clusters existants vers Ubuntu 18.04. Prévoyez de créer ou de recréer votre cluster une fois que la prise en charge d’Ubuntu 18.04 devient disponible. Nous enverrons une autre notification une fois que la nouvelle image sera disponible dans toutes les régions.
+
+Il est fortement recommandé de tester à l’avance vos actions de script et vos applications personnalisées déployées sur les nœuds de périphérie sur une machine virtuelle Ubuntu 18.04. Vous pouvez [créer une machine virtuelle Ubuntu Linux simple sur 18 04-LTS](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/), puis créer et utiliser une [paire de clés SSH (Secure Shell)](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm) sur votre machine virtuelle pour exécuter et tester vos actions de script et vos applications personnalisées déployées sur les nœuds de périphérie.
+
+### <a name="disable-stardard_a5-vm-size-as-head-node-for-hdinsgiht-40"></a>Désactiver la taille de machine virtuelle Stardard_A5 comme nœud principal pour HDInsight 4.0
+Le nœud principal de cluster HDInsight est chargé de l’initialisation et de la gestion du cluster. La taille de machine virtuelle Standard_A5 présente des problèmes de fiabilité en tant que nœud principal pour HDInsight 4.0. À compter de la prochaine version de mai 2021, les clients ne pourront pas créer de clusters avec la taille de machine virtuelle Standard_A5 comme nœud principal. Vous pouvez utiliser d’autres machines virtuelles à 2 cœurs comme E2_v3 ou E2s_v3. Les clusters existants fonctionneront tels quels. Une machine virtuelle à 4 cœurs est fortement recommandée pour le nœud principal, afin de garantir la haute disponibilité et la fiabilité des clusters HDInsight de production.
 
 ### <a name="basic-support-for-hdinsight-36-starting-july-1-2021"></a>Support de base pour HDInsight 3.6 à partir du 1er juillet 2021
 À partir du 1er juillet 2021, Microsoft proposera un [Support de base](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) pour certains types de cluster HDInsight 3.6. Le plan de Support de base sera disponible jusqu’au 3 avril 2022. Vous serez automatiquement inscrit au Support de base à partir du 1er juillet 2021. Aucune action n’est requise pour vous inscrire. Consultez [notre documentation](hdinsight-36-component-versioning.md) sur les types de clusters inclus dans le Support de base. 

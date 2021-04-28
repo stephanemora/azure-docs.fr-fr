@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: c78778f9152fd4c07fb9e550e562cfef858333c8
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: ff05a01ad8173923ff614657d0231f743f38ba1c
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786734"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714755"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurer une appliance avec un script
 
@@ -34,7 +34,7 @@ Scénario | Spécifications
 VMware | Windows Server 2016 avec 32 Go de mémoire, huit processeurs virtuels, environ 80 Go de stockage sur disque
 Hyper-V | Windows Server 2016 avec 16 Go de mémoire, huit processeurs virtuels, environ 80 Go de stockage sur disque
 
-- Le serveur a également besoin d’un commutateur virtuel externe. Elle a besoin d’une adresse IP statique ou dynamique et d’un accès à Internet.
+- Le serveur a également besoin d’un commutateur virtuel externe. Il nécessite une adresse IP statique ou dynamique. 
 - Avant de déployer l’appliance, examinez en détail la configuration requise d’appliance pour les [serveurs sur VMware](migrate-appliance.md#appliance---vmware) et [sur Hyper-V](migrate-appliance.md#appliance---hyper-v).
 - N’exécutez pas le script sur une appliance de Azure Migrate existante.
 

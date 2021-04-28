@@ -4,7 +4,7 @@ description: Présentation des rapports d’activité de connexion dans le porta
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,27 +13,27 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17e7f34da1428eec219a393417b0a2a7b461078
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: dc9aa77b3fdc3cda94670545f847bb9de31e1160
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552731"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718950"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Rapports d’activité de connexion Azure Active Directory – Préversion
 
-L’architecture de création de rapports dans Azure Active Directory (Azure AD) comprend les composants suivants :
+En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
 
-- **Activité** 
-    - **Connexions** : informations concernant les moments auxquels des utilisateurs, des applications et des ressources managées se connectent à Azure AD et accèdent à des ressources.
-    - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) : fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
-- **Sécurité** 
-    - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) correspond à un indicateur de tentative de connexion d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
-    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
+Pour vous aider à atteindre cet objectif, le portail Azure Active Directory vous donne accès à trois journaux d’activité :
+
+- **Connexions** : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
+- **[Audit](concept-audit-logs.md)**  : Informations sur les modifications appliquées à votre locataire, telles que la gestion des utilisateurs et des groupes ou les mises à jour appliquées aux ressources de votre locataire.
+- **[Approvisionnement](concept-provisioning-logs.md)**  : Activités réalisées par le service d’approvisionnement, telles que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday.
+
 
 Le rapport classique sur les connexions dans Azure Active Directory fournit une vue d’ensemble des connexions utilisateur interactives. En plus de celui-ci, vous avez désormais accès à trois rapports de connexion supplémentaires actuellement en préversion :
 
@@ -130,7 +130,8 @@ Les connexions utilisateur interactives sont des connexions où un utilisateur f
 
 
 
-Remarque : le rapport de connexions utilisateur interactives contenait auparavant des connexions non interactives de clients Microsoft Exchange. Bien que ces connexions ne soient pas interactives, elles étaient incluses dans le rapport des connexions utilisateur interactives pour une meilleure visibilité. Une fois le rapport de connexions utilisateur non interactives entré en préversion publique en novembre 2020, les journaux des événements de connexion non interactive ont été déplacés vers le rapport de connexions utilisateur non interactives pour une plus grande précision. 
+> [!NOTE] 
+> Le rapport des connexions utilisateur interactives contenait auparavant des connexions non interactives de clients Microsoft Exchange. Bien que ces connexions ne soient pas interactives, elles étaient incluses dans le rapport des connexions utilisateur interactives pour une meilleure visibilité. Une fois le rapport de connexions utilisateur non interactives entré en préversion publique en novembre 2020, les journaux des événements de connexion non interactive ont été déplacés vers le rapport de connexions utilisateur non interactives pour une plus grande précision. 
 
 
 **Taille du rapport :** petite <br> 
@@ -326,6 +327,18 @@ Pour faciliter la synthèse des données, les journaux de connexion avec identit
 Sélectionnez un élément dans la liste pour afficher toutes les connexions regroupées sous un nœud.
 
 Sélectionnez un élément regroupé pour afficher tous les détails de la connexion. 
+
+
+## <a name="sign-in-error-code"></a>Code d’erreur de connexion
+
+Si une connexion a échoué, vous pouvez obtenir plus d’informations sur la raison de cet échec dans la section **Informations de base** de l’élément de journal correspondant. 
+
+![Capture d’écran montrant une vue d’informations détaillées.](./media/concept-all-sign-ins/error-code.png)
+ 
+Bien que l’élément de journal vous fournisse la raison de l’échec, dans certains cas, vous pouvez obtenir plus d’informations en utilisant l’[outil de recherche de l’erreur de connexion](https://login.microsoftonline.com/error). Par exemple, s’il est disponible, cet outil vous propose des étapes de correction.  
+
+![Outil de recherche du code d’erreur](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
 
 
 ## <a name="filter-sign-in-activities"></a>Filtrer les activités de connexion

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/7/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9c00b2d4d30ac417d58f2b69e4ba460789cf6583
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6ec46a489762c1c590752f5ca33804f06c58385a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795824"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131058"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -58,7 +58,7 @@ Les notes de publication suivantes concernent la version 12.0.0.0 de l’agent A
     - Vous pouvez désormais utiliser le portail pour désactiver l’accès au point de terminaison public du service de synchronisation du stockage, et approuver, rejeter et supprimer des connexions de point de terminaison privé. Pour configurer la stratégie d’accès réseau et les connexions de point de terminaison privé, ouvrez le portail du service de synchronisation du stockage, accédez à la section Paramètres, puis cliquez sur Réseau.
  
 - Prise en charge de la hiérarchisation cloud pour les tailles de cluster de volumes supérieures à 64 Kio
-    - La hiérarchisation cloud prend désormais en charge les tailles de cluster de volume jusqu’à 2 Mio sur le serveur 2019. Pour en savoir plus, consultez [Quelle est la taille minimale d’un fichier à hiérarchiser ?](https://docs.microsoft.com/azure/storage/files/storage-sync-choose-cloud-tiering-policies#minimum-file-size-for-a-file-to-tier).
+    - La hiérarchisation cloud prend désormais en charge les tailles de cluster de volume jusqu’à 2 Mio sur le serveur 2019. Pour en savoir plus, consultez [Quelle est la taille minimale d’un fichier à hiérarchiser ?](./file-sync-choose-cloud-tiering-policies.md#minimum-file-size-for-a-file-to-tier).
  
 - Mesurer la bande passante et la latence pour le service Azure File Sync et le compte de stockage
     - Vous pouvez désormais utiliser la cmdlet Test-StorageSyncNetworkConnectivity pour mesurer la latence et la bande passante pour le service Azure File Sync et le compte de stockage. La latence pour le service Azure File Sync et le compte de stockage est mesurée par défaut lors de l’exécution de la cmdlet.  La bande passante de chargement et de téléchargement pour le compte de stockage est mesurés lors de l’utilisation du paramètre « -MeasureBandwidth ».

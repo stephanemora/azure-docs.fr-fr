@@ -6,13 +6,12 @@ ms.service: automation
 ms.subservice: process-automation
 ms.date: 04/15/2021
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe2d99a610be3877b4a347e4bd0dd17df53ba326
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: d088f3adc391068de5e337c10ab52dc3d3a2dd07
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834153"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535545"
 ---
 # <a name="how-to-delete-your-azure-automation-account"></a>Guide pratique pour supprimer votre compte Azure Automation
 
@@ -32,7 +31,7 @@ La suppression de votre compte Azure Automation peut s’effectuer à l’aide 
 Cet article explique comment supprimer entièrement votre compte Automation par le biais du portail Azure, à l’aide d’Azure PowerShell, d’Azure CLI ou de l’API REST.
 
 > [!NOTE]
-> Avant de continuer, vérifiez qu’aucun [verrou Resource Manager](../azure-resource-manager/management/lock-resources.md) n’est appliqué au niveau de l’abonnement, du groupe de ressources ou de la ressource, ce qui empêche toute suppression ou modification accidentelle des ressources critiques. Si vous avez déployé la solution Start/Stop VMs during off-hours, elle définit le niveau de verrouillage sur **CanNotDelete** pour plusieurs ressources dépendantes dans le compte Automation (en particulier ses runbooks et variables). Tous les verrous doivent être supprimés pour que vous puissiez supprimer le compte Automation.
+> Avant de continuer, vérifiez qu’aucun [Verrou de gestionnaire des ressources](../azure-resource-manager/management/lock-resources.md) n’est appliqué au niveau de l’abonnement, du groupe de ressources ou de la ressource, ce qui empêche toute suppression ou modification accidentelle des ressources critiques. Si vous avez déployé la solution Start/Stop VMs during off-hours, elle définit le niveau de verrouillage sur **CanNotDelete** pour plusieurs ressources dépendantes dans le compte Automation (en particulier ses runbooks et variables). Tous les verrous doivent être supprimés pour que vous puissiez supprimer le compte Automation.
 
 ## <a name="delete-the-dedicated-resource-group"></a>Supprimer le groupe de ressources dédié
 

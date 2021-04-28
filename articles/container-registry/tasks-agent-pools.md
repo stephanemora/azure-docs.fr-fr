@@ -4,12 +4,12 @@ description: Configurez un pool de calcul dédié (pool d’agents) dans votre r
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 8b1f077d6216443ad267f8620f87882439cb355c
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: c23d2ab866f621db27488860ab62a41765faef40
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284139"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763700"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Exécuter une tâche ACR sur un pool d’agents dédié
 
@@ -31,7 +31,7 @@ Cette fonctionnalité est disponible uniquement au niveau de service **Premium**
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
 - Les pools d’agents de tâche prennent actuellement en charge les nœuds Linux. Les nœuds Windows ne sont actuellement pas pris en charge.
-- Les pools d'agents de tâche sont disponibles en préversion dans les régions suivantes : USA Ouest 2, USA Centre Sud, USA Est 2, USA Est, USA Centre, Europe Ouest, Canada Centre, USGov Arizona, USGov Texas et USGov Virginie.
+- Les pools d’agents de tâche sont disponibles en préversion dans les régions suivantes : USA Ouest 2, USA Centre Sud, USA Est 2, USA Est, USA Centre, Europe Ouest, Europe Nord, Canada Centre, USGov Arizona, USGov Texas et USGov Virginie.
 - Pour chaque registre, le quota total par défaut de processeurs virtuels (Core) est de 16 pour tous les pools d’agents standard et de 0 pour les pools d’agents isolés. Ouvrez une [demande de support ][open-support-ticket] pour une allocation supplémentaire.
 - À l’heure actuelle, vous ne pouvez pas annuler une tâche exécutée sur un pool d’agents.
 
@@ -185,11 +185,11 @@ Pour obtenir plus d’exemples de builds et de maintenance d’image de conteneu
 [azure-cli]:           /cli/azure/install-azure-cli
 [open-support-ticket]: https://aka.ms/acr/support/create-ticket
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[az-configure]: /cli/azure#az-configure
-[az-acr-agentpool-create]: /cli/azure/acr/agentpool#az-acr-agentpool-create
-[az-acr-agentpool-update]: /cli/azure/acr/agentpool#az-acr-agentpool-update
-[az-acr-agentpool-show]: /cli/azure/acr/agentpool#az-acr-agentpool-show
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-configure]: /cli/azure#az_configure
+[az-acr-agentpool-create]: /cli/azure/acr/agentpool#az_acr_agentpool_create
+[az-acr-agentpool-update]: /cli/azure/acr/agentpool#az_acr_agentpool_update
+[az-acr-agentpool-show]: /cli/azure/acr/agentpool#az_acr_agentpool_show
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
 [create-reg-cli]: container-registry-get-started-azure-cli.md

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/19/2020
+ms.date: 04/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c175a6d225be268f27854b9ab63886892cf029fb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fdf6398daf2c0206f5239a90667448d9ea789f65
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557273"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001085"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notes développeur pour les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -99,13 +99,13 @@ Les capacités de stratégie personnalisée sont en constante évolution. Le tab
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Authentification par facteur téléphonique](phone-factor-technical-profile.md) |  |  | X |  |
 | [Authentification Azure AD MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
-| [Mot de passe à usage unique](one-time-password-technical-profile.md) |  | X |  |  |
+| [Mot de passe à usage unique](one-time-password-technical-profile.md) |  |  | X |  |
 | [Azure Active Directory](active-directory-technical-profile.md) comme répertoire local |  |  | X |  |
 | Sous-système de messagerie Azure pour la vérification par e-mail |  |  | X |  |
-| [Fournisseurs de services de messagerie tiers](custom-email-mailjet.md) |  |X  |  |  |
+| [Fournisseurs de services de messagerie tiers](custom-email-mailjet.md) |  |  | X |  |
 | [Prise en charge multilingue](localization.md)|  |  | X |  |
 | [Validations de prédicats](predicates.md) |  |  | X | Par exemple, la complexité des mots de passe. |
-| [Contrôles d’affichage](display-controls.md) |  |X  |  |  |
+| [Contrôles d’affichage](display-controls.md) |  |  |X  |  |
 
 
 ### <a name="app-ief-integration"></a>Intégration App-IEF

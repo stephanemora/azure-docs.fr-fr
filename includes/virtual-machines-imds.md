@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 357223751112af03bf797ae9a0e6352a10132ab9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98866a4f06df0380d52d1aee3eede8aa2f70aaed
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464981"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588125"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -247,6 +247,7 @@ Si vous ne spécifiez pas de version, vous recevez une erreur accompagnée de la
 - 2020-09-01
 - 2020-10-01
 - 2020-12-01
+- 2021-01-01
 
 ### <a name="swagger"></a>Fichier Swagger
 
@@ -332,7 +333,7 @@ Décomposition du schéma :
 | Données | Description | Version introduite |
 |------|-------------|--------------------|
 | `azEnvironment` | Environnement Azure dans lequel s’exécute la machine virtuelle | 2018-10-01
-| `customData` | Cette fonctionnalité est actuellement désactivée. Nous mettrons à jour cette documentation dès qu’elle sera disponible. | 2019-02-01
+| `customData` | Cette fonctionnalité est déconseillée et désactivée [dans IMDS](#frequently-asked-questions). Elle a été remplacée par `userData`. | 2019-02-01
 | `evictionPolicy` | Définit le mode de suppression d’une [machine virtuelle spot](../articles/virtual-machines/spot-vms.md). | 2020-12-01
 | `isHostCompatibilityLayerVm` | Indique si la machine virtuelle s’exécute sur la couche de compatibilité de l’ordinateur hôte | 2020-06-01
 | `licenseType` | Type de licence pour [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Présent seulement pour les machines virtuelles dotées d’AHB | 2020-09-01
@@ -360,6 +361,7 @@ Décomposition du schéma :
 | `subscriptionId` | Abonnement Azure pour la machine virtuelle | 2017-08-01
 | `tags` | [Étiquettes](../articles/azure-resource-manager/management/tag-resources.md) de votre machine virtuelle  | 2017-08-01
 | `tagsList` | Balises mises en forme en tant que tableau JSON pour faciliter l’analyse programmatique  | 2019-06-04
+| `userData` | Jeu de données spécifié lors de la création de la machine virtuelle à utiliser pendant ou après l’approvisionnement (encodé en base64)  | 2021-01-01
 | `version` | Version de l’image de machine virtuelle | 2017-04-02
 | `vmId` | [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle | 2017-04-02
 | `vmScaleSetName` | [Nom du groupe de machines virtuelles identiques](../articles/virtual-machine-scale-sets/overview.md) de votre groupe de machines virtuelles identiques | 2017-12-01
@@ -421,6 +423,31 @@ Données | Description |
 | `subnet.prefix` | Préfixe de sous-réseau, par exemple 24 | 2017-04-02
 | `ipv6.ipAddress` | Adresse IPv6 locale de la machine virtuelle | 2017-04-02
 | `macAddress` | Adresse MAC de la machine virtuelle | 2017-04-02
+
+### <a name="get-user-data"></a>Obtenir les données utilisateur
+
+Lorsque vous créez une machine virtuelle, vous pouvez spécifier un jeu de données à utiliser pendant ou après l’approvisionnement de la machine virtuelle, puis le récupérer via IMDS. Pour configurer les données utilisateur, utilisez le modèle de démarrage rapide fourni [ici](https://aka.ms/ImdsUserDataArmTemplate). L’exemple ci-dessous montre comment récupérer ces données par le biais d’IMDS.
+
+> [!NOTE]
+> Cette fonctionnalité est publiée avec la version `2021-01-01` et dépend d’une mise à jour de la plateforme Azure, qui est actuellement déployée et qui n’est peut-être pas encore disponible dans toutes les régions.
+
+> [!NOTE]
+> Avis de sécurité : IMDS est ouvert à toutes les applications sur la machine virtuelle ; les données sensibles ne doivent pas être placées dans les données utilisateur.
+
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/userData?api-version=2021-01-01&format=text" | base64 --decode
+```
+
+---
 
 
 #### <a name="sample-1-tracking-vm-running-on-azure"></a>Exemple 1 : Suivi de la machine virtuelle s’exécutant sur Azure
@@ -1135,7 +1162,7 @@ S’il existe un élément de données introuvable ou une requête mal formée, 
 | `404 Not Found` | L’élément demandé n’existe pas
 | `405 Method Not Allowed` | La méthode HTTP (verbe) n’est pas prise en charge sur le point de terminaison.
 | `410 Gone` | Recommencez l’opération dans un délai maximum de 70 secondes
-| `429 Too Many Requests` | Les [Limites de débit](#rate-limiting) de l’API ont été dépassées
+| `429 Too Many Requests` | Les [limites de débit](#rate-limiting) de l’API ont été dépassées
 | `500 Service Error` | Recommencez l’opération plus tard
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
@@ -1148,6 +1175,9 @@ S’il existe un élément de données introuvable ou une requête mal formée, 
 
 - J’ai créé ma machine virtuelle par l’intermédiaire d’Azure Resource Manager il y a quelque temps. Pourquoi ne puis-je pas voir les informations de métadonnées de calcul ?
   - Si vous avez créé votre machine virtuelle après septembre 2016, ajoutez une [étiquette](../articles/azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Si vous avez créé votre machine virtuelle avant septembre 2016, ajoutez ou supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.
+
+- Les données utilisateur sont-elles identiques aux données personnalisées ?
+  - Les données utilisateur offrent une fonctionnalité similaire aux données personnalisées, vous permettant de transmettre vos propres métadonnées à l’instance de machine virtuelle. La différence est que les données utilisateur sont récupérées via IMDS et sont persistantes pendant toute la durée de vie de l’instance de machine virtuelle. La fonctionnalité existante de données personnalisées continuera à fonctionner comme décrit dans [cet article](https://docs.microsoft.com/azure/virtual-machines/custom-data). Toutefois, vous pouvez uniquement récupérer des données personnalisées par le biais du dossier système local, et non par le biais d’IMDS.
 
 - Pourquoi je ne vois pas toutes les données renseignées pour une nouvelle version ?
   - Si vous avez créé votre machine virtuelle après septembre 2016, ajoutez une [étiquette](../articles/azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Si vous avez créé votre machine virtuelle avant septembre 2016, ajoutez ou supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.

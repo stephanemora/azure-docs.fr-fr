@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 04/13/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8a903355c9acc5b88801c3ab16360225f6014af0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 21b5522f07519e9a0c3353cb2463e0ec49063f34
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139450"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713423"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Résoudre les problèmes liés aux connecteurs dans Azure Data Factory
 
@@ -566,7 +566,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
  
  - **Recommandation** : 
     1. Contactez l’équipe du support technique de Dynamics avec le message d’erreur détaillé pour obtenir de l’aide.  
-    1. Utilisez l’authentification du principal de service. Pour cela, vous pouvez vous référer à cet article : [Exemple : Dynamics en ligne à l’aide du principal de service Azure AD et de l’authentification du certificat](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
+    1. Utilisez l’authentification du principal de service. Pour cela, vous pouvez vous référer à cet article : [Exemple : Dynamics en ligne à l’aide du principal de service Azure AD et de l’authentification du certificat](https://docs.microsoft.com/azure/data-factory/connector-dynamics-crm-office-365#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
  
 
  - **Cause** : Si vous voyez `Unable to retrieve authentication parameters from the serviceUri` dans le message d’erreur, cela signifie que vous entrez une URL de service Dynamics ou un proxy/pare-feu incorrect pour intercepter le trafic. 
@@ -609,7 +609,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Cause** : L’opération a échoué côté serveur. 
 
-- **Recommandation** : Extrayez le code d’erreur de l’opération Dynamics à partir du message d’erreur : `Dynamics operation failed with error code: {code}` et reportez-vous à l’article [Codes d’erreur de service web](/powerapps/developer/data-platform/org-service/web-service-error-codes) pour obtenir des informations plus détaillées. Vous pouvez contacter l’équipe du support technique de Dynamics si nécessaire. 
+- **Recommandation** : Extrayez le code d’erreur de l’opération Dynamics à partir du message d’erreur : `Dynamics operation failed with error code: {code}` et reportez-vous à l’article [Codes d’erreur de service web](https://docs.microsoft.com/powerapps/developer/data-platform/org-service/web-service-error-codes) pour obtenir des informations plus détaillées. Vous pouvez contacter l’équipe du support technique de Dynamics si nécessaire. 
  
  
 ### <a name="error-code--dynamicsinvalidfetchxml"></a>Code d’erreur : DynamicsInvalidFetchXml 
