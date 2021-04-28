@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 330a6e54ee88781f71c4a861051aab94f8eef81f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200816"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587899"
 ---
 # <a name="understanding-resource-sets"></a>Présentation des jeux de ressources
 
@@ -102,14 +102,15 @@ Nom qualifié : `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Nom d’affichage : « données »
 
-## <a name="known-issues-with-resource-sets"></a>Problèmes connus liés aux jeux de ressources
+## <a name="customizing-resource-set-grouping-using-pattern-rules"></a>Personnalisation du regroupement de jeux de ressources à l’aide de règles de modèle
 
-Bien que les jeux de ressources fonctionnent bien dans la plupart des cas, vous pouvez rencontrer les problèmes suivants, dans lesquels Azure Purview :
+Lors de l’analyse d’un compte de stockage, Azure Purview se sert d’un ensemble de modèles définis pour déterminer si un groupe d’éléments constitue un jeu de ressources. Dans certains cas, le regroupement en jeu de ressources d’Azure Purview peut ne pas refléter précisément votre patrimoine de données. Voici des exemples de problèmes potentiels :
 
-- marque de manière incorrecte une ressource en tant que jeu de ressources ;
+- marque de manière incorrecte une ressource comme étant un jeu de ressources ;
 - place une ressource dans le mauvais jeu de ressources ;
 - marque de manière incorrecte une ressource comme n’étant pas un jeu de ressources.
 
+Pour personnaliser ou remplacer la manière dont Azure Purview détecte les ressources regroupées comme jeux de ressources et leur mode d’affichage dans le catalogue, vous pouvez définir des règles de modèle dans le centre de gestion. Pour obtenir des instructions détaillées ainsi que la syntaxe, consultez les [règles de modèle de jeu de ressources](how-to-resource-set-pattern-rules.md).
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour prendre en main Azure Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
