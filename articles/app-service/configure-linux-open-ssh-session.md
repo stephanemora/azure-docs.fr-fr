@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/23/2021
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 5a4572c1292f691f1883a720d07c3f0130f1c8f3
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 0220c16d7ea3673f55d57ec4c4e0d29b30672683
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480288"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017658"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Ouvrir une session SSH sur un conteneur Linux dans Azure App Service
 
@@ -41,7 +41,7 @@ Consultez [Configurer SSH dans un conteneur personnalisé](configure-custom-cont
 
 Pour commencer, vous devez installer [Azure CLI](/cli/azure/install-azure-cli). Pour voir comment il fonctionne sans installer Azure CLI, ouvrez [Azure Cloud Shell](../cloud-shell/overview.md). 
 
-Ouvrez une connexion à distance vers votre application à l’aide de la commande [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create). Spécifiez _\<subscription-id>_ , _\<group-name>_ et \_\<app-name>_ pour votre application.
+Ouvrez une connexion à distance vers votre application à l’aide de la commande [az webapp remote-connection create](/cli/azure/webapp/remote-connection#az_webapp_remote_connection_create). Spécifiez _\<subscription-id>_ , _\<group-name>_ et \_\<app-name>_ pour votre application.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

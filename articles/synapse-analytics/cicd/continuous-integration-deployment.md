@@ -3,17 +3,17 @@ title: Intégration et livraison continues pour l’espace de travail Synapse
 description: Découvrez comment utiliser l’intégration et la livraison continues pour déployer les changements dans un espace de travail d’un environnement (développement, test, production) à un autre.
 author: liudan66
 ms.service: synapse-analytics
-ms.subservice: cicd
+ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2d49deef4cc7f646032219ff9e8f541cc9c1afd6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 833478d956560c981bd6cc3ba03b48bb602f563c
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108131184"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739671"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse
 
@@ -32,10 +32,10 @@ Ces prérequis et configurations doivent être en place pour automatiser le dép
 ### <a name="azure-devops"></a>Azure DevOps
 
 - Un projet Azure DevOps a été préparé pour exécuter le pipeline de mise en production.
-- [Accordez à tous les utilisateurs qui enregistreront le code un accès « de base » au niveau de l’organisation](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), afin qu’ils puissent voir le référentiel.
+- [Accordez à tous les utilisateurs qui enregistreront le code un accès « de base » au niveau de l’organisation](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page), afin qu’ils puissent voir le référentiel.
 - Accordez des droits de propriétaire au référentiel Azure Synapse Analytics.
 - Assurez-vous d’avoir créé un agent de machine virtuelle Azure DevOps auto-hébergé ou d’utiliser un agent hébergé Azure DevOps.
-- Assurez-vous d’avoir les autorisations permettant de [créer une connexion au service Azure Resource Manager pour le groupe de ressources](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
+- Assurez-vous d’avoir les autorisations permettant de [créer une connexion au service Azure Resource Manager pour le groupe de ressources](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml).
 - Un administrateur Azure Active Directory (Azure AD) doit [installer l’extension de l’agent de déploiement d’espace de travail Synapse Azure DevOps dans l’organisation Azure DevOps](/azure/devops/marketplace/install-extension).
 - Créez ou nommez un compte de service pour l’exécution du pipeline. Vous pouvez utiliser un jeton d’accès personnel au lieu d’un compte de service, mais vos pipelines ne fonctionneront pas une fois le compte d’utilisateur supprimé.
 

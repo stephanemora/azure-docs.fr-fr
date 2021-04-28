@@ -8,12 +8,12 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 6bcb020b14952541c673592c1040fca211ed4edf
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 48f80d82c003677f2cacfdef2a57ae1aaa68d59d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011849"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135110"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Utiliser le suivi distribué avec Azure Spring Cloud
 
@@ -105,7 +105,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ces procédures, vous avez besoin d’un service Azure Spring Cloud déjà provisionné et en cours d’exécution. Effectuez le démarrage rapide [Déployer votre première application Azure Spring Cloud](spring-cloud-quickstart.md) pour approvisionner et exécuter un service Azure Spring Cloud.
+Pour suivre ces procédures, vous avez besoin d’un service Azure Spring Cloud déjà provisionné et en cours d’exécution. Effectuez le démarrage rapide [Déployer votre première application Azure Spring Cloud](./quickstart.md) pour approvisionner et exécuter un service Azure Spring Cloud.
 
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
@@ -214,4 +214,4 @@ En plus des fonctionnalités de cartographie d’application et de recherche, Ap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris ce qu’est le suivi distribué dans Azure Spring Cloud et vous avez vu comment l’activer. Pour en savoir plus sur la liaison de services à une application, consultez [Lier une base de données Azure Cosmos DB à une application Azure Spring Cloud](spring-cloud-howto-bind-cosmos.md).
+Dans cet article, vous avez appris ce qu’est le suivi distribué dans Azure Spring Cloud et vous avez vu comment l’activer. Pour en savoir plus sur la liaison de services à une application, consultez [Lier une base de données Azure Cosmos DB à une application Azure Spring Cloud](./how-to-bind-cosmos.md).

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: a8419ff2ba269b05d1fbf7e9d08a284085465fd8
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 96b52c80fa06be8c157ad39fd65be4e491e0cbe3
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257413"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874852"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articles sur la connexion et l’interrogation dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -86,7 +86,7 @@ Le tableau suivant répertorie les bibliothèques de connectivité ou *pilotes* 
 
 | Langage | Plateforme | Ressources supplémentaires | Téléchargement | Bien démarrer |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET pour SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Télécharger](https://www.microsoft.com/net/download/) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET pour SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Télécharger](https://dotnet.microsoft.com/download) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Pilote Microsoft JDBC pour SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Télécharger](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) |  [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [Pilote PHP SQL pour SQL Server](/sql/connect/php/microsoft-php-driver-for-sql-server) | [Télécharger](/sql/connect/php/download-drivers-php-sql-server) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Pilote Node.js pour SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Installer](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)

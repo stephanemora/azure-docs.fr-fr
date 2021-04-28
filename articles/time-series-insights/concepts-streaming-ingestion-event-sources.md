@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 4e22d93d3037c190193f53b7cfdbc87cff2da6ed
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 499cb3c978a67f9ef71e6ad9dd03be9f05b45729
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504394"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726967"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Sources d’événements Azure Time Series Insights Gen2
 
@@ -31,9 +31,12 @@ La source de l’événement est le lien entre votre hub et votre environnement 
 
 Vous pouvez utiliser le [portail Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source), [des modèles Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) et l’[API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) pour créer, modifier ou supprimer les sources d’événements de votre environnement.
 
+> [!WARNING]
+> Ne limitez pas l’accès Internet public à un hub ou à une source d’événements utilisés par Time Series Insights, sinon la connexion nécessaire sera interrompue.
+
 ## <a name="start-options"></a>Options de démarrage
 
-Lorsque vous créez une source d’événement, vous avez la possibilité de spécifier les données préexistantes à collecter. Ce paramètre est facultatif. Les options suivantes sont disponibles :
+Lorsque vous créez une source d’événements, vous pouvez spécifier les données préexistantes à collecter. Ce paramètre est facultatif. Les options suivantes sont disponibles :
 
 | Nom   |  Description  |  Exemple de modèle Azure Resource Manager |
 |----------|-------------|------|
@@ -46,18 +49,17 @@ Lorsque vous créez une source d’événement, vous avez la possibilité de sp�
 > - Si vous sélectionnez EarliestAvailable et que vous avez un grand nombre de données préexistantes, vous risquez de connaître une latence initiale élevée, car votre environnement Azure Time Series Insights Gen2 traite toutes vos données.
 > - Cette latence élevée devrait finir par s’estomper à mesure que les données sont indexées. Si vous rencontrez une latence élevée, soumettez un ticket de support via le portail Azure.
 
-* EarliestAvailable
+- EarliestAvailable
 
 ![Diagramme EarliestAvailable](media/concepts-streaming-event-sources/event-source-earliest-available.png)
 
-* EventSourceCreationTime
+- EventSourceCreationTime
 
 ![Diagramme EventSourceCreationTime](media/concepts-streaming-event-sources/event-source-creation-time.png)
 
-* CustomEnqueuedTime
+- CustomEnqueuedTime
 
 ![Diagramme CustomEnqueuedTime](media/concepts-streaming-event-sources/event-source-custom-enqueued-time.png)
-
 
 ## <a name="streaming-ingestion-best-practices"></a>Meilleures pratiques en matière d’ingestion de diffusion en continu
 
@@ -105,7 +107,7 @@ Quand vous configurez une source d’événement, vous êtes invité à fournir 
 
 En général, les utilisateurs choisissent de personnaliser la propriété d’horodatage et utilisent l’heure à laquelle le capteur ou la balise a généré la lecture au lieu d’utiliser le hub par défaut mis en file d’attente. Cela est particulièrement nécessaire lorsque les appareils présentent une perte de connectivité intermittente et qu’un lot de messages retardés est transféré à Azure Time Series Insights Gen2.
 
-Si votre horodateur personnalisé se trouve dans un objet JSON imbriqué ou un tableau, vous devrez fournir le nom de propriété correct en suivant nos conventions d’affectation de noms [de mise à plat et d’échappement](concepts-json-flattening-escaping-rules.md). Par exemple, l’horodateur de la source de l’événement pour la charge utile JSON indiquée [ici](concepts-json-flattening-escaping-rules.md#example-a) doit être saisi ainsi : `"values.time"`.
+Si votre horodateur personnalisé se trouve dans un objet JSON imbriqué ou dans un tableau, vous devrez fournir le nom de propriété correct en suivant nos [conventions d’affectation de noms de mise à plat et d’échappement](concepts-json-flattening-escaping-rules.md). Par exemple, l’horodateur de la source de l’événement pour la charge utile JSON indiquée [ici](concepts-json-flattening-escaping-rules.md#example-a) doit être saisi ainsi : `"values.time"`.
 
 ### <a name="time-zone-offsets"></a>Décalage de fuseau horaire
 
@@ -113,9 +115,9 @@ Les horodateurs doivent être envoyés au format ISO 8601 et seront stockés au 
 
 Le décalage de fuseau horaire doit être mis en forme de l’une des manières suivantes :
 
-±HHMMZ</br>
-±HH:MM</br>
-±HH:MMZ</br>
+±HHMMZ<br />
+±HH:MM<br />
+±HH:MMZ
 
 ## <a name="next-steps"></a>Étapes suivantes
 

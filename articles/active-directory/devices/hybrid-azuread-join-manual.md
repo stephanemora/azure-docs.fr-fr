@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aafcd8ace846d7da65d95d4148872d5a6eddeee
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 9f1043bf94276c752b816e458ee7513837db0ecd
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587848"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130626"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -76,7 +76,7 @@ Pour les appareils Windows 10 exécutant la version 1703 ou antérieure, si vo
 Tout d’abord, pour Windows 10 1803, même si un appareil tente une jonction Azure AD hybride dans un domaine fédéré par le biais d’AD FS et échoue, et si Azure AD Connect est configuré pour synchroniser les objets ordinateur/d’appareil avec Azure AD, l’appareil essaie d’effectuer la jonction Azure AD hybride en utilisant l’ordinateur/appareil synchronisé.
 
 > [!NOTE]
-> Afin que la jointure de synchronisation pour l’inscription de l’appareil réussisse, dans la configuration de l’inscription de l’appareil, n’excluez pas les attributs d’appareil par défaut de votre configuration de synchronisation Azure AD Connect. Pour en savoir plus sur les attributs d’appareil par défaut synchronisés avec Azure AD, consultez [Attributs synchronisés par Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
+> Afin que la jointure de synchronisation pour l’inscription de l’appareil réussisse, dans la configuration de l’inscription de l’appareil, n’excluez pas les attributs d’appareil par défaut de votre configuration de synchronisation Azure AD Connect. Pour en savoir plus sur les attributs d’appareil par défaut synchronisés avec Azure AD, consultez [Attributs synchronisés par Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
 
 Pour vérifier si l’appareil est en mesure d’accéder aux ressources Microsoft ci-dessus sous le compte système, vous pouvez utiliser le script [Tester la connectivité de l’inscription des appareils](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 

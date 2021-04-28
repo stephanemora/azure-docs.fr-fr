@@ -4,14 +4,14 @@ description: Comment définir des cibles de stockage pour qu’Azure HPC Cache p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/22/2021
 ms.author: v-erkel
-ms.openlocfilehash: 44b2534d7aeb12f4819a6c42cfb29d057ce26ddc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 47cbb3caa46f62ef6b1d4384c50d161963cce908
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259028"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905555"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -19,7 +19,7 @@ Les *cibles de stockage* constituent un stockage back-end pour des fichiers acce
 
 Vous pouvez définir jusqu’à 20 cibles de stockage différentes pour un même cache. Le cache présente toutes les cibles de stockage d’un espace de noms agrégé.
 
-Les chemins d’accès à l’espace de noms sont configurés séparément une fois que vous avez ajouté les cibles de stockage. En général, une cible de stockage NFS peut comporter jusqu’à dix chemins d’accès aux espaces de noms, ou plus pour certaines configurations volumineuses. Pour plus d’informations, consultez [chemins d’accès à l’espace de noms NFS](add-namespace-paths.md#nfs-namespace-paths) .
+Les chemins d’accès à l’espace de noms sont configurés séparément une fois que vous avez ajouté les cibles de stockage.
 
 N’oubliez pas que les exportations de stockage doivent être accessibles à partir du réseau virtuel de votre cache. Pour le stockage matériel local, vous devrez peut-être configurer un serveur DNS capable de résoudre les noms d’hôtes pour l’accès au stockage NFS. Pour plus d’informations, lisez [Accès DNS](hpc-cache-prerequisites.md#dns-access).
 
@@ -126,7 +126,7 @@ Vérifiez également les paramètres de pare-feu de votre compte de stockage. Si
 
 ### <a name="add-a-blob-storage-target-with-azure-cli"></a>Ajouter une cible de stockage d’objets blob avec Azure CLI
 
-Utilisez l’interface [az hpc-cache blob-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) pour définir une cible de stockage d’objets blob Azure.
+Utilisez l’interface [az hpc-cache blob-storage-target add](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_add) pour définir une cible de stockage d’objets blob Azure.
 
 > [!NOTE]
 > Les commandes Azure CLI vous obligent à créer un chemin d’accès d’espace de noms lorsque vous ajoutez une cible de stockage. Cela diffère du processus utilisé avec l’interface du portail Azure.
@@ -229,7 +229,7 @@ Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage
 
 [Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
-Utilisez la commande Azure CLI [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) pour créer la cible de stockage.
+Utilisez la commande Azure CLI [az hpc-cache nfs-storage-target add](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_add) pour créer la cible de stockage.
 
 > [!NOTE]
 > Les commandes Azure CLI vous obligent à créer un chemin d’accès d’espace de noms lorsque vous ajoutez une cible de stockage. Cela diffère du processus utilisé avec l’interface du portail Azure.
@@ -240,7 +240,7 @@ Fournissez ces valeurs en plus du nom du cache et du groupe de ressources du cac
 * ``--nfs3-target`` -L’adresse IP de votre système de stockage NFS. (Vous pouvez utiliser un nom de domaine complet ici si votre cache a accès à un serveur DNS capable de résoudre ce nom).
 * ``--nfs3-usage-model`` -L’un des profils de mise en cache de données, décrit dans [Choisir un modèle d’utilisation](#choose-a-usage-model) précédemment.
 
-  Vérifiez les noms des modèles d’utilisation à l’aide de la commande [az hpc-cache usage-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
+  Vérifiez les noms des modèles d’utilisation à l’aide de la commande [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage_model_list).
 
 * ``--junction`` -Le paramètre junction lie le chemin d’accès du fichier virtuel orienté client à un chemin d’exportation sur le système de stockage.
 
@@ -350,13 +350,13 @@ Pour en savoir plus, consultez [Modifier les cibles de stockage](hpc-cache-edit-
 
 [Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
-Utilisez l’option [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) pour afficher les cibles de stockage existantes pour un cache. Indiquez le nom du cache et le groupe de ressources (sauf si vous l’avez défini globalement).
+Utilisez l’option [az hpc-cache storage-target list](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) pour afficher les cibles de stockage existantes pour un cache. Indiquez le nom du cache et le groupe de ressources (sauf si vous l’avez défini globalement).
 
 ```azurecli
 az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 ```
 
-Utilisez [az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) pour afficher des détails sur une cible de stockage particulière. (Spécifiez la cible de stockage par nom.)
+Utilisez [az hpc-cache storage-target show](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) pour afficher des détails sur une cible de stockage particulière. (Spécifiez la cible de stockage par nom.)
 
 Exemple :
 

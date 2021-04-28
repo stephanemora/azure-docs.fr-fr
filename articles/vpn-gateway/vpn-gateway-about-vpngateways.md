@@ -10,12 +10,12 @@ ms.author: cherylmc
 ms.custom:
 - contperf-fy21q1
 - e2e-hybrid
-ms.openlocfilehash: b4a2e1b80fe62c5e8f74e35a1a7f61bdddf89c53
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 9a73b3ab2a9ed939001350609a176dba3c2fc44d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066532"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141142"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -84,4 +84,4 @@ Abonnez-vous au flux RSS et consultez les dernières mises à jour des fonctionn
 
 - Pour plus d’informations, consultez la [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 - Consultez les [Limites du service et de l’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
-- Découvrez certaines des autres [fonctionnalités de réseau](../networking/networking-overview.md) clés d’Azure.
+- Découvrez certaines des autres [fonctionnalités de réseau](../networking/fundamentals/networking-overview.md) clés d’Azure.

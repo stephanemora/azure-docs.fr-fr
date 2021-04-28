@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3d819cc87d653b2ef132539a77dbc57220ca5d1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92793226"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142330"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -115,7 +115,7 @@ Parmi les autres fonctionnalités de gestion pouvant facilement être mises à l
 
 #### <a name="automation"></a>Automatisation
 
-Les opérations de gestion peuvent être scriptées et proposées par le biais d’un modèle [devops][http-visual-studio-devops-485m].  Vous pouvez même automatiser et exposer les opérations dans l’application.
+Les opérations de gestion peuvent être scriptées et proposées par le biais d’un modèle [devops](/azure/devops/user-guide/what-is-azure-devops).  Vous pouvez même automatiser et exposer les opérations dans l’application.
 
 Par exemple, vous pouvez automatiser la récupération d’un locataire unique à un point antérieur dans le temps.  La récupération doit seulement restaurer la base de données à locataire unique qui stocke le locataire.  Cette restauration n’a aucun impact sur les autres locataires, ce qui confirme que les opérations de gestion sont effectuées très précisément au niveau de chaque locataire.
 

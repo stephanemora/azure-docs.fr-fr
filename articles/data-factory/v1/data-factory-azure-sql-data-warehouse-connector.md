@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35aa0110106f121adb9373f83ff29d299ce049fc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392083"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135974"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copier des données vers et depuis Azure Synapse Analytics en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -252,7 +252,7 @@ Pour utiliser cette fonctionnalité, vous devez créer un [service lié Azure St
 ```
 
 ## <a name="best-practices-when-using-polybase"></a>Meilleures pratiques lors de l’utilisation de PolyBase
-Les sections suivantes contiennent d’autres meilleures pratiques qui s’ajoutent à celles mentionnées dans [Meilleures pratiques pour Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Les sections suivantes contiennent d’autres meilleures pratiques qui s’ajoutent à celles mentionnées dans [Meilleures pratiques pour Azure Synapse Analytics](../../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 ### <a name="required-database-permission"></a>Autorisation de base de données requise
 Pour utiliser PolyBase, il est nécessaire que l’utilisateur utilisé pour charger des données dans Azure Synapse Analytics ait [l’autorisation « CONTROL »](/sql/relational-databases/security/permissions-database-engine) sur la base de données cible. Vous pouvez, pour cela, ajouter l’utilisateur en tant que membre du rôle « db_owner ». Découvrez comment procéder dans [cette section](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).

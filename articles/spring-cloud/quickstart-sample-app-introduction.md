@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: dd36bb18e84ea299195b77286887a3b279f81469
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c3bc83d19eddc448992e2d3fab7287e8d84e43a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877373"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132716"
 ---
 # <a name="introduction-to-the-sample-app"></a>Présentation de l’exemple d’application
 
@@ -93,4 +93,4 @@ Pour plus d’informations sur l’implémentation complète, consultez [PiggyMe
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Provisionner une instance Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
+> [Provisionner une instance Azure Spring Cloud](./quickstart-provision-service-instance.md)

@@ -9,16 +9,16 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 77a2fc900e3888575fb6411a8c2b76b2c639d719
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d0b35b0976b46dd22bbf7f15ebb1def3ec721b5d
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748585"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891461"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Créer et configurer un coffre de clés pour Azure Disk Encryption
 
-Azure Disk Encryption utilise Azure Key Vault pour contrôler et gérer les clés et les secrets de chiffrement de disque.  Pour plus d’informations sur les coffres de clés, consultez [Bien démarrer avec Azure Key Vault](../key-vault/general/overview.md) et [Fonctionnalités de sécurité d’Azure Key Vault](../key-vault/general/security-overview.md).
+Azure Disk Encryption utilise Azure Key Vault pour contrôler et gérer les clés et les secrets de chiffrement de disque.  Pour plus d’informations sur les coffres de clés, consultez [Bien démarrer avec Azure Key Vault](../key-vault/general/overview.md) et [Fonctionnalités de sécurité d’Azure Key Vault](../key-vault/general/security-features.md).
 
 La création et la configuration d’un coffre de clés à utiliser avec Azure Disk Encryption impliquent trois étapes :
 

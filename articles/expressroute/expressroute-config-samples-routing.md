@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 04/27/2021
 ms.author: duau
-ms.openlocfilehash: 3bc850f02884ae0547c2ecf56a46a57a4e66a752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 005dbf35dea53eafd3a0166f07cf4d6f07e3b40a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89397404"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127638"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemples de configuration de routeur pour configurer et gérer le routage
 Cette page fournit une interface et des exemples de configuration de routage pour les routeurs des gammes Cisco IOS-XE et Juniper MX quand vous utilisez Azure ExpressRoute.
@@ -52,7 +52,7 @@ Cet exemple fournit la définition d’une sous-interface avec deux ID VLAN. L�
 
 ```console
 interface GigabitEthernet<Interface_Number>.<Number>
- encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ encapsulation dot1Q <s-tag> second-dot1Q <c-tag>
  ip address <IPv4_Address><Subnet_Mask>
 ```
 
@@ -111,7 +111,7 @@ Vous allez configurer BFD à deux emplacements : l’un au niveau de l’interf
 ```console
 interface GigabitEthernet<Interface_Number>.<Number>
  bfd interval 300 min_rx 300 multiplier 3
- encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+ encapsulation dot1Q <s-tag> second-dot1Q <c-tag>
  ip address <IPv4_Address><Subnet_Mask>
 
 router bgp <Customer_ASN>

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc20ca3f3cf6197f8a3ed3a7e0362046f129d369
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 383bd00bb0daf165f37ed98e48a5d36708367920
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305869"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130860"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -239,7 +239,7 @@ Sélectionnez **« Oui »** si vous exigez que les utilisateurs effectuent MFA
 
 ![Exiger Multi-factor Auth pour joindre des appareils](./media/azureadjoin-plan/03.png)
 
-**Recommandation :** Utilisez l’action de l’utilisateur [Inscrire ou joindre des appareils](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) dans un accès conditionnel pour l’application de l’authentification MFA afin de joindre des appareils.
+**Recommandation :** Utilisez l’action de l’utilisateur [Inscrire ou joindre des appareils](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) dans un accès conditionnel pour l’application de l’authentification MFA afin de joindre des appareils.
 
 ## <a name="configure-your-mobility-settings"></a>Configurer vos paramètres de mobilité
 

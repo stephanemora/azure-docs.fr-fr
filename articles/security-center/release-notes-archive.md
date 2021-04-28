@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 04/04/2021
 ms.author: memildin
-ms.openlocfilehash: 9d376a374d1934f55b6a6fb15f1642c81b30b2fc
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e18c7891b5c036e33382578f404c595c106de381
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718662"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138694"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archive des nouveautés d’Azure Security Center
 
@@ -891,7 +891,7 @@ Désormais, vous pouvez ajouter des normes telles que les suivantes :
 - **PBMM fédéral du Canada**
 - **Azure CIS 1.1.0 (nouveau)** (représentation plus complète d’Azure CIS 1.1.0)
 
-De plus, nous avons récemment ajouté le [Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction), les directives spécifiques d’Azure créées par Microsoft pour les meilleures pratiques de sécurité et de conformité, basées sur des infrastructures de conformité courantes. Des normes supplémentaires seront prises en charge dans le tableau de bord dès qu’elles seront disponibles.  
+De plus, nous avons récemment ajouté le [Benchmark de sécurité Azure](/security/benchmark/azure/introduction), les directives spécifiques d’Azure créées par Microsoft pour les meilleures pratiques de sécurité et de conformité, basées sur des infrastructures de conformité courantes. Des normes supplémentaires seront prises en charge dans le tableau de bord dès qu’elles seront disponibles.  
  
 Apprenez-en davantage sur la [personnalisation de l’ensemble de normes de votre tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md).
 
