@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: inhenkel
-ms.openlocfilehash: 43997810798322a628490aa72db74944f2fc38c7
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 0efbadf69dec6d0ea06fd743a62d69c0d25a7e33
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589754"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138658"
 ---
 # <a name="create-a-media-services-and-storage-account-with-a-private-link"></a>Créer un compte Media Services et un compte de stockage avec une liaison privée
 
@@ -24,7 +24,7 @@ Créer un compte Media Services et un compte de stockage avec des liaisons priv
 
 ## <a name="prerequisites"></a>Prérequis
 
-Lisez le guide de [Démarrage rapide : Créer et déployer des modèles ARM à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+Lisez le guide de [Démarrage rapide : Créer et déployer des modèles ARM à l’aide du portail Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="limitations"></a>Limites
 

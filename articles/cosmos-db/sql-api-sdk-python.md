@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: ff551c5d677029f39d9a3db3a64f3d03e2c57eba
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 6a10d29daaade5c588fc966190cbb81551170fd8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366026"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139432"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "107366026"
 > * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
@@ -42,7 +42,7 @@ ms.locfileid: "107366026"
 | Page| Lien |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentation de l’API**|[Documentation de référence sur l’API Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
+|**Documentation de l’API**|[Documentation de référence sur l’API Python](/python/api/azure-cosmos/azure.cosmos?preserve-view=true&view=azure-python)|
 |**Instructions d’installation du Kit de développement logiciel (SDK)**|[Instructions d’installation du Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Prise en main**|[Bien démarrer avec le Kit de développement logiciel (SDK) Python](create-sql-api-python.md)|
 |**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) et [Python 3.6+](https://www.python.org/downloads/)|

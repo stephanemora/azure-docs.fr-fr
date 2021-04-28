@@ -4,12 +4,12 @@ description: 'Comparez les services cloud Microsoft optimisés pour les tâches 
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: e6bd97469a6b7b6c42427e130ac103954377c652
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c25f1511203cf3f951e409ebbaa9381329eeed92
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643360"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128376"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Choisir les services d’intégration et d’automatisation appropriés dans Azure
 
@@ -58,7 +58,7 @@ Vous pouvez mélanger et associer les services lorsque vous créez une orchestra
 | **Actions** | Chaque activité est une fonction Azure ; écriture de code pour les fonctions de l’activité |[Grande collection d’actions prédéfinies](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | **Surveillance** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [journaux d’activité Azure Monitor](../logic-apps/monitor-logic-apps.md)|
 | **Gestion** | [API REST](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
-| **Contexte d’exécution** | Exécution possible [en local](functions-runtime-overview.md) ou dans le cloud | Exécution uniquement dans le cloud|
+| **Contexte d’exécution** | Exécution possible [en local](./functions-kubernetes-keda.md) ou dans le cloud | Exécution uniquement dans le cloud|
 
 <a name="function"></a>
 

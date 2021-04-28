@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 48686fb78dc4295da3bd390d92ae3837cd09a4d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 66d41ed1bb900f55db0d3670c1ce312950ff165d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639424"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147046"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Démarrage rapide : Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM 
 
@@ -168,7 +168,7 @@ Deux ressources sont définies dans le modèle :
 Vous trouverez d’autres exemples de modèles Azure Key Vault dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
-Vous pouvez utiliser le [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, Azure CLI, ou l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
+Vous pouvez utiliser le [portail Azure](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, Azure CLI, ou l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
@@ -223,4 +223,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et une c
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - En savoir plus sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-features.md)

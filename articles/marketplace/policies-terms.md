@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2021
-ms.openlocfilehash: 7938403e67d7059e8744e7023e8a7614df37e20f
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bc66c922f5d5954adce0361ed88fc80ba80e0836
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599619"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133094"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Stratégies et conditions de la Place de marché commerciale
 
@@ -24,8 +24,8 @@ Les offres sur la Place de marché commerciale doivent être conformes à nos st
 
 ## <a name="publisher-agreement"></a>Contrat de l’éditeur
 
-- [Contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560)
-- [Historique des changements pour le Contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?linkid=2159975&clcid=0x409)
+- [Contrat de l’éditeur Microsoft](/legal/marketplace/msft-publisher-agreement)
+- [Historique des changements pour le Contrat de l’éditeur Microsoft](/legal/marketplace/mpa-change-history)
 
 Le Contrat de l’éditeur Microsoft décrit la relation pour la publication d’offres sur la place de marché commerciale. Il régit votre accès aux fonctionnalités de l’Espace partenaires liées à la publication et au référencement d’offres dans les magasins en ligne de la Place de marché et votre utilisation de ces fonctionnalités.
 

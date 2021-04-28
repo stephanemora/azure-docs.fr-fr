@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 474c9a5d58627cec59904ccbcc5b3597de314612
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 76785caedb9ca97d947e83f5aa8ff5b32d827914
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120365"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772898"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -80,13 +80,13 @@ Les paramètres suivants peuvent être utilisés pour configurer une zone de DNS
 * AKS Preview version 0.5.7 ou ultérieure
 * API version 2020-11-01 ou ultérieure
 
-### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Créer un cluster AKS privé avec zone DNS privé (préversion)
+### <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Créer un cluster AKS privé avec zone DNS privé
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
 
-### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>Créer un cluster AKS privé avec zone DNS privée personnalisée (préversion)
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone"></a>Créer un cluster AKS privé avec zone DNS privée personnalisée
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
@@ -195,10 +195,10 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
 * Dans le cas d’une maintenance sur le plan de contrôle, votre adresse [IP AKS](./limit-egress-traffic.md) peut changer. Dans ce cas, vous devez mettre à jour l’enregistrement A pointant vers l’adresse IP privée du serveur d’API sur votre serveur DNS personnalisé et redémarrer les modules ou les déploiements personnalisés à l’aide de hostNetwork.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 36b54cc9b4440f883b4335fc6ad2ca069a5b19db
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 23597804a34a9bc409db179010569024aa472016
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137578"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725923"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -80,7 +80,7 @@ Les éléments suivants ne sont pas pris en charge :
 - CIS
 - SELINUX
 
-La prise en charge du durcissement CIS et SELINUX est prévue pour l’[agent Azure Monitor](./azure-monitor-agent-overview.md). Aucune autre méthode de durcissement ou de personnalisation n’est prise en charge ou prévue pour l’agent OMS.  
+La prise en charge du durcissement CIS et SELINUX est prévue pour l’[agent Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview). Aucune autre méthode de durcissement ou de personnalisation n’est prise en charge ou prévue pour l’agent OMS.  
 
 ## <a name="agent-prerequisites"></a>Conditions préalables associées à l’agent
 

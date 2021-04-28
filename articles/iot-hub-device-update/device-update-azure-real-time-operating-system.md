@@ -1,17 +1,17 @@
 ---
 title: Device Update pour Azure Real Time Operating System | Microsoft Docs
 description: Bien démarrer avec Device Update pour Azure Real Time Operating System
-author: valls
+author: ValOlson
 ms.author: valls
 ms.date: 3/18/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 66da860a5cdae1f5c7c18e4136b1f2d960492ca8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d03ed1b23966d92a4e289534c427b84e5fc14789
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629051"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141899"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-azure-real-time-operating-system-rtos"></a>Tutoriel sur Device Update pour Azure IoT Hub avec Azure Real Time Operating System (RTOS)
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 * Accès à un hub IoT. Il est recommandé d’utiliser un niveau S1 (Standard) ou supérieur.
-* Une instance et un compte Device Update liés à votre hub IoT. Suivez le guide montrant comment [créer et lier](http://create-device-update-account.md/) un compte Device Update si vous ne l’avez pas déjà fait.
+* Une instance et un compte Device Update liés à votre hub IoT. Suivez le guide montrant comment [créer et lier](create-device-update-account.md) un compte Device Update si vous ne l’avez pas déjà fait.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -41,7 +41,7 @@ Chaque exemple de projet Azure RTOS spécifique à une carte contient du code et
 6. Ensuite, publiez l’image du microprogramme et le manifeste sur Device Update pour IoT Hub.
 7. Enfin, téléchargez et exécutez le projet sur votre appareil.
 
-Apprenez-en davantage sur [Azure RTOS](https://docs.microsoft.com/azure/rtos/).  
+Apprenez-en davantage sur [Azure RTOS](/azure/rtos/).  
 
 ## <a name="tag-your-device"></a>Étiqueter votre appareil
 

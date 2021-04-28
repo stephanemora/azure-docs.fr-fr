@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89fb411a7f985e47fc4f8650dec0ef2ef3d45ad8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f67bc46b4f612d3d2f377070d5d8280512e0e3df
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128484"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576361"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -74,12 +74,12 @@ Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](
 ## <a name="1624"></a>1.6.2.4
 >[!IMPORTANT]
 > Mise à jour pour le 30 mars 2021 : nous avons découvert un problème dans cette version. Après l’installation de cette version, les services Health ne sont pas inscrits. Nous vous recommandons de ne pas installer cette version. Nous publierons un correctif prochainement.
-> Si vous avez déjà installé cette version, vous pouvez inscrire manuellement les services Health à l’aide de l’applet de commande, comme indiqué dans [cet article](./how-to-connect-health-agent-install.md#manually-register-azure-ad-connect-health-for-sync)
+> Si vous avez déjà installé cette version, vous pouvez inscrire manuellement les services Health à l’aide de l’applet de commande, comme indiqué dans [cet article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#manually-register-azure-ad-connect-health-for-sync)
 
 >[!NOTE]
 > - Cette version sera mise à disposition en téléchargement uniquement.
 > - La mise à niveau vers cette version nécessite une synchronisation complète en raison des modifications apportées à la règle de synchronisation.
-> - Cette version utilise par défaut le serveur AADConnect sur le nouveau point de terminaison V2. Notez que ce point de terminaison n’est pas pris en charge dans le cloud Allemagne. Si vous devez déployer cette version dans cet environnement, vous devez suivre [ces instructions](./how-to-connect-sync-endpoint-api-v2.md#rollback) pour revenir au point de terminaison V1. Sinon, des erreurs de synchronisation seront générées.
+> - Cette version utilise par défaut le serveur AADConnect sur le nouveau point de terminaison V2. Notez que ce point de terminaison n’est pas pris en charge dans le cloud Allemagne. Si vous devez déployer cette version dans cet environnement, vous devez suivre [ces instructions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) pour revenir au point de terminaison V1. Sinon, des erreurs de synchronisation seront générées.
 
 ### <a name="release-status"></a>État de la version
 19/03/2021 : Publiée pour téléchargement, indisponible pour mise à niveau automatique
@@ -96,11 +96,11 @@ Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](
      - La règle mise à jour est désactivée par défaut. Toutefois, une nouvelle règle de synchronisation « Out to AD - Group SOAInAAD - Exchange », qui est ajoutée, est activée.
      - En fonction de la priorité de la règle de synchronisation personnalisée clonée, AADConnect transmettra les attributs Mail et Exchange.
      - Si la règle de synchronisation personnalisée clonée ne transmet pas certains attributs Mail et Exchange, la nouvelle règle de synchronisation Exchange les ajoutera.
- - Ajout de la prise en charge de la [synchronisation sélective du hachage de mot de passe](./how-to-connect-selective-password-hash-synchronization.md)
- - Ajout de la nouvelle [applet de commande de synchronisation d’objets uniques](./how-to-connect-single-object-sync.md). Utilisez cette applet de commande pour résoudre les problèmes de configuration de la synchronisation d’Azure AD Connect. 
+ - Ajout de la prise en charge de la [synchronisation sélective du hachage de mot de passe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
+ - Ajout de la nouvelle [applet de commande de synchronisation d’objets uniques](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Utilisez cette applet de commande pour résoudre les problèmes de configuration de la synchronisation d’Azure AD Connect. 
  -  Azure AD Connect prend désormais en charge le rôle d’administrateur d’identité hybride pour la configuration du service.
  - Mise à jour de l’agent AADConnectHealth vers 3.1.83.0
- - Nouvelle version du [module PowerShell ADSyncTools](./reference-connect-adsynctools.md), qui comporte plusieurs applets de commande nouvelles ou améliorées. 
+ - Nouvelle version du [module PowerShell ADSyncTools](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools), qui comporte plusieurs applets de commande nouvelles ou améliorées. 
  
    - Clear-ADSyncToolsMsDsConsistencyGuid
    - ConvertFrom-ADSyncToolsAadDistinguishedName
@@ -134,7 +134,7 @@ Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](
     - Get-ADSyncAADConnectorExportApiVersion : pour accéder à l’exportation de la version de l’API AWS
 
  - Les modifications apportées aux règles de synchronisation sont désormais suivies pour aider à résoudre les problèmes de modification dans le service. L’applet de commande « Get-ADSyncRuleAudit » récupère les modifications suivies.
- - Mise à jour de l’applet de commande Add-ADSyncADDSConnectorAccount dans le [module PowerShell ADSyncConfig](./how-to-connect-configure-ad-ds-connector-account.md#using-the-adsyncconfig-powershell-module) pour permettre à un utilisateur du groupe ADSyncAdmin de modifier le compte de connecteur AD DS. 
+ - Mise à jour de l’applet de commande Add-ADSyncADDSConnectorAccount dans le [module PowerShell ADSyncConfig](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account#using-the-adsyncconfig-powershell-module) pour permettre à un utilisateur du groupe ADSyncAdmin de modifier le compte de connecteur AD DS. 
 
 ### <a name="bug-fixes"></a>Résolution des bogues
  - Mise à jour de la couleur de premier plan pour répondre aux exigences de luminosité sur un arrière-plan blanc. Ajout de conditions supplémentaires pour l’arborescence de navigation afin de définir la couleur du texte de premier plan sur le blanc lorsqu’une page désactivée est sélectionnée pour répondre aux exigences de luminosité.

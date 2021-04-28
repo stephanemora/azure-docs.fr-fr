@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 90ee39039b0734bf434e7339a973358989c08175
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d94232a78257d21f5400b2cddbf8269635962542
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311360"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144598"
 ---
 # <a name="access-config-server-and-service-registry"></a>Accéder à Config Server et Service Registry
 
@@ -39,7 +39,7 @@ Pour utiliser Azure AD et RBAC, vous devez attribuer le rôle *Lecteur de donn�
 
 Une fois le rôle Lecteur de données Azure Spring Cloud attribué, les clients peuvent accéder aux points de terminaison de Spring Cloud Config Server et de Spring Cloud Service Registry. Utilisez les procédures suivantes :
 
-1. Obtenez un jeton d’accès. Une fois qu’un utilisateur Azure AD s’est vu attribuer le rôle Lecteur de données Azure Spring Cloud, les clients peuvent utiliser les commandes suivantes pour se connecter à Azure CLI avec les informations de l’utilisateur, du principal de service ou de l’identité managée, et obtenir un jeton d’accès. Pour plus d’informations, consultez [Authentifier Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 
+1. Obtenez un jeton d’accès. Une fois qu’un utilisateur Azure AD s’est vu attribuer le rôle Lecteur de données Azure Spring Cloud, les clients peuvent utiliser les commandes suivantes pour se connecter à Azure CLI avec les informations de l’utilisateur, du principal de service ou de l’identité managée, et obtenir un jeton d’accès. Pour plus d’informations, consultez [Authentifier Azure CLI](/cli/azure/authenticate-azure-cli). 
 
     ```azurecli
     az login
@@ -51,7 +51,7 @@ Une fois le rôle Lecteur de données Azure Spring Cloud attribué, les clients 
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'* 
 
 >[!NOTE]
-> Si vous utilisez Azure Chine, remplacez `*.azuremicroservices.io` par `*.microservices.azure.cn`. [En savoir plus](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> Si vous utilisez Azure Chine, remplacez `*.azuremicroservices.io` par `*.microservices.azure.cn`. [En savoir plus](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Accédez au point de terminaison composé avec le jeton d’accès. Placez le jeton d’accès dans un en-tête pour permettre l’autorisation.  Seule la méthode « GET » est prise en charge.
 
@@ -60,7 +60,7 @@ Une fois le rôle Lecteur de données Azure Spring Cloud attribué, les clients 
     Si la réponse est *401 Non autorisé*, vérifiez si le rôle a bien été attribué.  Plusieurs minutes sont nécessaires pour que le rôle prenne effet. Vérifiez également que le jeton d’accès n’a pas expiré.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Authentifier Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)
+* [Authentifier Azure CLI](/cli/azure/authenticate-azure-cli)
 * [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints) (Points de terminaison prêts pour la production)
 
 ## <a name="see-also"></a>Voir aussi

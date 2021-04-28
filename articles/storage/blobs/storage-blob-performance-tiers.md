@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 4affed8a1226f02970928b2c227b0295167959de
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 93e6fcc11703fc24d97bc19ab9cc0d2129ff666f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277095"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143320"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveaux de performance du stockage d’objets blob de blocs
 
@@ -63,7 +63,7 @@ Le niveau de performance Standard prend en charge différents [niveaux d'accès]
 
 ## <a name="migrate-from-standard-to-premium"></a>Migrer de Standard à Premium
 
-Vous ne pouvez pas convertir un compte de stockage avec niveau de performance Standard existant en compte de stockage d’objets blob de blocs avec un niveau de performance Premium. Pour migrer vers un compte de stockage avec niveau de performance Premium, vous devez créer un compte BlockBlobStorage et migrer les données vers le nouveau compte. Pour plus d’informations, consultez la rubrique [Créer un compte BlockBlobStorage](storage-blob-create-account-block-blob.md).
+Vous ne pouvez pas convertir un compte de stockage avec niveau de performance Standard existant en compte de stockage d’objets blob de blocs avec un niveau de performance Premium. Pour migrer vers un compte de stockage avec niveau de performance Premium, vous devez créer un compte BlockBlobStorage et migrer les données vers le nouveau compte. Pour plus d’informations, consultez la rubrique [Créer un compte BlockBlobStorage](../common/storage-account-create.md).
 
 Pour copier des blobs entre des comptes de stockage, vous pouvez utiliser la dernière version de l’outil en ligne de commande [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data). D’autres outils tels qu’Azure Data Factory sont également disponibles pour le déplacement et la transformation des données.
 
