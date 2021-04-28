@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 53813bd692f1e621c89e234748f2f9a2d343684b
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 650df4d85d01b9617e094faf4cf7952da1f8eb9f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520431"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134507"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cerby"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cerby
 
@@ -143,11 +143,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Cerby pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Cerby dans Mes applications vous redirige vers l’URL de connexion à Cerby. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Cerby dans Mes applications vous redirige vers l’URL de connexion à Cerby. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Cerby, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Cerby, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f571fa6e04d19412db856a42232cb2d151ceb6ab
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a8f1b8c54ad4fd42cc8ebda4965aaf1233143f39
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141484"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107741257"
 ---
 # <a name="how-to-use-dfs-namespaces-with-azure-files"></a>Utilisation de DFS Namespaces avec Azure Files
-[Distributed File Systems Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview), communément appelé DFS Namespaces ou DFS-N, est un rôle serveur Windows Server largement utilisé pour simplifier le déploiement et la maintenance des partages de fichiers SMB en production. DFS Namespaces est une technologie de virtualisation des espaces de noms de stockage, ce qui signifie qu’elle vous permet de fournir une couche d’indirection entre le chemin d’accès UNC de vos partages de fichiers et les partages de fichiers eux-mêmes. DFS Namespaces fonctionne avec des partages de fichiers SMB, indépendamment de l’hébergement de ces partages de fichiers : elle peut être utilisée avec des partages SMB hébergés sur un serveur de fichiers Windows local avec ou sans Azure File Sync, des partages de fichiers Azure directement, des partages de fichiers SMB hébergés dans Azure NetApp Files ou d’autres offres tierces, et même avec des partages de fichiers hébergés dans d’autres clouds. 
+[Distributed File Systems Namespaces](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview), communément appelé DFS Namespaces ou DFS-N, est un rôle serveur Windows Server largement utilisé pour simplifier le déploiement et la maintenance des partages de fichiers SMB en production. DFS Namespaces est une technologie de virtualisation des espaces de noms de stockage, ce qui signifie qu’elle vous permet de fournir une couche d’indirection entre le chemin d’accès UNC de vos partages de fichiers et les partages de fichiers eux-mêmes. DFS Namespaces fonctionne avec des partages de fichiers SMB, indépendamment de l’hébergement de ces partages de fichiers : elle peut être utilisée avec des partages SMB hébergés sur un serveur de fichiers Windows local avec ou sans Azure File Sync, des partages de fichiers Azure directement, des partages de fichiers SMB hébergés dans Azure NetApp Files ou d’autres offres tierces, et même avec des partages de fichiers hébergés dans d’autres clouds. 
 
 À la base, DFS Namespaces fournit un mappage entre un chemin d’accès UNC convivial, par exemple, `\\contoso\shares\ProjectX`, et le chemin d’accès UNC sous-jacent du partage SMB, comme `\\Server01-Prod\ProjectX` ou `\\storageaccount.file.core.windows.net\projectx`. Lorsque l’utilisateur final souhaite accéder à son partage de fichiers, il saisit le chemin d’accès UNC convivial, mais son client SMB accède au chemin d’accès SMB sous-jacent du mappage. Vous pouvez également étendre ce concept de base pour reprendre un nom de serveur de fichiers existant, tel que `\\MyServer\ProjectX`. Vous pouvez utiliser cette capacité pour réaliser les scénarios suivants :
 
@@ -39,7 +39,7 @@ DFS Namespaces propose deux types d’espaces de noms principaux :
 - **Espace de noms basé sur un domaine** : espace de noms hébergé dans le cadre de votre domaine Windows Server AD. Les espaces de noms hébergés dans le cadre d’AD auront un chemin d’accès UNC contenant le nom de votre domaine, par exemple, `\\contoso.com\shares\myshare`, si votre domaine est `contoso.com`. Les espaces de noms basés sur un domaine prennent en charge des limites d’échelle plus importantes et une redondance intégrée via AD. Les espaces de noms basés sur un domaine ne peuvent pas être des ressources cluster sur un cluster de basculement. 
 - **Espace de noms autonome** : espace de noms hébergé sur un serveur individuel, non hébergé dans le cadre de Windows Server AD. Les espaces de noms autonomes auront un nom basé sur le nom du serveur autonome, par exemple `\\MyStandaloneServer\shares\myshare`, où votre serveur autonome s’appelle `MyStandaloneServer`. Les espaces de noms autonomes prennent en charge des cibles d’échelle de moindre envergure que les espaces de noms basés sur un domaine, mais ils peuvent être hébergés en tant que ressource cluster sur un cluster de basculement.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 Pour utiliser DFS Namespaces avec Azure Files et File Sync, vous devez disposer des ressources suivantes :
 
 - Domaine Active Directory. Celui-ci peut être hébergé où vous le souhaitez, par exemple localement, sur une machine virtuelle Azure, ou même dans un autre cloud.
@@ -210,4 +210,4 @@ Maintenant que vous avez créé un espace de noms, un dossier et une cible de do
 ## <a name="see-also"></a>Voir aussi
 - Déploiement d’un partage de fichiers Azure : [Planification d’un déploiement Azure Files](storage-files-planning.md) et [Création d’un partage de fichiers](storage-how-to-create-file-share.md).
 - Configuration de l’accès au partage de fichiers : [Authentification basée sur l’identité](storage-files-active-directory-overview.md) et [Considérations relatives à la mise en réseau pour l’accès direct](storage-files-networking-overview.md).
-- [Distributed File System Namespaces de Windows Server](/windows-server/storage/dfs-namespaces/dfs-overview).
+- [Distributed File System Namespaces de Windows Server](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).

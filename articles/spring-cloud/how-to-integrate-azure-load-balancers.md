@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 50b09fd82461221ae6cd008f6918ac2f3a26fd94
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 87b29d7417bfcaff670282377b2fffc6d4713395
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877226"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135038"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Intégrer Azure Spring Cloud à des solutions d’équilibrage de charge Azure
 
@@ -28,7 +28,7 @@ Azure fournit déjà différentes solutions d’équilibrage de charge. Il exist
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Azure Spring Cloud : [Guide pratique pour créer un service Azure Spring Cloud](./spring-cloud-quickstart.md)
+* Azure Spring Cloud : [Guide pratique pour créer un service Azure Spring Cloud](./quickstart.md)
 * Azure Traffic Manager : [Guide pratique pour créer un profil Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
 * Azure Application Gateway : [Guide pratique pour créer une passerelle Application Gateway](../application-gateway/quick-create-portal.md)
 * Azure Front Door : [Guide pratique pour créer un profil Front Door](../frontdoor/quickstart-create-front-door.md)
@@ -48,7 +48,7 @@ Ajoutez des points de terminaison dans Traffic Manager :
 ### <a name="configure-custom-domain"></a>Configurer un domaine personnalisé
 Pour terminer la configuration :
 1.  Connectez-vous au site web de votre fournisseur de domaine, puis créez un mappage d’enregistrement CNAME à partir de votre domaine personnalisé vers le nom de domaine Azure par défaut de Traffic Manager.
-1.  Suivez les instructions dans [Guide pratique pour ajouter un domaine personnalisé à Azure Spring Cloud](spring-cloud-tutorial-custom-domain.md).
+1.  Suivez les instructions dans [Guide pratique pour ajouter un domaine personnalisé à Azure Spring Cloud](./tutorial-custom-domain.md).
 1. Ajoutez la liaison de domaine personnalisé ci-dessus à Traffic Manager dans le service App Service correspondant Azure Spring Cloud et chargez-y le certificat SSL.
 
     ![Traffic Manager 3](media/spring-cloud-load-balancers/traffic-manager-3.png)

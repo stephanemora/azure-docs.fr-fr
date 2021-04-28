@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de8af71928ad6a83d4930e4e6e0b8dd257148111
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09fc8f9697f418533131e86c069afd3157a71c78
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666614"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142978"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 sur Azure NetApp Files pour SAP HANA
 
@@ -137,7 +137,7 @@ Il en va de même pour le volume sur lequel vous écrivez des sauvegardes compl�
  
 
 ## <a name="backup"></a>Sauvegarde
-En plus des sauvegardes en streaming et de la sauvegarde de bases de données SAP HANA par le service Sauvegarde Azure, comme décrit dans l’article [Guide de sauvegarde pour SAP HANA sur Machines Virtuelles Azure](./sap-hana-backup-guide.md), Azure NetApp Files offre la possibilité d’effectuer des sauvegardes de captures instantanées basées sur le stockage. 
+En plus des sauvegardes en streaming et de la sauvegarde de bases de données SAP HANA par le service Sauvegarde Azure, comme décrit dans l’article [Guide de sauvegarde pour SAP HANA sur Machines Virtuelles Azure](../../../backup/sap-hana-db-about.md), Azure NetApp Files offre la possibilité d’effectuer des sauvegardes de captures instantanées basées sur le stockage. 
 
 SAP HANA prend en charge :
 

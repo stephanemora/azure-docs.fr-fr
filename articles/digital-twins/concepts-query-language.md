@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ef583d21647681cb1be730ea93a67a9339c74aae
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490974"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930980"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
@@ -39,7 +39,7 @@ Quand vous écrivez des requêtes pour Azure Digital Twins, gardez à l’esprit
 * **Penser au respect de la casse** : toutes les opérations de requête Azure Digital Twins sont sensibles à la casse. Veillez donc à utiliser les noms exacts définis dans les modèles. Si les noms des propriétés sont mal orthographiés ou ne respectent pas la casse, le jeu de résultats sera vide et aucune erreur ne sera retournée.
 * **Placer les guillemets simples dans une séquence d’échappement** : si le texte de votre requête comprend un guillemet simple dans les données, celui-ci doit être placé dans une séquence d’échappement avec le caractère `\`. Voici un exemple qui traite une valeur de propriété *D'Souza* :
 
-  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 
 ## <a name="reference-expressions-and-conditions"></a>Référence : Expressions et conditions
 

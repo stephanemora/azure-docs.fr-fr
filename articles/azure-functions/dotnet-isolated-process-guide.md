@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: b527a2c7cbfe4971f5dd99f40f98d3eaa32aa451
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 53f3c79886d26b20a584d747759176ea842741cf
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227311"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739275"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guide d’exécution des fonctions sur .NET 5.0 dans Azure
 
@@ -74,6 +74,8 @@ Le code suivant présente un exemple de pipeline [HostBuilder] :
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
+Le code nécessite `using Microsoft.Extensions.DependencyInjection;`. 
+
 Un [HostBuilder] est utilisé pour générer et renvoyer une instance [IHost] entièrement initialisée que vous exécutez de façon asynchrone pour démarrer votre application de fonction. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
@@ -103,7 +105,7 @@ L’exemple suivant injecte une dépendance de service singleton :
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_dependency_injection" :::
 
-Pour plus d’informations, consultez [Injection de dépendances dans ASP.net Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
+Le code nécessite `using Microsoft.Extensions.DependencyInjection;`. Pour plus d’informations, consultez [Injection de dépendances dans ASP.net Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
 ### <a name="middleware"></a>Middleware
 

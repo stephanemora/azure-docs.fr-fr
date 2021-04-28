@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: 54bfd7c6e691efbd754e9ea2b804e16b3e07ebbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf55dc19a78b667056da9ef614ec75f3817b5773
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670966"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141196"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Installation de SAP HANA sur des machines virtuelles Azure
 ## <a name="introduction"></a>Introduction
@@ -94,8 +94,8 @@ Pour les configurations de scale-out SAP HANA utilisant des disques à connexion
 
 ## <a name="additional-resources-for-sap-hana-backup"></a>Ressources supplémentaires pour la sauvegarde SAP HANA
 Pour plus d’informations sur la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure, consultez :
-* [Guide de sauvegarde pour SAP HANA sur des machines virtuelles Azure](./sap-hana-backup-guide.md)
-* [Sauvegarde SAP HANA sur Azure au niveau fichier](./sap-hana-backup-file-level.md)
+* [Guide de sauvegarde pour SAP HANA sur des machines virtuelles Azure](../../../backup/sap-hana-db-about.md)
+* [Sauvegarde SAP HANA sur Azure au niveau fichier](../../../backup/sap-hana-db-about.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Lisez la documentation :

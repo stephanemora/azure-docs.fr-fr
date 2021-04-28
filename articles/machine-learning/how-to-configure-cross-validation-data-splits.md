@@ -5,18 +5,18 @@ description: Découvrez comment configurer les fractionnements de jeux de donné
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, automl
+ms.topic: how-to
+ms.custom: automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
-ms.openlocfilehash: 31d3dc2c2d8194541ba1fe7d0865e6c939d75f73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00c3cd6f6a4e5878a3a426aa5622cc53487f2bdd
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501578"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131401"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurer les fractionnements de données et la validation croisée dans les opérations de Machine Learning automatisé
 
@@ -47,7 +47,7 @@ Pour cet article, vous avez besoin des éléments suivants :
 
 ## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>Fractionnements de données et validation croisée par défaut dans le Machine Learning
 
-Utilisez l’objet [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) pour définir vos paramètres d’expérimentation et de formation. Dans l’extrait de code suivant, Notez que seuls les paramètres requis sont définis, c’est-à-dire que les paramètres pour `n_cross_validation` ou `validation_ data` ne sont **pas** inclus.
+Utilisez l’objet [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) pour définir vos paramètres d’expérimentation et de formation. Dans l’extrait de code suivant, Notez que seuls les paramètres requis sont définis, c’est-à-dire que les paramètres pour `n_cross_validations` ou `validation_data` ne sont **pas** inclus.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -62,7 +62,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cross_validation`, AutoML applique les techniques par défaut en fonction du nombre de lignes fournies dans le jeu de données unique `training_data` :
+Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cross_validations`, AutoML applique les techniques par défaut en fonction du nombre de lignes fournies dans le jeu de données unique `training_data` :
 
 |Formation sur la taille des&nbsp;données&nbsp;| Technique de validation |
 |---|-----|

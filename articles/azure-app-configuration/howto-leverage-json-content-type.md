@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2be560d16b133696c520b8872406ff6a36b0087b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122151"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137108"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Tirer parti du type de contenu pour stocker des valeurs de clés JSON dans App Configuration
 
@@ -170,7 +170,7 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 ```
 
 > [!NOTE]
-> Si votre magasin App Configuration a des valeurs de clés sans type de contenu JSON, elles seront également exportées vers le même fichier au format de chaîne. Si vous souhaitez exporter uniquement les valeurs de clés JSON, attribuez une étiquette ou un préfixe unique à vos valeurs de clés JSON et utilisez le filtrage d’étiquettes ou de préfixes lors de l’exportation.
+> Si votre magasin App Configuration a des valeurs de clés sans type de contenu JSON, elles seront également exportées vers le même fichier au format de chaîne.
 
 
 ## <a name="consuming-json-key-values-in-applications"></a>Utiliser des valeurs de clés JSON dans des applications

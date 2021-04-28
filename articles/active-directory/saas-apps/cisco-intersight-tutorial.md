@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 6efec61ec5866547ab6b432cb9c566642f3191ff
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: a53fbdf23d4d76056d51bd787603931f7c017371
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107580654"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144166"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-intersight"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cisco Intersight
 
@@ -143,11 +143,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Cisco Intersight et lancez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Cisco Intersight dans Mes applications vous redirige vers l’URL de connexion à Cisco Intersight. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Cisco Intersight dans Mes applications vous redirige vers l’URL de connexion à Cisco Intersight. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Cisco Intersight, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Cisco Intersight, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

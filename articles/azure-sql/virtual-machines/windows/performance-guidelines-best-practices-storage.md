@@ -15,19 +15,19 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 001a9a15c259d0b0d73eec9c9a39ad7c27f26721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f1138f0b33e75968f51965355528805dd29033b3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572250"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145625"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Stockage : Meilleures pratiques sur les performances de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Cet article fournit les meilleures pratiques et les recommandations relatives au stockage pour optimiser les performances de votre SQL Server sur des machines virtuelles Azure.
 
-Il existe généralement un compromis entre l’optimisation des coûts et l’optimisation des performances. Cette série sur les meilleures pratiques relatives aux performances est axée sur l’obtention des *meilleures* performances pour SQL Server sur les machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations recommandées. Tenez compte de vos besoins de performances, des coûts et des modèles de charges de travail lors de l’évaluation de ces recommandations.
+Il existe généralement un compromis entre l’optimisation des coûts et l’optimisation des performances. Cette série de bonnes pratiques sur les performances vise à obtenir les *meilleures* performances possibles pour SQL Server sur les machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations recommandées. Tenez compte de vos besoins de performances, des coûts et des modèles de charges de travail lors de l’évaluation de ces recommandations.
 
 Pour plus d’informations, consultez les autres articles de cette série : [Liste de contrôle des performances](performance-guidelines-best-practices-checklist.md), [Taille de la machine virtuelle](performance-guidelines-best-practices-vm-size.md) et [Collecter une ligne de base](performance-guidelines-best-practices-collect-baseline.md). 
 
@@ -53,7 +53,7 @@ Consultez la liste de contrôle suivante pour obtenir une vue d’ensemble des m
 - Le [bursting de disque basé sur les crédits](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) ne doit être pris en compte que pour les charges de travail de dev/test et les systèmes départementaux plus petits.
 - Configurez le compte de stockage dans la même région que la machine virtuelle SQL Azure. 
 - Désactivez le stockage géoredondant Azure (géoréplication) et utilisez LRS (stockage local redondant) sur le compte de stockage.
-- Formatez votre disque de données de façon à utiliser une taille d’unité d’allocation de 64 Ko pour tous les fichiers de données placés sur un lecteur autre que le lecteur temporaire `D:\` (dont la taille par défaut est de 4 Ko). Les machines virtuelles SQL Server déployées via la Place de marché Azure sont fournies avec des disques de données formatés avec une taille d’unité d’allocation et un entrelacement pour le pool de stockage défini sur 64 Ko. 
+- Formatez votre disque de données afin d’utiliser une taille de bloc (taille d’unité d’allocation) de 64 Ko pour tous les fichiers de données placés sur un lecteur autre que le lecteur `D:\` temporaire (dont la valeur par défaut est de 4 Ko). Les machines virtuelles SQL Server déployées via la Place de marché Azure sont fournies avec des disques de données formatés selon une taille de bloc et un entrelacement pour le pool de stockage de 64 Ko. 
 
 Pour comparer la liste de contrôle de stockage avec les autres, consultez la [Liste de contrôle des meilleures pratiques relatives aux performances](performance-guidelines-best-practices-checklist.md). 
 
@@ -163,7 +163,7 @@ Par exemple, la documentation de la [série M](../../../virtual-machines/m-serie
 
 De même, vous pouvez voir que la machine virtuelle Standard_M32ts prend en charge 20 000 IOPS de disque sans mise en cache et un débit de disque de 500 Mbits/s sans mise en cache. Cette limite est régie par le niveau de la machine virtuelle, quel que soit le stockage sur disque Premium sous-jacent.
 
-Pour plus d’informations, consultez les [limitations avec et sans mise en cache](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
+Pour plus d’informations, consultez les [limitations avec et sans mise en cache](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits).
 
 
 ### <a name="cached-and-temp-storage-throughput"></a>Débit de stockage temporaire et mis en cache max
@@ -231,7 +231,7 @@ Pour plus d’informations sur les limitations de l’encapsulation de disque et
 
 ## <a name="write-acceleration"></a>Accélération d’écriture
 
-L’accélération d’écriture est une fonctionnalité de disque qui est uniquement disponible pour les machines virtuelles de la [série M](https://docs.microsoft.com/azure/virtual-machines/m-series). L’objectif de l’accélération d’écriture est d’améliorer la latence d’E/S des écritures sur le stockage Premium Azure lorsque vous avez besoin d’une latence d’E/S à un chiffre en raison de charges de travail OLTP critiques ou d’environnements d’entrepôts de données de grande envergure. 
+L’accélération d’écriture est une fonctionnalité de disque qui est uniquement disponible pour les machines virtuelles de la [série M](../../../virtual-machines/m-series.md). L’objectif de l’accélération d’écriture est d’améliorer la latence d’E/S des écritures sur le stockage Premium Azure lorsque vous avez besoin d’une latence d’E/S à un chiffre en raison de charges de travail OLTP critiques ou d’environnements d’entrepôts de données de grande envergure. 
 
 Utilisez l’accélération d’écriture pour améliorer la latence d’écriture sur le lecteur qui héberge les fichiers journaux. N’utilisez pas l’accélération d’écriture pour les fichiers de données SQL Server. 
 

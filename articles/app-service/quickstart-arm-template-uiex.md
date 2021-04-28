@@ -6,15 +6,15 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bce6bfb61eb59d1fa66c550a133ac8b6f8d7f2c5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bfdfad8af2d730caf0ac9e22ee815a6d59a6b6a3
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769000"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074724"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Démarrage rapide : Créer une application App Service à l’aide d’un modèle ARM
 
@@ -23,11 +23,11 @@ Bien démarrer avec [Azure App Service](overview.md) en déployant une applicati
  Si votre environnement satisfait les prérequis et que vous êtes déjà familiarisé avec l’utilisation des [modèles ARM](../azure-resource-manager/templates/overview.md), sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
 ::: zone pivot="platform-windows"
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json)
 ::: zone-end
 
 ::: zone pivot="platform-linux"
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json)
 ::: zone-end
 
 <hr/>
@@ -43,7 +43,7 @@ Bien démarrer avec [Azure App Service](overview.md) en déployant une applicati
 ::: zone pivot="platform-windows"
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Il déploie un plan App Service et une application App Service sur Windows.
 
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
 <details>
 <summary>Quelles sont les ressources et les paramètres définis dans le modèle ?</summary>
@@ -71,7 +71,7 @@ Le tableau suivant détaille les paramètres par défaut et leur description :
 ::: zone pivot="platform-linux"
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). Il déploie un plan App Service et une application App Service sur Windows.
 
-:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 
 Ce modèle comprend des ressources et des paramètres Azure qui sont définis pour des raisons pratiques.
 
@@ -112,7 +112,7 @@ Replace <abbr title="Les caractères valides sont `a-z`, `0-9` et `-`.">`<app-na
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -123,7 +123,7 @@ Replace <abbr title="Les caractères valides sont `a-z`, `0-9` et `-`.">`<app-na
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --parameters webAppName="<app-name>" linuxFxVersion="PYTHON|3.7" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-linux/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
 ::: zone-end
 

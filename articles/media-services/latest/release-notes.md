@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 796abf8506a832c4053b505e903bb24ef9d09004
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 40d61de140cb0b3537c56af37eb18f004a72c148
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279032"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138892"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -84,7 +84,7 @@ La version 3 offre les avantages suivants :
  
 - Prise en charge des événements en direct 24 h/24, 7 j/7
 - API REST ARM, SDK clients pour .NET core, Node.js, Python, Java, Go et Ruby.
-- Clés gérées par le client, intégration du stockage approuvé, prise en charge des liens privés et [bien plus encore](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Clés gérées par le client, intégration du stockage approuvé, prise en charge des liens privés et [bien plus encore](./migrate-v-2-v-3-migration-benefits.md)
 
 #### <a name="action-required"></a>Action requise
 

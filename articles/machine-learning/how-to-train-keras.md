@@ -9,14 +9,13 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 2b4af9dec2bf397ad2766c68d547eeac85a9a9a3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.openlocfilehash: 5a641f349b070f3b4cb285b3d0007baa54219683
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518362"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884423"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles Keras à grande échelle avec Azure Machine Learning
 
@@ -243,7 +242,7 @@ for f in run.get_file_names():
 Dans cet article, vous avez entraîné et inscrit un modèle Keras sur Azure Machine Learning. Pour savoir comment déployer un modèle, passez à notre article relatif aux modèles de déploiement.
 
 * [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)
-* [Effectuer le suivi des métriques d’exécution pendant l’entraînement](how-to-track-experiments.md)
+* [Effectuer le suivi des métriques d’exécution pendant l’entraînement](how-to-log-view-metrics.md)
 * [Optimiser les hyperparamètres](how-to-tune-hyperparameters.md)
 * [Déployer un modèle entraîné](how-to-deploy-and-where.md)
 * [Architecture de référence de la formation du Deep Learning distribué dans Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

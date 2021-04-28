@@ -1,19 +1,19 @@
 ---
 title: Intégration et livraison continues pour l’espace de travail Synapse
 description: Découvrez comment utiliser l’intégration et la livraison continues pour déployer les changements dans un espace de travail d’un environnement (développement, test, production) à un autre.
-services: synapse-analytics
-author: liud
+author: liudan66
 ms.service: synapse-analytics
+ms.subservice: cicd
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d49deef4cc7f646032219ff9e8f541cc9c1afd6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561955"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131184"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse
 
@@ -21,16 +21,61 @@ ms.locfileid: "103561955"
 
 L’intégration continue (CI) est le processus d’automatisation de création et de test du code chaque fois qu’un membre de l’équipe valide les modifications apportées au contrôle de version. Le déploiement continu (CD) est le processus de création, de test, de configuration et de déploiement de plusieurs environnements de test ou intermédiaires dans un environnement de production.
 
-Pour l’espace de travail Azure Synapse, l’intégration et la livraison continues (CI/CD) déplacent toutes les entités d’un environnement (développement, test, production) à un autre. La promotion de votre espace de travail vers un autre espace de travail se compose de deux parties : utiliser des [modèles Azure Resource Manager](../../azure-resource-manager/templates/overview.md) pour créer ou mettre à jour des ressources d’espace de travail (pools et espace de travail), et migrer les artefacts (scripts SQL, bloc-notes, définition de travail Spark, pipelines, jeux de données, flux de données, etc.) avec des outils CI/CD Synapse dans Azure DevOps. 
+Dans un espace de travail Microsoft Azure Synapse Analytics, l’intégration continue et la livraison continue (CI/CD) déplacent toutes les entités d’un environnement (développement, test, production) à un autre. Pour promouvoir votre espace de travail vers un autre espace de travail, il y a deux parties. Tout d’abord, utilisez un [modèle Azure Resource Manager (modèle ARM)](../../azure-resource-manager/templates/overview.md) pour créer ou mettre à jour des ressources d’espace de travail (pools et espace de travail). Ensuite, migrez les artefacts (scripts SQL, notebook, définition de tâche Spark, pipelines, jeux de données, flux de données, etc.) dans Azure DevOps avec les outils CI/CD d’Azure Synapse Analytics. 
 
-Cet article décrit l’utilisation d’un pipeline de mise en production Azure pour automatiser le déploiement d’un espace de travail Synapse dans plusieurs environnements.
+Cet article décrit comment utiliser un pipeline de mise en production Azure DevOps pour automatiser le déploiement d’un espace de travail Azure Synapse Analytics dans plusieurs environnements.
 
 ## <a name="prerequisites"></a>Prérequis
 
--   L’espace de travail utilisé pour le développement a été configuré avec un référentiel Git dans Studio. Pour plus d’informations, consultez [Contrôle de code source dans Synapse Studio](source-control.md).
--   Un projet Azure DevOps a été préparé pour exécuter le pipeline de mise en production.
+Ces prérequis et configurations doivent être en place pour automatiser le déploiement d’un espace de travail Azure Synapse Analytics dans plusieurs environnements.
 
-## <a name="set-up-a-release-pipelines"></a>Configurer un pipeline de mise en production
+### <a name="azure-devops"></a>Azure DevOps
+
+- Un projet Azure DevOps a été préparé pour exécuter le pipeline de mise en production.
+- [Accordez à tous les utilisateurs qui enregistreront le code un accès « de base » au niveau de l’organisation](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), afin qu’ils puissent voir le référentiel.
+- Accordez des droits de propriétaire au référentiel Azure Synapse Analytics.
+- Assurez-vous d’avoir créé un agent de machine virtuelle Azure DevOps auto-hébergé ou d’utiliser un agent hébergé Azure DevOps.
+- Assurez-vous d’avoir les autorisations permettant de [créer une connexion au service Azure Resource Manager pour le groupe de ressources](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
+- Un administrateur Azure Active Directory (Azure AD) doit [installer l’extension de l’agent de déploiement d’espace de travail Synapse Azure DevOps dans l’organisation Azure DevOps](/azure/devops/marketplace/install-extension).
+- Créez ou nommez un compte de service pour l’exécution du pipeline. Vous pouvez utiliser un jeton d’accès personnel au lieu d’un compte de service, mais vos pipelines ne fonctionneront pas une fois le compte d’utilisateur supprimé.
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+- Dans Azure AD, créez un principal de service à utiliser pour le déploiement. La tâche de déploiement de l’espace de travail Synapse ne prend pas en charge l’utilisation d’une identité managée dans les versions 1* et antérieures.
+- Des droits d’administrateur Azure AD sont nécessaires pour cette action.
+
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+
+> [!NOTE]
+> Vous pouvez automatiser et déployer ces composants requis à l’aide du même pipeline, d’un modèle ARM ou de l’interface de ligne de commande Azure, mais le processus n’est pas décrit dans cet article.
+
+- L’espace de travail « source » utilisé pour le développement doit être configuré avec un référentiel Git dans Synapse Studio. Pour plus d’informations, consultez [Contrôle de code source dans Synapse Studio](source-control.md#configuration-method-2-manage-hub).
+
+- Un espace de travail vide vers lequel effectuer le déploiement. Pour configurer l’espace de travail vide :
+
+  1. Créez un espace de travail Azure Synapse Analytics.
+  1. Accordez les droits de contributeur de l’agent de machine virtuelle et du principal de service au groupe de ressources dans lequel le nouvel espace de travail est hébergé.
+  1. Dans le nouvel espace de travail, ne configurez pas la connexion au référentiel Git.
+  1. Dans le portail Azure, recherchez le nouvel espace de travail Azure Synapse Analytics et accordez à vous-même et à toute personne qui exécutera le pipeline Azure DevOps les droits de propriétaire sur l’espace de travail Azure Synapse Analytics. 
+  1. Ajoutez l’agent de machine virtuelle Azure DevOps et le principal du service au rôle Contributeur de l’espace de travail (cela devrait avoir été hérité, mais vérifiez que c’est le cas).
+  1. Dans l’espace de travail Azure Synapse Analytics, accédez à **Studio** > **Gérer** > **Gestion des identités et des accès**. Ajoutez l’agent de machine virtuelle Azure DevOps et le principal du service au groupe d’administrateurs de l’espace de travail.
+  1. Ouvrez le compte de stockage utilisé pour l’espace de travail. Dans Gestion des identités et des accès, ajoutez l’agent de machine virtuelle et le principal du service au rôle Contributeur aux données Blob du stockage.
+  1. Créez un coffre de clés dans l’abonnement au support et assurez-vous que l’espace de travail existant et le nouvel espace de travail disposent au moins des autorisations GET et LIST sur le coffre.
+  1. Pour que le déploiement automatisé fonctionne, assurez-vous que toutes les chaînes de connexion spécifiées dans vos services liés se trouvent dans le coffre de clés.
+
+### <a name="additional-prerequisites"></a>Autres composants requis
+ 
+ - Les pools Spark et les runtimes d’intégration auto-hébergé ne sont pas créés dans un pipeline. Si vous avez un service lié qui utilise un runtime d’intégration auto-hébergé, créez-le manuellement dans le nouvel espace de travail.
+ - Si vous développez des notebooks et qu’ils sont connectés à un pool Spark, recréez le pool Spark dans l’espace de travail.
+ - Les notebooks qui sont liés à un pool Spark qui n’existe pas dans un environnement ne seront pas déployés.
+ - Les noms des pools Spark doivent être les mêmes dans les deux espaces de travail.
+ - Nommez toutes les bases de données, tous les pools SQL et toutes les autres ressources de la même façon dans les deux espaces de travail.
+ - Si vos pools SQL approvisionnés sont suspendus lorsque vous tentez d’effectuer le déploiement, ce dernier peut échouer.
+
+Pour plus d’informations, consultez [CI/CD dans Azure Synapse Analytics, partie 4 : Le pipeline de mise en production](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434). 
+
+
+## <a name="set-up-a-release-pipeline"></a>Configurer un pipeline de mise en production
 
 1.  Dans [Azure DevOps](https://dev.azure.com/), ouvrez le projet créé pour la mise en production.
 
@@ -58,9 +103,9 @@ Cet article décrit l’utilisation d’un pipeline de mise en production Azure 
 
     ![Ajouter un artefact](media/release-creation-publish-branch.png)
 
-## <a name="set-up-a-stage-task-for-arm-resource-create-and-update"></a>Configurer une tâche intermédiaire pour la création et la mise à jour de ressources ARM 
+## <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>Configurer une tâche intermédiaire pour un modèle ARM afin de créer et mettre à jour une ressource 
 
-Ajoutez une tâche de déploiement Azure Resource Manager pour créer ou mettre à jour des ressources, y compris l’espace de travail et les pools :
+Si vous disposez d’un modèle ARM pour déployer une ressource, comme un espace de travail Azure Synapse Analytics, des pools Spark et SQL ou un coffre de clés, ajoutez une tâche de déploiement Azure Resource Manager pour créer ou mettre à jour ces ressources :
 
 1. Dans la vue des phases, sélectionnez **Afficher les tâches de phase**.
 
@@ -89,7 +134,7 @@ Ajoutez une tâche de déploiement Azure Resource Manager pour créer ou mettre 
  > [!WARNING]
 > En mode de déploiement complet, les ressources présentes dans le groupe de ressources mais pas spécifiées dans le modèle Resource Manager sont **supprimées**. Pour plus d’informations, consultez [Modes de déploiement Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
-## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurer une tâche intermédiaire pour le déploiement d’artefacts 
+## <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Configurer une tâche intermédiaire pour le déploiement d’artefacts Synapse 
 
 Utilisez l’extension de [déploiement d’espace de travail Synapse](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) pour déployer d’autres éléments dans l’espace de travail Synapse, comme un jeu de données, un script SQL, un notebook, une définition de travail Spark, un flux de données, un pipeline, un service lié, des informations d’identification et un runtime d'intégration.  
 
@@ -113,7 +158,7 @@ Utilisez l’extension de [déploiement d’espace de travail Synapse](https://m
 
 1. Sélectionnez la connexion, le groupe de ressources et le nom de l’espace de travail cible. 
 
-1. Sélectionnez **…** en regard de la zone **Remplacer les paramètres du modèle** et entrez les valeurs de paramètre souhaitées pour l’espace de travail cible. 
+1. Sélectionnez **…** à côté de la case **Remplacer les paramètres du modèle**, entrez les valeurs de paramètre souhaitées pour l’espace de travail cible, notamment les chaînes de connexion et les clés de compte qui sont utilisées dans vos services liés. [Cliquez ici pour plus d’informations.](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
 
     ![Déployer un espace de travail Synapse](media/create-release-artifacts-deployment.png)
 
@@ -225,6 +270,7 @@ Voici un exemple de définition de modèle de paramètres :
     }
 }
 ```
+
 Voici une explication de la façon dont le modèle précédent est construit, décomposé par type de ressource.
 
 #### <a name="notebooks"></a>Notebooks 
@@ -262,18 +308,18 @@ Voici une explication de la façon dont le modèle précédent est construit, d�
 
 ## <a name="best-practices-for-cicd"></a>Meilleures pratiques pour CI/CD
 
-Si vous utilisez une intégration Git avec votre espace de travail Synapse, et disposez d’un pipeline CI/CD qui déplace vos modifications du développement aux tests, puis en production, nous vous recommandons les bonnes pratiques suivantes :
+Si vous utilisez une intégration Git avec votre espace de travail Azure Synapse Analytics et que vous disposez d’un pipeline CI/CD qui déplace vos modifications de l’environnement de développement à celui de test, puis à celui de production, nous vous recommandons les meilleures pratiques suivantes :
 
--   **Intégration Git**. Configurez uniquement votre espace de travail Synapse de développement avec l’intégration Git. Les modifications au niveau des espaces de travail de test et de production sont déployées via CI/CD et ne nécessitent pas d’intégration Git.
+-   **Intégration Git**. Configurez uniquement votre espace de travail Azure Synapse Analytics de développement avec l’intégration Git. Les modifications au niveau des espaces de travail de test et de production sont déployées via CI/CD et ne nécessitent pas d’intégration Git.
 -   **Préparez les pools avant la migration des artefacts**. Si vous disposez d’un script SQL ou d’un notebook attaché à des pools dans l’espace de travail de développement, le même nom de pools dans différents environnements est attendu. 
 -   **Infrastructure en tant que code (IaC)** . La gestion de l'infrastructure (réseaux, machines virtuelles, équilibreurs de charge et topologie de connexion) dans un modèle descriptif utilise le même contrôle de version que celui utilisé par l'équipe DevOps pour le code source. 
 -   **Autres**. Consultez les [meilleures pratiques pour les artefacts ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
 
 ## <a name="troubleshooting-artifacts-deployment"></a>Résolution des problèmes de déploiement d’artefacts 
 
-### <a name="use-the-synapse-workspace-deployment-task"></a>Utiliser la tâche de déploiement de l’espace de travail Synapse
+### <a name="use-the-azure-synapse-analytics-workspace-deployment-task"></a>Utiliser la tâche de déploiement de l’espace de travail Azure Synapse Analytics
 
-Dans Synapse, il existe un certain nombre d’artefacts qui ne sont pas des ressources ARM. Cela diffère d’Azure Data Factory. La tâche de déploiement d’un modèle ARM ne fonctionnera pas correctement pour déployer des artefacts Synapse.
+Dans Azure Synapse Analytics, il existe un certain nombre d’artefacts qui ne sont pas des ressources ARM. Cela diffère d’Azure Data Factory. La tâche de déploiement d’un modèle ARM ne fonctionnera pas correctement pour déployer des artefacts Azure Synapse Analytics.
  
 ### <a name="unexpected-token-error-in-release"></a>Erreur de jeton inattendu dans la mise en production
 

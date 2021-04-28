@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cba823775849fdad8407c7bb697a53761e8ccbcd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6a6bba9a1fc7974d324696e88e059c1d44924dac
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764348"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016686"
 ---
 # <a name="how-to-find-your-azure-active-directory-tenant-id"></a>Comment trouver votre ID de locataire Azure Active Directory
 
@@ -59,7 +59,7 @@ az account list
 az account tenant list
 ```
 
-Pour plus d’informations, consultez la référence de la commande [az login](/cli/azure/reference-index#az_login), [az account](/cli/azure/ext/account/account) ou [az account tenant](/cli/azure/ext/account/account/tenant).
+Pour plus d’informations, consultez la référence de la commande [az login](/cli/azure/reference-index#az_login), [az account](/cli/azure/account) ou [az account tenant](/cli/azure/account/tenant).
 
 
 Pour Microsoft 365 CLI, utilisez la cmdlet **ID de locataire** comme indiqué dans l’exemple suivant :

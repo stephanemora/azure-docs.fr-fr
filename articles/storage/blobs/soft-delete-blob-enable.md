@@ -9,13 +9,12 @@ ms.topic: how-to
 ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 11323f2aec05935b9dc45187ed54597e61af924d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a1698a56ad7e92a59b664ce8f8bca2355fb44fb1
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554113"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074706"
 ---
 # <a name="enable-soft-delete-for-blobs"></a>Activer la suppression réversible pour les objets blob
 
@@ -62,7 +61,7 @@ $properties.DeleteRetentionPolicy.Days
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-CLI)
 
-Pour activer la suppression réversible d’objets blob avec Azure CLI, appelez la commande [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) en spécifiant la période de rétention en jours.
+Pour activer la suppression réversible d’objets blob avec Azure CLI, appelez la commande [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) en spécifiant la période de rétention en jours.
 
 L’exemple suivant active la suppression réversible d’objets blob et définit la période de rétention sur sept jours. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
@@ -73,7 +72,7 @@ az storage account blob-service-properties update --account-name <storage-accoun
     --delete-retention-days 7
 ```
 
-Pour vérifier les paramètres actuels de la suppression réversible d’objets blob, appelez la commande [az storage account blob-service-properties show](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_show) :
+Pour vérifier les paramètres actuels de la suppression réversible d’objets blob, appelez la commande [az storage account blob-service-properties show](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_show) :
 
 ```azurecli-interactive
 az storage account blob-service-properties show --account-name <storage-account> \

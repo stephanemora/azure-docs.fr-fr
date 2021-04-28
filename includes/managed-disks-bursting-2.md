@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 4162fe12ff54f16cd5f982f6a576905227c9a107
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102623422"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107821041"
 ---
 ## <a name="disk-level-bursting"></a>Bursting de disque
 
@@ -58,6 +58,9 @@ Configuration du disque : SSD Premium – 1 To (P30), bursting de disque acti
 La transaction de bursting est comptabilisée comme le nombre maximum de transactions à partir du bursting de l’IOPS ou de celui des Mbits/s. De 00:00:01 à 00:00:05, la transaction de bursting cumulée est au maximum de ((10 000 - 5 000), (300 - 200) * 1024 / 256)) * 5 = 25 000 transactions. De 00:00:06 à 00:00:10, la transaction de bursting cumulée est au maximum de ((6 000 - 5 000), (600 - 200) * 1024 / 256)) * 5 = 8 000 transactions. En plus de cela, vous incluez le forfait d’activation du bursting pour obtenir le coût total de l’activation du bursting de disque à la demande. 
 
 Vous pouvez consulter la [page de tarification de Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/) pour obtenir plus d’informations sur la tarification et utiliser la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/?service=storage) pour évaluer votre charge de travail. 
+
+
+Pour activer le bursting à la demande, consultez [Activer le bursting à la demande](../articles/virtual-machines/disks-enable-bursting.md).
 
 ### <a name="credit-based-bursting"></a>Bursting basé sur les crédits
 

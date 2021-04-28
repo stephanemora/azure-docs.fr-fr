@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 02fcd8fc14a300b7031677185a91d7e6c9aa3b09
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 8d947fa0d9566eae712a4b41c1c7280f6f5f22c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518352"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145918"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Grammarly
 
@@ -134,8 +134,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure ; vous devez être connecté automatiquement à l’instance de Grammarly pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Grammarly dans Mes applications, vous devez être connecté automatiquement à l’instance de Grammarly pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Grammarly dans Mes applications, vous devez être connecté automatiquement à l’instance de Grammarly pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Grammarly, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré Grammarly, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
-ms.openlocfilehash: d361744ffe66a1ea91849149d05c6741eff600f5
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d480f400bfd5a8d1ad59c9e4bcf1e8425171cc4a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077310"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123318"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Codes pays/région de co-vente
 
-Utilisez ces codes pays/région à deux lettres lorsque vous devez [fournir des coordonnées dans la page de co-vente de votre offre](commercial-marketplace-co-sell.md).
+Utilisez ces codes pays/région à deux lettres lorsque vous devez [fournir des coordonnées dans la page de co-vente de votre offre](./co-sell-configure.md).
 
 Si le contact couvre l’ensemble des pays/régions, utilisez le code à trois lettres « OOO ».
 
@@ -276,4 +276,4 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [l’option de co-vente sur le marketplace commercial](./commercial-marketplace-co-sell.md).
+- En savoir plus sur [l’option de co-vente sur le marketplace commercial](./co-sell-configure.md).

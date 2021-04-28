@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: c702c41228512eceebeaf45ccae709db38a85a51
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258416"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725676"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -112,6 +112,27 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
 
     * Spécifiez le **Style de sécurité** à utiliser : NTFS (par défaut) ou UNIX.
 
+    * Si vous souhaitez activer le chiffrement du protocole SMB3 pour le volume à double protocole, sélectionnez **Activer le chiffrement du protocole SMB3**.   
+
+        Cette fonctionnalité active le chiffrement pour les données SMB3 à la volée uniquement. Elle ne chiffre pas les données NFSv3 à la volée. Les clients SMB qui n’utilisent pas le chiffrement SMB3 ne seront pas en mesure d’accéder à ce volume. Les données au repos sont chiffrées, indépendamment de ce paramètre. Pour plus d’informations, consultez le [Forum aux questions sur le chiffrement SMB](azure-netapp-files-faqs.md#smb-encryption-faqs). 
+
+        La fonctionnalité de **Chiffrement de protocole SMB3** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Vérifiez l’état d’inscription de la fonctionnalité : 
+
+        > [!NOTE]
+        > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit `Registered`.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription.  
+
     * En option, [configurez une stratégie d’exportation pour le volume](azure-netapp-files-configure-export-policy.md).
 
     ![Spécifier le double protocole](../media/azure-netapp-files/create-volume-protocol-dual.png)
@@ -126,7 +147,7 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
 
 Vous pouvez autoriser les utilisateurs du client NFS local qui ne sont pas présents sur le serveur LDAP Windows à accéder à un volume à deux protocoles avec la fonctionnalité LDAP avec groupes étendus activés. Pour ce faire, activez l’option **Autoriser les utilisateurs NFS locaux avec LDAP**, comme suit :
 
-1. Cliquez sur **Connexions Active Directory**.  Sur une connexion Active Directory existante, cliquez sur le menu contextuel (les points de suspension `…`), puis sélectionnez **Modifier**.  
+1. Cliquez sur **Connexions Active Directory**.  Sur une connexion Active Directory existante, cliquez sur le menu contextuel (les trois points `…`), puis sélectionnez **Modifier**.  
 
 2. Dans la fenêtre **Modifier les paramètres Active Directory** qui s’affiche, sélectionnez l’option **Autoriser les utilisateurs NFS locaux avec LDAP**.  
 

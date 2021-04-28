@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2bb019a692178c5b44c3589d401d3b2b34c3dccb
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 5e3b84c0a4b4124a020c54f02393eb1319707c21
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553904"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136451"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>Guide migration : Oracle vers Azure SQL Managed Instance
 
@@ -23,7 +23,7 @@ ms.locfileid: "106553904"
 
 Ce guide explique comment migrer des schémas Oracle vers Azure SQL Managed Instance à l’aide de l’Assistant Migration SQL Server pour Oracle (SSMA pour Oracle).
 
-Pour obtenir d’autres guides de migration, consultez les [Guides de migration de base de données Azure](https://docs.microsoft.com/data-migration).
+Pour obtenir d’autres guides de migration, consultez les [Guides de migration de base de données Azure](/data-migration).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -120,7 +120,7 @@ Pour publier votre schéma et migrer vos données :
 
    ![Capture d’écran montrant la révision de Synchroniser avec la base de données.](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
 
-1. Migrez les données en cliquant avec le bouton droit sur le schéma ou l’objet que vous souhaitez migrer dans l’**explorateur de métadonnées Oracle**, puis en sélectionnant **Migrer les données**. Vous pouvez également sélectionner l’onglet **Migrer les données**. Pour migrer des données pour une base de données entière, activez la case à cocher en regard du nom de la base de données. Pour migrer des données à partir de tables individuelles, développez la base de données, développez **Tables**, puis activez les case à cocher en regard des tables. Pour omettre certaines données de tables individuelles, désactivez les cases à cocher.
+1. Migrez les données en cliquant avec le bouton droit sur le schéma ou l’objet que vous souhaitez migrer dans l’**explorateur de métadonnées Oracle**, puis en sélectionnant **Migrer les données**. Vous pouvez également sélectionner l’onglet **Migrer les données**. Pour migrer des données pour une base de données entière, activez la case à cocher en regard du nom de la base de données. Pour migrer des données à partir de tables individuelles, développez la base de données, développez **Tables**, puis cochez les cases en regard des tables. Pour omettre certaines données de tables individuelles, décochez les cases.
 
    ![Capture d’écran montrant l’onglet Migrer les données.](./media/oracle-to-managed-instance-guide/migrate-data.png)
 
@@ -153,9 +153,9 @@ Une fois les données migrées vers l’environnement cible, toutes les applicat
 L’approche de test pour la migration de base de données comprend les activités suivantes :
 
 1. **Développer des tests de validation** : pour tester la migration d’une base de données, vous devez utiliser des requêtes SQL. Vous devez créer les requêtes de validation à exécuter sur les bases de données source et cible. Vos requêtes de validation doivent couvrir l’étendue que vous avez définie.
-2. **Configurer un environnement de test** : l’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
-3. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
-4. **Exécuter des tests de performances** : exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
+2. **Configurer un environnement de test** : L’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
+3. **Exécuter des tests de validation** : Exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
+4. **Exécuter des tests de performances** : Exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
 
 ### <a name="optimize"></a>Optimiser
 
