@@ -3,12 +3,12 @@ title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: ae75959028e19ec61e6dcf41308e54df38139d59
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: dc2110405713791d11fb438565fc091da9c9dd5c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220111"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780749"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -28,6 +28,7 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 * Impossibilité d’ajouter ou de modifier des paramètres de réseau virtuel ou des règles d’accès public.
 * La solution ACR Tasks ne peut pas envoyer ou extraire des images.
 * Azure Security Center ne peut pas analyser les images figurant dans le registre, ou les résultats d’analyse n’apparaissent pas dans Azure Security Center.
+* Vous recevez une erreur `host is not reachable` lorsque vous tentez d’accéder à un registre configuré avec un point de terminaison privé.
 
 ## <a name="causes"></a>Causes
 
@@ -38,7 +39,7 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 
 ## <a name="further-diagnosis"></a>Diagnostics plus poussés 
 
-Exécutez la commande [az acr check-health](/cli/azure/acr#az-acr-check-health) pour obtenir des informations supplémentaires sur l’intégrité de l’environnement de registre, et éventuellement l’accès à un registre cible. Par exemple, diagnostiquez certains problèmes de connectivité ou de configuration de réseau. 
+Exécutez la commande [az acr check-health](/cli/azure/acr#az_acr_check_health) pour obtenir des informations supplémentaires sur l’intégrité de l’environnement de registre, et éventuellement l’accès à un registre cible. Par exemple, diagnostiquez certains problèmes de connectivité ou de configuration de réseau. 
 
 Consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md) pour obtenir des exemples de commandes. Si des erreurs sont signalées, examinez les [Informations de référence sur les erreurs](container-registry-health-error-reference.md) et les sections suivantes pour obtenir les solutions recommandées.
 
@@ -86,6 +87,8 @@ Liens connexes :
 
 Vérifiez que le réseau virtuel est configuré avec un point de terminaison privé pour une liaison privée ou un point de terminaison de service (préversion). Actuellement, un point de terminaison Azure Bastion n’est pas pris en charge.
 
+Si un point de terminaison privé est configuré, vérifiez que DNS résout le nom de domaine complet public du registre, par exemple *myregistry.azurecr.io* à l’adresse IP privée du registre. Utilisez un utilitaire réseau comme `dig` ou `nslookup` pour la recherche DNS. Vérifiez que les [enregistrements DNS sont configurés](container-registry-private-link.md#dns-configuration-options) pour le nom de domaine complet du registre et pour chacun des noms de domaine complets du point de terminaison de données.
+
 Examinez les règles de groupe de sécurité réseau et les balises de service utilisées pour limiter le trafic à partir d’autres ressources du réseau vers le registre. 
 
 Si un point de terminaison de service est configuré pour le registre, vérifiez qu’une règle de réseau est ajoutée au registre qui autorise l’accès à partir de ce sous-réseau. Le point de terminaison de service prend uniquement en charge l’accès à partir des machines virtuelles et de clusters AKS dans le réseau.
@@ -94,11 +97,10 @@ Si vous souhaitez restreindre l’accès au registre à l’aide d’un réseau 
 
 Si le Pare-feu Azure ou une solution similaire sont configurés dans le réseau, vérifiez que le trafic sortant à partir d’autres ressources telles qu’un cluster AKS est activé pour atteindre les points de terminaison du registre.
 
-Si un point de terminaison privé est configuré, vérifiez que DNS résout le nom de domaine complet public du registre, par exemple *myregistry.azurecr.io* à l’adresse IP privée du registre. Utilisez un utilitaire réseau comme `dig` ou `nslookup` pour la recherche DNS.
-
 Liens connexes :
 
 * [Connexion privée à un registre de conteneurs Azure à l’aide d’Azure Private Link](container-registry-private-link.md)
+* [Résoudre les problèmes de connectivité d’Azure Private Endpoint](../private-link/troubleshoot-private-endpoint-connectivity.md)
 * [Restreindre l’accès à un registre de conteneurs à l’aide d’un point de terminaison de service dans un réseau virtuel Azure](container-registry-vnet.md)
 * [Règles de réseau sortantes et noms FQDN requis pour les clusters AKS](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 * [Kubernetes: Débogage de résolution DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)

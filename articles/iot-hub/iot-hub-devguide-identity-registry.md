@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42def04db63d81bdb3eff8098daa8c75924bffec
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93146924"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502077"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -106,7 +106,7 @@ Une implémentation plus complexe peut inclure les informations d’[Azure Monit
 
 ## <a name="device-and-module-lifecycle-notifications"></a>Notifications de cycle de vie des appareils et des modules
 
-IoT Hub peut avertir votre solution IoT quand une identité est créée ou supprimée, en envoyant des notifications de cycle de vie. Pour ce faire, votre solution IoT doit créer un itinéraire et définir la source de données *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Par défaut, aucune notification du cycle de vie n’est envoyée. Autrement dit, aucun itinéraire n’existe préalablement. Le message de notification inclut le corps et les propriétés.
+IoT Hub peut avertir votre solution IoT quand une identité d’appareil est créée ou supprimée, en envoyant des notifications de cycle de vie. Pour ce faire, votre solution IoT doit créer un itinéraire et définir la source de données *DeviceLifecycleEvents*. Par défaut, aucune notification du cycle de vie n’est envoyée. Autrement dit, aucun itinéraire n’existe préalablement. En créant une route avec une source de données égale à *DeviceLifecycleEvents*, les événements de cycle de vie est envoyés à la fois pour les identités d’appareil et pour les identités de module. Toutefois, le contenu du message varie selon que les événements sont générés pour des identités de module ou pour des identités d’appareil.  Il convient de noter que pour les modules IoT Edge, le flux de création d’identité de module est différent de celui des autres modules. Par conséquent, pour les modules IoT Edge, la notification de création est envoyée uniquement si l’appareil IoT Edge correspondant pour l’identité de module IoT Edge mise à jour est en cours d’exécution. Pour tous les autres modules, les notifications de cycle de vie sont envoyées chaque fois que l’identité de module est mise à jour côté IoT Hub.  Le message de notification inclut le corps et les propriétés.
 
 Propriétés : les propriétés système du message ont pour préfixe le symbole `$`.
 

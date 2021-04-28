@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 03/10/2021
-ms.openlocfilehash: 4711ea76af83594ec529cfda13a308fbe6646398
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 47fe7b42b68ae42f74a74e5fc69c8d1041d3bf8d
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200459"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727116"
 ---
 # <a name="how-to-create-a-virtual-machine-using-your-own-image"></a>Création d’une machine virtuelle à l’aide de votre propre image
 
@@ -48,6 +48,9 @@ Cette section décrit comment dimensionner, mettre à jour et généraliser une 
 Toutes les images dans Azure Marketplace doivent être réutilisables de façon générale. Pour autoriser cela, le VHD du système d’exploitation doit être généralisé. Cette opération consiste à supprimer d’une machine virtuelle tous les pilotes logiciels et identificateurs propres à une instance.
 
 ## <a name="bring-your-image-into-azure"></a>Intégrer votre image dans Azure
+
+> [!NOTE]
+> L’abonnement Azure contenant la SIG doit être sous le même locataire que le compte de l’éditeur pour pouvoir être publié. En outre, le compte de l’éditeur doit avoir au moins un accès Contributeur à l’abonnement contenant la SIG.
 
 Il existe trois façons d’intégrer votre image dans Azure :
 

@@ -4,14 +4,14 @@ description: Décrit les problèmes critiques non résolus d’Azure StorSimple 
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 03/17/2021
+ms.date: 04/13/2021
 ms.author: alkohli
-ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 498e3d11d8188850a918c67a9a88643d15c134c5
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104657550"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389517"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Notes de version de StorSimple Virtual Array Update 1.3
 
@@ -45,12 +45,12 @@ Cette mise à jour contient les améliorations suivantes : KB4540725
 
 ## <a name="download-update-13"></a>Télécharger Update 1.3
 
-Pour télécharger cette mise à jour, accédez au [ Catalogue Microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx), puis téléchargez le package KB4575898. Ce package contient les packages suivants :
+Pour télécharger cette mise à jour, accédez au [ Catalogue Microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx), puis téléchargez le package KB4575898. Ce package contient les packages suivants. Installez les packages dans cet ordre :
 
-- **KB4540725**, qui contient des mises à jour cumulatives pour Windows 2012 R2, jusqu’au mois de mars 2020. Pour plus d’informations sur le contenu de ce correctif cumulatif, consultez [Correctif cumulatif mensuel du mois de mars](https://support.microsoft.com/help/4540725).
-- **KB4565541**, qui contient des mises à jour cumulatives pour Windows 2012 R2, jusqu’au mois de juillet 2020. Pour plus d’informations sur le contenu de ce correctif cumulatif, consultez [Correctif cumulatif mensuel du mois de février](https://support.microsoft.com/help/4565541).
-- **KB4565622**, qui contient les mises à jour cumulatives .NET Framework jusqu’au mois de juillet 2020. Pour plus d’informations sur le contenu de ce correctif cumulatif, consultez [Correctif cumulatif mensuel du mois de février](https://support.microsoft.com/help/4565622).
-- **KB3011067**, qui contient les mises à jour du logiciel de l’appareil.
+1. **KB4540725**, qui contient des mises à jour cumulatives pour Windows 2012 R2, jusqu’au mois de mars 2020. Pour plus d’informations sur le contenu de ce correctif cumulatif, consultez [Correctif cumulatif mensuel du mois de mars](https://support.microsoft.com/help/4540725).
+1. **KB4565541**, qui contient des mises à jour cumulatives pour Windows 2012 R2, jusqu’au mois de juillet 2020. Pour plus d’informations sur le contenu de ce correctif cumulatif, consultez [Correctif cumulatif de sécurité mensuel du mois de juillet](https://support.microsoft.com/help/4565541).
+1. **KB4565622**, qui contient les mises à jour cumulatives .NET Framework jusqu’au mois de juillet 2020. Pour plus d’informations sur le contenu de ce correctif cumulatif, accédez à [KB4565622](https://support.microsoft.com/help/4565622).<!--The Help link opens the KB. I can't find a monthly rollup. I updated the link text to accurately describe what opens.-->
+1. **KB3011067**, qui contient les mises à jour du logiciel de l’appareil.
 
 Téléchargez KB4575898 et suivez les instructions pour [appliquer la mise à jour via l’interface utilisateur web locale](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 

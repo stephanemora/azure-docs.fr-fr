@@ -11,16 +11,14 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: fda1bc2ef0a112a8a32ba7c4caebf29028c8cdd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d79458cfc76adcfd35a6b8dee40c0c45786abc28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98222749"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763286"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
-
-
 
 Dans ce guide pratique, vous allez apprendre à effectuer les tâches suivantes en utilisant le package d’interprétabilité du SDK Python Azure Machine Learning :
 
@@ -36,8 +34,9 @@ Dans ce guide pratique, vous allez apprendre à effectuer les tâches suivantes 
 * Déployer un explicatif de scoring à côté de votre modèle pour observer les explications au cours de l’inférence
 
 
-
 Pour plus d’informations sur les techniques d’interprétabilité et les modèles Machine Learning pris en charge, consultez [Interprétabilité des modèles dans Azure Machine Learning](how-to-machine-learning-interpretability.md) et les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+
+Pour obtenir des conseils sur l’activation de l’interprétabilité des modèles entraînés avec le machine learning automatisé, consultez l’article [Interprétabilité : explications des modèles en machine learning automatisé (version préliminaire)](how-to-machine-learning-interpretability-automl.md). 
 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Générer la valeur d’importance d’une caractéristique sur votre ordinateur personnel 
 L’exemple suivant montre comment utiliser le package d’interprétabilité sur votre ordinateur personnel sans contacter les services Azure.
@@ -296,7 +295,7 @@ L’exemple suivant montre comment vous pouvez utiliser la classe `ExplanationCl
 
 ## <a name="visualizations"></a>Visualisations
 
-Une fois que vous avez téléchargé les explications dans votre notebook Jupyter local, vous pouvez utiliser le tableau de bord de visualisation pour comprendre et interpréter votre modèle. Pour charger le widget de tableau de bord de visualisation dans votre notebook Jupyter, utilisez le code suivant :
+Une fois que vous avez téléchargé les explications dans votre instance locale de Jupyter Notebook, vous pouvez utiliser les visualisations du tableau de bord des explications pour comprendre et interpréter votre modèle. Pour charger le widget de tableau de bord des explications dans Jupyter Notebook, utilisez le code suivant :
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -304,7 +303,7 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
-La visualisation prend en charge les explications sur les caractéristiques de conception et brutes. Les explications brutes sont basées sur les caractéristiques issues du jeu de données d’origine et les explications de conception sont basées sur les caractéristiques issues du jeu de données auquel s’applique l’ingénierie des caractéristiques.
+Les visualisations prennent en charge les explications sur les caractéristiques développées et les caractéristiques brutes. Les explications brutes sont basées sur les caractéristiques issues du jeu de données d’origine et les explications de conception sont basées sur les caractéristiques issues du jeu de données auquel s’applique l’ingénierie des caractéristiques.
 
 Lorsque vous tentez d’interpréter un modèle par rapport au jeu de données d’origine, il est recommandé d’utiliser des explications brutes, car l’importance de chaque caractéristique correspond à une colonne du jeu de données d’origine. L’examen de l’impact des catégories individuelles à partir d’une caractéristique catégorielle est un scénario dans lequel les explications de conception peuvent être utiles. Si un encodage à chaud est appliqué à une caractéristique catégorielle, les explications de conception qui en résultent comportent une valeur d’importance différente par catégorie, une par caractéristique de conception à chaud. Cela peut être utile lorsque vous vous concentrez sur la partie du jeu de données qui fournit le plus d’informations au modèle.
 
@@ -353,11 +352,11 @@ Le quatrième onglet des explications vous permet d’explorer un point de donn�
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualisation dans Azure Machine Learning Studio
 
-Si vous effectuez les étapes décrites dans l’[interprétabilité à distance](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (chargement de l’explication générée sur l’historique des exécutions d’Azure Machine Learning), vous pouvez voir le tableau de bord de visualisation dans [Azure Machine Learning Studio](https://ml.azure.com). Ce tableau de bord est une version plus simple du tableau de bord de visualisation décrit ci-dessus. Les tracés ICE et de génération de point de données de simulation sont désactivés, car il n’existe aucun calcul actif dans Azure Machine Learning Studio à même d’effectuer leurs calculs en temps réel.
+Si vous effectuez les étapes décrites d’[interprétabilité à distance](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (chargement des explications générées dans l’historique des exécutions d’Azure Machine Learning), vous pouvez voir les visualisations du tableau de bord des explications dans [Azure Machine Learning Studio](https://ml.azure.com). Ce tableau de bord est une version simplifiée du widget de tableau de bord qui est généré dans votre instance Jupyter Notebook. Les tracés ICE et de génération de point de données de simulation sont désactivés, car il n’existe aucun calcul actif dans Azure Machine Learning Studio à même d’effectuer leurs calculs en temps réel.
 
 Si les explications de jeu de données, globales et locales sont disponibles, les données remplissent tous les onglets. Si seule une explication globale est disponible, l’onglet Importance des caractéristiques individuelles est désactivé.
 
-Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans Azure Machine Learning Studio :
+Suivez l’un de ces parcours pour accéder au tableau de bord des explications dans Azure Machine Learning Studio :
 
 * Volet des **Expériences** (préversion)
   1. Sélectionnez **Expériences** dans le volet gauche pour afficher la liste des expériences que vous avez exécutées sur Azure Machine Learning.
@@ -368,7 +367,7 @@ Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans
 
 * Volet **Modèles**
   1. Si vous avez enregistré votre modèle d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](./how-to-deploy-and-where.md), vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
-  1. Sélectionnez un modèle, puis l'onglet **Explications** pour voir le tableau de bord de visualisation des explications.
+  1. Sélectionnez un modèle, puis l'onglet **Explications** pour voir le tableau de bord des explications.
 
 ## <a name="interpretability-at-inference-time"></a>Interprétabilité au moment de l’inférence
 

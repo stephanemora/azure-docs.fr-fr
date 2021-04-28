@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1b7a846ee92da001ea2ac3ddd02efa9a870f72c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 958b0de97b79b447f2570dd9c57c87f380bcd551
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501904"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589334"
 ---
 # <a name="write-client-app-authentication-code"></a>Écrire le code d’authentification de l’application cliente
 
@@ -107,6 +107,20 @@ En outre, pour utiliser l’authentification dans une fonction, n’oubliez pas�
 * [Activer une identité managée](../app-service/overview-managed-identity.md?tabs=dotnet)
 * D’utiliser des [variables d'environnement](/sandbox/functions-recipes/environment-variables?tabs=csharp) le cas échéant
 * Affectez des autorisations à l’application de fonction pour lui permettre d’accéder aux API Digital Twins. Pour plus d’informations sur les processus Azure Functions, consultez [*Guide pratique : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md).
+
+## <a name="authenticate-across-tenants"></a>S’authentifier auprès des locataires
+
+Azure Digital Twins est un service qui ne prend en charge qu’un seul [locataire Azure Active Directory (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md), à savoir le locataire principal de l’abonnement où se trouve l’instance Azure Digital Twins.
+
+[!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
+
+Si vous avez besoin d’accéder à votre instance Azure Digital Twins à l’aide d’un principal de service ou d’un compte d’utilisateur qui appartient à un autre locataire de l’instance, vous pouvez faire en sorte que chaque identité fédérée issue d’un autre locataire demande un **jeton** au locataire « d’accueil » de l’instance Azure Digital Twins. 
+
+[!INCLUDE [digital-twins-tenant-solution-1](../../includes/digital-twins-tenant-solution-1.md)]
+
+Vous pouvez également spécifier un locataire d’accueil dans les options d’informations d’identification de votre code. 
+
+[!INCLUDE [digital-twins-tenant-solution-2](../../includes/digital-twins-tenant-solution-2.md)]
 
 ## <a name="other-credential-methods"></a>Autres méthodes d’informations d’identification
 

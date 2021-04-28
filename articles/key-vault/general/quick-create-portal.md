@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2d8bfdf3a4ad8b713fb6c937d61fa437fc7977f2
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 93c0c77ad36be82802fd53e4130e48ac431b0280
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749669"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819283"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Démarrage rapide : Créer un coffre de clés avec le portail Azure
 
@@ -69,5 +69,5 @@ Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, 
 Dans ce guide de démarrage rapide, vous avez créé un coffre de clés à l’aide du portail Azure. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
 - Lire la [vue d’ensemble Azure Key Vault](overview.md)
-- Passer en revue la [Vue d’ensemble de la sécurité d’Azure Key Vault](security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité d’Azure Key Vault](security-features.md)
 - Consulter le [Guide du développeur Azure Key Vault](developers-guide.md)

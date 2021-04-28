@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e9052502eba71f025bb6724278b7001173c5217
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b84d55e2d3a2f49a870c1e57eeed3c5c0caeba4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491615"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530408"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configurer l’authentification utilisateur par SMS via Azure Active Directory 
 
@@ -149,7 +149,7 @@ Si vous recevez une erreur quand vous essayez de définir un numéro de téléph
 
 Pour connaître d’autres façons de se connecter à Azure AD sans mot de passe, par exemple à l’aide de l’application Microsoft Authenticator ou des clés de sécurité FIDO2, consultez [Options d’authentification sans mot de passe pour Azure AD][concepts-passwordless].
 
-Vous pouvez également utiliser la version bêta de l’API REST Microsoft Graph pour [activer][rest-enable] ou [désactiver][rest-disable] la connexion par SMS.
+Vous pouvez également utiliser l’API REST Microsoft Graph pour [activer][rest-enable] ou [désactiver][rest-disable] la connexion par SMS.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../fundamentals/sign-up-organization.md
@@ -157,8 +157,8 @@ Vous pouvez également utiliser la version bêta de l’API REST Microsoft Graph
 [concepts-passwordless]: concept-authentication-passwordless.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [tutorial-sspr]: tutorial-enable-sspr.md
-[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-beta&tabs=http
-[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?view=graph-rest-beta&tabs=http
+[rest-enable]: /graph/api/phoneauthenticationmethod-enablesmssignin?tabs=http
+[rest-disable]: /graph/api/phoneauthenticationmethod-disablesmssignin?tabs=http
 
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com

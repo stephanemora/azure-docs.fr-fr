@@ -4,12 +4,12 @@ description: Décrit comment partitionner des files d’attente et des rubriques
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc41bcf31102b19dd35f62452b956faf4f029551
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796633"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750911"
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 
@@ -146,6 +146,7 @@ Actuellement, Service Bus impose les limites suivantes aux files d’attente et
 * Service Bus permet actuellement de disposer jusqu’à 100 rubriques ou files d’attente par espace de noms. Chaque file d’attente ou rubrique partitionnée est comptabilisée dans le quota de 10 000 entités par espace de noms (non applicable au niveau Premium).
 
 ## <a name="next-steps"></a>Étapes suivantes
+Vous pouvez activer le partitionnement en utilisant le portail Azure, PowerShell, l’interface CLI, un modèle Resource Manager, .NET, Java, Python et JavaScript. Pour plus d’informations, consultez [Activer le partitionnement](enable-partitions.md). 
 
 Pour en savoir plus sur les concepts fondamentaux de la spécification de la messagerie AMQP 1.0, consultez le [Guide du protocole AMQP 1.0](service-bus-amqp-protocol-guide.md).
 

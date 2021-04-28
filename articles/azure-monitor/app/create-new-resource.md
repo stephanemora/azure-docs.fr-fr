@@ -3,12 +3,12 @@ title: Créer une ressource Azure Application Insights | Microsoft Docs
 description: Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6158b5604046897e20053c67321f26d650c21b7f
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100931"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566220"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 
@@ -32,7 +32,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressou
    | **Nom**      | `Unique value` | Nom identifiant l’application que vous analysez. |
    | **Groupe de ressources**     | `myResourceGroup`      | Nom du nouveau groupe de ressources ou existant pour héberger les données Application Insights. |
    | **Région** | `East US` | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée. |
-   | **Mode de ressources** | `Classic` ou `Workspace-based` | Actuellement en préversion publique, les ressources basées sur l’espace de travail vous permettent d’envoyer vos données de télémétrie Application Insights à un espace de travail Log Analytics commun. Pour plus d’informations, consultez l'[article relatif aux ressources basées sur l'espace de travail](create-workspace-resource.md).
+   | **Mode de ressources** | `Classic` ou `Workspace-based` | Les ressources basées sur l’espace de travail vous permettent d’envoyer votre télémétrie Application Insights à un espace de travail Log Analytics commun. Pour plus d’informations, consultez l'[article relatif aux ressources basées sur l'espace de travail](create-workspace-resource.md).
 
 > [!NOTE]
 > Bien que vous puissiez utiliser le même nom de ressource dans différents groupes de ressources, il est préférable d’utiliser un nom global unique. Ce dernier peut s’avérer utile si vous envisagez d’[exécuter des requêtes de ressources croisées](../logs/cross-workspace-query.md#identifying-an-application), car cela simplifie la syntaxe nécessaire.

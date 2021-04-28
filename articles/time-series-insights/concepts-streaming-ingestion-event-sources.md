@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 499cb3c978a67f9ef71e6ad9dd03be9f05b45729
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 4021a705668db82e47a23808ef0f6546f86866be
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726967"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138262"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Sources d’événements Azure Time Series Insights Gen2
 
@@ -29,7 +29,7 @@ Les événements doivent être envoyés en tant que JSON encodé en UTF-8.
 
 La source de l’événement est le lien entre votre hub et votre environnement Azure Time Series Insights Gen2, et une ressource distincte de type `Time Series Insights event source` est créée dans votre groupe de ressources. Les ressources IoT Hub ou Event Hubs peuvent résider dans le même abonnement Azure que votre environnement Azure Time Series Insights Gen2 ou dans un autre abonnement. Toutefois, il est recommandé d’héberger votre environnement Azure Time Series Insights et le hub IoT ou l’Event Hub dans la même région Azure.
 
-Vous pouvez utiliser le [portail Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source), [des modèles Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) et l’[API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) pour créer, modifier ou supprimer les sources d’événements de votre environnement.
+Vous pouvez utiliser le [portail Azure](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](/cli/azure/tsi/event-source), [des modèles Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager-template.md) et l’[API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) pour créer, modifier ou supprimer les sources d’événements de votre environnement.
 
 > [!WARNING]
 > Ne limitez pas l’accès Internet public à un hub ou à une source d’événements utilisés par Time Series Insights, sinon la connexion nécessaire sera interrompue.

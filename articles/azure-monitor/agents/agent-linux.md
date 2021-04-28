@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 5171cefdb82b958ae8148ff63f1daef5f67916c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 36b54cc9b4440f883b4335fc6ad2ca069a5b19db
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044955"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137578"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -71,16 +71,16 @@ L’exécutable python2 doit avoir un alias pour *python*. Voici une méthode qu
     ```
 
 ## <a name="supported-linux-hardening"></a>Renforcement de la sécurité Linux pris en charge
-L’agent OMS prend en charge une personnalisation limitée de Linux. 
+L’agent OMS prend en charge une personnalisation et un durcissement limités de Linux.
 
 Les éléments suivants sont actuellement pris en charge : 
 - FIP
 
-Les éléments suivants sont prévus, mais ne sont pas encore pris en charge :
+Les éléments suivants ne sont pas pris en charge :
 - CIS
 - SELINUX
 
-Les autres méthodes de renforcement de la sécurité et de personnalisation ne sont pas prises en charge ni prévues pour l’agent OMS.  
+La prise en charge du durcissement CIS et SELINUX est prévue pour l’[agent Azure Monitor](./azure-monitor-agent-overview.md). Aucune autre méthode de durcissement ou de personnalisation n’est prise en charge ou prévue pour l’agent OMS.  
 
 ## <a name="agent-prerequisites"></a>Conditions préalables associées à l’agent
 

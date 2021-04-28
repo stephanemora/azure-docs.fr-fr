@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Service Fabric
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Service Fabric. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cb47fc89ef4499e847d5ac1d9ca3dd7373ced824
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 0150bce7ef56da5bc55a5381f0c9c4ae35ea1b13
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498377"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863247"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Définitions intégrées d’Azure Policy pour Azure Service Fabric
 

@@ -11,12 +11,12 @@ ms.service: dns
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 34e810fa8244cf3ff00e57f193624a2c1fa4d755
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 3ec97385d9774b93c04ebc4b8c5885d7effbbcd0
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107539013"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949449"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Créer une zone et un enregistrement Azure DNS à l’aide d’un modèle ARM
 
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide explique comment utiliser un modèle Azure Resourc
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-dns-new-zone%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +38,7 @@ Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarr
 
 Dans ce guide de démarrage rapide, vous allez créer une zone DNS unique avec un suffixe `azurequickstart.org`. Un enregistrement `A` pointant vers deux adresses IP sera également placé dans la zone.
 
-:::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azure-dns-new-zone/azuredeploy.json":::
 
 Deux ressources Azure ont été définies dans le modèle :
 
@@ -54,7 +54,7 @@ Pour trouver d’autres modèles liés à Azure Traffic Manager, consultez [Mod�
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-dns-new-zone/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/azure-dns-new-zone/azuredeploy.json"
 
     $resourceGroupName = "${projectName}rg"
 

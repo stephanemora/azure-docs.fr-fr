@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 3c9f1b76bb707a296da00ac503482efe6a22385b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 6ee0164dd8243d30cf691350352757f2503e34c8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278335"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862972"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Résoudre les erreurs courantes liées à l’intégration d’Automanage
 Automanage peut échouer à intégrer un ordinateur sur le service. Ce document explique comment résoudre les échecs de déploiement, partage quelques raisons courantes pour lesquelles les déploiements peuvent échouer et décrit les étapes suivantes possibles d’atténuation.
@@ -41,8 +41,7 @@ La région de l’espace de travail ne correspond pas aux spécifications du map
 « Access denied because of the deny assignment with name 'System deny assignment created by managed application' » (« Accès refusé en raison de l’affectation de refus avec le nom 'Affectation de refus du système créée par l’application managée.' ») | Un [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) a été créé sur votre ressource, ce qui empêche l’accès à votre ressource par Automanage. Ce denyAssignment peut être dû à un [blueprint](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) ou à une [application managée](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
 "OS Information: Name='(null)', ver='(null)', agent status='Not Ready'." | Assurez-vous que vous exécutez une [version minimale de l’agent prise en charge](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version), que l’agent est en cours d’exécution ([Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) et [Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)) et que l’agent est à jour ([Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) et [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)).
 « Impossible de déterminer le système d’exploitation pour la machine virtuelle. Nom du système d’exploitation :, ver. Vérifiez que l’agent de machine virtuelle est en cours d’exécution et que l’état actuel est Prêt. » | Assurez-vous que vous exécutez une [version minimale de l’agent prise en charge](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version), que l’agent est en cours d’exécution ([Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) et [Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)) et que l’agent est à jour ([Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) et [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)).
-
-« La machine virtuelle a signalé un échec lors du traitement de l’extension ’IaaSAntimalware’ » | Vérifiez que vous n’avez pas d’autre offre de logiciel anti-programme malveillantou d’antivirus installée sur votre machine virtuelle. En cas d’échec, contactez le support.
+« La machine virtuelle a signalé un échec lors du traitement de l’extension 'IaaSAntimalware' » | Vérifiez que vous n’avez pas d’autre offre de logiciel anti-programme malveillantou d’antivirus installée sur votre machine virtuelle. En cas d’échec, contactez le support.
 Espace de travail ASC : Automanage ne prend pas actuellement en charge le service Log Analytics dans _emplacement_. | Vérifiez que votre machine virtuelle se trouve dans une [région prise en charge](./automanage-virtual-machines.md#supported-regions).
 Le déploiement du modèle a échoué à cause de la violation de stratégie. Pour plus d’informations, consultez les détails. | Une stratégie empêche l’intégration d’Automanage à votre machine virtuelle. Vérifiez les stratégies qui sont appliquées à votre abonnement ou groupe de ressources contenant la machine virtuelle que vous souhaitez intégrer à Automanage.
 « L’attribution a échoué ; aucune information supplémentaire n’est disponible. » | Ouvrez un cas auprès du support Microsoft Azure.

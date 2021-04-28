@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: a11dbfbd6d6510b5c421e54cd2547c3aedb1bfb6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: f9f2bf2e2204e6b74bb8a31ac856dbe276a6e983
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378194"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588749"
 ---
 # <a name="creating-a-new-branch-in-mapping-data-flow"></a>Création d’une nouvelle branche dans le flux de données de mappage
 
@@ -27,3 +27,10 @@ Une nouvelle branche peut être ajoutée à partir de la liste des transformatio
 Dans l’exemple ci-dessous, le flux de données lit des données de trajet en taxi. La sortie agrégée par jour et par fournisseur est requise. Au lieu de créer deux flux de données distincts qui lisent à partir de la même source, il est possible d’ajouter une nouvelle branche. De cette façon, les deux agrégations peuvent être exécutées dans le cadre du même flux de données. 
 
 ![Capture d’écran montrant le flux de données avec deux branches issues de la source.](media/data-flow/new-branch.png "Ajout d’une nouvelle branche")
+
+> [!NOTE]
+> Quand vous cliquez sur le signe plus (+) pour ajouter des transformations à votre graphe, l’option Nouvelle branche s’affiche uniquement lorsqu’il existe des blocs de transformation ultérieurs. Cela est dû au fait que Nouvelle branche crée une référence au flux existant, et requiert un traitement en amont supplémentaire sur lequel opérer. Si vous ne voyez pas l’option Nouvelle branche, ajoutez d’abord une transformation Colonne dérivée ou autre, puis revenez au bloc précédent ; vous verrez alors l’option Nouvelle branche.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois la branche créée, vous pouvez utiliser les [transformations de flux de données](data-flow-transformation-overview.md).

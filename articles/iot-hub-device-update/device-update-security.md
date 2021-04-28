@@ -3,29 +3,31 @@ title: Sécurité du service Device Update pour Azure IoT Hub | Microsoft Docs
 description: Découvrez comment Device Update pour IoT Hub assure une mise à jour sûre des appareils.
 author: lichris
 ms.author: lichris
-ms.date: 2/11/2021
+ms.date: 4/15/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b10049e03e26cfe8da2bd57cc9f69dd933af706b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489427"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567296"
 ---
 # <a name="device-update-security-model"></a>Modèle de sécurité de Device Update
 
 Device Update pour IoT Hub offre une méthode sécurisée pour déployer des mises à jour de microprogrammes, images et applications sur vos appareils IoT. Le workflow offre un canal sécurisé de bout en bout avec un modèle de chaîne de responsabilité complet permettant à l’appareil de s’assurer qu’une mise à jour est approuvée, non modifiée et intentionnelle.
 
-Chaque étape du workflow Device Update est protégée par le biais de divers processus et fonctionnalités de sécurité pour garantir que les transferts entre chaque étape du pipeline sont sécurisés. Le client Device Update identifie et gère correctement toutes les demandes de mise à jour illégitimes. Le client vérifie également chaque téléchargement pour s’assurer que le contenu est approuvé, non modifié et qu’il est intentionnel.
+Chaque étape du workflow Device Update est protégée par le biais de divers processus et fonctionnalités de sécurité pour garantir que les transferts entre chaque étape du pipeline sont sécurisés. Le client Device Update identifie et gère correctement toutes les demandes de mise à jour illégitimes. Le client vérifie également chaque téléchargement pour s’assurer que le contenu est approuvé, non modifié et intentionnel.
 
 ## <a name="for-solution-operators"></a>Pour les opérateurs de solution
 
 Quand les opérateurs de solution importent des mises à jour dans leur instance Device Update, le service charge et vérifie les fichiers binaires de mise à jour pour s’assurer qu’ils n’ont pas été modifiés ou remplacés par un utilisateur malveillant. Après cette vérification, le service Device Update génère un [manifeste de mise à jour](./update-manifest.md) interne avec des codes de hachage de fichier à partir du manifeste d’importation et d’autres métadonnées. Ce manifeste de mise à jour est ensuite signé par le service Device Update.
 
+Une fois ingérés dans le service et stockés dans Azure, les fichiers binaires des mises à jour et les métadonnées client associées sont automatiquement chiffrés au repos par le service de stockage Azure. Le service Device Update ne fournit pas automatiquement un chiffrement supplémentaire, mais il permet aux développeurs de chiffrer eux-mêmes le contenu avant qu’il n’atteigne le service Device Update.
+
 Quand l’opérateur de solution demande la mise à jour d’un appareil, un message signé est envoyé à l’appareil sur le canal IoT Hub protégé. L’agent Device Update de l’appareil vérifie que la signature de la demande est authentique. 
 
-Tout téléchargement de fichier binaire qui en résulte est sécurisé par vérification de la signature du manifeste de mise à jour. Le manifeste de mise à jour contient les codes de hachage de fichiers binaires. Ainsi, quand le manifeste est approuvé, l’agent Device Update approuve les codes de hachage et les met en correspondance avec les fichiers binaires. Quand le fichier binaire de mise à jour a été téléchargé et vérifié, il est transféré au programme d’installation sur l’appareil.
+Tout téléchargement de fichier binaire qui en résulte est sécurisé par vérification de la signature du manifeste de mise à jour. Le manifeste de mise à jour contient les codes de hachage de fichiers binaires. Ainsi, quand le manifeste est approuvé, l’agent Device Update approuve les codes de hachage et les met en correspondance avec les fichiers binaires. Une fois le fichier binaire des mises à jour téléchargé et vérifié, il est transmis de manière sécurisée au programme d’installation sur l’appareil.
 
 ## <a name="for-device-builders"></a>Pour les fabricants d’appareils
 

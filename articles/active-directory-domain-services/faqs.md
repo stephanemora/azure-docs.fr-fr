@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/09/2021
 ms.author: justinha
-ms.openlocfilehash: 3d0f2b44f37cb318be2117b5dc5d8b42b418ff19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32dcf2b387231d50796de0036388b53cab83bf72
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100090987"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749327"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Foire aux questions (FAQ) sur Azure Active Directory (AD) Domain Services
 
@@ -36,6 +36,7 @@ Cette page répond aux questions fréquemment posées sur les services de domain
 * [Puis-je ajouter des contrôleurs de domaine à un domaine géré par les services de domaine Azure AD ?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Les utilisateurs invités de mon annuaire peuvent-ils utiliser Azure Active Directory Domain Services ?](#can-guest-users-be-invited-to-my-directory-use-azure-ad-domain-services)
 * [Puis-je déplacer un domaine managé Azure AD Domain Services existant vers un abonnement, un groupe de ressources, une région ou un réseau virtuel différent ?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Puis-je renommer un nom de domaine Azure AD Domain Services existant ?](#can-i-rename-an-existing-azure-ad-domain-services-domain-name)
 * [Azure AD Domain Services inclut-il des options de haute disponibilité ?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Puis-je créer plusieurs domaines managés pour un seul annuaire Azure AD ?
@@ -77,6 +78,9 @@ Non. Les utilisateurs invités de votre annuaire Azure AD qui utilisent le proce
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Puis-je déplacer un domaine managé Azure AD Domain Services existant vers un abonnement, un groupe de ressources, une région ou un réseau virtuel différent ?
 Non. Après avoir créé un domaine managé Azure AD Domain Services, vous ne pouvez pas déplacer le domaine managé vers un autre groupe de ressources, réseau virtuel, abonnement, etc. Veillez à sélectionner l’abonnement, le groupe de ressources, la région et le réseau virtuel les plus appropriés quand vous déployez le domaine managé.
+
+### <a name="can-i-rename-an-existing-azure-ad-domain-services-domain-name"></a>Puis-je renommer un nom de domaine Azure AD Domain Services existant ?
+Non. Une fois que vous avez créé un domaine managé Azure AD Domain Services, vous ne pouvez pas modifier le nom de domaine DNS. Choisissez le nom de domaine DNS avec précaution lorsque vous créez le domaine managé. Pour savoir quels éléments prendre en compte lorsque vous choisissez le nom de domaine DNS, consultez le [tutoriel pour créer et configurer un domaine managé Azure AD Domain Services](tutorial-create-instance.md#create-a-managed-domain).
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Azure AD Domain Services inclut-il des options de haute disponibilité ?
 

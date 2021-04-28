@@ -10,20 +10,20 @@ ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 535ff489060c8099ba3c695f2b615f3c38309698
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 3258a1d53c4aa5010758bcd93ef32c53611f4684
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167938"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576463"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interprétabilité : explications des modèles en machine learning automatisé (version préliminaire)
 
 
-
-Cet article explique comment obtenir des explications pour le Machine Learning automatisé (AutoML) dans Azure Machine Learning. AutoML vous aide à comprendre l’importance des caractéristiques des modèles qui sont générés. 
+Cet article explique comment obtenir des explications pour le machine learning automatisé (AutoML) dans Azure Machine Learning à l’aide du SDK Python. Le machine learning automatisé vous aide à comprendre l’importance des caractéristiques des modèles qui sont générés. 
 
 Toutes les versions du Kit de développement logiciel (SDK) après la version 1.0.85 définissent `model_explainability=True` par défaut. Dans le Kit de développement logiciel (SDK) version 1.0.85 et ses versions antérieures, les utilisateurs doivent définir `model_explainability=True` dans l’objet `AutoMLConfig` afin d’utiliser l’interprétabilité du modèle. 
+
 
 Dans cet article, vous apprendrez comment :
 
@@ -34,7 +34,7 @@ Dans cet article, vous apprendrez comment :
 ## <a name="prerequisites"></a>Prérequis
 
 - Fonctionnalités d’interprétabilité. Exécutez `pip install azureml-interpret` pour obtenir le package nécessaire.
-- Des connaissances en matière de génération d’expériences AutoML. Pour plus d’informations sur la façon d’utiliser le SDK Azure Machine Learning, suivez ce [tutoriel sur les modèles de régression](tutorial-auto-train-models.md) ou consultez la rubrique [Configurer des expériences AutoML](how-to-configure-auto-train.md).
+- Des connaissances en matière de génération d’expériences de ML automatisé. Pour plus d’informations sur la façon d’utiliser le Kit de développement logiciel (SDK) Azure Machine Learning, suivez ce [tutoriel sur les modèles de régression](tutorial-auto-train-models.md) ou consultez la rubrique [Configurer des expériences de ML automatisé](how-to-configure-auto-train.md).
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interprétabilité pendant l’entraînement pour le meilleur modèle
 
@@ -105,11 +105,11 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 ### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>Initialiser l’explicatif d’imitation pour l’importance des caractéristiques
 
-Afin de générer une explication pour les modèles AutoML, utilisez la classe `MimicWrapper`. Vous pouvez initialiser le MimicWrapper avec les paramètres suivants :
+Si vous souhaitez générer une explication pour les modèles de machine learning automatisé, utilisez la classe `MimicWrapper`. Vous pouvez initialiser le MimicWrapper avec les paramètres suivants :
 
 - L’objet de configuration explicatif
 - Votre espace de travail
-- Modèle de substitution pour expliquer le modèle AutoML `fitted_model`
+- Modèle de substitution pour expliquer le modèle de ML automatisé `fitted_model`
 
 MimicWrapper prend également l’objet `automl_run` où les explications de caractéristiques traitées seront chargées.
 
@@ -128,7 +128,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### <a name="use-mimic-explainer-for-computing-and-visualizing-engineered-feature-importance"></a>Utiliser l’explicatif d’imitation pour le calcul et la visualisation de l’importance des caractéristiques traitées
 
-Vous pouvez appeler a méthode `explain()` dans MimicWrapper avec les exemples de tests transformés pour obtenir l’importance des caractéristiques traitées générées. Vous pouvez également vous connecter à [Azure Machine Learning Studio](https://ml.azure.com/) pour consulter la visualisation sur tableau de bord des valeurs d’importance des caractéristiques traitées générées par des caractériseurs AutoML.
+Vous pouvez appeler a méthode `explain()` dans MimicWrapper avec les exemples de tests transformés pour obtenir l’importance des caractéristiques traitées générées. Vous pouvez également vous connecter à [Azure Machine Learning Studio](https://ml.azure.com/) pour voir la visualisation du tableau de bord des explications. Vous y verrez les valeurs d’importance des caractéristiques traitées qui sont générées par des caractériseurs AutoML.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -172,7 +172,7 @@ ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipelin
 
 ### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Utiliser l’explicatif d’imitation pour le calcul et la visualisation de l’importance des caractéristiques brutes
 
-Vous pouvez appeler a méthode `explain()` dans MimicWrapper avec les exemples de tests transformés pour obtenir l’importance des caractéristiques brutes. Dans [Machine Learning Studio](https://ml.azure.com/), vous pouvez consulter la visualisation du tableau de bord des valeurs de l’importance des caractéristiques brutes.
+Vous pouvez appeler a méthode `explain()` dans MimicWrapper avec les exemples de tests transformés pour obtenir l’importance des caractéristiques brutes. Dans [Machine Learning Studio](https://ml.azure.com/), vous pouvez afficher la visualisation du tableau de bord qui montre les valeurs d’importance des caractéristiques brutes.
 
 ```python
 raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
@@ -184,7 +184,7 @@ print(raw_explanations.get_feature_importance_dict())
 
 ## <a name="interpretability-during-inference"></a>Interprétabilité pendant l’inférence
 
-Dans cette section, vous allez apprendre à rendre un modèle AutoML opérationnel avec l’explicatif qui a été utilisé pour calculer les explications dans la section précédente.
+Dans cette section, vous allez apprendre à rendre un modèle de ML automatisé opérationnel avec l’explicatif qui a été utilisé pour calculer les explications dans la section précédente.
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>Inscrire le modèle et l’explicatif de scoring
 
@@ -321,9 +321,9 @@ if service.state == 'Healthy':
     print('raw_local_importance_values:\n{}\n'.format(output['raw_local_importance_values']))
 ```
 
-### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualiser pour découvrir des modèles dans les données et les explications au moment de la formation
+## <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualiser pour découvrir des modèles dans les données et les explications au moment de la formation
 
-Vous pouvez visualiser le graphique d’importance d’une caractéristique dans votre espace de travail dans [Machine Learning Studio](https://ml.azure.com). Une fois votre exécution AutoML terminée, sélectionnez **Afficher les détails du modèle** pour afficher une exécution spécifique. Sélectionnez l’onglet **Explications** pour voir le tableau de bord de visualisation des explications.
+Vous pouvez visualiser le graphique d’importance d’une caractéristique dans votre espace de travail dans [Azure Machine Learning Studio](https://ml.azure.com). Une fois votre exécution AutoML terminée, sélectionnez **Afficher les détails du modèle** pour afficher une exécution spécifique. Sélectionnez l’onglet **Explications** pour voir les visualisation dans le tableau de bord des explications.
 
 [![Architecture d’interprétabilité de Machine Learning](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 

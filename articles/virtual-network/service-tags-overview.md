@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/14/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 2d14ca2423d34926a9e297823a6515c2c5dde06a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4a18e0f257ac8d7b7d981d53249cf29f2f8f38bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607114"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790146"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -135,11 +135,13 @@ Vous pouvez récupérer par programmation la liste actuelle des balises de servi
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+- [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
-> Bien qu’elle soit en préversion publique, l’API Discovery peut renvoyer des informations qui sont moins actuelles que celles renvoyées par les téléchargements JSON. (Voir la section suivante.)
+> La propagation des nouvelles données d’étiquette de service dans les résultats de l’API prend jusqu’à 4 semaines. Le numéro de modification dans les métadonnées de réponse sera incrémenté quand ceci se produit. Il peut y avoir des différences temporelles dans les résultats quand différentes valeurs d’emplacement sont spécifiées. Quand vous utilisez les résultats pour créer des règles de groupe de sécurité réseau, vous devez définir le paramètre d’emplacement pour qu’il corresponde à la région du groupe de sécurité réseau. 
 
+> [!NOTE]
+> Les données d’API vont représenter ces étiquettes qui peuvent être utilisées avec les règles de groupe de sécurité réseau, un sous-ensemble des étiquettes actuellement présentes dans le fichier JSON téléchargeable. Pendant la période de préversion publique, nous ne garantissons pas que les données restent les mêmes d’une mise à jour à l’autre. 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>Détection de balises de service à l’aide de fichiers JSON téléchargeables 
 Vous pouvez télécharger des fichiers JSON qui contiennent la liste actuelle des balises de service avec les informations relatives aux plages d’adresses IP. Ces listes sont mises à jour et publiées chaque semaine. Les emplacements de chaque Cloud sont :

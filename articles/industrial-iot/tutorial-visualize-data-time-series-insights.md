@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 5bd218c0d94922b6137a964e3993f516216ca4b7
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 9a07f2b1d4b63005bff4a8963bd1258ad72e87ee
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787261"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137271"
 ---
 # <a name="tutorial-visualize-data-with-time-series-insights-tsi"></a>Tutoriel : Visualiser des données avec Time Series Insights (TSI)
 
@@ -54,13 +54,13 @@ Dans l’Explorateur TSI, prenez note des Instances Time Series non attribuées.
 
 Vous pouvez visualiser les données de télémétrie dans le graphique en cliquant avec le bouton droit sur l’instance TSI et en sélectionnant la valeur. La période à utiliser dans le graphique peut être ajusté dans le coin supérieur droit. La valeur de plusieurs instances peut être visualisée pour la même sélection de temps.
 
-Pour plus d’informations, consultez [Démarrage rapide : Explorer Azure Time Series Insights Preview](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Pour plus d’informations, consultez [Démarrage rapide : Explorer Azure Time Series Insights Preview](../time-series-insights/quickstart-explore-tsi.md).
 
 ## <a name="define-and-apply-a-new-model"></a>Définir et appliquer un nouveau modèle
 
 Les instances de télémétrie étant pour le moment simplement au format brut, elles doivent être contextualisées. 
 
-Pour obtenir des informations détaillées sur les modèles TSI, consultez [Modèle de série chronologique dans Azure Time Series Insights Preview](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
+Pour obtenir des informations détaillées sur les modèles TSI, consultez [Modèle de série chronologique dans Azure Time Series Insights Preview](../time-series-insights/concepts-model-overview.md).
 
 1. Étape 1 : Sous l’onglet Modèle de l’Explorateur, définissez une nouvelle hiérarchie pour les données de télémétrie ingérées. Une hiérarchie est l’arborescence logique destinée à permettre à l’utilisateur d’insérer les méta-informations nécessaires à une navigation plus intuitive parmi les instances TSI. Un utilisateur peut créer/supprimer/modifier des modèles de hiérarchie qui peuvent être instanciés ultérieurement pour les différentes instances TSI.
 
@@ -88,7 +88,7 @@ Pour obtenir des informations détaillées sur les modèles TSI, consultez [Mod�
 
 ## <a name="connect-time-series-insights-to-power-bi"></a>Connecter Time Series Insights à Power BI
 
-Vous pouvez également connecter l’environnement Time Series Insights à Power BI.  Pour plus d’informations, consultez [Guide pratique pour connecter TSI à Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi) et [Visualiser des données de TSI dans Power BI](https://docs.microsoft.com/azure/time-series-insights/concepts-power-bi).
+Vous pouvez également connecter l’environnement Time Series Insights à Power BI.  Pour plus d’informations, consultez [Guide pratique pour connecter TSI à Power BI](../time-series-insights/how-to-connect-power-bi.md) et [Visualiser des données de TSI dans Power BI](../time-series-insights/concepts-power-bi.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

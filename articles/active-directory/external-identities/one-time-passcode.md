@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 3b4089559b341dd268928b1f150b6fc173869ead
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552748"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529921"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Authentification par envoi d’un code secret à usage unique par e-mail
 
@@ -114,7 +114,7 @@ Toutefois, si vous préférez désactiver la fonctionnalité et autoriser son ac
 
 ## <a name="note-for-azure-us-government-customers"></a>Remarque pour les clients Azure US Government
 
-La fonctionnalité de code à usage unique par e-mail est désactivée par défaut dans le cloud Azure US Government.  
+La fonctionnalité de code à usage unique par e-mail est désactivée par défaut dans le cloud Azure US Government. Vos partenaires ne pourront pas se connecter si cette fonctionnalité n’est pas activée. Contrairement au cloud public Azure, le cloud US Government Azure ne prend pas en charge l’acceptation d'invitation avec les comptes Azure Active Directory en libre-service.
 
  ![Code à usage unique par e-mail désactivé](media/one-time-passcode/enable-email-otp-disabled.png)
 
@@ -122,7 +122,7 @@ Pour activer la fonctionnalité de code à usage unique par e-mail dans le cloud
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général Azure AD.
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
-3. Sélectionnez **Relations organisationnelles** > **Paramètres**.
+3. Sélectionnez **Relations organisationnelles** > **Tous les fournisseurs d’identité**.
 
    > [!NOTE]
    > - Si vous ne voyez pas l’option **Relations organisationnelles**, recherchez « identités externes » dans la barre de recherche en haut.

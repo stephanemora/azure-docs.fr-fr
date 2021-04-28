@@ -6,24 +6,24 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 5a27fdc91f376127f26ba9f207ca72d8ada8a7b9
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877232"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891749"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Déployer Azure Spring Cloud dans un réseau virtuel
 
-**Cet article s’applique à :** ✔️ Java ✔️ C#
+**Cet article s’applique à :** âœ”ï¸ Java âœ”ï¸ C#
 
 Ce tutoriel explique comment déployer une instance Azure Spring Cloud dans votre réseau virtuel. Ce déploiement est parfois appelé « injection de réseau virtuel ».
 
 Le déploiement permet :
 
-* L’isolement des applications et du runtime du service Azure Spring Cloud par rapport à Internet sur votre réseau d’entreprise
-* L’interaction d’Azure Spring Cloud avec des systèmes de centres de données locaux ou des services Azure d’autres réseaux virtuels
+* L’isolement des applications et du runtime du service Azure Spring Cloud par rapport à Internet sur votre réseau d’entreprise.
+* L’interaction d’Azure Spring Cloud avec des systèmes de centres de données locaux ou des services Azure dans d’autres réseaux virtuels.
 * La possibilité pour les clients de contrôler les communications réseau entrantes et sortantes pour Azure Spring Cloud
 
 > [!Note]

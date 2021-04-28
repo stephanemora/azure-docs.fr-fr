@@ -4,12 +4,12 @@ description: Transférez des collections d’images ou d’autres artefacts d’
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: c966600b0ca9d65cf533c3c2f0aca211c84917bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104785816"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780772"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transférer des artefacts vers un autre registre
 
@@ -416,13 +416,19 @@ az resource delete \
 * **Échecs ou erreurs de déploiement de modèle**
   * En cas d’échec de l’exécution d’un pipeline, observez la propriété `pipelineRunErrorMessage` de la ressource exécutée.
   * Pour les erreurs de déploiement de modèle courantes, consultez [Résoudre les problèmes des déploiements de modèles ARM](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
+* **Problèmes d’accès au stockage**<a name="problems-accessing-storage"></a>
+  * Si vous voyez une erreur de stockage `403 Forbidden`, vous avez probablement un problème avec votre jeton SAS.
+  * Le jeton SAS n’est peut-être pas valide actuellement. Le jeton SAS a peut-être expiré, ou les clés de compte de stockage ont peut-être été modifiées depuis la création du jeton SAS. Vérifiez que le jeton SAS est valide en tentant de l’utiliser pour vous authentifier afin d’accéder au conteneur de compte de stockage. Par exemple, entrez un point de terminaison d’objet blob existant suivi du jeton SAS dans la barre d’adresse d’une nouvelle fenêtre Microsoft Edge InPrivate, ou chargez un objet blob dans le conteneur avec le jeton SAS à l’aide de `az storage blob upload`.
+  * Le jeton SAS ne dispose peut-être pas des Types de ressources autorisés suffisants. Vérifiez que le jeton SAS a reçu des autorisations pour Service, Conteneur et Objet sous Types de ressources autorisés (`srt=sco` dans le jeton SAS).
+  * Le jeton SAS ne dispose peut-être pas d’autorisations suffisantes. Pour les pipelines d’exportation, les autorisations de jeton SAS requises sont Lecture, Écriture, Liste et Ajouter. Pour les pipelines d’importation, les autorisations de jeton SAS requises sont Lecture, Suppression et Liste. (L’autorisation Suppression est requise uniquement si l’option `DeleteSourceBlobOnSuccess` du pipeline d’importation est activée.)
+  * Le jeton SAS n’est peut-être pas configuré pour fonctionner avec HTTPS uniquement. Vérifiez que le jeton SAS est configuré pour fonctionner avec HTTPS uniquement (`spr=https` dans le jeton SAS).
 * **Problèmes liés à l’exportation ou l’importation d’objets blob de stockage**
-  * Il est possible que le jeton SAS soit arrivé à expiration ou qu’il ne dispose pas d’autorisations suffisantes pour l’exécution de l’exportation ou de l’importation spécifiée
+  * Il est possible que le jeton SAS ne soit pas valide, ou qu’il ne dispose pas d’autorisations suffisantes pour l’exécution de l’exportation ou de l’importation spécifiée. Consultez [Problèmes d’accès au stockage](#problems-accessing-storage).
   * Il est possible que l’objet blob de stockage du compte de stockage source ne soit pas remplacé lors de plusieurs exécutions d’exportation. Vérifiez que l’option OverwriteBlob est définie dans l’exécution de l’exportation et que le jeton SAS dispose d’autorisations suffisantes.
   * Il est possible que l’objet blob de stockage du compte de stockage cible ne soit pas supprimé après une exécution d’importation réussie. Vérifiez que l’option DeleteBlobOnSuccess est définie dans l’exécution de l’importation et que le jeton SAS dispose d’autorisations suffisantes.
   * L’objet blob de stockage n’a pas été créé ou supprimé. Vérifiez que le conteneur spécifié dans l’exécution de l’exportation ou de l’importation existe ou que l’objet blob de stockage spécifié existe pour une exécution d’importation manuelle. 
 * **Problèmes liés à AzCopy**
-  * Voir [Résoudre les problèmes liés à AzCopy](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
+  * Voir [Résoudre les problèmes liés à AzCopy](../storage/common/storage-use-azcopy-configure.md).  
 * **Problèmes liés au transfert d’artefacts**
   * Tous les artefacts n’ont pas été transférés, voire aucun ne l’a été. Vérifiez l’orthographe des artefacts dans l’exécution d’exportation ainsi que le nom de l’objet blob dans les exécutions d’exportation et d’importation. Vérifiez que le nombre d’artefacts transférés ne dépasse pas 50.
   * Il est possible que l’exécution du pipeline ne soit pas terminée. Une exécution d’exportation ou d’importation peut prendre du temps. 
@@ -441,15 +447,15 @@ Pour importer des images d’un seul conteneur dans un registre de conteneurs Az
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-login]: /cli/azure/reference-index#az-login
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
-[az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
-[az-storage-container-generate-sas]: /cli/azure/storage/container#az-storage-container-generate-sas
-[az-storage-blob-list]: /cli/azure/storage/blob#az-storage-blob-list
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-deployment-group-delete]: /cli/azure/deployment/group#az-deployment-group-delete
-[az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
-[az-acr-import]: /cli/azure/acr#az-acr-import
-[az-resource-delete]: /cli/azure/resource#az-resource-delete
+[az-login]: /cli/azure/reference-index#az_login
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set
+[az-keyvault-secret-show]: /cli/azure/keyvault/secret#az_keyvault_secret_show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
+[az-storage-container-generate-sas]: /cli/azure/storage/container#az_storage_container_generate_sas
+[az-storage-blob-list]: /cli/azure/storage/blob#az_storage-blob-list
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-deployment-group-delete]: /cli/azure/deployment/group#az_deployment_group_delete
+[az-deployment-group-show]: /cli/azure/deployment/group#az_deployment_group_show
+[az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
+[az-acr-import]: /cli/azure/acr#az_acr_import
+[az-resource-delete]: /cli/azure/resource#az_resource_delete

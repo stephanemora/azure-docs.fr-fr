@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: c4c36013f100d2fc5265024432cc01a6622a4024
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0bbe16fb63a4546b4b4745df16074f6a4b0cb26b
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932367"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599534"
 ---
 # <a name="azure-route-server-preview-faq"></a>Forum aux questions sur Azure Route Server (préversion)
 
@@ -29,24 +29,33 @@ Azure Route Server est un service complètement managé qui vous permet de gére
 
 Non. Azure Route Server est un service conçu avec une haute disponibilité. S’il est déployé sur une région Azure qui prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), il offre une redondance au niveau de la zone.
 
+### <a name="how-many-route-servers-can-i-create-in-a-virtual-network"></a>Combien de serveurs de routes est-ce que je peux créer dans un réseau virtuel ?
+
+Vous ne pouvez créer qu’un seul serveur de routes dans un réseau virtuel. Il doit être déployé dans un sous-réseau désigné appelé *RouteServerSubnet*.
+
+### <a name="does-azure-route-server-support-vnet-peering"></a>Azure Route Server prend-il en charge le peering de réseaux virtuels ?
+
+Oui. Si vous appairez un réseau virtuel hébergeant le serveur de routes Azure à un autre réseau virtuel et que vous activez l’utilisation de la passerelle distante sur ce dernier, le serveur de routes Azure apprend les espaces d’adressage de ce réseau virtuel et les envoie à toutes les appliances virtuelles réseau appairées. Il programme également les routes à partir des appliances virtuelles réseau dans la table de routage des machines virtuelles du réseau virtuel appairé. 
+
+
 ### <a name="what-routing-protocols-does-azure-route-server-support"></a><a name = "protocol"></a>Quels sont les protocoles de routage pris en charge par Azure Route Server ?
 
 Azure Route Server prend uniquement en charge BGP (Border Gateway Protocol). Votre NVA doit prendre en charge le protocole BGP externe multitronçon, car vous devez déployer Azure Route Server sur un sous-réseau dédié de votre réseau virtuel. Le numéro [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) que vous choisissez doit être différent de celui utilisé par Azure Route Server quand vous configurez le protocole BGP sur votre NVA.
 
 ### <a name="does-azure-route-server-route-data-traffic-between-my-nva-and-my-vms"></a>Azure Route Server route-t-il le trafic de données entre ma NVA et mes machines virtuelles ?
 
-Non. Azure Route Server échange des routes BGP uniquement avec votre NVA. Le trafic de données passe directement de la NVA à la machine virtuelle choisie et directement de la machine virtuelle à la NVA.
+Non. Azure Route Server échange des routes BGP uniquement avec votre NVA. Le trafic de données passe directement de l’appliance virtuelle réseau à la machine virtuelle de destination et directement de la machine virtuelle à l’appliance virtuelle réseau.
 
 ### <a name="does-azure-route-server-store-customer-data"></a>Serveur de routes Azure stocke-t-il les données des clients ?
 Non. Serveur de routes Azure échange uniquement les itinéraires BGP avec votre appliance virtuelle réseau, puis les propage vers votre réseau virtuel.
 
-### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-will-it-program-all-copies-of-the-route-but-each-with-a-different-next-hop-to-the-vms-in-the-virtual-network"></a>Si Azure Route Server reçoit la même route à partir de plusieurs NVA, programme-t-il toutes les copies de la route (mais chacune avec un tronçon suivant différent) vers les machines virtuelles du réseau virtuel ?
+### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Si le serveur de routes Azure reçoit la même route de plusieurs appliances virtuelles réseau, comment la gère-t-il ?
 
-Oui, uniquement si la route a la même longueur de chemin AS. Quand les machines virtuelles envoient le trafic vers la destination de cette route, les hôtes de machines virtuelles effectuent un routage ECMP (Equal-Cost Multi-Path). Toutefois, si une NVA envoie la route avec une plus petite longueur de chemin AS que les autres NVA, Azure Route Server ne programme que la route dont le tronçon suivant est défini sur cette NVA sur les machines virtuelles du réseau virtuel.
+Si la route a à la même longueur de chemin AS, le serveur de routes Azure va programmer plusieurs copies de la route, chacune avec un tronçon suivant différent, vers les machines virtuelles du réseau virtuel. Quand les machines virtuelles envoient le trafic vers la destination de cette route, les hôtes de machines virtuelles effectuent un routage ECMP (Equal-Cost Multi-Path). Cependant, si une appliance virtuelle réseau envoie la route avec une longueur de chemin AS plus courte que celle d’autres appliances virtuelles réseau, le serveur de routes Azure programme seulement la route dont le tronçon suivant est défini sur cette appliance virtuelle réseau pour les machines virtuelles du réseau virtuel.
 
-### <a name="does-azure-route-server-support-vnet-peering"></a>Azure Route Server prend-il en charge le peering de réseaux virtuels ?
+### <a name="does-azure-route-server-preserve-the-bgp-communities-of-the-route-it-receives"></a>Le serveur de routes Azure conserve-t-il les communautés BGP de la route qu’il reçoit ?
 
-Oui. Si vous appairez un réseau virtuel hébergeant Azure Route Server à un autre réseau virtuel et que vous activez l’option Utiliser la passerelle distante sur ce réseau virtuel. Azure Route Server découvre les espaces d’adressage de ce réseau virtuel et les envoie à toutes les NVA appairées.
+Oui, le serveur de routes Azure propage la route telle quelle avec les communautés BGP.
 
 ### <a name="what-autonomous-system-numbers-asns-can-i-use"></a>Est-ce que je peux utiliser des numéros ASN (Autonomous System Numbers) ?
 

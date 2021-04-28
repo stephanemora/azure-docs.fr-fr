@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bc7ac6b97d10e5941e46b8be3e12baff32bded4a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577704"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483059"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -100,7 +100,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
   > [!NOTE]
   > - L’activation de l’audit sur un pool SQL dédié suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool SQL dédié. En savoir plus sur le [pool SQL dédié](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
-  > - Lorsque l’audit est configuré sur un espace de travail Log Analytics ou une destination Event Hub avec la cmdlet Portail Azure ou PowerShell, un [paramètre de diagnostic](../../azure-monitor/essentials/diagnostic-settings.md) est créé avec la catégorie « SQLSecurityAuditEvents » activée.
+  > - Lorsque l’audit est configuré sur un espace de travail Log Analytics ou une destination Event Hub par le biais du portail Azure ou d’une applet de commande PowerShell, un [paramètre de diagnostic](../../azure-monitor/essentials/diagnostic-settings.md) est créé avec la catégorie « SQLSecurityAuditEvents » activée.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet **SQL Database** ou **SQL Server**.
