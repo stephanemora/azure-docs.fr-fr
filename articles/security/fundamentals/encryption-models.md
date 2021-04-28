@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f76b2811531b49c9312a02a581e876f9ef569a2a
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 95ab5917779a73b7221a5b431126164aef88b494
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750965"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812117"
 ---
 # <a name="data-encryption-models"></a>Modèles de chiffrement des données
 
@@ -102,7 +102,7 @@ Pour les opérations utilisant des clés de chiffrement, une identité de servic
 Pour obtenir une clé à utiliser dans le chiffrement ou le déchiffrement des données au repos, l’identité de service pour le compte duquel l’instance du service Resource Manager s’exécutera doit avoir les autorisations UnwrapKey (pour obtenir la clé de déchiffrement) et WrapKey (pour insérer une clé dans le coffre de clés lors de la création d’une nouvelle clé).
 
 >[!NOTE]
->Pour plus d’informations sur les autorisations de Key Vault, consultez la page consacrée à la sécurisation de votre coffre de clés dans la [documentation d’Azure Key Vault](../../key-vault/general/security-overview.md).
+>Pour plus d’informations sur les autorisations de Key Vault, consultez la page consacrée à la sécurisation de votre coffre de clés dans la [documentation d’Azure Key Vault](../../key-vault/general/security-features.md).
 
 **Avantages**
 

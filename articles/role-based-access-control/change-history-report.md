@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
 ms.author: rolyon
-ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: d9b39bc9a2f00fe83cae0ff78c6346042967e8bf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 625cf443ab9bd334d2a10e3fb15348459b85f625
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042121"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108069990"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Afficher les journaux d’activité pour voir les changements RBAC Azure
 

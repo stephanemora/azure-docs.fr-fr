@@ -1,26 +1,26 @@
 ---
-title: Déployer un micro-agent Defender-IoT IoT Edge
+title: Déployer un module de sécurité IoT Edge
 description: Apprenez à déployer un agent de sécurité Defender pour IoT sur IoT Edge.
 ms.topic: conceptual
-ms.date: 1/30/2020
-ms.openlocfilehash: 38e2aa38ab07a4768e95d91ed0ebc866d7edf39f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/21/2021
+ms.openlocfilehash: 71efb0bb12d1e20f918481a086fd411d3a237e33
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784218"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813593"
 ---
-# <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Déployer un micro-agent Defender-IoT sur votre appareil IoT Edge
+# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
 Le module **Defender pour IoT** constitue une solution de sécurité complète pour vos appareils IoT Edge.
-Il collecte, agrège et analyse des données de sécurité brutes tirées du système d’exploitation et du système de conteneur pour produire des alertes et des suggestions de sécurité actionnables.
-Pour plus d’informations, consultez [Micro-agent Defender-IoT pour IOT Edge](security-edge-architecture.md).
+Ce module de sécurité collecte, agrège et analyse des données de sécurité brutes tirées du système d’exploitation et du système de conteneur pour produire des alertes et des suggestions de sécurité actionnables.
+Pour plus d’informations, consultez [Module de sécurité pour IoT Edge](security-edge-architecture.md).
 
-Dans cet article, vous allez apprendre à déployer un micro-agent Defender-IoT sur votre appareil IoT Edge.
+Dans ce article, vous apprendrez à déployer un module de sécurité sur votre appareil IoT Edge.
 
-## <a name="deploy-defender-iot-micro-agent"></a>Déployer le micro-agent Defender-IoT
+## <a name="deploy-security-module"></a>Déployer un module de sécurité
 
-Utilisez les étapes suivantes pour déployer un micro-agent Defender-IoT pour IoT Edge.
+Procédez comme suit pour déployer un module de sécurité Defender pour IoT sur IoT Edge.
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -159,7 +159,7 @@ Suivez les différentes étapes pour procéder au déploiement IoT Edge de Defen
 
 ## <a name="diagnostic-steps"></a>Étapes de diagnostic
 
-Si vous rencontrez un problème, les journaux de conteneur sont la meilleure façon d’en savoir plus sur l’état d’un appareil de micro-agent Defender-IoT IoT Edge. Utilisez les commandes et les outils de cette section pour recueillir des informations.
+Si vous rencontrez un problème, les journaux de conteneur sont la meilleure façon d’en savoir plus sur l’état d’un appareil de module de sécurité IoT Edge. Utilisez les commandes et les outils de cette section pour recueillir des informations.
 
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Vérifiez que les conteneurs requis sont installés et qu’ils fonctionnent comme prévu
 

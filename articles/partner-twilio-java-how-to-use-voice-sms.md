@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: e7ff925534a9cab6523097f84a8ae199e9cb83eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87a41e7da100d8e8e5ad87018f01ee914f8bbd9a
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100548724"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065364"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS dans Java
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -233,7 +233,7 @@ Maintenant que vous avez appris les bases du service Twilio, consultez ces liens
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified#
 [twilio_api_documentation]: https://www.twilio.com/docs
 [twilio_security_guidelines]: https://www.twilio.com/docs/security
-[twilio_howtos]: https://www.twilio.com/docs/howto
+[twilio_howtos]: https://www.twilio.com/docs/all
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart

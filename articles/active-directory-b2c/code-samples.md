@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b09587d90024a8c376be8b0d93f7ef7b6cc51a1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c9c72a56b356aad3b9d948d49caf4c8de99a47e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008482"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070746"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemples de code Azure Active Directory B2C
 
@@ -49,7 +49,6 @@ Les tableaux suivants fournissent des liens vers des exemples pour des applicati
 |--------| ----------- |
 | [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | Application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL React. Cet exemple utilise le flux de code d’autorisation avec PKCE. |
 | [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux de code d’autorisation avec PKCE. |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux implicite.|
 | [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Une application monopage (SPA) appelant Microsoft Graph pour gérer les utilisateurs dans un répertoire B2C. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux de code d’autorisation avec PKCE.|
 
 ## <a name="consoledaemon-apps"></a>Applications console/démon

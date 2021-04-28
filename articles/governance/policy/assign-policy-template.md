@@ -1,15 +1,15 @@
 ---
 title: Nouvelle affectation de stratégie à l’aide de modèles
 description: Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager (modèle ARM) pour créer une affectation de stratégie dans le but d’identifier les ressources non conformes.
-ms.date: 03/31/2021
+ms.date: 04/22/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: b61198fecf0c3a6ba9aad19abc60bc042b68c29c
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: debe8e1f93148ab46a06eafd1b2671b560aa94db
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096612"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947912"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle ARM
 
@@ -20,7 +20,7 @@ Ce guide de démarrage rapide explique pas à pas comment utiliser un modèle Az
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton pour déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton pour déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Fazurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,9 +30,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Dans ce guide de démarrage rapide, vous allez créer une affectation de stratégie et affecter une définition de stratégie intégrée appelée _Auditer les machines virtuelles qui n’utilisent pas de disques managés_. Pour obtenir une liste partielle des stratégies intégrées disponibles, consultez [Exemples Azure Policy](./samples/index.md).
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/quickstarts/microsoft.authorization/azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.authorization/azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json":::
 
 La ressource définie dans le modèle est :
 
@@ -45,7 +45,7 @@ La ressource définie dans le modèle est :
 
 1. Sélectionnez l’image suivante pour vous connecter au portail Azure et ouvrir le modèle :
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton pour déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Bouton pour déployer le modèle Resource Manager pour l’affectation d’une stratégie Azure à Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Fazurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Sélectionnez ou entrez les valeurs suivantes :
 

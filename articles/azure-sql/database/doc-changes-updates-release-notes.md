@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: d0522fe2c8b6d6b623903a720e6c8e760bd6aa92
-ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
+ms.openlocfilehash: 7746b8aa84bea9ec8c18b4c4af0851ca3e5e3957
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107602094"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132014"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,8 +61,8 @@ Ce tableau fournit une comparaison rapide concernant la modification de la termi
 
 | Fonctionnalité | Détails |
 | ---| --- |
-| [Transactions distribuées](/azure/azure-sql/database/elastic-transactions-overview) | Transactions distribuées sur les instances managées. |
-| [Pools d’instances](/azure/sql-database/sql-database-instance-pools) | Moyen pratique et économique de migrer des instances SQL plus petites vers le cloud. |
+| [Transactions distribuées](./elastic-transactions-overview.md) | Transactions distribuées sur les instances managées. |
+| [Pools d’instances](../managed-instance/instance-pools-overview.md) | Moyen pratique et économique de migrer des instances SQL plus petites vers le cloud. |
 | [Principaux de serveur (connexions) Azure AD au niveau de l’instance](/sql/t-sql/statements/create-login-transact-sql) | Créez des connexions de niveau instance avec l’instruction [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true). |
 | [Réplication transactionnelle](../managed-instance/replication-transactional-overview.md) | Répliquez les modifications de vos tableaux dans d’autres bases de données dans SQL Managed Instance, SQL Database ou SQL Server. Ou mettez à jour vos tableaux lorsque certaines lignes sont modifiées dans d’autres instances de SQL Managed Instance ou SQL Server. Pour plus d’informations, consultez [Configurer la réplication dans Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Détection de menaces |Pour plus d’informations, consultez [Configurer la détection des menaces dans Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
@@ -130,7 +130,7 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 
 ### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>La modification du type de connexion n’affecte pas les connexions via le point de terminaison du groupe de basculement
 
-Si une instance participe à un [groupe de basculement automatique](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), la modification du [type de connexion](https://docs.microsoft.com/azure/azure-sql/managed-instance/connection-types-overview) de l’instance ne prend pas effet pour les connexions établies via le point de terminaison de l’écouteur de groupe de basculement.
+Si une instance participe à un [groupe de basculement automatique](./auto-failover-group-overview.md), la modification du [type de connexion](../managed-instance/connection-types-overview.md) de l’instance ne prend pas effet pour les connexions établies via le point de terminaison de l’écouteur de groupe de basculement.
 
 **Solution de contournement** : supprimez et recréez le groupe de basculement automatique après avoir modifié le type de connexion.
 

@@ -1,18 +1,18 @@
 ---
 title: Comprendre les tarifs Azure Data Factory via des exemples
 description: Cet article explique et décrit le modèle tarifaire Azure Data Factory avec des exemples détaillés.
-author: dcstwh
-ms.author: weetok
+author: shirleywangmsft
+ms.author: shwang
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 3bb9574c74aaa3c2589d0ca93fb906168ca99095
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 48c0f47b3b8ca5eddef76c66ad220a18018dc321
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783368"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904889"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Comprendre les tarifs Data Factory à travers des exemples
 

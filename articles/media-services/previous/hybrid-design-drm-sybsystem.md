@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: a48e761c4fb74802c6b1db63884ee192446720a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afa5294fe045bed48f318df47f209ed7ebf53381
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016268"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065544"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Conception de modèles hybrides de sous-systèmes de DRM
 
@@ -116,7 +116,7 @@ Dans les exemples, la protection PlayReady fonctionne à la fois pour DASH et la
 
 ### <a name="sample-2"></a>Exemple 2
 
-* URL de la source (base) : https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* URL de la source (base) : `https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest` 
 * PlayReady LA_URL (DASH et diffusion en continu lisse) : `http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
 
 ### <a name="sample-3"></a>Exemple 3

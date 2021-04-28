@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10d9cd87e15303515c02903c9127c1fd0e1c791a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94949493"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070872"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procédure pas à pas : Ajouter des échanges de revendications d’API REST aux stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) permet aux développeurs d’identité d’intégrer une interaction avec une API RESTful dans un parcours utilisateur. À la fin de cette procédure pas à pas, vous pourrez créer un parcours utilisateur Azure AD B2C qui interagit avec des [services RESTful](custom-policy-rest-api-intro.md).
+Azure Active Directory B2C (Azure AD B2C) permet aux développeurs d’identité d’intégrer une interaction avec une API RESTful dans un parcours utilisateur. À la fin de cette procédure pas à pas, vous pourrez créer un parcours utilisateur Azure AD B2C qui interagit avec des [services RESTful](api-connectors-overview.md).
 
 Dans ce scénario, nous enrichissons les données de jeton de l’utilisateur en les intégrant à un workflow métier. Lors de l’inscription ou de la connexion avec un compte local ou fédéré, Azure AD B2C appelle une API REST pour obtenir les données de profil étendues de l’utilisateur à partir d’une source de données distante. Dans cet exemple, Azure AD B2C envoie l’identificateur unique de l’utilisateur, objectId. L’API REST retourne ensuite le solde du compte de l’utilisateur (un nombre aléatoire). Utilisez cet exemple comme point de départ pour une intégration avec votre propre système CRM, votre base de données marketing ou tout workflow métier.
 
@@ -29,8 +29,8 @@ Vous pouvez aussi concevoir l’interaction comme un profil technique de validat
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
-- Découvrez comment [intégrer des échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](custom-policy-rest-api-intro.md).
+- Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
+- Découvrez comment [intégrer des échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](api-connectors-overview.md).
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Préparer un point de terminaison d’API REST
 

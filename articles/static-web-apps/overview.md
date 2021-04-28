@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: c0a4156fb0015c6d319700c82f6285dbf0ed1443
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166397"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947876"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Présentation d’Azure Static Web Apps - Préversion
 
@@ -44,7 +44,7 @@ Avec les applications Static Web Apps, les ressources statiques sont séparées 
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Ce que vous pouvez faire avec les applications Static Web Apps
 
-- **Créez des applications web modernes** avec des infrastructures et bibliothèques JavaScript comme [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/) et [Vue](getting-started.md?tabs=react), ou utilisez [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) pour créer des applications WebAssembly, avec un back-end [Azure Functions](apis.md).
+- **Créez des applications web modernes** avec des infrastructures et bibliothèques JavaScript comme [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/) et [Vue](getting-started.md?tabs=vue), ou utilisez [Blazor](./deploy-blazor.md) pour créer des applications WebAssembly, avec un back-end [Azure Functions](apis.md).
 - **Publier des sites statiques** avec des frameworks comme [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Déployer des applications web** avec des frameworks comme [Next.js](deploy-nextjs.md) et [Nuxt.js](deploy-nuxtjs.md).
 

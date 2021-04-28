@@ -4,12 +4,12 @@ description: Recommandations relatives à la sécurisation des images et des sec
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: acccd79ecd1c216f92f19d1cf035682414cd17ca
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 40284c6e42cf1060906c6248495d08e133bda5bb
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750137"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812657"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Éléments à prendre en compte en matière de sécurité pour Azure Container Instances
 
@@ -40,7 +40,7 @@ Des solutions de supervision de la sécurité et d'analyse des images telles que
 
 ### <a name="protect-credentials"></a>Protéger les informations d'identification
 
-Les conteneurs peuvent s'étendre sur plusieurs clusters et régions Azure. Vous devez donc sécuriser les informations d'identification requises pour les connexions ou l'accès aux API, comme les mots de passe ou les jetons. Veiller à ce que seuls les utilisateurs disposant de privilèges aient accès à ces conteneurs en transit et au repos. Inventoriez tous les secrets relatifs aux informations d'identification, puis demandez aux développeurs d'utiliser les nouveaux outils de gestion des secrets conçus pour les plateformes de conteneurs.  Assurez-vous que votre solution inclut des bases de données chiffrées, le chiffrement TLS pour les données secrètes en transit, et le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) avec privilèges minimum. [Azure Key Vault](../key-vault/general/security-overview.md) est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications conteneurisées. Comme il s'agit de données sensibles et stratégiques, sécurisez l'accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés y aient accès.
+Les conteneurs peuvent s'étendre sur plusieurs clusters et régions Azure. Vous devez donc sécuriser les informations d'identification requises pour les connexions ou l'accès aux API, comme les mots de passe ou les jetons. Veiller à ce que seuls les utilisateurs disposant de privilèges aient accès à ces conteneurs en transit et au repos. Inventoriez tous les secrets relatifs aux informations d'identification, puis demandez aux développeurs d'utiliser les nouveaux outils de gestion des secrets conçus pour les plateformes de conteneurs.  Assurez-vous que votre solution inclut des bases de données chiffrées, le chiffrement TLS pour les données secrètes en transit, et le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) avec privilèges minimum. [Azure Key Vault](../key-vault/general/security-features.md) est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications conteneurisées. Comme il s'agit de données sensibles et stratégiques, sécurisez l'accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés y aient accès.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>Considérations relatives à l'écosystème de conteneurs
 

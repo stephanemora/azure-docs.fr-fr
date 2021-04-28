@@ -3,13 +3,13 @@ title: Créer un hub d’événement avec capture activée - Azure Event Hubs | 
 description: Créer un espace de noms Azure Event Hubs avec un concentrateur d’événements et activer Capture à l’aide d’un modèle Azure Resource Manager
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1b7ce00c1db0866b1965ed6d1bba31aa28f8bc24
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d17561fca32f272450748378a61c5c3ad77f9ec4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304934"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071377"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Créer un espace de noms avec un Event Hub et activer Capture à l’aide d’un modèle
 
