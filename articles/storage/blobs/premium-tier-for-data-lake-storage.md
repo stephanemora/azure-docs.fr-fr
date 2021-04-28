@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9ed305dbd081486f0b892fcc38ada83e9666bd9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93324220"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143338"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Niveau Premium pour Azure Data Lake Storage
 
@@ -57,7 +57,7 @@ Certaines fonctionnalités de stockage Blob ne sont peut-être pas disponibles o
 
 ## <a name="enabling-the-premium-performance-tier"></a>Activation du niveau de performance Premium 
 
-Vous pouvez utiliser le niveau Premium pour Azure Data Lake Storage en créant un compte BlockBlobStorage avec le paramètre **Espace de noms hiérarchique** **activé**. Pour obtenir des instructions complètes, consultez [Créer un compte BlockBlobStorage](storage-blob-create-account-block-blob.md).
+Vous pouvez utiliser le niveau Premium pour Azure Data Lake Storage en créant un compte BlockBlobStorage avec le paramètre **Espace de noms hiérarchique** **activé**. Pour obtenir des instructions complètes, consultez [Créer un compte BlockBlobStorage](../common/storage-account-create.md).
 
 Quand vous créez le compte, veillez à choisir l’option de performance **Premium** et le type de compte **BlockBlobStorage**.
 
@@ -111,4 +111,3 @@ Utilisez le niveau Premium pour Azure Data Lake Storage avec votre service d’a
 - [Tutoriel : Azure Data Lake Storage Gen2, Azure Databricks et Spark](data-lake-storage-use-databricks-spark.md) 
 - [Utilisez Azure Data Lake Storage Gen2 avec les clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) HDInsight prend actuellement en charge un compte qui utilise le niveau de performance Premium avec un cluster HBase sur lequel les écritures accélérées sont activées.
 - [Démarrage rapide : Créer un espace de travail Synapse](../../synapse-analytics/quickstart-create-workspace.md)
-

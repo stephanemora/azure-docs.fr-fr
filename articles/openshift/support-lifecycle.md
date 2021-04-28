@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/06/2021
-ms.openlocfilehash: 35cbaf2b6d2618d116d2dd322ae5ac28f578cecc
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 22ae9bdbee4b9d6f66d08d0e3ffc37675bc5d3da
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303540"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143554"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Cycle de vie du support pour Azure Red Hat OpenShift 4
 
@@ -114,7 +114,7 @@ Le retour d’un cluster à une version antérieure, ou restauration, n’est pa
 
 **Que signifie « être hors support » ?**
 
-Si votre cluster ARO exécute une version d’OpenShift qui ne figure pas dans la liste des versions prises en charge ou qui utilise une [configuration de cluster non prise en charge](https://docs.microsoft.com/azure/openshift/support-policies-v4), votre cluster est « hors support ». Par conséquent :
+Si votre cluster ARO exécute une version d’OpenShift qui ne figure pas dans la liste des versions prises en charge ou qui utilise une [configuration de cluster non prise en charge](./support-policies-v4.md), votre cluster est « hors support ». Par conséquent :
 - Lorsque vous ouvrez un ticket de support pour votre cluster, vous êtes invité à mettre à niveau le cluster vers une version prise en charge. avant de recevoir le support, sauf si vous vous trouvez dans la période de grâce de 30 jours après la fin de la prise en charge de la version. 
 - Toutes les garanties de runtime ou de SLA pour les clusters en dehors du support sont annulées.
 - Les clusters hors support seront corrigés de manière optimale.

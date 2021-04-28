@@ -1,18 +1,18 @@
 ---
 title: Utiliser IoT Plug-and-Play sur des appareils limités | Microsoft Docs
 description: Découvrez comment vous pouvez implémenter IoT Plug-and-Play sur des appareils limités à l’aide du kit de développement logiciel (SDK) pour Embedded C ou Azure RTOS.
-author: elhorton
-ms.author: elhorton
+author: EliotSeattle
+ms.author: eliotgra
 ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfa71e02688d5bf63d894ae42dabab7da1d4174c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 6c792fbbb44b7dc769e7cdc56850684bd69ea40b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057312"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864134"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implémenter IoT Plug-and-Play sur des appareils limités
 

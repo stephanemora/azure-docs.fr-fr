@@ -6,21 +6,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 2f15b397fbceb9e097d94080ba03fba50a96ed06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fd0b3ada5fec283562cee9727e3f805a7d34c532
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048503"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479047"
 ---
-# <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Configurer des points de terminaison privés pour le magasin analytique Azure Cosmos DB
+# <a name="configure-azure-private-link-for-azure-cosmos-db-analytical-store"></a>Configurer Azure Private Link pour le magasin analytique Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Dans cet article, vous allez apprendre à configurer des points de terminaison privés managés pour le magasin analytique Azure Cosmos DB. Si vous utilisez le magasin transactionnel, consultez l’article [Points de terminaison privés pour le magasin transactionnel](how-to-configure-private-endpoints.md). À l’aide de points de terminaison privés managés, vous pouvez limiter l’accès réseau du magasin analytique Azure Cosmos DB au réseau virtuel managé d’Azure Synapse. Les points de terminaison privés managés établissent une liaison privée avec le magasin analytique.
+Dans cet article, vous allez apprendre à configurer des points de terminaison privés managés pour le magasin analytique Azure Cosmos DB. Si vous utilisez le magasin transactionnel, consultez l’article [Points de terminaison privés pour le magasin transactionnel](how-to-configure-private-endpoints.md). À l’aide de [points de terminaison privés managés](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md), vous pouvez limiter l’accès réseau de votre magasin analytique Azure Cosmos DB à un réseau virtuel managé associé à votre espace de travail Azure Synapse. Les points de terminaison privés managés établissent une liaison privée avec votre magasin analytique.
 
-## <a name="enable-private-endpoint-for-the-analytical-store"></a>Activer un point de terminaison privé pour le magasin analytique
+## <a name="enable-a-private-endpoint-for-the-analytical-store"></a>Activer un point de terminaison privé pour le magasin analytique
 
-### <a name="set-up-an-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>Configurer un espace de travail Azure Synapse Analytics avec un réseau virtuel managé
+### <a name="set-up-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>Configurer un espace de travail Azure Synapse Analytics avec un réseau virtuel managé
 
 [Créez un espace de travail dans Azure Synapse Analytics avec l’option d’exfiltration de données activée.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) Avec la [protection contre l’exfiltration de données](../synapse-analytics/security/workspace-data-exfiltration-protection.md), vous empêchez les utilisateurs malveillants potentiels de copier ou transférer des données à partir de vos ressources Azure vers des emplacements en dehors de l’étendue de votre organisation.
 

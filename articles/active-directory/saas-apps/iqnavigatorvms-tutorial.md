@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: beef52641b9744b39873a7f48e39eb2f94ed4c9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fe674f0f290c58a7e32a05c3666be8fc2c324bc
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92459726"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074545"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iqnavigator-vms"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec IQNavigator VMS
 
@@ -93,7 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     d. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’état de relais réels. Pour obtenir ces valeurs, contactez [l’équipe de support client IQNavigator VMS](https://www.beeline.com/support-iqn/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’état de relais réels. Pour obtenir ces valeurs, contactez [l’équipe de support client IQNavigator VMS](https://www.beeline.com/contact-support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application IQNavigator attend la valeur d’identifiant utilisateur unique dans la revendication Identificateur de nom. Le client peut mapper la valeur correcte pour la revendication Identificateur de nom. Dans ce cas, nous avons mappé l’user.UserPrincipalName aux fins de démonstration. Mais, en fonction des paramètres de votre organisation, vous devez mapper la valeur correcte.
 
@@ -135,11 +135,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-iqnavigator-vms-sso"></a>Configurer l’authentification unique IQNavigator VMS
 
-Pour configurer l’authentification unique côté **IQNavigator VMS**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe du support technique IQNavigator VMS](https://www.beeline.com/support-iqn/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **IQNavigator VMS**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe du support technique IQNavigator VMS](https://www.beeline.com/contact-support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-iqnavigator-vms-test-user"></a>Créer un utilisateur de test IQNavigator VMS
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans IQNavigator VMS. Collaborez avec l’[équipe du support technique IQNavigator VMS](https://www.beeline.com/support-iqn/) pour ajouter des utilisateurs à la plateforme IQNavigator VMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans IQNavigator VMS. Collaborez avec l’[équipe du support technique IQNavigator VMS](https://www.beeline.com/contact-support/) pour ajouter des utilisateurs à la plateforme IQNavigator VMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

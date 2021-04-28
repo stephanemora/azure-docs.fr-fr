@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 89542a0a30bacf5cb45755fb578b22ce5c34ba4e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94951925"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070710"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C pour valider une entrée d’utilisateur
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La plateforme Identity Experience Framework (IEF) sur laquelle repose Azure Active Directory B2C (Azure AD B2C) permet aux développeurs d’identité d’intégrer une interaction avec une API RESTful dans un parcours utilisateur.  À la fin de cette procédure pas à pas, vous pourrez créer un parcours utilisateur Azure AD B2C qui interagit avec des [services RESTful](custom-policy-rest-api-intro.md) afin de valider une entrée d’utilisateur.
+La plateforme Identity Experience Framework (IEF) sur laquelle repose Azure Active Directory B2C (Azure AD B2C) permet aux développeurs d’identité d’intégrer une interaction avec une API RESTful dans un parcours utilisateur.  À la fin de cette procédure pas à pas, vous pourrez créer un parcours utilisateur Azure AD B2C qui interagit avec des [services RESTful](api-connectors-overview.md) afin de valider une entrée d’utilisateur.
 
 Dans ce scénario, nous allons ajouter la possibilité pour les utilisateurs d’entrer un numéro de fidélité dans la page d’inscription Azure AD B2C. Nous vérifierons si cette combinaison d’adresse e-mail et de numéro de fidélité est mappée à un code promotionnel en envoyant ces données à une API REST. Si l’API REST trouve un code promotionnel pour cet utilisateur, celui-ci est retourné à Azure AD B2C. Enfin, le code promotionnel sera inséré dans les revendications de jeton que l’application utilisera.
 
@@ -30,8 +30,8 @@ Vous pouvez aussi concevoir l’interaction comme une étape d’orchestration. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
-- Découvrez comment [intégrer des échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](custom-policy-rest-api-intro.md).
+- Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
+- Découvrez comment [intégrer des échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](api-connectors-overview.md).
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Préparer un point de terminaison d’API REST
 

@@ -4,12 +4,12 @@ description: Comprendre les définitions de schéma d’alerte courant pour Azur
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 5ec2adc4594c71f640b027d799b0a3c133ca2333
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6d835b6d2c3519bc47decf8256ab3f3380170df6
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308657"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565115"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
@@ -72,7 +72,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 
 | Champ | Description|
 |:---|:---|
-| alertId | GUID identifiant de façon unique l’instance d’alerte. |
+| alertId | ID de ressource unique identifiant l’instance d’alerte. |
 | alertRule | Nom de la règle d’alerte qui a généré l’instance d’alerte. |
 | severity | Gravité de l’alerte. Valeurs possibles : Sev0, Sev1, Sev2, Sev3 ou Sev4. |
 | signalType | Identifie le signal sur lequel la règle d’alerte a été définie. Valeurs possibles : Métrique, Journal ou Journal d’activité. |

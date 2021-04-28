@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 63a179f7123f088c9c60fbfb8996a5b21d1c704d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02934a1943ef37d282dd2a2e7862c5695bbd6ecb
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773264"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862702"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Créer un cache Azure HPC Cache
 
@@ -107,7 +107,7 @@ La création du cache prend environ 10 minutes. Vous pouvez suivre la progressi
 > [!NOTE]
 > Azure CLI ne prend actuellement pas en charge la création d’un cache avec des clés de chiffrement gérées par le client. Utilisez le portail Azure.
 
-Utilisez la commande [az hpc-cache create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) pour créer une nouvelle instance Azure HPC Cache.
+Utilisez la commande [az hpc-cache create](/cli/azure/hpc-cache#az_hpc_cache_create) pour créer une nouvelle instance Azure HPC Cache.
 
 Fournissez ces valeurs :
 
@@ -126,16 +126,16 @@ nets/<cache_subnet_name>"``
   * Taille du cache (en Go)
   * La référence des machines virtuelles utilisées dans l’infrastructure du cache
 
-  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) affiche les références SKU disponibles et les options de taille de cache valides pour chacune d’elles. Les options de taille de cache vont de 3 à 48 To, mais seules certaines valeurs sont prises en charge.
+  [az hpc-cache skus list](/cli/azure/hpc-cache/skus) affiche les références SKU disponibles et les options de taille de cache valides pour chacune d’elles. Les options de taille de cache vont de 3 à 48 To, mais seules certaines valeurs sont prises en charge.
 
   Ce graphique montre les combinaisons de taille de cache et de référence SKU valides au moment de la préparation de ce document (juillet 2020).
 
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 Go    | oui         | non          | Non          |
-  | 6144 Go    | Oui         | Oui         | Non          |
-  | 12288 Go   | oui         | Oui         | oui         |
-  | 24576 Go   | Non          | Oui         | oui         |
+  | 6144 Go    | oui         | oui         | Non          |
+  | 12288 Go   | oui         | oui         | oui         |
+  | 24576 Go   | Non          | oui         | oui         |
   | <49152 Go   | Non          | non          | oui         |
 
   Pour obtenir des informations importantes sur la tarification, le débit et la taille de votre cache en fonction de votre flux de travail, consultez la section **Définir la capacité du cache** sous l’onglet Instructions du portail.
@@ -236,9 +236,9 @@ nets/<cache_subnet_name>"`
   | Taille du cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
   | 3072 Go    | oui         | non          | Non          |
-  | 6144 Go    | Oui         | Oui         | non          |
-  | 12 288 Go   | Oui         | Oui         | Oui         |
-  | 24 576 Go   | non          | Oui         | Oui         |
+  | 6144 Go    | oui         | oui         | non          |
+  | 12 288 Go   | Oui         | oui         | Oui         |
+  | 24 576 Go   | non          | oui         | Oui         |
   | 49 152 Go   | non          | non          | oui         |
 
   Pour obtenir des informations importantes sur la tarification, le débit et la taille de votre cache en fonction de votre flux de travail, consultez la section **Définir la capacité du cache** sous l’onglet Instructions du portail.

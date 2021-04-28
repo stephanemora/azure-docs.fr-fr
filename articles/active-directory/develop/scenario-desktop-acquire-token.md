@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d45c40bb6878da80f68fff9642b55da68706743a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 1020496f7aea0c30ed815f21756addfd9ed0ae09
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305835"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124272"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -284,7 +284,7 @@ La classe définit les constantes suivantes :
 - ``SelectAccount`` force le service d’émission de jeton de sécurité (STS) à présenter la boîte de dialogue de sélection de compte qui contient les comptes pour lesquels l’utilisateur dispose d’une session. Cette option est utile lorsque les développeurs d’applications veulent laisser les utilisateurs choisir parmi différentes identités. Cette option oblige MSAL à envoyer ``prompt=select_account`` au fournisseur d’identité. Cette option est celle par défaut. Elle remplit bien sa tâche en fournissant la meilleure expérience possible en fonction des informations disponibles, comme le compte et la présence d’une session pour l’utilisateur. Ne la remplacez pas, à moins d’avoir une excellente raison de le faire.
 - ``Consent`` permet au développeur d’application de forcer l’affichage d’une invite demandant à l’utilisateur son consentement, et même si celui-ci a été accordé auparavant. Dans ce cas, MSAL envoie `prompt=consent` au fournisseur d’identité. Cette option peut être utilisée dans certaines applications axées sur la sécurité, dans lesquelles la gouvernance de l’organisation exige que l’utilisateur voie s’afficher la boîte de dialogue de consentement chaque fois que l’application est utilisée.
 - ``ForceLogin`` permet au développeur d’application de faire afficher par le service une invite demandant à l’utilisateur d’entrer des informations d’identification, et même si cette invite utilisateur n’est peut-être pas nécessaire. Cette option peut s’avérer utile pour permettre à l’utilisateur de se reconnecter si l’acquisition d’un jeton échoue. Dans ce cas, MSAL envoie `prompt=login` au fournisseur d’identité. Elle est parfois utilisée dans les applications axées sur la sécurité, pour lesquelles la gouvernance de l’organisation exige que l’utilisateur se reconnecte chaque fois qu’il accède à des parties spécifiques d’une application.
-- ``Create`` déclenche une expérience d’inscription, qui est utilisée pour External Identities, en envoyant `prompt=create` au fournisseur d’identité. Cette invite ne doit pas être envoyée pour les applications Azure AD B2C. Pour plus d’informations, consultez [Ajouter un flux d’utilisateurs d’inscription en libre-service à une application](https://aka.ms/msal-net-prompt-create).
+- ``Create`` déclenche une expérience d’inscription, qui est utilisée pour External Identities, en envoyant `prompt=create` au fournisseur d’identité. Cette invite ne doit pas être envoyée pour les applications Azure AD B2C. Pour plus d’informations, consultez [Ajouter un flux d’utilisateurs d’inscription en libre-service à une application](../external-identities/self-service-sign-up-user-flow.md).
 - ``Never`` (pour .NET 4.5 et WinRT uniquement) n’affiche aucune invite utilisateur, mais tente à la place d’utiliser le cookie stocké dans la vue web incorporée masquée. Pour plus d’informations, consultez les vues web dans MSAL.NET. L’utilisation de cette option peut échouer. Dans ce cas, `AcquireTokenInteractive` lève une exception pour notifier qu’une interaction avec l’interface utilisateur est nécessaire. Vous devez utiliser un autre paramètre `Prompt`.
 - ``NoPrompt`` n’envoie pas d’invite au fournisseur d’identité. Cette option n’est utile que pour les stratégies de modification de profil Azure Active Directory (Azure AD) B2C. Pour plus d’informations, consultez [Spécificités d’Azure Active Directory B2C](https://aka.ms/msal-net-b2c-specificities).
 

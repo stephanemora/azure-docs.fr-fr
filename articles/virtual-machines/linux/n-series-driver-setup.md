@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2019
 ms.author: vikancha
-ms.openlocfilehash: c4c6bee6d3f9e423d83458ad48d213fe65223514
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c61d0164b84258e8e0c9d130e809b0d86fd41eda
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551758"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073968"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -128,6 +128,25 @@ sudo reboot
    ```
 
    L’installation peut prendre plusieurs minutes. 
+   
+    > [!NOTE]
+   >  Rendez-vous sur les référentiels [Fedora](https://dl.fedoraproject.org/pub/epel/) et [NVIDIA CUDA](https://developer.download.nvidia.com/compute/cuda/repos/) pour sélectionner le package approprié pour la version de CentOS ou RHEL que vous souhaitez utiliser.
+   >  
+
+Par exemple, CentOS 8 et RHEL 8 nécessitent les étapes suivantes.
+
+   ```bash
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+   sudo yum install dkms
+   
+   CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
+
+   sudo yum install cuda-drivers
+   ```
 
 4. Pour éventuellement installer le kit d’outils CUDA complet, saisissez :
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1eeb291c7a058efd8905e95ebf1ea14fed046691
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: df58be32123f662ae2a2782d6ebb7f19bd5c339c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877240"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134930"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel
 
@@ -23,7 +23,7 @@ Azure Spring Cloud active la diffusion en continu de journaux dans Azure CLI 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Installez [extension Azure CLI](/cli/azure/install-azure-cli) pour Spring Cloud, version minimale 0.2.0.
-* Une instance d’**Azure Spring Cloud** avec une application en cours d’exécution, par exemple [application Spring Cloud](./spring-cloud-quickstart.md).
+* Une instance d’**Azure Spring Cloud** avec une application en cours d’exécution, par exemple [application Spring Cloud](./quickstart.md).
 
 > [!NOTE]
 >  L’extension de l’interface CLI ASC est mise à jour de la version 0.2.0 vers la version 0.2.1. Cette modification affecte la syntaxe de la commande pour le streaming des journaux : `az spring-cloud app log tail`, qui est remplacée par : `az spring-cloud app logs`. La commande `az spring-cloud app log tail` sera dépréciée dans une version ultérieure. Si vous utilisez la version 0.2.0, vous pouvez effectuer la mise à niveau vers la version 0.2.1. Tout d’abord, supprimez l’ancienne version à l’aide de la commande `az extension remove -n spring-cloud`.  Ensuite, installez la version 0.2.1 à l’aide de la commande `az extension add -n spring-cloud`.
@@ -90,6 +90,5 @@ az spring-cloud app logs -h
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
+* [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](./quickstart-logs-metrics-tracing.md)
 * [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](./diagnostic-services.md)
-

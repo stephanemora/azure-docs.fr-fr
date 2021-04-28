@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6f101c8a3d3af9658414e816afff9050402d71ce
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604700"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064068"
 ---
 # <a name="securing-service-principals"></a>Sécurisation des principaux de service
 
@@ -116,7 +116,7 @@ Lorsque vous utilisez Microsoft Graph, consultez la documentation de l’API sp�
 
 [Créer un principal du service](../develop/howto-create-service-principal-portal.md)
 
- [Surveiller les connexions de principal de service](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
+ [Surveiller les connexions de principal de service](../reports-monitoring/concept-sign-ins.md)
 
 **Pour en savoir plus sur la sécurisation des comptes de service :**
 

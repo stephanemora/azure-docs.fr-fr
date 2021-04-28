@@ -3,17 +3,17 @@ title: Résolution des exceptions OverconstrainedAllocationRequest lors du dépl
 description: Cet article explique comment résoudre une exception OverconstrainedAllocationRequest lors du déploiement d’un service cloud (classique) sur Azure.
 services: cloud-services
 documentationcenter: ''
-author: mibufo
-ms.author: v-mibufo
+author: mamccrea
+ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 1b50ded166b3f62b38830b4c2d18da7c4c4f0d35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a5880107aaa414da42fe5e36e0cb3315071d8a0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743171"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877423"
 ---
 # <a name="troubleshoot-overconstrainedallocationrequest-when-deploying-cloud-services-classic-to-azure"></a>Résolution des exceptions OverconstrainedAllocationRequest lors du déploiement d’un service cloud (classique) sur Azure
 

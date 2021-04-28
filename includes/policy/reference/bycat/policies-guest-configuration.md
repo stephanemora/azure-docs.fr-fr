@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: c1eade03f8c350ff86c2843dbf65f6ef82304538
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 66a4da9536b36b080a374a6895a05bdfba4f107f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498748"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866530"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -82,4 +82,4 @@ ms.locfileid: "107498748"
 |[Les machines Windows doivent répondre aux exigences de « Composants Windows »](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8537fe96-8cbe-43de-b0ef-131bc72bc22a) |Les machines Windows doivent avoir les paramètres de stratégie de groupe spécifiés dans la catégorie « Composants Windows » pour l’authentification de base, le trafic non chiffré, les comptes Microsoft, la télémétrie, Cortana et d’autres comportements de Windows. Cette stratégie exige que les conditions préalables à la configuration de l’invité aient été déployées sur l’étendue de l’attribution de stratégie. Pour plus d’informations, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsComponents_AINE.json) |
 |[Les machines Windows doivent répondre aux exigences de « Propriétés de pare-feu Windows »](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F35d9882c-993d-44e6-87d2-db66ce21b636) |Les machines Windows doivent avoir les paramètres de stratégie de groupe spécifiés dans la catégorie « Propriétés de pare-feu Windows » pour l’état du pare-feu, les connexions, la gestion des règles et les notifications. Cette stratégie exige que les conditions préalables à la configuration de l’invité aient été déployées sur l’étendue de l’attribution de stratégie. Pour plus d’informations, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsFirewallProperties_AINE.json) |
 |[\[Préversion\] : Les machines Windows doivent répondre aux exigences de la base de référence d’Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) |Nécessite le déploiement des prérequis dans l’étendue de l’attribution de stratégie. Pour plus d’informations, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol). Les machines ne sont pas conformes si elles ne sont pas configurées correctement pour l’une des recommandations présentées dans la base de référence d’Azure Security Center. |AuditIfNotExists, Désactivé |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AzureWindowsBaseline_AINE.json) |
-|[Les serveurs web Windows doivent être configurés de façon à utiliser des protocoles de communication sécurisés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Pour protéger la confidentialité des informations communiquées sur Internet, vos serveurs web doivent utiliser la dernière version du protocole de chiffrement standard, TLS (Transport Layer Security). Le protocole TLS sécurise les communications sur un réseau en chiffrant une connexion entre les ordinateurs à l’aide de certificats de sécurité. La version TLS 1.3 est plus rapide et plus sécurisée que les précédentes, TLS 1.0-1.2 et SSL 2-3, qui sont toutes considérées comme des protocoles hérités. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |
+|[Les serveurs web Windows doivent être configurés de façon à utiliser des protocoles de communication sécurisés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |Pour protéger la confidentialité des informations communiquées sur Internet, vos serveurs web doivent utiliser la dernière version du protocole de chiffrement standard, TLS (Transport Layer Security). Le protocole TLS sécurise les communications sur un réseau en chiffrant une connexion entre les ordinateurs à l’aide de certificats de sécurité. |AuditIfNotExists, Désactivé |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |

@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.topic: how-to
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 84db002e35f88bcee1e59a22b678f2a76047b5ef
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149356"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885827"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle dans Azure Machine Learning Studio
 

@@ -5,12 +5,12 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 9a094755dfb9381b1e4d6abdf1c0e6342d7427c1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ab01143fcab5ceb5468ef8fde233905b8d3e05d1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308437"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124542"
 ---
 # <a name="laying-out-files-for-conversion"></a>Disposition des fichiers pour la conversion
 
@@ -21,7 +21,7 @@ Tout cela est entièrement documenté dans la page [API REST Conversion](convers
 En ce qui concerne la disposition des fichiers, il est important de noter que le chemin d’accès `BlobPrefix` détermine l’ensemble complet des fichiers qui sont à la disposition du service de conversion lors du traitement de la ressource.
 
 > [!Note]
-> Le service télécharge tous les fichiers sous input.BlobPrefix. Assurez-vous que les noms et les chemins d’accès des fichiers ne dépassent pas les [limites de longueur du chemin d’accès de Windows](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) afin d’éviter les problèmes sur le service. 
+> Le service télécharge tous les fichiers sous input.BlobPrefix. Assurez-vous que les noms et les chemins d’accès des fichiers ne dépassent pas les [limites de longueur du chemin d’accès de Windows](/windows/win32/fileio/maximum-file-path-limitation) afin d’éviter les problèmes sur le service. 
 
 ## <a name="placing-files-so-they-can-be-found"></a>Placement des fichiers pour faciliter leur localisation
 

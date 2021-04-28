@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.openlocfilehash: 53fe53e1406bfcde1f2d8c7b2a1ce8369303426f
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 56fe69ad7f56d62c9f61738448ea0276fee47063
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379364"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862522"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Guide de démarrage rapide : Créer un cluster Azure Managed Instance pour Apache Cassandra à l’aide d’Azure CLI (préversion)
 
@@ -66,7 +66,7 @@ Ce guide de démarrage rapide vous montre comment utiliser les commandes Azure 
    > [!NOTE]
    > Les valeurs `assignee` et `role` de la commande précédente sont des valeurs fixes. Entrez ces valeurs exactement comme indiqué dans la commande. Sinon, cela entraînera des erreurs lors de la création du cluster. Si vous rencontrez des erreurs lors de l’exécution de cette commande, vous ne disposez peut-être pas des autorisations nécessaires pour l’exécuter. Contactez votre administrateur pour obtenir les autorisations.
 
-1. Ensuite, créez le cluster dans votre réseau virtuel nouvellement créé à l’aide de la commande [az managed-cassandra cluster create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create). Exécutez la commande suivante comme valeur de la variable `delegatedManagementSubnetId` :
+1. Ensuite, créez le cluster dans votre réseau virtuel nouvellement créé à l’aide de la commande [az managed-cassandra cluster create](/cli/azure/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_cluster_create). Exécutez la commande suivante comme valeur de la variable `delegatedManagementSubnetId` :
 
    > [!NOTE]
    > La valeur de la variable `delegatedManagementSubnetId` que vous allez fournir ci-dessous est exactement la même que la valeur de `--scope` que vous avez fournie dans la commande ci-dessus :
@@ -87,7 +87,7 @@ Ce guide de démarrage rapide vous montre comment utiliser les commandes Azure 
       --debug
    ```
 
-1. Enfin, créez un centre de connaissances pour le cluster avec trois nœuds à l’aide de la commande [az managed-cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) :
+1. Enfin, créez un centre de connaissances pour le cluster avec trois nœuds à l’aide de la commande [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) :
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -102,7 +102,7 @@ Ce guide de démarrage rapide vous montre comment utiliser les commandes Azure 
       --node-count 3 
    ```
 
-1. Une fois le centre de données créé, vous pouvez effectuer un scale-up ou un scale-down des nœuds qu’il contientn exécutez la commande [az managed-cassandra datacenter update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update). Remplacez la valeur du paramètre `node-count` par la valeur souhaitée :
+1. Une fois le centre de données créé, vous pouvez effectuer un scale-up ou un scale-down des nœuds qu’il contientn exécutez la commande [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update). Remplacez la valeur du paramètre `node-count` par la valeur souhaitée :
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
