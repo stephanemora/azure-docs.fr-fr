@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: fc0eb196ed24e413c35d64f0571ff29dc3725032
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5ac228d0aea76dc22db5383a40efe4ec2d252e0
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93421275"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890417"
 ---
 # <a name="init-image-transformation"></a>Lancer une transformation d’image
 
@@ -63,7 +63,7 @@ Une fois la transformation terminée, vous pouvez rechercher les images transfor
 
 ## <a name="technical-notes"></a>Notes techniques  
 
-Pour plus d’informations sur la transformation d’image, consultez [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorch.org/docs/stable/torchvision/transforms.html).
+Pour plus d’informations sur la transformation d’image, consultez [https://pytorch.org/vision/stable/transforms.html](https://pytorch.org/vision/stable/transforms.html).
 
 ###  <a name="module-parameters"></a>Paramètres du module  
 

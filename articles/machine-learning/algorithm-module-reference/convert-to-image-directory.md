@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/12/2020
-ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bf30e636fc1bf1031f6c379a998979d92909b81
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94555581"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890489"
 ---
 # <a name="convert-to-image-directory"></a>Convertir en répertoire d’images
 
@@ -36,7 +36,7 @@ Cet article explique comment utiliser le module Convertir en répertoire d’ima
     Your_image_folder_name/Category_2/asd932_.png
     ```
     
-    Le dossier du jeu de données d’images contient plusieurs sous-dossiers. Chaque sous-dossier contient des images d’une catégorie, respectivement. Les noms des sous-dossiers sont considérés comme les étiquettes des tâches telles que la classification d’images. Pour plus d’informations, consultez les [jeux de données Torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder).
+    Le dossier du jeu de données d’images contient plusieurs sous-dossiers. Chaque sous-dossier contient des images d’une catégorie, respectivement. Les noms des sous-dossiers sont considérés comme les étiquettes des tâches telles que la classification d’images. Pour plus d’informations, consultez les [jeux de données Torchvision](https://pytorch.org/vision/stable/datasets.html#imagefolder).
 
     > [!WARNING]
     > Les jeux de données actuellement étiquetés exportés à partir de l’étiquetage des données ne sont pas pris en charge dans le concepteur.

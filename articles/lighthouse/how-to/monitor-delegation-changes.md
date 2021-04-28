@@ -3,12 +3,12 @@ title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
 ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a12b916fae9794d6d695191a81ec076917bda31
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199059"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814889"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
@@ -86,7 +86,7 @@ Lorsque vous utilisez un compte de principal de service pour interroger le journ
 
 - [Créez un compte de principal de service](../../active-directory/develop/howto-create-service-principal-portal.md) dédié uniquement à cette fonction, au lieu d’attribuer ce rôle à un principal de service existant utilisé pour d’autres tâches d’automatisation.
 - Assurez-vous que ce principal de service n’a pas accès aux ressources client déléguées.
-- [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/security-overview.md).
+- [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/security-features.md).
 - Limitez les utilisateurs habilités à agir pour le compte du principal de service.
 
 Une fois que vous avez créé un compte de principal de service avec un accès Lecteur d’analyse au niveau de l’étendue racine de votre locataire gérant, vous pouvez l’utiliser pour interroger l’activité de délégation et créer des rapports sur celle-ci dans votre locataire.

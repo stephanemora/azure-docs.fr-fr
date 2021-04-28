@@ -4,17 +4,16 @@ titleSuffix: Azure Load Balancer
 description: Dans ce tutoriel, vous déployez un équilibreur de charge Azure avec plusieurs groupes à haute disponibilité dans le pool de back-ends.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 04/16/2021
+ms.date: 04/21/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 21ff43217a7b2bd874a384f3b07a48d5223a1be2
-ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
+ms.openlocfilehash: 71115da01f47572d77243f25204d5b1127db22cd
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107602315"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887159"
 ---
 # <a name="tutorial-create-a-load-balancer-with-more-than-one-availability-set-in-the-backend-pool-using-the-azure-portal"></a>Tutoriel : Créer un équilibreur de charge avec plusieurs groupes à haute disponibilité dans le pool de back-ends à l’aide du portail Azure
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 907bf06323d13b2d26dec5003e4739f2ae9faf74
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b3b94de0fe97bb812921b831a92de44887df4070
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378514"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132968"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi
 
@@ -26,9 +26,9 @@ Les procédures suivantes expliquent comment utiliser le streaming de journaux, 
 
 * Suivez les guides de démarrage rapide précédents de cette série :
 
-  * [Provisionner le service Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
-  * [Configurer un serveur de configuration Azure Spring Cloud](spring-cloud-quickstart-setup-config-server.md).
-  * [Créer et déployer des applications](spring-cloud-quickstart-deploy-apps.md)
+  * [Provisionner le service Azure Spring Cloud](./quickstart-provision-service-instance.md).
+  * [Configurer un serveur de configuration Azure Spring Cloud](./quickstart-setup-config-server.md).
+  * [Créer et déployer des applications](./quickstart-deploy-apps.md)
 
 ## <a name="logs"></a>Journaux d’activité
 
@@ -73,7 +73,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [ ![Requête Logs Analytics - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
-1. Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/). Pour interroger tous vos journaux Log Analytics à partir d’un client centralisé, consultez [Explorateur de données Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+1. Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/). Pour interroger tous vos journaux Log Analytics à partir d’un client centralisé, consultez [Explorateur de données Azure](/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Mesures
 
@@ -115,9 +115,9 @@ Avec les fonctionnalités de supervision intégrées d’Azure Spring Cloud, vou
 
 Effectuez les étapes précédentes : 
 
-* [Provisionner une instance d’Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
-* [Configurer le serveur de configuration](spring-cloud-quickstart-setup-config-server.md)
-* [Créer et déployer des applications](spring-cloud-quickstart-deploy-apps.md)
+* [Provisionner une instance d’Azure Spring Cloud](./quickstart-provision-service-instance.md)
+* [Configurer le serveur de configuration](./quickstart-setup-config-server.md)
+* [Créer et déployer des applications](./quickstart-deploy-apps.md)
 
 ## <a name="logs"></a>Journaux d’activité
 
@@ -171,7 +171,7 @@ Pour obtenir les journaux en utilisant Azure Toolkit for IntelliJ :
 
    [ ![Requête Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
-1. Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/). Pour interroger tous vos journaux Log Analytics à partir d’un client centralisé, consultez [Explorateur de données Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+1. Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/). Pour interroger tous vos journaux Log Analytics à partir d’un client centralisé, consultez [Explorateur de données Azure](/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Mesures
 
@@ -228,6 +228,6 @@ Pour explorer les autres fonctionnalités de supervision Azure Spring Cloud, con
 > [!div class="nextstepaction"]
 > [Services de diagnostic](diagnostic-services.md)
 >
-> [Traçage distribué](spring-cloud-howto-distributed-tracing.md)
+> [Traçage distribué](./how-to-distributed-tracing.md)
 >
-> [Effectuer le streaming des journaux en temps réel](spring-cloud-howto-log-streaming.md)
+> [Effectuer le streaming des journaux en temps réel](./how-to-log-streaming.md)

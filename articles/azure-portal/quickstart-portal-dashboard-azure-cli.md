@@ -4,12 +4,12 @@ description: 'Démarrage rapide : Découvrez comment créer un tableau de bord 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: d951c692c7d3c282ae68c5f9b53e9cda5407df10
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 76d4e3b9c1c906dd91a7355af2c7cb957ef6ac95
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481019"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891731"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Démarrage rapide : Créer un tableau de bord sur le portail Azure avec Azure CLI
 
@@ -73,20 +73,20 @@ Pour plus d’informations, consultez [Référence sur le modèle de tableaux de
 
 Vous pouvez maintenant déployer le modèle à partir d’Azure CLI.
 
-1. Exécutez la commande [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) pour déployer le modèle :
+1. Exécutez la commande [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) pour déployer le modèle :
 
    ```azurecli
    az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
       --input-path portal-dashboard-template-testvm.json --location centralus
    ```
 
-1. Vérifiez que le tableau de bord a bien été créé en exécutant la commande [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) :
+1. Vérifiez que le tableau de bord a bien été créé en exécutant la commande [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show) :
 
    ```azurecli
    az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
    ```
 
-Pour voir tous les tableaux de bord de l’abonnement actif, utilisez [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list) :
+Pour voir tous les tableaux de bord de l’abonnement actif, utilisez [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list) :
 
 ```azurecli
 az portal dashboard list
@@ -98,7 +98,7 @@ Vous pouvez aussi voir tous les tableaux de bord d’un groupe de ressources :
 az portal dashboard list --resource-group myResourceGroup
 ```
 
-Vous pouvez mettre à jour un tableau de bord à l’aide de la commande [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) :
+Vous pouvez mettre à jour un tableau de bord à l’aide de la commande [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update) :
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -119,7 +119,7 @@ Pour supprimer la machine virtuelle et le tableau de bord associé, supprimez le
 az group delete --name myResourceGroup
 ```
 
-Pour supprimer uniquement le tableau de bord, utilisez la commande [az portal dashboard delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete) :
+Pour supprimer uniquement le tableau de bord, utilisez la commande [az portal dashboard delete](/cli/azure/portal/dashboard#az_portal_dashboard_delete) :
 
 ```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
@@ -127,4 +127,4 @@ az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la prise en charge d’Azure CLI pour les tableaux de bord, consultez [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
+Pour plus d’informations sur la prise en charge d’Azure CLI pour les tableaux de bord, consultez [az portal dashboard](/cli/azure/portal/dashboard).

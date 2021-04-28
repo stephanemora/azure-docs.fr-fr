@@ -6,15 +6,15 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3418eeb2ada6951c45e24961c6dc2c45a74f32d3
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096964"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885017"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage 
 
@@ -74,11 +74,6 @@ Des algorithmes Machine Learning peuvent être déclenchés. Si ces algorithmes 
 * Pour les modèles d’identification d’objets, vous pouvez voir des étiquettes et des cadres englobants déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page.
 
 * Pour les modèles de segmentation, vous pouvez voir des polygones et des étiquettes déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page. 
-
-    > [!IMPORTANT]
-    > Les fonctionnalités qui s’affichent avec « (préversion) » sont en préversion publique.   
-    > La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 Au tout début d’un projet d’étiquetage, en particulier, un modèle Machine Learning peut n’être capable de préétiqueter correctement qu’un petit sous-ensemble d’images. Une fois ces images étiquetées, le projet d’étiquetage retourne à l’étiquetage manuel afin de collecter plus de données pour le prochain cycle d’entraînement du modèle. Au fil du temps, le modèle sera davantage fiable pour un plus grand nombre d’images, ce qui augmentera le nombre de tâches de préétiquettage plus tard dans le projet.
 

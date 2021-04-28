@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 91d7e0777cbdad459e4514a0216146e0d5739f6d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: a7d87e2496158fec8ff33ab8586c845a6207f810
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750947"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816059"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
@@ -155,7 +155,7 @@ Service Fabric utilise les certificats à des fins d’authentification et de ch
 
 Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Azure Key Vault sert à [gérer des certificats](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) pour des clusters Service Fabric dans Azure. Le fournisseur de ressources Azure qui crée les clusters extrait les certificats d’un coffre de clés. Ensuite, le fournisseur installe les certificats sur les machines virtuelles quand le cluster est déployé sur Azure.
 
-Il existe une relation de certificat entre [Azure Key Vault](../../key-vault/general/security-overview.md), le cluster Service Fabric et le fournisseur de ressources qui utilise les certificats. Quand le cluster est créé, les informations relatives à la relation de certificat sont stockées dans un coffre de clés.
+Il existe une relation de certificat entre [Azure Key Vault](../../key-vault/general/security-features.md), le cluster Service Fabric et le fournisseur de ressources qui utilise les certificats. Quand le cluster est créé, les informations relatives à la relation de certificat sont stockées dans un coffre de clés.
 
 Il existe deux étapes de base pour configurer un coffre de clés :
 1. Créez un groupe de ressources dédié à votre coffre de clés.

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 901f2b938512f842a5b4c34adbfc61f9379e5131
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fdefca482dfa1afeb3eebb284b08eaadf4f1af60
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772160"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897051"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutoriel : Utiliser une identité managée pour connecter Key Vault à une application web Azure dans .NET
 
@@ -172,7 +172,7 @@ L’URL du Git distant est indiquée dans la propriété `deploymentLocalGitUrl`
 Configurez maintenant votre application web pour un déploiement à partir de la branche `main` :
 
 ```azurecli-interactive
- az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+ az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
 ```
 
 Accédez à votre nouvelle application en utilisant la commande suivante. Remplacez `<your-webapp-name>` par le nom de votre application.
@@ -343,4 +343,4 @@ Là où « Hello World » s’affichait, vous devez maintenant voir la valeur 
 - [Utiliser Azure Key Vault avec des applications déployées sur une machine virtuelle dans .NET](./tutorial-net-virtual-machine.md)
 - En savoir plus sur les [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 - Consulter le [Guide du développeur](./developers-guide.md)
-- [Sécuriser l’accès à un coffre de clés](./security-overview.md)
+- [Sécuriser l’accès à un coffre de clés](./security-features.md)

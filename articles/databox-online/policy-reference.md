@@ -1,19 +1,19 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Stack Edge
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Stack Edge. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 ms.subservice: edge
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: 3ee04e8e5254c2f9de65d2f919a47a052d41ea04
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c0202f85777df0d222647ef6950407b315729e33
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500632"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878377"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stack-edge"></a>Définitions intégrées d’Azure Policy pour Azure Stack Edge
 

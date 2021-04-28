@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f737be68a28f95ab5402ba5ea08e85fcf1b04d37
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521677"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565897"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -93,10 +93,10 @@ Les flux de journaux d’activité incluent les propriétés suivantes :
                     * **Traffic Flow** - La direction du flux de trafic. Les valeurs valides sont **I** pour le trafic entrant et **O** pour le trafic sortant.
                     * **Traffic Decision** - Indique si le trafic a été autorisé ou refusé. Les valeurs valides sont **A** pour autorisé et **D** pour refusé.
                     * **Flow State - Version 2 Only** - Capture l’état du flux. Les états possibles sont **B** : début, lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, quand un flux est arrêté. Des statistiques sont fournies.
-                    * **Packets - Source to destination - Version 2 Only** Nombre total de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour.
-                    * **Bytes sent - Source to destination - Version 2 Only** Nombre total d’octets de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet.
-                    * **Packets - Destination to source - Version 2 Only** Nombre total de paquets TCP ou UDP envoyés de la destination à la source depuis la dernière mise à jour.
-                    * **Bytes sent - Destination to source - Version 2 Only** Nombre total d’octets de paquets TCP et UDP envoyés de la destination à la source depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet.
+                    * **Packets - Source to destination - Version 2 Only** Nombre total de paquets TCP envoyés de la source à la destination depuis la dernière mise à jour.
+                    * **Bytes sent - Source to destination - Version 2 Only** Nombre total d’octets de paquets TCP envoyés de la source à la destination depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet.
+                    * **Packets - Destination to source - Version 2 Only** Nombre total de paquets TCP envoyés de la destination à la source depuis la dernière mise à jour.
+                    * **Bytes sent - Destination to source - Version 2 Only** Nombre total d’octets de paquets TCP envoyés de la destination à la source depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet.
 
 
 **Journaux de flux de groupe de sécurité réseau version 2 (à distinguer de la version 1)** 
@@ -347,6 +347,18 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - [[Didacticiel] Gérer et analyser des journaux de flux de groupe de sécurité réseau à l’aide de Grafana](./network-watcher-nsg-grafana.md)
 - [[Didacticiel] Gérer et analyser des journaux de flux de groupe de sécurité réseau à l’aide de Graylog](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
+*Désactiver les journaux d’activité des flux*
+
+Lorsque le journal de flux est désactivé, la journalisation de flux pour le groupe de sécurité réseau associé est arrêtée. Toutefois, le journal de flux en tant que ressource continue d’exister avec tous ses paramètres et associations. Il peut être activé à tout moment pour démarrer la journalisation de flux sur le groupe de sécurité réseau configuré. Les étapes de désactivation/activation d’un journal de flux sont disponibles dans [ce guide pratique](./network-watcher-nsg-flow-logging-powershell.md).  
+
+*Supprimer les journaux de flux*
+
+Lorsque le journal de flux est supprimé, non seulement la journalisation de flux pour le groupe de sécurité réseau associé est arrêtée, mais la ressource de journal de flux est également supprimée avec ses paramètres et ses associations. Pour réactiver la journalisation de flux, une nouvelle ressource de journal de flux doit être créée pour ce groupe de sécurité réseau. Un journal de flux peut être supprimé à l’aide de [PowerShell](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworkwatcherflowlog), de l’[interface CLI](https://docs.microsoft.com/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) ou de l’[API REST](https://docs.microsoft.com/rest/api/network-watcher/flowlogs/delete). La prise en charge de la suppression des journaux de flux à partir du Portail Azure est prévue.    
+
+En outre, lorsqu’un groupe de sécurité réseau est supprimé, la ressource de journal de flux associée est supprimée par défaut.
+
+> [!NOTE]
+> Pour déplacer un groupe de sécurité réseau vers un autre groupe de ressources ou un autre abonnement, les journaux de flux associés doivent être supprimés, la simple désactivation des journaux de flux ne fonctionne pas. Après la migration du groupe de sécurité réseau, les journaux de flux doivent être recréés pour activer la journalisation de flux sur ce groupe.  
 
 ## <a name="nsg-flow-logging-considerations"></a>Considérations relatives à la journalisation de flux NSG
 

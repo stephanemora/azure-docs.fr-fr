@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 28007b4e17bd698e4aaa2bddbf0c8f9ffaaa8351
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8b1f56e2982afc8767ee1addaa2e47ac26cf29c0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606451"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072906"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser une commande Azure CLI, az postgres up (préversion), pour créer une base de données Azure pour PostgreSQL (serveur unique)
 
 > [!IMPORTANT]
-> La commande Azure CLI [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) est disponible en préversion.
+> La commande Azure CLI [az postgres up](/cli/azure/postgres#az_postgres_up) est disponible en préversion.
 
-Base de données Azure pour PostgreSQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce démarrage rapide vous montre comment utiliser la commande [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) pour créer un serveur Azure Database pour PostgreSQL à partir d’Azure CLI. En plus de créer le serveur, la commande `az postgres up` crée un exemple de base de données, un utilisateur racine dans la base de données, ouvre le pare-feu pour les services Azure et crée des règles de pare-feu par défaut pour l’ordinateur client. Ces valeurs par défaut aident à accélérer le processus de développement.
+Base de données Azure pour PostgreSQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce démarrage rapide vous montre comment utiliser la commande [az postgres up](/cli/azure/postgres#az_postgres_up) pour créer un serveur Azure Database pour PostgreSQL à partir d’Azure CLI. En plus de créer le serveur, la commande `az postgres up` crée un exemple de base de données, un utilisateur racine dans la base de données, ouvre le pare-feu pour les services Azure et crée des règles de pare-feu par défaut pour l’ordinateur client. Ces valeurs par défaut aident à accélérer le processus de développement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,7 +42,7 @@ az account set --subscription <subscription id>
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Créer un serveur Azure Database pour PostgreSQL
 
-Pour utiliser les commandes, installez l’extension [db-up](/cli/azure/ext/db-up). Si une erreur est retournée, vérifiez que vous avez installé la dernière version d’Azure CLI. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+Pour utiliser les commandes, installez l’extension [db-up](/cli/azure/ext/db-up/mysql). Si une erreur est retournée, vérifiez que vous avez installé la dernière version d’Azure CLI. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up
@@ -71,7 +71,7 @@ admin-user | Générée par le système | Le nom d’utilisateur pour l’admini
 admin-password | Générée par le système | Mot de passe de l’utilisateur Administrateur.
 
 > [!NOTE]
-> Pour plus d’informations sur la commande `az postgres up` et ses paramètres supplémentaires, consultez la [documentation Azure CLI](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up).
+> Pour plus d’informations sur la commande `az postgres up` et ses paramètres supplémentaires, consultez la [documentation Azure CLI](/cli/azure/postgres#az_postgres_up).
 
 Une fois que votre serveur est créé, il présente les paramètres suivants :
 
@@ -87,7 +87,7 @@ Une fois que votre serveur est créé, il présente les paramètres suivants :
 
 Une fois que la commande `az postgres up` a abouti, une liste de chaînes de connexion pour les langages de programmation les plus courants vous est retournée. Ces chaînes de connexion sont préconfigurées avec les attributs spécifiques de votre nouveau serveur Azure Database pour PostgreSQL.
 
-Vous pouvez utiliser la commande [az postgres show-connection-string](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) pour lister à nouveau ces chaînes de connexion.
+Vous pouvez utiliser la commande [az postgres show-connection-string](/cli/azure/postgres#az_postgres_show_connection_string) pour lister à nouveau ces chaînes de connexion.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -97,7 +97,7 @@ Supprimez toutes les ressources que vous avez créées au cours de ce démarrage
 az postgres down --delete-group
 ```
 
-Si vous souhaitez simplement supprimer le serveur nouvellement créé, vous pouvez exécuter la commande [az postgres down](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-down).
+Si vous souhaitez simplement supprimer le serveur nouvellement créé, vous pouvez exécuter la commande [az postgres down](/cli/azure/postgres#az_postgres_down).
 
 ```azurecli
 az postgres down

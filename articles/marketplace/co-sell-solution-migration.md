@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/04/2021
-ms.openlocfilehash: bb954a32a4e598c45578d4b06606bc133babb50d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 3455cc5b7ce5e1ddb7db3c3a9de4aedefcedc4b5
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107150"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133400"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migration de solutions de co-vente de GTM OCP vers le marketplace commercial
 
@@ -36,7 +36,7 @@ Vérifiez que vous êtes un membre actif du programme Microsoft Partner Network 
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>Publication de mises à jour pour obtenir l’état co-sell-ready
 
-Pour que votre solution soit détectable par les vendeurs et les partenaires de Microsoft, elle doit respecter les [exigences de la co-vente](marketplace-co-sell.md). Pour qu’un vendeur Microsoft soit encouragés, votre solution doit répondre aux [exigences d’incitation](marketplace-co-sell.md). Remplissez ces conditions dans l’onglet Co-vente d’Espace partenaires (voir [cette image](#cosell-tab) plus loin dans cet article).
+Pour que votre solution soit détectable par les vendeurs et les partenaires de Microsoft, elle doit respecter les [exigences de la co-vente](./co-sell-overview.md). Pour qu’un vendeur Microsoft soit encouragés, votre solution doit répondre aux [exigences d’incitation](./co-sell-overview.md). Remplissez ces conditions dans l’onglet Co-vente d’Espace partenaires (voir [cette image](#cosell-tab) plus loin dans cet article).
 
 > [!NOTE]
 > Sur le marketplace commercial, vos solutions sont appelées « offres » tout au long de l’expérience de publication.
@@ -137,7 +137,7 @@ Pour obtenir des instructions détaillées sur les informations que vous devez f
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Onglets de configuration de la vue d’ensemble de l’offre dans Espace partenaires.":::
 
-3. Certaines des informations relatives aux vendeurs Microsoft ont été copiées à partir de la solution GTM OCP. Renseignez les informations requises restantes dans l’onglet **Co-vendre avec Microsoft** pour que votre offre soit prête pour la co-vente. Lorsque vous avez terminé, sélectionnez **Vérifier et publier**. Pour plus d’informations, consultez [Configurer la co-vente pour une offre commerciale de la Place de marché](commercial-marketplace-co-sell.md).
+3. Certaines des informations relatives aux vendeurs Microsoft ont été copiées à partir de la solution GTM OCP. Renseignez les informations requises restantes dans l’onglet **Co-vendre avec Microsoft** pour que votre offre soit prête pour la co-vente. Lorsque vous avez terminé, sélectionnez **Vérifier et publier**. Pour plus d’informations, consultez [Configurer la co-vente pour une offre commerciale de la Place de marché](./co-sell-configure.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="Onglet Co-vente de l’offre dans Espace partenaires.":::
 
@@ -155,5 +155,5 @@ Pour obtenir des instructions détaillées sur les informations que vous devez f
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Revendre via des partenaires CSP](cloud-solution-providers.md)
-- [Configurer la co-vente pour une offre de la Place de marché commerciale](commercial-marketplace-co-sell.md)
+- [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md)
 - Consulter ces [FAQ](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

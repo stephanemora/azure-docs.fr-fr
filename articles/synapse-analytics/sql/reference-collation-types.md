@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a83646556838732a3b79f93771c762f00ed5afc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93311919"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144292"
 ---
 # <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Prise en charge du classement de bases de données pour Synapse SQL dans Azure Synapse Analytics 
 
@@ -115,7 +115,5 @@ Quand « Classement » est transmis en tant que paramètre de propriété, la 
 
 Pour plus d’informations sur les bonnes pratiques concernant les pools SQL dédiés et les pools SQL serverless, consultez les articles suivants :
 
-- [Bonnes pratiques pour les pools SQL dédiés](best-practices-sql-pool.md)
-- [Bonnes pratiques pour les pools SQL serverless](best-practices-sql-on-demand.md)
-
-
+- [Bonnes pratiques pour les pools SQL dédiés](./best-practices-dedicated-sql-pool.md)
+- [Bonnes pratiques pour les pools SQL serverless](./best-practices-serverless-sql-pool.md)

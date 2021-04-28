@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 774f4be6a5aa0e0e772086c52938881c6637b261
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: a0eb992f50ed8c4f7cc9695607fae0cba01377e2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588188"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143122"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Application d’Azure Hybrid Benefit aux machines virtuelles Linux
 
@@ -178,7 +178,7 @@ Pour utiliser Azure Hybrid Benefit pour vos machines virtuelles SLES et pour plu
 
 ## <a name="azure-hybrid-benefit-on-reserved-instances-is-in-preview"></a>Azure Hybrid Benefit sur les instances réservées est en préversion
 
-Les réservations Azure (Azure Reserved Virtual Machine Instances) vous permettent d’économiser en vous engageant sur des plans d’un ou trois ans pour plusieurs produits. Vous pouvez en savoir plus sur les [instances réservées ici](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations). Azure Hybrid Benefit est disponible en préversion pour l'[instance de machine virtuelle réservée (RI)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Cela signifie que si vous avez acheté des coûts de calcul à tarif réduit à l’aide de RI, vous pouvez appliquer l’avantage AHB sur les coûts de licence pour RHEL et SUSE par-dessus. Les étapes permettant d’appliquer l’avantage AHB pour une instance RI restent exactement identiques à celles d’une machine virtuelle standard.
+Les réservations Azure (Azure Reserved Virtual Machine Instances) vous permettent d’économiser en vous engageant sur des plans d’un ou trois ans pour plusieurs produits. Vous pouvez en savoir plus sur les [instances réservées ici](../../cost-management-billing/reservations/save-compute-costs-reservations.md). Azure Hybrid Benefit est disponible en préversion pour l'[instance de machine virtuelle réservée (RI)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). Cela signifie que si vous avez acheté des coûts de calcul à tarif réduit à l’aide de RI, vous pouvez appliquer l’avantage AHB sur les coûts de licence pour RHEL et SUSE par-dessus. Les étapes permettant d’appliquer l’avantage AHB pour une instance RI restent exactement identiques à celles d’une machine virtuelle standard.
 ![AHB pour RI](./media/azure-hybrid-benefit/reserved-instances.png)
 
 >[!NOTE]
@@ -212,7 +212,7 @@ R : Oui, c’est possible. Vous pouvez utiliser le type de licence `RHEL_BYOS` 
 
 *Q : Puis-je utiliser Azure Hybrid Benefit sur des groupes de machines virtuelles identiques pour RHEL et SLES ?*
 
-R : Oui, Azure Hybrid Benefit sur des groupes de machines virtuelles identiques pour RHEL et SLES est en préversion. Vous pouvez en [savoir plus sur cet avantage et sur son fonctionnement ici](/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux). 
+R : Oui, Azure Hybrid Benefit sur des groupes de machines virtuelles identiques pour RHEL et SLES est en préversion. Vous pouvez en [savoir plus sur cet avantage et sur son fonctionnement ici](../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md). 
 
 *Q : Puis-je utiliser Azure Hybrid Benefit sur des instances réservées pour RHEL et SLES ?*
 
