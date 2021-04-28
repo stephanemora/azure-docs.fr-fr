@@ -11,26 +11,31 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fe220cf7b5cb8b67e5ab7ded221494e89a28aa5
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99593158"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530261"
 ---
 # <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Comment configurer par programmation la synchronisation cloud avec l’API MS Graph
 
 Le document suivant explique comment répliquer un profil de synchronisation à partir de zéro en utilisant uniquement des API MS Graph.  
 Les étapes nécessaires sont les suivantes :  Il s'agit des éléments suivants :
 
-- [Configuration de base](#basic-setup)
-- [Créer des principaux de service](#create-service-principals)
-- [Créer une tâche de synchronisation](#create-sync-job)
-- [Mettre à jour un domaine ciblé](#update-targeted-domain)
-- [Activer les hachages de mot de passe de synchronisation](#enable-sync-password-hashes-on-configuration-blade)
-- [Suppressions accidentelles](#accidental-deletes)
-- [Démarrer la tâche de synchronisation](#start-sync-job)
-- [Vérifier l’état](#review-status)
+- [Comment configurer par programmation la synchronisation cloud avec l’API MS Graph](#how-to-programmatically-configure-cloud-sync-using-ms-graph-api)
+  - [Configuration de base](#basic-setup)
+    - [Activer les indicateurs de locataire](#enable-tenant-flags)
+  - [Créer des principaux de service](#create-service-principals)
+  - [Créer une tâche de synchronisation](#create-sync-job)
+  - [Mettre à jour un domaine ciblé](#update-targeted-domain)
+  - [Activer les hachages de mot de passe de synchronisation dans le panneau de configuration](#enable-sync-password-hashes-on-configuration-blade)
+  - [Suppressions accidentelles](#accidental-deletes)
+    - [Activation et définition du seuil](#enabling-and-setting-the-threshold)
+    - [Autoriser les suppressions](#allowing-deletes)
+  - [Démarrer la tâche de synchronisation](#start-sync-job)
+  - [Vérifier l’état](#review-status)
+  - [Étapes suivantes](#next-steps)
 
 Utilisez ces commandes [Module Microsoft Azure Active Directory pour Windows PowerShell](/powershell/module/msonline/) afin d’activer la synchronisation d’un locataire de production. Il s’agit là d’un prérequis pour appeler le service web Administration du locataire.
 
@@ -45,7 +50,7 @@ Utilisez ces commandes [Module Microsoft Azure Active Directory pour Windows Pow
 La première de ces deux commandes nécessite des informations d’identification Azure Active Directory. Ces applets de commande identifient implicitement le locataire et activent sa synchronisation.
 
 ## <a name="create-service-principals"></a>Créer des principaux de service
-Ensuite, nous devons créer [l’application ou le principal de service AD2AAD](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http).
+Ensuite, nous devons créer [l’application ou le principal de service AD2AAD](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http&preserve-view=true).
 
 Vous devez utiliser l’ID d’application 1a4721b3-e57f-4451-ae87-ef078703ec94. Le displayName correspond à l’URL du domaine Active Directory, si vous en utilisez une dans le portail (par exemple, contoso.com). Toutefois, elle peut porter un autre nom.
 
@@ -61,7 +66,7 @@ Vous devez utiliser l’ID d’application 1a4721b3-e57f-4451-ae87-ef078703ec94.
 ## <a name="create-sync-job"></a>Créer une tâche de synchronisation
 La sortie de la commande ci-dessus retourne l’objectId du principal de service qui a été créé. Pour cet exemple, l’objectId est 614ac0e9-A59B-481F-bd8f-79a73d167e1c.  Utilisez Microsoft Graph pour ajouter un synchronizationJob à ce principal de service.  
 
-La documentation sur la création d’une tâche de synchronisation est [disponible ici](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta).
+La documentation sur la création d’une tâche de synchronisation est [disponible ici](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true).
 
 Si vous n’avez pas enregistré l’ID ci-dessus, vous pouvez trouver le principal de service en exécutant l’appel MS Graph suivant. Vous aurez besoin des autorisations Directory.Read.All pour effectuer cet appel :
  
@@ -282,11 +287,11 @@ La tâche peut être récupérée à nouveau à l’aide de la commande suivante
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ ` 
 
-La documentation concernant la récupération des tâches est [disponible ici](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta). 
+La documentation concernant la récupération des tâches est [disponible ici](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta&preserve-view=true). 
  
 Pour démarrer la tâche, émettez cette requête à l’aide de l’objectId du principal de service créé à la première étape, et de l’identificateur de tâche retourné par la requête qui a créé la tâche.
 
-La documentation expliquant comment démarrer une tâche est [disponible ici](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
+La documentation expliquant comment démarrer une tâche est [disponible ici](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
  ```
  POST  https://graph.microsoft.com/beta/servicePrincipals/8895955e-2e6c-4d79-8943-4d72ca36878f/synchronization/jobs/AD2AADProvisioning.fc96887f36da47508c935c28a0c0b6da/start
@@ -294,7 +299,7 @@ La documentation expliquant comment démarrer une tâche est [disponible ici](/g
 
 La réponse attendue est... HTTP/204 No Content.
 
-Les autres commandes permettant de contrôler les tâches sont [documentées ici](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta).
+Les autres commandes permettant de contrôler les tâches sont [documentées ici](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta&preserve-view=true).
  
 Pour redémarrer une tâche, utilisez...
 
@@ -320,4 +325,4 @@ Pour plus de détails, regardez sous la section « status » de l’objet reto
 
 - [Qu’est-ce que la synchronisation cloud Azure AD Connect ?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
-- [API de synchronisation Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [API de synchronisation Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

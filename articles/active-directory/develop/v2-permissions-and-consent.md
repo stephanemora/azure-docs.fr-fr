@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 04/14/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: bdcfb0adf2c92fa6e084c2efbc2e5c066a3e3ede
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2a975a0aba06ecfd010fe328ef6c8cda75290f2b
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305852"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515581"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorisations et consentement dans la plateforme d’identités Microsoft
 
@@ -43,11 +43,7 @@ Grâce à ces types de définitions d’autorisations, la ressource dispose d’
 
 Lorsque les fonctionnalités d’une ressource sont regroupées en petits ensembles d’autorisations, des applications tierces peuvent être créées pour ne demander que les autorisations nécessaires à leur fonctionnement. Les utilisateurs et les administrateurs peuvent connaître les données auxquelles l’application peut accéder. Ils peuvent ainsi être plus confiants dans le fait que l’application ne se comporte pas de manière malveillante. Les développeurs doivent toujours respecter le principe de moindre privilège et demander uniquement les autorisations dont ils ont besoin pour faire fonctionner leurs applications.
 
-Dans OAuth 2.0, ces types de jeux d’autorisations sont appelés des *étendues*. Ils sont également souvent appelés *autorisations*. Dans la plateforme d’identités Microsoft, une autorisation est représentée sous la forme d’une valeur de chaîne. Pour l’exemple de Microsoft Graph, voici la valeur de chaîne pour chaque autorisation :
-
-* Lire le calendrier d’un utilisateur en utilisant `Calendars.Read`
-* Écrire dans le calendrier d’un utilisateur en utilisant `Calendars.ReadWrite`
-* Envoi de messages en tant qu’utilisateur en utilisant `Mail.Send`
+Dans OAuth 2.0, ces types de jeux d’autorisations sont appelés des *étendues*. Ils sont également souvent appelés *autorisations*. Dans la plateforme d’identités Microsoft, une autorisation est représentée sous la forme d’une valeur de chaîne. Une application demande les autorisations dont elle a besoin en spécifiant l’autorisation dans le paramètre de requête `scope`. La plateforme d’identité prend en charge plusieurs [étendues OpenID Connect](#openid-connect-scopes) bien définies, ainsi que des autorisations basées sur les ressources (pour chaque autorisation, la valeur de celle-ci est ajoutée à l’URI de l’identificateur de la ressource ou de l’ID de l’application). Par exemple, la chaîne d’autorisation `https://graph.microsoft.com/Calendars.Read` est utilisée pour demander l’autorisation de lire les calendriers des utilisateurs dans Microsoft Graph.
 
 Généralement, une application peut demander ces autorisations en spécifiant les étendues dans les demandes dirigées vers le point de terminaison d’autorisation de la plateforme d’identités Microsoft. Toutefois, certaines autorisations à privilèges élevés peuvent être accordées uniquement par le biais du consentement de l’administrateur. Elles peuvent être demandées ou accordées en utilisant le [point de terminaison de consentement de l’administrateur](#admin-restricted-permissions). Poursuivez votre lecture pour en savoir plus.
 

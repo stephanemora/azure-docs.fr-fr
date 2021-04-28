@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2021
+ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 232b83fef2da312828f4f9f332ab2505e3a68100
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732599"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503641"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -36,8 +36,8 @@ Chaque itinéraire comporte un préfixe d’adresse et le type de tronçon suiva
 |-------|---------                                               |---------      |
 |Default|Propre au réseau virtuel                           |Réseau virtuel|
 |Default|0.0.0.0/0                                               |Internet       |
-|Default|10.0.0.0/8                                              |Aucun           |
-|Default|192.168.0.0/16                                          |Aucun           |
+|Default|10.0.0.0/8                                              |None           |
+|Default|192.168.0.0/16                                          |None           |
 |Default|100.64.0.0/10                                           |None           |
 
 Les types de tronçon suivants répertoriés dans le tableau précédent représentent la façon dont Azure achemine le trafic à destination du préfixe d’adresse répertorié. Des explications sont fournies ci-après pour les types de tronçon suivants :
@@ -111,7 +111,7 @@ Lorsqu’il existe une correspondance exacte de préfixe entre un itinéraire av
    3. Étiquettes régionales AzureCloud (par ex. : AzureCloud.canadacentral, AzureCloud.eastasia)
    4. L’étiquette AzureCloud </br></br>
 
-Pour utiliser cette fonctionnalité, spécifiez un nom d’étiquette de service pour le paramètre de préfixe d’adresse dans les commandes de table de routage. Par exemple, dans PowerShell, vous pouvez créer un itinéraire pour diriger le trafic envoyé vers un préfixe d’adresse IP de Stockage Azure vers une appliance virtuelle en utilisant : </br>
+Pour utiliser cette fonctionnalité, spécifiez un nom d’étiquette de service pour le paramètre de préfixe d’adresse dans les commandes de table de routage. Par exemple, dans PowerShell, vous pouvez créer un itinéraire pour diriger le trafic envoyé vers un préfixe d’adresse IP de Stockage Azure vers une appliance virtuelle en utilisant : </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -123,6 +123,10 @@ La même commande pour CLI sera : </br>
 az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
 ```
 </br>
+
+#### <a name="known-issues-april-2021"></a>Problèmes connus (avril 2021)
+
+Quand des routes BGP sont présentes ou qu’un point de terminaison de service est configuré sur votre sous-réseau, les routes peuvent ne pas être évaluées avec la priorité correcte. Un correctif pour ces scénarios est actuellement en préparation. </br>
 
 
 > [!NOTE] 
@@ -282,8 +286,8 @@ La table de routage du *Sous-réseau2* dans l’image contient les itinéraires 
 |Default |Actif |10.2.0.0/16         |Peering de réseaux virtuels              |                   |
 |Default |Actif |10.10.0.0/16        |Passerelle de réseau virtuel   |[X.X.X.X]          |
 |Default |Actif |0.0.0.0/0           |Internet                  |                   |
-|Default |Actif |10.0.0.0/8          |Aucun                      |                   |
-|Default |Actif |100.64.0.0/10       |Aucun                      |                   |
+|Default |Actif |10.0.0.0/8          |None                      |                   |
+|Default |Actif |100.64.0.0/10       |None                      |                   |
 |Default |Actif |192.168.0.0/16      |None                      |                   |
 
 La table de routage du *Sous-réseau2* contient tous les itinéraires par défaut créés par Azure et les itinéraires facultatifs de peering de réseau virtuel et de passerelle de réseau virtuel. Azure a ajouté les itinéraires facultatifs à tous les sous-réseaux du réseau virtuel lorsque la passerelle et le peering ont été ajoutés au réseau virtuel. Azure a supprimé les routes pour les préfixes d’adresse 10.0.0.0/8, 192.168.0.0/16 et 100.64.0.0/10 de la table de routage du *Sous-réseau1* lorsque la route définie par l’utilisateur pour le préfixe d’adresse 0.0.0.0/0 a été ajoutée au *Sous-réseau1*.  

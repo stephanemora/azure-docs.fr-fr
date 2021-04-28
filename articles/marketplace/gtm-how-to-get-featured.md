@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2021
-ms.openlocfilehash: caa2b3171e80439fedd8941ebc864a226f1a21b8
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 4ffbca8e4e70a5201b374d4fac9bdb136c860573
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599993"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144958"
 ---
 # <a name="how-to-get-featured-in-microsoft-appsource-and-azure-marketplace"></a>Guide pratique pour être référencé dans AppSource et dans la Place de marché Azure
 
 La Place de marché Microsoft Azure et AppSource ont des sections **Applications proposées**, où votre application peut apparaître :
 
-* Tout d’abord, si vous disposez d’une offre ESSAI, CONSEIL ou TRANSACTION, vous pouvez bénéficier de l’**avantage du placement de la catégorie proposée sur la place de marché commerciale** à l’aide des [avantages de la place de marché commerciale](/azure/marketplace/gtm-your-marketplace-benefits). Une fois éligible, votre référencement de la place de marché commerciale sera automatiquement présenté dans l’une des catégories située sur le côté gauche de votre référencement. La catégorie et le minutage de votre placement proposé seront fonction de la disponibilité. Pour renforcer encore davantage la fiabilité de votre référencement de la place de marché, consultez cette vidéo sur les [bonnes pratiques pour l’optimisation de votre référencement (microsoft.com)](https://partner.microsoft.com/asset/detail/best-practices-for-optimizing-your-listing-mp4).
+* Tout d’abord, si vous disposez d’une offre ESSAI, CONSEIL ou TRANSACTION, vous pouvez bénéficier de l’**avantage du placement de la catégorie proposée sur la place de marché commerciale** à l’aide des [avantages de la place de marché commerciale](./gtm-your-marketplace-benefits.md). Une fois éligible, votre référencement de la place de marché commerciale sera automatiquement présenté dans l’une des catégories située sur le côté gauche de votre référencement. La catégorie et le minutage de votre placement proposé seront fonction de la disponibilité. Pour renforcer encore davantage la fiabilité de votre référencement de la place de marché, consultez cette vidéo sur les [bonnes pratiques pour l’optimisation de votre référencement (microsoft.com)](https://partner.microsoft.com/asset/detail/best-practices-for-optimizing-your-listing-mp4).
 * Ensuite, passez en revue la liste des bonnes pratiques et les critères ci-dessous pour obtenir une place.
 
 L’algorithme de sélection des applications proposées génère un score pour une application établi par Microsoft.  La sélection hebdomadaire des applications proposées repose sur un calcul des performances des applications et des services.

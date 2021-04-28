@@ -3,12 +3,12 @@ title: Configuration de l’authentification et de l’autorisation Service Bus
 description: Authentifiez des applications dans Service Bus avec l’authentification Signature d’accès partagé (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ccb526abd99be50e33c8adb918186944b7af3bd6
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 73b6dc1004ec40c228c0ef5104de5f21eccd0437
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516652"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988745"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Authentification et de autorisation Service Bus
 Il existe deux façons d’authentifier et d’autoriser l’accès aux ressources Azure Service Bus : Azure Active Directory (Azure AD) et les signatures d’accès partagé (SAP). Cet article vous explique l’utilisation de ces deux types de mécanismes de sécurité. 
@@ -45,8 +45,6 @@ Pour accéder à une entité, le client requiert un jeton SAP créé à l’aide
 
 La prise en charge de l’authentification SAS pour Service Bus est incluse dans le Kit de développement Azure .NET SDK versions 2.0 et ultérieures. SAP inclut la prise en charge d’une règle d’autorisation d’accès partagé. Toutes les API qui acceptent une chaîne de connexion en tant que paramètre incluent la prise en charge des chaînes de connexion des services SAS.
 
-> [!IMPORTANT]
-> Si vous utilisez Azure Active Directory Access Control (également appelé Access Control Service ou ACS) avec Service Bus, notez que la prise en charge de cette méthode est désormais limitée et que vous devez [migrer votre application en vue d’utiliser SAS](service-bus-migrate-acs-sas.md) ou utiliser l’authentification OAuth 2.0 avec Azure AD (option recommandée). Pour plus d’informations sur les limites d’ACS, lisez [ce billet de blog](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’authentification avec Azure AD, consultez les articles suivants :

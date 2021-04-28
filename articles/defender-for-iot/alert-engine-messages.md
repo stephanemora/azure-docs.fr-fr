@@ -1,18 +1,14 @@
 ---
 title: Types et descriptions d’alertes
 description: Consultez les descriptions d’alertes de Defender pour IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 4/8/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9ef7aa388d0f25adcafec1cb4a5b38dcfb8597a1
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 483563b53a5849b0354986269568bc42b9124cc2
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210463"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477993"
 ---
 # <a name="alert-types-and-descriptions"></a>Types et descriptions d’alertes
 
@@ -20,7 +16,7 @@ Cet article décrit tous les types d’alerte qui peuvent être générés à pa
 
 ## <a name="policy-engine-alerts"></a>Alertes du moteur de stratégie
 
-Les alertes du moteur de stratégie décrivent des écarts par rapport au comportement de réseau de base appris.
+Les alertes du moteur de stratégie décrivent les écarts détectés par rapport au comportement de base appris.
 
 | Titre  | Description | Gravité |
 |--|--|--|
@@ -122,6 +118,8 @@ Les alertes du moteur de stratégie décrivent des écarts par rapport au compor
 
 ## <a name="anomaly-engine-alerts"></a>Alertes du moteur d’anomalies
 
+Les alertes du moteur d’anomalies décrivent les anomalies détectées dans l’activité réseau.
+
 | Titre | Description | Gravité |
 |--|--|--|
 | Modèle d’exception anormale dans l’esclave | Un nombre excessif d’erreurs a été détecté sur un appareil source. Cela peut être dû à un problème opérationnel. | Secondaire |
@@ -150,6 +148,8 @@ Les alertes du moteur de stratégie décrivent des écarts par rapport au compor
 | Trafic inattendu pour un port standard | Du trafic a été détecté sur un appareil à l’aide d’un port réservé pour un autre protocole. | Majeure |
 
 ## <a name="protocol-violation-engine-alerts"></a>Alertes du moteur de violation de protocole
+
+Les alertes du moteur de protocole décrivent les écarts détectés dans la structure de paquets ou les valeurs de champs par rapport aux spécifications de protocole.
 
 | Titre | Description | Gravité |
 |--|--|--|
@@ -181,6 +181,8 @@ Les alertes du moteur de stratégie décrivent des écarts par rapport au compor
 
 ## <a name="malware-engine-alerts"></a>Alertes du moteur de programme malveillant
 
+Les alertes du moteur de programme malveillant décrivent l’activité réseau malveillante détectée.
+
 | Titre | Description| Gravité |
 |--|--|--|
 | Tentative de connexion à une adresse IP malveillante connue | Une activité réseau suspecte a été détectée. Cette activité peut être associée à une attaque exploitant une méthode utilisée par un programme malveillant connu. | Majeure |
@@ -210,6 +212,8 @@ Les alertes du moteur de stratégie décrivent des écarts par rapport au compor
 | Trafic suspect détecté | Une activité réseau suspecte a été détectée. Cette activité peut être associée à une attaque exploitant une méthode utilisée par un programme malveillant connu. | Critique |
 
 ## <a name="operational-engine-alerts"></a>Alertes du moteur opérationnel
+
+Les alertes du moteur opérationnel décrivent les incidents opérationnels détectés, ou les entités défectueuses.
 
 | Titre | Description | Gravité |
 |--|--|--|

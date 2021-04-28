@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/8/2021
-ms.openlocfilehash: 9f315a0446c1fb712558c1031df56760e6d5b7e7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1f8373130fbead2204dd0ac2515595d68dd3b2e8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123426"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107491329"
 ---
 # <a name="authentication-failed"></a>Échec de l'authentification.
 
@@ -31,7 +31,7 @@ L’application Azure Digital Twins Explorer utilise [DefaultAzureCredential](/d
 
 Comme l’indique le texte de l’erreur, cette erreur peut se produire si vous n’avez pas fourni d’informations d’identification locales que `DefaultAzureCredential` puisse récupérer.
 
-Pour plus d’informations sur l’utilisation des informations d’identification locales avec Azure Digital Twins Explorer, consultez la section [*Configurer les informations d’identification Azure locales*](./quickstart-azure-digital-twins-explorer.md#set-up-local-azure-credentials) du guide *Démarrage rapide : Explorer un exemple de scénario* d’Azure Digital Twins Explorer.
+Pour plus d’informations sur l’utilisation des informations d’identification locales avec Azure Digital Twins Explorer, consultez la section [*Configurer les informations d’identification Azure locales*](quickstart-adt-explorer.md#set-up-local-azure-credentials) du guide *Démarrage rapide : Explorer un exemple de scénario* d’Azure Digital Twins Explorer.
 
 ### <a name="cause-2"></a>Cause no 2
 

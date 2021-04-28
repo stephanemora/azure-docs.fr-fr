@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: iangithinji
 author: iantheninja
 manager: CelesteDG
-ms.openlocfilehash: 17dca502d3c65563cb9e4d2c382afb79f4d612e9
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 57a26592ec34153020e88450f3eb36b3361649b4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376050"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144172"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
@@ -83,7 +83,7 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 - [Comprendre l’authentification liée](configure-linked-sign-on.md)
 - [Comprendre l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md)
 - [Comprendre l’authentification unique basée sur SAML](configure-saml-single-sign-on.md)
-- [Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory](troubleshoot-adding-apps.md)
+- [Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
 - [Affichage des applications qui utilisent votre locataire Azure AD pour la gestion des identités](application-types.md)
 - [Comprendre comment les utilisateurs sont affectés aux applications dans Azure Active Directory](ways-users-get-assigned-to-applications.md)
 - [Démarrage rapide : Supprimer une application de votre locataire Azure Active Directory (Azure AD)](delete-application-portal.md)
@@ -141,7 +141,7 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 
 ### <a name="updated-articles"></a>Articles mis à jour
 - [Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory (Azure AD)](add-application-portal.md)
-- [Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory](troubleshoot-adding-apps.md)
+- [Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory](/troubleshoot/azure/active-directory/troubleshoot-adding-apps)
 - [Gestion du consentement pour les applications et évaluation des demandes de consentement](manage-consent-requests.md)
 - [Affichage des applications qui utilisent votre locataire Azure AD pour la gestion des identités](application-types.md)
 - [Comprendre comment les utilisateurs sont affectés aux applications dans Azure Active Directory](ways-users-get-assigned-to-applications.md)

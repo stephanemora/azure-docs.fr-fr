@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 593065b200ab0dc98e5fa97299c137aedfd1be63
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877412"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129312"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Accéder à votre application sur un réseau privé
 
 Ce document explique comment accéder à un point de terminaison pour votre application dans un réseau privé.  Pour obtenir l’accès, vous devez créer une **zone DNS privée Azure** dans votre abonnement afin de traduire/résoudre le nom de domaine complet privé en son adresse IP.
 
-Lorsque **Affecter un point de terminaison** pour les applications dans une instance de service Azure Spring Cloud est déployé dans votre réseau virtuel, le point de terminaison est un nom de domaine complet privé. Le domaine est uniquement accessible dans le réseau privé. Les applications et les services utilisent le point de terminaison d’application. Ils comprennent le **point de terminaison de test** décrit dans [Affichage des applications et des déploiements](spring-cloud-howto-staging-environment.md#view-apps-and-deployments). La **diffusion en continu des journaux**, décrite dans [Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel](spring-cloud-howto-log-streaming.md), ne fonctionne que dans le réseau privé.
+Lorsque **Affecter un point de terminaison** pour les applications dans une instance de service Azure Spring Cloud est déployé dans votre réseau virtuel, le point de terminaison est un nom de domaine complet privé. Le domaine est uniquement accessible dans le réseau privé. Les applications et les services utilisent le point de terminaison d’application. Ils comprennent le **point de terminaison de test** décrit dans [Affichage des applications et des déploiements](./how-to-staging-environment.md#view-apps-and-deployments). La **diffusion en continu des journaux**, décrite dans [Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel](./how-to-log-streaming.md), ne fonctionne que dans le réseau privé.
 
 ## <a name="create-a-private-dns-zone"></a>Créer une zone DNS privée
 
@@ -48,7 +48,7 @@ Pour lier la zone DNS privée au réseau virtuel, vous devez créer un lien de r
 
 4. Entrez **azure-spring-cloud-dns-link** pour le **Nom du lien**.
 
-5. Pour **Réseau virtuel**, sélectionnez le réseau virtuel que vous avez créé en suivant la procédure décrite dans [Déployer Azure Spring Cloud dans votre réseau virtuel Azure (injection VNet)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md).
+5. Pour **Réseau virtuel**, sélectionnez le réseau virtuel que vous avez créé en suivant la procédure décrite dans [Déployer Azure Spring Cloud dans votre réseau virtuel Azure (injection VNet)](./how-to-deploy-in-azure-virtual-network.md).
 
     ![Ajouter un lien de réseau virtuel](media/spring-cloud-access-app-vnet/add-virtual-network-link.png)
 
@@ -58,7 +58,7 @@ Pour lier la zone DNS privée au réseau virtuel, vous devez créer un lien de r
 
 Pour utiliser la zone DNS privée pour traduire/résoudre le DNS, vous devez créer un enregistrement de type « A » dans la zone.
 
-1. Sélectionnez la ressource de réseau virtuel que vous avez créée en suivant la procédure décrite dans [Déployer Azure Spring Cloud dans votre réseau virtuel Azure (injection VNet)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md).
+1. Sélectionnez la ressource de réseau virtuel que vous avez créée en suivant la procédure décrite dans [Déployer Azure Spring Cloud dans votre réseau virtuel Azure (injection VNet)](./how-to-deploy-in-azure-virtual-network.md).
 
 2. Dans la zone de recherche **Appareils connectés**, entrez *kubernetes-internal*.
 
@@ -99,7 +99,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 ## <a name="assign-private-fqdn-for-your-application"></a>Attribuer un nom de domaine complet privé pour votre application
 
-Après avoir effectué la procédure décrite dans [Générer et déployer des applications de microservices](spring-cloud-tutorial-deploy-in-azure-virtual-network.md), vous pouvez affecter un nom de domaine complet privé pour votre application.
+Après avoir effectué la procédure décrite dans [Générer et déployer des applications de microservices](./how-to-deploy-in-azure-virtual-network.md), vous pouvez affecter un nom de domaine complet privé pour votre application.
 
 1. Sélectionnez l’instance de service Azure Spring Cloud déployée dans votre réseau virtuel, puis ouvrez l’onglet **Applications** dans le menu de gauche.
 
@@ -119,9 +119,9 @@ Une fois le nom de domaine complet privé attribué à votre application, vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exposer des applications à Internet à l’aide d’Application Gateway et du Pare-feu Azure](spring-cloud-expose-apps-gateway-azure-firewall.md)
+- [Exposer des applications à Internet à l’aide d’Application Gateway et du Pare-feu Azure](./expose-apps-gateway-azure-firewall.md)
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Résolution des problèmes Azure Spring Cloud dans un réseau virtuel](spring-cloud-troubleshooting-vnet.md)
-- [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](spring-cloud-vnet-customer-responsibilities.md)
+- [Résolution des problèmes Azure Spring Cloud dans un réseau virtuel](./troubleshooting-vnet.md)
+- [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](./vnet-customer-responsibilities.md)

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: a33b248c18bcbf322a1e2d911453a1c4c087e625
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32b9753b79273ce747d00cba077dd8a5ee6d724d
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550516"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565285"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Télécharger un VHD Windows à partir d’Azure
 
@@ -22,7 +22,7 @@ Dans cet article, vous apprendrez à télécharger un fichier de disque dur virt
 
 ## <a name="optional-generalize-the-vm"></a>Facultatif : Généraliser la machine virtuelle
 
-Si vous souhaitez utiliser le disque dur virtuel (VHD) en tant qu’[image](tutorial-custom-images.md) pour créer d’autres machines virtuelles, vous devez utiliser [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) pour généraliser le système d’exploitation. 
+Si vous souhaitez utiliser le disque dur virtuel (VHD) en tant qu’[image](tutorial-custom-images.md) pour créer d’autres machines virtuelles, vous devez utiliser [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) pour généraliser le système d’exploitation. Dans le cas contraire, vous devrez effectuer une copie du disque pour chaque machine virtuelle que vous souhaitez créer.
 
 Pour utiliser le VHD en tant qu’image pour créer d’autres machines virtuelles, généralisez la machine virtuelle.
 
@@ -33,15 +33,33 @@ Pour utiliser le VHD en tant qu’image pour créer d’autres machines virtuell
 5. Dans la boîte de dialogue Outil de préparation du système, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience) du système** et vérifiez que **Généraliser** est sélectionné.
 6. Dans Options d’arrêt, sélectionnez **Arrêter**, puis cliquez sur **OK**. 
 
+Si vous ne souhaitez pas généraliser votre machine virtuelle actuelle, vous pouvez toujours créer une image généralisée en [créant d’abord un instantané du disque du système d’exploitation](#alternative-snapshot-the-vm-disk), en créant une machine virtuelle à partir de l’instantané, puis en généralisant la copie.
 
 ## <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
 
-Il n’est pas possible de télécharger un disque VHD associé à une machine virtuelle en cours d’exécution à partir d’Azure. Il vous faut arrêter la machine virtuelle pour télécharger un VHD. 
+Il n’est pas possible de télécharger un disque VHD associé à une machine virtuelle en cours d’exécution à partir d’Azure. Si vous souhaitez conserver la machine virtuelle en cours d’exécution, vous pouvez [créer un instantané, puis le télécharger](#alternative-snapshot-the-vm-disk).
 
 1. Dans le menu Hub du Portail Azure, cliquez sur **Machines virtuelles**.
 1. Sélectionnez la machine virtuelle dans la liste.
 1. Dans le panneau de la machine virtuelle, cliquez sur **Arrêter**.
 
+### <a name="alternative-snapshot-the-vm-disk"></a>Alternative : Prendre un instantané du disque de machine virtuelle
+
+Prenez un instantané du disque à télécharger.
+
+1. Sélectionnez la machine virtuelle dans le [portail](https://portal.azure.com).
+2. Sélectionnez **Disques** dans le menu de gauche, puis sélectionnez le disque dont vous voulez prendre un instantané. Les détails du disque s’affichent.  
+3. Sélectionnez **Créer une capture instantanée** dans le menu en haut de la page. La page **Créer une capture instantanée** s’ouvre.
+4. Dans **Nom**, saisissez le nom de l’instantané. 
+5. Pour **Type d’instantané**, sélectionnez **Complet** ou **Incrémentiel**.
+6. Quand vous avez terminé, sélectionnez **Vérifier + créer**.
+
+Votre instantané sera créé sous peu, et pourra ensuite être utilisé pour télécharger ou créer une autre machine virtuelle.
+
+> [!NOTE]
+> Si vous n’arrêtez pas d’abord la machine virtuelle, l’instantané ne sera pas propre. L’instantané sera dans le même état que si la machine virtuelle avait été mise hors tension ou s’était bloquée au moment où l’instantané a été réalisé.  Bien que cette méthode soit généralement sans danger, elle peut causer des problèmes si les applications en cours d’exécution à ce moment-là ne sont pas résistantes aux pannes.
+>  
+> Cette méthode est recommandée uniquement pour les machines virtuelles avec un seul disque de système d’exploitation. Les machines virtuelles avec un ou plusieurs disques de données doivent être arrêtées avant le téléchargement ou avant la création d’un instantané du disque du système d’exploitation et de chaque disque de données.
 
 ## <a name="generate-download-url"></a>Générer l’URL de téléchargement
 
@@ -50,11 +68,11 @@ Pour télécharger le fichier VHD, vous devez générer une URL de [signature d�
 1. Sur la page de la machine virtuelle, cliquez sur **Disques** dans le menu de gauche.
 1. Sélectionnez le disque du système d’exploitation de la machine virtuelle.
 1. Sur la page du disque, sélectionnez **Exportation de disque** dans le menu de gauche.
-1. Le délai d’expiration par défaut de l’URL est *3 600* secondes. Augmentez cette valeur à **36 000** pour les disques du système d’exploitation Windows.
+1. Le délai d’expiration par défaut de l’URL est *3600* secondes (une heure). Vous devrez peut-être augmenter cette valeur pour les disques de système d’exploitation Windows ou les disques de données volumineux. **36000** secondes (10 heures) sont généralement suffisantes.
 1. Cliquez sur **Générer l’URL**.
 
 > [!NOTE]
-> Le délai d’expiration est augmenté par rapport à la valeur par défaut afin de laisser suffisamment de temps pour télécharger le fichier volumineux de VHD pour un système d’exploitation Windows Server. En général, le téléchargement d’un fichier de VHD contenant le système d’exploitation Windows prend plusieurs heures, en fonction de la connexion. Si vous téléchargez un VHD pour un disque de données, le délai par défaut est suffisant. 
+> Le délai d’expiration est augmenté par rapport à la valeur par défaut afin de laisser suffisamment de temps pour télécharger le fichier volumineux de VHD pour un système d’exploitation Windows Server. Le téléchargement de disques durs virtuels volumineux peut prendre plusieurs heures, en fonction de votre connexion et de la taille de la machine virtuelle. 
 > 
 > 
 

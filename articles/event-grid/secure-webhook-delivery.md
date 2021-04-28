@@ -3,12 +3,12 @@ title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Eve
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.openlocfilehash: 0d92b89b1df6b6969491d39b04764f15b7a510d1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6a0f9059e17d96d497b425abc9749e69c5ab4d41
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125802"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575545"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 Cet article explique comment utiliser Azure Active Directory (Azure AD) pour sécuriser la connexion entre votre **abonnement aux événements** et votre **point de terminaison webhook**. Pour obtenir une vue d’ensemble des applications et des principaux de service Azure AD, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](../active-directory/develop/v2-overview.md).
@@ -20,7 +20,7 @@ Cet article utilise le Portail Azure à des fins de démonstration, mais la fonc
 
 
 ## <a name="create-an-azure-ad-application"></a>Créer une application Azure AD
-Inscrivez votre webhook auprès d’Azure AD en créant une application Azure AD pour votre point de terminaison protégé. Consultez [Scénario : API web protégée](../active-directory/develop/scenario-protected-web-api-overview.md). Configurez votre API protégée pour qu’elle soit appelée par une application démon.
+Inscrivez votre webhook auprès d’Azure AD en créant une application Azure AD pour votre point de terminaison protégé. Consultez [Scénario : API web protégée](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview). Configurez votre API protégée pour qu’elle soit appelée par une application démon.
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Activer Event Grid pour utiliser votre application Azure AD
 Cette section explique comment activer Event Grid pour utiliser votre application Azure AD. 

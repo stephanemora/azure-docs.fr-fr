@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5a4cc2b964bcf4fa49d90c8b6d5aa546b7148a1
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 6c1d78094effe6919587f24c2262612e4fab347d
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107943"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575375"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -89,7 +89,7 @@ Lors du déploiement d’une VDI non persistante, Microsoft recommande aux admin
 - Pour les appareils Windows de bas niveau :
    - Implémentez la commande **autoworkplacejoin /leave** dans le cadre du script de fermeture de session. Cette commande doit être déclenchée dans le contexte de l’utilisateur et doit être exécutée avant que l’utilisateur ne soit complètement déconnecté et tant qu’il y a encore une connectivité réseau.
 - Pour Windows actuel dans un environnement fédéré (par exemple, AD FS) :
-   - Implémentez **dsregcmd /join** dans le cadre de la séquence de démarrage de la machine virtuelle.
+   - Implémentez **dsregcmd /join** dans le cadre de la séquence (ordre) de démarrage des machines virtuelles, avant que l’utilisateur se connecte.
    - **N’EXÉCUTEZ PAS** dsregcmd /leave dans le cadre du processus d’arrêt/de redémarrage de la machine virtuelle.
 - Définissez et implémentez le processus de [gestion des appareils obsolètes](manage-stale-devices.md).
    - Une fois que vous disposez d’une stratégie d’identification de vos appareils Azure AD Hybride joints non persistants (par exemple, en utilisant le préfixe du nom d’affichage de l’ordinateur), vous devez être plus agressif lors du nettoyage de ces appareils pour être certain que votre répertoire ne sera pas consommé par un grand nombre d’appareils obsolètes.

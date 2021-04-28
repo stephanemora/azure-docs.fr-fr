@@ -1,14 +1,14 @@
 ---
 title: Informations détaillées sur la structure d’attribution des stratégies
 description: Décrit la définition d’attribution des stratégies qui est utilisée par Azure Policy pour associer des définitions et des paramètres de stratégie aux ressources à des fins d’évaluation.
-ms.date: 03/17/2021
+ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9de210b17264330e79ab5978a449e7a494054be2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604863"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535875"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
@@ -60,6 +60,30 @@ Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](../sam
 ## <a name="display-name-and-description"></a>Nom d’affichage et description
 
 Vous utilisez **displayName** et **description** pour identifier l’attribution de stratégie et fournir un contexte pour son utilisation avec l’ensemble de ressources. **displayName** a une longueur maximale de _128_ caractères et **description** a une longueur maximale de _512_ caractères.
+
+## <a name="metadata"></a>Métadonnées
+
+La propriété facultative `metadata` stocke les informations sur l’attribution de stratégie. Les clients peuvent définir toutes les propriétés et valeurs utiles à leur organisation dans `metadata`. Cependant, certaines propriétés _communes_ sont utilisées par Azure Policy. Chaque `metadata` a une limite de 1024 caractères.
+
+### <a name="common-metadata-properties"></a>Propriétés de métadonnées communes
+
+- `assignedBy` (chaîne) : nom convivial du principal de sécurité qui a créé l’attribution.
+- `createdBy` (chaîne) : GUID du principal de sécurité qui a créé l’attribution.
+- `createdOn` (chaîne) : format date/heure universel ISO 8601 de l’heure de création de l’attribution.
+- `parameterScopes` (objet) : collection de paires clé-valeur où la clé correspond à un nom de paramètre configuré [strongType](./definition-structure.md#strongtype) et la valeur définit l’étendue de ressource utilisée dans le portail pour fournir la liste des ressources disponibles en faisant correspondre la valeur _strongType_. Le portail définit cette valeur si l’étendue est différente de celle de l’attribution. Si cette valeur est définie, une modification de l’attribution de stratégie dans le portail l’affecte automatiquement à l’étendue du paramètre. Toutefois, l’étendue n’est pas verrouillée sur la valeur et peut être remplacée par une autre étendue.
+
+  L’exemple suivant de `parameterScopes` s’applique à un paramètre _strongType_ nommé **backupPolicyId** qui définit une étendue pour la sélection des ressources quand l’attribution est modifiée dans le portail.
+
+  ```json
+  "metadata": {
+      "parameterScopes": {
+          "backupPolicyId": "/subscriptions/{SubscriptionID}/resourcegroups/{ResourceGroupName}"
+      }
+  }
+  ```
+
+- `updatedBy` (chaîne) : nom convivial du principal de sécurité qui a mis à jour l’attribution, le cas échéant.
+- `updatedOn` (chaîne) : format date/heure universel ISO 8601 de l’heure de mise à jour de l’attribution, le cas échéant.
 
 ## <a name="enforcement-mode"></a>Mode d’application
 

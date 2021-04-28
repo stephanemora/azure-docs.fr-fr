@@ -3,12 +3,12 @@ title: Messages, charges utiles et sérialisation Azure Service Bus | Microsoft 
 description: Cet article fournit une vue d’ensemble des messages, des charges utiles, du routage des messages et de la sérialisation Azure Service Bus.
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 732c331561a8867310d4f4f1541a1de9b8e2a75f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2ed65054f61aee4b9fb6157fc7a36e469c7a672c
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138622"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515292"
 ---
 # <a name="messages-payloads-and-serialization"></a>Messages, charges utiles et sérialisation
 
@@ -18,7 +18,7 @@ Le modèle objet des clients Service Bus officiels pour .NET et Java reflète la
  
 Un message Service Bus se compose d’une section de charge utile binaire que Service Bus ne traite jamais sous quelque forme que ce soit côté service, ainsi que de deux ensembles de propriétés. Les *propriétés de répartiteur* sont prédéfinies par le système. Ces propriétés prédéfinies contrôlent les fonctionnalités au niveau des messages à l’intérieur du répartiteur, ou sont mappées sur des éléments de métadonnées communs et normalisés. Les *propriétés utilisateur* sont une collection de paires clé-valeur qui peuvent être définies et configurées par l’application.
  
-Les propriétés de répartiteur prédéfinies sont répertoriées dans le tableau ci-après. Les noms sont utilisés avec toutes les API clientes officielles, ainsi que dans l’objet JSON [BrokerProperties](/rest/api/servicebus/introduction) du mappage de protocole HTTP.
+Les propriétés de répartiteur prédéfinies sont répertoriées dans le tableau ci-après. Les noms sont utilisés avec toutes les API clientes officielles, ainsi que dans l’objet JSON [BrokerProperties](https://docs.microsoft.com/rest/api/servicebus/introduction) du mappage de protocole HTTP.
  
 Les noms équivalents utilisés au niveau du protocole AMQP sont répertoriés entre parenthèses. Si les noms ci-dessous utilisent la casse Pascal, notez cependant que les clients JavaScript et Python utilisent respectivement la casse Camel et la casse Snake.
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: f1138f0b33e75968f51965355528805dd29033b3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 23e006c637285ad484e98b23b2a9f506156f519c
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145625"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389721"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Stockage : Meilleures pratiques sur les performances de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -163,7 +163,7 @@ Par exemple, la documentation de la [série M](../../../virtual-machines/m-serie
 
 De même, vous pouvez voir que la machine virtuelle Standard_M32ts prend en charge 20 000 IOPS de disque sans mise en cache et un débit de disque de 500 Mbits/s sans mise en cache. Cette limite est régie par le niveau de la machine virtuelle, quel que soit le stockage sur disque Premium sous-jacent.
 
-Pour plus d’informations, consultez les [limitations avec et sans mise en cache](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits).
+Pour plus d’informations, consultez les [limitations avec et sans mise en cache](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits).
 
 
 ### <a name="cached-and-temp-storage-throughput"></a>Débit de stockage temporaire et mis en cache max
@@ -231,7 +231,7 @@ Pour plus d’informations sur les limitations de l’encapsulation de disque et
 
 ## <a name="write-acceleration"></a>Accélération d’écriture
 
-L’accélération d’écriture est une fonctionnalité de disque qui est uniquement disponible pour les machines virtuelles de la [série M](../../../virtual-machines/m-series.md). L’objectif de l’accélération d’écriture est d’améliorer la latence d’E/S des écritures sur le stockage Premium Azure lorsque vous avez besoin d’une latence d’E/S à un chiffre en raison de charges de travail OLTP critiques ou d’environnements d’entrepôts de données de grande envergure. 
+L’accélération d’écriture est une fonctionnalité de disque qui est uniquement disponible pour les machines virtuelles de la [série M](https://docs.microsoft.com/azure/virtual-machines/m-series). L’objectif de l’accélération d’écriture est d’améliorer la latence d’E/S des écritures sur le stockage Premium Azure lorsque vous avez besoin d’une latence d’E/S à un chiffre en raison de charges de travail OLTP critiques ou d’environnements d’entrepôts de données de grande envergure. 
 
 Utilisez l’accélération d’écriture pour améliorer la latence d’écriture sur le lecteur qui héberge les fichiers journaux. N’utilisez pas l’accélération d’écriture pour les fichiers de données SQL Server. 
 

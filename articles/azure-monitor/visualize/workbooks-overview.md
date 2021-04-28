@@ -5,12 +5,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: a02e5fced0a9e338a32d8d8beaa9e4b5fca994e8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3d75d7605ba082aac84973aef247de79d55b4c9c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309473"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482770"
 ---
 # <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
@@ -48,7 +48,18 @@ Les classeurs fournissent un ensemble complet de fonctionnalités pour la visual
 * [Graphes](../visualize/workbooks-graph-visualizations.md)
 * [Barre composite](../visualize/workbooks-composite-bar.md)
 
-:::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Exemples de visualisations de classeur" border="false" lightbox="./media/workbooks-overview/visualizations.png":::
+:::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Exemple de visualisations de classeur." border="false" lightbox="./media/workbooks-overview/visualizations.png":::
+
+### <a name="pinning-visualizations"></a>Épingler des visualisations
+
+Les étapes de sélection de texte, de requête et de métriques d’un classeur peuvent être épinglées à l’aide du bouton Épingler sur ces éléments lorsque le classeur est en mode d’épinglage, ou si l’auteur du classeur a activé les paramètres de cet élément pour rendre l’icône d’épingle visible.
+
+Pour accéder au mode épinglage, cliquez sur **Modifier** pour passer en mode édition, puis sélectionnez l’icône en forme d’épingle bleue dans la barre supérieure. Une icône d’épingle est ensuite affichée au-dessus de la zone *Modifier* de chaque composant du classeur sur le côté droit de l’écran.
+
+:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Capture d'écran de l'expérience d'épinglage." border="false":::
+
+> [!NOTE]
+> L’état du classeur est enregistré au moment de l’épinglage et les classeurs épinglés sur un tableau de bord ne sont pas mis à jour si le classeur sous-jacent est modifié. Pour mettre à jour une partie de classeur épinglée, vous devez supprimer et réépingler cette partie.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -56,7 +67,7 @@ Pour explorer l’expérience des classeurs, accédez d’abord au service Azure
 
 Sélectionnez ensuite **Classeurs**.
 
-:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Capture d’écran du bouton Classeurs mis en surbrillance dans une zone rouge" border="false":::
+:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Capture d’écran du bouton Classeurs mis en surbrillance dans une zone rouge." border="false":::
 
 ### <a name="gallery"></a>Galerie
 
@@ -97,7 +108,7 @@ En coulisses, les modèles diffèrent également des classeurs enregistrés. L�
 
 Sélectionnez **Analyse de l’échec de l’application** pour voir un des modèles de classeur d’application par défaut.
 
-:::image type="content" source="./media/workbooks-overview/failure-analysis.png" alt-text="Capture d’écran du modèle d’analyse d’échec de l’application" border="false" lightbox="./media/workbooks-overview/failure-analysis.png":::
+:::image type="content" source="./media/workbooks-overview/failure-analysis.png" alt-text="Capture d’écran du modèle d’analyse d’échec de l’application." border="false" lightbox="./media/workbooks-overview/failure-analysis.png":::
 
 Comme indiqué précédemment, l’ouverture du modèle crée un classeur temporaire pour que vous puissiez interagir avec. Par défaut, le classeur s’ouvre en mode lecture, qui affiche uniquement les informations relatives à l’expérience d’analyse prévue qui a été créée par l’auteur du modèle d’origine.
 
@@ -111,27 +122,15 @@ Pour comprendre comment ce modèle de classeur est assemblé, vous devez bascule
 
 Une fois que vous êtes passé en mode édition, vous remarquerez un certain nombre de zones **Modifier** à de chaque aspect individuel de votre classeur.
 
-:::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Capture d’écran du bouton Modifier" border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
+:::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Capture d’écran du bouton Modifier." border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
 
 Si vous sélectionnez le bouton modifier se trouvant immédiatement sous la grille de données de requête, nous pouvons voir que cette partie de notre classeur se compose d’une requête Kusto sur les données d’une ressource Application Insights.
 
-:::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Capture d’écran de la requête Kusto sous-jacente" border="false" lightbox="./media/workbooks-overview/kusto.png":::
+:::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Capture d’écran de la requête Kusto sous-jacente." border="false" lightbox="./media/workbooks-overview/kusto.png":::
 
-
-En cliquant sur les autres boutons **Modifier** sur la droite, vous pouvez afficher un certain nombre de composants principaux qui composent les classeurs, comme des [zones de texte](../visualize/workbooks-text-visualizations.md) des éléments d’interface utilisateur pour la [sélection de paramètres](../visualize/workbooks-parameters.md) et d’autres [types de graphiques ou de visualisations](#visualizations).
+Sélectionner les autres boutons **Modifier** sur la droite permet d’afficher un certain nombre de composants principaux qui composent les classeurs, comme des [zones de texte](../visualize/workbooks-text-visualizations.md) Markdown,des éléments d’interface utilisateur de la [sélection de paramètres](../visualize/workbooks-parameters.md) et d’autres [types de graphiques/visualisations](#visualizations).
 
 Explorez les modèles prédéfinis en mode édition, puis modifiez-les en fonction de vos besoins et enregistrez votre propre classeur personnalisé pour commencer à découvrir ce qui est possible avec les classeurs Azure Monitor.
-
-## <a name="pinning-visualizations"></a>Épingler des visualisations
-
-Les étapes de sélection de texte, de requête et de métriques d’un classeur peuvent être épinglées à l’aide du bouton Épingler sur ces éléments lorsque le classeur est en mode d’épinglage, ou si l’auteur du classeur a activé les paramètres de cet élément pour rendre l’icône d’épingle visible.
-
-Pour accéder au mode épinglage, cliquez sur **Modifier** pour passer en mode édition, puis sélectionnez l’icône en forme d’épingle bleue dans la barre supérieure. Une icône d’épingle est ensuite affichée au-dessus de la zone *Modifier* de chaque composant du classeur sur le côté droit de l’écran.
-
-:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Capture d'écran de l'expérience d'épinglage." border="false":::
-
-> [!NOTE]
-> L’état du classeur est enregistré au moment de l’épinglage et les classeurs épinglés sur un tableau de bord ne sont pas mis à jour si le classeur sous-jacent est modifié. Pour mettre à jour une partie de classeur épinglée, vous devez supprimer et réépingler cette partie.
 
 ## <a name="dashboard-time-ranges"></a>Intervalles de temps du tableau de bord
 
