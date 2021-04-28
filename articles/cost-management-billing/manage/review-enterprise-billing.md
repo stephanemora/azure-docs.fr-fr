@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 777c8549d79f820c1847e711969919df128cebd3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 4ac9c38c3f86c1226edf3b448324205cf5f98568
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132412"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058865"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Passer en revue la facturation de l’Accord de Mise en Œuvre Entreprise avec les API REST
 
@@ -37,7 +37,7 @@ Les en-têtes suivants sont requis :
 |En-tête de requête|Description|  
 |--------------------|-----------------|  
 |*Content-Type :*|Obligatoire. Défini sur `application/json`.|  
-|*Authorization :*|Obligatoire. Défini sur une [clé API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` valide. |  
+|*Authorization :*|Obligatoire. Défini sur une  [clé API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` valide. |  
 
 Cet exemple montre un appel synchrone qui retourne des informations détaillées pour le cycle de facturation actuel. Pour des raisons de performances, les appels synchrones retournent des informations pour le mois dernier.  Vous pouvez également appeler [l’API de façon asynchrone](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) pour retourner des données pour 36 mois.
 
@@ -90,7 +90,7 @@ Les en-têtes suivants sont requis :
 |En-tête de requête|Description|  
 |--------------------|-----------------|  
 |*Content-Type :*|Obligatoire. Défini sur `application/json`.|  
-|*Authorization :*|Obligatoire. Défini sur une [clé API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` valide. |  
+|*Authorization :*|Obligatoire. Défini sur une  [clé API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` valide. |  
 
 Cet exemple montre un appel synchrone qui retourne des informations détaillées pour le cycle de facturation actuel. Pour des raisons de performances, les appels synchrones retournent des informations pour le mois dernier.  Vous pouvez également appeler [l’API de façon asynchrone](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) pour retourner des données pour 36 mois.
 
@@ -146,7 +146,7 @@ Les en-têtes suivants sont requis :
 |En-tête de requête|Description|  
 |--------------------|-----------------|  
 |*Content-Type :*|Obligatoire. Défini sur `application/json`.|  
-|*Authorization :*|Obligatoire. Défini sur une [clé API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) `Bearer` valide. |  
+|*Authorization :*|Obligatoire. Défini sur une  [clé API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` valide. |  
 
 Cet exemple montre un appel synchrone qui retourne des informations détaillées pour le cycle de facturation actuel. Pour des raisons de performances, les appels synchrones retournent des informations pour le mois dernier.  Vous pouvez également appeler [l’API de façon asynchrone](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) pour retourner des données pour 36 mois.
 

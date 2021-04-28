@@ -6,45 +6,36 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: d03aeb9759fb321b580fa65e06dc09ccde4a44a0
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6bfa42e99f295b429eba40a27eb59becb8aa80a1
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555840"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575942"
 ---
-# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-device-via-azure-powershell"></a>Déployer une machine virtuelle à partir d’une image spécialisée sur votre appareil Azure Stack Edge Pro via Azure PowerShell 
+# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Déployer une machine virtuelle à partir d’une image spécialisée sur votre appareil GPU Azure Stack Edge Pro via Azure PowerShell 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Cet article décrit les étapes nécessaires pour déployer une machine virtuelle sur votre appareil Azure Stack Edge Pro à partir d’une image spécialisée. 
+Cet article décrit les étapes nécessaires pour déployer une machine virtuelle sur votre appareil GPU Azure Stack Edge Pro à partir d’une image spécialisée. 
 
-## <a name="about-specialized-images"></a>À propos des images spécialisées
+Pour préparer une image généralisée pour le déploiement de machines virtuelles sur un appareil GPU Azure Stack Edge Pro, consultez [Préparer une image généralisée à partir d’un disque dur virtuel Windows](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) ou [Préparer une image généralisée à partir d’un fichier ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md).
+
+## <a name="about-vm-images"></a>À propos des images de machine virtuelle
 
 Un disque dur virtuel Windows ou un VHDX peut être utilisé pour créer une image *spécialisée* ou une image *généralisée*. Le tableau suivant récapitule les principales différences entre les images *spécialisées* et *généralisées*.
 
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
-|Type d’image  |Généralisée  |Spécialisée  |
-|---------|---------|---------|
-|Cible     |Déployée sur n’importe quel système         | Ciblée sur un système spécifique        |
-|Installation après le démarrage     | Installation requise au premier démarrage de la machine virtuelle.          | Installation non nécessaire. <br> La plateforme active la machine virtuelle.        |
-|Configuration     |Nom d’hôte, utilisateur admin et autres paramètres spécifiques à la machine virtuelle obligatoires.         |Préconfiguré.         |
-|Usage     |Créer plusieurs nouvelles machines virtuelles à partir de la même image.         |Migrer une machine spécifique ou restauration d’une machine virtuelle à partir d’une sauvegarde précédente.         |
-
-
-Cet article décrit les étapes nécessaires au déploiement à partir d’une image spécialisée. Pour déployer à partir d’une image généralisée, consultez [Utiliser un disque dur virtuel Windows généralisé](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) pour votre appareil.
-
-
-## <a name="vm-image-workflow"></a>Workflow d’image de machine virtuelle
+## <a name="workflow"></a>Workflow
 
 Le flux de travail de haut niveau pour déployer une machine virtuelle à partir d’une image spécialisée est le suivant :
 
 1. Copiez le disque dur virtuel dans un compte de stockage local sur votre appareil GPU Azure Stack Edge Pro.
 1. Créez un disque managé géré à partir du disque dur virtuel.
 1. Créez une machine virtuelle à partir du disque managé, puis attachez le disque managé.
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -65,7 +56,6 @@ Vérifiez que votre client peut se connecter à l’instance Azure Resource Mana
     ```
 
 2. Indiquez le nom d’utilisateur `EdgeArmUser` et le mot de passe pour vous connecter via Azure Resource Manager. Si vous avez oublié le mot de passe, consultez [Réinitialiser le mot de passe pour Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) et utilisez le nouveau mot de passe pour vous connecter.
- 
 
 ## <a name="deploy-vm-from-specialized-image"></a>Déployer une machine virtuelle à partir d’une image spécialisée
 
@@ -75,10 +65,10 @@ Les sections suivantes contiennent des instructions pas à pas pour déployer un
 
 Procédez comme suit pour copier le disque dur virtuel vers le compte de stockage local :
 
-1. Copiez le disque dur virtuel source dans un compte de stockage blob local sur votre appareil Azure Stack Edge. 
+1. Copiez le disque dur virtuel source dans un compte de stockage blob local sur votre appareil Azure Stack Edge.
 
 1. Prenez note de l’URI qui en résulte. Vous utiliserez cet URI plus tard.
-    
+
     Pour créer un compte de stockage local et y accéder, consultez les sections [Créer un compte de stockage](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) via [Charger un disque dur virtuel](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) dans l’article : [Déployer des machines virtuelles sur votre appareil Azure Stack Edge via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
 
 ## <a name="create-a-managed-disk-from-vhd"></a>Créer un disque managé à partir d’un disque dur virtuel
@@ -301,7 +291,5 @@ Cet article a utilisé un seul groupe de ressources pour créer toutes les resso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En fonction de la nature du déploiement, vous pouvez choisir l’une des procédures suivantes.
-
-- [Déployer une machine virtuelle à partir d’une image généralisée via Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
-- [Déployer une machine virtuelle via le portail Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+- [Préparer une image généralisée à partir d’un disque dur virtuel Windows pour déployer des machines virtuelles sur un appareil GPU Azure Stack Edge Pro](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+- [Préparer une image généralisée à partir d’un fichier ISO pour déployer des machines virtuelles sur un appareil GPU Azure Stack Edge Pro](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md) d

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 2ecbd207c4b1946a69b01f43ec2bc77d29b1a8c9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f20099943d3cfa3dd4afc161c26e5582e467ca8d
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073409"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589905"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ npm install @azure/communication-calling --save
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du SDK Appel Azure Communication Services :
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du SDK Azure Communication Services Calling :
 
 | Nom                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ Quand vous avez une instance `CallClient`, vous pouvez créer une instance `Call
 
 La méthode `createCallAgent` utilise `CommunicationTokenCredential` comme argument. Elle accepte un [jeton d’accès utilisateur](../../access-tokens.md).
 
-Après avoir créé une instance `callAgent`, vous pouvez utiliser la méthode `getDeviceManager` sur l’instance `CallClient` pour accéder à `deviceManager`.
+Vous pouvez utiliser la méthode `getDeviceManager` sur l’instance `CallClient` pour accéder à `deviceManager`.
 
 ```js
 // Set the logger's log level
@@ -109,9 +109,10 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCaller
 > [!IMPORTANT]
 > Il ne peut actuellement y avoir qu’un seul flux vidéo local sortant.
 
-Pour passer un appel vidéo, vous devez spécifier vos caméras avec la méthode `getCameras()` dans `deviceManager`.
+Pour passer un appel vidéo, vous devez énumérer des caméras locales avec la méthode `getCameras()` dans `deviceManager`.
 
 Après avoir sélectionné une caméra, utilisez-la pour construire une instance `LocalVideoStream`. Transmettez-la dans `videoOptions` en tant qu’élément du tableau `localVideoStream` à la méthode `startCall`.
+
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -146,7 +147,7 @@ const call = callAgent.join(context);
 > [!NOTE]
 > Cet API est fourni en tant qu’aperçu pour les développeurs et peut être modifié en fonction des commentaires que nous avons reçus. N’utilisez pas cet API dans un environnement de production. Pour utiliser cette API, utilisez la version bêta du SDK web Appel ACS
 
-Pour participer à une réunion Teams, utilisez la méthode `join` et transmettez des coordonnées ou un lien de réunion.
+Pour participer à une réunion Teams, utilisez la méthode `join` et transmettez un lien de réunion ou les coordonnées d’une réunion.
 
 Participer avec un lien de réunion :
 
@@ -173,9 +174,13 @@ L’instance de `callAgent` émet un événement `incomingCall` quand l’identi
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
-
-    //Get incoming call ID
+    const incomingCall = args.incomingCall; 
+    // Get incoming call ID
     var incomingCallId = incomingCall.id
+    // Get information about this Call. This API is provided as a preview for developers
+    // and may change based on feedback that we receive. Do not use this API in a production environment.
+    // To use this api please use 'beta' release of ACS Calling Web SDK
+    var callInfo = incomingCall.info;
 
     // Get information about caller
     var callerInfo = incomingCall.callerInfo
@@ -210,6 +215,12 @@ Obtenez l’ID unique (string) d’un appel :
    ```js
     const callId: string = call.id;
    ```
+Obtenir des informations sur l’appel :
+> [!NOTE]
+> Cet API est fourni en tant qu’aperçu pour les développeurs et peut être modifié en fonction des commentaires que nous avons reçus. N’utilisez pas cet API dans un environnement de production. Pour utiliser cette API, utilisez la version bêta du SDK web Appel ACS
+   ```js
+   const callInfo = call.info;
+   ```
 
 Découvrez les autres participants à l’appel en examinant la collection `remoteParticipants` sur l’instance « call » :
 
@@ -240,6 +251,7 @@ Obtenez l’état d’un appel :
   - `Connected` : indique que l’appel est connecté.
   - `LocalHold` : indique que l’appel est mis en attente par un participant local. Aucun média ne circule entre le point de terminaison local et les participants distants.
   - `RemoteHold` : indique que l’appel a été mis en attente par un participant distant. Aucun média ne circule entre le point de terminaison local et les participants distants.
+  - `InLobby` : indique que l’utilisateur est en salle d’attente.
   - `Disconnecting` : état de transition avant que l’appel ne passe à l’état `Disconnected`.
   - `Disconnected` : état d’appel final. Si la connexion réseau est perdue, l’état passe à `Disconnected` au bout de deux minutes.
 
@@ -276,17 +288,8 @@ Inspectez les flux vidéo actifs en vérifiant la collection `localVideoStreams`
    const localVideoStreams = call.localVideoStreams;
    ```
 
-### <a name="check-a-callended-event"></a>Vérifier un événement callEnded
 
-L’instance de `call` émet un événement `callEnded` quand l’appel se termine. Pour être à l’écoute de cet événement, abonnez-vous en utilisant le code suivant :
 
-```js
-const callEndHander = async (args: { callEndReason: CallEndReason }) => {
-    console.log(args.callEndReason)
-};
-
-call.on('callEnded', callEndHander);
-```
 
 ### <a name="mute-and-unmute"></a>Activer et désactiver le son
 
@@ -304,7 +307,7 @@ await call.unmute();
 
 ### <a name="start-and-stop-sending-local-video"></a>Démarrer et arrêter l’envoi de vidéo locale
 
-Pour démarrer une vidéo, vous devez spécifier les caméras en utilisant la méthode `getCameras` sur l’objet `deviceManager`. Créez ensuite une instance de `LocalVideoStream` en transmettant la caméra souhaitée dans la méthode `startVideo` en tant qu’argument :
+Pour démarrer une vidéo, vous devez énumérer les caméras à l’aide de la méthode `getCameras` sur l’objet `deviceManager`. Créez ensuite une nouvelle instance de `LocalVideoStream` avec la caméra souhaitée, puis transmettez l’objet `LocalVideoStream` dans la méthode `startVideo` :
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -377,6 +380,7 @@ Un ensemble de propriétés et de collections sont associées aux participants d
   - `Connected` : le participant est connecté à l’appel.
   - `Hold` : le participant est en attente.
   - `EarlyMedia` : annonce qui est lue avant qu’un participant ne se connecte à l’appel.
+  - `InLobby` : indique que le participant distant est en salle d’attente.
   - `Disconnected` : état final. Le participant est déconnecté de l’appel. Si le participant distant perd sa connectivité réseau, son état passe à `Disconnected` au bout de deux minutes.
 
 - `callEndReason` : pour savoir pourquoi un participant a quitté l’appel, vérifiez la propriété `callEndReason` :
@@ -412,7 +416,7 @@ Un ensemble de propriétés et de collections sont associées aux participants d
 
 ### <a name="add-a-participant-to-a-call"></a>Ajouter un participant à un appel
 
-Pour ajouter un participant (un utilisateur ou un numéro de téléphone) à un appel, vous pouvez appeler `addParticipant`. Fournissez l’un des types `Identifier`. L’instance de `remoteParticipant` est retournée.
+Pour ajouter un participant (un utilisateur ou un numéro de téléphone) à un appel, vous pouvez appeler `addParticipant`. Fournissez l’un des types `Identifier`. Il renvoie l’instance `remoteParticipant` de manière synchrone. L’événement `remoteParticipantsUpdated` à partir de l’appel est déclenché lorsqu’un participant est correctement ajouté à l’appel.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
@@ -441,7 +445,7 @@ const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStr
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 
-Pour afficher `RemoteVideoStream`, vous devez vous abonner à un événement `isAvailableChanged`. Si la propriété `isAvailable` prend la valeur `true`, un participant distant envoie un flux. Une fois que cela se produit, créez une instance de `VideoStreamRenderer`, puis une instance `VideoStreamRendererView` en utilisant la méthode `createView` asynchrone.  Vous pouvez ensuite attacher `view.target` à un élément d’interface utilisateur quelconque.
+Pour afficher `RemoteVideoStream`, vous devez vous abonner à son événement `isAvailableChanged`. Si la propriété `isAvailable` prend la valeur `true`, un participant distant envoie un flux. Une fois que cela se produit, créez une instance de `VideoStreamRenderer`, puis une instance `VideoStreamRendererView` en utilisant la méthode `createView` asynchrone.  Vous pouvez ensuite attacher `view.target` à un élément d’interface utilisateur quelconque.
 
 Chaque fois que la disponibilité d’un flux distant change, vous pouvez choisir de détruire l’intégralité de `VideoStreamRenderer`, un `VideoStreamRendererView` spécifique, ou de les conserver, mais cela entraîne l’affichage d’une image vidéo vide.
 
@@ -488,7 +492,6 @@ Les flux vidéo distants ont les propriétés suivantes :
   ```
 
 ### <a name="videostreamrenderer-methods-and-properties"></a>Méthodes et propriétés de VideoStreamRenderer
-
 Créez une instance `VideoStreamRendererView` qui peut être jointe dans l’interface utilisateur de l’application pour afficher le flux vidéo distant. Utilisez la méthode `createView()` asynchrone ; elle est résolue quand le flux est prêt à être affiché et retourne un objet avec une propriété `target` qui représente l’élément `video` pouvant être ajouté n’importe où dans l’arborescence DOM.
 
   ```js
@@ -523,7 +526,7 @@ view.updateScalingMode('Crop')
 
 ## <a name="device-management"></a>Gestion des appareils
 
-Dans `deviceManager`, vous pouvez spécifier des appareils locaux qui peuvent transmettre vos flux audio et vidéo dans un appel. Vous pouvez également vous en servir pour demander l’autorisation d’accéder au microphone et à la caméra d’un autre utilisateur avec l’API de navigateur natif.
+Dans `deviceManager`, vous pouvez énumérer des appareils locaux qui peuvent transmettre vos flux audio et vidéo dans un appel. Vous pouvez également l’utiliser pour demander l’autorisation d’accéder aux microphones et aux caméras de l’appareil local.
 
 Vous pouvez accéder à `deviceManager` en appelant la méthode `callClient.getDeviceManager()` :
 
@@ -533,7 +536,7 @@ const deviceManager = await callClient.getDeviceManager();
 
 ### <a name="get-local-devices"></a>Récupérer les appareils locaux
 
-Pour accéder aux appareils locaux, vous pouvez utiliser les méthodes d’énumération sur `deviceManager`.
+Pour accéder aux appareils locaux, vous pouvez utiliser les méthodes d’énumération sur `deviceManager`. L’énumération est une action asynchrone
 
 ```js
 //  Get a list of available video devices for use.
