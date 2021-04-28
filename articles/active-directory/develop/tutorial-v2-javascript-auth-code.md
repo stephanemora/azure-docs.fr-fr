@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 1ec046ca6b42a5ca8f33b0347c562c85abd42684
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2eaaeda879e9946610d2f18f7ccf530bc60f7910
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98756177"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072204"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript à l’aide du flux de code d’authentification
 
@@ -282,7 +282,7 @@ msal-spa-tutorial/
     }
     ```
 
-## <a name="register-your-application"></a>Inscrivez votre application
+## <a name="register-your-application"></a>Inscrire votre application
 
 Suivez les étapes décrites dans [Application monopage : inscription d’application](scenario-spa-app-registration.md) pour créer une inscription d’application pour votre SPA.
 
@@ -574,7 +574,7 @@ La méthode `acquireTokenSilent` gère l’acquisition et le renouvellement de j
 1. Signalez visuellement à l’utilisateur qu’une connexion interactive est requise afin qu’il puisse choisir le bon moment pour se connecter ou que l’application puisse réessayer d’exécuter `acquireTokenSilent` ultérieurement. Cette technique est fréquemment retenue quand l’utilisateur peut se servir d’autres fonctionnalités de l’application sans être perturbé. Par exemple, un contenu non authentifié peut être disponible dans l’application. Dans ce cas, l’utilisateur peut décider quand se connecter pour accéder à la ressource protégée ou pour actualiser les informations obsolètes.
 
 > [!NOTE]
-> Ce tutoriel utilise les méthodes `loginPopup` et `acquireTokenPopup` par défaut. Si vous utilisez Internet Explorer, nous vous recommandons d’utiliser les méthodes `loginRedirect` et `acquireTokenRedirect` en raison d’un [problème connu](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) avec Internet Explorer et les fenêtres contextuelles. Pour obtenir un exemple d’obtention du même résultat à l’aide de méthodes de redirection, consultez [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js) sur GitHub.
+> Ce tutoriel utilise les méthodes `loginPopup` et `acquireTokenPopup` par défaut. Si vous utilisez Internet Explorer, nous vous recommandons d’utiliser les méthodes `loginRedirect` et `acquireTokenRedirect` en raison d’un [problème connu](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) avec Internet Explorer et les fenêtres contextuelles. Pour obtenir un exemple d’obtention du même résultat à l’aide de méthodes de redirection, consultez [*authRedirect.js*](https://github.com/Azure-Samples/ms-identity-javascript-v2/blob/master/app/authRedirect.js) sur GitHub.
 
 ## <a name="call-the-microsoft-graph-api"></a>Appeler l’API Microsoft Graph
 

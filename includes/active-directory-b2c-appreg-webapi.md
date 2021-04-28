@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 7cbf6ca7606210b70ae9efa69a8cc6551eb6f36f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 85883cd465626764d7af0c20af480b6075e13f9e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106072861"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070572"
 ---
 Les ressources des API web doivent être inscrites auprès de votre locataire avant de pouvoir accepter et répondre aux demandes de ressources protégées émanant des applications clientes qui présentent un jeton d'accès.
 
@@ -34,7 +34,7 @@ Ensuite, activez le flux d’octroi implicite :
 1. Sous **Octroi implicite**, cochez les deux cases **Jetons d’accès** et **Jetons d’ID**.
 1. Sélectionnez **Enregistrer**.
 
-#### <a name="applications"></a>[Applications](#tab/applications/)
+#### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.

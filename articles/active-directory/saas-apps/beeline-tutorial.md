@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 4274596f7d53488a2ca5d0e0d3ab3021531907df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9255e10743182c55308fa9a07e9dc8fa08b6bbb4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97674083"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Tutoriel : Intégration d’Azure Active Directory à Beeline
 
@@ -110,9 +110,9 @@ Pour configurer l’authentification unique Azure AD auprès de Beeline, effectu
     ```
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Beeline](https://www.beeline.com/support-beeline/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Beeline](https://www.beeline.com/contact-support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. L’application Beeline attend les assertions SAML dans un format spécifique. Collaborez avec l’[équipe de support technique de Beeline](https://www.beeline.com/support-beeline/) pour identifier tout d’abord l’identificateur d’utilisateur correct qui sera mappé à l’application. Suivez également les instructions de l’[équipe de support technique de Beeline](https://www.beeline.com/support-beeline/) concernant l’attribut à utiliser pour ce mappage. Vous pouvez gérer la valeur de cet attribut à partir de l’onglet **Attributs utilisateur** de l’application. La capture d’écran suivante montre un exemple : Ici, nous avons mis en correspondance la revendication **Identificateur d’utilisateur** avec l’attribut **userprincipalname**, qui fournit l’ID utilisateur unique qui sera envoyé à l’application Beeline dans chaque réponse SAML correcte.
+5. L’application Beeline attend les assertions SAML dans un format spécifique. Collaborez avec l’[équipe de support technique de Beeline](https://www.beeline.com/contact-support/) pour identifier tout d’abord l’identificateur d’utilisateur correct qui sera mappé à l’application. Suivez également les instructions de l’[équipe de support technique de Beeline](https://www.beeline.com/contact-support/) concernant l’attribut à utiliser pour ce mappage. Vous pouvez gérer la valeur de cet attribut à partir de l’onglet **Attributs utilisateur** de l’application. La capture d’écran suivante montre un exemple : Ici, nous avons mis en correspondance la revendication **Identificateur d’utilisateur** avec l’attribut **userprincipalname**, qui fournit l’ID utilisateur unique qui sera envoyé à l’application Beeline dans chaque réponse SAML correcte.
 
     ![image](common/edit-attribute.png)
 
@@ -127,7 +127,7 @@ Pour configurer l’authentification unique Azure AD auprès de Beeline, effectu
 
 ### <a name="configure-beeline-single-sign-on"></a>Configurer l’authentification unique de Beeline
 
-Pour configurer l’authentification unique côté **Beeline**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et l’URL d’accès utilisateur, copié à partir des propriétés dans le portail Azure, à l’[équipe du support technique de Beeline](https://www.beeline.com/support-beeline/). Il lui faut les métadonnées et l’URL d’accès utilisateur afin que la connexion d’authentification unique SAML soit correctement configurée des deux côtés.
+Pour configurer l’authentification unique côté **Beeline**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et l’URL d’accès utilisateur, copié à partir des propriétés dans le portail Azure, à l’[équipe du support technique de Beeline](https://www.beeline.com/contact-support/). Il lui faut les métadonnées et l’URL d’accès utilisateur afin que la connexion d’authentification unique SAML soit correctement configurée des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -182,7 +182,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-beeline-test-user"></a>Créer l’utilisateur de test Beeline
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Beeline. Tous les utilisateurs de Beeline doivent être provisionnés dans cette application avant de procéder à l’authentification unique. Vous devez donc collaborer avec l’[équipe de support technique de Beeline](https://www.beeline.com/support-beeline/) pour provisionner ces utilisateurs dans l’application.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Beeline. Tous les utilisateurs de Beeline doivent être provisionnés dans cette application avant de procéder à l’authentification unique. Vous devez donc collaborer avec l’[équipe de support technique de Beeline](https://www.beeline.com/contact-support/) pour provisionner ces utilisateurs dans l’application.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 46caae53ed81de335c2b9d5ddbd3fd7f89424fdd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4e200440bd37d3593d5fc096b3dd79eff25dc1d8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780412"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877224"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Créer un test Internet Analyzer avec l’interface de ligne de commande (préversion)
 
@@ -132,6 +132,6 @@ L’interface CLI d’Internet Analyzer expose les types de ressources suivants�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir la liste complète des commandes prises en charge et des exemples d’utilisation, parcourez les [Informations de référence sur l’interface CLI d’Internet Analyzer](/cli/azure/ext/internet-analyzer/internet-analyzer).
+* Pour obtenir la liste complète des commandes prises en charge et des exemples d’utilisation, parcourez les [Informations de référence sur l’interface CLI d’Internet Analyzer](/cli/azure/internet-analyzer).
 * Consultez la [FAQ sur Internet Analyzer](internet-analyzer-faq.md).
 * En savoir plus sur l’incorporation du [client Internet Analyzer](internet-analyzer-embed-client.md) et sur la création d’un [point de terminaison personnalisé](internet-analyzer-custom-endpoint.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c3eeb1577e628965e3e5a35fa20c072224383149
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2450a45140b3ba47c172f05d2eb7200252ca23b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92514620"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Didacticiel : Intégration d’Azure AD à Thoughtworks Mingle
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Thoughtworks Mingle, e
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.mingle.thoughtworks.com`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique Thoughtworks Mingle](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’équipe de support technique Thoughtworks Mingle. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -120,13 +120,13 @@ Pour configurer l’authentification unique Azure AD avec Thoughtworks Mingle, e
 
     c. URL de déconnexion
 
-### <a name="configure-thoughtworks-mingle-single-sign-on"></a>Configurer l’authentification unique Thoughtworks Mingle
+### <a name="configure-thoughtworks-mingle-single-sign-on&quot;></a>Configurer l’authentification unique Thoughtworks Mingle
 
 1. Connectez-vous à votre site d’entreprise **Thoughtworks Mingle** en tant qu’administrateur.
 
 2. Cliquez sur l'onglet **Admin**, puis sur **SSO Config**.
    
-    ![Onglet Admin](./media/thoughtworks-mingle-tutorial/ic785157.png "SSO Config")
+    ![Onglet Admin](./media/thoughtworks-mingle-tutorial/ic785157.png &quot;SSO Config")
 
 3. Dans la section **SSO Config**, procédez comme suit :
    
@@ -186,7 +186,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-thoughtworks-mingle-test-user"></a>Créer un utilisateur de test Thoughtworks Mingle
+### <a name="create-thoughtworks-mingle-test-user&quot;></a>Créer un utilisateur de test Thoughtworks Mingle
 
 Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être approvisionnés dans l’application Thoughtworks Mingle à l’aide de leurs noms d’utilisateur Azure AD. Dans le cas de Thoughtworks Mingle, l’approvisionnement est une tâche manuelle.
 
@@ -196,7 +196,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être appr
 
 2. Cliquez sur **Profile**.
    
-    ![Votre premier projet](./media/thoughtworks-mingle-tutorial/ic785160.png "Votre premier projet")
+    ![Votre premier projet](./media/thoughtworks-mingle-tutorial/ic785160.png &quot;Votre premier projet")
 
 3. Cliquez sur l'onglet **Admin**, puis sur **Users**.
    

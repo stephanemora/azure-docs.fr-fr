@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d063a0870616b5b977df18c56d9d66515b03d0a5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644874"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870856"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutoriel : Accepter et recevoir des données avec Azure Data Share  
 
@@ -106,7 +106,7 @@ Commencez par préparer votre environnement pour Azure CLI :
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Exécutez la commande [az datashare consumer invitation list](/cli/azure/ext/datashare/datashare/consumer/invitation#ext_datashare_az_datashare_consumer_invitation_list) pour voir vos invitations actuelles :
+Exécutez la commande [az datashare consumer invitation list](/cli/azure/datashare/consumer/invitation#az_datashare_consumer_invitation_list) pour voir vos invitations actuelles :
 
 ```azurecli
 az datashare consumer invitation list --subscription 11111111-1111-1111-1111-111111111111
@@ -140,7 +140,7 @@ Copiez l’ID de votre invitation pour l’utiliser dans la section suivante.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Utilisez la commande [az datashare consumer share-subscription create](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_create) pour créer le partage Data Share.
+Utilisez la commande [az datashare consumer share-subscription create](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_create) pour créer le partage Data Share.
 
 ```azurecli
 az datashare consumer share-subscription create --resource-group share-rg \
@@ -175,7 +175,7 @@ Suivez les étapes ci-dessous pour configurer l’emplacement où vous souhaitez
 
 Utilisez les commandes suivantes pour configurer l’emplacement où vous souhaitez recevoir les données.
 
-1. Exécutez la commande [az datashare consumer share-subscription list-source-dataset](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_dataset) pour récupérer l’ID du jeu de données :
+1. Exécutez la commande [az datashare consumer share-subscription list-source-dataset](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_dataset) pour récupérer l’ID du jeu de données :
 
    ```azurecli
    az datashare consumer share-subscription list-source-dataset \
@@ -221,7 +221,7 @@ Utilisez les commandes suivantes pour configurer l’emplacement où vous souhai
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Utilisez la commande [az datashare consumer dataset-mapping create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) pour créer le mappage de jeu de données :
+1. Utilisez la commande [az datashare consumer dataset-mapping create](/cli/azure/datashare/consumer/dataset-mapping#az_datashare_consumer_dataset_mapping_create) pour créer le mappage de jeu de données :
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
@@ -230,7 +230,7 @@ Utilisez les commandes suivantes pour configurer l’emplacement où vous souhai
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Exécutez la commande [az datashare consumer share-subscription synchronization start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) pour démarrer la synchronisation du jeu de données.
+1. Exécutez la commande [az datashare consumer share-subscription synchronization start](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_start) pour démarrer la synchronisation du jeu de données.
 
    ```azurecli
    az datashare consumer share-subscription synchronization start \
@@ -239,7 +239,7 @@ Utilisez les commandes suivantes pour configurer l’emplacement où vous souhai
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Exécutez la commande [az datashare consumer share-subscription synchronization list](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_list) pour afficher une liste de vos synchronisations :
+   Exécutez la commande [az datashare consumer share-subscription synchronization list](/cli/azure/datashare/consumer/share-subscription/synchronization#az_datashare_consumer_share_subscription_synchronization_list) pour afficher une liste de vos synchronisations :
 
    ```azurecli
    az datashare consumer share-subscription synchronization list \
@@ -248,7 +248,7 @@ Utilisez les commandes suivantes pour configurer l’emplacement où vous souhai
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-   Utilisez la commande [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/ext/datashare/datashare/consumer/share-subscription#ext_datashare_az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) pour voir les paramètres de synchronisation définis sur votre partage.
+   Utilisez la commande [az datashare consumer share-subscription list-source-share-synchronization-setting](/cli/azure/datashare/consumer/share-subscription#az_datashare_consumer_share_subscription_list_source_share_synchronization_setting) pour voir les paramètres de synchronisation définis sur votre partage.
 
    ```azurecli
    az datashare consumer share-subscription list-source-share-synchronization-setting \
@@ -274,7 +274,7 @@ Ces étapes s’appliquent seulement au partage basé sur des instantanés.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Exécutez la commande [az datashare consumer trigger create](/cli/azure/ext/datashare/datashare/consumer/trigger#ext_datashare_az_datashare_consumer_trigger_create) pour déclencher un instantané :
+Exécutez la commande [az datashare consumer trigger create](/cli/azure/datashare/consumer/trigger#az_datashare_consumer_trigger_create) pour déclencher un instantané :
 
 ```azurecli
 az datashare consumer trigger create --resource-group "share-rg" \
