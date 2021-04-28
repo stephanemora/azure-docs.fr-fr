@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 9342e0c39b558cf8b6ff5773d623ce55062f9ab5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d9d53b4e6b7237c93c6203351463515bb2b34d26
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607471"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125298"
 ---
 # <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages de machine virtuelle - Maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -34,7 +34,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 
 * Utiliser [Zones de disponibilité](../availability-zones/az-overview.md) pour vous protéger contre les défaillances des centres de données
 * Configurer plusieurs machines virtuelles dans un [groupe à haute disponibilité](availability-set-overview.md) pour assurer la redondance
-* Utiliser des [événements planifiés pour les](/azure/virtual-machines/linux/scheduled-events) ou des [événements planifiés pour Windows](/azure/virtual-machines/windows/scheduled-events) afin de répondre de manière proactive aux événements affectant les machines virtuelles
+* Utiliser des [événements planifiés pour les](./linux/scheduled-events.md) ou des [événements planifiés pour Windows](./windows/scheduled-events.md) afin de répondre de manière proactive aux événements affectant les machines virtuelles
 * Configuration de chaque couche application dans des groupes à haute disponibilité séparés
 * Combiner un [équilibreur de charge](../load-balancer/load-balancer-overview.md) avec des zones de disponibilité ou des groupes à haute disponibilité
 

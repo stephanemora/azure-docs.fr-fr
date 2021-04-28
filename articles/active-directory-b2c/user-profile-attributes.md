@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/27/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42bc87259265b45dabb631507ce6956e07077a7d
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500527"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070476"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
@@ -59,7 +59,6 @@ Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateu
 |ImmutableID     |String|Identificateur généralement utilisé pour les utilisateurs migrés à partir de Windows Server Active Directory.|Non|Non|Persistant, Sortie|
 |legalAgeGroupClassification|String|Classification de tranche d’âge légal. En lecture seule et calculée en fonction des propriétés ageGroup et consentProvidedForMinor. Valeurs autorisées : null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult et adult.|Oui|Non|Persistant, Sortie|
 |legalCountry<sup>1</sup>  |String|Pays/région à des fins juridiques.|Non|Non|Persistant, Sortie|
-|mail            |String|Adresse SMTP de l’utilisateur, par exemple « bob@contoso.com ». Lecture seule.|Non|Non|Persistant, Sortie|
 |mailNickName    |String|Alias de messagerie de l’utilisateur. Longueur max. : 64.|Non|Non|Persistant, Sortie|
 |mobile (mobilePhone) |String|Numéro de portable principal de l’utilisateur. Longueur max. : 64.|Oui|Non|Persistant, Sortie|
 |netId           |String|ID Net.|Non|Non|Persistant, Sortie|

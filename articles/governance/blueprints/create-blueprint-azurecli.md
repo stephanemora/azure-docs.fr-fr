@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer un blueprint avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec Azure CLI.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: fbe5c12f1c94d4b59dbdc2a97b6a4cb9af5a2328
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 506877eddd78ce54681bd4870e1d9040b4738c27
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563665"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877405"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec Azure CLI
 
@@ -117,7 +117,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
      > [!NOTE]
      > Utilisez le nom de fichier _blueprint.json_ quand vous importez vos définitions de blueprint.
-     > Ce nom de fichier est utilisé lors de l’appel de [az blueprint import](/cli/azure/ext/blueprint/blueprint#ext_blueprint_az_blueprint_import).
+     > Ce nom de fichier est utilisé lors de l’appel de [az blueprint import](/cli/azure/blueprint#az_blueprint_import).
 
      Par défaut, l’objet blueprint est créé dans l’abonnement par défaut. Pour spécifier le groupe d’administration, utilisez le paramètre **managementgroup**. Pour spécifier l’abonnement, utilisez le paramètre **subscription**.
 

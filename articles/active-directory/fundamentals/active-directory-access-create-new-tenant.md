@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc51c645c470f2b5b0a009eaf831db2f1957617e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 93ae1982dfaef6e10edf39013474b6663dd688d0
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780135"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130608"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Démarrage rapide : Créer un locataire dans Azure Active Directory
 
@@ -63,9 +63,9 @@ Votre nouveau locataire est créé avec le domaine contoso.onmicrosoft.com.
 
 ## <a name="your-user-account-in-the-new-tenant"></a>Votre compte d’utilisateur dans le nouveau locataire
 
-Quand vous créez un locataire Azure AD, vous devenez le premier utilisateur de ce locataire. En tant que premier utilisateur, vous recevez automatiquement le rôle [Administrateur général](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator). Consultez votre compte d’utilisateur en accédant à la page [**Utilisateurs**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers).
+Quand vous créez un locataire Azure AD, vous devenez le premier utilisateur de ce locataire. En tant que premier utilisateur, vous recevez automatiquement le rôle [Administrateur général](../roles/permissions-reference.md#global-administrator). Consultez votre compte d’utilisateur en accédant à la page [**Utilisateurs**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers).
 
-Par défaut, vous figurez aussi comme [contact technique](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) pour le locataire. Vous pouvez modifier les informations de contact technique dans [**Propriétés**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+Par défaut, vous figurez aussi comme [contact technique](/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) pour le locataire. Vous pouvez modifier les informations de contact technique dans [**Propriétés**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 > [!WARNING]
 > Vérifiez que votre annuaire a au moins deux comptes disposant des privilèges d’administrateur général. Ceci vous aidera dans le cas où un administrateur général est verrouillé. Pour plus d’informations, consultez l’article [Gérer les comptes d’accès d’urgence dans Azure AD](../roles/security-emergency-access.md).

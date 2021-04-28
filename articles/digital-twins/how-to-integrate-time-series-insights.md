@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d89ee4c8e66ba4dda004fbd27e15b96ab13c642b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1ac9a0bc83c2a33becb5348862e5a572dddf3ac2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783770"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133922"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Intégrer Azure Digital Twins avec Azure Time Series Insights
 
@@ -100,7 +100,7 @@ az dt endpoint create eventhub -n <your-Azure-Digital-Twins-instance-name> --eve
 
 ### <a name="create-twins-hub-event-route"></a>Créer un itinéraire d’événement hub Twins
 
-Les instances Azure Digital Twins peuvent émettre des [événements de mise à jour des jumeaux](how-to-interpret-event-data.md) chaque fois que l’état d’un jumeau est mis à jour. Dans cette section, vous allez créer un **itinéraire d’événement** Azure Digital Twins qui dirigera ces événements de mise à jour vers le hub Twins en vue d’un traitement ultérieur.
+Les instances Azure Digital Twins peuvent émettre des [événements de mise à jour des jumeaux](./concepts-event-notifications.md) chaque fois que l’état d’un jumeau est mis à jour. Dans cette section, vous allez créer un **itinéraire d’événement** Azure Digital Twins qui dirigera ces événements de mise à jour vers le hub Twins en vue d’un traitement ultérieur.
 
 Créez un [itinéraire](concepts-route-events.md#create-an-event-route) dans Azure Digital Twins pour envoyer des événements de mise à jour de jumeaux à votre point de terminaison à partir d’en haut. Le filtre de cet itinéraire permet uniquement aux messages de mise à jour de jumeaux d’être transmis à votre point de terminaison. Spécifiez un nom pour l’itinéraire d’événement du hub Twins.
 

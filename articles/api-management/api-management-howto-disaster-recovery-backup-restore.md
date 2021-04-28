@@ -13,20 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c7901dd4a238b27a31f95f1e22ddf9dc1ae5327a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762399"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813060"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
 En publiant et en gérant vos API via Gestion des API Azure, vous bénéficiez de fonctionnalités de tolérance de panne et d’infrastructure que vous n’avez plus à concevoir, implémenter ou gérer manuellement. La plateforme Azure permet de limiter une grande partie des risques de défaillance à moindres frais.
 
-Pour effectuer une récupération à la suite de problèmes de disponibilité affectant la région où vous hébergez votre service Gestion des API, préparez-vous à reconstituer votre service dans une autre région à tout moment. Selon votre objectif de délai de récupération, vous souhaiterez peut-être conserver un service en attente dans une ou plusieurs régions. Vous pouvez aussi essayer de synchroniser leur configuration et leur contenu avec le service actif en fonction de l’objectif de délai de récupération. La fonctionnalité de sauvegarde et de restauration de service fournit les blocs de construction nécessaires pour implémenter votre stratégie de récupération d’urgence.
+Pour effectuer une récupération à la suite de problèmes de disponibilité affectant la région où vous hébergez votre service Gestion des API, préparez-vous à reconstituer votre service dans une autre région à tout moment. Selon votre objectif de délai de récupération, vous souhaiterez peut-être conserver un service en attente dans une ou plusieurs régions. Vous pouvez aussi essayer de synchroniser leur configuration et leur contenu avec le service actif en fonction de l’objectif de délai de récupération. Les fonctionnalités de sauvegarde et de restauration de service fournissent les éléments de base nécessaires à l’implémentation d’une stratégie de récupération d’urgence.
 
-Vous pouvez également recourir à des opérations de sauvegarde et restauration pour répliquer la configuration du service Gestion des API entre les environnements d’exploitation (par exemple, développement et mise en lots). Notez que les données de runtime telles que les informations utilisateur et les abonnements seront également copiées, ce qui n’est pas toujours souhaitable.
+Vous pouvez également recourir à des opérations de sauvegarde et restauration pour répliquer la configuration du service Gestion des API entre des environnements opérationnels (par exemple, développement et intermédiaire). Notez que les données de runtime telles que les informations utilisateur et les abonnements seront également copiées, ce qui n’est pas toujours souhaitable.
 
 Ce guide montre comment automatiser les opérations de sauvegarde et de restauration et garantir l’authentification des requêtes de sauvegarde et de restauration par Azure Resource Manager.
 
@@ -78,11 +79,14 @@ Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure R
 5. Choisissez **Gestion des services Azure**.
 6. Appuyez sur **Sélectionner**.
 
-    ![Ajout d’autorisations](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Capture d’écran montrant comment des permissions d’application."::: 
 
 7. Cliquez sur **Autorisations déléguées** à côté de l’application ajoutée, puis cochez la case **Accès à la gestion des services Azure (aperçu)** .
+
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Capture d’écran montrant comment ajouter des permissions d’application déléguées.":::
+
 8. Appuyez sur **Sélectionner**.
-9. Cliquez sur **Accorder des autorisations**.
+9. Cliquez sur **Ajouter des autorisations**.
 
 ### <a name="configuring-your-app"></a>Configuration de votre application
 
@@ -227,7 +231,7 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 -   Configuration d’[identité managée](api-management-howto-use-managed-service-identity.md).
 -   Configuration des [diagnostics Azure Monitor](api-management-howto-use-azure-monitor.md).
 -   Paramètres [de chiffrement et des protocoles](api-management-howto-manage-protocols-ciphers.md).
--   Contenu du [portail des développeurs](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management).
+-   Contenu du [portail des développeurs](developer-portal-faq.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management).
 
 La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Pour la réduire, nous vous conseillons d’implémenter des sauvegardes régulières et d’effectuer des sauvegardes à la demande quand vous apportez des changements à votre service Gestion des API.
 

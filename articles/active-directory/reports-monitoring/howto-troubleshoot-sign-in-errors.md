@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e35d3ffa98c2713f86bb56974670832e9fd416a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85608124"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137848"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Guide pratique pour résoudre les erreurs de connexion avec les rapports Azure Active Directory
 
@@ -57,11 +57,11 @@ Ce dont vous avez besoin :
 
 6. La raison de l’échec décrit l’erreur. Par exemple, dans le scénario ci-dessus, la raison de l’échec est **Nom d’utilisateur ou mot de passe non valide, ou Nom d’utilisateur ou mot de passe local non valide**. La solution consiste simplement à se reconnecter avec le nom d’utilisateur et le mot de passe corrects.
 
-7. Vous pouvez obtenir des informations supplémentaires, notamment des idées pour remédier au problème, en recherchant le code d’erreur, **50126** dans cet exemple, dans les [informations de référence sur les codes d’erreur des connexions](reference-sign-ins-error-codes.md). 
+7. Vous pouvez obtenir des informations supplémentaires, notamment des idées pour remédier au problème, en recherchant le code d’erreur, **50126** dans cet exemple, dans les [informations de référence sur les codes d’erreur des connexions](./concept-sign-ins.md). 
 
 8. Si tout le reste échoue ou si le problème persiste en dépit de l’application des actions recommandées, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) en suivant les étapes décrites sous l’onglet **Résolution des problèmes et support**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Informations de référence sur les codes d’erreur des connexions](reference-sign-ins-error-codes.md)
+* [Informations de référence sur les codes d’erreur des connexions](./concept-sign-ins.md)
 * [Vue d’ensemble du rapport des connexions](concept-sign-ins.md)

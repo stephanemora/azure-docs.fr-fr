@@ -14,16 +14,16 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74769feba1d717a2f1a72d311f85bdfbeac7b7db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 035215bf9350243f667c4883786a923a172cb89c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574775"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126558"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>Connexions AD FS dans Azure AD avec Connect Health - préversion
 
-Les connexions AD FS peuvent désormais être intégrées dans le rapport de connexions Azure Active Directory à l’aide de Connect Health. Le [rapport Connexions Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-all-sign-ins#:~:text=Interactive%20user%20sign-ins%20are%20sign-ins%20where%20a%20user,to%20Azure%20AD%20or%20to%20a%20helper%20app.) contient des informations sur le moment où les utilisateurs, les applications et les ressources managées se connectent à Azure AD et accèdent aux ressources. 
+Les connexions AD FS peuvent désormais être intégrées dans le rapport de connexions Azure Active Directory à l’aide de Connect Health. Le [rapport Connexions Azure AD](../reports-monitoring/concept-all-sign-ins.md) contient des informations sur le moment où les utilisateurs, les applications et les ressources managées se connectent à Azure AD et accèdent aux ressources. 
 
 L’agent Connect Health pour AD FS met en corrélation plusieurs ID d’événements à partir d’AD FS, en fonction de la version du serveur, afin de fournir des informations sur la requête et les détails de l’erreur en cas d’échec de la requête. Ces informations sont corrélées avec le schéma de rapport de connexion Azure AD et affichées dans l’expérience utilisateur de rapport de connexion Azure AD. En plus du rapport, un nouveau flux Log Analytics est disponible avec les données d’AD FS et un nouveau modèle de classeur Azure Monitor. Le modèle peut être utilisé et modifié pour une analyse approfondie des scénarios tels que les verrouillages de compte AD FS, les tentatives de mot de passe incorrectes et les pics de tentatives de connexion inattendues.
 
@@ -111,8 +111,3 @@ Le rapport présente un problème connu où le champ « Condition d’authentif
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Installation de l’agent Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Rapport de l’adresse IP risquée](how-to-connect-health-adfs-risky-ip.md)
-
-
-
-
-

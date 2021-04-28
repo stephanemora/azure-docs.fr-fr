@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: 560a88c973d71b3e2c6533e05e4f374f9a5bcd8f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4c867ad3888544df93f8a6e5a6236a01197eefc2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311479"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127836"
 ---
 # <a name="what-is-azure-private-dns"></a>Qu’est-ce qu’Azure Private DNS ?
 
@@ -78,4 +78,4 @@ Pour obtenir des informations sur les prix, voir la [tarification Azure DNS](htt
 
 * Pour plus d’informations sur les zones et enregistrements DNS, consultez [Vue d’ensemble des enregistrements et zones DNS](dns-zones-records.md).
 
-* Découvrez certaines des autres [fonctionnalités de réseau](../networking/networking-overview.md) clés d’Azure.
+* Découvrez certaines des autres [fonctionnalités de réseau](../networking/fundamentals/networking-overview.md) clés d’Azure.

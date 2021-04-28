@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 08b1294436ead372234104008a48ca23e56de389
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 875669d774684c2960d7e56b655ce0e9234e61db
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589308"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108148108"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview-deprecated"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ADP Globalview (déprécié)
 
@@ -133,9 +133,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance ADP Globalview (déprécié) pour laquelle vous avez configuré l’authentification unique
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette ADP Globalview (déprécié) dans la page Mes applications doit automatiquement vous connecter à l’instance ADP Globalview (déprécié) pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette ADP Globalview (déprécié) dans la page Mes applications doit automatiquement vous connecter à l’instance ADP Globalview (déprécié) pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré ADP Globalview (déprécié), vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré ADP Globalview (déprécié), vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

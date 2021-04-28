@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 8c9d760ed888eb194ad8f282f180a634e3c09538
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 8a94500f1669e47065f6ea9789b18442e0c8349e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587814"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127008"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Microsoft Dynamics 365 Fraud Protection avec Azure Active Directory B2C
 
-Dans cet exemple de didacticiel, nous fournissons des conseils sur l’intégration de [Microsoft Dynamics 365 Fraud Protection](https://docs.microsoft.com/dynamics365/fraud-protection/overview) (DFP) avec Azure Active Directory (AD) B2C.
+Dans cet exemple de didacticiel, nous fournissons des conseils sur l’intégration de [Microsoft Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/overview) (DFP) avec Azure Active Directory (AD) B2C.
 
 Microsoft DFP fournit aux clients la possibilité d’évaluer si le risque de tentatives de création de nouveaux comptes et les tentatives de connexion à l’écosystème du client sont frauduleux. L’évaluation de Microsoft DFP peut être utilisée par le client pour bloquer les tentatives suspectes de création de nouveaux comptes factices ou les piéger, ou bien pour compromettre les comptes existants. La protection des comptes comprend l’identification de l’empreinte des appareils par intelligence artificielle, des API pour l’évaluation des risques en temps réel, une règle et une liste pour optimiser la stratégie de risque en fonction des besoins de l’entreprise du client et une carte de performance pour surveiller l’efficacité et les tendances de la protection contre les fraudes dans l’écosystème du client.
 
@@ -103,7 +103,7 @@ Configurez les paramètres de l’application dans le [service d’application d
 |FraudProtectionSettings:InstanceId | Configuration de Microsoft DFP |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Votre ID client de collecte d’empreintes d’appareils Microsoft |     |
 | FraudProtectionSettings:ApiBaseUrl |  Votre URL de base à partir du portail Microsoft DFP   | Supprimer « -int » pour appeler l’API de production à la place|
-|  TokenProviderConfig : Ressource  | Votre URL de base - https://api.dfp.dynamics-int.com     | Supprimer « -int » pour appeler l’API de production à la place|
+|  TokenProviderConfig : Ressource  | Votre URL de base - `https://api.dfp.dynamics-int.com`     | Supprimer « -int » pour appeler l’API de production à la place|
 |   TokenProviderConfig:ClientId       |ID de votre application cliente Azure AD de prestataire de protection contre la fraude      |       |
 | TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Autorité de locataire Azure AD de prestataire de protection contre la fraude |
 | TokenProviderConfig:CertificateThumbprint* | Empreinte numérique du certificat à utiliser pour l’authentification auprès de votre application cliente Azure AD de prestataire |

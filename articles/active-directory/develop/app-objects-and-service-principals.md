@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/16/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 358e066631304e727d18d092bd4b9a5b2a0bb89a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc1b5356ab607ecb60a457a7295831958e6815e1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199606"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727057"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
@@ -47,15 +47,21 @@ Le panneau **Inscriptions d’applications** dans le [portail Azure][AZURE-Porta
 ## <a name="service-principal-object"></a>Objet principal du service
 Pour accéder aux ressources qui sont sécurisées par un locataire Azure AD, l’entité qui nécessite l’accès doit être représentée par un principal de sécurité. Cette exigence est valable aussi bien pour les utilisateurs (principal d’utilisateur) que pour les applications (principal de service). Le principal de sécurité définit la stratégie d’accès et les autorisations pour l’utilisateur ou l’application du locataire Azure AD. Cela rend possibles les fonctionnalités de base, telles que l’authentification de l’application ou de l’utilisateur lors de la connexion, et l’autorisation lors de l’accès aux ressources.
 
-Un principal de service est la représentation locale, ou instance d’application, d’un objet application global dans un locataire ou répertoire unique. Un principal de service est une instance concrète créée à partir de l’objet application, qui hérite de certaines propriétés de celui-ci. Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée, et fait référence à l’objet application global unique.  L’objet principal de service définit ce que l’application peut réellement faire dans le locataire spécifique, qui peut accéder à l’application, ainsi que les ressources auxquelles l’application peut accéder.
+Il existe trois types de principaux de service : application, identité managée et hérité.
+
+Le premier type de principal de service est la représentation locale, ou instance d’application, d’un objet application global dans un locataire ou répertoire unique. Dans ce cas, un principal de service est une instance concrète créée à partir de l’objet application, qui hérite de certaines propriétés de celui-ci. Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée, et fait référence à l’objet application global unique.  L’objet principal de service définit ce que l’application peut réellement faire dans le locataire spécifique, qui peut accéder à l’application, ainsi que les ressources auxquelles l’application peut accéder.
 
 Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](developer-glossary.md#consent)), un objet de principal de service est créé. Vous pouvez également créer des objets principal de service dans un locataire à l’aide d’[Azure PowerShell](howto-authenticate-service-principal-powershell.md), de l’interface [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), de [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), du [portail Azure][AZURE-Portal] et d’autres outils. Lorsque vous utilisez le portail, un principal de service est créé automatiquement lorsque vous inscrivez une application.
+
+Le deuxième type de principal de service est utilisé pour représenter une [identité managée](/azure/active-directory/managed-identities-azure-resources/overview). Les identités managées permettent aux développeurs de ne plus avoir à gérer les informations d'identification. Les identités managées fournissent une identité que les applications peuvent utiliser lorsqu’elles se connectent à des ressources qui prennent en charge l’authentification Azure AD. Lorsqu’une identité managée est activée, un principal de service représentant cette identité managée est créé dans votre locataire. Les principaux de service représentant des identités managées peuvent se voir accorder des accès et des autorisations, mais ne peuvent pas être mis à jour ni modifiés directement.
+
+Le troisième type de principal de service représente une application héritée (une application créée avant l’introduction ou la création d’inscriptions d’applications par le biais d’expériences héritées). Un principal de service hérité peut avoir des informations d’identification, des noms de principal du service, des URL de réponse et d’autres propriétés modifiables par un utilisateur autorisé, mais il n’est pas associé à une inscription d’application. Le principal de service ne peut être utilisé que dans le locataire où il a été créé.
+
+L’entité [ServicePrincipal][MS-Graph-Sp-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet principal de service.
 
 Le panneau **Applications d’entreprise** dans le portail permet de répertorier et gérer les principaux de service dans un locataire. Vous pouvez voir les autorisations du principal de service, les autorisations accordées par l’utilisateur, les utilisateurs ayant accordé ces autorisations, les informations de connexion, et bien plus.
 
 ![Panneau Applications d’entreprise](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
-
-L’entité [ServicePrincipal][MS-Graph-Sp-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet principal de service.
 
 ## <a name="relationship-between-application-objects-and-service-principals"></a>Relation entre les objets application et les principaux de service
 

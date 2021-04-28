@@ -1,19 +1,19 @@
 ---
 title: Transformation des données avec un flux de données de mappage de réseau virtuel managé Azure Data Factory
 description: Ce tutoriel fournit des instructions détaillées sur l’utilisation d’Azure Data Factory pour transformer des données à l’aide de flux de données de mappage.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2021
-ms.openlocfilehash: ad101bee84256662d1436ba8d8a49304aecb9129
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: ac868fdf3ca80d489d479b5be0c57bd14a90ccbb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518273"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905699"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformation sécurisée des données à l’aide de flux de données de mappage
 

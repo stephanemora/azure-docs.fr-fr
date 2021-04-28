@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 86563b0a44bade2cedaf76af3c247821756111fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0fbd0e49b1ac80161d0447d2f75a9cc03844abb
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90930282"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130122"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migrer : SQL Server vers Azure Arc enabled SQL Managed Instance
 
@@ -36,7 +36,7 @@ Cette méthode utilise le stockage Blob Azure comme emplacement de stockage temp
 
 ### <a name="step-1-provision-azure-blob-storage"></a>Étape 1 : Provisionner le stockage Blob Azure
 
-1. Suivez les étapes décrites dans [Créer un compte de stockage Blob Azure](../../storage/blobs/storage-blob-create-account-block-blob.md?tabs=azure-portal)
+1. Suivez les étapes décrites dans [Créer un compte de stockage Blob Azure](../../storage/common/storage-account-create.md?tabs=azure-portal)
 1. Lancer l’Explorateur Stockage Azure
 1. [Connectez-vous à Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) pour accéder au stockage Blob créé à l’étape précédente.
 1. Cliquez avec le bouton droit sur le compte de stockage Blob, puis sélectionnez **Créer un conteneur d’objets blob** pour créer un conteneur où le fichier de sauvegarde sera stocké.

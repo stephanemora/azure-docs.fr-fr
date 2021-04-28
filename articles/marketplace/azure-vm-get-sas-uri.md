@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 03/10/2021
-ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/21/2021
+ms.openlocfilehash: 0f7d63a1213b6fe6625f16f33f18680b7a9e6bcb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558004"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906833"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Comment générer un URI SAS pour une image de machine virtuelle
 
@@ -21,7 +21,6 @@ ms.locfileid: "105558004"
 
 La génération d’URI de SAS pour vos disques durs virtuels impose les exigences suivantes :
 
-- Elles prennent uniquement en charge les disques durs virtuels non managés
 - Seules les autorisations Liste et Lecture sont requises. Ne fournissez pas d’accès en écriture ou en suppression
 - La durée d’accès (date d’expiration) doit être d’au moins trois semaines à partir de la date de création de l’URI SAS
 - Pour vous protéger contre les changements de temps UTC, choisissez la veille de la date actuelle comme date de début. Par exemple, si la date actuelle est le 16 juin 2020, sélectionnez 15/6/2020
