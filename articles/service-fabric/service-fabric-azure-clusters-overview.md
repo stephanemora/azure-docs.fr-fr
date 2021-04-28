@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aed4ab38db9f8d8b95647b6662245c93778afed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97882209"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520154"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Vue d’ensemble des clusters Service Fabric sur Azure
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Les clusters peuvent être mis à l’échelle pour des milliers de nœuds. Si vous ajoutez des nœuds au cluster, Service Fabric rééquilibre les réplicas de partition du service et les instances sur le nombre de nœuds augmenté. Les performances globales de l’application s’améliorent tandis que le conflit d’accès à la mémoire diminue. Si les nœuds du cluster ne sont pas utilisés efficacement, vous pouvez diminuer le nombre de nœuds dans le cluster. Service Fabric rééquilibre à nouveau les réplicas de partition et les instances sur le nombre réduit de nœuds afin de mieux utiliser le matériel sur chaque nœud.
@@ -92,25 +92,7 @@ Un cluster Azure Service Fabric est une ressource que vous possédez mais qui es
 Pour plus d’informations, consultez [Mise à niveau des clusters](service-fabric-cluster-upgrade.md).
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
-Vous pouvez créer des clusters sur des machines virtuelles qui exécutent ces systèmes d’exploitation :
-
-| Système d’exploitation | Version prise en charge de Service Fabric la plus ancienne | Dernière version de Service Fabric prise en charge |
-| --- | --- | --- | 
-| Windows Server 2019 | 6.4.654.9590 | N/A |
-| Windows Server 2016 | Toutes les versions | N/A |
-| Windows Server 20H2 | 7.2.445.9590 | N/A |
-| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
-| Windows Server 1803 | 6.4 | 7.2.445.9590 |
-| Windows Server 1709 | 6.0 | 7.2.445.9590 |
-| Windows Server 2012 | Toutes les versions | N/A | 
-| Linux Ubuntu 16.04 | 6.0 | N/A |
-| Linux Ubuntu 18.04 | 7.1 | N/A |
-
-Pour plus d’informations, consultez [Versions de cluster prises en charge dans Azure](./service-fabric-versions.md#supported-operating-systems)
-
-> [!NOTE]
-> Si vous décidez de déployer Service Fabric sur Windows Server 1709, notez que (1) ce n’est pas une branche destinée à des services à long terme, ce qui vous obligera probablement à changer de versions à l’avenir, et (2) si vous déployez des conteneurs, les conteneurs reposant sur Windows Server 2016 ne fonctionnent pas sur Windows Server 1709, et vice versa (vous devez les régénérer pour les déployer).
->
+Pour plus d’informations, consultez [Versions prises en charge dans Azure](./service-fabric-versions.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

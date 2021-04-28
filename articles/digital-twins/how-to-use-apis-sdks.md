@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f4f3fc8c928cd284088cc51120f1a7b485b4fac0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 219d791d4e5e12f0153012a17963bcbe2873168c
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595343"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945490"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utiliser les API et les kits SDK Azure Digital Twins
 
@@ -70,7 +70,6 @@ Pour utiliser les API de plan de données :
    - Vous pouvez afficher et installer le package à partir de PyPi : [Bibliothèque de client Core Azure Digital Twins pour Python](https://pypi.org/project/azure-digitaltwins-core/).
    - vous pouvez consulter la [documentation de référence du SDK](/python/api/azure-digitaltwins-core/azure.digitaltwins.core).
    - vous pouvez trouver la source du Kit de développement logiciel (SDK) dans GitHub : [Bibliothèque de client Core Azure Digital Twins pour Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
-* Vous pouvez générer un SDK pour un autre langage à l’aide d’AutoRest. Suivez les instructions fournies dans [*Procédure : Créer des kits SDK personnalisés pour Azure Digital Twins avec AutoRest*](how-to-create-custom-sdks.md).
 
 Vous pouvez également utiliser des API de plan de données en interagissant avec Azure Digital Twins via l’[interface de ligne de commande](how-to-use-cli.md).
 
@@ -180,6 +179,7 @@ La liste suivante fournit des instructions générales et des détails suppléme
 * Vous pouvez utiliser un outil de test REST HTTP comme Postman pour effectuer des appels directs aux API Azure Digital Twins. Pour plus d’informations sur ce processus, consultez [*Procédure : Faire des demandes avec Postman*](how-to-use-postman.md).
 * Pour utiliser le SDK, instanciez la classe `DigitalTwinsClient`. Le constructeur exige des informations d’identification qui peuvent être obtenues avec diverses méthodes d’authentification dans le package `Azure.Identity`. Pour plus d’informations sur `Azure.Identity`, consultez la [documentation sur son espace de noms](/dotnet/api/azure.identity). 
 * Vous pourrez trouver `InteractiveBrowserCredential` utile dans les débuts. Toutefois, il existe plusieurs autres options, comme les informations d’identification pour l’[identité managée](/dotnet/api/azure.identity.interactivebrowsercredential), qui permettent d’authentifier les [fonctions Azure configurées avec MSI](../app-service/overview-managed-identity.md?tabs=dotnet) dans Azure Digital Twins. Pour plus d’informations sur `InteractiveBrowserCredential`, consultez la [documentation sur sa classe](/dotnet/api/azure.identity.interactivebrowsercredential).
+* Les demandes envoyées aux API Azure Digital Twins nécessitent un utilisateur ou un principal de service qui fait partie du locataire [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) où réside l’instance Azure Digital Twins. Pour empêcher l’analyse malveillante des points de terminaison Azure Digital Twins, les demandes avec des jetons d’accès qui ne proviennent pas du locataire d’origine recevront le message d’erreur « 404 Sous-domaine introuvable ». Cette erreur est retournée *même si* l’utilisateur ou le principal de service a reçu le rôle de Lecteur de données Azure Digital Twins Data ou de Propriétaire de données Azure Digital Twins Data par le biais de la collaboration [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md). Pour savoir comment accéder à plusieurs locataires, consultez [ *Écrire le code d’authentification de l’application cliente*](how-to-authenticate-client.md#authenticate-across-tenants).
 * Tous les appels d’API de service sont exposés comme des fonctions membres dans la classe `DigitalTwinsClient`.
 * Toutes les fonctions de service existent dans une version synchrone et une version asynchrone.
 * Toutes les fonctions de service lèvent une exception pour tout état de retour de 400 (ou supérieur). Veillez à wrapper les appels dans une section `try` et à intercepter au moins `RequestFailedExceptions`. Pour plus d’informations sur ce type d’exception, [cliquez ici](/dotnet/api/azure.requestfailedexception).
@@ -187,6 +187,7 @@ La liste suivante fournit des instructions générales et des détails suppléme
 * Les méthodes de service ayant des résultats paginés retournent des résultats `Pageable<T>` ou `AsyncPageable<T>`. Pour plus d’informations sur la classe `Pageable<T>`, [cliquez ici](/dotnet/api/azure.pageable-1). Pour plus d’informations sur `AsyncPageable<T>`, [cliquez ici](/dotnet/api/azure.asyncpageable-1).
 * Vous pouvez effectuer une itération sur des résultats paginés à l’aide d’une boucle `await foreach`. Pour plus d’informations sur ce processus, [cliquez ici](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
 * Le SDK sous-jacent est `Azure.Core`. Pour plus d’informations sur l’infrastructure et les types de SDK, consultez la [documentation sur les espaces de noms Azure](/dotnet/api/azure).
+
 
 Les méthodes de service retournent des objets fortement typés dès que cela est possible. Toutefois, étant donné qu’Azure Digital Twins est basé sur des modèles personnalisés configurés par l’utilisateur au moment de l’exécution (via des modèles DTDL chargés dans le service), de nombreuses API de service acceptent et retournent des données de jumeau au format JSON.
 

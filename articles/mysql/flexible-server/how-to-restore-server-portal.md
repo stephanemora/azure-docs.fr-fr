@@ -1,19 +1,19 @@
 ---
-title: Restauration - Portail Azure - Azure Database pour MySQL - Serveur flexible
-description: Cet article explique comment effectuer des opérations de restauration dans Azure Database pour MySQL à l’aide du portail Azure.
+title: Restaurer un serveur flexible Azure Database pour MySQL avec le portail Azure
+description: Cet article explique comment effectuer des opérations de restauration dans un serveur flexible Azure Database pour MySQL à l’aide du portail Azure
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/01/2021
+ms.openlocfilehash: 962a2cbdbcc238517616c9ade235eed9b8cae6f7
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241954"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502043"
 ---
-# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Restauration à un instant dans le passé d’un serveur flexible Azure Database pour MySQL (préversion)
+# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Restauration à un instant dans le passé d’un serveur flexible Azure Database pour MySQL (préversion) à l’aide du portail Azure
 
 
 > [!IMPORTANT]
@@ -37,12 +37,9 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 
 3.  Dans la page de vue d’ensemble, cliquez sur **Restaurer**.
 
-    [Espace réservé]
-
 4.  La page Restaurer s’affiche et vous permet de choisir entre **Dernier point de restauration** et Point de restauration personnalisé.
 
 5.  Sélectionnez **Dernier point de restauration**.
-
 
 6.  Indiquez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**.
 
@@ -60,8 +57,6 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 
 2.  Dans la page de vue d’ensemble, cliquez sur **Restaurer**.
 
-    [Espace réservé]
-
 3.  La page Restaurer s’affiche et vous permet de choisir entre Point de restauration le plus ancien et Point de restauration personnalisé.
 
 4.  Choisissez **Point de restauration personnalisé**.
@@ -70,14 +65,23 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 
 6.  Indiquez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**.
 
-6.  Indiquez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. 
-   
+6.  Indiquez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**.
+
     :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="vue d’ensemble":::
- 
+
 7.  Cliquez sur **OK**.
 
 8.  Une notification indique que l’opération de restauration est lancée.
 
-## <a name="next-steps"></a>Étapes suivantes
 
-Espace réservé
+## <a name="perform-post-restore-tasks"></a>Effectuer des tâches de post-restauration
+Une fois la restauration terminée, vous devez effectuer les tâches suivantes afin que les utilisateurs et les applications soient de nouveau opérationnels :
+
+- Si le nouveau serveur est censé remplacer le serveur d’origine, redirigez les clients et les applications clientes vers le nouveau serveur.
+- Vérifiez que les règles de réseau virtuel appropriées sont en place pour permettre aux utilisateurs de se connecter. Ces règles ne sont pas copiées à partir du serveur d’origine.
+- Vérifiez que les connexions et les autorisations appropriées au niveau de la base de données sont en place.
+- Configurez les alertes comme il convient pour le serveur nouvellement restauré.
+
+
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur la [continuité de l’activité](concepts-business-continuity.md)

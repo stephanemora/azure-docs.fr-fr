@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: a3408d30a9caa24355cf3976235c3a9b8061b95f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c16e324809fd688adf4a970f105cb364e73d7004
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531223"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128790"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Attestation FPGA pour les machines virtuelles de la série Azure NP (préversion)
 
@@ -52,7 +52,7 @@ https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-lates
 
 Votre fichier netlist doit être chargé dans un conteneur d’objets Blob du stockage Azure pour permettre l’accès par le service d’attestation.  
 
-Reportez-vous à cette page pour plus d’informations sur la création du compte et d’un conteneur et le chargement de votre netlist en tant qu’objet Blob dans ce conteneur : [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](/azure/storage/blobs/storage-quickstart-blobs-cli).  
+Reportez-vous à cette page pour plus d’informations sur la création du compte et d’un conteneur et le chargement de votre netlist en tant qu’objet Blob dans ce conteneur : [https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli](../storage/blobs/storage-quickstart-blobs-cli.md).  
 
 Vous pouvez également utiliser le portail Azure à cette fin.  
 
@@ -124,5 +124,4 @@ Le service écrit sa sortie dans votre conteneur. Si le test de validation réus
 
 En cas d’échec de la validation, un fichier error-*. txt est écrit pour indiquer l’étape qui a échoué. Vérifiez également les fichiers journaux si le journal des erreurs indique que l’attestation a échoué. Quand vous nous contactez pour obtenir de l’aide, veillez à inclure tous ces fichiers dans le cadre de la demande de support, ainsi que l’ID de l’orchestration.  
 
-Vous pouvez utiliser le portail Azure pour créer votre conteneur, ainsi que pour charger votre netlist et télécharger les fichiers binaires et les fichiers journaux. L’envoi d’une demande d’attestation et la surveillance de sa progression via le portail ne sont pas pris en charge pour l’instant et doivent être effectués par le biais de scripts comme décrit ci-dessus. 
-
+Vous pouvez utiliser le portail Azure pour créer votre conteneur, ainsi que pour charger votre netlist et télécharger les fichiers binaires et les fichiers journaux. L’envoi d’une demande d’attestation et la surveillance de sa progression via le portail ne sont pas pris en charge pour l’instant et doivent être effectués par le biais de scripts comme décrit ci-dessus.

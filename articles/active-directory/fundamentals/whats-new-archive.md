@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0500c8535c6230bad85c97c23787a405edfbfee
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 045eb501e0e62b6696a2ce059612f62487c41adf
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588205"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017028"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -3102,7 +3102,7 @@ Nous avons créé une nouvelle page **Journaux d’audit** Azure AD pour aider �
 
 ![Nouvelle page Journaux d’audit, avec exemple d’informations](media/whats-new/audit-logs-page.png)
 
-Pour plus d’informations sur la nouvelle page **Journaux d’audit**, consultez [Rapports d’activité d’audit dans le Portail Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
+Pour plus d’informations sur la nouvelle page **Journaux d’audit**, consultez [Rapports d’activité d’audit dans le Portail Azure Active Directory](../reports-monitoring/concept-audit-logs.md).
 
 ---
 

@@ -4,12 +4,12 @@ description: Découvrez comment activer la redondance de zone dans Azure Contain
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 8c1ab42aa505448bd81ff42eba54727b24773c60
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 731962437c4890c665513241e756dbbc2acfc5de
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479013"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891587"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Activer la redondance de zone dans Azure Container Registry à des fins de résilience et de haute disponibilité
 

@@ -9,18 +9,20 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2a37d206955e3372b9ecf97be8d27142bd417192
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 1c71c6b55049d81d5c1ff3e26cba3436f0e2dd23
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490452"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890741"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0 (préversion)
 
 Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou d’un système Linux qui s’exécute localement à l’aide du protocole NFS 3.0. Cet article fournit un guide pas à pas. Pour en savoir plus sur la prise en charge du protocole NFS 3.0 dans le stockage Blob, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Étape 1 : Inscrivez la fonctionnalité de protocole NFS 3.0 avec votre abonnement
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Ouvrez une fenêtre de commande PowerShell. 
 
@@ -50,14 +52,54 @@ Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine 
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
    ```
+   
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. Ouvrez une fenêtre de terminal.
+
+2. Connectez-vous à votre abonnement Azure avec la commande `az login` et suivez les instructions à l’écran.
+
+   ```azurecli-interactive
+   az login
+   ```
+   
+3. Enregistrez la fonctionnalité `AllowNFSV3` à l’aide de la commande suivante.
+
+   ```azurecli-interactive
+   az feature register --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
+   ```
+
+   Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
+
+4. Inscrivez le fournisseur de ressources en utilisant la commande suivante :
+    
+   ```azurecli-interactive
+   az provider register -n Microsoft.Storage --subscription <subscription-id>
+   ```
+
+   Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
+
+---
 
 ## <a name="step-2-verify-that-the-feature-is-registered"></a>Étape 2 : Vérifier que l’appareil est enregistré 
 
 L’approbation d’inscription peut prendre jusqu’à une heure. Pour vérifier que l’inscription est terminée, utilisez les commandes suivantes.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
 ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Storage --name AllowNFSV3 --subscription <subscription-id>
+```
+
+Remplacez la valeur d’espace réservé `<subscription-id>` par l’ID de votre abonnement.
+
+---
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Étape 3 : Créez un réseau virtuel Azure (Vnet)
 
@@ -68,15 +110,15 @@ Votre compte de stockage doit se trouver dans un réseau virtuel. Un réseau vir
 
 ## <a name="step-4-configure-network-security"></a>Étape 4 : Configurer la sécurité réseau
 
-La seule façon de sécuriser les données dans votre compte consiste à utiliser un réseau virtuel et d’autres paramètres de sécurité réseau. Tous les autres outils utilisé pour sécuriser les données, notamment l’autorisation de clé de compte, la sécurité Azure Active Directory (AD) et les listes de contrôle d’accès (ACL), ne sont pas encore pris en charge dans les comptes sur lesquels la prise en charge du protocole NFS 3.0 est activée. 
+La seule façon de sécuriser les données dans votre compte consiste à utiliser un réseau virtuel et d’autres paramètres de sécurité réseau. Tous les autres outils utilisé pour sécuriser les données, notamment l’autorisation de clé de compte, la sécurité Azure Active Directory (AD) et les listes de contrôle d’accès (ACL), ne sont pas encore pris en charge dans les comptes sur lesquels la prise en charge du protocole NFS 3.0 est activée.
 
 Pour sécuriser les données dans votre compte, consultez les recommandations suivantes : [Recommandations de sécurité réseau pour Stockage Blob](security-recommendations.md#networking).
 
 ## <a name="step-5-create-and-configure-a-storage-account"></a>Étape 5 : Créer et configurer un compte de stockage
 
-Pour monter un conteneur à l’aide de NFS 3.0, vous devez créer un compte de stockage **après** avoir inscrit la fonctionnalité avec votre abonnement. Vous ne pouvez pas activer les comptes qui existaient avant l’inscription de la fonctionnalité. 
+Pour monter un conteneur à l’aide de NFS 3.0, vous devez créer un compte de stockage **après** avoir inscrit la fonctionnalité avec votre abonnement. Vous ne pouvez pas activer les comptes qui existaient avant l’inscription de la fonctionnalité.
 
-Dans la préversion de cette fonctionnalité, le protocole NFS 3.0 est pris en charge dans les comptes [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) et [universels V2](../common/storage-account-overview.md#general-purpose-v2-accounts).
+Dans la préversion de cette fonctionnalité, le protocole NFS 3.0 est pris en charge pour les comptes de stockage universel v2 standard et pour les comptes de stockage d’objets blob de blocs Premium. Pour plus d’informations sur ces types de comptes de stockage, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 Au fur et à mesure que vous configurez le compte, choisissez les valeurs suivantes :
 

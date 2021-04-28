@@ -13,12 +13,12 @@ ms.date: 04/16/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: fc1b5356ab607ecb60a457a7295831958e6815e1
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 1d117ecaed626c6226a381c34b3d9a0f4f21175b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727057"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126792"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
@@ -53,7 +53,7 @@ Le premier type de principal de service est la représentation locale, ou instan
 
 Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](developer-glossary.md#consent)), un objet de principal de service est créé. Vous pouvez également créer des objets principal de service dans un locataire à l’aide d’[Azure PowerShell](howto-authenticate-service-principal-powershell.md), de l’interface [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), de [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), du [portail Azure][AZURE-Portal] et d’autres outils. Lorsque vous utilisez le portail, un principal de service est créé automatiquement lorsque vous inscrivez une application.
 
-Le deuxième type de principal de service est utilisé pour représenter une [identité managée](/azure/active-directory/managed-identities-azure-resources/overview). Les identités managées permettent aux développeurs de ne plus avoir à gérer les informations d'identification. Les identités managées fournissent une identité que les applications peuvent utiliser lorsqu’elles se connectent à des ressources qui prennent en charge l’authentification Azure AD. Lorsqu’une identité managée est activée, un principal de service représentant cette identité managée est créé dans votre locataire. Les principaux de service représentant des identités managées peuvent se voir accorder des accès et des autorisations, mais ne peuvent pas être mis à jour ni modifiés directement.
+Le deuxième type de principal de service est utilisé pour représenter une [identité managée](../managed-identities-azure-resources/overview.md). Les identités managées permettent aux développeurs de ne plus avoir à gérer les informations d'identification. Les identités managées fournissent une identité que les applications peuvent utiliser lorsqu’elles se connectent à des ressources qui prennent en charge l’authentification Azure AD. Lorsqu’une identité managée est activée, un principal de service représentant cette identité managée est créé dans votre locataire. Les principaux de service représentant des identités managées peuvent se voir accorder des accès et des autorisations, mais ne peuvent pas être mis à jour ni modifiés directement.
 
 Le troisième type de principal de service représente une application héritée (une application créée avant l’introduction ou la création d’inscriptions d’applications par le biais d’expériences héritées). Un principal de service hérité peut avoir des informations d’identification, des noms de principal du service, des URL de réponse et d’autres propriétés modifiables par un utilisateur autorisé, mais il n’est pas associé à une inscription d’application. Le principal de service ne peut être utilisé que dans le locataire où il a été créé.
 

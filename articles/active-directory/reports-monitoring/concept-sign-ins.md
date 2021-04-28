@@ -4,7 +4,7 @@ description: Présentation des rapports d’activité de connexion dans le porta
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,28 +13,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 04/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a4cd69224daa05a3e5931fbde1c85bb8dc9e46a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93122841"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719004"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
-L’architecture de création de rapports dans Azure Active Directory (Azure AD) comprend les composants suivants :
+En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
 
-- **Activité** 
-    - **Connexions** – Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
-    - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) : fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
-    - **Les journaux de provisionnement** - [journaux de provisionnement](./concept-provisioning-logs.md) permettent aux clients de superviser l’activité effectuée par le service de provisionnement, telle que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday. 
-- **Sécurité** 
-    - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) correspond à un indicateur de tentative de connexion d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
-    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
+Pour vous aider à atteindre cet objectif, le portail Azure Active Directory vous donne accès à trois journaux d’activité :
+
+- **Connexions** : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
+- **[Audit](concept-audit-logs.md)**  : Informations sur les modifications appliquées à votre locataire, telles que la gestion des utilisateurs et des groupes ou les mises à jour appliquées aux ressources de votre locataire.
+- **[Approvisionnement](concept-provisioning-logs.md)**  : Activités réalisées par le service d’approvisionnement, telles que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday.
 
 Cet article présente une vue d’ensemble du rapport de connexions.
 
@@ -99,12 +97,23 @@ Sélectionnez un élément dans la vue sous forme de liste pour obtenir des info
 > Pour en savoir plus, consultez le [Forum aux questions sur les informations de l’accès conditionnel dans toutes les connexions](reports-faq.md#conditional-access).
 
 
+## <a name="sign-in-error-code"></a>Code d’erreur de connexion
 
-## <a name="filter-sign-in-activities"></a>Filtrer les activités de connexion
+Si une connexion a échoué, vous pouvez obtenir plus d’informations sur la raison de cet échec dans la section **Informations de base** de l’élément de journal correspondant. 
+
+![code d’erreur de connexion](./media/concept-all-sign-ins/error-code.png)
+ 
+Bien que l’élément de journal vous fournisse la raison de l’échec, dans certains cas, vous pouvez obtenir plus d’informations en utilisant l’[outil de recherche de l’erreur de connexion](https://login.microsoftonline.com/error). Par exemple, s’il est disponible, cet outil vous propose des étapes de correction.  
+
+![Outil de recherche du code d’erreur](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
+
+
+## <a name="filter-sign-in-activities&quot;></a>Filtrer les activités de connexion
 
 Commencez par réduire les données signalées jusqu’au niveau qui vous convient. Ensuite, filtrez les données de connexions en utilisant le champ de date comme filtre par défaut. Azure AD offre une large gamme de filtres supplémentaires que vous pouvez définir :
 
-![Capture d’écran montrant l’option Ajouter des filtres.](./media/concept-sign-ins/04.png "Activité de connexion")
+![Capture d’écran montrant l’option Ajouter des filtres.](./media/concept-sign-ins/04.png &quot;Activité de connexion")
 
 **ID de requête** : ID de la requête qui vous intéresse.
 

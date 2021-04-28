@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7229dabd690e5932fbd297992e09782eda85a002
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 841391778e0fb8c00f503aa0cc79b5562661e309
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96744140"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530340"
 ---
 # <a name="authentication-methods-in-azure-active-directory---security-questions"></a>Méthodes d’authentification dans Azure Active Directory – Question de sécurité
 
@@ -93,7 +93,7 @@ Pour commencer, consultez le [tutoriel sur la réinitialisation du mot de passe 
 
 Pour en savoir plus sur les concepts de SSPR, consultez [Fonctionnement de la réinitialisation de mot de passe en libre-service dans Azure AD][concept-sspr].
 
-Apprenez-en plus sur la configuration des méthodes d’authentification à l’aide de l’[API REST Microsoft Graph bêta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Découvrez comment configurer les méthodes d’authentification à l’aide de l’[API REST Microsoft Graph](/graph/api/resources/authenticationmethods-overview).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

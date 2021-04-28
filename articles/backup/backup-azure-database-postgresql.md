@@ -4,12 +4,12 @@ description: Découvrir la sauvegarde Azure Database pour PostgreSQL avec conser
 ms.topic: conceptual
 ms.date: 04/12/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 8fd69e016c7f0b175ef49b98add5692743858f62
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8c2cf8c6bd8c483fced37bbafbacb5b00a4bfd94
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480067"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065225"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 
@@ -334,4 +334,4 @@ Reportez-vous à [ce document](https://download.microsoft.com/download/7/4/d/74d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble des coffres de sauvegarde](backup-vault-overview.md)
+[Vue d’ensemble des coffres de sauvegarde](backup-vault-overview.md)

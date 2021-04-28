@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/30/2021
 ms.author: jeedes
-ms.openlocfilehash: bed45b413ae1c6ab3b83c1b8ef656891c13a2723
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 2660f9b4262db7a98dc7c1b124439896c4c45d23
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223130"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108148007"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EAB
 
@@ -137,7 +137,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à EAB et lancez le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette EAB dans Mes applications vous redirige vers l’URL de connexion EAB. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette EAB dans Mes applications vous redirige vers l’URL de connexion EAB. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

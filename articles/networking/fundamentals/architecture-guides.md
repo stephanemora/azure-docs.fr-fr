@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: kumud
-ms.openlocfilehash: 9b608312d66e6a3e7455c4577ea4644b33e4e82e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8ed448f9f4f8dc688271f2ce671b2d89da0f342f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079743"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146809"
 ---
 # <a name="azure-networking-architecture-documentation"></a>Documentation sur l’architecture Azure Networking
 
@@ -46,11 +46,12 @@ Le tableau suivant contient des articles décrivant comment déployer vos applic
 |Intitulé |Description  |
 |---------|---------|
 |[Application multiniveau multirégion](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)  | Décrit une application multiniveau multirégion qui utilise Traffic Manager pour acheminer des requêtes entrantes vers une région primaire. Et si cette région n’est plus disponible, Traffic Manager bascule vers la région secondaire.      |
-| [SaaS mutualisé sur Azure](https://docs.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |   Utilise une solution mutualisée incluant une combinaison de Front Door et d’Application Gateway.  Front Door permet d’équilibrer la charge du trafic entre les régions et les itinéraires Application Gateway et d’équilibrer la charge du trafic en interne dans l’application vers les différents services qui répondent aux besoins de l’entreprise du client.  |
-| [Application web multiniveau développée pour la haute disponibilité et la reprise d’activité ](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)        |      Déploie des applications multiniveau résilientes conçues pour la haute disponibilité et la récupération d’urgence. Si la région primaire n’est plus disponible, Traffic Manager bascule vers la région secondaire.  |
+| [SaaS mutualisé sur Azure](/azure/architecture/example-scenario/multi-saas/multitenant-saas)       |   Utilise une solution mutualisée incluant une combinaison de Front Door et d’Application Gateway.  Front Door permet d’équilibrer la charge du trafic entre les régions et les itinéraires Application Gateway et d’équilibrer la charge du trafic en interne dans l’application vers les différents services qui répondent aux besoins de l’entreprise du client.  |
+| [Application web multiniveau développée pour la haute disponibilité et la reprise d’activité ](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)        |      Déploie des applications multiniveau résilientes conçues pour la haute disponibilité et la récupération d’urgence. Si la région primaire n’est plus disponible, Traffic Manager bascule vers la région secondaire.  |
 |[IaaS : Application Web avec base de données relationnelle](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |   Décrit comment utiliser des ressources réparties dans plusieurs zones afin de fournir une architecture de haute disponibilité pour l’hébergement d’une application web IaaS (infrastructure as a service) et d’une base de données SQL Server.     |
 |[Partage d’emplacement en temps réel avec des services Azure serverless à faible coût](/azure/architecture/example-scenario/signalr/#azure-front-door)       |   Utilise Azure Front Door pour fournir une disponibilité plus élevée à vos applications que le déploiement dans une seule région. Si une interruption de service régionale affecte la région principale, vous pouvez utiliser Front Door pour basculer vers la région secondaire.      |
 |[Appliances réseau virtuelles hautement disponible](/azure/architecture/reference-architectures/dmz/nva-ha)     | Montre comment déployer des appliances virtuelles réseau pour la haute disponibilité dans Azure.        |
+|[Équilibrage de charge sur plusieurs régions avec Traffic Manager et Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)     | Explique comment déployer des applications à plusieurs niveaux résilientes dans plusieurs régions Azure, afin d’assurer la disponibilité et d’obtenir une infrastructure de reprise d’activité fiable.        |
 
 ## <a name="secure-your-network-resources"></a>Sécuriser vos ressources réseau
 

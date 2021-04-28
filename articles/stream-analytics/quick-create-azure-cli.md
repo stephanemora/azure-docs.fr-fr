@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 58dccf56cd493782a422b0ddf0386e31d4d87daf
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bb8f2d77c04e01c47318042337db819ac2f36d46
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765986"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863171"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Démarrage rapide : Créer un travail Azure Stream Analytics avec l’interface de ligne de commande Azure
 
@@ -59,7 +59,7 @@ Le bloc de code Azure CLI ci-après est constitué de commandes qui préparent l
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-3. Obtenez la chaîne de connexion de l’appareil à l’aide de la commande [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string). Copiez la chaîne de connexion complète et enregistrez-la, car vous en aurez besoin quand vous créerez le simulateur Raspberry Pi.
+3. Obtenez la chaîne de connexion de l’appareil à l’aide de la commande [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show_connection_string). Copiez la chaîne de connexion complète et enregistrez-la, car vous en aurez besoin quand vous créerez le simulateur Raspberry Pi.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
@@ -108,7 +108,7 @@ Les blocs de code Azure CLI suivants créent un compte de stockage d’objets bl
 
 Les blocs de code Azure CLI suivants créent un travail Stream Analytics. Passez en revue les différentes sections pour comprendre le code.
 
-1. Créez un travail Stream Analytics avec la commande [az stream-analytics job create](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-create).
+1. Créez un travail Stream Analytics avec la commande [az stream-analytics job create](/cli/azure/stream-analytics/job#az_stream_analytics_job_create).
 
 ```azurecli
 az stream-analytics job create \
@@ -124,7 +124,7 @@ az stream-analytics job create \
 
 ## <a name="configure-input-to-the-job"></a>Configurer l’entrée du travail
 
-Ajoutez une entrée à votre travail à l’aide de l’applet de commande [az stream-analytics input](/cli/azure/ext/stream-analytics/stream-analytics/input#ext-stream-analytics-az-stream-analytics-input-create). Cette applet de commande prend le nom du travail, le nom de l’entrée du travail, le nom du groupe de ressources et la définition de l’entrée du travail comme paramètres. La définition de l’entrée du travail est un fichier JSON qui contient les propriétés nécessaires à la configuration de l’entrée du travail. Dans cet exemple, vous allez créer un hub IoT en tant qu’entrée.
+Ajoutez une entrée à votre travail à l’aide de l’applet de commande [az stream-analytics input](/cli/azure/stream-analytics/input#az_stream_analytics_input_create). Cette applet de commande prend le nom du travail, le nom de l’entrée du travail, le nom du groupe de ressources et la définition de l’entrée du travail comme paramètres. La définition de l’entrée du travail est un fichier JSON qui contient les propriétés nécessaires à la configuration de l’entrée du travail. Dans cet exemple, vous allez créer un hub IoT en tant qu’entrée.
 
 Sur votre ordinateur local, créez un fichier nommé `datasource.json` et ajoutez-y les données JSON ci-après. Remplacez la valeur de `sharedAccessPolicyKey` par la partie `SharedAccessKey` de la chaîne de connexion du hub IoT que vous avez enregistrée dans une section précédente.
 
@@ -166,7 +166,7 @@ az stream-analytics input create \
 
 ## <a name="configure-output-to-the-job"></a>Configurer la sortie du travail
 
-Ajoutez une sortie à votre travail à l’aide de l’applet de commande [az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output#ext-stream-analytics-az-stream-analytics-output-create). Cette applet de commande prend le nom du travail, le nom de la sortie du travail, le nom du groupe de ressources et la définition de la sortie du travail comme paramètres. La définition de la sortie du travail est un fichier JSON qui contient les propriétés nécessaires à la configuration de la sortie du travail. Cet exemple utilise le stockage blob en guise de sortie.
+Ajoutez une sortie à votre travail à l’aide de l’applet de commande [az stream-analytics output create](/cli/azure/stream-analytics/output#az_stream_analytics_output_create). Cette applet de commande prend le nom du travail, le nom de la sortie du travail, le nom du groupe de ressources et la définition de la sortie du travail comme paramètres. La définition de la sortie du travail est un fichier JSON qui contient les propriétés nécessaires à la configuration de la sortie du travail. Cet exemple utilise le stockage blob en guise de sortie.
 
 Sur votre ordinateur local, créez un fichier nommé `datasink.json` et ajoutez-y les données JSON ci-après. Veillez à remplacer la valeur de `accountKey` par la clé d’accès de votre compte de stockage qui correspond à la valeur stockée dans $storageAccountKey.
 
@@ -201,7 +201,7 @@ az stream-analytics output create \
 
 ## <a name="define-the-transformation-query"></a>Définir la requête de transformation
 
-Ajoutez une transformation à votre travail à l’aide de l’applet de commande [az stream-analytics transformation create](/cli/azure/ext/stream-analytics/stream-analytics/transformation#ext-stream-analytics-az-stream-analytics-transformation-create). Cette applet de commande prend le nom du travail, le nom de la transformation du travail, le nom du groupe de ressources et la définition de la transformation du travail comme paramètres. 
+Ajoutez une transformation à votre travail à l’aide de l’applet de commande [az stream-analytics transformation create](/cli/azure/stream-analytics/transformation#az_stream_analytics_transformation_create). Cette applet de commande prend le nom du travail, le nom de la transformation du travail, le nom du groupe de ressources et la définition de la transformation du travail comme paramètres. 
 
 Exécutez l’applet de commande `az stream-analytics transformation create`.
 
@@ -225,7 +225,7 @@ az stream-analytics transformation create \
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Démarrer le travail Stream Analytics et observer le résultat
 
-Démarrez le travail à l’aide de l’applet de commande [az stream-analytics job start](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-start). Cette applet de commande prend le nom du travail, le nom du groupe de ressources, le mode de démarrage de la sortie et l’heure de démarrage comme paramètres. `OutputStartMode` accepte les valeurs de `JobStartTime`, `CustomTime` ou `LastOutputEventTime`.
+Démarrez le travail à l’aide de l’applet de commande [az stream-analytics job start](/cli/azure/stream-analytics/job#az_stream_analytics_job_start). Cette applet de commande prend le nom du travail, le nom du groupe de ressources, le mode de démarrage de la sortie et l’heure de démarrage comme paramètres. `OutputStartMode` accepte les valeurs de `JobStartTime`, `CustomTime` ou `LastOutputEventTime`.
 
 Après son exécution, l’applet de commande ci-après renvoie la valeur `True` en guise de sortie si le travail démarre. Dans le conteneur de stockage, un dossier de sortie est créé avec les données transformées.
 

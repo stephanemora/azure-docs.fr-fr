@@ -8,19 +8,19 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 02/05/2021
-ms.openlocfilehash: 2e862915bcc524db50e7e66c969b713f729c64aa
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 5ab11ac23fac73341c111d0d81fc225358bb689f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479642"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138280"
 ---
 # <a name="use-the-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Utiliser l’extension de diagnostic Linux 4.0 pour superviser les métriques et les journaux
 
 Ce document décrit les dernières versions de l’extension de diagnostic Linux.
 
 > [!IMPORTANT]
-> Pour plus d’informations sur la version 3.x, consultez [Utiliser l’extension de diagnostic Linux 3.0 pour superviser les métriques et les journaux](./diagnostics-linux-v3.md). Pour plus d’informations sur la version 2.3 et sur les versions antérieures, consultez [Superviser les données de performances et de diagnostic d’une machine virtuelle Linux](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Pour plus d’informations sur la version 3.x, consultez [Utiliser l’extension de diagnostic Linux 3.0 pour superviser les métriques et les journaux](./diagnostics-linux-v3.md). Pour plus d’informations sur la version 2.3 et sur les versions antérieures, consultez [Superviser les données de performances et de diagnostic d’une machine virtuelle Linux](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introduction
 
@@ -109,7 +109,7 @@ Le fichier exécutable `python2` doit avoir comme alias *python*. Voici une faç
 
 Dans ces exemples, l’exemple de configuration collecte un ensemble de données standard et les envoie au Stockage Table. L’URL de l’exemple de configuration et son contenu peut changer. 
 
-Dans la plupart des cas, vous devez télécharger une copie du fichier JSON des paramètres du portail et la personnaliser en fonction de vos besoins. Utilisez ensuite des modèles ou votre propre automatisation pour utiliser une version personnalisée du fichier de configuration au lieu de le télécharger à chaque fois depuis l’URL.
+Dans la plupart des cas, vous devez télécharger une copie du fichier JSON des paramètres du portail et la personnaliser en fonction de vos besoins. Utilisez ensuite des modèles ou votre propre automatisation pour utiliser une version personnalisée du fichier de configuration au lieu de le télécharger à chaque fois depuis l’URL.
 
 > [!NOTE]
 > Quand vous activez le nouveau récepteur Azure Monitor, les machines virtuelles doivent avoir une identité affectée par le système activée pour générer des jetons d’authentification Managed Service Identity (MSI). Vous pouvez ajouter ces paramètres pendant ou après la création de la machine virtuelle. 
@@ -255,16 +255,16 @@ sinksConfig | (Facultatif) Détails des destinations alternatives auxquelles les
 
 Pour obtenir un jeton SAS dans un modèle ARM, utilisez la fonction `listAccountSas`. Pour obtenir un exemple de modèle, consultez [Exemple de fonction de liste](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
-Vous pouvez construire le jeton SAS nécessaire via le portail Azure :
+Vous pouvez construire le jeton SAP nécessaire par le biais du portail Azure :
 
-1. Sélectionnez le compte de stockage universel où vous voulez que l’extension écrive.
+1. Sélectionnez le compte de stockage universel sur lequel vous voulez que l’extension écrive.
 1. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Signature d’accès partagé**.
 1. Effectuez les sélections comme décrit précédemment.
-1. Sélectionnez **Générer une signature d’accès partagé**.
+1. Sélectionnez **Générer la SAP**.
 
-:::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="Capture d’écran montrant la page Signature d’accès partagé avec le bouton Générer une signature d’accès partagé.":::
+:::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="Capture d’écran montrant la page Signature d’accès partagé avec le bouton Générer la SAP.":::
 
-Copiez la signature d’accès partagé générée dans le champ `storageAccountSasToken`. Supprimez le point d’interrogation (?) figurant au début.
+Copiez la signature d’accès partagé générée dans le champ `storageAccountSasToken`. Supprimez le point d’interrogation (?) figurant au début.
 
 ### <a name="sinksconfig"></a>sinksConfig
 
@@ -303,7 +303,7 @@ L’extension de diagnostic Linux 4.0 prend en charge deux types de récepteur 
 ]
 ```
 
-L’entrée `"sasURL"` contient l’URL complète, incluant un jeton SAS, pour le hub d’événements sur lequel les données doivent être publiées. L’extension de diagnostic Linux nécessite une signature SAS pour nommer une stratégie qui active la revendication d’envoi. Voici un exemple :
+L’entrée `"sasURL"` contient l’URL complète, y compris le jeton SAP, de l’Event Hub sur lequel les données doivent être publiées. L’extension de diagnostic Linux nécessite une signature SAS pour nommer une stratégie qui active la revendication d’envoi. Voici un exemple :
 
 * Créez un espace de noms Event Hubs appelé `contosohub`.
 * Créez un hub d’événements dans l’espace de noms appelé `syslogmsgs`.
@@ -329,9 +329,9 @@ Pour plus d’informations sur la génération et l’extraction d’information
 ]
 ```
 
-Les données dirigées vers un récepteur `JsonBlob` sont stockées dans des objets blob dans Stockage Azure. Chaque instance de l’extension de diagnostic Linux crée un objet blob toutes les heures pour chaque nom de récepteur. Chaque objet blob contient toujours un tableau JSON syntaxiquement valide d’objets. Les nouvelles entrées sont ajoutées au tableau de manière atomique. 
+Les données dirigées vers un récepteur `JsonBlob` sont stockées dans des blobs dans Stockage Azure. Chaque instance de l’extension de diagnostic Linux crée un objet blob toutes les heures pour chaque nom de récepteur. Chaque blob contient toujours un tableau syntaxiquement valide d’objets JSON. Les nouvelles entrées sont ajoutées au tableau de manière atomique. 
 
-Les objets blob sont stockés dans un conteneur du même nom que le récepteur. Les règles du Stockage Azure pour les noms de conteneur d’objets blob s’appliquent aux noms des récepteurs `JsonBlob`. Autrement dit, les noms doivent comporter entre 3 et 63 caractères ASCII alphanumériques en minuscules ou des tirets.
+Les blobs sont stockés dans un conteneur du même nom que le récepteur. Les règles du Stockage Azure pour les noms de conteneur d’objets blob s’appliquent aux noms des récepteurs `JsonBlob`. Autrement dit, les noms doivent comporter entre 3 et 63 caractères ASCII alphanumériques en minuscules ou des tirets.
 
 ## <a name="public-settings"></a>Paramètres publics
 
@@ -398,9 +398,9 @@ sampleRateInSeconds | (Facultatif) Intervalle par défaut entre les collectes de
 Élément | Valeur
 ------- | -----
 resourceId | L’ID de ressource Azure Resource Manager de la machine virtuelle ou du groupe de machines virtuelles identiques auquel la machine virtuelle appartient. Spécifiez aussi ce paramètre si la configuration utilise un récepteur `JsonBlob`.
-scheduledTransferPeriod | Fréquence à laquelle les métriques agrégées doivent être calculées et transférées vers les métriques Azure, Monitor. La fréquence est exprimée sous la forme d’un intervalle de temps ISO 8601. La périodicité de transfert la plus petite est de 60 secondes, c’est-à-dire PT1M. Spécifiez au moins une `scheduledTransferPeriod`.
+scheduledTransferPeriod | Fréquence à laquelle les métriques agrégées doivent être calculées et transférées à Azure Monitor Metrics. La fréquence est exprimée sous la forme d’un intervalle de temps ISO 8601. La périodicité de transfert la plus petite est de 60 secondes, c’est-à-dire PT1M. Spécifiez au moins une fréquence `scheduledTransferPeriod`.
 
-Des échantillons des métriques spécifiées dans la section `performanceCounters` sont collectés toutes les 15 secondes ou selon le taux d’échantillonnage explicitement défini pour le compteur. Si plusieurs fréquences `scheduledTransferPeriod` apparaissent, comme dans l’exemple, chaque agrégation est calculée indépendamment.
+Des échantillons des métriques spécifiées dans la section `performanceCounters` sont collectés toutes les 15 secondes ou selon l’échantillonnage explicitement défini pour le compteur. Si plusieurs fréquences `scheduledTransferPeriod` apparaissent, comme dans l’exemple, chaque agrégation est calculée indépendamment.
 
 #### <a name="performancecounters"></a>performanceCounters
 
@@ -437,33 +437,33 @@ La section facultative `performanceCounters` contrôle la collecte des métrique
 
 Élément | Valeur
 ------- | -----
-sinks | (Facultatif) Liste séparée par des virgules des noms des récepteurs auxquels l’extension de diagnostic Linux envoie les résultats des métriques agrégées. Toutes les métriques agrégées sont publiées sur chaque récepteur répertorié. Exemple : `"EHsink1, myjsonsink"`. Pour plus d’informations, consultez [`sinksConfig`](#sinksconfig). 
+sinks | (Facultatif) Liste, séparée par des virgules, des noms des récepteurs auxquels l’extension de diagnostic Linux envoie les résultats des métriques agrégées. Toutes les métriques agrégées sont publiées sur chaque récepteur répertorié. Exemple : `"EHsink1, myjsonsink"`. Pour plus d’informations, consultez [`sinksConfig`](#sinksconfig). 
 type | Identifie le fournisseur réel de la mesure.
-class | Avec `"counter"`, identifie la métrique spécifique au sein de l’espace de noms du fournisseur.
-counter | Avec `"class"`, identifie la métrique spécifique au sein de l’espace de noms du fournisseur.
-counterSpecifier | Identifie la métrique spécifique au sein de l’espace de noms des métriques Azure Monitor.
+class | Avec `"counter"`, identifie la métrique spécifique dans l’espace de noms du fournisseur.
+counter | Avec `"class"`, identifie la métrique spécifique dans l’espace de noms du fournisseur.
+counterSpecifier | Identifie la métrique spécifique dans l’espace de noms Azure Monitor Metrics.
 condition | (Facultatif) Sélectionne une instance de l’objet auquel la métrique s’applique, ou sélectionne l’agrégation sur toutes les instances de cet objet. 
 sampleRate | Intervalle ISO 8601 qui définit la fréquence à laquelle des échantillons bruts sont collectés pour cette métrique. Si la valeur n’est pas définie, l’intervalle de collecte est défini par la valeur de [`sampleRateInSeconds`](#ladcfg). L’échantillonnage le plus court pris en charge est de 15 secondes (PT15S).
 unité | Définit l’unité pour la métrique. Doit être une des chaînes suivantes : `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Les consommateurs des données collectées attendent des valeurs de données collectées correspondant à cette unité. L’extension de diagnostic Linux ignore ce champ.
-displayName | Étiquette à attacher aux données dans les métriques Azure Monitor. Cette étiquette est dans la langue spécifiée par les paramètres régionaux associés. L’extension de diagnostic Linux ignore ce champ.
+displayName | Étiquette à attacher aux données dans Azure Monitor Metrics. Cette étiquette est dans la langue spécifiée par les paramètres régionaux associés. L’extension de diagnostic Linux ignore ce champ.
 
-`counterSpecifier` est un identificateur arbitraire. Les consommateurs de métriques, comme les fonctionnalités de graphiques et d’alertes du portail Azure, utilisent `counterSpecifier` comme « clé » qui identifie une métrique ou une instance d’une métrique. 
+`counterSpecifier` est un identificateur arbitraire. Les consommateurs de métriques, comme les fonctionnalités de graphiques et d’alertes du portail Azure, utilisent `counterSpecifier` comme « clé » qui identifie une métrique ou l’instance d’une métrique. 
 
 Pour les métriques `builtin`, nous recommandons des valeurs de `counterSpecifier` commençant par `/builtin/`. Si vous collectez une instance spécifique d’une métrique, attachez l’identificateur de l’instance à la valeur de `counterSpecifier`. Voici quelques exemples :
 
 * `/builtin/Processor/PercentIdleTime` : temps d’inactivité moyen pour tous les processeurs virtuels
-* `/builtin/Disk/FreeSpace(/mnt)` - Espace libre pour le système de fichiers `/mnt`
-* `/builtin/Disk/FreeSpace` - Espace libre moyen pour tous les systèmes de fichiers montés
+* `/builtin/Disk/FreeSpace(/mnt)` : espace libre pour le système de fichiers `/mnt`
+* `/builtin/Disk/FreeSpace` : espace libre moyen pour tous les systèmes de fichiers montés
 
-L’extension de diagnostic Linux et le portail Azure ne nécessitent pas que la valeur de `counterSpecifier` corresponde à un modèle particulier. Soyez cohérent dans la façon dont vous construisez les valeurs de `counterSpecifier`.
+L’extension de diagnostic Linux et le portail Azure ne s’attendent pas à ce que la valeur de `counterSpecifier` corresponde à un modèle particulier. Soyez cohérent dans la façon dont vous construisez les valeurs de `counterSpecifier`.
 
-Quand vous spécifiez `performanceCounters`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des objets blob JSON ou dans Event Hubs, ou dans les deux. Vous ne pouvez cependant pas désactiver le stockage des données dans une table. 
+Quand vous spécifiez `performanceCounters`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des blobs JSON ou des Event Hubs, ou les deux. Vous ne pouvez cependant pas désactiver le stockage des données dans une table. 
 
-Toutes les instances de l’extension de diagnostic Linux qui utilisent le même nom et le même point de terminaison de compte de stockage ajoutent leurs mesures et leurs journaux à la même table. Si un trop grand nombre de machines virtuelles écrivent dans la même partition de table, Azure peut limiter les écritures sur cette partition. 
+Toutes les instances de l’extension de diagnostic Linux qui utilisent le même nom et le même point de terminaison de compte de stockage ajoutent leurs métriques et leurs journaux à la même table. Si un trop grand nombre de machines virtuelles écrivent dans la même partition de table, Azure peut limiter les écritures sur cette partition. 
 
-Le paramètre `eventVolume` peut provoquer la répartition des entrées entre 1 (Small), 10 (Medium) ou 100 (Large) partitions. En règle générale, 10 partitions (Medium) sont suffisantes pour éviter la limitation du trafic. 
+Le paramètre `eventVolume` permet de répartir les entrées entre 1 (Small), 10 (Medium) ou 100 (Large) partitions. En règle générale, 10 partitions (Medium) sont suffisantes pour éviter la limitation du trafic. 
 
-La fonctionnalité des métriques Azure Monitor du portail Azure utilise les données de cette table pour produire des graphes ou déclencher des alertes. Le nom de la table est la concaténation des chaînes suivantes :
+La fonctionnalité Azure Monitor Metrics du portail Azure utilise les données de cette table pour produire des graphes ou déclencher des alertes. Le nom de la table est la concaténation des chaînes suivantes :
 
 * `WADMetrics`
 * `"scheduledTransferPeriod"` pour les valeurs agrégées stockées dans la table
@@ -487,7 +487,7 @@ Exemples : `WADMetricsPT1HP10DV2S20170410` et `WADMetricsPT1MP10DV2S20170609`.
 
 La section facultative `syslogEvents` contrôle la collecte des événements des journaux auprès de Syslog. Si la section est omise, les événements Syslog ne sont pas capturés du tout.
 
-La collection `syslogEventConfiguration` a une entrée pour chaque fonction Syslog intéressante. Si `minSeverity` est défini sur `"NONE"` pour une fonction donnée ou si cette fonction n’apparaît pas du tout dans l’élément, aucun événement de cette fonction n’est capturé.
+La collection `syslogEventConfiguration` a une entrée pour chaque fonction Syslog qui présente un intérêt. Si `minSeverity` est défini sur `"NONE"` pour une fonction donnée ou si cette fonction n’apparaît pas du tout dans l’élément, aucun événement de cette fonction n’est capturé.
 
 Élément | Valeur
 ------- | -----
@@ -495,7 +495,7 @@ sinks | Une liste séparée par des virgules de noms de récepteurs sur lesquels
 facilityName | Nom de la fonction Syslog, comme `"LOG\_USER"` ou `"LOG\_LOCAL0"`. Pour plus d’informations, consultez la section « facility » de la [page man syslog](http://man7.org/linux/man-pages/man3/syslog.3.html).
 minSeverity | Niveau de gravité Syslog, comme `"LOG\_ERR"` ou `"LOG\_INFO"`. Pour plus d’informations, consultez la section « level » de la [page man syslog](http://man7.org/linux/man-pages/man3/syslog.3.html). L’extension capture les événements envoyés à la fonction à un niveau supérieur ou égal au niveau spécifié.
 
-Quand vous spécifiez `syslogEvents`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des objets blob JSON ou dans Event Hubs, ou dans les deux. Vous ne pouvez cependant pas désactiver le stockage des données dans une table. 
+Quand vous spécifiez `syslogEvents`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des blobs JSON ou des Event Hubs, ou les deux. Vous ne pouvez cependant pas désactiver le stockage des données dans une table. 
 
 Le comportement de partitionnement pour cette table est identique à celui décrit pour `performanceCounters`. Le nom de la table est la concaténation des chaînes suivantes :
 
@@ -544,7 +544,7 @@ La section `fileLogs` contrôle la capture des fichiers journaux. L’extension 
 Élément | Valeur
 ------- | -----
 fichier | Nom du chemin complet du fichier journal à observer et à capturer. Le nom du chemin correspond à un seul fichier. Il ne peut pas nommer un répertoire ni contenir des caractères génériques. Le compte d’utilisateur `omsagent` doit avoir un accès en lecture sur le chemin du fichier.
-table | (Facultatif) La table de Stockage Azure dans laquelle les nouvelles lignes de la « fin » du fichier sont écrites. La table doit se trouver dans le compte de stockage désigné, comme spécifié dans la configuration protégée. 
+table | (Facultatif) Table de Stockage Azure dans laquelle les nouvelles lignes de la « fin » du fichier sont écrites. La table doit se trouver dans le compte de stockage désigné, comme spécifié dans la configuration protégée. 
 sinks | (Facultatif) Une liste séparée par des virgules des noms des récepteurs supplémentaires auxquels les lignes des journaux sont envoyées.
 
 Vous devez spécifier `"table"`, `"sinks"` ou les deux.
@@ -564,21 +564,21 @@ Le fournisseur de métriques `builtin` est une source de métriques parmi les pl
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>métriques intégrées pour la classe Processeur
 
-La classe de métriques Processeur fournit des informations sur l’utilisation du processeur dans la machine virtuelle. Quand des pourcentages sont agrégés, le résultat est la moyenne pour tous les processeurs. 
+La classe de métriques Processeur fournit des informations sur l’utilisation du processeur dans la machine virtuelle. Quand des pourcentages sont agrégés, le résultat est la moyenne pour tous les UC. 
 
-Dans une machine virtuelle à deux processeurs virtuels, si un processeur virtuel est occupé à 100 % et que l’autre est inactif à 100 %, le `PercentIdleTime` signalé est de 50. Si chaque processeur virtuel est occupé à 50 % pendant la même période, le résultat signalé est également de 50. Dans une machine virtuelle à quatre processeurs virtuels, si un processeur virtuel est occupé à 100 % et que les autres sont inactifs, le `PercentIdleTime` signalé est de 75.
+Dans une machine virtuelle à 2 processeurs virtuels, si un processeur virtuel est occupé à 100 % et que l’autre est inactif à 100 %, le `PercentIdleTime` signalé est de 50. Si chaque processeur virtuel est occupé à 50 % pendant la même période, le résultat signalé est également de 50. Dans une machine virtuelle à 4 processeurs virtuels, si un processeur virtuel est occupé à 100 % et que les autres sont inactifs, le `PercentIdleTime` signalé est de 75.
 
 Compteur | Signification
 ------- | -------
-PercentIdleTime | Pourcentage de temps de la fenêtre d’agrégation pendant lequel les processeurs ont exécuté la boucle d’inactivité du noyau
-percentProcessorTime | Pourcentage de temps passé à exécuter un thread non inactif
+PercentIdleTime | Pourcentage de temps de la fenêtre d’agrégation pendant lequel les UC ont exécuté la boucle d’inactivité du noyau
+percentProcessorTime | Pourcentage de temps passé à exécuter un thread actif
 PercentIOWaitTime | Pourcentage de temps passé à attendre la fin d’opérations d’E/S
-PercentInterruptTime | Pourcentage de temps passé à exécuter des interruptions matérielles ou logicielles, et des appels DPC (appels de procédure différés)
+PercentInterruptTime | Pourcentage de temps passé à exécuter des interruptions matérielles ou logicielles et des appels DPC (appels de procédure différés)
 PercentUserTime | Relativement au temps d’activité de la fenêtre d’agrégation, pourcentage de temps passé en mode utilisateur à une priorité normale
 PercentNiceTime | Pourcentage de temps passé à une priorité abaissée (commande nice), relativement au temps d’activité
 PercentPrivilegedTime | Pourcentage de temps passé en mode privilégié (noyau), relativement au temps d’activité
 
-La somme des quatre premiers compteurs doit être de 100 %. La somme des trois premiers compteurs est également de 100 %. Ces trois compteurs subdivisent la somme de `PercentProcessorTime`, `PercentIOWaitTime` et `PercentInterruptTime`.
+La somme des 4 premiers compteurs doit être de 100 %. La somme des 3 premiers compteurs est également de 100 %. Ces trois compteurs subdivisent la somme de `PercentProcessorTime`, `PercentIOWaitTime` et `PercentInterruptTime`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>métriques intégrées pour la classe Mémoire
 
@@ -598,13 +598,13 @@ PercentAvailableSwap | Espace d’échange non utilisé sous forme de pourcentag
 UsedSwap | Espace d’échange utilisé (Mio)
 PercentUsedSwap | Espace d’échange utilisé sous forme de pourcentage de l’espace d’échange total
 
-Cette classe de métriques n’a qu’une seule instance. L’attribut `"condition"` n’a pas de valeurs utiles et doit être omis.
+Cette classe de métriques n’a qu’une seule instance. L’attribut `"condition"` n’a pas de paramètres utiles et doit être omis.
 
 ### <a name="builtin-metrics-for-the-network-class"></a>métriques intégrées pour la classe Réseau
 
 La classe de métriques Réseau fournit des informations sur l’activité réseau sur une interface réseau individuelle depuis le démarrage. 
 
-L’extension de diagnostic Linux n’expose pas les métriques de bande passante. Vous pouvez obtenir ces métriques auprès des métriques de l’hôte.
+L’extension de diagnostic Linux n’expose pas les métriques de la bande passante. Vous pouvez obtenir ces métriques à partir des métriques de l’hôte.
 
 Compteur | Signification
 ------- | -------
@@ -619,7 +619,7 @@ TotalCollisions | Nombre de collisions signalées par les ports réseau depuis l
 
 ### <a name="builtin-metrics-for-the-file-system-class"></a>Métriques intégrées pour la classe Système de fichiers
 
-La classe de métriques Système de fichiers fournit des informations sur l’utilisation du système de fichiers. Les valeurs absolues et en pourcentage sont indiquées comme elles sont affichées pour un utilisateur ordinaire (non-root).
+La classe de métriques Système de fichiers fournit des informations sur l’utilisation du système de fichiers. Les valeurs absolues et en pourcentage sont indiquées comme elles sont affichées pour un utilisateur ordinaire (non racine).
 
 Compteur | Signification
 ------- | -------
@@ -694,8 +694,8 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 Les paramètres protégés configurent :
 
 * Un compte de stockage.
-* Un jeton SAS du compte correspondant.
-* Plusieurs récepteurs (`JsonBlob` ou `EventHub` avec des jetons SAS).
+* Un jeton SAP du compte correspondant.
+* Plusieurs récepteurs (`JsonBlob` ou `EventHub` avec des jetons SAP).
 
 ```json
 {
@@ -832,9 +832,9 @@ Dans chaque cas, les données sont également chargées dans :
 
 Le `resourceId` dans la configuration doit correspondre à celui de la machine virtuelle ou du groupe de machines virtuelles identiques.
 
-* Les graphiques et les alertes des métriques de la plateforme Azure connaissent le `resourceId` de la machine virtuelle sur laquelle vous travaillez. Ils s’attendent à trouver les données pour votre machine virtuelle en utilisant le `resourceId` comme clé de recherche.
+* Les graphiques et les alertes des métriques de la plateforme Azure connaissent le `resourceId` de la machine virtuelle sur laquelle vous travaillez. Ils s’attendent à trouver les données de votre machine virtuelle en utilisant le `resourceId` comme clé de recherche.
 * Si vous utilisez la mise à l’échelle automatique d’Azure, le `resourceId` dans la configuration de la mise à l’échelle automatique doit correspondre au `resourceId` utilisé par l’extension de diagnostic Linux.
-* Le `resourceId` est intégré aux noms des objets blob JSON écrits par l’extension de diagnostic Linux.
+* Le `resourceId` est intégré aux noms des blobs JSON écrits par l’extension de diagnostic Linux.
 
 ## <a name="view-your-data"></a>Affichage de vos données
 

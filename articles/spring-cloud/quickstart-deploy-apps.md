@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 727354593488cd5af77408eaa7c8d9e747a0b071
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 99a2544a755f04bad0fcf36ead865a4311705566
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877377"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132842"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Démarrage rapide : Créer et déployer des applications sur Azure Spring Cloud
 
@@ -24,8 +24,8 @@ Dans ce guide de démarrage rapide, vous allez créer et déployer des applicati
 
 * Suivez les guides de démarrage rapide précédents de cette série :
 
-  * [Provisionner le service Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
-  * [Configurer un serveur de configuration Azure Spring Cloud](spring-cloud-quickstart-setup-config-server.md).
+  * [Provisionner le service Azure Spring Cloud](./quickstart-provision-service-instance.md).
+  * [Configurer un serveur de configuration Azure Spring Cloud](./quickstart-setup-config-server.md).
 
 ## <a name="download-the-sample-app"></a>Télécharger l’exemple d’application
 
@@ -183,7 +183,7 @@ Ce document explique comment créer et déployer des applications de microservic
 * Plug-in Maven
 * Intellij
 
-Avant de procéder au déploiement avec Azure CLI ou Maven, effectuez les exemples qui [provisionnent une instance Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) et qui [configurent le serveur de configuration](spring-cloud-quickstart-setup-config-server.md).
+Avant de procéder au déploiement avec Azure CLI ou Maven, effectuez les exemples qui [provisionnent une instance Azure Spring Cloud](./quickstart-provision-service-instance.md) et qui [configurent le serveur de configuration](./quickstart-setup-config-server.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -313,7 +313,7 @@ Pour effectuer un déploiement dans Azure, vous devez vous connecter avec votre 
 1. Dans le champ **Name** (Nom), ajoutez *:gateway* au **nom** existant.
 1. Dans la zone de texte **Artifact**, sélectionnez *com.piggymetrics:gateway:1.0-SNAPSHOT*.
 1. Dans la zone de texte **Subscription** (Abonnement), vérifiez votre abonnement.
-1. Dans la zone de texte **Spring Cloud**, sélectionnez l’instance Azure Spring Cloud que vous avez créée dans [Provisionner une instance Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
+1. Dans la zone de texte **Spring Cloud**, sélectionnez l’instance Azure Spring Cloud que vous avez créée dans [Provisionner une instance Azure Spring Cloud](./quickstart-provision-service-instance.md).
 1. Définissez **Public Endpoint** (Point de terminaison public) sur *Enable* (Activer).
 1. Dans la zone de texte **App:** , sélectionnez **Create app...** .
 1. Entrez *gateway*, puis cliquez sur **OK**.
@@ -355,7 +355,7 @@ Vous pouvez également accéder au Portail Azure pour trouver l’URL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé des ressources Azure qui continueront de générer des frais tant qu’elles resteront dans votre abonnement. Si vous n’avez pas prévu de passer au guide de démarrage rapide suivant, consultez [Nettoyer les ressources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Dans le cas contraire, passez au guide de démarrage rapide suivant :
+Dans ce guide de démarrage rapide, vous avez créé des ressources Azure qui continueront de générer des frais tant qu’elles resteront dans votre abonnement. Si vous n’avez pas prévu de passer au guide de démarrage rapide suivant, consultez [Nettoyer les ressources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Dans le cas contraire, passez au guide de démarrage rapide suivant :
 
 > [!div class="nextstepaction"]
-> [Journaux, métriques et suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
+> [Journaux, métriques et suivi](./quickstart-logs-metrics-tracing.md)

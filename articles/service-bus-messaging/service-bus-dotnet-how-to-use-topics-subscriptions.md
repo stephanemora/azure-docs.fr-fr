@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 03/16/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 79eb7783fd3daf546539dd5b9048f4e9f484374f
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7cc854c850b02674151da7c88d94a2800b6572f5
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279797"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015966"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>Envoyer des messages à une rubrique Azure Service Bus et recevoir des messages à partir des abonnements à cette rubrique (.NET)
 Dans ce tutoriel, vous créez une application C# pour effectuer les tâches suivantes :
@@ -188,7 +188,7 @@ Cette méthode effectue les étapes suivantes :
     Voici les étapes importantes du code :
     1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion à l’espace de noms. 
     1. Utilise la méthode [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) sur l’objet `ServiceBusClient` pour créer un objet [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) pour la rubrique Service Bus spécifiée. 
-    1. Appelle la méthode d’assistance `GetMessages` pour obtenir une file d’attente de messages à envoyer à la rubrique Service Bus. 
+    1. Appelle la méthode d’assistance `CreateMessages` pour obtenir une file d’attente de messages à envoyer à la rubrique Service Bus. 
     1. Crée un [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) à l’aide de [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
     1. Ajoutez des messages au lot à l’aide de [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). À mesure que les messages sont ajoutés au lot, ils sont supprimés de la file d’attente .NET. 
     1. Envoie le lot de messages à la rubrique Service Bus avec la méthode [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync).
@@ -208,7 +208,7 @@ Remplacez la méthode `Main()` par la méthode **asynchrone** `Main` suivante. E
 ```
 
 ### <a name="test-the-app-to-send-messages-to-the-topic"></a>Tester l’application pour envoyer des messages à la rubrique
-1. Exécutez l'application. Vous devez normalement voir la sortie suivante :
+1. Exécutez l'application. Vous devez normalement voir la sortie suivante.
 
     ```console
     Sent a single message to the topic: mytopic

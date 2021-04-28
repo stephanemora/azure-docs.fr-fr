@@ -1,18 +1,18 @@
 ---
 title: Expressions et fonctions dans Azure Data Factory
 description: Cet article fournit des informations sur les expressions et fonctions que vous pouvez utiliser pour la création d’entités de fabrique de données.
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: af365ef9b94702fa6634235a95a91297d6b7ae50
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d40675faeec8975cc78e39818477495139ebbf0d
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107125"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906365"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 
@@ -193,7 +193,7 @@ Cela [tutoriel](https://azure.microsoft.com/mediahandler/files/resourcefiles/azu
 
 Vous pouvez appeler des fonctions dans des expressions. Les sections suivantes fournissent des informations sur les fonctions qui peut être utilisées dans une expression.  
 
-## <a name="string-functions"></a>Fonctions de chaîne  
+## <a name="string-functions"></a>Fonctions de chaînes  
 
 Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne, ainsi que certaines [fonctions de collection](#collection-functions).
 Les fonctions de chaîne sont uniquement utilisables sur des chaînes.

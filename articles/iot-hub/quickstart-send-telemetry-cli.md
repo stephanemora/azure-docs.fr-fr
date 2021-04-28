@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: a34fd5480ae47678f250dbf888005c396ba32f38
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 843db24707b8c826fe48e9d50aa7ec5bc135399f
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792144"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107863602"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les surveiller avec Azure CLI
 
@@ -94,7 +94,7 @@ Dans cette section, vous utilisez Azure CLI pour créer un groupe de ressources 
 Dans cette section, vous créez un appareil simulé dans la première session CLI. L’appareil simulé envoie les données de télémétrie de l’appareil à votre hub IoT. Dans la deuxième session CLI, vous surveillez les événements et la télémétrie, puis vous envoyez un message cloud-à-appareil à l’appareil simulé.
 
 Créer et démarrer un appareil simulé :
-1. Exécutez la commande [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) dans la première session CLI. Cela crée l’identité de l’appareil simulé. 
+1. Exécutez la commande [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) dans la première session CLI. Cela crée l’identité de l’appareil simulé. 
 
     *YourIotHubName*. Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT. 
 
@@ -104,7 +104,7 @@ Créer et démarrer un appareil simulé :
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Exécutez la commande [az iot hub device simulate](/cli/azure/ext/azure-iot/iot/device#ext-azure-iot-az-iot-device-simulate) dans la première session CLI.  Cela démarre l’appareil simulé. L’appareil envoie des données de télémétrie à votre hub IoT et reçoit des messages de ce dernier.  
+1. Exécutez la commande [az iot hub device simulate](/cli/azure/iot/device#az_iot_device_simulate) dans la première session CLI.  Cela démarre l’appareil simulé. L’appareil envoie des données de télémétrie à votre hub IoT et reçoit des messages de ce dernier.  
 
     *YourIotHubName*. Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT. 
 
@@ -113,7 +113,7 @@ Créer et démarrer un appareil simulé :
     ```
 
 Pour surveiller un appareil :
-1. Dans la deuxième session CLI, exécutez la commande [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events). Cela démarre la surveillance de l’appareil simulé. Le résultat affiche les données de télémétrie que l’appareil simulé envoie à l’hub IoT.
+1. Dans la deuxième session CLI, exécutez la commande [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events). Cela démarre la surveillance de l’appareil simulé. Le résultat affiche les données de télémétrie que l’appareil simulé envoie à l’hub IoT.
 
     *YourIotHubName*. Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT. 
 
@@ -136,7 +136,7 @@ Dans cette section, vous utilisez la deuxième session CLI pour envoyer un messa
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. Dans la deuxième session CLI, exécutez la commande [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message#ext-azure-iot-az-iot-device-c2d-message-send). Cela envoie un message cloud-à-appareil à partir de votre hub IoT vers l’appareil simulé. Le message comprend une chaîne et deux paires clé-valeur.  
+1. Dans la deuxième session CLI, exécutez la commande [az iot device c2d-message send](/cli/azure/iot/device/c2d-message#az_iot_device_c2d-message-send). Cela envoie un message cloud-à-appareil à partir de votre hub IoT vers l’appareil simulé. Le message comprend une chaîne et deux paires clé-valeur.  
 
     *YourIotHubName*. Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT. 
 

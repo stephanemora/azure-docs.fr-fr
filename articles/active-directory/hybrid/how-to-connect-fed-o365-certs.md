@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e81cb9018d817fb206915a81fdc3bdd60f6b08c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ab37861a78ef80949e9afb4a3f51a6d9fdbad321
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611886"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126619"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Renouveler des certificats de fédération pour Microsoft 365 et Azure Active Directory
 ## <a name="overview"></a>Vue d’ensemble
@@ -38,7 +38,7 @@ Cet article fournit des informations supplémentaires pour gérer vos certificat
 
 > [!IMPORTANT]
 > Microsoft recommande vivement d’utiliser un module de sécurité matériel (HSM) pour protéger et sécuriser les certificats.
-> Pour plus d’informations, consultez [Module de sécurité matériel](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) dans les meilleures pratiques pour la sécurisation des AD FS.
+> Pour plus d’informations, consultez [Module de sécurité matériel](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) dans les meilleures pratiques pour la sécurisation des AD FS.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configuration par défaut d’AD FS pour les certificats de signature de jetons
 Les certificats de signature et de déchiffrement de jetons sont généralement des certificats auto-signés, valables pendant un an. Par défaut, AD FS inclut un processus de renouvellement automatique appelé **AutoCertificateRollover**. Si vous utilisez AD FS 2.0 ou version ultérieure, Microsoft 365 et Azure AD mettent automatiquement à jour votre certificat avant qu’il n’arrive à expiration.
