@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 5baf5f503542f31b26c4c210741f1ce986f6a549
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 72dc92ae211034e2a49bc77f60880f17ab15dec7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580125"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868174"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -116,7 +116,7 @@ Pour effectuer cette procédure, vous avez besoin de :
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Installer l’extension Azure Resource Graph
 
- L’extension Azure CLI pour [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, vous permet d’utiliser la commande [az graph](/cli/azure/ext/resource-graph/graph) pour interroger les ressources gérées par Azure Resource Manager. Vous utiliserez cette commande dans les étapes ultérieures.
+ L’extension Azure CLI pour [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, vous permet d’utiliser la commande [az graph](/cli/azure/graph) pour interroger les ressources gérées par Azure Resource Manager. Vous utiliserez cette commande dans les étapes ultérieures.
 
 1. Utilisez [az extension list](/cli/azure/extension#az_extension_list) pour voir si l’extension *resource-graph* est installée.
 
@@ -233,7 +233,7 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Répertorier les bases de données SQL Azure avec authentification Azure AD
 
-- Utilisez [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) et l’extension [az graph](/cli/azure/ext/resource-graph/graph) pour déterminer si vous utilisez des bases de données Azure AD avec l’intégration de l’authentification Azure AD activée. Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL](../azure-sql/database/authentication-aad-configure.md).
+- Utilisez [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) et l’extension [az graph](/cli/azure/graph) pour déterminer si vous utilisez des bases de données Azure AD avec l’intégration de l’authentification Azure AD activée. Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -255,7 +255,7 @@ Lorsque vous créez un coffre de clés, celui-ci est automatiquement lié à l�
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Utilisez l'extension [az graph](/cli/azure/ext/resource-graph/graph) pour répertorier d’autres ressources Azure avec des dépendances connues au répertoire Azure AD.
+1. Utilisez l'extension [az graph](/cli/azure/graph) pour répertorier d’autres ressources Azure avec des dépendances connues au répertoire Azure AD.
 
     ```azurecli
     az graph query -q \

@@ -3,23 +3,22 @@ title: Qu'est-ce qu'Azure Key Vault ? | Microsoft Docs
 description: Découvrez comment Azure Key Vault protège les clés de chiffrement et les secrets utilisés par les services et les applications cloud.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc00a4f1c1551932b4a30a8ef9b27cb1d4082667
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fafacda322a974d04a04bb5e79d1ee086eaf7a5
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071594"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753395"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Concepts de base d’Azure Key Vault
 
-Azure Key Vault est un service cloud permettant de stocker les secrets et d’y accéder en toute sécurité. Un secret est un élément pour lequel vous voulez contrôler étroitement l’accès. Il peut s’agir de clés d’API, de mots de passe, de certificats ou de clés de chiffrement. Le service Key Vault prend en charge deux types de conteneurs : les coffres et les pools HSM managés. Les coffres prennent en charge le stockage des clés logicielles et sauvegardées avec HSM, les secrets et les certificats. Les pools HSM managés prennent uniquement en charge les clés sauvegardées avec HSM. Pour plus d’informations, consultez [Vue d’ensemble de l’API REST Azure Key Vault](about-keys-secrets-certificates.md).
+Azure Key Vault est un service cloud permettant de stocker les secrets et d’y accéder en toute sécurité. Un secret est un élément pour lequel vous voulez contrôler étroitement l’accès. Il peut s’agir de clés d’API, de mots de passe, de certificats ou de clés de chiffrement. Le service Key Vault prend en charge deux types de conteneurs : les coffres et les pools HSM (modules de sécurité matériels) managés. Les coffres prennent en charge le stockage des clés logicielles et sauvegardées avec HSM, les secrets et les certificats. Les pools HSM managés prennent uniquement en charge les clés sauvegardées avec HSM. Pour plus d’informations, consultez [Vue d’ensemble de l’API REST Azure Key Vault](about-keys-secrets-certificates.md).
 
 Voici d’autres termes importants :
 
@@ -81,7 +80,7 @@ Les développeurs peuvent également gérer les clés directement à l’aide d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez à [sécuriser votre coffre de clés](secure-your-key-vault.md).
+- Apprenez à [sécuriser votre coffre de clés](security-overview.md).
 - Découvrez comment [sécuriser vos pools HSM managés](../managed-hsm/access-control.md)
 
 <!--Image references-->

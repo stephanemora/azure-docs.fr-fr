@@ -2,13 +2,13 @@
 title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources, un nouvel abonnement ou une nouvelle région.
 ms.topic: conceptual
-ms.date: 04/23/2021
-ms.openlocfilehash: 90fd683a12dcc9f9d63003f1fd87332db5f2b9aa
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 04/16/2021
+ms.openlocfilehash: a56a9e6f04aa800e16bbab0190ce7b41d87da590
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945986"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740085"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -112,7 +112,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [microsoft.insights](#microsoftinsights)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
-> - [Microsoft.IoTHub](#microsoftiothub)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
 > - [Microsoft.Kubernetes](#microsoftkubernetes)
@@ -587,7 +586,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement | Changement de région |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | Oui | Oui | Non |
-> | Recherche cognitive | Oui | Oui | Pris en charge avec étapes manuelles.<br/><br/> Apprenez-en davantage sur le [déplacement de votre service Recherche cognitive Azure vers une autre région](../../search/search-howto-move-across-regions.md). |
+> | Recherche cognitive | **En attente** | **En attente** | Pris en charge avec étapes manuelles.<br/><br/> Apprenez-en davantage sur le [déplacement de votre service Recherche cognitive Azure vers une autre région](../../search/search-howto-move-across-regions.md). |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -1104,7 +1103,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement | Changement de région |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | Oui | Oui | Non. [Plus d’informations](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region) |
+> | accounts | **En attente** | **En attente** | Non. [Plus d’informations](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region) |
 > | actiongroups | Oui | Oui | Non |
 > | activitylogalerts | Non | Non | Non |
 > | alertrules | Oui | Oui | Non |
@@ -1156,7 +1155,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement | Changement de région |
 > | ------------- | ----------- | ---------- | ----------- |
-> | iothub | Oui | Oui | Oui (cloner un hub) <br/><br/> [Cloner un hub IoT dans une autre région](../../iot-hub/iot-hub-how-to-clone.md) |
+> | iothub | **En attente** | **En attente** | Oui (cloner un hub) <br/><br/> [Cloner un hub IoT dans une autre région](../../iot-hub/iot-hub-how-to-clone.md) |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 

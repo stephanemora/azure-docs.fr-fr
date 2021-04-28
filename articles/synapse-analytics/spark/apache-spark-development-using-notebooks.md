@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6859a2f8571c11e6ef93a5e5b1635cdbe39ad001
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612309"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737660"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio dans Azure Synapse Analytics
 
@@ -40,7 +40,6 @@ L’équipe de Synapse a introduit le nouveau composant pour notebooks dans Syna
 |%load| Non pris en charge |&#9745;|
 |%%html| Non pris en charge |&#9745;|
 |Glisser-déposer pour déplacer une cellule| Non pris en charge |&#9745;|
-|Sortie Display() persistante|&#9745;| Non disponible |
 |Mettre en forme une cellule de texte avec des boutons de barre d’outils|&#9745;| Non disponible |
 |Annuler l’opération sur cellule| &#9745;| Non disponible |
 
@@ -151,6 +150,18 @@ Les fonctionnalités IntelliSense sont à des niveaux de maturité différents p
 |SparkSQL|Oui|Oui|-|-|-|-|-|-|
 |.NET pour Spark (C#)|Oui|-|-|-|-|-|-|-|
 
+
+
+### <a name="code-snippets"></a>Extraits de code
+
+Les notebooks Azure Synapse Studio fournissent des extraits de code qui facilitent l’entrée de modèles de code couramment utilisés, tels que la configuration de votre session Spark, la lecture des données en tant que DataFrame Spark ou le dessin de graphiques avec matplotlib, etc.
+
+Les extraits de code apparaissent dans [IntelliSense](#ide-style-intellisense) en combinaison avec d’autres suggestions. Le contenu des extraits de code s’aligne avec le langage des cellules de code. Vous pouvez voir les extraits de code disponibles en tapant **Extrait** ou n’importe quel mot clé apparaît dans le titre de l’extrait dans l’éditeur de cellule de code. Par exemple, en tapant **lire**, vous pouvez voir la liste des extraits pour lire les données à partir de différentes sources de données.
+
+![Extraits de code Synapse](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
+
+
+
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Mettre en forme une cellule de texte avec des boutons de barre d’outils
 
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
@@ -182,7 +193,7 @@ L’annulation de l’opération sur cellule n’est pas encore disponible pour 
 
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
-Sélectionnez les points de suspension (...) pour accéder au menu d’actions sur cellule supplémentaires tout à fait à droite. Sélectionnez ensuite **Déplacer la cellule vers le haut** ou **Déplacer la cellule vers le bas** pour déplacer la cellule active. 
+Sélectionnez les points de suspension (...) pour accéder au menu des autres actions sur cellule tout à fait à droite. Sélectionnez ensuite **Déplacer la cellule vers le haut** ou **Déplacer la cellule vers le bas** pour déplacer la cellule active. 
 
 Vous pouvez également utiliser des [touches de raccourci en mode de commande](#shortcut-keys-under-command-mode). Appuyez sur **Ctrl + Alt + ↑** pour déplacer la cellule active vers le haut. Appuyez sur **Ctrl + Alt + ↓** pour déplacer la cellule active vers le bas.
 
@@ -199,7 +210,7 @@ Cliquez sur le côté gauche d’une cellule et faites-la glisser vers la positi
 
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
-Pour supprimer une cellule, sélectionnez les points de suspension (...) pour accéder au menu d’actions sur cellule supplémentaires tout à fait à droite, puis choisissez **Supprimer la cellule**. 
+Pour supprimer une cellule, sélectionnez les points de suspension (...) pour accéder au menu des autres actions sur cellule tout à fait à droite, puis choisissez **Supprimer la cellule**. 
 
 Vous pouvez également utiliser des [touches de raccourci en mode de commande](#shortcut-keys-under-command-mode). Appuyez sur **D, D** pour supprimer la cellule active.
   
@@ -274,7 +285,7 @@ Sélectionnez le bouton **Exécuter tout** pour exécuter toutes les cellules du
 
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
-Pour accéder au menu d’actions sur cellule supplémentaires tout à fait à droite, sélectionnez les points de suspension ( **...** ). Ensuite, sélectionnez **Exécuter les cellules au-dessus** pour exécuter toutes les cellules situées au-dessus de la cellule active dans l’ordre. Sélectionnez **Exécuter les cellules en dessous** pour exécuter toutes les cellules sous la cellule active dans l’ordre.
+Pour accéder au menu des autres actions sur cellule tout à fait à droite, sélectionnez les points de suspension ( **...** ). Ensuite, sélectionnez **Exécuter les cellules au-dessus** pour exécuter toutes les cellules situées au-dessus de la cellule active dans l’ordre. Sélectionnez **Exécuter les cellules en dessous** pour exécuter toutes les cellules sous la cellule active dans l’ordre.
 
    ![exécuter-cellules-au-dessus-ou-en dessous](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -468,7 +479,7 @@ Sélectionnez le bouton **Ajouter au pipeline** dans le coin supérieur droit po
 
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
-Pour paramétrer votre notebook, sélectionnez les points de sélection (…) pour accéder au menu d’actions sur cellule supplémentaires à l’extrême droite. Sélectionnez ensuite **Activer/désactiver la cellule Paramètres** pour désigner la cellule comme cellule de paramètre.
+Pour paramétrer votre notebook, sélectionnez les points de sélection (…) pour accéder au menu des autres actions sur cellule à l’extrême droite. Sélectionnez ensuite **Activer/désactiver la cellule Paramètres** pour désigner la cellule comme cellule de paramètre.
 
 ![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 

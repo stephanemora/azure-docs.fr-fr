@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/20/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e356363d91c3aa429fd958c1dd3bc553e7a4d29
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: cf614922503212488c822ac020960b0ddb99fc28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030234"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780062"
 ---
 # <a name="azure-ad-built-in-roles"></a>Rôles intégrés Azure AD
 
@@ -519,7 +519,7 @@ Gère les [requêtes Customer Lockbox](/office365/admin/manage/customer-lockbox-
 
 ## <a name="desktop-analytics-administrator"></a>Administrateur Desktop Analytics
 
-Les utilisateurs avec ce rôle peuvent gérer Desktop Analytics et les services de stratégie et de personnalisation Office. Pour Desktop Analytics, cela inclut la possibilité d’afficher l’inventaire des biens, de créer des plans de déploiement, d’afficher l’état du déploiement et de l’intégrité. Pour le service de stratégie et personnalisation Office, ce rôle permet aux utilisateurs de gérer les stratégies Office.
+Les utilisateurs ayant ce rôle peuvent gérer le service Desktop Analytics. Ils ont notamment la possibilité d’afficher l’inventaire des ressources, de créer des plans de déploiement et de visualiser l’état du déploiement et de l’intégrité.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -527,9 +527,6 @@ Les utilisateurs avec ce rôle peuvent gérer Desktop Analytics et les services 
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Lire et configurer Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Créer et gérer les tickets de support Azure |
 > | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gérer tous les aspects de Desktop Analytics |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Lire et configurer Service Health dans le Centre d’administration Microsoft 365 |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Créer et gérer des demandes de service Microsoft 365 |
-> | microsoft.office365.webPortal/allEntities/standard/read | Lire les propriétés de base sur toutes les ressources dans le Centre d’administration Microsoft 365 |
 
 ## <a name="directory-readers"></a>Lecteurs de répertoires
 
@@ -885,7 +882,7 @@ Les utilisateurs affectés à ce rôle peuvent lire les paramètres et les infor
 > Le rôle de lecteur général comporte des restrictions pour le moment.
 >
 >- [Centre d’administration OneDrive](https://admin.onedrive.com/) : Le Centre d’administration OneDrive ne prend pas en charge le rôle de lecteur général.
->- [Centre d’administration M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Le lecteur général ne peut pas lire les demandes du Customer Lockbox. L’onglet **Demandes du Customer Lockbox** ne figure pas sous **Support** dans le volet gauche du centre d’administration M365.
+>- [Centre d’administration M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Le lecteur général ne peut pas lire les applications intégrées. Vous ne trouverez pas l’onglet **Applications intégrées** sous **Paramètres** dans le volet gauche du Centre d’administration M365.
 >- [Centre de sécurité et de conformité Office](https://sip.protection.office.com/homepage) - Le lecteur général ne peut pas lire les journaux d'audit SCC, effectuer une recherche de contenu ou voir le Degré de sécurisation.
 >- [Centre d’administration Teams](https://admin.teams.microsoft.com) : Le lecteur général ne peut pas lire le **cycle de vie Teams**, les **analyses et rapports**, la **gestion des appareils téléphoniques IP** et le **catalogue d’applications**.
 >- [Privileged Access Management (PAM) ](/office365/securitycompliance/privileged-access-management-overview) ne prend pas en charge le rôle de lecteur général.

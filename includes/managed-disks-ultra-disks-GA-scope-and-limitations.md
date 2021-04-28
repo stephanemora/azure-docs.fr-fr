@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 04/21/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c8f817ad06742e6f84c3cb87dda0c36866540267
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 1d4b6c8d442d1a0d6e9451b314ee95ae50c20ede
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450358"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891484"
 ---
 Pour le moment, les disques Ultra ont des limitations supplémentaires, notamment :
 
@@ -64,6 +64,17 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+    - [HBv2](../articles/virtual-machines/hbv2-series.md)
+    - [HB](../articles/virtual-machines/hb-series.md)
+    - [HC](../articles/virtual-machines/hc-series.md)
+    - [NDv2](../articles/virtual-machines/ndv2-series.md)
+    - [ND](../articles/virtual-machines/nd-series.md)
+    - [NC_T4_v3](../articles/virtual-machines/nct4-v3-series.md)
+    - [NCv2](../articles/virtual-machines/ncv2-series.md)
+    - [NCv3](../articles/virtual-machines/ncv3-series.md)
+    - [NVv3](../articles/virtual-machines/nvv3-series.md)
+    - [NVv4](../articles/virtual-machines/nvv4-series.md)
+    
 - Toutes les tailles de machines virtuelles ne sont pas disponibles dans toutes les régions prises en charge avec des disques Ultra.
 - Ils sont disponibles uniquement comme disques de données. 
 - Ils prennent en charge la taille de secteur physique de 4k par défaut. La taille de secteur 512E est proposée en disponibilité générale (aucune inscription requise). La plupart des applications sont compatibles avec les tailles de secteur de 4k mais certaines nécessitent des tailles de secteur de 512 octets. Citons à titre d’exemple Oracle Database, qui nécessite la version 12.2 ou une version ultérieure afin de prendre en charge les disques natifs 4k. Pour les versions antérieures d’Oracle DB, la taille de secteur de 512 octets est requise.

@@ -4,12 +4,12 @@ description: Mise à l’échelle automatique dans Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4727d562e21b92e58c8091f1161cf53198ff0b26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3ac08addac4fb668b58ebb218ffb57bb920813
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726000"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139684"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
@@ -107,7 +107,7 @@ Vous pouvez configurer la mise à l’échelle automatique via
 | Service Gestion des API|[Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](../../api-management/api-management-howto-autoscale.md)
 | Clusters Azure Data Explorer|[Gérer la mise à l’échelle des clusters Azure Data Explorer pour prendre en compte les fluctuations de la demande](/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Logic Apps |[Ajout de la fonctionnalité d’environnement de service d’intégration (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
-| Spring Cloud |[Configurer la mise à l’échelle automatique pour les applications de microservice](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Spring Cloud |[Configurer la mise à l’échelle automatique pour les applications de microservice](../../spring-cloud/how-to-setup-autoscale.md)|
 | Service Bus |[Mettre à jour automatiquement les unités de messagerie d’un espace de noms Azure Service Bus](../../service-bus-messaging/automate-update-messaging-units.md)|
 
 ## <a name="next-steps"></a>Étapes suivantes
