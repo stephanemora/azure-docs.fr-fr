@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9b6589484c9512d7eb66d3f35dc5a1e7f2fc8c9
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96750800"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952635"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Résoudre les problèmes de réplication et de basculement de Hyper-V sur Azure
 
@@ -130,7 +130,7 @@ Une capture instantanée de cohérence des applications est un instantané à un
         - Ce taux d’activité des données va augmenter ou se maintenir à un niveau élevé, selon le niveau d’activité de la machine virtuelle ou de ses applications.
         - L’activité moyenne des données du disque source est de 2 Mo/s pour le stockage standard d’Azure Site Recovery. [En savoir plus](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - En outre, vous pouvez [vérifier les objectifs d’évolutivité du stockage](../storage/common/scalability-targets-standard-account.md).
-8. Vérifiez que, si vous utilisez un serveur Linux, vous avez activé la cohérence des applications. [En savoir plus](./site-recovery-faq.md#replication)
+8. Vérifiez que, si vous utilisez un serveur Linux, vous avez activé la cohérence des applications. [En savoir plus](/azure/site-recovery/site-recovery-faq#replication)
 9. Exécutez le [Planificateur de déploiement](hyper-v-deployment-planner-run.md).
 10. Passez en revue les recommandations pour le [réseau](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) et le [stockage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

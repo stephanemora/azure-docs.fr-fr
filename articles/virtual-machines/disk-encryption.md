@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4607778c78b8b062b265a5754337c09c41ba83f1
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 09ec15eb45029c42fd5bc02288a0c45e167e7092
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531519"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146290"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
@@ -21,7 +21,7 @@ La plupart des disques managés Azure sont chiffrés avec le chiffrement de Stoc
 
 Les données dans les disque managés Azure sont chiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Pour plus d’informations sur les modules cryptographiques des disque managés Azure, consultez [API de chiffrement : nouvelle génération](/windows/desktop/seccng/cng-portal)
 
-Le chiffrement Stockage Azure n’a pas d’impact sur les performances des disques managés et n’entraîne aucun coût supplémentaire. Pour plus d’informations sur le chiffrement du Stockage Azure, voir [Chiffrement du stockage Azure](/azure/storage/common/storage-service-encryption).
+Le chiffrement Stockage Azure n’a pas d’impact sur les performances des disques managés et n’entraîne aucun coût supplémentaire. Pour plus d’informations sur le chiffrement du Stockage Azure, voir [Chiffrement du stockage Azure](../storage/common/storage-service-encryption.md).
 
 > [!NOTE]
 > Les disques temporaires ne sont pas des disques managés et ne sont pas chiffrés par SSE, sauf si vous activez le chiffrement à l’hôte.

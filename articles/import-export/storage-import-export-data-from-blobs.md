@@ -9,12 +9,12 @@ ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: e878be5351362923e163c0a6f617b96ab72a36d8
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2d4885f23e775f84a412d176568d992ebe01166b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177556"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875698"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
 
@@ -190,19 +190,19 @@ Suivez les étapes ci-dessous pour créer une tâche d’exportation dans le por
 
 ### <a name="create-a-job"></a>Créer un travail
 
-1. Utilisez la commande [az extension add](/cli/azure/extension#az_extension_add) pour ajouter l’extension [az import-export](/cli/azure/ext/import-export/import-export) :
+1. Utilisez la commande [az extension add](/cli/azure/extension#az_extension_add) pour ajouter l’extension [az import-export](/cli/azure/import-export) :
 
     ```azurecli
     az extension add --name import-export
     ```
 
-1. Pour obtenir la liste des emplacements depuis lesquels vous pouvez recevoir des disques, utilisez la commande [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+1. Pour obtenir la liste des emplacements depuis lesquels vous pouvez recevoir des disques, utilisez la commande [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) :
 
     ```azurecli
     az import-export location list
     ```
 
-1. Exécutez la commande [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) pour créer un travail d’exportation utilisant votre compte de stockage existant :
+1. Exécutez la commande [az import-export create](/cli/azure/import-export#az_import_export_create) pour créer un travail d’exportation utilisant votre compte de stockage existant :
 
     ```azurecli
     az import-export create \
@@ -245,13 +245,13 @@ Suivez les étapes ci-dessous pour créer une tâche d’exportation dans le por
    > [!NOTE]
    > Si l’objet blob à exporter est utilisé pendant la copie de données, le service Azure Import/Export prend un instantané de l’objet blob, puis copie cet instantané.
 
-1. Utilisez la commande [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) pour afficher toutes les tâches du groupe de ressources myierg :
+1. Utilisez la commande [az import-export list](/cli/azure/import-export#az_import_export_list) pour afficher toutes les tâches du groupe de ressources myierg :
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. Pour mettre à jour votre travail ou l’annuler, exécutez la commande [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+1. Pour mettre à jour votre travail ou l’annuler, exécutez la commande [az import-export update](/cli/azure/import-export#az_import_export_update) :
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true

@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 64107c3f667dd7e59fcf6d191e83457029b3a277
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ec4ca8b24f1e8534e7f8434bc86a2eb2745e946
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100546344"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727039"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -29,9 +29,17 @@ Microsoft Authentication Library pour .NET (MSAL.NET) et Azure AD Authentication
 - votre application peut activer le consentement incrémentiel, et l’accès conditionnel est plus facile à prendre en charge ;
 - vous bénéficiez de l'innovation.
 
-**MSAL.NET est désormais la bibliothèque d'authentification recommandée avec la plateforme d'identités Microsoft**. Aucune nouvelle fonctionnalité ne sera implémentée sur ADAL.NET. Les efforts se focalisent sur l'amélioration de MSAL.
+**MSAL.NET ou Microsoft.Identity.Web sont désormais les bibliothèques d’authentification recommandées à utiliser avec la plateforme d’identités Microsoft**. Aucune nouvelle fonctionnalité ne sera implémentée sur ADAL.NET. Les efforts se focalisent sur l'amélioration de MSAL.
 
 Cet article décrit les différences entre la Bibliothèque d'authentification Microsoft pour .NET (MSAL.NET) et la Bibliothèque d'authentification Azure AD pour .NET (ADAL.NET). Il vous aide également à migrer vers MSAL.
+
+## <a name="should-you-migrate-to-msalnet-or-to-microsoftidentityweb"></a>Faut-il migrer vers MSAL.NET ou vers Microsoft.Identity.Web ?
+
+Avant d’entrer dans les détails de MSAL.NET par rapport à ADAL.NET, vous pouvez vérifier si vous voulez utiliser MSAL.NET ou une abstraction de niveau supérieur comme [Microsoft.Identity.Web](microsoft-identity-web.md).
+
+Pour plus d’informations sur l’arbre de décision ci-dessous, lisez [Should I use MSAL.NET only? or a higher level abstraction?](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Is-MSAL.NET-right-for-me%3F) (Dois-je utiliser uniquement MSAL.NET ou une abstraction de niveau supérieur ?).
+
+:::image type="content" source="media/msal-net-migration/decision-diagram.png" alt-text="Schéma expliquant comment déterminer si vous devez utiliser MSAL.NET ou Microsoft.Identity.Web, ou les deux, lors de la migration à partir d’ADAL.NET":::
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Différences entre les applications ADAL et MSAL
 

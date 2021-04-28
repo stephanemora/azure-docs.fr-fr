@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 67153fa750fee765dcaa1072eec87a2f6169b918
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7fb40d95c4659bf353366770da7c903ffa1bd09
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397278"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107867220"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide du portail Azure
 
@@ -34,7 +34,7 @@ Pour créer un certificat et installer IIS, ce tutoriel requiert le module Azur
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
-Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé à l’aide de [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Vous pouvez utiliser [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat.
+Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé à l’aide de [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). Vous pouvez utiliser [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat.
 
 ```powershell
 New-SelfSignedCertificate `

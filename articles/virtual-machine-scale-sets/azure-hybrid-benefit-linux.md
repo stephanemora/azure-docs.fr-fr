@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: a714434c39a0c40c2e908f2d0c424f02851921a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fb5f00cf2e7078ab8d85f0ac1c2a2d54be907f89
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933676"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127170"
 ---
 # <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set-public-preview"></a>Azure Hybrid Benefit pour un groupe de machines virtuelles identiques Linux (préversion publique)
 
-**Azure Hybrid Benefit pour un groupe de machines virtuelles identiques Linux est désormais en préversion publique**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) RHEL et SLES.
+**Azure Hybrid Benefit pour un groupe de machines virtuelles identiques Linux est désormais en préversion publique**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](./overview.md) RHEL et SLES.
 
 Avec cet avantage, vous payez uniquement le coût d’infrastructure de votre groupe identique. L’avantage s’applique à toutes les images PAYG (paiement à l’accès) de la place de marché RHEL et SLES.
 
 
 >[!NOTE]
-> Cet article décrit les Azure Hybrid Benefit pour Linux VMSS. Il existe un autre [article disponible [ici AHB pour les machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), qui est déjà disponible pour les clients Azure depuis novembre 2020.
+> Cet article décrit les Azure Hybrid Benefit pour Linux VMSS. Il existe un autre [article disponible [ici AHB pour les machines virtuelles Linux](../virtual-machines/linux/azure-hybrid-benefit-linux.md), qui est déjà disponible pour les clients Azure depuis novembre 2020.
 
 ## <a name="benefit-description"></a>Description de l’avantage
 Azure Hybrid vous permet d’utiliser les licences d’accès cloud existantes de Red Hat ou SUSE et de convertir de manière flexible les instances de groupe de machines virtuelles identiques pour la facturation BYOS. 
@@ -94,7 +94,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Les groupes identiques ont une [« stratégie de mise à niveau »](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) qui détermine la façon dont les machines virtuelles sont mises à jour à l’aide du dernier modèle du groupe identique. Par conséquent, si votre VMSS a une stratégie de mise à niveau « automatique », l’avantage AHB est appliqué automatiquement à mesure que les instances de machine virtuelle sont mises à jour. Si les VMSS ont une stratégie de mise à niveau « propagée », en fonction des mises à jour planifiées, AHB est appliqué.
+> Les groupes identiques ont une [« stratégie de mise à niveau »](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) qui détermine la façon dont les machines virtuelles sont mises à jour à l’aide du dernier modèle du groupe identique. Par conséquent, si votre VMSS a une stratégie de mise à niveau « automatique », l’avantage AHB est appliqué automatiquement à mesure que les instances de machine virtuelle sont mises à jour. Si les VMSS ont une stratégie de mise à niveau « propagée », en fonction des mises à jour planifiées, AHB est appliqué.
 Dans le cas d’une stratégie de mise à niveau « manuelle », vous devez effectuer une « mise à niveau manuelle » de chaque machine virtuelle existante.  
 
 ### <a name="cli-example-to-upgrade-virtual-machine-scale-set-instances-in-case-of-manual-upgrade-policy"></a>Exemple de CLI pour mettre à niveau des instances de groupe de machines virtuelles identiques en cas de stratégie « Mise à niveau manuelle » 

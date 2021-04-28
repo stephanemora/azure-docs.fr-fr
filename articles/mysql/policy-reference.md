@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées destinées à Azure Database pour MySQL
 description: Liste les définitions de stratégie intégrées d’Azure Policy destinées à Azure Database pour MySQL. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/14/2021
+ms.date: 04/21/2021
 ms.topic: reference
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f3ee0406dfb925e8c549185377d55d48e832b6d7
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: c438e148a7135085a5143f62c94eb2e10e3295fd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497697"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875308"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Définitions intégrées d’Azure Policy destinées à Azure Database pour MySQL
 

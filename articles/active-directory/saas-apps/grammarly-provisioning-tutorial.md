@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: ca01289ce66afe642081e5be17373e640dd1e46d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 39d1e9e439ad1b14b6f6517868c21c682c45a7a3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864803"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130587"
 ---
 # <a name="tutorial-configure-grammarly-for-automatic-user-provisioning"></a>Tutoriel : Configurer Grammarly pour l’approvisionnement automatique d’utilisateur
 
-Ce tutoriel décrit les étapes à suivre dans Grammarly et dans Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateur. Une fois la configuration effectuée, Azure AD approvisionne et déprovisionne automatiquement des utilisateurs et des groupes dans [Grammarly](https://www.grammarly.com/) à l’aide du service d’approvisionnement Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md). 
+Ce tutoriel décrit les étapes à suivre dans Grammarly et dans Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateur. Une fois la configuration effectuée, Azure AD approvisionne et déprovisionne automatiquement des utilisateurs et des groupes dans [Grammarly](https://www.grammarly.com/) à l’aide du service d’approvisionnement Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
@@ -37,14 +37,14 @@ Ce tutoriel décrit les étapes à suivre dans Grammarly et dans Azure Active Di
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
-* [Un locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
 * Un compte professionnel Grammarly avec accès administrateur.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
-1. En savoir plus sur le [fonctionnement du service d’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-1. Déterminez qui sera dans l’[étendue pour l’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-1. Déterminez les données à [mapper entre Azure AD et Grammarly](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. En savoir plus sur le [fonctionnement du service d’approvisionnement](../app-provisioning/user-provisioning.md).
+1. Déterminez qui sera dans l’[étendue pour l’approvisionnement](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Déterminez les données à [mapper entre Azure AD et Grammarly](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-grammarly-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Grammarly pour prendre en charge l’approvisionnement avec Azure AD
 

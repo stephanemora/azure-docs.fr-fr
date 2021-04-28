@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08a19c55bd208036fe6731e4436a8f0a74a76723
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202342"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127710"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuits ExpressRoute et peering
 
@@ -20,8 +20,9 @@ Les circuits ExpressRoute vous permettent de connecter votre infrastructure loca
 
 ![Diagramme montrant la façon dont les circuits ExpressRoute connectent votre infrastructure locale à Microsoft via un fournisseur de connectivité.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
-> [!IMPORTANT]
-> Le peering public Azure a été déconseillé, et il n’est pas disponible pour les nouveaux circuits ExpressRoute. Les nouveaux circuits prennent en charge le peering Microsoft et le peering privé.  
+> [!NOTE]
+> * Dans le contexte d’ExpressRoute, Microsoft Edge décrit les routeurs de périphérie du côté Microsoft du circuit ExpressRoute. Il s’agit du point d’entrée du circuit ExpressRoute au réseau de Microsoft.
+> * Le peering public Azure a été déconseillé, et il n’est pas disponible pour les nouveaux circuits ExpressRoute. Les nouveaux circuits prennent en charge le peering Microsoft et le peering privé.  
 >
 
 ## <a name="expressroute-circuits"></a><a name="circuits"></a>Circuits ExpressRoute

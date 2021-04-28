@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0dcb959184e12ffa22ae25443087684123598e47
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 28e7a6be84a260c26b27b9e6042a6c323d4167ec
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382457"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128754"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Inscrire une application Microsoft Graph
 
@@ -58,7 +58,7 @@ Pour permettre à vos scripts et applications d'interagir avec l’[API Microsof
 
 ## <a name="grant-api-access"></a>Accorder un accès à l’API
 
-Pour permettre à votre application d’accéder aux données dans Microsoft Graph, accordez à l’application inscrite les [autorisations d’application](https://docs.microsoft.com/graph/permissions-reference) qui conviennent. Les autorisations effectives de votre application correspondent au niveau complet des privilèges impliqués par l’autorisation. Par exemple, pour *créer*, *lire*, *mettre à jour* et *supprimer* chaque utilisateur de votre locataire Azure AD B2C, ajoutez l’autorisation **User.ReadWrite.All**. 
+Pour permettre à votre application d’accéder aux données dans Microsoft Graph, accordez à l’application inscrite les [autorisations d’application](/graph/permissions-reference) qui conviennent. Les autorisations effectives de votre application correspondent au niveau complet des privilèges impliqués par l’autorisation. Par exemple, pour *créer*, *lire*, *mettre à jour* et *supprimer* chaque utilisateur de votre locataire Azure AD B2C, ajoutez l’autorisation **User.ReadWrite.All**. 
 
 > [!NOTE]
 > L’autorisation **User.ReadWrite.All** ne permet pas de mettre à jour les mots de passe des comptes d’utilisateurs. Si votre application doit mettre à jour les mots de passe des comptes d’utilisateurs, [accordez le rôle Administrateur d’utilisateurs](#optional-grant-user-administrator-role). Lorsque vous accordez le rôle [Administrateur d’utilisateurs](../active-directory/roles/permissions-reference.md#user-administrator), l’autorisation **User.ReadWrite.All** n’est pas nécessaire. Le rôle Administrateur d’utilisateurs comprend tout ce qui est nécessaire pour gérer les utilisateurs.

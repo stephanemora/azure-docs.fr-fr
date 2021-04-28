@@ -7,16 +7,16 @@ ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
 ms.date: 11/23/2020
-ms.openlocfilehash: bc172fd1702addf8f4e34094452a779b09320a4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afc39673a30f5c99455696c7a075cb1a6a33ecd1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97033372"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875500"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Démarrage rapide : Créer et gérer des applications logiques à l’aide d’Azure CLI
 
-Ce guide de démarrage rapide montre comment créer et gérer des applications logiques à l’aide de l’extension [Logic Apps d’Azure CLI](/cli/azure/ext/logic/logic) (`az logic`). À partir de la ligne de commande, vous pouvez créer une application logique à l’aide du fichier JSON pour une définition de flux de travail d’application logique. Vous pouvez ensuite gérer votre application logique en exécutant des commandes telles que `list`, `show` (`get`), `update` et `delete` à partir de la ligne de commande.
+Ce guide de démarrage rapide montre comment créer et gérer des applications logiques à l’aide de l’extension [Logic Apps d’Azure CLI](/cli/azure/logic) (`az logic`). À partir de la ligne de commande, vous pouvez créer une application logique à l’aide du fichier JSON pour une définition de flux de travail d’application logique. Vous pouvez ensuite gérer votre application logique en exécutant des commandes telles que `list`, `show` (`get`), `update` et `delete` à partir de la ligne de commande.
 
 > [!WARNING]
 > L’extension Logic Apps d’Azure CLI, actuellement *expérimentale*, *ne bénéficie pas d’un support technique*. Utilisez-la CLI avec précaution, en particulier si vous choisissez de l’utiliser dans des environnements de production.
@@ -69,7 +69,7 @@ Lorsque vous exécutez les commandes pour créer ou mettre à jour votre applica
 
 ## <a name="create-logic-apps-from-cli"></a>Créer des applications logiques à partir de CLI
 
-Vous pouvez créer un flux de travail d’application logique à partir d’Azure CLI à l’aide de la commande [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) avec un fichier JSON pour la définition.
+Vous pouvez créer un flux de travail d’application logique à partir d’Azure CLI à l’aide de la commande [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) avec un fichier JSON pour la définition.
 
 ```azurecli
 
@@ -86,7 +86,7 @@ az logic workflow create --definition
 
 ```
 
-Votre commande doit inclure les [paramètres obligatoires](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters) suivants :
+Votre commande doit inclure les [paramètres obligatoires](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters) suivants :
 
 | Paramètre | Valeur | Description |
 | --------- | ----- | ----------- |
@@ -95,7 +95,7 @@ Votre commande doit inclure les [paramètres obligatoires](/cli/azure/ext/logic/
 | Nom | `--name -n` | Nom de votre application logique. Le nom peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`), des traits de soulignement (`_`), des parenthèses (`()`), et des points (`.`). Le nom doit également être unique dans les régions. |
 | Nom de groupe ressources | `--resource-group -g` | [Groupe de ressources Azure](../azure-resource-manager/management/overview.md) dans lequel vous souhaitez créer votre application logique. [Créez un groupe de ressources](#example---create-resource-group) avant de commencer si vous n’en avez pas déjà un pour votre application logique. |
 
-Vous pouvez également inclure des [paramètres facultatifs](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters) supplémentaires pour configurer les contrôles d’accès, les points de terminaison, le compte d’intégration, l’environnement du service d’intégration, l’état et les balises de ressource de votre application logique.
+Vous pouvez également inclure des [paramètres facultatifs](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters) supplémentaires pour configurer les contrôles d’accès, les points de terminaison, le compte d’intégration, l’environnement du service d’intégration, l’état et les balises de ressource de votre application logique.
 
 ### <a name="example---create-logic-app"></a>Exemple – Créer une application logique
 
@@ -111,9 +111,9 @@ Une fois votre flux de travail correctement créé, l’interface CLI affiche le
 
 ## <a name="update-logic-apps-from-cli"></a>Mettre à jour des applications logiques à partir de l’interface CLI
 
-Vous pouvez également mettre à jour le flux de travail d’une application logique à partir d’Azure CLI à l’aide de la commande [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create).
+Vous pouvez également mettre à jour le flux de travail d’une application logique à partir d’Azure CLI à l’aide de la commande [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create).
 
-Votre commande doit inclure les mêmes [les paramètres requis](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-required-parameters) que lorsque vous [créez une application logique](#create-logic-apps-from-cli). Vous pouvez également ajouter les mêmes [paramètres facultatifs](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create-optional-parameters) que lors de la création d’une application logique.
+Votre commande doit inclure les mêmes [les paramètres requis](/cli/azure/logic/workflow#az_logic_workflow_create-required-parameters) que lorsque vous [créez une application logique](#create-logic-apps-from-cli). Vous pouvez également ajouter les mêmes [paramètres facultatifs](/cli/azure/logic/workflow#az_logic_workflow_create-optional-parameters) que lors de la création d’une application logique.
 
 ```azurecli
 
@@ -144,16 +144,16 @@ Une fois votre flux de travail mis à jour, l’interface CLI affiche la défini
 
 ## <a name="delete-logic-apps-from-cli"></a>Supprimer des applications logiques de l’interface CLI
 
-Vous pouvez supprimer le flux de travail d’une application logique d’Azure CLI à l’aide de la commande [`az logic workflow delete`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete).
+Vous pouvez supprimer le flux de travail d’une application logique d’Azure CLI à l’aide de la commande [`az logic workflow delete`](/cli/azure/logic/workflow#az_logic_workflow_delete).
 
-Votre commande doit inclure les [paramètres requis](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-required-parameters) suivants :
+Votre commande doit inclure les [paramètres requis](/cli/azure/logic/workflow#az_logic_workflow_delete-required-parameters) suivants :
 
 | Paramètre | Valeur | Description |
 | --------- | ----- | ----------- |
 | Nom | `--name -n` | Nom de votre application logique. |
 | Nom de groupe ressources | `-resource-group -g` | Groupe de ressources dans lequel se trouve votre application logique. |
 
-Vous pouvez également inclure un [paramètre facultatif](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-optional-parameters), `--yes -y`, pour ignorer les invites de confirmation.
+Vous pouvez également inclure un [paramètre facultatif](/cli/azure/logic/workflow#az_logic_workflow_delete-optional-parameters), `--yes -y`, pour ignorer les invites de confirmation.
 
 ```azurecli
 
@@ -187,7 +187,7 @@ Une fois que vous avez répondu à l’invite de confirmation en tapant `y`, l�
 
 ## <a name="show-logic-apps-in-cli"></a>Afficher des applications logiques dans l’interface CLI
 
-Vous pouvez obtenir un flux de travail d’application logique spécifique à l’aide de la commande [`az logic workflow show`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show).
+Vous pouvez obtenir un flux de travail d’application logique spécifique à l’aide de la commande [`az logic workflow show`](/cli/azure/logic/workflow#az_logic_workflow_show).
 
 ```azurecli
 
@@ -196,7 +196,7 @@ az logic workflow show --name
 
 ```
 
-Votre commande doit inclure les [paramètres obligatoires](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show-required-parameters) suivants.
+Votre commande doit inclure les [paramètres obligatoires](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters) suivants.
 
 | Paramètre | Valeur | Description |
 | --------- | ----- | ----------- |
@@ -215,9 +215,9 @@ az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp
 
 ## <a name="list-logic-apps-in-cli"></a>Répertorier les applications logiques dans l’interface CLI
 
-Vous pouvez répertorier vos applications logiques par abonnement à l’aide de la commande [`az logic workflow list`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list). Cette commande retourne le code JSON pour les flux de travail de vos applications logiques.
+Vous pouvez répertorier vos applications logiques par abonnement à l’aide de la commande [`az logic workflow list`](/cli/azure/logic/workflow#az_logic_workflow_list). Cette commande retourne le code JSON pour les flux de travail de vos applications logiques.
 
-Vous pouvez filtrer vos résultats à l’aide des [paramètres facultatifs](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-list-optional-parameters) suivants :
+Vous pouvez filtrer vos résultats à l’aide des [paramètres facultatifs](/cli/azure/logic/workflow#az_logic_workflow_list-optional-parameters) suivants :
 
 | Paramètre | Valeur | Description |
 | --------- | ----- | ----------- |

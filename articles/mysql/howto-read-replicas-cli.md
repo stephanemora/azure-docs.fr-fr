@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a5bc9638e2e6eeff8f2176247f579b64beede90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 697e594581636bb3940684371661705539068e6a
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94540210"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001661"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide d’Azure CLI et de l’API REST
 
@@ -118,7 +118,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 Vous pouvez créer et gérer des réplicas en lecture à l’aide de l’[API REST Azure](/rest/api/azure/).
 
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
-Vous pouvez créer un réplica en lecture à l’aide de l’[API de création](/rest/api/mysql/servers/create) :
+Vous pouvez créer un réplica en lecture à l’aide de l’[API de création](/rest/api/mysql/flexibleserver(preview)/servers/create) :
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
@@ -146,14 +146,14 @@ Le réplica doit être créé en utilisant les mêmes paramètres de calcul et d
 > Avant de modifier un paramètre du serveur source, remplacez la valeur du paramètre du réplica par une valeur supérieure ou égale à celle du serveur maître. Vous garantissez ainsi l’alignement du réplica sur les changements apportés au serveur maître.
 
 ### <a name="list-replicas"></a>Lister les réplicas
-Vous pouvez afficher la liste des réplicas d'un serveur source à l'aide de l'[API Lister les réplicas](/rest/api/mysql/replicas/listbyserver) :
+Vous pouvez afficher la liste des réplicas d'un serveur source à l'aide de l'[API Lister les réplicas](/rest/api/mysql/flexibleserver(preview)/replicas/listbyserver) :
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrêter la réplication vers un serveur réplica
-Vous pouvez arrêter la réplication entre un serveur source et un réplica en lecture à l'aide de l'[API de mise à jour](/rest/api/mysql/servers/update).
+Vous pouvez arrêter la réplication entre un serveur source et un réplica en lecture à l'aide de l'[API de mise à jour](/rest/api/mysql/flexibleserver(preview)/servers/update).
 
 Une fois que vous avez arrêté la réplication entre un serveur source et un réplica en lecture, vous ne pouvez pas revenir en arrière. Le réplica en lecture devient un serveur autonome qui prend en charge les lectures et les écritures. Le serveur autonome ne peut pas être retransformé en réplica.
 
@@ -170,7 +170,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### <a name="delete-a-source-or-replica-server"></a>Supprimer un serveur source ou réplica
-Pour supprimer un serveur source ou réplica, vous devez utiliser l'[API de suppression](/rest/api/mysql/servers/delete) :
+Pour supprimer un serveur source ou réplica, vous devez utiliser l'[API de suppression](/rest/api/mysql/flexibleserver(preview)/servers/delete) :
 
 Lorsque vous supprimez un serveur source, la réplication est arrêtée sur tous les réplicas en lecture. Les réplicas en lecture deviennent des serveurs autonomes qui prennent désormais en charge les lectures et les écritures.
 

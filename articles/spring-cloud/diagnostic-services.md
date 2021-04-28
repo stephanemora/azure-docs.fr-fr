@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 68b9aee49e4cf7c02c07fc7dd90e9cc6065a443c
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7e2042294ebaefa2640873bb1ce941d9a60c7834
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259419"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128988"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
@@ -27,7 +27,7 @@ La fonctionnalité de diagnostic d’Azure Spring Cloud vous permet d’analyser
 Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 
 > [!TIP]
-> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](/cli/azure/ext/spring-cloud/spring-cloud/app#ext-spring-cloud-az-spring-cloud-app-logs) !
+> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](/cli/azure/spring-cloud/app#az_spring_cloud_app_logs) !
 
 ## <a name="logs"></a>Journaux d’activité
 
@@ -38,7 +38,7 @@ Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 
 ## <a name="metrics"></a>Mesures
 
-Pour obtenir la liste complète des métriques, voir [Mesures Spring Cloud](./spring-cloud-concept-metrics.md#user-metrics-options).
+Pour obtenir la liste complète des métriques, voir [Mesures Spring Cloud](./concept-metrics.md#user-metrics-options).
 
 Pour commencer, activez l’un de ces services pour recevoir les données. Pour en savoir plus sur la configuration de Log Analytics, consultez [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
@@ -110,7 +110,7 @@ Il existe plusieurs méthodes pour afficher les journaux et les métriques, comm
 > [!NOTE]
 > `==` respecte la casse, mais pas `=~`.
 
-Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/). Pour interroger tous vos journaux Log Analytics à partir d’un client centralisé, consultez [Explorateur de données Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
+Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/). Pour interroger tous vos journaux Log Analytics à partir d’un client centralisé, consultez [Explorateur de données Azure](/azure/data-explorer/query-monitor-data).
 
 ### <a name="use-your-storage-account"></a>Utiliser votre compte de stockage
 
@@ -208,4 +208,4 @@ Vous pourrez peut-être appliquer la même stratégie pour d’autres bibliothè
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Déployer votre première application Azure Spring Cloud](spring-cloud-quickstart.md)
+* [Démarrage rapide : Déployer votre première application Azure Spring Cloud](./quickstart.md)

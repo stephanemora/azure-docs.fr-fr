@@ -3,22 +3,23 @@ title: Services et catégories pris en charge des journaux de ressources Azure M
 description: Référence d’Azure Monitor Comprendre les services et le schéma d’événement pris en charge pour les journaux de ressource Azure.
 ms.topic: reference
 ms.date: 03/30/2021
-ms.openlocfilehash: a4ab4a2e425b752198223da5efd1b07466ab83d1
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: b9bac212a8be040349a8d78c64d7beab291e1f9e
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166936"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016016"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
 
 > [!NOTE]
-> Les journaux de ressources étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure.
+> Cette liste est en grande partie générée automatiquement. Toute modification apportée à cette liste via GitHub peut être remplacée sans avertissement. Pour plus d’informations sur la façon d’effectuer des mises à jour permanentes, contactez l’auteur de cet article.
 
 Les [journaux de ressource Azure Monitor](../essentials/platform-logs-overview.md) sont des journaux d’activité générés par les services Azure, qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
 
-Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources comportant des champs propres aux services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez [Schémas commun et propres aux services pour les journaux de ressources Azure]().
+Les journaux de ressource étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure.
 
+Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources comportant des champs propres aux services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez [Schémas commun et propres aux services pour les journaux de ressources Azure]().
 
 ## <a name="costs"></a>Coûts
 
@@ -653,14 +654,6 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |---|---|---|
 |FrontdoorAccessLog|Journal des accès Frontdoor|Non|
 |FrontdoorWebApplicationFirewallLog|Journal de pare-feu d’applications web Frontdoor|Non|
-
-
-## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
-
-|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
-|---|---|---|
-|LoadBalancerAlertEvent|Événements d’alerte d’équilibreur de charge|Non|
-|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibreur de charge|Non|
 
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
