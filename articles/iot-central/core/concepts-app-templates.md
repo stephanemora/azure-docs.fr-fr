@@ -1,22 +1,22 @@
 ---
 title: Les modèles d’applications dans Azure IoT Central | Microsoft Docs
 description: Les modèles d’applications Azure IoT Central permettent de passer rapidement au développement de solutions IoT.
-author: philmea
-ms.author: philmea
+author: ankitscribbles
+ms.author: ankitgup
 ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 27f054cb085e5064ffed0e75b77d53a1406b566e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8309a567436d1526c1341f3d7db774acf4879dc2
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797126"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600617"
 ---
 # <a name="what-are-application-templates"></a>Présentation des modèles d’application
 
-Les modèles d’applications d’Azure IoT Central sont un outil permettant d’aider les créateurs de solutions à se lancer dans le développement de solutions IoT. Les modèles d’applications peuvent avoir plusieurs utilités : vous faire une idée des possibilités offertes ou bien personnaliser entièrement votre application pour la revendre à vos clients.
+Les modèles d’applications d’Azure IoT Central sont un outil permettant d’aider les créateurs de solutions à se lancer dans le développement de solutions IoT. Les modèles d’applications peuvent avoir plusieurs utilités : vous faire une idée des possibilités offertes ou bien personnaliser entièrement votre application pour la revendre à vos clients.
 
 Les modèles d’applications se décomposent ainsi :
 
@@ -52,10 +52,6 @@ Azure IoT Central est une plateforme d’applications indépendante du secteur. 
   - Monitorage de la qualité de l’eau
 - [Santé](../healthcare/overview-iot-central-healthcare.md)
   - Monitorage continu des patients
-
-## <a name="application-versions"></a>Versions d’application
-
-Les modèles sont associés à des versions d’application IoT Central spécifiques. Vous pouvez trouver la version d’une application dans la page [À propos de votre application](./howto-get-app-info.md) à partir du lien **Aide**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/30/2020
-ms.topic: conceptual
-ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/22/2021
+ms.topic: how-to
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 6271875c368f637140010401cf2ebe21039be9a9
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518923"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897358"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
@@ -186,16 +186,6 @@ Fournie par le SDK Python Azure Machine Learning, la classe [PrivateEndpointConf
 > [!IMPORTANT]  
 > L’utilisation d’un point de terminaison privé avec un espace de travail Azure Machine Learning est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.     
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-### <a name="multiple-workspaces-with-private-endpoint"></a>Plusieurs espaces de travail avec un point de terminaison privé
-
-Lorsque vous créez un point de terminaison privé, une nouvelle zone DNS privée nommée __privatelink.api.azureml.ms__ est créée. Elle contient un lien vers le réseau virtuel. Si vous créez plusieurs espaces de travail avec des points de terminaison privés dans le même groupe de ressources, seul le réseau virtuel du premier point de terminaison privé peut être ajouté à la zone DNS. Pour ajouter des entrées pour les réseaux virtuels utilisés par les autres espaces de travail/points de terminaison privés, procédez comme suit :
-
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le groupe de ressources contenant l’espace de travail. Sélectionnez ensuite la ressource Zone DNS privé nommée __privatelink.api.azureml.ms__.
-2. Sous __Paramètres__, sélectionnez __Liens de réseau virtuel__.
-3. Sélectionnez __Ajouter__. Dans la page __Ajouter un lien de réseau virtuel__, fournissez un __nom de lien__ unique, puis sélectionnez le __réseau virtuel__ à ajouter. Sélectionnez __OK__ pour ajouter le lien réseau.
-
-Pour plus d’informations, consultez [Configuration DNS des points de terminaison privés Azure](../private-link/private-endpoint-dns.md).
 
 ### <a name="vulnerability-scanning"></a>Analyse des vulnérabilités
 

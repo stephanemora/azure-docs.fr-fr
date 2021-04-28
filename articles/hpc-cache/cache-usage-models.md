@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: a22f4b257476e96c51ae491b8570e3798f7b3ab7
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7e1b11fd15cca9b11fc627222318f08d31743336
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259725"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719184"
 ---
 # <a name="understand-cache-usage-models"></a>Comprendre les modèles d’utilisation du cache
 
@@ -82,7 +82,7 @@ Si vous avez des questions sur le modèle d’utilisation le mieux adapté à vo
 
 Dans certains cas, vous devrez peut-être remonter les clients si vous modifiez le modèle d’utilisation d’une cible de stockage. Ceci est nécessaire en raison de la façon dont les différents modèles d’utilisation gèrent les demandes du gestionnaire de verrous réseau (NLM).
 
-Le cache HPC se situe entre les clients et le système de stockage principal. En règle générale, le cache transfère les demandes NLM par le biais du système de stockage principal, mais dans certains cas, le cache lui-même reconnaît la demande NLM et retourne une valeur au client. Dans le cache HPC Azure, cela se produit uniquement lorsque vous utilisez le modèle d’utilisation **Lecture intensive, écritures peu fréquentes** (ou dans une cible de stockage d’objets blob standard, qui ne dispose pas de modèles d’utilisation configurables).
+Le cache HPC se situe entre les clients et le système de stockage principal. En règle générale, le cache transfère les demandes NLM par le biais du système de stockage principal, mais dans certains cas, le cache lui-même reconnaît la demande NLM et retourne une valeur au client. Dans Azure HPC Cache, cela se produit uniquement lorsque vous utilisez le modèle d’utilisation **Lecture intensive, écritures peu fréquentes** (ou dans une cible de stockage d’objets blob standard, qui ne dispose pas de modèles d’utilisation configurables).
 
 Il y a un risque de conflit de fichiers si vous passez d’un modèle d’utilisation à des **Écritures fortes, peu fréquentes** à un modèle d’utilisation différent. Il n’existe aucun moyen de transférer l’état NLM actuel du cache vers le système de stockage, ou vice versa. L’état du verrou du client est donc inexact.
 

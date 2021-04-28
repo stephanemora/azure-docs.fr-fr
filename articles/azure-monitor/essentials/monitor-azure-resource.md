@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 203af340a8bd48bdb6dee70f92c2ecc39708b8e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cb778d826ef094d71fd27f3c10bc1f2c292baa47
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732327"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862396"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -131,7 +131,7 @@ Les journaux Azure Monitor centralisent les journaux et les métriques à partir
 Vous pouvez accéder aux données de supervision collectées depuis votre ressource à partir d’une ligne de commande ou les inclure dans un script à l’aide d’[Azure PowerShell](/powershell/azure/) ou de l’[interface de ligne de commande Azure](/cli/azure/). 
 
 - Pour accéder aux données de métriques à partir de l’interface CLI, consultez [Référence sur les métriques CLI](/cli/azure/monitor/metrics).
-- Pour accéder aux données des journaux d’activité Azure Monitor à l’aide d’une requête de journal à partir de l’interface CLI, consultez [Référence sur Log Analytics CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).
+- Pour accéder aux données des journaux d’activité Azure Monitor à l’aide d’une requête de journal à partir de l’interface CLI, consultez [Référence sur Log Analytics CLI](/cli/azure/monitor/log-analytics).
 - Pour accéder aux données de métriques à partir d’Azure PowerShell, consultez [Référence sur les métriques Azure PowerShell](/powershell/module/azurerm.insights/get-azurermmetric).
 - Pour accéder aux données des journaux d’activité Azure Monitor à l’aide d’une requête de journal à partir d’Azure PowerShell, consultez [Référence sur les requêtes de journal Azure PowerShell](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery).
 

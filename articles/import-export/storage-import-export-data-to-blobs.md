@@ -9,12 +9,12 @@ ms.date: 03/15/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 74f5565ba9dfa48dabfe56c25e3ef30a8caafe14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 39eb6c164751ebdfa293798850a8d663fe988b82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563281"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875680"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -166,7 +166,7 @@ Exécutez les étapes suivantes pour créer une tâche d’importation dans Azur
 
 ### <a name="create-a-job"></a>Créer un travail
 
-1. Utilisez la commande [az extension add](/cli/azure/extension#az_extension_add) pour ajouter l’extension [az import-export](/cli/azure/ext/import-export/import-export) :
+1. Utilisez la commande [az extension add](/cli/azure/extension#az_extension_add) pour ajouter l’extension [az import-export](/cli/azure/import-export) :
 
     ```azurecli
     az extension add --name import-export
@@ -184,19 +184,19 @@ Exécutez les étapes suivantes pour créer une tâche d’importation dans Azur
     az storage account create --resource-group myierg --name myssdocsstorage --https-only
     ```
 
-1. Pour obtenir la liste des emplacements vers lesquels vous pouvez expédier des disques, utilisez la commande [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+1. Pour obtenir la liste des emplacements vers lesquels vous pouvez expédier des disques, utilisez la commande [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) :
 
     ```azurecli
     az import-export location list
     ```
 
-1. Pour obtenir les emplacements de votre région, utilisez la commande [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) :
+1. Pour obtenir les emplacements de votre région, utilisez la commande [az import-export location show](/cli/azure/import-export/location#az_import_export_location_show) :
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Exécutez la commande [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) suivante pour créer un travail d’importation :
+1. Exécutez la commande [az import-export create](/cli/azure/import-export#az_import_export_create) suivante pour créer un travail d’importation :
 
     ```azurecli
     az import-export create \
@@ -223,13 +223,13 @@ Exécutez les étapes suivantes pour créer une tâche d’importation dans Azur
    > [!TIP]
    > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
 
-1. Utilisez la commande [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) pour afficher toutes les tâches du groupe de ressources myierg :
+1. Utilisez la commande [az import-export list](/cli/azure/import-export#az_import_export_list) pour afficher toutes les tâches du groupe de ressources myierg :
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. Pour mettre à jour votre travail ou l’annuler, exécutez la commande [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+1. Pour mettre à jour votre travail ou l’annuler, exécutez la commande [az import-export update](/cli/azure/import-export#az_import_export_update) :
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true

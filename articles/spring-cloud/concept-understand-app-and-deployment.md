@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5473daedc8a7ad5a3b6ddffc65234160d4b3019d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8a543d3f6a875c41b3657ccc947c6f697bbcfd09
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877393"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129114"
 ---
 # <a name="app-and-deployment-in-azure-spring-cloud"></a>Application et déploiement dans Azure Spring Cloud
 
@@ -58,4 +58,4 @@ Les fonctionnalités/propriétés suivantes sont définies au niveau du déploie
 * **La gestion du déploiement n’est pas disponible au niveau de service De base** : utilisez le niveau Standard pour obtenir la capacité de déploiement bleu/vert.
 
 ## <a name="see-also"></a>Voir aussi
-* [Configurer un environnement intermédiaire dans Azure Spring Cloud](spring-cloud-howto-staging-environment.md)
+* [Configurer un environnement intermédiaire dans Azure Spring Cloud](./how-to-staging-environment.md)

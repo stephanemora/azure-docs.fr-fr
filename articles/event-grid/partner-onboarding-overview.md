@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’intégration de partenaires (Azure Event Grid)
 description: Fournit une vue d’ensemble de l’intégration en tant que partenaire Event Grid.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9af80efc1ba342768f9bb6d504f921b52494d955
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109337"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890705"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Vue d’ensemble de l’intégration de partenaires (Azure Event Grid)
 
@@ -153,7 +153,7 @@ Après la publication sur le point de terminaison de l’espace de noms du parte
   * [Modèle ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Schéma de modèle ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [API REST](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
-  * [Extension CLI](/cli/azure/ext/eventgrid/)
+  * [Extension CLI](/cli/azure/eventgrid)
 
 ### <a name="sdks"></a>Kits SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

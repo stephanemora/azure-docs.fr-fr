@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9dce264b7f2c88aed11f5b82a61f83cbac6c9697
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 79ae61d21693ae56dff280402c7a3d114822be7f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785106"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132356"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configurer un proxy de centre de distribution de clés Kerberos (préversion)
 
@@ -29,7 +29,7 @@ Le service Windows Virtual Desktop doit être authentifié sur deux composants 
 - Le flux du client Windows Virtual Desktop qui donne aux utilisateurs une liste des ordinateurs de bureau ou applications disponibles auxquels ils ont accès. Ce processus d’authentification se déroule dans Azure Active Directory, ce qui signifie que ce composant n’est pas l’objet de cet article.
 - La session RDP qui résulte de la sélection par un utilisateur de l’une de ces ressources disponibles. Ce composant utilise l’authentification Kerberos et requiert un proxy KDC pour les utilisateurs distants.
 
-Cet article vous montre comment configurer le flux dans le client Windows Virtual Desktop dans le portail Azure. Si vous souhaitez savoir comment configurer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](/azure/virtual-desktop/rd-gateway-role).
+Cet article vous montre comment configurer le flux dans le client Windows Virtual Desktop dans le portail Azure. Si vous souhaitez savoir comment configurer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 ## <a name="requirements"></a>Configuration requise
 
@@ -37,7 +37,7 @@ Pour configurer un hôte de session Windows Virtual Desktop avec un proxy KDC, 
 
 - Un accès au portail Azure et à un compte Administrateur Azure.
 - Les ordinateurs clients distants doivent fonctionner sous Windows 10 ou Windows 7 et avoir le [client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installé. Actuellement, le client Web n’est pas pris en charge.
-- Un proxy KDC doit déjà être installé sur votre ordinateur. Pour savoir comment procéder, consultez [Configurer le rôle Passerelle des services Bureau à distance pour Windows Virtual Desktop](rd-gateway-role.md).
+- Un proxy KDC doit déjà être installé sur votre ordinateur. Pour savoir comment procéder, consultez [Configurer le rôle Passerelle des services Bureau à distance pour Windows Virtual Desktop](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 - Le système d’exploitation de l’ordinateur doit être Windows Server 2016 ou une version ultérieure.
 
 Une fois que vous avez vérifié que vous répondez à ces exigences, vous êtes prêt à commencer.
@@ -70,6 +70,6 @@ Pour configurer le proxy de KDC :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment gérer le côté Services Bureau à distance du proxy KDC et attribuer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](rd-gateway-role.md).
+Pour savoir comment gérer le côté Services Bureau à distance du proxy KDC et attribuer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 Si vous êtes intéressé par la mise à l’échelle de vos serveurs proxy KDC, découvrez comment configurer la haute disponibilité pour le proxy KDC dans [Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).

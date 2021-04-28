@@ -10,25 +10,25 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 243618192593d93bba9d5229e7becfb2af62ce32
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d32d822d0ca85c25401f17411a8d34b4fb2e1eaf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107727"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125395"
 ---
 # <a name="tutorial-use-azure-log-analytics-to-collect-and-visualize-metrics-and-logs-preview"></a>Tutoriel : Utiliser Azure Log Analytics pour collecter et visualiser les métriques et les journaux (préversion)
 
-Dans ce tutoriel, vous allez découvrir comment activer le connecteur Azure Log Analytics intégré avec Synapse pour collecter et envoyer les métriques et les journaux de l’application Apache Spark à votre [espace de travail Azure Log Analytics](/azure/azure-monitor/logs/quick-create-workspace). Vous pouvez ensuite tirer profit d’un classeur Azure Monitor pour visualiser les métriques et les journaux.
+Dans ce tutoriel, vous allez découvrir comment activer le connecteur Azure Log Analytics intégré avec Synapse pour collecter et envoyer les métriques et les journaux de l’application Apache Spark à votre [espace de travail Azure Log Analytics](../../azure-monitor/logs/quick-create-workspace.md). Vous pouvez ensuite tirer profit d’un classeur Azure Monitor pour visualiser les métriques et les journaux.
 
 ## <a name="configure-azure-log-analytics-workspace-information-in-synapse-studio"></a>Configurer les informations de l’espace de travail Azure Log Analytics dans Synapse Studio
 
 ### <a name="step-1-create-an-azure-log-analytics-workspace"></a>Étape 1 : Créer un espace de travail Azure Log Analytics
 
 Vous pouvez suivre les documents ci-dessous pour créer un espace de travail Log Analytics :
-- [Créer un espace de travail Log Analytics dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)
-- [Créer un espace de travail Log Analytics avec Azure CLI](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace-cli)
-- [Créer et configurer un espace de travail Log Analytics dans Azure Monitor à l’aide de PowerShell](https://docs.microsoft.com/azure/azure-monitor/logs/powershell-workspace-configuration)
+- [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/logs/quick-create-workspace.md)
+- [Créer un espace de travail Log Analytics avec Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md)
+- [Créer et configurer un espace de travail Log Analytics dans Azure Monitor à l’aide de PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
 ### <a name="step-2-prepare-a-spark-configuration-file"></a>Étape 2 : Préparer un fichier config Spark
 
@@ -49,7 +49,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 
 > [!NOTE]
 >
-> Vous devez octroyer une autorisation de lecture des secrets aux utilisateurs qui soumettent des applications Spark. Consultez [Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)
+> Vous devez octroyer une autorisation de lecture des secrets aux utilisateurs qui soumettent des applications Spark. Consultez [Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure](../../key-vault/general/rbac-guide.md)
 
 Pour configurer un coffre Azure Key Vault afin de stocker la clé d’espace de travail, effectuez les étapes suivantes :
 
@@ -81,7 +81,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 
 > [!NOTE]
 >
-> Vous devez octroyer une autorisation de lecture des secrets pour l’espace de travail Synapse. Consultez [Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)
+> Vous devez octroyer une autorisation de lecture des secrets pour l’espace de travail Synapse. Consultez [Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure](../../key-vault/general/rbac-guide.md)
 
 Pour configurer un service lié à Azure Key Vault dans Synapse Studio afin de stocker la clé d’espace de travail, effectuez les étapes suivantes :
 
@@ -123,7 +123,7 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 > - Pour les clouds Azure Chine, le paramètre « spark.synapse.logAnalytics.keyVault.uriSuffix » doit être « ods.opinsights.azure.cn ». 
 > - Pour les clouds Azure Government, le paramètre « spark.synapse.logAnalytics.keyVault.uriSuffix » doit être « ods.opinsights.azure.us ». 
 
-[uri_suffix]: https://docs.microsoft.com/azure/azure-monitor/logs/data-collector-api#request-uri
+[uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
 
 ### <a name="step-3-upload-your-spark-configuration-to-a-spark-pool"></a>Étape 3 : Charger votre configuration Spark dans un pool Spark
@@ -210,18 +210,14 @@ Vous pouvez personnaliser le classeur à l’aide d’une requête Kusto et conf
 
 Les alertes Azure Monitor permettent aux utilisateurs d’exécuter une requête Log Analytics pour évaluer les métriques et les journaux à une fréquence définie, et de déclencher une alerte en fonction des résultats.
 
-Pour plus d’informations, consultez [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+Pour plus d’informations, consultez [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="limitation"></a>Limitation
 
- - L’espace de travail Azure Synapse Analytics avec activation d’un [réseau virtuel managé](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-vnet) n’est pas pris en charge.
- - Les régions suivantes ne sont pas prises en charge :
-   - USA Est 2
-   - Norvège Est
-   - Émirats arabes unis Nord
+L’espace de travail Azure Synapse Analytics avec activation d’un [réseau virtuel managé](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) n’est pas pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- - Découvrez comment [utiliser le pool Apache Spark serverless dans Synapse Studio](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio).
- - Découvrez comment [exécuter une application Spark dans un notebook](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks).
- - Découvrez comment [créer une définition de tâche Apache Spark dans Synapse Studio](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-job-definitions).
+ - Découvrez comment [utiliser le pool Apache Spark serverless dans Synapse Studio](../quickstart-create-apache-spark-pool-studio.md).
+ - Découvrez comment [exécuter une application Spark dans un notebook](./apache-spark-development-using-notebooks.md).
+ - Découvrez comment [créer une définition de tâche Apache Spark dans Synapse Studio](./apache-spark-job-definitions.md).
