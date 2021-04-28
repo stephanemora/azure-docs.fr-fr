@@ -9,22 +9,23 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 60c5ddcc67db6e4a0649458cfbd5c2949aa9a32a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ce46b7afe7344fabde03805dc2a0977411be5811
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202040"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107716076"
 ---
 # <a name="delete-resources-from-azure"></a>Supprimer des ressources d’Azure
 
-> [!NOTE]
->  Les options permettant de supprimer des ressources décrites dans cet article sont irréversibles.
+Cet article décrit comment supprimer des ressources d’Azure.
 
-> [!NOTE]
->  Étant donné que le seul mode de connexion proposé pour les services de données activés par Azure Arc est actuellement le mode de connexion indirecte, la suppression d’une instance de Kubernetes n’a pas pour effet de supprimer celle-ci d’Azure, et la suppression d’une instance d’Azure a pour effet de supprimer celle-ci de Kubernetes.  Actuellement, la suppression d’une ressource est un processus en deux étapes qui sera amélioré dans le futur.  À l’avenir, Kubernetes sera la source fidèle et Azure sera mis à jour pour la refléter.
+> [!WARNING]
+> Lorsque vous supprimez des ressources comme décrit dans cet article, ces actions sont irréversibles.
 
-Dans certains cas, il se peut que vous deviez supprimer manuellement les ressources des services de données activés par Azure Arc dans Azure Resource Manager (ARM).  Vous pouvez supprimer ces ressources à l’aide de l’une des options suivantes.
+En mode de connexion indirecte, la suppression d’une instance de Kubernetes ne la supprime pas d’Azure, et la suppression d’une instance d’Azure ne la supprime pas de Kubernetes. En mode de connexion indirecte, la suppression d’une ressource est un processus en deux étapes qui sera amélioré dans le futur. Kubernetes sera la source fidèle et le portail sera mis à jour pour la refléter.
+
+Dans certains cas, il se peut que vous deviez supprimer manuellement les ressources des services de données avec Azure Arc dans Azure.  Vous pouvez supprimer ces ressources à l’aide de l’une des options suivantes.
 
 - [Supprimer des ressources d’Azure](#delete-resources-from-azure)
   - [Supprimer un groupe de ressources entier](#delete-an-entire-resource-group)
@@ -38,11 +39,12 @@ Dans certains cas, il se peut que vous deviez supprimer manuellement les ressour
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="delete-an-entire-resource-group"></a>Supprimer un groupe de ressources entier
+
 Si vous avez utilisé un groupe de ressources spécifique et dédié pour les services de données activés par Azure Arc et souhaitez supprimer *tout* le contenu du groupe de ressources, vous pouvez supprimer le groupe de ressources, ce qui a pour effet de supprimer tout son contenu.  
 
 Vous pouvez supprimer un groupe de ressources dans le portail Azure en procédant comme suit :
 
-- Accédez au groupe de ressources dans le portail Azure où les ressources de services de données activées par Azure Arc ont été créées.
+- Accédez au groupe de ressources dans le portail Azure où les ressources des services de données avec Azure Arc ont été créées.
 - Cliquez sur le bouton **Supprimer le groupe de ressources**.
 - Validez la suppression en entrant le nom du groupe de ressources, puis cliquez sur **Supprimer**.
 
@@ -50,7 +52,7 @@ Vous pouvez supprimer un groupe de ressources dans le portail Azure en procédan
 
 Vous pouvez supprimer des ressources de services de données activées par Azure Arc dans un groupe de ressources sur le portail Azure en procédant comme suit :
 
-- Accédez au groupe de ressources dans le portail Azure où les ressources de services de données activées par Azure Arc ont été créées.
+- Accédez au groupe de ressources dans le portail Azure où les ressources des services de données avec Azure Arc ont été créées.
 - Sélectionnez toutes les ressources à supprimer.
 - Cliquez sur le bouton Supprimer.
 - Pour confirmer la suppression, tapez Oui, puis cliquez sur **Supprimer**.
