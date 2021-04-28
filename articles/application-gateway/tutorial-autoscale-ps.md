@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2a756313a4659dfc531289c2c86890371f700367
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8196267ff7a71fb3910848fd0fef11a40a3c1c32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452286"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869938"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutoriel : Créer une passerelle applicative qui améliore l’accès aux applications web
 
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
-Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé à l’aide de [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Vous pouvez utiliser [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat.
+Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé à l’aide de [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate). Vous pouvez utiliser [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat.
 
 ```powershell
 New-SelfSignedCertificate `

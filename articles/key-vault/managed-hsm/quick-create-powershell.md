@@ -12,12 +12,12 @@ tags:
 - azure-resource-manager
 ms.custom:
 - mode-api
-ms.openlocfilehash: ba1cd8d6b1410be30eefe9dca9675daaf6c16256
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: aa984a8f3899db72ead878e2c4381ea6a080e32d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534659"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815429"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>Démarrage rapide : Définir et récupérer une clé managée dans Azure Key Vault à l’aide de PowerShell
 
@@ -115,4 +115,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et vous 
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - Consulter la référence des [applets de commande Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-features.md)

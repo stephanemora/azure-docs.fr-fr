@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f9a6afe3202df40e26332c3a8c91b8c3eca8a32
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 39db32a7ee7eb8fed1da9ac8c9eb609efcf57c74
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012266"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070818"
 ---
 # <a name="call-the-image-analysis-api"></a>Appeler l’API Analyse d’image
 
 Cet article explique comment appeler l’API Analyse d’image pour retourner des informations sur les caractéristiques visuelles d’une image.
 
-Ce guide part du principe que vous avez déjà <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créé une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur</a>, et obtenu une clé d’abonnement et une URL de point de terminaison. Si vous ne l’avez pas encore fait, suivez un guide de [démarrage rapide](../quickstarts-sdk/image-analysis-client-library.md) pour commencer.
+Ce guide part du principe que vous avez déjà <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créé une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur</a>, et obtenu une clé d’abonnement et une URL de point de terminaison. Si vous ne l'avez pas encore fait, suivez un guide de [démarrage rapide](../quickstarts-sdk/image-analysis-client-library.md) pour commencer.
   
 ## <a name="submit-data-to-the-service"></a>Envoyer des données au service
 
@@ -32,7 +32,7 @@ Vous soumettez une image locale ou une image distante à l’API Analyser. Pour 
 
 ###  <a name="select-visual-features"></a>Sélectionner des caractéristiques visuelles
 
-L’[API Analyser](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b) vous permet d’accéder à toutes les fonctionnalités d’analyse d’image du service. Vous devez spécifier les fonctionnalités que vous voulez utiliser en définissant les paramètres de requête d’URL. Un paramètre peut avoir plusieurs valeurs, séparées par des virgules. Chaque fonctionnalité que vous spécifiez nécessitera un temps de calcul supplémentaire. Par conséquent, spécifiez uniquement ce dont vous avez besoin.
+L’[API Analyser](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) vous permet d’accéder à toutes les fonctionnalités d’analyse d’image du service. Vous devez spécifier les fonctionnalités que vous voulez utiliser en définissant les paramètres de requête d’URL. Un paramètre peut avoir plusieurs valeurs, séparées par des virgules. Chaque fonctionnalité que vous spécifiez nécessitera un temps de calcul supplémentaire. Par conséquent, spécifiez uniquement ce dont vous avez besoin.
 
 |Paramètre d’URL | Valeur | Description|
 |---|---|--|
@@ -71,7 +71,7 @@ Une URL remplie peut se présenter comme suit :
 > [!NOTE]
 > **Appels d’API étendues**
 >
-> Certaines des fonctionnalités de l’Analyse d’image peuvent être appelées directement, ainsi que par le biais d’un appel de l’API Analyser. Par exemple, vous pouvez effectuer une analyse étendue des étiquettes d’image uniquement en effectuant une requête à `https://{endpoint}/vision/v3.2-preview.3/tag`. Consultez la [documentation de référence](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b) pour découvrir d’autres fonctionnalités qui peuvent être appelées séparément.
+> Certaines des fonctionnalités de l’Analyse d’image peuvent être appelées directement, ainsi que par le biais d’un appel de l’API Analyser. Par exemple, vous pouvez effectuer une analyse étendue des étiquettes d’image uniquement en effectuant une requête à `https://{endpoint}/vision/v3.2-preview.3/tag`. Consultez la [documentation de référence](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) pour découvrir d’autres fonctionnalités qui peuvent être appelées séparément.
 
 ## <a name="get-results-from-the-service"></a>Obtenir les résultats du service
 
@@ -139,4 +139,4 @@ Consultez la liste suivante des erreurs possibles et leurs causes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour essayer l’API REST, consultez les [Informations de référence sur l’API Analyse d’images](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).
+Pour essayer l’API REST, consultez les [Informations de référence sur l’API Analyse d’images](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).

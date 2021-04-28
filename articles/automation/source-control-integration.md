@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 281da27ce95649e85dae5d0795bb743f21fdb578
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d94da9792d40a389e3981163e565d85d82a9cdc9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631742"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831237"
 ---
 # <a name="use-source-control-integration"></a>Utiliser l’intégration du contrôle de code source
 

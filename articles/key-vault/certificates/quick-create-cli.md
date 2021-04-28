@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 56e51d74358bcda96a6859a481e53710a6f78ec3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc3abe43c2cdf4d0ee58ac9aed570a2c507b0d7f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99072419"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815267"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault à l’aide d’Azure CLI
 
@@ -66,4 +66,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et vous 
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - Consulter la référence des [commandes az keyvault Azure CLI](/cli/azure/keyvault)
-- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-features.md)

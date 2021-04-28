@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a82c2cdf7084b31eb6ba861e48ecffb81e6d1363
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6338b76e2f14e9f842b3395113badadcd37c8d32
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453697"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814169"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Démarrage rapide : Bibliothèque de client de secrets Azure Key Vault pour .NET (SDK v4)
 
@@ -252,4 +252,4 @@ Pour plus d’informations sur Key Vault et comment l’intégrer à vos applica
 - Consultez un [Tutoriel sur l’accès à Key Vault depuis une application App Service](../general/tutorial-net-create-vault-azure-web-app.md)
 - Consultez un [Tutoriel sur l’accès à Key Vault depuis une machine virtuelle](../general/tutorial-net-virtual-machine.md)
 - Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
-- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-features.md)

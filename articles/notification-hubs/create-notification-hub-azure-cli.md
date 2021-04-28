@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d8400eb051c09fac4cb88863ad2fac12d2ca0a1b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d9754bb1390e242b12944b0b59595d4a4d46af33
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789858"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873574"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Créer un hub de notification Azure avec Azure CLI
 
@@ -48,7 +48,7 @@ az group create --name spnhubrg --location eastus
 
 1. Créez un espace de noms pour vos hubs de notification.
 
-   Un espace de noms contient un ou plusieurs hubs. Le nom doit être unique dans tous les abonnements Azure et doit comporter au moins six caractères. Pour vérifier la disponibilité d’un nom, utilisez la commande [az notification-hub namespace check-availability](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-check-availability).
+   Un espace de noms contient un ou plusieurs hubs. Le nom doit être unique dans tous les abonnements Azure et doit comporter au moins six caractères. Pour vérifier la disponibilité d’un nom, utilisez la commande [az notification-hub namespace check-availability](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_check-availability).
 
    ```azurecli
    az notification-hub namespace check-availability --name spnhubns
@@ -69,7 +69,7 @@ az group create --name spnhubrg --location eastus
    }
    ```
 
-   Observez la deuxième ligne de la réponse d’Azure CLI `"isAvailable": true`. Cette ligne indique `false` si le nom que vous avez spécifié pour l’espace de noms n’est pas disponible. Après avoir vérifié la disponibilité du nom, exécutez la commande [az notification-hub namespace create](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-create) pour créer l’espace de noms.  
+   Observez la deuxième ligne de la réponse d’Azure CLI `"isAvailable": true`. Cette ligne indique `false` si le nom que vous avez spécifié pour l’espace de noms n’est pas disponible. Après avoir vérifié la disponibilité du nom, exécutez la commande [az notification-hub namespace create](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_create) pour créer l’espace de noms.  
 
    ```azurecli
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
@@ -92,7 +92,7 @@ az group create --name spnhubrg --location eastus
 
 2. Récupérez la liste des espaces de noms.
 
-   Pour voir les informations relatives à votre nouvel espace de noms, utilisez la commande [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-list). Le paramètre facultatif `--resource-group` vous permet de voir tous les espaces de noms d’un abonnement.
+   Pour voir les informations relatives à votre nouvel espace de noms, utilisez la commande [az notification-hub namespace list](/cli/azure/notification-hub/namespace#az_notification_hub_namespace_list). Le paramètre facultatif `--resource-group` vous permet de voir tous les espaces de noms d’un abonnement.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -102,7 +102,7 @@ az group create --name spnhubrg --location eastus
 
 1. Créez votre premier hub de notification.
 
-   Vous pouvez désormais créer un ou plusieurs hubs de notification dans le nouvel espace de noms. Exécutez la commande [az notification-hub create](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-create) pour créer un hub de notification.
+   Vous pouvez désormais créer un ou plusieurs hubs de notification dans le nouvel espace de noms. Exécutez la commande [az notification-hub create](/cli/azure/notification-hub#az_notification_hub_create) pour créer un hub de notification.
 
    ```azurecli
    az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name spfcmtutorial1nhub --location eastus --sku Free
@@ -118,7 +118,7 @@ az group create --name spnhubrg --location eastus
 
 3. Récupérez la liste des hubs de notification.
 
-   Azure CLI retourne un message de réussite ou d’erreur avec chaque commande exécutée. La possibilité de demander une liste des hubs de notification est cependant rassurante. La commande [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub#ext-notification-hub-az-notification-hub-list) a été conçue à cet effet.
+   Azure CLI retourne un message de réussite ou d’erreur avec chaque commande exécutée. La possibilité de demander une liste des hubs de notification est cependant rassurante. La commande [az notification-hub list](/cli/azure/notification-hub#az_notification_hub_list) a été conçue à cet effet.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table
@@ -126,7 +126,7 @@ az group create --name spnhubrg --location eastus
 
 ## <a name="work-with-access-policies"></a>Utiliser des stratégies d’accès
 
-1. Azure Notification Hubs utilise la [sécurité de signature d’accès partagé](./notification-hubs-push-notification-security.md) par le biais de stratégies d’accès. Deux stratégies sont créées automatiquement quand vous créez un hub de notification. Les chaînes de connexion de ces stratégies sont nécessaires pour configurer les notifications Push. La commande [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fournit une liste de noms de stratégie avec les groupes de ressources correspondants.
+1. Azure Notification Hubs utilise la [sécurité de signature d’accès partagé](./notification-hubs-push-notification-security.md) par le biais de stratégies d’accès. Deux stratégies sont créées automatiquement quand vous créez un hub de notification. Les chaînes de connexion de ces stratégies sont nécessaires pour configurer les notifications Push. La commande [az notification-hub authorization-rule list](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization-rule-list) fournit une liste de noms de stratégie avec les groupes de ressources correspondants.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -135,13 +135,13 @@ az group create --name spnhubrg --location eastus
    > [!IMPORTANT]
    > N’utilisez pas la stratégie _DefaultFullSharedAccessSignature_ dans votre application. Elle est destinée à être utilisée seulement dans votre back-end. Utilisez uniquement les stratégies d’accès `Listen` dans votre application cliente.
 
-2. Si vous voulez créer des règles d’autorisation supplémentaires avec des noms explicites, vous pouvez créer et personnaliser votre propre stratégie d’accès en utilisant la commande [az notification-hub authorization-rule create](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-create). Le paramètre `--rights` est une liste des autorisations à attribuer délimitées par des espaces.
+2. Si vous voulez créer des règles d’autorisation supplémentaires avec des noms explicites, vous pouvez créer et personnaliser votre propre stratégie d’accès en utilisant la commande [az notification-hub authorization-rule create](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_create). Le paramètre `--rights` est une liste des autorisations à attribuer délimitées par des espaces.
 
    ```azurecli
    az notification-hub authorization-rule create --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name spnhub1key --rights Listen Manage Send
    ```
 
-3. Il existe deux jeux de clés et de chaînes de connexion pour chaque stratégie d’accès. Vous en aurez besoin pour [configurer un hub de notification](./configure-notification-hub-portal-pns-settings.md). Pour lister les clés et les chaînes de connexion d’une stratégie d’accès Notification Hubs, utilisez la commande [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
+3. Il existe deux jeux de clés et de chaînes de connexion pour chaque stratégie d’accès. Vous en aurez besoin pour [configurer un hub de notification](./configure-notification-hub-portal-pns-settings.md). Pour lister les clés et les chaînes de connexion d’une stratégie d’accès Notification Hubs, utilisez la commande [az notification-hub authorization-rule list-keys](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys).
 
    ```azurecli
    # query the keys and connection strings for DefaultListenSharedAccessSignature
@@ -154,7 +154,7 @@ az group create --name spnhubrg --location eastus
    ```
 
    > [!NOTE]
-   > Un [espace de noms Notification Hubs](/cli/azure/ext/notification-hub/notification-hub/namespace/authorization-rule#ext-notification-hub-az-notification-hub-namespace-authorization-rule-list-keys) et un [hub de notification](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) ont des stratégies d’accès distinctes. Vérifiez que vous utilisez la commande de référence Azure CLI appropriée quand vous recherchez des clés et des chaînes de connexion.
+   > Un [espace de noms Notification Hubs](/cli/azure/notification-hub/namespace/authorization-rule#az_notification_hub_namespace_authorization_rule_list_keys) et un [hub de notification](/cli/azure/notification-hub/authorization-rule#az_notification_hub_authorization_rule_list_keys) ont des stratégies d’accès distinctes. Vérifiez que vous utilisez la commande de référence Azure CLI appropriée quand vous recherchez des clés et des chaînes de connexion.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -170,10 +170,10 @@ az group delete --name spnhubrg
 
 * Découvrez les fonctionnalités étendues de gestion des hubs de notification avec Azure CLI :
 
-  [Liste de référence complète des commandes relatives à Notification Hubs](/cli/azure/ext/notification-hub/notification-hub)
+  [Liste de référence complète des commandes relatives à Notification Hubs](/cli/azure/notification-hub)
 
-  [Liste de référence des commandes relatives aux espaces des noms Notification Hubs](/cli/azure/ext/notification-hub/notification-hub/namespace)
+  [Liste de référence des commandes relatives aux espaces des noms Notification Hubs](/cli/azure/notification-hub/namespace)
 
-  [Liste de référence des commandes relatives aux règles d’autorisation Notification Hubs](/cli/azure/ext/notification-hub/notification-hub/authorization-rule)
+  [Liste de référence des commandes relatives aux règles d’autorisation Notification Hubs](/cli/azure/notification-hub/authorization-rule)
 
-  [Liste de référence des commandes relatives aux informations d’identification Notification Hubs](/cli/azure/ext/notification-hub/notification-hub/credential)
+  [Liste de référence des commandes relatives aux informations d’identification Notification Hubs](/cli/azure/notification-hub/credential)
