@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 774344c4215088482b110de91f8951bae4a41d25
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 5abbd1ed5c33d0ec0957d34dd8d78a958208e8f6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365822"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142870"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Haute disponibilité du scale-up SAP HANA avec Azure NetApp Files sur Red Hat Enterprise Linux
 
@@ -476,12 +476,12 @@ Suivez les étapes décrites sur la page [Configurer Pacemaker sur Red Hat Enter
 
 Il s’agit d’une étape importante pour optimiser l’intégration au cluster et améliorer la détection lorsqu’un basculement de cluster est nécessaire. Il est vivement recommandé de configurer le hook Python SAPHanaSR.    
 
-1. **[A]** Installez le « hook de réplication de système » HANA. Le hook doit être installé sur les deux nœuds de base de données HANA.           
+1. **[A]** Installez le « hook de réplication de système » HANA. Le hook doit être installé sur les deux nœuds HANA DB.           
 
    > [!TIP]
-   > Le hook Python peut être implémenté uniquement pour HANA 2.0.        
+   > Le hook Python ne peut être implémenté que pour HANA 2.0.        
 
-   1. Préparez le hook en tant que `root`.  
+   1. Préparer le hook en tant que `root`.  
 
     ```bash
      mkdir -p /hana/shared/myHooks
@@ -489,7 +489,7 @@ Il s’agit d’une étape importante pour optimiser l’intégration au cluster
      chown -R hn1adm:sapsys /hana/shared/myHooks
     ```
 
-   2. Arrêtez HANA sur les deux nœuds. Exécutez en tant que <sid\>adm :  
+   2. Arrêter HANA sur les deux nœuds. Exécutez en tant que <sid\>adm :  
    
     ```bash
     sapcontrol -nr 03 -function StopSystem
@@ -668,7 +668,7 @@ Dans cet exemple, chaque nœud de cluster possède ses propres systèmes de fich
 
 À compter de SAP HANA 2.0 SPS 01, SAP autorise des configurations activées par la lecture/actives pour la réplication système SAP HANA, où les systèmes secondaires de réplication système SAP HANA peuvent être utilisés activement pour les charges de travail à forte intensité de lecture. Pour prendre en charge une telle configuration dans un cluster, une deuxième adresse IP virtuelle est requise, ce qui permet aux clients d’accéder à la base de données SAP HANA activée par la lecture. Pour vous assurer que le site de réplication secondaire est toujours accessible après une prise en charge, le cluster doit déplacer l’adresse IP virtuelle avec le secondaire de la ressource SAPHana.
 
-La configuration supplémentaire, nécessaire pour gérer la réplication système activée par la lecture/active dans un cluster haute disponibilité avec une seconde adresse IP virtuelle est décrite dans [Configurer la réplication système activée par la lecteure/active dans le cluster Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+La configuration supplémentaire, nécessaire pour gérer la réplication système activée par la lecture/active dans un cluster haute disponibilité avec une seconde adresse IP virtuelle est décrite dans [Configurer la réplication système activée par la lecteure/active dans le cluster Pacemaker](./sap-hana-high-availability-rhel.md#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
 
 Avant de poursuivre, assurez-vous que le cluster haute disponibilité Red Hat est entièrement configuré en gérant la base de données SAP HANA tel que décrit dans les segments ci-dessus dans la documentation.    
 

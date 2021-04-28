@@ -1,26 +1,28 @@
 ---
 title: Versions de Azure Service Fabric
 description: Notes de publication pour Azure Service Fabric. Inclut des informations sur les dernières fonctionnalités et améliorations incluses dans Service Fabric.
-ms.date: 06/10/2019
+ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: f7e929000b85462e7fabf6d717c52abc454b47ad
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e06bb472a87f05eb8830468512c27e3abaeafbe1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107313332"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138604"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
+Cet article fournit des informations sur les version et mises à jour les plus récentes du runtime Service Fabric et des Kits de développement logiciel (SDK).
+
+Les ressources suivantes sont également disponibles :
 - <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Guides de résolution des problèmes</a> 
 - <a href="https://github.com/Azure/service-fabric-issues" target="blank">Suivi des problèmes</a> 
 - <a href="/azure/service-fabric/service-fabric-support" target="blank">Options de support</a> 
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Versions prises en charge</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Exemples de code</a>
 
-Cet article fournit des informations sur les version et mises à jour les plus récentes du runtime Service Fabric et des Kits de développement logiciel (SDK).
 
 ## <a name="service-fabric-80"></a>Service Fabric 8.0
 
@@ -29,7 +31,7 @@ Nous avons le plaisir d’annoncer que la version 8.0 du runtime Service Fabri
 ### <a name="key-announcements"></a>Principales annonces
 
 - **Disponibilité générale** de la prise en charge de .NET 5 pour Windows
-- **Disponibilité générale** des [NodeTypes sans état](https://docs.microsoft.com/azure/service-fabric/service-fabric-stateless-node-types)
+- **Disponibilité générale** des [NodeTypes sans état](./service-fabric-stateless-node-types.md)
 - Possibilité de déplacer des instances de service sans état
 - Possibilité d’ajouter des DefaultLoad paramétrisés dans le manifeste de l’application
 - Pour les mises à niveau des réplicas singleton : possibilité de définir certains paramètres de niveau cluster au niveau de l’application
@@ -46,7 +48,7 @@ Nous avons le plaisir d’annoncer que la version 8.0 du runtime Service Fabri
 
 
 ### <a name="service-fabric-80-releases"></a>Mises en production de Service Fabric 8.0
-| Date de publication | Mise en production | En savoir plus |
+| Date de publication | Libérer | En savoir plus |
 |---|---|---|
 | 08 avril 2021 | [Azure Service Fabric 8.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-release/ba-p/2260016)  | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80.md)|
 
@@ -88,7 +90,7 @@ En raison de la crise actuelle liée au COVID-19, et en prenant en compte les d�
 Vous pouvez effectuer la mise à jour vers la version 7.1 via le [Portail Azure](./service-fabric-cluster-upgrade-version-azure.md#manual-upgrades-with-azure-portal) ou via un [déploiement Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Les clusters Service Fabric avec des mises à niveau automatiques activées commenceront à recevoir automatiquement la mise à jour 7.1 une fois la procédure de déploiement standard relancée. Nous ferons une autre annonce avant le lancement du déploiement standard sur le [site Service Fabric Tech Community](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
-Nous avons également publié des mises à jour jusqu’à la date de fin de support des versions principales allant de la version 6.5 à la version 7.1, [ici](./service-fabric-versions.md#supported-versions). 
+Nous avons également publié des mises à jour jusqu’à la date de fin de support des versions principales allant de la version 6.5 à la version 7.1, [ici](./service-fabric-versions.md). 
 
 #### <a name="key-announcements"></a>Principales annonces
 
@@ -116,7 +118,7 @@ Nous avons également publié des mises à jour jusqu’à la date de fin de sup
 #### <a name="image-store-improvements"></a>Améliorations du Magasin d’images
  - Service Fabric 7.1 utilise **un transport personnalisé pour sécuriser le transfert de fichiers entre les nœuds par défaut**. La dépendance sur le partage de fichiers SMB est supprimée de la version 7.1. Les partages de fichiers SMB sécurisés existent toujours sur les nœuds qui contiennent un réplica du service de magasin d’images pour donner le choix au client de refuser la configuration par défaut et pour la mise à niveau et le passage à une version antérieure.
        
- #### <a name="reliable-collections-improvements"></a>Améliorations des collections fiables
+ #### <a name="reliable-collections-improvements"></a>Améliorations de collections fiables
 
 - [**Prise en charge du stockage en mémoire uniquement pour les services avec état utilisant des collections fiables**](./service-fabric-work-with-reliable-collections.md#volatile-reliable-collections) : La fonctionnalité de collections fiables volatiles permet de stocker les données de façon persistante sur disque pour les protéger contre les pannes à grande échelle, peut être utilisé pour les charges de travail comme le cache répliqué, par exemple, où une perte occasionnelle de données peut être tolérée. Sur la base des [limites et restrictions de Volatile Reliable Collections](./service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections), nous le recommandons pour les charges de travail qui n’ont pas besoin de persistance, pour les services qui traitent les rares cas de perte de quorum.
 - [**Préversion : Explorateur de sauvegarde Service Fabric**](https://github.com/microsoft/service-fabric-backup-explorer) : Pour faciliter la gestion des sauvegardes de collections fiables pour les applications avec état Service Fabric, l’Explorateur de sauvegarde Service Fabric permet aux utilisateurs de faire ce qui suit :

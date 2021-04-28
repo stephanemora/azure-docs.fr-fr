@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 62981686c7aadc713c4abc78075be8613fe0af45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 30a823b7e78145224929b427e9e37522a7e29f09
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199304"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871288"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Superviser la connectivité des appareils à l’aide d’Azure CLI
 
@@ -22,7 +22,7 @@ ms.locfileid: "102199304"
 
 Utilisez l’extension IoT d’Azure CLI pour consulter les messages que vos appareils envoient à IoT Central et observez les modifications apportées au jumeau d’appareil. Vous pouvez utiliser cet outil pour déboguer et observer la connectivité des appareils. Vous pouvez aussi diagnostiquer les problèmes des messages d’appareil n’atteignant pas le cloud ou les appareils qui ne répondent pas aux modifications du jumeau.
 
-[Pour plus d’informations, consultez la référence sur les extensions d’Azure CLI](/cli/azure/ext/azure-iot/iot/central)
+[Pour plus d’informations, consultez la référence sur les extensions d’Azure CLI](/cli/azure/iot/central)
 
 ## <a name="prerequisites"></a>Prérequis
 

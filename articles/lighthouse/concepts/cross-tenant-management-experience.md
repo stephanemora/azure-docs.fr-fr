@@ -3,12 +3,12 @@ title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
 ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 027d1d5e81d5a652a7e2d5441c40440c661f730f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 005d8f15c20749dff7d45385124a08a64b213afb
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778622"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139036"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -104,7 +104,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 - Créer des [paramètres de diagnostic](../..//azure-monitor/essentials/diagnostic-settings.md) dans les locataires clients pour envoyer les journaux de ressources à des espaces de travail dans le locataire responsable
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
-[Azure Networking](../../networking/networking-overview.md) :
+[Azure Networking](../../networking/fundamentals/networking-overview.md) :
 
 - Déployer et gérer des [Réseaux virtuels Azure](../../virtual-network/index.yml) et des cartes virtuelles d’interface réseau (cartes réseau virtuelles) au sein des locataires gérés
 - Déployer et configurer [Pare-feu Azure](../../firewall/overview.md) pour protéger les ressources Réseau virtuel des clients

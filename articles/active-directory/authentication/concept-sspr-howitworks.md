@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c2d4181a80f48f5f6dd5775e6eb3bd172a65df8
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 94077a1c6329aa1fecf9593f2df41fa77afc8a44
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209627"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765914"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -93,7 +93,7 @@ Quand vous ne rendez pas l’inscription obligatoire, les utilisateurs ne sont p
 
 Si vous souhaitez vérifier que les méthodes d’authentification sont correctes quand elles sont nécessaires pour réinitialiser ou changer un mot de passe, vous pouvez demander aux utilisateurs de confirmer leurs informations inscrites après un certain temps. Cette option est disponible uniquement si vous activez l’option **Obliger les utilisateurs à s’inscrire durant la connexion**.
 
-Les valeurs valides pour inviter un utilisateur à confirmer ses méthodes inscrites sont comprises entre *0* et *730* jours. L’affectation de la valeur *0* signifie que les utilisateurs ne sont jamais invités à confirmer leurs informations d’authentification.
+Les valeurs valides pour inviter un utilisateur à confirmer ses méthodes inscrites sont comprises entre *0* et *730* jours. L’affectation de la valeur *0* signifie que les utilisateurs ne sont jamais invités à confirmer leurs informations d’authentification. Lorsque vous utilisez l’expérience d’inscription combinée, les utilisateurs doivent confirmer leur identité avant de reconfirmer leurs informations.
 
 ## <a name="authentication-methods"></a>Méthodes d’authentification
 

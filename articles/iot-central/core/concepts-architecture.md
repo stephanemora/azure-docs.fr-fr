@@ -8,18 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcda4ca252101ed1505f71a1b5f9fe9a0d8d16b9
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796718"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728389"
 ---
 # <a name="azure-iot-central-architecture"></a>Architecture d’Azure IoT Central
 
-Cet article donne une vue d’ensemble de l’architecture d’Azure IoT Central.
-
-![Architecture globale](media/concepts-architecture/architecture.png)
+Cet article fournit une vue d’ensemble des concepts clés de l’architecture d’Azure IoT Central.
 
 ## <a name="devices"></a>Appareils
 
@@ -28,7 +26,7 @@ Les appareils échangent des données avec votre application Azure IoT Central. 
 - Envoyer des mesures, comme de la télémétrie.
 - Synchroniser des paramètres avec votre application.
 
-Dans Azure IoT Central, les données qu’un appareil peut échanger avec votre application sont spécifiées dans un modèle d’appareil. Pour plus d’informations sur les modèles d’appareil, consultez [Gestion des métadonnées](#metadata-management).
+Dans Azure IoT Central, les données qu’un appareil peut échanger avec votre application sont spécifiées dans un modèle d’appareil. Pour plus d’informations sur les modèles d’appareil, consultez [Modèles d’appareil](concepts-device-templates.md).
 
 Pour plus d’informations sur la façon dont les appareils se connectent à votre application Azure IoT Central, consultez [Connectivité des appareils](concepts-get-connected.md).
 
@@ -117,29 +115,6 @@ Azure IoT Central stocke les données d’application dans le cloud. Les donnée
 
 Azure IoT Central utilise un magasin de séries chronologiques pour les données de mesure envoyées depuis vos appareils. Données de séries chronologiques provenant d’appareils utilisés par le service d’analytique.
 
-## <a name="analytics"></a>Analytics
-
-Le service d’analytique est chargé de générer les données des rapports personnalisés montrés par l’application. Un opérateur peut [personnaliser l’analytique](howto-create-analytics.md) affichée dans l’application. Le service d’analytique utilise la technologie [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) et traite les données de mesure envoyées depuis vos appareils.
-
-## <a name="rules-and-actions"></a>Règles et actions
-
-[Les règles et les actions](tutorial-create-telemetry-rules.md) travaillent en étroite collaboration pour automatiser les tâches au sein de l’application. Un concepteur peut définir des règles en fonction de la télémétrie des appareils, par exemple une température dépassant un seuil défini. Azure IoT Central utilise un processeur de flux de données pour déterminer quand les conditions d’une règle sont remplies. Quand une condition de règle est remplie, il déclenche une action définie par le concepteur. Par exemple, une action peut envoyer un e-mail pour notifier à un ingénieur que la température d’un appareil est trop élevée.
-
-## <a name="metadata-management"></a>Gestion des métadonnées
-
-Dans une application Azure IoT Central, les modèles d’appareil définissent le comportement et les fonctionnalités des types d’appareils. Par exemple, un modèle de réfrigérateur spécifie la télémétrie qu’un réfrigérateur envoie à votre application.
-
-![Architecture des modèles](media/concepts-architecture/template-architecture.png)
-
-Un [modèle d’appareil](concepts-device-templates.md) IoT Central contient :
-
-- Un **modèle d’appareil** pour spécifier les capacités d’un appareil, notamment les données de télémétrie qu’il envoie, les propriétés qui définissent l’état de l’appareil et les commandes auxquelles l’appareil répond. Les capacités de l'appareil sont organisées en une ou plusieurs interfaces.
-- Les **propriétés du cloud** spécifient les propriétés que l'IoT Central stocke pour un appareil. Ces propriétés sont uniquement stockées dans IoT Central et ne sont jamais envoyées à un appareil.
-- Les **vues** spécifient les tableaux de bord et les formulaires créés par le concepteur pour permettre à l'opérateur de surveiller et de gérer les appareils.
-- Les **personnalisations** permettent au concepteur de remplacer certaines des définitions du modèle d’appareil afin de les rendre plus pertinentes pour l’application IoT Central.
-
-Une application peut avoir un ou plusieurs appareils simulés et réels basés sur chaque modèle d’appareil.
-
 ## <a name="data-export"></a>Exportation de données
 
 Dans une application Azure IoT Central, vous pouvez [exporter en continu vos données](howto-export-data.md) vers votre propre Azure Event Hubs et les instances Azure Service Bus. Vous pouvez également régulièrement exporter vos données vers votre compte de stockage d’objets blob Azure. IoT Central peut exporter des mesures, des appareils et des modèles d’appareil.
@@ -160,13 +135,6 @@ Les fonctionnalités de sécurité dans Azure IoT Central sont les suivantes :
 - L’authentification est fournie par Azure Active Directory ou via un compte Microsoft. L’authentification à deux facteurs est prise en charge.
 - L’isolation complète des locataires.
 - La sécurité au niveau des appareils.
-
-## <a name="ui-shell"></a>Le shell d’interface utilisateur
-
-Le shell d’interface utilisateur est une application moderne et réactive, basée sur un navigateur HTML 5.
-Un administrateur peut personnaliser l’interface utilisateur de l’application en appliquant des thèmes personnalisés et en modifiant les liens d’aide pour pointer vers vos propres ressources d’aide personnalisée. Pour en savoir plus sur la personnalisation de l’interface utilisateur, consultez l’article [Personnaliser l’interface utilisateur d’Azure IoT Central](howto-customize-ui.md).
-
-Un opérateur peut créer des tableaux de bord des applications personnalisées. Vous pouvez disposer de plusieurs tableaux de bord, qui affichent différentes informations, et basculer de l’un à l’autre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

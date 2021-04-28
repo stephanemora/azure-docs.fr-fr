@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c27895c5163d59ca785aa15fa3739359e5be457
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd70bccde30c2b844cfa6188a3fb06a075558a91
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666597"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142996"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -290,9 +290,9 @@ Les sections suivantes décrivent certaines des opérations liées au déploieme
 ### <a name="back-up-and-restore-operations-on-azure-vms"></a>Opérations de sauvegarde et restauration sur des machines virtuelles Azure
 Les documents suivants décrivent comment sauvegarder et restaurer votre déploiement de SAP HANA :
 
-- [Vue d’ensemble de la sauvegarde SAP HANA](./sap-hana-backup-guide.md)
-- [Sauvegarde SAP HANA au niveau des fichiers](./sap-hana-backup-file-level.md)
-- [Sauvegarde SAP HANA à partir de captures instantanées de stockage](./sap-hana-backup-guide.md)
+- [Vue d’ensemble de la sauvegarde SAP HANA](../../../backup/sap-hana-db-about.md)
+- [Sauvegarde SAP HANA au niveau des fichiers](../../../backup/sap-hana-db-about.md)
+- [Sauvegarde SAP HANA à partir de captures instantanées de stockage](../../../backup/sap-hana-db-about.md)
 
 
 ### <a name="start-and-restart-vms-that-contain-sap-hana"></a>Démarrer et redémarrer des machines virtuelles contenant SAP HANA

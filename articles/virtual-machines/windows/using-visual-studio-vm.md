@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: andster
 keywords: visualstudio
-ms.openlocfilehash: f26bec64012e0b0909b7df5422c57ff2cb1c347e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b37c8bde959822dfcb1b3db2ec96b377217d2bfc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478554"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138208"
 ---
 # <a name="visual-studio-images-on-azure"></a>Images de Visual Studio sur Azure
 L’exécution de Visual Studio sur une machine virtuelle Azure préconfigurée est un moyen simple et rapide de créer un environnement de développement opérationnel à partir de rien. Des images système avec différentes configurations de Visual Studio sont disponibles sur la [Place de Marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -44,7 +44,7 @@ Pour plus d’informations, consultez la [politique de maintenance de Visual Stu
 ## <a name="what-features-are-installed"></a>Quelles sont les fonctionnalités installées ?
 Chaque image contient le jeu de fonctionnalités recommandé pour cette édition de Visual Studio. En règle générale, l’installation comprend :
 
-* Toutes les charges de travail disponibles, y compris les composants facultatifs recommandés de chaque charge de travail. Pour plus d’informations sur les charges de travail, les composants et les SDK inclus dans Visual Studio, consultez la [documentation de Visual Studio](https://docs.microsoft.com/visualstudio/install/workload-and-component-ids).
+* Toutes les charges de travail disponibles, y compris les composants facultatifs recommandés de chaque charge de travail. Pour plus d’informations sur les charges de travail, les composants et les SDK inclus dans Visual Studio, consultez la [documentation de Visual Studio](/visualstudio/install/workload-and-component-ids).
 * SDK .NET 4.6.2 et .NET 4.7, packs de ciblage et outils de développement
 * Visual F#
 * Extension GitHub pour Visual Studio
