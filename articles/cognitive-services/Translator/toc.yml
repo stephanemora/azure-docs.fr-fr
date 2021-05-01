@@ -134,6 +134,8 @@
           href: custom-translator/training-and-model.md
         - name: Score BLEU
           href: custom-translator/what-is-bleu-score.md
+        - name: Clés gérées par le client
+          href: encrypt-data-at-rest.md
 - name: Traduction de documents
   items:
     - name: "Qu’est-ce que la traduction de documents\_?"
@@ -164,22 +166,12 @@
           href: document-translation/reference/get-translation-status.md
         - name: Annuler la traduction
           href: document-translation/reference/cancel-translation.md
-- name: Guides pratiques
-  items:
-    - name: Préparation pour l’entreprise
-      items:
-        - name: Configurer des réseaux virtuels
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
-        - name: Utiliser des clés gérées par le client
-          href: encrypt-data-at-rest.md
 - name: Ressources
   items:
-    - name: Préparation pour l’entreprise
-      items:
-        - name: Prise en charge de la région
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-        - name: Conformité et certification
-          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Prise en charge de la région
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformité et certification
+      href: 'https://www.microsoft.com/translator/business/notrace/'
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
     - name: Exemples de code sur GitHub

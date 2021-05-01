@@ -16,7 +16,7 @@
     - name: API REST et bibliothèques de client
       href: quickstarts/rest-api-and-client-library.md
 - name: Exemples
-  href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=metrics-advisor'
+  href: /samples/browse/?products=azure&terms=metrics-advisor
 - name: Guides pratiques
   items:
     - name: Intégrer vos données
