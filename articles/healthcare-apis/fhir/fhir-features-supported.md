@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: e012bc2bc3c9ec1ab9351ed937e2c5049eef20d5
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530637"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316008"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -40,7 +40,7 @@ Versions antérieures également prises en charge : `3.0.2`
 | history                        | Oui       | Oui       | Oui       |                                                     |
 | create                         | Oui       | Oui       | Oui       | Prend en charge POST et PUT                               |
 | create (conditional)           | Oui       | Oui       | Oui       | Problème [no 1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| recherche                         | Partiel   | Partiel   | Partiel   | Consultez la section Rechercher ci-dessous.                           |
+| recherche                         | Partiel   | Partiel   | Partiel   | Consultez [vue d’ensemble de la recherche de FHIR](overview-of-search.md).                           |
 | recherche chaînée                 | Partiel       | Oui       | Partiel   | Voir la remarque 2 ci-dessous.                                   |
 | recherche chaînée inversée         | Partiel       | Oui       | Partiel   | Voir la remarque 2 ci-dessous.                                   |
 | capabilities                   | Oui       | Oui       | Oui       |                                                     |
@@ -57,66 +57,6 @@ Versions antérieures également prises en charge : `3.0.2`
 * Ajoute la prise en charge MVP pour la recherche de FHIR chaînée et inversée dans CosmosDB. 
 
   Dans l’API Azure pour FHIR et le serveur FHIR Open source avec Cosmos, la recherche chaînée et la recherche chaînée par chaîne est une implémentation MVP. Pour effectuer une recherche chaînée sur Cosmos DB, l’implémentation parcourt l’expression de recherche et émet des sous-requêtes pour résoudre les ressources correspondantes. Cette opération est effectuée pour chaque niveau de l’expression. Si une requête retourne plus de 100 résultats, une erreur est générée. Par défaut, la recherche chaînée se trouve derrière un indicateur de fonctionnalité. Pour utiliser la recherche chaînée sur Cosmos DB, utilisez l’en-tête `x-ms-enable-chained-search: true` . Pour plus d’informations, consultez la page [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
-
-## <a name="search"></a>Recherche
-
-Tous les types de paramètre de recherche sont pris en charge. 
-
-| Type de paramètre de recherche | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
-|-----------------------|-----------|-----------|-----------|---------|
-| Number                | Oui       | Oui       | Oui       |         |
-| Date/DateHeure         | Oui       | Oui       | Oui       |         |
-| String                | Oui       | Oui       | Oui       |         |
-| par jeton                 | Oui       | Oui       | Oui       |         |
-| Informations de référence             | Oui       | Oui       | Oui       |         |
-| Composite             | Oui       | Oui       | Oui       |         |
-| Quantité              | Oui       | Oui       | Oui       |         |
-| URI                   | Oui       | Oui       | Oui       |         |
-| Spécial               | Non        | Non        | Non        |         |
-
-
-| Modificateurs             | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
-|-----------------------|-----------|-----------|-----------|---------|
-|`:missing`             | Oui       | Oui       | Oui       |         |
-|`:exact`               | Oui       | Oui       | Oui       |         |
-|`:contains`            | Oui       | Oui       | Oui       |         |
-|`:text`                | Oui       | Oui       | Oui       |         |
-|`:[type]` (référence)  | Oui       | Oui       | Oui       |         |
-|`:not`                 | Oui       | Oui       | Oui       |         |
-|`:below` (URI)         | Oui       | Oui       | Oui       |         |
-|`:above` (URI)         | Non        | Non        | Non        | Problème [n° 158](https://github.com/Microsoft/fhir-server/issues/158) |
-|`:in` (jeton)          | Non        | Non        | Non        |         |
-|`:below` (jeton)       | Non        | Non        | Non        |         |
-|`:above` (jeton)       | Non        | Non        | Non        |         |
-|`:not-in` (jeton)      | Non        | Non        | Non        |         |
-
-| Paramètre de recherche courant | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
-|-------------------------| ----------| ----------| ----------|---------|
-| `_id`                   | Oui       | Oui       | Oui       |         |
-| `_lastUpdated`          | Oui       | Oui       | Oui       |         |
-| `_tag`                  | Oui       | Oui       | Oui       |         |
-| `_list`                 | Oui       | Oui       | Oui       |         |
-| `_type`                 | Oui       | Oui       | Oui       | Problème [1562](https://github.com/microsoft/fhir-server/issues/1562)        |
-| `_security`             | Oui       | Oui       | Oui       |         |
-| `_profile`              | Partiel   | Partiel   | Partiel   | Pris en charge dans STU3. Si vous avez créé votre base de données **après** le 20 février 2021, vous bénéficiez également d’une prise en charge dans R4. Nous nous efforçons d’activer _profile sur les bases de données créées avant le 20 février 2021. |
-| `_text`                 | Non        | Non        | Non        |         |
-| `_content`              | Non        | Non        | Non        |         |
-| `_has`                  | Non        | Non        | Non        |         |
-| `_query`                | Non        | Non        | Non        |         |
-| `_filter`               | Non        | Non        | Non        |         |
-
-| Paramètres des résultats de la recherche | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
-|-------------------------|-----------|-----------|-----------|---------|
-| `_elements`             | Oui       | Oui       | Oui       | Problème [1256](https://github.com/microsoft/fhir-server/issues/1256)        |
-| `_count`                | Oui       | Oui       | Oui       | `_count` est limité à 1 000 caractères. Si la valeur est supérieure à 1 000, seuls 1 000 résultats sont renvoyés, et un avertissement est retourné dans le pack. |
-| `_include`              | Oui       | Oui       | Oui       |Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB n’inclut pas la prise en charge de l’élément :iterate.|
-| `_revinclude`           | Oui       | Oui       | Oui       | Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB [n’inclut pas la prise en charge du modificateur :iterate](https://github.com/microsoft/fhir-server/issues/1313). Problème [n° 1319](https://github.com/microsoft/fhir-server/issues/1319)|
-| `_summary`              | Partiel   | Partiel   | Partiel   | `_summary=count` est pris en charge |
-| `_total`                | Partiel   | Partiel   | Partiel   | `_total=none` et `_total=accurate`      |
-| `_sort`                 | Partiel   | Partiel   | Partiel   |   `_sort=_lastUpdated` est pris en charge       |
-| `_contained`            | Non        | Non        | Non        |         |
-| `containedType`         | Non        | Non        | Non        |         |
-| `_score`                | Non        | Non        | Non        |         |
 
 ## <a name="extended-operations"></a>Opérations étendues
 
