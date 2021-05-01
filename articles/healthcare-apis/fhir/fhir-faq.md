@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 22d9df80bce6e79f0058567f8df76935e431e598
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: f571deaa0b67e9be7b8ce3f01d87f5c955f7140d
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019335"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319068"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Forum aux questions sur l’API Azure pour FHIR
 
@@ -104,7 +104,7 @@ Voici quelques exemples :
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>Quel est le tri par défaut lors de la recherche de ressources dans l’API Azure pour FHIR ?
 
-Nous prenons en charge le tri sur la date de dernière mise à jour : _sort =_lastUpdated. Pour plus d’informations sur les autres paramètres de recherche pris en charge, consultez la [page des fonctionnalités prises en charge](fhir-features-supported.md#search).
+Nous prenons en charge le tri sur la date de dernière mise à jour : _sort =_lastUpdated. Pour plus d’informations sur les autres paramètres de recherche pris en charge, consultez [vue d’ensemble de la recherche de FHIR](overview-of-search.md).
 
 ### <a name="does-the-azure-api-for-fhir-support-everything"></a>L’API Azure pour FHIR prend-elle en charge $everything ? 
 
