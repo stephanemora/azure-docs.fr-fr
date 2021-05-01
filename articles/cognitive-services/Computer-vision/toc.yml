@@ -178,15 +178,15 @@
             - name: Positionnement de la caméra
               href: spatial-analysis-camera-placement.md
             - name: Tous les conteneurs Cognitive Services
-              href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+              href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: Guides pratiques
   items:
     - name: Préparation pour l’entreprise
       items:
         - name: Configurer des réseaux virtuels
-          href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+          href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
         - name: "Utiliser Azure\_AD Authentication"
-          href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
+          href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: Ressources
   items:
     - name: Préparation pour l’entreprise

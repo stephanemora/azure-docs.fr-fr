@@ -120,7 +120,7 @@
         - name: Conformité et certification
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Modules Microsoft Learn
-      href: 'https://docs.microsoft.com/learn/browse/?terms=personalizer'
+      href: /learn/browse/?terms=personalizer
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
     - name: Résolution des problèmes
