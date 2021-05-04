@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: tracking-python, contperf-fy21q3
-ms.openlocfilehash: 503d1d1220cd4704a6e70d0b7e575a70275e5e4d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e664b08f7ca487236e5e2780d183c19d342a915b
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936833"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888023"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutoriel : Utiliser vos propres données (partie 4 sur 4)
 
@@ -235,7 +235,7 @@ Ce code va produire une URL vers l’expérience dans Azure Machine Learning St
 
 ### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> Examiner le fichier journal
 
-Dans le studio, accédez à l’exécution de l’expérience (en sélectionnant la sortie de l’URL précédente), puis à **Sorties + journaux**. Sélectionnez le fichier `70_driver_log.txt`. Vous devez normalement voir la sortie suivante :
+Dans le studio, accédez à l’exécution de l’expérience (en sélectionnant la sortie de l’URL précédente), puis à **Sorties + journaux**. Sélectionnez le fichier `70_driver_log.txt`. Faites défiler le fichier journal jusqu’à ce que la sortie suivante s’affiche :
 
 ```txt
 Processing 'input'.

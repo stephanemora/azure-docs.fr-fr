@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e8a5e6d40b745efb7fcd50919cd27664b3406b7d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392270"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862846"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -57,8 +57,8 @@ L’étendue s’applique uniquement aux abonnements individuels MS-AZR-0003P ou
 
 Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations :
 
-- La personne qui achète une réservation et l’administrateur de compte de l’abonnement de facturation utilisé pour acheter la réservation sont ajoutés à l’ordre de réservation.
-- Les administrateurs de facturation de l’Accord Entreprise et du Contrat client Microsoft.
+- La personne qui a acheté la réservation et le propriétaire du compte de l’abonnement de facturation obtiennent un accès RBAC Azure à l’ordre de réservation.
+-  Les contributeurs de facturation Contrat Entreprise et Contrat client Microsoft peuvent gérer toutes les réservations depuis Gestion des coûts + facturation > Transactions de réservation > sélectionner la bannière bleue.
 
 Pour permettre à d’autres personnes de gérer des réservations, vous avez le choix entre deux options :
 
@@ -177,23 +177,9 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
-
-- [Qu’est-ce qu’une réservation Azure ?](save-compute-costs-reservations.md)
-
-Acheter un plan de service :
-- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
-- [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-
-Acheter un abonnement logiciel :
-- [Prépayer des abonnements logiciels Red Hat dans Réservations Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prépayer des logiciels SUSE avec des réservations Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Comprendre la remise et l’utilisation :
-- [Comprendre comment la remise sur réservation de machine virtuelle est appliquée](../manage/understand-vm-reservation-charges.md)
-- [Comprendre comment la remise sur abonnement logiciel Red Hat Enterprise Linux est appliquée](understand-rhel-reservation-charges.md)
-- [Comprendre comment la remise sur offre logicielle SUSE Linux Enterprise est appliquée](understand-suse-reservation-charges.md)
-- [Comprendre comment les autres remises sur réservation sont appliquées](understand-reservation-charges.md)
-- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](understand-reserved-instance-usage-ea.md)
-- [Coûts des logiciels Windows non inclus dans les réservations](reserved-instance-windows-software-costs.md)
+ - [Afficher l’utilisation des réservations](reservation-utilization.md)
+ - [Échange et remboursement](exchange-and-refund-azure-reservations.md)
+ - [Renouveler des réservations](reservation-renew.md)
+ - [Transferts entre locataires](troubleshoot-reservation-transfers-between-tenants.md)
+ - [Rechercher un acheteur de réservation à partir des journaux Azure](find-reservation-purchaser-from-logs.md)
+ - [Renouveler une réservation](reservation-renew.md)

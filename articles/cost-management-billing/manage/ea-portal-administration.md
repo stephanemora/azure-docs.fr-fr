@@ -3,18 +3,18 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/13/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3ce13a103b605ea7b6066e8b2868fa974f4e64e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 787f902311437e6ca8a679299ef7a28b34cee4ab
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050564"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728407"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -36,7 +36,9 @@ Seuls les administrateurs d’entreprise Azure existants peuvent créer d’autr
 
 ### <a name="create-another-enterprise-administrator"></a>Créer un autre administrateur d’entreprise
 
-Ajouter un autre administrateur d’entreprise :
+Utilisez l’une des options suivantes selon votre situation.
+
+#### <a name="if-youre-already-an-enterprise-administrator"></a>Si vous êtes déjà administrateur d’entreprise
 
 1. Connectez-vous au [portail Azure Enterprise](https://ea.azure.com).
 1. Accédez à **Gérer** > **Détail de l’inscription**.
@@ -44,7 +46,11 @@ Ajouter un autre administrateur d’entreprise :
 
 Assurez-vous que vous avez l’adresse e-mail de l’utilisateur et la méthode d’authentification par défaut, par exemple l’authentification avec un compte professionnel, scolaire ou Microsoft.
 
-Si vous n’êtes pas l’administrateur d’entreprise, contactez un administrateur d’entreprise pour lui demander de vous ajouter à une inscription. Une fois que vous avez été ajouté à une inscription, vous recevez un e-mail d’activation.
+#### <a name="if-youre-not-an-enterprise-administrator"></a>Si vous n’êtes pas administrateur d’entreprise
+
+Si vous n’êtes pas administrateur d’entreprise, contactez un administrateur d’entreprise pour lui demander de vous ajouter à une inscription. L’administrateur d’entreprise utilise les étapes précédentes pour vous ajouter comme administrateur d’entreprise. Une fois que vous avez été ajouté à une inscription, vous recevez un e-mail d’activation.
+
+#### <a name="if-your-enterprise-administrator-cant-help-you"></a>Si votre administrateur d’entreprise ne peut pas vous aider
 
 Si votre administrateur d’entreprise ne peut pas vous aider, créez une [demande de support pour le portail Azure Enterprise](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Fournissez les informations suivantes :
 
@@ -418,51 +424,6 @@ Pour commencer :
 1. Le compte Microsoft doit à présent être gratuit à partir de tous les abonnements actifs et peut être supprimé.
 1. Un compte supprimé reste affiché dans le portail dans un état inactif pour des raisons de facturation historique.  Vous pouvez l’effacer de la vue en cochant une case afin d’afficher les comptes actifs uniquement.
 
-## <a name="account-subscription-ownership-faq"></a>FAQ sur la propriété de l’abonnement de compte
-
-Ce document répond à des questions fréquemment posées relatives à la propriété de l’abonnement de compte.
-
-### <a name="can-i-associate-my-existing-azure-account-to-azure-ea-enrollment"></a>Puis-je associer mon compte Azure existant à l’inscription Azure EA ?
-
-Oui. Tous les abonnements Azure pour lesquels vous êtes propriétaire du compte seront convertis en Accord Entreprise. Les abonnements qui utilisent le crédit mensuel, tels que Visual Studio, AzurePass, MPN et BizSpark, entre autres, sont inclus. Vous perdrez le crédit mensuel lors de la conversion de ce type d’abonnements.
-
-### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Combien de propriétaires de compte Azure pouvez-vous avoir par abonnement ?
-
-Un seul propriétaire de compte est autorisé par abonnement.  Des rôles supplémentaires peuvent être ajoutés à l’aide de l’accès en fonction du rôle ou (Contrôle d’accès (IAM)) sous l’onglet de l’abonnement dans le coin supérieur gauche de la page du [portail Azure](https://portal.azure.com).
-
-### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>Est-il possible de transférer la propriété de l’abonnement à un autre compte ?
-
-Oui, vous pouvez transférer la propriété de l’abonnement à un autre compte. Par exemple, si un compte A possède trois abonnements, l’administrateur de l’entreprise peut transférer un abonnement au compte B, l’autre au compte C et l’autre au compte D. Il peut également transférer tous les abonnements au compte E.
-
-Pour transférer des abonnements :
-
-1. Sur le portail Azure Enterprise, sélectionnez **Gérer** > **Compte**.
-1. Pointez sur **Compte** tout à droite pour voir les options **Transférer la propriété** (icône représentant une personne) et **Transférer l’abonnement** (icône de liste). Ces options sont visibles uniquement pour les comptes actifs.
-
-### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Un propriétaire de compte Azure peut-il être répertorié sous plusieurs services ?
-
-Non, un propriétaire de compte ne peut être associé qu’à un seul service. La stratégie permet de garantir une supervision et une répartition précises des coûts et des dépenses associés au service auquel il est associé dans le cadre de l’inscription EA dans le portail Azure EA.
-
-### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Un propriétaire de compte Azure peut-il être répertorié en tant que groupe de sécurité ?
-
-Non, un propriétaire d’abonnement doit être une authentification de compte Microsoft (MSA) ou Azure Active Directory (Azure AD) unique. Pour tenir compte des successions au sein de votre organisation, vous pouvez envisager de créer des comptes génériques et d’utiliser Azure AD pour gérer l’accès aux abonnements.
-
-### <a name="can-an-individual-user-own-multiple-subscriptions"></a>Un utilisateur individuel peut-il avoir plusieurs abonnements ?
-
-Un propriétaire de compte Azure peut créer et gérer un nombre illimité d’abonnements.
-
-### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Comment puis-je accéder à tous les abonnements de mon organisation et les consulter ?
-
-Aujourd’hui, cette opération doit être effectuée via une stratégie. Cela signifie que vous devez exiger que, pour chaque abonnement créé, votre compte soit ajouté à un rôle d’abonnement à l’aide de l’accès en fonction du rôle.
-
-### <a name="where-do-i-go-to-create-a-subscription"></a>Où puis-je créer un abonnement ?
-
-Avant de pouvoir créer un abonnement d’offre Enterprise Azure (EA), votre compte doit être ajouté au rôle de propriétaire du compte par l’administrateur de votre inscription EA dans le portail Azure EA. Vous devez ensuite vous connecter au portail Azure EA pour obtenir votre droit de créer des abonnements de type EA. Nous vous recommandons de créer votre premier abonnement EA à partir du lien « + Ajouter un abonnement » sous l’onglet de l’abonnement sur le portail EA.  Toutefois, une fois que votre compte est autorisé, il peut être plus facile de créer des abonnements dans portal.azure.com sous l’onglet de l’abonnement dans le coin supérieur gauche de la page, où vous pouvez créer et renommer votre abonnement en une seule étape.
-
-### <a name="who-can-create-a-subscription"></a>Qui peut créer un abonnement ?
-
-Pour créer un abonnement de type Enterprise Azure, vous devez être titulaire du rôle de propriétaire du compte sur le [portail EA](https://ea.azure.com).
-
 ## <a name="azure-ea-term-glossary"></a>Glossaire des termes Azure EA
 
 - **Compte**  : unité d’organisation dans le portail Azure Enterprise. Elle est utilisée pour gérer des abonnements et pour créer des rapports.
@@ -504,3 +465,4 @@ Pour créer un abonnement de type Enterprise Azure, vous devez être titulaire d
 
 - En savoir plus sur la façon dont les [réservations de machines virtuelles](ea-portal-vm-reservations.md) peuvent vous aider à réaliser des économies.
 - Si vous avez besoin d’aide pour résoudre des problèmes rencontrés avec le portail Azure EA, consultez [Résoudre les problèmes d’accès au portail Azure EA](ea-portal-troubleshoot.md).
+- Consultez les [questions fréquentes (FAQ) sur Cost Management + Billing](../cost-management-billing-faq.yml) pour voir les questions sur la propriété d’abonnement EA.

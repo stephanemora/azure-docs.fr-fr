@@ -5,12 +5,12 @@ description: Découvrir comment mettre à jour ou réinitialiser les information
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 0b750eb9af7dfd7bcbada7500b6ef71b015db11f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 08a52f68ffdaa3305fbbeefffeeac78a59f3903b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767472"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949143"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Mettre à jour ou faire tourner les informations d’identification pour Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Lorsque vous souhaitez mettre à jour les informations d’identification d’un
 * Créer un principal de service et mettre à jour le cluster pour qu’il utilise ces nouvelles informations d’identification 
 
 > [!WARNING]
-> Si vous choisissez de créer un *nouveau* principal de service, la mise à jour d’un cluster AKS de grande taille de sorte qu’il utilise ces informations d’identification est susceptible de prendre beaucoup de temps.
+> Si vous choisissez de créer un *nouveau* principal de service, attendez environ 30 minutes que l’autorisation du principal du service soit propagée dans toutes les régions. La mise à jour d’un grand cluster AKS pour utiliser ces informations d’identification peut prendre un certain temps.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Vérifier la date d’expiration de votre principal de service
 

@@ -1,21 +1,21 @@
 ---
 title: Modifier les informations de contact d’un compte de facturation Azure
 description: Décrit comment modifier les informations de contact de votre compte de facturation Azure
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033935"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480900"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Modifier les informations de contact d’un compte de facturation Azure
 
@@ -64,6 +64,21 @@ Si vous voulez mettre à jour les informations de votre profil d’utilisateur A
     ![Capture d’écran montrant où modifier l’adresse](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Entrez la nouvelle adresse, puis sélectionnez **Enregistrer**.  
     ![Capture d’écran montrant la mise à jour de l’adresse](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+
+## <a name="update-a-po-number"></a>Mettre à jour un numéro de BDC
+
+Par défaut, une facture pour le profil de facturation n’est associée à aucun numéro de BDC. Si vous ajoutez un numéro de BDC pour un profil de facturation, ce numéro apparaîtra sur les factures du profil de facturation.
+
+Pour ajouter ou changer le numéro de BDC pour un profil de facturation, effectuez les étapes suivantes.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Recherchez **Cost Management + Billing**, puis sélectionnez **Étendues de facturation**.
+1. Sélectionnez votre étendue de facturation.
+1. Dans le menu de gauche, sous **Facturation**, sélectionnez **Profils de facturation**.
+1. Sélectionnez le profil de facturation approprié.
+1. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Propriétés**.
+1. Sélectionnez **Mettre à jour le numéro de BDC**.
+1. Entrez un numéro de bon de commande, puis sélectionnez **Mettre à jour**.
 
 ## <a name="service-and-marketing-emails"></a>E-mails marketing et de service
 

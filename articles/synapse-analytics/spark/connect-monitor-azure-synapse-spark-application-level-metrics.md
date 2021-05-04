@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: d22975199eedae353f2dc12588671ae4b54c85ab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45ccced6f083e0d304651a0cea7df90c6396fd88
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109316"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143248"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Tutoriel : Connecter et surveiller les métriques de l’application Azure Synapse Spark
 
@@ -190,13 +190,13 @@ Obtenez les dernières métriques de l’application Spark spécifiée grâce �
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/metrics/executors/prometheus?format=html
 ```
 
-| Paramètre          | Obligatoire | Description                                                                               |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| endpoint           | True     | Le point de terminaison du développement de l’espace de travail, par exemple https://myworkspace.dev.azuresynapse.net. |
-| livyApiVersion     | True     | Version valide de l’API pour la requête. Il s’agit actuellement de la préversion 2019-11-01                    |
-| sparkPoolName      | True     | Nom du pool Spark.                                                                   |
-| sessionID          | True     | Identificateur de la session.                                                               |
-| sparkApplicationId | True     | ID de l’application Spark                                                                      |
+| Paramètre          | Obligatoire | Description                                                                                 |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------|
+| endpoint           | True     | Point de terminaison de développement de l’espace de travail, par exemple, `https://myworkspace.dev.azuresynapse.net.` |
+| livyApiVersion     | True     | Version valide de l’API pour la requête. Il s’agit actuellement de la préversion 2019-11-01                      |
+| sparkPoolName      | True     | Nom du pool Spark.                                                                     |
+| sessionID          | True     | Identificateur de la session.                                                                 |
+| sparkApplicationId | True     | ID de l’application Spark                                                                        |
 
 Exemple de demande : 
 
@@ -227,13 +227,13 @@ metrics_executor_completedTasks_total{application_id="application_1605509647837_
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/executors
 ```
 
-| Paramètre          | Obligatoire | Description                                                                               |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| endpoint           | True     | Le point de terminaison du développement de l’espace de travail, par exemple https://myworkspace.dev.azuresynapse.net. |
-| livyApiVersion     | True     | Version valide de l’API pour la requête. Il s’agit actuellement de la préversion 2019-11-01                    |
-| sparkPoolName      | True     | Nom du pool Spark.                                                                   |
-| sessionID          | True     | Identificateur de la session.                                                               |
-| sparkApplicationId | True     | ID de l’application Spark                                                                      |
+| Paramètre          | Obligatoire | Description                                                                                 |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------|
+| endpoint           | True     | Point de terminaison de développement de l’espace de travail, par exemple, `https://myworkspace.dev.azuresynapse.net.` |
+| livyApiVersion     | True     | Version valide de l’API pour la requête. Il s’agit actuellement de la préversion 2019-11-01                      |
+| sparkPoolName      | True     | Nom du pool Spark.                                                                     |
+| sessionID          | True     | Identificateur de la session.                                                                 |
+| sparkApplicationId | True     | ID de l’application Spark                                                                        |
 
 Exemple de demande
 

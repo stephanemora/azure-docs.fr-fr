@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: e12578fa6da679587d41fb25b17b00eb1645299a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: a9997fac66dd49af04f4ed78737118d605e27072
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718410"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829869"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -62,11 +62,12 @@ En intégrant Defender for Endpoint à Security Center, vous bénéficierez des 
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Centre de sécurité de Microsoft Defender for Endpoint" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
-## <a name="microsoft-defender-for-endpoint-tenant-location"></a>Emplacement du locataire Microsoft Defender for Endpoint
+## <a name="what-are-the-requirements-for-the-microsoft-defender-for-endpoint-tenant"></a>Quelles sont les exigences de locataire pour Microsoft Defender pour point de terminaison ?
 
-Quand vous utilisez Azure Security Center pour superviser vos serveurs, un locataire Microsoft Defender for Endpoint est créé automatiquement. Les données collectées par Defender for Endpoint sont stockées dans la zone géographique du locataire tel qu’il est identifié lors de l’approvisionnement. Les données des clients, sous forme pseudonymisée, peuvent également être stockées dans des systèmes de stockage et de traitement centralisés aux États-Unis. 
+Quand vous utilisez Azure Security Center pour superviser vos serveurs, un locataire Microsoft Defender for Endpoint est créé automatiquement. 
 
-Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifier. Si vous disposez de votre propre licence Microsoft Defender for Endpoint et qu’il vous faut déplacer vos données vers un autre emplacement, contactez le support Microsoft pour réinitialiser le locataire.
+- **Emplacement :** Les données collectées par Defender for Endpoint sont stockées dans la zone géographique du locataire tel qu’il est identifié lors de l’approvisionnement. Les données des clients, sous forme pseudonymisée, peuvent également être stockées dans des systèmes de stockage et de traitement centralisés aux États-Unis. Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifier. Si vous disposez de votre propre licence Microsoft Defender for Endpoint et qu’il vous faut déplacer vos données vers un autre emplacement, contactez le support Microsoft pour réinitialiser le locataire.
+- **Déplacement des abonnements :** Si vous avez déplacé votre abonnement Azure entre locataires Azure, certaines étapes préparatoires manuelles sont requises avant que Security Center déploie Defender pour point de terminaison. Pour plus d’informations, [contactez le support technique Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 
 ## <a name="enable-the-microsoft-defender-for-endpoint-integration"></a>Activation de l’intégration de Microsoft Defender for Endpoint
@@ -75,9 +76,12 @@ Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifi
 
 Vérifiez que votre machine est conforme aux conditions requises pour Defender pour point de terminaison :
 
-1. Configurez les paramètres réseau décrits dans [Configurer les paramètres de proxy et de connectivité Internet de l'appareil](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
-1. Si vous déployez Defender pour point de terminaison sur des machines locales, connectez-le à Azure Arc comme expliqué dans [Connecter des machines hybrides à des serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-1. Pour les machines Windows Server 2019 uniquement, vérifiez qu’elles exécutent un agent valide et disposent de l’extension MicrosoftMonitoringAgent
+1. Assurez-vous que la machine est connectée à Azure comme requis :
+
+    - Pour les serveurs **Windows**, configurez les paramètres réseau décrits dans [Configurer les paramètres de proxy et de connectivité Internet de l’appareil](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+    - Pour des machines **locales**, connectez-la à Azure Arc comme expliqué dans [Connecter des machines hybrides à des serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+    - Pour les machines **Windows Server 2019** et [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), vérifiez que vos machines exécutent l’agent Log Analytics et que vous disposez de l’extension MicrosoftMonitoringAgent.
+    
 1. Activez **Azure Defender pour les serveurs**. Consultez [Démarrage rapide : Activer Azure Defender](enable-azure-defender.md).
 1. Si vous avez déjà acheté et déployé des licences Microsoft Defender for Endpoint sur vos serveurs, supprimez-les à l’aide de la procédure décrite dans [Retirer des serveurs Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. Si vous avez déplacé votre abonnement entre locataires Azure, certaines étapes préparatoires manuelles sont également requises. Pour plus d’informations, [contactez le support technique Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

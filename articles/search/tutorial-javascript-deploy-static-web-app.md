@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: a49ede283899cec42898672f5a376221265dea10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3f4d883dcc9b79ddab77bb8779e52e629226631
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104723467"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950337"
 ---
 # <a name="3---deploy-the-search-enabled-website"></a>3 - Déployer le site web avec fonctionnalité de recherche
 
@@ -62,17 +62,20 @@ L’application web statique extrait les informations et les fichiers en vue du 
 
 1. Conservez cette clé de requête, vous devrez l’utiliser dans la section suivante. La clé de requête est capable d’interroger votre index. 
 
-## <a name="add-configuration-settings-in-visual-studio-code"></a>Ajouter des paramètres de configuration dans Visual Studio Code
+## <a name="add-configuration-settings-in-azure-portal"></a>Ajouter des paramètres de configuration dans le portail Azure
 
 L’application Azure Function ne retourne pas de données de recherche tant que les secrets de recherche ne figurent pas dans les paramètres. 
 
-1. Sélectionnez **Azure** dans la barre d’activités, puis sélectionnez **Applications web statiques** dans la barre latérale. 
-1. Développez votre nouvelle application web statique jusqu’à ce que les **Paramètres d’application** s’affichent.
-1. Cliquez avec le bouton droit sur **Paramètres de l’application**, puis sélectionnez **Ajouter un nouveau paramètre**.
+1. Sélectionnez **Azure** dans la barre d’activité. 
+1. Cliquez avec le bouton droit sur votre ressource d’application web statique et sélectionnez **Ouvrir dans le portail**.
 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-static-web-app-configure-settings.png" alt-text="Cliquez avec le bouton droit sur **Paramètres de l’application**, puis sélectionnez **Ajouter un nouveau paramètre**.":::
+    :::image type="content" source="media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Cliquez avec le bouton droit sur votre ressource d’application web statique JavaScript et sélectionnez Ouvrir dans le portail.":::
 
-1. Ajoutez les paramètres suivants :
+1. Sélectionnez **Configuration** et cliquez sur **+ Ajouter**.
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Sélectionnez Configuration, puis Ajouter pour votre application JavaScript.":::
+
+1. Ajoutez chacun des paramètres suivants :
 
     |Paramètre|Valeur de votre ressource de recherche|
     |--|--|
@@ -80,6 +83,17 @@ L’application Azure Function ne retourne pas de données de recherche tant que
     |SearchServiceName|Nom de votre ressource de recherche|
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
+
+    Pour filtrer les collections, la Recherche cognitive Azure nécessite une syntaxe différente de celle qu’elle utilise pour les chaînes. Ajoutez un `*` après un nom de champ pour indiquer que le champ est de type `Collection(Edm.String)`. Cela permet à la fonction Azure d’ajouter correctement des filtres aux requêtes.
+
+1. Sélectionnez **Enregistrer** pour enregistrer les paramètres. 
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Sélectionnez Enregistrer pour enregistrer les paramètres.":::
+
+1. Revenez à VS Code. 
+1. Actualisez votre application web statique pour voir ses paramètres d’application. 
+
+    :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Actualisez votre application web statique pour voir ses paramètres d’application.":::
 
 ## <a name="use-search-in-your-static-web-app"></a>Utiliser la recherche dans votre application web statique
 

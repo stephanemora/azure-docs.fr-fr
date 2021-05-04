@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: maintenance-control
-ms.date: 11/12/2020
+ms.date: 04/26/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ec8d211bd25eb04f9e000af950cea9a28a0d1874
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 076c007bd0a2fb2e70ad84dfd6a825030a22b15a
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762836"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015228"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -112,12 +112,12 @@ Lorsque vous démarrez la maintenance, les machines virtuelles affectées dans v
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Vérifier l’état de maintenance à l’aide de PowerShell
 
-Vous pouvez utiliser Azure PowerShell pour voir quand les machines virtuelles dans vos groupes de machines virtuelles identiques sont planifiées pour la maintenance. Les informations de maintenance planifiée sont disponibles via la cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) lorsque vous utilisez le paramètre `-InstanceView`.
+Vous pouvez utiliser Azure PowerShell pour voir quand les machines virtuelles dans vos groupes de machines virtuelles identiques sont planifiées pour la maintenance. Les informations de maintenance planifiée sont disponibles via la cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) lorsque vous utilisez le paramètre `-InstanceView`.
  
 Les informations de maintenance sont retournées uniquement en cas de maintenance planifiée. Si aucune maintenance planifiée n’affecte l’instance de machine virtuelle, la cmdlet ne retourne pas d’informations de maintenance. 
 
 ```powershell
-Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmssVm -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** : 
@@ -135,10 +135,10 @@ Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** :
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Démarrer la maintenance sur votre instance de machine virtuelle à l’aide de PowerShell
 
-Vous pouvez démarrer la maintenance sur une machine virtuelle si **IsCustomerInitiatedMaintenanceAllowed** est défini sur **true**. Utilisez la cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) avec le paramètre `-PerformMaintenance`.
+Vous pouvez démarrer la maintenance sur une machine virtuelle si **IsCustomerInitiatedMaintenanceAllowed** est défini sur **true**. Utilisez la cmdlet [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm) avec le paramètre `-PerformMaintenance`.
 
 ```powershell
-Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmssVM -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Vérifier l’état de maintenance à l’aide d’interface de ligne de commande

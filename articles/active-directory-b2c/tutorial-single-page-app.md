@@ -11,18 +11,16 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6a9f3b864bd8aba2140c7d32d4b5474ff7b95f88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb43415a6e5a32758dee976751436b140b4dfa03
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96171226"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071187"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutoriel : Activer l’authentification dans une application monopage avec Azure AD B2C
 
-Ce tutoriel vous montre comment utiliser Azure Active Directory B2C (Azure AD B2C) pour inscrire et connecter des utilisateurs dans une application monopage en utilisant l’une ou l’autre des fonctionnalités suivantes :
-* [Flux de code d’autorisation OAuth 2.0](./authorization-code-flow.md) (avec [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
-* [Flux d’octroi implicite OAuth 2.0](./implicit-flow-single-page-application.md) (avec [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
+Ce tutoriel vous montre comment utiliser Azure Active Directory B2C (Azure AD B2C) pour inscrire et connecter des utilisateurs dans une application monopage (SPA) au moyen du [flux de code d’autorisation OAuth 2.0](./authorization-code-flow.md) par le biais de [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
 
 Dans ce tutoriel, qui est le premier d’une série de deux, vous allez :
 
@@ -55,7 +53,7 @@ Au cours du [deuxième tutoriel](./tutorial-register-spa.md) que vous avez effec
 
 Pour mettre à jour une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](./app-registrations-training-guide.md).
 
-#### <a name="app-registrations-auth-code-flow"></a>[Inscriptions d’applications (flux de code d’authentification)](#tab/app-reg-auth/)
+#### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-auth/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
@@ -63,17 +61,6 @@ Pour mettre à jour une application dans votre locataire Azure AD B2C, vous pouv
 1. Sélectionnez **Inscriptions d’applications**, sélectionnez l’onglet **Applications détenues**, puis l’application *spaapp1*.
 1. Sous **Application monopage**, sélectionnez le lien **Ajouter l’URI**, puis entrez `http://localhost:6420`.
 1. Sélectionnez **Enregistrer**.
-1. Sélectionnez **Vue d’ensemble**.
-1. Notez l’**ID de l’application** pour l’utiliser plus tard, quand vous mettrez à jour le code dans l’application web monopage.
-
-#### <a name="app-registrations-implicit-flow"></a>[Inscriptions d’applications (flux implicite)](#tab/app-reg-implicit/)
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
-1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sélectionnez **Inscriptions d’applications**, sélectionnez l’onglet **Applications détenues**, puis l’application *spaapp1*.
-1. Sous **Application monopage**, sélectionnez le lien **Ajouter l’URI**, puis entrez `http://localhost:6420`.
-1. Sous **Octroi implicite**, cochez les cases **Jetons d’accès** et **Jetons d’ID** si elles ne sont pas déjà sélectionnées, puis sélectionnez **Enregistrer**.
 1. Sélectionnez **Vue d’ensemble**.
 1. Notez l’**ID de l’application** pour l’utiliser plus tard, quand vous mettrez à jour le code dans l’application web monopage.
 
@@ -93,26 +80,15 @@ Pour mettre à jour une application dans votre locataire Azure AD B2C, vous pouv
 
 Dans ce tutoriel, vous configurez un exemple de code que vous téléchargez depuis GitHub pour qu’il fonctionne avec votre locataire B2C. L’exemple montre comment une application monopage peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et pour appeler une API web protégée (vous activez l’API web dans le tutoriel suivant de la série).
 
-* Exemple de flux de code d’autorisation MSAL.js 2.x :
+  [Téléchargez un fichier zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) ou clonez l’exemple à partir de GitHub :
 
-    [Téléchargez un fichier zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) ou clonez l’exemple à partir de GitHub :
-
-    ```
-    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
-    ```
-* Exemple de flux implicite MSAL.js 1.x :
-
-    [Téléchargez un fichier zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple à partir de GitHub :
-
-    ```
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-    ```
+  ```
+  git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
+  ```
 
 ## <a name="update-the-sample"></a>Mettre à jour l’exemple
 
 Une fois que vous avez obtenu l’exemple, mettez à jour le code à l’aide de votre nom de locataire Azure AD B2C et de l’ID d’application que vous avez enregistré au cours d’une étape précédente.
-
-#### <a name="auth-code-flow-sample"></a>[Exemple de flux de code d’authentification](#tab/config-auth/)
 
 1. Ouvrez le fichier *authConfig.js* dans le dossier *App*.
 1. Dans l’objet `msalConfig`, recherchez l’affectation pour `clientId` et remplacez-la par l’**ID d’application (client)** que vous avez enregistré à l’étape précédente.
@@ -124,22 +100,8 @@ Une fois que vous avez obtenu l’exemple, mettez à jour le code à l’aide de
 1. Recherchez l’affectation pour `b2cScopes` et remplacez l’URL par l’URL d’étendue que vous avez créée pour l’API web, par exemple `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
 1. Recherchez l’affectation pour `webApi` et remplacez l’URL actuelle par l’URL où vous avez déployé votre API web à l’étape 4, par exemple `webApi: http://localhost:5000/hello`.
 
-#### <a name="implicit-flow-sample"></a>[Exemple de flux implicite](#tab/config-implicit/)
-
-1. Ouvrez le fichier *authConfig.js* dans le dossier *JavaScriptSPA*.
-1. Dans l’objet `msalConfig`, recherchez l’affectation pour `clientId` et remplacez-la par l’**ID d’application (client)** que vous avez enregistré à l’étape précédente.
-1. Ouvrez le fichier `policies.js`.
-1. Recherchez les entrées sous `names` et remplacez leur affectation par le nom des flux utilisateur que vous avez créés à une étape antérieure, par exemple `B2C_1_signupsignin1`.
-1. Recherchez les entrées sous `authorities` et remplacez-les par les noms des flux utilisateur que vous avez créés à une étape antérieure, par exemple `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`.
-1. Ouvrez le fichier `apiConfig.js`.
-1. Recherchez l’affectation pour `b2cScopes` et remplacez l’URL par l’URL d’étendue que vous avez créée pour l’API web, par exemple `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
-1. Recherchez l’affectation pour `webApi` et remplacez l’URL actuelle par l’URL où vous avez déployé votre API web à l’étape 4, par exemple `webApi: http://localhost:5000/hello`.
-
-* * *
 
 Le code obtenu doit ressembler à ce qui suit :
-
-#### <a name="auth-code-flow-sample"></a>[Exemple de flux de code d’authentification](#tab/review-auth/)
 
 *authConfig.js* :
 
@@ -198,81 +160,14 @@ const apiConfig = {
 };
 ```
 
-#### <a name="implicit-flow-sample"></a>[Exemple de flux implicite](#tab/review-implicit/)
-
-*authConfig.js* :
-
-```javascript
-const msalConfig = {
-  auth: {
-    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
-    authority: b2cPolicies.authorities.signUpSignIn.authority,
-    validateAuthority: false
-  },
-  cache: {
-    cacheLocation: "localStorage",
-    storeAuthStateInCookie: true
-  }
-};
-
-const loginRequest = {
-  scopes: ["openid", "profile"],
-};
-
-const tokenRequest = {
-  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
-};
-```
-
-*policies.js* :
-
-```javascript
-const b2cPolicies = {
-    names: {
-        signUpSignIn: "b2c_1_susi",
-        forgotPassword: "b2c_1_reset",
-        editProfile: "b2c_1_edit_profile"
-    },
-    authorities: {
-        signUpSignIn: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
-        },
-        forgotPassword: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
-        },
-        editProfile: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
-        }
-    },
-}
-```
-
-*apiConfig.js* :
-
-```javascript
-const apiConfig = {
-  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
-  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
-};
-```
-
-* * *
-
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
-1. Ouvrez une fenêtre de console et accédez au répertoire contenant l’exemple. 
+1. Ouvrez une fenêtre de console et accédez au répertoire contenant l’exemple.
 
-    - Pour l’exemple de flux de code d’autorisation MSAL.js 2.x :
-
-        ```console
-        cd ms-identity-b2c-javascript-spa
-        ```
-    - Pour l’exemple de flux implicite MSAL.js 1.x : 
-
-        ```console
-        cd active-directory-b2c-javascript-msal-singlepageapp
-        ```
+    ```console
+    cd ms-identity-b2c-javascript-spa
+    ```
 
 1. Exécutez les commandes suivantes :
 

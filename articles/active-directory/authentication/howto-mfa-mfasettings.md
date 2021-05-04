@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/13/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9d2c42a664c8d8a591d95a312cdf1c0034c4d031
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c067dba3a8af87e354019154fad8304fe9edfbbc
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305461"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829653"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurer les paramètres d'Azure AD Multi-Factor Authentication
 
@@ -347,7 +347,7 @@ La fonctionnalité de mémorisation de Multi-Factor Authentication crée un cook
 
 L’option **Don’t ask again for X days (Ne plus me demander pendant X jours)** ne s’affiche pas dans les applications sans navigateur, qu’elles prennent en charge ou non l’authentification moderne. Ces applications utilisent des _jetons d’actualisation_ qui fournissent de nouveaux jetons d’accès toutes les heures. Quand un jeton d’actualisation est validé, Azure AD vérifie que la dernière authentification multifacteur est intervenue dans le nombre spécifié de jours.
 
-La fonctionnalité réduit le nombre d’authentifications sur les applications web, qui interviennent normalement à chaque fois. La fonctionnalité peut augmenter le nombre d’authentifications pour les clients d’authentification modernes qui, normalement, reçoivent une invite tous les 90 jours, si une durée inférieure est configurée. Elle peut également augmenter le nombre d’authentifications quand elle est combinée avec des stratégies d’accès conditionnel.
+La fonctionnalité réduit le nombre d’authentifications sur les applications web, qui interviennent normalement à chaque fois. La fonctionnalité peut augmenter le nombre d’authentifications pour les clients d’authentification modernes qui, normalement, reçoivent une invite tous les 180 jours, si une durée inférieure est configurée. Elle peut également augmenter le nombre d’authentifications quand elle est combinée avec des stratégies d’accès conditionnel.
 
 > [!IMPORTANT]
 > La fonctionnalité de **mémorisation de Multi-Factor Authentication** n’est pas compatible avec la fonctionnalité **Maintenir la connexion** d’AD FS, lorsque les utilisateurs effectuent l’authentification multifacteur pour AD FS via le serveur Azure Multi-Factor Authentication ou avec une solution d’authentification multifacteur tierce.

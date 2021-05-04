@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/03/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 21ec5000ed7ef9df1805fa6ec43e20efc0f82182
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 8da5ba5c4408cb96008c3d9802ce3a5ccdc25f1f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481240"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140170"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Démarrage rapide : Connecter un cluster Kubernetes existant à Azure Arc 
 
@@ -27,6 +27,11 @@ Dans ce guide de démarrage rapide, nous allons tirer parti des avantages de Kub
     * [Kubernetes dans Docker (KIND)](https://kind.sigs.k8s.io/)
     * Créer un cluster Kubernetes à l’aide de Docker pour [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) ou [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
     * Cluster Kubernetes automanagé utilisant l'[API Cluster](https://cluster-api.sigs.k8s.io/user/quick-start.html)
+    * Si vous souhaitez connecter un cluster OpenShift à Azure Arc, vous devez exécuter la commande suivante une seule fois sur votre cluster avant d’exécuter `az connectedk8s connect` :
+        
+        ```console
+        oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
+        ```
 
     >[!NOTE]
     > Le cluster doit disposer d'au moins un nœud de système d'exploitation et d'une architecture de type `linux/amd64`. Les clusters uniquement dotés de nœuds `linux/arm64` ne sont pas encore pris en charge.
@@ -36,12 +41,14 @@ Dans ce guide de démarrage rapide, nous allons tirer parti des avantages de Kub
 
 * Installez la [dernière version de Helm 3](https://helm.sh/docs/intro/install).
 
-- [Procédez à l'installation ou à la mise à niveau d'Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) vers la version >= 2.16.0
+* [Procédez à l'installation ou à la mise à niveau d'Azure CLI](/cli/azure/install-azure-cli) vers la version >= 2.16.0
 * Installez l'extension `connectedk8s` d'Azure CLI, version >= 1.0.0 :
   
   ```azurecli
   az extension add --name connectedk8s
   ```
+
+
 
 >[!TIP]
 > Si l'extension `connectedk8s` est déjà installée, mettez-la à jour vers la version la plus récente à l'aide de la commande suivante - `az extension update --name connectedk8s`
@@ -68,7 +75,7 @@ Dans ce guide de démarrage rapide, nous allons tirer parti des avantages de Kub
 | `https://mcr.microsoft.com`                                                                            | Requis pour extraire des images conteneurs pour les agents Azure Arc.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Indispensable à l’extraction des certificats attribués par le système dans le cadre des identités managées pour les ressources Azure.                                                                  |
 
-## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Inscription des deux fournisseurs pour Kubernetes avec Azure Arc
+## <a name="register-providers-for-azure-arc-enabled-kubernetes"></a>Inscription de fournisseurs pour Kubernetes avec Azure Arc
 
 1. Entrez les commandes suivantes :
     ```azurecli

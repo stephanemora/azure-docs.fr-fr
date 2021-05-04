@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 28c54865ab9c2876d998896f5f536a11088962f8
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 90ff0a42a9d82fc0bf4f9235e235c774a2d0e75d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566424"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146560"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -227,6 +227,7 @@ Caractéristiques la version 2.0 de l’analyseur CSV :
 - La limite maximale de taille de ligne est de 8 Mo.
 - Les options suivantes ne sont pas prises en charge : DATA_COMPRESSION.
 - La chaîne vide entre guillemets ("") est interprétée comme une chaîne vide.
+- L’option DATEFORMAT SET n’est pas respectée.
 - Format pris en charge pour le type de données DATE : AAAA-MM-JJ
 - Format pris en charge pour le type de données TIME : HH:MM:SS[.fractions de seconde]
 - Format pris en charge pour le type de données DATETIME2 : YYYY-MM-DD HH:MM:SS[.fractions de seconde]
@@ -256,7 +257,7 @@ Les fichiers Parquet contiennent des métadonnées de colonne qui seront lues ;
 Pour les fichiers CSV, les noms de colonnes peuvent être lus à partir de la ligne d’en-tête. Vous pouvez spécifier s’il existe une ligne d’en-tête en utilisant l’argument HEADER_ROW. Si HEADER_ROW = FALSE, des noms de colonnes génériques sont utilisés : C1, C2, ... Cn, où n est le nombre de colonnes dans le fichier. Les types de données seront inférés à partir des 100 premières lignes de données. Pour obtenir des exemples, consultez [Lecture de fichiers CSV sans spécifier de schéma](#read-csv-files-without-specifying-schema).
 
 > [!IMPORTANT]
-> Dans certains cas, le type de données approprié ne peut pas être inféré en raison d’un manque d’informations : un type de données plus grand est alors utilisé à la place. Ceci réduit les performances et est particulièrement important pour les colonnes de caractères qui seront inférées en tant que varchar(8000). Pour des performances optimales, [vérifiez les types de données inférés](best-practices-sql-on-demand.md#check-inferred-data-types) et [utilisez les types de données appropriés](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> Dans certains cas, le type de données approprié ne peut pas être inféré en raison d’un manque d’informations : un type de données plus grand est alors utilisé à la place. Ceci réduit les performances et est particulièrement important pour les colonnes de caractères qui seront inférées en tant que varchar(8000). Pour des performances optimales, [vérifiez les types de données inférés](./best-practices-serverless-sql-pool.md#check-inferred-data-types) et [utilisez les types de données appropriés](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 
 ### <a name="type-mapping-for-parquet"></a>Mappage de type pour Parquet
 
@@ -403,4 +404,4 @@ AS [r]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir d’autres exemples, consultez le [Guide de démarrage rapide du stockage de données de requête](query-data-storage.md) pour savoir comment utiliser `OPENROWSET` pour lire les formats de fichiers [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) et [JSON](query-json-files.md). Consultez les [bonnes pratiques](best-practices-sql-on-demand.md) pour obtenir des performances optimales. Vous pouvez également apprendre à enregistrer les résultats de votre requête dans Stockage Azure à l’aide de [CETAS](develop-tables-cetas.md).
+Pour obtenir d’autres exemples, consultez le [Guide de démarrage rapide du stockage de données de requête](query-data-storage.md) pour savoir comment utiliser `OPENROWSET` pour lire les formats de fichiers [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) et [JSON](query-json-files.md). Consultez les [bonnes pratiques](./best-practices-serverless-sql-pool.md) pour obtenir des performances optimales. Vous pouvez également apprendre à enregistrer les résultats de votre requête dans Stockage Azure à l’aide de [CETAS](develop-tables-cetas.md).

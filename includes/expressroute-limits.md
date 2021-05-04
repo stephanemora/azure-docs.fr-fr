@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/12/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 6f8ed3381f056238bdbb24fe52c5f859afef7d03
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b72f4ee82150a7aad2edf2cbbb1fabaf942a90b
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98147353"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107925323"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "98147353"
 | Nombre maximal d’itinéraires publiés vers le peering Microsoft avec ExpressRoute Standard |200 |
 | Nombre maximal d’itinéraires publiés vers le peering Microsoft avec le module complémentaire ExpressRoute Premium |200 |
 | Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans le même emplacement de peering |4 |
-| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements de peering |4 |
+| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements de peering |16 (Pour plus d'informations, consultez [Références SKU de passerelles](../articles/expressroute/expressroute-about-virtual-network-gateways.md#aggthroughput).) |
 | Nombre de liens de réseau virtuel autorisés par circuit ExpressRoute |Consultez le tableau [Nombre de réseaux virtuels par circuit ExpressRoute](#vnetpercircuit).  |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a> Nombre de réseaux virtuels par circuit ExpressRoute

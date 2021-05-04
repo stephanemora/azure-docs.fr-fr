@@ -3,18 +3,18 @@ title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost M
 description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/7/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e3c1fa071cd23b871f754e89d6f17eb2cc44b394
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 37804be38918713cdfa7aea59763054e444daa7e
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400350"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015714"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -33,11 +33,14 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Vérifier que les données sont collectées
 
 ## <a name="prerequisites"></a>Prérequis
+
 L’exportation des données est disponible pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) et [Contrat client Microsoft](get-started-partners.md). Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Les autorisations Azure suivantes, ou étendues, sont prises en charge par abonnement pour l’exportation de données par utilisateur et par groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
-- Propriétaire : peut créer, modifier ou supprimer des exportations planifiées pour un abonnement.
-- Contributeur : peut créer, modifier ou supprimer ses propres exportations planifiées. Peut modifier le nom d’exportations planifiées créées par d’autres utilisateurs.
-- Lecteur : peut planifier des exportations pour lesquelles il dispose des autorisations adéquates.
+- Propriétaire : Peut créer, modifier ou supprimer des exportations planifiées pour un abonnement.
+- Contributeur : Peut créer, modifier ou supprimer ses propres exportations planifiées. Peut modifier le nom d’exportations planifiées créées par d’autres utilisateurs.
+- Lecteur : Peut planifier des exportations pour lesquelles il dispose des autorisations adéquates.
+
+Pour plus d’informations sur les étendues et notamment sur l’accès nécessaire pour configurer des exportations pour les étendues Contrat Entreprise et Contrat client Microsoft, consultez [Comprendre et utiliser des étendues](understand-work-scopes.md).
 
 Pour les comptes Stockage Azure :
 - Des autorisations d’écriture sont requises pour la modification du compte de stockage configuré, quelles que soient les autorisations sur l’exportation.
@@ -63,10 +66,10 @@ Pour créer, afficher ou planifier une exportation de données, ouvrez l’éten
     - **Coût réel (utilisation et achats)**  : sélectionnez cette option pour exporter l'utilisation standard et les achats.
     - **Coût amorti (utilisation et achats)**  : sélectionnez cette option pour exporter les coûts amortis pour les achats tels que les réservations Azure.
 1. Pour le **Type d'exportation**, effectuez une sélection :
-    - **Exportation quotidienne des coûts en cumul mensuel à ce jour** : fournit quotidiennement un nouveau fichier d'exportation pour vos coûts en cumul mensuel à ce jour. Les dernières données sont agrégées avec les exportations quotidiennes précédentes.
-    - **Exportation hebdomadaire des coûts pour les sept derniers jours** : crée une exportation hebdomadaire de vos coûts pour les sept derniers jours à compter de la date de début d’exportation sélectionnée.
-    - **Exportation mensuelle des coûts du mois précédent** : fournit une exportation des coûts du mois précédent par rapport au mois en cours. Ensuite, le calendrier exécute une exportation le cinquième jour de chaque nouveau mois avec vos coûts des mois précédents.
-    - **Exportation unique** : vous permet de choisir une plage de dates pour les données historiques à exporter vers le service Stockage Blob Azure. Vous pouvez exporter un maximum de 90 jours de coûts historiques à partir du jour de votre choix. Cette exportation s'exécute immédiatement et est disponible sur votre compte de stockage dans les deux heures.
+    - **Exportation quotidienne des coûts en cumul mensuel à ce jour** : Fournit quotidiennement un nouveau fichier d’exportation pour vos coûts en cumul mensuel à ce jour. Les dernières données sont agrégées avec les exportations quotidiennes précédentes.
+    - **Exportation hebdomadaire des coûts pour les sept derniers jours** : Crée une exportation hebdomadaire de vos coûts pour les sept derniers jours à compter de la date de début d’exportation sélectionnée.
+    - **Exportation mensuelle des coûts du mois précédent** : Fournit une exportation des coûts du mois précédent par rapport au mois en cours. Ensuite, le calendrier exécute une exportation le cinquième jour de chaque nouveau mois avec vos coûts des mois précédents.
+    - **Exportation unique** : Vous permet de choisir une plage de dates pour les données historiques à exporter vers le service Stockage Blob Azure. Vous pouvez exporter un maximum de 90 jours de coûts historiques à partir du jour de votre choix. Cette exportation s'exécute immédiatement et est disponible sur votre compte de stockage dans les deux heures.
         En fonction du type d'exportation, choisissez une date de début ou une date au format **De** et **À**.
 1. Spécifiez l'abonnement associé à votre compte de stockage Azure, puis sélectionnez un groupe de ressources ou créez-en un.
 1. Sélectionnez le nom du compte de stockage ou créez-en un.
@@ -81,11 +84,13 @@ Au départ, l'exportation peut prendre 12 à 24 heures. Mais l'affichage des do
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+Quand vous créez une exportation programmatiquement, vous devez inscrire manuellement le fournisseur de ressources `Microsoft.CostManagementExports` auprès de l’abonnement où se trouve le compte de stockage. L’inscription s’effectue automatiquement quand vous créez l’exportation à l’aide du portail Azure. Pour plus d’informations sur l’inscription d’un fournisseur de ressources, consultez [Inscrire un fournisseur de ressources](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
 Commencez par préparer votre environnement pour Azure CLI :
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. Une fois connecté, pour voir vos exportations en cours, utilisez la commande [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list) :
+1. Une fois connecté, pour voir vos exportations en cours, utilisez la commande [az costmanagement export list](/cli/azure/costmanagement/export#az_costmanagement_export_list) :
 
    ```azurecli
    az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
@@ -108,7 +113,7 @@ Commencez par préparer votre environnement pour Azure CLI :
    az storage account create --resource-group TreyNetwork --name cmdemo
    ```
 
-1. Exécutez la commande [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) pour créer l’exportation :
+1. Exécutez la commande [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) pour créer l’exportation :
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
@@ -122,14 +127,14 @@ Commencez par préparer votre environnement pour Azure CLI :
 
    Cet exemple utilise `MonthToDate`. L’exportation crée un fichier d’exportation tous les jours pour les coûts du mois en cours. Les dernières données sont ajoutées aux exportations quotidiennes précédentes pour le mois en question.
 
-1. Pour afficher les détails de votre opération d’exportation, utilisez la commande [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show) :
+1. Pour afficher les détails de votre opération d’exportation, utilisez la commande [az costmanagement export show](/cli/azure/costmanagement/export#az_costmanagement_export_show) :
 
    ```azurecli
    az costmanagement export show --name DemoExport \
       --scope "subscriptions/00000000-0000-0000-0000-000000000000"
    ```
 
-1. Pour mettre une exportation à jour, exécutez la commande [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update) :
+1. Pour mettre une exportation à jour, exécutez la commande [az costmanagement export update](/cli/azure/costmanagement/export#az_costmanagement_export_update) :
 
    ```azurecli
    az costmanagement export update --name DemoExport
@@ -141,13 +146,15 @@ Commencez par préparer votre environnement pour Azure CLI :
 >[!NOTE]
 >Au départ, l'exportation peut prendre 12 à 24 heures. Mais l’affichage des données dans les fichiers exportés peut prendre plus de temps.
 
-Vous pouvez supprimer une exportation à l’aide de la commande [az costmanagement export delete](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_delete) :
+Vous pouvez supprimer une exportation à l’aide de la commande [az costmanagement export delete](/cli/azure/costmanagement/export#az_costmanagement_export_delete) :
 
 ```azurecli
 az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Quand vous créez une exportation programmatiquement, vous devez inscrire manuellement le fournisseur de ressources `Microsoft.CostManagementExports` auprès de l’abonnement où se trouve le compte de stockage. L’inscription s’effectue automatiquement quand vous créez l’exportation à l’aide du portail Azure. Pour plus d’informations sur l’inscription d’un fournisseur de ressources, consultez [Inscrire un fournisseur de ressources](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 Commencez par préparer votre environnement pour Azure PowerShell :
 

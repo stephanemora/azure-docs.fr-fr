@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 04/20/2021
 ms.author: banders
-ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: edc1a80687f768723a3a218ecaa1f6459cd484ed
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683715"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763556"
 ---
 # <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Obtenir l’utilisation et les coûts de réservation Contrat Entreprise Contrat client Microsoft
 
@@ -95,7 +95,6 @@ Dans le portail Azure, accédez à [Gestion des coûts + facturation](https://po
 ![Exemple montrant où télécharger le fichier CSV des données d’utilisation dans le portail Azure](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. Dans **Télécharger l’utilisation + les frais**, sous **Détails d’utilisation version 2**, sélectionnez **Tous les frais (utilisation et achats)** puis cliquez sur Télécharger. Répétez la procédure pour **Frais amortis (utilisation et achats)** .
 
-Les fichiers CSV que vous téléchargez contiennent les coûts réels et les coûts amortis.
 
 ## <a name="common-cost-and-usage-tasks"></a>Tâches courantes liées aux coûts et à l’utilisation
 
@@ -119,7 +118,7 @@ Vous pouvez rétrofacturer l’utilisation d’une réservation à d’autres or
 
 - Ressources (par exemple, une machine virtuelle)
 - Resource group
-- Balises
+- Étiquettes
 - Abonnement
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Obtenir le taux combiné pour la rétrofacturation
@@ -158,8 +157,7 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 
 - [Qu’est-ce qu’une réservation Azure ?](save-compute-costs-reservations.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
-- [Gérer les réservations Azure](manage-reserved-vm-instance.md)
 - [Comprendre comment la remise de réservation est appliquée](../manage/understand-vm-reservation-charges.md)
-- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](understand-reserved-instance-usage.md)
 - [Coûts des logiciels Windows non inclus dans les réservations](reserved-instance-windows-software-costs.md)
+- [Utiliser le principal de service pour obtenir les données de coût](../manage/assign-roles-azure-service-principals.md)
+- [Utiliser les exportations de gestion des coûts](../costs/tutorial-export-acm-data.md)

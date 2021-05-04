@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 7d2a21a30cefbc6e83e48c29d81191323387b8f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a328115c606cb4bface2d3dc7b8f0c502d063e9f
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101705541"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987431"
 ---
 # <a name="quickstart-create-and-provision-an-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Démarrage rapide : Créer et provisionner un appareil X.509 auprès du service IoT Hub Device Provisioning à l’aide du SDK d’appareil C#
 
@@ -45,7 +45,7 @@ Cet article présente les inscriptions individuelles.
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
-1. Vérifiez que le [SDK .NET Core 3.0.0 ou ultérieur](https://www.microsoft.com/net/download/windows) est installé sur votre machine. Vous pouvez exécuter la commande suivante pour vérifier votre version.
+1. Vérifiez que le [kit SDK .NET Core 3.1 ou version ultérieure](https://dotnet.microsoft.com/download) est installé sur votre machine. Vous pouvez exécuter la commande suivante pour vérifier votre version.
 
     ```bash
     dotnet --info
@@ -169,7 +169,6 @@ Vous allez utiliser l’exemple de code de [X509Sample](https://github.com/Azure
 Si vous envisagez de manipuler et d’explorer davantage l’exemple de client d’appareil, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, effectuez les étapes suivantes pour supprimer toutes les ressources créées par ce guide.
 
 1. Fermez la fenêtre de sortie de l’exemple de client d’appareil sur votre machine.
-1. Fermez la fenêtre du simulateur TPM sur votre machine.
 1. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources**, puis votre service Device Provisioning. Dans la partie supérieure du panneau **Vue d’ensemble**, appuyez sur **Supprimer** en haut du volet.  
 1. À partir du menu de gauche, dans le portail Azure, sélectionnez **Toutes les ressources**, puis votre hub IoT. Dans la partie supérieure du panneau **Vue d’ensemble**, appuyez sur **Supprimer** en haut du volet.  
 

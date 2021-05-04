@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a3f586f853201534bbaa613e8538d55485ffe147
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e5d431d4594a89d4bfcd3b4f09c57b5cdd61b547
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063115"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929486"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air-ota"></a>Mettre à jour votre DK Azure Percept en OTA
 
@@ -30,7 +30,7 @@ Suivez ce guide pour découvrir comment mettre à jour le système d’exploitat
 > [!NOTE]
 > Si vous avez déjà importé la mise à jour, vous pouvez passer directement à **Créer un groupe de mises à jour d’appareil**.
 
-1. [Téléchargez le fichier manifeste (.json) et le fichier de mise à jour (.swu) appropriés pour votre appareil Azure Percept](https://go.microsoft.com/fwlink/?linkid=2155625).
+1. [Téléchargez le fichier manifeste (.json)](https://go.microsoft.com/fwlink/?linkid=2155625) et le [fichier de mise à jour (.swu)](https://go.microsoft.com/fwlink/?linkid=2161538) pour votre appareil Azure Percept.
 
 1. Accédez au hub IoT Azure que vous utilisez pour votre appareil Azure Percept. Dans le panneau de menu gauche, sélectionnez **Mises à jour de l’appareil** sous **Gestion automatique des appareils**.
 

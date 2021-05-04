@@ -1,52 +1,59 @@
 ---
 title: Utiliser des tables externes avec Synapse SQL
-description: Lecture ou écriture de fichiers de données avec Synapse SQL
+description: Lecture ou écriture de fichiers de données avec des tables externes dans Synapse SQL
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/07/2020
+ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0986a1d6a75f0d464eb405841af821c606c68200
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 3a02938d2c294d80b2c3f4a98aea905a4d431199
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565319"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070188"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
-Une table externe pointe vers des données situées dans Hadoop, Stockage Blob Azure ou Azure Data Lake Storage. Les tables externes sont utilisées pour lire des données à partir de fichiers ou écrire des données dans des fichiers dans Stockage Azure. Avec Synapse SQL, vous pouvez utiliser des tables externes pour lire et écrire des données dans le pool SQL dédié ou le pool SQL serverless.
+Une table externe pointe vers des données situées dans Hadoop, Stockage Blob Azure ou Azure Data Lake Storage. Les tables externes sont utilisées pour lire des données à partir de fichiers ou écrire des données dans des fichiers dans Stockage Azure. Avec Synapse SQL, vous pouvez utiliser des tables externes pour lire des données externes en utilisant le pool SQL dédié ou le pool SQL serverless.
+
+Selon le type de la source de données externe, vous pouvez utiliser deux types de tables externes :
+- Les tables externes Hadoop que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV, Parquet et ORC. Les tables externes Hadoop sont disponibles dans les pools Synapse SQL dédiés, mais pas dans les pools SQL serverless.
+- Les tables externes natives que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV ou Parquet. Les tables externes natives sont disponibles dans les pools Synapse SQL serverless, mais pas dans les pools Synapse SQL dédiés.
+
+Les principales différences entre les tables externes Hadoop et natives sont présentées dans le tableau suivant :
+
+| Type de table externe | Hadoop | Natif |
+| --- | --- | --- |
+| Pool SQL dédié | Disponible | Non disponible |
+| Pool SQL serverless | Non disponible | Disponible |
+| Formats pris en charge | Délimité/CSV, Parquet, ORC, Hive RC et RC | Délimité/CSV et Parquet |
+| Élimination des partitions de dossier | Non | Uniquement pour les tables partitionnées synchronisées à partir de pools Apache Spark dans l’espace de travail Synapse |
+| Format personnalisé pour l’emplacement | Non | Oui, avec des caractères génériques comme `/year=*/month=*/day=*` |
+| Analyse récursive des dossiers | Toujours | Uniquement quand `/**` est spécifié dans le chemin |
+| Authentification du stockage | Clé d’accès de stockage, authentification directe AAD, identité managée, identité Azure AD d’application personnalisée | Signature d’accès partagé (SAS), authentification directe AAD, identité managée |
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tables externes dans un pool SQL dédiés et un pool SQL serverless
 
-### <a name="dedicated-sql-pool"></a>[Pool SQL dédié](#tab/sql-pool) 
-
-Dans un pool SQL dédié, vous pouvez utiliser une table externe pour :
+Vous pouvez utiliser des tables externes pour :
 
 - Interroger Stockage Blob Azure et Azure Data Lake Gen2 avec des instructions Transact-SQL.
-- Importer et stocker des données provenant de Stockage Blob Azure et Azure Data Lake Storage dans un pool SQL dédié.
+- Stocker les résultats de requête dans des fichiers dans le Stockage Blob Azure ou Azure Data Lake Storage à l’aide de [CETAS](develop-tables-cetas.md).
+- Importer des données à partir du Stockage Blob Azure et d’Azure Data Lake Storage et les stocker dans un pool SQL dédié (tables Hadoop uniquement dans un pool dédié).
 
-Utilisée conjointement avec l’instruction [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), la sélection à partir d’une table externe permet d’importer des données dans une table du pool SQL. Outre [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), les tables externes sont utiles pour le chargement de données. 
+> [!NOTE]
+> Utilisée conjointement avec l’instruction [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), la sélection à partir d’une table externe permet d’importer des données dans une table du pool SQL **dédié**. Outre [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), les tables externes sont utiles pour le chargement de données. 
+> 
+> Pour obtenir un tutoriel sur le chargement, consultez [Utiliser PolyBase pour charger des données du Stockage Blob Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
-Pour obtenir un tutoriel sur le chargement, consultez [Utiliser PolyBase pour charger des données du Stockage Blob Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
-
-### <a name="serverless-sql-pool"></a>[Pool SQL serverless](#tab/sql-on-demand)
-
-Dans un pool SQL serverless, vous pouvez utiliser une table externe pour :
-
-- Interroger des données dans Stockage Blob Azure ou Azure Data Lake Storage avec des instructions Transact-SQL.
-- Stocker les résultats de requête de pool SQL serverless dans des fichiers dans Stockage Blob Azure ou Azure Data Lake Storage en utilisant [CETAS](develop-tables-cetas.md).
-
-Vous pouvez créer des tables externes en utilisant un pool SQL serverless via les étapes suivantes :
+Vous pouvez créer des tables externes dans des pools Synapse SQL en effectuant les étapes suivantes :
 
 1. CREATE EXTERNAL DATA SOURCE
 2. CREATE EXTERNAL FILE FORMAT
 3. CREATE EXTERNAL TABLE
-
----
 
 ### <a name="security"></a>Sécurité
 
@@ -55,16 +62,15 @@ La table externe accède au stockage Azure sous-jacent à l’aide des informati
 - La source de données sans informations d’identification permet aux tables externes d’accéder aux fichiers en disponibilité publique sur le stockage Azure.
 - La source de données peut comporter des informations d’identification permettant aux tables externes d’accéder uniquement aux fichiers sur le stockage Azure à l’aide d’un jeton SAP ou de l’identité gérée de l’espace de travail. Pour voir des exemples, consultez l’article [Développement du contrôle d’accès au stockage des fichiers de stockage](develop-storage-files-storage-access-control.md#examples).
 
-> [!IMPORTANT]
-> Dans un pool SQL dédié, une source de données créée sans informations d’identification permet à l’utilisateur Azure AD d’accéder aux fichiers de stockage en utilisant son identité Azure AD. Dans un pool SQL serverless, vous devez créer une source de données avec des informations d’identification limitées à la base de données ayant la propriété `IDENTITY='User Identity'` (des exemples sont disponibles [ici](develop-storage-files-storage-access-control.md#examples)).
-
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 
 Les sources de données externes sont utilisées pour se connecter aux comptes de stockage. La documentation complète est présentée [ici](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="syntax-for-create-external-data-source"></a>Syntaxe de CREATE EXTERNAL DATA SOURCE
 
-#### <a name="dedicated-sql-pool"></a>[Pool SQL dédié](#tab/sql-pool)
+#### <a name="hadoop"></a>[Hadoop](#tab/hadoop)
+
+Les sources de données externes avec `TYPE=HADOOP` sont disponibles uniquement dans les pools SQL dédiés.
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -76,7 +82,9 @@ WITH
 [;]
 ```
 
-#### <a name="serverless-sql-pool"></a>[Pool SQL serverless](#tab/sql-on-demand)
+#### <a name="native"></a>[Natif](#tab/native)
+
+Les sources de données externes sans `TYPE=HADOOP` sont disponibles uniquement dans les pools SQL serverless.
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -108,22 +116,25 @@ LOCATION = `'<prefix>://<path>'`   - Fournit le protocole de connectivité et le
 Le préfixe `https:` vous permet d’utiliser un sous-dossier dans le chemin.
 
 #### <a name="credential"></a>Informations d'identification
-CREDENTIAL = `<database scoped credential>` est une information d’identification facultative qui sera utilisée pour l’authentification sur le stockage Azure. Une source de données externe dépourvue d’informations d’identification peut accéder au compte de stockage public. 
-
-Les sources de données externes sans informations d’identification dans un pool SQL dédié vont utiliser l’identité Azure AD de l’appelant pour accéder aux fichiers sur le stockage. Une source de données externe pour un pool SQL serverless avec des informations d’identification `IDENTITY='User Identity'` utilise l’identité Azure AD de l’appelant pour accéder aux fichiers.
+CREDENTIAL = `<database scoped credential>` est une information d’identification facultative qui sera utilisée pour l’authentification sur le stockage Azure. Une source de données externe sans informations d’identification peut accéder à un compte de stockage public ou utiliser l’identité Azure AD de l’appelant pour accéder aux fichiers sur le stockage. 
 - Dans un pool SQL dédié, les informations d’identification limitées à la base de données peuvent spécifier une identité d’application personnalisée, une identité managée d’espace de travail ou une clé SAS. 
-- Dans un pool SQL serverless, les informations d’identification limitées à la base de données peuvent spécifier l’identité Azure AD de l’appelant, une identité managée d’espace de travail ou une clé SAS. 
+- Dans un pool SQL serverless, les informations d’identification limitées à la base de données peuvent spécifier une identité managée de l’espace de travail ou une clé SAS. 
 
 #### <a name="type"></a>TYPE
-TYPE = `HADOOP` est l’option obligatoire dans un pool SQL dédié et spécifie que la technologie PolyBase est utilisée pour accéder aux fichiers sous-jacents. Ce paramètre ne peut pas être utilisé dans un pool SQL serverless qui utilise le lecteur natif intégré.
+TYPE = `HADOOP` est l’option qui spécifie que la technologie Java doit être utilisée pour l’accès aux fichiers sous-jacents. Ce paramètre ne peut pas être utilisé dans un pool SQL serverless qui utilise le lecteur natif intégré.
 
 ### <a name="example-for-create-external-data-source"></a>Exemple pour CREATE EXTERNAL DATA SOURCE
 
-#### <a name="dedicated-sql-pool"></a>[Pool SQL dédié](#tab/sql-pool)
+#### <a name="hadoop"></a>[Hadoop](#tab/hadoop)
 
-L’exemple suivant crée une source de données externe pour Azure Data Lake Gen2 pointant vers le jeu de données New York :
+L’exemple suivant crée une source de données externe Hadoop dans un pool SQL dédié pour Azure Data Lake Gen2 pointant vers le jeu de données New York :
 
 ```sql
+CREATE DATABASE SCOPED CREDENTIAL [ADLS_credential]
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+GO
+
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
@@ -133,9 +144,17 @@ WITH
   ) ;
 ```
 
-#### <a name="serverless-sql-pool"></a>[Pool SQL serverless](#tab/sql-on-demand)
+L’exemple suivant crée une source de données externe pour Azure Data Lake Gen2 pointant vers le jeu de données New York en disponibilité publique :
 
-L’exemple suivant crée une source de données externe pour Azure Data Lake Gen2, accessible à l’aide des informations d’identification SAP :
+```sql
+CREATE EXTERNAL DATA SOURCE YellowTaxi
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/',
+       TYPE = HADOOP)
+```
+
+#### <a name="native"></a>[Natif](#tab/native)
+
+L’exemple suivant crée une source de données externe dans un pool SQL serverless pour Azure Data Lake Gen2, accessible à l’aide des informations d’identification SAS :
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
@@ -165,38 +184,6 @@ En créant un format de fichier externe, vous spécifiez la disposition des donn
 
 ### <a name="syntax-for-create-external-file-format"></a>Syntaxe de CREATE EXTERNAL FILE FORMAT
 
-#### <a name="sql-pool"></a>[Pool SQL](#tab/sql-pool)
-
-```syntaxsql
--- Create an external file format for PARQUET files.  
-CREATE EXTERNAL FILE FORMAT file_format_name  
-WITH (  
-    FORMAT_TYPE = PARQUET  
-    [ , DATA_COMPRESSION = {  
-        'org.apache.hadoop.io.compress.SnappyCodec'  
-      | 'org.apache.hadoop.io.compress.GzipCodec'      }  
-    ]);  
-
---Create an external file format for DELIMITED TEXT files
-CREATE EXTERNAL FILE FORMAT file_format_name  
-WITH (  
-    FORMAT_TYPE = DELIMITEDTEXT  
-    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
-    [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
-    );  
-
-<format_options> ::=  
-{  
-    FIELD_TERMINATOR = field_terminator  
-    | STRING_DELIMITER = string_delimiter
-    | First_Row = integer
-    | USE_TYPE_DEFAULT = { TRUE | FALSE }
-    | Encoding = {'UTF8' | 'UTF16'}
-}
-```
-
-#### <a name="serverless-sql-pool"></a>[Pool SQL serverless](#tab/sql-on-demand)
-
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
@@ -225,9 +212,6 @@ WITH (
     | PARSER_VERSION = {'parser_version'}
 }
 ```
-
----
-
 
 ### <a name="arguments-for-create-external-file-format"></a>Arguments de CREATE EXTERNAL FILE FORMAT
 
@@ -281,7 +265,7 @@ Le type de format de fichier DELIMITEDTEXT prend en charge la méthode de compre
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 
-PARSER_VERSION = 'parser_version' : spécifie la version d’analyseur à utiliser lors de la lecture de fichiers. Pour plus d’informations, vérifiez l’argument PARSER_VERSION dans [Arguments OPENROWSET](develop-openrowset.md#arguments).
+PARSER_VERSION = 'parser_version' : spécifie la version d’analyseur à utiliser lors de la lecture de fichiers CSV. Les versions d’analyseur disponibles sont `1.0` et `2.0`. Cette option est disponible uniquement dans les pools SQL serverless.
 
 ### <a name="example-for-create-external-file-format"></a>Exemple pour CREATE EXTERNAL FILE FORMAT
 
@@ -321,7 +305,7 @@ column_name <data_type>
 
 *{ database_name.schema_name.table_name | schema_name.table_name | table_name }*
 
-Nom (composé d’une à trois parties) de la table à créer. Pour une table externe, un pool SQL serverless stocke seulement les métadonnées de la table. Aucune donnée réelle n’est déplacée ni stockée dans un pool SQL serverless.
+Nom (composé d’une à trois parties) de la table à créer. Pour une table externe, un pool Synapse SQL stocke seulement les métadonnées de la table. Aucune donnée n’est déplacée ni stockée dans une base de données Synapse SQL.
 
 <column_definition>, ...*n* ]
 
@@ -336,14 +320,11 @@ LOCATION = '*folder_or_filepath*'
 
 Spécifie le dossier, ou le chemin et le nom du fichier, où se trouvent les données dans Stockage Blob Azure. L’emplacement commence au dossier racine. Le dossier racine est l’emplacement de données qui est spécifié dans la source de données externe.
 
-Si vous spécifiez un dossier pour LOCATION, une requête de pool SQL serverless effectue une sélection dans la table externe et récupère les fichiers du dossier.
-
-> [!NOTE]
-> Contrairement à Hadoop et à PolyBase, un pool SQL serverless ne retourne pas de sous-dossiers, sauf si vous spécifiez /** à la fin du chemin. Tout comme Hadoop et PolyBase, il ne retourne pas de fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
-
-Dans cet exemple, si LOCATION='/webdata/', une requête de pool SQL serverless retourne des lignes de mydata.txt. Il ne retourne pas mydata2.txt et mydata3.txt, car ces fichiers se trouvent dans un sous-dossier.
-
 ![Données récursives pour les tables externes](./media/develop-tables-external-tables/folder-traversal.png)
+
+Contrairement aux tables externes Hadoop, les tables externes natives ne retournent pas de sous-dossiers, sauf si vous spécifiez /** à la fin du chemin. Dans cet exemple, si LOCATION='/webdata/', une requête de pool SQL serverless retourne des lignes de mydata.txt. Il ne retourne pas mydata2.txt et mydata3.txt, car ces fichiers se trouvent dans un sous-dossier. Les tables Hadoop retournent tous les fichiers de tous les sous-dossiers.
+ 
+Les tables externes Hadoop et natives ignorent les fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
 
 DATA_SOURCE = *external_data_source_name* - Spécifie le nom de la source de données externe qui contient l’emplacement des données externes. Pour créer une source de données externe, utilisez [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
@@ -381,13 +362,13 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Créer et interroger des tables externes à partir d’un fichier dans Azure Data Lake
 
-Grâce aux fonctionnalités d’exploration de Data Lake, vous pouvez désormais créer et interroger une table externe en utilisant un pool SQL dédié ou un pool SQL serverless avec un simple clic droit sur le fichier. Le clic simple qui permet de créer des tables externes à partir d’un compte de stockage ADLS Gen2 est possible uniquement pour les fichiers Parquet. 
+Avec les fonctionnalités d’exploration de Data Lake offertes par Synapse Studio, vous pouvez désormais créer et interroger une table externe à l’aide d’un pool Synapse SQL avec un simple clic droit sur le fichier. Le clic simple qui permet de créer des tables externes à partir d’un compte de stockage ADLS Gen2 est possible uniquement pour les fichiers Parquet. 
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Vous devez avoir accès à l’espace de travail avec au moins le rôle d’accès ARM Contributeur aux données Blob du stockage au compte ADLS Gen2.
+- Vous devez avoir accès à l’espace de travail avec au moins le rôle d’accès `Storage Blob Data Contributor` au compte ADLS Gen2.
 
-- Vous devez disposer au moins d’[autorisations de créer](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true) et d’interroger des tables externes sur le pool SQL ou SQL à la demande.
+- Vous devez disposer au moins d’[autorisations de créer](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true) et d’interroger des tables externes sur le pool Synapse SQL (dédié ou serverless).
 
 Dans le panneau Données, sélectionnez le fichier à partir duquel vous souhaitez créer la table externe :
 > [!div class="mx-imgBorder"]

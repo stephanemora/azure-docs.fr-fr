@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 04/16/2021
-ms.openlocfilehash: 47fe7b42b68ae42f74a74e5fc69c8d1041d3bf8d
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.date: 04/23/2021
+ms.openlocfilehash: 2ed498c528e3e0a86644588c4c7b26b0dd057128
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107727116"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946238"
 ---
 # <a name="how-to-create-a-virtual-machine-using-your-own-image"></a>Création d’une machine virtuelle à l’aide de votre propre image
 
@@ -54,7 +54,9 @@ Toutes les images dans Azure Marketplace doivent être réutilisables de façon 
 
 Il existe trois façons d’intégrer votre image dans Azure :
 
-1. Chargez le disque dur virtuel dans Shared Image Gallery (SIG).
+1. Téléchargez le disque dur virtuel :
+    1. vers une galerie d’images partagées
+    1. en tant qu’image partagée dans la galerie d’images partagées
 1. Chargez le disque dur virtuel dans un compte de stockage Azure.
 1. Extrayez le disque dur virtuel d’une image managée (si vous utilisez les services de création d’images).
 

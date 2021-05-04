@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/22/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: ac0f9e6e5e1a1988386cc85c2d7576719acbd6e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 68672ccc93871a3baa26da81a25a31d1850ef599
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590957"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897070"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
@@ -55,6 +55,7 @@ La réplication de volume Azure NetApp Files est prise en charge entre différen
 *   USA Est 2 et USA Est 2
 *   Australie Est et Asie Sud-Est 
 *   Allemagne Centre-Ouest et Royaume-Uni Sud
+*   Allemagne Centre-Ouest et Europe Ouest
 
 ## <a name="service-level-objectives"></a>Objectifs de niveau de service
 

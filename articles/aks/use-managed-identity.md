@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les identités managées dans Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 59da03985f0bc9248fdb498d7b0222158029e0d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7eb0ab6247e8afc27f938b8b4a25d1fb1ee723f4
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777668"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876991"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utiliser les identités managées dans Azure Kubernetes Service
 
@@ -209,10 +209,144 @@ Un cluster créé à l’aide de vos propres identités managées contient les i
  },
 ```
 
+## <a name="bring-your-own-kubelet-mi-preview"></a>Apportez votre propre MI kubelet (préversion)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Une identité Kubelet permet d’accorder l’accès à l’identité existante avant la création du cluster. Cette fonctionnalité permet des scénarios tels que la connexion à ACR avec une identité gérée pré-créée.
+
+### <a name="prerequisites"></a>Prérequis
+
+- Vous devez avoir installé Azure CLI 2.21.1 ou une version ultérieure.
+- Vous devez avoir installé aks-preview, version 0.5.10 ou une version ultérieure.
+
+### <a name="limitations"></a>Limites
+
+- Fonctionne uniquement avec un cluster managé affecté par l’utilisateur.
+- Azure Government n’est pas pris en charge.
+- Azure China 21Vianet n’est pas pris en charge.
+
+Tout d’abord, enregistrez l’indicateur de fonctionnalité pour l’identité Kubelet :
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
+```
+
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomKubeletIdentityPreview')].{Name:name,State:properties.state}"
+```
+
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### <a name="create-or-obtain-managed-identities"></a>Créer ou obtenir des identités managées
+
+Si vous n’avez pas encore d’identité managée par plan de contrôle, vous devez en créer une. L’exemple suivant utilise la commande [az identity create][az-identity-create] :
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+
+Le résultat doit avoir l’aspect suivant :
+
+```output
+{                                  
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type&quot;: &quot;Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+Si vous n’avez pas encore d’identité managée par kubelet, vous devez en créer une. L’exemple suivant utilise la commande [az identity create][az-identity-create] :
+
+```azurecli-interactive
+az identity create --name myKubeletIdentity --resource-group myResourceGroup
+```
+
+Le résultat doit avoir l’aspect suivant :
+
+```output
+{
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+  "location": "westus2",
+  "name": "myKubeletIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type&quot;: &quot;Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+Si votre identité managée existante fait partie de votre abonnement, vous pouvez utiliser la commande [az identity list][az-identity-list] pour l’interroger :
+
+```azurecli-interactive
+az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
+```
+
+### <a name="create-a-cluster-using-kubelet-identity"></a>Créer un cluster à l’aide de l’identité kubelet
+
+Vous pouvez maintenant utiliser la commande suivante pour créer votre cluster avec vos identités existantes. Fournissez l’ID d’identité du plan de contrôle via `assign-identity` et l’identité managée kubelet via `assign-kublet-identity` :
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 \
+    --enable-managed-identity \
+    --assign-identity <identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id> \
+```
+
+La réussite de la création d’un cluster à l’aide de votre propre identité managée kubelet contient la sortie suivante :
+
+```output
+  "identity": {
+    "principalId": null,
+    "tenantId": null,
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+        "clientId": "<client-id>",
+        "principalId&quot;: &quot;<principal-id>"
+      }
+    }
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "<client-id>",
+      "objectId": "<object-id>",
+      "resourceId&quot;: &quot;/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity"
+    }
+  },
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez des [modèles ARM (Azure Resource Manager)][aks-arm-template] pour créer des clusters avec gestion des identités.
+* Utilisez des [modèles Azure Resource Manager][aks-arm-template] pour créer des clusters avec gestion des identités.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+
+<!-- LINKS - internal -->
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-identity-list]: /cli/azure/identity#az_identity_list
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

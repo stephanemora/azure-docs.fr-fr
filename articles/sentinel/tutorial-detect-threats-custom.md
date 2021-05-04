@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 70b56e70ec0e6f511142c48cc89720c054807a5c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 180a5edd00b6085ffd91568471ca763f5e4e9711
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105042796"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814853"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutoriel : Créer des règles d’analytique personnalisées pour détecter des menaces
 
@@ -75,7 +75,7 @@ Sous l'onglet **Définir la logique de la règle**, vous pouvez soit écrire une
 
     > [!NOTE]
     > #### <a name="rule-query-best-practices"></a>Meilleures pratiques en matière de requête de règle
-    > - La requête doit comporter 1 à 10 000 caractères, et ne doit pas contenir « `search *` » ou « `union *` ».
+    > - La requête doit comporter 1 à 10 000 caractères, et ne doit pas contenir « `search *` » ou « `union *` ». Vous pouvez utiliser des [fonctions définies par l’utilisateur](/azure/data-explorer/kusto/query/functions/user-defined-functions) pour surmonter la limite de longueur de requête.
     >
     > - L’utilisation de fonctions ADX pour créer des requêtes Azure Data Explorer à l’intérieur de la fenêtre de requête Log Analytics **n’est pas prise en charge**.
     >

@@ -1,19 +1,19 @@
 ---
-title: 'Démarrage rapide : Ajouter la participation à une réunion à une application iOS à l’aide d’Azure Communication Services'
+title: Démarrage rapide – Ajouter la participation à une réunion Microsoft Teams à une application iOS avec Azure Communication Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser la bibliothèque Azure Communication Services Teams Embed pour iOS.
 author: palatter
 ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 4d28864d41d6540afc87126daf589ed2929f891d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 222ae284f77950c729a6a790e2ad29453a9ce34a
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803035"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903154"
 ---
-Dans ce démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams à l’aide de la bibliothèque Azure Communication Services Teams Embed pour iOS.
+Dans ce guide de démarrage rapide, vous allez découvrir comment rejoindre une réunion Microsoft Teams en utilisant la bibliothèque Azure Communication Services Teams Embed pour iOS.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,7 +46,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'TeamsEmbedGettingStarted' do
-    pod 'AzureCommunication', '~> 1.0.0-beta.8'
+    pod 'AzureCommunication', '~> 1.0.0-beta.11'
 end
 
 azure_libs = [
@@ -76,10 +76,6 @@ Pour accéder au matériel de l’appareil, mettez à jour la liste des proprié
 Cliquez avec le bouton droit sur l’entrée `Info.plist` de l’arborescence du projet, puis sélectionnez **Open As** > **Source Code**. Ajoutez les lignes suivantes dans la section `<dict>` tout en haut, puis enregistrez le fichier.
 
 ```xml
-<key>NSBluetoothAlwaysUsageDescription</key>
-<string></string>
-<key>NSBluetoothPeripheralUsageDescription</key>
-<string></string>
 <key>NSCameraUsageDescription</key>
 <string></string>
 <key>NSContactsUsageDescription</key>
@@ -90,10 +86,10 @@ Cliquez avec le bouton droit sur l’entrée `Info.plist` de l’arborescence du
 
 ### <a name="add-the-teams-embed-framework"></a>Ajouter le framework Teams Embed
 
-1. Téléchargez le framework.
+1. Téléchargez le [`MicrosoftTeamsSDK`package iOS](https://github.com/Azure/communication-teams-embed/releases).
 2. Créez un dossier `Frameworks` à la racine du projet. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
-3. Copiez les frameworks `TeamsAppSDK.framework` et `MeetingUIClient.framework` téléchargés dans ce dossier.
-4. Ajoutez `TeamsAppSDK.framework` et `MeetingUIClient.framework` à la cible de projet sous l’onglet général. Utilisez `Add Other` -> `Add Files...` pour accéder aux fichiers de framework et les ajouter.
+3. Copiez les frameworks `TeamsAppSDK.framework` et `MeetingUIClient.framework` téléchargés et d’autres frameworks fournis dans le groupe de versions dans ce dossier.
+4. Ajoutez ces frameworks à la cible de projet sous l’onglet général. Utilisez `Add Other` -> `Add Files...` pour accéder aux fichiers de framework et les ajouter.
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Capture d’écran montrant les frameworks ajoutés dans Xcode.":::
 
@@ -103,33 +99,10 @@ Cliquez avec le bouton droit sur l’entrée `Info.plist` de l’arborescence du
 
 ### <a name="turn-off-bitcode"></a>Désactiver Bitcode
 
-Définissez l’option `Enable Bitcode` sur `No` dans les paramètres de génération du projet. Pour trouver le paramètre, vous devez modifier le filtre `basic` sur `all`. Vous pouvez également utiliser la barre de recherche située à droite.
+Définissez l’option `Enable Bitcode` sur `No` dans les paramètres `Build Settings` du projet. Pour trouver ce paramètre, vous devez modifier le filtre en remplaçant `Basic` par `All`. Vous pouvez également utiliser la barre de recherche située à droite.
 
 :::image type="content" source="../media/ios/xcode-bitcode-option.png" alt-text="Capture d’écran montrant l’option BitCode dans Xcode.":::
 
-### <a name="add-framework-signing-script"></a>Ajouter un script de signature de framework
-
-Sélectionnez la cible de votre application, puis choisissez l'onglet `Build Phases`. Cliquez ensuite sur `+`, puis sur `New Run Script Phase`. Vérifiez que cette nouvelle phase intervient après les phases `Embed Frameworks`.
-
-
-
-:::image type="content" source="../media/ios/xcode-build-script.png" alt-text="Capture d’écran montrant l’ajout du script de build dans Xcode.":::
-
-```bash
-#!/bin/sh
-if [ -d "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks ]; then
-    pushd "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks
-    for EACH in *.framework; do
-        echo "-- signing ${EACH}"
-        /usr/bin/codesign --force --deep --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --entitlements "${TARGET_TEMP_DIR}/${PRODUCT_NAME}.app.xcent" --timestamp=none $EACH
-        echo "-- moving ${EACH}"
-        mv -nv ${EACH} ../../
-    done
-    rm -rf "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks
-    popd
-    echo "BUILD DIR ${TARGET_BUILD_DIR}"
-fi
-```
 
 ### <a name="turn-on-voice-over-ip-background-mode"></a>Activez le mode en arrière-plan Voix sur IP.
 
@@ -218,18 +191,23 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingUIClient | L’élément MeetingUIClient correspond au point d’entrée principal de la bibliothèque Teams Embed. |
+| MeetingUIClientMeetingJoinOptions | Les éléments MeetingUIClientMeetingJoinOptions sont utilisés pour les options configurables telles que le nom d’affichage. |
+| MeetingUIClientGroupCallJoinOptions | Les éléments MeetingUIClientMeetingJoinOptions sont utilisés pour les options configurables telles que le nom d’affichage. |
+| MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator est utilisé pour définir l’URL de réunion pour rejoindre une réunion. |
+| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator est utilisé pour définir l’ID de groupe à rejoindre. |
+| MeetingUIClientCallState | L’élément MeetingUIClientCallState est utilisé pour signaler les changements d’état d’appel. Les options disponibles sont les suivantes : `connecting`, `waitingInLobby`, `connected` et `ended`. |
 | MeetingUIClientDelegate | L’élément MeetingUIClientDelegate est utilisé pour recevoir des événements, tels que des modifications d’état d’appel. |
-| MeetingJoinOptions | Les éléments MeetingJoinOptions sont utilisés pour les options configurables telles que le nom d’affichage. | 
-| CallState | L’élément CallState est utilisé pour signaler les modifications d’état d’appel. Les options sont les suivantes : connexion, waitingInLobby, connecté et terminé. |
+| MeetingUIClientIdentityProviderDelegate | L’élément MeetingUIClientIdentityProviderDelegate est utilisé pour mapper les détails d’utilisateur sur les utilisateurs d’une réunion. |
+| MeetingUIClientUserEventDelegate | L’élément MeetingUIClientUserEventDelegate fournit des informations sur les actions de l’utilisateur dans l’interface utilisateur. |
 
 ## <a name="create-and-authenticate-the-client"></a>Créer et authentifier le client
 
-Initialisez une instance de `MeetingUIClient` avec un jeton d’accès utilisateur qui nous permettra de rejoindre des réunions. Ajoutez le code suivant au rappel `viewDidLoad` dans **ViewController.swift** :
+Initialisez une instance de `MeetingUIClient` avec un jeton d’accès utilisateur, qui nous permettra de rejoindre des réunions. Ajoutez le code suivant au rappel `viewDidLoad` dans **ViewController.swift** :
 
 ```swift
 do {
     let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
-    let credential = try CommunicationTokenCredential(with: communicationTokenRefreshOptions)
+    let credential = try CommunicationTokenCredential(withOptions: communicationTokenRefreshOptions)
     meetingUIClient = MeetingUIClient(with: credential)
 }
 catch {
@@ -244,7 +222,7 @@ Remplacez `<USER_ACCESS_TOKEN>` par un jeton d’accès utilisateur valide pour 
 Créez une méthode `fetchTokenAsync`. Ajoutez ensuite votre logique `fetchToken` pour obtenir le jeton utilisateur.
 
 ```swift
-private func fetchTokenAsync(completionHandler: @escaping TokenRefreshOnCompletion) {
+private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
     func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
         completionHandler("<USER_ACCESS_TOKEN>")
     }
@@ -258,13 +236,13 @@ Remplacez `<USER_ACCESS_TOKEN>` par un jeton d’accès utilisateur valide pour 
 
 ## <a name="join-a-meeting"></a>Rejoindre une réunion
 
-La méthode `joinMeeting` est définie en tant qu’action exécutée lors d’un appui sur le bouton *Rejoindre la réunion*. Mettez à jour l’implémentation pour rejoindre une réunion avec `MeetingUIClient` :
+La méthode `join` est définie en tant qu’action exécutée lors d’un appui sur le bouton *Rejoindre la réunion*. Mettez à jour l’implémentation pour rejoindre une réunion avec `MeetingUIClient` :
 
 ```swift
 private func joinMeeting() {
-    let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
-        
-    meetingUIClient?.join(meetingUrl: "<MEETING_URL>", meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
+    let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
+    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
         }
@@ -272,12 +250,12 @@ private func joinMeeting() {
 }
 ```
 
-Remplacez `<MEETING URL>` par un lien de réunion Teams.
+Remplacez `<MEETING URL>` par un lien de réunion Microsoft Teams.
 
-### <a name="get-a-teams-meeting-link"></a>Obtenir un lien de réunion Teams
+### <a name="get-a-microsoft-teams-meeting-link"></a>Obtenir un lien de réunion Microsoft Teams
 
-Un lien de réunion Teams peut être récupéré par le biais des API Graph. Cette procédure est détaillée dans la [documentation de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
-Le kit SDK Communication Services Calling accepte un lien de réunion Teams complet. Ce lien est retourné comme faisant partie de la ressource `onlineMeeting`, accessible sous la [propriété `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). Vous pouvez également récupérer les informations de réunion nécessaires à partir de l’URL **Rejoindre la réunion** dans l’invite de réunion Teams elle-même.
+Un lien de réunion Microsoft Teams peut être récupéré par le biais des API Graph. Cette procédure est détaillée dans la [documentation de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+Le kit SDK Appel Communication Services accepte un lien de réunion Microsoft Teams complet. Ce lien est retourné comme faisant partie de la ressource `onlineMeeting`, accessible sous la [propriété `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). Vous pouvez également récupérer les informations de réunion nécessaires à partir de l’URL **Rejoindre la réunion** dans l’invite de réunion Teams elle-même.
 
 ## <a name="run-the-code"></a>Exécuter le code
 
@@ -300,48 +278,6 @@ Le kit de développement logiciel (SDK) Microsoft Teams prend en charge plus de 
 2. Décompressez le fichier Localizations.zip inclus dans le package.
 3. Copiez les dossiers de localisation depuis le dossier décompressé en fonction de ce que votre application prend en charge à la racine du TeamsAppSDK.framework.
 
-## <a name="preparation-for-app-store-upload"></a>Préparation du téléchargement App Store
-
-Supprimez les architectures i386 et x86_64 des frameworks en cas d’archivage.
-
-Ajoutez les architectures `i386` et `x86_64` en supprimant le script des phases de build avant la phase de coconception du framework si vous souhaitez archiver votre application.
-
-Dans le navigateur de projet, sélectionnez votre projet. Dans le volet Éditeur, accédez à Phases de build → cliquez sur le signe + → Créer une phase de script d’exécution.
-
-```bash
-echo "Target architectures: $ARCHS"
-APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
-find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
-do
-FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
-FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
-echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
-echo $(lipo -info "$FRAMEWORK_EXECUTABLE_PATH")
-FRAMEWORK_TMP_PATH="$FRAMEWORK_EXECUTABLE_PATH-tmp"
-# remove simulator's archs if location is not simulator's directory
-case "${TARGET_BUILD_DIR}" in
-*"iphonesimulator")
-    echo "No need to remove archs"
-    ;;
-*)
-    if $(lipo "$FRAMEWORK_EXECUTABLE_PATH" -verify_arch "i386") ; then
-    lipo -output "$FRAMEWORK_TMP_PATH" -remove "i386" "$FRAMEWORK_EXECUTABLE_PATH"
-    echo "i386 architecture removed"
-    rm "$FRAMEWORK_EXECUTABLE_PATH"
-    mv "$FRAMEWORK_TMP_PATH" "$FRAMEWORK_EXECUTABLE_PATH"
-    fi
-    if $(lipo "$FRAMEWORK_EXECUTABLE_PATH" -verify_arch "x86_64") ; then
-    lipo -output "$FRAMEWORK_TMP_PATH" -remove "x86_64" "$FRAMEWORK_EXECUTABLE_PATH"
-    echo "x86_64 architecture removed"
-    rm "$FRAMEWORK_EXECUTABLE_PATH"
-    mv "$FRAMEWORK_TMP_PATH" "$FRAMEWORK_EXECUTABLE_PATH"
-    fi
-    ;;
-esac
-echo "Completed for executable $FRAMEWORK_EXECUTABLE_PATH"
-echo $(lipo -info "$FRAMEWORK_EXECUTABLE_PATH")
-done
-```
 
 ## <a name="sample-code"></a>Exemple de code
 

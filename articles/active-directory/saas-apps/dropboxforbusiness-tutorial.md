@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 41f6db8cf2454c224addac525e9d039954a95712
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c3ecb64b8fdb2ff1bf3569803b07d9f0646347
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601497"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138046"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutoriel : Intégrer Dropbox Business à Azure Active Directory
 
@@ -83,8 +83,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://www.dropbox.com/sso/<id>`
     
-     b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez la valeur : `Dropbox`
+     b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez la valeur : `Dropbox`
     
+    c. Dans le champ **URL de réponse**, entrez `https://www.dropbox.com/saml_login`.
     > [!NOTE]
     > Vous pouvez trouver l’**ID d’authentification SSO de la connexion Dropbox** sur le site Dropbox dans Interface d’administration > Paramètres > Authentification unique > URL de connexion (authentification unique).
 

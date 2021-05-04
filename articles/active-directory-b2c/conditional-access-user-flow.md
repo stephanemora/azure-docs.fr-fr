@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6325a890ea297a3aa2bdad76a1d95c10448a7b61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cc163f02873cf1827af515791e254261149fc4f9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033911"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124434"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Ajouter l’accès conditionnel à des flux d’utilisateurs dans Azure Active Directory B2C
 
@@ -161,9 +161,78 @@ Après avoir ajouté la stratégie d’accès conditionnel Azure AD, activez l�
 
 Plusieurs stratégies d’accès conditionnel peuvent s’appliquer à un utilisateur individuel à tout moment. Dans ce cas, la stratégie de contrôle d’accès la plus stricte est prioritaire. Par exemple, si une stratégie requiert l’authentification multifacteur (MFA), tandis que l’autre bloque l’accès, l’utilisateur est bloqué.
 
+## <a name="conditional-access-template-1-sign-in-risk-based-conditional-access"></a>Modèle d’accès conditionnel 1 : Accès conditionnel basé sur les risques de connexion
+
+La plupart des utilisateurs ont un comportement normal qui peut être suivi. Lorsqu’ils dévient de cette norme, il peut être risqué de les autoriser à se connecter uniquement. Vous pouvez bloquer ces utilisateurs ou simplement leur demander d’effectuer une authentification multifacteur pour prouver qu’ils sont vraiment ceux qu’ils prétendent être.
+
+Un risque de connexion reflète la probabilité qu’une requête d’authentification donnée soit rejetée par le propriétaire de l'identité. Les organisations disposant de licences P2 peuvent créer des stratégies d’accès conditionnel incorporant les [détections de risques de connexion d’Azure AD Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Veuillez noter les [limitations relatives aux détections de protection des identités pour B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
+
+Si un risque est détecté, les utilisateurs peuvent effectuer l’authentification multifacteur pour résoudre automatiquement et fermer l’événement de connexion risquée afin d’éviter toute perturbation inutile pour les administrateurs.
+
+Les organisations doivent choisir l’une des options suivantes pour activer une stratégie d’accès conditionnel basé sur les risques de connexion nécessitant l’authentification multifacteur (MFA) quand le risque de connexion est moyen OU élevé.
+
+### <a name="enable-with-conditional-access-policy"></a>Activer avec la stratégie d’accès conditionnel
+
+1. Connectez-vous au **portail Azure**.
+2. Accédez à **Azure AD B2C** > **Sécurité** > **Accès conditionnel**.
+3. Sélectionnez **Nouvelle stratégie**.
+4. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
+5. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**.
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
+   2. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
+   3. Sélectionnez **Terminé**.
+6. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud**.
+7. Dans **Conditions** > **Risque de connexion**, définissez **Configurer** sur **Oui**. Sous **Sélectionner le niveau de risque de connexion auquel cette stratégie s’applique** 
+   1. Sélectionnez **Haut** et **Moyen**.
+   2. Sélectionnez **Terminé**.
+8. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.
+9. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+10. Sélectionnez **Créer** pour créer votre stratégie.
+
+### <a name="enable-with-conditional-access-apis"></a>Activer avec les API d’accès conditionnel
+
+Pour créer une stratégie d’accès conditionnel basé sur les risques de connexion à l’aide des API d’accès conditionnel, reportez-vous à la documentation des [API d’accès conditionnel](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+
+Le modèle suivant peut être utilisé pour créer une stratégie d’accès conditionnel avec le nom complet « CA002: Require MFA for medium+ sign-in risk » en mode rapport seul.
+
+```json
+{
+    "displayName": "Template 1: Require MFA for medium+ sign-in risk",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+        "signInRiskLevels": [ "high" ,
+            "medium"
+        ],
+        "applications": {
+            "includeApplications": [
+                "All"
+            ]
+        },
+        "users": {
+            "includeUsers": [
+                "All"
+            ],
+            "excludeUsers": [
+                "f753047e-de31-4c74-a6fb-c38589047723"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator": "OR",
+        "builtInControls": [
+            "mfa"
+        ]
+    }
+}
+```
+
 ## <a name="enable-multi-factor-authentication-optional"></a>Activer l’authentification multifacteur (facultatif)
 
-Lorsque vous ajoutez un accès conditionnel à un flux d’utilisateur, envisagez l’utilisation de l'**authentification multifacteur (MFA)** . Les utilisateurs peuvent utiliser un code à usage unique par SMS ou voix, ou un mot de passe à usage unique par e-mail pour l’authentification multifacteur. Les paramètres MFA sont indépendants des paramètres d’accès conditionnel. Vous pouvez définir l’authentification MFA sur **Always On** afin qu’elle soit toujours requise quelle que soit la configuration de l’accès conditionnel, ou la définir sur **Conditionnelle** afin qu’elle soit requise uniquement lorsqu’une stratégie d’accès conditionnel active l’exige.
+Lorsque vous ajoutez un accès conditionnel à un flux d’utilisateur, envisagez l’utilisation de l'**authentification multifacteur (MFA)** . Les utilisateurs peuvent utiliser un code à usage unique par SMS ou voix, ou un mot de passe à usage unique par e-mail pour l’authentification multifacteur. Les paramètres MFA sont indépendants des paramètres d’accès conditionnel. Vous pouvez choisir parmi les options MFA suivantes :
+
+   - **Désactivé** – MFA n’est jamais appliquée pendant la connexion, et les utilisateurs ne sont pas invités à s’inscrire à MFA dans le cadre de l’inscription ou de la connexion.
+   - **Toujours activé** – MFA est toujours requise quelle que soit votre configuration de l’accès conditionnel. Si les utilisateurs ne sont pas déjà inscrits dans MFA, ils sont invités à s’inscrire lors de la connexion. Lors de l’inscription, les utilisateurs sont invités à s’inscrire dans MFA.
+   - **Conditionnel (préversion)** – MFA est requise uniquement quand une stratégie d’accès conditionnel active l’exige. Si le résultat de l’évaluation de l’accès conditionnel est un défi d’authentification MFA sans risque, l’authentification MFA est appliquée lors de la connexion. Si le résultat est un défi d’authentification MFA en raison d’un risque *et* que l’utilisateur n’est pas inscrit dans MFA, la connexion est bloquée. Lors de l’inscription, les utilisateurs ne sont pas invités à s’inscrire dans MFA.
 
 > [!IMPORTANT]
 > Si votre stratégie d’accès conditionnel accorde l’accès avec authentification multifacteur mais que l’utilisateur n’a pas inscrit de numéro de téléphone, il peut être bloqué.
@@ -184,9 +253,9 @@ Pour activer l’accès conditionnel pour un flux d’utilisateur, assurez-vous 
  
    ![Configurer l’authentification multifacteur et l’accès conditionnel dans les propriétés](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. Dans la section **Authentification multifacteur**, sélectionnez la **Méthode MFA** souhaitée puis, sous **Application MFA**, sélectionnez **Conditionnelle (recommandé)** .
+1. Dans la section **Authentification multifacteur**, sélectionnez le **Type de méthode** souhaité, puis, sous **Application MFA**, sélectionnez **Conditionnel (préversion)** .
  
-1. Dans la section **Accès conditionnel**, cochez la case **Appliquer les stratégies d’accès conditionnel**.
+1. Dans la section **Accès conditionnel (préversion)** , cochez la case **Appliquer les stratégies d’accès conditionnel**.
 
 1. Sélectionnez **Enregistrer**.
 

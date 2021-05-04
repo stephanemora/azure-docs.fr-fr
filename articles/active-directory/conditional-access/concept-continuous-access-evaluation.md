@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74009759bb9ca2a0516148fc1387b150b67452ab
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 374fa4db4441dc82f9d14eef9cdd7589a9a82fad
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387902"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126846"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -130,8 +130,12 @@ Dans l’exemple suivant, un administrateur d’accès conditionnel a configuré
 1. Connectez-vous au **portail Azure** en tant qu’administrateur de l’accès conditionnel, administrateur de la sécurité ou administrateur général.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Évaluation continue de l’accès**.
 1. Choisissez **Activer la préversion**.
+1. Sélectionnez **Enregistrer**.
 
 À partir de cette page, vous pouvez limiter les utilisateurs et les groupes bénéficiaire de la préversion.
+
+> [!WARNING]
+> Pour désactiver l’évaluation continue de l’accès, sélectionnez **Activer l’aperçu**, puis **Désactiver l’aperçu** et sélectionnez **Enregistrer**.
 
 ![Activation de la préversion de l’évaluation continue de l’accès dans le portail Azure](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 

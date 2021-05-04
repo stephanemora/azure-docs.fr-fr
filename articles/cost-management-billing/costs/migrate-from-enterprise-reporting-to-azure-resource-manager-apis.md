@@ -6,14 +6,14 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/19/2020
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 93dda4fc3a152b0a07a95ff327c9ea619f25787c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 24fbf52c8fd0338537862a54e15e8a249541a701
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355814"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102635788"
 ---
 # <a name="migrate-from-enterprise-reporting-to-azure-resource-manager-apis"></a>Migrer les API de rapports d’entreprise vers les API Azure Resource Manager
 
@@ -51,28 +51,7 @@ Après avoir créé un principal de service pour appeler par programme les API A
 
 ### <a name="azure-billing-hierarchy-access"></a>Accès à la hiérarchie de facturation Azure
 
-Pour affecter des autorisations de principal de service à vos étendues de compte de facturation d’entreprise, de services ou de compte d’inscription, utilisez les API [Autorisations de facturation](/rest/api/billing/2019-10-01-preview/billingpermissions), [Définitions de rôle de facturation](/rest/api/billing/2019-10-01-preview/billingroledefinitions) et [Attributions de rôle de facturation](/rest/api/billing/2019-10-01-preview/billingroleassignments).
-
-- Utilisez les API d’autorisations de facturation pour identifier les autorisations déjà détenues par un principal de service sur une étendue donnée, telle qu’un service ou un compte de facturation.
-- Utilisez les API de définitions de rôle de facturation pour répertorier les rôles disponibles qui peuvent être affectés à votre principal de service.
-  - Seuls les rôles d’administrateur EA en lecture seule et les rôles d’administrateur de service en lecture seule peuvent être attribués aux principaux de service pour l’instant.
-- Utilisez les API d’attributions de rôle de facturation pour affecter un rôle à votre principal de service.
-
-L’exemple suivant montre comment appeler l’API Attributions de rôles pour accorder à un principal de service un accès à votre compte de facturation. Nous vous conseillons d’utiliser [PostMan](https://postman.com) pour effectuer ces configurations d’autorisation ponctuelles.
-
-```json
-POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/createBillingRoleAssignment?api-version=2019-10-01-preview
-```
-
-#### <a name="request-body"></a>Corps de la requête
-
-```json
-{
-  "principalId": "00000000-0000-0000-0000-000000000000",
-  "billingRoleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.Billing/billingRoleDefinition/10000000-aaaa-bbbb-cccc-100000000000"
-}
-
-```
+Pour attribuer des autorisations de principal de service à vos étendues de compte de facturation d’entreprise, de services ou de compte d’inscription, consultez [Attribuer des rôles à des noms de principal du service Contrat Entreprise Azure](../manage/assign-roles-azure-service-principals.md).
 
 ### <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 

@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 03/08/2021
-ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77ed41299d9b4d8bc0ba3c6d2b998cb63258fd5c
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493031"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887879"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la Place de marché commerciale
 
@@ -197,10 +197,10 @@ Les prix individuels (qui, selon la façon dont ils ont été définis, peuvent 
 Pour plus d’informations sur la façon d’entrer les prix de certains types d’offres, reportez-vous aux articles suivants :
 
 - [Créer une offre Azure Application](create-new-azure-apps-offer.md)
-- [Créer une offre de conteneur Azure](./create-azure-container-offer.md)
+- [Créer une offre de conteneur Azure](azure-container-offer-setup.md)
 - [Créer une offre de machine virtuelle Azure](azure-vm-create.md)
 - [Créer une offre de services de conseil](./create-consulting-service-offer.md)
-- [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Créer une offre Dynamics 365 for Customer Engagement et Power Apps](dynamics-365-customer-engage-offer-setup.md)
 - [Créer une offre Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Créer une offre de module IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)

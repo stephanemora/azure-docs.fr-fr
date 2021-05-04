@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 7b7adde8a6e60042bec7695e4553d6470e548316
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: df89335880802680e6074c467227ca49a841d5ca
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055682"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016650"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -129,6 +129,7 @@ Pour plus d’informations sur les recommandations de sécurité des application
 1. Sélectionnez **Ajouter**.
 1. *Enregistrez la valeur du secret* en prévision d’une utilisation dans le code de votre application cliente. Cette valeur secrète ne sera *plus jamais affichée* lorsque vous aurez quitté cette page.
 
+Pour des raisons de sécurité, Microsoft limite la création de secrets client de plus de 24 mois et recommande vivement de définir une valeur inférieure à 12 mois.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

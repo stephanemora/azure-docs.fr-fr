@@ -7,12 +7,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: cca4612d3b22296209b4adfc6be97cbe95477aa3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 3f49c0acc99f82cc2986ca896d40b3998cf47c5c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786666"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834999"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
@@ -22,14 +22,13 @@ ms.locfileid: "104786666"
 - Prise en charge de la fourniture d’informations d’identification de plusieurs serveurs sur l’appliance Azure Migrate pour découvrir les applications installées (inventaire des logiciels), l’analyse des dépendances sans agent et la détection des instances et bases de données SQL Server dans votre environnement VMware. [En savoir plus](tutorial-discover-vmware.md#provide-server-credentials)
 - La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. [En savoir plus](concepts-azure-sql-assessment-calculation.md) Reportez-vous aux tutoriels sur la [découverte](tutorial-discover-vmware.md) et l’[évaluation](tutorial-assess-sql.md) pour démarrer.
 - La migration VMware sans agent prend désormais en charge la réplication simultanée de 500 machines virtuelles par vCenter.
-- Azure Migrate installe désormais automatiquement l’agent de machine virtuelle Azure sur les machines virtuelles VMware, tout en les migrant vers Azure à l’aide de la méthode sans agent de la migration VMware.
 
 ## <a name="update-january-2021"></a>Mise à jour (janvier 2021)
 -  Azure Migrate : L’outil Migration de serveur permet désormais de migrer des machines virtuelles VMware, des serveurs physiques et des machines virtuelles d’autres clouds vers des machines virtuelles Azure avec des disques chiffrés à l’aide du chiffrement côté serveur et avec des clés gérées par le client (CMK).
 
 ## <a name="update-december-2020"></a>Mise à jour (décembre 2020)
-- Azure Migrate installe désormais automatiquement l’agent de machine virtuelle Azure sur les machines virtuelles VMware, tout en les migrant vers Azure à l’aide de la méthode sans agent de la migration VMware.
-- La migration des machines virtuelles VMware vers des machines virtuelles Azure, avec des disques chiffrés à l’aide du chiffrement côté serveur (SSE) et avec des clés gérées par le client (CMK), en utilisant Azure Migrate : Migration de serveurs (réplication sans agent), est désormais disponible via le portail Azure.
+- Azure Migrate installe désormais automatiquement l’agent de machine virtuelle Azure sur les machines virtuelles VMware, tout en les migrant vers Azure à l’aide de la méthode sans agent de la migration VMware. (Windows Server 2008 R2 et versions ultérieures)
+- La migration des machines virtuelles VMware vers des machines virtuelles Azure, avec des disques chiffrés à l’aide du chiffrement côté serveur (SSE) et avec des clés gérées par le client (CMK), en utilisant Azure Migrate : Migration de serveurs (réplication sans agent), est désormais disponible sur le portail Azure.
 
 ## <a name="update-september-2020"></a>Mise à jour (septembre 2020)
 - La migration des serveurs vers Zones de disponibilité est désormais prise en charge.

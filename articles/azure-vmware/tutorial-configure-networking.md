@@ -2,17 +2,18 @@
 title: Tutoriel - Configurer le réseau pour votre cloud privé VMware dans Azure
 description: Découvrir comment créer et configurer le réseau nécessaire au déploiement de votre cloud privé dans Azure
 ms.topic: tutorial
-ms.date: 03/13/2021
-ms.openlocfilehash: c609d191191cd9de111e83fe62761b149405cccc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: contperf-fy21q4
+ms.date: 04/23/2021
+ms.openlocfilehash: 13f74c6120bd78127a2989218b3d535989bb7861
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103494352"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945673"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutoriel : Configurer le réseau pour votre cloud privé VMware dans Azure
 
-Un cloud privé Azure VMware Solution nécessite un réseau virtuel Azure. Comme Azure VMware Solution ne prend pas en charge votre vCenter local, des étapes supplémentaires sont requises pour l’intégration avec votre environnement local. La configuration d’un circuit ExpressRoute et d’une passerelle de réseau virtuel est également nécessaire.
+Un cloud privé Azure VMware Solution nécessite un réseau virtuel Azure. Comme Azure VMware Solution ne prend pas en charge votre vCenter local, des étapes supplémentaires sont nécessaires pour l’intégration à votre environnement local. La configuration d’un circuit ExpressRoute et d’une passerelle de réseau virtuel est également nécessaire.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -20,10 +21,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créez un réseau virtuel
 > * Créer une passerelle de réseau virtuel
 > * Connecter votre circuit ExpressRoute à la passerelle
-> * Localiser les URL pour vCenter et NSX Manager
 
-## <a name="prerequisites"></a>Prérequis 
-Un réseau virtuel que vous avez créé dans un [cloud privé Azure VMware Solution](tutorial-create-private-cloud.md). 
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
@@ -88,14 +86,6 @@ Un réseau virtuel que vous avez créé dans un [cloud privé Azure VMware Solut
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 
-## <a name="locate-the-urls-for-vcenter-and-nsx-manager"></a>Localiser les URL pour vCenter et NSX Manager
-
-Pour vous connecter à vCenter et à NSX Manager, vous avez besoin des URL du client web vCenter et du site NSX-T Manager. 
-
-Accédez à votre cloud privé Azure VMware Solution, puis, sous **Gérer**, sélectionnez **Identité** ; vous y trouverez les informations requises.
-
-:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Capture d’écran des informations d’identification de vCenter et NSX-T et des URL du client web." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
@@ -104,7 +94,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Créez un réseau virtuel
 > * Créer une passerelle de réseau virtuel
 > * Connecter votre circuit ExpressRoute à la passerelle
-> * Localiser les URL pour vCenter et NSX Manager
+
 
 Passez au didacticiel suivant pour apprendre à créer les segments de réseau NSX-T utilisés pour les machines virtuelles dans vCenter.
 

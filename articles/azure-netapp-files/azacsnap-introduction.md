@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 1cd22ad59da4961644c4e4d05150ba8565bf47a0
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869954"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929756"
 ---
-# <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Présentation de l’outil Azure Application Consistent Snapshot (préversion)
+# <a name="what-is-azure-application-consistent-snapshot-tool"></a>Qu’est-ce que l’outil Azure Application Consistent Snapshot Tool ?
 
 L’outil Captures instantanées cohérentes Azure Application (AzAcSnap) est un outil de ligne de commande qui offre la protection des données pour les bases de données tierces et gérant toute l’orchestration requise pour les placer dans un état cohérent de l’application avant de prendre une capture instantanée et les renvoyées ensuite à un état opérationnel.
 
@@ -80,7 +80,7 @@ Les options de commande sont les suivantes avec les commandes en tant que puces 
   - Reportez-vous à la [référence sur la commande d’obtention des informations](azacsnap-cmd-ref-details.md).
 - La commande **`-c delete`** supprime un instantané de stockage ou un ensemble d’instantanés. Vous pouvez utiliser l’ID de sauvegarde SAP HANA figurant dans HANA Studio ou le nom de l’instantané de stockage. L’ID de sauvegarde est uniquement lié aux instantanés `hana`, créés pour les volumes de données et les volumes partagés. Dans le cas contraire, si le nom de l’instantané est entré, il cherche tous les instantanés correspondant à ce nom.
   - Consultez la référence sur [la commande de suppression](azacsnap-cmd-ref-delete.md).
-- **`-c restore`** fournit deux méthodes pour restaurer un instantané sur un volume, soit en créant un volume basé sur l’instantané, soit en restaurant un volume dans un état d’aperçu.
+- **`-c restore`** fournit deux méthodes pour restaurer un instantané sur un volume, soit en créant un volume basé sur l’instantané, soit en restaurant un volume dans un état précédent.
   - **`--restore snaptovol`** crée un volume basé sur le dernier instantané sur le volume cible.
   - **`-c restore --restore revertvolume`** rétablit l’état antérieur du volume cible en fonction de l’instantané le plus récent.
   - Reportez-vous à la [référence sur la commande de restauration](azacsnap-cmd-ref-restore.md).

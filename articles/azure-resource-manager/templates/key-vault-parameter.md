@@ -2,19 +2,20 @@
 title: Secret Azure Key Vault avec modèle
 description: Montre comment passer une clé secrète à partir d’un coffre de clés en tant que paramètre lors du déploiement.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 05749fe2e9179051c3183ea2e592cf7190ddb347
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.openlocfilehash: 232c73f1058ad3c5a931d02fa1a2184cf004263f
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889856"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946076"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement
 
 Au lieu de placer une valeur sécurisée (telle qu’un mot de passe) directement dans votre modèle ou fichier de paramètres, vous pouvez récupérer la valeur à partir d’un coffre [Azure Key Vault](../../key-vault/general/overview.md) pendant un déploiement. Vous récupérez la valeur en référençant le coffre de clés et la clé secrète dans votre fichier de paramètres. La valeur n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Le coffre de clés peut exister dans un autre abonnement que le groupe de ressources sur lequel vous effectuez le déploiement.
 
-Cet article se concentre sur le scénario de transmission d’une valeur sensible comme paramètre de modèle. Il ne couvre pas le scénario consistant à définir une propriété de machine virtuelle sur l’URL d’un certificat dans un coffre Key Vault. Vous trouverez un modèle de démarrage rapide de ce scénario dans [Installer un certificat à partir d’Azure Key Vault sur une machine virtuelle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
+Cet article est consacré à la transmission d’une valeur sensible en tant que paramètre de modèle. L’article ne traite pas de la définition d’une propriété de machine virtuelle sur l’URL d’un certificat dans un coffre de clés.
+Vous trouverez un modèle de démarrage rapide de ce scénario dans [Installer un certificat à partir d’Azure Key Vault sur une machine virtuelle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Déployer des coffres de clés et des secrets
 
@@ -101,7 +102,7 @@ Pour plus d’informations sur la création de coffres de clés et l’ajout des
 
 L’utilisateur qui déploie le modèle doit disposer de l’autorisation `Microsoft.KeyVault/vaults/deploy/action` pour l’étendue du groupe de ressources et du coffre de clés. Les rôles [propriétaire](../../role-based-access-control/built-in-roles.md#owner) et [contributeur](../../role-based-access-control/built-in-roles.md#contributor) accordent cet accès. Si vous avez créé le coffre de clés, vous êtes le propriétaire et vous avez donc l’autorisation.
 
-La procédure suivante montre comment créer un rôle avec les permissions minimales et comment affecter l’utilisateur
+La procédure suivante montre comment créer un rôle avec les permissions minimales et comment affecter l’utilisateur.
 
 1. Créez un fichier JSON de définition de rôle personnalisé :
 
@@ -121,6 +122,7 @@ La procédure suivante montre comment créer un rôle avec les permissions minim
       ]
     }
     ```
+
     Remplacez « 00000000-0000-0000-0000-000000000000 » par l’ID d’abonnement.
 
 2. Créez le nouveau rôle à l’aide du fichier JSON :
@@ -161,6 +163,8 @@ Avec cette approche, vous référencez le coffre de clés dans le fichier de par
 
 Le modèle suivant déploie un serveur SQL qui comprend un mot de passe administrateur. Le paramètre du mot de passe est défini sur une chaîne sécurisée. Toutefois, le modèle ne spécifie pas d’où vient cette valeur.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -195,6 +199,29 @@ Le modèle suivant déploie un serveur SQL qui comprend un mot de passe administ
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param adminLogin string
+
+@secure()
+param adminPassword string
+
+param sqlServerName string
+
+resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
+  name: sqlServerName
+  location: resourceGroup().location
+  properties: {
+    administratorLogin: adminLogin
+    administratorLoginPassword: adminPassword
+    version: '12.0'
+  }
+}
+```
+
+---
+
 À présent, créez un fichier de paramètres pour le modèle précédent. Dans le fichier de paramètres, spécifiez un paramètre qui correspond au nom du paramètre dans le modèle. Pour la valeur du paramètre, référencez le secret du coffre de clés. Vous référencez le secret en transmettant l'identificateur de ressource du coffre de clés et le nom du secret :
 
 Dans le fichier de paramètres suivant, le secret du coffre de clés doit déjà exister, et vous définissez une valeur statique pour son ID de ressource.
@@ -204,20 +231,20 @@ Dans le fichier de paramètres suivant, le secret du coffre de clés doit déjà
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "adminLogin": {
-        "value": "exampleadmin"
-      },
-      "adminPassword": {
-        "reference": {
-          "keyVault": {
+    "adminLogin": {
+      "value": "exampleadmin"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
           "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
-          },
-          "secretName": "ExamplePassword"
-        }
-      },
-      "sqlServerName": {
-        "value": "<your-server-name>"
+        },
+        "secretName": "ExamplePassword"
       }
+    },
+    "sqlServerName": {
+      "value": "<your-server-name>"
+    }
   }
 }
 ```
@@ -255,7 +282,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="reference-secrets-with-dynamic-id"></a>Référencement de secrets avec un ID dynamique
 
-La section précédente expliquait comment transmettre un ID de ressource statique pour la clé secrète du coffre de clés à partir du paramètre. Toutefois, dans certains scénarios, vous devez référencer une clé secrète de coffre de clés qui varie selon le déploiement actuel. Ou bien, vous pouvez souhaiter transmettre des valeurs de paramètre au modèle au lieu de créer un paramètre de référence dans le fichier de paramètres. Dans les deux cas, vous pouvez générer dynamiquement l’ID de ressource pour un secret de coffre de clés à l’aide d’un modèle lié.
+La section précédente expliquait comment transmettre un ID de ressource statique pour la clé secrète du coffre de clés à partir du paramètre. Dans certains scénarios, vous devez référencer une clé secrète de coffre de clés qui varie selon le déploiement actuel. Ou bien, vous pouvez souhaiter transmettre des valeurs de paramètre au modèle au lieu de créer un paramètre de référence dans le fichier de paramètres. La solution est de générer dynamiquement l’ID de ressource pour un secret de coffre de clés à l’aide d’un modèle lié.
 
 Vous ne pouvez pas générer dynamiquement l’ID de ressource dans le fichier de paramètres, car les expressions de modèle ne sont pas autorisées dans ce dernier.
 
@@ -373,8 +400,11 @@ Le modèle suivant crée de façon dynamique l’ID du coffre de clés et le pas
 }
 ```
 
+> [!NOTE]
+> À compter de Bicep version 0.3.255, un fichier de paramètres est nécessaire pour récupérer un secret de coffre de clés, car le mot clé `reference` n’est pas pris en charge. Des travaux sont en cours pour ajouter cette prise en charge. Pour plus d’informations, consultez le [problème GitHub 1028](https://github.com/Azure/bicep/issues/1028).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir des informations générales sur les coffres de clés, consultez [Présentation d’Azure Key Vault](../../key-vault/general/overview.md).
-- Pour obtenir des exemples complets de référencement de clés secrètes, consultez [Exemples de coffres de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Pour obtenir des informations générales sur les coffres de clés, consultez [Présentation d’Azure Key Vault](../../key-vault/general/overview.md)
+- Pour obtenir des exemples complets de référencement de clés secrètes, consultez [Exemples de coffres de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples) sur GitHub.
 - Pour lire un module Microsoft Learn dans lequel est utilisée une valeur sécurisée issue d’un coffre de clés, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).

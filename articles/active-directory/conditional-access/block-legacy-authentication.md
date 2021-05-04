@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84c8b82219f2b2aea39bbcd23f030243d9ea8635
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98892437"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861802"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
 Pour permettre à vos utilisateurs d’accéder facilement à vos applications cloud, Azure Active Directory (Azure AD) prend en charge un large éventail de protocoles d’authentification, notamment l’authentification héritée. Toutefois, les protocoles hérités ne prennent pas en charge l’authentification multifacteur (MFA). L’authentification multifacteur est couramment requise dans de nombreux environnements pour lutter contre l’usurpation d’identité. 
 
-Alex Weinert, directeur de la sécurité des identités chez Microsoft, dans son billet de blog du 12 mars 2020, [Nouveaux outils pour bloquer l’authentification héritée dans votre organisation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#), met l’accent sur la raison pour laquelle les organisations doivent bloquer l’authentification héritée et sur les outils supplémentaires que Microsoft fournit pour accomplir cette tâche :
+Alex Weinert, directeur de la sécurité des identités chez Microsoft, dans son billet de blog du 12 mars 2020, [Nouveaux outils pour bloquer l’authentification héritée dans votre organisation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#), met l’accent sur la raison pour laquelle les organisations doivent bloquer l’authentification héritée et sur les autres outils que Microsoft fournit pour accomplir cette tâche :
 
 > Pour que l’authentification multifacteur soit efficace, vous devez également bloquer l’authentification héritée. Cela est dû au fait que les protocoles d’authentification hérités, tels que POP, SMTP, IMAP et MAPI, ne peuvent pas appliquer une authentification multifacteur, ce qui en fait les points d’entrée de prédilection des attaques dirigées contre votre organisation...
 > 
@@ -33,7 +33,7 @@ Alex Weinert, directeur de la sécurité des identités chez Microsoft, dans son
 > - Les comptes Azure AD dans les organisations qui ont désactivé l’authentification héritée sont 67 % moins compromis que ceux pour lesquels l’authentification héritée est activée
 >
 
-Si votre environnement est prêt à bloquer l’authentification héritée pour améliorer la protection de votre locataire, vous pouvez atteindre cet objectif grâce à l’accès conditionnel. Cet article explique comment configurer des stratégies d’accès conditionnel qui bloquent l’authentification héritée pour votre locataire.
+Si votre environnement est prêt à bloquer l’authentification héritée pour améliorer la protection de votre locataire, vous pouvez atteindre cet objectif grâce à l’accès conditionnel. Cet article explique comment configurer des stratégies d’accès conditionnel qui bloquent l’authentification héritée pour votre locataire. Les clients sans licence incluant un accès conditionnel peuvent utiliser les [valeurs par défaut de sécurité](../fundamentals/concept-fundamentals-security-defaults.md) pour bloquer l’authentification héritée.
 
 ## <a name="prerequisites"></a>Prérequis
 

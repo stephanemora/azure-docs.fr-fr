@@ -1,47 +1,42 @@
 ---
-title: 'Tutoriel : Équilibrer la charge des machines virtuelles Linux dans Azure'
+title: Tutoriel – Équilibrer la charge des machines virtuelles pour une haute disponibilité
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure CLI afin de créer un équilibreur de charge pour une application hautement disponible et sécurisée sur trois machines virtuelles Linux
-services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.subservice: networking
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/13/2017
+ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 433bbd51618cfb5624c8ed2c549e1793488f0e81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 191eb1338533cf1a5f81f4d04c5dfc6fd5cc569c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553763"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818743"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutoriel : Équilibrer la charge des machines virtuelles Linux dans Azure pour créer une application hautement disponible avec Azure CLI
+# <a name="tutorial-load-balance-vms-for-high-availability"></a>Tutoriel : Équilibrer la charge des machines virtuelles pour une haute disponibilité
 
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Crée un équilibrage de charge Azure
-> * Créer une sonde d’intégrité d’équilibreur de charge
-> * Créer des règles de trafic pour l’équilibrage de charge
-> * Utiliser cloud-init pour créer une application Node.js de base
-> * Créer des machines virtuelles et les attacher à un équilibrage de charge
-> * Afficher un équilibrage de charge en action
-> * Ajouter et supprimer des machines virtuelles d’un équilibreur de charge
+> * Créer un équilibrage de charge
+> * Créer une sonde d’intégrité
+> * Créer des règles de trafic
+> * Utiliser cloud-init pour installer une application Node.js de base
+> * Créer des machines virtuelles et les attacher à l’équilibreur de charge
+> * Afficher l’équilibreur de charge en action
+> * Ajouter et supprimer des machines virtuelles de l’équilibreur de charge
 
 Ce tutoriel utilise l’interface CLI disponible dans [Azure Cloud Shell](../../cloud-shell/overview.md), qui est constamment mise à jour vers la dernière version. Pour ouvrir Cloud Shell, sélectionnez **Essayer** en haut d’un bloc de code.
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Vue d’ensemble de l’équilibreur de charge Azure
+
 Un équilibreur de charge Azure est un équilibreur de charge de type Couche 4 (TCP, UDP) qui offre une haute disponibilité en répartissant le trafic entrant entre les machines virtuelles saines. Une sonde d’intégrité d’équilibreur de charge surveille un port donné sur chaque machine virtuelle et ne distribue le trafic que vers une machine virtuelle opérationnelle.
 
 Vous définissez une configuration IP frontale qui contient une ou plusieurs adresses IP publiques. Cette configuration IP frontale permet d’accéder à votre équilibreur de charge et à vos applications via Internet. 

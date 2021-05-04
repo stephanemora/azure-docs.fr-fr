@@ -4,12 +4,12 @@ description: Apprenez à utiliser la bibliothèque File Conventions d’Azure Ba
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 1a45eed421dd8d734fcef0dd452df1d4a65fd053
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 376073dc82203c7248e9e09710d6658c5ed09245
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88936960"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988979"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
 
@@ -28,7 +28,7 @@ Azure Batch offre plusieurs manières de conserver les sorties de tâche. File C
 
 - Vous pouvez facilement modifier le code de l’application que votre tâche exécute afin de conserver les fichiers à l’aide de la bibliothèque File Conventions.
 - Vous voulez diffuser les données vers Azure Storage alors que la tâche est en cours d’exécution.
-- Vous voulez conserver les données de pools créés avec la configuration de service cloud ou la configuration de machine virtuelle.
+- Vous souhaitez conserver les données des pools.
 - Votre application cliente ou d’autres tâches du travail doivent localiser et télécharger les fichiers de sortie des tâches par ID ou usage.
 - Vous voulez consulter les sorties de tâche dans le portail Azure.
 

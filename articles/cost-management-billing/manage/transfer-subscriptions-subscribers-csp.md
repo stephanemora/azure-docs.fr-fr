@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 04/15/2021
 ms.author: banders
-ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 687db46ea2f6c9c4fae6e5355e3236cde3d7a401
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363047"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567245"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
@@ -21,7 +21,7 @@ Cet article présente les étapes principales utilisées pour transférer des ab
 
 Avant de commencer une demande de transfert, vous devez télécharger ou exporter toutes les informations de facturation et de coût que vous voulez conserver. Les informations de facturation et d’utilisation ne sont pas transférées avec l’abonnement. Pour plus d’informations sur l’exportation des données de gestion des coûts, consultez [Créer et gérer des données exportées](../costs/tutorial-export-acm-data.md). Pour plus d’informations sur le téléchargement de vos données de facturation et d’utilisation, consultez [Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne](download-azure-invoice-daily-usage-date.md).
 
-Si vous avez des réservations existantes, celles-ci cessent de s’appliquer après le transfert d’un abonnement. Veillez à [annuler les réservations et à les rembourser](../reservations/exchange-and-refund-azure-reservations.md) avant de transférer un abonnement.
+Si vous avez des réservations existantes, celles-ci cessent de s’appliquer 90 jours après le transfert d’un abonnement. Veillez à [annuler les réservations et à les rembourser](../reservations/exchange-and-refund-azure-reservations.md) avant de transférer un abonnement pour éviter des frais après la période de grâce de 90 jours.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transférer des abonnements EA à un partenaire CSP
 
@@ -55,9 +55,9 @@ Pour transférer tout autre abonnement Azure à un partenaire CSP, l’abonné d
 
 ## <a name="transfer-csp-subscription-to-other-offer"></a>Transférer un abonnement CSP à une autre offre
 
-Pour transférer tout autre abonnement d’un partenaire CSP vers une autre offre Azure, l’abonné doit déplacer des ressources entre des abonnements CSP sources et des abonnements CSP cibles.
+Pour transférer tout autre abonnement d’un partenaire CSP vers une autre offre Azure, l’abonné doit déplacer des ressources entre des abonnements CSP sources et des abonnements CSP cibles. Cette tâche est effectuée par un partenaire et un client, non par un représentant Microsoft.
 
-1. Créer des abonnements Azure cibles.
+1. Le client crée des abonnements Azure cibles.
 1. Vérifiez que les abonnements source et cible sont dans le même locataire Azure Active Directory (Azure AD). Pour plus d’informations sur la modification d’un locataire Azure AD, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     Notez que l’option de changement d’annuaire n’est pas prise en charge pour l’abonnement CSP. Par exemple, vous passez d’un abonnement CSP à un abonnement avec paiement à l’utilisation. Vous devez changer l’annuaire de l’abonnement Paiement à l’utilisation pour qu’il corresponde à l’annuaire CSP.
 
@@ -65,7 +65,7 @@ Pour transférer tout autre abonnement d’un partenaire CSP vers une autre offr
     >  - Lorsque vous associez un abonnement à un autre annuaire, les utilisateurs auxquels des rôles ont été attribués à l’aide du [RBAC Azure](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.
     >  - Les attributions de stratégie sont également supprimées d’un abonnement lorsque celui-ci est associé à un autre répertoire.
 
-1. Le compte d’utilisateur que vous utilisez pour effectuer le transfert doit disposer d’un accès propriétaire de [RBAC Azure](add-change-subscription-administrator.md) aux deux abonnements.
+1. Le compte d’utilisateur client que vous utilisez pour effectuer le transfert doit disposer d’un accès propriétaire [RBAC Azure](add-change-subscription-administrator.md) aux deux abonnements.
 1. Avant de commencer, [validez](/rest/api/resources/resources/validatemoveresources) le fait que toutes les ressources Azure peuvent être déplacées de l’abonnement source à l’abonnement de destination.
     > [!IMPORTANT]
     >  - Certaines ressources Azure ne peuvent pas être déplacées entre des abonnements. Pour afficher la liste complète des ressources Azure qui peuvent être déplacées, consultez [Prise en charge des opérations de déplacement pour les ressources](../../azure-resource-manager/management/move-support-resources.md).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
 ms.date: 09/30/2020
-ms.openlocfilehash: c3ffbba9546ada54a42c3f2c2aa5d98da599b353
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b9c249bedd0432458b3e6f5c010cdc5ff39dff44
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749726"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815663"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestion de la récupération d’Azure Key Vault avec suppression réversible et protection contre la suppression définitive
 
@@ -398,6 +398,5 @@ Pour plus d’informations sur la suppression réversible, consultez [Vue d’en
 - [Commandes Azure CLI pour Key Vault](/cli/azure/keyvault)
 - [Sauvegarde Azure Key Vault](backup.md)
 - [Guide pratique pour activer la journalisation de Key Vault](howto-logging.md)
-- [Sécuriser l’accès à un coffre de clés](security-overview.md)
+- [Fonctionnalités de sécurité pour Azure Key Vault](security-features.md)
 - [Guide du développeur Azure Key Vault](developers-guide.md)
-- [Bonnes pratiques pour utiliser un coffre de clés](security-overview.md)

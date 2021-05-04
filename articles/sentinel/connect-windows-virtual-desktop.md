@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2021
 ms.author: bagol
-ms.openlocfilehash: a835ea7b5e79ecc9b2d26dc6955984d0d0ff2906
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 6d41c33cfb05808a2b6b83c01b59ce0edbe5b628
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107380267"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140134"
 ---
 # <a name="connect-windows-virtual-desktop-data-to-azure-sentinel"></a>Connecter des données Windows Virtual Desktop à Azure Sentinel
 
@@ -35,7 +35,7 @@ Les données Windows Virtual Desktop dans Azure Sentinel incluent les types sui
 |Données  |Description  |
 |---------|---------|
 |**Journaux des événements Windows**     |  Les journaux des événements Windows de l’environnement WVD sont streamés vers un espace de travail Log Analytics activé pour Azure Sentinel, de la même manière que les journaux des événements Windows issus d’autres machines Windows en dehors de l’environnement WVD. <br><br>Installez l’agent Log Analytics sur votre ordinateur Windows et configurez les journaux des événements Windows à envoyer à l’espace de travail Log Analytics.<br><br>Pour plus d'informations, consultez les pages suivantes :<br>- [Installer l’agent Log Analytics sur des ordinateurs Windows](/azure/azure-monitor/agents/agent-windows)<br>- [Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics](/azure/azure-monitor/agents/data-sources-windows-events)<br>- [Connecter les événements de sécurité Windows](connect-windows-security-events.md)       |
-|**Alertes Microsoft Defender pour point de terminaison**     |  Pour configurer Microsoft Defender pour point de terminaison pour Windows Virtual Desktop, appliquez la même procédure que pour n’importe quel autre point de terminaison Windows. <br><br>Pour plus d'informations, consultez les pages suivantes : <br>- [Configurer le déploiement de Microsoft Defender pour point de terminaison](/windows/security/threat-protection/microsoft-defender-atp/production-deployment)<br>- [Connecter des données de Microsoft 365 Defender à Azure Sentinel](connect-microsoft-365-defender.md)       |
+|**Microsoft Defender pour les alertes point de terminaison**     |  Pour configurer Defender pour point de terminaison pour Windows Virtual Desktop, appliquez la même procédure que pour n’importe quel autre point de terminaison Windows. <br><br>Pour plus d'informations, consultez les pages suivantes : <br>- [Configurer le déploiement de Microsoft Defender pour point de terminaison](/windows/security/threat-protection/microsoft-defender-atp/production-deployment)<br>- [Connecter des données de Microsoft 365 Defender à Azure Sentinel](connect-microsoft-365-defender.md)       |
 |**Diagnostics Windows Virtual Desktop**     | Les diagnostics Windows Virtual Desktop sont une fonctionnalité du service PaaS Windows Virtual Desktop qui enregistre des informations dans un journal chaque fois qu’un utilisateur disposant du rôle Windows Virtual Desktop utilise le service. <br><br>Chaque journal contient des informations sur le rôle Windows Virtual Desktop impliqué dans l'activité, les éventuels messages d'erreur qui apparaissent pendant la session, les informations sur le locataire et les informations sur l'utilisateur. <br><br>La fonctionnalité de diagnostic crée des journaux d'activité pour les actions des utilisateurs et des administrateurs. <br><br>Pour plus d’informations, consultez [Utiliser Log Analytics pour la fonctionnalité de diagnostic dans Windows Virtual Desktop](/azure/virtual-desktop/virtual-desktop-fall-2019/diagnostics-log-analytics-2019).        |
 |     |         |
 
@@ -43,13 +43,13 @@ Les données Windows Virtual Desktop dans Azure Sentinel incluent les types sui
 
 Pour commencer à ingérer des données Windows Virtual Desktop dans Azure Sentinel, suivez les instructions fournies dans la documentation de Windows Virtual Desktop.
 
-Pour plus d’informations, consultez [Pousser des données Windows Virtual Desktop vers votre espace de travail Log Analytics](/azure/virtual-desktop/diagnostics-log-analytics).
+Pour plus d’informations, consultez [Pousser des données Windows Virtual Desktop vers votre espace de travail Log Analytics](../virtual-desktop/diagnostics-log-analytics.md).
 
 ## <a name="find-your-data"></a>Recherche de données
 
 Une fois la connexion établie, exécutez des requêtes dans Azure Sentinel sur vos données Log Analytics.
 
-Consultez par exemple les exemples de requêtes fournis dans la [documentation de Windows Virtual Desktop](/azure/virtual-desktop/diagnostics-log-analytics).
+Consultez par exemple les exemples de requêtes fournis dans la [documentation de Windows Virtual Desktop](../virtual-desktop/diagnostics-log-analytics.md).
 
 
 Azure Sentinel fournit également des requêtes intégrées dans la zone **Général** > **Journaux** > **WINDOWS VIRTUAL DESKTOP** :
@@ -59,4 +59,4 @@ Azure Sentinel fournit également des requêtes intégrées dans la zone **Gén
 ## <a name="next-steps"></a>Étapes suivantes
 
 
-Pour plus d’informations, consultez le [glossaire Azure Monitor pour Windows Virtual Desktop](/azure/virtual-desktop/azure-monitor-glossary).
+Pour plus d’informations, consultez le [glossaire Azure Monitor pour Windows Virtual Desktop](../virtual-desktop/azure-monitor-glossary.md).

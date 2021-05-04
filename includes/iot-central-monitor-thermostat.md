@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 77fdaf297fff0e145b1dd53908887bc14f9d3f14
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 26aefab9b4637c3f3f6b0f0d1195068e2cd770ab
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491086"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001811"
 ---
 <!-- All needs updating -->
 En tant qu’opérateur dans votre application Azure IoT Central, vous pouvez effectuer les opérations suivantes :
@@ -36,7 +36,7 @@ Pour ajouter une propriété cloud afin de stocker le nom du client associé à 
 
 1. Dans le modèle d’appareil **Contrôleur de température**, sélectionnez **Propriétés du cloud**.
 
-1. Sélectionnez **Ajouter une propriété cloud**. Entrez *Customer name* comme **Nom d’affichage** et choisissez **Chaîne** comme **Schéma**. Ensuite, sélectionnez **Enregistrer**.
+1. Sélectionnez **Ajouter une propriété cloud**. Entrez *Nom du client* comme **Nom d’affichage**, développez l’entrée et choisissez **Chaîne** comme **Schéma**. Ensuite, sélectionnez **Enregistrer**.
 
 Pour personnaliser l’affichage des commandes **Get Max-Min report** dans votre application IoT Central :
 
@@ -82,7 +82,7 @@ Un opérateur peut maintenant utiliser la vue **Propriétés** pour mettre à jo
 
     :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Mettre à jour les propriétés de l’appareil":::
 
-* Appelez les commandes à partir de la page **Commandes** :
+* Appelez les commandes à partir de la page **Commandes**. Si vous exécutez la commande de rapport d’état, sélectionnez une date et une heure pour le paramètre **Depuis** avant de l’exécuter :
 
     :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Appeler la commande":::
 

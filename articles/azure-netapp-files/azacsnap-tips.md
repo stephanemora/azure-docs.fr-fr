@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 6465acc0d4ce760e0bf89c73dace7c8c66d37c49
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 6b777c834917d2a5b1fba72d7c18ef536109675a
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869937"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929648"
 ---
-# <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Conseils et astuces pour utiliser l’outil Azure Application Consistent Snapshot Tool (préversion)
+# <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool"></a>Conseils et astuces pour utiliser l’outil Azure Application Consistent Snapshot Tool
 
 Cet article fournit des conseils et astuces qui peuvent être utiles lorsque vous utilisez AzAcSnap.
 
@@ -202,7 +202,7 @@ Dans certains cas, les clients disposent déjà d’outils pour protéger SAP HA
 
     ```output
     {
-      "version": "5.0 Preview",
+      "version": "5.0",
       "logPath": "./logs",
       "securityPath": "./security",
       "comments": [
@@ -251,7 +251,7 @@ Dans certains cas, les clients disposent déjà d’outils pour protéger SAP HA
     ```output
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
-    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 Preview (20200617.75879)", 200KB
+    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
     , t210_sles_boot_azsollabbl20a31_vol, , , Size used by Snapshots, 1.31GB
     ```
 

@@ -2,19 +2,34 @@
 title: Nouveautés d’Azure Defender pour IoT
 description: Cet article vous présente les nouveautés de la dernière version de Defender pour IoT.
 ms.topic: overview
-ms.date: 04/19/2021
-ms.openlocfilehash: da5358ccf0f69ca2ba8f5722b75889b6b7c92c07
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.date: 04/25/2021
+ms.openlocfilehash: f7631caedcb26227abf65d6fad216fc629d41dd4
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752603"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987090"
 ---
-# <a name="whats-new-in-azure-defender-for-iot"></a>Nouveautés d’Azure Defender pour IoT
+# <a name="whats-new-in-azure-defender-for-iot"></a>Nouveautés d’Azure Defender pour IoT  
 
 Cet article répertorie les nouvelles fonctionnalités et améliorations apportées à Defender pour IoT.
 
-Ces fonctionnalités sont en PRÉVERSION. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
+Ces fonctionnalités sont en PRÉVERSION. Les [conditions supplémentaires pour les préversions Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent d’autres conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou qui ne sont pas encore en disponibilité générale.
+
+## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Versioning et support d’Azure Defender pour IoT 
+
+La liste ci-dessous inclut la prise en charge, les stratégies avec modification cassante pour Defender pour IoT et les versions d’Azure Defender pour IoT actuellement disponibles. 
+
+### <a name="servicing-information-and-timelines"></a>Informations de maintenance et chronologies 
+
+Microsoft prévoit de publier des mises à jour pour Azure Defender pour IoT au moins une fois par trimestre. Chaque version en disponibilité générale (GA) d’Azure Defender pour le capteur IoT et la console de gestion locale est prise en charge jusqu’à neuf mois après sa publication. Les correctifs et les nouvelles fonctionnalités seront appliqués aux versions en disponibilité générale actuellement prises en charge, mais ne seront pas appliqués aux versions en disponibilité générale plus anciennes.
+
+### <a name="versions-and-support-dates"></a>Versions et dates de prise en charge
+
+| Version | Date de publication | Date de fin de prise en charge |
+|--|--|--|
+| 10.0 | 01/2021 | 10/2021 |
+| 10.3 | 04/2021 | 02/2022 |
 
 ## <a name="april-2021"></a>Avril 2021
 

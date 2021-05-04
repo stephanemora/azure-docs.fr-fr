@@ -2,14 +2,14 @@
 title: Reprise d’activité pour les rubriques personnalisées dans Event Grid
 description: Ce tutoriel vous aide à configurer votre architecture de gestion des événements en vue d’une reprise d’activité, si le service Event Grid devient non sain dans une région.
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 04/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4b387a673cf49f30d40b44bb8d5e1f4dac51d0c
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020141"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895700"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Créer votre propre système de reprise d’activité pour les rubriques personnalisées dans Event Grid
 La récupération d’urgence se concentre sur la récupération des fonctionnalités des applications en cas de perte grave. Ce tutoriel vous aide à configurer votre architecture de gestion des événements en vue d’une reprise d’activité, si le service Event Grid devient non sain dans une région.
@@ -84,13 +84,16 @@ Vous devez disposer à présent des éléments suivants :
    * Une rubrique secondaire dans votre région secondaire
    * Un abonnement d’événements secondaire qui connecte votre rubrique principale au site web récepteur d’événements
 
-## <a name="implement-client-side-failover"></a>Implémenter un basculement côté client
+## <a name="implement-client-side-failover&quot;></a>Implémenter un basculement côté client
 
 Maintenant que vous avez défini une paire de rubriques et une paire d’abonnements redondantes au niveau régional, vous êtes prêt à implémenter le basculement côté client. Il existe plusieurs façons de procéder qui ont toutes un point commun : si l’une des rubriques n’est plus saine, le trafic est redirigé vers l’autre rubrique.
 
-### <a name="basic-client-side-implementation"></a>Implémentation de base côté client
+### <a name=&quot;basic-client-side-implementation&quot;></a>Implémentation de base côté client
 
 L’exemple de code suivant est un serveur de publication .NET simple qui tente toujours de publier en premier dans votre rubrique principale. S’il n’y parvient pas, il basculera vers la rubrique secondaire. Dans les deux cas, il vérifie également l’API d’intégrité de l’autre rubrique en exécutant une opération GET sur `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Une rubrique saine doit toujours envoyer la réponse **200 OK** quand une opération GET est exécutée sur le point de terminaison **/api/health**.
+
+> [!NOTE]
+> L’exemple de code suivant est uniquement fourni à des fins de démonstration et n’est pas destiné à une utilisation en production. 
 
 ```csharp
 using System;
@@ -102,10 +105,10 @@ using Newtonsoft.Json;
 
 namespace EventGridFailoverPublisher
 {
-    // This captures the "Data" portion of an EventGridEvent on a custom topic
+    // This captures the &quot;Data&quot; portion of an EventGridEvent on a custom topic
     class FailoverEventData
     {
-        [JsonProperty(PropertyName = "teststatus")]
+        [JsonProperty(PropertyName = &quot;teststatus")]
         public string TestStatus { get; set; }
     }
 

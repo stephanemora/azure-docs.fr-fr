@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: 9aa9a42422f3c114490d1dbb28a146b6e76ca8cd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dd2a4ee0ba8ef5b64e52e7d840874a98a0e72939
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558616"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930836"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Répliquer des données via ExpressRoute avec Azure Migrate : migration de serveur
 
@@ -32,8 +32,9 @@ Cet article porte sur les points suivants :
 
 ## <a name="replicate-data-using-an-expressroute-circuit-with-private-peering"></a>Répliquer des données à l’aide d’un circuit ExpressRoute avec un peering privé
 
-> [!NOTE]
-> La réplication via un circuit avec peering privé est actuellement prise en charge uniquement pour [la migration sans agent de machines virtuelles VMware vers Azure](./tutorial-migrate-vmware.md). Une prise en charge des points de terminaison privés pour d’autres [méthodes de réplication](./migrate-services-overview.md#azure-migrate-server-migration-tool) sera bientôt disponible.
+> [!Note]
+> Cet article explique comment effectuer une réplication sur un circuit de peering privé pour la [**migration sans agent des machines virtuelles VMware vers Azure**](./tutorial-migrate-vmware.md). Pour utiliser la prise en charge des points de terminaison privés pour d’[**autres méthodes de réplication**](./migrate-services-overview.md#azure-migrate-server-migration-tool), consultez [**cet article**](./how-to-use-azure-migrate-with-private-endpoints.md).  
+ 
 
 Dans la méthode sans agent de migration de machines virtuelles VMware vers Azure, l’appliance Azure Migrate charge d’abord les données de réplication vers un compte de stockage (compte de stockage de cache) dans votre abonnement. Les données répliquées à partir du compte de stockage de cache sont ensuite déplacées vers des disques managés de réplica dans votre abonnement à l’aide du service Azure Migrate. Afin d’utiliser un circuit avec peering privé pour la réplication, vous allez créer et attacher un point de terminaison privé à l’utilisation du compte de stockage de cache. Les points de terminaison privés utilisent une ou plusieurs adresses IP privées de votre réseau virtuel (VNet), plaçant de fait le compte de stockage dans votre réseau virtuel Azure. Le point de terminaison privé permet à l’appliance Azure Migrate de se connecter au compte de stockage de cache à l’aide du peering privé ExpressRoute et de transférer les données directement sur l’adresse IP privée. <br/>  
 

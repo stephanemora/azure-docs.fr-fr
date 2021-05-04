@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: ccc648f06cad46b490ac73fe777066c9de2ff2b9
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: b44248732891163bc2630cdfe5b297a06f3cf730
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551643"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001013"
 ---
 # <a name="dynamic-data-masking"></a>Masquage dynamique des données 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,7 +30,7 @@ Par exemple, un représentant du service d’un centre d’appels peut identifie
 
 ## <a name="dynamic-data-masking-basics"></a>Principes de base du masquage des données dynamiques
 
-Pour définir une stratégie de masquage de données dynamiques sur le portail Azure, sélectionnez le panneau **Dynamic Data Masking** sous **Sécurité** dans votre volet de configuration SQL Database. Cette fonctionnalité ne peut pas être définie à l'aide de SQL Managed Instance (utilisez PowerShell ou l'API REST). Pour plus d’informations, consultez [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+Pour définir une stratégie de masquage de données dynamiques sur le portail Azure, sélectionnez le panneau **Dynamic Data Masking** sous **Sécurité** dans votre volet de configuration SQL Database. Cette fonctionnalité ne peut pas être définie à l’aide de SQL Managed Instance. Pour plus d’informations, consultez [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### <a name="dynamic-data-masking-policy"></a>Stratégie de masquage des données dynamiques
 

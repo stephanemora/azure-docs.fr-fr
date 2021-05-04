@@ -4,15 +4,15 @@ description: Cet article fournit des informations sur la personnalisation des r�
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 04/21/2021
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab122d178e5390a53e5a3a39f1b7763b298dc6d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74048376"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878323"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Personnaliser les règles du pare-feu d’applications web à l’aide du Portail Azure
 
@@ -21,7 +21,7 @@ Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une pro
 >[!NOTE]
 > Si votre passerelle Application Gateway n’utilise pas la couche WAF, l’option de mise à niveau de la passerelle Application Gateway vers la couche WAF s’affiche dans le volet de droite. 
 
-![Activer WAF][fig1]
+:::image type="content" source="../media/application-gateway-customize-waf-rules-portal/1.png" alt-text="Activer WAF"::: 
 
 ## <a name="view-rule-groups-and-rules"></a>Afficher les règles et groupes de règles
 
@@ -37,16 +37,13 @@ Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une pro
 > [!IMPORTANT]
 > Soyez prudent lors de la désactivation des groupes de règles ou des règles. Cela peut aggraver les risques pour la sécurité.
 
-Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier, ou des règles spécifiques sous un ou plusieurs groupes de règles. 
-
 **Pour désactiver des groupes de règles ou des règles spécifiques**
 
    1. Recherchez les règles ou les groupes de règles que vous voulez désactiver.
    2. Cochez les cases correspondant aux règles que vous voulez désactiver. 
    3. Sélectionnez l’action en haut de la page (activer/désactiver) pour les règles sélectionnées.
-   2. Sélectionnez **Enregistrer**. 
-
-![Enregistrer les modifications][3]
+   2. Sélectionnez **Enregistrer**.
+    :::image type="content" source="../media/application-gateway-customize-waf-rules-portal/figure3.png" alt-text="Enregistrer les règles désactivées"::: 
 
 ## <a name="mandatory-rules"></a>Règles obligatoires
 
@@ -66,6 +63,3 @@ Propre à CRS 3.x :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir configuré vos règles désactivées, vous pouvez apprendre à afficher vos journaux d’activité WAF. Pour plus d’informations, consultez [Diagnostics Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-
-[fig1]: ../media/application-gateway-customize-waf-rules-portal/1.png
-[3]: ../media/application-gateway-customize-waf-rules-portal/figure3.png

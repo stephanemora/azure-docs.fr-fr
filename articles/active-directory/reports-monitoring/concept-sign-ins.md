@@ -1,6 +1,6 @@
 ---
-title: Rapports d’activité de connexion dans le portail Azure Active Directory | Microsoft Docs
-description: Présentation des rapports d’activité de connexion dans le portail Azure Active Directory
+title: Journaux des connexions dans Azure Active Directory | Microsoft Docs
+description: Présentation des journaux des connexions dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,61 +13,75 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/19/2021
+ms.date: 04/26/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a4cd69224daa05a3e5931fbde1c85bb8dc9e46a
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e524430d696dab7233f4ebb3403f08b2a8030412
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719004"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126702"
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
+# <a name="sign-ins-logs-in-azure-active-directory"></a>Journaux des connexions dans Azure Active Directory
 
 En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
 
 Pour vous aider à atteindre cet objectif, le portail Azure Active Directory vous donne accès à trois journaux d’activité :
 
-- **Connexions** : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
+- **[Connexions](concept-sign-ins.md)**  : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
 - **[Audit](concept-audit-logs.md)**  : Informations sur les modifications appliquées à votre locataire, telles que la gestion des utilisateurs et des groupes ou les mises à jour appliquées aux ressources de votre locataire.
 - **[Approvisionnement](concept-provisioning-logs.md)**  : Activités réalisées par le service d’approvisionnement, telles que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday.
 
 Cet article présente une vue d’ensemble du rapport de connexions.
 
-## <a name="prerequisites"></a>Prérequis
 
-### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
+## <a name="what-can-you-do-with-it"></a>Que pouvez-vous faire avec ?
 
-* Les utilisateurs ayant les rôles Administrateur de la sécurité, Lecteur Sécurité, Lecteur général et Lecteur de rapports
-* Les administrateurs généraux
-* Tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
+Vous pouvez utiliser les journaux des connexions pour trouver des réponses à des questions telles que :
 
-### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
+- Quel est le modèle de connexion d’un utilisateur ?
+
+- Combien d’utilisateurs se sont connectés au cours d’une semaine ?
+
+- Quel est l’état de ces connexions ?
+
+
+## <a name="who-can-access-it"></a>Qui peut y accéder ?
+
+Vous pouvez toujours accéder à votre propre journal des connexions. 
+
+Pour accéder au journal des connexions d’un autre utilisateur, vous devez être :
+
+- Un administrateur général
+
+- Un utilisateur dans l’un des rôles suivants :
+    - Administrateur de sécurité
+
+    - Lecteur de sécurité
+
+    - Lecteur général
+
+    - Lecteur de rapport
+
+
+
+## <a name="what-azure-ad-license-do-you-need"></a>De quelle licence Azure AD avez-vous besoin ?
 
 Le rapport relatif à l'activité de connexion est disponible dans [toutes les éditions d'Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) ; il est également accessible via l'API Microsoft Graph.
 
-## <a name="sign-ins-report"></a>Rapport de connexions
 
-Le rapport de connexions des utilisateurs permet de répondre aux questions suivantes :
+## <a name="where-can-you-find-it-in-the-azure-portal"></a>Où le trouver dans le portail Azure ?
 
-* Quel est le modèle de connexion d’un utilisateur ?
-* Combien d’utilisateurs se sont connectés au cours d’une semaine ?
-* Quel est l’état de ces connexions ?
+Le portail Azure vous offre plusieurs options pour accéder au journal. Par exemple, dans le menu Azure Active Directory, vous pouvez ouvrir le journal dans la section **Surveillance**.  
 
-Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory** ou recherchez et sélectionnez **Azure Active Directory** dans n’importe quelle page.
+![Ouvrir les journaux des connexions](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-![Sélectionner Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+En outre, vous pouvez accéder directement aux journaux des connexions à l’aide de ce lien : [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
-Sous **Surveillance**, sélectionnez **Connexions** pour ouvrir le [Rapport de connexions](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Capture d’écran montrant des connexions sélectionnées dans le menu Supervision.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Activité de connexion")
-
-Il peut s’écouler jusqu’à deux heures avant que certains enregistrements de connexion s’affichent dans le portail.
-
-> [!IMPORTANT]
-> Le rapport des connexions montre seulement les connexions **interactives**, c’est-à-dire les connexions où un utilisateur se connecte manuellement avec son nom d’utilisateur et son mot de passe. Les connexions non interactives, comme l’authentification de service à service, n’apparaissent pas dans le rapport des connexions. 
+## <a name="what-is-the-default-view"></a>Qu’est-ce que la vue par défaut ?
 
 Un journal de connexion inclut un mode Liste par défaut, qui indique :
 
@@ -92,9 +106,6 @@ Sélectionnez un élément dans la vue sous forme de liste pour obtenir des info
 
 ![Capture d’écran montrant une vue d’informations détaillées.](./media/concept-sign-ins/basic-sign-in.png "Activité de connexion")
 
-> [!NOTE]
-> Les clients peuvent maintenant résoudre les problèmes de stratégies d’accès conditionnel grâce à tous les rapports de connexion. Les clients peuvent examiner l’état de l’accès conditionnel et consulter en détail les stratégies applicables à la connexion et les résultats de chaque stratégie en cliquant sur l’onglet **Accès conditionnel** pour obtenir un rapport de connexion.
-> Pour en savoir plus, consultez le [Forum aux questions sur les informations de l’accès conditionnel dans toutes les connexions](reports-faq.md#conditional-access).
 
 
 ## <a name="sign-in-error-code"></a>Code d’erreur de connexion
@@ -111,7 +122,8 @@ Bien que l’élément de journal vous fournisse la raison de l’échec, dans c
 
 ## <a name="filter-sign-in-activities&quot;></a>Filtrer les activités de connexion
 
-Commencez par réduire les données signalées jusqu’au niveau qui vous convient. Ensuite, filtrez les données de connexions en utilisant le champ de date comme filtre par défaut. Azure AD offre une large gamme de filtres supplémentaires que vous pouvez définir :
+
+Vous pouvez filtrer les données d’un journal pour les limiter à un niveau qui vous convient :
 
 ![Capture d’écran montrant l’option Ajouter des filtres.](./media/concept-sign-ins/04.png &quot;Activité de connexion")
 
@@ -249,7 +261,7 @@ En cliquant sur un élément, vous obtenez plus d’informations sur l’opérat
 - État de la connexion
 
 > [!NOTE]
-> Les adresses IP sont émises de manière à ce qu’il n’existe aucune connexion définitive entre une adresse IP et l’endroit où se trouve physiquement l’ordinateur avec cette adresse. Le mappage des adresses IP est compliqué par le fait que les fournisseurs mobiles et les VPN qui émettent des adresses IP à partir de pools centraux sont souvent très éloignés de l’endroit où l’appareil client est réellement utilisé. Pour le moment, la conversion de l’adresse IP en un emplacement physique constitue la meilleure solution pour les suivis, les données de registre, les recherches inversées et d’autres informations dans les rapports Azure AD.
+> Les adresses IP sont émises de manière à ce qu’il n’existe aucune connexion définitive entre une adresse IP et l’endroit où se trouve physiquement l’ordinateur avec cette adresse. Le mappage des adresses IP est compliqué par le fait que les fournisseurs mobiles et les VPN qui émettent des adresses IP à partir de pools centraux sont souvent très éloignés de l’endroit où l’appareil client est réellement utilisé. Actuellement, la conversion de l’adresse IP en un emplacement physique constitue la meilleure solution pour les suivis, les données de registre, les recherches inversées et d’autres informations.
 
 Sur la page **Utilisateurs**, vous obtenez une vue d’ensemble complète de toutes les connexions des utilisateurs en cliquant sur **Connexions** dans la section **Activité**.
 
@@ -287,6 +299,7 @@ Vous pouvez également accéder par programme aux journaux d’activité de Micr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Codes d’erreur du rapport d’activité de connexion](reference-sign-ins-error-codes.md)
+* [Codes d’erreur du rapport d’activité de connexion]()
 * [Stratégies de conservation des données Azure AD](reference-reports-data-retention.md)
 * [Latences de rapport Azure AD](reference-reports-latencies.md)
+* [Rapport sur les connexions des applications de Microsoft](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)

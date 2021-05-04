@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e05435f364cc30b351275439a04caff47c35512
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577782"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871792"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -217,7 +217,7 @@ Une fois l’opération terminée, le certificat s’affiche dans la liste **Cer
 ![Importation du certificat Key Vault terminée](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 > [!NOTE]
-> Si vous remplacez votre certificat par un nouveau certificat dans le coffre de clés, App Service synchronisera automatiquement votre certificat sous 48 heures.
+> Si vous remplacez votre certificat par un nouveau certificat dans le coffre de clés, App Service synchronise automatiquement votre certificat sous 24 heures.
 
 > [!IMPORTANT] 
 > Pour sécuriser un domaine personnalisé avec ce certificat, vous devez quand même créer une liaison de certificat. Suivez les étapes fournies dans [Créer une liaison](configure-ssl-bindings.md#create-binding).
@@ -325,7 +325,7 @@ Le renouvellement de la clé de votre certificat remplace le certificat par un n
 Une fois l’opération de recréation de clé terminée, cliquez sur **Synchronisation**. L’opération de synchronisation met à jour automatiquement les liaisons de nom d’hôte pour le certificat dans App Service sans perturber le fonctionnement de vos applications.
 
 > [!NOTE]
-> Si vous ne cliquez pas sur **Synchronisation**, App Service synchronise automatiquement votre certificat sous 48 heures.
+> Si vous ne cliquez pas sur **Synchronisation**, App Service synchronise automatiquement votre certificat sous 24 heures.
 
 ### <a name="renew-certificate"></a>Renouvellement de certificat
 
@@ -340,7 +340,7 @@ Pour renouveler manuellement le certificat, cliquez sur **Renouvellement manuel*
 Une fois l’opération de renouvellement terminée, cliquez sur **Synchronisation**. L’opération de synchronisation met à jour automatiquement les liaisons de nom d’hôte pour le certificat dans App Service sans perturber le fonctionnement de vos applications.
 
 > [!NOTE]
-> Si vous ne cliquez pas sur **Synchronisation**, App Service synchronise automatiquement votre certificat sous 48 heures.
+> Si vous ne cliquez pas sur **Synchronisation**, App Service synchronise automatiquement votre certificat sous 24 heures.
 
 ### <a name="export-certificate"></a>Exportation du certificat
 

@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 0f2d3c830f27eec9f521e6f79ac8dce3bce818e9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: ce9dff017a796e420586ad191a59c149bed07190
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442562"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726823"
 ---
 # <a name="azure-marketplace"></a>Place de marché Azure
 
@@ -74,45 +74,7 @@ Les services suivants sont facturés à l'heure dans le cadre d'un Contrat Entre
 
 Si vous disposez d’un Contrat Entreprise, vous payez Azure RemoteApp en fonction du niveau de prix de ce Contrat Entreprise. Il n'y a pas de frais supplémentaires. Le prix standard inclut une durée initiale de 40 heures. Le niveau de prix illimité couvre une durée initiale de 80 heures. L’application distante cesse d’émettre de l’utilisation au-delà des 80 heures.
 
-## <a name="azure-marketplace-faq"></a>FAQ Place de marché Azure
-
-Cette section explique comment votre Paiement anticipé Azure peut s’appliquer à certains services de revendeurs tiers sur la Place de marché Azure.
-
-### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>Qu’est-ce qui a changé avec les services de la place de marché Azure et Paiement anticipé Azure EA ?
-
-Depuis le 1er mars 2018, certains services de revendeurs tiers consomment Paiement anticipé Azure EA. À l’exception des instances de machines virtuelles réservées (RI) Azure, les services étaient auparavant facturés séparément, en dehors de Paiement anticipé Azure EA.
-
-Nous avons développé Paiement anticipé Azure pour inclure certains des services de la Place de marché Azure publiés par des tiers et les plus fréquemment achetés. Paiement anticipé Azure EA pour ces services de la Place de marché Azure permet de simplifier la gestion de vos achats et paiements.
-
-### <a name="why-did-we-make-this-change"></a>Pourquoi avons-nous procédé à ce changement ?
-
-Les clients recherchent continuellement de nouveaux moyens pour tirer parti du Paiement anticipé Azure. Ce changement a souvent été demandé par les clients, et il a eu un impact sur une grande partie des clients de la Place de marché Azure.
-
-### <a name="how-do-you-benefit"></a>Quels sont les avantages pour vous ?
-
-Vous bénéficiez d’une expérience de facturation plus simple et de la possibilité d’utiliser votre Paiement anticipé Azure EA. Comme ces services sont inclus dans votre Paiement anticipé Azure, votre Paiement anticipé Azure EA prend de la valeur.
-
-### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>Quels services de la Place de marché Azure utilisent Paiement anticipé Azure EA et comment savoir ?
-
-Quand vous achetez un service qui utilise Paiement anticipé Azure, la Place de marché Azure affiche une clause de non-responsabilité. Certains services publiés par Red Hat, SUSE, Autodesk et Oracle sont pris en charge. Actuellement, des services portant le même nom et publiés par d’autres parties ne sont pas déduits de Paiement anticipé Azure. Une liste complète est disponible à la fin de cette FAQ.
-
-### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>Que se passe-t-il si mon Paiement anticipé Azure EA tombe à zéro ?
-
-Si vous avez consommé la totalité de votre Paiement anticipé Azure et êtes maintenant en dépassement, les frais liés à ces services apparaissent sur votre prochaine facture de dépassement, avec les autres services de consommation. Avant le changement survenu le 1er mars 2018, ces frais étaient facturés avec d'autres services de la Place de marché Azure.
-
-### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>Pourquoi toutes les Places de marché Azure ne consomment-elles pas Paiement anticipé Azure EA ?
-
-Nous nous efforçons d’offrir la meilleure expérience client liée à Paiement anticipé Azure EA. Cette modification concerne un grand nombre de clients et une part importante du total des dépenses dans la Place de marché Azure. D’autres services peuvent être ajoutés à l’avenir.
-
-### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>Comment cela affecte-t-il l’inscription et les partenaires indirects ?
-
-Il n’y a aucun impact sur nos clients ou partenaires d’inscription indirects. Ces services sont soumis aux mêmes fonctionnalités de majoration partenaire que les autres services de consommation. La seule modification est qu’ils apparaissent sur une facture différente, et que le paiement des frais provient du Paiement anticipé Azure EA du client.
-
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>Existe-t-il une liste des services de la Place de marché Azure qui consomment Paiement anticipé Azure EA ?
-
-Des offres spécifiques de la Place de marché Azure peuvent utiliser des fonds Paiement anticipé Azure. Consultez la section consacrée aux [services tiers qui utilisent Paiement anticipé Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) pour obtenir une liste complète des produits participant à ce programme.
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Obtenez davantage d’informations sur la [tarification](ea-pricing-overview.md).
+- Consultez les [questions fréquentes (FAQ) sur Cost Management + Billing](../cost-management-billing-faq.yml) pour voir une liste de questions et réponses sur les services de la Place de Marché Azure et le paiement anticipé Azure EA.

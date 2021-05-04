@@ -1,21 +1,21 @@
 ---
-title: Obtenir la propriété de facturation d’abonnements Azure
-description: Découvrez comment demander la propriété de facturation des abonnements Azure à partir d’autres utilisateurs.
+title: Transférer la propriété de la facturation des abonnements Azure pour un Contrat client Microsoft
+description: Découvrez comment transférer la propriété de facturation des abonnements Azure.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4cfb5c0b746ab8cf4ebb26ee0f755b34b6289982
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938475"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481427"
 ---
-# <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obtenir la propriété de facturation des abonnements Azure des autres comptes
+# <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Transférer la propriété de la facturation des abonnements Azure pour un Contrat client Microsoft
 
 Vous pouvez acquérir la propriété d’abonnements Azure si le propriétaire de facturation existant quitte votre organisation ou quand vous souhaitez payer les abonnements via votre compte de facturation. L’acquisition de propriété a pour effet de transférer les responsabilités liées à la facturation des abonnements vers votre compte.
 

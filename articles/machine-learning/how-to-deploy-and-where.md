@@ -8,28 +8,29 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2
+ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
-ms.openlocfilehash: 598da277214a2ee8e52cc5baaf2c792dfdc0429d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: b16550a95c1eb35b7683c181953dd0d1da4f447a
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220230"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952155"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Déployer des modèles Machine Learning sur Azure
 
-Découvrez comment déployer votre modèle Machine Learning ou Deep Learning en tant que service web dans le cloud Azure. Vous pouvez également les déployer sur des appareils Azure IoT Edge.
+Découvrez comment déployer votre modèle Machine Learning ou Deep Learning en tant que service web dans le cloud Azure.
 
 Le workflow est le même, quel que soit l’endroit où vous déployez votre modèle :
 
-1. Inscrire le modèle (facultatif, cf. ci-dessous).
-1. Préparer une configuration d’inférence (sauf en cas de [déploiement sans code](./how-to-deploy-no-code-deployment.md)).
-1. Préparer un script d’entrée (sauf en cas de [déploiement sans code](./how-to-deploy-no-code-deployment.md)).
+1. Inscrire le modèle
+1. Préparer un script d’entrée
+1. Préparer une configuration d’inférence
+1. Déployez le modèle localement pour vous assurer que tout fonctionne
 1. Choisir une cible de calcul.
-1. Déployer le modèle sur la cible de calcul.
+1. Redéployer le modèle dans le cloud
 1. Tester le service web qui en résulte.
 
 Pour plus d’informations sur les concepts impliqués dans le workflow du déploiement Machine Learning, consultez [Déployer, gérer et superviser des modèles avec Azure Machine Learning](concept-model-management-and-deployment.md).
@@ -41,24 +42,25 @@ Pour plus d’informations sur les concepts impliqués dans le workflow du dépl
 - Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 - Un modèle Si vous n’avez pas de modèle entraîné, vous pouvez utiliser les fichiers de modèle et de dépendance fournis dans [ce tutoriel](https://aka.ms/azml-deploy-cloud).
 - L’[extension de l’interface de ligne de commande (CLI) Azure pour le service Machine Learning](reference-azure-machine-learning-cli.md).
+- Une machine qui peut exécuter Docker, comme une [instance de calcul](how-to-create-manage-compute-instance.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
 - Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 - Un modèle Si vous n’avez pas de modèle entraîné, vous pouvez utiliser les fichiers de modèle et de dépendance fournis dans [ce tutoriel](https://aka.ms/azml-deploy-cloud).
 - Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro).
-
+- Une machine qui peut exécuter Docker, comme une [instance de calcul](how-to-create-manage-compute-instance.md).
 ---
 
 ## <a name="connect-to-your-workspace"></a>Se connecter à un espace de travail
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-Suivez les instructions de la documentation Azure CLI pour [configurer votre contexte d’abonnement](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription).
-
-Procédez ensuite comme suit :
+Pratiques conseillées
 
 ```azurecli-interactive
+az login
+az account set -s <my subscription>
 az ml workspace list --resource-group=<my resource group>
 ```
 
@@ -68,7 +70,9 @@ pour afficher les espaces de travail auxquels vous avez accès.
 
 ```python
 from azureml.core import Workspace
-ws = Workspace.from_config(path=".file-path/ws_config.json")
+ws = Workspace(subscription_id="<subscription_id>",
+               resource_group="<resource_group>",
+               workspace_name="<workspace_name>")
 ```
 
 Pour plus d’informations sur l’utilisation du kit SDK pour se connecter à un espace de travail, consultez la documentation sur le [kit SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro#workspace).
@@ -76,45 +80,67 @@ Pour plus d’informations sur l’utilisation du kit SDK pour se connecter à u
 
 ---
 
+## <a name="register-your-model"></a><a id="registermodel"></a> Inscrire votre modèle
 
-## <a name="register-your-model-optional"></a><a id="registermodel"></a> Inscription du modèle (facultatif)
+Une situation courante pour un service Machine Learning déployé est que vous avez besoin des composants suivants :
+    
+ + les ressources représentant le modèle spécifique que vous souhaitez déployer (par exemple un fichier de modèle pytorch)
+ + le code que vous allez exécuter dans le service, qui exécute le modèle sur une entrée donnée
 
-Un modèle inscrit est un conteneur logique pour un ou plusieurs fichiers qui composent votre modèle. Par exemple, si vous disposez d’un modèle stocké dans plusieurs fichiers, vous pouvez enregistrer ces derniers en tant que modèle unique dans l’espace de travail. Après l’inscription des fichiers, vous pouvez télécharger ou déployer le modèle inscrit et recevoir tous les fichiers que vous avez inscrits.
+Azure Machine Learning vous permet de séparer le déploiement en deux composants distincts, afin que vous puissiez conserver le même code et simplement mettre à jour le modèle. Nous définissons le mécanisme par lequel vous chargez un modèle _séparément_ de votre code comme « inscription du modèle ».
 
-> [!TIP] 
-> Il est recommandé, mais non obligatoire d’inscrire un modèle pour le suivi des versions. Si vous préférez continuer sans inscrire de modèle, vous devez spécifier un répertoire source dans [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) ou [inferenceconfig.json](./reference-azure-machine-learning-cli.md#inference-configuration-schema) et veiller à ce que votre modèle se trouve dans ce répertoire source.
-
-> [!TIP]
-> Quand vous inscrivez un modèle, vous fournissez le chemin d’un emplacement cloud (à partir d’une exécution d’entraînement) ou d’un répertoire local. Ce chemin sert uniquement à localiser les fichiers à charger dans le cadre du processus d’inscription. Il ne doit pas forcément correspondre au chemin utilisé dans le script d’entrée. Pour plus d’informations, consultez [Localiser les fichiers de modèles dans votre script d’entrée](./how-to-deploy-advanced-entry-script.md#load-registered-models).
-
-> [!IMPORTANT]
-> Lors de l’utilisation de l’option Filtrer par `Tags` sur la page Modèles d’Azure Machine Learning Studio au lieu de `TagName : TagValue`, les clients doivent indiquer `TagName=TagValue` (sans espace)
+Lorsque vous inscrivez un modèle, nous chargeons le modèle dans le cloud (dans le compte de stockage par défaut de votre espace de travail), puis nous le montons dans le même calcul que celui où est exécuté votre service web.
 
 Les exemples suivants montrent comment inscrire un modèle.
 
+[!INCLUDE [trusted models](../../includes/machine-learning-service-trusted-model.md)]
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+### <a name="register-a-model-from-a-local-file"></a>Inscrire un modèle à partir d’un fichier local
+
+```azurecli-interactive
+wget https://aka.ms/bidaf-9-model -o model.onnx
+az ml model register -n bidaf_onnx -p ./model.onnx
+```
+
+Définissez `-p` sur le chemin d’accès d’un dossier ou d’un fichier que vous souhaitez inscrire.
+
+Pour plus d’informations sur `az ml model register`, consultez la [documentation de référence](/cli/azure/ext/azure-cli-ml/ml/model).
 
 ### <a name="register-a-model-from-an-azure-ml-training-run"></a>Inscrire un modèle à partir d’une exécution de formation Azure ML
 
 ```azurecli-interactive
-az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid --tag area=mnist
+az ml model register -bidaf_onnx  --asset-path outputs/model.onnx  --experiment-name myexperiment --run-id myrunid --tag area=qna
 ```
 
 [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
 
 Le paramètre `--asset-path` fait référence à l’emplacement cloud du modèle. Dans cet exemple, le chemin d’un fichier unique est utilisé. Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `--asset-path` avec le chemin d’un dossier contenant les fichiers.
 
-### <a name="register-a-model-from-a-local-file"></a>Inscrire un modèle à partir d’un fichier local
-
-```azurecli-interactive
-az ml model register -n onnx_mnist -p mnist/model.onnx
-```
-
-Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `-p` avec le chemin d’un dossier contenant les fichiers.
-
-Pour plus d’informations sur `az ml model register`, consultez la [documentation de référence](/cli/azure/ext/azure-cli-ml/ml/model).
+Pour plus d’informations sur `az ml model register`, consultez la [documentation de référence](/cli/azure/ml/model).
 
 # <a name="python"></a>[Python](#tab/python)
+
+### <a name="register-a-model-from-a-local-file"></a>Inscrire un modèle à partir d’un fichier local
+
+Vous pouvez inscrire un modèle en indiquant son chemin local. Vous pouvez fournir le chemin d’un dossier ou d’un seul fichier sur votre machine locale.
+
+```python
+
+import urllib.request
+from azureml.core.model import Model
+# Download model
+urllib.request.urlretrieve("https://aka.ms/bidaf-9-model", 'model.onnx')
+
+# Register model
+model = Model.register(ws, model_name='bidaf_onnx', model_path='./model.onnx')
+```
+
+Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` avec le chemin d’un dossier contenant les fichiers.
+
+Pour plus d’informations, consultez la documentation sur la [classe Model](/python/api/azureml-core/azureml.core.model.model).
+
 
 ### <a name="register-a-model-from-an-azure-ml-training-run"></a>Inscrire un modèle à partir d’une exécution de formation Azure ML
 
@@ -123,9 +149,9 @@ Pour plus d’informations sur `az ml model register`, consultez la [documentati
   + Inscrire un modèle à partir d’un objet `azureml.core.Run` :
  
     ```python
-    model = run.register_model(model_name='sklearn_mnist',
-                               tags={'area': 'mnist'},
-                               model_path='outputs/sklearn_mnist_model.pkl')
+    model = run.register_model(model_name='bidaf_onnx',
+                               tags={'area': 'qna'},
+                               model_path='outputs/model.onnx')
     print(model.name, model.id, model.version, sep='\t')
     ```
 
@@ -136,7 +162,7 @@ Pour plus d’informations sur `az ml model register`, consultez la [documentati
     ```python
         description = 'My AutoML Model'
         model = run.register_model(description = description,
-                                   tags={'area': 'mnist'})
+                                   tags={'area': 'qna'})
 
         print(run.model_id)
     ```
@@ -146,47 +172,21 @@ Pour plus d’informations sur `az ml model register`, consultez la [documentati
     Pour plus d’informations, consultez la documentation sur [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-).
 
     Pour déployer un modèle inscrit à partir d’un `AutoMLRun`, nous vous recommandons de le faire via le [bouton de déploiement en un clic dans Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
-### <a name="register-a-model-from-a-local-file"></a>Inscrire un modèle à partir d’un fichier local
-
-Vous pouvez inscrire un modèle en indiquant son chemin local. Vous pouvez fournir le chemin d’un dossier ou d’un seul fichier. Vous pouvez utiliser cette méthode pour inscrire les modèles qui ont été entraînés avec Azure Machine Learning et téléchargés. Vous pouvez également utiliser cette méthode pour inscrire des modèles entraînés en dehors d’Azure Machine Learning.
-
-[!INCLUDE [trusted models](../../includes/machine-learning-service-trusted-model.md)]
-
-+ **Utilisation du kit SDK et d’ONNX**
-
-    ```python
-    import os
-    import urllib.request
-    from azureml.core.model import Model
-    # Download model
-    onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
-    urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
-    os.system('tar xvzf mnist.tar.gz')
-    # Register model
-    model = Model.register(workspace = ws,
-                            model_path ="mnist/model.onnx",
-                            model_name = "onnx_mnist",
-                            tags = {"onnx": "demo"},
-                            description = "MNIST image classification CNN from ONNX Model Zoo",)
-    ```
-
-  Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` avec le chemin d’un dossier contenant les fichiers.
-
-Pour plus d’informations, consultez la documentation sur la [classe Model](/python/api/azureml-core/azureml.core.model.model).
-
-Pour plus d’informations sur l’utilisation de modèles formés en dehors d’Azure Machine Learning, consultez [Déployer un modèle existant](how-to-deploy-existing-model.md).
 
 ---
 
-## <a name="define-an-entry-script"></a>Définir un script d’entrée
+## <a name="define-a-dummy-entry-script"></a>Définir un script d’entrée factice
 
-[!INCLUDE [write entry script](../../includes/machine-learning-entry-script.md)]
+[!INCLUDE [write entry script](../../includes/machine-learning-dummy-entry-script.md)]
 
 
 ## <a name="define-an-inference-configuration"></a>Définir une configuration d’inférence
 
+Une configuration d’inférence décrit le conteneur et les fichiers Docker à utiliser lors de l’initialisation de votre service web. Tous les fichiers de votre répertoire source, y compris les sous-répertoires, seront compressés et chargés dans le cloud lorsque vous déploierez votre service web.
 
-Une configuration de l’inférence décrit comment configurer le service web contenant votre modèle. Elle est utilisée ultérieurement, quand vous déployez le modèle.
+La configuration d’inférence ci-dessous spécifie que le déploiement de Machine Learning utilisera le fichier `echo_score.py` dans le répertoire `./source_dir` pour traiter les demandes entrantes, et utilisera l’image Docker avec les packages Python spécifiés dans l’environnement `project_environment`.
+
+Vous pouvez utiliser n’importe quel [environnement Azure Machine Learning organisé](./resource-curated-environments.md) comme image Docker de base lors de la création de votre environnement de projet. Nous allons aussi installer les dépendances requises et stocker l’image Docker qui en résulte dans le référentiel associé à votre espace de travail.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -194,75 +194,59 @@ Voici une configuration d’inférence minimale possible :
 
 ```json
 {
-    "entryScript": "score.py",
-    "sourceDirectory": "./working_dir",
+    "entryScript": "echo_score.py",
+    "sourceDirectory": "./source_dir",
     "environment": {
-    "docker": {
-        "arguments": [],
-        "baseDockerfile": null,
-        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
-        "enabled": false,
-        "sharedVolumes": true,
-        "shmSize": null
-    },
-    "environmentVariables": {
-        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
-    },
-    "name": "my-deploy-env",
-    "python": {
-        "baseCondaEnvironment": null,
-        "condaDependencies": {
-            "channels": [
-                "conda-forge",
-                "pytorch"
-            ],
-            "dependencies": [
-                "python=3.6.2",
-                "torchvision"
-                {
-                    "pip": [
-                        "azureml-defaults",
-                        "azureml-telemetry",
-                        "scikit-learn==0.22.1",
-                        "inference-schema[numpy-support]"
-                    ]
-                }
-            ],
-            "name": "project_environment"
+        "docker": {
+            "arguments": [],
+            "baseDockerfile": null,
+            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "enabled": false,
+            "sharedVolumes": true,
+            "shmSize": null
         },
-        "condaDependenciesFile": null,
-        "interpreterPath": "python",
-        "userManagedDependencies": false
-    },
-    "version": "1"
+        "environmentVariables": {
+            "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+        },
+        "name": "my-deploy-env",
+        "python": {
+            "baseCondaEnvironment": null,
+            "condaDependencies": {
+                "channels": [],
+                "dependencies": [
+                    "python=3.6.2",
+                    {
+                        "pip": [
+                            "azureml-defaults"
+                        ]
+                    }
+                ],
+                "name": "project_environment"
+            },
+            "condaDependenciesFile": null,
+            "interpreterPath": "python",
+            "userManagedDependencies": false
+        },
+        "version": "1"
+    }
 }
 ```
 
-Elle spécifie que le déploiement de Machine Learning utilisera le fichier `score.py` dans le répertoire `./working_dir` pour traiter les demandes entrantes, et utilisera l’image Docker avec les packages Python spécifiés dans l’environnement `project_environment`.
+Enregistrez le fichier sous le nom `inferenceconfig.json`.
+
 
 Pour une discussion plus approfondie sur les configurations d’inférence, [consultez cet article](./reference-azure-machine-learning-cli.md#inference-configuration-schema). 
 
 # <a name="python"></a>[Python](#tab/python)
 
-L’exemple suivant illustre les opérations suivantes :
-
-1. Chargement d’un [environnement organisé](resource-curated-environments.md) à partir de l’espace de travail
-1. Clonage de l’environnement
-1. Spécification de `scikit-learn` comme dépendance
-1. Utilisation de l’environnement pour créer une InferenceConfig
+L’exemple suivant montre comment créer un environnement minimal sans dépendances PIP, en utilisant le script de scoring factice que vous avez défini ci-dessus.
 
 ```python
-from azureml.core.environment import Environment
+from azureml.core import Environment
 from azureml.core.model import InferenceConfig
 
-
-env = Environment.get(workspace, "AzureML-Minimal").clone(env_name)
-
-for pip_package in ["scikit-learn"]:
-    env.python.conda_dependencies.add_pip_package(pip_package)
-
-inference_config = InferenceConfig(entry_script='path-to-score.py',
-                                    environment=env)
+env = Environment(name='project_environment')
+inf_config = InferenceConfig(environment=env, source_directory='./source_dir', entry_script='./echo_score.py')
 ```
 
 Pour plus d’informations sur les environnements , consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md).
@@ -271,18 +255,14 @@ Pour plus d’informations sur la configuration des inférences, consultez la do
 
 ---
 
-> [!TIP] 
-> Pour plus d’informations sur l’utilisation d’une image Docker personnalisée avec une configuration d’inférence, consultez le [guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md).
-
-## <a name="choose-a-compute-target"></a>Choisir une cible de calcul
-
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="define-a-deployment-configuration"></a>Définir une configuration de déploiement
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+Une configuration de déploiement spécifie la quantité de mémoire et de cœurs à réserver pour votre service web, qui sera nécessaire pour l’exécution, ainsi que les détails de configuration du service web sous-jacent. Par exemple, une configuration de déploiement vous permet de spécifier que votre service nécessite 2 gigaoctets de mémoire, 2 cœurs d’UC, 1 cœur GPU et que vous souhaitez activer la mise à l’échelle automatique.
 
-Les options disponibles pour une configuration de déploiement varient en fonction de la cible de calcul que vous choisissez.
+Les options disponibles pour une configuration de déploiement varient en fonction de la cible de calcul que vous choisissez. Dans un déploiement local, tout ce que vous pouvez spécifier est le port sur lequel votre service web sera traité.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
@@ -290,22 +270,12 @@ Pour plus d’informations, consultez [cette référence](./reference-azure-mach
 
 # <a name="python"></a>[Python](#tab/python)
 
-Avant de déployer votre modèle, vous devez définir la configuration de déploiement. *La configuration dr déploiement est propre à la cible de calcul qui va héberger le service web.* . Par exemple, quand vous déployez un modèle localement, vous devez spécifier le port sur lequel le service accepte les requêtes. La configuration de déploiement ne fait pas partie de votre script d’entrée. Elle est utilisée pour définir les caractéristiques de la cible de calcul qui hébergera le modèle et le script d’entrée.
-
-Vous devrez peut-être également créer la ressource de calcul si, par exemple, aucune instance AKS (Azure Kubernetes Service) n’est encore associée à votre espace de travail.
-
-Le tableau suivant donne un exemple de configuration de déploiement créée pour chaque cible de calcul :
-
-| Cible de calcul | Exemple de configuration de déploiement |
-| ----- | ----- |
-| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
-| Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
-
-Les classes des services web Local, Azure Container Instances et AKS peuvent être importées à partir de `azureml.core.webservice` :
+Pour créer une configuration de déploiement local, procédez comme suit :
 
 ```python
-from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+from azureml.core.webservice import LocalWebservice
+
+deploy_config = LocalWebservice.deploy_configuration(port=6789)
 ```
 
 ---
@@ -314,40 +284,253 @@ from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservic
 
 Vous êtes maintenant prêt à déployer votre modèle. 
 
+[!INCLUDE [aml-deploy-service](../../includes/machine-learning-deploy-service.md)]
+
+
+## <a name="call-into-your-model"></a>Appeler votre modèle
+
+Vérifions que votre modèle d’écho a été correctement déployé. Vous deviez être en mesure d’effectuer une requête d’activité simple, ainsi qu’une requête de scoring :
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-### <a name="using-a-registered-model"></a>Utilisation d’un modèle inscrit
-
-Si vous avez inscrit votre modèle dans votre espace de travail Azure Machine Learning, remplacez « mymodel:1 » par le nom de votre modèle et son numéro de version.
-
 ```azurecli-interactive
-az ml model deploy -n tutorial -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
-```
-
-### <a name="using-a-local-model"></a>Utilisation d’un modèle local
-
-Si vous préférez ne pas inscrire votre modèle, vous pouvez transmettre le paramètre « sourceDirectory » dans votre fichier inferenceconfig.json pour spécifier un répertoire local à partir duquel servir votre modèle.
-
-```azurecli-interactive
-az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json --name my_deploy
+curl -v http://localhost:32267
+curl -v -X POST -H "content-type:application/json" -d '{"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}' http://localhost:32267/score
 ```
 
 # <a name="python"></a>[Python](#tab/python)
 
-L’exemple ci-dessous montre un déploiement local. La syntaxe varie en fonction de la cible de calcul que vous avez choisie à l’étape précédente.
+```python
+import requests
+
+uri = service.scoring_uri
+requests.get('http://localhost:6789')
+headers = {'Content-Type': 'application/json'}
+data = {"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}
+data = json.dumps(data)
+response = requests.post(uri, data=data, headers=headers)
+print(response.json())
+```
+
+---
+
+## <a name="define-an-entry-script"></a>Définir un script d’entrée
+
+Il est maintenant temps de charger votre modèle. Tout d’abord, modifiez votre script d’entrée :
 
 ```python
-from azureml.core.webservice import LocalWebservice, Webservice
+import json
+import numpy as np
+import os
+import onnxruntime
+from nltk import word_tokenize
+import nltk
 
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
-service.wait_for_deployment(show_output = True)
-print(service.state)
+def init():
+    nltk.download('punkt')
+    global sess
+    sess = onnxruntime.InferenceSession(os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model.onnx'))
+
+def run(request):
+    print(request)
+    text = json.loads(request)
+    qw, qc = preprocess(text['query'])
+    cw, cc = preprocess(text['context'])
+
+    # Run inference
+    test = sess.run(None, {'query_word': qw, 'query_char': qc, 'context_word': cw, 'context_char': cc})
+    start = np.asscalar(test[0])
+    end = np.asscalar(test[1])
+    ans = [w for w in cw[start:end+1].reshape(-1)]
+    print(ans)
+    return ans
+
+def preprocess(word):
+    tokens = word_tokenize(word)
+
+    # split into lower-case word tokens, in numpy array with shape of (seq, 1)
+    words = np.asarray([w.lower() for w in tokens]).reshape(-1, 1)
+
+    # split words into chars, in numpy array with shape of (seq, 1, 1, 16)
+    chars = [[c for c in t][:16] for t in tokens]
+    chars = [cs+['']*(16-len(cs)) for cs in chars]
+    chars = np.asarray(chars).reshape(-1, 1, 1, 16)
+    return words, chars
+```
+Enregistrez ce fichier en tant que `score.py` à l’intérieur de `source_dir`.
+
+Notez l’utilisation de la variable d’environnement `AZUREML_MODEL_DIR` pour rechercher votre modèle inscrit. Maintenant que vous avez ajouté des packages PIP, vous devez également mettre à jour votre configuration d’inférence pour ajouter ces packages supplémentaires :
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+
+```json
+{
+    "entryScript": "score.py",
+    "sourceDirectory": "./source_dir",
+    "environment": {
+        "docker": {
+            "arguments": [],
+            "baseDockerfile": null,
+            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "enabled": false,
+            "sharedVolumes": true,
+            "shmSize": null
+        },
+        "environmentVariables": {
+            "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+        },
+        "name": "my-deploy-env",
+        "python": {
+            "baseCondaEnvironment": null,
+            "condaDependencies": {
+                "channels": [],
+                "dependencies": [
+                    "python=3.6.2",
+                    {
+                        "pip": [
+                            "azureml-defaults",
+                            "nltk",
+                            "numpy",
+                            "onnxruntime"
+                        ]
+                    }
+                ],
+                "name": "project_environment"
+            },
+            "condaDependenciesFile": null,
+            "interpreterPath": "python",
+            "userManagedDependencies": false
+        },
+        "version": "2"
+    }
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+env = Environment(name='myenv')
+python_packages = ['nltk', 'numpy', 'onnxruntime']
+for package in python_packages:
+    env.python.conda_dependencies.add_pip_package(package)
+
+inf_config = InferenceConfig(environment=env, source_directory='./source_dir', entry_script='./score.py')
 ```
 
 Pour plus d’informations, consultez la documentation sur [LocalWebservice](/python/api/azureml-core/azureml.core.webservice.local.localwebservice), [Model.deploy()](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) et [Webservice](/python/api/azureml-core/azureml.core.webservice.webservice).
 
 ---
+
+## <a name="deploy-again-and-call-your-service"></a>Déployer à nouveau et appeler votre service
+
+Déployez votre service :
+
+[!INCLUDE [aml-deploy-service](../../includes/machine-learning-deploy-service.md)]
+
+Ensuite, assurez-vous que vous pouvez envoyer une demande de publication au service :
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+```bash
+curl -v -X POST -H "content-type:application/json" -d '{"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}' http://localhost:32267/score
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import requests
+
+uri = service.scoring_uri
+
+headers = {'Content-Type': 'application/json'}
+data = {"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}
+data = json.dumps(data)
+response = requests.post(uri, data=data, headers=headers)
+print(response.json())
+```
+
+---
+
+## <a name="choose-a-compute-target"></a>Choisir une cible de calcul
+
+Reportez-vous au diagramme ci-dessous lorsque vous choisissez une cible de calcul.
+
+[![Comment choisir une cible de calcul](./media/how-to-deploy-and-where/how-to-choose-target.png)](././media/how-to-deploy-and-where/how-to-choose-target.png#lightbox)
+
+[!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
+
+## <a name="re-deploy-to-cloud"></a>Redéploiement dans le cloud
+
+Une fois que vous avez confirmé que votre service fonctionne localement et choisi une cible de calcul à distance, vous êtes prêt à effectuer le déploiement dans le cloud. 
+
+Modifiez votre configuration de déploiement pour qu’elle corresponde à la cible de calcul que vous avez choisie, dans ce cas Azure Container Instances :
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+Les options disponibles pour une configuration de déploiement varient en fonction de la cible de calcul que vous choisissez.
+
+```json
+{
+    "computeType": "aci",
+    "containerResourceRequirements":
+    {
+        "cpu": 0.5,
+        "memoryInGB": 1.0
+    },
+    "authEnabled": true,
+    "sslEnabled": false,
+    "appInsightsEnabled": false
+}
+
+```
+Enregistrez ce fichier en tant que `deploymentconfig.json`.
+
+Pour plus d’informations, consultez [cette référence](./reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+
+# <a name="python"></a>[Python](#tab/python)
+
+
+```python
+from azureml.core.webservice import AciWebservice
+
+deployment_config = AciWebservice.deploy_configuration(cpu_cores = 0.5, memory_gb = 1)
+```
+
+---
+
+Déployez votre service :
+
+[!INCLUDE [aml-deploy-service](../../includes/machine-learning-deploy-service.md)]
+
+## <a name="call-your-remote-webservice"></a>Appeler votre service d’accès à distance
+
+Lorsque vous déployez à distance, l’authentification de clé peut être activée. L’exemple ci-dessous montre comment obtenir votre clé de service avec Python afin d’effectuer une demande d’inférence.
+
+```python
+import requests
+import json
+from azureml.core import Webservice
+
+service = Webservice(workspace=ws, name='myservice')
+scoring_uri = service.scoring_uri
+
+# If the service is authenticated, set the key or token
+primary_key, _ = service.get_keys()
+
+# Set the appropriate headers
+headers = {'Content-Type': 'application/json'}
+headers['Authorization'] = f'Bearer {key}'
+
+# Make the request and display the response and logs
+data = {"query": "What color is the fox", "context": "The quick brown fox jumped over the lazy dog."}
+data = json.dumps(data)
+resp = requests.post(scoring_uri, data=data, headers=headers)
+print(resp.text)
+print(service.get_logs())
+```
+
+Consultez l’article sur les [applications clientes pour utiliser des services web](how-to-consume-web-service.md) pour d’autres exemples de clients dans d’autres langues.
 
 ### <a name="understanding-service-state"></a>Fonctionnement de l’état du service
 
@@ -374,23 +557,15 @@ Le tableau ci-après décrit les différents états de service :
 >
 > Si vous essayez de déployer un modèle sur un cluster défectueux ou surchargé, des problèmes sont à prévoir. Si vous avez besoin d’aide pour résoudre des problèmes de cluster AKS, contactez le support technique AKS.
 
-### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inférence par lots
-Les cibles de calcul Azure Machine Learning sont créées et managées par Azure Machine Learning. Elles peuvent être utilisées pour la prédiction par lots à partir de pipelines Azure Machine Learning.
-
-Pour obtenir une présentation détaillée de l’inférence par lots avec la capacité de calcul Azure Machine Learning, consultez le [guide pratique pour exécuter des prédictions par lots](tutorial-pipeline-batch-scoring-classification.md).
-
-### <a name="iot-edge-inference"></a><a id="iotedge"></a> Inférence IoT Edge
-La prise en charge du déploiement en périphérie est en préversion. Pour plus d’informations, consultez [Déployer Azure Machine Learning en tant que module IoT Edge](../iot-edge/tutorial-deploy-machine-learning.md).
-
 ## <a name="delete-resources"></a>Supprimer des ressources
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-Pour supprimer un service web déployé, utilisez `az ml service <name of webservice>`.
+Pour supprimer un service web déployé, utilisez `az ml service delete <name of webservice>`.
 
 Pour supprimer de votre espace de travail un modèle inscrit, utilisez `az ml model delete <model id>`
 
-Apprenez-en davantage sur [la suppression d’un service web](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) et [la suppression d’un modèle](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
+Apprenez-en davantage sur [la suppression d’un service web](/cli/azure/ml/service#az_ml_service_delete) et [la suppression d’un modèle](/cli/azure/ml/model#az_ml_model_delete).
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -404,12 +579,8 @@ Pour plus d’informations, consultez la documentation sur [WebService.delete()]
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre des problèmes d’échec de déploiement](how-to-troubleshoot-deployment.md)
-* [Déployer dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
-* [Créer des applications clientes pour utiliser des services web](how-to-consume-web-service.md)
 * [Mettre à jour un service web](how-to-deploy-update-web-service.md)
-* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Déploiement en un clic pour les exécutions de ML automatisé dans Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
-* [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
 * [Créer des alertes d’événement et des déclencheurs pour les déploiements de modèle](how-to-use-event-grid.md)

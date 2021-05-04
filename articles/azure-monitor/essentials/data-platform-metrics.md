@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/20/2021
 ms.author: bwren
-ms.openlocfilehash: 3c99002a4f8613ff40a116eeceded4b3bada1c15
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c0342d477d3bbe0edc2750cd5219e3016169761
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936153"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015423"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Vue d’ensemble d’Azure Monitor Metrics
 Azure Monitor Metrics est une fonctionnalité Azure Monitor qui collecte des données numériques à partir de [ressources surveillées](../monitor-reference.md) dans une base de données de séries chronologiques. Les métriques sont des valeurs numériques collectées à intervalles réguliers et qui décrivent un certain aspect d’un système à un moment donné. Les métriques dans Azure Monitor sont légères et capables de prendre en charge des scénarios en quasi-temps réel. Ainsi, elles sont particulièrement utiles pour la création d’alertes et la détection rapide des problèmes. Vous pouvez les analyser de manière interactive à l’aide de l’explorateur de métriques, être alerté de manière proactive lorsqu’une valeur dépasse un seuil, ou les visualiser dans un classeur ou un tableau de bord.
@@ -99,6 +99,25 @@ Cette métrique sans dimensions peut répondre uniquement à une question de bas
 | 9/8/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100,1 Kbits/s |
 
 Cette métrique peut répondre à des questions telles que « quel était le débit réseau pour chaque adresse IP ? » et « quelle quantités de données ont été envoyées et reçues ? ». Les métriques multidimensionnelles incluent des valeurs d’analyse et de diagnostic supplémentaires par rapport aux métriques sans dimensions.
+
+### <a name="view-multi-dimensional-performance-counter-metrics-in-metrics-explorer"></a>Afficher les métriques des compteurs de performances multidimensionnels dans Metrics Explorer 
+Il n’est pas possible d’envoyer des métriques de compteur de performances contenant un astérisque (\*) à Azure Monitor via l’API Métriques invitées classique. Cette API ne peut pas afficher les métriques qui contiennent un astérisque, car il s’agit d’une métrique multidimensionnelle qui ne prend pas en charge les métriques classiques.
+Vous trouverez ci-dessous des instructions sur la façon de configurer et d’afficher les métriques des compteurs de performances multidimensionnels :
+1.  Accédez à la page des paramètres de diagnostic pour votre machine virtuelle
+2.  Sélectionnez l’onglet « Compteurs de performances ». 
+3.  Cliquez sur « Personnalisé » pour configurer les compteurs de performances que vous souhaitez collecter.
+![Capture d’écran de la section Compteurs de performances de la page Paramètres de diagnostic](media/data-platform-metrics/azure-monitor-perf-counter.png)
+
+4.  Une fois que vous avez configuré vos compteurs de performances, cliquez sur « Récepteurs ». Sélectionnez ensuite sur Activer pour envoyer vos données à Azure Monitor.
+![Capture d’écran de la section des récepteurs sur la page Paramètres de diagnostic](media/data-platform-metrics/azure-monitor-sink.png)
+
+5.  Pour afficher votre métrique dans Azure Monitor, sélectionnez « Invité de machine virtuelle » dans la liste déroulante d’espaces de noms de la métrique.
+![Capture d’écran de l’espace de noms de la métrique](media/data-platform-metrics/vm-guest-namespace.png)
+
+6.  Fractionnez la métrique par instance pour la voir décomposée par chacune des valeurs possibles représentées par le « \* » dans la configuration.  Dans cet exemple, le « \* » représente les différents volumes de disque logique plus le total.
+![Capture d’écran de la division de la métrique par instance](media/data-platform-metrics/split-by-instance.png)
+
+
 
 ## <a name="retention-of-metrics"></a>Rétention des métriques
 Pour la plupart des ressources dans Azure, les métriques sont stockées pendant 93 jours. Il existe quelques exceptions :

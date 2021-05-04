@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 04/25/2021
 ms.author: jeedes
-ms.openlocfilehash: ba6eb0a1b607fc05c4d0c660dd3d7016f81ef4b3
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 28e77ecafc32f5b71ff2141aadb00ab484e0067a
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449492"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001949"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone Single Sign-On
 
@@ -42,7 +42,17 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Cornerstone Single Sign-On prend en charge l’authentification unique lancée par le **fournisseur de services**.
 * Cornerstone Single Sign-On prend en charge le [provisionnement automatique d’utilisateurs](cornerstone-ondemand-provisioning-tutorial.md).
+* Si vous intégrez un ou plusieurs produits de cette liste en particulier, vous devez utiliser cette application Cornestone OnDemand Single Sign-On à partir de la galerie.
 
+    Nous proposons des solutions pour :
+
+    1. Gestion de la formation (LMS)
+    2. Gestion des performances (EPM)
+    3. Planification de la succession
+    4. Recrutement (ATS)
+    5. Entreprise étendue
+    6. Human Resources
+    7. Contenu de l’employé
 
 ## <a name="adding-cornerstone-single-sign-on-from-the-gallery"></a>Ajout de Cornerstone Single Sign-On à partir de la galerie
 

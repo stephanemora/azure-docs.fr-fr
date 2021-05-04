@@ -3,12 +3,12 @@ title: 'Démarrage rapide : créer un hub d’événements avec PowerShell – 
 description: Ce démarrage rapide décrit la création d’un Event Hub à l’aide de Azure PowerShell puis l’envoi et la réception des événements à l’aide du Kit de développement .NET Standard.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c81024a9195e463eeaaf384d5cbbd1e0054c485
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: be2761bedd3198d25cb279e6a8ff188db6a51de2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88933951"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873754"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Démarrage rapide : créer un Event Hub à l’aide de Azure PowerShell
 
@@ -24,7 +24,7 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 
 - Abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit][] avant de commencer.
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
-- [Kit SDK .NET Standard](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
+- [SDK .NET Core](https://dotnet.microsoft.com/download) version 2.0 ou ultérieure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

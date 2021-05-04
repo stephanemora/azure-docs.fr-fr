@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7f8bc4cadc720c7ac02a7246e741552e81eb3876
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ab54192480a1c36a27c175254d6d4d275b67c8b7
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057148"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835323"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
@@ -73,7 +73,7 @@ Virtual WAN permet les types de connectivité suivants : VPN site à site, VPN 
 
 Vous pouvez vous connecter à vos ressources Azure via une connexion IPsec/IKE (IKEv2) de site à site. Pour plus d’informations, consultez [Créer une connexion site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md). 
 
-Ce type de connexion nécessite un périphérique VPN ou un périphérique de partenaire Virtual WAN. Les partenaires Virtual WAN assurent l’automatisation de la connectivité, c’est-à-dire la capacité d’exporter les informations sur l’appareil dans Azure, de télécharger la configuration Azure et d’établir la connectivité avec le hub Azure Virtual WAN. Pour obtenir la liste des partenaires et des emplacements disponibles, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md). Si votre fournisseur d’appareil VPN/SD-WAN n’est pas listé dans le lien mentionné, vous pouvez simplement utiliser l’instruction pas à pas [Créer une connexion site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md) pour configurer la connexion.
+Ce type de connexion nécessite un périphérique VPN ou un périphérique de partenaire Virtual WAN. Les partenaires Virtual WAN assurent l’automatisation de la connectivité, c’est-à-dire la capacité d’exporter les informations sur l’appareil dans Azure, de télécharger la configuration Azure et d’établir la connectivité avec le hub Azure Virtual WAN. Pour obtenir la liste des partenaires et des emplacements disponibles, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md). Si votre fournisseur d’appareil VPN/SD-WAN n’est pas listé dans le lien mentionné, vous pouvez simplement utiliser l’instruction pas à pas [Créer une connexion site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md) pour configurer la connexion.
 
 ### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Connexions VPN utilisateur (point à site)
 

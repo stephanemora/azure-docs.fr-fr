@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: 7c3ae14cd409e7bfc9be77c1a593964b73a12ddc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 36987789487e97f42a51ff509df58ee0ff2dd2ed
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791046"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951249"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>À propos de l’appliance virtuelle réseau dans un hub Azure Virtual WAN (préversion)
 
@@ -77,7 +77,7 @@ La NVA dans le hub virtuel est disponible en préversion dans les régions suiva
 
 |Région géopolitique | Régions Azure|
 |---|---|
-| Amérique du Nord| Canada Centre, Canada Est, USA Centre, USA Est, USA Est 2, USA Centre Nord, USA Centre-Ouest, USA Ouest, USA Ouest 2 |
+| Amérique du Nord| Canada Centre, Canada Est, USA Centre, USA Est, USA Est 2, USA Centre Sud, USA Nord, USA Centre Ouest, USA Ouest, USA Ouest 2 |
 | Amérique du Sud | Brésil Sud, Brésil Sud-Est |
 | Europe | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest|
 |  Moyen-Orient | Émirats arabes unis Nord |

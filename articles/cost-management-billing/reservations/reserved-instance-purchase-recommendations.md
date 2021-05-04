@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 4f6187ccb143f065fed236495128add7a2ab1ee4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d70580a34e832d6465571adbc8f0524abeba609a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928523"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767922"
 ---
 # <a name="reservation-recommendations"></a>Reservation recommendations
 
@@ -65,5 +65,5 @@ Les recommandations d’achat de réservation sont disponibles dans Azure Adviso
 - Si vous utilisez une période de recherche de 7 jours, vous risquez de ne pas obtenir de recommandations quand les machines virtuelles sont arrêtées pendant plus d’une journée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
+- Obtenez des [recommandations sur les réservations utilisant les API REST](/rest/api/consumption/reservationrecommendations/list).
 - Découvrez [comment la remise de réservation Azure est appliquée aux machines virtuelles](../manage/understand-vm-reservation-charges.md).

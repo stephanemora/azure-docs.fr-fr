@@ -1,24 +1,18 @@
 ---
 title: 'Tutoriel : Vérifications de conformité réglementaire - Azure Security Center'
 description: 'Tutoriel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 06a42629df1f22eeb7a90ef5ce4da2ef53162391
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739005"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123156"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 
@@ -26,7 +20,7 @@ Le **tableau de bord Conformité avec la réglementation** d’Azure Security Ce
 
 Security Center évalue continuellement votre environnement cloud hybride afin d’analyser les facteurs de risque en fonction des contrôles et des bonnes pratiques du point de vue des normes appliqués à vos abonnements. Le tableau de bord reflète l’état de votre conformité à ces normes. 
 
-Quand vous activez Security Center dans un abonnement Azure, le [benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction) lui est automatiquement attribué. Ce benchmark, largement respecté et centré sur le cloud, est basé sur les contrôles du [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) et du [NIST (National Institute of Standards and Technology)](https://www.nist.gov/).
+Quand vous activez Security Center dans un abonnement Azure, le [benchmark de sécurité Azure](/security/benchmark/azure/introduction) lui est automatiquement attribué. Ce benchmark, largement respecté et centré sur le cloud, est basé sur les contrôles du [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) et du [NIST (National Institute of Standards and Technology)](https://www.nist.gov/).
 
 Le tableau de bord de conformité réglementaire montre l’état de toutes les évaluations au sein de votre environnement pour les normes et réglementations de votre choix. Si vous suivez les recommandations et réduisez les facteurs de risque de votre environnement, votre niveau de conformité s’améliore.
 
@@ -135,14 +129,15 @@ Par exemple, vous pouvez faire en sorte que Security Center envoie un e-mail à 
 - [Comment télécharger un rapport avec des données de conformité dans un format autre que PDF ?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
 - [Comment créer des exceptions pour certaines des stratégies présentes dans le tableau de bord de conformité réglementaire ?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
 - [De quels plans ou licences Azure Defender ai-je besoin pour utiliser le tableau de bord de conformité réglementaire ?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+- [Comment déterminer le benchmark ou la norme à utiliser ?](#how-do-i-know-which-benchmark-or-standard-to-use)
 
 ### <a name="what-standards-are-supported-in-the-compliance-dashboard"></a>Quelles sont les normes prises en charge dans le tableau de bord de conformité ?
 Par défaut, le tableau de bord conformité réglementaire vous montre le benchmark de sécurité Azure. Le benchmark de sécurité Azure rassemble les directives de sécurité propres à Azure et créées par Microsoft et les bonnes pratiques de conformité s’inscrivant dans les cadres de conformité courants. Apprenez-en davantage dans [Introduction aux benchmarks de sécurité Azure](../security/benchmarks/introduction.md).
 
 Pour suivre votre conformité à d’autres normes, vous devez les ajouter explicitement à votre tableau de bord.
  
-Vous pouvez notamment ajouter les normes suivantes : Azure CIS 1.1.0 (nouveauté), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, UK Official et UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP et PCI-DSS 3.2.1.  
- 
+Vous pouvez ajouter d’autres normes comme : Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, UK Official et UK NHS, HIPAA, Canada Federal PBMM, ISO 27001, SOC2-TSP et PCI-DSS 3.2.1.  
+
 D’autres normes seront ajoutées au tableau de bord et incluses dans les informations fournies dans [Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md).
 
 ### <a name="why-do-some-controls-appear-grayed-out"></a>Pourquoi certains contrôles sont-ils grisés ?
@@ -195,7 +190,12 @@ Pour les autres stratégies, vous pouvez créer une exemption directement dans l
 Si l’un des packages Azure Defender est activé dans l’un de vos types de ressources Azure, vous avez accès au tableau de bord de conformité réglementaire, avec toutes ses données, dans Security Center.
 
 
+### <a name="how-do-i-know-which-benchmark-or-standard-to-use"></a>Comment déterminer le benchmark ou la norme à utiliser ?
+Le [benchmark de sécurité Azure](/security/benchmark/azure/introduction) (ASB) est l’ensemble canonique des recommandations de sécurité et des bonnes pratiques définies par Microsoft, alignées sur les frameworks de contrôle de conformité courants, notamment [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) et [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). ASB est un benchmark très complet conçu pour recommander les fonctionnalités de sécurité les plus récentes d’un grand nombre de services Azure. Nous recommandons ASB aux clients qui veulent maximiser leur posture de sécurité et avoir la possibilité d’aligner leur état de conformité sur les normes du secteur.
 
+Le [benchmark CIS](https://www.cisecurity.org/benchmark/azure/) est créé par une entité indépendante, le CIS (Center for Internet Security), et contient des recommandations sur une partie des principaux services Azure. Nous travaillons en collaboration avec le CIS pour garantir que leurs recommandations comprennent les dernières améliorations d’Azure, mais il arrive qu’elles prennent du retard et deviennent obsolètes. Néanmoins, certains clients aiment utiliser cette évaluation tierce objective du CIS comme première et principale base de référence de sécurité.
+
+Depuis que nous avons publié le benchmark de sécurité Azure, de nombreux clients ont choisi de l’utiliser en remplacement des benchmarks CIS.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

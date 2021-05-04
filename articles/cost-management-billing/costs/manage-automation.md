@@ -3,17 +3,17 @@ title: Gérer les coûts Azure avec l’automatisation
 description: Cet article explique comment gérer les coûts Azure avec l’automatisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: f5cebffeaba1ce198be347758004068e8c03133b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2a39f77e3e7409d23ab7506b525f65e01082e99e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499677"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720115"
 ---
 # <a name="manage-costs-with-automation"></a>Gérer les coûts avec l’automatisation
 
@@ -47,7 +47,7 @@ Envisagez d’utiliser l’[API Détails d’utilisation](/rest/api/consumption/
 
 L’[API Détails d’utilisation](/rest/api/consumption/usageDetails) offre un moyen simple d’accéder à des données de coût brutes et non agrégées qui correspondent à votre facture Azure. L’API est utile lorsque votre organisation a besoin d’une solution d’extraction de données par programme. Envisagez d’utiliser l’API si vous souhaitez analyser des jeux de données de coût plus petits. Toutefois, vous devez utiliser d’autres solutions identifiées précédemment si vous avez des jeux de données plus volumineux. Les données de l’API Détails d’utilisation sont fournies par compteur et par jour. Elles sont utilisées lors du calcul de votre facture mensuelle. La version en disponibilité générale de l’API est `2019-10-01`. Utilisez `2019-04-01-preview` pour accéder à la préversion de la réservation et aux achats sur la Place de marché Azure avec les API.
 
-Si vous souhaitez obtenir régulièrement de grandes quantités de données exportées, consultez [Récupérer de volumineux jeux de données de coûts de façon récurrente avec des exportations](ingest-azure-usage-at-scale.md).
+Si vous souhaitez obtenir régulièrement de grandes quantités de données exportées, consultez [Récupérer de grands jeux de données de coûts de façon récurrente avec des exportations](ingest-azure-usage-at-scale.md).
 
 ### <a name="usage-details-api-suggestions"></a>Suggestions concernant l’API Détails d’utilisation
 
@@ -74,6 +74,10 @@ Comportement des prix des détails d’utilisation : les fichiers d’utilisati
   - Quantité incluse : par exemple, 100 premières unités gratuites, puis 10 US$ par unité.
   - Réservations
   - Arrondi effectué pendant le calcul : l’arrondi prend en compte la quantité consommée, les prix échelonnés et la quantité incluse, ainsi que le prix unitaire ajusté.
+
+### <a name="a-single-resource-might-have-multiple-records-for-a-single-day"></a>Une ressource unique peut avoir plusieurs enregistrements pour une seule journée.
+
+Les fournisseurs de ressources Azure envoient les données d’utilisation et les frais dans le système de facturation et renseignent le champ `Additional Info` des enregistrements d’utilisation. Parfois, les fournisseurs de ressources peuvent envoyer les données d’utilisation pour un jour donné et marquer les enregistrements avec différents centres de données dans le champ `Additional Info` des enregistrements d’utilisation. Cela peut entraîner la présence de plusieurs enregistrements pour un compteur/une ressource dans votre fichier d’utilisation pour un même jour. Dans ce cas, vous n’êtes pas surfacturé. Les enregistrements multiples représentent le coût total du compteur pour la ressource ce jour.
 
 ## <a name="example-usage-details-api-requests"></a>Exemples de demandes envoyées à l’API Détails d’utilisation
 
@@ -182,9 +186,9 @@ Langues prises en charge par un code de culture :
 | pl-pl | Polonais (Pologne) |
 | tr-tr | Turc (Turquie) |
 | da-dk | Danois (Danemark) |
-| dn-gb | Anglais (Royaume-Uni) |
+| en-gb | Anglais (Royaume-Uni) |
 | hu-hu | Hongrois (Hongrie) |
-| nb-bo | Norvégien Bokmal (Norvège) |
+| nb-no | Norvégien Bokmal (Norvège) |
 | nl-nl | Néerlandais (Pays-Bas) |
 | pt-pt | Portugais (Portugal) |
 | sv-se | Suédois (Suède) |

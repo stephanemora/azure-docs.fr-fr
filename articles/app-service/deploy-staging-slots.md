@@ -4,13 +4,13 @@ description: Découvrez comment déployer des applications à un emplacement hor
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: b93fb61cc58360ddfcf15d2af2c936203d869500
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.openlocfilehash: 792801c568255b471487c14b6a812942298ad0d4
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771530"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906545"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -248,8 +248,7 @@ Une fois le paramètre enregistré, le pourcentage de clients spécifié est rou
 Lorsqu’un client est automatiquement routé vers un emplacement particulier, il est « épinglé » à cet emplacement pendant toute la durée de cette session cliente. Dans le navigateur client, vous pouvez voir à quel emplacement votre session est épinglée en examinant le cookie `x-ms-routing-name` dans les en-têtes HTTP. Une requête qui est acheminée vers l’emplacement « intermédiaire » contient le cookie `x-ms-routing-name=staging`. Une requête qui est acheminée vers l’emplacement de production a le cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > À côté du portail Azure, vous pouvez également utiliser la commande [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) dans Azure CLI pour définir les pourcentages de routage à partir d’outils CI/CD comme les pipelines DevOps ou d’autres systèmes d’automatisation.
-   > 
+   > Vous pouvez également utiliser la commande [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) dans Azure CLI pour définir les pourcentages de routage à partir d’outils CI/CD comme les actions GitHub, pipelines DevOps ou d’autres systèmes d’automatisation.
 
 ### <a name="route-production-traffic-manually"></a>Acheminer le trafic de production manuellement
 
@@ -270,6 +269,9 @@ Pour permettre aux utilisateurs d’accepter votre application bêta, définisse
 ```
 
 Par défaut, les nouveaux emplacements se voient attribuer une règle de routage de `0%` (indiquée en gris). Lorsque vous définissez cette valeur explicitement sur `0%` (indiquée en noir), vos utilisateurs peuvent accéder à l’emplacement de préproduction manuellement, à l’aide du paramètre de requête `x-ms-routing-name`. Toutefois, ils ne seront pas routés vers l’emplacement automatiquement, car le pourcentage de routage est défini sur 0. Il s’agit d’un scénario avancé où vous pouvez « cacher » votre emplacement de préproduction du public, tout en permettant aux équipes internes de tester les modifications sur l’emplacement.
+
+> [!NOTE]
+> Il existe une limitation connue affectant les points de terminaison privés et le routage du trafic avec des emplacements. Depuis avril 2021, le routage automatique et manuel des requêtes entre les emplacements entraîne une erreur « 403 Accès refusé ». Cette limite sera supprimée dans une prochaine version. 
 
 <a name="Delete"></a>
 

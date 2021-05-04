@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 936789ef292ac6d06b9fd3ac1e9a81219f39e4ef
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c4bcfb6c2814fb6b2e1260dad2a0546de21c5ae8
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307824"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992093"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -56,7 +56,7 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
     - [Pare-feu d’application web (WAF) Azure](connect-azure-waf.md) (anciennement Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Serveur de noms de domaine](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) : inclut les incidents M365D et les données brutes MDE
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) : inclut les incidents M365D et les données brutes Defender pour point de terminaison
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (anciennement Microsoft Defender Advanced Threat Protection)
     - [Microsoft Defender pour Identity](connect-azure-atp.md) (anciennement Azure Advanced Threat Protection)
     - [Microsoft Defender pour Office 365](connect-office-365-advanced-threat-protection.md) (anciennement Office 365 - Protection avancée contre les menaces)

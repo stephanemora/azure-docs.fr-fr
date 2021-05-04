@@ -3,16 +3,16 @@ title: Exempter une recommandation Azure Security Center d’une ressource, d’
 description: Découvrez comment créer des règles pour exempter les recommandations de sécurité des abonnements ou des groupes d’administration et les empêcher d’avoir un impact sur votre score sécurisé
 author: memildin
 ms.author: memildin
-ms.date: 03/11/2021
+ms.date: 04/21/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 13abb35d0fa9ad3ee949b6edf5205de601a02956
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: f125b94725ba9d34aa0962ed38b16fb474dc5b2b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718554"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140242"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exempter une ressource des recommandations et du degré de sécurisation 
 
@@ -35,7 +35,7 @@ Dans ce cas, vous pouvez créer une exemption pour une recommandation pour :
 | État de sortie :                  | PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Prix :                        | Il s’agit d’une capacité premium d’Azure Policy proposée sans surcoût aux clients d’Azure Defender. Pour les autres utilisateurs, des frais pourront s’appliquer.                                                                                                                                                                 |
 | Rôles et autorisations obligatoires : | **Propriétaire** ou **Contributeur de stratégie de ressource** pour créer une exemption<br>Pour créer une règle, vous devez disposer de l’autorisation de modifier des stratégies dans Azure Policy.<br>Pour plus d’informations, consultez [Autorisations Azure RBAC dans Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Limites :                    | Les exemptions ne peuvent être créées que pour les recommandations incluses dans l’initiative par défaut de Security Center, [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), ou l’une des initiatives de normes réglementaires fournies. Les recommandations générées à partir d’initiatives personnalisées ne peuvent pas être exemptées. En savoir plus sur les relations entre les [stratégies, les initiatives et les recommandations](security-policy-concept.md). |
+| Limites :                    | Les exemptions ne peuvent être créées que pour les recommandations incluses dans l’initiative par défaut de Security Center, [Azure Security Benchmark](/security/benchmark/azure/introduction), ou l’une des initiatives de normes réglementaires fournies. Les recommandations générées à partir d’initiatives personnalisées ne peuvent pas être exemptées. En savoir plus sur les relations entre les [stratégies, les initiatives et les recommandations](security-policy-concept.md). |
 | Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
@@ -117,6 +117,14 @@ Pour garder une trace de la façon dont vos utilisateurs exercent cette fonction
 - Pour en savoir plus sur le playbook, consultez le billet de blog de la communauté technique, intitulé [How to keep track of Resource Exemptions in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580) (Suivi des exemptions de ressources dans Azure Security Center)
 - Vous trouverez le modèle ARM dans le [référentiel GitHub Azure Security Center](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
 - Pour déployer tous les composants nécessaires, [utilisez ce processus automatisé](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
+
+## <a name="use-the-inventory-to-find-resources-that-have-exemptions-applied"></a>Utilisez l’inventaire pour rechercher les ressources auxquelles des exemptions sont appliquées
+
+La page d’inventaire des ressources d’Azure Security Center fournit une page unique pour visualiser la posture de sécurité des ressources que vous avez connectées à Security Center. Pour en savoir plus, consultez [Explorer et gérer vos ressources avec l’inventaire des ressources](asset-inventory.md).
+
+La page d’inventaire comprend de nombreux filtres pour vous permettre de limiter la liste aux ressources les plus intéressantes pour un scénario donné. L’un de ces filtres est **Contient des exemptions**. Utilisez ce filtre pour rechercher toutes les ressources qui ont été exemptées d’une ou de plusieurs recommandations.
+
+:::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Page d’inventaire des ressources Security Center et filtre pour rechercher des ressources avec exemptions":::
 
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Rechercher des recommandations avec des exemptions à l’aide d’Azure Resource Graph

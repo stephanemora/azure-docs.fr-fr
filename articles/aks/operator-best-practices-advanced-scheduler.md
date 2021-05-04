@@ -5,12 +5,12 @@ description: Découvrir les bonnes pratiques de l’opérateur relatives à l’
 services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 27b32d7d10b691ed806e4d7aa31a095630d2bfc9
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 971916c3fc903ff5d69db2e0f82fd884acf807b3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103621"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831579"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -42,13 +42,18 @@ Le planificateur Kubernetes utilise des teintes et des tolérances pour restrein
 * Appliquez une **teinte** à un nœud pour indiquer que seuls des pods spécifiques peuvent être planifiés sur celui-ci.
 * Appliquez ensuite une **tolérance** à un pod, lui permettant de *tolérer* la teinte d’un nœud.
 
-Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds dont la teinte correspond à la tolérance. Par exemple, supposons que vous ayez un pool de nœuds dans votre cluster AKS pour les nœuds avec prise en charge des GPU. Vous définissez un nom, comme *gpu*, puis une valeur pour la planification. En définissant cette valeur sur *NoSchedule*, le planificateur Kubernetes ne peut pas planifier les pods sans tolérance définie sur le nœud.
+Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds dont la teinte correspond à la tolérance. Par exemple, supposons que vous avez ajouté un pool de nœuds dans votre cluster AKS pour les nœuds avec prise en charge des GPU. Vous définissez un nom, comme *gpu*, puis une valeur pour la planification. En définissant cette valeur sur *NoSchedule*, le planificateur Kubernetes ne peut pas planifier les pods sans tolérance définie sur le nœud.
 
-```console
-kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name taintnp \
+    --node-taints sku=gpu:NoSchedule \
+    --no-wait
 ```
 
-Après avoir appliqué une teinte aux nœuds, vous définirez une tolérance dans la spécification de pod qui autorise la planification sur les nœuds. L’exemple suivant définit `sku: gpu` et `effect: NoSchedule` pour tolérer la teinte appliquée au nœud à l’étape précédente :
+Après avoir appliqué une teinte aux nœuds dans le pool de nœuds, vous définirez une tolérance dans la spécification de pod qui autorise la planification sur les nœuds. L’exemple suivant définit `sku: gpu` et `effect: NoSchedule` pour tolérer la teinte appliquée au pool de nœuds à l’étape précédente :
 
 ```yaml
 kind: Pod
@@ -115,16 +120,22 @@ Lorsque vous faites évoluer un pool de nœuds dans AKS, les teintes et les tol�
 > 
 > Contrôlez la planification des pods sur les nœuds à l’aide de sélecteurs de nœuds, de l’affinité entre nœuds ou de l’affinité entre pods. Ces paramètres permettent au planificateur Kubernetes d’isoler logiquement les charges de travail, notamment par matériel dans le nœud.
 
-Les teintes et les tolérances isolent logiquement les ressources avec une coupure dure. Si le pod ne tolère pas la teinte d’un nœud, il n’est pas planifié sur ce nœud. 
+Les teintes et les tolérances isolent logiquement les ressources avec une coupure dure. Si le pod ne tolère pas la teinte d’un nœud, il n’est pas planifié sur ce nœud.
 
-Vous pouvez également utiliser des sélecteurs de nœuds. Par exemple, vous étiquetez les nœuds pour indiquer un stockage SSD attaché localement ou une grande quantité de mémoire, puis vous définissez un sélecteur de nœuds dans la spécification du pod. Kubernetes planifie ces pods sur un nœud correspondant. 
+Vous pouvez également utiliser des sélecteurs de nœuds. Par exemple, vous étiquetez les nœuds pour indiquer un stockage SSD attaché localement ou une grande quantité de mémoire, puis vous définissez un sélecteur de nœuds dans la spécification du pod. Kubernetes planifie ces pods sur un nœud correspondant.
 
 Contrairement aux tolérances, les pods sans sélecteur de nœuds correspondant peuvent toujours être planifiés sur des nœuds étiquetés. Ce comportement autorise la consommation des ressources inutilisées sur les nœuds, mais donne la priorité aux pods qui définissent le sélecteur de nœuds correspondant.
 
-Examinons un exemple de nœuds avec une grande quantité de mémoire. Ces nœuds donnent la priorité aux pods qui demandent une grande quantité de mémoire. Pour s’assurer que les ressources ne restent pas inutilisées, d’autres pods sont également autorisés à s’exécuter.
+Examinons un exemple de nœuds avec une grande quantité de mémoire. Ces nœuds donnent la priorité aux pods qui demandent une grande quantité de mémoire. Pour s’assurer que les ressources ne restent pas inutilisées, d’autres pods sont également autorisés à s’exécuter. L’exemple de commande suivant ajoute un pool de nœuds avec l’étiquette *hardware= highmem* à *myAKSCluster* dans *myResourceGroup*. Tous les nœuds de ce pool de nœuds auront cette étiquette.
 
-```console
-kubectl label node aks-nodepool1 hardware=highmem
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name labelnp \
+    --node-count 1 \
+    --labels hardware=highmem \
+    --no-wait
 ```
 
 Une spécification de pod ajoute ensuite la propriété `nodeSelector` pour définir un sélecteur de nœud qui correspond à l’étiquette définie sur un nœud :

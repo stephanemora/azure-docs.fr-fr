@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/20/2021
+ms.date: 04/27/2021
 ms.author: memildin
-ms.openlocfilehash: 92138b0253d28c8bf2617ee7b17474f30ac5cafe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 35873711753400132f47933f009365cc6383429b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751200"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123480"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -31,11 +31,14 @@ Les mises à jour du mois d’avril incluent :
 - [Les images de registre de conteneurs récemment extraites sont à présent réanalysées chaque semaine (disponibilité générale)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multicloud (préversion)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
 - [Recommandations concernant l’activation d’Azure Defender pour DNS et pour Resource Manager (préversion)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Ajout de trois normes de conformité réglementaire : Azure CIS 1.3.0, CMMC niveau 3 et New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
 - [Quatre nouvelles recommandations relatives à la configuration des invités (préversion)](#four-new-recommendations-related-to-guest-configuration-preview)
 - [Recommandations CMK déplacées dans le contrôle de sécurité des bonnes pratiques](#cmk-recommendations-moved-to-best-practices-security-control)
 - [Onze alertes Azure Defender déconseillées](#11-azure-defender-alerts-deprecated)
 - [Deux recommandations du contrôle de sécurité « Appliquer les mises à jour système » sont désormais déconseillées](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Vignette « Azure Defender pour SQL sur des machines » supprimée du tableau de bord Azure Defender](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
+- [21 recommandations déplacées entre les contrôles de sécurité](#21-recommendations-moved-between-security-controls)
+
 
 ### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Les images de registre de conteneurs récemment extraites sont à présent réanalysées chaque semaine (disponibilité générale)
 
@@ -80,6 +83,24 @@ L’activation des plans Azure Defender engendre des frais. Découvrez-en plus s
 
 > [!TIP]
 > Les recommandations en préversion ne rendent pas une ressource non saine et ne sont pas incluses dans les calculs de votre degré de sécurisation. Corrigez-les là où c’est possible, de sorte que quand la période de préversion se termine, elles soient prises en compte dans le calcul de votre degré de sécurisation. Découvrez comment répondre à ces recommandations dans [Corriger les recommandations dans Azure Security Center](security-center-remediate-recommendations.md).
+
+
+### <a name="three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted"></a>Ajout de trois normes de conformité réglementaire : Azure CIS 1.3.0, CMMC niveau 3 et New Zealand ISM Restricted
+
+Nous avons ajouté trois normes à utiliser avec Azure Security Center. À l’aide du tableau de bord de conformité réglementaire, vous pouvez désormais suivre votre conformité avec :
+
+- [CIS Microsoft Azure Foundations Benchmark 1.3.0](../governance/policy/samples/cis-azure-1-3-0.md)
+- [CMMC niveau 3](../governance/policy/samples/cmmc-l3.md)
+- [New Zealand ISM Restricted](../governance/policy/samples/new-zealand-ism.md)
+
+Vous pouvez les attribuer à vos abonnements comme décrit dans [Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/additional-regulatory-compliance-standards.png" alt-text="Ajout de trois normes à utiliser avec le tableau de bord de conformité réglementaire d’Azure Security Center." lightbox="media/release-notes/additional-regulatory-compliance-standards.png":::
+
+Pour en savoir plus :
+- [Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md)
+- [Tutoriel : Améliorer votre conformité aux normes](security-center-compliance-dashboard.md)
+- [Questions fréquentes (FAQ) - Tableau de bord de conformité réglementaire](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatre nouvelles recommandations relatives à la configuration des invités (préversion)
 
@@ -160,6 +181,19 @@ Pour plus d’informations sur ces recommandations, consultez la [page de réfé
 ### <a name="azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard"></a>Vignette « Azure Defender pour SQL sur des machines » supprimée du tableau de bord Azure Defender
 
 La zone de couverture du tableau de bord Azure Defender comprend des vignettes correspondant aux plans Azure Defender concernés de votre environnement. En raison d’un problème lié au signalement du nombre de ressources protégées et non protégées, nous avons décidé de supprimer temporairement l’état de couverture des ressources pour **Azure Defender pour SQL sur des machines** jusqu’à ce que le problème soit résolu.
+
+
+### <a name="21-recommendations-moved-between-security-controls"></a>21 recommandations déplacées entre les contrôles de sécurité 
+
+Les recommandations suivantes ont été déplacées vers d’autres contrôles de sécurité. Les contrôles de sécurité sont des groupes logiques de recommandations de sécurité associées, qui reflète les surfaces d’attaque vulnérables. Ce déplacement garantit que toutes ces recommandations sont dans le contrôle le plus approprié pour atteindre son objectif.
+
+Découvrez les recommandations de chaque contrôle de sécurité dans [Contrôles de sécurité et leurs recommandations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+|Recommandation |Modification et impact  |
+|---------|---------|
+|L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL<br>L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL<br>Les vulnérabilités de vos bases de données SQL doivent être corrigées<br>Les vulnérabilités sur vos bases de données SQL dans les machines virtuelles doivent être corrigées     |Déplacement de Corriger les vulnérabilités (6 points)<br>vers Corriger les configurations de sécurité (4 points).<br>Ces recommandations ont un impact réduit sur votre score, en fonction de votre environnement.|
+|Plusieurs propriétaires doivent être affectés à votre abonnement<br>Les variables de compte Automation doivent être chiffrées<br> Appareils IoT – Le processus audité a arrêté d’envoyer des événements<br> Appareils IoT – Échec de la validation de la base du système d’exploitation<br> Appareils IoT – Mise à niveau de la suite de chiffrement TLS requise<br> Appareils IoT – Ports ouverts sur l’appareil<br> Appareils IoT – Stratégie de pare-feu permissive trouvée dans l’une des chaînes<br> Appareils IoT – Règle de pare-feu permissive trouvée dans la chaîne d’entrée<br> Appareils IoT – Règle de pare-feu permissive trouvée dans la chaîne de sortie<br>Les journaux de diagnostic dans IoT Hub doivent être activés<br> Appareils IoT – Agent envoyant des messages sous-exploités<br>Appareils IoT : la stratégie de filtre IP par défaut devrait être refusée<br>Appareils IoT : plage d’adresses IP large pour la règle de filtre IP<br>Appareils IoT : les intervalles et la taille des messages des agents doivent être ajustés<br>Appareils IoT : informations d’identification et d’authentification identiques<br>Appareils IoT : le processus audité a arrêté d’envoyer des événements<br>Appareils IoT : la configuration de ligne de base du système d’exploitation doit être corrigée|Déplacement vers **Implémenter les meilleures pratiques de sécurité**.<br>Lorsqu’une recommandation se déplace vers le contrôle de sécurité Implémenter les bonnes pratiques de sécurité, ce qui n’est pas du tout judicieux, la recommandation n’affecte plus votre score sécurisé.|
+|||
 
 
 ## <a name="march-2021"></a>Mars 2021
@@ -284,7 +318,7 @@ Nous avons publié une version améliorée de la liste des suggestions pour pré
 Sur cette page, vous verrez désormais :
 
 1. Score maximal et score actuel pour chaque contrôle de sécurité.
-1. Les icônes qui remplacent des balises telles que **Correction rapide** et **Version préliminaire**.
+1. Icônes qui remplaçant des balises telles que **Corriger** et **Version préliminaire**.
 1. Une nouvelle colonne présentant l'[initiative de stratégie](security-policy-concept.md) associée à chaque suggestion ; visible lorsque « Regrouper par contrôles » est désactivé.
 
 :::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Améliorations apportées à la page Suggestions d’Azure Security Center - mars 2021" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
@@ -430,7 +464,7 @@ Les recommandations existantes ne sont pas affectées, et les modifications sont
 
 Pour en savoir plus, consultez les pages suivantes :
 
-- [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [En savoir plus sur le Benchmark de sécurité Azure](/security/benchmark/azure/introduction)
 - [Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>L’évaluation des vulnérabilités pour les machines locales et multicloud est en disponibilité générale
@@ -545,7 +579,7 @@ Pour plus d’informations, consultez [Demander des autorisations à l’échell
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Ajout de 35 recommandations (préversion) pour mieux détailler le benchmark de sécurité Azure
 
-Le [Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction) est désormais l’initiative de stratégie par défaut d’Azure Security Center. 
+Le [Benchmark de sécurité Azure](/security/benchmark/azure/introduction) est désormais l’initiative de stratégie par défaut d’Azure Security Center. 
 
 Pour étendre la couverture de ce benchmark, les 35 recommandations suivantes (en préversion) ont été ajoutées à Security Center.
 
@@ -563,7 +597,7 @@ Pour étendre la couverture de ce benchmark, les 35 recommandations suivantes (
 
 Liens connexes :
 
-- [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [En savoir plus sur le Benchmark de sécurité Azure](/security/benchmark/azure/introduction)
 - [En savoir plus sur Azure Database for MariaDB](../mariadb/overview.md)
 - [En savoir plus sur Azure Database pour MySQL](../mysql/overview.md)
 - [En savoir plus sur Azure Database pour PostgreSQL](../postgresql/overview.md)
@@ -743,13 +777,13 @@ Les filtres ajoutés ce mois-ci fournissent des options pour affiner la liste de
 
 - **Environnement** : affichez les recommandations pour vos ressources AWS, GCP ou Azure (ou n’importe quelle combinaison)
 - **Gravité** : affichez les recommandations en fonction de la classification de gravité définie par Security Center
-- **Actions de réponse** : affichez les recommandations en fonction de la disponibilité des options de réponse Security Center : Correctif rapide, Refuser et Appliquer
+- **Actions de réponse** : Affichez les recommandations en fonction de la disponibilité des options de réponse Security Center : Corriger, Refuser et Appliquer
 
     > [!TIP]
     > Le filtre d’actions de réponse remplace le filtre **Correctif rapide disponible (Oui/Non)** . 
     > 
     > Apprenez-en davantage sur chacune de ces options de réponse :
-    > - [Application d’un correctif rapide](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Bouton Corriger](security-center-remediate-recommendations.md#fix-button)
     > - [Empêcher des configurations incorrectes à l’aide des recommandations Appliquer/Refuser](prevent-misconfigurations.md)
 
 :::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recommandations regroupées par contrôle de sécurité" lightbox="./media/release-notes/added-recommendations-filters.png":::
@@ -789,7 +823,7 @@ Les mises à jour en novembre sont les suivantes :
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Ajout de 29 recommandations (préversion) pour mieux détailler le benchmark de sécurité Azure
 
-Le Benchmark de sécurité Azure constitue l’ensemble des directives propres à Azure et créées par Microsoft, qui contient les bonnes pratiques de sécurité et de conformité s’inscrivant dans les cadres de conformité courants. [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
+Le Benchmark de sécurité Azure constitue l’ensemble des directives propres à Azure et créées par Microsoft, qui contient les bonnes pratiques de sécurité et de conformité s’inscrivant dans les cadres de conformité courants. [En savoir plus sur le Benchmark de sécurité Azure](/security/benchmark/azure/introduction).
 
 Les 29 recommandations suivantes (préversion) ont été ajoutées à Security Center pour mieux détailler ce benchmark.
 
@@ -806,7 +840,7 @@ Les recommandations en préversion ne rendent pas une ressource non saine et ne 
 
 Liens connexes :
 
-- [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [En savoir plus sur le Benchmark de sécurité Azure](/security/benchmark/azure/introduction)
 - [En savoir plus sur les applications API Azure](../app-service/app-service-web-tutorial-rest-api.md)
 - [En savoir plus sur les applications de fonction Azure](../azure-functions/functions-overview.md)
 - [En savoir plus sur les applications web Azure](../app-service/overview.md)

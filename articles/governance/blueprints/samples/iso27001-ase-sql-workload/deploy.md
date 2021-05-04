@@ -1,14 +1,14 @@
 ---
 title: Déployer l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 description: Étapes de déploiement de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 et informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 02/05/2021
+ms.date: 04/23/2021
 ms.topic: sample
-ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a2bc0d0b206ae9fa484c73f1b67c14b115f20883
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669642"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949071"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Déployer l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 
@@ -93,7 +93,7 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
      - **Nom de l’organisation** : entrez un nom court pour votre organisation. Cette propriété est principalement utilisée pour le nommage des ressources.
      - **ID d’abonnement Services partagés** : ID d’abonnement auquel l’exemple de blueprint [Services partagés ISO 27001](../iso27001-shared/index.md) est affecté.
      - **Préfixe d’adresse de sous-réseau par défaut** : notation CIDR du sous-réseau par défaut de réseau virtuel.
-       La valeur par défaut est _10.1.0.0/16_.
+       La valeur par défaut est _10.1.0.0/24_.
      - **Emplacement de la charge de travail** : détermine l’emplacement dans lequel les artefacts sont déployés. Tous les services ne sont pas disponibles dans tous les emplacements. Les artefacts déployant de tels services fournissent une option de paramètre qui permet de définir l’emplacement dans lequel les artefacts sont déployés.
 
    - Paramètres d'artefact
@@ -120,21 +120,23 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Groupe de ressources réseau|Resource group|Emplacement|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Groupe de sécurité réseau|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Adresse IP privée de pare-feu Azure|Configure l’adresse IP privée du [pare-feu Azure](../../../../firewall/overview.md). Doit faire partie de la notation CIDR définie dans le paramètre d’artefact _ISO 27001 : Services partagés_**Préfixe d’adresse de sous-réseau de pare-feu Azure**. La valeur par défaut est _10.0.4.4_.|
-|Modèle Réseau virtuel et table de routage|Modèle Resource Manager|ID d’abonnement Services partagés|Valeur utilisée pour activer le peering de réseau virtuel entre une charge de travail et les services partagés.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de réseau virtuel|Notation CIDR du réseau virtuel. La valeur par défaut est _10.1.0.0/16_.|
-|Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de sous-réseau par défaut|notation CIDR du sous-réseau par défaut de réseau virtuel. La valeur par défaut est _10.1.0.0/16_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Adresse IP ADDS|Adresse IP de la première machine virtuelle ADDS. Cette valeur sert de DNS VNET personnalisé.|
+|Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
+|Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Nom du peering de réseau virtuel|Valeur utilisée pour activer le peering de réseau virtuel entre une charge de travail et les services partagés.|
 |Groupe de ressources Key Vault|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-kv-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources Key Vault|Resource group|Emplacement|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Key Vault|Modèle Resource Manager|ID d’objet AAD|Identificateur d’objet AAD du compte qui nécessite l’accès à l’instance Key Vault. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, sélectionnez l’icône « Cliquez pour copier » à côté de l’_ID d’objet_.|
 |Modèle Key Vault|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Key Vault|Modèle Resource Manager|Référence SKU du coffre de clés|Spécifie la référence SKU du coffre de clés créé. La valeur par défaut est _Premium_.|
 |Modèle Key Vault|Modèle Resource Manager|Nom d’utilisateur administrateur Azure SQL Server|Nom d’utilisateur utilisé pour accéder à Azure SQL Server. Doit correspondre à la valeur de propriété du **modèle Azure SQL Database**. La valeur par défaut est _sql-admin-user_.|
+|Modèle Key Vault|Modèle Resource Manager|Mot de passe de l’administrateur Azure SQL Server|Mot de passe donné au nom d’utilisateur de l’administrateur Azure SQL Server|
 |Groupe de ressources Azure SQL Database|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-azsql-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources Azure SQL Database|Resource group|Emplacement|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Nom d’utilisateur administrateur Azure SQL Server|Nom d’utilisateur pour Azure SQL Server. Doit correspondre à la valeur de propriété du **modèle Key Vault**. La valeur par défaut est _sql-admin-user_.|
-|Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (ID de ressource Key Vault)|ID de ressource du coffre de clés. Utilisez « /subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|
-|Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (Nom du secret Key Vault)|Nom d’utilisateur de l’administrateur SQL Server. Doit correspondre à la valeur de propriété **Modèle Key Vault** **Nom d’utilisateur administrateur Azure SQL Server**.|
+|Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (ID de ressource du coffre de clés)|ID de ressource du coffre de clés. Utilisez « /subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|
+|Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (Nom du secret du coffre de clés)|Nom d’utilisateur de l’administrateur SQL Server. Doit correspondre à la valeur de propriété **Modèle Key Vault** **Nom d’utilisateur administrateur Azure SQL Server**.|
+|Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (Nom du secret du coffre de clés)|Version secrète du coffre de clés (à laisser vide pour les nouveaux déploiements)|
 |Modèle Azure SQL Database|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Azure SQL Database|Modèle Resource Manager|ID objet de l’administrateur AAD|ID objet AAD de l’utilisateur affecté en tant qu’administrateur Active Directory. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, sélectionnez l’icône « Cliquez pour copier » à côté de l’_ID d’objet_.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Connexion administrateur AAD|Les comptes Microsoft (comme live.com ou outlook.com) ne peuvent pas actuellement être définis en tant qu’administrateur. Seuls les utilisateurs et groupes de sécurité au sein de votre organisation peuvent être définis en tant qu’administrateur. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, copiez le _Nom d’utilisateur_.|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 811b2cb7fd9a4f664e7a643f5a8e192a51416888
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 46ad81f6723d160bf1d675b68a8459dd8df32c80
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689097"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078347"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement
 
@@ -55,7 +55,7 @@ Les API EA utilisent une clé d’API pour l’authentification et l’autorisat
 | Utilisation (CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Utilisation de la Place de marché (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Billing periods | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
-| Price sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
+| Price sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json\|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json\|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
 | Achats de réservation | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | Reservation recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Utilisation de la réservation | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
@@ -128,8 +128,8 @@ L’API Usage Details, comme avec toutes les API Cost Management, est disponible
 | --- | --- |
 | Compte de facturation | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | Profil de facturation | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
-| Subscription | `/subscriptions/{subscriptionId}` |
-| Resource group | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+| Abonnement | `/subscriptions/{subscriptionId}` |
+| Groupe de ressources | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
 Utilisez les paramètres de chaîne de requête suivant pour mettre à jour le code de programmation.
 
@@ -176,26 +176,26 @@ Le nom de propriété contenant le tableau d’enregistrements d’utilisation e
 | ChargesBilledSeparately | isAzureCreditEligible | Notez que ces propriétés sont opposées. Si isAzureCreditEnabled a la valeur true, ChargesBilledSeparately a la valeur false. |
 | ConsumedQuantity | quantité | &nbsp; |
 | ConsumedService | consumedService | Les valeurs précises des chaînes peuvent différer. |
-| ConsumedServiceId | None | &nbsp; |
+| ConsumedServiceId | Aucun | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
 | Date et usageStartDate | Date | &nbsp;  |
-| jour | None | Analyse le jour à partir de la date. |
+| Jour | Aucun | Analyse le jour à partir de la date. |
 | DepartmentId | invoiceSectionId | Les valeurs précises diffèrent. |
 | DepartmentName | invoiceSectionName | Les valeurs précises des chaînes peuvent différer. Permet de configurer les sections de vos factures en fonction des services impliqués, si nécessaire. |
 | ExtendedCost et Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
-| Is Recurring Charge | None | &nbsp;  |
-| Location | location | &nbsp;  |
+| Is Recurring Charge | Aucune | &nbsp;  |
+| Emplacement | location | &nbsp;  |
 | MeterCategory | meterCategory | Les valeurs précises des chaînes peuvent différer. |
-| ID du compteur | meterId | Les valeurs précises des chaînes diffèrent. |
+| MeterId | meterId | Les valeurs précises des chaînes diffèrent. |
 | MeterName | meterName | Les valeurs précises des chaînes peuvent différer. |
 | MeterRegion | meterRegion | Les valeurs précises des chaînes peuvent différer. |
 | MeterSubCategory | meterSubCategory | Les valeurs précises des chaînes peuvent différer. |
-| Month | None | Analyse le mois à partir de la date. |
-| Nom de l’offre | None | Utilisez publisherName et productOrderName. |
-| OfferID | None | &nbsp;  |
-| Order Number | None | &nbsp;  |
-| PartNumber | None | Utilisez meterId et productOrderName pour identifier les prix de manière unique. |
+| Month | Aucun | Analyse le mois à partir de la date. |
+| Nom de l’offre | Aucun | Utilisez publisherName et productOrderName. |
+| OfferID | Aucun | &nbsp;  |
+| Order Number | Aucun | &nbsp;  |
+| PartNumber | Aucun | Utilisez meterId et productOrderName pour identifier les prix de manière unique. |
 | Nom du plan | productOrderName | &nbsp;  |
 | Produit | Produit |   |
 | ProductId | productId | Les valeurs précises des chaînes diffèrent. |
@@ -203,7 +203,7 @@ Le nom de propriété contenant le tableau d’enregistrements d’utilisation e
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Les valeurs précises des chaînes diffèrent. |
 | ResourceLocation | resourceLocation | &nbsp;  |
-| ResourceLocationId | None | &nbsp;  |
+| ResourceLocationId | Aucun | &nbsp;  |
 | ResourceRate | effectivePrice | &nbsp;  |
 | ServiceAdministratorId | N/A | &nbsp;  |
 | ServiceInfo1 | serviceInfo1 | &nbsp;  |
@@ -214,10 +214,10 @@ Le nom de propriété contenant le tableau d’enregistrements d’utilisation e
 | SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
-| Balises | tags | La propriété des balises s’appliquent à l’objet racine, pas à la propriété de propriétés imbriquées. |
+| Étiquettes | tags | La propriété des balises s’appliquent à l’objet racine, pas à la propriété de propriétés imbriquées. |
 | UnitOfMeasure | unitOfMeasure | Les valeurs précises des chaînes diffèrent. |
 | usageEndDate | Date | &nbsp;  |
-| Year | None | Analyse l’année à partir de la date. |
+| Year | Aucun | Analyse l’année à partir de la date. |
 | (nouveau) | billingCurrency | Devise utilisée pour les frais. |
 | (nouveau) | billingProfileId | ID unique pour le profil de facturation (identique à l’inscription). |
 | (nouveau) | billingProfileName | Nom du profil de facturation (identique à l’inscription). |
@@ -428,7 +428,7 @@ Le tableau suivant répertorie les anciennes propriétés des versions de l’AP
 
 | Ancienne propriété de l’API Azure Resource Manager Price Sheet  | Nouvelle propriété de l’API Microsoft Customer Agreement Price Sheet   | Description |
 | --- | --- | --- |
-| ID du compteur | _meterId_ | Identificateur unique du compteur. Identique à meterID. |
+| Meter ID | _meterId_ | Identificateur unique du compteur. Identique à meterID. |
 | Nom du compteur | meterName | Nom du compteur. Le compteur représente la ressource déployable d’un service Azure. |
 | Catégorie du compteur  | service | Nom de la catégorie de classification du compteur. Identique au service de Microsoft Customer Agreement Price Sheet. Les valeurs précises des chaînes diffèrent. |
 | Sous-catégorie du compteur | meterSubCategory | Nom de la catégorie de sous-classification du compteur. Basé sur la classification de la différenciation des jeux de caractéristiques de haut niveau dans le service. Par exemple, base de données SQL de Base et base de données SQL standard. |
@@ -479,7 +479,7 @@ Pour obtenir des transactions d’achats de réservations avec l’API Transacti
 
 ## <a name="recommendations-apis-replaced"></a>Remplacement des versions de l’API Recommendations
 
-Les versions de l’API Reserved Instance Purchase Recommendations fournissent des informations sur l’utilisation de la machine virtuelle sur les 7, 30 ou 60 derniers jours. Les versions de cette API fournissent également des recommandations d’achats de réservations. Ils comprennent :
+Les versions de l’API Reserved Instance Purchase Recommendations fournissent des informations sur l’utilisation de la machine virtuelle sur les 7, 30 ou 60 derniers jours. Les versions de cette API fournissent également des recommandations d’achats de réservations. Notamment :
 
 - [API Shared Reserved Instance Recommendation](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations) (Recommandation relative à l’instance réservée partagée)
 - [API Single Reserved Instance Recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) (Recommandation relative à l’instance réservée unique)
@@ -496,7 +496,7 @@ Pour obtenir des suggestions de réservations avec l’API Reservation Recommend
 
 L’API Reserved Instance Usage permet d’obtenir des informations sur l’utilisation des réservations dans un accord de mise en œuvre. S’il existe plusieurs instances réservées dans un accord de mise en œuvre, vous pouvez également obtenir l’utilisation de tous les achats de l’instance réservée à l’aide de cette API.
 
-Ils comprennent :
+Notamment :
 
 - [Détails de l’utilisation de l’instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
 - [Résumé de l’utilisation de l’instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)

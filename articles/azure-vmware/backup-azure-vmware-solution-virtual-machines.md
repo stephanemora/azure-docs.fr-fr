@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Azure VMware Solution avec le serveur
 description: Configurez votre environnement Azure VMware Solution pour sauvegarder des machines virtuelles à l’aide du serveur de sauvegarde Azure.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: 163065556b7dbc979d68613744ea827c209d9fda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92affbf883215f0d051115fb64e9e7bf7a1430b3
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618914"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871774"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles Azure VMware Solution avec le serveur de sauvegarde Azure
 
@@ -358,5 +358,5 @@ Vous pouvez restaurer des fichiers individuels à partir d’un point de récup�
 
 Maintenant que vous avez abordé la sauvegarde de vos machines virtuelles Azure VMware Solution avec le serveur de sauvegarde Azure, vous pouvez en apprendre davantage sur les sujets suivants : 
 
-- [Résolution des problèmes lors de la configuration des sauvegardes dans le serveur de sauvegarde Azure](../backup/backup-azure-mabs-troubleshoot.md).
-- [Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Résolution des problèmes lors de la configuration des sauvegardes dans le serveur de sauvegarde Azure](../backup/backup-azure-mabs-troubleshoot.md)
+- [Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)

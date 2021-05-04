@@ -3,15 +3,15 @@ title: Utiliser des références Key Vault
 description: Découvrez comment configurer Azure App Service et Azure Functions pour leur faire utiliser des références Azure Key Vault. Mettez les secrets Key Vault à la disposition de votre code d’application.
 author: mattchenderson
 ms.topic: article
-ms.date: 02/05/2021
+ms.date: 04/23/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: b87001f9b283c774096fe669d58a9b487174625d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 0ca620d50706f10081e955cf206fcf8c06ae5fd4
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750767"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064932"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
@@ -28,7 +28,7 @@ Pour pouvoir lire les secrets dans Key Vault, vous devez créer un coffre et don
    > [!NOTE] 
    > Actuellement, les références Key Vault prennent uniquement en charge les identités managées affectées par le système. Vous ne pouvez pas utiliser d’identités affectées par l’utilisateur.
 
-1. Créez une [stratégie d’accès dans Key Vault](../key-vault/general/security-overview.md#privileged-access) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
+1. Créez une [stratégie d’accès dans Key Vault](../key-vault/general/security-features.md#privileged-access) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
 
 ### <a name="access-network-restricted-vaults"></a>Accéder aux coffres restreints du réseau
 
@@ -81,6 +81,17 @@ Afin d’utiliser une référence Key Vault pour un paramètre d’application, 
 
 > [!TIP]
 > La plupart des paramètres d’application qui utilisent des références Key Vault doivent être marqués comme des paramètres d’emplacement, car vous devez avoir des coffres distincts pour chaque environnement.
+
+### <a name="considerations-for-azure-files-mounting"></a>Considérations relatives au montage Azure Files
+
+Les applications peuvent utiliser le paramètre d’application `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` pour monter Azure Files en tant que système de fichiers. Ce paramètre a des contrôles de validation supplémentaires pour garantir que l’application peut être démarrée correctement. La plateforme s’appuie sur un partage de contenu dans Azure Files et suppose un nom par défaut, sauf si un nom est spécifié via le paramètre `WEBSITE_CONTENTSHARE`. Pour toutes les requêtes qui modifient ces paramètres, la plateforme tente de valider si ce partage de contenu existe, et il tente de le créer si ce n’est pas le cas. S’il ne peut pas localiser ou créer le partage de contenu, la requête est bloquée.
+
+Lorsque vous utilisez des références Key Vault pour ce paramètre, ce contrôle de validation échoue par défaut, car la clé secrète elle-même ne peut pas être résolue lors du traitement de la requête entrante. Pour éviter ce problème, vous pouvez ignorer la validation en affectant « 1 » à `WEBSITE_SKIP_CONTENTSHARE_VALIDATION`. Cela contourne toutes les vérifications, et le partage de contenu n’est pas créé pour vous. Vous devez vous assurer qu’il est créé à l’avance. 
+
+> [!CAUTION]
+> Si vous ignorez la validation et que la chaîne de connexion ou le partage de contenu ne sont pas valides, l’application ne pourra pas démarrer correctement et renverra uniquement des erreurs HTTP 500.
+
+Dans le cadre de la création du site, il est également possible que la tentative de montage du partage de contenu échoue en raison d’autorisations d’identité gérées qui ne sont pas propagées ou d’une intégration de réseau virtuel qui n’est pas configurée. Vous pouvez différer la configuration d’Azure Files jusqu’à une date ultérieure dans le modèle de déploiement pour traiter ce cas. Pour en savoir plus, consultez [Modes de déploiement d’Azure Resource Manager](#azure-resource-manager-deployment). App Service utilise un système de fichiers par défaut jusqu’à ce qu’Azure Files soit configuré. Les fichiers ne sont pas copiés, vous devez donc vous assurer qu’aucune tentative de déploiement ne se produit pendant la période intermédiaire avant le montage d’Azure Files.
 
 ### <a name="azure-resource-manager-deployment"></a>Déploiement Azure Resource Manager
 
