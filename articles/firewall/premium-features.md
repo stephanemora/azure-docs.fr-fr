@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/22/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: fdf0113d73b0b2e82ec889caf2a82c77bb7a040c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: fa7d17b208c4a950e82a8bdc4db243ebb44e4c41
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226699"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896276"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Fonctionnalités du Pare-feu Azure Premium - Préversion
 
@@ -155,6 +155,7 @@ Certificats signés par le client non approuvés|Les certificats signés par le 
 |Contournement IDPS|Le contournement IDPS ne fonctionne pas pour le trafic avec terminaison TLS. L’adresse IP source et les groupes IP sources ne sont pas pris en charge.|Correctif planifié lors de la disponibilité générale.|
 |Prise en charge du protocole TLS 1.3|Le protocole TLS 1.3 est partiellement pris en charge. Le tunnel TLS entre le client et le pare-feu est basé sur le protocole TLS 1.2, et celui entre le pare-feu et le serveur web externe est basé sur le protocole TLS 1.3.|Des mises à jour sont à l’étude.|
 |Point de terminaison privé Key Vault|Key Vault prend en charge l’accès au point de terminaison privé pour limiter son exposition réseau. Les services Azure approuvés peuvent contourner cette limitation si une exception est configurée comme décrit dans la [documentation de Key Vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Le Pare-feu Azure n’est pas répertorié actuellement comme un service approuvé et ne peut pas accéder au Key Vault.|Correctif planifié lors de la disponibilité générale.|
+|Prise en charge des groupes d'adresses IP|Le Pare-feu Azure Premium - Préversion ne prend pas en charge les groupes d'adresses IP.|Correctif planifié lors de la disponibilité générale.|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

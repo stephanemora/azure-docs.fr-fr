@@ -1,14 +1,14 @@
 ---
 title: Gestion de l’agent Azure Arc enabled servers
 description: Cet article décrit les différentes tâches de gestion à effectuer en règle générale pendant le cycle de vie de l’agent Connected Machine Azure Arc enabled servers.
-ms.date: 02/10/2021
+ms.date: 04/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 36ae081f939cbf865db7755a2f766a7ccd87d619
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25cd997bc1b90da07fd9c463f0097c7bdf53b885
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587630"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076614"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestion et maintenance de l’agent Connected Machine
 
@@ -181,6 +181,8 @@ L’outil Azcmagent (Azcmagent.exe) sert à configurer l’agent Connected Machi
 * **Logs**  : crée un fichier. zip dans le répertoire actif contenant les journaux pour vous aider lors de la résolution des problèmes.
 
 * **Version** : montre la version de l’agent Connected Machine.
+
+* **-useStderr** : dirige l’erreur et la sortie détaillée vers stderr. Incluez le paramètre `-json` pour générer les résultats au format JSON.
 
 * **-h ou--Help** : afficher les paramètres de ligne de commande disponibles.
 

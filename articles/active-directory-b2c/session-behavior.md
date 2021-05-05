@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3898de5bf01ea03a5ad7f951a97da82a6a8c4b14
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579737"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896222"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de session dans Azure Active Directory B2C
 
@@ -123,7 +123,7 @@ Vous pouvez activer la fonctionnalité Maintenir la connexion pour les utilisate
 
 La fonction Maintenir la connexion est configurable au niveau du flux de l’utilisateur individuel. Avant d’activer la fonction Maintenir la connexion pour vos flux d’utilisateurs, prenez en compte les éléments suivants :
 
-- Maintenir la connexion est pris en charge uniquement pour les versions **recommandées** des flux d’utilisateur d’inscription et de connexion (SUSI), de connexion et de modification de profil. Si vous disposez actuellement de versions **Standard** ou **Préversion héritée (v2)** de ces flux d’utilisateur et que vous voulez activer Maintenir la connexion, vous devrez créer des versions **recommandées** de ces flux.
+- Maintenir la connexion est pris en charge uniquement pour les versions **recommandées** des flux d’utilisateur d’inscription et de connexion (SUSI), de connexion et de modification de profil. Si vous disposez actuellement de versions **Standard (hérité)** ou **Préversion héritée (v2)** de ces flux d’utilisateur et que vous voulez activer Maintenir la connexion, vous devrez créer des versions **recommandées** de ces flux.
 - Maintenir la connexion n’est pas pris en charge avec les flux d’utilisateur de réinitialisation de mot de passe ou d’inscription.
 - Si vous souhaitez activer Maintenir la connexion pour toutes les applications de votre locataire, nous vous recommandons d’activer cette fonctionnalité pour tous les flux d’utilisateurs de votre locataire. Étant donné qu’un utilisateur peut être présenté avec plusieurs stratégies au cours d’une session, il est possible qu’un utilisateur n’ait pas la fonction Maintenir la connexion activée, ce qui supprime le cookie Maintenir la connexion de la session.
 - La fonction Maintenir la connexion ne doit pas être activée sur les ordinateurs publics.
@@ -154,7 +154,7 @@ Vous ne devez pas activer cette option sur les ordinateurs publics.
 
 Pour activer la fonctionnalité « Maintenir la connexion », définissez l’élément `DataUri` de définition de contenu sur l’[identificateur de page](contentdefinitions.md#datauri) `unifiedssp` et la [version de page](page-layout.md) *1.1.0* ou ultérieure.
 
-1. Ouvrez le fichier d’extension de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. Ce fichier d’extension est un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir en suivant la rubrique prérequise [Bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md).
+1. Ouvrez le fichier d’extension de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. Ce fichier d’extension est un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir en suivant la rubrique prérequise [Bien démarrer avec les stratégies personnalisées](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Recherchez l’élément **BuildingBlocks**. Si l’élément n’existe pas, ajoutez-le.
 1. Ajoutez l’élément **ContentDefinitions** à l’élément **BuildingBlocks** de la stratégie.
 

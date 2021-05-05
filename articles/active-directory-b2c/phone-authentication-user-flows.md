@@ -8,20 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abe9d9cd46c7d4cbcb383ee9a37fc84cd64fcea8
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557230"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895986"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs (préversion)
-
-> [!NOTE]
-> Les fonctionnalités d’inscription et de connexion par téléphone et de récupération par e-mail pour les flux d’utilisateurs sont accessibles en préversion publique.
+# <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs
 
 En plus de l’e-mail et du nom d’utilisateur, vous pouvez activer le numéro de téléphone comme option d’inscription pour l’ensemble du locataire en ajoutant l’inscription et la connexion par téléphone au fournisseur d’identité de votre compte local. Après avoir activé l’inscription et la connexion par téléphone pour les comptes locaux, vous pouvez ajouter l’inscription par téléphone à vos flux d’utilisateurs.
 
@@ -32,6 +29,8 @@ La configuration de l’inscription et de la connexion par téléphone dans un f
 - [Ajoutez l’inscription par téléphone à votre flux d’utilisateur](#add-phone-sign-up-to-a-user-flow) pour permettre aux utilisateurs de s’inscrire à votre application à l’aide de leur numéro de téléphone.
 
 - [Activez l’invite de récupération par e-mail (préversion)](#enable-the-recovery-email-prompt-preview) pour permettre aux utilisateurs de spécifier une adresse e-mail qui peut être utilisée pour récupérer leur compte lorsqu’ils n’ont pas leur téléphone.
+
+- [Affichez les informations relatives au consentement](#enable-consent-information) à l’utilisateur pendant le processus d’inscription ou de connexion. Vous pouvez afficher les informations par défaut relatives au consentement ou vous pouvez les personnaliser.
 
 L’authentification multifacteur (MFA) est désactivée par défaut lorsque vous configurez un flux d’utilisateur avec l’inscription par téléphone. Vous pouvez activer la MFA dans les flux d’utilisateurs avec l’inscription par téléphone, mais, comme un numéro de téléphone est utilisé comme identificateur principal, l’envoi par e-mail d’un code secret à usage unique est la seule option disponible pour le deuxième facteur d’authentification.
 
@@ -139,6 +138,44 @@ Une fois que vous avez activé l’inscription et la connexion par téléphone e
    - Un utilisateur qui s’est déjà inscrit, mais qui n’a pas fourni d’e-mail de récupération est invité à en fournir un lors de la connexion.
 
 4. Entrez une adresse e-mail, puis sélectionnez **Envoyer le code de vérification**. Vérifiez la réception du code dans la boîte de réception de l’adresse e-mail que vous avez fournie. Récupérez le code et entrez-le dans la zone **Code de vérification**. Ensuite, sélectionnez **Vérifier le code**.
+
+## <a name="enable-consent-information"></a>Activer les informations relatives au consentement
+
+Nous vous suggérons vivement d’inclure des informations relatives au consentement dans votre flux d’inscription et de connexion. Un exemple de texte est fourni. Reportez-vous au manuel relatif à la surveillance des codes courts sur le [site web de CTIA](https://www.ctia.org/programs) et consultez vos propres experts en droit ou en conformité pour obtenir des conseils sur le texte final et la configuration des fonctionnalités afin de répondre à vos propres besoins en matière de conformité :
+>
+> *En fournissant votre numéro de téléphone, vous acceptez de recevoir un code secret à usage unique envoyé par SMS pour vous aider à vous connecter à *&lt;insérer : le nom de votre application&gt;* . Des frais standard de messagerie et de données peuvent s’appliquer.*
+>
+> *&lt;insérer : lien vers votre déclaration de confidentialité&gt;*<br/>*&lt;insérer : lien vers vos conditions d’utilisation du service&gt;*
+
+Pour activer les informations relatives au consentement
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+3. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+4. Dans Azure AD B2C, sélectionnez **Flux d’utilisateurs** sous **Stratégies**.
+5. Sélectionnez le flux d’utilisateur dans la liste.
+6. Sous **Personnaliser**, sélectionnez **Langues**.
+7. Pour afficher le texte de consentement, sélectionnez **Activer la personnalisation de la langue**.
+  
+    ![Activer la personnalisation de la langue](./media/phone-authentication-user-flows/enable-language-customization.png)
+
+8. Pour personnaliser les informations relatives au consentement, sélectionnez une langue dans la liste.
+9. Dans le panneau de langue, sélectionnez  **Page de connexion par téléphone**.
+10. Sélectionnez Télécharger les paramètres par défaut.
+
+    ![Télécharger les paramètres par défaut](./media/phone-authentication-user-flows/phone-sign-in-language-override.png)
+
+11. Ouvrez le fichier JSON téléchargé. Recherchez le texte suivant et personnalisez-le :
+
+    - **disclaimer_link_1_url** : Remplacez **écraser** par « true » et ajoutez l’URL de vos informations de confidentialité.
+
+    - **disclaimer_link_2_url** : Remplacez **écraser** par « true » et ajoutez l’URL de vos Conditions d’utilisation.  
+
+    - **disclaimer_msg_intro** : Remplacez **écraser** par « true » et **valeur** par les clause d’exclusion de responsabilité souhaitées.  
+
+12. Enregistrez le fichier . Sous **Charger de nouveaux remplacements**, recherchez le fichier et sélectionnez-le. Vérifiez que la notification « Chargement réussi des remplacements » s’affiche.
+
+13. Sélectionnez **Page d’inscription par téléphone**, puis répétez les étapes 10 à 12. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: a47c4c5bdc90e148916900b1e72bc2a392d2e473
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 51a59c0daa8fb0c5e59007ac4474ca09cccf4ac5
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285329"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126144"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modèle de facture prédéfini Form Recognizer
 
@@ -41,6 +41,11 @@ Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://a
 ### <a name="input-requirements"></a>Critères des entrées
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
+
+## <a name="supported-locales"></a>Paramètres régionaux pris en charge 
+
+**Pre-built Receipt v2.0** (GA) et **Pre-built Receipt v2.1-preview.3** (préversion) prennent en charge les factures dans les paramètres régionaux EN-US.
+
 
 ## <a name="the-analyze-invoice-operation"></a>Opération d’analyse d’une facture
 

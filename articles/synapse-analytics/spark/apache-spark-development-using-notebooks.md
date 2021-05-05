@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 6859a2f8571c11e6ef93a5e5b1635cdbe39ad001
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 203ac7252f06b342e7f553bb1900cdf9ac959e0a
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107737660"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891377"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio dans Azure Synapse Analytics
 
@@ -36,10 +36,12 @@ L’équipe de Synapse a introduit le nouveau composant pour notebooks dans Syna
 |Fonctionnalité|Notebook classique|Notebook en préversion|
 |--|--|--|
 |%run| Non pris en charge | &#9745;|
-|%history| Non pris en charge |&#9745;
+|%history| Non pris en charge |&#9745;|
 |%load| Non pris en charge |&#9745;|
 |%%html| Non pris en charge |&#9745;|
 |Glisser-déposer pour déplacer une cellule| Non pris en charge |&#9745;|
+|Structure (Table des matières)| Non pris en charge |&#9745;|
+|Explorateur de variables| Non pris en charge |&#9745;|
 |Mettre en forme une cellule de texte avec des boutons de barre d’outils|&#9745;| Non disponible |
 |Annuler l’opération sur cellule| &#9745;| Non disponible |
 
@@ -259,6 +261,20 @@ Sélectionnez le bouton de sélection (…) **Plus de commandes** dans la barre 
 
 ---
 
+### <a name="notebook-outline"></a>Structure du notebook
+
+# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
+
+Non pris en charge.
+
+# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
+
+La Structure (Table des matières) présente le premier en-tête Markdown d'une cellule Markdown sur une barre latérale pour une navigation rapide. La barre latérale de la Structure est redimensionnable et réductible pour s'adapter au mieux à l'écran. Vous pouvez sélectionner le bouton **Structure** de la barre de commandes du notebook pour ouvrir ou masquer la barre latérale.
+
+<a name="azure-notebook-outline"></a>![azure-notebook-outline](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png)
+---
+
+
 ## <a name="run-notebooks"></a>Exécuter des blocs-notes
 
 Vous pouvez exécuter les cellules de code dans votre bloc-notes individuellement ou toutes en même temps. L’état et la progression de chaque cellule sont représentés dans le bloc-notes.
@@ -331,6 +347,22 @@ Exemple : ``` %run /path/notebookA ```.
 
 ---
 
+### <a name="variable-explorer"></a>Explorateur de variables
+
+# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
+
+Non pris en charge.
+
+# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
+
+Synapse Notebook fournit un explorateur de variables qui vous permet de voir la liste des noms, des types, des longueurs et des valeurs des variables dans la session Sparkle en cours pour les cellules PySpark (Python). D'autres variables apparaissent automatiquement à mesure qu'elles seront définies dans les cellules de code. Un clic sur chaque en-tête de colonne permet de trier les variables de la table.
+
+Vous pouvez sélectionner le bouton **Variables** de la barre des commandes du notebook pour ouvrir ou masquer l'Explorateur de variables.
+
+![azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
+
+
+---
 
 ### <a name="cell-status-indicator"></a>Indicateur d’état de cellule
 

@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 04/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: adea0e63c9e285a751a1a0508e84c5b83a10e994
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96349937"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074688"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
@@ -52,7 +52,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ![Configurer](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
->Vous pouvez également copier le fichier **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** sur un contrôleur de domaine où sont déjà installés les outils d’administration de serveur distant pour AD DS et utiliser ensuite ce module PowerShell à partir de ce contrôleur.
+>Vous pouvez également copier le fichier **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** sur un contrôleur de domaine où sont déjà installés les outils d’administration de serveur distant pour AD DS et utiliser ensuite ce module PowerShell à partir de ce contrôleur.  N’oubliez pas que plusieurs cmdlets ne peuvent être exécutées que sur l’ordinateur qui héberge Azure AD Connect.
 
 Pour commencer à utiliser le module ADSyncConfig, vous devez d’abord le charger dans une fenêtre Windows PowerShell : 
 

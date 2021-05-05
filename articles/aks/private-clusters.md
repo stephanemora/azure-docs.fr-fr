@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/31/2021
-ms.openlocfilehash: 76785caedb9ca97d947e83f5aa8ff5b32d827914
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 20adab9a42cabc0f3fc62378427d2c7bdb669806
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772898"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072384"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -185,6 +185,7 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
 > Si vous utilisez [Apporter votre propre table de routage avec kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) et Apporte votre propre DNS avec un cluster privé, la création du cluster échouera. Vous devez associer le [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) dans le groupe de ressources du nœud au sous-réseau après l’échec de la création du cluster, afin que la création réussisse.
 
 ## <a name="limitations"></a>Limites 
+* AKS-RunCommand ne fonctionne pas sur les clusters avec AAD géré par AKS et Private Link activé.
 * Les plages d’adresses IP autorisées ne peuvent pas être appliquées au point de terminaison du serveur d’API privé, elles sont uniquement applicables au serveur d’API public.
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés.
 * Aucune prise en charge des agents hébergés par Microsoft Azure DevOps avec des clusters privés. Envisagez d’utiliser des [agents auto-hébergés](/azure/devops/pipelines/agents/agents?tabs=browser). 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: c067dba3a8af87e354019154fad8304fe9edfbbc
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 5a65480cbfa279614250ddeaf7d565b112333a05
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829653"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285553"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurer les paramètres d'Azure AD Multi-Factor Authentication
 
@@ -154,7 +154,7 @@ Aux États-Unis, si vous n’avez pas configuré l’ID de l’appelant MFA, les
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> Lorsque des appels Azure AD Multi-Factor Authentication sont passés sur le réseau téléphonique public, ceux-ci sont parfois acheminés par le biais d'un opérateur qui ne prend pas en charge les ID d'appelant. C'est la raison pour laquelle l'ID de l'appelant n'est pas garanti, même si Azure AD Multi-Factor Authentication l'envoie toujours. Cela s'applique à la fois aux appels téléphoniques et aux SMS fournis par Azure AD Multi-Factor Authentication. Si vous devez confirmer qu'un SMS provient d'Azure AD Multi-Factor Authentication, consultez [Quels sont les codes courts SMS utilisés pour envoyer des SMS ?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> Lorsque des appels Azure AD Multi-Factor Authentication sont passés sur le réseau téléphonique public, ceux-ci sont parfois acheminés par le biais d'un opérateur qui ne prend pas en charge les ID d'appelant. C'est la raison pour laquelle l'ID de l'appelant n'est pas garanti, même si Azure AD Multi-Factor Authentication l'envoie toujours. Cela s'applique à la fois aux appels téléphoniques et aux SMS fournis par Azure AD Multi-Factor Authentication. Si vous devez confirmer qu'un SMS provient d'Azure AD Multi-Factor Authentication, consultez [Quels sont les codes courts SMS utilisés pour envoyer des SMS ?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-)
 
 Pour configurer votre propre numéro d’ID d’appelant, effectuez les étapes suivantes :
 

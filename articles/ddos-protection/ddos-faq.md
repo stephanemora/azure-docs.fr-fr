@@ -1,5 +1,5 @@
 ---
-title: Questions fréquemment posées sur le service Azure DDoS Protection standard
+title: Foire aux questions sur le service Azure DDoS Protection Standard
 description: Forum aux questions sur Azure DDoS Protection Standard, qui contribue à assurer la défense contre les attaques DDoS.
 services: virtual-network
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 584db62b20806c6864be478b2e18e2a9cab60a30
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 894d7b07ee0d9b46b18bf42e50772af3fae427e1
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103298"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072888"
 ---
-# <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Questions fréquemment posées sur le service Azure DDoS Protection standard
+# <a name="azure-ddos-protection-standard-frequently-asked-questions"></a>Foire aux questions sur le service Azure DDoS Protection Standard
 
 Cet article répond aux questions courantes sur le service Azure DDoS Protection standard. 
 

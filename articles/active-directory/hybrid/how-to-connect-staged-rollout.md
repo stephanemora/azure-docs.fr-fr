@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 756e5e96a8040fb3d93273a5521236d46879e60d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 8534d4dd8df1e60e1b341088cbfaaa944ec1221b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306379"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073392"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrer vers l’authentification cloud avec un lancement intermédiaire
 
@@ -38,10 +38,12 @@ Pour obtenir une vue d’ensemble de ces fonctionnalités, consultez « Azure 
 -   Vous disposez d’un locataire Azure Active Directory (Azure AD) avec des domaines fédérés.
 
 -   Vous avez décidé de passer à l’une des deux options suivantes :
-    - **Option A** - *synchronisation de hachage de mot de passe* + *authentification unique transparente (SSO)* .  Pour plus d’informations, consultez [Qu’est-ce que la synchronisation de hachage de mot de passe ?](whatis-phs.md) et [Qu’est-ce que l’authentification unique transparente ?](how-to-connect-sso.md)
-    - **Option B** - *authentification directe* + *authentification unique transparente*.  Pour plus d’informations, consultez [Qu’est-ce que l’authentification directe ?](how-to-connect-pta.md).  
+    - **Option A** - *synchronisation de hachage de mot de passe (sync)* .  Pour plus d'informations, consultez [Qu'est-ce que la synchronisation de hachage de mot de passe ?](whatis-phs.md). 
+    - **Option B** - *authentification directe*.  Pour plus d’informations, consultez [Qu’est-ce que l’authentification directe ?](how-to-connect-pta.md).  
     
-    Bien que *l’authentification unique transparente* soit facultative, nous vous recommandons de l’activer pour obtenir une expérience de connexion silencieuse pour les utilisateurs qui utilisent des ordinateurs joints au domaine à partir du réseau d’entreprise.
+    Pour ces deux options, nous vous recommandons d’activer l’authentification unique (SSO) pour une expérience de connexion silencieuse. 
+    Pour les appareils Windows 7 ou 8.1 joints à un domaine, nous vous recommandons d’utiliser l’authentification unique transparente. Pour plus d'informations, consultez [Qu'est-ce que l’authentification unique transparente ?](how-to-connect-sso.md). 
+    Pour Windows 10, Windows Server 2016 et versions ultérieures, il est recommandé d’utiliser l’authentification unique via le [jeton d’actualisation principal (PRT)](../devices/concept-primary-refresh-token.md) avec les [appareils joints Azure AD](../devices/concept-azure-ad-join.md), les [appareils joints Azure AD hybride](../devices/concept-azure-ad-join-hybrid.md) ou les appareils personnels inscrits via Ajouter un compte professionnel ou scolaire.
 
 -   Vous avez configuré toutes les stratégies appropriées d’accès conditionnel et de marque de locataire dont vous avez besoin pour les utilisateurs migrés vers l’authentification cloud.
 
