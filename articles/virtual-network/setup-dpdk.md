@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: 3b4d66525ec52ef2382dfbe97bc09278e35b31fb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f2771284925e35cea975febdabe2ca377a192df8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124667"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127116"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurer DPDK dans une machine virtuelle Linux
 
@@ -36,17 +36,18 @@ DPDK peut s’exécuter sur des machines virtuelles Azure prenant en charge plus
 **Nombre supérieur de paquets par seconde (PPS)**  : le contournement du noyau et la prise de contrôle des paquets dans l’espace utilisateur ont pour effet de réduire le nombre de cycles du fait de l’élimination des changements de contexte. Il améliore également le nombre de paquets traités à la seconde dans les machines virtuelles Linux Azure.
 
 
-## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
+## <a name="supported-operating-systems-minimum-versions"></a>Versions minimales des systèmes d’exploitation prises en charge
 
 Voici les distributions de la Place de marché Azure qui sont prises en charge :
 
 | Système d’exploitation Linux     | Version du noyau               | 
 |--------------|---------------------------   |
-| Ubuntu 16.04 | 4.15.0-1014-azure+           | 
 | Ubuntu 18.04 | 4.15.0-1014-azure+           |
 | SLES 15 SP1  | 4.12.14-8.19-azure+          | 
 | RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
 | CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
+
+Les versions indiquées correspondent à la configuration minimale requise. Les versions plus récentes sont également prises en charge.
 
 **Prise en charge de noyau personnalisé**
 
@@ -60,22 +61,26 @@ Toutes les régions Azure prennent en charge DPDK.
 
 La mise en réseau accélérée doit être activée sur une machine virtuelle Linux. La machine virtuelle doit disposer d’au moins deux interfaces réseau, dont une pour la gestion. L’activation de la mise en réseau accélérée sur l’interface de gestion n’est pas recommandée. Découvrez comment [créer une machine virtuelle Linux en ayant activé la mise en réseau accélérée](create-vm-accelerated-networking-cli.md).
 
-## <a name="install-dpdk-dependencies"></a>Installer les dépendances de DPDK
-
-### <a name="ubuntu-1604"></a>Ubuntu 16.04
-
-```bash
-sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
-sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
-```
+## <a name="install-dpdk"></a>Installer DPDK
 
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
-sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
+sudo add-apt-repository ppa:canonical-server/server-backports -y
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
+sudo apt-get install -y dpdk
+```
+
+### <a name="ubuntu-2004-and-newer"></a>Ubuntu 20.04 et versions ultérieures
+
+```bash
+sudo apt-get install -y dpdk
+```
+
+### <a name="debian-10-and-newer"></a>Debian 10 et versions ultérieures
+
+```bash
+sudo apt-get install -y dpdk
 ```
 
 ### <a name="rhel75centos-75"></a>RHEL 7.5/CentOS 7.5
@@ -255,3 +260,4 @@ Si vous exécutez les commandes précédentes sur une machine virtuelle, modifie
 
 * [Options EAL](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Commandes Testpmd](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)
+* [Commandes de vidage des paquets](https://doc.dpdk.org/guides/tools/pdump.html#pdump-tool)

@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3debd58aadb98ab1e78692411e8d0bb66635f0da
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90971784"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279295"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Créez des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
 
 Pour vous aider à automatiser la création et le déploiement de votre application logique, cet article décrit les méthodes permettant de créer un [modèle de Azure Resource Manager](../azure-resource-manager/management/overview.md) pour votre application logique. Pour obtenir une vue d’ensemble de la structure et de la syntaxe d’un modèle qui comprend votre définition de flux de travail et d’autres ressources nécessaires pour le déploiement, consultez [Vue d’ensemble : Automatiser le déploiement pour les applications logiques avec des modèles Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
-Azure Logic Apps fournit un [modèle Azure Resource Manager prédéfini pour les applications logiques](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json). Ce modèle vous permet non seulement de créer des applications logiques, mais aussi de définir les ressources et les paramètres à utiliser pour les déployer. Vous pouvez utiliser ce modèle pour vos propres scénarios professionnels, ou le personnaliser selon vos besoins.
+Azure Logic Apps fournit un [modèle Azure Resource Manager prédéfini pour les applications logiques](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json). Ce modèle vous permet non seulement de créer des applications logiques, mais aussi de définir les ressources et les paramètres à utiliser pour les déployer. Vous pouvez utiliser ce modèle pour vos propres scénarios professionnels, ou le personnaliser selon vos besoins.
 
 > [!IMPORTANT]
 > Assurez-vous que les connexions dans votre modèle utilisent les mêmes groupe de ressources et même emplacement Azure que votre application logique.
