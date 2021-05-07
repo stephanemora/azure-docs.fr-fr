@@ -1,19 +1,19 @@
 ---
 title: Utiliser Azure Application Gateway avec des machines virtuelles VMware
 description: Décrit comment utiliser Azure Application Gateway pour gérer le trafic web entrant pour les serveurs web qui s’exécutent sur des machines virtuelles VMware dans l’environnement de cloud privé CloudSimple
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d14fdc4e2b2b1dfca8194077acc0453808611946
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d6a189aad8766d5e4a5e5d603c4e43eb685dacc0
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97897941"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177851"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Utiliser Azure Application Gateway avec des machines virtuelles VMware dans l’environnement de cloud privé CloudSimple
 

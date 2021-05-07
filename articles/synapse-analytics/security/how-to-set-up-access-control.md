@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91eaf655a3259cff31767353fb2c2b7fcd787d63
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472262"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108122958"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Synapse 
 
@@ -128,7 +128,7 @@ Pour créer des pools SQL, des pools Apache Spark et des runtimes d’intégrati
 
 - Ouvrez le portail Azure
 - Recherchez l’espace de travail, `workspace1`.
-- Attribuez le rôle **Contributeur Azure** sur `workspace1` à `workspace1_SynapseAdministrators`. 
+- Attribuez le rôle **Contributeur** Azure sur `workspace1` à `workspace1_SynapseAdministrators`. 
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>ÉTAPE 6 : Attribuer à SQL le rôle d’Administrateur Active Directory
 

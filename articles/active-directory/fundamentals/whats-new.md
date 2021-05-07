@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50d8ef544029e7097d90651707da24d603bcecc9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ab14df388579f46d9467c9d4d68146450691270c
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137956"
+ms.locfileid: "108180389"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -101,7 +101,7 @@ Actuellement, cette action utilisateur vous permet uniquement d’activer MFA en
 **Catégorie de service :** Proxy d’application  
 **Fonctionnalité de produit :** Contrôle d’accès
  
-Avec cette nouvelle fonctionnalité, les groupes de connecteurs peuvent être affectés au service de proxy d’application régional le plus proche dans lequel une application est hébergée. Cela peut améliorer les performances des applications dans les scénarios où elles sont hébergées dans des régions autres que la région du locataire d’accueil. [Plus d’informations](../manage-apps/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview) 
+Avec cette nouvelle fonctionnalité, les groupes de connecteurs peuvent être affectés au service de proxy d’application régional le plus proche dans lequel une application est hébergée. Cela peut améliorer les performances des applications dans les scénarios où elles sont hébergées dans des régions autres que la région du locataire d’accueil. [Plus d’informations](../app-proxy/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview) 
  
 ---
 

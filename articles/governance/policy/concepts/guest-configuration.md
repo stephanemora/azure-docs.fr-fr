@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6fb3ed3644ccdb5de8f03bedf56943a91570322b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1867c2ba86d237a7b8937b689fef11235c1a202
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105733024"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073698"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -29,7 +29,8 @@ Pour vérifier l’état des machines dans votre environnement, y compris les ma
 
 ## <a name="resource-provider"></a>Fournisseur de ressources
 
-Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le fournisseur de ressources. Si l’affectation d’une stratégie de configuration d’invité est effectuée via le portail, ou si l’abonnement est inscrit dans Azure Security Center, le fournisseur de ressources est inscrit automatiquement. Vous pouvez l’inscrire manuellement via le [portail](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le fournisseur de ressources.
+Si l’affectation d’une stratégie de configuration d’invité est effectuée via le portail, ou si l’abonnement est inscrit dans Azure Security Center, le fournisseur de ressources est inscrit automatiquement. Vous pouvez l’inscrire manuellement via le [portail](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Configuration requise pour le déploiement de machines virtuelles Azure
 
@@ -83,19 +84,17 @@ Les machines Azure Arc se connectent à l’aide de l’infrastructure réseau l
 
 ### <a name="communicate-over-virtual-networks-in-azure"></a>Communiquer via des réseaux virtuels dans Azure
 
-Les machines virtuelles utilisant des réseaux virtuels pour la communication requièrent un accès sortant vers les centres de données Azure sur le port `443`. Si vous utilisez un réseau privé virtuel dans Azure sans autoriser le trafic sortant, vous devez configurer les exceptions à l’aide des règles du groupe de sécurité réseau. L’étiquette de service « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration.
+Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration plutôt que de gérer manuellement la [liste des plages d’adresses IP](https://www.microsoft.com/en-us/download/details.aspx?id=56519) pour les centres de données Azure.
 
 ### <a name="communicate-over-private-link-in-azure"></a>Communiquer via une liaison privée dans Azure
 
-Les machines virtuelles peuvent utiliser une [liaison privée](../../../private-link/private-link-overview.md) pour la communication avec le service Guest Configuration. Appliquez la balise avec le nom `EnablePrivateNeworkGC` (sans lettre « t » dans le mot « Network ») et la valeur `TRUE` pour activer cette fonctionnalité. La balise peut être appliquée avant ou après l’application des définitions de stratégie Guest Configuration à la machine.
+Les machines virtuelles peuvent utiliser une [liaison privée](../../../private-link/private-link-overview.md) pour la communication avec le service Guest Configuration. Appliquez la balise avec le nom `EnablePrivateNetworkGC` et la valeur `TRUE` pour activer cette fonctionnalité. La balise peut être appliquée avant ou après l’application des définitions de stratégie Guest Configuration à la machine.
 
 Le trafic est acheminé à l’aide de l’[IP publique virtuelle](../../../virtual-network/what-is-ip-address-168-63-129-16.md) d’Azure pour établir un canal sécurisé et authentifié avec les ressources de la plateforme Azure.
 
 ### <a name="azure-arc-connected-machines"></a>Machines connectées à Azure Arc
 
 Les nœuds situés en dehors d’Azure et qui sont connectés par le biais d’Azure Arc requièrent une connexion au service Guest Configuration. Des détails sur la configuration requise du réseau et du proxy sont fournis dans la [documentation Azure Arc](../../../azure-arc/servers/overview.md).
-
-Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration.
 
 Pour les serveurs connectés à Arc dans des centres de données privés, autorisez le trafic à l’aide des modèles suivants :
 

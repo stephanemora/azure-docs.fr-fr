@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9ec36483196ea6214742522f88ddffcd8a3b899
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612379"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292825"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Bien démarrer avec la Traduction de documentation (préversion)
 
@@ -261,7 +261,7 @@ Les en-têtes suivants sont inclus avec chaque demande d’API du Traducteur de 
 
 > [!IMPORTANT]
 >
-> Pour les exemples de code ci-dessous, vous allez coder en dur votre clé et votre point de terminaison aux endroits indiqués. N’oubliez pas de supprimer la clé de votre code quand vous avez terminé et ne la postez jamais publiquement.  Pour savoir comment stocker vos informations d’identification et y accéder de manière sécurisée, consultez [Sécurité Azure Cognitive Services](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp).
+> Pour les exemples de code ci-dessous, vous allez coder en dur votre clé et votre point de terminaison aux endroits indiqués. N’oubliez pas de supprimer la clé de votre code quand vous avez terminé et ne la postez jamais publiquement.  Pour savoir comment stocker vos informations d’identification et y accéder de manière sécurisée, consultez [Sécurité Azure Cognitive Services](../../cognitive-services-security.md?tabs=command-line%2ccsharp).
 >
 > Vous devrez peut-être mettre à jour les champs suivants, en fonction de l’opération :
 >>>

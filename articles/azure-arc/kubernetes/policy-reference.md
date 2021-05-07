@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Kubernetes compatible avec Azure Arc
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Kubernetes compatible avec Azure Arc. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.service: azure-arc
 author: mlearned
 ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d2fc69fce9f26ab13530bcc0fb2a11e15ba37d16
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 27b60d685d26e7fb15f2a0d6ec4aabbe6d551e5c
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876852"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178242"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Définitions de stratégie intégrées d’Azure Policy pour Kubernetes compatible avec Azure Arc
 

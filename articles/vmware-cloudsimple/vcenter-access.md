@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Client Access vSphere
 description: Explique comment accéder au vCenter de votre cloud privé.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/30/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2e62042a84f7ac2615762e3d9b036e4340bd8c73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f827bbd1e500c9cea809939194757bb9fe7881
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899114"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181055"
 ---
 # <a name="access-your-private-cloud-vcenter-portal"></a>Accéder au portail vCenter de votre cloud privé
 

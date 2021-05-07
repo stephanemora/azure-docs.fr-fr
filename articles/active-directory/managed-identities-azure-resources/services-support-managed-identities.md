@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: c4cd9140d03bba1f9d95ed64c3628da4fe32ecd9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 96c534919e7279af61a86d24ae4c4ca984c02662
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771476"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124232"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -95,7 +95,20 @@ Tous les serveurs avec Azure Arc ont une identité affectée par le système. Vo
 | Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous au document suivant pour reconfigurer une identité managée si vous avez déplacé votre abonnement dans un nouveau locataire :
+
 * [Réparer un compte Automanage endommagé](../../automanage/repair-automanage-account.md)
+
+### <a name="azure-automation"></a>Azure Automation
+
+| Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+
+Reportez-vous aux documents suivants pour utiliser une identité managée avec [Azure Automation](../../automation/automation-intro.md) :
+
+* [Vue d’ensemble de l’authentification des comptes Automation - Identités managées](../../automation/automation-security-overview.md#managed-identities-preview)
+* [Activer et utiliser l’identité managée pour Automation](../../automation/enable-managed-identity-for-automation.md)
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -314,7 +327,7 @@ Reportez-vous à la liste suivante pour configurer l’identité managée pour l
 | Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
 
-Pour plus d’informations, consultez [Activer une identité managée affectée par le système pour une application Azure Spring Cloud](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
+Pour plus d’informations, consultez [Activer une identité managée affectée par le système pour une application Azure Spring Cloud](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md).
 
 ### <a name="azure-stack-edge"></a>Azure Stack Edge
 
