@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapie : Déployer une application web ASP.NET'
+title: 'Démarrage rapide : Déployer une application web ASP.NET'
 description: Découvrez comment exécuter des applications web dans Azure App Service en déployant votre première application ASP.NET.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
@@ -35,7 +35,7 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 
 -->
 
-# <a name="quickstart-deploy-an-aspnet-web-app"></a>Démarrage rapie : Déployer une application web ASP.NET
+# <a name="quickstart-deploy-an-aspnet-web-app"></a>Démarrage rapide : Déployer une application web ASP.NET
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer et déployer votre première application web ASP.NET sur [Azure App Service](overview.md). App Service prend en charge différentes versions d’applications .NET et fournit un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Les applications web ASP.NET sont multiplateformes et peuvent être hébergées sur Linux ou Windows. Quand vous aurez terminé, vous disposerez d’un groupe de ressources Azure constitué d’un plan d’hébergement App Service et d’un service d’application avec une application web déployée.
 
