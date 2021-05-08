@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0e1c5f08c4292e4f3dfec448d8bf54d5d5601840
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a4d0c4a9df3cb5b07267cc540e5cf1651861545
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99050496"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207948"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unités de requête dans Azure Digital Twins 
 
@@ -41,8 +41,8 @@ L’extrait de code suivant montre comment extraire les frais d’interrogation 
 
 Pour en savoir plus sur l’interrogation d’Azure Digital Twins, rendez-vous sur le site :
 
-* [*Concepts : langage de requête*](concepts-query-language.md)
-* [*Guide pratique : Interroger le graphe de jumeaux*](how-to-query-graph.md)
+* [Concepts : Langage de requête](concepts-query-language.md)
+* [Guide pratique pour interroger le graphique de jumeaux](how-to-query-graph.md)
 * [Documentation de référence de l’API de requête](/rest/api/digital-twins/dataplane/query/querytwins)
 
-Vous trouverez des limites relatives aux requêtes Azure Digital Twins dans [*Limites du service Azure Digital Twins*](reference-service-limits.md).
+Vous trouverez des limites relatives aux requêtes Azure Digital Twins dans [Limites du service Azure Digital Twins](reference-service-limits.md).

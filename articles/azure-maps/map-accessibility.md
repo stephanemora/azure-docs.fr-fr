@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: ec88437a0fad3a6bd94a67a5ef5c75b3e506f9e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 954dd8ad65d0a9c90e19530d541c19b5034bc175
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88006211"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208110"
 ---
 # <a name="building-an-accessible-application"></a>Création d’une application accessible
 
@@ -179,4 +179,4 @@ Jetez un coup d’œil à ces outils d’accessibilité utiles :
 > [Vérificateur de contraste de couleur WebAim](https://webaim.org/resources/contrastchecker/)
 
 > [!div class="nextstepaction"]
-> [Simulateur de vision NoCoffee](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)
+> [Simulateur de vision NoCoffee](https://uxpro.cc/toolbox/nocoffee/)

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: cb54c5f7334120f6cd01ed1704939c5c1a55e7c6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "91371964"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645297"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
@@ -39,9 +39,9 @@ Pour afficher les données de coût relatives aux abonnements Azure EA, un utili
 | <sup>Premier</sup> compte de facturation | [https://ea.azure.com](https://ea.azure.com/) | Administrateur d'entreprise | None | Abonnements du contrat entreprise |
 | department | [https://ea.azure.com](https://ea.azure.com/) | Administrateur de service | Activation de l’option d’**affichage des frais pour l’administrateur de service** | Abonnements appartenant à un compte d’inscription lié au service |
 | <sup>Deuxième</sup> compte d’inscription | [https://ea.azure.com](https://ea.azure.com/) | Propriétaire du compte | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements à partir du compte d’inscription |
-| Groupe d’administration | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements en dessous du groupe d’administration |
-| Abonnement | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Ressources/groupes de ressources compris dans l’abonnement |
-| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Ressources comprises dans le groupe de ressources |
+| Groupe d’administration | [https://portal.azure.com](https://portal.azure.com/) | Lecteur (ou contributeur) Cost Management | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements en dessous du groupe d’administration |
+| Abonnement | [https://portal.azure.com](https://portal.azure.com/) | Lecteur (ou contributeur) Cost Management | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Ressources/groupes de ressources compris dans l’abonnement |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Lecteur (ou contributeur) Cost Management | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Ressources comprises dans le groupe de ressources |
 
 <sup>1</sup> Le compte de facturation est souvent désigné sous le terme de Contrat Entreprise ou Compte d’inscription.
 
@@ -52,8 +52,8 @@ Pour afficher les données de coût relatives aux abonnements Azure EA, un utili
 
 Pour afficher les données de coûts d’autres abonnements Azure, un utilisateur doit disposer au moins d’un accès en lecture à une ou plusieurs des étendues suivantes :
 
-- Compte Azure
 - Groupe d’administration
+- Abonnement
 - Resource group
 
 Plusieurs étendues sont disponibles après l’intégration de clients à un contrat client Microsoft par des partenaires. Les clients CSP peuvent ensuite utiliser les fonctionnalités de Cost Management si elles sont activées par leur partenaire CSP. Pour plus d’informations, consultez [Prise en main d’Azure Cost Management pour les partenaires](get-started-partners.md).

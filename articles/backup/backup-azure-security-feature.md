@@ -3,13 +3,13 @@ title: Fonctionnalités de sécurité qui protègent des sauvegardes hybrides
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans la Sauvegarde Azure pour renforcer la sécurité des sauvegardes
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/08/2017
-ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/26/2021
+ms.openlocfilehash: 6cf2af6016df358243b36d47766eab38dacc5db4
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841016"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064194"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
 
@@ -83,8 +83,10 @@ Des vérifications ont été ajoutées pour que seuls les utilisateurs valides p
 Dans le cadre de l’ajout d’une couche d’authentification pour les opérations critiques, vous êtes invité à entrer un code PIN de sécurité lors de l’exécution des opérations d’**arrêt de la protection lors de la suppression de données** et de **modification de la phrase secrète**.
 
 > [!NOTE]
->
-> Actuellement, le code PIN de sécurité n’est pas pris en charge pour **Arrêter la protection avec les opérations Supprimer les données** pour DPM et MABS.
+> Actuellement, pour les versions suivantes de DPM et MABS, le code PIN de sécurité est pris en charge pour l'**arrêt de la protection lors de la suppression de données** dans le stockage en ligne :
+>- DPM 2016 UR9 ou version ultérieure
+>- DPM 2019 UR1 ou version ultérieure
+>- MABS v3 UR1 ou version ultérieure 
 
 Pour recevoir ce code PIN :
 
@@ -114,7 +116,7 @@ Les fonctionnalités de sécurité mentionnées dans cet article fournissent des
 | --- | --- | --- |
 | Modification de la stratégie |Impossible de modifier la stratégie de sauvegarde. Erreur : Échec de l’opération en cours en raison d’une erreur de service interne [0x29834]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |**Cause :**<br/>Cette erreur apparaît lorsque les paramètres de sécurité sont activés, que vous essayez de réduire la durée de rétention en deçà des valeurs minimales spécifiées ci-dessus et que vous utilisez une version non prise en charge (les versions prises en charge sont indiquées dans la première remarque de cet article). <br/>**Action recommandée :**<br/> Dans ce cas, vous devez définir la période de rétention sur une valeur supérieure à la période de rétention minimale spécifiée (sept jours pour la rétention quotidienne, quatre semaines pour la rétention hebdomadaire, trois semaines pour la rétention mensuelle ou une année pour la rétention annuelle) pour exécuter les mises à jour relatives à la stratégie. Vous pouvez également mettre à jour l’agent de sauvegarde, le serveur de sauvegarde Azure et/ou le correctif cumulatif de DPM pour tirer parti de toutes les mises à jour de sécurité. |
 | Modification de la phrase secrète |Le code PIN de sécurité entré est incorrect. (ID : 100130) Indiquez le code PIN de sécurité approprié pour effectuer cette opération. |**Cause :**<br/> Cette erreur se produit lorsque vous entrez un code PIN de sécurité non valide ou qui a expiré lors d’une opération critique (par exemple, la modification de la phrase secrète). <br/>**Action recommandée :**<br/> Pour exécuter l’opération, vous devez entrer un code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
-| Modification de la phrase secrète |Échec de l’opération. ID : 120002 |**Cause :**<br/>Cette erreur apparaît lorsque les paramètres de sécurité sont activés, que vous essayez de modifier la phrase secrète et que vous utilisez une version non prise en charge (les versions valides sont indiquées dans la première remarque de cet article).<br/>**Action recommandée :**<br/> Pour modifier la phrase secrète, vous devez tout d’abord mettre à jour l’agent de sauvegarde vers la version 2.0.9052, le serveur de sauvegarde Azure vers la mise à jour minimale 1 et/ou DPM vers la version minimale DPM 2012 R2 UR12 ou DPM 2016 UR2 (liens de téléchargement disponibles plus bas), puis entrer un code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
+| Modification de la phrase secrète |Échec de l’opération. ID : 120002 |**Cause :**<br/>Cette erreur apparaît lorsque les paramètres de sécurité sont activés, que vous essayez de modifier la phrase secrète et que vous utilisez une version non prise en charge (les versions valides sont indiquées dans la première remarque de cet article).<br/>**Action recommandée :**<br/> Pour modifier la phrase secrète, vous devez commencer par mettre à jour l'agent de sauvegarde vers la version 2.0.9052, le serveur de sauvegarde Azure vers la mise à jour minimale 1 et/ou DPM vers la version minimale DPM 2012 R2 UR12 ou DPM 2016 UR2 (liens de téléchargement disponibles plus bas), puis entrer un code PIN de sécurité valide. Pour obtenir le code PIN, connectez-vous au portail Azure et accédez au coffre Recovery Services > Paramètres > Propriétés > Générer un code PIN de sécurité. Utilisez ce code PIN pour modifier la phrase secrète. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

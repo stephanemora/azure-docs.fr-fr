@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b38b4910773c433ed63fd2082c5cbefce81e0e9e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 547081122b1bc6611200e2abc2042a111e4284e1
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480239"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208074"
 ---
 # <a name="extending-ontologies"></a>Extension d’ontologies 
 
@@ -30,7 +30,7 @@ Une partie de la hiérarchie ressemble au diagramme ci-dessous.
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagramme de flux illustrant une partie de la hiérarchie Space de RealEstateCore. Au niveau supérieur, il existe un élément appelé Space (Espace). Il est connecté par une flèche « extends » (extension) qui va au niveau inférieur jusqu’à l’élément Room (Pièce). Room est connecté par deux flèches « extends » qui vont au niveau inférieur jusqu’aux éléments ConferenceRoom (Salle de conférence) et Office (Bureau)."::: 
 
-Pour plus d’informations sur l’ontologie RealEstateCore, consultez [*Concepts : Adoption d’ontologies conformes aux standards du secteur*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+Pour plus d’informations sur l’ontologie RealEstateCore, consultez [Concepts : Adoption d’ontologies conformes aux standards du secteur](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
 ## <a name="extending-the-realestatecore-space-hierarchy"></a>Extension de la hiérarchie Space de RealEstateCore 
 
@@ -162,4 +162,4 @@ Le langage DTDL des interfaces étendues, limité à la partie décrite ci-dessu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez au développement de modèles à partir d’ontologies : [*Utilisation de stratégies d’ontologie pour le développement de modèles*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+Passez au développement de modèles à partir d’ontologies : [Utilisation de stratégies d’ontologie pour le développement de modèles](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
