@@ -2,19 +2,19 @@
 title: Élever les privilèges d’un cloud privé
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Décrit comment élever les privilèges sur votre cloud privé pour les fonctions administratives dans vCenter
-author: Ajayan1008
+author: shortpatti
 ms.author: v-hborys
 ms.date: 06/05/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2215bd9a60fdcf76077c3a1f2a91631dc0dbe88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c72c13aa63908311d7a54015ef61165e7dde5917
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895820"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182387"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Élever les privilèges de vCenter pour votre cloud privé à partir du portail CloudSimple
 

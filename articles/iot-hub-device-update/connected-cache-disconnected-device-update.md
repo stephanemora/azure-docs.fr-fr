@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e2b27934f58402ecfb7dabf5560dc43e45f3f7dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e216d42ff1f279d87e657126514fcfb50960f806
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101678367"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811901"
 ---
 # <a name="understand-support-for-disconnected-device-updates"></a>Comprendre la prise en charge des mises à jour des appareils déconnectés
 
@@ -20,7 +20,7 @@ Dans un scénario de passerelle transparente, un ou plusieurs appareils peuvent 
 
 ## <a name="how-does-microsoft-connected-cache-preview-for-device-update-for-azure-iot-hub-work"></a>Comment fonctionne le cache connecté Microsoft (préversion) pour le service Device Update pour Azure IoT Hub ?
 
-Le cache connecté Microsoft est un cache transparent intelligent pour le contenu publié pour le contenu du service Device Update pour Azure IoT Hub et peut être personnalisé afin de mettre en cache du contenu provenant d’autres sources telles que les dépôts de packages. Le cache connecté Microsoft est un cache à froid qui est chauffé par les demandes des clients pour les plages de fichiers exactes demandées par le client d’optimisation de la distribution et qui ne prédéfinit pas le contenu. Le diagramme et la description pas à pas ci-dessous expliquent comment fonctionne le cache connecté Microsoft dans l’infrastructure du service Device Update pour Azure IoT Hub.
+Cache connecté Microsoft (préversion) est un cache transparent intelligent pour contenu publié pour le contenu du service Device Update pour Azure IoT Hub et peut être personnalisé afin de mettre en cache du contenu provenant d’autres sources comme les référentiels de packages. Le cache connecté Microsoft est un cache à froid qui est chauffé par les demandes des clients pour les plages de fichiers exactes demandées par le client d’optimisation de la distribution et qui ne prédéfinit pas le contenu. Le diagramme et la description pas à pas ci-dessous expliquent comment fonctionne le cache connecté Microsoft dans l’infrastructure du service Device Update pour Azure IoT Hub.
 
 >[!Note]
 >La définition de ce flux part du principe que la passerelle IoT Edge a une connectivité Internet. Pour le scénario de passerelle IoT Edge en aval (périphérie imbriquée), le « réseau de distribution de contenu » (CDN) peut être considéré comme le cache connecté Microsoft hébergé sur la passerelle IoT Edge parente.

@@ -3,13 +3,13 @@ title: Déplacer des ressources vers un nouvel abonnement ou un nouveau groupe d
 description: Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7a50ecc6081f8fa7c7600ddf1f98a95eceafa73b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: e899319460c4d9b144a580e0cb093488ea76683c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784620"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322164"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 

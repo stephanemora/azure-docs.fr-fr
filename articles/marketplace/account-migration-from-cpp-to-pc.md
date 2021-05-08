@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: f43bdd0ec6654ba2fc8a04dbb62d2d658e06ce0f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 189966c468fe5a39fbd44f7961e9512b7b054882
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107998"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811784"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Comment migrer votre compte du Portail Cloud Partner vers l’Espace partenaires
 
@@ -72,7 +72,7 @@ Pour obtenir des informations spécifiques sur ce qui doit être fait d’ici le
 
 1. Si votre compte d’appartenance MPN a été initialement créé dans Partner Membership Center (PMC), connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) pour vérifier que ce compte a été migré. Si vous voyez un écran de profil avec votre ID MPN, vous pouvez continuer. Sinon, vous devez démarrer la migration de votre compte en suivant les invites affichées dans [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Si vous avez besoin d’aide, consultez la page de [support](https://partner.microsoft.com/support?issueid=100-0077).
 2. Accédez à la [page Vue d’ensemble de la Place de marché commerciale dans l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Si vous voyez la mention « Place de marché commerciale » dans le volet de navigation de gauche, vous êtes inscrit et vous pouvez passer à l’étape suivante. Sinon, [inscrivez-vous dès maintenant sur la Place de marché commerciale](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
-3. Vérifiez que vos offres sont proposées dans AppSource [en recherchant vos offres](https://appsource.microsoft.com/). Si vos offres se trouvent déjà dans AppSource, passez à l’étape suivante. Si l’une de vos offres n’est pas dans AppSource, créez une [offre Dynamics 365 Customer Engagement](.\partner-center-portal\create-new-customer-engagement-offer.md) ou une [offre Dynamics 365 Operations](.\partner-center-portal\create-new-operations-offer.md).
+3. Vérifiez que vos offres sont proposées dans AppSource [en recherchant vos offres](https://appsource.microsoft.com/). Si vos offres se trouvent déjà dans AppSource, passez à l’étape suivante. Si l’une de vos offres n’est pas dans AppSource, consultez [Planifier une offre Dynamics 365 Customer Engagement](dynamics-365-customer-engage-offer-setup.md) ou [Créer une offre Dynamics 365 Operations](.\partner-center-portal\create-new-operations-offer.md).
 4. Sur la [page Contrats](https://partner.microsoft.com/dashboard/account/agreements) de l’Espace partenaires, consultez et acceptez **l’addendum Business Applications ISV**.
 5. Dans les [Paramètres du compte](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) de l’Espace partenaires, vérifiez que vos informations de facturation sont complètes.
 6. Soumettez toutes vos offres nouvelles ou existantes pour certification et publication, même si elles ont déjà été certifiées.

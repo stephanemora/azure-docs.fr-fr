@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 01/22/2021
 ms.author: iangithinji
 ms.reviewer: ''
-ms.openlocfilehash: 8bdb8eb9cf176f8e190769e38c81d02ad2985196
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 4a880fadb91daa34688e3876ba665d97659db015
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376390"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320850"
 ---
 # <a name="what-is-application-management"></a>Qu’est-ce que la gestion des applications ?
 
@@ -58,7 +58,7 @@ Vous pouvez utiliser Azure AD comme système d’identités pour quasiment n’i
 
 Vous pouvez configurer manuellement la plupart des applications pour l’authentification unique si elles ne se trouvent pas déjà dans la galerie. Azure AD propose plusieurs options d’authentification unique. L’authentification unique SAML et l’authentification unique OIDC figurent parmi les plus populaires. Pour en savoir plus sur l’intégration d’applications pour l’authentification unique, examinez les [options d’authentification unique](sso-options.md). 
 
-Votre organisation utilise-t-elle des applications locales ? Vous pouvez les intégrer à l’aide du proxy d’application. Pour en savoir plus, consultez [Accès à distance aux applications locales par le bais du service Proxy d’application Azure AD](application-proxy.md).
+Votre organisation utilise-t-elle des applications locales ? Vous pouvez les intégrer à l’aide du proxy d’application. Pour en savoir plus, consultez [Accès à distance aux applications locales par le bais du service Proxy d’application Azure AD](../app-proxy/application-proxy.md).
 
 >[!TIP]
 >Quand vous créez vos propres applications métier, vous pouvez les intégrer à Azure AD pour bénéficier de l’authentification unique. Pour en savoir plus sur le développement d’applications pour Azure AD, consultez [Plateforme d’identités Microsoft](..//develop/v2-overview.md).
