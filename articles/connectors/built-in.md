@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 04/20/2021
-ms.openlocfilehash: 045d7391c9c3c2870efddc0aed4ae7590db938d2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bfeaf070268dde315858c045bd1b941dc1bdb26a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795871"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136154"
 ---
 # <a name="built-in-triggers-and-actions-for-logic-apps"></a>Déclencheurs et actions intégrés pour Logic Apps
 
 
 Les [déclencheurs et actions intégrés](apis-list.md) vous permettent de [contrôler la planification et la structure de votre workflow](#control-workflow), d’[exécuter votre propre code](#run-code-from-workflows), de [gérer ou manipuler des données](#manage-or-manipulate-data), et d’effectuer d’autres tâches dans vos workflows. Différents des [connecteurs managés](managed.md), de nombreuses opérations intégrées ne sont pas liées à un service, un système ou un protocole spécifique. Par exemple, vous pouvez démarrer presque n’importe quel workflow selon une planification à l’aide du déclencheur Récurrence. Vous pouvez aussi faire en sorte que votre workflow attende jusqu’à ce qu’il soit appelé à l’aide du déclencheur Requête. Toutes les opérations intégrées s’exécutent en mode natif dans le service Logic Apps, et la plupart ne nécessitent pas la création d’une connexion avant leur utilisation. 
 
-Logic Apps fournit également des opérations intégrées pour certains services, systèmes et protocoles, comme Azure Service Bus, Azure Functions, SQL, AS2, et ainsi de suite. Le nombre et l’étendue varient selon que vous créez une application logique multilocataire ou à locataire unique. Dans certains cas, une version intégrée et une version de connecteur managé sont toutes deux disponibles. Dans la plupart des cas, la version intégrée offre de meilleures performances, fonctionnalités, conditions tarifaires, et ainsi de suite. Par exemple, pour [échanger des messages B2B à l’aide du protocole AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), sélectionnez la version intégrée, sauf si vous avez besoin de fonctionnalités de suivi, qui sont disponibles uniquement dans la version du connecteur managé (dépréciée).
+Logic Apps fournit également des opérations intégrées pour certains services, systèmes et protocoles, comme Azure Functions, Azure App Services, Gestion des API Azure, AS2, etc. Cette sélection varie selon que vous créez une application logique multilocataire ou à locataire unique. Par exemple, si vous créez une application logique à locataire unique, les opérations intégrées sont disponibles pour Azure Service Bus, Azure Event Hubs, SQL Server et MQ. Dans certains cas, une version intégrée et une version de connecteur managé sont toutes deux disponibles. Dans la plupart des cas, la version intégrée offre de meilleures performances, fonctionnalités, conditions tarifaires, etc. Par exemple, pour [échanger des messages B2B à l’aide du protocole AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), sélectionnez la version intégrée, sauf si vous avez besoin de fonctionnalités de suivi, qui sont disponibles uniquement dans la version du connecteur managé (dépréciée).
 
 La liste suivante décrit quelques-unes des tâches que vous pouvez effectuer avec des [déclencheurs et actions intégrés](#understand-triggers-and-actions) :
 
@@ -135,7 +135,7 @@ Logic Apps fournit des actions intégrées vous permettant d’exécuter votre 
         [![Icône Azure Functions dans Logic Apps][azure-functions-icon]][azure-functions-doc]
         \
         \
-        [**Fonctions Azure**][azure-functions-doc]
+        [**Azure Functions**][azure-functions-doc]
         \
         \
         Appelez des [fonctions hébergées par Azure](../azure-functions/functions-overview.md) pour exécuter vos propres *extraits de code* (C# ou Node.js) dans votre workflow.
@@ -318,7 +318,7 @@ Logic Apps fournit des actions intégrées qui permettent de manipuler les sorti
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](/logic-apps/logic-apps-create-api-app)
 
 <!-- Built-ins icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png

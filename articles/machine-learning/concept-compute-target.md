@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 16c3ac10af7d39ec35cde1cd9d279bced54fd8aa
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f421274513cc3d76f7e8c1119cf98e4e5d36b1f9
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062503"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950265"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?
 
@@ -38,23 +38,9 @@ En savoir plus sur la façon de [soumettre une exécution de formation à une ci
 
 ## <a name="compute-targets-for-inference"></a><a name="deploy"></a> Cibles de calcul pour l’inférence
 
-Les cibles de calcul suivantes peuvent héberger le déploiement de votre modèle.
+Pour effectuer l’inférence, Azure Machine Learning crée un conteneur Docker qui héberge le modèle et les ressources associées nécessaires pour l’utiliser. Ce conteneur est ensuite utilisé dans une cible de calcul.
 
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
-Pour effectuer l’inférence, Azure Machine Learning crée un conteneur Docker qui héberge le modèle et les ressources associées nécessaires pour l’utiliser. Ce conteneur est ensuite utilisé dans l’un des scénarios de déploiement suivants :
-
-* En tant que *service web* utilisé pour l’inférence en temps réel. Les déploiements de service web utilisent l’une des cibles de calcul suivantes :
-
-    * [Ordinateur local](how-to-attach-compute-targets.md#local)
-    * [Instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md)
-    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
-    * [Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
-    * Azure Functions (préversion). Les déploiements dans Azure Functions reposent uniquement sur Azure Machine Learning pour générer le conteneur Docker. À partir de là, il est déployé à l’aide d’Azure Functions. Pour plus d’informations, consultez [Déployer un modèle Machine Learning sur Azure Functions (préversion)](how-to-deploy-functions.md).
-
-* En tant que point de terminaison d’_inférence en lots_ utilisé pour traiter occasionnellement des lots de données. L’inférence en lots utilise des [clusters de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md).
-
-* Vers un _appareil IoT_ (préversion). Les déploiements vers un appareil IoT reposent uniquement sur Azure Machine Learning pour générer le conteneur Docker. À partir de là, il est déployé à l’aide d’Azure IoT Edge. Pour plus d’informations, consultez [Déployer en tant que module IoT Edge (préversion)](../iot-edge/tutorial-deploy-machine-learning.md).
+[!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
 Découvrez [où et comment déployer votre modèle sur une cible de calcul](how-to-deploy-and-where.md).
 

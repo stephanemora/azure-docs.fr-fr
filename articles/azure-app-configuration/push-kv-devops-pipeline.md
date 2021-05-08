@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: e1a4fb52a5f9622758e9ed805bf9380f5f608870
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 669dd99b24d605953a5bbf99a1612a07874b642f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068250"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137758"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envoyer des paramètres vers App Configuration avec Azure Pipelines
 
@@ -33,12 +33,10 @@ Une [connexion de service](/azure/devops/pipelines/library/service-endpoints) vo
 1. Sous **Pipelines** sélectionnez **Connexions de service** puis **Nouvelle connexion de service** en haut à droite.
 1. Sélectionnez **Azure Resource Manager**.
 ![La capture d’écran montre la sélection d’Azure Resource Manager dans la liste déroulante Nouvelle connexion de service.](./media/new-service-connection.png)
-1. Dans la boîte de dialogue **Méthode d’authentification** , sélectionnez **Principal du service (automatique)** .
-    > [!NOTE]
-    > L’authentification par **Identité managée** n’est actuellement pas prise en charge pour la tâche Configuration d’application.
+1. Dans la boîte de dialogue **Méthode d’authentification**, sélectionnez **Principal du service (automatique)** pour créer un principal du service ou sélectionnez **Principal du service (manuel)** pour [utiliser un principal de service existant](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#use-spn).
 1. Renseignez votre abonnement et votre ressource. Donnez un nom à votre connexion de service.
 
-Maintenant que votre connexion de service est créée, recherchez le nom du principal de service qui lui est assigné. Vous ajouterez une nouvelle attribution de rôle à ce principal de service à l’étape suivante.
+Si vous avez créé un principal de service, recherchez le nom du principal de service affecté à la connexion de service. Vous ajouterez une nouvelle attribution de rôle à ce principal de service à l’étape suivante.
 
 1. Accédez à **Paramètres du projet** > **Connexions de service**.
 1. Sélectionnez la connexion de service que vous avez créée dans la section précédente.

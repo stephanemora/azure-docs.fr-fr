@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: dfc8fe0f1b4bc043feecd5c76340d48bc5421854
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: dbd4e9c6e8a58738ac0a8db6c64133301d1aebe5
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568537"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950583"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -137,11 +137,20 @@ Pour réduire la fréquence de saisie des informations d’identification en rai
 
 Si vous avez des stratégies d’accès conditionnel qui doivent être satisfaites pour votre compte, assurez-vous que vous utilisez la valeur de **navigateur web par défaut** pour le paramètre **Se connecter avec**. Pour plus d’informations sur ce paramètre, consultez [Modification de l’emplacement de connexion](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
+### <a name="browser-complains-about-http-redirect-during-sign-in"></a>Le navigateur se plaint d’une redirection HTTP pendant la connexion
+
+Lorsque Explorateur Stockage effectue la connexion dans votre navigateur web, une redirection vers `localhost` est effectuée à la fin du processus de connexion. Les navigateurs affichent parfois un avertissement ou une erreur indiquant que la redirection est effectuée via HTTP au lieu de HTTPS. Certains navigateurs peuvent également essayer de forcer la redirection à s’effectuer via HTTPS. Si l’un ou l’autre de ces cas se produit, vous disposez de plusieurs options en fonction de votre navigateur :
+- Ignorez l’avertissement.
+- Ajoutez une exception pour `localhost`.
+- Désactivez la redirection forcée via HTTPS, globalement ou uniquement pour `localhost`.
+
+Si vous n’êtes pas en mesure d’utiliser l’une de ces options, vous pouvez également [modifier l’emplacement de la connexion](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+
 ### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>Impossible d’acquérir le jeton, le locataire est filtré
 
 Si vous voyez un message d’erreur indiquant qu’un jeton ne peut pas être acquis parce qu’un locataire est filtré, cela signifie que vous essayez d’accéder à une ressource qui se trouve dans un locataire que vous avez exclu. Pour annuler le filtrage du locataire, accédez au **panneau Compte** et assurez-vous que la case à cocher correspondant au locataire spécifié dans l’erreur est cochée. Reportez-vous à [Gestion des comptes](./storage-explorer-sign-in.md#managing-accounts) pour plus d’informations sur le filtrage des locataires dans l’Explorateur Stockage.
 
-## <a name="authentication-library-failed-to-start-properly"></a>La bibliothèque d’authentification n’a pas pu démarrer correctement
+### <a name="authentication-library-failed-to-start-properly"></a>La bibliothèque d’authentification n’a pas pu démarrer correctement
 
 Si au démarrage vous voyez un message d’erreur indiquant que la bibliothèque d’authentification de l’Explorateur Stockage n’a pas pu démarrer correctement, vérifiez que votre environnement d’installation remplit toutes les [conditions préalables](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites). Le fait de ne pas répondre aux conditions préalables est la cause la plus probable de ce message d’erreur.
 
@@ -486,12 +495,12 @@ Pour les problèmes liés à la connexion ou à la bibliothèque d’authentific
 
 En règle générale, vous pouvez suivre les étapes suivantes pour rassembler les journaux :
 
-1. Accédez à Paramètres > Connexion > cochez la case Journalisation détaillée de l’authentification. Si Explorateur Stockage ne parvient pas à démarrer en raison d’un problème avec sa bibliothèque d’authentification, cette opération sera effectuée pour vous.
+1. Accédez à **Paramètres (icône d’engrenage à gauche)**  > **Application** > **Connexion** > cochez la case **Journalisation détaillée de l’authentification**. Si Explorateur Stockage ne parvient pas à démarrer en raison d’un problème avec sa bibliothèque d’authentification, cette opération sera effectuée pour vous.
 2. Fermez l’Explorateur Stockage.
 1. Facultatif/recommandé : Effacez les journaux existants dans le dossier `logs`. Cela permet de réduire la quantité d’informations que vous devez nous envoyer.
 4. Ouvrez Explorateur Stockage et reproduisez votre problème.
 5. Fermez Explorateur Stockage.
-6. Compressez le contenu du dossier `log`.
+6. Compressez le contenu du dossier `logs`.
 
 ### <a name="azcopy-logs"></a>Journaux AzCopy
 

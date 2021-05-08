@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/06/2019
-ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/27/2021
+ms.openlocfilehash: 39fc84e9a83f7417836c895481da27a0d00cc71f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75979374"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137181"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Valider des documents XML avec des schémas dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -183,6 +183,14 @@ Pour mettre à jour un schéma existant, vous devez charger un nouveau fichier d
 1. Une fois que la page **Schémas** est ouverte, sélectionnez votre schéma, puis choisissez **Supprimer**.
 
 1. Pour confirmer que vous souhaitez supprimer le schéma sélectionné, choisissez **Oui**.
+
+## <a name="limitations"></a>Limites
+
+En règle générale, lorsque vous utilisez un compte d’intégration avec votre workflow et que vous souhaitez valider le code XML, vous ajoutez ou chargez le schéma dans ce compte. Si vous référencez ou importez un schéma absent de votre compte d’intégration, vous pouvez recevoir l’erreur suivante lorsque vous utilisez l’élément `xsd:redefine` :
+
+`An error occurred while processing the XML schemas: ''SchemaLocation' must successfully resolve if <redefine> contains any child other than <annotation>.'.`
+
+Pour y remédier, vous devez utiliser l’élément `xsd:import` ou `xsd:include` plutôt que `xsd:redefine`, ou utiliser un URI.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

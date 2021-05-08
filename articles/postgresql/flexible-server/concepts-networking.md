@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/21/2021
-ms.openlocfilehash: a6f049670a6860bbc195b92458945d1a53029b4f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 04/22/2021
+ms.openlocfilehash: 5b832ca7f1b5fb8a6b0044ca299c75f01a2d0f32
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732800"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987040"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble des réseaux - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -50,6 +50,13 @@ Les caractéristiques suivantes s’appliquent si vous choisissez d’utiliser l
 ## <a name="private-access-vnet-integration"></a>Accès privé (intégration au réseau virtuel)
 L’accès privé avec intégration au réseau virtuel offre des communications privées et sécurisées à votre serveur flexible PostgreSQL.
 
+:::image type="content" source="./media/how-to-manage-virtual-network-portal/flexible-pg-vnet-diagram.png" alt-text="Réseau virtuel Postgres du serveur flexible":::
+
+Dans le diagramme ci-dessus :
+1. Les serveurs flexibles sont injectés dans un sous-réseau délégué ; 10.0.1.0/24 du réseau virtuel **VNet-1**.
+2. Les applications qui sont déployées sur des sous-réseaux différents au sein du même réseau virtuel peuvent accéder directement aux serveurs flexibles.
+3. Les applications qui sont déployées sur un autre réseau virtuel (**VNet-2**) n’ont pas d’accès direct aux serveurs flexibles. Vous devez effectuer un [appairage de réseaux virtuels de zone DNS privée](#private-dns-zone-and-vnet-peering) pour pouvoir accéder au serveur flexible.
+   
 ### <a name="virtual-network-concepts"></a>Concepts de réseau virtuel
 Voici quelques concepts à connaître quand vous utilisez des réseaux virtuels avec des serveurs flexibles PostgreSQL.
 
@@ -57,14 +64,25 @@ Voici quelques concepts à connaître quand vous utilisez des réseaux virtuels 
 
     Votre réseau virtuel doit se trouver dans la même région Azure que votre serveur flexible.
 
-
 * **Sous-réseau délégué** : un réseau virtuel contient des sous-réseaux. Les sous-réseaux vous permettent de segmenter votre réseau virtuel en espaces d’adressage plus petits. Les ressources Azure sont déployées sur des sous-réseaux spécifiques au sein d’un réseau virtuel. 
 
    Votre serveur flexible PostgreSQL doit se trouver sur un sous-réseau **délégué** réservé à l’usage de serveur flexible PostgreSQL. Cette délégation spécifie que seuls les serveurs flexibles Azure Database pour PostgreSQL peuvent utiliser ce sous-réseau. Aucun autre type de ressource Azure ne peut se trouver sur le sous-réseau délégué. Pour déléguer un sous-réseau, affectez à sa propriété de délégation la valeur Microsoft.DBforPostgreSQL/flexibleServers.
 
-   Ajoutez `Microsoft.Storage` au point de terminaison de service pour le sous-réseau délégué aux serveurs Flexible. 
+* **Groupes de sécurité réseau (NSG)**  : les règles de sécurité dans les groupes de sécurité réseau permettent de filtrer le type de trafic qui peut circuler vers et depuis les interfaces réseau et les sous-réseaux de réseau virtuel. Pour plus d’informations, consultez la documentation [Vue d’ensemble des groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md).
 
-* **Groupes de sécurité réseau (NSG)**  : les règles de sécurité dans les groupes de sécurité réseau permettent de filtrer le type de trafic qui peut circuler vers et depuis les interfaces réseau et les sous-réseaux de réseau virtuel. Pour plus d’informations, consultez [Vue d’ensemble des groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md).
+* **Intégration de DNS privé** : l’intégration de zones DNS privées Azure permet de résoudre le DNS privé au sein du réseau virtuel actuel ou de tout réseau virtuel appairé dans la région où la zone DNS privée est liée. Pour plus d’informations, consultez [la documentation relative aux zones DNS privées](https://docs.microsoft.com/azure/dns/private-dns-overview).
+
+Découvrez comment créer un serveur flexible avec accès privé (intégration au réseau virtuel) dans le [portail Azure](how-to-manage-virtual-network-portal.md) ou [Azure CLI](how-to-manage-virtual-network-cli.md).
+
+> [!NOTE]
+> Si vous utilisez le serveur DNS personnalisé, vous devez utiliser un redirecteur DNS pour résoudre le nom de domaine complet du serveur Azure Database pour PostgreSQL – Serveur flexible. Consultez [Résolution de noms utilisant votre propre serveur DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) pour en savoir plus.
+
+### <a name="private-dns-zone-and-vnet-peering"></a>Zone DNS privée et appairage de réseaux virtuels
+
+Les paramètres de zone DNS privée et l’appairage de réseaux virtuels sont indépendants les uns des autres.
+
+* Par défaut, une nouvelle zone DNS privée est approvisionnée automatiquement par serveur à l’aide du nom de serveur fourni. Toutefois, si vous souhaitez configurer votre propre zone DNS privée à utiliser avec le serveur flexible, consultez la documentation [Vue d’ensemble du DNS privé](https://docs.microsoft.com/azure/dns/private-dns-overview).
+* Si vous souhaitez vous connecter au serveur flexible à partir d’un client configuré dans un autre réseau virtuel, vous devez lier la zone DNS privée au réseau virtuel. Consultez la documentation [Lier le réseau virtuel](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Scénarios de réseau virtuel non pris en charge
@@ -73,10 +91,6 @@ Voici quelques concepts à connaître quand vous utilisez des réseaux virtuels 
 * Il est impossible d’augmenter la taille d’un sous-réseau (espaces d’adressage) une fois qu’il existe des ressources sur ce sous-réseau.
 * L’appairage (peering) de réseaux virtuels entre régions n’est pas pris en charge.
 
-Découvrez comment créer un serveur flexible avec accès privé (intégration au réseau virtuel) dans le [portail Azure](how-to-manage-virtual-network-portal.md) ou [Azure CLI](how-to-manage-virtual-network-cli.md).
-
-> [!NOTE]
-> Si vous utilisez le serveur DNS personnalisé, vous devez utiliser un redirecteur DNS pour résoudre le nom de domaine complet du serveur Azure Database pour PostgreSQL – Serveur flexible. Consultez [Résolution de noms utilisant votre propre serveur DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) pour en savoir plus.
 
 ## <a name="public-access-allowed-ip-addresses"></a>Accès public (adresses IP autorisées)
 Les caractéristiques de la méthode d’accès public sont les suivantes :
@@ -100,7 +114,7 @@ Si aucune adresse IP sortante fixe n’est disponible pour votre service Azure,
 ### <a name="troubleshooting-public-access-issues"></a>Résolution des problèmes d’accès public
 Considérez les points suivants quand l’accès au service de serveur de base de données Microsoft Azure pour PostgreSQL présente un comportement anormal :
 
-* **Les modifications apportées à la liste verte n’ont pas encore pris effet :** Jusqu’à cinq minutes peuvent s’écouler avant que les changements apportés à la configuration du pare-feu du serveur Azure Database pour PostgreSQL ne soient effectives.
+* **Les modifications apportées à la liste d’autorisation n’ont pas encore pris effet :** Jusqu’à cinq minutes peuvent s’écouler avant que les modifications apportées à la configuration du pare-feu du serveur Azure Database pour PostgreSQL ne soient effectives.
 
 * **Échec de l’authentification :** Si un utilisateur n’a pas d’autorisation sur le serveur Azure Database pour PostgreSQL ou que le mot de passe est incorrect, la connexion au serveur Azure Database pour PostgreSQL est refusée. La création d’un paramètre de pare-feu permet uniquement aux clients de tenter de se connecter à votre serveur. Chaque client doit quand même fournir les informations d’identification de sécurité nécessaires.
 
