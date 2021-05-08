@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 4c87887f77d5f227fe4d4cdee220397289878d7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e097a5642befb2e3b91423379c734cb5acdfa7d0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99574463"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073590"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Dépanner les partages de fichiers Azure NFS
 
@@ -160,6 +160,10 @@ L’utilisation de wc -c récupère toujours la valeur la plus récente à parti
 
 #### <a name="workaround-2-use-noac-mount-flag"></a>Solution de contournement 2 : Utiliser l’indicateur de montage « noac »
 Remontez le système de fichiers à l’aide de l’indicateur « noac » avec votre commande mount. Cette opération récupère toujours toutes les valeurs de métadonnées du serveur. Il peut y avoir une surcharge de performances mineure pour toutes les opérations de métadonnées si cette solution de contournement est utilisée.
+
+
+## <a name="unable-to-mount-an-nfs-share-that-is-restored-back-from-soft-deleted-state"></a>Impossible de monter un partage NFS restauré à partir d’un état de suppression réversible
+La préversion présente un problème connu, à savoir que les partages NFS sont supprimés de manière réversible bien que la plateforme ne le prenne pas en charge. Ces partages seront supprimés lors de son expiration. Vous pouvez également les supprimer manuellement à l’aide du flux « annuler la suppression du partage + désactiver la suppression réversible + supprimer le partage ». Cela étant, si vous tentez de récupérer et d’utiliser les partages, vous recevrez une erreur d’accès refusé, d’autorisation refusée ou une erreur d’E/S NFS sur le client.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

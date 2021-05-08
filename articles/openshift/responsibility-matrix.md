@@ -7,12 +7,12 @@ ms.date: 4/12/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli, RACI, prise en charge
-ms.openlocfilehash: 4bb00cb533d0065a992831f09ed8280c96efcdee
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 477fe40dc565bf5e20627b4f4cd0d53273240ec3
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537016"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319608"
 ---
 # <a name="overview-of-responsibilities-for-azure-red-hat-openshift"></a>Vue d’ensemble des responsabilités pour Azure Red Hat OpenShift
 
@@ -583,7 +583,7 @@ Le client est responsable des applications, des charges de travail et des donné
 
 <li>Si un client ajoute des services Red Hat, des services communauté, des services tiers, ses propres services ou d’autres services au cluster à l’aide d’opérateurs ou d’images externes, le client est responsable de ces services et de la collaboration avec le fournisseur approprié (notamment Red Hat) pour résoudre tous les problèmes.
 
-<li>Utiliser les outils et fonctionnalités fournis pour <a href="https://docs.openshift.com/aro/4/architecture/understanding-development.html#application-types">configurer et déployer</a> ; <a href="https://docs.openshift.com/aro/4/applications/deployments/deployment-strategies.html">rester à jour</a> ; <a href="https://docs.openshift.com/aro/4/applications/working-with-quotas.html">configurer des demandes et des limites de ressources</a> ; <a href="https://docs.openshift.com/aro/4/getting_started/scaling-your-cluster.html">dimensionner le cluster afin qu’il dispose de suffisamment de ressources pour exécuter des applications</a> ; <a href="https://docs.openshift.com/aro/4/administering_a_cluster/">configurer des autorisations</a> ; effectuer une intégration à d’autres services ; <a href="https://docs.openshift.com/aro/4/openshift_images/images-understand.html">gérer des flux d’images ou des modèles d’image déployés par le client</a> ; <a href="https://docs.openshift.com/aro/4/cloud_infrastructure_access">traiter en externe</a> ; enregistrer, sauvegarder et restaurer des données ; et sinon gérer leurs charges de travail hautement disponibles et résilientes.
+<li>Utiliser les outils et fonctionnalités fournis pour <a href="https://docs.openshift.com/aro/4/architecture/understanding-development.html#application-types">configurer et déployer</a> ; <a href="https://docs.openshift.com/aro/4/applications/deployments/deployment-strategies.html">rester à jour</a> ; <a href="https://docs.openshift.com/dedicated/4/applications/working-with-quotas.html">configurer des demandes et des limites de ressources</a> ; <a href="https://docs.openshift.com/dedicated/4/getting_started/scaling-your-cluster.html">dimensionner le cluster afin qu’il dispose de suffisamment de ressources pour exécuter des applications</a> ; <a href="https://docs.openshift.com/dedicated/4/administering_a_cluster/cluster-admin-role.html">configurer des autorisations</a> ; effectuer une intégration à d’autres services ; <a href="https://docs.openshift.com/aro/4/openshift_images/images-understand.html">gérer des flux d’images ou des modèles d’image déployés par le client</a> ; <a href="https://docs.openshift.com/dedicated/4/cloud_infrastructure_access/dedicated-understanding-aws.html">traiter en externe</a> ; enregistrer, sauvegarder et restaurer des données ; et sinon gérer leurs charges de travail hautement disponibles et résilientes.
 
 <li>Tenir à jour la responsabilité de la supervision des applications exécutées sur Azure Red Hat OpenShift, notamment l’installation et le fonctionnement des logiciels pour collecter des métriques et créer des alertes.
 </li>

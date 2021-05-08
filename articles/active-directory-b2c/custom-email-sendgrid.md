@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d63e7916423038e53c375b2be4114582cf4d6152
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: a56f8339535c64c6eeac1b06c04aa7c89cd38356
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725761"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886385"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Vérification des e-mails personnalisée avec SendGrid
 
@@ -42,7 +42,7 @@ Le cas échéant, commencez par créer un compte SendGrid (les clients Azure peu
 Veillez à compléter la section dans laquelle vous [créez une clé API SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Enregistrez la clé API pour l'utiliser à une étape ultérieure.
 
 > [!IMPORTANT]
-> SendGrid offre aux clients la possibilité d’envoyer des e-mails à partir d’adresses IP partagées et d’[adresses IP dédiées](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). Lorsque vous utilisez des adresses IP dédiées, vous devez établir votre propre réputation correctement à l’aide d’un échauffement d’adresse IP. Pour plus d’informations, consultez [Warming Up An Ip Address](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/).
+> SendGrid offre aux clients la possibilité d’envoyer des e-mails à partir d’adresses IP partagées et d’[adresses IP dédiées](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). Lorsque vous utilisez des adresses IP dédiées, vous devez établir votre propre réputation correctement à l’aide d’un échauffement d’adresse IP. Pour plus d’informations, consultez [Warming Up An Ip Address](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/).
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Créer une clé de stratégie Azure AD B2C
 
@@ -304,7 +304,7 @@ Sous les définitions de contenu, toujours dans `<BuildingBlocks>`, ajoutez à v
 Le profil technique `GenerateOtp` génère un code pour l’adresse e-mail. Le profil technique `VerifyOtp` vérifie le code associé à l’adresse e-mail. Vous pouvez modifier la configuration du format et l’expiration du mot de passe à usage unique. Pour plus d'informations sur les profils techniques OTP, voir [Définir un profil technique de mot de passe à usage unique](one-time-password-technical-profile.md).
 
 > [!NOTE]
-> Les codes OTP qui sont générés par le protocole Web.TPEngine.Providers.OneTimePasswordProtocolProvider sont liés à la session de navigateur. Cela signifie qu’un utilisateur peut générer des codes OTP uniques dans différentes sessions de navigateur qui ne sont valides que pour les sessions correspondantes. En revanche, un code OTP généré par le flux de l’utilisateur intégré est indépendant de la session du navigateur. Par conséquent, si un utilisateur génère un nouveau code OTP dans une nouvelle session de navigateur, cela remplace le code OTP précédent.
+> Les codes OTP générés par le protocole Web.TPEngine.Providers.OneTimePasswordProtocolProvider sont liés à la session de navigateur. Cela signifie qu’un utilisateur peut générer des codes OTP uniques dans différentes sessions de navigateur qui sont valides pour les sessions correspondantes. En revanche, un code OTP généré par le fournisseur de messagerie intégré est indépendant de la session du navigateur. Par conséquent, si un utilisateur génère un nouveau code OTP dans une nouvelle session de navigateur, cela remplace le code OTP précédent.
 
 Ajoutez les profils techniques suivants à l'élément `<ClaimsProviders>`.
 

@@ -2,13 +2,13 @@
 title: Nouveautés de l’agent des serveurs activés par Azure Arc
 description: Cet article contient les notes de publication de l’agent des serveurs activés par Azure Arc. Pour la plupart des problèmes résumés, des liens mènent à des informations supplémentaires.
 ms.topic: conceptual
-ms.date: 03/31/2021
-ms.openlocfilehash: ecff23225f4d482cc1e9a4f7b7724c8ffe0a1d73
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 04/27/2021
+ms.openlocfilehash: c223b5dd75ac82706a2b35268813391899170f73
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109065"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071538"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs activés par Azure Arc
 
@@ -18,17 +18,28 @@ L’agent Connected Machine des serveurs activés par Azure Arc reçoit des amé
 - Problèmes connus
 - Résolution des bogues
 
+## <a name="april-2021"></a>Avril 2021
+
+Version 1.5
+
+### <a name="new-feature"></a>Nouvelle fonctionnalité
+
+- Ajout de la prise en charge de Red Hat Enterprise Linux 8 et CentOS Linux 8.
+- Nouveau paramètre `-useStderr` pour diriger l’erreur et la sortie détaillée vers stderr.
+- Nouveau paramètre `-json` pour diriger les résultats de sortie au format JSON (en cas d’utilisation avec -useStderr).
+- Collecter d’autres métadonnées d’instance : fabricant, modèle, si SQL Server est installé (booléen) et ID de ressource de cluster (pour les nœuds Azure Stack HCI).
+ 
 ## <a name="march-2021"></a>Mars 2021
 
 Version 1.4
 
-## <a name="new-feature"></a>Nouvelle fonctionnalité
+### <a name="new-feature"></a>Nouvelle fonctionnalité
 
 - Ajout de la prise en charge des points de terminaison privés, actuellement en préversion limitée.
 - Liste élargie des codes de sortie pour azcmagent.
 - Les paramètres de configuration de l’agent peuvent maintenant être lus à partir d’un fichier avec le paramètre `--config`.
 
-## <a name="fixed"></a>Fixe
+### <a name="fixed"></a>Fixe
 
 Les vérifications des points de terminaison réseau sont maintenant plus rapides.
 

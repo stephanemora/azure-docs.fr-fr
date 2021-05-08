@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c8b82219f2b2aea39bbcd23f030243d9ea8635
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a289d39140b559636378184d10ac8b90557fc3a1
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861802"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176051"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
@@ -38,6 +38,9 @@ Si votre environnement est prêt à bloquer l’authentification héritée pour 
 ## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous connaissez bien les [concepts de base](overview.md) de l’accès conditionnel Azure AD.
+
+> [!NOTE]
+> Des stratégies d'accès conditionnel sont appliquées au terme de l'authentification premier facteur. L'accès conditionnel n'est pas destiné à être la première ligne de défense d'une organisation pour des scénarios comme les attaques par déni de service (DoS), mais il peut utiliser les signaux de ces événements pour déterminer l'accès.
 
 ## <a name="scenario-description"></a>Description du scénario
 

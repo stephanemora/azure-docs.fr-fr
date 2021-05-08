@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b4bb58f106f3255ec6cd80b14b175ff413bc0dc6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 9455045bb03ad03d2e5cf31a27696850f2d31bed
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725797"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886404"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Vérification des e-mails personnalisée avec Mailjet
 
@@ -321,7 +321,7 @@ Sous les définitions de contenu, toujours dans `<BuildingBlocks>`, ajoutez à v
 Le profil technique `GenerateOtp` génère un code pour l’adresse e-mail. Le profil technique `VerifyOtp` vérifie le code associé à l’adresse e-mail. Vous pouvez modifier la configuration du format et l’expiration du mot de passe à usage unique. Pour plus d'informations sur les profils techniques OTP, voir [Définir un profil technique de mot de passe à usage unique](one-time-password-technical-profile.md).
 
 > [!NOTE]
-> Les codes OTP générés par le protocole Web.TPEngine.Providers.OneTimePasswordProtocolProvider sont liés à la session de navigateur. Cela signifie qu’un utilisateur peut générer des codes OTP uniques dans différentes sessions de navigateur qui sont valides pour les sessions correspondantes. En revanche, un code OTP généré par le flux de l’utilisateur intégré est indépendant de la session du navigateur. Par conséquent, si un utilisateur génère un nouveau code OTP dans une nouvelle session de navigateur, il remplace le code OTP précédent.
+> Les codes OTP générés par le protocole Web.TPEngine.Providers.OneTimePasswordProtocolProvider sont liés à la session de navigateur. Cela signifie qu’un utilisateur peut générer des codes OTP uniques dans différentes sessions de navigateur qui sont valides pour les sessions correspondantes. En revanche, un code OTP généré par le fournisseur de messagerie intégré est indépendant de la session du navigateur. Par conséquent, si un utilisateur génère un nouveau code OTP dans une nouvelle session de navigateur, cela remplace le code OTP précédent.
 
 Ajoutez les profils techniques suivants à l'élément `<ClaimsProviders>`.
 

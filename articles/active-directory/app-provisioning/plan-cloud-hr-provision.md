@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9171226de7c975e75139af92798ea78419428f0
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256709"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175421"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -204,7 +204,7 @@ Nous vous recommandons la configuration de production suivante :
 
 La solution d’approvisionnement d’utilisateurs de l’application RH cloud vers Active Directory nécessite le déploiement d’un ou plusieurs agents d’approvisionnement Azure AD Connect sur des serveurs exécutant Windows 2012 R2 (ou versions ultérieures). Les serveurs doivent avoir au minimum 4 Go de RAM et runtime .NET 4.7.1+. Vérifiez que le serveur hôte a un accès réseau au domaine Active Directory cible.
 
-Pour préparer l’environnement local, l’Assistant de configuration de l’agent d’approvisionnement Azure AD Connect inscrit l’agent auprès de votre locataire Azure AD, [ouvre les ports](../manage-apps/application-proxy-add-on-premises-application.md#open-ports), [autorise l’accès aux URL](../manage-apps/application-proxy-add-on-premises-application.md#allow-access-to-urls) et prend en charge [la configuration du proxy HTTPS sortant](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
+Pour préparer l’environnement local, l’Assistant de configuration de l’agent d’approvisionnement Azure AD Connect inscrit l’agent auprès de votre locataire Azure AD, [ouvre les ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [autorise l’accès aux URL](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls) et prend en charge [la configuration du proxy HTTPS sortant](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
 L’agent d’approvisionnement utilise un compte de service pour communiquer avec le ou les domaines Active Directory. Avant d’installer l’agent, créez un compte de service dans les utilisateurs et les ordinateurs Active Directory qui répondent aux exigences suivantes :
 

@@ -11,16 +11,19 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c04f61aaef5f5072ce0fb39ff111ba07ee151700
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aab2897b4042657492d04494b589fbaa2605cc6d
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375899"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886781"
 ---
 # <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>API REST pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
 API REST pour la gestion du calcul d’un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics.
+
+> [!NOTE]
+> Les API REST décrites dans cet article ne s’appliquent pas à un pool SQL dédié créé dans un espace de travail Azure Synapse Analytics. Pour plus d’informations sur les API REST à utiliser spécifiquement pour un espace de travail Azure Synapse Analytics, consultez [API REST de l’espace de travail Azure Synapse Analytics](/rest/api/synapse/).
 
 ## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
 

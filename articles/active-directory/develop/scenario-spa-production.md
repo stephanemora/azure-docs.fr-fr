@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9656da8be086724482f129efab323e02b73e117e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cefa1461691f384603f464e0d0a4ea8ceb8bc90
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954956"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071718"
 ---
 # <a name="single-page-application-move-to-production"></a>Application monopage : Passer en production
 
@@ -36,10 +36,10 @@ Ces exemples de code illustrent plusieurs opérations clés pour une application
 
 - [API web Node.js (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) : comment valider des jetons d’accès pour votre API web de serveur principal (Node.js) à l’aide de **passport-azure-ad**.
 
-- [Application monopage avec Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) : comment utiliser **MSAL.js** pour connecter des utilisateurs dans une application inscrite auprès d’**Azure Active Directory B2C** (Azure AD B2C).
+- [Application monopage avec Azure AD B2C](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) : comment utiliser **MSAL.js** pour connecter des utilisateurs dans une application inscrite auprès d’**Azure Active Directory B2C** (Azure AD B2C).
 
 - [API web Node.js (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) : comment utiliser **passport-azure-ad** pour valider des jetons d’accès pour des applications inscrites auprès d’**Azure Active Directory B2C** (Azure AD B2C).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel Application monopage JavaScript](./tutorial-v2-javascript-spa.md) : présentation approfondie de la connexion d’utilisateurs et de l’obtention d’un jeton d’accès pour appeler l’**API Microsoft Graph** à l’aide de **MSAL.js**.
+- [Tutoriel Application monopage JavaScript](./tutorial-v2-javascript-auth-code.md) : présentation approfondie de la connexion d’utilisateurs et de l’obtention d’un jeton d’accès pour appeler l’**API Microsoft Graph** à l’aide de **MSAL.js**.
