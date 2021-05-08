@@ -4,12 +4,12 @@ description: Découvrez comment créer et déboguer des fonctions C# à l’aide
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 6403e5d898b76d459a9712f7847e81e5442deeda
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c76fde9a61ca60171ac094ef541e8c5841846aab
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075325"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866259"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Développer et publier des fonctions .NET 5 à l’aide d’Azure Functions 
 
@@ -24,7 +24,7 @@ Si vous n’êtes pas tenu de prendre en charge .NET 5.0 ou d’exécuter vos f
 
 + Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Kit de développement logiciel (SDK) .NET 5.0](https://www.microsoft.com/net/download)
++ [Kit SDK .NET 5.0](https://dotnet.microsoft.com/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3381 ou ultérieure.
 

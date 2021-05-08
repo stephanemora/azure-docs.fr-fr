@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 03144d478be0053ac77709132b08cdf17b062fb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddd49f26194c52cf0218f21d915ff078aee70c6b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666288"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164666"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consommation de ressources Synapse SQL
 
@@ -72,7 +72,7 @@ Chaque niveau de performances utilise une unité de mesure légèrement différe
 - Les entrepôts de données Gen1 sont mesurés en unités DWU.
 - Les entrepôts de données Gen2 sont mesurés en unités cDWU.
 
-Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser l’entrepôt de données. Ces opérations se font toutes à la demande. Gen2 utilise un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.  
+Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser l’entrepôt de données. Ces opérations se font toutes à la demande. Gen2 utilise un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.
 
 Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Gen2 offre les meilleures performances de requête et la plus grande échelle. Les systèmes Gen2 exploitent aussi au maximum le cache.
 
@@ -137,7 +137,7 @@ Pour modifier les DWU :
 
 Pour modifier les DWU, utilisez l’applet de commande PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW hébergée sur le serveur MyServer.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
@@ -152,7 +152,7 @@ Pour modifier les unités DWU :
 1. Connectez-vous à la base de données MASTER associée à votre serveur.
 2. Utilisez l’instruction TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW.
 
-```Sql
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
@@ -208,7 +208,7 @@ Cette vue de gestion dynamique retourne des informations sur différentes opéra
 
 ### <a name="the-scaling-workflow"></a>Flux de travail de mise à l’échelle
 
-Lorsque vous démarrez une opération de mise à l’échelle, le système arrête tout d’abord toutes les sessions ouvertes, ce qui annule toutes les transactions en cours pour garantir un état cohérent. La mise à l’échelle intervient uniquement une fois la restauration des transactions effectuée.  
+Lorsque vous démarrez une opération de mise à l’échelle, le système arrête tout d’abord toutes les sessions ouvertes, ce qui annule toutes les transactions en cours pour garantir un état cohérent. La mise à l’échelle intervient uniquement une fois la restauration des transactions effectuée.
 
 - Pour une opération de montée en puissance, le système détache tous les nœuds de calcul, approvisionne le calcul supplémentaire, puis le réassocie à la couche de stockage.
 - Pour une opération de descente en puissance, le système détache tous les nœuds de calcul, puis rattache uniquement les nœuds nécessaire à la couche de stockage.

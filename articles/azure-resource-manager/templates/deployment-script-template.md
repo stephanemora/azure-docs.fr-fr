@@ -7,12 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: jgao
-ms.openlocfilehash: c39b332e9ee62a8502d5e2fdf155819194a30e34
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3ac1afe3658db60297735e897d69caa463358a4c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762188"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318384"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Utiliser des scripts de déploiement dans des modèles ARM
 
@@ -136,7 +137,7 @@ L’extrait JSON ci-dessous est un exemple. Pour plus d’informations, consulte
 
 Détails des valeurs de propriété :
 
-- `identity` : Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, une identité managée attribuée par l’utilisateur est facultative, sauf si vous devez effectuer des actions spécifiques à Azure dans le script.  Pour la version d’API 2019-10-01-preview, une identité managée est nécessaire, car le service de script de déploiement l’utilise pour exécuter les scripts. Lorsque la propriété d’identité est spécifiée, le service de script appelle `Connect-AzAccount -Identity` avant d’appeler le script utilisateur. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge. Pour vous connecter avec une identité différente, vous pouvez appeler [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) dans le script.
+- `identity` : Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, une identité managée attribuée par l’utilisateur est facultative, sauf si vous devez effectuer des actions spécifiques à Azure dans le script.  Pour la version d’API 2019-10-01-preview, une identité managée est nécessaire, car le service de script de déploiement l’utilise pour exécuter les scripts. Lorsque la propriété d’identité est spécifiée, le service de script appelle `Connect-AzAccount -Identity` avant d’appeler le script utilisateur. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge. Pour vous connecter avec une identité différente, vous pouvez appeler [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) dans le script.
 - `kind` : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
 - `forceUpdateTag` : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Si vous utilisez les fonctions `newGuid()` ou `utcNow()`, ces deux fonctions ne peuvent être utilisées que dans la valeur par défaut d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
 - `containerSettings` : Spécifiez les paramètres pour personnaliser l’instance de conteneur Azure. Le script de déploiement nécessite une nouvelle instance de conteneur Azure. Vous ne pouvez pas spécifier une instance de conteneur Azure existante. Toutefois, vous pouvez personnaliser le nom du groupe de conteneurs en utilisant `containerGroupName`. S’il n’est pas spécifié, le nom du groupe est généré automatiquement.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e9eb5950b5cf7d4e7d0270deed72866ee28e3962
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 374c4764689447b855476128ee31e2077211a794
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106902"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208902"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Activer une identité managée pour le routage des événements Azure Digital Twins (préversion) : Azure CLI
 
@@ -20,7 +20,7 @@ ms.locfileid: "107106902"
 
 Cet article explique comment activer une [identité affectée par le système pour une instance Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (actuellement en préversion) et utiliser l’identité lors du transfert d’événements vers des destinations prises en charge, par exemple les destinations [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , et [Conteneur Stockage Azure](../storage/blobs/storage-blobs-introduction.md).
 
-Cet article décrit le processus d’utilisation d’[**Azure CLI**](/cli/azure/what-is-azure-cli).
+Cet article décrit le processus d’utilisation d’[Azure CLI](/cli/azure/what-is-azure-cli).
 
 Les étapes décrites dans cet article sont les suivantes : 
 
@@ -83,7 +83,7 @@ Voici les rôles minimaux dont une identité a besoin pour accéder à un point 
 | Azure Service Bus | Expéditeur de données Azure Service Bus |
 | Conteneur de stockage Windows Azure | Contributeur aux données Blob du stockage |
 
-Pour plus d’informations sur les points de terminaison, les routes et les types de destinations pris en charge pour le routage dans Azure Digital Twins, consultez [*Concepts : Routes d’événements*](concepts-route-events.md).
+Pour plus d’informations sur les points de terminaison, les routes et les types de destinations pris en charge pour le routage dans Azure Digital Twins, consultez [Concepts : Routes d’événements](concepts-route-events.md).
 
 ### <a name="assign-the-role"></a>Attribuer le rôle
 
@@ -97,9 +97,9 @@ Voici un exemple qui crée une instance avec une identité managée par le syst�
 az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-Pour plus d’exemples d’attributions de rôles à l’aide de cette commande, consultez la [documentation de référence relative à **az dt create**](/cli/azure/dt#az_dt_create).
+Pour plus d’exemples d’attributions de rôles à l’aide de cette commande, consultez la documentation de référence relative à [az dt create](/cli/azure/dt#az_dt_create).
 
-Vous pouvez également utiliser le groupe de commandes [**az role assignment**](/cli/azure/role/assignment) pour créer et gérer des rôles. Cela permet la prise en charge de scénarios supplémentaires dans lesquels vous ne souhaitez pas regrouper l’attribution de rôle avec la commande create.
+Vous pouvez également utiliser le groupe de commandes [az role assignment](/cli/azure/role/assignment) pour créer et gérer des rôles. Cela permet la prise en charge de scénarios supplémentaires dans lesquels vous ne souhaitez pas regrouper l’attribution de rôle avec la commande create.
 
 ## <a name="create-an-endpoint-with-identity-based-authentication"></a>Créer un point de terminaison avec une authentification basée sur l’identité
 
@@ -125,4 +125,4 @@ Pour continuer à utiliser un point de terminaison configuré avec une identité
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les identités managées dans Azure AD : 
-* [*Identités gérées pour les ressources Azure*](../active-directory/managed-identities-azure-resources/overview.md)
+* [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md)
