@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: e8a5e6d40b745efb7fcd50919cd27664b3406b7d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 64a6b3a313f5078368563af29ab97a871b4c3ae0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862846"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288667"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -81,8 +81,14 @@ Pour permettre à d’autres personnes de gérer des réservations, vous avez le
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>Comment les administrateurs de facturation affichent ou gèrent les réservations
 
-1. Accédez à **Cost Management + Billing** puis, sur le côté gauche de la page, sélectionnez **Transactions de réservation**.
-2. Si vous disposez des autorisations de facturation nécessaires, vous pouvez afficher et gérer les réservations. Si vous ne voyez aucune réservation, assurez-vous que vous êtes connecté à l’aide du locataire Azure AD dans lequel les réservations ont été créées.
+Si vous êtes administrateur de facturation, suivez les étapes ci-dessous pour afficher et gérer toutes les réservations et les transactions de réservation.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Cost Management and Billing**.
+    - Si vous êtes un administrateur d’entreprise, dans le menu de gauche, sélectionnez **Étendues de facturation**, puis, dans la liste des étendues de facturation, sélectionnez-en une.
+    - Si vous êtes propriétaire d’un profil de facturation Contrat client Microsoft, dans le menu de gauche, sélectionnez **Profils de facturation**. Dans la liste des profils de facturation, sélectionnez-en un.
+2. Dans le menu de gauche, sélectionnez **Produits + services** > **Réservations**.
+3. La liste complète des réservations pour votre profil d’inscription ou de facturation d’administrateur d’entreprise s’affiche.
+4. Les administrateurs de facturation peuvent prendre possession d’une réservation en la sélectionnant, puis en sélectionnant **Accorder l’accès** dans la fenêtre qui s’affiche.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Diviser une réservation unique en deux réservations
 
@@ -182,4 +188,3 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
  - [Renouveler des réservations](reservation-renew.md)
  - [Transferts entre locataires](troubleshoot-reservation-transfers-between-tenants.md)
  - [Rechercher un acheteur de réservation à partir des journaux Azure](find-reservation-purchaser-from-logs.md)
- - [Renouveler une réservation](reservation-renew.md)

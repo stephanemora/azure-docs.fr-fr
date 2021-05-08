@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 03/25/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 123f4e5c2442b913a53288602d1c56f199b131a6
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 53c6431f6f2d5ac6f5e7a6c28cb843d386c5206d
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107872782"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203070"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrer vers Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ Dans cet article, nous allons résumer les détails de la migration pour les poi
 
 Azure Migrate fournit une plateforme unifiée pour évaluer et migrer vers Azure des serveurs, une infrastructure, des applications et des données locaux. Pour AKS, vous pouvez utiliser Azure Migrate pour effectuer les tâches suivantes :
 
-* [Conteneuriser les applications ASP.NET et migrer vers AKS](../migrate/tutorial-containerize-aspnet-kubernetes.md)
+* [Conteneuriser les applications ASP.NET et migrer vers AKS](/azure/aks/tutorial-app-containerization-aspnet-kubernetes)
 * [Conteneuriser les applications web Java et migrer vers AKS](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>AKS avec Standard Load Balancer et Virtual Machine Scale Sets

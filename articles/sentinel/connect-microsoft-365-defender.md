@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: 6500805a4dc7e26f5e1bc601df9ea78279ae17e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16cf1b89c2660d2505685fa931cc8b97ccb42a9b
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709340"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992287"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Connecter des données de Microsoft 365 Defender à Azure Sentinel
 
@@ -35,7 +35,7 @@ ms.locfileid: "101709340"
 
 Le connecteur [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) d’Azure Sentinel avec intégration d’incidents vous permet de diffuser l’ensemble des incidents et alertes M365D dans Azure Sentinel, et de garder les incidents synchronisés entre les deux portails. Les incidents M365D incluent l’ensemble de leurs alertes, entités et autres informations pertinentes. Ils sont enrichis par des alertes des services de composants de M365D **Microsoft Defender pour Endpoint**, **Microsoft Defender pour Identity**, **Microsoft defender pour Office 365** et **Microsoft Cloud App Security**, et regroupent ces alertes.
 
-Le connecteur vous permet également de diffuser des événements de **repérage avancé** de Microsoft Defender pour Endpoint dans Azure Sentinel. Vous pouvez ainsi copier des requêtes de repérage avancé MDE dans Azure Sentinel, enrichir des alertes Sentinel avec des données d’événement brutes MDE pour fournir des insights supplémentaires, et stocker les journaux avec une rétention accrue dans Log Analytics.
+Le connecteur vous permet également de diffuser des événements de **repérage avancé** de Microsoft Defender pour point de terminaison vers Azure Sentinel. Vous pouvez ainsi copier des requêtes de repérage avancé Microsoft Defender pour point de terminaison dans Azure Sentinel, enrichir des alertes Sentinel avec des données d'événement brutes Microsoft Defender pour point de terminaison afin de fournir des insights supplémentaires, et stocker les journaux avec une rétention accrue dans Log Analytics.
 
 Pour plus d’informations sur l’intégration d’incidents et la collecte d’événements de repérage avancé, consultez [Intégration de Microsoft 365 Defender avec Azure Sentinel](microsoft-365-defender-sentinel-integration.md).
 
@@ -60,7 +60,7 @@ Pour plus d’informations sur l’intégration d’incidents et la collecte d�
     > [!NOTE]
     > Lorsque vous activez le connecteur Microsoft 365 Defender, tous les connecteurs des composants M365D (mentionnés au début de cet article) sont automatiquement connectés en arrière-plan. Pour déconnecter l’un des connecteurs des composants, vous devez commencer par déconnecter le connecteur Microsoft 365 Defender.
 
-1. Pour interroger les données d’incident de M365 Defender, utilisez l’instruction suivante dans la fenêtre de requête :
+1. Pour interroger les données d'incident de Microsoft 365 Defender, utilisez l'instruction suivante dans la fenêtre de requête :
     ```kusto
     SecurityIncident
     | where ProviderName == "Microsoft 365 Defender"
@@ -92,7 +92,7 @@ Pour plus d’informations sur l’intégration d’incidents et la collecte d�
 
 Le graphique de données de la page du connecteur indique que vous ingérez des données. Vous remarquerez qu’il affiche trois lignes, respectivement pour les incidents, les alertes et les événements, et que la ligne des événements est une agrégation de volume d’événements de toutes les tables activées. Une fois le connecteur activé, vous pouvez utiliser les requêtes KQL suivantes pour générer des graphiques plus spécifiques.
 
-Utilisez la requête KQL suivante pour un graphique des incidents M365 Defender entrants :
+Utilisez la requête KQL suivante pour obtenir un graphique des incidents Microsoft 365 Defender entrants :
 
 ```kusto
 let Now = now(); 

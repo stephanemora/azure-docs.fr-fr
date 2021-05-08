@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5a599a17a82a7f0798318c10d8dce61d9f39c6a
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731355"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017370"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Comment utiliser des groupes dans des classeurs
 
@@ -56,7 +56,7 @@ L’élément de groupe de classeurs vous permet d’ajouter un groupe d’élé
 - Modifiable
   - Ce groupe de classeur vous permet d’ajouter, de supprimer ou de modifier le contenu des éléments du groupe. Il est le plus souvent utilisé pour améliorer la disposition et la visibilité.
 - À partir d'un modèle
-  - Ce groupe de classeur se charge à partir du contenu d’un autre modèle avec son ID. Le contenu de ce modèle est chargé et fusionné dans le classeur au moment de l’exécution. En mode d’édition, vous ne pouvez pas modifier le contenu du groupe, car il sera chargé à nouveau à partir du modèle lors du prochain chargement de l’élément.  
+  - Ce groupe du classeur se charge à partir du contenu d’un autre classeur par son ID. Le contenu de ce classeur est chargé et fusionné dans le classeur au moment de l’exécution. En mode d’édition, vous ne pouvez pas modifier le contenu du groupe, car il sera chargé à nouveau à partir du modèle lors du prochain chargement de l’élément. Lorsque vous chargez un groupe à partir d’un modèle, utilisez l’ID Ressource Azure complet d’un classeur existant.
 
 ## <a name="load-types"></a>Types de chargements
 
@@ -140,7 +140,7 @@ Pour transformer un modèle plus volumineux en plusieurs sous-modèles :
 3. Déplacez dans le groupe créé lors de l’étape 1 chaque élément du classeur qui doit être dans le sous-modèle.
 4. Si les étapes individuelles déplacées à l’étape 3 comportaient des visibilités conditionnelles, ces dernières deviendront les visibilités du groupe externe (comme pour les onglets). Supprimez-les des éléments à l’intérieur du groupe et ajoutez ce paramètre de visibilité au groupe lui-même. Après cela, enregistrez votre travail pour éviter de perdre des modifications et/ou exportez et enregistrez une copie du contenu JSON.
 5. Si vous souhaitez que ce groupe soit chargé à partir d’un modèle, vous pouvez utiliser le bouton *Edit* (Modifier) dans la barre d’outils du groupe. Cela ouvre uniquement le contenu de ce groupe sous la forme d’un classeur dans une nouvelle fenêtre. Vous pouvez ensuite l’enregistrer comme il convient et fermer ce mode de classeur (ne fermez pas le navigateur, mais uniquement cette vue pour revenir au classeur précédent que vous avez modifié).
-6. Vous pouvez ensuite modifier l’étape du groupe à charger à partir du modèle et définir le champ ID du modèle sur le classeur/modèle que vous avez créé lors de l’étape 5. Pour travailler avec des ID de classeurs, la source doit être un ID de ressource de classeur partagé. Appuyez sur *Load* (Charger) et le contenu de ce groupe sera maintenant chargé à partir de ce sous-modèle au lieu d’être enregistré dans ce classeur externe.
+6. Vous pouvez ensuite modifier l’étape du groupe à charger à partir du modèle et définir le champ ID du modèle sur le classeur/modèle que vous avez créé lors de l’étape 5. Pour travailler avec des ID de classeurs, la source doit être l’ID Ressource Azure complet d’un classeur partagé. Appuyez sur *Load* (Charger) et le contenu de ce groupe sera maintenant chargé à partir de ce sous-modèle au lieu d’être enregistré dans ce classeur externe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Présentation des classeurs](./workbooks-overview.md)

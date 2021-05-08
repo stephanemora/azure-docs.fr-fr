@@ -8,12 +8,12 @@ ms.author: surbhijain
 ms.reviewer: gachadw
 ms.date: 04/01/2021
 ms.custom: ''
-ms.openlocfilehash: f4892fe50c1832628181a11a5166c8cb705f79aa
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 9c6fdee8dbb28e86e5084c9c0cfca97f5ac5ea05
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748934"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287155"
 ---
 # <a name="troubleshoot-azure-cloud-services-extended-support-roles-that-fail-to-start"></a>Résoudre les problèmes liés aux rôles Azure Cloud Services (support étendu) qui ne parviennent pas à démarrer
 
@@ -142,4 +142,4 @@ Pour déployer votre service cloud avec IntelliTrace activé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+- Découvrez comment [résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

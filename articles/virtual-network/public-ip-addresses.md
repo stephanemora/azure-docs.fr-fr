@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: d1d412774dc68cba0c24709c7fc8a7999e0aeab8
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 121c22e3a25a95fa64f6f779ebc0827bb6c123c7
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094759"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015948"
 ---
 # <a name="public-ip-addresses"></a>Adresses IP publiques
 
@@ -147,6 +147,8 @@ Vous pouvez associer une adresse IP publique à une machine virtuelle [Windows](
 
 Choisissez **dynamique** ou **statique** pour l’adresse IP publique. Apprenez-en davantage sur l’[assignation d’adresses IP à des interfaces réseau](virtual-network-network-interface-addresses.md).
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="internet-facing-load-balancers"></a>Équilibreurs de charge accessibles sur Internet
 
 Vous pouvez associer une adresse IP publique créée avec l’une des deux [références SKU](#sku) à un [équilibreur de charge Azure](../load-balancer/load-balancer-overview.md) en l’assignant à la configuration **frontale** de l’équilibreur de charge. L’adresse IP publique sert d’adresse IP virtuelle à équilibrage de charge. 
@@ -154,6 +156,8 @@ Vous pouvez associer une adresse IP publique créée avec l’une des deux [réf
 Vous pouvez affecter une adresse IP publique dynamique ou statique à un équilibreur de charge frontal. Vous pouvez affecter plusieurs adresses IP publiques à un équilibreur de charge frontal. Cette configuration permet des scénarios [à plusieurs adresses IP virtuelles](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) comme un environnement mutualisé avec des sites Web basés sur TLS. 
 
 Pour plus d’informations sur les références SKU de l’équilibreur de charge Azure, consultez [Référence SKU standard de l’équilibreur de charge Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="vpn-gateways"></a>Passerelles VPN
 
@@ -189,7 +193,7 @@ Le tableau ci-dessous présente la propriété par le biais de laquelle une adre
 | --- | --- | --- | --- |
 | Machine virtuelle |interface réseau |Oui |Oui |
 | Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
-| passerelle VPN |Configuration IP de la passerelle |Oui |Non |
+| passerelle VPN |Configuration IP de la passerelle |Oui |Oui (VPNGwAZ uniquement) |
 | passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) |
 | Pare-feu Azure | Configuration frontale | Non | Oui|
 

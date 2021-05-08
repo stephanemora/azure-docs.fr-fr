@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: ed8d51adf5a93b470f287383a4d3eeb866b15236
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9996d7597631ec3c910e5be340ec3776ce77dbcf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92791458"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147802"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Data Sync Agent pour SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -79,6 +79,14 @@ Si vous souhaitez exécuter l’agent local à partir d’un autre ordinateur, p
 3. Utilisez l’interface utilisateur du nouvel agent pour envoyer la nouvelle clé d’agent.
 4. Patientez pendant que l’agent client télécharge la liste des bases de données locales qui ont été enregistrées précédemment.
 5. Indiquez les informations d’identification de base de données pour toutes les bases de données apparaissant comme inaccessibles. Ces bases de données doivent être accessibles depuis le nouvel ordinateur sur lequel l’agent est installé.
+
+### <a name="how-do-i-delete-the-sync-metadata-database-if-the-sync-agent-is-still-associated-with-it"></a>Comment supprimer la base de données de métadonnées de synchronisation si l’agent de synchronisation lui est toujours associé ?
+
+Pour supprimer une base de données de métadonnées de synchronisation à laquelle est associé un agent de synchronisation, vous devez d’abord supprimer ce dernier. Pour supprimer l’agent de synchronisation, procédez comme suit : 
+
+1. Sélectionnez la base de données de synchronisation. 
+2. Accédez à la page **Synchroniser avec les autres bases de données**.
+3. Sélectionnez l’agent de synchronisation, puis cliquez sur **Supprimer**. 
 
 ## <a name="troubleshoot-data-sync-agent-issues"></a><a name="agent-tshoot"></a> Résoudre les problèmes liés à l’Agent de synchronisation des données
 

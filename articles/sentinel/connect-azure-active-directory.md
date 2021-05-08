@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: f8931fedb380cf81d72b7b5280a5795498daaa57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc499e54ebc700f87edbc904165000155211ca1b
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99251979"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007121"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Connecter des données Azure Active Directory (Azure AD) à Azure Sentinel
 
 Vous pouvez utiliser le connecteur intégré d’Azure Sentinel pour collecter des données à partir d’[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) et de les diffuser en continu vers Azure Sentinel. Le connecteur vous permet de diffuser les types de journaux suivants :
 
-- Les [**journaux de connexion**](../active-directory/reports-monitoring/concept-all-sign-ins.md), qui contiennent des informations sur les [connexions utilisateur interactives](../active-directory/reports-monitoring/concept-all-sign-ins.md#user-sign-ins) où un utilisateur fournit un facteur d’authentification.
+- Les [**journaux de connexion**](../active-directory/reports-monitoring/concept-all-sign-ins.md), qui contiennent des informations sur les connexions utilisateur interactives où un utilisateur fournit un facteur d’authentification.
 
     Le connecteur Azure AD inclut maintenant les trois catégories supplémentaires de journaux de connexion, qui se trouvent toutes en **PRÉVERSION** :
     
@@ -44,7 +44,7 @@ Vous pouvez utiliser le connecteur intégré d’Azure Sentinel pour collecter d
 > Comme indiqué ci-dessus, certains des types de journaux disponibles sont actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 ## <a name="prerequisites"></a>Prérequis
 
-- Toute licence Azure AD (Free/O365/P1/P2) est suffisante pour recevoir les journaux de connexion dans Azure Sentinel. Des frais supplémentaires par gigaoctet peuvent s’appliquer pour Azure Monitor (Log Analytics) et Azure Sentinel.
+- Une licence Azure Active Directory P1 ou P2 est nécessaire pour ingérer les journaux de connexion dans Azure Sentinel. Toute licence Azure AD (Gratuit/O365/P1/P2) est suffisante pour ingérer les autres types de journaux. Des frais supplémentaires par gigaoctet peuvent s’appliquer pour Azure Monitor (Log Analytics) et Azure Sentinel.
 
 - Le rôle Contributeur Azure Sentinel doit être attribué à votre utilisateur sur l’espace de travail.
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 29821733b73717634aa8f0ab72270f058ffd3ddc
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0728b45a72f7d4fe67807be5c9c2b5290af11c51
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309388"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143464"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Authentification et autorisation pour les applications Azure Static Web Apps - Préversion
 
@@ -24,11 +24,11 @@ Azure Static Web Apps simplifie l’expérience d’authentification en gérant 
 - Google<sup>1</sup>
 - Twitter
 
-Les [invitations](#invitations) spécifiques au fournisseur associent les utilisateurs à des rôles, et les utilisateurs autorisés bénéficient d'un accès aux [itinéraires](routes.md) via les règles définies dans le fichier _staticwebapp.config.json_.
+Les [invitations](#invitations) spécifiques au fournisseur associent les utilisateurs à des rôles, et les utilisateurs autorisés bénéficient d'un accès aux [itinéraires](configuration.md#routes) via les règles définies dans le fichier _staticwebapp.config.json_.
 
 Tous les fournisseurs d’authentification sont activés par défaut. Pour restreindre un fournisseur d’authentification, [bloquez l’accès](#block-an-authorization-provider) avec une règle d’acheminement personnalisée.
 
-Les rubriques relatives à l’authentification et à l’autorisation ont beaucoup de points communs les concepts de routage. Veillez à lire le [guide relatif au routage](routes.md) avec cet article.
+Les rubriques relatives à l’authentification et à l’autorisation ont beaucoup de points communs les concepts de routage. Veillez à lire le [guide relatif à la configuration](configuration.md#routes) avec cet article.
 
 ## <a name="roles"></a>Rôles
 
@@ -123,7 +123,7 @@ https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 
 ## <a name="system-folder"></a>Dossier système
 
-Azure Static Web Apps utilise le dossier système `/.auth` pour fournir l’accès aux API associées aux autorisations. Au lieu d’exposer les itinéraires situés dans le dossier `/.auth` directement aux utilisateurs finaux, créez des [règles d’acheminement](routes.md) pour créer des URL conviviales.
+Azure Static Web Apps utilise le dossier système `/.auth` pour fournir l’accès aux API associées aux autorisations. Au lieu d’exposer les itinéraires situés dans le dossier `/.auth` directement aux utilisateurs finaux, créez des [règles d’acheminement](configuration.md#routes) pour créer des URL conviviales.
 
 ## <a name="login"></a>Connexion
 
@@ -189,7 +189,7 @@ Si vous souhaitez qu’un utilisateur retourne à une page spécifique après la
 
 Vous souhaitez peut-être empêcher votre application d’utiliser un fournisseur d’autorisation. Par exemple, votre application peut choisir de n’utiliser que les [fournisseurs qui exposent les adresses e-mail](#provider-user-details).
 
-Pour bloquer un fournisseur, vous pouvez créer des [règles d’acheminement](routes.md) pour retourner un message 404 pour les demandes d’itinéraire bloqué spécifique au fournisseur. Par exemple, pour restreindre Twitter en tant que fournisseur, ajoutez la règle d’acheminement suivante.
+Pour bloquer un fournisseur, vous pouvez créer des [règles d’acheminement](configuration.md#routes) pour retourner un message 404 pour les demandes d’itinéraire bloqué spécifique au fournisseur. Par exemple, pour restreindre Twitter en tant que fournisseur, ajoutez la règle d’acheminement suivante.
 
 ```json
 {
