@@ -3,7 +3,7 @@ title: Planifier un déploiement de révision d’accès Azure Active Directory
 description: Guide de planification pour un déploiement réussi de révisions d’accès
 services: active-directory
 documentationCenter: ''
-author: BarbaraSelden
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
-ms.author: barclayn
+ms.date: 04/16/2021
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3af783d7ff8be36c63af871ab4f2d214ca9f9405
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: e17fe0c0ca5f1399c78def37ea7640ba8dfa395e
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532580"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988223"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -71,9 +71,12 @@ Les vidéos suivantes peuvent être utiles lorsque vous vous familiarisez avec l
 
 * [Comment créer des révisions d’accès dans Azure AD](https://youtu.be/6KB3TZ8Wi40) (en anglais)
 
+* [Comment créer des révisions d’accès automatiques pour tous les utilisateurs invités ayant accès à des groupes Microsoft 365 dans Azure AD](https://www.youtube.com/watch?v=3D2_YW2DwQ8)
+
 * [Comment activer les révisions d’accès dans Azure AD](https://youtu.be/X1SL2uubx9M) (en anglais)
 
 * [Comment revoir l’accès à l’aide de Mon Accès](https://youtu.be/tIKdQhdHLXU) (en anglais)
+
 
 ### <a name="licenses"></a>Licences
 
@@ -136,17 +139,13 @@ Il est clair que l’équipe informatique souhaite garder le contrôle de toutes
 
 #### <a name="customize-email-communication"></a>Personnaliser la communication par e-mail
 
-Lorsque vous planifiez une révision, vous désignez les utilisateurs qui effectuent cette révision. Ces réviseurs reçoivent ensuite une notification par e-mail concernant les nouvelles révisions qui leur sont attribuées, ainsi que des rappels avant l’expiration d’une de ces révisions.
-
-Les administrateurs peuvent choisir d’envoyer cette notification soit à mi-chemin avant l’expiration de la révision, soit un jour avant son expiration. 
+Lorsque vous planifiez une révision, vous désignez les utilisateurs qui effectuent cette révision. Ces réviseurs reçoivent ensuite une notification par e-mail concernant les nouvelles révisions qui leur sont attribuées, ainsi que des rappels avant l’expiration d’une de ces révisions. 
 
 L’e-mail envoyé aux réviseurs peut être personnalisé de façon à inclure un message bref personnalisé qui les encourage à agir sur la révision. Nous vous recommandons d’utiliser le texte supplémentaire pour :
 
 * Inclure un message personnel adressé aux réviseurs, afin qu’ils sachent qu’il est envoyé par votre service informatique ou de conformité.
 
-* Inclure un lien hypertexte ou une référence à des informations internes sur les attentes de la révision et des documents de référence ou de formation supplémentaires.
-
-* Inclure un lien vers des instructions sur la façon d’[effectuer une auto-révision de l’accès](review-your-access.md). 
+* Inclure une référence à des informations internes sur les attentes de la révision et des documents de référence ou de formation supplémentaires.
 
   ![E-mail envoyé au réviseur](./media/deploy-access-review/2-plan-reviewer-email.png)
 
@@ -197,7 +196,6 @@ Le rôle administratif requis pour créer, gérer ou lire une révision d’acc�
 | Rôles privilégiés dans Azure (ressources)| Administrateur général<p>Administrateur d'utilisateurs<p>Propriétaire de la ressource| Créateurs |
 | Package d’accès| Administrateur général<p>Créateur de package d’accès| Administrateur général uniquement |
 
-
 Pour plus d’informations, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>Qui va réviser l’accès à la ressource ?
@@ -209,6 +207,8 @@ Le créateur de la révision d’accès détermine au moment de la création qui
 * Un ensemble de délégués sélectionnés individuellement, tels que choisis par l’administrateur des révisions d’accès.
 
 * Les utilisateurs finaux qui attestent eux-mêmes leurs besoins en matière d’accès continu.
+
+* Les responsables examinent leur accès direct aux ressources. 
 
 Lors de la création d’une révision d’accès, les administrateurs peuvent choisir un ou plusieurs réviseurs. Tous les réviseurs peuvent démarrer et effectuer une révision, en choisissant des utilisateurs pour un accès continu à une ressource ou en les supprimant. 
 
@@ -238,7 +238,6 @@ Pour créer une stratégie de révision d’accès, vous devez disposer des info
 
 * Quelles communications doivent être envoyées en fonction des actions effectuées ?
 
-
 **Exemple de plan de révision d’accès**
 
 | Composant| Valeur |
@@ -246,14 +245,10 @@ Pour créer une stratégie de révision d’accès, vous devez disposer des info
 | **Ressources à réviser**| Accès à Microsoft Dynamics |
 | **Fréquence de révision**| Mensuelle |
 | **Qui effectue la révision**| Responsables de programme du groupe d’entreprise Dynamics |
-| **Notification**| E-mail envoyé 24 heures avant la révision à l’alias Dynamics-Pms<p>Inclure un message personnalisé encourageant les réviseurs pour obtenir leur adhésion |
+| **Notification**| E-mail envoyé au début de la révision à l’alias Dynamics-Pms<p>Inclure un message personnalisé encourageant les réviseurs pour obtenir leur adhésion |
 | **Durée**| 48 heures à partir de la notification |
 |**Actions automatiques**| Supprimer l’accès à tout compte qui n’a pas de connexion interactive dans les 90 jours, en supprimant l’utilisateur du groupe de sécurité dynamics-access. <p>*Exécuter des actions si la révision n’est pas effectuée dans les temps.* |
 | **Actions manuelles**| Si vous le souhaitez, les réviseurs peuvent procéder à l’approbation des suppressions avant l’action automatisée. |
-| **Communications**| Envoyer aux utilisateurs (membres) internes qui sont supprimés un e-mail expliquant qu’ils sont supprimés et comment récupérer l’accès. |
-
-
- 
 
 ### <a name="automate-actions-based-on-access-reviews"></a>Automatiser les actions basées sur les révisions d’accès
 
@@ -318,6 +313,8 @@ L’appartenance au groupe peut être révisée par :
 
 * Membres du groupe, en attestant d’eux-mêmes
 
+* Les responsables examinent leur accès direct aux rapports 
+
 ### <a name="group-ownership"></a>Propriété de groupe
 
 Nous recommandons aux propriétaires de groupes de réviser leur appartenance, car ils sont les mieux placés pour savoir qui a besoin d’un accès. La propriété des groupes diffère selon le type de groupe :
@@ -335,19 +332,11 @@ Les groupes qui sont synchronisés à partir du service Active Directory local n
 
 ### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Examiner l’appartenance des groupes d’exclusion dans les stratégies d’accès conditionnel 
 
-Il peut arriver que les stratégies d’accès conditionnel conçues pour sécuriser votre réseau ne s’appliquent pas à tous les utilisateurs. Par exemple, une stratégie d’accès conditionnel qui autorise uniquement les utilisateurs à se connecter à partir du réseau de l’entreprise ne peut pas s’appliquer à l’équipe de vente, qui voyage beaucoup. Dans ce cas, les membres de l’équipe de vente seraient placés dans un groupe, et ce groupe serait exclu de la stratégie d’accès conditionnel. 
+Consulter [Utiliser les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel](conditional-access-exclusion.md) pour apprendre à vérifier l’appartenance aux groupes d’exclusion.
 
-Révisez régulièrement l’appartenance à un tel groupe, car l’exclusion représente un risque potentiel si les mauvais membres sont exclus de l’exigence.
+### <a name="review-guest-users-group-memberships"></a>Examiner les appartenances de groupe des utilisateurs invités
 
-Vous pouvez [utiliser les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel](conditional-access-exclusion.md).
-
-### <a name="review-external-users-group-memberships"></a>Réviser les appartenances aux groupes des utilisateurs externes
-
-Pour minimiser le travail manuel et les erreurs potentielles associées, envisagez d’utiliser des [groupes dynamiques](../enterprise-users/groups-create-rule.md) pour attribuer l’appartenance à un groupe en fonction des attributs d’un utilisateur. Vous pouvez créer un ou plusieurs groupes dynamiques pour les utilisateurs externes. Le commanditaire interne peut agir en tant que réviseur pour l’appartenance au groupe. 
-
-Remarque : Les utilisateurs externes qui sont supprimés d’un groupe à la suite d’une révision d’accès ne sont pas supprimés du locataire. 
-
-Ils peuvent être supprimés d’un locataire manuellement ou par le biais d’un script.
+Consultez [Gérer l’accès invité avec les révisions d’accès Azure AD](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) pour savoir comment examiner l’accès des utilisateurs invités aux appartenances de groupe.
 
 ### <a name="review-access-to-on-premises-groups"></a>Réviser l’accès aux groupes locaux
 
@@ -405,7 +394,7 @@ Les révisions d’accès permettent aux réviseurs d’attester si les utilisat
 
 * Tous les rôles Administration de service Microsoft 365 et Dynamics
 
-Les rôles sélectionnés ici incluent le rôle permanent et le rôle éligible. 
+Les rôles examinés incluent les attributions permanentes et éligibles. 
 
 Dans la section Réviseurs, sélectionnez une ou plusieurs personnes pour vérifier tous les utilisateurs. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès.
 
@@ -425,7 +414,6 @@ Pour réduire le risque d’un accès obsolète, les administrateurs peuvent act
 | [Effectuer des révisions d’accès](entitlement-management-access-reviews-review-access.md)| Réalisation de révisions d’accès pour d’autres utilisateurs affectés à un package d’accès. |
 | [Réviser soi-même un package d’accès attribué](entitlement-management-access-reviews-self-review.md)| Auto-révision d’un package d’accès attribué. |
 
-
 > [!NOTE]
 > Les utilisateurs finaux qui se révisent eux-mêmes et déclarent ne plus avoir besoin d’un accès ne sont pas immédiatement supprimés du package d’accès. Ils sont supprimés du package d’accès à la fin de la révision ou si un administrateur arrête la révision.
 
@@ -440,7 +428,6 @@ Les besoins d’accès aux groupes et aux applications des employés et des invi
 | [Réviser soi-même un accès](review-your-access.md)| Les membres révisent leur propre accès à un groupe ou une application. |
 | [Effectuer une révision d’accès](complete-access-review.md)| Affichage d’une révision d’accès et application des résultats. |
 | [Entreprendre des actions pour les groupes locaux](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| Exemple de script PowerShell pour agir sur les révisions d’accès pour les groupes locaux. |
-
 
 ### <a name="review-azure-ad-roles"></a>Réviser les rôles Azure AD
 

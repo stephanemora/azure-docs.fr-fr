@@ -3,12 +3,12 @@ title: Applications de rendu
 description: Vous pouvez utiliser n’importe quelle application de rendu avec Azure Batch. Toutefois, les images de machine virtuelle de la Place de marché Azure sont disponibles avec des applications courantes préinstallées.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c98e2e0a81051dad47c201de9eda9f89cc311cf2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7dee2806aafe34edee8dcb3dc3577def9c4c01da
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496641"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987503"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Applications de rendu d’images de machine virtuelle préinstallées Batch Rendering
 
@@ -19,7 +19,7 @@ Le cas échéant, une licence de paiement à l’utilisation est disponible pour
 Certaines applications prennent en charge uniquement Windows, mais la plupart sont prises en charge sur Windows et Linux.
 
 > [!IMPORTANT]
-> Les images de rendu des machines virtuelles et les licences de paiement à l’utilisation ont été [déconseillées et seront supprimées le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Pour utiliser Batch pour le rendu, vous devez utiliser [une image de machine virtuelle personnalisée et une licence d’application standard.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+> Les images de rendu des machines virtuelles et les licences de paiement à l'utilisation ont été [déconseillées et seront supprimées le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Pour utiliser Batch pour le rendu, vous devez utiliser [une image de machine virtuelle personnalisée et une licence d’application standard.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Applications sur l’image de rendu CentOS 7 la plus récente
 

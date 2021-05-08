@@ -2,14 +2,14 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 03/16/2020
+ms.date: 04/21/2021
 ms.author: larryfr
-ms.openlocfilehash: 0eeb82245a53c93af75fc3ce3f37cb588295e5b7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a7a6d9eb7e552ee5dededc58516927d0d8e0eef6
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508093"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952151"
 ---
 Les entrées dans le document `deploymentconfig.json` correspondent aux paramètres pour [LocalWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration). Le tableau suivant décrit le mappage entre les entités dans le document JSON et les paramètres de la méthode :
 
@@ -26,3 +26,5 @@ Ce code JSON suivant est un exemple de configuration de déploiement à utiliser
     "port": 32267
 }
 ```
+
+Enregistrez ce code JSON dans un fichier nommé `deploymentconfig.json`.

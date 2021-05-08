@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: a6225fec30a87ca0bbe57e414733bc21489f87ad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0aee0030937a6e11860907e27b775c2671137f71
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577442"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331103"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurer OpenSSL pour Linux
 
@@ -53,7 +54,7 @@ export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## <a name="certificate-revocation-checks"></a>Vérifications de la révocation de certificats
-Lors de la connexion au service Speech, le kit de développement logiciel (SDK) Speech vérifie que le certificat TLS utilisé par le service Speech n’a pas été révoqué. Pour effectuer cette vérification, le kit de développement logiciel (SDK) Speech doit avoir accès aux points de distribution de la liste de révocation de certificats pour les autorités de certification utilisées par Azure. Vous trouverez une liste des éventuels emplacements de téléchargement de la liste de révocation de certificats dans [ce document](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes). Si un certificat a été révoqué ou si la liste de révocation de certificats ne peut pas être téléchargée, le kit de développement logiciel (SDK) Speech interrompt la connexion et déclenche l’événement annulé.
+Lors de la connexion au service Speech, le kit de développement logiciel (SDK) Speech vérifie que le certificat TLS utilisé par le service Speech n’a pas été révoqué. Pour effectuer cette vérification, le kit de développement logiciel (SDK) Speech doit avoir accès aux points de distribution de la liste de révocation de certificats pour les autorités de certification utilisées par Azure. Vous trouverez une liste des éventuels emplacements de téléchargement de la liste de révocation de certificats dans [ce document](../../security/fundamentals/tls-certificate-changes.md). Si un certificat a été révoqué ou si la liste de révocation de certificats ne peut pas être téléchargée, le kit de développement logiciel (SDK) Speech interrompt la connexion et déclenche l’événement annulé.
 
 Si le réseau à partir duquel est utilisé le kit de développement logiciel (SDK) Speech est configuré de façon à ne pas autoriser l’accès aux emplacements de téléchargement de la liste de révocation de certificats, la vérification de la liste de révocation des certificats peut être désactivée ou définie de manière à ne pas échouer si la liste de révocation des certificats ne peut pas être récupérée. Cette configuration s’effectue via l’objet de configuration utilisé pour créer un objet de module de reconnaissance.
 
