@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 771c79f56a31c83f2152886ad6cf68367776f83f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8994edd417f4f9e94ae14e5923dd1a0d7398f584
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767225"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209766"
 ---
 # <a name="app-service-overview"></a>Vue d'ensemble d'App Service
 
@@ -68,7 +68,7 @@ Créez votre première application web.
 > [ASP.NET Core (sous Windows ou Linux)](quickstart-dotnetcore.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET (sous Windows)](quickstart-dotnet-framework.md)
+> [ASP.NET (sous Windows)](./quickstart-dotnetcore.md?tabs=netframework48)
 
 > [!div class="nextstepaction"]
 > [PHP (sous Windows ou Linux)](quickstart-php.md)

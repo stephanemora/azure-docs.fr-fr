@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 989bcbb7e509b9b7692f067af2989fcad94b6ad1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 64b9ce78f05e1c8d14317f33f21758a86baeabd6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795845"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869182"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -88,7 +88,7 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
 
     Suivez les étapes affichées dans votre terminal pour effectuer le processus d’authentification.
 
-1. Installez l’extension Azure CLI [az filesync](/cli/azure/ext/storagesync/storagesync).
+1. Installez l’extension Azure CLI [az filesync](/cli/azure/storagesync).
 
    ```azurecli
    az extension add --name storagesync
@@ -380,7 +380,7 @@ New-AzStorageSyncCloudEndpoint `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Utilisez la commande [az storagesync sync-group](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) pour créer un groupe de synchronisation.  Pour définir un groupe de ressources par défaut pour toutes les commandes CLI, utilisez [az configure](/cli/azure/reference-index#az_configure).
+Utilisez la commande [az storagesync sync-group](/cli/azure/storagesync/sync-group#az_storagesync_sync_group_create) pour créer un groupe de synchronisation.  Pour définir un groupe de ressources par défaut pour toutes les commandes CLI, utilisez [az configure](/cli/azure/reference-index#az_configure).
 
 ```azurecli
 az storagesync sync-group create --resource-group myResourceGroupName \
@@ -388,7 +388,7 @@ az storagesync sync-group create --resource-group myResourceGroupName \
                                  --storage-sync-service myStorageSyncServiceName \
 ```
 
-Utilisez la commande [az storagesync sync-group cloud-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/cloud-endpoint#ext-storagesync-az-storagesync-sync-group-cloud-endpoint-create) pour créer un point de terminaison cloud.
+Utilisez la commande [az storagesync sync-group cloud-endpoint](/cli/azure/storagesync/sync-group/cloud-endpoint#az_storagesync_sync_group_cloud_endpoint_create) pour créer un point de terminaison cloud.
 
 ```azurecli
 az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
@@ -402,10 +402,12 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ---
 
 ## <a name="create-a-server-endpoint"></a>Créer un point de terminaison de serveur
-Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur. Un point de terminaison de serveur doit être un chemin d’accès sur un serveur inscrit (plutôt que sur un partage monté), et pour utiliser la hiérarchisation cloud, le chemin d’accès doit être sur un volume non système. Le stockage attaché au réseau (NAS) n’est pas pris en charge.
+Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur. Un point de terminaison de serveur est soumis aux conditions suivantes :
 
-> [!NOTE]
-> La modification du chemin d’accès ou de la lettre de lecteur après l’établissement d’un point de terminaison de serveur sur un volume n’est pas prise en charge. Veillez à utiliser un chemin d’accès final sur votre serveur inscrit.
+- Un point de terminaison de serveur doit être un chemin d'accès sur un serveur inscrit (plutôt que sur un partage monté). Le stockage attaché au réseau (NAS) n’est pas pris en charge.
+- Même si le point de terminaison de serveur se trouve sur le volume système, les points de terminaison de serveur situés sur le volume système ne peuvent pas utiliser la hiérarchisation cloud.
+- La modification du chemin d’accès ou de la lettre de lecteur après l’établissement d’un point de terminaison de serveur sur un volume n’est pas prise en charge. Veillez à utiliser un chemin d’accès final sur votre serveur inscrit.
+- Un serveur inscrit peut prendre en charge plusieurs points de terminaison de serveur, mais un groupe de synchronisation ne peut avoir qu'un seul point de terminaison de serveur par serveur inscrit à un moment donné. Les autres points de terminaison de serveur du groupe de synchronisation doivent se trouver sur des serveurs inscrits distincts.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 Pour ajouter un point de terminaison de serveur, accédez au nouveau groupe de synchronisation, puis sélectionnez **Ajouter un point de terminaison de serveur**.
@@ -462,7 +464,7 @@ if ($cloudTieringDesired) {
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Utilisez la commande [az storagesync sync-group server-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) pour créer un point de terminaison de serveur.
+Utilisez la commande [az storagesync sync-group server-endpoint](/cli/azure/storagesync/sync-group/server-endpoint#az_storagesync_sync_group_server_endpoint_create) pour créer un point de terminaison de serveur.
 
 ```azurecli
 # Create a new sync group server endpoint 

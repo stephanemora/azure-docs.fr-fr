@@ -4,14 +4,14 @@ description: Découvrez comment configurer des clés gérées par le client pour
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/01/2021
+ms.date: 04/23/2021
 ms.author: thweiss
-ms.openlocfilehash: 1b1fc0b51c1cd2a99ec97bec9f588699a893ceca
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 4ea11b23c7a45fb263a3716c051e960c72a7b300
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222620"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065400"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -243,18 +243,29 @@ Cette stratégie d’accès garantit que votre compte Azure Cosmos DB peut acc�
 
 1. Ajoutez une nouvelle stratégie d’accès à votre compte Azure Key Vault, comme décrit [plus haut](#add-access-policy), mais en utilisant le `principalId` que vous avez copié à l’étape précédente au lieu de l’identité interne d’Azure Cosmos DB.
 
-1. Mettez à jour votre compte Azure Cosmos DB pour spécifier que vous souhaitez utiliser l’identité managée affectée par le système lors de l’accès à vos clés de chiffrement dans Azure Key Vault. Pour ce faire, vous pouvez spécifier cette propriété dans le modèle Azure Resource Manager de votre compte :
+1. Mettez à jour votre compte Azure Cosmos DB pour spécifier que vous souhaitez utiliser l’identité managée affectée par le système lors de l’accès à vos clés de chiffrement dans Azure Key Vault. Vous pouvez le faire :
 
-   ```json
-   {
-       "type": " Microsoft.DocumentDB/databaseAccounts",
-       "properties": {
-           "defaultIdentity": "SystemAssignedIdentity",
-           // ...
-       },
-       // ...
-   }
-   ```
+   - en spécifiant cette propriété dans le modèle Azure Resource Manager de votre compte :
+
+     ```json
+     {
+         "type": " Microsoft.DocumentDB/databaseAccounts",
+         "properties": {
+             "defaultIdentity": "SystemAssignedIdentity",
+             // ...
+         },
+         // ...
+     }
+     ```
+
+   - en mettant à jour votre compte avec l’interface de ligne de commande Azure :
+
+     ```azurecli
+     resourceGroupName='myResourceGroup'
+     accountName='mycosmosaccount'
+     
+     az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
+     ```
 
 1. Si vous le souhaitez, vous pouvez ensuite supprimer l’identité interne d’Azure Cosmos DB de votre stratégie d’accès Azure Key Vault.
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 514f1af2a1b120254840986fc5ceb803dfc24345
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 970c0a2705bc9a559eb531c8b44780053343a712
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363374"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209712"
 ---
-# <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
+# <a name="preview-azure-automanage-for-virtual-machines"></a>Préversion : Azure Automanage pour machines virtuelles
 
 Cet article contient des informations sur le service Azure Automanage pour machines virtuelles, qui offre les avantages suivants :
 
@@ -24,7 +24,6 @@ Cet article contient des informations sur le service Azure Automanage pour machi
 - configure automatiquement chaque service conformément aux meilleures pratiques Azure ;
 - surveille la dérive et la corrige en cas de détection ;
 - offre une interface simple (pointer, cliquer, définir, oublier).
-
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -183,6 +182,12 @@ Lisez attentivement le message dans la fenêtre contextuelle qui s’affiche ava
 
 
 Tout d’abord, nous n’annulons l’intégration de la machine virtuelle à l’un des services auxquels nous l’avons intégrée et sur lesquels nous l’avons configurée. Par conséquent, les frais associés à ces services resteront facturables. Vous devez donc annuler l’intégration si nécessaire. Dans ce cas, tout comportement du service Automanage s’arrête immédiatement. Par exemple, nous cessons surveiller la dérive de la machine virtuelle.
+
+## <a name="automanage-and-azure-disk-encryption"></a>Automanage et Azure Disk Encryption
+Automanage est compatible avec les machines virtuelles sur lesquelles Azure Disk Encryption (ADE) est activé.
+
+Si vous utilisez l’environnement de production, vous serez également intégré à Sauvegarde Azure. Il existe une condition préalable à l’utilisation d’ADE et de Sauvegarde Azure :
+* Avant d’intégrer votre machine virtuelle avec ADE à l’environnement de production d’Automanage, assurez-vous d’avoir suivi les étapes décrites dans la section **Avant de commencer** de [ce document](../backup/backup-azure-vms-encryption.md#before-you-start).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 42842b00120b7e918ca5b790cce92a74ab1b99d5
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 625f69b0088ffe6931410afc6f2a825c3156fd70
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107260091"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209946"
 ---
 # <a name="event-notifications"></a>Notifications d’événement
 
@@ -312,4 +312,4 @@ Voici un exemple de corps de message de télémétrie :
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la transmission d’événements à différentes destinations, à l’aide des points de terminaison et des itinéraires :
-* [*Concepts : itinéraires d’événements*](concepts-route-events.md)
+* [Concepts : itinéraires d’événements](concepts-route-events.md)

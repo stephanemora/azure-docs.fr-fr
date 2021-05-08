@@ -1,16 +1,16 @@
 ---
 title: Concepteur de vues Azure Monitor - Exemples de conversions en classeurs
 description: Exemples de transition des affichages aux classeurs dans Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: bd57838dd3cceae308b55dd2d7fdbb55cec79ec4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a984fa1b94f64566ef5ea057c78e68e1d962bace
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043352"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318168"
 ---
 # <a name="view-designer-conversion-examples"></a>Concepteur de vues - Exemples de conversions en classeurs
 

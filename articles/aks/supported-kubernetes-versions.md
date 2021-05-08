@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a46d3e8362d48225e5fec11213bfbff370252d8e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c86166c2e38e3fec251707626f5cf9ebab938299
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782672"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209208"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -108,7 +108,7 @@ Pour consulter la référence sur les versions à venir et les dépréciations, 
 
 Pour les nouvelles versions **mineures** de Kubernetes :
   * AKS publie une annonce préalable avec la date prévisionnelle d’une nouvelle version et la dépréciation de l’ancienne version correspondante dans les [Notes de publication AKS](https://aka.ms/aks/releasenotes) au moins 30 jours avant la suppression.
-  * AKS utilise [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) pour alerter les utilisateurs si une nouvelle version pose des problèmes dans leur cluster en raison d’API déconseillées. Azure Advisor est également utilisé pour alerter l’utilisateur s’il n’est plus pris en charge.
+  * AKS utilise [Azure Advisor](../advisor/advisor-overview.md) pour alerter les utilisateurs si une nouvelle version pose des problèmes dans leur cluster en raison d’API déconseillées. Azure Advisor est également utilisé pour alerter l’utilisateur s’il n’est plus pris en charge.
   * AKS publie une [notification d’intégrité des services](../service-health/service-health-overview.md) accessible à tous les utilisateurs disposant d’un accès à AKS et au portail, et envoie un e-mail aux administrateurs des abonnements avec les dates prévisionnelles de suppression des versions.
 
     > [!NOTE]
@@ -154,7 +154,7 @@ Pour connaître l’historique des versions antérieures, cliquez sur [Kubernete
 
 **Comment Microsoft m’informe-t-il des nouvelles versions de Kubernetes ?**
 
-L’équipe d’AKS publie des annonces préalables avec les dates prévues des nouvelles versions de Kubernetes dans notre documentation, sur notre [GitHub](https://github.com/Azure/AKS/releases) ainsi que dans des e-mails adressés aux administrateurs d’abonnements qui possèdent des clusters qui ne seront plus pris en charge.  Outre les annonces, AKS utilise également [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) pour informer le client dans le portail Azure afin de prévenir les utilisateurs s’ils ne sont plus pris en charge, ainsi que pour les avertir des API déconseillées qui auront une incidence sur leur application ou leur processus de développement. 
+L’équipe d’AKS publie des annonces préalables avec les dates prévues des nouvelles versions de Kubernetes dans notre documentation, sur notre [GitHub](https://github.com/Azure/AKS/releases) ainsi que dans des e-mails adressés aux administrateurs d’abonnements qui possèdent des clusters qui ne seront plus pris en charge.  Outre les annonces, AKS utilise également [Azure Advisor](../advisor/advisor-overview.md) pour informer le client dans le portail Azure afin de prévenir les utilisateurs s’ils ne sont plus pris en charge, ainsi que pour les avertir des API déconseillées qui auront une incidence sur leur application ou leur processus de développement. 
 
 **À quelle fréquence dois-je prévoir de mettre à niveau les versions de Kubernetes pour continuer à bénéficier de la prise en charge ?**
 
