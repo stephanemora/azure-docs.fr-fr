@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60ad4ece6de40b61b1d25e61963b30c084639eba
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710581"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072960"
 ---
-# <a name="vnet-peering-and-azure-bastion-preview"></a>Appairage de réseaux virtuels et architecture d’Azure Bastion (préversion)
+# <a name="vnet-peering-and-azure-bastion"></a>Appairage de réseaux virtuels et Azure Bastion
 
 Azure Bastion et l’appairage de réseaux virtuels peuvent être utilisés ensemble. Lorsque l’appairage de réseaux virtuels est configuré, vous ne devez pas déployer Azure Bastion dans chaque réseau virtuel appairé. Cela signifie que, si vous avez un hôte Azure Bastion configuré dans un réseau virtuel, il permettre de se connecter aux machines virtuelles déployées dans un réseau virtuel appairé sans déployer d’hôte Bastion supplémentaire. Pour plus d’informations sur l’appairage de réseaux virtuels, voir [À propos de l’appairage de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 

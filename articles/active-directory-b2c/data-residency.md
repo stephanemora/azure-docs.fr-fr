@@ -8,20 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2021
+ms.date: 04/27/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 6e724b3517d9e5a63d8699e9f66c51cf41f02012
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 2d4ecf925eadd00c40685fbee413df6fca0368d9
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092515"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070854"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité des régions et résidence des données
 
-La disponibilité régionale et la résidence des données sont deux concepts très différents qui ne s’appliquent pas à Azure Active Directory B2C de la même façon qu’à Azure. Cet article explique les différences entre ces deux concepts et compare la manière dont ils s’appliquent à Azure et Azure Active Directory B2C.
+Les données d’identité Azure AD B2C sont stockées dans un emplacement géographique basé sur le pays ou la région fourni lors de la création du locataire.
+
+La disponibilité régionale et la résidence des données sont deux concepts différents qui s’appliquent à Azure AD B2C. Cet article explique les différences entre ces deux concepts et compare la manière dont ils s’appliquent à Azure et Azure Active Directory B2C.
 
 Azure Active Directory B2C est **généralement disponible dans le monde entier** avec l’option de **résidence des données** dans les régions **États-Unis, Europe ou Asie-Pacifique**. Azure AD B2C est en **version préliminaire publique** en Australie.
 
@@ -31,9 +33,7 @@ La [résidence des données](#data-residency) fait référence à l’endroit o�
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Azure Active Directory B2C est disponible dans le monde entier via le cloud public Azure.
-
-Cela diffère du modèle suivi par la plupart des autres services Azure, qui associent généralement la *disponibilité* à la *résidence des données*. C’est le cas par exemple dans la page [Produits disponibles par région](https://azure.microsoft.com/regions/services/) et la [calculatrice de tarification Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+Azure Active Directory B2C est disponible dans le monde entier via le cloud public Azure. Vous pouvez voir des exemples de cette fonctionnalité à la fois sur la page [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/) d’Azure et la [calculatrice de prix Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="data-residency"></a>Résidence des données
 
@@ -65,7 +65,7 @@ Les pays/régions suivants sont en cours d’ajout à cette liste. Pour le momen
 
 ## <a name="remote-profile-solution"></a>Solution Profil distant
 
-Avec les [stratégies personnalisées](custom-policy-overview.md) Azure AD B2C, vous pouvez intégrer des [services API RESTful](custom-policy-rest-api-intro.md), ce qui vous permet de stocker et de lire des profils utilisateur à partir d’une base de données distante (telle qu’une base de données marketing, un système CRM ou une application métier).  
+Avec les [stratégies personnalisées](custom-policy-overview.md) Azure AD B2C, vous pouvez intégrer des [services API RESTful](api-connectors-overview.md), ce qui vous permet de stocker et de lire des profils utilisateur à partir d’une base de données distante (telle qu’une base de données marketing, un système CRM ou une application métier).  
 - Au cours des flux d’inscription et de modification du profil, Azure AD B2C appelle une API REST personnalisée pour rendre le profil utilisateur persistant dans la source de données distante. Les informations d’identification de l’utilisateur sont stockées dans un répertoire Azure AD B2C. 
 - Après la connexion, une fois que les informations d’identification ont été validées avec un compte local ou social, Azure AD B2C appelle l’API REST, qui envoie l’identificateur unique de l’utilisateur en tant que clé primaire d’utilisateur (adresse e-mail ou objectId utilisateur). L’API REST lit les données de la base de données distante et retourne le profil utilisateur.  
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 8a94500f1669e47065f6ea9789b18442e0c8349e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ef1067504a0dd45add4b178446716864e60c802f
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127008"
+ms.locfileid: "108175529"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Microsoft Dynamics 365 Fraud Protection avec Azure Active Directory B2C
 
@@ -100,14 +100,14 @@ Configurez les paramètres de l’application dans le [service d’application d
 
 | Paramètres de l’application | Source | Notes |
 | :-------- | :------------| :-----------|
-|FraudProtectionSettings:InstanceId | Configuration de Microsoft DFP |     |
-|FraudProtectionSettings:DeviceFingerprintingCustomerId | Votre ID client de collecte d’empreintes d’appareils Microsoft |     |
+| FraudProtectionSettings:InstanceId | Configuration de Microsoft DFP |     |
+| FraudProtectionSettings:DeviceFingerprintingCustomerId | Votre ID client de collecte d’empreintes d’appareils Microsoft |     |
 | FraudProtectionSettings:ApiBaseUrl |  Votre URL de base à partir du portail Microsoft DFP   | Supprimer « -int » pour appeler l’API de production à la place|
-|  TokenProviderConfig : Ressource  | Votre URL de base - `https://api.dfp.dynamics-int.com`     | Supprimer « -int » pour appeler l’API de production à la place|
-|   TokenProviderConfig:ClientId       |ID de votre application cliente Azure AD de prestataire de protection contre la fraude      |       |
-| TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Autorité de locataire Azure AD de prestataire de protection contre la fraude |
-| TokenProviderConfig:CertificateThumbprint* | Empreinte numérique du certificat à utiliser pour l’authentification auprès de votre application cliente Azure AD de prestataire |
-| TokenProviderConfig:ClientSecret* | Le secret de votre application cliente Azure AD Merchant | Recommandé pour utiliser un gestionnaire de secrets |
+| FraudProtectionSettings:TokenProviderConfig:Resource | Votre URL de base - `https://api.dfp.dynamics-int.com`     | Supprimer « -int » pour appeler l’API de production à la place|
+| FraudProtectionSettings:TokenProviderConfig:ClientId |ID de votre application cliente Azure AD de prestataire de protection contre la fraude      |       |
+| FraudProtectionSettings:TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Autorité de locataire Azure AD de prestataire de protection contre la fraude |
+| FraudProtectionSettings:TokenProviderConfig:CertificateThumbprint* | Empreinte numérique du certificat à utiliser pour l’authentification auprès de votre application cliente Azure AD de prestataire |
+| FraudProtectionSettings:TokenProviderConfig:ClientSecret* | Le secret de votre application cliente Azure AD Merchant | Recommandé pour utiliser un gestionnaire de secrets |
 
 *Définissez uniquement l’un des deux paramètres marqués en fonction de votre mode d’authentification : avec un certificat ou un secret, tel qu’un mot de passe.
 

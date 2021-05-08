@@ -2,16 +2,20 @@
 title: Azure Event Grid – Activer les journaux de diagnostic pour des rubriques ou domaines
 description: Cet article fournit des instructions pas à pas sur l’activation des journaux de diagnostic pour une rubrique Azure Event Grid.
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: ff00c1438c49cbc9f9e67eba0cf0acef7991a5a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: 78dfeed0cedfe96d9a0d70411aecc7c7f2c51a72
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96576449"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897772"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Activer les journaux de diagnostic pour des rubriques ou domaines Azure Event Grid
 Cet article fournit des instructions pas à pas pour activer les paramètres de diagnostic pour des rubriques ou domaines Event Grid.  Ces paramètres vous permettent de capturer et d’afficher des journaux d’**échec de publication et de remise**. 
+
+> [!IMPORTANT]
+> Pour obtenir le schéma des journaux de diagnostic, consultez [Journaux de diagnostic](diagnostic-logs.md). 
+
 
 ## <a name="prerequisites"></a>Prérequis
 

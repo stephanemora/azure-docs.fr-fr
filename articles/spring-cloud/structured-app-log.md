@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 844530c6d1650b5fddd27b10c775c4364a3f5147
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6899edc25a55beff45d2058975008f7fe2c2bb9d
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877331"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886712"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Journal des applications structuré pour Azure Spring Cloud
 
 Cet article explique comment générer et collecter des données de journal structuré des applications dans Azure Spring Cloud. Avec une configuration adéquate, Azure Spring Cloud permet d’interroger et d’analyser les journaux des applications grâce à Log Analytics.
 
 ## <a name="log-schema-requirements"></a>Configuration requise pour le schéma des journaux
+
 Afin d’améliorer l’expérience d’interrogation des journaux, un journal d’application doit être au format JSON et conforme à un schéma. Azure Spring Cloud utilise ce schéma pour analyser votre application et transmettre le résultat à Log Analytics. 
 
 **Configuration requise pour le schéma JSON :**
@@ -42,67 +43,91 @@ Afin d’améliorer l’expérience d’interrogation des journaux, un journal d
 * Consignez chaque enregistrement JSON sur une seule ligne. 
 
 **Exemple d’enregistrement de journal** 
+
  ```
 {"timestamp":"2021-01-08T09:23:51.280Z","logger":"com.example.demo.HelloController","level":"ERROR","thread":"http-nio-1456-exec-4","mdc":{"traceId":"c84f8a897041f634","spanId":"c84f8a897041f634"},"stackTrace":"java.lang.RuntimeException: get an exception\r\n\tat com.example.demo.HelloController.throwEx(HelloController.java:54)\r\n\","message":"Got an exception","exceptionClass":"RuntimeException"}
 ```
 
 ## <a name="generate-schema-compliant-json-log"></a>Générer un journal JSON conforme au schéma  
+
 Pour les applications Spring, vous pouvez générer le format de journal JSON attendu en utilisant des [frameworks de journalisation courants](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), tels que [logback](http://logback.qos.ch/) et [log4j2](https://logging.apache.org/log4j/2.x/). 
 
 ### <a name="log-with-logback"></a>Consigner avec logback 
+
 Lorsque vous utilisez des démarreurs Spring Boot, logback est utilisé par défaut. Pour les applications logback, utilisez [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) pour générer un journal au format JSON. Cette méthode est prise en charge dans Spring Boot version 2.1+. 
 
 La procédure :
 
-1. Ajoutez la dépendance logstash dans votre fichier pom.xml. 
+1. Ajoutez la dépendance logstash dans votre fichier `pom.xml`. 
 
-    ```json
+    ```xml
     <dependency>
         <groupId>net.logstash.logback</groupId>
         <artifactId>logstash-logback-encoder</artifactId>
         <version>6.5</version>
     </dependency>
     ```
-1. Mettez à jour votre fichier config logback.xml pour définir le format JSON.
-    ```json
+1. Mettez à jour votre fichier config `logback-spring.xml` pour définir le format JSON.
+    ```xml
     <configuration>
         <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
             <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
-            <providers>
-                <timestamp>
-                    <fieldName>timestamp</fieldName>
-                    <timeZone>UTC</timeZone>
-                </timestamp>
-                <loggerName>
-                    <fieldName>logger</fieldName>
-                </loggerName>
-                <logLevel>
-                    <fieldName>level</fieldName>
-                </logLevel>
-                <threadName>
-                    <fieldName>thread</fieldName>
-                </threadName>
-                <nestedField>
-                    <fieldName>mdc</fieldName>
-                    <providers>
-                        <mdc/>
-                    </providers>
-                </nestedField>
-                <stackTrace>
-                    <fieldName>stackTrace</fieldName>
-                </stackTrace>
-                <message/>
-                <throwableClassName>
-                    <fieldName>exceptionClass</fieldName>
-                </throwableClassName>
-            </providers>
+                <providers>
+                    <timestamp>
+                        <fieldName>timestamp</fieldName>
+                        <timeZone>UTC</timeZone>
+                    </timestamp>
+                    <loggerName>
+                        <fieldName>logger</fieldName>
+                    </loggerName>
+                    <logLevel>
+                        <fieldName>level</fieldName>
+                    </logLevel>
+                    <threadName>
+                        <fieldName>thread</fieldName>
+                    </threadName>
+                    <nestedField>
+                        <fieldName>mdc</fieldName>
+                        <providers>
+                            <mdc />
+                        </providers>
+                    </nestedField>
+                    <stackTrace>
+                        <fieldName>stackTrace</fieldName>
+                    </stackTrace>
+                    <message />
+                    <throwableClassName>
+                        <fieldName>exceptionClass</fieldName>
+                    </throwableClassName>
+                </providers>
             </encoder>
         </appender>
         <root level="info">
-            <appender-ref ref="stdout"/>
+            <appender-ref ref="stdout" />
         </root>
     </configuration>
     ```
+1. Lorsque vous utilisez le fichier config de la journalisation avec un suffixe `-spring` tel que `logback-spring.xml`, vous pouvez définir la configuration de la journalisation en fonction du profil actif de Spring.
+
+    ```xml
+    <configuration>
+        <springProfile name="dev">
+            <!-- JSON appender definitions for local development, in human readable format -->
+            <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+            <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+            <root level="info">
+                <appender-ref ref="CONSOLE" />
+            </root>
+        </springProfile>
+
+        <springProfile name="!dev">
+            <!-- JSON appender configuration from previous step, used for staging / production -->
+            ...
+        </springProfile>
+    </configuration>
+    ```
+    
+    Pour le développement local, exécutez l’application Spring Cloud avec l’argument JVM `-Dspring.profiles.active=dev`. Vous pourrez alors voir des journaux lisibles plutôt que des lignes au format JSON.
 
 ### <a name="log-with-log4j2"></a>Consigner avec log4j2 
 
@@ -110,87 +135,87 @@ Pour les applications log4j2, utilisez [json-template-layout](https://logging.ap
 
 La procédure :
 
-1. Excluez `spring-boot-starter-logging` de `spring-boot-starter`, ajoutez des dépendances `spring-boot-starter-log4j2` et `log4j-layout-template-json` dans votre fichier pom.xml.
+1. Excluez `spring-boot-starter-logging` de `spring-boot-starter`, ajoutez les dépendances `spring-boot-starter-log4j2` et `log4j-layout-template-json` dans votre fichier `pom.xml`.
 
     ```xml
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                    <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-layout-template-json</artifactId>
-            <version>2.14.0</version>
-        </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <exclusions>
+            <exclusion>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-log4j2</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-layout-template-json</artifactId>
+        <version>2.14.0</version>
+    </dependency>
     ```
 
-2. Préparez un fichier de modèle de mise en page JSON jsonTemplate.json dans votre chemin d’accès de classe.
+2. Préparez un fichier de modèle de layout JSON `jsonTemplate.json` dans votre chemin d’accès de classe.
 
     ```json
-        {
-            "mdc": {
-                "$resolver": "mdc"
-            },
-            "exceptionClass": {
-                "$resolver": "exception",
-                "field": "className"
-            },
-            "stackTrace": {
-                "$resolver": "exception",
-                "field": "stackTrace",
-                "stringified": true
-            },
-            "message": {
-                "$resolver": "message",
-                "stringified": true
-            },
-            "thread": {
-                "$resolver": "thread",
-                "field": "name"
-            },
-            "timestamp": {
-                "$resolver": "timestamp",
-                "pattern": {
-                    "format": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-                    "timeZone": "UTC"
-                }
-            },
-            "level": {
-                "$resolver": "level",
-                "field": "name"
-            },
-            "logger": {
-                "$resolver": "logger",
-                "field": "name"
+    {
+        "mdc": {
+            "$resolver": "mdc"
+        },
+        "exceptionClass": {
+            "$resolver": "exception",
+            "field": "className"
+        },
+        "stackTrace": {
+            "$resolver": "exception",
+            "field": "stackTrace",
+            "stringified": true
+        },
+        "message": {
+            "$resolver": "message",
+            "stringified": true
+        },
+        "thread": {
+            "$resolver": "thread",
+            "field": "name"
+        },
+        "timestamp": {
+            "$resolver": "timestamp",
+            "pattern": {
+                "format": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                "timeZone": "UTC"
             }
+        },
+        "level": {
+            "$resolver": "level",
+            "field": "name"
+        },
+        "logger": {
+            "$resolver": "logger",
+            "field": "name"
         }
+    }
     ```
 
-3. Utilisez ce modèle de mise en page JSON dans votre fichier config log4j2.xml. 
+3. Utilisez ce modèle de layout JSON dans votre fichier config `log4j2-spring.xml`. 
 
-    ```json
-        <configuration>
-            <appenders>
-                <console name="Console" target="SYSTEM_OUT">
-                <JsonTemplateLayout eventTemplateUri="classpath:jsonTemplate.json"/>
-                </console>
-            </appenders>
-            <loggers>
-                <root level="info">
-                <appender-ref ref="Console"/>
-                </root>
-            </loggers>
-        </configuration>
+    ```xml
+    <configuration>
+        <appenders>
+            <console name="Console" target="SYSTEM_OUT">
+                <JsonTemplateLayout eventTemplateUri="classpath:jsonTemplate.json" />
+            </console>
+        </appenders>
+        <loggers>
+            <root level="info">
+                <appender-ref ref="Console" />
+            </root>
+        </loggers>
+    </configuration>
     ```
 
 ## <a name="analyze-the-logs-in-log-analytics"></a>Analyser les journaux dans Log Analytics
@@ -198,7 +223,9 @@ La procédure :
 Une fois que votre application est correctement configurée, le journal de votre console d’application sera transmis en continu à Log Analytics. La structure permet une interrogation efficace dans Log Analytics.
 
 ### <a name="check-log-structure-in-log-analytics"></a>Vérifier la structure du journal dans Log Analytics
+
 Procédez comme suit :
+
 1. Accédez à la page de la vue d’ensemble du service de votre instance de service.
 2. Cliquez sur l’entrée `Logs` sous la section `Monitoring`.
 3. Exécutez cette requête.
@@ -211,7 +238,8 @@ Procédez comme suit :
 
 4. Les journaux des applications sont renvoyés comme indiqué dans l’image suivante :
 
-![Illustration du journal au format JSON](media/spring-cloud-structured-app-log/json-log-query.png)
+   ![Illustration du journal au format JSON](media/spring-cloud-structured-app-log/json-log-query.png)
+
 
 ### <a name="show-log-entries-containing-errors"></a>Afficher les entrées de journal contenant des erreurs
 
@@ -227,6 +255,7 @@ AppPlatformLogsforSpring
 Utilisez cette requête pour rechercher des erreurs ou modifiez les termes de la requête pour rechercher une classe d’exception ou un code d’erreur spécifique. 
 
 ### <a name="show-log-entries-for-a-specific-traceid"></a>Afficher les entrées de journal pour un traceId spécifique
+
 Pour consulter les entrées de journal d’un ID de suivi « trace_id » spécifique, exécutez la requête suivante :
 
 ```
@@ -238,4 +267,5 @@ AppPlatformLogsforSpring
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour plus d’informations sur l’interrogation du journal, consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../azure-monitor/logs/get-started-queries.md).

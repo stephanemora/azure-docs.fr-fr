@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e0801daa5bf83889be87987d440e377287b5ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c792888b65f331332c320deecbcd2b5f8d7e2ee3
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92366188"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175763"
 ---
 # <a name="conditional-access-block-access"></a>Accès conditionnel : Bloquer l’accès
 
@@ -79,6 +79,9 @@ Une deuxième stratégie est créée ci-dessous pour exiger l’authentification
    1. Sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et définissez **Activer la stratégie** sur **Rapport seul**.
 1. Sélectionnez **Créer** pour créer votre stratégie.
+
+> [!NOTE]
+> Des stratégies d'accès conditionnel sont appliquées au terme de l'authentification premier facteur. L'accès conditionnel n'est pas destiné à être la première ligne de défense d'une organisation pour des scénarios comme les attaques par déni de service (DoS), mais il peut utiliser les signaux de ces événements pour déterminer l'accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
