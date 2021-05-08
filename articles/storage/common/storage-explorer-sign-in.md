@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: chuye
-ms.openlocfilehash: ef02842d189746a1801d97f91b92f249947c832d
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 26ce15bfe474f96aaef17f186f56e36ce42b7239
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568644"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950529"
 ---
 # <a name="sign-in-to-storage-explorer"></a>Se connecter à l’Explorateur Stockage
 
@@ -48,7 +48,7 @@ Si vous voulez supprimer l’intégralité de votre compte Azure, cliquez sur **
 
 Par défaut, la connexion s’effectue dans le **navigateur web par défaut** de votre système d’exploitation. La connexion avec votre navigateur web par défaut simplifie l’accès aux ressources sécurisées via des stratégies d’accès conditionnel, comme l’authentification multifacteur. Si pour une raison quelconque, la connexion avec le **navigateur web par défaut** de votre système d’exploitation ne fonctionne pas, vous pouvez changez l’endroit ou la façon dont Explorateur Stockage effectue la connexion.
 
-Sous **Paramètres** > **Application** > **Se connecter**, recherchez le paramètre **Se connecter avec**. Vous disposez de trois options :
+Sous **Paramètres (icône d'engrenage à gauche)**  > **Application** > **Se connecter**, recherchez le paramètre **Se connecter avec**. Vous disposez de trois options :
 - **Navigateur web par défaut** : la connexion s’effectue dans le **navigateur web par défaut** de votre système d’exploitation. Cette option est recommandée.
 - **Connexion intégrée** : la connexion va s’effectuer dans une fenêtre d’Explorateur Stockage. Cette option peut être utile si vous essayez de vous connecter avec plusieurs comptes Microsoft à la fois. Vous pouvez rencontrer des problèmes avec certaines stratégies d’accès conditionnel si vous choisissez cette option.
 - **Flux de code d’appareil** : Explorateur Stockage va vous donner un code à entrer dans une fenêtre du navigateur. Cette option n’est pas recommandée. Le flux de code d’appareil n’est pas compatible avec de nombreuses stratégies d’accès conditionnel.
@@ -56,3 +56,8 @@ Sous **Paramètres** > **Application** > **Se connecter**, recherchez le paramè
 ## <a name="troubleshooting-sign-in-issues"></a>Résolution des problèmes de connexion
 
 Si vous avez des difficultés à vous connecter ou si vous rencontrez des problèmes avec un compte Azure après vous être connecté, reportez-vous à la [section Se connecter du guide de résolution des problèmes d’Explorateur Stockage](./storage-explorer-troubleshooting.md#sign-in-issues).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Gérer les ressources de Stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md)
+* [Résoudre des problèmes de connexion](./storage-explorer-troubleshooting.md#sign-in-issues)

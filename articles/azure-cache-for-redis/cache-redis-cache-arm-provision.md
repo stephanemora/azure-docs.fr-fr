@@ -6,13 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.date: 08/18/2020
-ms.openlocfilehash: 81940d23ebfcc017455974981649023351b6eeb3
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.date: 04/28/2021
+ms.openlocfilehash: 321dc2aed6ee507ad2ac4987d630b782052884b2
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835053"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277279"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Démarrage rapide : Créer un répartiteur Azure Cache pour Redis à l’aide d’un modèle ARM
 
@@ -22,7 +22,7 @@ Apprenez à créer un modèle Azure Resource Manager (modèle ARM) qui déploie 
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cache%2Fredis-cache%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-redis-cache/).
 
-:::code language="json" source="~/quickstart-templates/101-redis-cache/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cache/redis-cache/azuredeploy.json":::
 
 Les ressources suivantes sont définies dans le modèle :
 
@@ -52,7 +52,7 @@ Pour connaître les derniers modèles, consultez [Modèles de démarrage rapide 
 
 1. Sélectionnez l’image ci-après pour vous connecter à Azure et ouvrir le modèle.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cache%2Fredis-cache%2Fazuredeploy.json)
 1. Sélectionnez ou entrez les valeurs suivantes :
 
     * **Abonnement** : sélectionnez un abonnement Azure utilisé pour créer le partage de données et les autres ressources.

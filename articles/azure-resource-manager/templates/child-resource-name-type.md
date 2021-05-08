@@ -2,13 +2,13 @@
 title: Ressources enfants dans les modèles
 description: Décrit comment définir le nom et le type des ressources enfants dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
-ms.date: 12/21/2020
-ms.openlocfilehash: a950d72751b829c0a2aa3ba5ca27316a0544d9cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.openlocfilehash: 1928a94fbfefc694091a3f09ea577e8250540bf4
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963910"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949521"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Définir le nom et le type des ressources enfants
 
@@ -16,7 +16,15 @@ Les ressources enfants sont des ressources qui existent uniquement dans le conte
 
 Chaque ressource parente accepte uniquement certains types de ressources comme ressources enfants. Le type de ressource de la ressource enfant comprend le type de ressource de la ressource parent. Par exemple, `Microsoft.Web/sites/config` et `Microsoft.Web/sites/extensions` sont des ressources enfant de la ressource `Microsoft.Web/sites`. Les types de ressource acceptés sont spécifiés dans le [schéma de modèle](https://github.com/Azure/azure-resource-manager-schemas) de la ressource parente.
 
-Dans un modèle Azure Resource Manager (modèle ARM), vous pouvez spécifier la ressource enfant dans la ressource parent ou en dehors de la ressource parent. L’exemple suivant illustre la ressource enfant incluse dans la propriété Ressources de la ressource parent.
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
+Dans un modèle Azure Resource Manager (modèle ARM), vous pouvez spécifier la ressource enfant dans la ressource parent ou en dehors de la ressource parent. Les valeurs que vous fournissez pour le nom et le type de la ressource varient selon que la ressource enfant est définie dans la ressource parent ou en dehors de celle-ci.
+
+## <a name="within-parent-resource"></a>Dans la ressource parent
+
+L’exemple suivant illustre la ressource enfant incluse dans la propriété Ressources de la ressource parent.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "resources": [
@@ -31,24 +39,7 @@ Dans un modèle Azure Resource Manager (modèle ARM), vous pouvez spécifier la 
 
 Les ressources enfants peuvent uniquement être définies sur cinq niveaux.
 
-L’exemple suivant montre la ressource enfant en dehors de la ressource parent. Vous pouvez utiliser cette approche si la ressource parent n’est pas déployée dans le même modèle ou si voulez utiliser une[copie](copy-resources.md) pour créer plusieurs ressources enfants.
-
-```json
-"resources": [
-  {
-    <parent-resource>
-  },
-  {
-    <child-resource>
-  }
-]
-```
-
-Les valeurs que vous fournissez pour le type et le nom de la ressource varient selon que la ressource enfant est définie dans ou en dehors de la ressource parent.
-
-## <a name="within-parent-resource"></a>Dans la ressource parent
-
-Lorsqu’il est défini dans le type de ressource parent, vous mettez en forme les valeurs de type et de nom sous la forme d’un mot unique sans barre oblique.
+Lorsqu’elles sont définies dans le type de ressource parent, les valeurs de type et de nom sont formatées en un seul segment sans barres obliques.
 
 ```json
 "type": "{child-resource-type}",
@@ -76,7 +67,6 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau. Notez que le s
         "type": "subnets",
         "apiVersion": "2018-10-01",
         "name": "Subnet1",
-        "location": "[parameters('location')]",
         "dependsOn": [
           "VNet1"
         ],
@@ -93,7 +83,75 @@ Le type de ressource complet est toujours `Microsoft.Network/virtualNetworks/sub
 
 Le nom de la ressource enfant est défini sur **Subnet 1**, mais le nom complet inclut le nom parent. Vous ne fournissez pas **VNet1**, car il est déduit de la ressource parent.
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {
+  <parent-resource-properties>
+
+  resource <child-resource-symbolic-name> '<child-resource-type>' = {
+    <child-resource-properties>
+  }
+}
+```
+
+Une déclaration de ressource imbriquée doit apparaître au niveau supérieur de la syntaxe de la ressource parent. Les déclarations peuvent être imbriquées à une profondeur arbitraire, tant que chaque niveau est un type enfant de sa ressource parent.
+
+Lorsqu’elles sont définies dans le type de ressource parent, les valeurs de type et de nom sont formatées en un seul segment sans barres obliques. L’exemple suivant montre un réseau virtuel et un sous-réseau. Notez que le sous-réseau est inclus dans le tableau des ressources pour le réseau virtuel. Le nom est défini sur **Subnet1** et le type est défini sur **sous-réseaux**.
+
+```bicep
+param location string
+
+resource VNet1 'Microsoft.Network/virtualNetworks@2018-10-01' = {
+  name: 'VNet1'
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+  }
+
+  resource VNet1_Subnet1 'subnets' = {
+    name: 'Subnet1'
+    properties: {
+      addressPrefix: '10.0.0.0/24'
+    }
+  }
+}
+```
+
+Le type de ressource complet est toujours `Microsoft.Network/virtualNetworks/subnets`. Vous ne fournissez pas `Microsoft.Network/virtualNetworks/`, car il est déduit du type et de la version de la ressource parent. La ressource imbriquée peut éventuellement déclarer une version d’API en utilisant la syntaxe `<segment>@<version>`. Si la ressource imbriquée omet la version de l’API, la version d’API de la ressource parent est utilisée. Si la ressource imbriquée spécifie une version d’API, la version d’API spécifiée est utilisée.
+
+Le nom de la ressource enfant est défini sur **Subnet 1**, mais le nom complet inclut le nom parent. Vous ne fournissez pas VNet1, car il est déduit de la ressource parent.
+
+Pour accéder au nom symbolique de la ressource enfant, vous devez utiliser l’opérateur `::`. Par exemple, pour générer une propriété à partir d’une ressource enfant :
+
+```bicep
+output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
+```
+
+Une ressource imbriquée peut accéder aux propriétés de sa ressource parent. D’autres ressources déclarées dans le corps de la même ressource parent peuvent se référer les unes aux autres et les règles classiques relatives aux dépendances cycliques s’appliquent. Une ressource parent ne peut pas accéder aux propriétés des ressources qu’elle contient, ce qui entraînerait une dépendance cyclique.
+
+---
+
 ## <a name="outside-parent-resource"></a>En dehors de la ressource parent
+
+L’exemple suivant montre la ressource enfant en dehors de la ressource parent. Vous pouvez utiliser cette approche si la ressource parent n’est pas déployée dans le même modèle ou si voulez utiliser une[copie](copy-resources.md) pour créer plusieurs ressources enfants.
+
+# <a name="json"></a>[JSON](#tab/json)
+
+```json
+"resources": [
+  {
+    <parent-resource>
+  },
+  {
+    <child-resource>
+  }
+]
+```
 
 En cas de définition en dehors de la ressource parent, vous mettez en forme le type et ajouter des barres obliques pour inclure le type et le nom du parent.
 
@@ -122,7 +180,6 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous d
   {
     "type": "Microsoft.Network/virtualNetworks/subnets",
     "apiVersion": "2018-10-01",
-    "location": "[parameters('location')]",
     "name": "VNet1/Subnet1",
     "dependsOn": [
       "VNet1"
@@ -133,6 +190,47 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous d
   }
 ]
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {
+  <parent-resource-properties>
+}
+
+resource <child-resource-symbolic-name> '<child-resource-type>@<api-version>' = {
+  <child-resource-properties>
+}
+```
+
+En cas de définition en dehors de la ressource parent, vous mettez en forme le type et ajouter des barres obliques pour inclure le type et le nom du parent.
+
+L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous deux définis au niveau de la racine. Notez que le sous-réseau est inclus dans le tableau des ressources pour le réseau virtuel. Le nom est défini sur **VNet1/Subnet1** et le type est défini sur `Microsoft.Network/virtualNetworks/subnets`. La ressource enfant est marquée comme étant dépendante de la ressource parent, car la ressource parent doit exister pour que la ressource enfant puisse être déployée.
+
+```bicep
+param location string
+
+resource VNet1 'Microsoft.Network/virtualNetworks@2018-10-01' = {
+  name: 'VNet1'
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+  }
+}
+
+resource VNet1_Subnet1 'Microsoft.Network/virtualNetworks/subnets@2018-10-01' = {
+  name: '${VNet1.name}/Subnet1'
+  properties: {
+    addressPrefix: '10.0.0.0/24'
+  }
+}
+```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

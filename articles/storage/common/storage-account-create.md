@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/23/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8c0158ea4e93b4bbefa7b41b5a280fa804ede35f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 30766938526c2ba897c2aabc2513be5d6c3f01b5
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791280"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949089"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -306,7 +306,12 @@ Pour savoir comment modifier ce modèle ou en créer de nouveaux, consultez :
 
 ## <a name="delete-a-storage-account"></a>Suppression d'un compte de stockage
 
-La suppression d’un compte de stockage supprime l’intégralité du compte, notamment toutes les données qu’il contient, et ne peut pas être annulée.
+La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient. En général, cette opération ne peut pas être annulée. La récupération d'un compte de stockage n'est possible que dans certaines circonstances et elle n'est pas garantie. Pour plus d'informations, consultez [Récupérer un compte de stockage supprimé](storage-account-recover.md).
+
+> [!WARNING]
+> Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Il n'est généralement pas possible de restaurer un compte de stockage supprimé ou de récupérer les ressources qu'il contenait avant la suppression.
+
+Si vous essayez de supprimer un compte de stockage associé à une machine virtuelle Azure, vous pouvez obtenir une erreur indiquant que le compte de stockage est toujours en cours d’utilisation. Pour obtenir de l’aide sur la résolution de cette erreur, consultez [Résoudre les erreurs liées à la suppression de compte de stockage](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -350,11 +355,6 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 ---
 
 Vous pouvez également supprimer le groupe de ressources, ce qui supprime le compte de stockage et toutes les autres ressources de ce groupe. Pour plus d’informations sur la suppression d’un groupe de ressources, consultez [Supprimer un groupe de ressources et des ressources](../../azure-resource-manager/management/delete-resource-group.md).
-
-> [!WARNING]
-> Il n’est pas possible de restaurer un compte de stockage supprimé ou son contenu avant la suppression. Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible.
->
-> Si vous essayez de supprimer un compte de stockage associé à une machine virtuelle Azure, vous pouvez obtenir une erreur indiquant que le compte de stockage est toujours en cours d’utilisation. Pour obtenir de l’aide sur la résolution de cette erreur, consultez [Résoudre les erreurs liées à la suppression de compte de stockage](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

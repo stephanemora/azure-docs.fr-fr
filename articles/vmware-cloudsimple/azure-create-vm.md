@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Créer une machine virtuelle dans Azure avec des modèles d’ordinateur virtuel
 description: Indique comment créer des machines virtuelles dans Azure à l’aide de modèles d’ordinateur virtuel sur l’infrastructure VMware pour votre cloud privé CloudSimple
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b01afe60a78a746eb0dc5f03cc7b45989f8cf81e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad998c1def91a0e2a6ff74c25e4e1cc972df1474
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97898757"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182657"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Créez une machine virtuelle dans Azure à l’aide de modèles d’ordinateur virtuel sur l’infrastructure VMware
 
