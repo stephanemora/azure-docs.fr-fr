@@ -12,12 +12,12 @@ ms.date: 02/05/2021
 ms.author: iangithinji
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e4a92f84cdbc0061509fa710de148e9e9f2b52
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 736f21927b6a76be5f5d849099db465fcc9835cf
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125154"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318960"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migrer l’authentification des applications vers Azure Active Directory
 
@@ -83,7 +83,7 @@ Votre organisation peut être dotée de plusieurs solutions IAM (Identity Access
 
 **Avec Azure AD, vous pouvez réduire les coûts d’infrastructure en :**
 
-- Offrant un accès à distance sécurisé aux applications locales utilisant le [proxy d’application Azure AD](./application-proxy.md).
+- Offrant un accès à distance sécurisé aux applications locales utilisant le [proxy d’application Azure AD](../app-proxy/application-proxy.md).
 
 - Découplant les applications de l’approche locale en matière d’informations d’identification dans votre locataire en [configurant Azure AD comme fournisseur d’identité universel approuvé](../hybrid/plan-connect-user-signin.md#choosing-the-user-sign-in-method-for-your-organization).
 
@@ -288,7 +288,7 @@ Pour certaines applications utilisant des protocoles d’authentification hérit
 
 Azure AD peut apporter de formidables avantages à ces applications héritées, car vous pouvez activer des fonctionnalités de sécurité et de gouvernance modernes Azure AD telles que l’[authentification multifacteur](../authentication/concept-mfa-howitworks.md), l’[accès conditionnel](../conditional-access/overview.md), [Identity Protection](../identity-protection/index.yml), l’[accès à l’application déléguée](./access-panel-manage-self-service-access.md) et les [révisions d’accès](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review) sur ces applications sans toucher à l’application elle-même.
 
-Commencez par **étendre ces applications dans le cloud** avec le [proxy d’application](./application-proxy-configure-single-sign-on-password-vaulting.md) Azure AD à l’aide d’une simple authentification (comme le coffre des mots de passe) pour faire migrer rapidement vos utilisateurs ou via nos [intégrations de partenaires](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/) avec les contrôleurs de livraison d’application que vous avez peut-être déjà déployés.
+Commencez par **étendre ces applications dans le cloud** avec le [proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md) Azure AD à l’aide d’une simple authentification (comme le coffre des mots de passe) pour faire migrer rapidement vos utilisateurs ou via nos [intégrations de partenaires](https://azure.microsoft.com/services/active-directory/sso/secure-hybrid-access/) avec les contrôleurs de livraison d’application que vous avez peut-être déjà déployés.
 
 ### <a name="new-line-of-business-lob-apps"></a>Nouvelles applications métier (LOB)
 
@@ -477,7 +477,7 @@ Utilisez les outils et les conseils ci-dessous pour suivre les étapes précises
 
 - **Applications SaaS** – consultez notre liste de [centaines de tutoriels sur les applications SaaS](../saas-apps/tutorial-list.md) et le [plan de déploiement complet SSO Azure AD](https://aka.ms/ssodeploymentplan) pour parcourir le processus de bout en bout.
 
-- **Applications en cours d’exécution en local** – découvrez le [proxy d’application Azure AD](./application-proxy.md) et utilisez le [plan de déploiement complet du proxy d’application Azure AD](https://aka.ms/AppProxyDPDownload) pour avancer rapidement.
+- **Applications en cours d’exécution en local** – découvrez le [proxy d’application Azure AD](../app-proxy/application-proxy.md) et utilisez le [plan de déploiement complet du proxy d’application Azure AD](https://aka.ms/AppProxyDPDownload) pour avancer rapidement.
 
 - **Applications que vous développez** – lisez notre guide d’[intégration](../develop/quickstart-register-app.md) et d’[inscription](../develop/quickstart-register-app.md) pas à pas.
 
@@ -505,7 +505,7 @@ Selon la façon dont vous configurez votre application, vérifiez que l’authen
 | **Authentification unique SAML** | Utilisez le bouton [Tester les paramètres SAML](./debug-saml-sso-issues.md) sous **Authentification unique**. |
 | **Authentification unique par mot de passe** | Téléchargez et installez l’[extension de connexion sécurisée à MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). Cette extension vous permet de lancer les applications cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique. |
 
-|  **[Proxy d’application](./application-proxy.md)** | Vérifiez que votre connecteur est en cours d’exécution et affecté à votre application. Pour obtenir de l’aide, consultez le [Guide de résolution des problèmes de proxy d’application](./application-proxy-troubleshoot.md). |
+|  **[Proxy d’application](../app-proxy/application-proxy.md)** | Vérifiez que votre connecteur est en cours d’exécution et affecté à votre application. Pour obtenir de l’aide, consultez le [Guide de résolution des problèmes de proxy d’application](../app-proxy/application-proxy-troubleshoot.md). |
 
 ### <a name="troubleshoot"></a>Dépanner
 
@@ -553,7 +553,7 @@ Une fois que vous avez migré les applications, vous pouvez enrichir l’expéri
 
 **Rendre les applications détectables**
 
-**Dirigez votre utilisateur** vers l’expérience du portail [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). À cet endroit, ils peuvent accéder à toutes les applications basées sur le cloud. Ces applications sont rendues disponibles à l’aide d’[Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), et aux applications qui utilisent le [proxy d’application](./application-proxy.md), à condition qu’ils disposent d’autorisations pour accéder à ces applications.
+**Dirigez votre utilisateur** vers l’expérience du portail [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). À cet endroit, ils peuvent accéder à toutes les applications basées sur le cloud. Ces applications sont rendues disponibles à l’aide d’[Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), et aux applications qui utilisent le [proxy d’application](../app-proxy/application-proxy.md), à condition qu’ils disposent d’autorisations pour accéder à ces applications.
 
 
 Vous pouvez guider vos utilisateurs sur la façon de découvrir leurs applications :
@@ -581,7 +581,7 @@ Les utilisateurs peuvent [télécharger l’extension de connexion sécurisée M
 
 - **Rechercher leurs applications et afficher leurs applications les plus récemment utilisées**
 
-- **Convertir automatiquement les URL internes** que vous avez configurées dans le [proxy d’application](./application-proxy.md) en URL externes appropriées. Vos utilisateurs peuvent désormais travailler avec des liens qui leur sont familiers, quel que soit leur emplacement.
+- **Convertir automatiquement les URL internes** que vous avez configurées dans le [proxy d’application](../app-proxy/application-proxy.md) en URL externes appropriées. Vos utilisateurs peuvent désormais travailler avec des liens qui leur sont familiers, quel que soit leur emplacement.
 
 **Permettez aux utilisateurs d’ouvrir leurs applications à partir d’Office.com.**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c302b10baad157cd70751d49fe6d50911c2ce75
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96920789"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074787"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -91,7 +91,7 @@ Les clients SaaS (Software as a Service) ont généralement le chiffrement au re
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Chiffrement au repos pour les clients PaaS
 
-Les données des clients PaaS (Platform as a Service) résident généralement dans un service de stockage tel que le Stockage Blob, mais peuvent également être mises en cache ou stockées dans l’environnement d’exécution des applications, par exemple, une machine virtuelle. Pour connaître les options de chiffrement au repos disponibles, consultez le tableau ci-dessous pour les plateformes de stockage et d’applications que vous utilisez.
+Les données des clients PaaS (Platform as a Service) résident généralement dans un service de stockage tel que le Stockage Blob, mais peuvent également être mises en cache ou stockées dans l’environnement d’exécution des applications, par exemple, une machine virtuelle. Pour connaître les options de chiffrement au repos disponibles, consultez le [tableau Modèles de chiffrement des données : services de prise en charge](encryption-models.md#supporting-services) pour les plateformes de stockage et d’applications que vous utilisez.
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>Chiffrement au repos pour les clients IaaS
 
@@ -99,7 +99,7 @@ Les clients IaaS (Infrastructure as a Service) peuvent utiliser différents serv
 
 #### <a name="encrypted-storage"></a>Stockage chiffré
 
-Comme pour PaaS, les solutions IaaS peuvent tirer parti d’autres services Azure qui stockent les données chiffrées au repos. Dans ce cas, vous pouvez activer la prise en charge du chiffrement au repos telle qu’elle est fournie par chaque service Azure utilisé. Le tableau ci-dessous énumère les principales plateformes de stockage, de services et d’applications, avec le modèle de chiffrement au repos pris en charge.
+Comme pour PaaS, les solutions IaaS peuvent tirer parti d’autres services Azure qui stockent les données chiffrées au repos. Dans ce cas, vous pouvez activer la prise en charge du chiffrement au repos telle qu’elle est fournie par chaque service Azure utilisé. Le [tableau Modèles de chiffrement des données : services de prise en charge](encryption-models.md#supporting-services) énumère les principales plateformes de stockage, de services et d’applications, avec le modèle de chiffrement au repos pris en charge.
 
 #### <a name="encrypted-compute"></a>Calcul chiffré
 

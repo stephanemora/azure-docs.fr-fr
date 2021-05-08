@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 04/22/2021
 ms.author: b-juche
-ms.openlocfilehash: f023bfa2b3941f7d667f4be34a8ee8dc1ed9a9c3
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b5abb26a5a96b73f06f25661c62061f664069ee3
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750191"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903485"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -44,15 +44,36 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 |  Taille maximale d’un volume     |    100 Tio    |    Non    |
 |  Taille maximale d’un fichier unique     |    16 Tio    |    Non    |    
 |  Taille maximale des métadonnées de répertoire dans un répertoire unique      |    320 Mo    |    Non    |    
+|  Nombre maximal de fichiers dans un seul répertoire  | *Environ* 4 millions. <br> Voir [Déterminer si un répertoire approche de la taille limite](#directory-limit).  |    Non    |   
 |  Nombre maximal de fichiers ([maxfiles](#maxfiles)) par volume     |    100 millions    |    Oui    |    
 |  Nombre maximal de règles de stratégie d’exportation par volume     |    5  |    Non    | 
 |  Débit minimum attribué pour un volume avec Qualité de service manuelle     |    1 Mio/s   |    Non    |    
 |  Débit maximum attribué pour un volume avec Qualité de service manuelle     |    4 500 Mio/s    |    Non    |    
 |  Nombre de volumes de protection des données de réplication inter-région (volumes de destination)     |    5    |    Oui    |     
 
-Pour voir si la taille d’un répertoire approche de la limite maximale pour des métadonnées de répertoire (320 Mo), consultez [Comment déterminer si un répertoire approche de la limite de taille](azure-netapp-files-faqs.md#how-do-i-determine-if-a-directory-is-approaching-the-limit-size).   
-
 Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs).
+
+## <a name="determine-if-a-directory-is-approaching-the-limit-size"></a>Déterminer si un répertoire approche de la taille limite<a name="directory-limit"></a>  
+
+Vous pouvez utiliser la commande `stat` à partir d’un client pour voir si la taille d’un annuaire approche de la limite maximale pour des métadonnées d’annuaire (320 Mo).   
+
+Pour un annuaire de 320 Mo, les blocs sont au nombre de 655 360, d’une taille 512 octets chacun  (soit, 320 x 1 024 x 1 024/512). Ce nombre se traduit par environ 4 millions de fichiers au maximum pour un annuaire de 320 Mo. Toutefois, le nombre de fichiers maximal réel peut être inférieur, en fonction de facteurs tels que le nombre de fichiers contenant des caractères non-ASCII dans l’annuaire. Par conséquent, vous devez utiliser la commande `stat` comme suit pour déterminer si votre annuaire approche de sa limite.  
+
+Exemples :
+
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
+ 
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
 
 ## <a name="maxfiles-limits"></a>Limites maxfiles <a name="maxfiles"></a> 
 
