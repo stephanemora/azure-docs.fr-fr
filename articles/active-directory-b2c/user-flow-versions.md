@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/30/2020
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c05ff1bf1956943230bf523584025787495d57f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b47a311513a1216555583b64095d4bc46e4b48e
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517852"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895898"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versions de flux utilisateur dans Azure Active Directory B2C
 
@@ -24,29 +24,29 @@ Les flux utilisateur dans Azure Active Directory B2C (Azure AD B2C) vous aident
 > [!IMPORTANT]
 > Nous avons modifié la manière dont nous référençons les versions de flux utilisateur. Auparavant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). Maintenant, nous avons regroupé les flux d’utilisateur en deux versions :
 >
->- Les flux d’utilisateur **recommandés** sont les nouvelles préversions des flux d’utilisateur. Ils sont minutieusement testés et combinent toutes les fonctionnalités des versions **V2** et **V1.1** héritées. À l’avenir, les nouveaux flux d’utilisateur recommandés seront maintenus et mis à jour. Quand vous passez à ces nouveaux flux d’utilisateur recommandés, vous avez accès aux nouvelles fonctionnalités à mesure qu’elles sont publiées.
->- Les flux d’utilisateur **standard**, anciennement **V1**, sont en disponibilité générale et sont prêts pour la production. Si vous utilisez des flux d’utilisateur stratégiques, qui dépendent de versions très stables, vous pouvez continuer à utiliser des flux d’utilisateur standard tout en gardant à l’esprit que ces versions ne seront pas mises à jour ni maintenues.
+>- Les flux d’utilisateurs **recommandés** sont les flux d’utilisateurs de nouvelle génération mis à la disposition générale et dotés des dernières fonctionnalités. Ils combinent toutes les fonctionnalités des versions **v1**, **v1.1** et **v2** héritées. À l’avenir, les flux d’utilisateurs **recommandés** seront maintenus et mis à jour. Quand vous passez à ces nouveaux flux d’utilisateur recommandés, vous avez accès aux nouvelles fonctionnalités à mesure qu’elles sont publiées.
+>- Les flux d’utilisateurs **standard (hérités)** , précédemment appelés **v1**, sont des flux d’utilisateurs hérités. À moins que vous n’ayez un besoin professionnel spécifique, nous vous déconseillons d’utiliser ces versions des flux d’utilisateurs, car elles ne seront pas maintenues ou mises à jour.
 >
->Tous les flux utilisateur hérités (V1.1 et V2) seront dépréciés d’ici le **1er août 2021**. Dans la mesure du possible, nous vous recommandons vivement de [basculer vers les nouvelles versions **recommandées**](#how-to-switch-to-a-new-recommended-user-flow) dès que possible, afin de pouvoir toujours tirer parti des dernières fonctionnalités et mises à jour. *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).*
+>Tous les flux d’utilisateur en préversion hérités (V1.1 et V2) seront dépréciés d’ici le **1er août 2021**. Dans la mesure du possible, nous vous recommandons vivement de [basculer vers les versions **recommandées**](#how-to-switch-to-a-recommended-user-flow) dès que possible, afin de pouvoir toujours tirer parti des dernières fonctionnalités et mises à jour. *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).*
 
 ## <a name="recommended-user-flows"></a>Flux utilisateur recommandés
 
-Les flux utilisateur recommandés sont des préversions qui associent de nouvelles fonctionnalités aux fonctionnalités V2 et V1.1 héritées. À l’avenir, les flux utilisateur recommandés seront maintenus et mis à jour.
+Les flux d’utilisateurs recommandés sont les flux d’utilisateurs de nouvelle génération mis à la disposition générale et dotés des dernières fonctionnalités. À l’avenir, les flux utilisateur recommandés seront maintenus et mis à jour.
 
 | Flux utilisateur | Description |
 | --------- | ----------- |
-| Réinitialisation du mot de passe (préversion) | Permet à un utilisateur de choisir un nouveau mot de passe après la vérification de son adresse e-mail. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>Paramètres de conformité de jeton</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
-| Modification de profil (préversion) | Permet à un utilisateur de configurer ses attributs utilisateur. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li></ul> |
-| Connexion (préversion) | Permet à un utilisateur de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Vérification de l’âge](age-gating.md)</li><li>Personnalisation de la page de connexion</li></ul> |
-| Inscription (préversion) | Permet à un utilisateur de créer un compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
-| Inscription et connexion (préversion) | Permet à un utilisateur de créer un compte ou de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
+| Réinitialisation du mot de passe | Permet à un utilisateur de choisir un nouveau mot de passe après la vérification de son adresse e-mail. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>Paramètres de conformité de jeton</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
+| Modification de profil | Permet à un utilisateur de configurer ses attributs utilisateur. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li></ul> |
+| Se connecter | Permet à un utilisateur de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Vérification de l’âge](age-gating.md)</li><li>Personnalisation de la page de connexion</li></ul> |
+| Inscription | Permet à un utilisateur de créer un compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
+| Inscription et connexion | Permet à un utilisateur de créer un compte ou de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Vérification de l’âge](age-gating.md)</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
 
 ## <a name="standard-user-flows"></a>Flux d’utilisateur standard
 
-Les flux utilisateur standard (précédemment appelés v1) sont généralement disponibles et sont des flux utilisateur prêts pour la production. Les flux utilisateur standard ne seront pas mis à jour à l’avenir.
+Les flux d’utilisateurs standard, précédemment appelés **v1**, sont des flux d’utilisateurs hérités. À moins que vous n’ayez un besoin professionnel spécifique, nous vous déconseillons d’utiliser ces versions des flux d’utilisateurs, car elles ne seront pas mises à jour à l’avenir.
 
 | Flux utilisateur | Description |
-| --------- | ----------- | ----------- |
+| --------- | ----------- |
 | Réinitialisation du mot de passe | Permet à un utilisateur de choisir un nouveau mot de passe après la vérification de son adresse e-mail. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>Paramètres de conformité de jeton</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul> |
 | Modification de profil | Permet à un utilisateur de configurer ses attributs utilisateur. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li></ul> |
 | Se connecter | Permet à un utilisateur de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>Bloquer la connexion</li><li>Forcer la réinitialisation du mot de passe</li><li>Maintenir la connexion</ul><br>Vous ne pouvez pas personnaliser l’interface utilisateur avec ce flux utilisateur. |
@@ -54,9 +54,9 @@ Les flux utilisateur standard (précédemment appelés v1) sont généralement d
 | Inscription et connexion | Permet à un utilisateur de créer un compte ou de se connecter à son compte. À l’aide de ce flux utilisateur, vous pouvez configurer les éléments suivants : <ul><li>[Authentification multifacteur](multi-factor-authentication.md)</li><li>[Durée de vie du jeton](tokens-overview.md)</li><li>Paramètres de conformité de jeton</li><li>Comportement de la session</li><li>[Exigences en termes de « complexité » du mot de passe](password-complexity.md)</li></ul>|
 
 
-## <a name="how-to-switch-to-a-new-recommended-user-flow"></a>Comment basculer vers un nouveau flux utilisateur recommandé
+## <a name="how-to-switch-to-a-recommended-user-flow"></a>Comment basculer vers un flux d’utilisateur recommandé
 
-Pour passer d’une version héritée d’un flux utilisateur à la nouvelle préversion **recommandée**, procédez comme suit :
+Pour passer d’une version héritée d’un flux d’utilisateur à la version **recommandée**, procédez comme suit :
 
 1. Créez une nouvelle stratégie de flux utilisateur en suivant les étapes décrites dans [Tutoriel : Créer des flux utilisateur dans Azure Active Directory](tutorial-create-user-flows.md). Lors de la création du flux utilisateur, sélectionnez la version **recommandée**.
 
@@ -77,12 +77,12 @@ Vous ne pouvez pas créer de flux utilisateur basés sur les versions V2 et V1.1
 
 ### <a name="is-there-any-reason-to-continue-using-legacy-v2-and-v11-user-flows"></a>Y a-t-il une raison de continuer à utiliser les flux d’utilisateur V2 et V1.1 hérités ?
 
-Pas vraiment. Les nouvelles préversions **recommandées** contiennent les mêmes fonctionnalités que les versions V2 et V1.1 héritées. Rien n’a été supprimé et, en fait, elles incluent maintenant des fonctionnalités supplémentaires.
+Pas vraiment. Les versions **recommandées** contiennent les mêmes fonctionnalités que les versions v2 et v1.1 héritées. Rien n’a été supprimé et, en fait, elles incluent maintenant des fonctionnalités supplémentaires.
 
 ### <a name="if-i-dont-switch-from-legacy-v2-and-v11-policies-how-will-it-impact-my-application"></a>Si je ne passe pas des stratégies V2 et V1.1 héritées aux nouvelles, comment cela affectera-t-il mon application ?
 
-Si vous utilisez un flux utilisateur V2 ou V1.1 hérité, votre application n’est pas affectée par ce changement de version. Mais pour accéder aux nouvelles fonctionnalités ou modifications de stratégie à l’avenir, vous devez basculer vers les nouvelles versions **recommandées**.
+Si vous utilisez un flux utilisateur V2 ou V1.1 hérité, votre application n’est pas affectée par ce changement de version. Mais pour accéder aux nouvelles fonctionnalités ou modifications de stratégie à l’avenir, vous devrez basculer vers les versions **recommandées**.
 
 ### <a name="will-microsoft-still-support-my-legacy-v2-or-v11-user-flow-policy"></a>Microsoft continuera-t-il de prendre en charge ma stratégie de flux utilisateur V2 ou V1.1 héritée ?
 
-Les versions V2 et V1.1 héritées des flux utilisateur continueront d’être entièrement prises en charge.
+Dans le cloud public, tous les flux d’utilisateurs en préversion hérités (v1.1 et v2) seront déconseillés d’ici le 1er août 2021. Dans la mesure du possible, nous vous recommandons vivement de [basculer vers les versions **recommandées**](#how-to-switch-to-a-recommended-user-flow) dès que possible, afin de pouvoir toujours tirer parti des dernières fonctionnalités et mises à jour. *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).*

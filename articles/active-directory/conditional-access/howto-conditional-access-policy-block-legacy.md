@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 982c33c5c55e32ce48131a4b2f0911e4f23dd408
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6358f5589e785cfadf243ee2017434aad5dd94a9
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98877286"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176033"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
 
@@ -43,6 +43,9 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
    1. Sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et définissez **Activer la stratégie** sur **Rapport seul**.
 1. Sélectionnez **Créer** pour créer votre stratégie.
+
+> [!NOTE]
+> Des stratégies d'accès conditionnel sont appliquées au terme de l'authentification premier facteur. L'accès conditionnel n'est pas destiné à être la première ligne de défense d'une organisation pour des scénarios comme les attaques par déni de service (DoS), mais il peut utiliser les signaux de ces événements pour déterminer l'accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

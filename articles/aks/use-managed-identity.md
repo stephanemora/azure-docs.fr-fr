@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les identités managées dans Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 7eb0ab6247e8afc27f938b8b4a25d1fb1ee723f4
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c87b6dbde14c8b736301846faa8471dd518a98a4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876991"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289765"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utiliser les identités managées dans Azure Kubernetes Service
 
@@ -35,8 +35,8 @@ AKS utilise plusieurs identités managées pour les services intégrés et les m
 
 | Identité                       | Nom    | Cas d’utilisation | Autorisations par défaut | Apportez votre propre identité
 |----------------------------|-----------|----------|
-| Plan de contrôle | non visible | Utilisé par les composants du plan de contrôle AKS pour gérer les ressources de cluster, notamment les équilibreurs de charge d’entrée et les IP publiques gérées par AKS, ainsi que les opérations de mise à l’échelle automatique | Rôle Contributeur pour le groupe de ressources du nœud | supported
-| Kubelet | Nom du cluster AKS - agentpool | Authentification avec Azure Container Registry (ACR) | NA (pour kubernetes v1.15+) | Non prise en charge pour le moment
+| Plan de contrôle | non visible | Utilisé par les composants du plan de contrôle AKS pour gérer les ressources de cluster, notamment les équilibreurs de charge d’entrée et les IP publiques gérées par AKS, ainsi que les opérations de mise à l’échelle automatique | Rôle Contributeur pour le groupe de ressources du nœud | Prise en charge
+| Kubelet | Nom du cluster AKS - agentpool | Authentification avec Azure Container Registry (ACR) | NA (pour kubernetes v1.15+) | Prise en charge (préversion)
 | Composant additionnel | AzureNPM | Aucune identité requise | N/D | Non
 | Composant additionnel | Analyse du réseau AzureCNI | Aucune identité requise | N/D | Non
 | Composant additionnel | azure-policy (gatekeeper) | Aucune identité requise | N/D | Non

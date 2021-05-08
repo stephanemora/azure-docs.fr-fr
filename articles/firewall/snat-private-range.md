@@ -7,16 +7,16 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: victorh
-ms.openlocfilehash: 91d4d631376c03b668128936f3840ce1119f9b6f
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 01707a99b1ff5d077daf3c095e1daf78ccddfeac
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482741"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898186"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Pare-feu Azure traduit l’adresse réseau source des plages d’adresses IP privées
 
-Le Pare-feu Azure assure automatiquement la traduction SNAT pour l'ensemble du trafic sortant à destination d'adresses IP publiques. Par défaut, le Pare-feu Azure ne traduit pas l'adresse réseau source avec des règles de réseau lorsque l'adresse IP de destination se trouve dans une plage d'adresses IP privées définie par la norme [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Les règles d’application sont toujours appliquées à l’aide d’un [proxy transparent](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy), quelle que soit l’adresse IP de destination.
+Le Pare-feu Azure assure automatiquement la traduction SNAT pour l'ensemble du trafic sortant à destination d'adresses IP publiques. Par défaut, Pare-feu Azure ne traduit pas l’adresse réseau source avec des règles de réseau lorsque l’adresse IP de destination se trouve dans une plage d’adresses IP privées conformément à la norme [IANA RFC 1918](https://tools.ietf.org/html/rfc1918) ou dans un espace d’adressage partagé conformément à la norme [IANA RFC 6598](https://tools.ietf.org/html/rfc6598). Les règles d’application sont toujours appliquées à l’aide d’un [proxy transparent](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy), quelle que soit l’adresse IP de destination.
 
 Cette logique fonctionne bien lorsque vous acheminez le trafic directement vers Internet. Cependant, si vous avez activé le [tunneling forcé](forced-tunneling.md), le trafic Internet est « SNATé » vers l'une des adresses IP privées du pare-feu dans AzureFirewallSubnet, ce qui a pour effet de masquer la source à votre pare-feu local.
 
