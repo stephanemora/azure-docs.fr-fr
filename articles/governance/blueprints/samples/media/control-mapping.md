@@ -3,12 +3,12 @@ title: Contrôles de l’exemple de blueprint Media
 description: Correspondance des contrôles des exemples de blueprint Media. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
 ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: 4c04c661d7dd8b2b07a05c20524258d6bb887e62
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f2750f4733a3a815236778c846bde4e186f30512
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376696"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161318"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Media
 
@@ -229,13 +229,13 @@ Les correspondances suivantes concernent les contrôles **Media**. Utilisez le v
 - Auditez les vulnérabilités de système d’exploitation dans vos groupes de machines virtuelles identiques pour les protéger des attaques.
 
 > [!NOTE]
-> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux. 
+> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez pris connaissance de la correspondance des contrôles de l’exemple de blueprint Media. Continuez avec les articles suivants pour découvrir une vue d’ensemble de cet exemple et pour savoir comment le déployer :
 
-> [!div class="next step action"]
+> [!div class="nextstepaction"]
 > [Blueprint Media - Correspondance des contrôles](./control-mapping.md)
 > [Blueprint Media - Étapes de déploiement](./deploy.md)
 

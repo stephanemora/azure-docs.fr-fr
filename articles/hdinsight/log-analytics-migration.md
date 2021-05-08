@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.author: ali
 author: AliciaLiMicrosoft
 ms.date: 04/19/2021
-ms.openlocfilehash: 6659b515ee2d25a4b9136ccfac4cc3444e491438
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 5e312941e02c5605132971a55041a0b4f7d6dbc9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741083"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139090"
 ---
 # <a name="log-analytics-migration-guide-for-azure-hdinsight-clusters"></a>Guide de migration Log Analytics pour les clusters Azure HDInsight
 
@@ -59,7 +59,7 @@ Les sections suivantes décrivent comment les clients peuvent utiliser la nouvel
 ## <a name="activate-a-new-azure-monitor-integration"></a>Activer une nouvelle intégration Azure Monitor 
 
 > [!NOTE]
-> Vous devez disposer d’un espace de travail Log Analytics créé dans un abonnement auquel vous avez accès avant d’activer la nouvelle intégration. Pour plus d’informations sur la création d’un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md).
+> Vous devez disposer d’un espace de travail Log Analytics créé dans un abonnement auquel vous avez accès avant d’activer la nouvelle intégration. Pour plus d’informations sur la création d’un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/logs/quick-create-workspace.md).
 
 Activez la nouvelle intégration en accédant à la page du portail de votre cluster et en faisant défiler le menu de gauche jusqu’à ce que vous atteigniez la section **Surveillance** . Dans la section **Surveillance** , sélectionnez **Superviser l’intégration**. Ensuite, sélectionnez **Activer** pour pouvoir choisir l’espace de travail Log Analytics auquel vous souhaitez envoyer vos journaux. Sélectionnez **Enregistrer** une fois que vous avez choisi votre espace de travail. 
 
@@ -112,7 +112,7 @@ Vous pouvez entrer vos propres requêtes dans l’éditeur de requêtes de Journ
 
 #### <a name="insights"></a>Insights
 
-Les Insights sont des tableaux de bord de visualisation spécifiques aux clusters créés à l’aide de [Classeurs Azure](../azure-monitor/platform/workbooks-overview.md). Ces tableaux de bord vous fournissent des graphiques détaillés et des visualisations sur la façon dont votre cluster fonctionne. Les tableaux de bord comportent des sections pour chaque type de cluster, YARN, pour les métriques du système et pour les journaux des composants. Vous pouvez accéder au tableau de bord de votre cluster en visitant la page de votre cluster sur le portail, en faisant défiler jusqu’à la section **Surveillance**, puis en sélectionnant le volet **Insights**. Le tableau de bord se charge automatiquement si vous avez activé la nouvelle intégration. Patientez quelques secondes que les graphiques se chargent au fur et à mesure qu’ils interrogent les journaux.
+Les Insights sont des tableaux de bord de visualisation spécifiques aux clusters créés à l’aide de [Classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). Ces tableaux de bord vous fournissent des graphiques détaillés et des visualisations sur la façon dont votre cluster fonctionne. Les tableaux de bord comportent des sections pour chaque type de cluster, YARN, pour les métriques du système et pour les journaux des composants. Vous pouvez accéder au tableau de bord de votre cluster en visitant la page de votre cluster sur le portail, en faisant défiler jusqu’à la section **Surveillance**, puis en sélectionnant le volet **Insights**. Le tableau de bord se charge automatiquement si vous avez activé la nouvelle intégration. Patientez quelques secondes que les graphiques se chargent au fur et à mesure qu’ils interrogent les journaux.
 
 :::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" lightbox="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Capture d’écran montrant le tableau de bord de visualisation.":::
 
@@ -132,7 +132,7 @@ Utilisez notre nouveau classeur à grande échelle pour obtenir une expérience 
 
 #### <a name="alerts"></a>Alertes
 
-Vous pouvez ajouter des alertes personnalisées à vos clusters et espaces de travail dans l’éditeur de requêtes Journaux. Accédez à l’éditeur de requêtes Journaux en sélectionnant le volet **Journaux** dans votre cluster ou portail d’espace de travail. Exécutez une requête, puis sélectionnez **Nouvelle règle d’alerte**, comme indiqué dans la capture d’écran suivante. Pour plus d'informations, consultez [Configuration des alertes](../azure-monitor/platform/alerts-log.md).
+Vous pouvez ajouter des alertes personnalisées à vos clusters et espaces de travail dans l’éditeur de requêtes Journaux. Accédez à l’éditeur de requêtes Journaux en sélectionnant le volet **Journaux** dans votre cluster ou portail d’espace de travail. Exécutez une requête, puis sélectionnez **Nouvelle règle d’alerte**, comme indiqué dans la capture d’écran suivante. Pour plus d'informations, consultez [Configuration des alertes](../azure-monitor/alerts/alerts-log.md).
 
 :::image type="content" source="./media/log-analytics-migration/new-rule-alert.png" alt-text="Capture d’écran montrant l’alerte de nouvelle règle." border="false":::
 

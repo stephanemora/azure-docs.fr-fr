@@ -1,16 +1,16 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Logic Apps
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Logic Apps. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: reference
 ms.suite: integration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7a2559ba5162bf03b2758f5dc57c44b63af31f37
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 1365f7a69862ffb13d8926861687dd00ba7451e1
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107875578"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108183508"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-logic-apps"></a>Définitions intégrées d’Azure Policy pour Azure Logic Apps
 

@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 04/23/2021
 ms.author: rohink
-ms.openlocfilehash: 8b2576669357aae7e5fe423515933c2ce4a23a7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 962f1f98ad610c953368b351c1859e8e738340f9
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94954475"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949377"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Vue d’ensemble des enregistrements d’alias Azure DNS
 
@@ -31,34 +31,36 @@ Un jeu d’enregistrements d’alias est pris en charge pour les types d’enreg
 
 - **Pointer vers une ressource d’adresse IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique (standard ou de base). Le jeu d’enregistrements DNS change automatiquement si l’adresse IP publique change ou est supprimée. Les enregistrements DNS non résolus qui pointent vers des adresses IP incorrectes sont évités.
 
-   Il existe une limite actuelle de 20 jeux d’enregistrements d’alias par ressource.
+   > [!NOTE]
+   > Il existe une limite actuelle de 20 jeux d’enregistrements d’alias par ressource.
 
-- **Pointer vers un profil Traffic Manager à partir d’un jeu d’enregistrements A/AAAA/CNAME DNS.** Vous pouvez créer un jeu d'enregistrements A/AAAA ou CNAME et utiliser des enregistrements d'alias pour le diriger vers un profil Traffic Manager. Cela s’avère particulièrement utile quand vous devez router le trafic à un apex de zone, car les enregistrements CNAME traditionnels ne sont pas pris en charge pour un apex de zone. Supposons par exemple que votre profil Traffic Manager soit myprofile.trafficmanager.net et que la zone DNS de votre entreprise soit contoso.com. Vous pouvez créer un jeu d'enregistrements d'alias de type A/AAAA pour contoso.com (l'extrémité de la zone) et pointer vers myprofile.trafficmanager.net.
-- **Pointer vers un point de terminaison Azure CDN (Content Delivery Network)** . C’est utile quand vous créez des sites web statiques à l’aide du Stockage Azure et d’Azure CDN.
-- **Pointer vers un autre jeu d’enregistrements DNS au sein de la même zone.** Les enregistrements d’alias peuvent référencer d’autres jeux d’enregistrements du même type. Par exemple, un jeu d'enregistrements DNS CNAME peut être un alias d'un autre jeu d'enregistrements CNAME. Cette disposition est utile si vous voulez que certains jeux d’enregistrements d’alias soient des alias et d’autres des non-alias.
+- **Pointer vers un profil Traffic Manager à partir d’un jeu d’enregistrements A/AAAA ou CNAME DNS** : Vous pouvez créer un jeu d’enregistrements A/AAAA ou CNAME et utiliser des enregistrements d’alias pour le pointer vers un profil Traffic Manager. Cela s’avère particulièrement utile quand vous devez router le trafic à un apex de zone, car les enregistrements CNAME traditionnels ne sont pas pris en charge pour un apex de zone. Supposons par exemple que votre profil Traffic Manager soit myprofile.trafficmanager.net et que la zone DNS de votre entreprise soit contoso.com. Vous pouvez créer un jeu d'enregistrements d'alias de type A/AAAA pour contoso.com (l'extrémité de la zone) et pointer vers myprofile.trafficmanager.net.
+- **Pointer vers un point de terminaison Microsoft Azure Content Delivery Network (CDN)**  : Cette fonctionnalité est utile lorsque vous créez des sites web statiques à l’aide de Stockage Azure et d’Azure CDN.
+- **Pointer vers un autre jeu d’enregistrements DNS dans la même zone** : Les enregistrements d’alias peut faire référence à d’autres jeux d’enregistrements du même type. Par exemple, un jeu d'enregistrements DNS CNAME peut être un alias d'un autre jeu d'enregistrements CNAME. Cette disposition est utile si vous voulez que certains jeux d’enregistrements d’alias soient des alias et d’autres des non-alias.
 
 ## <a name="scenarios"></a>Scénarios
 
-Voici quelques scénarios courants mettant en œuvre des enregistrements d’alias.
+Voici quelques scénarios courants d’utilisation des enregistrements d’alias.
 
 ### <a name="prevent-dangling-dns-records"></a>Empêcher les enregistrements DNS non résolus
 
 Les enregistrements non résolus constituent un problème courant avec les enregistrements DNS traditionnels. Par exemple, les enregistrements DNS qui n’ont pas été mis à jour pour refléter les changements apportés aux adresses IP. Ce problème se produit en particulier avec les types d'enregistrements A/AAAA ou CNAME.
 
-Avec un enregistrement de zone DNS traditionnel, si l'adresse IP ou l'enregistrement CNAME cible n'existe plus, l'enregistrement DNS qui lui est associé doit être mis à jour manuellement. Dans certaines organisations, une mise à jour manuelle peut ne pas avoir lieu à temps en raison de problèmes liées au processus ou de la séparation des rôles et des niveaux d’autorisation associés. Par exemple, un rôle peut avoir l’autorisation de supprimer un CNAME ou une adresse IP appartenant à une application. Mais il ne dispose pas d’autorisations suffisantes pour mettre à jour l’enregistrement DNS qui pointe vers ces cibles. Un retard de mise à jour de l'enregistrement DNS peut potentiellement provoquer une interruption pour les utilisateurs.
+Avec un enregistrement de zone DNS traditionnel, lorsque l’adresse IP ou l’enregistrement CNAME cible n’existe plus, l’enregistrement DNS qui lui est associé a été mis à jour manuellement. Dans certaines organisations, une mise à jour manuelle peut ne pas se faire rapidement en raison de problèmes liées au processus ou de la séparation des rôles et des niveaux d’autorisation associés. Par exemple, un rôle peut avoir l’autorisation de supprimer un CNAME ou une adresse IP appartenant à une application. Mais il ne dispose pas d’autorisations suffisantes pour mettre à jour l’enregistrement DNS qui pointe vers ces cibles. Un retard de mise à jour de l’enregistrement DNS peut potentiellement provoquer une panne prolongée pour les utilisateurs.
 
 Les enregistrements d'alias empêchent les références non résolues en associant étroitement le cycle de vie d'un enregistrement DNS à une ressource Azure. Prenons l'exemple d'un enregistrement DNS qualifié en tant qu'enregistrement d'alias et pointant vers une adresse IP publique ou un profil Traffic Manager. Si vous supprimez ces ressources sous-jacentes, l’enregistrement d’alias DNS devient un jeu d’enregistrements vide. Il ne fait plus référence à la ressource supprimée.
 
 ### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Mise à jour automatique de l'enregistrement DNS lorsque les adresses IP de l'application changent
 
-Ce scénario est semblable au précédent. Une application est peut-être déplacée ou la machine virtuelle sous-jacente redémarrée. Un enregistrement d’alias est alors automatiquement mis à jour quand l’adresse IP change pour la ressource d’adresse IP publique sous-jacente. Cela prévient les risques de sécurité liés à l'acheminement des utilisateurs vers une autre application à laquelle l'ancienne adresse IP publique a été attribuée.
+Ce scénario est semblable au précédent. Une application est peut-être déplacée ou la machine virtuelle sous-jacente redémarrée. L’enregistrement d’alias est alors automatiquement mis à jour quand l’adresse IP change pour la ressource d’IP publique sous-jacente. Cette mise à jour peut potentiellement éviter les risques de sécurité liés à l’acheminement des utilisateurs vers une autre application à laquelle l’ancienne IP publique a été attribuée.
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Héberger des applications à charge équilibrée au niveau de l’apex de zone
 
-Le protocole DNS empêche l'attribution d'enregistrements CNAME à l'extrémité de la zone. Par exemple, si votre domaine est contoso.com, vous pouvez créer des enregistrements CNAME pour somelabel.contoso.com, mais vous ne pouvez pas en créer pour contoso.com lui-même.
-Cette restriction pose un problème aux propriétaires d'applications qui disposent d'applications à charge équilibrée derrière [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Dans la mesure où l’utilisation d’un profil Traffic Manager nécessite la création d’un enregistrement CNAME, il est impossible de pointer vers le profil Traffic Manager à partir de l’apex de zone.
+Le protocole DNS empêche l'attribution d'enregistrements CNAME à l'extrémité de la zone. Par exemple, si votre domaine est contoso.com. Vous pouvez créer des enregistrements CNAME pour somelabel.contoso.com, mais vous ne pouvez pas en créer un pour contoso.com lui-même.
 
-Ce problème est résolu en utilisant des enregistrements d’alias. Contrairement aux enregistrements CNAME, les enregistrements d’alias sont créés à l’apex de zone, et les propriétaires d’applications peuvent l’utiliser pour pointer leur enregistrement d’apex de zone vers un profil Traffic Manager doté de points de terminaison externes. Les propriétaires d’applications peuvent pointer vers le même profil Traffic Manager que celui utilisé pour tout autre domaine de leur zone DNS.
+Cette restriction pose un problème aux propriétaires d'applications qui disposent d'applications à charge équilibrée derrière [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Dans la mesure où l’utilisation d’un profil Traffic Manager nécessite la création d’un enregistrement CNAME, il est impossible de pointer vers le profil Traffic Manager depuis l’apex de la zone.
+
+Pour résoudre ce problème, vous pouvez utiliser des enregistrements d’alias. Contrairement aux enregistrements CNAME, les enregistrements d’alias sont créés à l’apex de zone, et les propriétaires d’applications peuvent l’utiliser pour pointer leur enregistrement d’apex de zone vers un profil Traffic Manager doté de points de terminaison externes. Les propriétaires d’applications peuvent pointer vers le même profil Traffic Manager que celui utilisé pour tout autre domaine de leur zone DNS.
 
 Par exemple, contoso.com et www\.contoso.com peuvent pointer vers le même profil Traffic Manager. Pour en savoir plus sur l'utilisation des enregistrements d'alias avec les profils Azure Traffic Manager, consultez la section Étapes suivantes.
 
@@ -68,7 +70,7 @@ Tout comme un profil Traffic Manager, vous pouvez également utiliser des enregi
 
 Par exemple, si votre site web statique se nomme `www.contoso.com`, vos utilisateurs peuvent accéder à votre site à l’aide de `contoso.com` sans avoir besoin d’ajouter le préfixe « www » au nom DNS.
 
-Comme décrit précédemment, les enregistrements CNAME ne sont pas pris en charge à l’apex de zone. Par conséquent, vous ne pouvez pas utiliser un enregistrement CNAME pour pointer contoso.com vers votre point de terminaison CDN. À la place, vous pouvez utiliser un enregistrement d’alias pour pointer l’apex de zone directement sur un point de terminaison CDN.
+Comme décrit précédemment, les enregistrements CNAME ne sont pas pris en charge à l’apex de zone. Vous ne pouvez pas utiliser un enregistrement CNAME pour pointer contoso.com vers votre point de terminaison CDN. À la place, vous pouvez utiliser un enregistrement d’alias pour pointer l’apex de zone directement sur un point de terminaison CDN.
 
 > [!NOTE]
 > Le fait de pointer un apex de zone vers des points de terminaison CDN pour Azure CDN fourni par Akamai n’est actuellement pas pris en charge.

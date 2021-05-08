@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 1f00f470fb0aa8ac98b431c6fc9428f501b553ed
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 8a056be34b9771188fb88e4d1f7db78eb82d1b4e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566441"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162398"
 ---
-# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>API REST et PowerShell pour le pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics 
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>API REST et PowerShell pour le pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
 De nombreuses tâches d’administration de pool SQL dédié peuvent être gérées avec des cmdlets Azure PowerShell ou des API REST.  Vous trouverez ci-dessous quelques exemples d'utilisation des commandes PowerShell pour automatiser les tâches courantes dans votre pool SQL dédié (anciennement SQL DW).  Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST](sql-data-warehouse-manage-compute-rest-api.md).
 
@@ -39,13 +39,13 @@ De nombreuses tâches d’administration de pool SQL dédié peuvent être gér�
 
 Une base de données appelée « Database02 » et hébergée sur un serveur appelé « Server01 » est interrompue.  Le serveur est un groupe de ressources Azure appelé « ResourceGroup1 ».
 
-```Powershell
+```powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 Variante : dans cet exemple, l’objet récupéré est redirigé vers [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  En conséquence, la base de données est interrompue. La dernière commande affiche les résultats.
 
-```Powershell
+```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
@@ -55,13 +55,13 @@ $resultDatabase
 
 Les opérations d’une base de données appelée « Database02 » et hébergée sur un serveur « Server01 » sont reprises. Le serveur est hébergé dans un groupe de ressources appelé « ResourceGroup1 ».
 
-```Powershell
+```powershell
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
 Une variante, dans cet exemple une base de données appelée « Database02 » est récupérée d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ». L’objet récupéré est redirigé vers [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-```Powershell
+```powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 ```
