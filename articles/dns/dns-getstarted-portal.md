@@ -5,23 +5,25 @@ description: Utilisez ce guide de démarrage rapide pas à pas pour apprendre à
 services: dns
 author: rohinkoul
 ms.author: rohink
-ms.date: 10/20/2020
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: dns
 ms.custom:
 - mode-portal
-ms.openlocfilehash: d08c5768c2c400ff3d842f58081a58708bfc28db
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f72dd2be2277754100693c2ebb1ef8658ca6f39a
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537778"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949401"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Démarrage rapide : Créer une zone et un enregistrement Azure DNS à partir du portail Azure
 
 Vous pouvez configurer Azure DNS pour résoudre les noms d’hôtes dans votre domaine public. Par exemple, si vous avez acheté le nom de domaine *contoso.xyz* auprès d’un bureau d’enregistrement de noms de domaine, vous pouvez configurer Azure DNS pour héberger le domaine *contoso.xyz* et résoudre *`www.contoso.xyz`* dans l’adresse IP de votre serveur web ou application web.
 
 Dans ce guide de démarrage rapide, vous allez créer un domaine test, puis un enregistrement d’adresse pour résoudre *www* en l’adresse *IP 10.10.10.10*.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement DNS avec le portail Azure." border="false":::
 
 >[!IMPORTANT]
 >Tous les noms et adresses IP cités dans ce guide de démarrage rapide sont des exemples qui ne représentent pas des scénarios réels.

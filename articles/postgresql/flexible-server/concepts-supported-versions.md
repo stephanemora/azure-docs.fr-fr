@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 5fda7ebb5a72dd9bbfab0ba72511540cf141563f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/22/2021
+ms.openlocfilehash: 8c3406bfa7c02c40cc1f10f52bdffa2b3d56a585
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608848"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988781"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Versions principales PostgreSQL prises en charge dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -22,11 +22,11 @@ Azure Database pour PostgreSQL - Serveur flexible prend actuellement en charge l
 
 ## <a name="postgresql-version-12"></a>PostgreSQL version 12
 
-La version mineure actuelle est 12.5. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-4.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est **12.6**. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-4.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure. De nouveaux serveurs seront créés avec cette version mineure. Vos serveurs existants seront automatiquement mis à niveau vers la dernière version mineure prise en charge lors de votre prochaine fenêtre de maintenance planifiée.
 
 ## <a name="postgresql-version-11"></a>PostgreSQL Version 11
 
-La version mineure actuelle est 11.10. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-9.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure.
+La version mineure actuelle est **11.11**. Consultez la [documentation PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-9.html) pour en savoir plus sur les améliorations et les correctifs de cette version mineure. De nouveaux serveurs seront créés avec cette version mineure. Vos serveurs existants seront automatiquement mis à niveau vers la dernière version mineure prise en charge lors de votre prochaine fenêtre de maintenance planifiée.
 
 ## <a name="postgresql-version-10-and-older"></a>PostgreSQL version 10 et antérieures
 

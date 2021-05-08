@@ -3,12 +3,12 @@ title: Activer des sessions de messagerie Azure Service Bus | Microsoft Docs
 description: Cet article explique comment activer des sessions de messagerie en utilisant le Portail Azure, PowerShell, l’interface CLI et des langages de programmation (C#, Java, Python et JavaScript)
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: dc2667b746a57c7f2e4ac5faec88c4540bed1180
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 53791bb7dc1dec9bdf6c2c4aa8dda14728c2c465
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107755056"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989141"
 ---
 # <a name="enable-message-sessions-for-an-azure-service-bus-queue-or-a-subscription"></a>Activer des sessions de messagerie pour une file d’attente ou un abonnement Azure Service Bus
 Les sessions Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles **premier entré, premier sorti (FIFO**) et **requête-réponse**. Pour plus d’informations, consultez [Sessions de messagerie](message-sessions.md). Cet article vous montre différentes façons d’activer des sessions pour une file d’attente ou un abonnement Service Bus. 
@@ -203,12 +203,12 @@ Pour **créer un abonnement pour une rubrique avec les sessions de messagerie ac
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez les exemples dans le langage de votre choix pour explorer les fonctionnalités d’Azure Service Bus. 
 
-- [Exemples de bibliothèque de client Azure Service Bus pour Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Exemples de bibliothèque de client Azure Service Bus pour .NET (dernière version)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Exemples de bibliothèque de client Azure Service Bus pour Java (dernière version)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Exemples de bibliothèque de client Azure Service Bus pour Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Exemples de bibliothèque de client Azure Service Bus pour JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Exemples de bibliothèque de client Azure Service Bus pour TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Exemples Azure.Messaging.ServiceBus pour .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
-Recherchez des exemples pour les anciennes bibliothèques de client .NET et Java ci-dessous :
-- [Exemples Microsoft.Azure.ServiceBus pour .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Exemples azure-servicebus pour Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+Recherchez des exemples pour les anciennes bibliothèques clientes .NET et Java ci-dessous :
+- [Exemples de bibliothèque de client Azure Service Bus pour .NET (version héritée)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Exemples de bibliothèque de client Azure Service Bus pour Java (version héritée)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
