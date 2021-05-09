@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 39c0877b96a3e8c6c716c1ab9ae7ba11575990a0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4c14d77ba87ab4bd3f4465d915b911a1d44aefab
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765590"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166448"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Les clusters AKS sont déployés sur un réseau virtuel. Ce réseau peut être g
 
 Pour la gestion et à des fins opérationnelles, les nœuds d’un cluster AKS doivent accéder à certains ports et noms de domaine complet (FQDN). Ces points de terminaison sont nécessaires pour permettre aux nœuds de communiquer avec le serveur d’API, ou de télécharger et d’installer les principaux composants du cluster Kubernetes et les correctifs de sécurité des nœuds. Par exemple, le cluster doit extraire les images conteneurs système de base de Microsoft Container Registry (MCR).
 
-Les dépendances sortantes AKS sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses statiques derrière eux. En raison de cette absence d’adresses statiques, il n’est pas possible d’utiliser des groupes de sécurité réseau pour verrouiller le trafic sortant d’un cluster AKS. 
+Les dépendances sortantes AKS sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses statiques derrière eux. En raison de cette absence d’adresses statiques, il n’est pas possible d’utiliser des groupes de sécurité réseau pour verrouiller le trafic sortant d’un cluster AKS.
 
 Par défaut, les clusters AKS ont un accès illimité sortant à Internet. Ce niveau d’accès réseau permet aux nœuds et services que vous exécutez d’accéder aux ressources externes en fonction des besoins. Si vous souhaitez restreindre le trafic de sortie, un nombre limité de ports et adresses doit être accessible afin de gérer les tâches de maintenance d’intégrité du cluster. La solution la plus simple pour sécuriser les adresses sortantes consiste à utiliser un dispositif de pare-feu permettant de contrôler le trafic sortant en fonction des noms de domaine. Le Pare-feu Azure, par exemple, peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom FQDN de la destination. Vous pouvez également configurer les règles de pare-feu et de sécurité de votre choix pour autoriser ces ports et adresses requis.
 
@@ -37,10 +37,9 @@ Les règles de réseau et de nom FQDN/d’application suivantes sont requises po
 * Les dépendances d’adresses IP pour le trafic non-HTTP/S (à la fois le trafic TCP et UDP)
 * Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être placés dans votre dispositif de pare-feu.
 * Les points de terminaison HTTP/HTTPS avec caractères génériques constituent des dépendances qui peuvent varier avec votre cluster AKS selon le nombre de qualificateurs.
-* AKS utilise un contrôleur d’admission pour injecter le nom FQDN comme variable d’environnement pour tous les déploiements sous kube-system et gatekeeper-system. Ainsi, toutes les communications système entre les nœuds et le serveur d’API ont recours au nom FQDN du serveur d’API et non à son adresse IP. 
+* AKS utilise un contrôleur d’admission pour injecter le nom FQDN comme variable d’environnement pour tous les déploiements sous kube-system et gatekeeper-system. Ainsi, toutes les communications système entre les nœuds et le serveur d’API ont recours au nom FQDN du serveur d’API et non à son adresse IP.
 * Si l’une de vos applications ou solutions doit communiquer avec le serveur d’API, vous devez ajouter une règle de réseau **supplémentaire** pour autoriser la *communication TCP sur le port 443 de l’adresse IP du serveur d’API*.
 * Il peut arriver en de rares occasions que l’adresse IP de votre serveur d’API change en cas d’opération de maintenance. Les opérations de maintenance planifiée susceptibles de modifier l’adresse IP du serveur d’API sont toujours communiquées à l’avance.
-
 
 ### <a name="azure-global-required-network-rules"></a>Règles de réseau requises pour Azure Global
 
@@ -54,7 +53,7 @@ Les règles de réseau et les dépendances d’adresse IP requises sont les suiv
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Si vous utilisez des serveurs DNS personnalisés, vous devez vérifier qu’ils sont accessibles par les nœuds de cluster. |
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatoire en cas d’exécution de pods/déploiements qui accèdent au serveur d’API. Ces pods/déploiements utiliseront l’adresse IP de l’API. Ce n’est pas obligatoire pour les [clusters privés](private-clusters.md).  |
 
-### <a name="azure-global-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure Global 
+### <a name="azure-global-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure Global
 
 Les noms de domaine complets/règles d’application suivantes sont requis :
 
@@ -108,7 +107,7 @@ Les règles de réseau et les dépendances d’adresse IP requises sont les suiv
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Si vous utilisez des serveurs DNS personnalisés, vous devez vérifier qu’ils sont accessibles par les nœuds de cluster. |
 | **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatoire en cas d’exécution de pods/déploiements qui accèdent au serveur d’API. Ces pods/déploiements utiliseront l’adresse IP de l’API.  |
 
-### <a name="azure-us-government-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure US Government 
+### <a name="azure-us-government-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure US Government
 
 Les noms de domaine complets/règles d’application suivantes sont requis :
 
@@ -144,7 +143,7 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 | **`us.download.nvidia.com`**            | **`HTTPS:443`** | Cette adresse est utilisée pour la bonne installation du pilote et un bon fonctionnement sur les nœuds basés sur le processeur graphique. |
 | **`apt.dockerproject.org`**             | **`HTTPS:443`** | Cette adresse est utilisée pour la bonne installation du pilote et un bon fonctionnement sur les nœuds basés sur le processeur graphique. |
 
-## <a name="windows-server-based-node-pools"></a>Pools de nœuds basés sur Windows Server 
+## <a name="windows-server-based-node-pools"></a>Pools de nœuds basés sur Windows Server
 
 ### <a name="required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises
 
@@ -190,7 +189,7 @@ Mettez à jour la configuration de votre pare-feu ou votre configuration de la s
 |----------------------------------------------------------------------------------|----------|---------|------|
 | [Balise de service](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureDevSpaces`**  | TCP           | 443      | Ce point de terminaison est utilisé pour envoyer les données de métriques et des journaux à Azure Monitor et à Log Analytics. |
 
-#### <a name="required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises 
+#### <a name="required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises
 
 Les règles de nom de domaine complet/d’application suivantes sont requises pour les clusters AKS avec Azure Dev Spaces activé :
 
@@ -200,10 +199,9 @@ Les règles de nom de domaine complet/d’application suivantes sont requises po
 | `gcr.io` | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les images Helm/Tiller |
 | `storage.googleapis.com` | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les images Helm/Tiller |
 
-
 ### <a name="azure-policy"></a>Azure Policy
 
-#### <a name="required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises 
+#### <a name="required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises
 
 Les noms de domaine complets/règles d’application suivants sont requis pour les clusters AKS avec Azure Policy activé.
 
@@ -215,7 +213,7 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les stratégies intégrées de GitHub afin de garantir le bon fonctionnement d’Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Le module complémentaire Azure Policy envoie des données de télémétrie au point de terminaison Applications Insights. |
 
-#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure China 21Vianet 
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure China 21Vianet
 
 Les noms de domaine complets/règles d’application suivants sont requis pour les clusters AKS avec Azure Policy activé.
 
@@ -235,7 +233,7 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Limitation du trafic de sortie à l’aide du Pare-feu Azure
 
-Le Pare-feu Azure fournit une balise FQDN Azure Kubernetes Service (`AzureKubernetesService`) pour simplifier cette configuration. 
+Le Pare-feu Azure fournit une balise FQDN Azure Kubernetes Service (`AzureKubernetesService`) pour simplifier cette configuration.
 
 > [!NOTE]
 > La balise FQDN, qui contient tous les noms FQDN listés ci-dessus, est mise à jour automatiquement.
@@ -258,9 +256,7 @@ Voici un exemple d’architecture du déploiement :
 * Trafic interne
   * Si vous le souhaitez, à la place ou en plus d’un [Équilibreur de charge public](load-balancer-standard.md), vous pouvez utiliser un [Équilibreur de charge interne](internal-lb.md) pour le trafic interne, que vous pouvez également isoler sur son propre sous-réseau.
 
-
 Les étapes ci-dessous utilisent la balise FQDN `AzureKubernetesService` du Pare-feu Azure pour limiter le trafic sortant du cluster AKS et donnent un exemple de configuration du trafic entrant public qui passe par le pare-feu.
-
 
 ### <a name="set-configuration-via-environment-variables"></a>Définir la configuration via des variables d’environnement
 
@@ -326,7 +322,6 @@ Les règles de trafic entrant et sortant du pare-feu Azure doivent être configu
 
 ![Pare-feu et route définie par l’utilisateur](media/limit-egress-traffic/firewall-udr.png)
 
-
 > [!IMPORTANT]
 > Si votre cluster ou votre application crée un grand nombre de connexions sortantes dirigées vers les mêmes destinations ou une petite partie d’entre elles, il peut vous falloir davantage d’adresses IP front-end de pare-feu pour éviter d’atteindre le maximum de ports par adresse IP front-end.
 > Pour plus d’informations sur la création d’un Pare-feu Azure avec plusieurs adresses IP, cliquez [**ici**](../firewall/quick-create-multiple-ip-template.md).
@@ -338,6 +333,7 @@ az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Inscrivez l’extension CLI en préversion pour créer un pare-feu Azure.
+
 ```azurecli
 # Install Azure Firewall preview CLI extension
 
@@ -347,6 +343,7 @@ az extension add --name azure-firewall
 
 az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 ```
+
 L’adresse IP créée précédemment peut maintenant être affectée au front-end du pare-feu.
 
 > [!NOTE]
@@ -448,7 +445,7 @@ az role assignment create --assignee $APPID --scope $VNETID --role "Network Cont
 Vous pouvez consulter [ici](kubernetes-service-principal.md#delegate-access-to-other-azure-resources) les autorisations détaillées requises.
 
 > [!NOTE]
-> Si vous utilisez le plug-in réseau kubenet, vous devez accorder au principal de service AKS ou à l’identité managée des autorisations vis-à-vis de la table de route précréée, car kubenet a besoin d’une table de route pour ajouter les règles d’acheminement nécessaires. 
+> Si vous utilisez le plug-in réseau kubenet, vous devez accorder au principal de service AKS ou à l’identité managée des autorisations vis-à-vis de la table de route précréée, car kubenet a besoin d’une table de route pour ajouter les règles d’acheminement nécessaires.
 > ```azurecli-interactive
 > RTID=$(az network route-table show -g $RG -n $FWROUTE_TABLE_NAME --query id -o tsv)
 > az role assignment create --assignee $APPID --scope $RTID --role "Network Contributor"
@@ -466,7 +463,6 @@ Vous allez définir le type sortant de façon à utiliser la route définie par 
 
 > [!IMPORTANT]
 > Pour plus d’informations sur la route définie par l’utilisateur de type sortant, notamment les limitations, consultez [**Route définie par l’utilisateur de type sortant de sortie**](egress-outboundtype.md#limitations).
-
 
 > [!TIP]
 > Des fonctionnalités supplémentaires peuvent être ajoutées au déploiement du cluster, comme [**Cluster privé**](private-clusters.md). 
@@ -499,16 +495,16 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
-
 ```
 
- Exécutez la commande [az aks get-credentials][az-aks-get-credentials] pour configurer `kubectl` de sorte qu’il se connecte à votre nouveau cluster Kubernetes. 
+Exécutez la commande [az aks get-credentials][az-aks-get-credentials] pour configurer `kubectl` de sorte qu’il se connecte à votre nouveau cluster Kubernetes.
 
- ```azurecli
- az aks get-credentials -g $RG -n $AKSNAME
- ```
+```azurecli
+az aks get-credentials -g $RG -n $AKSNAME
+```
 
 ### <a name="deploy-a-public-service"></a>Déploiement d’un service public
+
 Vous pouvez maintenant commencer à exposer des services et à déployer des applications sur ce cluster. Dans cet exemple, nous allons exposer un service public, mais vous pouvez également choisir d’exposer un service interne au moyen d’un [équilibreur de charge interne](internal-lb.md).
 
 ![Règle DNAT de service public](media/limit-egress-traffic/aks-create-svc.png)
@@ -740,7 +736,6 @@ kubectl apply -f example.yaml
 > [!IMPORTANT]
 > Lorsque vous utilisez le Pare-feu Azure pour limiter le trafic de sortie et créer un itinéraire défini par l’utilisateur (UDR) afin de forcer tout le trafic de sortie, veillez à créer une règle DNAT appropriée dans le Pare-feu pour autoriser le trafic d’entrée. L’utilisation du Pare-feu Azure avec une UDR perturbe la configuration d’entrée en raison d’un routage asymétrique (ce problème se produit si le sous-réseau AKS a un itinéraire par défaut qui conduit à l’adresse IP privée du pare-feu, alors que vous utilisez un service d’équilibreur de charge public, d’entrée ou Kubernetes de type : LoadBalancer). Dans ce cas, le trafic d’équilibreur de charge entrant est reçu par le biais de son adresse IP publique, mais le chemin de retour passe par l’adresse IP privée du pare-feu. Le pare-feu étant avec état, il supprime le paquet de retour, car le pare-feu n’a pas connaissance d’une session établie. Pour découvrir comment intégrer un Pare-feu Azure avec votre équilibreur de charge d’entrée ou de service, voir [Intégrer un pare-feu Azure avec Azure Standard Load Balancer](../firewall/integrate-lb.md).
 
-
 Pour configurer la connectivité entrante, une règle DNAT doit être écrite sur le pare-feu Azure. Pour tester la connectivité au cluster, une règle est définie de sorte que l’adresse IP publique front-end du pare-feu soit acheminée vers l’adresse IP interne exposée par le service interne.
 
 L’adresse de destination peut être personnalisée, car il s’agit du port d’accès sur le pare-feu. L’adresse traduite doit être l’adresse IP de l’équilibreur de charge interne. Le port traduit doit être le port exposé pour votre service Kubernetes.
@@ -762,11 +757,13 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 ```
 
 Récupérez l’adresse IP du service en exécutant :
+
 ```bash
 SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Ajoutez la règle NAT en exécutant :
+
 ```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
@@ -777,9 +774,7 @@ Accédez à l’adresse IP du front-end du pare-feu Azure dans un navigateur pou
 
 L’application de vote AKS s’affiche. Dans cet exemple, l’IP publique du pare-feu était `52.253.228.132`.
 
-
 ![Capture d’écran montrant l’application AKS Voting avec des boutons pour Cats, Dogs, Reset et les totaux.](media/limit-egress-traffic/aks-vote.png)
-
 
 ### <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -791,7 +786,7 @@ az group delete -g $RG
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les ports et adresses à autoriser pour limiter le trafic de sortie du cluster. Vous avez également vu comment sécuriser votre trafic sortant à l’aide du Pare-feu Azure. 
+Dans cet article, vous avez découvert les ports et adresses à autoriser pour limiter le trafic de sortie du cluster. Vous avez également vu comment sécuriser votre trafic sortant à l’aide du Pare-feu Azure.
 
 Si nécessaire, vous pouvez généraliser la procédure ci-dessus pour transférer le trafic vers votre solution de sortie préférée, en suivant la [Documentation `userDefinedRoute` de type sortant](egress-outboundtype.md).
 

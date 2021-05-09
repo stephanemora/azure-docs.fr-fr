@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: jlian
-ms.openlocfilehash: 6a02b97957cc0599e2960cba551b536e83d1a902
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3fed568d1e5b85fcfaf5c88eb736e876e9748088
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222553"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930710"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Prise en charge de TLS (Transport Layer Security) dans IoT Hub
 
@@ -30,7 +30,7 @@ Lors du renouvellement de certificats côté serveur IoT Hub, un contrôle est e
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>Certificat TLS (version préliminaire) du serveur ECC (Elliptic Curve Cryptography)
 
-Le certificat TLS du serveur ECC d’IoT Hub est disponible en préversion publique. Tout en offrant une sécurité similaire aux certificats RSA, la validation des certificats ECC (avec les suites de chiffrement exclusivement ECC) utilise jusqu’à 40 % moins de calcul, de mémoire et de bande passante. Ces économies sont importantes pour les appareils IoT en raison de leur profil et de leur mémoire plus petits, et pour prendre en charge les cas d’usage dans des environnements où la bande passante est limitée. 
+Le certificat TLS du serveur ECC d’IoT Hub est disponible en préversion publique. Tout en offrant une sécurité similaire aux certificats RSA, la validation des certificats ECC (avec les suites de chiffrement exclusivement ECC) utilise jusqu’à 40 % moins de calcul, de mémoire et de bande passante. Ces économies sont importantes pour les appareils IoT en raison de leur profil et de leur mémoire plus petits, et pour prendre en charge les cas d’usage dans des environnements où la bande passante est limitée. La racine du certificat de serveur ECC est DigiCert Global Root G3.
 
 Pour afficher un aperçu du certificat de serveur ECC d’IoT Hub :
 

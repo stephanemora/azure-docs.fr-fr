@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble d’Azure Resource Graph
 description: Découvrez comment le service Azure Resource Graph permet d’exécuter des requêtes complexes sur des ressources à grande échelle entre des abonnements et des locataires.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: b5df124d07b8ecfb20f5dec08830d8156e8df2cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfbd0aad0ddc7a6b5aa0ccb78429c82f6aa33b3d
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919139"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326054"
 ---
 # <a name="what-is-azure-resource-graph"></a>Qu’est-ce qu’Azure Resource Graph ?
 

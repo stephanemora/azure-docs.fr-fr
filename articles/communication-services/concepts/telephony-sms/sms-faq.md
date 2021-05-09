@@ -9,12 +9,12 @@ ms.author: prakulka
 ms.date: 03/26/2021
 ms.topic: reference
 ms.service: azure-communication-services
-ms.openlocfilehash: 1ba7c730542adb74356d71f2482cce57e633cb65
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cd35ccc7399580c0bc83d8668ea932c3a800f700
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645563"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290557"
 ---
 # <a name="sms-faq"></a>FAQ relative aux SMS
 
@@ -43,7 +43,7 @@ Les désinscriptions des numéros gratuits aux États-Unis sont régies et appli
 
 ## <a name="how-can-i-receive-messages-using-azure-communication-services"></a>Comment puis-je recevoir des messages à l’aide d’Azure Communication Services ?
 
-Les clients d’Azure Communication Services peuvent utiliser Azure Event Grid pour recevoir des messages entrants. Suivez ce [démarrage rapide](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/handle-sms-events) pour configurer votre grille d’événements et recevoir des messages.
+Les clients d’Azure Communication Services peuvent utiliser Azure Event Grid pour recevoir des messages entrants. Suivez ce [démarrage rapide](../../quickstarts/telephony-sms/handle-sms-events.md) pour configurer votre grille d’événements et recevoir des messages.
 
 ## <a name="can-i-sendreceive-long-messages-2048-chars"></a>Puis-je envoyer ou recevoir des messages longs (plus de 2048 caractères) ?
 
@@ -56,4 +56,4 @@ Aux États-Unis, Azure Communication Services ne vérifie pas les numéros de t�
 ## <a name="can-i-send-messages-to-multiple-recipients"></a>Puis-je envoyer des messages à plusieurs destinataires ?
 
 
-Oui, vous pouvez faire une demande avec plusieurs destinataires. Suivez ce [démarrage rapide](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/send?pivots=programming-language-csharp) pour envoyer des messages à plusieurs destinataires.
+Oui, vous pouvez faire une demande avec plusieurs destinataires. Suivez ce [démarrage rapide](../../quickstarts/telephony-sms/send.md?pivots=programming-language-csharp) pour envoyer des messages à plusieurs destinataires.

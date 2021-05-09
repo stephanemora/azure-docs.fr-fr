@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 1f2c767d45bb08e25a057c7db1f380ceb250f607
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d02f0e8ff3d8d6da37e0e457cea2e4878ff1a2b0
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864905"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930008"
 ---
-# <a name="delete-using-azure-application-consistent-snapshot-tool-preview"></a>Supprimer avec l’outil Azure Application Consistent Snapshot Tool (préversion)
+# <a name="delete-using-azure-application-consistent-snapshot-tool"></a>Supprimer avec l’outil Azure Application Consistent Snapshot Tool
 
 Cet article sert de guide pour exécuter la commande delete de l’outil Azure Application Consistent Snapshot Tool, que vous pouvez utiliser avec Azure NetApp Files.
 
