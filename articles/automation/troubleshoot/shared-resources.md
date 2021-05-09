@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 01/27/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b497b0a8f34b4310e3f11beed982c4453fc79159
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 36f8b9d8fc890eb486ec59b972cc2fdf52ae0c80
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830823"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166052"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Résoudre les problèmes liés aux ressources partagées
 
@@ -97,20 +97,20 @@ Il n’est pas courant que tous les modules AzureRM ou Az soient requis dans le 
 
 Si le processus de mise à jour est interrompu, ajoutez le paramètre `SimultaneousModuleImportJobCount` au script **Update-AzureModules.ps1** et indiquez une valeur inférieure à la valeur par défaut, à savoir 10. Si vous implémentez cette logique, essayez de commencer avec la valeur 3 ou 5. `SimultaneousModuleImportJobCount` est un paramètre du runbook système **Update-AutomationAzureModulesForAccount** qui est utilisé pour mettre à jour les modules Azure. Si vous effectuez ce réglage, le processus de mise à jour est plus long, mais il a plus de chances d’aboutir. L’exemple suivant montre le paramètre et où le mettre dans le runbook :
 
- ```powershell
-         $Body = @"
-            {
-               "properties":{
-               "runbook":{
-                   "name":"Update-AutomationAzureModulesForAccount"
-               },
-               "parameters":{
-                    ...
-                    "SimultaneousModuleImportJobCount":"3",
-                    ... 
-               }
-              }
-           }
+```powershell
+$Body = @"
+   {
+      "properties":{
+      "runbook":{
+            "name":"Update-AutomationAzureModulesForAccount"
+      },
+      "parameters":{
+            ...
+            "SimultaneousModuleImportJobCount":"3",
+            ... 
+      }
+      }
+   }
 "@
 ```
 

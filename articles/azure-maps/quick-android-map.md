@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Créer une application Android avec Azure Maps | Mi
 description: 'Démarrage rapide : Découvrez comment créer une application Android avec Android SDK Azure Maps.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/10/2020
+ms.date: 04/26/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: mvc
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 3c0f95c1252b6895b4604d14e5565395beab8952
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2a67f432b126fb164b1b099b772646a679c28837
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039646"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323486"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>Démarrage rapide : Créer une application Android avec Azure Maps
 
@@ -49,7 +49,7 @@ Créez un compte Azure Maps en effectuant les étapes suivantes :
     * Lisez la *Licence* et la *Déclaration de confidentialité*, puis cochez la case pour accepter les conditions.
     * Cliquez sur le bouton **Créer**.
 
-    ![Créer un compte Maps sur le Portail](media/quick-android-map/create-account.png)
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Créer un compte Maps sur le portail":::
 
 ## <a name="get-the-primary-key-for-your-account"></a>Obtenir la clé primaire de votre compte
 

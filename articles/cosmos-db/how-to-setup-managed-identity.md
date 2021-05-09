@@ -4,14 +4,14 @@ description: Découvrez comment configurer des identités managées avec Azure A
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 04/23/2021
 ms.author: thweiss
-ms.openlocfilehash: 30efaed09a400611861bdd3adeae1f650054b405
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3f33cc08fcb9f3c43d9da312ce9ff12d9b20d722
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106230853"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065292"
 ---
 # <a name="configure-managed-identities-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Configurer des identités managées avec Azure Active Directory pour votre compte Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,6 +64,79 @@ Une fois votre compte Azure Cosmos DB créé ou mis à jour, la propriété sui
     "tenantId": "<azure-ad-tenant-id>",
     "principalId": "<azure-ad-principal-id>"
 }
+```
+
+### <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
+
+Pour activer une identité affectée par le système lors de la création d’un compte Azure Cosmos DB, ajoutez l’option `--assign-identity` :
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --assign-identity
+```
+
+Vous pouvez également ajouter une identité affectée par le système sur un compte existant à l’aide de la commande `az cosmosdb identity assign` :
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb identity assign \
+    -n $accountName \
+    -g $resourceGroupName
+```
+
+Une fois votre compte Azure Cosmos DB créé ou mis à jour, vous pouvez extraire l’identité affectée avec la commande `az cosmosdb identity show` :
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb identity show \
+    -n $accountName \
+    -g $resourceGroupName
+```
+
+```json
+{
+    "type": "SystemAssigned",
+    "tenantId": "<azure-ad-tenant-id>",
+    "principalId": "<azure-ad-principal-id>"
+}
+```
+
+## <a name="remove-a-system-assigned-identity"></a>Suppression d’une identité affectée par le système
+
+### <a name="using-an-azure-resource-manager-arm-template"></a>Utilisation d’un modèle Azure Resource Manager (ARM)
+
+> [!IMPORTANT]
+> Veillez à utiliser une `apiVersion` de `2021-03-15` ou version ultérieure lorsque vous utilisez des identités managées.
+
+Pour supprimer une identité affectée par le système de votre compte Azure Cosmos DB, définissez le `type` de la propriété `identity` sur `None` :
+
+```json
+"identity": {
+    "type": "None"
+}
+```
+
+### <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
+
+Pour supprimer une identité affectée par le système de votre compte Azure Cosmos DB, utilisez la commande `az cosmosdb identity remove` :
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb identity remove \
+    -n $accountName \
+    -g $resourceGroupName
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

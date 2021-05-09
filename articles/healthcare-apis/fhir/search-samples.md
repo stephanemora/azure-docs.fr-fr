@@ -1,29 +1,26 @@
 ---
-title: Exemples de recherche pour l’API Azure pour FHIR
+title: Rechercher l’API Azure pour FHIR dans les exemples
 description: Comment effectuer une recherche à l’aide de différents paramètres de recherche, modificateurs et autres outils de recherche FHIR
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/20/2021
-ms.author: ginle
-ms.openlocfilehash: edbbfe81b4926689e0a431a28ac91e9f07e8e944
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.date: 05/03/2021
+ms.author: cavoeg
+ms.openlocfilehash: 33dcd9ace7af6d4ff820654fef20aa0a5aa3ff9d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322546"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756788"
 ---
 # <a name="fhir-search-examples"></a>Exemples de recherche FHIR
 
-Voici quelques exemples d’utilisation des opérations de recherche FHIR, y compris les paramètres de recherche et les modificateurs, la recherche de chaîne et d’inversion de chaîne, la recherche composite, l’affichage du jeu d’entrée suivant pour les résultats de recherche et la recherche avec une demande de publication. Pour plus d’informations sur la recherche, consultez [vue d’ensemble de la recherche de FHIR](overview-of-search.md).
+Voici quelques exemples d’utilisation des opérations de recherche FHIR, y compris les paramètres de recherche et les modificateurs, la recherche de chaîne et d’inversion de chaîne, la recherche composite, l’affichage du jeu d’entrée suivant pour les résultats de recherche et la recherche avec une `POST` demande. Pour plus d’informations sur la recherche, consultez [vue d’ensemble de la recherche de FHIR](overview-of-search.md).
    
 ## <a name="search-result-parameters"></a>Paramètres des résultats de la recherche
 
 ### <a name="_include"></a>_include
-
-> [!NOTE]
-> **_include** et **_revinclude** sont limités à 100 éléments.
 
 `_include` recherche parmi les ressources celles qui incluent le paramètre spécifié de la ressource. Par exemple, vous pouvez effectuer une recherche dans l’ensemble des `MedicationRequest` ressources pour rechercher uniquement celles qui incluent des informations sur les préscriptions pour un patient spécifique, qui est le `reference` paramètre `patient` :
 
@@ -31,6 +28,9 @@ Voici quelques exemples d’utilisation des opérations de recherche FHIR, y com
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
 
 ```
+
+> [!NOTE]
+> **_include** et **_revinclude** sont limités à 100 éléments.
 
 ### <a name="_revinclude"></a>_revinclude
 

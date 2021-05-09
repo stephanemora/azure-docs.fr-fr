@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7ebf38226ff725865104707a3f28e7ce51a86c31
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 719b4579d97992cdfc3563ccb72b31809569182c
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445650"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898258"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Activer l’authentification multifacteur Azure pour Windows Virtual Desktop
 
@@ -67,7 +67,7 @@ Voici comment créer une stratégie d’accès conditionnel qui exige l’authen
    > 
    > Si vous utilisez Windows Virtual Desktop (classique) et si la stratégie d’accès conditionnel bloque tous les accès et exclut uniquement les ID d’applications Windows Virtual Desktop, vous pouvez résoudre ce problème en ajoutant l’ID d’application 9cdead84-a844-4324-93f2-b2e6bb768d07 à la stratégie. Si vous n’ajoutez pas cet ID d’application, la détection de flux des ressources Windows Virtual Desktop (classique) sera bloquée.
 
-10. Accédez à **Conditions** > **Applications clientes**, puis spécifiez où vous souhaitez appliquer la stratégie :
+10. Accédez à **Conditions** > **Applications clientes**. Dans **Configurer**, sélectionnez **Oui**, puis sélectionnez l’emplacement où appliquer la stratégie :
     
     - Sélectionnez **Navigateur** si vous souhaitez que la stratégie s’applique au client web.
     - Sélectionnez **Applications mobiles et clients de bureau** si vous souhaitez appliquer la stratégie à d’autres clients.

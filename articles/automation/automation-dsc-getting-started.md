@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 95072970004ae53663f130a78af36a84a6fab685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce6a33b569a86cd539de99264dd8e7f583559a6f
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051496"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018328"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Prise en main d'Azure Automation State Configuration
 
@@ -216,16 +216,7 @@ Vous pouvez attribuer un nœud à une configuration de nœud différente de cell
 
 ## <a name="unregister-a-node"></a>Désinscrire un nœud
 
-Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vous pouvez le désinscrire.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
-1. Sur la page Compte Automation, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
-1. Sur la page State Configuration (DSC), cliquez sur l'onglet **Nœuds**.
-1. Sous l’onglet **Nœuds**, cliquez sur le nom du nœud dont vous voulez annuler l’inscription.
-1. Sur le volet de ce nœud, cliquez sur **Annuler l'inscription**.
-
-    ![Capture d’écran de la page de détails des nœuds mettant en évidence le bouton Annuler l’inscription](./media/automation-dsc-getting-started/UnregisterNode.png)
+Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vous pouvez le désinscrire. Consultez [Supprimer une configuration et un nœud de State Configuration dans Automation](./how-to/remove-desired-state-configuration-package.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

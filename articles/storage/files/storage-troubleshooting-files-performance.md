@@ -1,18 +1,18 @@
 ---
 title: Guide de résolution des problèmes de performances des partages de fichiers Azure
 description: Résoudre les problèmes de niveau de performance connus avec les partages de fichiers Azure. Découvrez les causes potentielles et les solutions de contournement associées lorsque ces problèmes surviennent.
-author: gunjanj
+author: roygara
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 11/16/2020
-ms.author: gunjanj
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b303dbc20cf0caf4bb0d75f28a2983bc0f27064d
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417669"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065022"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Résoudre les problèmes de performances des partages de fichiers Azure
 
@@ -65,7 +65,7 @@ Pour vérifier si votre partage est limité, vous pouvez accéder aux métriques
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Cause 2 : Métadonnées ou charge de travail importante de l’espace de noms
 
-Si la majorité de vos demandes sont centrées sur des métadonnées, (telles que createfile, openfile, closefile, queryinfo ou querydirectory), la latence sera pire que celle des opérations de lecture et d’écriture.
+Si la majorité de vos demandes sont centrées sur les métadonnées (comme `createfile`, `openfile`, `closefile`, `queryinfo` ou `querydirectory`), la latence sera plus importante que celle des opérations de lecture/d’écriture.
 
 Pour déterminer si la plupart de vos demandes sont centrées sur des métadonnées, commencez par suivre les étapes 1 à 4 décrites précédemment dans Cause 1. Pour l’étape 5, au lieu d’ajouter un filtre pour le **Type de réponse**, ajoutez un filtre de propriété pour **Nom de l’API**.
 
@@ -74,7 +74,7 @@ Pour déterminer si la plupart de vos demandes sont centrées sur des métadonn�
 ### <a name="workaround"></a>Solution de contournement
 
 - Vérifiez si l’application peut être modifiée pour réduire le nombre d’opérations sur les métadonnées.
-- Ajoutez un disque dur virtuel (VHD) sur le partage de fichiers, et montez-le sur SMB à partir du client pour effectuer des opérations de fichiers sur les données. Cette approche fonctionne pour des scénarios avec un enregistreur unique et plusieurs lecteurs, et permet que les opérations sur les métadonnées soient locales. La configuration offre des performances similaires à celles d’un stockage local directement attaché.
+- Ajoutez un disque dur virtuel (VHD) sur le partage de fichiers, et montez-le sur SMB à partir du client pour effectuer des opérations de fichiers sur les données. Cette approche fonctionne pour des scénarios à un seul rédacteur/lecteur ou des scénarios avec plusieurs lecteurs et aucun rédacteur. Comme le système de fichiers appartient au client plutôt qu’à Azure Files, les opérations sur les métadonnées peuvent être locales. La configuration offre des performances similaires à celles d’un stockage local directement attaché.
 
 ### <a name="cause-3-single-threaded-application"></a>Cause 3 : Application à thread unique
 
@@ -117,8 +117,8 @@ Il s’agit d’un problème connu d’implémentation du client SMB sur Linux.
 ### <a name="workaround"></a>Solution de contournement
 
 - Répartissez la charge sur plusieurs machines virtuelles.
-- Sur la même machine virtuelle, utilisez plusieurs points de montage avec une option **nosharesock**, et répartissez la charge entre ces points de montage.
-- Sur Linux, essayez d’effectuer le montage avec une option **nostrictsync** pour éviter de forcer un vidage SMB à chaque appel de **fsync**. Pour Azure Files, cette option n’interfère pas avec la cohérence des données, mais elle pourrait entraîner la présence de métadonnées de fichier obsolètes dans les listes de répertoires (commande **ls -l**). L’interrogation directe des métadonnées du fichier à l’aide de la commande **stat** retournera les métadonnées de fichier les plus récentes.
+- Sur la même machine virtuelle, utilisez plusieurs points de montage avec une option `nosharesock`, et répartissez la charge entre ces points de montage.
+- Sur Linux, essayez d’effectuer le montage avec une option `nostrictsync` pour éviter de forcer un vidage SMB à chaque appel de `fsync`. Pour Azure Files, cette option n’interfère pas avec la cohérence des données, mais elle pourrait entraîner la présence de métadonnées de fichier obsolètes dans les listes de répertoires (commande `ls -l`). L’interrogation directe des métadonnées du fichier à l’aide de la commande `stat` retournera les métadonnées de fichier les plus récentes.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latences élevées pour les charges de travail lourdes de métadonnées impliquant des opérations d’ouverture/de fermeture étendues
 
@@ -129,7 +129,7 @@ Absence de prise en charge pour les baux de répertoire.
 ### <a name="workaround"></a>Solution de contournement
 
 - Si possible, évitez d’ouvrir/de fermer le descripteur un nombre de fois excessif sur le même répertoire dans un laps de temps bref.
-- Pour les machines virtuelles Linux, augmentez le délai d’expiration du cache du répertoire d’entrée en spécifiant **actimeo =\<sec>** comme option de montage. Par défaut, le délai d’expiration est de 1 seconde. Ainsi, une valeur plus élevée, par exemple de 3 ou 5 secondes, peut être utile.
+- Pour les machines virtuelles Linux, augmentez le délai d’expiration du cache du répertoire d’entrée en spécifiant `actimeo=<sec>` comme option de montage. Par défaut, le délai d’expiration est de 1 seconde. Ainsi, une valeur plus élevée, par exemple de 3 ou 5 secondes, peut être utile.
 - Pour des machines virtuelles CentOS Linux ou Red Hat Enterprise Linux (RHEL), mettez à niveau le système vers CentOS Linux 8.2 ou RHEL 8.2. Pour les autres machines virtuelles Linux, mettez à niveau le noyau vers la version 5.0 ou une version ultérieure.
 
 ## <a name="low-iops-on-centos-linux-or-rhel"></a>Faible nombre d’IOPS sur CentOS Linux ou RHEL
@@ -292,7 +292,7 @@ Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consult
 7. Dans la liste déroulante **Valeurs de la dimension**, sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
 8. Définissez les paramètres d’alerte en sélectionnant des valeurs dans les listes déroulantes **Opérateur**, **Valeur de seuil**, **Granularité d’agrégation** et **Fréquence d’évaluation**, puis sélectionnez **Terminé**.
 
-   Les métriques de sortie, d’entrée et de transactions sont exprimées par minute, même si vous avez configuré la sortie, l’entrée et les E/S par seconde. Par exemple, si votre sortie configurée est de 90&nbsp;mébioctets par seconde (Mio/s) et que vous souhaitez que votre seuil soit à 80&nbsp;% de la sortie configurée, sélectionnez les paramètres d’alerte suivants : 
+   Les métriques de sortie, d’entrée et de transactions sont exprimées par minute, même si vous avez configuré la sortie, l’entrée et les E/S par seconde. Par exemple, si votre sortie configurée est de 90&nbsp;Mio/s et que vous souhaitez que votre seuil soit à 80&nbsp;% de la sortie configurée, sélectionnez les paramètres d’alerte suivants : 
    - Pour **Valeur de seuil** : *75497472* 
    - Pour **Opérateur** : *supérieur ou égal à*
    - Pour **Type d’agrégation** : *moyenne*
