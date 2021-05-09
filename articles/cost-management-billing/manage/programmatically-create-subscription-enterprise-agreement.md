@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: e57f385dce6446ebb3aa2df0ceb48f97a7e0c2f4
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 868b0bc3e09768a26b895e35306de574e4bfc444
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877879"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287587"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Créer des abonnements Contrat Entreprise Azure programmatiquement avec les API les plus récentes
 
@@ -32,7 +32,7 @@ Vous devez avoir un rôle Propriétaire sur un compte d’inscription pour crée
 
 * L’administrateur d’entreprise de votre inscription peut [vous rendre propriétaire d’un compte](https://ea.azure.com/helpdocs/addNewAccount) (connexion obligatoire), ce qui vous rend propriétaire du compte d’inscription.
 * Un propriétaire existant du compte d’inscription peut [vous accorder l’accès](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). De la même façon, si vous souhaitez utiliser un principal de service pour créer un abonnement EA, vous devez [autoriser ce principal de service à créer des abonnements](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).  
-    Si vous utilisez un nom de principal du service pour créer des abonnements, utilisez l’ObjectId de l’inscription d’application Azure AD comme ObjectId du principal du service à l’aide d’[Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) ou de l’interface [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list).
+    Si vous utilisez un nom de principal du service pour créer des abonnements, utilisez l’ObjectId de l’inscription d’application Azure AD comme ObjectId du principal du service à l’aide d’[Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) ou de l’interface [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list).
   > [!NOTE]
   > Veillez à utiliser la bonne version d’API pour accorder des autorisations de propriétaire au compte d’inscription. Pour cet article et pour les API qui y sont documentées, utilisez l’API [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Si vous effectuez une migration en vue d’utiliser les nouvelles API, vous devez à nouveau accorder des autorisations de propriétaire à l’aide de [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). La configuration précédente effectuée avec la [version 2015-07-01](grant-access-to-create-subscription.md) n’est pas automatiquement convertie en vue d’être utilisée avec les nouvelles API.
 

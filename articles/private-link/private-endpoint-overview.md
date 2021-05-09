@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f18d9cb2a1bf76986a5c77477085f2f12ab728ae
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 92f9c3baaa8260bdc154f8752b56a63cf1444ebe
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771800"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140404"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -134,9 +134,9 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer un point de terminaison privé pour SQL Database à l’aide du portail](create-private-endpoint-portal.md)
-- [Créer un point de terminaison privé pour SQL Database à l’aide de PowerShell](create-private-endpoint-powershell.md)
-- [Créer un point de terminaison privé pour SQL Database à l’aide de l’interface CLI](create-private-endpoint-cli.md)
+- [Créer un point de terminaison privé pour Azure Web Apps à l’aide du portail](create-private-endpoint-portal.md)
+- [Créer un point de terminaison privé pour Azure Web Apps à l’aide de PowerShell](create-private-endpoint-powershell.md)
+- [Créer un point de terminaison privé pour Azure Web Apps à l’aide de CLI](create-private-endpoint-cli.md)
 - [Créer un point de terminaison privé pour un compte de stockage à l’aide du portail](./tutorial-private-endpoint-storage-portal.md)
 - [Créer un point de terminaison privé pour un compte Cosmos Azure à l’aide du portail](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Créer votre propre service Liaison privée à l’aide d’Azure PowerShell](create-private-link-service-powershell.md)
