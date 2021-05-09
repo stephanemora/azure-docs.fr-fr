@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 01/19/2021
 ms.author: ranku
-ms.openlocfilehash: 2a34cfee57ecc1870c420c4c0f3c9261aa02f192
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: c796b72da15cb6278c355ed86fdf9eaaf54ca2be
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490923"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794486"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>Comment convertir des données en FHIR (préversion)
 
@@ -95,12 +95,13 @@ Vous pouvez utiliser l’[extension FHIR Converter](https://marketplace.visualst
 
 ## <a name="host-and-use-templates"></a>Héberger et utiliser des modèles
 
-Nous vous recommandons vivement d’héberger votre propre copie des modèles sur ACR. Quatre étapes sont nécessaires pour héberger votre propre copie des modèles et les utiliser dans l’opération $convert-data :
+Nous vous recommandons vivement d’héberger votre propre copie des modèles sur ACR. Quatre étapes sont nécessaires pour héberger votre propre copie des modèles et les utiliser dans l’opération de $convert de données :
 
 1. Envoyer (push) les modèles à votre instance Azure Container Registry
 1. Activer Managed Identity sur votre instance d’API Azure pour FHIR
 1. Fournir l’accès à l’ACR à l’identité managée API Azure pour FHIR
 1. Inscrire les serveurs ACR dans l’API Azure pour FHIR
+1. Éventuellement, configurez le pare-feu ACR pour un accès sécurisé.
 
 ### <a name="push-templates-to-azure-container-registry"></a>Envoyer (push) les modèles vers Azure Container Registry
 
@@ -128,7 +129,7 @@ Accordez le rôle AcrPull à votre instance du service API Azure pour FHIR.
 Vous pouvez inscrire le serveur ACR à l’aide de l’Portail Azure ou à l’aide de l’interface CLI.
 
 #### <a name="registering-the-acr-server-using-azure-portal"></a>Inscription du serveur ACR à l’aide de Portail Azure
-Accédez au panneau _artefacts_ sous _transformation des données_ dans votre API Azure pour l’instance FHIR. La liste des serveurs ACR actuellement inscrits s’affiche. Cliquez sur _Ajouter_ , puis sélectionnez votre serveur de Registre dans la liste déroulante. Vous devrez cliquer sur _Enregistrer_ pour que l’inscription prenne effet. L’application de la modification et le redémarrage de votre instance peuvent prendre quelques minutes.
+Accédez au panneau _artefacts_ sous _transformation des données_ dans votre API Azure pour l’instance FHIR. La liste des serveurs ACR actuellement inscrits s’affiche. Sélectionnez _Ajouter_ , puis sélectionnez votre serveur de Registre dans la liste déroulante. Vous devrez sélectionner _Enregistrer_ pour que l’inscription prenne effet. L’application de la modification et le redémarrage de votre instance peuvent prendre quelques minutes.
 
 #### <a name="registering-the-acr-server-using-cli"></a>Inscription du serveur ACR à l’aide de l’interface CLI
 Vous pouvez inscrire jusqu’à 20 serveurs ACR dans l’API Azure pour FHIR.
@@ -152,6 +153,46 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-gr
 ```powershell
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
+### <a name="configure-acr-firewall"></a>Configurer le pare-feu ACR
+
+Sélectionnez **mise en réseau** du compte de stockage Azure à partir du portail.
+
+   :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="Registre de conteneurs.":::
+
+
+Sélectionnez **Réseaux sélectionnés**. 
+
+Dans la section **pare-feu** , spécifiez l’adresse IP dans la zone **plage d’adresses** . Ajoutez des plages d’adresses IP pour autoriser l’accès à partir d’Internet ou de vos réseaux locaux. 
+
+Dans le tableau ci-dessous, vous trouverez l’adresse IP de la région Azure dans laquelle le service API Azure pour FHIR est approvisionné.
+
+|**Région Azure**         |**Adresse IP publique** |
+|:----------------------|:-------------------|
+| Australie Est       | 20.53.44.80       |
+| Centre du Canada       | 20.48.192.84      |
+| USA Centre           | 52.182.208.31     |
+| USA Est              | 20.62.128.148     |
+| USA Est 2            | 20.49.102.228     |
+| USA Est 2 (EUAP)       | 20.39.26.254      |
+| Allemagne Nord        | 51.116.51.33      |
+| Allemagne Centre-Ouest | 51.116.146.216    |
+| Japon Est           | 20.191.160.26     |
+| Centre de la Corée        | 20.41.69.51       |
+| Centre-Nord des États-Unis     | 20.49.114.188     |
+| Europe Nord         | 52.146.131.52     |
+| Afrique du Sud Nord   | 102.133.220.197   |
+| États-Unis - partie centrale méridionale     | 13.73.254.220     |
+| Asie Sud-Est       | 23.98.108.42      |
+| Suisse Nord    | 51.107.60.95      |
+| Sud du Royaume-Uni             | 51.104.30.170     |
+| Ouest du Royaume-Uni              | 51.137.164.94     |
+| Centre-USA Ouest      | 52.150.156.44     |
+| Europe Ouest          | 20.61.98.66       |
+| USA Ouest 2            | 40.64.135.77      |
+
+
+> [!NOTE]
+> Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment exporter des données FHIR.  Pour plus d’informations, consultez [exportation sécurisée vers le stockage Azure](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data#secure-export-to-azure-storage) .
 
 ### <a name="verify"></a>Vérification
 
