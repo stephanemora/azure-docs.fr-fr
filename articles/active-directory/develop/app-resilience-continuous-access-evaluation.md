@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: f6ce792b3db0100d7356884bbc6ee2696580df10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b00cca584958f3e7d741a2a4f9e6669ff0d241e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97652056"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904313"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>Guide pratique pour utiliser les API d’évaluation continue de l’accès dans vos applications
 
-L’[évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md) (CAE, Continuous Access Evaluation) est une norme industrielle émergente qui permet de révoquer les jetons d’accès en fonction d’[événements critiques](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) et d’une [évaluation de la stratégie](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) au lieu de s’appuyer sur l’expiration du jeton en fonction de la durée de vie. Pour certaines API de ressources, comme les risques et les stratégies sont évalués en temps réel, cela peut augmenter la durée de vie du jeton jusqu’à 28 heures. Ces jetons de longue durée sont actualisés de manière proactive par la bibliothèque d’authentification Microsoft (MSAL), ce qui augmente la résilience de vos applications.
+[Évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md) (CAE) est une fonctionnalité d’Azure AD qui permet de révoquer les jetons d’accès en fonction d’[événements critiques](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) et d’une [évaluation de la stratégie](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) au lieu de s’appuyer sur l’expiration des jetons en fonction de leur durée de vie. Pour certaines API de ressources, comme les risques et les stratégies sont évalués en temps réel, cela peut augmenter la durée de vie du jeton jusqu’à 28 heures. Ces jetons de longue durée sont actualisés de manière proactive par la bibliothèque d’authentification Microsoft (MSAL), ce qui augmente la résilience de vos applications.
 
 Cet article explique comment utiliser les API prenant en charge l’évaluation continue de l’accès dans vos applications.
 

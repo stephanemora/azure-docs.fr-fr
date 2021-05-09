@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: efa9465adc13b50e6ae12628d21347152c3fc2c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02742610f6febd832470307a5000526cadb3ecbd
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578717"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166142"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Démarrage rapide : Application web ASP.NET Core qui connecte des utilisateurs et appelle Microsoft Graph en leur nom
 
-Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application web ASP.NET Core peut connecter des utilisateurs à partir de n’importe quelle organisation Azure Active Directory (Azure AD) et appeler Microsoft Graph.  
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application web ASP.NET Core peut connecter des utilisateurs à partir de n’importe quelle organisation Azure Active Directory (Azure AD) et appeler Microsoft Graph.
 
 Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
@@ -108,7 +108,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 >       - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`
 >       - Si votre application prend en charge **Tous les utilisateurs de compte Microsoft**, conservez la valeur `common`.
 >    - Remplacez `Enter_the_Client_Secret_Here` par le **secret client** que vous avez créé et enregistré dans une étape précédente.
-> 
+>
 > Pour ce guide de démarrage rapide, ne modifiez pas les autres valeurs du fichier *appsettings.json*.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>Étape 4 : Générer et exécuter l’application
@@ -128,6 +128,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 Cette section fournit une vue d’ensemble du code requis pour la connexion des utilisateurs et l’appel de l’API Microsoft Graph en leur nom. Cette vue d’ensemble peut être utile pour comprendre comment le code fonctionne, les principaux arguments et également si vous souhaitez ajouter une connexion à une application ASP.NET Core existante et appeler Microsoft Graph. Elle utilise [Microsoft.Identity.Web](microsoft-identity-web.md), qui est un wrapper autour de [MSAL.NET](msal-overview.md).
 
 ### <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
+
 ![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-aspnet-core-webapp-calls-graph/aspnetcorewebapp-intro.svg)
 
 ### <a name="startup-class"></a>Classe de démarrage
@@ -200,7 +201,7 @@ app.UseEndpoints(endpoints =>
 
 Vous pouvez protéger un contrôleur ou ses méthodes en appliquant l’attribut `[Authorize]` à la classe du contrôleur ou à une ou plusieurs de ses méthodes. Cet attribut `[Authorize]` limite l’accès en autorisant uniquement les utilisateurs authentifiés. Si l’utilisateur n’est pas déjà authentifié, une demande d’authentification peut être démarrée pour accéder au contrôleur. Dans ce guide de démarrage rapide, les étendues sont lues à partir du fichier de configuration :
 
-```CSharp
+```csharp
 [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
 public async Task<IActionResult> Index()
 {
@@ -209,7 +210,7 @@ public async Task<IActionResult> Index()
 
     return View();
 }
- ```
+```
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

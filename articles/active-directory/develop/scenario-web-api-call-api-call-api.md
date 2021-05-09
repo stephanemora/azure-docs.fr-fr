@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f4dfd2c7f9dbdd111f70a5dd5a648c11eacbf7b0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d4526446b657b46f97306f51b2db325feefc8eff
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038541"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166484"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Une API web qui appelle des API web : Appeler une API
 
@@ -37,7 +37,7 @@ Lorsque vous utilisez *Microsoft.Identity.Web*, vous avez trois scénarios d’u
 
 Dans ce scénario, vous avez ajouté `.AddMicrosoftGraph()` dans le fichier *Startup.cs* comme spécifié dans [Configuration de code](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph), et vous pouvez injecter directement le `GraphServiceClient` dans votre contrôleur ou constructeur de page pour l’utiliser dans les actions. L’exemple de page Razor suivant affiche la photo de l’utilisateur connecté.
 
-```CSharp
+```csharp
  [Authorize]
  [AuthorizeForScopes(Scopes = new[] { "user.read" })]
  public class IndexModel : PageModel
@@ -73,7 +73,7 @@ Dans ce scénario, vous avez ajouté `.AddMicrosoftGraph()` dans le fichier *Sta
 
 Vous avez ici ajouté `.AddDownstreamWebApi()` dans le fichier *Startup.cs* comme spécifié dans [Configuration de code](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), et vous pouvez injecter directement un service `IDownstreamWebApi` dans votre contrôleur ou constructeur de page pour l’utiliser dans les actions :
 
-```CSharp
+```csharp
  [Authorize]
  [AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
  public class TodoListController : Controller
@@ -100,7 +100,7 @@ Vous avez ici ajouté `.AddDownstreamWebApi()` dans le fichier *Startup.cs* comm
 
 La méthode `CallWebApiForUserAsync` possède également des remplacements génériques fortement typés qui vous permettent de recevoir directement un objet. Par exemple, la méthode suivante a reçu une instance `Todo`, qui est une représentation fortement typée du code JSON renvoyé par l’API web.
 
-```CSharp
+```csharp
  // GET: TodoList/Details/5
  public async Task<ActionResult> Details(int id)
  {
@@ -123,16 +123,16 @@ Si vous avez décidé d’acquérir un jeton manuellement à l’aide du service
  Une fois que vous avez acquis le jeton, utilisez-le comme un jeton du porteur pour appeler l’API en aval.
 
 ```csharp
- private async Task CallTodoListService(string accessToken)
- {
+private async Task CallTodoListService(string accessToken)
+{
   // After the token has been returned by Microsoft.Identity.Web, add it to the HTTP authorization header before making the call to access the todolist service.
- _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+  _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
- // Call the todolist service.
- HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
- // ...
- }
- ```
+  // Call the todolist service.
+  HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
+  // ...
+}
+```
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -140,7 +140,7 @@ Le code suivant poursuit l’exemple de code illustré dans [Une API web qui app
 
 Une fois que vous avez acquis le jeton, utilisez-le comme un jeton du porteur pour appeler l’API en aval.
 
-```Java
+```java
 private String callMicrosoftGraphMeEndpoint(String accessToken){
     RestTemplate restTemplate = new RestTemplate();
 
@@ -159,6 +159,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # <a name="python"></a>[Python](#tab/python)
+
 Un exemple illustrant ce flux avec MSAL Python est disponible dans [ms-identity-python-on-behalf-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of).
 
 ---

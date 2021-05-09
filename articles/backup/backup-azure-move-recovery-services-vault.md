@@ -4,12 +4,12 @@ description: Instructions pour déplacer un coffre Recovery Services entre des a
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 49d6782af5a9c946eaf92147dab22e4605195d89
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: e2f1c13f4c4a299fb1c1af1a59f1c53eef29496a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514765"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325244"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Déplacer un coffre Recovery Services entre des abonnements Azure et des groupes de ressources
 
@@ -23,7 +23,7 @@ Toutes les régions publiques et souveraines sont prises en charge, à l’excep
 
 - Lors du déplacement du coffre entre des groupes de ressources, les groupes de ressources source et cible sont verrouillés pour empêcher les opérations d'écriture et de suppression. Pour plus d’informations, consultez cet [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Seul l'abonnement Administrateur dispose des autorisations pour déplacer un coffre.
-- Pour déplacer des coffres entre des abonnements, il faut que l’abonnement cible se trouve dans le même locataire que l’abonnement source et son état doit être défini sur Activé. Pour déplacer un coffre vers un autre répertoire Azure AD, consultez [Transférer un abonnement vers un autre répertoire](../role-based-access-control/transfer-subscription.md) et [FAQ sur le coffre Recovery Services](/backup-azure-backup-faq.yml#recovery-services-vault).
+- Pour déplacer des coffres entre des abonnements, il faut que l’abonnement cible se trouve dans le même locataire que l’abonnement source et son état doit être défini sur Activé. Pour déplacer un coffre vers un autre répertoire Azure AD, consultez [Transférer un abonnement vers un autre répertoire](../role-based-access-control/transfer-subscription.md) et [FAQ sur le coffre Recovery Services](/azure/backup/backup-azure-backup-faq#recovery-services-vault).
 - Vous devez être autorisé à effectuer des opérations d’écriture sur le groupe de ressources cible.
 - Le déplacement du coffre change seulement le groupe de ressources. Le coffre Recovery Services se trouve au même endroit et ne peut pas être changé.
 - Vous ne pouvez déplacer qu'un seul coffre Recovery Services à la fois par région.

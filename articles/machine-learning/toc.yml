@@ -12,30 +12,31 @@
     - name: Architecture et terminologie
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
+- name: Démarrage rapide
+  expanded: true
+  items:
+    - name: Créer des ressources ML pour démarrer
+      href: quickstart-create-resources.md
 - name: Tutoriels
   expanded: true
   items:
     - name: "Démarrer avec Python (jour\_1)"
       expanded: true
       items:
-        - name: 1. Configurer l’ordinateur local
-          href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: 2. "Hello world"
+        - name: 1. "Hello world"
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. Entraîner votre modèle
+        - name: 2. Entraîner votre modèle
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 4. Apportez vos propres données
+        - name: 3. Apportez vos propres données
           href: tutorial-1st-experiment-bring-data.md
     - name: Notebooks Jupyter
       items:
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Configurer l’instance de calcul
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Effectuer l’apprentissage d’un modèle
+            - name: 1. Effectuer l’apprentissage d’un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 3. Déployer un modèle
+            - name: 2. Déployer un modèle
               href: tutorial-deploy-models-with-aml.md
         - name: Régression avec ML automatisé (données des taxis de New York)
           items:
@@ -234,8 +235,8 @@
               href: how-to-access-azureml-behind-firewall.md
         - name: Protection des données
           items:
-            - name: Augmenter la résilience
-              displayName: 'high availability, disaster recovery'
+            - name: Basculement et reprise d’activité après sinistre
+              displayName: high availability
               href: how-to-high-availability-machine-learning.md
             - name: Régénération des clés d'accès de stockage
               href: how-to-change-storage-access-key.md

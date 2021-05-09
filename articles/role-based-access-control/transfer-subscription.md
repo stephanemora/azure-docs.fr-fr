@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 72dc92ae211034e2a49bc77f60880f17ab15dec7
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 366692113872856852fd933ca32ab51ca608de14
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868174"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291277"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -82,7 +82,7 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 | Azure Disques managés | Oui | Oui |  |  Si vous utilisez des jeux de chiffrement de disque pour chiffrer les disques managés avec des clés gérées par le client, vous devez désactiver et réactiver les identités affectées par le système associées aux jeux de chiffrement du disque. De plus, vous devez recréer les attributions de rôles, c’est-à-dire accorder à nouveau les autorisations requises sur les jeux de chiffrement de disque dans les coffres de clés. |
 | Azure Kubernetes Service | Oui | Non |  | Vous ne pouvez pas transférer votre cluster AKS ni ses ressources associées vers un autre répertoire. Pour plus d’informations, consultez le [Forum aux questions sur Azure Kubernetes Service (AKS)](../aks/faq.md) |
 | Azure Policy | Oui | Non | Tous les objets Azure Policy, y compris les définitions personnalisées, les affectations, les exemptions et les données de conformité. | Vous devez [exporter](../governance/policy/how-to/export-resources.md), importer et réaffecter les définitions. Créez ensuite de nouvelles affectations de stratégie et toutes les [exemptions de stratégie](../governance/policy/concepts/exemption-structure.md) nécessaires. |
-| Azure Active Directory Domain Services | Oui | Non |  | Vous ne pouvez pas transférer un domaine managé Azure AD Domain Services vers un autre répertoire. Pour plus d’informations, consultez le [Forum aux questions (FAQ) sur Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.md) |
+| Azure Active Directory Domain Services | Oui | Non |  | Vous ne pouvez pas transférer un domaine managé Azure AD Domain Services vers un autre répertoire. Pour plus d’informations, consultez le [Forum aux questions (FAQ) sur Azure Active Directory (AD) Domain Services](../active-directory-domain-services/faqs.yml) |
 | Inscriptions des applications | Oui | Oui |  |  |
 
 > [!WARNING]

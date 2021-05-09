@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: pafarley
-ms.openlocfilehash: 8e0ef789653181d744100ef6e179bcf328f6d704
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 195beaaae2925ce9cc6e7cc70bd0415ded49f155
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308623"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166700"
 ---
 # <a name="call-the-read-api"></a>Appeler l’API Lire
 
@@ -47,24 +47,24 @@ L’appel retourne avec un champ d’en-tête de réponse appelé `Operation-Loc
 L’[appel de lecture](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) a un paramètre de requête facultatif pour la langue. L’opération de lecture prend en charge l’identification automatique des langues et les documents multilingues. Par conséquent, fournissez uniquement un code de langue si vous souhaitez forcer le traitement du document dans la langue en question.
 
 ### <a name="natural-reading-order-output-latin-languages-only"></a>Sortie de l’ordre de lecture naturel (langues latines uniquement)
+
 Spécifiez l'ordre dans lequel les lignes de texte sont générées avec le paramètre de requête `readingOrder`. Utilisez `natural` pour une sortie d’ordre de lecture plus conviviale, comme illustré dans l’exemple suivant. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
 
-:::image border type="content" source="../Images/ocr-reading-order-example.png" alt-text="Exemple d’ordre de lecture OCR":::
-
-
+:::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="Exemple d’ordre de lecture OCR" border="true" :::
 
 ### <a name="select-pages-or-page-ranges-for-text-extraction"></a>Sélectionner des pages ou des plages de pages pour l’extraction de texte
+
 Pour les documents multipages volumineux, utilisez le paramètre de requête `pages` pour spécifier des numéros de page ou des plages de pages afin d'extraire le texte de ces pages uniquement. L’exemple suivant montre un document de 10 pages, avec le texte extrait pour les deux cas : toutes les pages (1 à 10) et certaines pages (3 à 6).
 
-:::image border type="content" source="../Images/ocr-select-pages.png" alt-text="Sortie des pages sélectionnées":::
+:::image type="content" source="../Images/ocr-select-pages.png" alt-text="Sortie des pages sélectionnées" border="true" :::
 
 ## <a name="get-results-from-the-service"></a>Obtenir les résultats du service
 
-La deuxième étape consiste à appeler l’opération [Obtenir les résultats de lecture](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d9869604be85dee480c8750). Cette opération prend en entrée l’ID d’opération créé par l’opération de lecture. 
+La deuxième étape consiste à appeler l’opération [Obtenir les résultats de lecture](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d9869604be85dee480c8750). Cette opération prend en entrée l’ID d’opération créé par l’opération de lecture.
 
 `https://{endpoint}/vision/v3.2/read/analyzeResults/{operationId}`
 
-Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. 
+Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes.
 
 |Valeur | Signification |
 |:-----|:----|
@@ -159,9 +159,10 @@ Voici un exemple de réponse JSON correcte :
 ```
 
 ### <a name="handwritten-classification-for-text-lines-latin-languages-only"></a>Classification manuscrite pour les lignes de texte (langues latines uniquement)
+
 La réponse inclut le classement de chaque ligne de texte selon qu’elle est de style manuscrit ou non, avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines. L’exemple suivant illustre la classification manuscrite pour le texte de l’image.
 
-:::image border type="content" source="../Images/ocr-handwriting-classification.png" alt-text="Exemple de classification d’écriture manuscrite OCR":::
+:::image type="content" source="../Images/ocr-handwriting-classification.png" alt-text="Exemple de classification d’écriture manuscrite OCR" border="true" :::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
