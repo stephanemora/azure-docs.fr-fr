@@ -3,12 +3,13 @@ title: Erreurs liées à des ressources introuvables
 description: Explique comment résoudre les erreurs liées à une ressource introuvable. L’erreur peut survenir pendant le déploiement d’un modèle Azure Resource Manager ou au cours d’opérations de gestion.
 ms.topic: troubleshooting
 ms.date: 03/23/2021
-ms.openlocfilehash: 5e3a72eaad99721cec9500956179a3ae9d9cf8d2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ffd1e5b2bd23c9a3f7ede4c3ee0067e12891d214
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762134"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318834"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Résoudre les erreurs liées à des ressources introuvables
 

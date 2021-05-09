@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fda56d987bd4866d5124973329a5db7c74872b3f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94920438"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123408"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -107,6 +107,10 @@ Nous prenons en charge le type d’importation suivant pour le format de fichier
 -----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
 Quand vous importez le certificat, vous devez vérifier que la clé est incluse dans le fichier. Si vous avez la clé privée ailleurs et dans un autre format, vous devez associer la clé au certificat. Certaines autorités de certification fournissent des certificats dans différents formats. Avant d’importer le certificat, vous devez donc vérifier qu’il est au format .pem ou .pfx. 
+
+
+>[!Note]
+>Assurez-vous qu’aucune autre métadonnée n’est présente dans le fichier du certificat et que la clé privée n’apparaît pas chiffrée.
 
 ### <a name="formats-of-merge-csr-we-support"></a>Formats de fusion de CSR que nous prenons en charge
 AKV prend en charge 2 formats basés sur PEM. Vous pouvez fusionner un seul certificat encodé en PKCS#8 ou un fichier P7B encodé en Base64 (chaîne de certificats signés par l’autorité de certification). 

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4b708e80bf335ba8bdce074285857a6f8b77b972
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e819e1078ac90ef16070702e7961122b06c1d6f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103439142"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107880535"
 ---
 En préversion, NFS présente les limitations suivantes :
 
 - NFS 4.1 ne prend actuellement en charge que la plupart des fonctionnalités de la [spécification du protocole](https://tools.ietf.org/html/rfc5661). Certaines fonctionnalités, comme les délégations et les rappels de toutes sortes, les mises à niveau et les rétrogradations des verrous, ainsi que l’authentification Kerberos et le chiffrement, ne sont pas prises en charge.
 - Si la majorité de vos demandes sont centrées sur les métadonnées, la latence sera plus grande en comparaison avec les opérations de lecture/d’écriture/de mise à jour.
-- Vous devez créer un nouveau compte de stockage pour pouvoir créer un partage NFS.
+- Les partages NFS ne peuvent être activés/créés que sur les nouveaux comptes de stockage et non sur les comptes existants.
 - Seules les API REST du plan de gestion sont prises en charge. Les API REST du plan de données ne sont pas disponibles, ce qui signifie que des outils comme l’Explorateur de stockage ne fonctionneront pas avec les partages NFS. Vous ne pourrez pas non plus parcourir les données de partage NFS dans le Portail Azure.
 - AzCopy n’est actuellement pas pris en charge.
 - Disponible uniquement pour le niveau Premium.

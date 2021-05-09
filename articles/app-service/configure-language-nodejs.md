@@ -4,14 +4,14 @@ description: Découvrez comment configurer une application Node.js dans les inst
 ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 6a6f782768db12c2ce75f5cf1e66100222f24446
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97db865f2c590a9d7700ee53a0380604885a8155
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095207"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076650"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurer une application Node.js pour Azure App Service
 
@@ -147,9 +147,34 @@ Pour plus d’informations sur la façon dont App Service exécute et génère d
 
 Les conteneurs Node.js sont fournis avec [PM2](https://pm2.keymetrics.io/), un gestionnaire de processus de production. Vous pouvez configurer votre application pour qu’elle démarre avec PM2, NPM ou une commande personnalisée.
 
-- [Exécuter une commande personnalisée](#run-custom-command)
-- [Exécuter npm start](#run-npm-start)
-- [Exécuter avec PM2](#run-with-pm2)
+|Outil|Objectif|
+|--|--|
+|[Exécuter avec PM2](#run-with-pm2)|**Recommandé** : À utiliser dans un environnement de production ou intermédiaire. PM2 fournit une plateforme complète de gestion des applications.|
+|[Exécuter npm start](#run-npm-start)|À utiliser uniquement dans un environnement de développement.|
+|[Exécuter une commande personnalisée](#run-custom-command)|À utiliser dans un environnement de développement intermédiaire.|
+
+
+### <a name="run-with-pm2"></a>Exécuter avec PM2
+
+Le conteneur démarre automatiquement votre application avec PM2 lorsqu’un des fichiers Node.js communs se trouve dans votre projet :
+
+- *bin/www*
+- *server.js*
+- *app.js*
+- *index.js*
+- *hostingstart.js*
+- Un des [fichiers PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) suivants : *process.json* et *ecosystem.config.js*
+
+Vous pouvez également configurer un fichier de démarrage personnalisé avec les extensions suivantes :
+
+- Fichier *.js*
+- [Fichier PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) avec l’extension *.json*, *.config.js*, *.yaml* ou *.yml*
+
+Pour ajouter un fichier de démarrage personnalisé, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+```
 
 ### <a name="run-custom-command"></a>Exécuter une commande personnalisée
 
@@ -180,27 +205,6 @@ Pour utiliser un fichier *package.json* personnalisé dans votre projet, exécut
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
 ```
 
-### <a name="run-with-pm2"></a>Exécuter avec PM2
-
-Le conteneur démarre automatiquement votre application avec PM2 lorsqu’un des fichiers Node.js communs se trouve dans votre projet :
-
-- *bin/www*
-- *server.js*
-- *app.js*
-- *index.js*
-- *hostingstart.js*
-- Un des [fichiers PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) suivants : *process.json* et *ecosystem.config.js*
-
-Vous pouvez également configurer un fichier de démarrage personnalisé avec les extensions suivantes :
-
-- Fichier *.js*
-- [Fichier PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) avec l’extension *.json*, *.config.js*, *.yaml* ou *.yml*
-
-Pour ajouter un fichier de démarrage personnalisé, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
-
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
-```
 
 ## <a name="debug-remotely"></a>Déboguer à distance
 

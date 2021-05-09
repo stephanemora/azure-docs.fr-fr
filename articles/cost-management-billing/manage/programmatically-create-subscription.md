@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 546ed24b5f9e7892f40c9d425b668f60ad705f8f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ce08ebf473b11eecae327c7de050c791f5bc1b1a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493886"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379007"
 ---
 # <a name="create-azure-subscriptions-programmatically"></a>Créer des abonnements Azure programmatiquement
 
@@ -26,7 +26,7 @@ Cet article explique les différentes méthodes permettant de créer des abonnem
 - Contrat client Microsoft (MCA)
 - Contrat Partenaire Microsoft (MPA)
 
-Vous ne pouvez pas créer des abonnements supplémentaires pour d’autres types de contrats programmatiquement à l’aide des API REST.
+Vous ne pouvez pas créer des abonnements supplémentaires pour d’autres types de contrats par programmation à l’aide des API REST.
 
 Les spécifications et les informations permettant de créer des abonnements diffèrent selon les contrats et les versions d’API. Consultez les articles suivants qui s’appliquent à votre situation :
 
@@ -36,9 +36,9 @@ API les plus récentes :
 - [Créer des abonnements MCA](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [Créer des abonnements MPA](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-Si vous utilisez encore des [API en préversion](programmatically-create-subscription-preview.md), vous pouvez continuer à les utiliser pour créer des abonnements. 
+Ces articles montrent également comment créer des abonnements avec un modèle ARM (Azure Resource Manager). Un modèle ARM permet d’automatiser le processus de création d’abonnement.
 
-Vous pouvez également [créer des abonnements avec un modèle ARM](create-subscription-template.md). Un modèle ARM permet d’automatiser le processus de création d’un abonnement avec les API REST. 
+Si vous utilisez encore des [API en préversion](programmatically-create-subscription-preview.md), vous pouvez continuer à les utiliser pour créer des abonnements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

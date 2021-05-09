@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 96c534919e7279af61a86d24ae4c4ca984c02662
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ea3f5cb896bb023a38474be71aa1570d9f5b4806
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124232"
+ms.locfileid: "108176663"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -254,7 +254,7 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | PRÉVERSION | ![Disponible][check] | Non disponible | Non disponible |
 
 
 Pour plus d’informations, voir [Utiliser les identités managées dans Azure Kubernetes Service](../../aks/use-managed-identity.md).

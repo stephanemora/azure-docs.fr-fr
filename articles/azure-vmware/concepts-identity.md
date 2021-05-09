@@ -3,18 +3,16 @@ title: Concepts - Identité et accès
 description: Découvrir les concepts d’identité et d’accès de Azure VMware Solution
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 1d49ce27ee74621874281a555651c09a73048928
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 352daaec87c2df7a0bc062abd38a96ad0285180a
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109813"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108069828"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concepts d’identité d’Azure VMware Solution
 
-Les clouds privés Azure VMware Solution sont approvisionnés avec vCenter Server et NSX-T Manager. Vous utilisez vCenter pour gérer les charges de travail des machines virtuelles, et NSX-T Manager pour gérer et étendre le cloud privé. La gestion des accès et des identités utilise le rôle CloudAdmin pour vCenter et des droits d’administrateur restreints pour NSX-T Manager. 
-
-Pour plus d’informations, consultez l’[article sur les concepts relatifs aux mises à niveau de cloud privé][concepts-upgrades].
+Les clouds privés Azure VMware Solution sont approvisionnés avec vCenter Server et NSX-T Manager. Vous utilisez vCenter pour gérer les charges de travail des machines virtuelles, et NSX-T Manager pour gérer et étendre le cloud privé. La gestion des accès et des identités utilise le rôle CloudAdmin pour vCenter et des droits d’administrateur restreints pour NSX-T Manager. 
 
 ## <a name="vcenter-access-and-identity"></a>Identité et accès vCenter
 
@@ -39,7 +37,7 @@ Vous pouvez afficher les privilèges accordés au rôle CloudAdmin d’Azure VMw
 
    :::image type="content" source="media/role-based-access-control-cloudadmin-privileges.png" alt-text="Comment afficher les privilèges du rôle CloudAdmin dans le client vSphere":::
 
-Le rôle CloudAdmin dans Azure VMware Solution dispose des privilèges suivants sur vCenter. Pour plus d’informations, consultez la [documentation du produit VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+Le rôle CloudAdmin dans Azure VMware Solution dispose des privilèges suivants sur vCenter. Pour plus d’informations, consultez la [documentation produit de VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
 | Privilège | Description |
 | --------- | ----------- |
@@ -95,19 +93,21 @@ Pour empêcher la création de rôles qui ne peuvent pas être attribués ni sup
 ## <a name="nsx-t-manager-access-and-identity"></a>Identité et accès du gestionnaire NSX-T
 
 >[!NOTE]
->NSX-T 2.5 est actuellement pris en charge.
+>NSX-T 2.5 est actuellement pris en charge pour tous les nouveaux clouds privés.
 
-Utilisez le compte *administrateur* pour accéder à NSX-T Manager. Ce compte dispose de privilèges complets et vous permet de créer et de gérer des passerelles de niveau 1 (T1), des segments (commutateurs logiques) et tous les services. Les privilèges vous permettent d’accéder à la passerelle de niveau 0 (T0) de NSX-T. Une modification apportée à la passerelle T0 peut entraîner une dégradation des performances réseau ou une perte de l’accès à un cloud privé. Ouvrez une demande de support dans le portail Azure pour demander toute modification de votre passerelle NSX-T T0.
+Utilisez le compte *Administrateur* pour accéder à NSX-T Manager. Ce compte dispose de privilèges complets et vous permet de créer et de gérer des passerelles de niveau 1 (T1), des segments (commutateurs logiques) et tous les services. Les privilèges vous permettent d’accéder à la passerelle de niveau 0 (T0) de NSX-T. Une modification apportée à la passerelle T0 peut entraîner une dégradation des performances réseau ou une perte de l’accès à un cloud privé. Ouvrez une demande de support dans le portail Azure pour demander toute modification de votre passerelle NSX-T T0.
+
+>[!TIP]
+>Vous pouvez utiliser la [fonctionnalité NSX simplifiée dans le portail Azure](configure-nsx-network-components-azure-portal.md) comme alternative à l’utilisation de NSX-T Manager.
 
  
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez abordé les concepts d’accès et d’identité d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
-- [Concepts de mise à niveau du cloud privé](concepts-upgrades.md)
 - [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md)
 - [Détails de chaque privilège](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
-- [Surveillance et réparation des clouds privés Azure VMware Solution](concepts-monitor-repair-private-cloud.md)
+- [Surveillance et réparation des clouds privés Azure VMware Solution](/azure/azure-vmware/concepts-private-clouds-clusters#host-monitoring-and-remediation)
 - [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md)
 
 
@@ -115,4 +115,4 @@ Maintenant que vous avez abordé les concepts d’accès et d’identité d’Az
 [VMware product documentation]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html
 
 <!-- LINKS - internal -->
-[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-upgrades]: ./concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management
