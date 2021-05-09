@@ -2,17 +2,24 @@
 title: 'Tutoriel : Déployer un cloud privé Azure VMware Solution'
 description: Découvrez comment créer et déployer un cloud privé Azure VMware Solution
 ms.topic: tutorial
-ms.date: 02/22/2021
-ms.openlocfilehash: 89a44ce7e5910609068f72c321971ced2e3646b4
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.date: 04/23/2021
+ms.openlocfilehash: cdbd00473890e22c08ebf57f7c6f54f6eef188bb
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374843"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945798"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Déployer un cloud privé Azure VMware Solution
 
-Azure VMware Solution vous donne la possibilité de déployer un cluster vSphere dans Azure. Le déploiement initial minimal est de trois hôtes. Des hôtes supplémentaires peuvent être ajoutés un à la fois, jusqu’à un maximum de 16 hôtes par cluster.
+Un cloud privé Azure VMware Solution vous donne la possibilité de déployer un cluster vSphere sur Azure. Pour chaque cloud privé créé, il existe un cluster vSAN par défaut. Vous pouvez ajouter, supprimer et mettre à l’échelle des clusters.  Le nombre minimal d’hôtes par cluster est de trois. Des hôtes supplémentaires peuvent être ajoutés un par un, jusqu’à un maximum de 16 hôtes par cluster. Le nombre maximal de clusters par cloud privé est de quatre.  Le déploiement initial de VMware Azure Solution comporte trois hôtes. 
+
+Des clusters d’essai sont disponibles à des fins d’évaluation et limités à trois hôtes. Il existe un cluster d’évaluation unique par cloud privé. Vous pouvez mettre à l’échelle un cluster d’évaluation à l’aide d’un seul hôte au cours de la période d’évaluation.
+
+Vous utilisez vSphere et NSX-T Manager pour gérer la plupart des autres aspects de la configuration ou de l’exploitation du cluster. Tout le stockage local de chaque hôte dans un cluster est contrôlé par le logiciel vSAN.
+
+>[!TIP]
+>Vous pouvez toujours étendre le cluster et ajouter des clusters supplémentaires ultérieurement si vous devez aller au-delà du chiffre de déploiement initial.
 
 Comme Azure VMware Solution ne vous permet pas de gérer votre cloud privé avec votre vCenter local au lancement, vous devez effectuer une configuration supplémentaire. Ces procédures et les prérequis associés sont traités dans ce tutoriel.
 
@@ -27,54 +34,12 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Droits d’administration appropriés et autorisation de créer un cloud privé. Vous devez avoir un niveau de contributeur minimal dans l’abonnement.
 - Suivez les informations que vous avez rassemblées dans l’article sur la [planification](production-ready-deployment-steps.md) pour déployer Azure VMware Solution.
-- Vérifiez que vous disposez d’un réseau approprié configuré comme décrit dans [Tutoriel : Check-list du réseau](tutorial-network-checklist.md).
-- Les hôtes ont été provisionnés et le fournisseur de ressources Microsoft.AVS inscrit comme cela est décrit dans l’article qui explique comment [demander les hôtes et activer le fournisseur de ressources Microsoft.AVS](enable-azure-vmware-solution.md).
+- Vérifiez que vous disposez d’un réseau approprié configuré comme décrit dans [Check-list pour la planification réseau](tutorial-network-checklist.md).
+- Les hôtes ont été provisionnés et le fournisseur de ressources Microsoft.AVS inscrit comme décrit dans l’article qui explique comment [demander les hôtes et activer le fournisseur de ressources Microsoft.AVS](enable-azure-vmware-solution.md).
 
 ## <a name="create-a-private-cloud"></a>Créer un cloud privé
 
-Vous pouvez créer un cloud privé Azure VMware Solution en utilisant le [portail Azure](#azure-portal) ou [Azure CLI](#azure-cli).
-
-### <a name="azure-portal"></a>Portail Azure
-
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
-
-### <a name="azure-cli"></a>Azure CLI
-
-Pour créer un cloud privé Azure VMware Solution, vous pouvez utiliser l’interface Azure CLI à l’aide d’Azure Cloud Shell au lieu du portail Azure.  Pour obtenir la liste des commandes que vous pouvez utiliser avec Azure VMware Solution, consultez [Commandes Azure VMware](/cli/azure/ext/vmware/vmware).
-
-#### <a name="open-azure-cloud-shell"></a>Ouvrir Azure Cloud Shell
-
-Sélectionnez **Essayer** dans le coin supérieur droit d’un bloc de code. Vous pouvez également lancer Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/bash](https://shell.azure.com/bash). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell, puis appuyez sur **Entrée** pour les exécuter.
-
-#### <a name="create-a-resource-group"></a>Créer un groupe de ressources
-
-Créez un groupe de ressources avec la commande ['az group create'](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
-
-```azurecli-interactive
-
-az group create --name myResourceGroup --location eastus
-```
-
-#### <a name="create-a-private-cloud"></a>Créer un cloud privé
-
-Spécifiez un nom pour le groupe de ressources et le cloud privé, un emplacement et la taille du cluster.
-
-| Propriété  | Description  |
-| --------- | ------------ |
-| **-g** (nom de groupe de ressources)     | Nom du groupe de ressources pour vos ressources de cloud privé.        |
-| **-n** (nom du cloud privé)     | Nom de votre cloud privé Azure VMware Solution.        |
-| **--location**     | Emplacement utilisé pour votre cloud privé.         |
-| **--cluster-size**     | Taille du cluster La valeur minimale est 3.         |
-| **--network-block**     | Bloc réseau d’adresses IP CIDR à utiliser pour votre cloud privé. Le bloc d’adresses ne doit pas chevaucher ceux utilisés dans d’autres réseaux virtuels se trouvant dans votre abonnement et des réseaux locaux.        |
-| **--sku** | Valeur de référence SKU : AV36 |
-
-```azurecli-interactive
-az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
-```
-
-## <a name="azure-vmware-commands"></a>Commandes Azure VMware
-
-Pour obtenir la liste des commandes que vous pouvez utiliser avec Azure VMware Solution, consultez [Commandes Azure VMware](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e097a5642befb2e3b91423379c734cb5acdfa7d0
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 6ba070f0ed04885b79a56284f08a2467f6fcf51b
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073590"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324074"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Dépanner les partages de fichiers Azure NFS
 
@@ -130,11 +130,11 @@ Si le package n’est pas installé, installez-le sur votre distribution.
 
 ```
 sudo apt update
-sudo apt install-nfscommon
+sudo apt install nfs-common
 ```
 ##### <a name="fedora-red-hat-enterprise-linux-8-centos-8"></a>Fedora, Red Hat Enterprise Linux 8+, CentOS 8+
 
-Utilisez le gestionnaire de package dnf :`sudo dnf install nfs-common`.
+Utilisez le gestionnaire de package dnf :`sudo dnf install nfs-utils`.
 
 Les versions plus anciennes de Red Hat Enterprise Linux et CentOS utilisent le gestionnaire de packages yum : `sudo yum install nfs-common`.
 

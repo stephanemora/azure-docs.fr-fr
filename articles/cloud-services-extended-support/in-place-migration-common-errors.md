@@ -9,12 +9,12 @@ ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 58203730793202649c401d96182469fa1eac6ef1
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 2e56e3d6b5f29996d8fe9606ac9a1b3778201803
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286757"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288721"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Erreurs courantes et problèmes connus lors de la migration vers Azure Cloud Services (support étendu)
 
@@ -42,8 +42,8 @@ Erreurs courantes de migration et mesures d’atténuation.
 | Message d’erreur | Détails | 
 |---|---|
 | Le type de ressource est introuvable dans l’espace de noms `Microsoft.Compute` pour la version d’API ’2020-10-01-preview’. | [Inscrivez l’abonnement](in-place-migration-overview.md#setup-access-for-migration) pour l’indicateur de fonctionnalité CloudServices pour accéder à la préversion publique. | 
-| Le serveur a rencontré une erreur interne. Relancez la requête. | Réessayez l’opération, utilisez [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
-| Le serveur a rencontré une erreur inattendue lors de la tentative d’allocation des ressources réseau pour le service cloud. Relancez la requête. | Réessayez l’opération, utilisez [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
+| Le serveur a rencontré une erreur interne. Relancez la requête. | Réessayez l’opération, utilisez [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
+| Le serveur a rencontré une erreur inattendue lors de la tentative d’allocation des ressources réseau pour le service cloud. Relancez la requête. | Réessayez l’opération, utilisez [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
 | Le déploiement nom-déploiement dans le service cloud nom-service-cloud doit se trouver dans un réseau virtuel à migrer. | Le déploiement ne se trouve pas dans un réseau virtuel. Consultez [ce](in-place-migration-technical-details.md#migration-of-deployments-not-in-a-virtual-network) document pour plus d’informations. | 
 | La migration du déploiement nom-déploiement dans le service cloud nom-service-cloud n’est pas prise en charge, car il se trouve dans la région nom-région. Régions autorisées : [liste des régions disponibles]. | La région n’est pas encore prise en charge pour la migration. | 
 | Le déploiement nom-déploiement dans service le cloud nom-service-cloud ne peut pas être migré car aucun sous-réseau n’est associé au rôle nom-rôle. Associez tous les rôles à un sous-réseau, puis réessayez la migration du service cloud. | Mettez à jour le déploiement du service cloud (classique) en le plaçant dans un sous-réseau avant la migration. |  
@@ -62,11 +62,11 @@ Erreurs courantes de migration et mesures d’atténuation.
 | L’option de destination de réseau virtuel par défaut n’est pas implémentée. | La valeur « Default » n’est pas prise en charge pour la propriété DestinationVirtualNetwork dans le corps de la requête REST. | 
 | Le déploiement {0} ne peut pas être migré, car le CSPKG n’est pas disponible. | Mettez à niveau le déploiement et réessayez. | 
 | Le sous-réseau avec l’ID « {0} » se trouve dans un emplacement différent du déploiement « {1} » dans le service hébergé « {2} ». L’emplacement du sous-réseau est « {3} » et l’emplacement du service hébergé est « {4} ».  Spécifiez un sous-réseau au même emplacement que le déploiement. | Mettez à jour le service cloud pour que le service cloud et le sous-réseau se trouvent au même emplacement avant la migration. | 
-| La migration du déploiement {0} dans le service hébergé {1} est en cours d’abandon et ne peut pas être modifiée jusqu’à ce qu’elle se termine correctement. | Attendez la fin de l’abandon ou réessayez l’abandon. Utilisez [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique sinon. | 
+| La migration du déploiement {0} dans le service hébergé {1} est en cours d’abandon et ne peut pas être modifiée jusqu’à ce qu’elle se termine correctement. | Attendez la fin de l’abandon ou réessayez l’abandon. Utilisez [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique sinon. | 
 | Le déploiement {0} dans le HostedService {1} n’a pas été préparé pour la migration. | Exécutez prepare sur le service cloud avant d’exécuter l’opération de validation. | 
-| UnknownExceptionInEndExecute : Contract.Assert a échoué : rgName est nul ou vide : l’exception reçue dans EndExecute n’est pas une RdfeException. |   Utilisez [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
-| UnknownExceptionInEndExecute : une tâche a été annulée : l’exception reçue dans EndExecute n’est pas une RdfeException. | Utilisez [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
-| XrpVirtualNetworkMigrationError : échec de la migration du réseau virtuel. | Utilisez [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
+| UnknownExceptionInEndExecute : Contract.Assert a échoué : rgName est nul ou vide : l’exception reçue dans EndExecute n’est pas une RdfeException. |   Utilisez [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
+| UnknownExceptionInEndExecute : une tâche a été annulée : l’exception reçue dans EndExecute n’est pas une RdfeException. | Utilisez [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
+| XrpVirtualNetworkMigrationError : échec de la migration du réseau virtuel. | Utilisez [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
 | Le déploiement {0} dans le HostedService {1} appartient au réseau virtuel {2}. Migrez le réseau virtuel {2} pour migrer ce HostedService {1}. | Consultez [Migration de réseau virtuel](in-place-migration-technical-details.md#virtual-network-migration). | 
 | Le quota actuel pour le nom de ressource dans Azure Resource Manager est insuffisant pour terminer la migration. Le quota actuel est {0}, supplément requis : {1}. Effectuez une demande de support pour augmenter le quota et recommencez la migration une fois que le quota a été augmenté.    | Suivez les canaux appropriés pour demander une augmentation du quota : <br>[Augmentation du quota pour les ressources réseau](../azure-portal/supportability/networking-quota-requests.md) <br>[Augmentation du quota pour les ressources de calcul](../azure-portal/supportability/per-vm-quota-requests.md) | 
 

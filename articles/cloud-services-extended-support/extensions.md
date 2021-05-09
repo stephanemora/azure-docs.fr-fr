@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6db43acda679c6c1c1edd6336f693cc4757b6d45
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 58377252e163894cdfee83d9c68146a9131f94c5
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220915"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288775"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Extensions pour Cloud Services (support étendu)
 
@@ -40,9 +40,9 @@ Pour plus d’informations, consultez [Appliquer l’extension Diagnostics Azure
 ## <a name="anti-malware-extension"></a>Extension anti-programme malveillant
 Une application ou un service Azure peut activer et configurer Microsoft Antimalware pour les services cloud Azure à l’aide des applets de commande PowerShell. Notez que Microsoft Antimalware est installé à l’état désactivé dans la plateforme Cloud Services exécutant Windows Server 2012 R2 ou une version plus ancienne qui nécessite une action d’une application Azure pour être activé. Pour Windows Server 2016 et versions ultérieures, Windows Defender est activé par défaut. Par conséquent, ces applets de commande peuvent être utilisées pour la configuration de Microsoft Antimalware.
 
-Pour plus d’informations, consultez [Ajouter Microsoft Antimalware au service cloud Azure à l’aide du support étendu (CS-ES)](https://docs.microsoft.com/azure/security/fundamentals/antimalware-code-samples#add-microsoft-antimalware-to-azure-cloud-service-using-extended-support)
+Pour plus d’informations, consultez [Ajouter Microsoft Antimalware au service cloud Azure à l’aide du support étendu (CS-ES)](../security/fundamentals/antimalware-code-samples.md#add-microsoft-antimalware-to-azure-cloud-service-using-extended-support)
 
-Pour en savoir plus sur Azure Antimalware, consultez [cette page](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+Pour en savoir plus sur Azure Antimalware, consultez [cette page](../security/fundamentals/antimalware.md)
 
 
 

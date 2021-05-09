@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed13dd922595a051db77426281f062efd5176f57
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96023786"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166725"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Utilisation du service de messagerie électronique SendGrid à partir de PHP
 
@@ -28,6 +28,7 @@ Ce guide présente l'exécution de tâches de programmation courantes avec le se
 Les scénarios traités incluent la **construction**, l'**envoi de courriers électroniques** et l'**ajout de pièces jointes**. Pour plus d'informations sur SendGrid et sur l'envoi de courrier électronique, consultez la section [Étapes suivantes](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Définition du service de messagerie SendGrid
+
 SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques scénarios courants en termes d'utilisation de SendGrid :
 
 * Envoi automatique d'accusés de réception aux clients
@@ -118,6 +119,7 @@ Pour envoyer un courrier électronique à l'aide de l'API SMTP SendGrid, utili
 ```
 
 ### <a name="web-api"></a>API Web
+
 Utilisez la [fonction curl][curl function] de PHP pour envoyer un courrier électronique à l'aide de l'API web de SendGrid.
 
 ```php
@@ -309,7 +311,7 @@ Utilisez [Composer] pour installer la bibliothèque :
 php composer.phar require sendgrid/sendgrid 2.1.1
 ```
 
-### <a name="example"></a>Exemple  
+### <a name="example"></a>Exemple
 
 ```php
 <?php
@@ -404,7 +406,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  $response = $sendgrid->send($email);
 
  print_r($response);
- ```
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

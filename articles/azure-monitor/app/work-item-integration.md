@@ -1,23 +1,18 @@
 ---
-title: Intégration d’éléments de travail (préversion)-Application Insights
+title: Intégration d’éléments de travail – Application Insights
 description: Découvrez comment créer des éléments de travail dans GitHub ou Azure DevOps avec des données Application Insights incorporées.
 ms.topic: conceptual
-ms.date: 02/9/2021
-ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/22/2021
+ms.openlocfilehash: 57eae6b0cda7a0f77a83ecbe453aca56eaf2504b
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731916"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930393"
 ---
-# <a name="work-item-integration-preview"></a>Intégration d'éléments de travail (préversion)
+# <a name="work-item-integration"></a>Intégration d’éléments de travail 
 
 La fonctionnalité d’intégration d’éléments de travail vous permet de créer facilement des éléments de travail dans GitHub ou Azure DevOps, contenant des données Application Insights incorporées.
-
-> [!IMPORTANT]
-> L’intégration d’éléments de travail est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-and-configure-a-work-item-template"></a>Créer et configurer un modèle d’élément de travail
 
@@ -32,6 +27,8 @@ La fonctionnalité d’intégration d’éléments de travail vous permet de cr�
 2. Après avoir sélectionné **Créer un modèle**, vous pouvez choisir vos systèmes de suivi, nommer votre classeur, créer un lien vers votre système de suivi sélectionné, puis choisir une région pour le stockage du modèle (la valeur par défaut est la région dans laquelle se trouve votre ressource Application Insights). Les paramètres d’URL sont l’URL par défaut de votre référentiel, par exemple, `https://github.com/myusername/reponame` ou `https://mydevops.visualstudio.com/myproject`.
 
     :::image type="content" source="./media/work-item-integration/create-workbook.png" alt-text=" Capture d’écran de la création d’un modèle de classeur.":::
+
+    Vous pouvez définir des propriétés spécifiques de l’élément de travail directement à partir du modèle lui-même. Cela comprend le destinataire, le chemin d’itération, les projets et plus encore, en fonction de votre fournisseur de contrôle de version.
 
 ## <a name="create-a-work-item"></a>Créer un élément de travail
 
