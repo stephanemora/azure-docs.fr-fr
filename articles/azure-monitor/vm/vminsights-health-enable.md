@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/05/2021
-ms.custom: references_regions
-ms.openlocfilehash: 6f6c67e0e9ef1dd2a4092033a9479801cd0e8e7d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 472700f50175c115305bad332efa6b0e77fb74ce
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449305"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315288"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Activer l’intégrité de l’invité de VM Insights (préversion)
 L’intégrité des invités de VM Insights vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article explique comment activer cette fonctionnalité dans votre abonnement et comment activer la supervision des invités pour chaque machine virtuelle.

@@ -4,12 +4,12 @@ description: Quelques bonnes pratiques permettant de faciliter le déploiement e
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 92ad8362f75cdf0613d4ee95f39c23aa6d4819bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57bf6d1773857b7627b8cea5b69d18e337e41427
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98933574"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292843"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informations et recommandations générales sur la sécurité d’entreprise dans Azure HDInsight
 
@@ -112,7 +112,7 @@ Utilisez un nouveau groupe de ressources pour chaque cluster afin de pouvoir fai
 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP (Lightweight Directory Access Protocol) et l’authentification Kerberos/NTLM entièrement compatible avec Windows Server Active Directory.
 
 Azure AD DS est nécessaire pour que des clusters sécurisés rejoignent un domaine.
-HDInsight ne peut pas dépendre de contrôleurs de domaine locaux ou de contrôleurs de domaine personnalisés, car cela introduit un trop grand nombre de points d’erreur, un partage des informations d’identification, des autorisations DNS, etc. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure AD DS](../../active-directory-domain-services/faqs.md).
+HDInsight ne peut pas dépendre de contrôleurs de domaine locaux ou de contrôleurs de domaine personnalisés, car cela introduit un trop grand nombre de points d’erreur, un partage des informations d’identification, des autorisations DNS, etc. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure AD DS](../../active-directory-domain-services/faqs.yml).
 
 ### <a name="azure-ad-ds-instance"></a>Instance Azure AD DS
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: fe73832ec5eaee62a2dc2d397c12f82334e2efd8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e286c27c10d5e937c705f7c90df273fa3556eccc
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010698"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947588"
 ---
 # <a name="single-page-application-code-configuration"></a>Application monopage : Configuration de code
 
@@ -33,7 +33,23 @@ Les bibliothèques Microsoft suivantes prennent en charge les applications monop
 
 Dans une bibliothèque MSAL, les informations d’inscription d’application sont transmises en tant que configuration pendant l’initialisation de la bibliothèque.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript-msaljs-v2"></a>[JavaScript (MSAL.js v2)](#tab/javascript2)
+
+```javascript
+// Configuration object constructed.
+const config = {
+    auth: {
+        clientId: 'your_client_id'
+    }
+};
+
+// create PublicClientApplication instance
+const publicClientApplication = new PublicClientApplication(config);
+```
+
+Pour plus d’informations sur les options configurables, consultez [Initialisation d’application avec MSAL.js](msal-js-initializing-client-applications.md).
+
+# <a name="javascript-msaljs-v1"></a>[JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
 // Configuration object constructed.
@@ -49,12 +65,30 @@ const userAgentApplication = new UserAgentApplication(config);
 
 Pour plus d’informations sur les options configurables, consultez [Initialisation d’application avec MSAL.js](msal-js-initializing-client-applications.md).
 
-# <a name="angular"></a>[Angular](#tab/angular)
+# <a name="angular-msaljs-v2"></a>[Angular (MSAL.js v2)](#tab/angular2)
+
+```javascript
+// In app.module.ts
+import { MsalModule } from '@azure/msal-angular';
+import { PublicClientApplication } from '@azure/msal-browser';
+
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'Enter_the_Application_Id_Here',
+            }
+        }), null, null)
+    ]
+})
+export class AppModule { }
+```
+
+# <a name="angular-msaljs-v1"></a>[Angular (MSAL.js v1)](#tab/angular1)
 
 ```javascript
 // App.module.ts
 import { MsalModule } from '@azure/msal-angular';
-
 @NgModule({
     imports: [
         MsalModule.forRoot({
@@ -64,8 +98,34 @@ import { MsalModule } from '@azure/msal-angular';
         })
     ]
 })
-
 export class AppModule { }
+```
+
+# <a name="react"></a>[React](#tab/react)
+
+```javascript
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+
+// Configuration object constructed.
+const config = {
+    auth: {
+        clientId: 'your_client_id'
+    }
+};
+
+// create PublicClientApplication instance
+const publicClientApplication = new PublicClientApplication(config);
+
+// Wrap your app component tree in the MsalProvider component
+ReactDOM.render(
+    <React.StrictMode>
+        <MsalProvider instance={publicClientApplication}>
+            <App />
+        </ MsalProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
 ```
 
 ---

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: devx-track-csharp
 ms.devlang: dotnet
-ms.openlocfilehash: 504116f9bbed178889cd2e6d370c0c912da0ad00
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 0f4f2b2c87f295aa98257521c420902a4e7302f7
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107981943"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163586"
 ---
 # <a name="4---net-search-integration-cheat-sheet"></a>4 - Aide-mémoire de l’intégration de recherche .NET
 
@@ -85,7 +85,7 @@ L’API de fonction Suggest est appelée dans l’application React à l’empla
 
 ## <a name="azure-function-get-specific-document"></a>Azure Function : accéder à un document spécifique 
 
-L’[API](https://github.com/Azure-Samples/azure-search-dotent-samples/blob/master/search-website/api/Lookup.cs) `Lookup` prend un ID et retourne l’objet de document à partir de l’index de recherche. 
+L’[API](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website/api/Lookup.cs) `Lookup` prend un ID et retourne l’objet de document à partir de l’index de recherche. 
 
 :::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Lookup.cs" highlight="19-21, 42" :::
 

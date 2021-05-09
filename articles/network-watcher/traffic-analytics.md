@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 8d877f666e03bbbe2b9d4f01bc9059b95f9a1f6b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fab2adb932d9c74b30b1775d8fa7ab257a4f00b0
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385273"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887915"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -63,17 +63,18 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
    :::column span="":::
       Centre de l’Australie  
       Australie Est  
-      Australie Sud-Est  
+      Sud-Australie Est  
       Brésil Sud  
       Centre du Canada  
       Est du Canada  
       Inde centrale  
       USA Centre  
       Chine orientale 2  
-      Chine Nord 2  
-      Asie Est       
+      Chine du Nord   
+      Chine Nord 2       
    :::column-end:::
    :::column span="":::
+      Asie Est  
       USA Est  
       USA Est 2  
       USA Est 2 (EUAP)  
@@ -83,10 +84,10 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
       OuJapon Est  
       Centre de la Corée  
       Corée du Sud  
-      Centre-Nord des États-Unis  
-      Europe Nord    
+      Centre-Nord des États-Unis    
    :::column-end:::
    :::column span="":::
+      Europe Nord  
       Afrique du Sud Nord  
       États-Unis - partie centrale méridionale  
       Inde Sud  
@@ -95,11 +96,11 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
       Suisse Ouest  
       Émirats arabes unis Nord  
       Sud du Royaume-Uni  
-      Ouest du Royaume-Uni   
-      USGov Arizona  
-      USGov Texas
+      Ouest du Royaume-Uni     
+      USGov Arizona
    :::column-end:::
    :::column span="":::
+      USGov Texas  
       USGov Virginia  
       USNat East  
       USNat West  
@@ -119,38 +120,43 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
    :::column span="":::
       Centre de l’Australie  
       Australie Est  
-      Australie Sud-Est  
+      Sud-Australie Est  
       Brésil Sud  
+      Brésil Sud-Est  
       Centre du Canada  
       Inde centrale  
       USA Centre  
-      Chine orientale 2  
+      Chine orientale 2      
       Asie Est  
-      USA Est  
    :::column-end:::
    :::column span="":::
+      USA Est  
       USA Est 2  
       USA Est 2 (EUAP)  
-      France Centre Japon Est  
+      France Centre  
+      Allemagne Centre-Ouest  
+      Japon Est  
+      OuJapon Est  
       Centre de la Corée  
       Centre-Nord des États-Unis  
       Europe Nord  
-      Afrique du Sud Nord  
-      États-Unis - partie centrale méridionale  
    :::column-end:::
    :::column span="":::
+      Norvège Est  
+      Afrique du Sud Nord  
+      États-Unis - partie centrale méridionale  
       Asie Sud-Est  
       Suisse Nord  
       Suisse Ouest  
       Émirats arabes unis Centre  
       Émirats arabes unis Nord  
       Sud du Royaume-Uni  
-      Ouest du Royaume-Uni   
-      USGov Arizona  
-      USGov Virginia  
-      USNat East   
+      Ouest du Royaume-Uni      
    :::column-end:::
    :::column span="":::
+      USGov Arizona  
+      USGov Virginia  
+      USNat East  
       USNat West   
       USSec Est  
       USSec Ouest  
@@ -160,6 +166,9 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
       USA Ouest 2  
    :::column-end:::
 :::row-end:::
+
+> [!NOTE]
+> Si les groupes de sécurité réseau prennent en charge une région mais que l'espace de travail d'analytique des journaux d'activité ne prend pas en charge cette région pour l'analyse du trafic comme indiqué dans les listes ci-dessus, vous pouvez utiliser l'espace de travail d'analytique des journaux d'activité d'une autre région prise en charge comme solution de contournement.
 
 ## <a name="prerequisites"></a>Prérequis
 

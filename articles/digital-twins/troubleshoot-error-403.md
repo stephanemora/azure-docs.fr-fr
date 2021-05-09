@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: ad28b3300e9107c7f6d4b1987205583ef60ed658
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b49ded912037c8935b67e64d4e4bb09402576bc7
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100545698"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203628"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Échec de la demande de service. État : 403 (Interdit)
 
@@ -58,7 +58,7 @@ Si vous êtes propriétaire de l’abonnement, vous pouvez exécuter cette comma
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Pour plus d’informations sur cette exigence de rôle et le processus d’attribution, consultez la [section *Configurer les autorisations d’accès de votre utilisateur*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de l’article *Guide pratique : Configurer une instance et l’authentification (CLI ou portail)* .
+Pour plus d’informations sur cette exigence de rôle et le processus d’attribution, consultez la section [Configurer les autorisations d’accès de votre utilisateur](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de l’article *Guide pratique : Configurer une instance et l’authentification (CLI ou portail)* .
 
 Si vous disposez déjà d’une attribution de rôle *et* que vous utilisez une inscription d’application Azure AD pour authentifier une application cliente, vous pouvez passer à la solution suivante si cette solution n’a pas résolu le problème 403.
 
@@ -86,12 +86,12 @@ Ensuite, sélectionnez *Autorisations de l’API* dans la barre de menus pour v�
 
 #### <a name="fix-issues"></a>Corriger les problèmes
 
-Si l’un de ces éléments semble différent de ce qui est décrit, suivez les instructions de configuration d’une inscription d’application dans [*Guide pratique : Créer une inscription d’application*](how-to-create-app-registration.md).
+Si l’un de ces éléments semble différent de ce qui est décrit, suivez les instructions de configuration d’une inscription d’application dans [Guide pratique : Créer une inscription d’application](how-to-create-app-registration.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lisez les étapes de configuration relatives à la création et à l’authentification d’une nouvelle instance Azure Digital Twins :
-* [*Guide pratique : Configurer une instance et l’authentification (CLI)*](how-to-set-up-instance-cli.md).
+* [Guide pratique : Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md) .
 
 En savoir plus sur la sécurité et les autorisations sur Azure Digital Twins :
-* [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md)
+* [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md)

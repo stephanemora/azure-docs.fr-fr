@@ -11,19 +11,19 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcfaef2f518028762958477a5b0d326acc237d1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e6eba5ac4ed61847596e12f56544e6d07dca8075
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98938434"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829572"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Activation de l’inscription combinée des informations de sécurité dans Azure Active Directory
 
 Avant l'inscription combinée, les utilisateurs s'inscrivaient séparément aux méthodes d'authentification Azure AD Multi-Factor Authentication (Azure AD MFA) et Réinitialisation de mot de passe en libre-service (SSPR). Certains se demandaient pourquoi ils devaient s'inscrire aux deux fonctionnalités alors que des méthodes similaires étaient utilisées pour l'authentification Azure AD MFA et la réinitialisation SSPR. Désormais, grâce à l'inscription combinée, les utilisateurs n'ont plus besoin de s'inscrire deux fois pour bénéficier des avantages de l'authentification Azure AD MFA et de la réinitialisation SSPR.
 
 > [!NOTE]
-> À partir du 15 août 2020, l’inscription combinée sera automatiquement activée pour tous les nouveaux locataires Azure AD. 
+> À partir du 15 août 2020, l’inscription combinée sera automatiquement activée pour tous les nouveaux locataires Azure AD. Les locataires créés après cette date ne pourront pas utiliser les workflows d’inscription hérités.
 
 Pour vous assurer de bien comprendre la fonctionnalité et ses effets avant d’activer la nouvelle expérience, consultez l’article [Concepts de l’inscription combinée des informations de sécurité](concept-registration-mfa-sspr-combined.md).
 
