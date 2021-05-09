@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: aaa690a4205951bd251a5230721e34fcb960a3b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 193213c55a56f745c45eec829dfbe1e81ee0f363
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782739"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886979"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Services liés dans Azure Data Factory
 
@@ -93,7 +93,7 @@ Le service lié suivant est un service lié au stockage d’objets blob. Notez q
 
 Il est possible de créer des services liés dans l’expérience utilisateur Azure Data Factory via le [hub de gestion](author-management-hub.md) et des activités, jeux de données ou flux de données qui y font référence.
 
-Vous pouvez créer des services liés en utilisant l’un de ces outils ou des kits de développement logiciel (SDK) [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), du modèle Azure Resource Manager ainsi que du portail Azure.
+Vous pouvez créer des services liés en utilisant l’un de ces outils ou Kits de développement logiciel (SDK) : [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), [Modèle Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md) et [Portail Azure](quickstart-create-data-factory-portal.md).
 
 
 ## <a name="data-store-linked-services"></a>Services liés de banque de données

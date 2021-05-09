@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Attestation
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Attestation. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/21/2021
+ms.date: 04/28/2021
 ms.topic: reference
 ms.service: attestation
 author: msmbaldwin
 ms.author: mbaldwin
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6d1c2b07871fa436dcde12a77663babd573cf720
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e0ca416aaf3bb74fe1d0587a0656dc7db8405650
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107863085"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178221"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-attestation"></a>Définitions intégrées d’Azure Policy pour Azure Attestation
 

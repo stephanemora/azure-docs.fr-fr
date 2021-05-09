@@ -10,18 +10,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/27/2020
-ms.openlocfilehash: 3a678f6280b5f2d0fd372e75bfbeb6eb2e9b1577
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/28/2021
+ms.openlocfilehash: 04831c7cb56082854097a2091b3c8099e4d488a6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634292"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124794"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 La géoréplication active est une fonctionnalité Azure SQL Database qui vous permet de créer des bases de données secondaires lisibles à partir de bases de données individuelles sur un serveur dans un centre de données identique ou différent (région).
+
+> [!NOTE]
+> La géoréplication active pour Azure SQL Hyperscale [est désormais en préversion publique](https://aka.ms/hsgeodr). Les limitations actuelles incluent : un seul géosecondaire dans la même région ou une autre région, seul le basculement forcé est pris en charge, la restauration de base de données à partir d’un géosecondaire n’est pas prise en charge, l’utilisation d’un géosecondaire en tant que base de données source pour la copie de base de données ou en tant que principal pour un autre géosecondaire n’est pas prise en charge
+
 
 > [!NOTE]
 > La géoréplication active n’est pas prise en charge par Azure SQL Managed Instance. Pour le basculement géographique d’instances de SQL Managed Instance, utilisez des [groupes de basculement automatique](auto-failover-group-overview.md).
