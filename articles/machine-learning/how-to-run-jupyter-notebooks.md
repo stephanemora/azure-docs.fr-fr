@@ -8,15 +8,14 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 953b987e908736df703c354067ee27fc27d56073
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0a95d95842d0b361a1a276566b01b7ea735c4670
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220706"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952077"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Exécuter des notebooks Jupyter dans votre espace de travail
 
@@ -288,8 +287,10 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 ## <a name="troubleshooting"></a>Dépannage
 
 * Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
+
 * Quand l’instance de calcul est déployée dans un espace de travail de liaison privée, elle est uniquement [accessible à partir d’un réseau virtuel](./how-to-secure-training-vnet.md#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
 
+* Si votre noyau s'est bloqué et a été redémarré, vous pouvez exécuter la commande suivante pour consulter le journal jupyter et obtenir plus de détails. `sudo journalctl -u jupyter`. Si les problèmes de noyau persistent, n'hésitez pas à utiliser une instance de calcul offrant davantage de mémoire.
     
 ## <a name="next-steps"></a>Étapes suivantes
 
