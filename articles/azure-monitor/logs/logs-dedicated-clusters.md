@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 1fbb8f82366ee961d10ce8a6bc098128bad6555a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 97f413bb6f82636fe9a670c70c170ad5b1259580
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041006"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321066"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
@@ -299,7 +300,11 @@ Une fois que vous avez créé votre ressource de *cluster* et qu’elle est enti
 - **keyVaultProperties** : met à jour la clé dans Azure Key Vault. Consultez [Mettre à jour le cluster avec les détails de l’identificateur de clé](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Il contient les paramètres suivants : *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType** : La propriété *billingType* détermine l’attribution de facturation pour la ressource de *cluster* et ses données :
   - **Cluster** (par défaut) : Les coûts de la réservation de capacité pour votre cluster sont attribués à la ressource de *cluster*.
-  - **Espaces de travail** : Les coûts de la réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster. Une partie de l’utilisation est facturée à la ressource de *cluster* si le total des données ingérées pour la journée est inférieur à la réservation de capacité. Pour en savoir plus sur le modèle de tarification du cluster, consultez [Clusters dédiés Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
+  - **Espaces de travail** : Les coûts de la réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster. Une partie de l’utilisation est facturée à la ressource de *cluster* si le total des données ingérées pour la journée est inférieur à la réservation de capacité. Pour en savoir plus sur le modèle de tarification du cluster, consultez [Clusters dédiés Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters).
+  - **Identité** : identité à utiliser pour l’authentification auprès de votre coffre de clés. Elle peut avoir été attribuée par le système ou par l’utilisateur.
+
+>[!IMPORTANT]
+>La mise à jour du cluster ne doit pas inclure les détails relatifs à l’identité et à l’identificateur de clé dans la même opération. S’il vous faut les mettre à jour, cette mise à jour doit faire l’objet de deux opérations consécutives.
 
 > [!NOTE]
 > La propriété *billingType* n’est pas prise en charge dans PowerShell.
@@ -513,6 +518,8 @@ Utilisez l’appel REST suivant pour supprimer un cluster :
 - Vous pouvez lier un espace de travail à votre cluster, puis le dissocier. Le nombre de liaisons d’espaces de travail sur un espace de travail particulier est limité à 2 sur une période de 30 jours.
 
 - Le déplacement d’un cluster vers un autre groupe de ressources ou abonnement n’est pas pris en charge.
+
+- La mise à jour du cluster ne doit pas inclure les détails relatifs à l’identité et à l’identificateur de clé dans la même opération. S’il vous faut les mettre à jour, cette mise à jour doit faire l’objet de deux opérations consécutives.
 
 - Actuellement, Lockbox n’est pas disponible en Chine. 
 

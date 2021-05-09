@@ -5,18 +5,18 @@ description: Découvrez comment utiliser des magasins de données pour vous conn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
-ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 78b7bab204a08b474ea3c5cf5c2f7735c019a9c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q1, devx-track-python, data4ml
+ms.openlocfilehash: 35a60291017668755f3b98e63d6a15bda59f2b8e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519926"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143644"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Se connecter à des services de stockage sur Azure
 
@@ -91,18 +91,21 @@ Nous vous recommandons de créer un magasin de données pour un [conteneur Blob 
 
 Pour s’assurer que vous vous connectez en toute sécurité à votre service de stockage Azure, Azure Machine Learning exige que vous ayez l’autorisation d’accéder au conteneur de stockage de données correspondant. Cet accès dépend des informations d’authentification utilisées pour inscrire le magasin de données. 
 
-### <a name="virtual-network"></a>Réseau virtuel 
-
-Par défaut, Azure Machine Learning ne peut pas communiquer avec un compte de stockage situé derrière un pare-feu ou dans un réseau virtuel. Si votre compte de stockage de données se trouve sur un **réseau virtuel**, des étapes de configuration supplémentaires sont nécessaires pour s’assurer qu’Azure Machine Learning a accès à vos données. 
-
 > [!NOTE]
 > Cette instruction s’applique également aux [magasins de données créés avec l’accès aux données basé sur l’identité (préversion)](how-to-identity-based-data-access.md). 
 
-**Pour les utilisateurs du kit SDK Python**, si vous souhaitez qu’ils accèdent à vos données par le biais de votre script d’entraînement sur une cible de calcul, cette cible doit se trouver dans le même réseau et sous-réseau virtuels du stockage.  
+### <a name="virtual-network"></a>Réseau virtuel 
+
+Azure Machine Learning nécessite des étapes de configuration supplémentaires pour communiquer avec un compte de stockage situé derrière un pare-feu, ou dans un réseau virtuel. Si votre compte de stockage se trouve derrière un pare-feu, vous pouvez [mettre l’adresse IP en liste autorisée via le portail Azure](../storage/common/storage-network-security.md#managing-ip-network-rules).
+
+Azure Machine Learning peut recevoir des requêtes issues de clients situés en dehors du réseau virtuel. Pour être sûr que l’entité demandant des données à partir du service est sécurisée, [configurez Azure Private Link pour votre espace de travail](how-to-configure-private-link.md).
+
+**Pour les utilisateurs du kit SDK Python**, si vous souhaitez qu’ils accèdent à vos données par le biais de votre script d’entraînement sur une cible de calcul, cette cible doit se trouver dans le même réseau et sous-réseau virtuels du stockage. 
 
 **Pour les utilisateurs d’Azure Machine Learning studio**, plusieurs caractéristiques s’appuient sur la possibilité de lire des données à partir d’un jeu de données, comme les aperçus de jeux de données, les profils et Machine Learning automatisé. Pour que ces caractéristiques fonctionnent avec le stockage derrière des réseaux virtuels, utilisez une [identité managée par l’espace de travail dans le studio](how-to-enable-studio-virtual-network.md) pour permettre à Azure Machine Learning d’accéder au compte de stockage de l’extérieur du réseau virtuel. 
 
-Azure Machine Learning peut recevoir des requêtes issues de clients situés en dehors du réseau virtuel. Pour être sûr que l’entité demandant des données à partir du service est sécurisée, [configurez Azure Private Link pour votre espace de travail](how-to-configure-private-link.md).
+> [!NOTE]
+> Si votre stockage de données est une instance Azure SQL Database derrière un réseau virtuel, veillez à définir *Refuser l’accès public* sur **Non** via le [portail Azure](https://ms.portal.azure.com/) pour autoriser Azure Machine Learning à accéder au compte de stockage.
 
 ### <a name="access-validation"></a>Validation de l’accès
 

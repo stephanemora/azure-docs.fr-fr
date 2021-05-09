@@ -5,17 +5,17 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 04/21/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 39750a86ccf781a10109e299e27a55a03173acb6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9b09012237d8f519322c927f8f2bbca1d3edef2
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98900897"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107925300"
 ---
-Les instantanés incrémentiels sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous restaurez un disque à partir d’un instantané incrémentiel, le système reconstruit le disque complet qui représente la sauvegarde du disque au moment où l’instantané incrémentiel a été capturé. Cette nouvelle fonctionnalité de capture instantanée des disques managés améliore leur rentabilité, car vous n’êtes pas obligé de stocker l'intégralité du disque avec chaque instantané. Comme pour les instantanés complets, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou un instantané complet.
+Les instantanés incrémentiels sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous restaurez un disque à partir d’un instantané incrémentiel, le système reconstruit le disque complet qui représente la sauvegarde du disque au moment où l’instantané incrémentiel a été capturé. Cette fonctionnalité de capture instantanée des disques managés améliore leur rentabilité, car vous n'êtes pas obligé de stocker l'intégralité du disque avec chaque instantané. Comme pour les instantanés complets, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou un instantané complet. Les instantanés complets et les instantanés incrémentiels peuvent être utilisés immédiatement après avoir été pris. En d'autres termes, une fois que vous avez pris un instantané, vous pouvez immédiatement lire le disque dur virtuel sous-jacent et l'utiliser pour restaurer des disques.
 
 Il existe un certain nombre de différences entre un instantané incrémentiel et un instantané complet. Les instantanés incrémentiels utilisent toujours le stockage HDD Standard, quel que soit le type de stockage du disque, alors que les instantanés complets peuvent utiliser des disques SSD premium. Si vous utilisez des instantanés complets sur le Stockage Premium pour effectuer un scale-up de déploiements de machines virtuelles, nous vous recommandons d’utiliser des images personnalisées sur le stockage standard dans [Shared Image Gallery](../articles/virtual-machines/shared-image-galleries.md). Cela vous aidera à atteindre une plus grande échelle à moindre coût. En outre, les instantanés incrémentiels offrent potentiellement une meilleure fiabilité avec un [stockage redondant interzone](../articles/storage/common/storage-redundancy.md) (ZRS). Si le stockage ZRS est disponible dans la région sélectionnée, l'instantané incrémentiel l'utilisera automatiquement. Si le stockage ZRS n'est pas disponible dans la région, l'instantané utilisera par défaut le [stockage localement redondant](../articles/storage/common/storage-redundancy.md) (LRS). Vous pouvez remplacer ce comportement et sélectionner un autre type de stockage manuellement, mais nous vous le déconseillons.
 
