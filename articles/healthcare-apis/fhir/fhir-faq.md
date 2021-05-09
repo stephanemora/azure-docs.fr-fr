@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 04/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: f571deaa0b67e9be7b8ce3f01d87f5c955f7140d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 14328179a297ebcc3994bf627b1690195774b2b1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319068"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741128"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Forum aux questions sur l’API Azure pour FHIR
 
@@ -49,10 +49,6 @@ Lorsque vous exécutez le serveur FHIR pour Azure, vous avez un accès direct au
 
 Du point de vue du développement, chaque fonctionnalité qui ne s’applique pas uniquement au service géré est d’abord déployée sur le serveur Microsoft FHIR open source pour Azure. Une fois la version open source validée, elle est mise en production sur la solution PaaS API Azure pour FHIR. Le délai de mise en production entre la version open source et la solution PaaS dépend de la complexité des fonctionnalités et d’autres priorités relatives à la feuille de route. Le processus est identique pour tous nos services, tel le connecteur Azure IoT pour FHIR (préversion).
 
-### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Où puis-je voir les nouveautés de l’API Azure pour FHIR ?
-
-Pour en savoir plus sur les nouveautés de l’API Azure pour FHIR, reportez-vous à la [version release](https://github.com/microsoft/fhir-server/releases) de FHIR Server open source. Depuis le mois de novembre 2020, nous balisons les éléments open source avec Azure-API-for-FHIR en cas de publication de ceux-ci sur le service géré. Ces fonctionnalités sont généralement disponibles deux semaines après leur publication sur la page de mise en production en open source. Nous avons également inclus [ici] (https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) ) des instructions sur la façon de tester la build dans votre propre environnement. Nous sommes en train d’étudier le meilleur moyen de partager d’autres mises à jour du service managé.
-
 ### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>Dans quelles régions l’API Azure pour FHIR est-elle disponible ?
 
 Elle est actuellement en disponibilité générale pour le grand public et le secteur public dans [plusieurs régions géographiques](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Pour plus d’informations sur les services cloud de Microsoft pour le Secteur Public, consultez [Services Azure du FedRAMP](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
@@ -82,7 +78,7 @@ Nous vous autorisons à charger toutes données JSON FHIR valides dans le serveu
 
 ### <a name="what-is-the-limit-on-_count"></a>Quelle est la limite de _count ?
 
-La limite actuelle de _count est 100. Si vous définissez _count sur une valeur supérieure à 100, un avertissement apparaît dans l’offre groupée, indiquant que seuls 100 enregistrements seront présentés.
+La limite actuelle sur _count est 1000. Si vous affectez à _count une valeur supérieure à 1000, vous recevrez un avertissement dans le groupe auquel seuls 1000 enregistrements seront affichés.
 
 ### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>Existe-t-il des limitations sur la fonctionnalité d’exportation de groupe ?
 
