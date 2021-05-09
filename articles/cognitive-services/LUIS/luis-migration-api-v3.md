@@ -2,15 +2,18 @@
 title: Modifications de point de terminaison de prédiction dans l’API V3
 description: Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
 ms.service: cognitive-services
+author: aahill
+ms.manager: nitinme
+ms.author: aahi
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 957da9d5d26e5e7eaf27433807f700f4d3243765
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98624301"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897682"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
@@ -55,14 +58,12 @@ Si vous utilisez Bot Framework, Vérification orthographique Bing V7 ou si vous 
 
 Si vous savez qu’aucune de vos applications clientes ou intégrations (Bot Framework et Vérification orthographique Bing V7) n’est affectée et si vous êtes familiarisé avec la migration simultanée de votre création d’application LUIS et de votre point de terminaison de prédiction, commencez à utiliser le point de terminaison de prédiction V3. Le point de terminaison de prédiction V2 sera toujours disponible et constitue une bonne stratégie de secours.
 
+Pour plus d’informations sur l’utilisation de la API Vérification orthographique Bing, consultez [Comment corriger les mots mal orthographiés](luis-tutorial-bing-spellcheck.md).
+
 
 ## <a name="not-supported"></a>Non pris en charge
 
-### <a name="bing-spell-check"></a>Vérification orthographique Bing
-
-Cette API n’est pas prise en charge dans le point de terminaison de prédiction V3. Continuez à utiliser le point de terminaison de prédiction d’API V2 pour les corrections orthographiques. Si vous avez besoin de la correction orthographique quand vous utilisez l’API V3, faites en sorte que l’application cliente appelle l’API [Vérification orthographique Bing](../bing-spell-check/overview.md), puis remplacez le texte par l’orthographe correcte, avant d’envoyer le texte à l’API LUIS.
-
-## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Applications clientes Bot Framework et Azure Bot Service
+### <a name="bot-framework-and-azure-bot-service-client-applications"></a>Applications clientes Bot Framework et Azure Bot Service
 
 Continuez à utiliser l’API V2 de point de terminaison de prédiction jusqu’à ce que la version 4.7 de Bot Framework soit disponible.
 

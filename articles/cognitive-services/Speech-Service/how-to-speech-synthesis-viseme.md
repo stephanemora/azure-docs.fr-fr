@@ -1,7 +1,7 @@
 ---
 title: Comment obtenir des événements de pose faciale pour la synchronisation labiale
 titleSuffix: Azure Cognitive Services
-description: Le kit de développement logiciel (SDK) Speech prend en charge l’événement de visème dans la synthèse vocale, qui sert à représenter les éléments clés dans la prononciation observée, comme la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier.
+description: Le Kit de développement logiciel (SDK) Speech prend en charge les événements de visème pendant la synthèse vocale, qui représentent les éléments clés dans la prononciation observée, comme la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -12,19 +12,19 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: e97c48d4e42627d0fc2caaa4f66e81b9a0cafa86
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a7808b3b5db9d01d6a1a2cd352a912d44a4e7908
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643897"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904493"
 ---
 # <a name="get-facial-pose-events"></a>Obtenir des événements de pose faciale
 
 > [!NOTE]
-> Viseme ne fonctionne que pour la voix `en-US-AriaNeural` pour le moment.
+> Les événements de visème sont uniquement disponibles pour la voix `en-US-AriaNeural` pour l’instant.
 
-Un visème est la description visuelle d’un phonème dans le langage parlé.
+Un _visème_ est la description visuelle d’un phonème dans le langage parlé.
 Il définit la position du visage et de la bouche quand vous prononcez un mot.
 Chaque visème représente les caractéristiques principales du visage pour un ensemble spécifique de phonèmes.
 Il n’existe pas de correspondance un-à-un entre les visèmes et les phonèmes.
