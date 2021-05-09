@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad498575b029f918538909a9b5b2d52c71c1389c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98164870"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816365"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -108,6 +108,26 @@ Elles représentent les limites pour chaque action de mise à jour, autrement di
 * Nombre maximal de champs de métadonnées ajoutés ou supprimés : 10
 * Nombre maximal d’URL pouvant être actualisées : 5
 * Nombre maximal de questions/réponses autorisées par appel : 1 000
+
+## <a name="add-unstructured-file-limits"></a>Ajouter des limites de fichiers non structurés
+
+> [!NOTE]
+> * Si vous devez utiliser des fichiers plus volumineux que la limite autorisée, vous pouvez scinder le fichier en fichiers plus petits avant de les envoyer à l’API. 
+
+Voici les limites lors de l’utilisation de fichiers non structurés pour *créer une base de connaissances* ou appeler l’API CreateKnowledgeBase :
+* Longueur du fichier : Nous allons extraire les 32 000 premiers caractères
+* Maximum trois réponses par fichier
+
+## <a name="prebuilt-question-answering-limits"></a>Limites de réponse aux questions prédéfinies
+
+> [!NOTE]
+> * Si vous devez utiliser des documents plus volumineux que la limite autorisée, vous pouvez scinder le texte en blocs de texte plus petits avant de les envoyer à l’API. 
+> * Un document est une chaîne unique de caractères de texte.  
+
+Voici les limites lorsque l’API prédéfinie est utilisée pour *générer une réponse* ou appeler l’API GenerateAnswer :
+* Nombre de documents : 5
+* Taille maximale d’un seul document : 5 120 caractères
+* Maximum trois réponses par document
 
 ## <a name="next-steps"></a>Étapes suivantes
 

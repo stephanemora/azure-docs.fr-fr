@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/27/2021
 ms.author: b-juche
-ms.openlocfilehash: c702c41228512eceebeaf45ccae709db38a85a51
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: b195b1a816576ec8a065ebe83bd02fa3aeb53c5a
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725676"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161390"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -39,7 +39,6 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
 * Veillez à respecter la [configuration requise pour les connexions Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Créez une zone de recherche inversée sur le serveur DNS, puis ajoutez un enregistrement pointeur (PTR) de l’ordinateur hôte AD dans cette zone de recherche inversée. Sinon, la création du volume à deux protocoles échoue.
 * Vérifiez que le client NFS est à jour et qu’il exécute les mises à jour les plus récentes du système d’exploitation.
-* Assurez-vous que le serveur LDAP Active Directory (AD) est en cours d’exécution sur AD. Vous pouvez le faire en installant et en configurant le rôle [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) sur l’ordinateur AD.
 * Pour le moment, les volumes à deux protocoles ne prennent pas en charge Azure Active Directory Domain Services (AADDS). LDAP sur TLS ne doit pas être activé si vous utilisez AADDS.
 * La version de NFS utilisée par un volume à deux protocoles est NFSv3. Par conséquent, les considérations suivantes s'appliquent :
     * Le double protocole ne prend pas en charge les attributs étendus des ACL Windows `set/get` provenant des clients NFS.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 17a4df3037f9922d92fca924de0d246458cfa08e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acae7a6121587a1a58c6f19b0b09287b3d93cc84
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456166"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992158"
 ---
 # <a name="azure-sentinel-entity-types-reference"></a>Informations de référence sur les types d'entités Azure Sentinel
 
@@ -383,7 +383,7 @@ Identificateurs forts d'une entité Boîte aux lettres :
 *Nom de l'entité : MailCluster*
 
 > [!NOTE]
-> **MDO** = **Microsoft Defender pour Office 365**, anciennement connu sous le nom d'Office 365 Advanced Threat Protection (O365 ATP).
+> **Microsoft Defender pour Office 365** était auparavant connu sous le nom d'Office 365 Advanced Threat Protection (O365 ATP).
 
 | Champ | Type | Description |
 | ----- | ---- | ----------- |
@@ -399,10 +399,10 @@ Identificateurs forts d'une entité Boîte aux lettres :
 | IsVolumeAnomaly | Bool? | Détermine s'il s'agit d'un cluster de courrier avec anomalie de volume. |
 | Source | String | Source du cluster de courrier (la source par défaut est « O365 ATP »). |
 | ClusterSourceIdentifier | String | ID de message réseau du courrier qui est la source de ce cluster de courrier. |
-| ClusterSourceType | String | Type de source du cluster de courrier. Correspond au paramètre MailClusterSourceType de MDO (voir la remarque ci-dessus). |
-| ClusterQueryStartTime | DateTime? | Heure de début du cluster - utilisée comme heure de début pour la requête de comptage du cluster. Les dates correspondent généralement à l'heure de fin moins le paramètre DaysToLookBack de MDO (voir la remarque ci-dessus). |
+| ClusterSourceType | String | Type de source du cluster de courrier. Correspond au paramètre MailClusterSourceType de Microsoft Defender pour Office 365 (voir la remarque ci-dessus). |
+| ClusterQueryStartTime | DateTime? | Heure de début du cluster - utilisée comme heure de début pour la requête de comptage du cluster. Les dates correspondent généralement à l'heure de fin moins le paramètre DaysToLookBack de Microsoft Defender pour Office 365 (voir la remarque ci-dessus). |
 | ClusterQueryEndTime | DateTime? | Heure de fin du cluster - utilisée comme heure de fin pour la requête de comptage du cluster. En général, il s'agit de l'heure de réception des données de courrier. |
-| ClusterGroup | String | Correspond à la clé de requête Kusto utilisée sur MDO (voir la remarque ci-dessus). |
+| ClusterGroup | String | Correspond à la clé de requête Kusto utilisée sur Microsoft Defender pour Office 365 (voir la remarque ci-dessus). |
 |
 
 Identificateurs forts d'une entité Cluster de courrier :

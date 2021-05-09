@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 24a5c92164e0eace41224edfd2153c6142f7ea49
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: c007f1b77ef1618544dc4a2ca62d11e2a21f10f0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107251563"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313382"
 ---
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
@@ -254,7 +254,7 @@ if let id = messageId {
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recevoir les messages de conversation d’un fil de conversation
 
-Vous pouvez recevoir des messages d’un fil de conversation en appelant la méthode `listMessages()` à partir de `ChatThreadClient`. Les messages de liste incluent les messages système ainsi que les messages envoyés par l’utilisateur. Pour plus d’informations sur les types de messages que vous pouvez recevoir, consultez [Types de messages](https://docs.microsoft.com/azure/communication-services/concepts/chat/concepts#message-types)
+Vous pouvez recevoir des messages d’un fil de conversation en appelant la méthode `listMessages()` à partir de `ChatThreadClient`. Les messages de liste incluent les messages système ainsi que les messages envoyés par l’utilisateur. Pour plus d’informations sur les types de messages que vous pouvez recevoir, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types)
 
 Remplacez le commentaire `<RECEIVE MESSAGES>` par le code suivant :
 
@@ -325,4 +325,3 @@ semaphore.wait()
 ## <a name="run-the-code"></a>Exécuter le code
 
 Dans Xcode, cliquez sur le bouton Run (Exécuter) pour générer et exécuter le projet. Dans la console, vous pouvez voir la sortie du code et la sortie de l’enregistreur d’événements du ChatClient.
-

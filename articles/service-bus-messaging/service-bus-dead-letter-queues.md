@@ -4,12 +4,12 @@ description: Décrit les files d’attente de lettres mortes dans Azure Service 
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: cb791982b50d7afff7b74d70adfd285bb5e0a11c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6293a3a9a760ece137644578d8ee7dccebc63d95
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773222"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812369"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -75,8 +75,4 @@ Vous pouvez accéder à la file d’attente de lettres mortes à l’aide de la 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Pour plus d’informations sur les files d’attente de lettres mortes Service Bus, consultez les articles suivants :
-
-* [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Comparaison des files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Consultez [Activer la mise en file d’attente de lettres mortes pour une file d’attente ou un abonnement](enable-dead-letter.md) pour en savoir plus sur les différentes façons de configurer le paramètre de **mise en file d’attente de lettres mortes à l’expiration du message**.

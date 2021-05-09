@@ -10,15 +10,13 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 287520f2964fba7c3c3804853e9356a8c77b2d06
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 84bb00b6ef5d0bf68a55b7eba70ccb8eb697a571
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498801"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313374"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
-
 L'**exemple de bannière d'appel de groupe pour iOS** d'Azure Communication Services illustre de quelle façon le SDK iOS Communication Services Calling peut être utilisé pour créer une expérience d'appels vocaux et vidéo. Dans cet exemple de démarrage rapide, vous allez apprendre à configurer et à exécuter l’exemple. Une vue d’ensemble de l’exemple est fournie ci-après pour le contexte.
 
 ## <a name="download-code"></a>Télécharger le code
@@ -103,11 +101,11 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 Pour plus d’informations, consultez les articles suivants :
 
-- Familiarisez-vous avec l'[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarisez-vous avec l’[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) : Autres exemples et informations dans la page GitHub officielle
 - [Exemples](./../overview.md) : Recherchez d’autres exemples sur notre page Vue d’ensemble des exemples.
-- [Fonctionnalités Azure Communication Calling](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) : découvrez-en plus sur le SDK iOS Calling - [Azure Communication - SDK iOS Calling](https://github.com/Azure/Communication/releases/)
+- [Fonctionnalités Azure Communication Calling](../../concepts/voice-video-calling/calling-sdk-features.md) : découvrez-en plus sur le SDK iOS Calling - [Azure Communication - SDK iOS Calling](https://github.com/Azure/Communication/releases/)

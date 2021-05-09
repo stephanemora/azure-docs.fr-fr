@@ -3,12 +3,13 @@ title: Déployer des ressources avec PowerShell et un modèle
 description: Utilisez Azure Resource Manager et Azure PowerShell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager ou un fichier Bicep.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 11a293ca58fc6acf3bd99bb0169d817dae11fb94
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: db43613b1b359e6d6378e081f3f61ee1449bd641
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543803"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314640"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 

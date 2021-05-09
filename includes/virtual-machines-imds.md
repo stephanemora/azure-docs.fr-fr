@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 98866a4f06df0380d52d1aee3eede8aa2f70aaed
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 49704de9eb4a392b552429180da98568cafa210f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588125"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157640"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -1177,7 +1177,7 @@ S’il existe un élément de données introuvable ou une requête mal formée, 
   - Si vous avez créé votre machine virtuelle après septembre 2016, ajoutez une [étiquette](../articles/azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Si vous avez créé votre machine virtuelle avant septembre 2016, ajoutez ou supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.
 
 - Les données utilisateur sont-elles identiques aux données personnalisées ?
-  - Les données utilisateur offrent une fonctionnalité similaire aux données personnalisées, vous permettant de transmettre vos propres métadonnées à l’instance de machine virtuelle. La différence est que les données utilisateur sont récupérées via IMDS et sont persistantes pendant toute la durée de vie de l’instance de machine virtuelle. La fonctionnalité existante de données personnalisées continuera à fonctionner comme décrit dans [cet article](https://docs.microsoft.com/azure/virtual-machines/custom-data). Toutefois, vous pouvez uniquement récupérer des données personnalisées par le biais du dossier système local, et non par le biais d’IMDS.
+  - Les données utilisateur offrent une fonctionnalité similaire aux données personnalisées, vous permettant de transmettre vos propres métadonnées à l’instance de machine virtuelle. La différence est que les données utilisateur sont récupérées via IMDS et sont persistantes pendant toute la durée de vie de l’instance de machine virtuelle. La fonctionnalité existante de données personnalisées continuera à fonctionner comme décrit dans [cet article](../articles/virtual-machines/custom-data.md). Toutefois, vous pouvez uniquement récupérer des données personnalisées par le biais du dossier système local, et non par le biais d’IMDS.
 
 - Pourquoi je ne vois pas toutes les données renseignées pour une nouvelle version ?
   - Si vous avez créé votre machine virtuelle après septembre 2016, ajoutez une [étiquette](../articles/azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Si vous avez créé votre machine virtuelle avant septembre 2016, ajoutez ou supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.

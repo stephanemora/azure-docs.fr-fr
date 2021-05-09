@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: e8f71eb120b86f35672c9123b52f7f19c9fee662
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/22/2021
+ms.openlocfilehash: 9fdc2d2567e6ea24a68398139007be978cb639b5
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608457"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989357"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -60,6 +60,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examinez le mappage de visibilité (machine virtuelle) et les informations de visibilité au niveau des pages|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.2           | Réplication logique PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Affiche les statistiques au niveau du tuple|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|
@@ -109,6 +110,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examinez le mappage de visibilité (machine virtuelle) et les informations de visibilité au niveau des pages|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.2           | Réplication logique PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Affiche les statistiques au niveau du tuple|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|

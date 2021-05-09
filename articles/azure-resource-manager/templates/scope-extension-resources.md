@@ -3,12 +3,13 @@ title: Étendue sur les types de ressources d’extension
 description: Décrit comment utiliser la propriété scope lors du déploiement de types de ressources d’extension.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: ce08ca951e24c1c0a5450052cf814a68888837c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 505caa23ceff25cc3fe693d40a3ec5e209a0563d
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492159"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314568"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Définition de l’étendue pour les ressources d’extension dans les modèles Resource Manager
 

@@ -3,12 +3,12 @@ title: Activer la détection des messages dupliqués – Azure Service Bus
 description: Cet article explique comment activer la détection des messages dupliqués en utilisant Portail Azure, PowerShell, CLI et des langages de programmation (C#, Java, Python et JavaScript).
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 708009fcf2479660316b38ac0b7d545d450de28c
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1e299b86991a7785cc89f2e72227e7a8ced883d7
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107755057"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989123"
 ---
 # <a name="enable-duplicate-message-detection-for-an-azure-service-bus-queue-or-a-topic"></a>Activer la détection des messages dupliqués pour une file d’attente ou une rubrique Azure Service Bus
 Lorsque vous activez la détection des doublons pour une file d’attente ou une rubrique, Azure Service Bus conserve un historique de tous les messages envoyés à la file d’attente ou à la rubrique pendant une durée configurable. Pendant cet intervalle, votre file d’attente ou votre rubrique ne stockera pas de messages en double. L’activation de cette propriété garantit une livraison unique sur une période de temps définie par l’utilisateur. Pour en savoir plus, consultez [Détection des doublons](duplicate-detection.md). Cet article vous montre différentes façons d’activer la détection des messages dupliqués pour une file d’attente ou une rubrique Service Bus. 
@@ -138,7 +138,7 @@ Set-AzServiceBusTopic -ResourceGroup myresourcegroup `
 ```
 
 ## <a name="using-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
-Pour **créer une file d’attente avec la détection des doublons activée**, définissez `requiresDuplicateDetection` sur `true` dans la section Propriétés de la file d’attente. Pour plus d’informations, consultez [Modèle de référence Microsoft.ServiceBus namespaces/queues](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). Spécifiez une valeur pour la propriété `duplicateDetectionHistoryTimeWindow` afin de définir la taille de la fenêtre de détection des doublons. Dans l’exemple suivant, elle est définie sur un jour.  
+Pour **créer une file d’attente avec la détection des doublons activée**, définissez `requiresDuplicateDetection` sur `true` dans la section Propriétés de la file d’attente. Pour plus d’informations, consultez la documentation de [référence sur les modèles de files d’attente/espaces de noms Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). Spécifiez une valeur pour la propriété `duplicateDetectionHistoryTimeWindow` afin de définir la taille de la fenêtre de détection des doublons. Dans l’exemple suivant, elle est définie sur un jour.  
 
 ```json
 {
@@ -195,7 +195,7 @@ Pour **créer une file d’attente avec la détection des doublons activée**, d
 
 ```
 
-Pour **créer une rubrique avec la détection des doublons activée**, définissez `requiresDuplicateDetection` sur `true` dans la section Propriétés de la rubrique. Pour plus d’informations, consultez [Modèle de référence Microsoft.ServiceBus namespaces/topics](/azure/templates/microsoft.servicebus/namespaces/topics?tabs=json). 
+Pour **créer une rubrique avec la détection des doublons activée**, définissez `requiresDuplicateDetection` sur `true` dans la section Propriétés de la rubrique. Pour plus d’informations, consultez la documentation de [référence sur les modèles de files d’attente/espaces de noms Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/namespaces/topics?tabs=json). 
 
 ```json
 {
@@ -255,12 +255,12 @@ Pour **créer une rubrique avec la détection des doublons activée**, définiss
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez les exemples dans le langage de votre choix pour explorer les fonctionnalités d’Azure Service Bus. 
 
-- [Exemples de bibliothèque de client Azure Service Bus pour Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Exemples de bibliothèque de client Azure Service Bus pour .NET (dernière version)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Exemples de bibliothèque de client Azure Service Bus pour Java (dernière version)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Exemples de bibliothèque de client Azure Service Bus pour Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Exemples de bibliothèque de client Azure Service Bus pour JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Exemples de bibliothèque de client Azure Service Bus pour TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Exemples Azure.Messaging.ServiceBus pour .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
-Recherchez des exemples pour les anciennes bibliothèques de client .NET et Java ci-dessous :
-- [Exemples Microsoft.Azure.ServiceBus pour .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Exemples azure-servicebus pour Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+Recherchez des exemples pour les anciennes bibliothèques clientes .NET et Java ci-dessous :
+- [Exemples de bibliothèque de client Azure Service Bus pour .NET (version héritée)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Exemples de bibliothèque de client Azure Service Bus pour Java (version héritée)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 4283bccf543dc496342d64cc0e7b898a4f279866
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 259d430c79cccef3cd5c581c9a60fa00edf159ec
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141628"
+ms.locfileid: "108162272"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutoriel : Publier Azure Static Web Apps avec Azure DevOps
 
@@ -87,20 +87,19 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
     ```yaml
     trigger:
-      - main
-    
+    - main
+
     pool:
       vmImage: ubuntu-latest
-    
+
     steps:
       - checkout: self
         submodules: true
-
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: "/" 
-          api_location: "api"
-          output_location: ""
+          app_location: '/'
+          api_location: 'api'
+          output_location: ''
         env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
@@ -112,33 +111,33 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
     La valeur `azure_static_web_apps_api_token` est autogérée et est configurée manuellement.
 
-1. Sélectionnez **Variables**.
+2. Sélectionnez **Variables**.
 
-1. Créez une nouvelle variable.
+3. Créez une nouvelle variable.
 
-1. Nommez la variable **deployment_token** (en utilisant le nom spécifié dans le workflow).
+4. Nommez la variable **deployment_token** (en utilisant le nom spécifié dans le workflow).
 
-1. Copiez le jeton de déploiement que vous avez précédemment collé dans un éditeur de texte.
+5. Copiez le jeton de déploiement que vous avez précédemment collé dans un éditeur de texte.
 
-1. Collez le jeton de déploiement dans la zone _Valeur_.
+6. Collez le jeton de déploiement dans la zone _Valeur_.
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Jeton de variable":::
 
-1. Sélectionnez **Garder cette valeur secrète**.
+7. Sélectionnez **Garder cette valeur secrète**.
 
-1. Sélectionnez **OK**.
+8. Sélectionnez **OK**.
 
-1. Sélectionnez **Enregistrer** pour revenir au YAML de votre pipeline.
+9. Sélectionnez **Enregistrer** pour revenir au YAML de votre pipeline.
 
-1. Sélectionnez **Enregistrer et exécuter** pour ouvrir la boîte de dialogue _Enregistrer et exécuter_.
+10. Sélectionnez **Enregistrer et exécuter** pour ouvrir la boîte de dialogue _Enregistrer et exécuter_.
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
 
-1. Sélectionnez **Enregistrer et exécuter** pour exécuter le pipeline.
+11. Sélectionnez **Enregistrer et exécuter** pour exécuter le pipeline.
 
-1. Une fois le déploiement réussi, accédez à la **Vue d’ensemble** d’Azure Static Web Apps, qui comprend des liens vers la configuration du déploiement. Notez que le lien _Source_ pointe maintenant vers la branche et l’emplacement du dépôt Azure DevOps.
+12. Une fois le déploiement réussi, accédez à la **Vue d’ensemble** d’Azure Static Web Apps, qui comprend des liens vers la configuration du déploiement. Notez que le lien _Source_ pointe maintenant vers la branche et l’emplacement du dépôt Azure DevOps.
 
-1. Sélectionnez l’**URL** pour voir le site web nouvellement déployé.
+13. Sélectionnez l’**URL** pour voir le site web nouvellement déployé.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Emplacement du déploiement":::
 

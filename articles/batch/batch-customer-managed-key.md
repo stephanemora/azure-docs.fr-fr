@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: peshultz
-ms.openlocfilehash: d3f10436b95aaeb5eb35a873c2a3862c1492bd47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36883489e1a9a50406ad1b1bde78d2f25ee227b7
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385062"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989321"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurer des clés managées par le client pour votre compte Azure Batch avec Azure Key Vault et l’identité managée
 
@@ -196,7 +196,7 @@ az batch account set \
 - **Comment faire pivoter mes clés ?** Les clés managées par le client ne pivotent pas automatiquement. Pour faire pivoter la clé, mettez à jour l’identificateur de clé auquel le compte est associé.
 - **Après la restauration de l’accès, combien de temps faut-il pour que le compte Batch fonctionne à nouveau ?** Cela peut prendre jusqu’à 10 minutes pour que le compte soit à nouveau accessible après la restauration.
 - **Qu’arrive-t-il à mes ressources lorsque le compte Batch est indisponible ?** Les pools en cours d’exécution continuent à s’exécuter lorsque l’accès Batch aux clés managées par le client est perdu. Toutefois, les nœuds passent à l’état indisponible et les tâches cessent de s’exécuter (elles sont replacées dans la file d’attente). Une fois l’accès restauré, les nœuds sont à nouveau disponibles et les tâches redémarrent.
-- **Ce mécanisme de chiffrement s’applique-t-il aux disques de machine virtuelle dans un pool Batch ?** Non. Pour les pools de configuration de service Cloud, aucun chiffrement n’est appliqué pour le système d’exploitation et le disque temporaire. Pour les pools de configuration de machine virtuelle, le système d’exploitation et les disques de données spécifiés sont chiffrés par défaut avec une clé managée par la plate-forme Microsoft. Actuellement, vous ne pouvez pas spécifier votre propre clé pour ces disques. Pour chiffrer le disque temporaire des machines virtuelles pour un pool Batch avec une clé managée par la plate-forme Microsoft, vous devez activer la propriété [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) dans votre pool de [configuration de machine virtuelle](/rest/api/batchservice/pool/add#virtualmachineconfiguration). Pour les environnements très sensibles, nous vous recommandons d’activer le chiffrement de disque temporaire et d’éviter de stocker des données sensibles sur le système d’exploitation et les disques de données. Pour plus d’informations, consultez [Créer un pool avec le chiffrement de disque activé](./disk-encryption.md).
+- **Ce mécanisme de chiffrement s’applique-t-il aux disques de machine virtuelle dans un pool Batch ?** Non. Pour les pools de configuration d’Azure Cloud Services (qui sont [déconseillés](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)), aucun chiffrement n’est appliqué pour le système d’exploitation et le disque temporaire. Pour les pools de configuration de machine virtuelle, le système d’exploitation et tous les disques de données spécifiés sont chiffrés par défaut avec une clé gérée par la plateforme Microsoft. Actuellement, vous ne pouvez pas spécifier votre propre clé pour ces disques. Pour chiffrer le disque temporaire des machines virtuelles pour un pool Batch avec une clé managée par la plate-forme Microsoft, vous devez activer la propriété [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) dans votre pool de [configuration de machine virtuelle](/rest/api/batchservice/pool/add#virtualmachineconfiguration). Pour les environnements très sensibles, nous vous recommandons d’activer le chiffrement de disque temporaire et d’éviter de stocker des données sensibles sur le système d’exploitation et les disques de données. Pour plus d’informations, consultez [Créer un pool avec le chiffrement de disque activé](./disk-encryption.md).
 - **L’identité managée affectée par le système sur le compte Batch est-elle disponible sur les nœuds de calcul ?** Non. L’identité managée affectée par le système est actuellement utilisée uniquement pour accéder au coffre de clés Azure pour la clé gérée par le client. Pour utiliser une identité managée affectée par l’utilisateur sur des nœuds de calcul, consultez [Configurer des identités managées dans des pools Batch](managed-identity-pools.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/8/2021
-ms.openlocfilehash: 1f8373130fbead2204dd0ac2515595d68dd3b2e8
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 7d04b98014abbf6bf732da292df3b7bb9172f281
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107491329"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203574"
 ---
 # <a name="authentication-failed"></a>Échec de l'authentification.
 
@@ -31,13 +31,13 @@ L’application Azure Digital Twins Explorer utilise [DefaultAzureCredential](/d
 
 Comme l’indique le texte de l’erreur, cette erreur peut se produire si vous n’avez pas fourni d’informations d’identification locales que `DefaultAzureCredential` puisse récupérer.
 
-Pour plus d’informations sur l’utilisation des informations d’identification locales avec Azure Digital Twins Explorer, consultez la section [*Configurer les informations d’identification Azure locales*](quickstart-adt-explorer.md#set-up-local-azure-credentials) du guide *Démarrage rapide : Explorer un exemple de scénario* d’Azure Digital Twins Explorer.
+Pour plus d’informations sur l’utilisation des informations d’identification locales avec Azure Digital Twins Explorer, consultez la section [Configurer les informations d’identification Azure locales](./quickstart-azure-digital-twins-explorer.md#set-up-local-azure-credentials) du guide *Démarrage rapide : Explorer un exemple de scénario* d’Azure Digital Twins Explorer.
 
 ### <a name="cause-2"></a>Cause no 2
 
 Cette erreur peut également se produire si votre compte Azure ne dispose pas des autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) requises définies sur votre instance Azure Digital Twins. Pour accéder aux données de votre instance, vous devez avoir le rôle **Lecteur des données Azure Digital Twins** ou **Propriétaire des données Azure Digital Twins** sur l’instance que vous essayez de lire ou de gérer, respectivement. 
 
-Pour plus d’informations sur la sécurité et les rôles dans Azure Digital Twins, consultez [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md).
+Pour plus d’informations sur la sécurité et les rôles dans Azure Digital Twins, consultez [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md).
 
 ## <a name="solutions"></a>Solutions
 
@@ -78,12 +78,12 @@ Si vous êtes propriétaire de l’abonnement, vous pouvez exécuter cette comma
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "<role-name>"
 ```
 
-Pour plus d’informations sur cette exigence de rôle et le processus d’attribution, consultez la [section *Configurer les autorisations d’accès de votre utilisateur*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de l’article *Guide pratique : Configurer une instance et l’authentification (CLI ou portail)* .
+Pour plus d’informations sur cette exigence de rôle et le processus d’attribution, consultez la section [Configurer les autorisations d’accès de votre utilisateur](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de l’article *Guide pratique : Configurer une instance et l’authentification (CLI ou portail)* .
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lisez les étapes de configuration relatives à la création et à l’authentification d’une nouvelle instance Azure Digital Twins :
-* [*Guide pratique : Configurer une instance et l’authentification (CLI)*](how-to-set-up-instance-cli.md).
+* [Guide pratique : Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md) .
 
 En savoir plus sur la sécurité et les autorisations sur Azure Digital Twins :
-* [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md)
+* [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md)

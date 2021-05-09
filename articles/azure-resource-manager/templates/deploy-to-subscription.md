@@ -3,12 +3,13 @@ title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 3598fe290fd993cbbc662ba9d3a3c5ba8c207bc0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4514067a4f8601e7774c0bfbdf1f65d8ef3a3e09
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781916"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314586"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Déploiements d’abonnements avec des modèles ARM
 

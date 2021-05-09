@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6b3ac012da97194134f58d061dd9d84e945db554
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1570906ae036b31dc2e97f35c827385933093f73
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774464"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162200"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données de file d’attente avec Azure CLI
 
@@ -52,7 +52,7 @@ Vous pouvez attribuer des autorisations sur les données de file d’attente à 
 
 Les extensions Stockage Azure sont prises en charge pour les opérations sur les données en file d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à Azure CLI. Les autorisations sur les files d’attente sont attribuées via Azure RBAC. Par exemple, si le rôle **Lecteur des données en file d’attente du stockage** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent les données d’une file d’attente. Si le rôle **Contributeur aux données en file d’attente du stockage** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment une file d’attente ou les données qu’elle contient.
 
-Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ### <a name="example-authorize-an-operation-to-create-a-queue-with-azure-ad-credentials"></a>Exemple : Autoriser une opération à créer une file d’attente avec des informations d’identification Azure AD
 

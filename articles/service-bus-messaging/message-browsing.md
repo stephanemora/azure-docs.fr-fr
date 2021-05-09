@@ -3,12 +3,12 @@ title: Azure Service Bus – Exploration des messages
 description: Le parcours et l’aperçu des messages Service Bus permettent à un client Azure Service Bus d’énumérer tous les messages d’une file d’attente ou d’un abonnement.
 ms.topic: article
 ms.date: 03/29/2021
-ms.openlocfilehash: deafe9e6ddeeebf233922aade36823ddaaede864
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 23ec2187ae58b1b4f83addb80573bdb130ff99bd
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520120"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989393"
 ---
 # <a name="message-browsing"></a>Parcours des messages
 Le parcours des messages, ou « Peek », permet à un client Service Bus d’énumérer tous les messages d’une file d’attente ou d’un abonnement, à des fins de diagnostic et de débogage.
@@ -42,14 +42,15 @@ Lorsqu’elle est appelée à plusieurs reprises, l’opération Peek énumère 
 Vous pouvez également transmettre un SequenceNumber à une opération Peek. Il permet de déterminer où commencer l’aperçu. Vous pouvez effectuer des appels ultérieurs à l’opération Peek sans spécifier le paramètre à énumérer.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Essayez les exemples dans la langue de votre choix pour explorer la fonctionnalité d’aperçu ou de navigation dans les messages :
+Essayez les exemples dans le langage de votre choix pour explorer les fonctionnalités d’Azure Service Bus. 
 
-- [Exemples de bibliothèque de client Azure Service Bus pour Java](/samples/azure/azure-sdk-for-java/servicebus-samples/) - **Aperçu d’un message** - Exemple
-- [Exemples de bibliothèque de client Azure Service Bus pour Python](/samples/azure/azure-sdk-for-python/servicebus-samples/) - **receive_peek. py** - Exemple
-- [Exemples de bibliothèque de client Azure Service Bus pour JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/) - **browseMessages.js** - Exemple
+- [Exemples de bibliothèque de client Azure Service Bus pour .NET (dernière version)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) - **Envoi et réception de messages** - Exemple
+- [Exemples de bibliothèque de client Azure Service Bus pour Java (dernière version)](/samples/azure/azure-sdk-for-java/servicebus-samples/) - **Aperçu d'un message** - Exemple
+- [Exemples de bibliothèque de client Azure Service Bus pour Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)  - **receive_peek. py** - Exemple
+- [Exemples de bibliothèque de client Azure Service Bus pour JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)  - **browseMessages.js** - Exemple
 - [Exemples de bibliothèque de client Azure Service Bus pour TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - **browseMessages.ts** - Exemple
-- [Exemples Azure.Messaging.ServiceBus pour .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) : consultez des méthodes d’aperçu sur les classes du récepteur dans la [documentation de référence](/dotnet/api/azure.messaging.servicebus).
 
-Recherchez des exemples pour les anciennes bibliothèques de client .NET et Java ci-dessous :
-- [Exemples Microsoft.Azure.ServiceBus pour .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Navigation dans les messages (Peek)** - Exemple 
-- [Exemples azure-servicebus pour Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse) - **Navigation dans les messages** - Exemple. 
+Recherchez des exemples pour les anciennes bibliothèques clientes .NET et Java ci-dessous :
+- [Exemples de bibliothèque de client Azure Service Bus pour .NET (version héritée)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - **Exploration des messages (Aperçu)** - Exemple
+- [Exemples de bibliothèque de client Azure Service Bus pour Java (version héritée)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus) - **Exploration des messages** - Exemple 
+

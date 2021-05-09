@@ -1,26 +1,27 @@
 ---
-title: Déplacer des fichiers vers et depuis des machines virtuelles Linux Azure avec SCP
+title: Utiliser SCP pour déplacer des fichiers vers et depuis une machine virtuelle
 description: Déplacez, en toute sécurité, des fichiers vers et depuis une machine virtuelle Linux dans Azure à l’aide de SCP et d’une paire de clés SSH.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/12/2017
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 83b57055ee7a3fedab014abeab96520c3877b843
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: ''
+ms.openlocfilehash: edfc44f79cff25486fde6326ac954fe5b575d846
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558438"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816437"
 ---
-# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Déplacer des fichiers vers et depuis une machine virtuelle Linux à l’aide de SCP
+# <a name="use-scp-to-move-files-to-and-from-a-linux-vm"></a>Utiliser SCP pour déplacer des fichiers vers et depuis une machine virtuelle Linux 
 
 Cet article explique comment déplacer des fichiers à partir de votre poste de travail vers une machine virtuelle Linux Azure ou à partir d’une machine virtuelle Linux Azure vers votre poste de travail, à l’aide de la copie sécurisée (SCP). Le déplacement de fichiers entre votre poste de travail et une machine virtuelle Linux, de manière rapide et sécurisée, constitue une partie essentielle de la gestion de votre infrastructure Azure. 
 
-Pour cet article, vous avez besoin d’une machine virtuelle Linux déployée dans Azure à l’aide de [fichiers de clés publiques et privées SSH](mac-create-ssh-keys.md). Vous avez également besoin d’un client SCP pour votre ordinateur local. Celui-ci est construit par-dessus SSH et inclus dans l’interpréteur de commandes Bash par défaut de la plupart des ordinateurs Mac et Linux et dans certains interpréteurs de commandes Windows.
+Pour cet article, vous avez besoin d’une machine virtuelle Linux déployée dans Azure à l’aide de [fichiers de clés publiques et privées SSH](mac-create-ssh-keys.md). Vous avez également besoin d’un client SCP pour votre ordinateur local. Il est construit par-dessus SSH et inclus dans l’interpréteur de commandes Bash par défaut de la plupart des ordinateurs Mac et Linux et dans PowerShell.
+
 
 ## <a name="quick-commands"></a>Commandes rapides
 
@@ -50,7 +51,7 @@ Pour plus d’informations sur la configuration de votre `~/.ssh/config` et les 
 
 Pour le premier exemple, nous copions un fichier de configuration Azure vers une machine virtuelle Linux qui est utilisée pour déployer l’automatisation. Étant donné que ce fichier contient des informations d’identification d’API Azure, notamment des secrets, sa sécurité est importante. Le tunnel chiffré fourni par SSH protège le contenu du fichier.
 
-La commande suivante copie le fichier local *.azure/config* vers une machine virtuelle Azure avec le nom de domaine complet *myserver.eastus.cloudapp.azure.com*. Le nom d’utilisateur administrateur sur la machine virtuelle Azure est *azureuser*. Le fichier est ciblé dans le répertoire */home/azureuser/*. Substituez vos propres valeurs dans cette commande.
+La commande suivante copie le fichier local *.azure/config* vers une machine virtuelle Azure avec le nom de domaine complet *myserver.eastus.cloudapp.azure.com*. Si vous n’avez pas [défini de nom de domaine complet](../create-fqdn.md), vous pouvez également utiliser l’adresse IP de la machine virtuelle. Le nom d’utilisateur administrateur sur la machine virtuelle Azure est *azureuser*. Le fichier est ciblé dans le répertoire */home/azureuser/*. Substituez vos propres valeurs dans cette commande.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

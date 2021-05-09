@@ -6,19 +6,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 38194ed7290d6cd9c4889d27ff458f950603c5be
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 84abd3d617c059c1bbc9565d0b8a23840f81f60d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "106073592"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313609"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour Android.
-
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
-> [!NOTE]
-> Ce document utilise la version 1.0.0-beta.8 du kit de développement logiciel (SDK) Calling.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -262,13 +257,13 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Calling :
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du SDK Azure Communication Services Calling :
 
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient est le point d’entrée principal du kit de développement logiciel (SDK) Calling.|
+| CallClient| CallClient est le point d’entrée principal du SDK Calling.|
 | CallAgent | CallAgent sert à démarrer et à gérer les appels. |
-| CommunicationUserCredential | CommunicationUserCredential est utilisé comme informations d’identification du jeton pour instancier CallAgent.|
+| CommunicationTokenCredential | CommunicationTokenCredential est utilisé comme informations d’identification du jeton pour instancier CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier est utilisé comme type de participant différent susceptible de faire partie d’un appel.|
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Créer un agent à partir du jeton d’accès utilisateur

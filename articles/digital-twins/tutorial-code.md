@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bd3ba88650161bd11a24697b4ff8575d307120e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64f18d3217d7f5b7c2feb28190475ef885d4e72b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102424459"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203502"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -128,7 +128,7 @@ Dans le répertoire où vous avez créé votre projet, créez un fichier *.json*
 > Si vous utilisez Visual Studio pour ce tutoriel, vous souhaiterez peut-être sélectionner le nouveau fichier JSON et affecter la valeur *Copier si plus récent* ou *Toujours copier* à la propriété *Copier dans le répertoire de sortie* dans l’inspecteur de propriété. Cela permettra à Visual Studio de trouver le fichier JSON avec le chemin par défaut quand vous exécuterez le programme avec **F5** lors des étapes suivantes du tutoriel.
 
 > [!TIP] 
-> Il existe un [exemple de validateur DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) indépendant du langage qui vous permet de vérifier les documents de modèle et la validité du DTDL. Il repose sur la bibliothèque de l’analyseur DTDL, qui est décrite en détail dans [*Guide pratique pour analyser et valider les modèles*](how-to-parse-models.md).
+> Il existe un [exemple de validateur DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) indépendant du langage qui vous permet de vérifier les documents de modèle et la validité du DTDL. Il repose sur la bibliothèque de l’analyseur DTDL, qui est décrite en détail dans [Guide pratique pour analyser et valider les modèles](how-to-parse-models.md).
 
 Ensuite, ajoutez du code à *Program.cs* pour charger le modèle que vous venez de créer dans votre instance Azure Digital Twins.
 
@@ -271,4 +271,4 @@ Dans ce tutoriel, vous avez créé une application console cliente .NET à parti
 Passez au tutoriel suivant pour découvrir les opérations que vous pouvez effectuer avec cet exemple d’application cliente : 
 
 > [!div class="nextstepaction"]
-> [*Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md)
+> [Tutoriel : Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md)

@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1fe5974bafddcb4e474ef59a062836e071ab9461
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5931b28553b7a6030dc8c7b0adb2c42111ce6751
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304917"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989411"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notes de publication – Services de données activés par Azure Arc (préversion)
 
@@ -60,6 +60,7 @@ Vous supprimerez les CRD précédentes au fur et à mesure que vous nettoierez l
 - Le déploiement de SQL Managed Instance avec Azure Arc en mode de connexion directe ne peut être effectué qu'à partir du portail Azure, et il n'est pas disponible à partir d'outils tels qu'azdata, Azure Data Studio ou kubectl.
 - Le déploiement de PostgeSQL Hyperscale avec Azure Arc en mode de connexion directe n'est pas disponible actuellement.
 - Le chargement automatique des données d'utilisation en mode de connexion directe échoue si vous utilisez un proxy via `–proxy-cert <path-t-cert-file>`.
+- SQL Managed Instance avec Azure Arc et PostgreSQL Hyperscale avec Azure Arc ne sont pas certifiés GB18030.
 
 ## <a name="february-2021"></a>Février 2021
 

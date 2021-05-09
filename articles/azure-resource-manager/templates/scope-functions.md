@@ -3,12 +3,13 @@ title: Fonctions de modèle dans les déploiements délimités
 description: Décrit le mode de résolution des fonctions de modèle dans les déploiements délimités. Les étendues peuvent être un locataire, des groupes de ressources, des abonnements et des groupes de ressources.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c4a2caaa7b66e516a69cdb9d6c26baf7fd605e89
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492091"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314604"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Fonctions de modèle ARM dans les étendues de déploiement
 
