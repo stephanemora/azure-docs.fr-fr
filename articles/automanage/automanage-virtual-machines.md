@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 970c0a2705bc9a559eb531c8b44780053343a712
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e9e7ca036e9746c434f0c8349ed414509afe215a
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209712"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017280"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>Préversion : Azure Automanage pour machines virtuelles
 
@@ -187,7 +187,7 @@ Tout d’abord, nous n’annulons l’intégration de la machine virtuelle à l�
 Automanage est compatible avec les machines virtuelles sur lesquelles Azure Disk Encryption (ADE) est activé.
 
 Si vous utilisez l’environnement de production, vous serez également intégré à Sauvegarde Azure. Il existe une condition préalable à l’utilisation d’ADE et de Sauvegarde Azure :
-* Avant d’intégrer votre machine virtuelle avec ADE à l’environnement de production d’Automanage, assurez-vous d’avoir suivi les étapes décrites dans la section **Avant de commencer** de [ce document](../backup/backup-azure-vms-encryption.md#before-you-start).
+* Avant d’intégrer votre machine virtuelle avec ADE à l’environnement de production d’Automanage, assurez-vous d’avoir suivi les étapes décrites dans la section **Avant de commencer** de [ce document](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#before-you-start).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
