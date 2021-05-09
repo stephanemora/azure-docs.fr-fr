@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 324ca849e0f9c1282dc4b47ceba4654c76c07b35
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: fef8859e01b019cb174faee160bdfda135a23c4b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870820"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293311"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Créer des abonnements Azure pour un Contrat client Microsoft programmatiquement avec les API les plus récentes
 
@@ -30,7 +30,7 @@ Quand vous créez un abonnement Azure par programmation, cet abonnement est rég
 
 Vous devez avoir un rôle Propriétaire, Contributeur ou Créateur de l’abonnement Azure sur une section de facture ou bien un rôle Propriétaire ou Contributeur sur un profil de facturation ou un compte de facturation pour créer des abonnements. Vous pouvez également attribuer le même rôle à un nom de principal de service (SPN). Pour plus d’informations sur les rôles et les autorisations qui leur sont attribuées, consultez [Rôles et tâches liés à la facturation des abonnements](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-Si vous utilisez un nom de principal de service (SPN) pour créer des abonnements, utilisez le paramètre ObjectId de l’inscription d’application Azure AD comme ObjectId du principal de service en utilisant [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) ou [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list). 
+Si vous utilisez un nom de principal de service (SPN) pour créer des abonnements, utilisez le paramètre ObjectId de l’inscription d’application Azure AD comme ObjectId du principal de service en utilisant [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true) ou [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list). 
 
 Si vous ne savez pas si vous avez accès à un compte Contrat client Microsoft, consultez [Vérifier l’accès à un Contrat client Microsoft](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 
@@ -440,7 +440,7 @@ Vous recevez le subscriptionId dans la réponse à la commande.
 
 ## <a name="use-arm-template"></a>Utiliser un modèle ARM
 
-La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle Azure Resource Manager (modèle ARM).
+La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle ARM (Azure Resource Manager).
 
 Le modèle suivant permet de créer un abonnement. Pour `billingScope`, indiquez l’ID de la section de facture. Pour `targetManagementGroup`, indiquez le groupe d’administration dans lequel vous souhaitez créer l’abonnement.
 

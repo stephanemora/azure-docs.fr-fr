@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 3e5b064ec37b855186f633677e2b1a3f615a6736
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d36cf1c5ed8c916962ae0b621548a593d2fe0a97
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783860"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331841"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -66,7 +66,7 @@ Azure Container Registry prend également en charge les [zones de disponibilité
 
 ## <a name="configure-geo-replication"></a>Configuration de la géo-réplication
 
-La configuration de la géoréplication est aussi simple que de cliquer sur des régions sur une carte. Vous pouvez également gérer la géoréplication à l’aide d’outils, notamment des commandes [az acr replication](/cli/azure/acr/replication) dans Azure CLI, ou déployer un registre activé pour la géoréplication avec un [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
+La configuration de la géoréplication est aussi simple que de cliquer sur des régions sur une carte. Vous pouvez également gérer la géoréplication à l’aide d’outils, notamment des commandes [az acr replication](/cli/azure/acr/replication) dans Azure CLI, ou déployer un registre activé pour la géoréplication avec un [modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/).
 
 La géoréplication est une fonctionnalité disponible pour les [registres Premium](container-registry-skus.md). Si votre registre n’est pas encore Premium, vous pouvez passer de la formule De base ou Standard à Premium dans le [portail Azure](https://portal.azure.com) :
 

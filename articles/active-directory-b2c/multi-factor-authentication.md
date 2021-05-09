@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eff33a8670ee8eb9ee32655956ee0e913ddaa4c1
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 8c9219622a4c8d81c7a69d7ae39d9f65d92048a4
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258127"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895880"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
@@ -40,10 +40,17 @@ Cette fonctionnalité permet aux applications de gérer des scénarios tels que�
 1. Sélectionnez **Flux d’utilisateurs**.
 1. Sélectionnez le flux d’utilisateurs pour lequel vous souhaitez activer l’authentification multifacteur. Par exemple, *B2C_1_signinsignup*.
 1. Sélectionner **Propriétés**.
-1. Dans la section **Authentification multifacteur**, sélectionnez la **méthode MFA** souhaitée puis, sous **Application MFA**, sélectionnez **Always-on** ou **Conditionnelle (recommandé)** .
+1. Dans la section **Authentification multifacteur**, sélectionnez le **type de méthode** souhaité. Puis, sous **Mise en application de l’authentification multifacteur**, sélectionnez une option :
+
+   - **Désactivé** : L’authentification multifacteur n’est jamais appliquée pendant la connexion, et les utilisateurs ne sont pas invités à s’inscrire à l’authentification multifacteur dans le cadre de l’inscription ou de la connexion.
+   - **Toujours activé** : L’authentification multifacteur est toujours requise (quelle que soit la configuration de l’accès conditionnel). Si les utilisateurs ne sont pas déjà inscrits à l’authentification multifacteur, ils sont invités à s’y inscrire lors de la connexion. Lors de l’inscription, les utilisateurs sont invités à s’inscrire dans à l’authentification multifacteur.
+   - **Conditionnel (préversion)**  : L’authentification multifacteur est appliquée uniquement quand une stratégie d’accès conditionnel l’exige. La stratégie et le risque de connexion déterminent la façon dont l’authentification multifacteur est présentée à l’utilisateur :
+      - Si aucun risque n’est détecté, une demande d’authentification multifacteur est présentée à l’utilisateur lors de la connexion. Si l’utilisateur n’est pas déjà inscrit à l’authentification multifacteur, il est invité à s’y inscrire lors de la connexion.
+      - Si un risque est détecté et que l’utilisateur n’est pas déjà inscrit à l’authentification multifacteur, la connexion est bloquée. Lors de l’inscription, les utilisateurs ne sont pas invités à s’inscrire à l’authentification multifacteur.
+
    > [!NOTE]
    >
-   > - Si vous sélectionnez **Conditionnel (recommandé)** , vous devez également [Ajouter l’accès conditionnel à des flux d’utilisateurs](conditional-access-user-flow.md) et spécifier les applications auxquelles la stratégie doit s’appliquer.
+   > - Si vous sélectionnez **Conditionnel (préversion)** , vous devez également [ajouter l’accès conditionnel à des flux d’utilisateurs](conditional-access-user-flow.md) et spécifier les applications auxquelles la stratégie doit s’appliquer.
    > - L’authentification multifacteur (MFA) est désactivée par défaut pour les flux d’utilisateurs d’inscription. Vous pouvez activer la MFA dans les flux d’utilisateurs avec l’inscription par téléphone, mais, comme un numéro de téléphone est utilisé comme identificateur principal, l’envoi par e-mail d’un code secret à usage unique est la seule option disponible pour le deuxième facteur d’authentification.
 
 1. Sélectionnez **Enregistrer**. La MFA est maintenant activée pour ce flux d’utilisateurs.

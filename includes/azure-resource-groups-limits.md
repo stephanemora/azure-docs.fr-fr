@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: tomfitz
-ms.openlocfilehash: 543aa50d72de5a06a9a1c7ac88ac5ecae993bc9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c29abc456c5825a2f22b20a4893bb14eb09058af
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98698035"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107984319"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -35,6 +35,8 @@ ms.locfileid: "98698035"
 | Expression de modèle |24 576 caractères |
 | Ressources dans les modèles exportés |200 |
 | Taille du modèle |4 Mo |
-| Taille du fichier de paramètres |64 Ko |
+| Taille du fichier de paramètres |4 Mo |
 
 Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez l’article [Utilisation de modèles liés lors du déploiement des ressources Azure](../articles/azure-resource-manager/templates/linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters) (Utiliser un objet en tant que paramètre).
+
+Vous pouvez obtenir une erreur avec un fichier modèle ou de paramètres de moins de 4 Mo, si la taille totale de la requête est trop élevée. Pour plus d’informations sur la simplification de votre modèle afin d’éviter les requêtes de trop grande taille, consultez [Résoudre les erreurs de dépassement de taille de la tâche](../articles/azure-resource-manager/templates/error-job-size-exceeded.md).

@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 30a823b7e78145224929b427e9e37522a7e29f09
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 3a592d00e4e3bc45bbb156b19f374c2fdef23005
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871288"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324758"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Superviser la connectivité des appareils à l’aide d’Azure CLI
 
@@ -26,8 +26,9 @@ Utilisez l’extension IoT d’Azure CLI pour consulter les messages que vos app
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Azure CLI installé et doté de la version 2.7.0 ou ultérieure. Vérifiez la version de votre Azure CLI en exécutant `az --version`. En savoir plus sur l’installation et la mise à jour à l’aide des [docs Azure CLI](/cli/azure/install-azure-cli)
-+ Un compte professionnel ou scolaire dans Azure, ajouté en tant qu’utilisateur dans une application IoT Central.
+Un compte professionnel ou scolaire dans Azure, ajouté en tant qu’utilisateur dans une application IoT Central.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ## <a name="install-the-iot-central-extension"></a>Installer l’extension IoT Central
 

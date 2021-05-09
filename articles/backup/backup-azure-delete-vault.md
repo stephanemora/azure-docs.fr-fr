@@ -2,13 +2,13 @@
 title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: bb6be070ac0fb408ac37c8ae7b003b54da5d6dea
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/26/2021
+ms.openlocfilehash: fd148c88eaace70caa237ce8cb694d0167db9338
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773654"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064973"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -162,15 +162,51 @@ Pour arrêter la protection et supprimer des données de sauvegarde, effectuez l
 
     ![Sélectionnez Supprimer les données protégées dans le volet Arrêter la protection.](./media/backup-azure-delete-vault/delete-storage-online.png)
 
-    L’état du membre protégé devient *Réplica inactif disponible*.
+    Pour les versions suivantes, il vous est demandé d’entrer un code PIN (Personal Identification Number) de sécurité, que vous devez générer manuellement.
+    
 
-4. Cliquez avec le bouton droit sur le groupe de protection inactif, puis sélectionnez **Supprimer la protection inactive**.
+    - DPM 2019 UR1 ou version ultérieure
+    - DPM 2016 UR9 ou version ultérieure
+    - MABS V3 UR1 ou version ultérieure
+    
+    Pour générer le code PIN, procédez comme suit :
+    
+    1. Connectez-vous au portail Azure.
+    1. Accédez à **Coffre Recovery Services** > **Paramètres** > **Propriétés**.
+    1. Sous **Code PIN de sécurité**, sélectionnez **Générer**.
+    1. Copiez ce code PIN. 
+       >[!NOTE]
+       >Il n’est valide que pendant cinq minutes.
+    1. Dans la console de gestion, collez le code PIN, puis sélectionnez **Envoyer**.
+       ![Entrer le code PIN de sécurité](./media/backup-azure-delete-vault/enter-security-pin.png)
+
+4. Si vous avez précédemment sélectionné **Supprimer le stockage en ligne** dans la boîte de dialogue **Arrêter la protection**, ignorez cette étape. Cliquez avec le bouton droit sur le groupe de protection inactif, puis sélectionnez **Supprimer la protection inactive**.
 
     ![Supprimez la protection inactive.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
 5. Dans la fenêtre **Supprimer la protection inactive**, cochez la case **Supprimer le stockage en ligne**, puis sélectionnez **OK**.
 
     ![Supprimez le stockage en ligne.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+
+    Pour les versions suivantes, il vous est demandé d’entrer un code PIN (Personal Identification Number) de sécurité, que vous devez générer manuellement.
+    
+
+    - DPM 2019 UR1 ou version ultérieure
+    - DPM 2016 UR9 ou version ultérieure
+    - MABS V3 UR1 ou version ultérieure
+    
+    Pour générer le code PIN, procédez comme suit :
+    
+    1. Connectez-vous au portail Azure.
+    1. Accédez à **Coffre Recovery Services** > **Paramètres** > **Propriétés**.
+    1. Sous **Code PIN de sécurité**, sélectionnez **Générer**.
+    1. Copiez ce code PIN. 
+       >[!NOTE]
+       >Il n’est valide que pendant cinq minutes.
+    1. Dans la console de gestion, collez le code PIN, puis sélectionnez **Envoyer**.
+       ![Entrer le code PIN de sécurité](./media/backup-azure-delete-vault/enter-security-pin.png)
+ 
+     L’état du membre protégé devient *Réplica inactif disponible*.
 
 #### <a name="method-2"></a>Méthode 2
 

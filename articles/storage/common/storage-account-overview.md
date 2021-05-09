@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d4874ad6688fa85f0c511632498938817bb218f7
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: dedb8faf74ffba7b5846512b4c52eb5a58822f7e
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714197"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895952"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -28,14 +28,14 @@ Le stockage Azure offre plusieurs types de comptes de stockage. Chaque type pren
 
 Le tableau suivant décrit les types de comptes de stockage recommandés par Microsoft pour la plupart des scénarios :
 
-| Type de compte de stockage | Services pris en charge | Options de redondance | Modèle de déploiement | Usage |
+| Type de compte de stockage | Services pris en charge | Options de redondance | Modèle de déploiement | Utilisation |
 |--|--|--|--|--|
-| Usage général v2 standard | Objet blob, fichier, file d’attente, table et Data Lake Storage<sup>1</sup> | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Gestionnaire des ressources<sup>3</sup> | Type de compte de stockage de base pour les objets blob, les fichiers, les files d’attente et les tables. Recommandé pour la plupart des scénarios utilisant Stockage Azure. |
+| Usage général v2 Standard | Objet blob, fichier, file d’attente, table et Data Lake Storage<sup>1</sup> | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Gestionnaire des ressources<sup>3</sup> | Type de compte de stockage de base pour les objets blob, les fichiers, les files d’attente et les tables. Recommandé pour la plupart des scénarios utilisant Stockage Azure. |
 | Objets blob de blocs Premium<sup>4</sup> | Objets blob de blocs uniquement | LRS<br /><br />ZRS<sup>2</sup> | Gestionnaire des ressources<sup>3</sup> | comptes de stockage dotés de caractéristiques de performances Premium pour les objets blob de bloc et les objets blob d'ajout. Recommandé pour les scénarios aux taux élevés de transactions, ceux utilisant des objets plus petits ou nécessitant une latence de stockage faible.<br />[En savoir plus…](../blobs/storage-blob-performance-tiers.md) |
 | Partages de fichiers Premium<sup>4</sup> | Partages de fichiers uniquement | LRS<br /><br />ZRS<sup>2</sup> | Gestionnaire des ressources<sup>3</sup> | comptes de stockage de fichiers uniquement ayant des caractéristiques de performances Premium. Recommandé pour l’entreprise ou des applications de mise à l’échelle hautes performances.<br />[En savoir plus…](../files/storage-files-planning.md#management-concepts) |
 | Objets blob de pages Premium<sup>4</sup> | Objets blob de pages uniquement | LRS | Gestionnaire des ressources<sup>3</sup> | Type de compte de stockage Premium pour les objets blob de pages uniquement.<br />[En savoir plus…](../blobs/storage-blob-pageblob-overview.md) |
 
-<sup>1</sup> Azure Data Lake Storage est un ensemble de fonctionnalités dédiées à l’analytique du Big Data et basées sur le stockage Blob Azure. Data Lake Storage est pris en charge uniquement sur les comptes de stockage à usage général V2 avec un espace de noms hiérarchique activé. Pour plus d’informations sur Data Lake Storage Gen2, consultez [Présentation de Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+<sup>1</sup> Data Lake Storage est un ensemble de fonctionnalités dédiées à l’analytique du Big Data et basées sur le stockage Blob Azure. Pour plus d’informations, consultez [Introduction à Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
 
 <sup>2</sup> Le stockage redondant interzone (ZRS) et le stockage géo-redondant interzone (GZRS/RA-GZRS) sont disponibles uniquement pour les comptes à usage général v2, d’objet blob de blocs premium et de partage de fichier premium standard dans certaines régions. Pour plus d’informations sur les options de redondance de Stockage Azure, consultez [Redondance du stockage Azure](storage-redundancy.md).
 
@@ -110,7 +110,7 @@ La [page Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/d
 
 Le tableau suivant décrit les types de comptes de stockage hérités. Ces types de comptes ne sont pas recommandés par Microsoft, mais peuvent être utilisés dans certains scénarios :
 
-| Type de compte de stockage hérité | Services pris en charge | Options de redondance | Modèle de déploiement | Usage |
+| Type de compte de stockage hérité | Services pris en charge | Options de redondance | Modèle de déploiement | Utilisation |
 |--|--|--|--|--|
 | Usage général v1 standard | Objet blob, fichier, file d’attente, table et Data Lake Storage | LRS/GRS/RA-GRS | Resource Manager, Classic | Les comptes à usage général v1 ne proposent pas nécessairement les fonctionnalités les plus récentes, ni les tarifs par gigaoctet les plus bas. Envisagez d’utiliser les scénarios suivants :<br /><ul><li>Si vos applications nécessitent le modèle de déploiement Azure Classic.</li><li>Vos applications sont gourmandes en transactions ou utilisent beaucoup de bande passante de géoréplication, mais ne nécessitent pas une capacité importante. Dans ce cas, le compte universel v1 constitue le choix le plus économique.</li><li>Vous utilisez une version de l’API REST de Stockage Azure antérieure à celle du 14/02/2014 ou une bibliothèque cliente avec une version inférieure à 4.x, et vous ne pouvez pas mettre à niveau votre application.</li></ul> |
 | Stockage d'objets blob standard | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | LRS/GRS/RA-GRS | Gestionnaire de ressources | Dans la mesure du possible, Microsoft recommande d’utiliser des comptes à usage général v2 standard à la place. |

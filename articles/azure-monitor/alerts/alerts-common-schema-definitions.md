@@ -4,12 +4,12 @@ description: Comprendre les définitions de schéma d’alerte courant pour Azur
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 6d835b6d2c3519bc47decf8256ab3f3380170df6
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: a026fa846901d4db7cb56196de50508f077e4fc6
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565115"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018256"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
@@ -179,7 +179,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 ### <a name="log-alerts"></a>Alertes de journal
 
 > [!NOTE]
-> Pour des alertes de journal contenant une charge utile d’objet d’e-mail ou de JSON personnalisée définie, l’activation du schéma commun a pour effet de rétablir le schéma d’objet d’e-mail et/ou de charge utile décrit ci-après. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludeSearchResults`. Lorsque les résultats de la recherche ne sont pas inclus, vous devez utiliser `LinkToFilteredSearchResultsAPI` et `LinkToSearchResultsAPI` pou accéder aux résultats de la requête avec l’[API Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
+> Pour des alertes de journal contenant une charge utile d’objet d’e-mail ou de JSON personnalisée définie, l’activation du schéma commun a pour effet de rétablir le schéma d’objet d’e-mail et/ou de charge utile décrit ci-après. Cela signifie que si vous souhaitez définir une charge utile JSON personnalisée, le webhook ne peut pas utiliser le schéma d'alerte commun. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludeSearchResults`. Lorsque les résultats de la recherche ne sont pas inclus, vous devez utiliser `LinkToFilteredSearchResultsAPI` et `LinkToSearchResultsAPI` pou accéder aux résultats de la requête avec l’[API Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

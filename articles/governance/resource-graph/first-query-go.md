@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Votre première requête Go'
 description: Dans ce démarrage rapide, vous suivez les étapes pour activer le package Resource Graph pour Go et vous exécutez votre première requête.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 4949801b3dc97904680d09e685fd225812a0e14d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7197dd95c0601f8aebd537a2b19d45821ef7716d
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920060"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325028"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de Go
 

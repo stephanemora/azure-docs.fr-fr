@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
-ms.openlocfilehash: de39aee73a6f4b422af4524d3302f8858f8b060b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2d86af956ff60bba22effe059996cf499e4b282
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101692230"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134084"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Résoudre des problèmes courants dans l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -37,7 +37,7 @@ L’article suivant décrit les erreurs courantes et les solutions relatives aux
 | 112 | WriteConflict | La transaction multidocument a échoué en raison d’une transaction multidocument en conflit | Faites une nouvelle tentative jusqu’à ce qu’elle aboutisse. |
 | 115 | CommandNotSupported | La requête tentée n’est pas prise en charge. | Des détails supplémentaires doivent être fournis dans l’erreur. Si cette fonctionnalité est importante pour vos déploiements, créez un ticket de support dans le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et l’équipe Azure Cosmos DB vous recontactera. |
 | 11000 | DuplicateKey | La clé de partition (clé de partition Azure Cosmos DB) du document que vous insérez existe déjà dans la collection ou une contrainte de champ d’index unique a été violée. | Utilisez la fonction update () pour mettre à jour un document existant. Si la contrainte de champ d’index unique a été violée, insérez ou mettez à jour le document avec une valeur de champ non présente dans la partition. Une autre option consiste à utiliser un champ contenant une combinaison des champs d’ID et de clé de partition. |
-| 16500 | TooManyRequests  | Le nombre total d’unités de requête consommées est supérieur au taux d’unités de requête provisionné pour la collection et a été limité. | Adaptez le débit assigné à un conteneur ou à un ensemble de conteneurs à partir du portail Azure ou renouvelez l’opération. Si vous activez SSR (nouvelle tentative côté serveur), Azure Cosmos DB retente automatiquement les requêtes qui échouent en raison de cette erreur. |
+| 16500 | TooManyRequests  | Le nombre total d’unités de requête consommées est supérieur au taux d’unités de requête provisionné pour la collection et a été limité. | Adaptez le débit assigné à un conteneur ou à un ensemble de conteneurs à partir du portail Azure ou renouvelez l’opération. Si vous [activez SSR](prevent-rate-limiting-errors.md) (nouvelle tentative côté serveur), Azure Cosmos DB retente automatiquement les requêtes qui échouent en raison de cette erreur. |
 | 16501 | ExceededMemoryLimit | En tant que service multi-locataire, l’opération a dépassé l’allocation de mémoire du client. Cela s’applique uniquement à l’API Azure Cosmos DB pour MongoDB version 3.2. | Réduisez l’étendue de l’opération en fixant un critère de requête plus restrictif, ou contactez le support technique via le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exemple : `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 40324 | Nom d’étape de pipeline non reconnu. | Le nom d’étape de votre requête de pipeline d’agrégation n’a pas été reconnu. | Assurez-vous que tous les noms de pipeline d’agrégation sont valides dans votre requête. |
 | - | Problèmes relatifs à la version câblée de MongoDB | Les anciennes versions des pilotes MongoDB ne sont pas en mesure de détecter le nom du compte Azure Cosmos dans les chaînes de connexion. | Ajoutez `appName=@accountName@` à la fin de votre chaîne de connexion, où `accountName` correspond au nom de votre compte Azure Cosmos DB. |

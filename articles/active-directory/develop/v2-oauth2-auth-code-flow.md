@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: caa8f4efa60f8a42856f7cd8e78edf32fce956c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d2f4fca7f6b5fe7c6a894f4be3b27788799b422e
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937139"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108063995"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -183,7 +183,11 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | `id_token` | Un jeton d’ID pour l’utilisateur, émis via *octroi implicite*. Contient une revendication `c_hash` spéciale qui est le hachage du `code` dans la même requête. |
 | `state` | Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs state de la requête et de la réponse sont identiques. |
 
-## <a name="request-an-access-token"></a>Demander un jeton d’accès
+## <a name="redeem-a-code-for-an-access-token"></a>Échanger un code pour un jeton d’accès
+
+Tous les clients confidentiels peuvent choisir d’utiliser des secrets clients (secrets partagés symétriques générés par la plateforme d’identités Microsoft) et des [informations d’identification de certificat](active-directory-certificate-credentials.md)(clés asymétriques chargées par le développeur).  Pour une sécurité optimale, nous vous recommandons d’utiliser des informations d’identification de certificat. Les clients publics (applications natives et monopages) ne doivent pas utiliser de secrets ou de certificats pour échanger un code d’autorisation. Vérifiez toujours que les URI de redirection indiquent correctement le type d’application et [sont uniques](reply-url.md#localhost-exceptions). 
+
+### <a name="request-an-access-token-with-a-client_secret"></a>Demander un jeton d’accès avec un client_secret
 
 Maintenant que vous avez acquis un authorization_code et que l'utilisateur vous a octroyé une autorisation, vous pouvez échanger `code` contre un `access_token` sur la ressource souhaitée. Pour ce faire, envoyez une requête `POST` au point de terminaison  `/token` :
 
@@ -204,18 +208,49 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Essayez d'exécuter cette requête dans Postman ! N’oubliez pas de remplacer le `code`[![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Essayez d'exécuter cette requête dans Postman ! N’oubliez pas de remplacer le `code`[![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://www.getpostman.com/collections/dba7e9c2e0870702dfc6)
 
 | Paramètre  | Obligatoire ou facultatif | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | Obligatoire   | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | Obligatoire  | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
-| `grant_type` | Obligatoire   | Doit être `authorization_code` pour le flux de code d'autorisation.   |
 | `scope`      | facultatif   | Liste d’étendues séparées par des espaces. Les étendues doivent toutes être issues d’une seule ressource, ainsi que les étendues OIDC (`profile`, `openid`, `email`). Pour obtenir une explication plus détaillée des étendues, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md). Il s’agit d’une extension Microsoft au flux de code d’autorisation, conçue pour permettre aux applications de déclarer la ressource pour laquelle elles souhaitent obtenir le jeton pendant l’échange de jetons.|
 | `code`          | Obligatoire  | Le code d’autorisation acquis dans le premier tronçon du flux. |
 | `redirect_uri`  | Obligatoire  | Valeur redirect_uri qui a déjà été utilisée pour obtenir le paramètre authorization_code. |
-| `client_secret` | obligatoire pour les applications web confidentielles | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Vous ne devez pas l’utiliser dans une application native ou monopage, car les clés secrètes client ne peuvent pas être stockées de manière fiable sur des appareils ou des pages web. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur.  Comme tous les paramètres décrits ici, la clé secrète client doit être encodée par URL avant d’être envoyée, une étape généralement effectuée par le Kit de développement logiciel (SDK). Pour plus d’informations sur l’encodage d’URI, consultez la [spécification de syntaxe générique URI](https://tools.ietf.org/html/rfc3986#page-12). |
+| `grant_type` | Obligatoire   | Doit être `authorization_code` pour le flux de code d'autorisation.   |
 | `code_verifier` | recommandé  | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
+| `client_secret` | obligatoire pour les applications web confidentielles | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Vous ne devez pas l’utiliser dans une application native ou monopage, car les clés secrètes client ne peuvent pas être stockées de manière fiable sur des appareils ou des pages web. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur.  Comme tous les paramètres décrits ici, la clé secrète client doit être encodée par URL avant d’être envoyée, une étape généralement effectuée par le Kit de développement logiciel (SDK). Pour plus d’informations sur l’encodage d’URI, consultez la [spécification de syntaxe générique URI](https://tools.ietf.org/html/rfc3986#page-12). |
+
+### <a name="request-an-access-token-with-a-certificate-credential"></a>Demander un jeton d’accès avec des informations d’identification de certificat
+
+```HTTP
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&grant_type=authorization_code
+&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+```
+
+| Paramètre  | Obligatoire ou facultatif | Description     |
+|------------|-------------------|----------------|
+| `tenant`   | Obligatoire   | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints).  |
+| `client_id` | Obligatoire  | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
+| `scope`      | facultatif   | Liste d’étendues séparées par des espaces. Les étendues doivent toutes être issues d’une seule ressource, ainsi que les étendues OIDC (`profile`, `openid`, `email`). Pour obtenir une explication plus détaillée des étendues, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md). Il s’agit d’une extension Microsoft au flux de code d’autorisation, conçue pour permettre aux applications de déclarer la ressource pour laquelle elles souhaitent obtenir le jeton pendant l’échange de jetons.|
+| `code`          | Obligatoire  | Le code d’autorisation acquis dans le premier tronçon du flux. |
+| `redirect_uri`  | Obligatoire  | Valeur redirect_uri qui a déjà été utilisée pour obtenir le paramètre authorization_code. |
+| `grant_type` | Obligatoire   | Doit être `authorization_code` pour le flux de code d'autorisation.   |
+| `code_verifier` | recommandé  | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
+| `client_assertion_type` | obligatoire pour les applications web confidentielles | La valeur doit être définie sur `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` pour utiliser des informations d’identification de certificat. |
+| `client_assertion` | obligatoire pour les applications web confidentielles  | Assertion (jeton Web JSON) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la rubrique traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
+
+Notez que les paramètres sont les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre `client_secret` est remplacé par deux paramètres : `client_assertion_type` et `client_assertion`.  
 
 ### <a name="successful-response"></a>Réponse correcte
 
@@ -277,7 +312,7 @@ Les réponses d’erreur se présentent comme suit :
 | `invalid_client` | Échec d’authentification du client.  | Les informations d’identification du client ne sont pas valides. Pour résoudre le problème, l’administrateur de l’application met à jour les informations d’identification.   |
 | `unsupported_grant_type` | Le serveur d’autorisation ne prend pas en charge le type d’octroi d’autorisation. | Modifiez le type d’octroi dans la demande. Ce type d’erreur doit se produire uniquement lors du développement et doit être détecté lors du test initial. |
 | `invalid_resource` | La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. | Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD.  |
-| `interaction_required` | Non standard, car la spécification OIDC l’appelle uniquement sur le point de terminaison `/authorize`. La requête nécessite une interaction avec l’utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la requête `/authorize` avec les mêmes étendues. |
+| `interaction_required` | Non standard, car la spécification OIDC l’appelle uniquement sur le point de terminaison `/authorize`. La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la requête `/authorize` avec les mêmes étendues. |
 | `temporarily_unavailable` | Le serveur est temporairement trop occupé pour traiter la demande. | Relancez la requête après un petit délai. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 |`consent_required` | La requête nécessite le consentement de l’utilisateur. Cette erreur n’est pas standard, car elle est généralement retournée uniquement sur le point de terminaison `/authorize` conformément aux spécifications OIDC. Retournée lorsqu’un paramètre `scope` a été utilisé sur le flux d’échange de code et que l’application cliente n’a pas l’autorisation d’en faire la demande.  | Le client doit renvoyer l’utilisateur au point de terminaison `/authorize` avec l’étendue correcte afin de déclencher le consentement. |
 |`invalid_scope` | L’étendue demandée par l’application n’est pas valide.  | Mettez à jour la valeur du paramètre d’étendue dans la demande d’authentification en la remplaçant par une valeur valide. |

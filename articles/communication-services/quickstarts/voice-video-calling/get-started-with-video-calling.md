@@ -7,12 +7,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5b7fd8e8cd5bd3ab0f15115365ed057fc67f1204
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ec48e23d2752d14b3bb77dab2625e81f8a6d0db7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604428"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292735"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>Démarrage rapide : Ajouter l’appel vidéo 1 à 1 à votre application (JavaScript)
 
@@ -23,7 +23,7 @@ Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub]
 ## <a name="prerequisites"></a>Prérequis
 - Obtenez un compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/), Active LTS et Maintenance LTS (version 8.11.1 et 10.14.1).
-- Créez une ressource Communication Services active. [Créez une ressource Communication Services](../create-communication-resource.md?pivots=platform-azp&tabs=windows).
+- Créez une ressource Communication Services active. [Créer une ressource Communication Services](../create-communication-resource.md?pivots=platform-azp&tabs=windows)
 - Créez un jeton d’accès utilisateur pour instancier le client d’appel. [Découvrez comment créer et gérer des jetons d’accès utilisateur](../access-tokens.md?pivots=programming-language-csharp).
 
 ## <a name="setting-up"></a>Configuration
@@ -337,7 +337,6 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les articles suivants :
 
-- Consultez notre [exemple d’appel web](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample).
-- Apprenez-en davantage sur les [fonctionnalités du SDK Calling](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Apprenez-en davantage sur le [fonctionnement des appels](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
-
+- Consultez notre [exemple d’appel web](../../samples/web-calling-sample.md).
+- Apprenez-en davantage sur les [fonctionnalités du SDK Calling](./calling-client-samples.md?pivots=platform-web)
+- Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)

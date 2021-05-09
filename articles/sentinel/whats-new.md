@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 7f9a8cb54458999d8f20a258bc36241dfdbd0de8
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 9873b3626b77a898b7bd682446e11a77b270b297
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376033"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897304"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
@@ -32,7 +32,16 @@ Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions
 
 ## <a name="april-2021"></a>Avril 2021
 
+- [Connecteurs de données basés sur Azure Policy](#azure-policy-based-data-connectors)
 - [Chronologie des incidents (préversion publique)](#incident-timeline-public-preview)
+
+### <a name="azure-policy-based-data-connectors"></a>Connecteurs de données basés sur Azure Policy
+
+Azure Policy vous permet d'appliquer un ensemble commun de paramètres de journaux de diagnostic à toutes les ressources (actuelles et futures) d'un type particulier dont vous souhaitez ingérer les journaux dans Azure Sentinel.
+
+Dans le cadre des efforts que nous déployons pour mettre la puissance d'[Azure Policy](../governance/policy/overview.md) au service de la configuration de la collecte de données, nous proposons désormais en préversion publique un autre collecteur de données basé sur Azure Policy pour les [comptes de stockage Azure](connect-azure-storage-account.md).
+
+En outre, deux de nos connecteurs qui étaient jusque-là en préversion, pour [Azure Key Vault](connect-azure-key-vault.md) et [Azure Kubernetes Service](connect-azure-kubernetes-service.md), sont désormais en disponibilité générale (GA), comme le connecteur [Azure SQL Database](connect-azure-sql-logs.md) qui les a précédé.
 
 ### <a name="incident-timeline-public-preview"></a>Chronologie des incidents (préversion publique)
 
@@ -52,8 +61,8 @@ Pour plus d’informations, consultez [Didacticiel : Examiner les incidents avec
 
 - [Définir les classeurs pour qu’ils s’actualisent automatiquement en mode affichage](#set-workbooks-to-automatically-refresh-while-in-view-mode)
 - [Nouvelles détections pour le pare-feu Azure](#new-detections-for-azure-firewall)
-- [Règles d’automatisation et guides opérationnels déclenchés par incident](#automation-rules-and-incident-triggered-playbooks) (y compris la toute nouvelle documentation des guides opérationnels)
-- [Nouveaux enrichissements d’alerte : mappage d’entité amélioré et détails personnalisés](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
+- [Règles d'automatisation et guides opérationnels déclenchés par un incident (préversion publique)](#automation-rules-and-incident-triggered-playbooks-public-preview) (y compris la toute nouvelle documentation des guides opérationnels)
+- [Nouveaux enrichissements d'alerte : mappage d'entités amélioré et détails personnalisés (préversion publique)](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview)
 - [Imprimer vos classeurs Azure Sentinel ou enregistrer au format PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Filtres d’incident et préférences de tri désormais enregistrés dans votre session (préversion publique)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Intégration des incidents Microsoft 365 Defender (préversion publique)](#microsoft-365-defender-incident-integration-public-preview)
@@ -95,7 +104,7 @@ Les détections pour les pare-feu Azure sont ajoutées en permanence à la galer
 
 Pour plus d’informations, consultez [Nouvelles détections pour le pare-feu Azure dans Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
 
-### <a name="automation-rules-and-incident-triggered-playbooks"></a>Règles d’automatisation et guides opérationnels déclenchés par incident
+### <a name="automation-rules-and-incident-triggered-playbooks-public-preview"></a>Règles d'automatisation et guides opérationnels déclenchés par un incident (préversion publique)
 
 Les règles d’automatisation sont un nouveau concept dans Azure Sentinel, qui vous permet de gérer de manière centralisée l’automatisation de la gestion des incidents. En plus de vous permettre d’affecter des guides opérationnels aux incidents (pas seulement aux alertes comme auparavant), les règles d’automatisation vous permettent également d’automatiser les réponses pour plusieurs règles d’analyse à la fois, d’étiqueter, d’attribuer ou de fermer automatiquement des incidents sans nécessiter de guides opérationnels et de contrôler l’ordre des actions exécutées. Les règles d’automatisation simplifient l’utilisation de l’automatisation dans Azure Sentinel et vous permettent de simplifier des flux de travail complexes pour vos processus d’orchestration d’incident.
 
@@ -105,7 +114,7 @@ Comme indiqué ci-dessus, les règles peuvent désormais être activées avec le
 
 En savoir plus sur les [fonctionnalités améliorées des guides opérationnels](automate-responses-with-playbooks.md) et sur la [création d’un flux de travail de réponse](tutorial-respond-threats-playbook.md) à l’aide de guides opérationnels avec des règles d’automatisation.
 
-### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Nouveaux enrichissements d’alerte : mappage d’entité amélioré et détails personnalisés
+### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview"></a>Nouveaux enrichissements d'alerte : mappage d'entités amélioré et détails personnalisés (préversion publique)
 
 Enrichissez vos alertes de deux façons pour les rendre plus utilisables et plus instructifs.
 
@@ -152,7 +161,7 @@ Parmi les propriétés des ressources qui peuvent être contrôlées par les str
 Des connecteurs basés sur Azure Policy sont maintenant disponibles pour les services Azure suivants :
 - [Azure Key Vault](connect-azure-key-vault.md) (préversion publique)
 - [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (préversion publique)
-- Serveurs/bases de données Azure SQL (GA)
+- [Serveurs/bases de données Azure SQL](connect-azure-sql-logs.md) (GA)
 
 Les clients pourront toujours envoyer les journaux manuellement pour des instances spécifiques, et ne sont pas obligés d’utiliser le moteur de stratégie.
 

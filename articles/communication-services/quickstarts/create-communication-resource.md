@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: aabb8bdf4105702aa623c45bc291770b05b8279e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: aa5d24229bae0e459471dc40ca375d42ccc1405c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726769"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293231"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Démarrage rapide : Créer et gérer des ressources Communication Services
 
@@ -52,7 +52,7 @@ Une fois que vous avez accédé à votre ressource Communication Services, séle
 
 Vous pouvez également accéder aux informations de clé au moyen de l’interface Azure CLI, comme votre groupe de ressources ou les clés d’une ressource spécifique. 
 
-Installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) et utilisez la commande suivante pour vous connecter. Vous devrez fournir vos informations d’identification pour vous connecter à votre compte Azure.
+Installez [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) et utilisez la commande suivante pour vous connecter. Vous devrez fournir vos informations d’identification pour vous connecter à votre compte Azure.
 ```azurecli
 az login
 ```

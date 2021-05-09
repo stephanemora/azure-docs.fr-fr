@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 21910718d837750db7ae87afa36a2e7576a729cf
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 1e5c932460ada6060c77d233b2271813d6ea327b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016560"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292303"
 ---
 # <a name="sdks-and-rest-apis"></a>Kits SDK et API REST
 
@@ -24,16 +24,16 @@ Les fonctionnalités Azure Communication Services sont organisées de façon con
 Les API Communication Services ainsi que d’autres API REST Azure sont documentées dans [docs.microsoft.com](/rest/api/azure/). Dans cette documentation, vous trouverez des conseils sur la structure de vos messages HTTP et l’utilisation de Postman. Cette documentation est également disponible au format Swagger sur [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 
-## <a name="sdks"></a>Kits SDK
+## <a name="sdks"></a>SDK
 
 | Assembly | Espaces de noms| Protocoles | Fonctionnalités |
 |------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
-| Azure Resource Manager | Azure.ResourceManager.Communication | [REST](https://docs.microsoft.com/rest/api/communication/communicationservice)| Approvisionner et gérer les ressources Azure Communication Services|
+| Azure Resource Manager | Azure.ResourceManager.Communication | [REST](/rest/api/communication/communicationservice)| Approvisionner et gérer les ressources Azure Communication Services|
 | Courant | Azure.Communication.Common| REST | Fournit des types de base pour d’autres Kits de développement logiciel (SDK) |
-| Identité | Azure.Communication.Identity| [REST](https://docs.microsoft.com/rest/api/communication/communicationidentity)| Gérez les utilisateurs et les jetons d’accès|
+| Identité | Azure.Communication.Identity| [REST](/rest/api/communication/communicationidentity)| Gérez les utilisateurs et les jetons d’accès|
 | Numéros de téléphone _(bêta)_| Azure.Communication.PhoneNumbers| [REST](/rest/api/communication/phonenumbers)| Acquérir et gérer des numéros de téléphone |
-| Conversation | Azure.Communication.Chat| [REST](https://docs.microsoft.com/rest/api/communication/) avec signalisation protégée | Ajouter des conversations basées sur du texte en temps réel dans vos applications |
-| SMS| Azure.Communication.SMS | [REST](https://docs.microsoft.com/rest/api/communication/sms)| Envoyer et recevoir des messages SMS|
+| Conversation | Azure.Communication.Chat| [REST](/rest/api/communication/) avec signalisation protégée | Ajouter des conversations basées sur du texte en temps réel dans vos applications |
+| SMS| Azure.Communication.SMS | [REST](/rest/api/communication/sms)| Envoyer et recevoir des messages SMS|
 | Appel| Azure.Communication.Calling | Transport propriétaire | Utiliser la voix, la vidéo, le partage d’écran et d’autres capacités de communication de données en temps réel |
 
 Les Kits de développement logiciel (SDK) Azure Resource Manager, Identité et SMS sont axés sur l’intégration de services et, dans de nombreux cas, des problèmes de sécurité se posent si vous intégrez ces fonctions dans des applications destinées aux utilisateurs finaux. Les Kits de développement logiciel (SDK) Courant et Conversation sont adaptées aux applications clientes et aux applications de service. Le Kit de développement logiciel (SDK) Appel est conçu pour les applications clientes. Un Kit de développement logiciel (SDK) axé sur les scénarios de service est en cours de développement.
@@ -56,13 +56,13 @@ Vous trouverez ci-dessous des emplacements de publication pour chaque package de
 
 
 ## <a name="rest-api-throttles"></a>Limitations de l’API REST
-Certaines API REST et les méthodes de kit de développement logiciel (SDK) correspondantes sont soumises à des limites dont vous devez tenir compte. Le dépassement de ces limites déclenchera une réponse d’erreur `429 - Too Many Requests`. Ces limites peuvent être augmentées à l’aide [d’une demande adressée à Support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Certaines API REST et les méthodes de kit de développement logiciel (SDK) correspondantes sont soumises à des limites dont vous devez tenir compte. Le dépassement de ces limites déclenchera une réponse d’erreur `429 - Too Many Requests`. Ces limites peuvent être augmentées à l’aide [d’une demande adressée à Support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 | API                                                                                                                          | Limitation            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | [Toutes les API Rechercher un plan de numéros de téléphone](/rest/api/communication/phonenumbers)         | 4 demandes/jour      |
 | [Acheter un plan de numéros de téléphone](/rest/api/communication/phonenumbers/purchasephonenumbers) | 1 achat par mois  |
-| [Envoyer un SMS](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 demandes/minute |
+| [Envoyer un SMS](/rest/api/communication/sms/send)                                                       | 200 demandes/minute |
 
 
 ## <a name="sdk-platform-support-details"></a>Détails de la prise en charge de la plateforme des Kits de développement logiciel (SDK)

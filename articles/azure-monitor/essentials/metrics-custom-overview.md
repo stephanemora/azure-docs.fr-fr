@@ -6,12 +6,12 @@ ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.openlocfilehash: f4ba3763dd781053349417fe3fed3a2848a06fc7
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: e6db49d34c39df2e1863dfa51914e30e9f1e1636
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515836"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897088"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (Préversion)
 
@@ -224,19 +224,19 @@ Si vous avez 100 régions, 200 départements et 2000 clients, cela donne 100 x 2
 
 Rappelons que cette limite ne s’applique pas à une métrique individuelle, mais à la somme de toutes ces métriques à l’échelle d’un abonnement et d’une région.  
 
-## <a name="design-limitations"></a>Limitations de conception
+## <a name="design-limitations-and-considerations"></a>Limitations et considérations relatives à la conception
 
-**N’utilisez pas Application Insights à des fins d’audit**. Le pipeline Application Insights utilise l’API de métriques personnalisées en arrière-plan. Le pipeline est optimisé pour un volume élevé de télémétrie avec un impact minimal sur votre application. Ainsi, il limite ou échantillonne (n’utilise qu’un pourcentage de votre télémétrie et ignore le reste) si votre flux de données entrant devient trop volumineux. En raison de ce comportement, vous ne pouvez pas l’utiliser à des fins d’audit, car certains enregistrements sont susceptibles d’être ignorés. 
+**N'utilisez pas Application Insights à des fins d'audit** : le pipeline de télémétrie d'Application Insights est optimisé pour réduire l'impact sur les performances et limiter le trafic réseau lié à la surveillance de votre application. Ainsi, il limite ou échantillonne (n'utilise qu'un pourcentage de vos données de télémétrie et ignore le reste) si le jeu de données initial devient trop volumineux. En raison de ce comportement, vous ne pouvez pas l’utiliser à des fins d’audit, car certains enregistrements sont susceptibles d’être ignorés. 
 
-**Métriques dont le nom contient une variable** : n’utilisez pas de variable (par exemple un GUID ou un horodatage) dans le nom de la métrique. Vous risqueriez d’atteindre rapidement la limite des 50 000 séries chronologiques. 
- 
-**Dimensions de métriques à cardinalité élevée** : les métriques avec un trop grand nombre de valeurs valides dans une dimension (« cardinalité élevée ») sont beaucoup plus susceptibles d’atteindre la limite de 50 000. En général, vous ne devez jamais utiliser une valeur qui change constamment dans un nom de dimension ou de métrique. L’horodatage, par exemple, ne doit JAMAIS être une dimension. Les valeurs de serveur, de client ou d’ID de produit peuvent être utilisées, mais uniquement si vous avez une petite quantité de chacun de ces types. En guise de test, demandez-vous si vous pourriez créer un graphique de ce type de données.  Si vous avez 10, voire 100 serveurs, il pourrait être utile de les afficher tous sur un graphique à des fins de comparaison. En revanche, si vous en avez 1000, le graphique résultant serait probablement difficile, voire impossible à lire. La bonne pratique consiste à limiter à 100 le nombre de valeurs valides. Jusqu’à 300, vous êtes dans une zone délicate.  Si vous avez besoin de dépasser ce nombre, utilisez plutôt des journaux personnalisés Azure Monitor.   
+**Métriques dont le nom contient une variable** : plutôt que d'utiliser une variable dans le nom de la métrique, utilisez une constante. Dans la mesure où Azure Monitor génère une nouvelle métrique chaque fois que la variable change de valeur, les limites sont rapidement atteintes en termes de nombre de métriques. En règle générale, lorsque les développeurs souhaitent inclure une variable dans le nom de la métrique, ils veulent suivre plusieurs séries chronologiques au sein d'une même métrique et doivent utiliser des dimensions plutôt que des noms de métriques variables. 
 
-Si vous avez une variable dans le nom ou une dimension à cardinalité élevée, les conditions suivantes peuvent se produire. 
+**Dimensions de métriques à cardinalité élevée** : les métriques avec un trop grand nombre de valeurs valides dans une dimension (« cardinalité élevée ») sont beaucoup plus susceptibles d’atteindre la limite de 50 000. En général, vous ne devez jamais utiliser une valeur qui change constamment dans une dimension. L’horodatage, par exemple, ne doit JAMAIS être une dimension. Les valeurs de serveur, de client ou d’ID de produit peuvent être utilisées, mais uniquement si vous avez une petite quantité de chacun de ces types. En guise de test, demandez-vous si vous pourriez créer un graphique de ce type de données.  Si vous avez 10, voire 100 serveurs, il pourrait être utile de les afficher tous sur un graphique à des fins de comparaison. En revanche, si vous en avez 1000, le graphique résultant serait probablement difficile, voire impossible à lire. La bonne pratique consiste à limiter à 100 le nombre de valeurs valides. Jusqu’à 300, vous êtes dans une zone délicate.  Si vous avez besoin de dépasser ce nombre, utilisez plutôt des journaux personnalisés Azure Monitor.   
+
+En présence d'une variable dans le nom ou d'une dimension à cardinalité élevée, voici ce qui peut se produire :
 - Les métriques ne sont pas fiables en raison de la limitation
 - Metrics Explorer ne fonctionne pas
 - Les alertes et les notifications deviennent imprévisibles
-- Les coûts peuvent augmenter de façon inattendue. Microsoft ne facture pas pendant que les métriques personnalisées avec dimensions sont en préversion publique, mais une fois que cela aura changé, vous risquez d’encourir des frais inattendus. Nous prévoyons de facturer la consommation de métriques en fonction du nombre de séries chronologiques supervisées et du nombre d’appels d’API effectués.  
+- Les coûts peuvent augmenter de façon inattendue. Microsoft ne facture rien tant que les métriques personnalisées comportant des dimensions sont en préversion publique, mais une fois que cela aura changé, vous risquez d’encourir des frais inattendus. Nous prévoyons de facturer la consommation de métriques en fonction du nombre de séries chronologiques supervisées et du nombre d’appels d’API effectués.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez utiliser les métriques personnalisées à partir de différents services : 
