@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: a7951543d548696c8de403d7980e1a41b678c6cd
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 21546286d8ca9f8b455b84801d2f706466912165
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078666"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137596"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -122,7 +122,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 * Lorsque la liaison de sortie n’accepte qu’une valeur singleton, un second appel de `Push-OutputBinding` renvoie une erreur.
 
-#### <a name="push-outputbinding-syntax"></a>Syntaxe de `Push-OutputBinding`
+#### <a name="push-outputbinding-syntax"></a>Syntaxe Push-OutputBinding
 
 Les éléments suivants sont des paramètres valides pour appeler `Push-OutputBinding` :
 
@@ -196,7 +196,7 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 Lors de l’écriture dans la file d’attente, le message contient ces quatre valeurs : « output #1 », « output #2 », « output #3 » et « output #4 ».
 
-#### <a name="get-outputbinding-cmdlet"></a>Cmdlet `Get-OutputBinding`
+#### <a name="get-outputbinding-cmdlet"></a>Cmdlet Get-OutputBinding
 
 Vous pouvez utiliser la cmdlet `Get-OutputBinding` pour récupérer les valeurs actuellement définies pour vos liaisons de sortie. Cette cmdlet récupère une table de hachage qui contient les noms des liaisons de sortie avec leurs valeurs respectives. 
 
@@ -462,21 +462,47 @@ Lorsque vous créez un projet PowerShell Functions, la gestion des dépendances 
 
 Lorsque vous mettez à jour le fichier requirements.psd1, les modules mis à jour sont installés après un redémarrage.
 
-> [!NOTE]
-> Les dépendances managées nécessitent un accès à www.powershellgallery.com pour télécharger les modules. Lors de l’exécution locale, assurez-vous que le runtime peut accéder à cette URL en ajoutant les règles de pare-feu requises.
+### <a name="target-specific-versions"></a>Cibler des versions spécifiques
 
-> [!NOTE]
-> Actuellement, les dépendances managées ne prennent pas en charge les modules qui nécessitent l’acceptation d’une licence par l’utilisateur, soit en acceptant la licence de manière interactive, soit en fournissant un `-AcceptLicense` commutateur lors de l’appel de `Install-Module`.
+Vous souhaiterez peut-être cibler une version de module spécifique dans votre fichier requirements.psd1. Par exemple, si vous souhaitez utiliser une version antérieure d’Az.Accounts par rapport à celle du module Az inclus, vous devez cibler une version spécifique comme indiqué dans l’exemple suivant : 
 
-Vous pouvez utiliser les paramètres d’application suivants pour changer la façon de télécharger et d’installer les dépendances managées. La mise à niveau de votre application démarre dans `MDMaxBackgroundUpgradePeriod`, puis le processus de mise à niveau se termine globalement dans `MDNewSnapshotCheckPeriod`.
+```powershell
+@{
+    Az.Accounts = '1.9.5'
+}
+```
+
+Dans ce cas, vous devez également ajouter une instruction d’importation en haut de votre fichier profile.ps1, qui ressemble à l’exemple suivant :
+
+```powershell
+Import-Module Az.Accounts -RequiredVersion '1.9.5'
+```
+
+Ainsi, l’ancienne version du module Az.Account est chargée en premier lorsque la fonction est démarrée.
+
+### <a name="dependency-management-considerations"></a>Considérations relatives à la gestion des dépendances
+
+Les considérations suivantes s’appliquent lors de l’utilisation de la gestion des dépendances :
+
++ Les dépendances managées doivent pouvoir accéder à <https://www.powershellgallery.com> pour télécharger les modules. Lors de l’exécution locale, assurez-vous que le runtime peut accéder à cette URL en ajoutant les règles de pare-feu requises.
+
++ Actuellement, les dépendances managées ne prennent pas en charge les modules qui nécessitent l’acceptation d’une licence par l’utilisateur, soit en acceptant la licence de manière interactive, soit en fournissant un `-AcceptLicense` commutateur lors de l’appel de `Install-Module`.
+
+### <a name="dependency-management-app-settings"></a>Paramètres de l’application de gestion des dépendances
+
+Vous pouvez utiliser les paramètres d’application suivants pour changer la façon de télécharger et d’installer les dépendances managées. 
 
 | Paramètre d’application de fonction              | Valeur par défaut             | Description                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 jours)     | Chaque rôle de travail PowerShell lance la vérification des mises à niveau de module dans PowerShell Gallery au démarrage du processus et à chaque `MDMaxBackgroundUpgradePeriod` par la suite. Quand une nouvelle version de module est disponible dans PowerShell Gallery, elle est installée dans le système de fichiers et mise à la disposition des rôles de travail PowerShell. Diminuer cette valeur permet à votre application de fonction d’obtenir plus rapidement les versions de module les plus récentes, mais cela augmente aussi l’utilisation des ressources d’application (E/S réseau, processeur, stockage). Augmenter cette valeur permet de diminuer l’utilisation des ressources d’application, mais retarde aussi la remise des nouvelles versions de module à votre application. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 heure)       | Lorsque les nouvelles versions de module sont installées dans le système de fichiers, chaque rôle de travail PowerShell doit être redémarré. Le redémarrage des rôles de travail PowerShell affecte la disponibilité de votre application, car il peut interrompre l’exécution de la fonction actuelle. Tant que tous les rôles de travail PowerShell n’ont pas redémarré, les appels de fonction peuvent utiliser les anciennes ou nouvelles versions du module. Le redémarrage de tous les rôles de travail PowerShell se termine dans `MDNewSnapshotCheckPeriod`. L’augmentation de cette valeur diminue la fréquence des interruptions, mais peut également augmenter la durée pendant laquelle les appels de fonction utilisent les anciennes ou nouvelles version de module de manière non déterministe. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 jour)     | Pour éviter des mises à niveau de module excessives lors des fréquents redémarrages des rôles de travail, la vérification des mises à niveau de module n’est pas effectuée si un rôle de travail l’a déjà lancée pendant la dernière période `MDMinBackgroundUpgradePeriod`. |
+| **MDMaxBackgroundUpgradePeriod**      | `7.00:00:00` (sept jours)     | Contrôle la période de mise à jour en arrière-plan pour les applications de fonction PowerShell. Pour plus d’informations, consultez [MDMaxBackgroundUpgradePeriod](functions-app-settings.md#mdmaxbackgroundupgradeperiod). | 
+| **MDNewSnapshotCheckPeriod**         | `01:00:00` (une heure)       | Spécifie la fréquence à laquelle chaque rôle de travail PowerShell vérifie si les mises à niveau de dépendances gérées ont été installées. Pour plus d’informations, consultez [MDNewSnapshotCheckPeriod](functions-app-settings.md#mdnewsnapshotcheckperiod).|
+| **MDMinBackgroundUpgradePeriod**      | `1.00:00:00` (un jour)     | Période écoulée après une précédente vérification de mise à niveau et avant le démarrage d’une autre vérification de mise à niveau. Pour plus d’informations, consultez [MDMinBackgroundUpgradePeriod](functions-app-settings.md#mdminbackgroundupgradeperiod).|
 
-L’utilisation de vos propres modules personnalisés est légèrement différente de l’utilisation normale.
+Essentiellement, la mise à niveau de votre application démarre dans `MDMaxBackgroundUpgradePeriod`, puis le processus de mise à niveau se termine globalement dans `MDNewSnapshotCheckPeriod`.
+
+## <a name="custom-modules"></a>Modules personnalisés
+
+L’utilisation de vos propres modules personnalisés dans Azure Functions est légèrement différente de l’utilisation normale de PowerShell.
 
 Le module est installé sur votre ordinateur local, dans un des dossiers globalement disponibles dans votre `$env:PSModulePath`. Lors de l’exécution dans Azure, vous n’avez pas accès aux modules installés sur votre machine. Cela signifie que le `$env:PSModulePath` pour une application de fonction PowerShell doit être différent de `$env:PSModulePath` dans un script PowerShell classique.
 
@@ -485,13 +511,12 @@ Dans Functions, `PSModulePath` contient deux chemins d’accès :
 * Un dossier `Modules` à la racine de votre application de fonction.
 * Un chemin d’accès à un dossier `Modules` contrôlé par le rôle de travail du langage PowerShell.
 
-
-### <a name="function-app-level-modules-folder"></a>Dossier `Modules` de niveau Function App
+### <a name="function-app-level-modules-folder"></a>Dossier des modules au niveau de l’application de fonction
 
 Pour utiliser des modules personnalisés vous, pouvez placer les modules dont dépendent vos fonctions dans un dossier `Modules`. Dans ce dossier, les modules sont automatiquement disponibles au runtime de Functions. Toute fonction dans Function App peut utiliser ces modules. 
 
 > [!NOTE]
-> Les modules spécifiés dans le fichier requirements.psd1 sont automatiquement téléchargés et inclus dans le chemin d’accès, de sorte que vous n’avez pas besoin de les inclure dans le dossier des modules. Ceux-ci sont stockés en local dans le dossier `$env:LOCALAPPDATA/AzureFunctions` et dans le dossier `/data/ManagedDependencies` lorsqu’ils sont exécutés dans le cloud.
+> Les modules spécifiés dans le fichier [requirements.psd1 file](#dependency-management) sont automatiquement téléchargés et inclus dans le chemin d’accès, de sorte que vous n’avez pas besoin de les inclure dans le dossier des modules. Ceux-ci sont stockés en local dans le dossier `$env:LOCALAPPDATA/AzureFunctions` et dans le dossier `/data/ManagedDependencies` lorsqu’ils sont exécutés dans le cloud.
 
 Pour tirer parti de cette fonctionnalité de module personnalisé, vous devez créer un dossier `Modules` à la racine de votre Function App. Copiez les modules que vous souhaitez utiliser dans vos fonctions à cet emplacement.
 
@@ -518,7 +543,7 @@ PSFunctionApp
 
 Lorsque vous démarrez votre Function App, le rôle de travail du langage PowerShell ajoute ce dossier `Modules` à `$env:PSModulePath` afin que vous puissiez vous appuyer sur le chargement automatique de module comme vous le feriez dans un script PowerShell classique.
 
-### <a name="language-worker-level-modules-folder"></a>Dossier `Modules` de niveau rôle de travail du langage
+### <a name="language-worker-level-modules-folder"></a>Dossier des modules au niveau du rôle de travail du langage
 
 Plusieurs modules sont couramment utilisés par le rôle de travail du langage PowerShell. Ces modules sont définis en dernière position de `PSModulePath`. 
 
@@ -573,7 +598,7 @@ Azure PowerShell utilise des contextes _au niveau du processus_ et un état pour
 
 La concurrence est très importante dans Azure PowerShell car certaines opérations peuvent prendre beaucoup de temps. Faites toutefois preuve de vigilance. Si vous pensez que vous êtes confronté à une condition de concurrence, définissez le paramètre d’application PSWorkerInProcConcurrencyUpperBound sur `1` et utilisez plutôt l’[isolation du niveau processus Worker du langage](functions-app-settings.md#functions_worker_process_count) pour la concurrence.
 
-## <a name="configure-function-scriptfile"></a>Configurer une fonction `scriptFile`
+## <a name="configure-function-scriptfile"></a>Configurer la fonction scriptFile
 
 Par défaut, une fonction PowerShell est exécutée à partir de `run.ps1`, fichier qui partage le même répertoire parent que son `function.json` correspondant.
 
@@ -651,7 +676,7 @@ Lorsque vous utilisez des fonctions PowerShell, tenez compte des considérations
 
 Lorsque vous développez Azure Functions dans le [modèle d’hébergement serverless](consumption-plan.md), les démarrages à froid sont une réalité. Le *démarrage à froid* fait référence à la période nécessaire à votre Function App pour commencer à traiter une requête. Le démarrage à froid se produit plus fréquemment dans le plan de consommation, car votre Function App s’arrête pendant les périodes d’inactivité.
 
-### <a name="bundle-modules-instead-of-using-install-module"></a>Regrouper des modules au lieu d’utiliser `Install-Module`
+### <a name="bundle-modules-instead-of-using-install-module"></a>Regrouper des modules au lieu d’utiliser Install-Module
 
 Votre script est exécuté à chaque appel. Évitez d’utiliser `Install-Module` dans votre script. Utilisez plutôt `Save-Module` avant la publication pour que votre fonction ne perde pas de temps à télécharger le module. Si les démarrages à froid affectent vos fonctions, envisagez de déployer votre Function App sur un [plan App Service](dedicated-plan.md) défini sur *always on* ou sur un [plan Premium](functions-premium-plan.md).
 

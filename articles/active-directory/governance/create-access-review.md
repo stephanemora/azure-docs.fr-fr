@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 3/3/2021
+ms.date: 4/27/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4d6502ffdd13272d396852b11a11d13f929b11b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: fd283e5ef0d7a3692e819311a749c8c12b1b38b1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532271"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137889"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -54,7 +54,7 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
     ![Créer une révision d’accès - Nom et description de la révision](./media/create-access-review/select-what-review.png)
 
 5. Si vous avez sélectionné **Équipes + groupes** à l’étape 1, vous avez deux options à l’étape 2.
-   - **Tous les groupes Microsoft 365 avec des utilisateurs invités.** Sélectionnez cette option si vous souhaitez créer des révisions périodiques sur tous vos utilisateurs invités dans l’ensemble des équipes Microsoft et des groupes M365 de votre organisation. Vous pouvez choisir d’exclure certains groupes en cliquant sur « Sélectionner le(s) groupe(s) à exclure ».
+   - **Tous les groupes Microsoft 365 avec des utilisateurs invités.** Sélectionnez cette option si vous souhaitez créer des révisions périodiques sur tous vos utilisateurs invités dans l’ensemble des équipes Microsoft et des groupes Microsoft 365 de votre organisation. Vous pouvez choisir d’exclure certains groupes en cliquant sur « Sélectionner le(s) groupe(s) à exclure ».
    - **Sélectionner les équipes + groupes.** Sélectionnez cette option si vous souhaitez spécifier un ensemble limité d’équipes et/ou de groupes à réviser. Après avoir cliqué sur cette option, vous verrez une liste de groupes à droite parmi lesquels vous pourrez choisir.
 
      ![Équipes et groupes](./media/create-access-review/teams-groups.png)
@@ -94,41 +94,45 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
     ![Créer une révision d’accès : paramètres une fois l’opération terminée](./media/create-access-review/upon-completion-settings-new.png)
 
-Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez Appliquer automatiquement les résultats à la ressource sur Activer. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur Désactiver.
-Utilisez la liste Si les réviseurs ne répondent pas pour spécifier ce qui se passe pour les utilisateurs qui ne sont pas vérifiés par le réviseur au cours de la révision. Ce paramètre n’affecte pas les utilisateurs qui ont été vérifiés manuellement par les réviseurs. Si la décision finale du réviseur est Refuser, l’accès de l’utilisateur est supprimé.
+    Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez Appliquer automatiquement les résultats à la ressource sur Activer. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur Désactiver.
+    
+    Utilisez la liste Si les réviseurs ne répondent pas pour spécifier ce qui se passe pour les utilisateurs qui ne sont pas vérifiés par le réviseur au cours de la révision. Ce paramètre n’affecte pas les utilisateurs qui ont été vérifiés manuellement par les réviseurs. Si la décision finale du réviseur est Refuser, l’accès de l’utilisateur est supprimé.
 
-- **Aucune modification** : laisser l’accès de l’utilisateur inchangé
-- **Supprimer l’accès** : supprimer l’accès de l’utilisateur
-- **Approuver l’accès** : approuver l’accès de l’utilisateur
-- **Accepter les recommandations** : accepter la recommandation du système sur le refus ou l’approbation de la prolongation de l’accès de l’utilisateur
+    - **Aucune modification** : laisser l’accès de l’utilisateur inchangé
+    - **Supprimer l’accès** : supprimer l’accès de l’utilisateur
+    - **Approuver l’accès** : approuver l’accès de l’utilisateur
+    - **Accepter les recommandations** : accepter la recommandation du système sur le refus ou l’approbation de la prolongation de l’accès de l’utilisateur
 
     ![Options de paramètres une fois l’opération terminée](./media/create-access-review/upon-completion-settings-new.png)
 
-Utilisez l’action à appliquer aux utilisateurs **invités** refusés pour spécifier ce qui arrive aux utilisateurs invités s’ils sont refusés.
-- Supprimer l’appartenance de l’utilisateur à la ressource supprimera l’accès de l’utilisateur refusé au groupe ou à l’application en cours de révision ; il sera toujours en mesure de se connecter au locataire.
-- Empêcher l’utilisateur de se connecter pendant 30 jours, puis supprimer l’utilisateur du locataire empêchera les utilisateurs non autorisés de se connecter au locataire, même s’ils ont accès à d’autres ressources. En cas d’erreur ou si un administrateur décide de réactiver l’accès, cela est possible dans les 30 jours suivant la désactivation de l’utilisateur. Si aucune action n’est effectuée sur les utilisateurs désactivés, ils seront supprimés du locataire.
+    Utilisez l’action à appliquer aux utilisateurs **invités** refusés pour spécifier ce qui arrive aux utilisateurs invités s’ils sont refusés.
+    - Supprimer l’appartenance de l’utilisateur à la ressource supprimera l’accès de l’utilisateur refusé au groupe ou à l’application en cours de révision ; il sera toujours en mesure de se connecter au locataire.
+    - Empêcher l’utilisateur de se connecter pendant 30 jours, puis supprimer l’utilisateur du locataire empêchera les utilisateurs non autorisés de se connecter au locataire, même s’ils ont accès à d’autres ressources. En cas d’erreur ou si un administrateur décide de réactiver l’accès, cela est possible dans les 30 jours suivant la désactivation de l’utilisateur. Si aucune action n’est effectuée sur les utilisateurs désactivés, ils seront supprimés du locataire.
 
-Pour en savoir plus sur les meilleures pratiques pour la suppression des utilisateurs invités qui n’ont plus accès aux ressources de votre organisation, lisez l’article intitulé [Utiliser Azure AD Identity Governance pour examiner et supprimer les utilisateurs externes qui n’ont plus accès aux ressources](access-reviews-external-users.md).
+    Pour en savoir plus sur les meilleures pratiques pour la suppression des utilisateurs invités qui n’ont plus accès aux ressources de votre organisation, lisez l’article intitulé [Utiliser Azure AD Identity Governance pour examiner et supprimer les utilisateurs externes qui n’ont plus accès aux ressources](access-reviews-external-users.md).
 
-   >[!NOTE]
-   >L’action à appliquer sur les utilisateurs invités refusés n’est pas configurable sur les révisions dont la portée est plus large que celle des utilisateurs invités. Elle n’est pas non plus configurable pour les révisions de **Tous les groupes M365 avec des utilisateurs invités.** Lorsqu’elle n’est pas configurable, l’option par défaut de suppression de l’appartenance de l’utilisateur à la ressource est utilisée sur les utilisateurs refusés.
+   > [!NOTE]
+   > L’action à appliquer sur les utilisateurs invités refusés n’est pas configurable sur les révisions dont la portée est plus large que celle des utilisateurs invités. Elle n’est pas non plus configurable pour les révisions de **Tous les groupes M365 avec des utilisateurs invités.** Lorsqu’elle n’est pas configurable, l’option par défaut de suppression de l’appartenance de l’utilisateur à la ressource est utilisée sur les utilisateurs refusés.
 
-13. Dans **Activer l’assistance aux décisions de révision**, indiquez si vous souhaitez que votre réviseur reçoive des recommandations au cours du processus de révision.
+13. Vous pouvez envoyer des notifications à des utilisateurs ou groupes supplémentaires (préversion) pour recevoir des mises à jour d’achèvement de révision. Cette fonctionnalité permet d’informer les parties prenantes autres que le créateur de la révision de la progression de la révision. Pour utiliser cette fonctionnalité, sélectionnez **Sélectionner un ou plusieurs utilisateurs ou groupes** et ajoutez un utilisateur ou groupe supplémentaire pour lequel vous souhaitez recevoir l’état d’achèvement.
+
+    ![Paramètres d’achèvement - Ajouter des utilisateurs supplémentaires pour recevoir des notifications](./media/create-access-review/upon-completion-settings-additional-receivers.png) 
+
+14. Dans **Activer l’assistance aux décisions de révision**, indiquez si vous souhaitez que votre réviseur reçoive des recommandations au cours du processus de révision.
 
     ![Activer les options d’assistance à la décision](./media/create-access-review/helpers.png)
 
-14. Dans la section **Paramètres avancés**, vous pouvez choisir les options suivantes :
+15. Dans la section **Paramètres avancés**, vous pouvez choisir les options suivantes :
     - Définissez **Justification obligatoire** sur **Activer** afin d’exiger que le réviseur indique un motif d’approbation.
     - Définissez **Notifications par e-mail** sur **Activer** pour qu’Azure AD envoie des notifications par e-mail aux réviseurs quand une révision d’accès commence et aux administrateurs quand une révision est terminée.
     - Définissez **Rappels** sur **Activer** pour qu’Azure AD envoie des rappels concernant les révisions d’accès en cours aux réviseurs qui n’ont pas terminé leur révision. Ces rappels sont automatiquement envoyés à mi-parcours de la révision.
     - Le contenu de l’e-mail envoyé aux réviseurs est généré automatiquement en fonction des détails de la révision, comme le nom de la révision, le nom de la ressource, la date d’échéance, etc. Si vous souhaitez communiquer des informations supplémentaires telles que des instructions ou des coordonnées, vous pouvez les ajouter dans la section **Contenu supplémentaire pour l’e-mail du réviseur**. Les informations que vous entrez sont incluses dans les e-mails d’invitation et de rappel envoyés aux réviseurs désignés. La section mise en surbrillance dans l’image ci-dessous indique où ces informations sont affichées.
 
-
       ![Contenu supplémentaire pour le réviseur](./media/create-access-review/additional-content-reviewer.png)
 
-15. Cliquez sur **Suivant : Réviser + créer** pour passer à la page suivante.
-16. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
-17. Vérifiez les informations, puis sélectionnez **Créer**.
+16. Cliquez sur **Suivant : Réviser + créer** pour passer à la page suivante.
+17. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
+18. Vérifiez les informations, puis sélectionnez **Créer**.
 
        ![Écran de création d’une révision](./media/create-access-review/create-review.png)
 
