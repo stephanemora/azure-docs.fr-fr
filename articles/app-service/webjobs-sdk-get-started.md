@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7df6eabbecca9538de3c45bf1c9fc7ca6e4334bd
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91652038"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205374"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -311,7 +311,7 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>Créer une application App Service et une instance Application Insights
 
-1. Si vous ne disposez pas déjà d’une application App Service que vous pouvez utiliser, [créez-en une](quickstart-dotnet-framework.md). Lorsque vous créez votre application, vous pouvez également créer une ressource Application Insights connectée. Lorsque vous faites cela, `APPINSIGHTS_INSTRUMENTATIONKEY` est défini pour vous dans votre application.
+1. Si vous ne disposez pas déjà d’une application App Service que vous pouvez utiliser, [créez-en une](./quickstart-dotnetcore.md?tabs=netframework48). Lorsque vous créez votre application, vous pouvez également créer une ressource Application Insights connectée. Lorsque vous faites cela, `APPINSIGHTS_INSTRUMENTATIONKEY` est défini pour vous dans votre application.
 
 1. Si vous ne disposez pas déjà d’une ressource Application Insights que vous pouvez utiliser, [créez-en une](../azure-monitor/app/create-new-resource.md ). Définissez l’option **Type d’application** sur **Général** et ignorez les sections qui suivent **Copier la clé d’instrumentation**.
 
@@ -514,7 +514,7 @@ Les liaisons d’entrée simplifient le code qui lit les données. Pour cet exem
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=5a2ac479-de13-4f41-aae9-1361f291ff88)
    ```
 
-## <a name="add-an-output-binding"></a>Ajouter une liaison de sortie
+## <a name="add-an-output-binding&quot;></a>Ajouter une liaison de sortie
 
 Les liaisons de sortie simplifient le code qui écrit les données. Cet exemple modifie l’exemple précédent en écrivant une copie de l’objet blob au lieu de consigner sa taille. Les liaisons du stockage d’objets Blob sont incluses dans le package d’extension du stockage Azure que nous avons installé précédemment.
 
@@ -522,7 +522,7 @@ Les liaisons de sortie simplifient le code qui écrit les données. Cet exemple 
 
    ```cs
    public static void ProcessQueueMessage(
-       [QueueTrigger("queue")] string message,
+       [QueueTrigger(&quot;queue")] string message,
        [Blob("container/{queueTrigger}", FileAccess.Read)] Stream myBlob,
        [Blob("container/copy-{queueTrigger}", FileAccess.Write)] Stream outputBlob,
        ILogger logger)

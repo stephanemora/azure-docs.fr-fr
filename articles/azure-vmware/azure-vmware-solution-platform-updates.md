@@ -2,20 +2,25 @@
 title: Mises à jour de plateforme pour Azure VMware Solution
 description: Découvrez les mises à jour de plateforme pour Azure VMware Solution.
 ms.topic: reference
-ms.date: 03/24/2021
-ms.openlocfilehash: da6317d49edd3f40e1a8f2518f91fe353bbae285
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/26/2021
+ms.openlocfilehash: ea6edff8408dc710d8c5bfe3b95555243b4ddd52
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045210"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007499"
 ---
 # <a name="platform-updates-for-azure-vmware-solution"></a>Mises à jour de plateforme pour Azure VMware Solution
 
-Azure VMware Solution appliquera les mises à jour importantes à partir de mars 2021. Vous recevrez une notification via Azure Service Health qui indiquera le calendrier de maintenance. Pour plus d’informations, consultez [Mises à jour et mises à niveau des clouds privés Azure VMware Solution](concepts-upgrades.md).
+Azure VMware Solution appliquera les mises à jour importantes à partir de mars 2021. Vous recevrez une notification via Azure Service Health qui indiquera le calendrier de maintenance. Pour plus d’informations, consultez [Maintenance de l’hôte et gestion du cycle de vie](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+## <a name="april-26-2021"></a>26 avril 2021
+Tous les nouveaux clouds privés Azure VMware Solution sont désormais déployés avec VMware vCenter version 6.7 U3l et NSX-T version 2.5.2. Nous n’utilisons pas NSX-T 3.1.1 pour les nouveaux clouds privés en raison d’un problème identifié dans NSX-T 3.1.1 qui a un impact sur la connectivité des machines virtuelles clientes. 
+
+L’atténuation recommandée par VMware a été appliquée à tous les clouds privés existants qui exécutent actuellement NSX-T 3.1.1 sur Azure VMware Solution. Il a été confirmé que la solution de contournement n’a aucun impact sur la connectivité de machines virtuelles clientes.
 
 ## <a name="march-24-2021"></a>24 mars 2021
-Tous les nouveaux clouds privés Azure VMware Solution sont déployés avec VMware vCenter version 6.7 U3l et NSX-T version 3.1.1. Tous les clouds privés existants seront mis à jour et mis à niveau **jusqu’en juin 2021** vers les versions mentionnées ci-dessus.
+Tous les nouveaux clouds privés Azure VMware Solution sont déployés avec VMware vCenter version 6.7 U3l et NSX-T version 3.1.1. Tous les clouds privés existants seront mis à jour et mis à niveau **jusqu’en juin 2021** vers les versions mentionnées ci-dessus.
 
 Vous recevrez un e-mail contenant la date et l’heure prévues de la maintenance. Vous pouvez replanifier une mise à niveau. L’e-mail fournit également des détails sur le composant mis à niveau, son effet sur les charges de travail, l’accès au cloud privé et d’autres services Azure.  Une heure avant la mise à niveau, vous recevrez une notification, puis une autre à la fin de l’opération.
 
@@ -23,7 +28,7 @@ Vous recevrez un e-mail contenant la date et l’heure prévues de la maintenanc
 
 - Le service Azure VMware Solution effectuera du travail de maintenance **jusqu’au 19 mars 2021** pour mettre à jour le serveur vCenter dans votre cloud privé vers vCenter Server 6.7 Mise à jour version 3l.
 
-- vCenter VMware ne sera pas disponible pendant cette période.  Vous ne serez donc pas en mesure de gérer vos machines virtuelles (arrêter, démarrer, créer, supprimer) ou la mise à l’échelle du cloud privé (en ajoutant/supprimant des serveurs et des clusters). Toutefois, la haute disponibilité VMware (HA) continuera à fonctionner pour protéger les machines virtuelles existantes. 
+- VMware vCenter sera indisponible pendant cette période. Vous ne pourrez donc pas gérer vos machines virtuelles (arrêter, démarrer, créer, supprimer) ou la mise à l’échelle du cloud privé (ajout/suppression de serveurs et de clusters). Toutefois, la haute disponibilité VMware (HA) continuera à fonctionner pour protéger les machines virtuelles existantes. 
  
 Pour plus d’informations sur cette version de vCenter, consultez [Notes de mise à jour de VMware vCenter Server 6.7 Update 3l](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3l-release-notes.html).
 

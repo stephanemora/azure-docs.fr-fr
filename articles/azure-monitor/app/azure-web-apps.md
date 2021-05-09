@@ -3,13 +3,13 @@ title: Analyser les performances d’Azure App Service | Microsoft Docs
 description: Analyse des performances des applications pour les services d’application Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 9471e4b18fba17fe564536ee8d6bd450a0c383ef
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-js, devx-track-dotnet, devx-track-azurepowershell
+ms.openlocfilehash: e8c794e056dca42a06bdf6b7deb274e7f5f5bfd4
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142690"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315900"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 

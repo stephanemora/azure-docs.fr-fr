@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a64564887fa2738fd3c0586d1040be3c95193927
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481665"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205788"
 ---
 # <a name="what-is-azure-digital-twins"></a>Qu’est-ce qu’Azure Digital Twins ?
 
@@ -30,7 +30,7 @@ Voici un résumé des fonctionnalités fournies par Azure Digital Twins.
 
 ### <a name="open-modeling-language"></a>Langage de modélisation ouvert
 
-Dans Azure Digital Twins, vous définissez les entités numériques qui représentent les personnes, les lieux et les objets de votre environnement physique à l’aide de types de jumeaux personnalisés appelés [**modèles**](concepts-models.md). 
+Dans Azure Digital Twins, vous définissez les entités numériques qui représentent les personnes, les lieux et les objets de votre environnement physique à l’aide de types de jumeaux personnalisés appelés [modèles](concepts-models.md). 
 
 Vous pouvez voir ces définitions de modèle comme un vocabulaire spécialisé décrivant votre activité. Pour une solution de gestion de bâtiments par exemple, vous pouvez définir des modèles tels que « immeuble », « étage » et « ascenseur ». Vous pouvez ensuite créer des **jumeaux numériques** en fonction de ces modèles pour représenter votre environnement spécifique.
 
@@ -46,7 +46,7 @@ Le langage DTDL est utilisé pour les modèles de données dans d’autres servi
 
 Les modèles numériques dans Azure Digital Twins sont des représentations dynamiques et à jour du monde réel. À l’aide des relations dans vos modèles DTDL personnalisés, vous allez connecter les représentations dans un **graphe dynamique** représentant votre environnement.
 
-Vous pouvez afficher une visualisation de votre graphe Azure Digital Twins à l’aide d’un exemple d’application, l’[**explorateur Azure Digital Twins**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Vous pouvez afficher une visualisation de votre graphe Azure Digital Twins à l’aide d’un exemple d’application, l’[explorateur Azure Digital Twins](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Voici à quoi ressemble l’exemple de visualisation :
 
@@ -102,6 +102,6 @@ Vous pouvez consulter la liste des **termes IoT courants** et leurs utilisations
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez en détail comment utiliser Azure Digital Twins dans le démarrage rapide suivant : [*Démarrage rapide : Explorer un exemple de scénario*](quickstart-azure-digital-twins-explorer.md).
+* Découvrez en détail comment utiliser Azure Digital Twins dans le démarrage rapide suivant : [Démarrage rapide : Explorer un exemple de scénario](quickstart-azure-digital-twins-explorer.md).
 
-* Ou découvrez les concepts d’Azure Digital Twins en lisant [*Concepts : Modèles personnalisés*](concepts-models.md).
+* Ou découvrez les concepts d’Azure Digital Twins en lisant [Concepts : Modèles personnalisés](concepts-models.md).

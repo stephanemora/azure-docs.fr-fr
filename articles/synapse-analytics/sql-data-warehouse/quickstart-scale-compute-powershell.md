@@ -14,12 +14,12 @@ ms.custom:
 - seo-lt-2019
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 73718f0e8e82e7d35ed1ced98f45c1e125a55a00
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4a178c1104870eb59634537ee659925bdb6abda3
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534243"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163676"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Démarrage rapide : Mettre à l’échelle des ressources de calcul pour le pool SQL dédié (anciennement SQL DW) avec Azure PowerShell
 
@@ -74,7 +74,7 @@ Dans le pool SQL dédié (anciennement SQL DW), vous pouvez augmenter ou réduir
 
 Pour modifier les unités de l’entrepôt de données, utilisez la cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). L’exemple suivant définit les unités DWU (Data Warehouse Units) sur DW300c pour la base de données **mySampleDataWarehouse** qui est hébergée dans le groupe de ressources **resourcegroupname** sur le serveur **sqlpoolservername**.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
 ```
 
@@ -127,4 +127,4 @@ $database | Select-Object DatabaseName,Status
 Vous savez maintenant comment mettre à l’échelle les ressources de calcul du pool SQL dédié (anciennement SQL DW). Pour en savoir plus sur le pool SQL dédié (anciennement SQL DW), passez au tutoriel sur le chargement des données.
 
 > [!div class="nextstepaction"]
->[Charger les données dans un pool SQL dédié](load-data-from-azure-blob-storage-using-copy.md)
+> [Charger les données dans un pool SQL dédié](load-data-from-azure-blob-storage-using-copy.md)

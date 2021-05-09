@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 04/20/2021
-ms.openlocfilehash: d50cf1009fb674f2d3d5914715dcbd9699565489
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 857c0e41f52c99d83142b3db7471b51b55316b5e
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795870"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316170"
 ---
 # <a name="managed-connectors-for-logic-apps"></a>Connecteurs managés pour Logic Apps
 
 Les [connecteurs gérés](apis-list.md) vous permettent d’accéder à d’autres services et systèmes sur lesquels les [actions et déclencheurs intégrés](built-in.md) ne sont pas disponibles. Vous pouvez utiliser ces déclencheurs et actions pour créer des workflows qui intègrent des données, des applications, des services basés sur le cloud et des systèmes locaux. Par rapport aux actions et déclencheurs intégrés, ces connecteurs sont généralement liés à un service ou à un système spécifique, comme le stockage d’objets blob Azure, les serveurs Office 365, SQL, Salesforce ou SFTP. Gérés par Microsoft et hébergés dans Azure, les connecteurs gérés requièrent généralement la création d’une connexion à partir de votre workflow et l’authentification de votre identité. Des déclencheurs basés sur une périodicité et un webhook sont disponibles. Par conséquent, si vous utilisez un déclencheur basé sur la périodicité, passez en revue la [Vue d’ensemble du comportement de périodicité](apis-list.md#recurrence-behavior).
 
-Pour certains services, systèmes et protocoles, comme Azure Service Bus, Azure Functions, SQL, AS2, etc., Logic Apps fournit également des versions intégrées. Le nombre et la plage varient selon que vous créez une application logique mutualisée ou une application logique à locataire unique. Dans certains cas, une version intégrée et une version de connecteur managé sont toutes deux disponibles. Dans la plupart des cas, la version intégrée offre de meilleures performances, fonctionnalités, conditions tarifaires, etc. Par exemple, pour [échanger des messages B2B à l’aide du protocole AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), sélectionnez la version intégrée, sauf si vous avez besoin de fonctionnalités de suivi, qui sont disponibles uniquement dans la version du connecteur managé (dépréciée).
+Pour certains services, systèmes et protocoles, comme Azure Service Bus, Azure Functions, SQL, AS2, etc., Logic Apps fournit également des versions intégrées. Le nombre et la plage varient selon que vous créez une application logique mutualisée ou une application logique à locataire unique. Dans certains cas, une version intégrée et une version de connecteur managé sont toutes deux disponibles. Dans la plupart des cas, la version intégrée offre de meilleures performances, fonctionnalités, conditions tarifaires, et ainsi de suite. Par exemple, pour [échanger des messages B2B à l’aide du protocole AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), sélectionnez la version intégrée, sauf si vous avez besoin de fonctionnalités de suivi, qui sont disponibles uniquement dans la version du connecteur managé (dépréciée).
 
 Certains connecteurs managés pour Logic Apps appartiennent à plusieurs sous-catégories. Par exemple, le connecteur SAP est à la fois un [connecteur d’entreprise](#enterprise-connectors) et un [connecteur local](#on-premises-connectors).
 
@@ -514,7 +514,7 @@ Pour plus d’informations, consultez les rubriques suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Managed connector icons-->
 [appfigures-icon]: ./media/apis-list/appfigures.png

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 04/08/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 651922837b2193f7a8387c4dec6a1e20b84a41a5
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: d61a87294fe5c5c8794c1b0d5f1eda5e81b88786
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728017"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205734"
 ---
 # <a name="azure-digital-twins-service-limits"></a>Limites du service Azure Digital Twins
 
@@ -33,9 +33,9 @@ Lorsqu’une limite est atteinte, le service limite les requêtes supplémentair
 
 Voici quelques recommandations relatives aux limites.
 * **Utilisez la logique de nouvelle tentative.** Les [kits de développement logiciel (SDK) Azure Digital Twins](how-to-use-apis-sdks.md) implémentent la logique de nouvelle tentative pour les requêtes ayant échoué. Par conséquent, si vous travaillez avec un kit de développement logiciel (SDK) fourni, elle est déjà intégrée. Sinon, envisagez d’implémenter une logique de nouvelle tentative dans votre propre application. Le service renvoie un en-tête `Retry-After` dans la réponse d’échec, que vous pouvez utiliser pour déterminer la durée d’attente avant une nouvelle tentative.
-* **Utilisez des seuils et des notifications pour signaler les limites.** Certaines des limites de service pour Azure Digital Twins ont des [métriques](troubleshoot-metrics.md) correspondantes qui peuvent être utilisées pour suivre l’utilisation dans ces domaines. Pour configurer des seuils et une alerte sur n’importe quelle métrique lorsqu’un seuil est proche, consultez les instructions dans [*Résolution des problèmes : Configurer des alertes*](troubleshoot-alerts.md). Pour configurer des notifications pour d’autres limites où les métriques ne sont pas fournies, envisagez d’implémenter cette logique dans votre propre code d’application.
+* **Utilisez des seuils et des notifications pour signaler les limites.** Certaines des limites de service pour Azure Digital Twins ont des [métriques](troubleshoot-metrics.md) correspondantes qui peuvent être utilisées pour suivre l’utilisation dans ces domaines. Pour configurer des seuils et une alerte sur n’importe quelle métrique lorsqu’un seuil est proche, consultez les instructions dans [Résolution des problèmes : Configurer des alertes](troubleshoot-alerts.md). Pour configurer des notifications pour d’autres limites où les métriques ne sont pas fournies, envisagez d’implémenter cette logique dans votre propre code d’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur la version actuelle d’Azure Digital Twins dans la vue d’ensemble du service :
-* [*Vue d’ensemble : Qu’est-ce qu’Azure Digital Twins ?*](overview.md)
+* [Vue d’ensemble : Qu’est-ce qu’Azure Digital Twins ?](overview.md)

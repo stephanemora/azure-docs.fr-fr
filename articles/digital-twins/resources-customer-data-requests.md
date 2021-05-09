@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c50ff2e1a8e63fd775b7b09863ffcd9d832d8683
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92461757"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205716"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Fonctionnalités de demande de données client Azure Digital Twins
 
@@ -25,7 +25,7 @@ Les représentations numériques appelées *jumeaux numériques* dans Azure Digi
 
 La plupart des jumeaux numériques dans Azure Digital Twins ne représentent pas directement les entités personnelles : les objets classiques représentés peuvent être une salle de réunion Office ou une usine. Toutefois, les utilisateurs peuvent décider que certaines entités sont personnelles et gérer eux-mêmes leurs propres méthodes de suivi des ressources ou de l’inventaire afin d’associer des jumeaux numériques à des personnes. Azure Digital Twins gère et stocke toutes les données associées aux jumeaux numériques comme s’il s’agissait de données personnelles.
 
-Pour afficher, exporter et supprimer les données personnelles qui peuvent être référencées dans une demande d’objet de données, un administrateur Azure Digital Twins peut utiliser le [**portail Azure**](https://portal.azure.com/) pour les utilisateurs et les rôles ou les [**API REST Azure Digital Twins**](/rest/api/azure-digitaltwins/) pour les jumeaux numériques. Le portail Azure et les API REST offrent différentes méthodes permettant aux utilisateurs de traiter de telles demandes d’objet de données.
+Pour afficher, exporter et supprimer les données personnelles qui peuvent être référencées dans une demande d’objet de données, un administrateur Azure Digital Twins peut utiliser le [portail Azure](https://portal.azure.com/) pour les utilisateurs et les rôles ou les [API REST Azure Digital Twins](/rest/api/azure-digitaltwins/) pour les jumeaux numériques. Le portail Azure et les API REST offrent différentes méthodes permettant aux utilisateurs de traiter de telles demandes d’objet de données.
 
 ## <a name="identifying-customer-data"></a>Identification des données client
 

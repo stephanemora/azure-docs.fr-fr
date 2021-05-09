@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 997a4e115f8632544b2f73aef498d40dceb0d459
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 8457d64b541bd012dc85cf9964f09e69b10e962c
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449968"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108006689"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Options de configuration – Azure Monitor Application Insights pour Java
 
@@ -256,13 +256,13 @@ Pour désactiver la collection automatique des métriques de Micrometer (y compr
 }
 ```
 
-## <a name="auto-collected-azure-sdk-telemetry"></a>Télémétrie du kit SDK Azure collectée automatiquement
+## <a name="auto-collected-azure-sdk-telemetry-preview"></a>Télémétrie du kit SDK Azure collectée automatiquement (préversion)
 
-Cette fonctionnalité est en préversion.
+De nombreuses bibliothèques récentes du kit SDK Azure émettent des données de télémétrie (voir la [liste complète](./java-in-process-agent.md#azure-sdks-preview)).
 
-De nombreuses bibliothèques récentes du kit SDK Azure émettent des données de télémétrie.
+À partir d’Application Insights Java 3.0.3, vous pouvez activer la capture de cette télémétrie.
 
-À partir de la version 3.0.3, vous pouvez activer la collecte de ces données de télémétrie :
+Si vous souhaitez activer cette fonctionnalité :
 
 ```json
 {
@@ -276,8 +276,7 @@ De nombreuses bibliothèques récentes du kit SDK Azure émettent des données d
 }
 ```
 
-Vous pouvez également activer cette fonctionnalité à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
-(qui sera ensuite prioritaire sur le paramètre activé spécifié dans la configuration json).
+Vous pouvez également activer cette fonctionnalité en affectant à la variable d’environnement `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED` la valeur `true` (qui sera ensuite prioritaire sur celle spécifiée dans la configuration JSON).
 
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Suppression d’une télémétrie collectée automatiquement spécifique
 
@@ -314,7 +313,7 @@ Vous pouvez également activer cette fonctionnalité à l’aide de la variable 
 }
 ```
 
-Vous pouvez également supprimer ces instrumentations à l’aide de ces variables d’environnement :
+Vous pouvez également supprimer ces instrumentations à l’aide de ces variables d’environnement sur `false` :
 
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
@@ -357,7 +356,7 @@ Si votre application se trouve derrière un pare-feu et n’est pas en mesure de
 }
 ```
 
-Application Insights Java 3.0 respecte également le `-Dhttps.proxyHost` et le `-Dhttps.proxyPort` globaux s’ils sont définis.
+Application Insights Java 3.0 respecte également les variables globales `https.proxyHost` et `https.proxyPort` si elles sont définies (et `http.nonProxyHosts` si nécessaire).
 
 ## <a name="metric-interval"></a>Intervalle de métrique
 
