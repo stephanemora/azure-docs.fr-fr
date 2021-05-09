@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 2796928316197bd48723253dbc97dfcd34ac95e8
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a39c2c15107f7bad79a02aaa9e98ee6d5e2b521f
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222280"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Didacticiel : intégration d’Azure Active Directory à Veritas Enterprise Vault.cloud SSO
 
@@ -148,8 +148,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Veritas Enterprise Vault.cloud SSO pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Veritas Enterprise Vault.cloud SSO dans Mes applications, vous êtes redirigé vers l’URL d’authentification unique de Veritas Enterprise Vault.cloud SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Veritas Enterprise Vault.cloud SSO dans Mes applications, vous êtes redirigé vers l’URL d’authentification unique de Veritas Enterprise Vault.cloud SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Veritas Enterprise Vault.cloud SSO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Veritas Enterprise Vault.cloud SSO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

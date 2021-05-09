@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aea55b77330972877fd5e2d87758ab110071c072
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101730505"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207768"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -37,7 +37,7 @@ L’étape d’authentification nécessite que toute requête d’application co
 
 L’étape d’autorisation exige qu’un rôle Azure soit attribué au principal de sécurité. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations dont disposera le principal. Azure Digital Twins fournit des rôles Azure qui englobent des ensembles d’autorisations pour les ressources Azure Digital Twins. Ces rôles sont décrits plus loin dans cet article.
 
-Pour en savoir plus sur les rôles et les attributions de rôles pris en charge dans Azure, consultez [*Comprendre les différents rôles*](../role-based-access-control/rbac-and-directory-admin-roles.md) dans la documentation RBAC Azure.
+Pour en savoir plus sur les rôles et les attributions de rôles pris en charge dans Azure, consultez [Comprendre les différents rôles](../role-based-access-control/rbac-and-directory-admin-roles.md) dans la documentation RBAC Azure.
 
 #### <a name="authentication-with-managed-identities"></a>Authentification avec des identités managées
 
@@ -55,12 +55,12 @@ Azure fournit **deux rôles intégrés Azure** pour autoriser l’accès à aux 
 | Lecteur des données Azure Digital Twins | Octroie un accès en lecture seule aux ressources Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 Vous pouvez attribuer des rôles de deux manières :
-* Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [*Attribuer des rôles Azure à l’aide du portail Azure*](../role-based-access-control/role-assignments-portal.md))
+* Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md))
 * Via les commandes CLI pour ajouter ou supprimer un rôle
 
-Pour plus d’informations sur la procédure à suivre, testez le [*tutoriel Azure Digital Twins : Connecter une solution de bout en bout*](tutorial-end-to-end.md).
+Pour plus d’informations sur la procédure à suivre, testez le [tutoriel Azure Digital Twins : Connecter une solution de bout en bout](tutorial-end-to-end.md).
 
-Pour plus d’informations sur la définition des rôles intégrés, consultez [*Comprendre les définitions de rôles*](../role-based-access-control/role-definitions.md) dans la documentation RBAC Azure. Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [*Rôles personnalisés Azure*](../role-based-access-control/custom-roles.md).
+Pour plus d’informations sur la définition des rôles intégrés, consultez [Comprendre les définitions de rôles](../role-based-access-control/role-definitions.md) dans la documentation RBAC Azure. Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md).
 
 ##### <a name="automating-roles"></a>Automatisation des rôles
 
@@ -82,17 +82,17 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 
 ### <a name="troubleshooting-permissions"></a>Résolution des problèmes d'autorisations
 
-Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Si vous souhaitez en savoir plus, également sur les étapes à suivre pour le dépannage, consultez [*Résolution des problèmes : échec de la requête Azure Digital Twins avec l’état : 403 (Interdit)*](troubleshoot-error-403.md).
+Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Si vous souhaitez en savoir plus, également sur les étapes à suivre pour le dépannage, consultez [Résolution des problèmes : échec de la requête Azure Digital Twins avec l’état : 403 (Interdit)](troubleshoot-error-403.md) .
 
 ## <a name="managed-identity-for-accessing-other-resources-preview"></a>Identité managée pour accéder à d’autres ressources (préversion)
 
-La configuration d’une [identité managée](../active-directory/fundamentals/active-directory-whatis.md) **Azure Active Directory (Azure AD)** pour une instance Azure Digital Twins permet à l’instance d’accéder facilement à d’autres ressources protégées par Azure AD, par exemple [Azure Key Vault](../key-vault/general/overview.md). Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans Azure AD, consultez  [*Identités managées pour les ressources Azure*](../active-directory/managed-identities-azure-resources/overview.md). 
+La configuration d’une [identité managée](../active-directory/fundamentals/active-directory-whatis.md) **Azure Active Directory (Azure AD)** pour une instance Azure Digital Twins permet à l’instance d’accéder facilement à d’autres ressources protégées par Azure AD, par exemple [Azure Key Vault](../key-vault/general/overview.md). Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans Azure AD, consultez  [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
 Azure prend en charge deux types d’identités managées : celles affectées par le système et celles affectées par l’utilisateur. À l’heure actuelle, Azure Digital Twins prend uniquement en charge les **identités affectées par le système**. 
 
 Vous pouvez utiliser une identité managée affectée par le système pour votre instance Azure Digital pour l’authentification auprès d’[un point de terminaison personnalisé](concepts-route-events.md#create-an-endpoint). Azure Digital Twins prend en charge l’authentification basée sur l’identité affectée par le système aux points de terminaison pour les destinations [Event Hub](../event-hubs/event-hubs-about.md) et  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , et à un point de terminaison [Conteneur Stockage Azure](../storage/blobs/storage-blobs-introduction.md)  pour les [événements de lettres mortes](concepts-route-events.md#dead-letter-events). Les points de terminaison [Event Grid](../event-grid/overview.md)  ne sont actuellement pas pris en charge pour les identités managées.
 
-Pour obtenir des instructions sur l’activation d’une identité managée par le système pour Azure Digital Twins afin de l’utiliser pour acheminer des événements, consultez le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)*](./how-to-enable-managed-identities-portal.md).
+Pour obtenir des instructions sur l’activation d’une identité managée par le système pour Azure Digital Twins afin de l’utiliser pour acheminer des événements, consultez le [Guide pratique : Activer une identité managée pour les événements de routage (préversion)](./how-to-enable-managed-identities-portal.md) .
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Accès réseau privé avec Azure Private Link (préversion)
 
@@ -106,7 +106,7 @@ Le point de terminaison privé utilise une adresse IP de l’espace d’adressag
 
 La configuration d’un point de terminaison privé pour votre instance Azure Digital Twins vous permet de sécuriser cette instance et d’éliminer l’exposition publique, tout en évitant l’exfiltration de données à partir de votre réseau virtuel.
 
-Pour obtenir des instructions sur la configuration d’une liaison privée pour Azure Digital Twins, consultez le [*Guide pratique : Activer l’accès privé avec Private Link (préversion)*](./how-to-enable-private-link-portal.md).
+Pour obtenir des instructions sur la configuration d’une liaison privée pour Azure Digital Twins, consultez le [Guide pratique : Activer l’accès privé avec Private Link (préversion)](./how-to-enable-private-link-portal.md) .
 
 ### <a name="design-considerations"></a>Remarques relatives à la conception 
 
@@ -119,7 +119,7 @@ Pour plus d’informations sur les limites d’une liaison privée, consultez la
 
 ## <a name="service-tags"></a>Balises de service
 
-Une **étiquette de service** représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les étiquettes de service, consultez  [*Étiquettes de réseau virtuel*](../virtual-network/service-tags-overview.md). 
+Une **étiquette de service** représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les étiquettes de service, consultez  [Étiquettes de réseau virtuel](../virtual-network/service-tags-overview.md). 
 
 Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou [Pare-feu Azure](../firewall/service-tags.md), en utilisant des étiquettes de service à la place d’adresses IP spécifiques lorsque vous créez des règles de sécurité. En spécifiant le nom de l’étiquette de service (en l’occurrence,  **AzureDigitalTwins**) dans le champ *source* ou de *destination* approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. 
 
@@ -133,7 +133,7 @@ Vous trouverez ci-dessous les détails de l’étiquette de service **AzureDigit
 
 Voici les étapes à suivre pour accéder à des points de terminaison de [route d’événement](concepts-route-events.md) à l’aide d’étiquettes de service avec Azure Digital Twins.
 
-1. Tout d’abord, téléchargez cette référence de fichier JSON montrant des plages d’adresses IP Azure et des étiquettes de service : [*Plages d’IP Azure et étiquettes de services*](https://www.microsoft.com/download/details.aspx?id=56519). 
+1. Tout d’abord, téléchargez cette référence de fichier JSON montrant des plages d’adresses IP Azure et des étiquettes de service : [Plages d’IP Azure et étiquettes de services](https://www.microsoft.com/download/details.aspx?id=56519). 
 
 2. Recherchez les plages d’IP « AzureDigitalTwins » dans le fichier JSON.  
 
@@ -157,8 +157,8 @@ Pour résoudre cette erreur, vous pouvez effectuer l’une des actions suivantes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez ces concepts en action dans [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md).
+* Consultez ces concepts en action dans [Guide pratique : Configurer une instance et l’authentification](how-to-set-up-instance-portal.md).
 
-* Voyez comment interagir avec ces concepts à partir du code d’application cliente dans [*Guide pratique : Écrire le code d’authentification d’une application*](how-to-authenticate-client.md).
+* Voyez comment interagir avec ces concepts à partir du code d’application cliente dans [Guide pratique : Écrire le code d’authentification d’une application](how-to-authenticate-client.md).
 
 * Découvrez plus d’informations sur [Azure RBAC](../role-based-access-control/overview.md).

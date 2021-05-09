@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: baselden
-ms.openlocfilehash: 9f05e14de9d6ebe76f722d1e4b21bc2085a74888
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8cf1a671eeb4861919a389b02f45fee998d880e3
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125133"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317214"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planifier la configuration de Mes applications Azure Active Directory
 
@@ -138,7 +138,7 @@ L’extension permet aux utilisateurs de lancer une application à partir de sa 
 
 #### <a name="plan-for-mobile-access"></a>Planifier l’accès mobile
 
-Pour les applications qui utilisent l’authentification unique basée sur mot de passe ou qui sont accessibles à l’aide de [Proxy d’application Microsoft Azure AD](../manage-apps/application-proxy.md), vous devez utiliser la version mobile de Microsoft Edge. Pour les autres applications, n’importe quel navigateur mobile peut être utilisé. 
+Pour les applications qui utilisent l’authentification unique basée sur mot de passe ou qui sont accessibles à l’aide de [Proxy d’application Microsoft Azure AD](../app-proxy/application-proxy.md), vous devez utiliser la version mobile de Microsoft Edge. Pour les autres applications, n’importe quel navigateur mobile peut être utilisé. 
 
 ### <a name="linked-sso"></a>Authentification unique liée
 
@@ -256,4 +256,4 @@ Vous pouvez utiliser [Privileged Identity Management](../privileged-identity-man
 
 [Planifier un déploiement d'Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-[Planifier un déploiement de proxy d’application](application-proxy-deployment-plan.md)
+[Planifier un déploiement de proxy d’application](../app-proxy/application-proxy-deployment-plan.md)

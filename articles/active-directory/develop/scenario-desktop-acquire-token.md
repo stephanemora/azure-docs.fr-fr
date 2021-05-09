@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 1020496f7aea0c30ed815f21756addfd9ed0ae09
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 99a36eec959fc3f0c669f50b77d7707011e8dac0
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124272"
+ms.locfileid: "108165098"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -55,7 +55,6 @@ catch(MsalUiRequiredException ex)
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
-
 Set<IAccount> accountsInCache = pca.getAccounts().join();
 // Take first account in the cache. In a production application, you would filter
 // accountsInCache to get the right account for the user authenticating.
@@ -88,7 +87,6 @@ try {
     }
 }
 return result;
-
 ```
 
 # <a name="macos"></a>[macOS](#tab/macOS)
@@ -110,6 +108,7 @@ MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] ini
     }
 }];
 ```
+
 Swift :
 
 ```swift
@@ -136,7 +135,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 
 Dans MSAL Node, vous acquérez des jetons par le biais d’un flux de code d’autorisation avec une clé de preuve pour la norme PKCE (Proof Key for Code Exchange). MSAL Node utilise un cache de jeton en mémoire pour déterminer s’il existe des comptes d’utilisateur dans le cache. Si c’est le cas, l’objet de compte peut être transmis à la méthode `acquireTokenSilent()` pour récupérer un jeton d’accès mis en cache.
 
-```JavaScript
+```javascript
 
 const msal = require("@azure/msal-node");
 
@@ -158,7 +157,7 @@ let accounts = await msalTokenCache.getAllAccounts();
             account: accounts[0], // Index must match the account that is trying to acquire token silently
             scopes: ["user.read"],
         };
-    
+
         pca.acquireTokenSilent(silentRequest).then((response) => {
             console.log("\nSuccessful silent token acquisition");
             console.log("\nResponse: \n:", response);
@@ -173,18 +172,18 @@ let accounts = await msalTokenCache.getAllAccounts();
             codeChallenge: challenge, // PKCE Code Challenge
             codeChallengeMethod: "S256" // PKCE Code Challenge Method 
         };
-        
+
         // get url to sign user in and consent to scopes needed for application
         pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
             console.log(response);
-        
+
             const tokenRequest = {
                 code: response["authorization_code"],
                 codeVerifier: verifier // PKCE Code Verifier 
                 redirectUri: "your_redirect_uri",
                 scopes: ["User.Read"],
             };
-            
+
             // acquire a token by exchanging the code
             pca.acquireTokenByCode(tokenRequest).then((response) => {
                 console.log("\nResponse: \n:", response);
@@ -197,7 +196,7 @@ let accounts = await msalTokenCache.getAllAccounts();
 
 # <a name="python"></a>[Python](#tab/python)
 
-```Python
+```python
 result = None
 
 # Firstly, check the cache to see if this end user has signed in before
@@ -208,6 +207,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_xxx(scopes=config["scope"])
 ```
+
 ---
 
 Voici les différentes étapes permettant d’obtenir des jetons dans une application de bureau.
@@ -292,11 +292,11 @@ La classe définit les constantes suivantes :
 
 Cette méthode vous permet de spécifier si vous souhaitez forcer l’utilisation d’une vue web intégrée ou de la vue web du système (si disponible). Pour plus d’informations, consultez [Utilisation de navigateurs Web](msal-net-web-browsers.md).
 
- ```csharp
- var result = await app.AcquireTokenInteractive(scopes)
-                   .WithUseEmbeddedWebView(true)
-                   .ExecuteAsync();
-  ```
+```csharp
+var result = await app.AcquireTokenInteractive(scopes)
+                    .WithUseEmbeddedWebView(true)
+                    .ExecuteAsync();
+```
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
@@ -470,7 +470,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Dans MSAL Node, vous acquérez des jetons par le biais d’un flux de code d’autorisation avec une clé de preuve pour la norme PKCE (Proof Key for Code Exchange). Le processus comporte deux étapes : tout d’abord, l’application obtient une URL qui peut être utilisée pour générer un code d’autorisation. L’utilisateur peut ouvrir cette URL dans le navigateur de son choix, où il peut entrer ses informations d’identification et sera redirigé vers le `redirectUri` (inscrit pendant l’inscription de l’application) avec un code d’autorisation. Ensuite, l’application transmet le code d’autorisation reçu à la méthode `acquireTokenByCode()` qui l’échange pour un jeton d’accès.
 
-```JavaScript
+```javascript
 const msal = require("@azure/msal-node");
 
 const msalConfig = {
@@ -501,7 +501,7 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
         redirectUri: "your_redirect_uri",
         scopes: ["User.Read"],
     };
-    
+
     // acquire a token by exchanging the code
     pca.acquireTokenByCode(tokenRequest).then((response) => {
         console.log("\nResponse: \n:", response);
@@ -515,7 +515,7 @@ pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
 
 MSAL Python ne fournit pas directement de méthode interactive d’acquisition de jetons. L’application doit envoyer une requête d’autorisation dans son implémentation du flux d’interaction utilisateur pour obtenir un code d’autorisation. Ce code peut ensuite être passé à la méthode `acquire_token_by_authorization_code` pour obtenir le jeton.
 
-```Python
+```python
 result = None
 
 # Firstly, check the cache to see if this end user has signed in before
@@ -527,8 +527,8 @@ if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
          scopes=config["scope"])
-
 ```
+
 ---
 
 ## <a name="integrated-windows-authentication"></a>Authentification Windows intégrée
@@ -540,7 +540,7 @@ Pour connecter un utilisateur de domaine sur une machine jointe à Azure AD ou �
 - L’authentification Windows intégrée n’est utilisable que pour les utilisateurs *fédérés+* , c’est-à-dire les utilisateurs créés dans Active Directory et reposant sur Azure AD. Les utilisateurs créés directement dans Azure AD sans appui Active Directory, appelés utilisateurs *managés*, ne peuvent pas utiliser ce flux d’authentification. Cette restriction ne concerne pas le flux de nom d’utilisateur et de mot de passe.
 - L’authentification Windows intégrée est destinée aux applications écrites pour les plateformes .NET Framework, .NET Core et UWP, la plateforme Windows universelle.
 - L’authentification Windows n’ignore pas l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md). Si l’authentification MFA est configurée, IWA peut échouer en cas de demande MFA exigée, car MFA a besoin d’une interaction utilisateur.
-  
+
     L’authentification IWA est non interactive, mais MFA nécessite l’interactivité avec l’utilisateur. Vous n’avez pas le contrôle lorsque le fournisseur d’identité demande l’exécution de MFA, l’administrateur de locataire, si. D’après ce que nous avons pu observer, l’authentification MFA est demandée lorsque vous vous connectez depuis un autre pays/région alors que vous n’êtes pas connecté à un réseau d’entreprise via un VPN, et parfois même lorsque vous êtes connecté via un VPN. Ne vous attendez pas à un ensemble déterministe de règles. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification MFA est exigée. Ayez recours à une invite utilisateur de secours, comme une authentification interactive ou un flux de code d’appareil, si l’IWA échoue.
 
 - L’autorité transmise dans `PublicClientApplicationBuilder` doit être :
@@ -647,7 +647,6 @@ static async Task GetATokenForGraph()
    }
  }
 
-
  Console.WriteLine(result.Account.Username);
 }
 ```
@@ -658,7 +657,7 @@ Pour la liste des modificateurs possibles sur AcquireTokenByIntegratedWindowsAut
 
 Voici un extrait des [exemples de développement MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
 
-```Java
+```java
 private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
     // Load token cache from file and initialize token cache aspect. The token cache will have
@@ -961,7 +960,7 @@ Pour plus d’informations sur tous les modificateurs qui peuvent être appliqu�
 
 Voici un extrait des [exemples de développement MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
 
-```Java
+```java
 private static IAuthenticationResult acquireTokenUsernamePassword() throws Exception {
 
     // Load token cache from file and initialize token cache aspect. The token cache will have
@@ -1012,9 +1011,9 @@ Ce flux n’est pas pris en charge sur MSAL pour macOS.
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-Voici un extrait des [exemples de développement MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/username-password). Dans l’extrait de code ci-dessous, le nom d’utilisateur et le mot de passe sont codés en dur à des fins d’illustration uniquement. Cela doit être évité en production. Au lieu de cela, une interface utilisateur de base invitant l’utilisateur à entrer son nom d’utilisateur/mot de passe est recommandée. 
+Voici un extrait des [exemples de développement MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/username-password). Dans l’extrait de code ci-dessous, le nom d’utilisateur et le mot de passe sont codés en dur à des fins d’illustration uniquement. Cela doit être évité en production. Au lieu de cela, une interface utilisateur de base invitant l’utilisateur à entrer son nom d’utilisateur/mot de passe est recommandée.
 
-```JavaScript
+```javascript
 const msal = require("@azure/msal-node");
 
 const msalConfig = {
@@ -1045,7 +1044,7 @@ pca.acquireTokenByUsernamePassword(usernamePasswordRequest).then((response) => {
 
 Voici un extrait des [exemples de développement MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
 
-```Python
+```python
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
     config["client_id"], authority=config["authority"],
@@ -1257,7 +1256,7 @@ Ce flux ne s’applique pas à macOS.
 
 Voici un extrait des [exemples de développement MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/device-code).
 
-```JavaScript
+```javascript
 const msal = require('@azure/msal-node');
 
 const msalConfig = {
@@ -1286,7 +1285,7 @@ pca.acquireTokenByDeviceCode(deviceCodeRequest).then((response) => {
 
 Voici un extrait des [exemples de développement MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
 
-```Python
+```python
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
     config["client_id"], authority=config["authority"],
@@ -1458,7 +1457,6 @@ app = PublicClientApplicationBuilder.Create(clientId)
 FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
                                                unifiedCacheFileName,
                                                adalV3cacheFileName);
-
 ```
 
 Cette fois-ci, la classe d’assistance ressemble au code suivant :

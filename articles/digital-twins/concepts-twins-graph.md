@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e0df10d9bbcb69e6a0bf56020c1ef70e1f81df6
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99576546"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207804"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendre les jumeaux numériques et leur graphique de jumeaux
 
@@ -23,7 +23,7 @@ Dans une solution Azure Digital Twins, les entités de votre environnement sont 
 
 ## <a name="digital-twins"></a>Jumeaux numériques
 
-Avant de pouvoir créer un jumeau numérique dans votre instance Azure Digital Twins, vous devez disposer d’un *modèle* chargé sur le service. Un modèle décrit, entre autres choses, l’ensemble des propriétés, des messages de télémétrie et des relations qu’un jumeau particulier peut avoir. Pour obtenir les types d’informations définis dans un modèle, consultez [*Concepts : Modèles personnalisés*](concepts-models.md).
+Avant de pouvoir créer un jumeau numérique dans votre instance Azure Digital Twins, vous devez disposer d’un *modèle* chargé sur le service. Un modèle décrit, entre autres choses, l’ensemble des propriétés, des messages de télémétrie et des relations qu’un jumeau particulier peut avoir. Pour obtenir les types d’informations définis dans un modèle, consultez [Concepts : Modèles personnalisés](concepts-models.md).
 
 Après avoir créé et chargé un modèle, votre application cliente peut créer une instance du type ; il s’agit d’un jumeau numérique. Par exemple, après la création d’un modèle *Étage*, vous pouvez créer un ou plusieurs jumeaux numériques qui utilisent ce type (par exemple, un jumeau de type *Étage* appelé *Rez-de-chaussée*, un autre appelé *Étage2*, etc.).
 
@@ -51,7 +51,7 @@ Vous pouvez initialiser les propriétés d’un jumeau lors de sa création, ou 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
-Vous pouvez également utiliser une classe d’assistance appelée `BasicDigitalTwin` pour stocker les champs de propriété dans un objet « jumeau » de manière plus directe, comme alternative à l’utilisation d’un dictionnaire. Pour plus d’informations sur la classe d’assistance et des exemples de son utilisation, consultez la section [*créer un jumeau numérique*](how-to-manage-twin.md#create-a-digital-twin) dans *Comment : Gestion des jumeaux numériques*.
+Vous pouvez également utiliser une classe d’assistance appelée `BasicDigitalTwin` pour stocker les champs de propriété dans un objet « jumeau » de manière plus directe, comme alternative à l’utilisation d’un dictionnaire. Pour plus d’informations sur la classe d’assistance et des exemples de son utilisation, consultez la section [créer un jumeau numérique](how-to-manage-twin.md#create-a-digital-twin) dans *Comment : Gestion des jumeaux numériques*.
 
 >[!NOTE]
 >Bien que les propriétés de jumeau soient traitées comme facultatives et ne doivent pas obligatoirement être initialisées, tous les [composants](concepts-models.md#elements-of-a-model) sur les jumeaux **doivent** être définis lors de la création du jumeau. Il peut s’agir d’objets vides, mais les composants proprement dits doivent exister.
@@ -162,8 +162,8 @@ Voici un exemple de relation sous la forme d’un objet JSON :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Voir comment gérer des éléments graphiques avec les API Azure Digital Twins :
-* [*Guide pratique : Gérer des jumeaux numériques*](how-to-manage-twin.md)
-* [*Guide pratique : Gérer le graphe de jumeaux avec des relations*](how-to-manage-graph.md)
+* [Guide pratique pour gérer des jumeaux numériques](how-to-manage-twin.md)
+* [Guide pratique pour gérer le graphe de jumeaux avec des relations](how-to-manage-graph.md)
 
 Ou découvrez comment interroger le graphe de jumeaux Azure Digital Twins pour obtenir des informations :
-* [*Concepts : langage de requête*](concepts-query-language.md)
+* [Concepts : langage de requête](concepts-query-language.md)

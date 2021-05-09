@@ -7,12 +7,12 @@ ms.author: apimpm
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: cb14ecd05c1590667ac9b5618b3f0de9da30ce96
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 3debf537aff12e943068d48a181fc9ae4c6ee5eb
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741201"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207301"
 ---
 # <a name="alternative-approaches-to-self-host-developer-portal"></a>Autres approches du portail des développeurs auto-hébergés
 
@@ -52,7 +52,7 @@ Exécutez l’étape de publication dans le cloud plutôt que localement.
 
 Pour implémenter la publication avec une application de fonction Azure, vous avez besoin des composants suivants :
 
-- [Créez une fonction Azure](../azure-functions/functions-create-first-azure-function.md). La fonction doit être une fonction de langage JavaScript.
+- [Créez une fonction Azure](../azure-functions/functions-get-started.md). La fonction doit être une fonction de langage JavaScript.
 - Installez Azure Functions Core Tools :
     ```console
     npm install –g azure-function-core-tools

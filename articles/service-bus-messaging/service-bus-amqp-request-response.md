@@ -2,13 +2,13 @@
 title: Opérations de demande/réponse AMQP 1.0 dans Azure Service Bus
 description: Cet article énumère les opérations basées sur une requête-réponse AMQP dans le service Microsoft Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: b845f4086ee1ac4fe868571c1754caf6d29b9021
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/26/2020
+ms.openlocfilehash: 2fd72e30d609d789d6513e666866878dfb4732d5
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88064412"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016866"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 dans Microsoft Azure Service Bus : opérations basées sur les requêtes-réponses
 
@@ -17,11 +17,7 @@ Cet article définit la liste des opérations basées sur les requêtes-réponse
 Pour obtenir un guide détaillé sur le protocole AMQP 1.0 au niveau des câbles qui explique comment Service Bus implémente la spécification technique AMQP OASIS et s’appuie sur celle-ci, consultez le [Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs][Guide du protocole AMQP 1.0].  
   
 ## <a name="concepts"></a>Concepts  
-  
-### <a name="entity-description"></a>Description d’entité  
-
-Une description d’entité fait référence à un objet Service Bus [classe QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [classe TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) ou [classe SubscriptionDescription](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription).  
-  
+    
 ### <a name="brokered-message"></a>Message réparti  
 
 Représente un message Service Bus mappé à un message AMQP. Le mappage est défini dans le [guide du protocole AMQP de Service Bus](service-bus-amqp-protocol-guide.md).  
@@ -115,7 +111,7 @@ Les entités Service Bus doivent être traitées comme suit :
   
 ### <a name="message-renew-lock"></a>Verrouillage du renouvellement du message  
 
-Étend le verrouillage d’un message à la durée spécifiée dans la description d’entité.  
+Étend le verrou d’un message en fonction de la durée de verrouillage définie sur la file d’attente ou l’abonnement.  
   
 #### <a name="request"></a>Requête  
 
@@ -133,7 +129,7 @@ Le message de requête doit inclure les propriétés d’application suivantes 
 |`lock-tokens`|tableau d’uuid|Oui|Jetons de verrouillage de message à renouveler.|  
 
 > [!NOTE]
-> Les jetons de verrouillage sont la propriété `DeliveryTag` sur des messages reçus. Regardez l’exemple suivant dans le [Kit de développement logiciel (SDK) .NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) qui les récupère. Le jeton peut également apparaître dans « DeliveryAnnotations » en tant que « x-opt-lock-token ». Toutefois, cela n’est pas garanti et il faut préférer `DeliveryTag`. 
+> Le jeton de verrou fait ici référence à la propriété `delivery-tag` sur le message AMQP reçu. Si vous avez reçu un message différé et souhaitez renouveler son verrou, utilisez la propriété `lock-token` sur le message à la place de `delivery-tag`. 
 > 
   
 #### <a name="response"></a>response  
@@ -268,7 +264,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 ### <a name="session-renew-lock"></a>Verrouillage de renouvellement de session  
 
-Étend le verrouillage d’un message à la durée spécifiée dans la description d’entité.  
+Étend le verrou d’un message en fonction de la durée de verrouillage définie sur la file d’attente ou l’abonnement.  
   
 #### <a name="request"></a>Requête  
 

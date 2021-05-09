@@ -6,13 +6,13 @@ ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: d40675faeec8975cc78e39818477495139ebbf0d
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 04/28/2021
+ms.openlocfilehash: 275c77107faf8fd639d714b92828ab8efe623f26
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906365"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164900"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 
@@ -179,7 +179,7 @@ Corporation
 
 ### <a name="escaping-single-quote-character"></a>Placement d’un caractère de guillemet simple dans une séquence d’échappement
 
-Les fonctions d’expression utilisent un guillemet simple pour les paramètres de valeur de chaîne. Utilisez deux guillemets simples pour placer un caractère « ’ » dans une séquence d’échappement dans les fonctions de chaîne. Par exemple, l’expression `@concat('Baba', ''' ', 'book store')` retourne le résultat ci-dessous.
+Les fonctions d’expression utilisent un guillemet simple pour les paramètres de valeur de chaîne. Utilisez deux guillemets simples pour placer un caractère « ’ » dans une séquence d’échappement dans les fonctions de chaîne. Par exemple, l’expression `@concat('Baba', '''s ', 'book store')` retourne le résultat ci-dessous.
 
 ```
 Baba's book store

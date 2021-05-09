@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 22b41fce59bf7dbe9db1186036c5ed44f07a4aad
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6d15df406399e49bff3d95cb90f5d8b908d09631
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484475"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208020"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Convertir des ontologies conformes aux standards du secteur en langage DTDL pour Azure Digital Twins
 
@@ -20,7 +20,7 @@ La plupart des [ontologies](concepts-ontologies.md) sont basées sur des standar
 
 Pour utiliser un modèle avec Azure Digital Twins, il doit être au format DTDL. Cet article fournit des conseils d’aide généraux relatifs à la conception sous la forme d’un **modèle de conversion**. Celui-ci permet de convertir des modèles RDF au format DTDL pour qu’ils puissent être utilisés avec Azure Digital Twins. 
 
-L’article contient également un [**exemple de code de convertisseur**](#converter-samples) pour les convertisseurs RDF et OWL, qui peut être étendu à d’autres schémas du secteur du bâtiment.
+L’article contient également un [exemple de code de convertisseur](#converter-samples) pour les convertisseurs RDF et OWL, qui peut être étendu à d’autres schémas du secteur du bâtiment.
 
 ## <a name="conversion-pattern"></a>Modèle de conversion
 
@@ -35,7 +35,7 @@ Le tableau suivant est un exemple de la façon dont les constructions RDFS et OW
 | Propriétés DataType | `owl:DatatypeProperty`<br>`rdfs:label` ou `INode`<br>`rdfs:label`<br>`rdfs:range` | Propriétés de l’interface | `@type:Property`<br>`name`<br>`displayName`<br>`schema` 
 | Propriétés des objets | `owl:ObjectProperty`<br>`rdfs:label` ou `INode`<br>`rdfs:range`<br>`rdfs:comment`<br>`rdfs:label` | Relationship | `type:Relationship`<br>`name`<br>`target` (ou omis si aucune `rdfs:range`)<br>`comment`<br>`displayName`<br>
 
-L’extrait de code C# suivant montre comment un fichier de modèle RDF est chargé dans un graphique et converti en DTDL à l’aide de la bibliothèque [**dotNetRDF**](https://www.dotnetrdf.org/). 
+L’extrait de code C# suivant montre comment un fichier de modèle RDF est chargé dans un graphique et converti en DTDL à l’aide de la bibliothèque [dotNetRDF](https://www.dotnetrdf.org/). 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
 
@@ -47,7 +47,7 @@ Un exemple d’application disponible convertit un fichier de modèle RDF en [DT
 
 L’exemple est une application en ligne de commande .NET Core appelée **RdfToDtdlConverter**.
 
-Vous pouvez vous procurer l’exemple ici : [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+Vous pouvez vous procurer l’exemple ici : [RdfToDtdlConverter](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
 Pour télécharger le code sur votre ordinateur, sélectionnez le bouton **Parcourir le code** sous le titre sur la page de l’exemple, qui vous permet d’accéder au référentiel GitHub de l’exemple. Sélectionnez le bouton **Code** et **Téléchargez le fichier ZIP** pour télécharger l’exemple sous la forme d’un fichier *.ZIP* appelé *RdfToDtdlConverter-main.zip*. Vous pouvez ensuite décompresser le fichier et explorer le code.
 
@@ -57,12 +57,12 @@ Vous pouvez utiliser cet exemple pour voir les modèles de conversion en context
 
 ### <a name="owl2dtdl-converter"></a>Convertisseur OWL2DTDL 
 
-Le [**convertisseur OWL2DTDL**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL) est un exemple d’application qui traduit une ontologie OWL en un ensemble de déclarations d’interface DTDL, qui peuvent être utilisées avec le service Azure Digital Twins. Il fonctionne également pour les réseaux d’ontologies, constitués d’une ontologie racine réutilisant d’autres ontologies via des déclarations `owl:imports`.
+Le [convertisseur OWL2DTDL](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL) est un exemple d’application qui traduit une ontologie OWL en un ensemble de déclarations d’interface DTDL, qui peuvent être utilisées avec le service Azure Digital Twins. Il fonctionne également pour les réseaux d’ontologies, constitués d’une ontologie racine réutilisant d’autres ontologies via des déclarations `owl:imports`.
 
 Ce convertisseur a été utilisé pour traduire l’[ontologie RealEstateCore](https://doc.realestatecore.io/3.1/full.html) en DTDL, et peut être utilisé pour n’importe quelle ontologie basée sur OWL.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-* Découvrez plus en détail comment étendre les ontologies conformes aux standards du secteur pour répondre aux impératifs de vos spécifications : [*Concepts : Extension des ontologies du secteur*](concepts-ontologies-extend.md).
+* Découvrez plus en détail comment étendre les ontologies conformes aux standards du secteur pour répondre aux impératifs de vos spécifications : [Concepts : Extension des ontologies du secteur](concepts-ontologies-extend.md).
 
-* Sinon, passez au développement de modèles à partir d’ontologies : [*Utilisation de stratégies d’ontologie pour le développement de modèles*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+* Sinon, passez au développement de modèles à partir d’ontologies : [Utilisation de stratégies d’ontologie pour le développement de modèles](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

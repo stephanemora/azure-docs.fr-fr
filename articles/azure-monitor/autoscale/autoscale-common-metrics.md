@@ -4,12 +4,13 @@ description: Découvrez les métriques utilisées pour la mise à l’échelle a
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8a3c8b06862c4a429d0e8974c8e3e00113ac5915
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101717772"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316854"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor
 
@@ -20,6 +21,7 @@ La fonction de mise à l’échelle automatique d’Azure Monitor vous permet de
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](../../api-management/api-management-key-concepts.md). Les autres services Azure utilisent des méthodes de mise à l’échelle différentes.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Calcul des métriques pour les machines virtuelles basées sur Resource Manager
+
 Par défaut, les machines virtuelles et jeux de mise à l’échelle de machine virtuelle basés sur Resource Manager émettent des métriques de base (niveau hôte). En outre, lorsque vous configurez la collecte de données de diagnostic pour une machine virtuelle ou des jeux de mise à l’échelle de machine virtuelle Azure, l’extension de diagnostic Azure émet également les compteurs de performances du système d’exploitation invité (communément appelés « Métriques de système d’exploitation invité »).  Vous utilisez toutes ces métriques dans les règles de mise à l’échelle automatique.
 
 Vous pouvez utiliser l’API/PoSH/CLI `Get MetricDefinitions` pour afficher les métriques disponibles pour votre ressource VMSS.
@@ -31,12 +33,14 @@ Si une métrique particulière n’est pas en cours d’échantillonnage ou de t
 Si l’un des deux cas ci-dessus s’applique, consultez la page [Utiliser PowerShell pour activer Diagnostics Azure sur une machine virtuelle exécutant Windows](../../virtual-machines/extensions/diagnostics-windows.md) pour savoir comment utiliser PowerShell pour configurer et mettre à jour votre extension de diagnostics de machine virtuelle Windows Azure afin d’activer la métrique. Cet article inclut également un exemple de fichier de configuration de diagnostics.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métriques de l’hôte pour les machines virtuelles Windows et Linux basées sur Resource Manager
+
 Les métriques de niveau hôte suivantes sont émies par défaut pour les machines virtuelles et jeux de mise à l’échelle de machine virtuelle Azure dans les instances Windows et Linux. Ces métriques décrivent votre machine virtuelle Azure, mais sont collectées à partir de l’hôte de la machine Virtuelle Azure plutôt que via l’agent installé sur la machine virtuelle invitée. Vous pouvez utiliser ces métriques dans les règles de mise à l’échelle automatique.
 
 - [Métriques de l’hôte pour les machines virtuelles Windows et Linux basées sur Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Métriques de l’hôte pour les jeux de mise à l’échelle de machine virtuelle Windows et Linux basées sur Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métriques de système d’exploitation invité pour les machines virtuelles Windows basées sur Resource Manager
+
 Lorsque vous créez une machine virtuelle dans Azure, les diagnostics sont effectués grâce à l’extension Diagnostics. L’extension de diagnostics émet un ensemble de métriques extraites de la machine virtuelle. Cela signifie que vous pouvez automatiser la mise à l’échelle des métriques qui ne sont pas émises par défaut.
 
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques.
@@ -78,6 +82,7 @@ Vous pouvez créer une alerte pour les métriques suivantes :
 | \LogicalDisk(_Total)\Mégaoctets libres |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métriques de SE invité pour les machines virtuelles Linux
+
 Lorsque vous créez une machine virtuelle dans Azure, les diagnostics sont activés par défaut grâce à l’extension Diagnostics.
 
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques.
@@ -130,9 +135,11 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \Interface réseau\Total des collisions |Count |
 
 ## <a name="commonly-used-app-service-server-farm-metrics"></a>Métriques App Service (batterie de serveurs) couramment utilisées
+
 Vous pouvez également effectuer la mise à l’échelle en fonction des métriques de serveur web courantes, telles que la longueur de file d’attente HTTP. Son nom de métrique est **HttpQueueLength**.  La section suivante liste les métriques de batterie de serveurs (App Service) disponibles.
 
 ### <a name="web-apps-metrics"></a>Métriques Web Apps
+
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques Web Apps.
 
 ```
@@ -151,6 +158,7 @@ Ces métriques permettent d’émettre une alerte ou de procéder à un mise à 
 | BytesSent |Octets |
 
 ## <a name="commonly-used-storage-metrics"></a>Métriques couramment utilisées dans Azure Storage
+
 Vous pouvez procéder à une mise à l’échelle en fonction de la métrique Longueur de file d’attente, qui correspond au nombre de messages dans la file d’attente de stockage. La longueur de file d’attente de stockage est une métrique spéciale et le seuil appliqué sera le nombre de messages par instance. Par exemple, si vous avez deux instances et que le seuil est défini sur 100, la mise à l’échelle aura lieu lorsque la file d’attente contiendra 200 messages. Cela peut être 100 messages par instance, 120 et 80 ou toute autre combinaison qui correspond à 200 ou plus.
 
 Configurez de paramètre dans le panneau **Paramètres** du Portail Azure. Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre à jour le paramètre Mise à l’échelle automatique dans le modèle Resource Manager afin d’utiliser *metricName* avec la valeur *ApproximateMessageCount*, puis transmettre l’ID de la file d’attente de stockage avec la valeur *metricResourceUri*.
@@ -161,7 +169,7 @@ Par exemple, avec un compte de stockage classique, le paramètre de mise à l’
 "metricName": "ApproximateMessageCount",
 "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
- ```
+```
 
 Pour un compte de stockage (non classique), le paramètre metricTrigger peut inclure :
 
@@ -172,6 +180,7 @@ Pour un compte de stockage (non classique), le paramètre metricTrigger peut inc
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Métriques Service Bus généralement utilisées
+
 Vous pouvez procéder à une mise à l’échelle en fonction de la longueur de la file d’attente Service Bus, autrement dit en fonction du nombre de messages présents dans cette file d’attente. La longueur de la file d’attente Service Bus est une métrique particulière. Le seuil correspond au nombre de messages par instance. Par exemple, si vous avez deux instances et que le seuil est défini sur 100, la mise à l’échelle aura lieu lorsque la file d’attente contiendra 200 messages. Cela peut être 100 messages par instance, 120 et 80 ou toute autre combinaison qui correspond à 200 ou plus.
 
 Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre à jour le paramètre Mise à l’échelle automatique dans le modèle Resource Manager afin d’utiliser *metricName* avec la valeur *ApproximateMessageCount*, puis transmettre l’ID de la file d’attente de stockage avec la valeur *metricResourceUri*.
@@ -184,5 +193,4 @@ Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre �
 
 > [!NOTE]
 > Le concept de groupe de ressources n’existe pas pour Service Bus, mais Azure Resource Manager crée un groupe de ressources par défaut par région. Le groupe de ressources est généralement affiché au format « [Région] Service Bus par défaut ». Par exemple, « Est des États-Unis Service Bus par défaut », « Ouest des États-Unis Service Bus par défaut », « Est de l’Australie Service Bus par défaut », etc.
->
->
+

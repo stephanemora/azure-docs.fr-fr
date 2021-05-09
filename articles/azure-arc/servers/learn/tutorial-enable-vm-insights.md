@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Superviser une machine hybride avec Azure Monitor pour machines virtuelles'
+title: Tutoriel - Superviser une machine hybride avec les insights VM Azure Monitor
 description: Découvrez comment collecter et analyser les données d’une machine hybride dans Azure Monitor.
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: 409ad0976e02e42e385e22a103cfc06af5a4f3f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: f59ad448440110e2c5e6dd1fa1b2858d9cf42e91
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587703"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834261"
 ---
-# <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Tutoriel : Superviser une machine hybride avec Azure Monitor pour machines virtuelles
+# <a name="tutorial-monitor-a-hybrid-machine-with-vm-insights"></a>Tutoriel : Superviser une machine hybride avec les insights VM
 
-[Azure Monitor](../overview.md) est capable de collecter directement les données de vos machines hybrides, et les afficher dans un espace de travail Log Analytics en vue d’une analyse et d’une mise en corrélation détaillées. En général, cela implique l’installation de l’[agent Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) sur la machine à l’aide d’un script, manuellement ou d’une méthode automatisée, selon vos normes de gestion de la configuration. Serveurs avec Azure Arc a récemment introduit la prise en charge de l’installation des [extensions de machine virtuelle](../manage-vm-extensions.md) des agents Log Analytics et Dependency pour Windows et Linux, ce qui permet à Azure Monitor de collecter les données de vos machines virtuelles non Azure.
+[Azure Monitor](../../../azure-monitor/overview.md) est capable de collecter directement les données de vos machines hybrides, et les afficher dans un espace de travail Log Analytics en vue d’une analyse et d’une mise en corrélation détaillées. En général, cela implique l’installation de l’[agent Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) sur la machine à l’aide d’un script, manuellement ou d’une méthode automatisée, selon vos normes de gestion de la configuration. Les serveurs avec Arc ont récemment introduit la prise en charge de l’installation des [extensions VM](../manage-vm-extensions.md) d’agent Log Analytics et Dependency Agent pour Windows et Linux, ce qui permet aux [insights VM](../../../azure-monitor/vm/vminsights-overview.md) de collecter les données sur vos machines virtuelles non-Azure.
 
-Ce tutoriel vous montre comment configurer et collecter les données de vos machines Linux ou Windows, en activant Azure Monitor pour machines virtuelles à l’aide d’un ensemble d’étapes simplifié avec, à la clé, un gain de temps.  
+Ce tutoriel vous montre comment configurer et collecter les données de vos machines Linux ou Windows en activant les insights VM à l’aide d’un ensemble d’étapes simplifié qui simplifie l’expérience et permet de gagner du temps.  
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -22,15 +22,15 @@ Ce tutoriel vous montre comment configurer et collecter les données de vos mach
 
 * La fonctionnalité d’extension de machine virtuelle n’est disponible que dans la liste des [régions prises en charge](../overview.md#supported-regions).
 
-* Consultez [Systèmes d’exploitation pris en charge](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) pour vérifier que le système d’exploitation des serveurs que vous activez est pris en charge par Azure Monitor pour machines virtuelles.
+* Consultez [Systèmes d’exploitation pris en charge](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) pour vérifier que le système d’exploitation des serveurs que vous activez est pris en charge par les insights VM.
 
-* Examinez la configuration requise du pare-feu pour l’agent Log Analytics dans [Présentation de l’agent Log Analytics](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). L’agent Map Dependency Agent Azure Monitor pour machines virtuelles ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports.
+* Examinez la configuration requise du pare-feu pour l’agent Log Analytics dans [Présentation de l’agent Log Analytics](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). L’agent Map Dependency de VM Insights ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ou des ports.
 
 ## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
-## <a name="enable-azure-monitor-for-vms"></a>Activer Azure Monitor pour machines virtuelles
+## <a name="enable-vm-insights"></a>Activer VM Insights
 
 1. Lancez le service Azure Arc dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Machines - Azure Arc**.
 
@@ -44,11 +44,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans la page **Intégration d’insights** d’Azure Monitor, vous êtes invité à créer un espace de travail. Pour ce tutoriel, nous vous déconseillons de sélectionner un espace de travail Log Analytics existant si vous en avez déjà un. Sélectionnez la valeur par défaut, c’est-à-dire un espace de travail ayant un nom unique dans la même région que votre machine connectée inscrite. Cet espace de travail est créé et configuré pour vous.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Page Activer Azure Monitor pour machines virtuelles" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Page Activer les insights VM" border="false":::
 
 1. Vous recevez des messages d’état à mesure que la configuration est effectuée. Ce processus prend quelques minutes, car les extensions sont installées sur votre machine connectée.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Message d’état de la progression de l’activation d’Azure Monitor pour machines virtuelles" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Message de l’état de progression de l’activation des insights VM" border="false":::
 
     Une fois l’opération terminée, vous recevez un message indiquant que la machine a été correctement intégrée et que l’insight a été correctement déployé.
 
@@ -56,11 +56,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 Une fois le déploiement et la configuration terminés, sélectionnez **Insights**, puis sélectionnez l’onglet **Performances**. Cet onglet montre un groupe spécifique de compteurs de performances collectés à partir du système d’exploitation invité de votre machine. Faites défiler l’écran vers le bas pour afficher plus de compteurs et déplacez la souris sur un graphique pour afficher la moyenne et les centiles pris à partir du moment où l’extension de machine virtuelle Log Analytics a été installée sur la machine.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Graphiques Performances d’Azure Monitor pour machines virtuelles pour la machine sélectionnée" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Graphiques de performances des insights VM pour la machine sélectionnée" border="false":::
 
 Sélectionnez **Carte** pour ouvrir la fonctionnalité relative aux cartes. Elle montre les processus en cours d’exécution et leurs dépendances sur la machine. Sélectionnez **Propriétés** pour ouvrir le volet Propriétés, s’il n’est pas déjà ouvert.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Carte Azure Monitor pour machines virtuelles pour la machine sélectionnée" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Carte des insights VM pour la machine sélectionnée" border="false":::
 
 Développez les processus de votre machine. Sélectionnez l’un des processus pour voir ses détails et mettre en évidence ses dépendances.
 

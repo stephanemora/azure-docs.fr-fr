@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d42843805f4fce24368dd07de3a73fec2545957
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 867387665796464ec80bcda94f7870315e55e0a1
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567523"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015606"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Activer Azure Arc sur un cluster Kubernetes sur votre appareil avec GPU Azure Stack Edge Pro
 
@@ -74,7 +74,7 @@ Avant d’activer Azure Arc sur le cluster Kubernetes, vous devez activer et ins
     
     ![Inscrire des fournisseurs de ressources Kubernetes 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-Vous pouvez également inscrire des fournisseurs de ressources via `az cli`. Pour plus d’information, consultez [Inscrire les deux fournisseurs pour Kubernetes à extension Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes).
+Vous pouvez également inscrire des fournisseurs de ressources via `az cli`. Pour plus d'informations, consultez [Inscrire les deux fournisseurs pour Kubernetes avec Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-providers-for-azure-arc-enabled-kubernetes).
 
 ## <a name="create-service-principal-assign-role"></a>Créer un principal du service, attribuer un rôle
 
