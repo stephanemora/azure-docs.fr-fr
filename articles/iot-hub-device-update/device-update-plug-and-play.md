@@ -6,22 +6,26 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: fbc3502952e11830ef9abb06cb709fcc60288343
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d1817db4615d321db3d5f098d449410ee5b0606c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739527"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141846"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update pour IoT Hub et IoT Plug-and-Play
 
 Device Update pour IoT Hub utilise [IoT Plug-and-Play](../iot-pnp/index.yml) pour détecter et gérer les appareils prenant en charge la mise à jour OTA. Le service Device Update envoie et reçoit des propriétés et des messages vers et depuis des appareils à l’aide d’interfaces PnP. Device Update pour IoT Hub nécessite que les appareils IoT implémentent les interfaces et l’ID de modèle suivants, comme décrit ci-dessous.
 
+Concepts : 
+* Comprendre le [client d’appareil IoT Plug-and-Play](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
+* Découvrir comment l'[agent Device Update est implémenté](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
+
 ## <a name="adu-core-interface"></a>Interface ADU Core
 
 L’interface « ADUCoreInterface » est utilisée pour envoyer aux appareils des actions de mise à jour et des métadonnées, ainsi que pour recevoir l’état de mise à jour des appareils. L’interface « ADU Core » est divisée en deux propriétés d’objet.
 
-Le nom de composant attendu dans votre modèle est **« azureDeviceUpdateAgent »** lors de l’implémentation de cette interface. [En savoir plus sur les composants Azure IoT PnP](../iot-pnp/concepts-components.md)
+Le nom de composant attendu dans votre modèle est **« azureDeviceUpdateAgent »** lors de l’implémentation de cette interface. [En savoir plus sur les composants Azure IoT PnP](../iot-pnp/concepts-modeling-guide.md)
 
 ### <a name="agent-metadata"></a>Métadonnées de l’agent
 
@@ -57,6 +61,27 @@ Il s’agit de l’ensemble de propriétés qui contiennent le fabricant et le m
 |aduVer|string|appareil à cloud|Version de l’agent Device Update en cours d’exécution sur l’appareil. Cette valeur est lue à partir de la build seulement si, au moment de la compilation, ENABLE_ADU_TELEMETRY_REPORTING a la valeur 1 (true). Les clients peuvent choisir de refuser la création de rapports de version en définissant cette valeur sur 0 (false). [Comment personnaliser les propriétés de l’agent Device Update](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |doVer|string|appareil à cloud|Version de l’agent d’optimisation de la distribution en cours d’exécution sur l’appareil. Cette valeur est lue à partir de la build seulement si, au moment de la compilation, ENABLE_ADU_TELEMETRY_REPORTING a la valeur 1 (true). Les clients peuvent choisir de refuser la création de rapports de version en définissant cette valeur sur 0 (false).[Comment personnaliser les propriétés de l’agent d’optimisation de la distribution](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components).|
 
+Exemple de jumeau d’appareil IoT Hub
+```json
+ "azureDeviceUpdateAgent": {
+                           "__t": "c",
+                           "client": {
+                                     "state": 0,
+                                     "resultCode": 200,
+                                     "extendedResultCode": 0,
+                                     "deviceProperties": {
+                                                         "manufacturer": "Contoso",
+                                                         "model": "Video",
+                                                         "aduVer": "DU;agent/0.6.0",
+                                                         "doVer": "DU;lib/v0.4.0,DU;agent/v0.4.0,DU;plugin-apt/v0.2.0"
+                                                         },
+                                     "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"SampleUpdate1\",\"version\":\"1.0.4\"}"
+                                     },
+                            }
+```
+
+Remarque : l’appareil ou le module doit ajouter le marqueur {"__t": "c"} pour indiquer que l’élément fait référence à un composant. Apprenez-en davantage [ici](https://docs.microsoft.com/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property).
+
 ### <a name="service-metadata"></a>Métadonnées du service
 
 Les métadonnées de service contiennent des champs que le service Device Update utilise pour communiquer des actions et des données à l’agent Device Update.
@@ -83,7 +108,7 @@ Les métadonnées de service contiennent des champs que le service Device Update
 
 L’interface d’informations sur l’appareil est un concept utilisé dans l’[architecture IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). Elle contient des propriétés d’appareil vers le cloud qui fournissent des informations sur le matériel et le système d’exploitation de l’appareil. Device Update pour IoT Hub utilise les propriétés DeviceInformation.manufacturer et DeviceInformation.model pour la télémétrie et les diagnostics. Pour en apprendre davantage sur l’interface d’informations sur l’appareil, consultez cet [exemple](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-Le nom de composant attendu dans votre modèle est **deviceInformation** lors de l’implémentation de cette interface. [En savoir plus sur les composants Azure IoT PnP](../iot-pnp/concepts-components.md)
+Le nom de composant attendu dans votre modèle est **deviceInformation** lors de l’implémentation de cette interface. [En savoir plus sur les composants Azure IoT PnP](../iot-pnp/concepts-modeling-guide.md)
 
 |Nom|Type|schéma|Sens|Description|Exemple|
 |----|----|------|---------|-----------|-----------|

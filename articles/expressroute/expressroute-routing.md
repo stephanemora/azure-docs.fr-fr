@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: c65825a6d8d2d7f9059e91a1f248367fa1788e1a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 9d87f2641fb53a2372afcae27ebd7e92e8885e66
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799494"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903989"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -43,7 +43,7 @@ Pour configurer les peerings, vous pouvez utiliser des adresses IP privées ou p
     * Les sous-réseaux utilisés pour le routage peuvent être des adresses IP privées ou publiques.
     * Les sous-réseaux ne doivent pas entrer en conflit avec la plage réservée par le client pour une utilisation dans le cloud Microsoft.
     * Si un sous-réseau /125 est utilisé, il est subdivisé en deux sous-réseaux /126. 
-      * Le premier sous-réseau /126 est utilisé pour la liaison principale, et le second sous-réseau /30 est utilisé pour la liaison secondaire.
+      * Le premier sous-réseau /126 est utilisé pour la liaison principale, et le second sous-réseau /126 est utilisé pour la liaison secondaire.
       * Pour chacun des sous-réseaux /126, vous devez utiliser la première adresse IP du sous-réseau /126 sur votre routeur. Microsoft utilise la deuxième adresse IP du sous-réseau /126 pour configurer une session BGP.
       * Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/) soit valide.
 

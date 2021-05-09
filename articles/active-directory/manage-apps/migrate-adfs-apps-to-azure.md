@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: iangithinji
 ms.reviewer: baselden
-ms.openlocfilehash: b0fd3dae2ff9c6de39462d19dc41a32ba51171e0
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4e9bedc63a3b1d53222c732b6611d132249b07c6
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534870"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320796"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -48,7 +48,7 @@ Vos applications peuvent utiliser des protocoles modernes ou hérités pour l’
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants](what-is-application-proxy.md)
+* [Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants](../app-proxy/what-is-application-proxy.md)
 * [Qu’est-ce que la gestion des applications ?](what-is-application-management.md)
 * [Rapport d’activité des applications AD FS pour migrer des applications vers Azure AD](migrate-adfs-application-activity.md)
 * [Surveiller AD FS avec Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md)
@@ -120,7 +120,7 @@ Si vos utilisateurs se connectent à des applications SaaS telles que Salesforce
 
 La plupart des applications SaaS peuvent être configurées dans Azure AD. Microsoft propose de nombreuses connexions préconfigurées pour les applications SaaS dans la [galerie d’applications Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), ce qui facilitera la transition. Les applications SAML 2.0 peuvent être intégrées à Azure AD soit via la galerie d’applications Azure AD, soit comme des [applications ne figurant pas dans la galerie](add-application-portal.md).
 
-Les applications qui utilisent OAuth 2.0 ou OpenID Connect peuvent être intégrées à Azure AD de façon similaire en tant qu’[inscriptions d’application](../develop/quickstart-register-app.md). Les applications qui utilisent des protocoles hérités peuvent utiliser le [proxy d'application AD](application-proxy.md) pour s’authentifier auprès d’Azure AD.
+Les applications qui utilisent OAuth 2.0 ou OpenID Connect peuvent être intégrées à Azure AD de façon similaire en tant qu’[inscriptions d’application](../develop/quickstart-register-app.md). Les applications qui utilisent des protocoles hérités peuvent utiliser le [proxy d'application AD](../app-proxy/application-proxy.md) pour s’authentifier auprès d’Azure AD.
 
 Pour les problèmes liés à l’intégration de vos applications SaaS, vous pouvez contacter [l’alias du support de l’intégration d’applications SaaS](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
@@ -414,7 +414,7 @@ Selon la façon dont vous configurez votre application, vérifiez que l’authen
 | OAuth/OpenID Connect| Sélectionnez **Applications d’entreprise > Autorisations** et assurez-vous que vous avez accepté l’application dans les paramètres utilisateur de votre application.|
 | Authentification unique SAML | Utilisez le bouton [Tester les paramètres SAML](debug-saml-sso-issues.md) qui se trouve sous **Authentification unique**. |
 | Authentification unique par mot de passe |  Télécharger et installer [l’extension de connexion sécurisée ](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[ Mes applications](../user-help/my-apps-portal-end-user-access.md). Cette extension vous permet de lancer les applications cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique. |
-| Application Proxy (Proxy d’application) | Vérifiez que votre connecteur est en cours d’exécution et affecté à votre application. Pour obtenir de l’aide, consultez le [Guide de résolution des problèmes de proxy d’application](application-proxy-troubleshoot.md). |
+| Application Proxy (Proxy d’application) | Vérifiez que votre connecteur est en cours d’exécution et affecté à votre application. Pour obtenir de l’aide, consultez le [Guide de résolution des problèmes de proxy d’application](../app-proxy/application-proxy-troubleshoot.md). |
 
 > [!NOTE]
 > Les cookies de l’ancien environnement AD FS restent persistants sur les machines de l’utilisateur. Ces cookies peuvent entraîner des problèmes lors de la migration, car les utilisateurs peuvent être dirigés vers l’ancien environnement de connexion AD FS au lieu de la nouvelle connexion Azure AD. Vous devrez peut-être effacer manuellement les cookies du navigateur de l’utilisateur ou utiliser un script. Vous pouvez également utiliser le System Center Configuration Manager ou une plateforme similaire.

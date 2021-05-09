@@ -4,13 +4,13 @@ description: Une entité extrait des données d’un énoncé de l’utilisateur
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.openlocfilehash: 44cffecd653ec2ec748e73d01dc86a87cfcd7de9
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 04/26/2021
+ms.openlocfilehash: a075a84322dc11be352470d50478979b975f0292
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500326"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140890"
 ---
 # <a name="entities-in-luis"></a>Entités dans LUIS
 
@@ -33,7 +33,7 @@ Les entités sont facultatives mais recommandées. Vous n’avez pas besoin de c
 
 Pour créer une entité, vous devez lui attribuer un nom et un type. Il existe plusieurs types d’entités dans LUIS. 
 
-### <a name="list-entity"></a>Entité de liste
+## <a name="list-entity"></a>Entité de liste
 
 Une entité de liste représente un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. Vous pouvez utiliser des entités de liste afin de reconnaître plusieurs synonymes ou variations, et extraire une sortie normalisée pour ceux-ci. Utilisez la fonctionnalité *recommend* pour voir des suggestions de nouveaux mots en fonction de la liste actuelle. 
 
@@ -49,7 +49,7 @@ Dans les entités de liste, les correspondances sont sensibles à la casse et do
 
 Pour plus d’informations, consultez l’[article de référence sur les entités de liste](reference-entity-list.md).
 
-### <a name="regex-entity"></a>Entité regex
+## <a name="regex-entity"></a>Entité regex
 
 Une entité d’expression régulière extrait une entité en fonction du modèle d’expression régulière que vous fournissez. Elle ignore la casse et la variante culturelle. Une expression régulière est idéale pour du texte structuré ou pour une séquence prédéfinie de valeurs alphanumériques qui sont attendues dans un certain format. Par exemple :
 
@@ -60,7 +60,7 @@ Une entité d’expression régulière extrait une entité en fonction du modèl
 
 Pour plus d’informations, consultez l’[article de référence sur les entités regex](reference-entity-regular-expression.md).
 
-### <a name="prebuilt-entity"></a>Entité prédéfinie
+## <a name="prebuilt-entity"></a>Entité prédéfinie
 
 LUIS offre un ensemble d’entités prédéfinies qui permet de reconnaître les types de données courants tels que les noms, les dates, les nombres et les devises.  Le comportement des entités prédéfinies est fixe. La prise en charge des entités prédéfinies varie en fonction de la culture de l’application LUIS. Par exemple :
 
@@ -71,7 +71,7 @@ LUIS offre un ensemble d’entités prédéfinies qui permet de reconnaître les
 
 Pour plus d’informations, consultez l’[article de référence sur les entités prédéfinies](./luis-reference-prebuilt-entities.md).
 
-### <a name="patternany-entity"></a>Entité Pattern.Any
+## <a name="patternany-entity"></a>Entité Pattern.Any
 
 Une entité pattern.Any est un espace réservé de longueur variable qui est utilisé seulement dans l’énoncé d’un modèle pour marquer où l’entité commence et où elle se termine. Elle suit une règle ou modèle spécifique, et convient davantage aux phrases qui ont une structure lexicale fixe. Par exemple :
 
@@ -83,7 +83,7 @@ Une entité pattern.Any est un espace réservé de longueur variable qui est ut
 
 Pour plus d’informations, consultez l’[article de référence sur les entités pattern.Any](./reference-entity-pattern-any.md).
 
-### <a name="machine-learned-ml-entity"></a>Entité issue du machine learning (ML)
+## <a name="machine-learned-ml-entity"></a>Entité issue du machine learning (ML)
 
 L’entité issue du machine learning utilise le contexte pour extraire des entités en fonction des exemples étiquetés. Il s’agit de l’entité recommandée pour la création d’applications LUIS. Elle s’appuie sur des algorithmes de machine learning et nécessite que l’étiquetage soit adapté à votre application. Utilisez une entité ML pour identifier les données qui ne sont pas toujours correctement formatées, mais qui ont la même signification. 
 
@@ -109,7 +109,7 @@ Une entité ML peut être composée de sous-entités plus petites, chacune pouv
     * Pays : USA
 
 
-### <a name="building-effective-ml-entities"></a>Création d’entités ML efficaces
+## <a name="building-effective-ml-entities"></a>Création d’entités ML efficaces
 
 Pour créer des entités issues du machine learning qui soient efficaces, suivez les bonnes pratiques ci-dessous :
 
@@ -123,7 +123,7 @@ Pour créer des entités issues du machine learning qui soient efficaces, suivez
 
 Une autre chose importante à propos des entités est qu’elles peuvent être utilisées en tant que fonctionnalités ou pour distinguer les caractéristiques d’autres intentions ou entités afin que votre système puisse les observer et s’entraîner.
 
-### <a name="entities-as-features-for-intents"></a>Entités en tant que fonctionnalités pour les intentions
+## <a name="entities-as-features-for-intents"></a>Entités en tant que fonctionnalités pour les intentions
 
 Vous pouvez utiliser des entités comme un signal d’intention. Par exemple, la présence d’une certaine entité dans l’énoncé peut permettre de savoir à quelle catégorie d’intention elle appartient.
 
@@ -132,7 +132,7 @@ Vous pouvez utiliser des entités comme un signal d’intention. Par exemple, la
 |Réserve-moi un *vol pour New York*.|City|Réserver un vol|
 |Réserve-moi la *salle de conférence principale*.|Salle|Réserver une salle|
 
-### <a name="entities-as-feature-for-entities"></a>Entités en tant que fonctionnalité pour les entités
+## <a name="entities-as-feature-for-entities"></a>Entités en tant que fonctionnalité pour les entités
 
 Vous pouvez également utiliser des entités comme des indicateurs de présence d’autres entités. Un exemple courant est celui de l’utilisation d’une entité prédéfinie en tant que fonctionnalité pour une autre entité ML.
 Si vous créez un système de réservation de vol et que votre énoncé ressemble à « Réserve-moi un vol Le Caire-Seattle », vous aurez les entités ML *Ville d’origine* et *Ville de destination*. Une bonne pratique consiste à utiliser l’entité prédéfinie `GeographyV2` comme une fonctionnalité pour les deux entités.

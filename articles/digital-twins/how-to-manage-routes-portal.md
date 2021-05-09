@@ -7,27 +7,27 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8a8cc6563d8e3cae942c4dfb43afa3d05f6f2b75
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 4aef4f3a0da17abc497225bcd0a27b98e4eaea95
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257299"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208506"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](concepts-event-notifications.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
+Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](concepts-event-notifications.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer des [routes d’événements](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins doivent être envoyés aux points de terminaison.
 
 Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires à l’aide du [portail Azure](https://portal.azure.com).
 
-Vous pouvez également gérer les points de terminaison et les routes à l’aide des [API de routes d’événements](/rest/api/digital-twins/dataplane/eventroutes), des kits [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)*](how-to-manage-routes-apis-cli.md).
+Vous pouvez également gérer les points de terminaison et les routes à l’aide des [API de routes d’événements](/rest/api/digital-twins/dataplane/eventroutes), des kits [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)](how-to-manage-routes-apis-cli.md) .
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Vous avez besoin d’un **compte Azure** (vous pouvez en définir un gratuitement [ici](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [*Tutoriel : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
+* Vous aurez besoin d’une **instance Azure Digital Twins** dans votre abonnement Azure. Si vous n’avez pas d’instance, vous pouvez en créer une en suivant les étapes décrites du [Tutoriel : Configurer une instance et l’authentification](how-to-set-up-instance-portal.md). Utilisez les valeurs suivantes du programme d’installation pour les utiliser plus loin dans cet article :
     - Nom de l’instance
     - Resource group
 
@@ -46,7 +46,7 @@ Voici les types de points de terminaison pris en charge que vous pouvez créer p
 * [Hubs d'événements](../event-hubs/event-hubs-about.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Pour plus d’informations sur les différents points de terminaison, consultez [*Choisir entre les différents services de messagerie Azure*](../event-grid/compare-messaging-services.md).
+Pour plus d’informations sur les différents points de terminaison, consultez [Choisir entre les différents services de messagerie Azure](../event-grid/compare-messaging-services.md).
 
 Cette section explique comment créer l’un de ces points de terminaison dans le [portail Azure](https://portal.azure.com).
 
@@ -76,7 +76,7 @@ Une fois que vous avez créé les ressources du point de terminaison, vous pouve
 1. Terminez la création de votre point de terminaison en sélectionnant _Enregistrer_.
 
 >[!IMPORTANT]
-> Pour pouvoir utiliser correctement l’authentification basée sur l’identité pour votre point de terminaison, vous devez créer une identité managée pour votre instance en suivant les étapes décrites dans le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)*](./how-to-enable-managed-identities-portal.md).
+> Pour pouvoir utiliser correctement l’authentification basée sur l’identité pour votre point de terminaison, vous devez créer une identité managée pour votre instance en suivant les étapes décrites dans le [Guide pratique : Activer une identité managée pour les événements de routage (préversion)](./how-to-enable-managed-identities-portal.md) .
 
 Après avoir créé votre point de terminaison, vous pouvez le vérifier en sélectionnant l’icône de notification dans la barre supérieure du portail Azure : 
 
@@ -100,11 +100,11 @@ Lorsqu’un point de terminaison ne peut pas remettre un événement dans un lap
 
 Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, il est préférable d’utiliser les [commandes CLI](how-to-use-cli.md) ou les [API de plan de contrôle](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison, plutôt que le portail Azure.
 
-Pour obtenir des instructions sur la façon de procéder avec ces outils, consultez la version basée sur [*l’interface CLI et les API*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de cet article.
+Pour obtenir des instructions sur la façon de procéder avec ces outils, consultez la version basée sur [l’interface CLI et les API](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de cet article.
 
 ## <a name="create-an-event-route"></a>Création d’un itinéraire d’événements
 
-Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement**. Ces itinéraires permettent aux développeurs d’associer le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
+Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement**. Ces itinéraires permettent aux développeurs d’associer le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [Concepts : Routage des événements Azure Digital Twins](concepts-route-events.md).
 
 **Condition préalable** : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
@@ -119,7 +119,7 @@ Une définition d’itinéraire d’événement contient les éléments suivants
 * filtre définissant les événements envoyés au point de terminaison.
     - Pour désactiver l’itinéraire afin qu’aucun événement ne soit envoyé, utilisez une valeur de filtre `false`.
     - Pour activer un itinéraire qui n’a pas de filtrage spécifique, utilisez une valeur de filtre `true`.
-    - Pour plus d’informations sur les autres types de filtre, consultez la section [*Filtrer les événements*](#filter-events) ci-dessous.
+    - Pour plus d’informations sur les autres types de filtre, consultez la section [Filtrer les événements](#filter-events) ci-dessous.
 
 Un seul itinéraire peut permettre la sélection de plusieurs notifications et types d’événements.
 
@@ -202,4 +202,4 @@ Voici les filtres d’itinéraire pris en charge. Les détails de la colonne *Sc
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur les différents types de messages d’événements que vous pouvez recevoir :
-* [*Concepts : Notifications d'événements*](concepts-event-notifications.md)
+* [Concepts : Notifications d'événements](concepts-event-notifications.md)
