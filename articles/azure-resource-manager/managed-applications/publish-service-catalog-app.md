@@ -3,15 +3,15 @@ title: Publier une application managée du catalogue de services
 description: Montre comment créer une application managée Azure destinée aux membres de votre organisation.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: b255cafb9040f87c902fe6c094c3e0db3d461e4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5306b40688974b17fb268a31c2d095de264df6d
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093641"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314694"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Démarrage rapide : Créer et publier une définition d’application gérée
 

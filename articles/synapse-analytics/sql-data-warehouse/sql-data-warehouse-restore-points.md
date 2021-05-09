@@ -11,12 +11,12 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 097a3132208eee98b3f95291e414263e637bc265
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60fe76c4321b510cd5881e6d92d2deaf10ad687e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96545585"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163370"
 ---
 # <a name="user-defined-restore-points-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Points de restauration définis par l'utilisateur pour un pool SQL dédié (anciennement SQL DW)
 
@@ -32,7 +32,7 @@ Pour créer un point de restauration défini par l’utilisateur, utilisez le cm
 4. Sélectionnez l’abonnement contenant la base de données à restaurer.
 5. Créez un point de restauration pour une copie immédiate de votre entrepôt de données.
 
-```Powershell
+```powershell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -46,12 +46,11 @@ Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Create a restore point of the original database
 New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -RestorePointLabel $Label
-
 ```
 
 6. Consultez la liste de tous les points de restauration existants.
 
-```Powershell
+```powershell
 # List all restore points
 Get-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```

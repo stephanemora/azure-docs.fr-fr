@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e44d5d94a8dc172962a26f3e0dae9ccbb7f8a865
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96490038"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818887"
 ---
 # <a name="what-is-a-test-drive"></a>Qu'est-ce qu’une version d'évaluation ?
 
@@ -60,7 +60,7 @@ Ce modèle de déploiement contient toutes les ressources Azure constituant votr
 
 Une version d’évaluation hébergée simplifie la configuration en permettant à Microsoft d’héberger et de gérer le service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation. Si vous disposez d’une offre sur Microsoft AppSource, créez votre version d’évaluation pour vous connecter à une instance Dynamics AX/CRM. Vous pouvez utiliser les types d’offres AppSource suivants :
 
-- Utilisez [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) pour un système d’engagement des clients tel que les ventes, le service, le service de projet et le service sur le terrain.
+- Utilisez [Dynamics 365 pour Customer Engagement et Power Apps](dynamics-365-customer-engage-offer-setup.md) pour un système d’engagement des clients tel que les ventes, le service, le service de projet et le service sur le terrain.
 - Utilisez [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) pour un système de planification des ressources d’entreprise dans le domaine des finances et des opérations, comme les finances, les opérations, la fabrication et la chaîne logistique.
 
 ### <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique

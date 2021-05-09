@@ -3,12 +3,12 @@ title: Accélérer les workflows d’alerte
 description: Améliorez les workflows d’alerte et d’incident.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ff6f1fec17a190a8af8bf7fdf6f2e13b078dd5d
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104779118"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204546"
 ---
 # <a name="accelerate-alert-workflows"></a>Accélérer les workflows d’alerte
 
@@ -105,7 +105,7 @@ Les groupes d’alertes sont prédéfinis. Pour plus d’informations sur les al
 
 ## <a name="customize-alert-rules"></a>Personnaliser des règles d’alerte
 
-Utilisez des règles d’alerte personnalisées pour identifier plus précisément l’activité qui vous intéresse. 
+Utilisez des règles d’alerte personnalisées pour identifier plus précisément l’activité qui vous intéresse.
 
 Vous pouvez ajouter des règles d’alerte personnalisées en fonction des éléments suivants :
 
@@ -129,7 +129,7 @@ Le message d’alerte indique qu’une règle définie par l’utilisateur a dé
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Capture d’écran montrant des alertes personnalisées.":::
 
-Pour créer une règle d’alerte personnalisée :
+**Pour créer une règle d’alerte personnalisée :**
 
 1. Sélectionnez **Alertes personnalisées** dans le menu latéral d’un capteur.
 1. Sélectionnez le signe plus ( **+** ) pour créer une règle.

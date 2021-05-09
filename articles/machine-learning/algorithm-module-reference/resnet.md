@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: 88a820d0f1fa9515b4f2992a8305a2d1065e0987
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 685f919fa0b6b0452d79ed0f2d30fdc119a6540f
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93421207"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108000869"
 ---
 # <a name="resnet"></a>ResNet
 
@@ -28,7 +28,7 @@ Pour entraîner un modèle, indiquez ce dernier ainsi qu’un répertoire d’im
 
 ### <a name="more-about-resnet"></a>En savoir plus sur ResNet
 
-Pour plus d’informations, consultez [cet article](https://pytorch.org/docs/stable/torchvision/models.html?highlight=resnext101_32x8d#torchvision.models.resnext101_32x8d) sur ResNet.
+Pour plus d’informations, consultez [cet article](https://pytorch.org/vision/stable/models.html#torchvision.models.resnext101_32x8d) sur ResNet.
 
 ## <a name="how-to-configure-resnet"></a>Guide pratique pour configurer ResNet
 
@@ -38,13 +38,15 @@ Pour plus d’informations, consultez [cet article](https://pytorch.org/docs/sta
 
 3.  Pour **Pretrained** (Préentraîné), indiquez si vous souhaitez utiliser un modèle préentraîné sur ImageNet. Si cette option est sélectionnée, vous pouvez affiner le modèle en fonction du modèle préentraîné sélectionné. Si cette option est désélectionnée, vous pouvez commencer l’entraînement à partir de zéro.
 
-4.  Connectez la sortie du module **DenseNet**, du module de jeu de données d’images d’entraînement et de validation au module [Train Pytorch Model](train-pytorch-model.md). 
+4.  Pour **Zero init residual** (Initialisation avec des zéros des branches résiduelles), indiquez si la dernière couche de traitement par lots doit être initialisée avec des zéros dans chaque branche résiduelle. Si cette option est sélectionnée, la branche résiduelle commence par des zéros, et chaque bloc résiduel se comporte comme une identité. Cela peut aider à la convergence pour les lots de grande taille, conformément à https://arxiv.org/abs/1706.02677.
 
-5. Envoyez le pipeline.
+5.  Connectez la sortie du module **ResNet** et du module de jeu de données d'images d'apprentissage et de validation au module [Train PyTorch Model](train-pytorch-model.md). 
+
+6.  Envoyez le pipeline.
 
 ## <a name="results"></a>Résultats
 
-Une fois l’exécution du pipeline effectuée, si vous souhaitez utiliser le modèle à des fins de scoring, connectez le module [Train Pytorch Model](train-pytorch-model.md) (Entraîner un modèle PyTorch) au module [Score Image Model](score-image-model.md) (Scorer un modèle d’image) pour prédire les valeurs des nouveaux exemples d’entrée.
+Une fois l'exécution du pipeline effectuée, si vous souhaitez utiliser le modèle à des fins de scoring, connectez le module [Train PyTorch Model](train-pytorch-model.md) au module [Score Image Model](score-image-model.md) (Scorer un modèle d'image) pour prédire les valeurs des nouveaux exemples d'entrée.
 
 ## <a name="technical-notes"></a>Notes techniques  
 
@@ -54,6 +56,7 @@ Une fois l’exécution du pipeline effectuée, si vous souhaitez utiliser le mo
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
 | Nom du modèle | Quelconque   | Mode    | resnext101\_32x8d | Nom d’une structure ResNet spécifique       |
 | Pretrained (Préentraîné) | Quelconque   | Boolean | True              | Spécifie si un modèle préentraîné doit être utilisé ou non sur ImageNet |
+| Zero init residual (Initialisation avec des zéros des branches résiduelles) | Quelconque | Boolean | False | Spécifie si la dernière couche de traitement par lots doit être initialisée avec des zéros dans chaque branche résiduelle |
 |            |       |         |                   |                                          |
 
 ###  <a name="output"></a>Output  

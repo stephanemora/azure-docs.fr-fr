@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 276dd7aa1925fefaaa94dfdd5d7a5baba5164f56
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bdcee6b8ced45dba34309724e5a634cbb60a6d37
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790254"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818815"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide des protocoles SMB et de système de fichiers NFS. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
@@ -35,8 +35,8 @@ Azure prend en charge plusieurs types de comptes de stockage pour différents sc
 | Capacité maximale du compte de stockage | 5 Pio<sup>1</sup> | 100 Tio (approvisionné) |
 | Nombre maximal de partages de fichiers | Illimité | Illimité, la taille totale approvisionnée de tous les partages doit être inférieure à la capacité maximale du compte de stockage |
 | Taux maximal de requêtes simultanées | 20 000 IOPS<sup>1</sup> | 100 000 E/S par seconde |
-| Entrée maximale | <ul><li>États-Unis/Europe : 10 GBP/s<sup>1</sup></li><li>Autres régions (LRS/ZRS) : 10 GBP/s<sup>1</sup></li><li>Autres régions (GRS) : 5 GBP/s<sup>1</sup></li></ul> | 4,136 Mio/s |
-| Sortie maximale | 50 GBP/s<sup>1</sup> | 6,204 Mio/s |
+| Entrée maximale | <ul><li>US/Europe : 9 536 Mio/s<sup>1</sup></li><li>Autres régions (LRS/ZRS) : 9 536 Mio/s<sup>1</sup></li><li>Autres régions (GRS) : 4 768 Gio/s<sup>1</sup></li></ul> | 4,136 Mio/s |
+| Sortie maximale | 47 683 Mio/s<sup>1</sup> | 6,204 Mio/s |
 | Nombre maximal de règles de réseau virtuel | 200 | 200 |
 | Nombre maximal de règles d’adresse IP | 200 | 200 |
 | Opérations de lecture de gestion | 800 toutes les 5 minutes | 800 toutes les 5 minutes |

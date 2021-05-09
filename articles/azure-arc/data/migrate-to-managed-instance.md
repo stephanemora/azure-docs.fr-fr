@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e0fbd0e49b1ac80161d0447d2f75a9cc03844abb
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 011eb74158d9e004aca04c595e5cfe4b76d3cb51
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130122"
+ms.locfileid: "108163352"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migrer : SQL Server vers Azure Arc enabled SQL Managed Instance
 
@@ -22,7 +22,7 @@ Ce scénario vous guide tout au long des étapes de migration d’une base de do
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="use-azure-blob-storage"></a>Utiliser le stockage Blob Azure 
+## <a name="use-azure-blob-storage"></a>Utiliser le stockage Blob Azure
 
 Utilisez le stockage Blob Azure pour la migration vers Azure Arc enabled SQL Managed Instance.
 
@@ -133,10 +133,10 @@ Cette méthode vous montre comment produire un fichier de sauvegarde que vous cr
 
 Sauvegardez la base de données SQL Server dans le chemin de votre fichier local, comme n’importe quelle sauvegarde standard SQL Server sur disque :
 
- ```sql
+```sql
 BACKUP DATABASE Test
 TO DISK = 'c:\tmp\test.bak'
-WITH FORMAT, MEDIANAME = 'Test’ ;
+WITH FORMAT, MEDIANAME = 'Test' ;
 GO
 ```
 
@@ -146,7 +146,7 @@ Recherchez le nom du pod où l’instance SQL est déployée. C’est générale
 
 Obtenez la liste de tous les pods en exécutant :
 
- ```console
+```console
 kubectl get pods -n <namespace of data controller>
 ```
 
@@ -154,7 +154,7 @@ Exemple :
 
 Copiez le fichier de sauvegarde depuis le stockage local vers le pod SQL du cluster.
 
- ```console
+```console
 kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
 
 #Example:
@@ -186,7 +186,6 @@ WITH MOVE 'test' to '/var/opt/mssql/data/test.mdf'
 ,STATS = 5;  
 GO
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 3e0632b2ad1ac237d8899e9d3bdc7f1d3350fa76
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a5a70d16ad0fd2805871ef4c08d2891082dd2916
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057930"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163046"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutoriel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight
 
@@ -36,7 +36,7 @@ Le bloc-notes [Jupyter Notebook](https://jupyter.org/) que vous avez créé dans
 
 1. Dans le notebook Jupyter, collez le code suivant, puis appuyez sur **MAJ + ENTRÉE**. Le code vérifie l’existence des tables.
 
-    ```PySpark
+    ```pyspark
     %%sql
     SHOW TABLES
     ```
@@ -49,7 +49,7 @@ Le bloc-notes [Jupyter Notebook](https://jupyter.org/) que vous avez créé dans
 
 2. Collez le code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**. Le code vérifie les données de la table.
 
-    ```PySpark
+    ```pyspark
     %%sql
     SELECT * FROM hvac LIMIT 10
     ```
@@ -72,11 +72,11 @@ Les premières étapes de l’utilisation de Spark consistent à se connecter au
 
 2. Sous l'onglet **Accueil**, accédez à **Obtenir les données** > **Autres...**
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png " alt-text="Obtenir des données dans Power BI Desktop à partir de HDInsight Apache Spark" border="true":::er="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png " alt-text="Obtenir des données dans Power BI Desktop à partir de HDInsight Apache Spark" border="true":::
 
 3. Entrez `Spark` dans la zone de recherche, sélectionnez **Azure HDInsight Spark**, puis choisissez **Se connecter**.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png " alt-text="Obtenir des données dans Power BI à partir d’Apache Spark BI" border="true":::er="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png " alt-text="Obtenir des données dans Power BI à partir d’Apache Spark BI" border="true":::
 
 4. Entrez l'URL de votre cluster (sous la forme `mysparkcluster.azurehdinsight.net`) dans la zone de texte **Serveur**.
 
@@ -88,7 +88,7 @@ Les premières étapes de l’utilisation de Spark consistent à se connecter au
 
 7. Sélectionnez la table `hvac`, attendez que l'aperçu des données s'affiche, puis sélectionnez **Charger**.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png " alt-text="Nom d’utilisateur et mot de passe du cluster Spark" border="true":::d" border="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png " alt-text="Nom d’utilisateur et mot de passe du cluster Spark" border="true":::
 
     Power BI Desktop dispose de toutes les informations nécessaires pour se connecter au cluster Spark et charger des données à partir de la `hvac` table. La table et ses colonnes sont affichées dans le volet **Champ**.
 
@@ -98,17 +98,17 @@ Les premières étapes de l’utilisation de Spark consistent à se connecter au
 
     2. Faites glisser le champ **BuildingID** vers **Axe** et les champs **ActualTemp** et **TargetTemp** vers **Valeurs**.
 
-        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png " alt-text="ajouter des colonnes de valeurs" border="true":::t="ajouter des colonnes de valeurs" border="true":::
+        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png " alt-text="ajouter des colonnes de valeurs" border="true":::
 
         Le diagramme a l’aspect suivant :
 
-        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png " alt-text="somme de graphique en aires" border="true":::lt-text="somme de graphique en aires" border="true":::
+        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png " alt-text="somme de graphique en aires" border="true":::
 
         Par défaut, la visualisation affiche la somme des valeurs des champs **ActualTemp** et **TargetTemp**. Sélectionnez la flèche bas en regard d'**ActualTemp** et **TragetTemp** dans le volet Visualisations ; vous pouvez voir que **Somme** est sélectionné.
 
     3. Cliquez sur la flèche bas en regard d'**ActualTemp** et **TragetTemp** dans le volet Visualisations ; sélectionnez **Moyenne** pour obtenir une moyenne des températures réelle et cible de chaque bâtiment.
 
-        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png " alt-text="moyenne des valeurs" border="true":::t="moyenne des valeurs" border="true":::
+        :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png " alt-text="moyenne de valeurs" border="true":::
 
         La visualisation de vos données sera semblable à celle illustrée dans la capture d’écran. Déplacez le curseur sur la visualisation pour obtenir des info-bulles contenant des données pertinentes.
 
@@ -128,11 +128,11 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 1. Sélectionnez un espace de travail où publier votre jeu de données et votre rapport, puis cliquez sur **Sélectionnez**. Dans l’image suivante, l’option par défaut **Mon espace de travail** est sélectionnée.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png " alt-text="Sélectionner l’espace de travail dans lequel publier le jeu de données et générer des rapports" border="true":::ue":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png " alt-text="Sélectionner l’espace de travail dans lequel publier le jeu de données et générer des rapports" border="true":::
 
 1. Une fois la publication réussie, sélectionnez **Ouvrir « BuildingTemperature.pbix » dans Power BI**.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png " alt-text="Publication réussie, cliquer pour entrer les informations d’identification" border="true":::er="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png " alt-text="Publication réussie, cliquer pour entrer les informations d’identification" border="true":::
 
 1. Dans le service Power BI, sélectionnez **Entrer les informations d’identification**.
 
@@ -140,7 +140,7 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 1. Sélectionnez **Modifier les informations d’identification**.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png " alt-text="Modifier les informations d’identification dans le service Power BI" border="true":::" border="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png " alt-text="Modifier les informations d’identification dans le service Power BI" border="true":::
 
 1. Entrez les informations du compte de connexion HDInsight, puis sélectionnez **Se connecter**. Le nom du compte par défaut est *administrateur*.
 
@@ -148,7 +148,7 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 1. Dans le volet gauche, accédez à **Espaces de travail** > **Mon espace de travail** > **RAPPORTS**, puis sélectionnez **BuildingTemperature**.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png " alt-text="Rapport figurant sous rapports dans le volet gauche" border="true":::order="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png " alt-text="Rapport figurant sous rapports dans le volet de gauche" border="true":::
 
     Vous devez également voir **BuildingTemperature** sous **JEUX DE DONNÉES** dans le volet gauche.
 
@@ -156,7 +156,7 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 1. Pointez votre curseur sur la visualisation, puis sélectionnez l’icône d’épingle dans le coin supérieur droit.
 
-    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png " alt-text="Rapport dans le service Power BI" border="true":::service" border="true":::
+    :::image type="content" source="./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png " alt-text="Rapport dans le service Power BI" border="true":::
 
 1. Sélectionnez « Nouveau tableau de bord », entrez le nom `Building temperature`, puis sélectionnez **Épingler**.
 

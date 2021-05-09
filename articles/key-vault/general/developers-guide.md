@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4f9523594c07209d530a143713061be6d0467af8
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 08ac1ae09741b63648aec2b51b6a774a46b9af7c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753377"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818437"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -45,7 +45,7 @@ L’accès à la couche de gestion est contrôlé par le [contrôle d’accès e
 
 Consultez les [bibliothèques clientes](client-libraries.md) pour obtenir les packages d’installation et le code source.
 
-Pour plus d’informations sur le plan de gestion de Key Vault, consultez [Plan de gestion de Key Vault](security-overview.md)
+Pour plus d'informations sur le plan de gestion de Key Vault, consultez [Fonctionnalités de sécurité d'Azure Key Vault](security-features.md).
 
 ## <a name="authenticate-to-key-vault-in-code"></a>S’authentifier auprès de Key Vault dans le code
 
@@ -105,7 +105,7 @@ L’accès aux clés, secrets et certificats est contrôlé par le plan de donn�
 
 Consultez les [bibliothèques clientes](client-libraries.md) pour obtenir les packages d’installation et le code source.
 
-Pour plus d’informations sur la sécurité du plan de données Key Vault, consultez [Vue d’ensemble de la sécurité de Key Vault](security-overview.md).
+Pour plus d’informations sur la sécurité du plan de données Key Vault, consultez [Fonctionnalités de sécurité d'Azure Key Vault](security-features.md).
 
 ### <a name="code-examples"></a>Exemples de code
 

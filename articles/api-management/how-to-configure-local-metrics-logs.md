@@ -12,23 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53fe2d6b06e7502b95a78ad1ebd062efea92c656
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594175"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162380"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure
 
-Cet article fournit des informations détaillées sur la configuration des métriques et journaux locaux pour la [passerelle auto-hébergée](./self-hosted-gateway-overview.md) déployée sur un cluster Kubernetes. Pour configurer les journaux et métriques cloud, consultez [cet article](how-to-configure-cloud-metrics-logs.md). 
+Cet article fournit des informations détaillées sur la configuration des métriques et journaux locaux pour la [passerelle auto-hébergée](./self-hosted-gateway-overview.md) déployée sur un cluster Kubernetes. Pour configurer les journaux et métriques cloud, consultez [cet article](how-to-configure-cloud-metrics-logs.md).
 
 ## <a name="metrics"></a>Mesures
-La passerelle auto-hébergée prend en charge [StatsD](https://github.com/statsd/statsd), qui est devenu un protocole unifiant pour la collecte et l’agrégation des métriques. Cette section décrit les étapes de déploiement de StatsD sur Kubernetes, de configuration de la passerelle pour émettre des métriques via StatsD, et d’utilisation de [Prometheus](https://prometheus.io/) pour surveiller les métriques. 
+
+La passerelle auto-hébergée prend en charge [StatsD](https://github.com/statsd/statsd), qui est devenu un protocole unifiant pour la collecte et l’agrégation des métriques. Cette section décrit les étapes de déploiement de StatsD sur Kubernetes, de configuration de la passerelle pour émettre des métriques via StatsD, et d’utilisation de [Prometheus](https://prometheus.io/) pour surveiller les métriques.
 
 ### <a name="deploy-statsd-and-prometheus-to-the-cluster"></a>Déployer StatsD et Prometheus sur le cluster
 
-Voici un exemple de configuration YAML pour le déploiement des services StatsD et Prometheus sur le cluster Kubernetes dans lequel une passerelle auto-hébergée est déployée. Il crée également un [Service](https://kubernetes.io/docs/concepts/services-networking/service/) pour chaque service. La passerelle auto-hébergée publie des métriques sur le service StatsD. Nous allons accéder au tableau de bord de Prometheus via son service.   
+Voici un exemple de configuration YAML pour le déploiement des services StatsD et Prometheus sur le cluster Kubernetes dans lequel une passerelle auto-hébergée est déployée. Il crée également un [Service](https://kubernetes.io/docs/concepts/services-networking/service/) pour chaque service. La passerelle auto-hébergée publie des métriques sur le service StatsD. Nous allons accéder au tableau de bord de Prometheus via son service.
 
 ```yaml
 apiVersion: v1
@@ -128,7 +129,7 @@ Enregistrez les configurations dans un fichier nommé `metrics.yaml` et utilisez
 kubectl apply -f metrics.yaml
 ```
 
-Une fois le déploiement terminé, exécutez la commande ci-dessous pour vérifier que les pods sont en cours d’exécution. Notez que le nom de votre pod va être différent. 
+Une fois le déploiement terminé, exécutez la commande ci-dessous pour vérifier que les pods sont en cours d’exécution. Notez que le nom de votre pod va être différent.
 
 ```console
 kubectl get pods
@@ -171,11 +172,11 @@ Voici un exemple de configuration :
         telemetry.metrics.local.statsd.tag-format: "dogStatsD"
 ```
 
-Mettez à jour le fichier YAML du déploiement de la passerelle auto-hébergée avec les configurations ci-dessus, et appliquez les modifications à l’aide de la commande ci-dessous : 
+Mettez à jour le fichier YAML du déploiement de la passerelle auto-hébergée avec les configurations ci-dessus, et appliquez les modifications à l’aide de la commande ci-dessous :
 
 ```console
 kubectl apply -f <file-name>.yaml
- ```
+```
 
 Pour prélever les dernières modifications de configuration, redémarrez le déploiement de la passerelle à l’aide de la commande ci-dessous :
 
@@ -185,7 +186,7 @@ kubectl rollout restart deployment/<deployment-name>
 
 ### <a name="view-the-metrics"></a>Afficher les métriques
 
-À présent que tout est déployé et configuré, la passerelle auto-hébergée doit signaler les métriques via StatsD. Prometheus prélève les métriques dans StatsD. Accédez au tableau de bord Prometheus en utilisant les valeurs `EXTERNAL-IP` et `PORT` du service Prometheus. 
+À présent que tout est déployé et configuré, la passerelle auto-hébergée doit signaler les métriques via StatsD. Prometheus prélève les métriques dans StatsD. Accédez au tableau de bord Prometheus en utilisant les valeurs `EXTERNAL-IP` et `PORT` du service Prometheus.
 
 Effectuez quelques appels d’API via la passerelle auto-hébergée. Si tout est bien configuré, vous devez être en mesure d’afficher les métriques ci-dessous :
 
@@ -204,16 +205,16 @@ La passerelle auto-hébergée génère des journaux dans `stdout` et `stderr` pa
 kubectl logs <pod-name>
 ```
 
-Si votre passerelle auto-hébergée est déployée dans Azure Kubernetes Service, vous pouvez activer [Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-overview.md) afin de collecter `stdout` et `stderr` à partir de vos charges de travail et d’afficher les journaux dans Log Analytics. 
+Si votre passerelle auto-hébergée est déployée dans Azure Kubernetes Service, vous pouvez activer [Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-overview.md) afin de collecter `stdout` et `stderr` à partir de vos charges de travail et d’afficher les journaux dans Log Analytics.
 
-La passerelle auto-hébergée prend également en charge un certain nombre de protocoles, notamment `localsyslog`, `rfc5424` et `journal`. Le tableau ci-dessous récapitule toutes les options prises en charge. 
+La passerelle auto-hébergée prend également en charge un certain nombre de protocoles, notamment `localsyslog`, `rfc5424` et `journal`. Le tableau ci-dessous récapitule toutes les options prises en charge.
 
 | Champ  | Default | Description |
 | ------------- | ------------- | ------------- |
 | telemetry.logs.std  | `text` | Active la journalisation dans des flux standard. La valeur peut être `none`, `text` ou `json`. |
 | telemetry.logs.local  | `none` | Active la journalisation locale. La valeur peut être `none`, `auto`, `localsyslog`, `rfc5424` ou `journal`.  |
 | telemetry.logs.local.localsyslog.endpoint  | n/a | Spécifie le point de terminaison de localsyslog.  |
-| telemetry.logs.local.localsyslog.facility  | n/a | Specifies le [code de facilité](https://en.wikipedia.org/wiki/Syslog#Facility) de localsyslog. Par exemple, `7` 
+| telemetry.logs.local.localsyslog.facility  | n/a | Specifies le [code de facilité](https://en.wikipedia.org/wiki/Syslog#Facility) de localsyslog. Par exemple, `7`
 | telemetry.logs.local.rfc5424.endpoint  | n/a | Spécifie le point de terminaison de rfc5424.  |
 | telemetry.logs.local.rfc5424.facility  | n/a | Spécifie le code de facilité par [rfc5424](https://tools.ietf.org/html/rfc5424). Par exemple, `7`  |
 | telemetry.logs.local.journal.endpoint  | n/a | Spécifie le point de terminaison du journal.  |
@@ -231,7 +232,7 @@ Voici un exemple de configuration de journalisation locale :
         telemetry.logs.local.localsyslog.endpoint: "/dev/log"
         telemetry.logs.local.localsyslog.facility: "7"
 ```
- 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la passerelle auto-hébergée, consultez [Vue d’ensemble de la passerelle auto-hébergée Gestion des API](self-hosted-gateway-overview.md)

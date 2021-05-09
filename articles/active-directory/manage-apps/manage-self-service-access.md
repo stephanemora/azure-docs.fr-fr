@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29c3043cc38c8ab3d3387b171ea6f3793d485730
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 00393017dee64cf9ca0320140c640eaf4288e1b4
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107373959"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315180"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Configurer l’attribution d’applications en libre-service
 
-Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis Mes applications, vous devez activer l’option d’**accès aux applications en libre-service** pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès. Cette fonctionnalité est disponible pour les applications qui ont été ajoutées à partir d’[Azure AD Gallery](./add-application-portal.md), d’[Azure AD Application Proxy](./application-proxy.md) ou par l’intermédiaire du [consentement utilisateur ou administrateur](../develop/application-consent-experience.md). 
+Pour permettre à vos utilisateurs de découvrir eux-mêmes des applications depuis Mes applications, vous devez activer l’option d’**accès aux applications en libre-service** pour toutes les applications pour lesquelles vous souhaitez autoriser les utilisateurs à les découvrir eux-mêmes et en demander l’accès. Cette fonctionnalité est disponible pour les applications qui ont été ajoutées à partir d’[Azure AD Gallery](./add-application-portal.md), d’[Azure AD Application Proxy](../app-proxy/application-proxy.md) ou par l’intermédiaire du [consentement utilisateur ou administrateur](../develop/application-consent-experience.md). 
 
 Cette fonctionnalité est un excellent moyen pour un groupe informatique d’économiser du temps et de l’argent, et elle est recommandée dans le cadre d’un déploiement d’applications modernes avec Azure Active Directory.
 

@@ -3,12 +3,13 @@ title: Surveiller les performances sur les machines virtuelles Azure - Azure App
 description: Analyse des performances des applications pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 0951d1d622f59de4780735fad78ac73649ea2369
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d60b06331f10f33fabfb7ef03365ee6ac8689bcf
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711479"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315162"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Déployer Azure Monitor Application Insights Agent sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure
 
@@ -42,7 +43,7 @@ Il existe deux manières d’activer la supervision des applications pour les ap
   * Le module Application Insights Agent collecte automatiquement les mêmes signaux de dépendance prêts à l’emploi que le kit SDK .NET. Pour en savoir plus, consultez [Collecte automatique de dépendance](./auto-collect-dependencies.md#net).
         
 #### <a name="java"></a>Java
-  * Pour Java, l’ **[agent Application Insights Java 3.0](./java-in-process-agent.md)** est l’approche recommandée. Les bibliothèques et les frameworks les plus populaires ainsi que les journaux et les dépendances sont [collectés automatiquement](./java-in-process-agent.md#auto-collected-requests-dependencies-logs-and-metrics), avec une multitude de [configurations supplémentaires](./java-standalone-config.md).
+  * Pour Java, l’ **[agent Application Insights Java 3.0](./java-in-process-agent.md)** est l’approche recommandée. Les bibliothèques et les frameworks les plus populaires ainsi que les journaux et les dépendances sont [collectés automatiquement](./java-in-process-agent.md#auto-collected-requests), avec une multitude de [configurations supplémentaires](./java-standalone-config.md).
 
 ### <a name="code-based-via-sdk"></a>Avec du code via le kit SDK
     

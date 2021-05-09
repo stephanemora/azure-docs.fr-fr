@@ -8,20 +8,20 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b0cd0402348e4aa45b291f30b677fc9e4bbdb98
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 851557c4cdc0f913247d40f2aaea3230a2e8551f
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833631"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204726"
 ---
 # <a name="set-up-diagnostics-with-a-trusted-platform-module-tpm-endpoint-of-azure-attestation"></a>Configurer des diagnostics avec un point de terminaison de Module de plateforme sécurisée (TPM) d’Azure Attestation
 
-Cet article vous aide dans la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations. Les [journaux de plateforme](/azure/azure-monitor/platform/platform-logs-overview) dans Azure, y compris le journal des activités Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](/azure/azure-monitor/platform/data-platform-metrics) sont collectées par défaut et stockées dans la base de données Métriques Azure Monitor.
+Cet article vous aide dans la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations. Les [journaux de plateforme](../azure-monitor/essentials/platform-logs-overview.md) dans Azure, y compris le journal des activités Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](../azure-monitor/essentials/data-platform-metrics.md) sont collectées par défaut et stockées dans la base de données Métriques Azure Monitor.
 
 Avant de commencer, assurez-vous d’avoir [configuré Azure Attestation avec Azure PowerShell](quickstart-powershell.md).
 
-Le service de point de terminaison TPM est activé dans les paramètres de diagnostic et peut être utilisé pour superviser l’activité. Configurez la [Supervision Azure](/azure/azure-monitor/overview) pour le point de terminaison du service TPM en utilisant le code suivant.
+Le service de point de terminaison TPM est activé dans les paramètres de diagnostic et peut être utilisé pour superviser l’activité. Configurez la [Supervision Azure](../azure-monitor/overview.md) pour le point de terminaison du service TPM en utilisant le code suivant.
 
 ```powershell
 
@@ -41,4 +41,4 @@ Le service de point de terminaison TPM est activé dans les paramètres de diagn
 
 ```
 
-Les journaux d’activité se trouvent dans la section **Conteneurs** du compte de stockage. Pour plus d’informations, consultez [Collecter et analyser des journaux de ressources à partir d’une ressource Azure](/azure/azure-monitor/learn/tutorial-resource-logs).
+Les journaux d’activité se trouvent dans la section **Conteneurs** du compte de stockage. Pour plus d’informations, consultez [Collecter et analyser des journaux de ressources à partir d’une ressource Azure](../azure-monitor/essentials/tutorial-resource-logs.md).
