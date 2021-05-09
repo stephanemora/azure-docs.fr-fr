@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b3f0dd599f982e19fee7febc3b85d46f91a55b35
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 713a829ee8c7a3d036bc82f6f509e5c79dfb71aa
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589293"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205770"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
 L’une des principales caractéristiques d’Azure Digital Twins est la possibilité de définir votre propre vocabulaire et à créer votre graphique de jumeau dans les termes définis par votre entreprise. Cette fonctionnalité est fournie via les **modèles** spécifiés par l’utilisateur. Vous pouvez considérer les modèles comme des noms dans une description de votre monde. 
 
-Un modèle est comparable à une **classe** dans un langage de programmation orienté objet, définissant une forme de données pour un concept particulier dans votre environnement de travail réel. Les modèles ont des noms (par exemple, *Room* ou *TemperatureSensor*) et contiennent des éléments tels que des propriétés, de la télémétrie ou des événements, ainsi que des commandes décrivant ce que peut faire ce type d’entité dans votre environnement. Plus tard, vous utiliserez ces modèles pour créer des [**jumeaux numériques**](concepts-twins-graph.md) représentant des entités spécifiques répondant à une description de ce type.
+Un modèle est comparable à une **classe** dans un langage de programmation orienté objet, définissant une forme de données pour un concept particulier dans votre environnement de travail réel. Les modèles ont des noms (par exemple, *Room* ou *TemperatureSensor*) et contiennent des éléments tels que des propriétés, de la télémétrie ou des événements, ainsi que des commandes décrivant ce que peut faire ce type d’entité dans votre environnement. Plus tard, vous utiliserez ces modèles pour créer des [jumeaux numériques](concepts-twins-graph.md) représentant des entités spécifiques répondant à une description de ce type.
 
 Les modèles Azure Digital Twins sont représentés avec le **langage DTDL (Digital Twins Definition Language)** basé sur JSON-LD.  
 
@@ -26,7 +26,7 @@ Les modèles Azure Digital Twins sont représentés avec le **langage DTDL (Digi
 
 Les modèles pour Azure Digital Twins sont définis à l’aide du langage de définition Digital Twins (DTDL). 
 
-Vous pouvez afficher les spécifications de langage complètes pour DTDL dans GitHub : [**Langage de définition Digital Twins (DTDL) - version 2**](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Vous pouvez afficher les spécifications de langage complètes pour DTDL dans GitHub : [Langage de définition Digital Twins (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 Le langage DTDL est basé sur JSON-LD et est indépendant du langage de programmation. Le langage DTDL n’est pas exclusif d’Azure Digital Twins. Il est également utilisé pour représenter des données d’appareil dans d’autres services IoT tels que [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digital Twins utilise DTDL **version 2** (l’utilisation de DTDL version 1 avec Azure Digital Twins est désormais déconseillée). 
 
@@ -51,7 +51,7 @@ Dans une définition de modèle, l’élément de code de niveau supérieur est 
 
 Une interface de modèle DTDL peut contenir de zéro à un grand nombre des champs suivants :
 * **Propriété** : certaines propriétés sont des champs de données représentant l’état d’une entité ; c’est par exemple le cas des propriétés dans de nombreux langages de programmation orientés objet. Les propriétés ont un stockage de sauvegarde et peuvent être lues à tout moment.
-* **Télémétrie** : les champs de télémétrie représentent des mesures ou des événements, et sont souvent utilisés pour décrire des lectures de capteur d’appareil. Contrairement aux propriétés, la télémétrie n’est pas stockée sur un jumeau numérique. Il s’agit d’une série d’événements de données limités dans le temps qui doivent être traités au fur et à mesure qu’ils se produisent. Pour plus d’informations sur les différences entre les propriétés et la télémétrie, consultez la section [*Propriétés et télémétrie*](#properties-vs-telemetry) ci-dessous.
+* **Télémétrie** : les champs de télémétrie représentent des mesures ou des événements, et sont souvent utilisés pour décrire des lectures de capteur d’appareil. Contrairement aux propriétés, la télémétrie n’est pas stockée sur un jumeau numérique. Il s’agit d’une série d’événements de données limités dans le temps qui doivent être traités au fur et à mesure qu’ils se produisent. Pour plus d’informations sur les différences entre les propriétés et la télémétrie, consultez la section [Propriétés et télémétrie](#properties-vs-telemetry) ci-dessous.
 * **Composant** : les composants vous permettent, le cas échéant, de créer votre interface de modèle en tant qu’assembly d’autres interfaces. Un exemple de composant est une interface *frontCamera*, ainsi qu’une autre interface de composant *backCamera*, utilisées pour la définition d’un modèle de *téléphone*. Vous devez commencer par définir une interface pour le composant *frontCamera*, comme s’il s’agissait de son propre modèle, puis la référencer lors de la définition de *téléphone*.
 
     Utilisez un composant pour décrire un élément qui fait partie intégrante de votre solution mais n’a pas besoin d’identité séparée, et qu’il n’est pas nécessaire de créer, supprimer ou réorganiser de manière indépendante dans le graphique de jumeaux. Si vous souhaitez que les entités aient des existences indépendantes dans le graphique de jumeaux, représentez-les en tant que jumeaux numériques séparés de différents modèles connectés par des *relations* (voir la puce suivante).
@@ -153,21 +153,21 @@ Cette section décrit plus en détail l’ensemble actuel d’échantillons.
 
 _**Pour le chargement de modèles vers Azure Digital Twins**_
 
-Une fois que vous avez fini de créer, d’étendre ou de sélectionner vos modèles, vous pouvez les charger vers votre instance d’Azure Digital Twins pour les rendre accessibles dans votre solution. Pour ce faire, utilisez les [API Azure Digital Twins](how-to-use-apis-sdks.md), comme indiqué dans le [*Guide pratique pour Gérer les modèles DTDL*](how-to-manage-model.md#upload-models).
+Une fois que vous avez fini de créer, d’étendre ou de sélectionner vos modèles, vous pouvez les charger vers votre instance d’Azure Digital Twins pour les rendre accessibles dans votre solution. Pour ce faire, utilisez les [API Azure Digital Twins](how-to-use-apis-sdks.md), comme indiqué dans le [Guide pratique pour Gérer les modèles DTDL](how-to-manage-model.md#upload-models).
 
-Toutefois, si vous avez de nombreux modèles à charger, ou s’ils ont de nombreuses interdépendances qui compliquent le tri des chargements individuels, vous pouvez utiliser cet exemple pour charger plusieurs modèles à la fois : [**Chargeur de modèles Azure Digital Twins**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Suivez les instructions fournies avec l’exemple pour configurer et utiliser ce projet afin de charger des modèles vers votre propre instance.
+Toutefois, si vous avez de nombreux modèles à charger, ou s’ils ont de nombreuses interdépendances qui compliquent le tri des chargements individuels, vous pouvez utiliser cet exemple pour charger plusieurs modèles à la fois : [Chargeur de modèles Azure Digital Twins](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Suivez les instructions fournies avec l’exemple pour configurer et utiliser ce projet afin de charger des modèles vers votre propre instance.
 
 ### <a name="model-visualizer"></a>Visualiseur de modèles 
 
 _**Pour la visualisation des modèles**_
 
-Une fois que vous avez chargé des modèles dans votre instance Azure Digital Twins, vous pouvez les voir dans cette dernière. Vous pouvez voir notamment les relations d’héritage et les relations entre modèles à l’aide de l’application [**Azure Digital Twins Model Visualizer**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Cet exemple est à l’état de brouillon. Nous encourageons la communauté de développement de jumeaux numériques à étendre cet exemple, et à y contribuer. 
+Une fois que vous avez chargé des modèles dans votre instance Azure Digital Twins, vous pouvez les voir dans cette dernière. Vous pouvez voir notamment les relations d’héritage et les relations entre modèles à l’aide de l’application [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Cet exemple est à l’état de brouillon. Nous encourageons la communauté de développement de jumeaux numériques à étendre cet exemple, et à y contribuer. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez plus en détail la création de modèles basés sur des ontologies conformes aux standards du secteur : [*Concepts : Qu’est-ce qu’une ontologie ?*](concepts-ontologies.md)
+* Découvrez plus en détail la création de modèles basés sur des ontologies conformes aux standards du secteur : [Concepts : Qu’est-ce qu’une ontologie ?](concepts-ontologies.md) 
 
-* Explorez plus en détail la gestion des modèles à l’aide des opérations d’API : [*Guide pratique : Gérer les modèles DTDL*](how-to-manage-model.md)
+* Explorez plus en détail la gestion des modèles à l’aide des opérations d’API : [Guide pratique : Gérer les modèles DTDL](how-to-manage-model.md)
 
-* Découvrez comment les modèles permettent de créer des jumeaux numériques : [*Concepts : Jumeaux numériques et graphe de jumeaux*](concepts-twins-graph.md)
+* Découvrez comment les modèles permettent de créer des jumeaux numériques : [Concepts : Jumeaux numériques et graphe de jumeaux](concepts-twins-graph.md)
 

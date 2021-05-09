@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 04/16/2021
+ms.date: 04/22/2021
 ms.author: duau
-ms.openlocfilehash: 0bbe16fb63a4546b4b4745df16074f6a4b0cb26b
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 77b9cd7590b381a29fc0dc19b2a80b72afceca0a
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599534"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930296"
 ---
 # <a name="azure-route-server-preview-faq"></a>Forum aux questions sur Azure Route Server (préversion)
 
@@ -81,6 +81,7 @@ Azure Route Server présente les limites suivantes (par déploiement).
 | Nombre de pairs BGP pris en charge | 8 |
 | Nombre de routes que chaque pair BGP peut publier sur Azure Route Server | 200 |
 | Nombre de routes qu’Azure Route Server peut publier sur ExpressRoute ou la passerelle VPN | 200 |
+| Nombre de machines virtuelles du réseau virtuel (réseaux virtuels appairés compris) que Serveur de routes Azure peut prendre en charge | 6000 |
 
 Si votre appliance virtuelle réseau publie plus d’itinéraires que la limite, la session BGP est abandonnée. Si cela se produit pour la passerelle et le serveur de routage Azure, vous perdez la connectivité de votre réseau local à Azure. Pour plus d’informations, consultez [Diagnostiquer un problème de routage sur une machine virtuelle Azure](../virtual-network/diagnose-network-routing-problem.md).
 

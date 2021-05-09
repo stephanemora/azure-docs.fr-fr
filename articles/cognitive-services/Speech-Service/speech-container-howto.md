@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur
-ms.openlocfilehash: cb99dc3c5e16ee117df46d7fda0caab9c57f0853
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: efc92bbd149bf66abf8d1582902443df054ce0e6
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388089"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930213"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
@@ -34,7 +34,6 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 > * Synthèse vocale neuronale
 >
 > Les conteneurs Speech suivants sont en préversion contrôlée.
-> * Synthèse vocale personnalisée
 > * Détection de langue vocale 
 >
 > Pour utiliser les conteneurs Speech, vous devez envoyer une demande en ligne et obtenir son approbation. Pour plus d’informations, consultez la section **Demande d’approbation pour l’exécution du conteneur** ci-dessous.
@@ -44,7 +43,6 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 | Reconnaissance vocale | Analyse les sentiments et transcrit de façon continue de la parole en temps réel ou des enregistrements audio par lots, avec des résultats intermédiaires.  | 2.11.0 |
 | Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.11.0 |
 | Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.13.0 |
-| Synthèse vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Voice](https://aka.ms/custom-voice-portal), convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.13.0 |
 | Détection de langue vocale | Permet de détecter la langue parlée en fichiers audio. | 1.0 |
 | Synthèse vocale neuronale | Convertit du texte en parole naturelle grâce à la technologie de réseau neuronal profond qui permet d’obtenir une parole synthétisée plus naturelle. | 1.5.0 |
 
@@ -85,7 +83,6 @@ Le tableau suivant indique l’allocation de ressources minimale et recommandée
 | Reconnaissance vocale | 2 cœurs, 2 Go de mémoire | 4 cœurs, 4 Go de mémoire |
 | Reconnaissance vocale personnalisée | 2 cœurs, 2 Go de mémoire | 4 cœurs, 4 Go de mémoire |
 | Synthèse vocale | 1 cœur, 2 Go de mémoire | 2 cœur, 3 Go de mémoire |
-| Synthèse vocale personnalisée | 1 cœur, 2 Go de mémoire | 2 cœur, 3 Go de mémoire |
 | Détection de langue vocale | 1 cœur, 1 Go de mémoire | 1 cœur, 1 Go de mémoire |
 | Synthèse vocale neuronale | 6 cœurs, 12 Go de mémoire | 8 cœurs, 16 Go de mémoire |
 
@@ -130,12 +127,6 @@ Les images conteneur pour Speech sont disponibles dans le service Container Regi
 | Conteneur | Référentiel |
 |-----------|------------|
 | Synthèse vocale neuronale | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
-
-# <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
-
-| Conteneur | Référentiel |
-|-----------|------------|
-| Synthèse vocale personnalisée | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
 # <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
 
@@ -257,19 +248,6 @@ Pour tous les paramètres régionaux et les voix correspondantes pris en charge 
 
 > [!IMPORTANT]
 > Lors de la construction d’une requête HTTP POST de *synthèse vocale neuronale*, le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#neural-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-AriaNeural`.
-
-# <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
-
-#### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker pull pour le conteneur Synthèse vocale personnalisée
-
-Utilisez la commande [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur à partir du registre de conteneurs Microsoft.
-
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest
-```
-
-> [!NOTE]
-> Les `locale` et `voice` des conteneurs Speech personnalisés sont déterminés par le modèle personnalisé ingéré par le conteneur.
 
 # <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
 
@@ -520,49 +498,6 @@ Cette commande :
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
-# <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
-
-Le conteneur *Synthèse vocale personnalisée* s’appuie sur un modèle vocal personnalisé. Le modèle personnalisé doit avoir été [entraîné](how-to-custom-voice-create-voice.md) à l’aide du [portail Custom Voice](https://aka.ms/custom-voice-portal). L’**ID du modèle** Custom Voice est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Voice. À partir du portail Custom Voice, accédez à la page **Entraînement** et sélectionnez le modèle.
-<br>
-
-![Page Entraînement de Custom Voice](media/custom-voice/custom-voice-model-training.png)
-
-Obtenez l’**ID du modèle** pour l’utiliser comme argument du paramètre `ModelId` de la commande docker run.
-<br>
-
-![Détails du modèle Custom Voice](media/custom-voice/custom-voice-model-details.png)
-
-Le tableau suivant présente les différents paramètres `docker run` et leurs descriptions correspondantes :
-
-| Paramètre | Description |
-|---------|---------|
-| `{VOLUME_MOUNT}` | [Montage de volume](https://docs.docker.com/storage/volumes/) de l’ordinateur hôte, que Docker utilise pour rendre le modèle personnalisé persistant. Par exemple, *C:\CustomSpeech* où le *lecteur C* se trouve sur l’ordinateur hôte. |
-| `{MODEL_ID}` | **ID de modèle** Custom Voice issu de la page **Entraînement** du portail Custom Voice. |
-| `{ENDPOINT_URI}` | Le point de terminaison est nécessaire pour le comptage et la facturation. Pour plus d’informations, consultez [Collecte des paramètres requis](#gathering-required-parameters). |
-| `{API_KEY}` | La clé API est obligatoire. Pour plus d’informations, consultez [Collecte des paramètres requis](#gathering-required-parameters). |
-
-Pour exécuter le conteneur *Synthèse vocale personnalisée*, exécutez la commande `docker run` suivante :
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
--v {VOLUME_MOUNT}:/usr/local/models \
-mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech \
-ModelId={MODEL_ID} \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-Cette commande :
-
-* Exécute un conteneur *Synthèse vocale personnalisée* à partir de l’image conteneur.
-* Alloue 1 cœur de processeur et 2 gigaoctets (Go) de mémoire.
-* Charge le modèle *Synthèse vocale personnalisée* à partir du montage d’entrée de volume, par exemple *C:\CustomVoice*.
-* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
-* Télécharge le modèle selon `ModelId` (s’il est introuvable sur le montage de volume).
-* Si le modèle personnalisé a été téléchargé auparavant, `ModelId` est ignoré.
-* Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
-
 # <a name="speech-language-detection"></a>[Détection de langue vocale](#tab/lid)
 
 Pour exécuter le conteneur *Détection de langue vocale*, exécutez la commande `docker run` suivante.
@@ -614,7 +549,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Containers | URL de l’hôte du SDK | Protocol |
 |--|--|--|
 | Reconnaissance vocale standard et reconnaissance vocale personnalisée | `ws://localhost:5000` | WS |
-| Synthèse vocale (standard, personnalisée et neuronale), détection de langue vocale | `http://localhost:5000` | HTTP |
+| Synthèse vocale (standard et neurale), détection de langue vocale | `http://localhost:5000` | HTTP |
 
 Pour plus d’informations sur l’utilisation des protocoles WSS et HTTPS, consultez [Sécurité des conteneurs](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -739,7 +674,7 @@ speech_config.set_service_property(
 )
 ```
 
-### <a name="text-to-speech-standard-neural-and-custom"></a>Synthèse vocale (standard, neuronale et personnalisée)
+### <a name="text-to-speech-standard-and-neural"></a>Synthèse vocale (standard et neurale)
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 

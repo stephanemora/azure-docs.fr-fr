@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 998657c1e183d1b0dd0d533bb763ee7c13a3f474
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: a0584bea6fab1d49c552785d093e7e2df823b11b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904187"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205824"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -72,9 +72,9 @@ Une fenêtre de console s’ouvre, exécute l’authentification et attend une c
 SetupBuildingScenario
 ```
 
-Cette commande génère une série de messages confirmant la création et la connexion de trois [**jumeaux numériques**](concepts-twins-graph.md) dans votre instance Azure Digital Twins : un étage nommé *floor1*, une pièce nommée *Room21* et un capteur de température nommé *thermostat67*. Ces jumeaux numériques représentent les entités qui existeraient dans un environnement réel.
+Cette commande génère une série de messages confirmant la création et la connexion de trois [jumeaux numériques](concepts-twins-graph.md) dans votre instance Azure Digital Twins : un étage nommé *floor1*, une pièce nommée *Room21* et un capteur de température nommé *thermostat67*. Ces jumeaux numériques représentent les entités qui existeraient dans un environnement réel.
 
-Elles sont connectées par le biais de relations dans le [**graphe de jumeaux**](concepts-twins-graph.md). Le graphe de jumeaux représente l’environnement dans son ensemble, y compris les interactions et les liens entre les entités.
+Elles sont connectées par le biais de relations dans le [graphe de jumeaux](concepts-twins-graph.md). Le graphe de jumeaux représente l’environnement dans son ensemble, y compris les interactions et les liens entre les entités.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Graphe indiquant que floor1 contient room21 et que room21 contient thermostat67" border="false":::
 
@@ -129,7 +129,7 @@ Deux paramètres doivent être définis pour que l’application de fonction acc
 
 #### <a name="assign-access-role"></a>Attribuer le rôle d’accès
 
-Le premier paramètre donne à l’application de fonction le rôle de **Propriétaire des données Azure Digital Twins** dans l’instance Azure Digital Twins. Ce rôle est requis pour tout utilisateur ou fonction souhaitant effectuer de nombreuses activités de plan de données sur l’instance. Pour en savoir plus sur la sécurité et les attributions de rôles, consultez [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md). 
+Le premier paramètre donne à l’application de fonction le rôle de **Propriétaire des données Azure Digital Twins** dans l’instance Azure Digital Twins. Ce rôle est requis pour tout utilisateur ou fonction souhaitant effectuer de nombreuses activités de plan de données sur l’instance. Pour en savoir plus sur la sécurité et les attributions de rôles, consultez [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md). 
 
 1. Utilisez la commande suivante pour consulter les détails de l’identité managée par le système pour la fonction. Prenez note du champ **principalId** dans la sortie.
 
@@ -156,7 +156,7 @@ Les informations générées par cette commande décrivent l’attribution de r�
 
 #### <a name="configure-application-settings"></a>Configurer les paramètres de l’application
 
-Le deuxième paramètre crée une **variable d’environnement** pour la fonction avec l’URL de votre instance Azure Digital Twins. Le code de fonction l’utilisera pour faire référence à votre instance. Pour plus d’informations sur les variables d’environnement, consultez [*Gérer votre application de fonction*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+Le deuxième paramètre crée une **variable d’environnement** pour la fonction avec l’URL de votre instance Azure Digital Twins. Le code de fonction l’utilisera pour faire référence à votre instance. Pour plus d’informations sur les variables d’environnement, consultez [Gérer votre application de fonction](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 Exécutez la commande ci-dessous, en remplissant les espaces réservés avec les détails de vos ressources.
 
@@ -171,7 +171,7 @@ La sortie est la liste des paramètres de la fonction Azure, qui doit maintenant
 
 Un graphe Azure Digital Twins repose sur les données de télémétrie provenant d’appareils réels. 
 
-Au cours de cette étape, vous allez connecter un thermostat simulé inscrit dans [IoT Hub](../iot-hub/about-iot-hub.md) au jumeau numérique qui le représente dans Azure Digital Twins. À mesure que l’appareil simulé émet des données de télémétrie, celles-ci sont acheminées via la fonction Azure *ProcessHubToDTEvents* qui déclenche une mise à jour correspondante dans le jumeau numérique. De cette façon, le jumeau numérique reste à jour avec les données de l’appareil réel. Dans Azure Digital Twins, le processus de redirection des données d’événements est appelé [**événements de routage**](concepts-route-events.md).
+Au cours de cette étape, vous allez connecter un thermostat simulé inscrit dans [IoT Hub](../iot-hub/about-iot-hub.md) au jumeau numérique qui le représente dans Azure Digital Twins. À mesure que l’appareil simulé émet des données de télémétrie, celles-ci sont acheminées via la fonction Azure *ProcessHubToDTEvents* qui déclenche une mise à jour correspondante dans le jumeau numérique. De cette façon, le jumeau numérique reste à jour avec les données de l’appareil réel. Dans Azure Digital Twins, le processus de redirection des données d’événements est appelé [événements de routage](concepts-route-events.md).
 
 Ce processus se produit dans cette partie du scénario de bout en bout (**flèche B**) :
 
@@ -439,4 +439,4 @@ Dans ce tutoriel, vous avez créé un scénario de bout en bout qui montre comme
 Vous pouvez à présent commencer à consulter la documentation de concept pour en savoir plus sur les éléments avec lesquels vous avez travaillé dans le tutoriel :
 
 > [!div class="nextstepaction"]
-> [*Concepts : Modèles personnalisés*](concepts-models.md)
+> [Concepts : Modèles personnalisés](concepts-models.md)

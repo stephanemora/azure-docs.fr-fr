@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d728160413d470383f3eee78fc430aed0125ed7
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026621"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905231"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -34,7 +34,7 @@ Plusieurs fabriques de données Azure peuvent se connecter à un même Data Cata
     - **Déconnecté** : la fabrique de données a accès au catalogue, mais elle est connectée à un autre catalogue. En conséquence, la traçabilité des données ne sera pas automatiquement signalée au catalogue.
     - **Accès impossible** : l’utilisateur actuel n’a pas accès à la fabrique de données ; l’état de la connexion est donc inconnu.
  >[!Note]
- >Pour afficher les connexions Data Factory, vous devez détenir l’un des rôles Purview :
+ >Pour afficher les connexions Data Factory, vous devez détenir l’un des rôles Purview. L’héritage des rôles à partir du groupe d’administration n’est **pas pris en charge** :
  >- Contributeur
  >- Propriétaire
  >- Lecteur
@@ -43,7 +43,7 @@ Plusieurs fabriques de données Azure peuvent se connecter à un même Data Cata
 ## <a name="create-new-data-factory-connection"></a>Créer une connexion Data Factory
 
 >[!Note]
->Pour ajouter ou supprimer les connexions Data Factory, vous devez détenir l’un des rôles Purview :
+>Pour ajouter ou supprimer les connexions Data Factory, vous devez détenir l’un des rôles Purview. L’héritage des rôles à partir du groupe d’administration n’est **pas pris en charge** :
 >- Propriétaire
 >- Administrateur de l'accès utilisateur
 >

@@ -3,12 +3,13 @@ title: Créer une ressource Azure Application Insights | Microsoft Docs
 description: Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: ee5a6d6042f9c781a3e75915613e1dcbb52a7b68
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2130872003b1d91661f71468009025fa086af40b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015678"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321966"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 

@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer Active Directory
 description: Découvrez comment sauvegarder et restaurer des contrôleurs de domaine Active Directory.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 8db2dab605e90e4748b11a632d6651c23d631b6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bc6458895965d4c37667e0cff3051a4e4e8288e
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98733551"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898204"
 ---
 # <a name="back-up-and-restore-active-directory-domain-controllers"></a>Sauvegarder et restaurer des contrôleurs de domaine Active Directory
 
@@ -23,7 +23,13 @@ Cet article décrit les procédures appropriées pour la sauvegarde et la restau
 
 - Assurez-vous qu’au moins un contrôleur de domaine est sauvegardé. Si vous sauvegardez plusieurs contrôleurs de domaine, assurez-vous que tous ceux qui contiennent les [rôles FSMO (Flexible Single Master Operation)](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) sont sauvegardés.
 
-- Sauvegardez régulièrement Active Directory. La sauvegarde ne doit jamais être supérieure à la durée de vie de l’objet tombstone (par défaut, 60 jours), car les objets antérieurs à cette durée seront marqués « tombstone » et ne seront plus considérés comme valides.
+- Sauvegardez régulièrement Active Directory. L’âge de la sauvegarde ne doit jamais être supérieur à la durée de vie de l’objet tombstone (TSL), car les objets antérieurs à cette durée seront marqués « tombstone » et ne seront plus considérés comme valides.
+  - La TSL par défaut pour les domaines basés sur Windows Server 2003 SP2 et versions ultérieures est de 180 jours.
+  - Vous pouvez vérifier la TSL configurée à l’aide du script PowerShell suivant :
+
+    ```powershell
+    (Get-ADObject $('CN=Directory Service,CN=Windows NT,CN=Services,{0}' -f (Get-ADRootDSE).configurationNamingContext) -Properties tombstoneLifetime).tombstoneLifetime
+    ```
 
 - Ayez un plan clair de récupération d’urgence qui contient des instructions sur la façon de restaurer vos contrôleurs de domaine. Pour préparer la restauration d’une forêt Active Directory, consultez le [guide de récupération d’une forêt Active Directory](/windows-server/identity/ad-ds/manage/ad-forest-recovery-guide).
 

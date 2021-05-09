@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0d7598e332539b8203d55bbcb1cf497811c32540
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: da084bfab39eb0e12d90f25f3658dc4507ca63dc
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366553"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906653"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurer l’attachement d’application MSIX avec le portail Azure
 
@@ -19,19 +19,16 @@ Cet article vous guide tout au long de la configuration de l’attachement d’a
 
 ## <a name="requirements"></a>Configuration requise
 
->[!IMPORTANT]
->Avant de commencer, veillez à renseigner et à envoyer [ce formulaire](https://aka.ms/enablemsixappattach) pour activer l’attachement d’application MSIX dans votre abonnement. Si votre demande n’est pas approuvée, l’attachement d’application MSIX ne fonctionnera pas. L’approbation des demandes peut prendre jusqu’à 24 heures pendant les jours ouvrables. Vous recevrez un e-mail lorsque votre demande aura été acceptée et traitée.
-
 Voici ce dont vous avez besoin pour configurer l’attachement d’application MSIX :
 
 - Un déploiement Windows Virtual Desktop opérationnel. Pour apprendre à déployer Windows Virtual Desktop (classique), consultez [Création d’un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Pour apprendre à déployer Windows Virtual Desktop avec intégration Azure Resource Manager, consultez [Création d’un pool d’hôtes avec le Portail Azure](./create-host-pools-azure-marketplace.md).
 - Un pool d’hôtes Windows Virtual Desktop avec au moins un hôte de session actif.
-- Ce pool d’hôtes doit se trouver dans l’environnement de validation. 
 - Outil de d’empaquetage MSIX.
 - Une application empaquetée au format MSIX et développée en image MSIX qui est chargée dans un partage de fichiers.
 - Un partage de fichiers dans votre déploiement Windows Virtual Desktop où le package MSIX sera stocké.
 - Le partage de fichiers dans lequel vous avez chargé l’image MSIX doit également être accessible à toutes les machines virtuelles du pool d’hôtes. Les utilisateurs auront besoin d’autorisations en lecture seule pour accéder à l’image.
 - Si le certificat n’est pas approuvé publiquement, suivez les instructions dans [Installer des certificats](app-attach.md#install-certificates).
+- Le cloud Azure Government ne prend actuellement pas en charge l'attachement d'application MSIX.
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Désactiver les mises à jour automatiques pour les applications d’attachement d’application MSIX
 
@@ -51,9 +48,6 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
 ```
-
->[!NOTE]
->Nous vous recommandons de redémarrer la machine virtuelle après avoir activé Hyper-V.
 
 ## <a name="configure-the-msix-app-attach-management-interface"></a>Configuration de l’interface de gestion de l’attachement d’application MSIX
 
