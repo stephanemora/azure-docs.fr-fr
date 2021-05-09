@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7e14dbf5aab68f5ea2d96274606306378feedad2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a6d98f827c39f973714441e308dcc4f2bd061c9b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445990"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835575"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ?
 
@@ -91,7 +91,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 >[!NOTE]
 >Si vous avez besoin d’un abonnement Azure, vous pouvez demander un [essai gratuit d’un mois](https://azure.microsoft.com/free/). Si vous utilisez l’essai gratuit d’Azure, vous devez utiliser Azure AD Domain Services pour synchroniser votre annuaire Windows Server Active Directory avec Azure Active Directory.
 
-Si vous souhaitez obtenir la liste des URL que vous devez débloquer pour que votre déploiement Windows Virtual Desktop fonctionne comme prévu, consultez la [liste des URL sécurisées](safe-url-list.md).
+Si vous souhaitez obtenir la liste des URL que vous devez débloquer pour que votre déploiement Windows Virtual Desktop fonctionne comme prévu, consultez la [liste des URL requises](safe-url-list.md).
 
 Windows Virtual Desktop comprend les bureaux et applications Windows que vous fournissez aux utilisateurs  ainsi que la solution de gestion, qui est hébergée en tant que service sur Azure par Microsoft. Les bureaux et applications peuvent être déployés sur des machines virtuelles dans n’importe quelle région Azure, et la solution de gestion et les données pour ces machines virtuelles résident aux États-Unis. Cela peut entraîner le transfert des données vers les États-Unis.
 

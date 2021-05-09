@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d1ca4a843c6731cde7ed70d65fc230a21ef6e7c4
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 43a8cb00804927784982999db13ee193c34f55ca
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389432"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835377"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Créer des scripts PowerShell pour l’attachement d’application MSIX
 
@@ -24,7 +24,7 @@ Vous devez installer des certificats sur tous les hôtes de session dans le pool
 Si votre application utilise un certificat qui n’est pas approuvé publiquement ou qui a été auto-signé, procédez comme suit pour l’installer :
 
 1. Cliquez avec le bouton droit sur le package et sélectionnez **Propriétés**.
-2. Dans la fenêtre qui s’affiche, sélectionnez l’onglet **Signatures numériques**. Il ne doit y avoir qu’un seul élément dans la liste de l’onglet, comme illustré dans l’image suivante. Sélectionnez cet élément pour le mettre en surbrillance, puis sélectionnez **Détails**.
+2. Dans la fenêtre qui s’affiche, sélectionnez l’onglet **Signatures numériques**. Il ne doit y avoir qu’un seul élément dans la liste de l’onglet. Sélectionnez cet élément pour le mettre en évidence, puis sélectionnez **Détails**.
 3. Lorsque la fenêtre Détails de la signature numérique s’affiche, sélectionnez l’onglet **Général**, **Afficher le certificat**, puis **Installer le certificat**.
 4. Quand le programme d’installation s’ouvre, sélectionnez **Machine locale** comme emplacement de stockage, puis sélectionnez **Suivant**.
 5. Si le programme d’installation vous demande si vous souhaitez autoriser l’application à apporter des modifications à votre appareil, sélectionnez **Oui**.

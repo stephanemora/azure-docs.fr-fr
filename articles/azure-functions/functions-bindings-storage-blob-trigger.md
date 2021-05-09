@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 1d83a828829d27d85749b3fa7b283cad9683bffc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4624a33b12afc5eff033fe2d57bf25f812c9e667
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455911"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891299"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Déclencheur Stockage Blob Azure pour Azure Functions
 
@@ -35,6 +35,9 @@ L’interrogation fonctionne de façon hybride entre l’inspection des journaux
 
 ### <a name="event-grid-trigger"></a>Déclencheur Event Grid
 
+> [!NOTE]
+> Lorsque vous utilisez Storage Extension 5.x et versions ultérieures, le déclencheur Blob offre la prise en charge intégrée d’un déclencheur Blob basé sur Event Grid. Pour plus d’informations, consultez la section [Storage Extension 5.x et versions ultérieures](#storage-extension-5x-and-higher) ci-dessous.
+
 Le [déclencheur Event Grid](functions-bindings-event-grid.md) possède également une prise en charge intégrée des [événements blobs](../storage/blobs/storage-blob-event-overview.md). Utilisez Event Grid au lieu du déclencheur de stockage Blob pour les scénarios suivants :
 
 - **Comptes de stockage Blob uniquement** : Les [comptes de stockage Blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts) sont pris en charge pour les liaisons d’entrée et de sortie, mais pas pour les déclencheurs blob.
@@ -44,6 +47,12 @@ Le [déclencheur Event Grid](functions-bindings-event-grid.md) possède égaleme
 - **Minimisation de la latence** : Si votre application de fonction est dans le plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Pour éviter toute latence, vous pouvez passer à un plan App Service dans lequel est activé AlwaysOn. Vous pouvez également utiliser un [déclencheur Event Grid](functions-bindings-event-grid.md) avec votre compte de stockage Blob. Pour obtenir un exemple, consultez le [tutoriel Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 
 Pour obtenir un exemple Azure Event Grid, consultez le tutoriel [Redimensionnement d’image avec Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+
+#### <a name="storage-extension-5x-and-higher"></a>Storage Extension 5.x et versions ultérieures
+
+Lorsque vous utilisez l’extension de stockage en préversion, il existe une prise en charge intégrée d’Event Grid dans le déclencheur Blob, ce qui nécessite de définir le paramètre `source` sur Event Grid dans votre déclencheur Blob existant. 
+
+Pour plus d’informations sur l’utilisation du déclencheur Blob basé sur Event Grid, consultez le [guide du déclencheur Blob Event Grid](./functions-event-grid-blob-trigger.md).
 
 ### <a name="queue-storage-trigger"></a>Déclencheur de stockage de file d’attente
 

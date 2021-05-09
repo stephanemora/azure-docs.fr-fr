@@ -1,23 +1,23 @@
 ---
-title: Connecter les journaux de diagnostics et d’audit Azure SQL Database à Azure Sentinel
-description: Découvrez comment connecter les journaux de diagnostics et les journaux d’audit de sécurité Azure SQL Database à Azure Sentinel.
+title: Connecter tous les journaux de diagnostics et d’audit Azure SQL Database à Azure Sentinel
+description: Découvrez comment utiliser Azure Policy pour appliquer la connexion des journaux de diagnostic et des journaux d’audit de sécurité Azure SQL Database à Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba4cefaca7225f25076efa5cdcb81de46aa5cd60
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99807731"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891317"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Connecter les journaux de diagnostics et d’audit Azure SQL Database
 
-Azure SQL est un moteur de base de données PaaS (Platform-as-a-Service) complètement managé qui prend en charge la plupart des fonctions de gestion de base de données telles que la mise à niveau, la mise à jour corrective, les sauvegardes et la surveillance, sans intervention de l’utilisateur. 
+Azure SQL est un moteur de base de données PaaS (Platform-as-a-Service) complètement managé qui prend en charge la plupart des fonctions de gestion de base de données telles que la mise à niveau, la mise à jour corrective, les sauvegardes et la surveillance, sans nécessiter l’intervention de l’utilisateur. 
 
 Le connecteur de base de données Azure SQL vous permet de diffuser les journaux d’audit et de diagnostics de vos bases de données dans Sentinel, de façon à pouvoir surveiller en continu l’activité dans toutes vos instances.
 
@@ -25,7 +25,7 @@ Le connecteur de base de données Azure SQL vous permet de diffuser les journaux
 
 - La connexion des journaux d’audit vous permet de diffuser des journaux d’audit de sécurité à partir de toutes vos bases de données Azure SQL au niveau du serveur.
 
-En savoir plus sur la [supervision des bases de données Azure SQL](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
+En savoir plus sur la [télémétrie de diagnostic Azure SQL Database](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) et sur l’[audit des serveurs Azure SQL](../azure-sql/database/auditing-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,79 +33,57 @@ En savoir plus sur la [supervision des bases de données Azure SQL](../azure-sql
 
 - Pour connecter des journaux d’audit, vous devez disposer d’autorisations en lecture et en écriture sur les paramètres d’audit d’Azure SQL Server.
 
+- Pour utiliser Azure Policy afin d’appliquer une stratégie de streaming de journaux à des ressources de serveur et de base de données Azure SQL, vous devez avoir le rôle Propriétaire pour l’étendue de l’attribution de stratégie.
+
 ## <a name="connect-to-azure-sql-database"></a>Connexion à la base de données Azure SQL
-    
+
+Ce connecteur utilise Azure Policy pour appliquer une configuration unique de streaming de journaux Azure SQL à une collection d’instances, définie en tant qu’étendue. Le connecteur Azure SQL Database envoie deux types de journaux à Azure Sentinel : les journaux de diagnostic (à partir des bases de données SQL) et les journaux d’audit (au niveau du serveur SQL). Vous pouvez voir les types de journaux ingérés à partir des bases de données et des serveurs Azure SQL sur le côté gauche de la page du connecteur, sous **Types de données**.
+
 1. Dans le menu de navigation d’Azure Sentinel, sélectionnez **Connecteurs de données**.
 
-1. Sélectionnez **Azure SQL Database** dans la galerie de connecteurs de données, puis sélectionnez **Ouvrir la page du connecteur** dans le volet de visualisation.
+1. Sélectionnez **Bases de données Azure SQL** dans la galerie des connecteurs de données, puis sélectionnez **Ouvrir la page du connecteur** dans le volet de visualisation.
 
 1. Dans la section **Configuration** de la page du connecteur, notez les deux catégories de journaux que vous pouvez connecter.
 
 ### <a name="connect-diagnostics-logs"></a>Connecter des journaux de diagnostics
 
-1. Sous **Journaux de diagnostics**, développez **Activer manuellement les journaux de diagnostics sur chacune de vos bases de données Azure SQL**.
+1. Développez **Diffuser en continu les journaux de diagnostic de vos bases de données Azure SQL à grande échelle**.
 
-1. Sélectionnez le lien **Ouvrir Azure SQL >** pour ouvrir le panneau des ressources **Azure SQL**.
+1. Sélectionnez le bouton **Lancer l’Assistant Affectation Azure Policy**.
 
-1. **(Facultatif)** Pour faciliter la recherche de votre ressource de base de données, sélectionnez **Ajouter un filtre** dans la barre des filtres en haut.
-    1. Dans la liste déroulante **Filtre**, sélectionnez **Type de ressource**.
-    1. Dans la liste déroulante **Valeur**, désélectionnez **Sélectionner tout**, puis sélectionnez **Base de données SQL**.
-    1. Cliquez sur **Appliquer**.
-    
-1. Sélectionnez la ressource de base de données dont vous souhaitez envoyer les journaux de diagnostics à Azure Sentinel.
+    L’Assistant d’attribution de stratégie s’ouvre, prêt à créer une stratégie nommée **Déployer : Configurer les paramètres de diagnostic pour les bases de données SQL pour l’envoi à un espace de travail Log Analytics**.
 
-    > [!NOTE]
-    > Pour chaque ressource de base de données dont vous souhaitez collecter les journaux, vous devez répéter ce processus, en commençant par cette étape.
+    1. Sous l’onglet **Informations de base**, cliquez sur le bouton avec les trois points sous **Étendue** pour sélectionner votre abonnement (et éventuellement un groupe de ressources). Vous pouvez également ajouter une description.
 
-1. Dans la page des ressources de la base de données que vous avez sélectionnée, sous **Surveillance** dans le menu de navigation, sélectionnez **Paramètres de diagnostic**.
+    1. Dans l’onglet **Paramètres**, laissez les deux premiers paramètres tels quels. Choisissez votre espace de travail Azure Sentinel dans la liste déroulante **Espace de travail Log Analytics**. Les champs de liste déroulante restants représentent les types de journaux de diagnostic disponibles. Conservez la valeur « True » pour tous les types de journaux que vous souhaitez ingérer.
 
-    1. Sélectionnez le lien **+ Ajouter un paramètre de diagnostic** en bas du tableau.
+    1. La stratégie sera appliquée aux ressources ajoutées à l’avenir. Pour appliquer la stratégie également à vos ressources existantes, sélectionnez l’onglet **Correction** et cochez la case **Créer une tâche de correction**.
 
-    1. Dans l’écran **Paramètre de diagnostic**, entrez un nom dans le champ **Nom du paramètre de diagnostic**.
-    
-    1. Dans la colonne **Détails de la destination**, cochez la case **Envoyer à l’espace de travail Log Analytics**. Deux nouveaux champs s’affichent sous celle-ci. Choisissez les valeurs **Abonnement** et **Espace de travail Log Analytics** appropriées (où se trouve Azure Sentinel).
-
-    1. Dans la colonne **Détails de la catégorie**, cochez les cases des types de journaux et de métriques que vous souhaitez ingérer. Nous vous recommandons de sélectionner tous les types disponibles sous **journal** et **métrique**.
-
-    1. En haut de l’écran, sélectionnez **Enregistrer**.
-
-- Vous pouvez également utiliser le **Script PowerShell** fourni pour connecter vos journaux de diagnostics.
-    1. Sous **Journaux de diagnostics**, développez **Activer avec un script PowerShell**.
-
-    1. Copiez le bloc de code et collez-le dans PowerShell.
+    1. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**. Votre stratégie est maintenant affectée à l’étendue que vous avez choisie.
 
 ### <a name="connect-audit-logs"></a>Connecter des journaux d’audit
 
-1. Sous **Journaux d’audit (préversion)** , développez **Activer les journaux d’audit sur toutes les bases de données Azure SQL (au niveau du serveur)** .
+1. De retour dans la page du connecteur, développez **Diffuser en continu les journaux d’audit de vos bases de données Azure SQL au niveau du serveur à grande échelle**.
 
-1. Sélectionnez le lien **Ouvrir Azure SQL >** pour ouvrir le panneau des ressources **Serveurs SQL**.
+1. Sélectionnez le bouton **Lancer l’Assistant Affectation Azure Policy**.
 
-1. Sélectionnez le serveur SQL Server dont vous souhaitez envoyer les journaux d’audit à Azure Sentinel.
+    L’Assistant d’attribution de stratégie s’ouvre, prêt à créer une stratégie nommée **Déployer : Configurer les paramètres d’audit pour les bases de données SQL pour l’envoi à un espace de travail Log Analytics**.
 
-    > [!NOTE]
-    > Pour chaque ressource de serveur dont vous souhaitez collecter les journaux, vous devez répéter ce processus, en commençant par cette étape.
+    1. Sous l’onglet **Informations de base**, cliquez sur le bouton avec les trois points sous **Étendue** pour sélectionner votre abonnement (et éventuellement un groupe de ressources). Vous pouvez également ajouter une description.
 
-1. À partir de la page des ressources du serveur que vous avez sélectionné, sous **Sécurité** dans le menu de navigation, sélectionnez **Audit**.
+    1. Sous l’onglet **Paramètres**, choisissez votre espace de travail Azure Sentinel dans la liste déroulante **Espace de travail Log Analytics**. Laissez le paramètre **Effet** tel quel.
 
-    1. Basculez **Activer l’audit Azure SQL** sur **ON** (Activé).
+    1. La stratégie sera appliquée aux ressources ajoutées à l’avenir. Pour appliquer la stratégie également à vos ressources existantes, sélectionnez l’onglet **Correction** et cochez la case **Créer une tâche de correction**.
 
-    1. Sous **Destination du journal d’audit**, sélectionnez **Log Analytics (préversion)** .
-    
-    1. Dans la liste des espaces de travail qui s’affiche, choisissez votre espace de travail (où se trouve Azure Sentinel).
-
-    1. En haut de l’écran, sélectionnez **Enregistrer**.
-
-- Vous pouvez également utiliser le **Script PowerShell** fourni pour connecter vos journaux de diagnostics.
-    1. Sous **Journaux d’audit**, développez **Activer avec un script PowerShell**.
-
-    1. Copiez le bloc de code et collez-le dans PowerShell.
-
+    1. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**. Votre stratégie est maintenant affectée à l’étendue que vous avez choisie.
 
 > [!NOTE]
 >
-> Avec ce connecteur de données particulier, les indicateurs d’état de connectivité (une bande de couleur dans la galerie de connecteurs de données et des icônes de connexion en regard des noms de types de données) s’affichent comme *Connectés* (en vert) uniquement si les données ont été ingérées au cours des deux dernières semaines. Après deux semaines passées sans ingestion de données, le connecteur déconnecté. Quand plus de données arrivent, l’état *connecté* est renvoyé.
+> Avec ce connecteur de données particulier, les indicateurs d’état de connectivité (une bande de couleur dans la galerie des connecteurs de données et des icônes de connexion à côté des noms de types de données) s’affichent comme *connectés* (en vert) uniquement si les données ont été ingérées au cours des 14 derniers jours. Après 14 jours passés sans ingestion de données, le connecteur sera déconnecté. Quand plus de données arrivent, l’état *connecté* est renvoyé.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter des journaux de diagnostics et d’audit de la base de données Azure SQL à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+
+Ce document vous a montré comment utiliser Azure Policy pour connecter des journaux de diagnostics et d’audit de la base de données Azure SQL à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
