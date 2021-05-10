@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: e012bc2bc3c9ec1ab9351ed937e2c5049eef20d5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 1ff2a069b7690817c8fc431d920e93a8cb6c3544
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316008"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656197"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -68,7 +68,7 @@ Toutes les opérations prises en charge qui étendent l’API RESTful.
 | Patient/$export        | Oui       | Oui       | Oui       |         |
 | Group/$export          | Oui       | Oui       | Oui       |         |
 | $convert-data          | Oui       | Oui       | Oui       |         |
-
+| $validate          | Oui       | Oui       | Oui       |         |
 
 ## <a name="persistence"></a>Persistance
 
