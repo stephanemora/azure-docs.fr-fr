@@ -3,14 +3,14 @@ author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2020
+ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: ec34ba7b2d3bc026376aeb1cb91847d8eac1cac5
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 20c394520e8d4100470c0176c284cf4136e9d3db
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073325"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227976"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -28,8 +28,7 @@ Procédez ainsi pour installer l’interface CLI Speech sur Windows :
 Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
 > [!NOTE]
-> En guise d’alternative à NuGet, vous pouvez télécharger et extraire l’[archive zip](https://aka.ms/speech/spx-zips.zip) de l’interface CLI Speech, rechercher et extraire votre plateforme à partir du répertoire `spx-zips` et ajouter le chemin `spx` à la variable **PATH** de votre système.
-
+> En guise d’alternative à NuGet, vous pouvez télécharger et extraire l’interface CLI Speech pour Windows sous la forme d’un [fichier zip](https://aka.ms/speech/spx-windows).
 
 ### <a name="font-limitations"></a>Limitations des polices
 
@@ -60,7 +59,8 @@ Procédez ainsi pour installer l’interface CLI Speech sur Linux, sur un proces
 Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
 > [!NOTE]
-> En guise d’alternative à NuGet, vous pouvez télécharger les fichiers binaires de l’[archive zip](https://aka.ms/speech/spx-zips.zip), les extraire `spx-netcore-30-linux-x64.zip` dans un nouveau répertoire `~/spx`, taper `sudo chmod +r+x spx` sur le fichier binaire, puis ajouter le chemin `~/spx` à votre variable système PATH.
+> En guise d’alternative à NuGet, vous pouvez télécharger les fichiers binaires Linux sous la forme d’un [fichier zip](https://aka.ms/speech/spx-linux).
+> Extrayez `spx-netcore-30-linux-x64.zip` dans un nouveau répertoire `~/spx`, tapez `sudo chmod +r+x spx` dans le fichier binaire, puis ajoutez le chemin `~/spx` à votre variable système PATH.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Installation de Docker (Windows, Linux, macOS)](#tab/dockerinstall)

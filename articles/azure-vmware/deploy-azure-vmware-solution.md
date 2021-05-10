@@ -4,19 +4,19 @@ description: Découvrez comment utiliser les informations collectées au cours d
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 04/23/2021
-ms.openlocfilehash: 9a9f01788ccfaa7f304d71897efa3bcb0511d8fd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fe5e34ecb0ed3d8984432d44bbed5678c4592553
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126378"
+ms.locfileid: "108175853"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Déployer et configurer Azure VMware Solution
 
 Dans cet article, vous allez utiliser les informations de la [section de planification](production-ready-deployment-steps.md) pour déployer et configurer Azure VMware Solution. 
 
 >[!IMPORTANT]
->Si vous n’avez pas encore défini ces informations, revenez à la [section de planification](production-ready-deployment-steps.md) avant de continuer.
+>Il s’agit des informations que vous avez parcourues dans la [section de planification](production-ready-deployment-steps.md) avant de continuer.
 
 ## <a name="step-1-register-the-microsoftavs-resource-provider"></a>Étape 1. Inscrire le fournisseur de ressources **Microsoft.AVS**
 
@@ -72,5 +72,6 @@ Vous devez avoir une connexion entre le réseau virtuel Azure sur lequel Express
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans la section suivante, vous allez connecter Azure VMware Solution à votre réseau local via ExpressRoute.
+
 > [!div class="nextstepaction"]
 > [Se connecter à votre environnement local](tutorial-expressroute-global-reach-private-cloud.md)

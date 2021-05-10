@@ -8,18 +8,17 @@ ms.topic: include
 ms.date: 03/15/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b20c97bf919073b01f564b59b3a55eccb7614005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b566fc5c8d490d9fbad8ba64217d9ab3110cd709
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89042828"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313542"
 ---
-<!-- This is the note explaining about the avro and json formats when routing to blob storage. -->
 > [!NOTE]
-> Les données peuvent être écrites dans un espace de stockage d’objets blob au format [Apache Avro](https://avro.apache.org/), qui est la valeur par défaut, ou JSON (préversion). 
+> Les données peuvent être écrites dans un espace de stockage d’objets blob au format [Apache Avro](https://avro.apache.org/), qui est la valeur par défaut, ou JSON. 
 >    
-> La fonctionnalité permettant d’encoder au format JSON est en préversion dans toutes les régions où IoT Hub est disponible, à l’exception des régions USA Est, USA Ouest et Europe Ouest. Le format d’encodage peut être défini uniquement au moment de configurer le point de terminaison du stockage d’objets blob. Le format ne peut pas être modifié pour un point de terminaison déjà configuré. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur JSON et contentEncoding sur UTF-8 dans les propriétés système de message. 
+> Le format d’encodage peut être défini uniquement au moment de configurer le point de terminaison du stockage d’objets blob. Le format ne peut pas être modifié pour un point de terminaison déjà configuré. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur JSON et contentEncoding sur UTF-8 dans les propriétés système de message. 
 >
 > Pour plus d’informations sur l’utilisation d’un point de terminaison de stockage d’objets blob, voir les [recommandations en matière de routage vers un espace de stockage](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 >

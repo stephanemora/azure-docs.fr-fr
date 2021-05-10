@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 552a40be0c069d1002ebc7ea4dafe0d6f93a5755
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2d91e9405c17afe44a05deedc8bb0f0c40377d7
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85128145"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278281"
 ---
 Le [routage des messages](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) vous permet d’envoyer les données de télémétrie de vos appareils IoT à des points de terminaison intégrés compatibles avec les hubs d’événements ou à des points de terminaison personnalisés, comme un stockage d’objets blob, des files d’attente Service Bus, des rubriques Service Bus et des hubs d’événements. Pour configurer le routage des messages, vous devez créer des [requêtes de routage](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) pour personnaliser la route qui correspond à une certaine condition. Une fois la configuration effectuée, les données entrantes sont automatiquement acheminées vers les points de terminaison par l’IoT Hub. Si un message ne correspond à aucune des requêtes de routage définies, il est routé vers le point de terminaison par défaut.
 

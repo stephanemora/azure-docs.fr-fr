@@ -4,12 +4,12 @@ description: Découvrez comment appeler des processus métier à partir de votre
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6b15c09162146de7aef8abfcdba40627eb77621c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 04bdab82c9d1efed6da3f533617f19b82cf0781e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830931"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290701"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutoriel : Envoyer un e-mail et appeler d’autres processus métier à partir d’App Service
 
@@ -52,9 +52,9 @@ Déployez une application avec le framework de langage de votre choix dans App S
 
 ---
 
-## <a name="create-the-logic-app"></a>Créer l’application logique
+## <a name="create-the-logic-app"></a>Création de l’application logique
 
-1. Dans le [Portail Azure](https://portal.azure.com), créez une application logique vide en suivant les instructions données dans [Créer votre application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). Lorsque vous voyez la fenêtre **Concepteur Logic Apps** s’afficher, revenez dans ce tutoriel.
+1. Dans le [portail Azure](https://portal.azure.com), créez une application logique vide en suivant les instructions données dans [Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Lorsque vous voyez la fenêtre **Concepteur Logic Apps** s’afficher, revenez dans ce tutoriel.
 1. Dans la page de démarrage du concepteur Logic Apps, sélectionnez **Lors de la réception d’une demande HTTP** sous **Démarrer avec un déclencheur courant**.
 
     ![Capture d’écran montrant la page de démarrage du Concepteur Logic Apps avec Lors de la réception d’une demande HTTP mis en évidence.](./media/tutorial-send-email/receive-http-request.png)
@@ -81,7 +81,7 @@ Déployez une application avec le framework de langage de votre choix dans App S
 
     Cette définition de requête HTTP est un déclencheur des actions que vous souhaitez faire dans cette application logique, qu’il s’agisse de Gmail ou d’une autre. Plus tard, vous appellerez cette URL dans votre application App Service. Pour plus d’informations sur le déclencheur de requête, consultez les [informations de référence sur les requêtes/réponses HTTP](../connectors/connectors-native-reqres.md).
 
-1. En bas du concepteur, cliquez sur **Nouvelle étape**, tapez **Gmail** dans la zone de recherche des actions, puis recherchez et sélectionnez **Envoyer un e-mail (V2)** .
+1. Au bas du concepteur, cliquez sur **Nouvelle étape**, tapez **Gmail** dans la zone de recherche des actions. Recherchez et sélectionnez **Envoyer un e-mail (V2)** .
     
     > [!TIP]
     > Vous pouvez rechercher d’autres types d’intégrations comme SendGrid, MailChimp, Microsoft 365 et SalesForce. Pour plus d’informations, consultez la [documentation Logic Apps](../logic-apps/index.yml).

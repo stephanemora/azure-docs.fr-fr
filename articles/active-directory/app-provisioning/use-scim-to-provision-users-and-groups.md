@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/12/2021
+ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3d53c96c4b0306911b0c8a0b8576f35a73419db0
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9a39a1b0df364aeed970f3ed0e0d99d4d31585b2
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498150"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175475"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutoriel : Développer et planifier le provisionnement pour un point de terminaison SCIM
 
@@ -213,10 +213,11 @@ Suivez ces recommandations lors de l’implémentation d’un point de terminais
 * L’attribut de droit n’est pas pris en charge.
 * Prenez en charge HTTPS sur votre point de terminaison SCIM.
 * [Découverte de schéma](#schema-discovery)
-  * La découverte de schéma n’est pas actuellement prise en charge sur l’application personnalisée, mais elle est utilisée sur certaines applications de la galerie. À l’avenir, la découverte de schéma sera utilisée comme méthode principale pour ajouter des attributs supplémentaires à un connecteur. 
+  * La découverte de schéma n’est pas actuellement prise en charge sur l’application personnalisée, mais elle est utilisée sur certaines applications de la galerie. À l’avenir, la découverte de schéma sera la seule méthode utilisée pour ajouter des attributs supplémentaires à un connecteur existant. 
   * Si aucune valeur n’est présente, n’envoyez pas de valeurs Null.
   * Utilisez une casse mixte pour les valeurs de propriété (par exemple, readWrite).
   * Doit retourner une réponse de liste.
+  * La requête /schemas sera effectuée par le client SCIM Azure AD chaque fois qu’une personne enregistrera la configuration du provisionnement dans le portail Azure ou chaque fois qu’un utilisateur accèdera à la page de modification du provisionnement dans le portail Azure. Tous les attributs supplémentaires découverts seront exposés aux clients dans les mappages d’attributs sous la liste des attributs cibles. La découverte de schéma entraîne uniquement l’ajout d’attributs cibles supplémentaires. Elle n’entraîne pas la suppression d’attributs. 
   
 ### <a name="user-provisioning-and-deprovisioning"></a>Approvisionnement et déprovisionnement d'utilisateurs
 

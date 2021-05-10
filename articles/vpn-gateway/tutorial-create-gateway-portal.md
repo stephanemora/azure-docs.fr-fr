@@ -1,17 +1,18 @@
 ---
-title: 'Tutoriel : Créer et gérer une passerelle VPN : Portail Azure'
-description: Suivez ce tutoriel pour découvrir comment créer, déployer et gérer une passerelle VPN Azure à l’aide du portail.
+title: 'Tutoriel - Créer et gérer une passerelle VPN : portail Azure'
+description: Dans ce tutoriel, découvrez comment créer, déployer et gérer une passerelle VPN Azure à l’aide du portail.
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/28/2021
+ms.openlocfilehash: 29f479444679d1f76dc90eec4546539faea5337f
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880557"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202566"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutoriel : Créer et gérer une passerelle VPN à l’aide du portail Azure
 
@@ -28,7 +29,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Le diagramme suivant illustre le réseau virtuel et la passerelle VPN créés dans le cadre de ce tutoriel.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagramme de réseau virtuel et passerelle VPN":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagramme de réseau virtuel et passerelle VPN.":::
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -74,7 +75,7 @@ Créez une passerelle de réseau virtuel à l’aide des valeurs suivantes :
 
 Vous pouvez voir l’adresse IP publique de la passerelle dans la page **Vue d’ensemble** de votre passerelle.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Page de présentation":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Capture d’écran de la page Vue d’ensemble.":::
 
 Pour voir d’autres informations sur l’objet d’adresse IP publique, cliquez sur le lien de nom/adresse IP à côté de **Adresse IP publique**.
 

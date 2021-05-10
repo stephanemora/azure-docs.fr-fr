@@ -2,23 +2,22 @@
 title: 'Tutoriel : Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure CLI'
 description: 'Tutoriel : Configurer le routage des messages pour Azure IoT Hub avec Azure CLI et le portail Azure'
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 04/04/2021
 ms.author: robinsh
 ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: d7a10aac82286616273f7283bc3fba74f2c58f35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 965738a735052947940ec3763c664e5e90909ee1
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625213"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278279"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutoriel : Utiliser Azure CLI et le portail Azure pour configurer le routage des messages IoT Hub
 
@@ -159,7 +158,7 @@ Configurez maintenant le routage pour le compte de stockage. Vous accédez au vo
    >
    > Par exemple, utilisez le format du nom de fichier de l’objet blob par défaut si le nom du hub est ContosoTestHub, et que la date/heure est le 30 octobre 2018 à 10h56. Le nom de l’objet blob ressemblera à ceci : `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Les objets blob sont écrits au format Avro.
+   > Par défaut, les objets blob sont écrits au format AVRO.
    >
 
 8. Sélectionnez **Créer** pour créer le point de terminaison de stockage et l’ajouter à la route. Vous revenez au volet **Ajouter une route**.

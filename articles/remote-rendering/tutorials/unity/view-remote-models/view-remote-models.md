@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43e5b77580b7071ce48b39190c26a53f99f8cf5
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: ae84d62f8f028158450b1127abc81c5dc4416502
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107740121"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315378"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutoriel : Affichage d’un modèle rendu à distance
 
@@ -125,6 +125,9 @@ Effectuez les étapes suivantes pour vérifier que les paramètres du projet son
 1. Vérifiez s’il y a des erreurs dans la fenêtre **ValidateProject** et corrigez les paramètres du projet, si nécessaire.
 
     ![Validation du projet de l’éditeur Unity](./media/remote-render-unity-validation.png)
+
+> [!NOTE]
+> Si vous utilisez MRTK dans votre projet et que vous activez le sous-système de caméra, MRTK remplace les modifications manuelles que vous appliquez à la caméra. Sont inclus les correctifs de l’outil ValidateProject.
 
 ## <a name="create-a-script-to-coordinate-azure-remote-rendering-connection-and-state"></a>Créer un script pour coordonner la connexion et l’état d’Azure Remote Rendering
 

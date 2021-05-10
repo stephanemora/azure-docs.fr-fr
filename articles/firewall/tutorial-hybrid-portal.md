@@ -1,35 +1,35 @@
 ---
-title: 'Tutoriel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure'
-description: Ce tutoriel vous apprend à déployer et configurer un Pare-feu Azure à l’aide du portail Azure.
+title: Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
+description: Dans cet article, vous découvrez comment déployer et configurer Pare-feu Azure à l’aide du portail Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 04/27/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 2fbf0e4df1e9ee7dca7219891acc296c3493be9e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 36605d6bf17c7652e7f21b89a83af08972765a30
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074958"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287600"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
 
 Lorsque vous connectez votre réseau local à un réseau virtuel Azure pour créer un réseau hybride, la possibilité de contrôler l’accès à vos ressources réseau Azure représente une part importante dans un plan de sécurité générale.
 
 Vous pouvez utiliser le Pare-feu Azure pour contrôler l’accès réseau d’un réseau hybride à l’aide de règles définissant le trafic réseau autorisé et refusé.
 
-Pour ce tutoriel, vous créez trois réseaux virtuels :
+Pour cet article, vous créerez trois réseaux virtuels :
 
 - **VNet-Hub** : Le pare-feu se trouve dans ce réseau virtuel.
 - **VNet-Spoke** : Le réseau virtuel spoke correspond à la charge de travail sur Azure.
-- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, ce tutoriel utilise une connexion de passerelle VPN, sachant qu’un réseau virtuel situé sur Azure est utilisé pour représenter un réseau local.
+- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, cette procédure utilise une connexion de passerelle VPN, et un réseau virtuel Azure est utilisé pour représenter un réseau local.
 
 ![Pare-feu dans un réseau hybride](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Dans ce tutoriel, vous allez apprendre à :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer le réseau virtuel du hub de pare-feu
@@ -42,10 +42,10 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer les machines virtuelles
 > * Tester le pare-feu
 
-Si vous voulez plutôt utiliser Azure PowerShell pour suivre ce tutoriel, consultez [Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell](tutorial-hybrid-ps.md).
+Si vous souhaitez plutôt utiliser Azure PowerShell pour suivre cette procédure, consultez [Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell](tutorial-hybrid-ps.md).
 
 > [!NOTE]
-> Ce tutoriel utilise des règles de pare-feu classiques pour gérer le pare-feu. La méthode recommandée consiste à utiliser une [stratégie de pare-feu](../firewall-manager/policy-overview.md). Pour suivre ce tutoriel avec une stratégie de pare-feu, consultez [Tutoriel : Déployer et configurer un pare-feu Azure et une stratégie dans un réseau hybride à l’aide du portail Azure](tutorial-hybrid-portal-policy.md).
+> Cet article utilise des règles de pare-feu classiques pour gérer le pare-feu. La méthode recommandée consiste à utiliser une [stratégie de pare-feu](../firewall-manager/policy-overview.md). Pour suivre cette procédure avec une stratégie de pare-feu, consultez [Tutoriel : Déployer et configurer le Pare-feu Azure et une stratégie de pare-feu dans un réseau hybride en utilisant le portail Azure](tutorial-hybrid-portal-policy.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -59,7 +59,7 @@ Un réseau hybride utilise le modèle d’architecture Hub and Spoke pour router
 - Pour router le trafic de sous-réseau spoke par le biais du pare-feu de hub, vous pouvez utiliser une route définie par l’utilisateur (UDR, User-Defined Route) qui pointe vers le pare-feu avec l’option **Propagation de la route de la passerelle de réseau virtuel** désactivée. L’option désactivée **Propagation de la route de la passerelle de réseau virtuel** empêche la distribution des routes vers les sous-réseaux spoke. Cela empêche que les routes apprises entrent en conflit avec votre UDR. Si vous souhaitez conserver la **Propagation de la route de la passerelle de réseau virtuel** activée, veillez à définir des routes spécifiques vers le pare-feu pour remplacer celles qui sont publiées à partir du site local sur le protocole BGP.
 - Vous devez configurer une UDR sur le sous-réseau de passerelle hub qui pointe vers l’adresse IP du pare-feu comme prochain tronçon vers les réseaux spoke. Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
 
-Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
+Pour plus d'informations sur la création de ces itinéraires, consultez la section [Créer des itinéraires](#create-the-routes) de cet article.
 
 >[!NOTE]
 >Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe.
@@ -73,7 +73,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Créer le réseau virtuel du hub de pare-feu
 
-Tout d’abord, créez le groupe de ressources qui doit contenir les ressources de ce tutoriel :
+Commencez par créer le groupe de ressources qui doit contenir les ressources :
 
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la page d’accueil du portail Azure, sélectionnez **Groupes de ressources** > **Ajouter**.
@@ -462,11 +462,10 @@ Fermez les bureaux à distance existants avant de tester les règles modifiées.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **FW-Hybrid-Test** pour supprimer toutes les ressources associées au pare-feu.
+Vous pouvez garder vos ressources de pare-feu à des fins de test complémentaire ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **FW-Hybrid-Test** pour supprimer toutes les ressources associées au pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
-> [!div class="nextstepaction"]
-> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)
+[Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)

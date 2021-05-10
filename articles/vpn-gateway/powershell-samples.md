@@ -1,5 +1,6 @@
 ---
 title: Exemples Azure PowerShell pour une passerelle VPN
+titleSuffix: Azure VPN Gateway
 description: Utilisez ces scripts Azure PowerShell pour créer des passerelles VPN, créer des connexions site à site et de réseau virtuel à réseau virtuel, ainsi que télécharger des modèles d’appareil VPN.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe2e1f970e64d80bfd8cb762cf74bb52d4fc9650
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2149d348ce23e58a5d30a88ab778408155e253bc
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89426161"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292213"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>Exemples Azure PowerShell pour une passerelle VPN
 

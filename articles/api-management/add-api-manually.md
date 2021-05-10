@@ -4,20 +4,16 @@ description: Ce didacticiel vous montre comment utiliser le service Gestion des 
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 04/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4419bca71e3523d4b1bf6c803a96fe8190bda780
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183820"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108230745"
 ---
 # <a name="add-an-api-manually"></a>Ajouter une API manuellement
 
@@ -55,7 +51,7 @@ Cette section montre comment ajouter une opération « /get » afin de la mapp
 
 1. Sélectionnez l’API que vous avez créée à l’étape précédente.
 2. Cliquez sur **+ Ajouter une opération**.
-3. Dans **URL**, sélectionnez **GET** et entrez « */get* » dans la ressource.
+3. Dans **URL**, sélectionnez **GET** et entrez `/get` dans la ressource.
 4. Entrez « *FetchData* » pour **Nom complet**.
 5. Sélectionnez **Enregistrer**.
 
@@ -77,8 +73,8 @@ Cette section montre comment ajouter une opération qui accepte un paramètre. D
 
 1. Sélectionnez l’API que vous avez créée à l’étape précédente.
 2. Cliquez sur **+ Ajouter une opération**.
-3. Dans **URL**, sélectionnez **GET** et entrez « */status/{code}* » dans la ressource. Si vous le souhaitez, vous pouvez fournir des informations associées à ce paramètre. Par exemple, entrez « *Nombre* » pour **TYPE**, « *200* » (par défaut) pour **VALEURS**.
-4. Entrez « GetStatus » pour **Nom complet**.
+3. Dans **URL**, sélectionnez **GET** et entrez `*/status/{code}` dans la ressource. Si vous le souhaitez, vous pouvez fournir des informations associées à ce paramètre. Par exemple, entrez « *Nombre* » pour **TYPE**, « *200* » (par défaut) pour **VALEURS**.
+4. Entrez « WildcardGet » pour **Nom d’affichage**.
 5. Sélectionnez **Enregistrer**.
 
 ### <a name="test-the-operation"></a>Tester l’opération 
@@ -86,10 +82,34 @@ Cette section montre comment ajouter une opération qui accepte un paramètre. D
 Testez l’opération dans le portail Azure.  Vous pouvez également la tester dans le **portail des développeurs**.
 
 1. Sélectionnez l’onglet **Test**.
-2. Sélectionnez **GetStatus**. Par défaut, la valeur de code est définie sur « *200* ». Vous pouvez la modifier pour tester d’autres valeurs. Par exemple, tapez « *418* ».
+2. Sélectionnez **WildcardGet**. Par défaut, la valeur de code est définie sur « *200* ». Vous pouvez la modifier pour tester d’autres valeurs. Par exemple, tapez « *418* ».
 3. Appuyez sur **Envoyer**.
 
     La réponse que l’opération « http://httpbin.org/status/200  » génère s’affiche. Si vous souhaitez transformer vos opérations, consultez [Transform and protect your API](transform-api.md) (Transformer et protéger votre API).
+
+## <a name="add-and-test-a-wildcard-operation"></a>Ajouter et tester une opération générique
+
+Cette section montre comment ajouter une opération générique. Une opération générique vous permet de passer une valeur arbitraire avec une requête d’API. Au lieu de créer des opérations GET distinctes comme indiqué dans les sections précédentes, vous pouvez créer une opération GET générique.
+
+### <a name="add-the-operation"></a>Ajouter l’opération
+
+1. Sélectionnez l’API que vous avez créée à l’étape précédente.
+2. Cliquez sur **+ Ajouter une opération**.
+3. Dans **URL**, sélectionnez **GET** et entrez `/*` dans la ressource.
+4. Entrez « *WildcardGet* » pour **Nom d’affichage**.
+5. Sélectionnez **Enregistrer**.
+
+### <a name="test-the-operation"></a>Tester l’opération 
+
+Testez l’opération dans le portail Azure.  Vous pouvez également la tester dans le **portail des développeurs**.
+
+1. Sélectionnez l’onglet **Test**.
+2. Sélectionnez **WildcardGet**. Essayez une ou plusieurs opérations GET que vous avez testées dans les sections précédentes, ou bien essayez une autre opération GET prise en charge. 
+
+    Par exemple, dans **Paramètres du modèle**, mettez à jour la valeur en regard du nom générique (*) en la remplaçant par `headers`. L’opération retourne les en-têtes HTTP de la requête entrante.
+1. Appuyez sur **Envoyer**.
+
+    La réponse que l’opération « http://httpbin.org/headers  » génère s’affiche. Si vous souhaitez transformer vos opérations, consultez [Transform and protect your API](transform-api.md) (Transformer et protéger votre API).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

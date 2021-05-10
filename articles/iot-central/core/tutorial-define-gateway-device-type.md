@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: cdace22072e4122150c878d43b99765cd6fd59e1
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 7d2321189e32c77d9360ff6d772fcebf9c6abb1d
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490775"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324560"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutoriel - Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
@@ -45,15 +45,15 @@ Ce tutoriel utilise des modèles d’appareil pour un appareil **S1 Sensor** et 
 
 Pour créer un modèle d’appareil pour un appareil **S1 Sensor** :
 
-1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
+1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+ Nouveau** pour commencer à ajouter le modèle.
 
-1. Faites défiler jusqu’à faire apparaître la vignette pour l’appareil **S1 Sensor**. Sélectionnez la vignette, puis sélectionnez **Suivant : Personnaliser**.
+1. Faites défiler jusqu’à voir la vignette pour l’appareil **Minew S1**. Sélectionnez la vignette, puis sélectionnez **Suivant : Personnaliser**.
 
 1. Dans la page **Vérifier**, sélectionnez **Créer** pour ajouter le modèle d’appareil à votre application. 
 
-Pour créer un modèle d’appareil pour un appareil ***RS40 Occupancy Sensor** :
+Pour créer un modèle d’appareil pour un appareil **RS40 Occupancy Sensor** :
 
-1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
+1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+ Nouveau** pour commencer à ajouter le modèle.
 
 1. Faites défiler jusqu’à faire apparaître la vignette pour l’appareil ***RS40 Occupancy Sensor**. Sélectionnez la vignette, puis sélectionnez **Suivant : Personnaliser**.
 
@@ -70,19 +70,28 @@ Dans ce tutoriel, vous créez à partir de zéro un modèle d’appareil pour un
 
 Pour ajouter un nouveau modèle d’appareil à votre application :
 
-1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
+1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+ Nouveau** pour commencer à ajouter le modèle.
 
 1. Dans la page **Sélectionner un type de modèle**, sélectionnez la vignette **Appareil IoT**, puis sélectionnez **Suivant : Personnaliser**.
 
-1. Dans la page **Personnaliser l’appareil**, cochez la case **Appareil de passerelle**.
+1. Dans la page **Personnaliser l’appareil**, cochez la case **Il s’agit d’un appareil de passerelle**.
+
+1. Entrez **Appareil de passerelle Smart Building** comme nom de modèle, puis sélectionnez **Suivant : Vérifier**.
 
 1. Dans la page **Vérifier**, sélectionnez **Créer**. 
 
-1. Entrez **Appareil de passerelle Smart Building** comme nom du modèle.
 
-1. Dans la page **Créer un modèle de capacité**, sélectionnez la vignette **Personnalisé**.
 
-1. Sélectionnez **+** pour ajouter une interface.  Choisissez l’interface standard **Informations de l’appareil**.
+1. Dans la page **Créer un modèle**, sélectionnez la vignette **Modèle personnalisé**.
+
+1. Sélectionnez **+ Ajouter une fonctionnalité** pour ajouter une fonctionnalité.
+
+1. Entrez **Envoyer des données** comme nom d’affichage, puis sélectionnez **Propriété** comme type de fonctionnalité.
+
+1. Sélectionnez **+ Ajouter une fonctionnalité** pour ajouter une autre fonctionnalité. Entrez **Télémétrie booléenne** comme nom d’affichage, sélectionnez **Télémétrie** comme type de fonctionnalité, puis sélectionnez **Booléen** comme schéma.
+
+1. Sélectionnez **Enregistrer**.
+
 
 ### <a name="add-relationships"></a>Ajouter des relations
 
@@ -152,7 +161,7 @@ Pour créer un appareil de passerelle simulé :
 
 1. Dans la page **Appareils**, sélectionnez **Smart Building gateway device** dans la liste des modèles d’appareil.
 
-1. Sélectionnez **+** pour commencer à ajouter un nouvel appareil.
+1. Sélectionnez **+ Nouveau** pour commencer à ajouter un nouvel appareil.
 
 1. Conservez l’**ID de l’appareil** et le **Nom de l’appareil** générés. Vérifiez que le commutateur **Simulé** est **Activé**. Sélectionnez **Create** (Créer).
 
@@ -160,13 +169,13 @@ Pour créer des appareils en aval simulés :
 
 1. Dans la page **Appareils**, sélectionnez **RS40 Occupancy Sensor** dans la liste des modèles d’appareil.
 
-1. Sélectionnez **+** pour commencer à ajouter un nouvel appareil.
+1. Sélectionnez **+ Nouveau** pour commencer à ajouter un nouvel appareil.
 
 1. Conservez l’**ID de l’appareil** et le **Nom de l’appareil** générés. Vérifiez que le commutateur **Simulé** est **Activé**. Sélectionnez **Create** (Créer).
 
 1. Dans la page **Appareils**, sélectionnez **S1 Sensor** dans la liste des modèles d’appareil.
 
-1. Sélectionnez **+** pour commencer à ajouter un nouvel appareil.
+1. Sélectionnez **+ Nouveau** pour commencer à ajouter un nouvel appareil.
 
 1. Conservez l’**ID de l’appareil** et le **Nom de l’appareil** générés. Vérifiez que le commutateur **Simulé** est **Activé**. Sélectionnez **Create** (Créer).
 
@@ -178,11 +187,11 @@ Maintenant que vous disposez des appareils simulés dans votre application, vous
 
 1. Dans la page **Appareils**, sélectionnez **S1 Sensor** dans la liste des modèles d’appareil, puis sélectionnez votre appareil **S1 Sensor** simulé.
 
-1. Sélectionnez **Se connecter à une passerelle**.
+1. Sélectionnez **Attacher à la passerelle**.
 
-1. Dans la boîte de dialogue **Se connecter à une passerelle**, sélectionnez le modèle **Smart Building gateway device**, puis sélectionnez l’instance simulée que vous avez créée précédemment.
+1. Dans la boîte de dialogue **Attacher à une passerelle**, sélectionnez le modèle **Appareil de passerelle Smart Building**, puis sélectionnez l’instance simulée que vous avez créée précédemment.
 
-1. Sélectionnez **Joindre**.
+1. Sélectionnez **Attacher**.
 
 1. Dans la page **Appareils**, sélectionnez **RS40 Occupancy Sensor** dans la liste des modèles d’appareil, puis sélectionnez votre appareil **RS40 Occupancy Sensor** simulé.
 
@@ -190,13 +199,12 @@ Maintenant que vous disposez des appareils simulés dans votre application, vous
 
 1. Dans la boîte de dialogue **Se connecter à une passerelle**, sélectionnez le modèle **Smart Building gateway device**, puis sélectionnez l’instance simulée que vous avez créée précédemment.
 
-1. Sélectionnez **Joindre**.
+1. Sélectionnez **Attacher**.
 
 Vos appareils en aval simulés sont maintenant connectés à votre appareil de passerelle simulé. Si vous accédez à la vue **Appareils en aval** pour votre appareil de passerelle, vous pouvez voir les appareils en aval associés :
 
 ![Vue Appareils en aval](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
 
-Sélectionnez un modèle d’appareil de passerelle et une instance d’appareil de passerelle, puis sélectionnez **Rejoindre**.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

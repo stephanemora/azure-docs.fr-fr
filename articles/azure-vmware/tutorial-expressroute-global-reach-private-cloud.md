@@ -4,18 +4,16 @@ description: Découvrez comment créer un peering ExpressRoute Global Reach à u
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 04/27/2021
-ms.openlocfilehash: 52248eea866712782a5e04ee797c15d8c098bc9a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: fb0d8bc8391c96449cdf260c543cfed1af1125f5
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074639"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176105"
 ---
 # <a name="peer-on-premises-environments-to-azure-vmware-solution"></a>Appairer des environnements locaux à Azure VMware Solution
 
-Dans cette étape de démarrage rapide, vous utilisez les [informations collectées pendant la phase de planification](production-ready-deployment-steps.md) pour connecter Azure VMware Solution à votre environnement local.
-
-ExpressRoute Global Reach connecte votre environnement local à votre cloud privé Azure VMware Solution. La connexion Global Reach ExpressRoute est établie entre le circuit ExpressRoute de cloud privé et une connexion ExpressRoute existante à vos environnements locaux. 
+Dans cet étape de démarrage rapide, vous allez connecter Azure VMware Solution à votre environnement local. ExpressRoute Global Reach connecte votre environnement local à votre cloud privé Azure VMware Solution. La connexion Global Reach ExpressRoute est établie entre le circuit ExpressRoute de cloud privé et une connexion ExpressRoute existante à vos environnements locaux. 
 
 
 >[!NOTE]

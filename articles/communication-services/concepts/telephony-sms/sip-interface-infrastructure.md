@@ -1,6 +1,6 @@
 ---
-title: Exigences d’infrastructure de l’interface SIP - Azure Communication Services
-description: Familiarisez-vous avec les exigences d’infrastructure pour la configuration de l’interface SIP d’Azure Communication Services
+title: Conditions requises de l’infrastructure de routage direct Azure - Azure Communication Services
+description: Familiarisez-vous avec les conditions requises de l’infrastructure pour la configuration du routage direct d’Azure Communication Services
 author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
@@ -8,34 +8,34 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ede650ae072ef53ed40a9372a292ab69fe8cc1af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6e5aceaa6824d4bb6fd1bf938973c79cb5847e1
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492725"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324584"
 ---
-# <a name="sip-interface-infrastructure-requirements"></a>Exigences d’infrastructure de l’interface SIP 
+# <a name="azure-direct-routing-infrastructure-requirements"></a>Conditions requises de l’infrastructure de routage direct Azure 
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
  
-Cet article décrit les détails de connectivité de l’infrastructure, des licences et des contrôleurs de frontière de session (SBC, Session Border Controller) que vous devez garder à l’esprit quand vous planifiez votre déploiement de l’interface SIP.
+Cet article décrit l’infrastructure, les licences et les détails de la connectivité des contrôleurs de frontière de session (SBC, Session Border Controller) que vous devez garder à l’esprit pour planifier votre déploiement du routage direct Azure.
 
 
 ## <a name="infrastructure-requirements"></a>Exigences de l’infrastructure
-Les exigences en matière d’infrastructure pour les contrôleurs de frontière de session (SBC) et pour les domaines, et les autres exigences de connectivité réseau pour le déploiement de l’interface SIP, sont listées dans le tableau suivant :  
+Les conditions requises d’infrastructure pour les SBC et domaines pris en charge, ainsi que d’autres conditions de connectivité réseau pour le déploiement du routage direct Azure, sont listées dans le tableau suivant :  
 
 |Exigence d’infrastructure|Vous avez besoin de ceci|
 |:--- |:--- |
 |Contrôleur de frontière de session (SBC)|Un SBC pris en charge. Pour plus d’informations, consultez [SBC pris en charge](#supported-session-border-controllers-sbcs).|
-|Réseaux téléphoniques connectés au SBC|Un ou plusieurs réseaux téléphoniques connectés au SBC. À une extrémité, le SBC se connecte à Azure Communication Services via l’interface SIP. Le SBC peut également se connecter à des entités de téléphonie de tiers, comme des PABX, des adaptateurs de téléphonie analogique, etc. N’importe quelle option de connectivité RTCP connectée au SBC va fonctionner. (Pour la configuration des réseaux RTCP pour le SBC, reportez-vous aux fournisseurs SBC ou aux fournisseurs de réseau téléphonique.)|
+|Réseaux téléphoniques connectés au SBC|Un ou plusieurs réseaux téléphoniques connectés au SBC. À une extrémité, le SBC se connecte à Azure Communication Services par le biais du routage direct. Le SBC peut également se connecter à des entités de téléphonie de tiers, comme des PABX, des adaptateurs de téléphonie analogique, etc. N’importe quelle option de connectivité RTCP connectée au SBC va fonctionner. (Pour la configuration des réseaux RTCP pour le SBC, reportez-vous aux fournisseurs SBC ou aux fournisseurs de réseau téléphonique.)|
 |Abonnement Azure|Un abonnement Azure que vous utilisez pour créer des ressources ACS, et la configuration et la connexion au SBC.|
 |Jeton d’accès à Communication Services|Pour passer des appels, vous avez besoin d’un jeton d’accès valide avec l’étendue `voip`. Consultez [Jetons d’accès](../identity-model.md#access-tokens)|
 |Adresse IP publique pour le SBC|Adresse IP publique qui peut être utilisée pour se connecter au SBC. En fonction du type de SBC, celui-ci peut utiliser la traduction d’adresses réseau (NAT).|
 |Nom de domaine complet (FQDN) pour le SBC|Nom de domaine complet pour le SBC, où la partie « domaine » du nom de domaine complet ne correspond pas aux domaines inscrits dans votre organisation Microsoft 365 ou Office 365. Pour plus d’informations, consultez [Noms de domaine SBC](#sbc-domain-names).|
 |Entrée DNS publique pour le SBC |Entrée DNS publique mappant le nom de domaine complet du SBC à l’adresse IP publique. |
-|Certificat public approuvé pour le SBC |Un certificat pour le SBC, à utiliser pour toutes les communications avec l’interface SIP. Pour plus d’informations, consultez [Certificat public approuvé pour le SBC](#public-trusted-certificate-for-the-sbc).|
+|Certificat public approuvé pour le SBC |Certificat pour le SBC, à utiliser pour toutes les communications avec le routage direct Azure. Pour plus d’informations, consultez [Certificat public approuvé pour le SBC](#public-trusted-certificate-for-the-sbc).|
 |Adresses IP et ports du pare-feu pour la signalisation SIP et le multimédia |Le SBC communique avec les services suivants dans le cloud :<br/><br/>Proxy SIP, qui gère la signalisation<br/>Processeur multimédia, qui gère le multimédia<br/><br/>Ces deux services ont des adresses IP distinctes dans Microsoft Cloud, décrites plus loin dans ce document.
 
 
@@ -68,7 +68,7 @@ Microsoft vous recommande de demander le certificat pour le SBC en générant un
 
 Le certificat doit avoir le nom de domaine complet SBC pour le champ Nom commun (CN) ou Autre nom du sujet (SAN). Le certificat doit être émis directement depuis une autorité de certification et non pas depuis un fournisseur intermédiaire.
 
-L’interface SIP de Communication Services prend également en charge un caractère générique dans le champ CN et/ou SAN, et ce caractère générique doit être conforme au standard [RFC HTTP sur TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
+Le rouage direct de Communication Services prend également en charge un caractère générique dans le champ CN et/ou SAN, et ce caractère générique doit être conforme à la [RFC HTTP sur TLS](https://tools.ietf.org/html/rfc2818#section-3.1) standard. 
 
 Un exemple serait l’utilisation de `\*.contoso.com` qui correspondrait au nom de domaine complet SBC `sbc.contoso.com`, mais ne correspondrait pas à `sbc.test.contoso.com`.
 
@@ -103,7 +103,7 @@ Microsoft travaille sur l’ajout d’autorités de certification supplémentair
 
 ## <a name="sip-signaling-fqdns"></a>Signalisation SIP : Noms de domaine complets 
 
-Les points de connexion pour l’interface SIP de Communication Services sont les trois noms de domaine complets suivants :
+Les points de connexion pour le routage direct de Communication Services sont les trois noms de domaine complets suivants :
 
 - **sip.pstnhub.microsoft.com** - Nom de domaine complet global - doit être essayé en premier. Quand le SBC envoie une demande pour résoudre ce nom, les serveurs DNS Microsoft Azure retournent une adresse IP pointant vers le centre de données Azure principal affecté au SBC. L’affectation est basée sur les métriques de performance des centres de données et sur la proximité géographique du SBC. L’adresse IP retournée correspond au nom de domaine complet principal.
 - **sip2.pstnhub.microsoft.com** - Nom de domaine complet secondaire - mappé géographiquement à la région de deuxième priorité.
@@ -129,7 +129,7 @@ Ouvrez les ports du pare-feu pour ces adresses IP afin d’autoriser le trafic e
 
 ## <a name="sip-signaling-ports"></a>Signalisation SIP : Ports
 
-Utilisez les ports suivants pour l’interface SIP de Communication Services :
+Utilisez les ports suivants pour le routage direct Azure de Communication Services :
 
 |Trafic|Du|À|Port source|Port de destination|
 |:--- |:--- |:--- |:--- |:--- |
@@ -175,7 +175,7 @@ Emplacements où seuls des processeurs multimédias sont déployés (SIP transit
 ### <a name="leg-between-sbc-and-cloud-media-processor-or-microsoft-teams-client"></a>Tronçon entre SBC et un processeur multimédia cloud ou un client Microsoft Teams.
 S’applique à la fois aux cas de dérivation et de non-dérivation du multimédia.
 
-L’interface de routage direct sur le tronçon entre le SBC et le processeur multimédia cloud peut utiliser les codecs suivants :
+L’interface de routage direct Azure sur le tronçon entre le SBC et le processeur multimédia cloud peut utiliser les codecs suivants :
 
 - SILK, G.711, G.722, G.729
 

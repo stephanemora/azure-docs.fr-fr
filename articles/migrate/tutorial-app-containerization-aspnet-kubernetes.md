@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 464e2450b4d4dea9fc650ad8869af4215d3db1a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 24fd5cb0abbf36df74d6e2300c570e7e39b875ad
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561795"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108180569"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-kubernetes-service"></a>Conteneurisation d’applications ASP.NET et leur migration vers Azure Kubernetes Service
 
@@ -110,7 +110,7 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
 ## <a name="launch-the-app-containerization-tool"></a>Lancer l’outil Conteneurisation d’applications
 
-1. Ouvrez un navigateur sur une machine capable de se connecter à la machine Windows exécutant l’outil Conteneurisation d’applications, puis ouvrez l’URL de l’outil : **https://*nom de machine ou adresse IP*: 44368**.
+1. Ouvrez un navigateur sur une machine capable de se connecter à la machine Windows exécutant l’outil Conteneurisation d’applications, puis ouvrez l’URL de l’outil : **https://*nom de machine ou adresse IP*: 44369**.
 
    Vous pouvez aussi ouvrir l’application à partir de l’ordinateur de bureau en sélectionnant le raccourci de l’application.
 

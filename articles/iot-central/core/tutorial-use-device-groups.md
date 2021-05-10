@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a7d26eebb24662a448d8ccb44d037e7706fe776b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cc9c0825761099f7f5f665cd3a7f27c88f9cdbc
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99832842"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325316"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutoriel : Utiliser un groupe d’appareils pour analyser les données de télémétrie des appareils
 
@@ -37,15 +37,13 @@ Avant de créer un groupe d’appareils, ajoutez au moins cinq appareils simulé
 
 :::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Capture d’écran montrant cinq contrôleurs de capteur simulés":::
 
-Pour quatre des capteurs simulés, utilisez la vue **Gérer l'appareil** afin de définir le nom du client sur *Contoso* :
+Pour quatre des capteurs simulés, utilisez la vue **Gérer l’appareil** afin de définir le nom du client sur *Contoso*, puis sélectionnez **Enregistrer**.
 
 :::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Capture d’écran montrant comment définir la propriété cloud Nom du client":::
 
 ## <a name="create-a-device-group"></a>Créer un groupe d’appareils
 
-Pour créer un groupe d’appareils :
-
-1. Choisissez **Groupes d'appareils** dans le volet gauche.
+1. Sélectionnez **Groupes d’appareils** dans le volet gauche pour accéder à la page des groupes d’appareils.
 
 1. Sélectionnez **+Nouveau**.
 

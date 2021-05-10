@@ -4,16 +4,16 @@ description: Créez une application de fonction Python serverless et montez un p
 ms.topic: sample
 ms.date: 03/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0037cea24b1989c4f7a4d2ddd6bf3f8f7e812b3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: dd40b2c723e7aa6780db1c8ac96b2fc2bea20da4
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762278"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277927"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Monter un partage de fichiers dans une application de fonction Python à l’aide d’Azure CLI
 
-Cet exemple de script Azure Functions crée une application de fonction, ainsi qu’un partage dans Azure Files. Il monte ensuite le partage afin que les fonctions soient accessibles par vos fonctions.  
+Cet exemple de script Azure Functions crée une application de fonction, ainsi qu’un partage dans Azure Files. Il monte ensuite le partage afin que les données soient accessibles pour vos fonctions.  
 
 >[!NOTE]
 >L’application de fonction créée s’exécute sur Python version 3.7. Azure Functions [prend également en charge les versions 3.6 et 3.8 de Python](../functions-reference-python.md#python-version).

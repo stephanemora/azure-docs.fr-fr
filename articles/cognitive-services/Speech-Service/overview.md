@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: ddb61a79e6af402b06fe8c18df8c62f9287437a3
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: cacf317e433ec89b3bc82f86844e5e6b5e143547
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209712"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330550"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -64,8 +64,8 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
 1. Dans la fenêtre **Nouveau**, saisissez « speech » dans la zone de recherche et appuyez sur ENTRÉE.
 
 1. Dans les résultats de la recherche, sélectionnez **Speech**.
-
-   ![résultats de la recherche speech](media/index/speech-search.png)
+   
+   :::image type="content" source="media/index/speech-search.png" alt-text="Créez une ressource Speech dans le portail Azure.":::
 
 1. Sélectionnez **Créer**, puis :
 
