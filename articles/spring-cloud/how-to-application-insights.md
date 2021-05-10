@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: e9c0a2a6a6b40325e4bf87dc8cf52bc419b77621
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 457b21a0d84202cc712d5b1b719f5239de0e3391
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129060"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324668"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Agent In-process Java d’Application Insights dans Azure Spring Cloud (préversion)
 
@@ -141,6 +141,28 @@ az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedNam
 az spring-cloud app-insights update --disable â€“name "assignedName" â€“resource-group "resourceGroupName"
 
 ```
+
+## <a name="java-agent-updateupgrade"></a>Mise à jour/mise à niveau de l’agent Java
+
+L’agent Java est régulièrement mis à jour/mis à niveau avec le JDK, ce qui peut affecter les scénarios suivants.
+
+> [!Note]
+> La version du JDK est mise à jour ou à niveau tous les trimestres.
+
+* Les applications existantes qui utilisent l’agent Java avant la mise à jour/mise à niveau ne sont pas affectées.
+* Les applications créées après la mise à jour/mise à niveau tirent profit de la nouvelle version de l’agent Java.
+* Les applications existantes qui n’ont pas utilisé l’agent Java auparavant nécessitent un redémarrage ou un redéploiement pour pouvoir profiter de la nouvelle version de l’agent Java.
+
+## <a name="java-agent-configuration-hot-loading"></a>Chargement à chaud de la configuration de l’agent Java
+
+Azure Spring Cloud a activé un mécanisme de chargement à chaud pour ajuster les paramètres de configuration de l’agent sans redémarrer les applications.
+
+> [!Note]
+> Le mécanisme de chargement à chaud a un retard en minutes.
+
+* Lorsque l’agent Java a été activé précédemment, les modifications apportées à l’instance Application Insights et/ou à SamplingRate ne nécessitent PAS le redémarrage des applications.
+* Si vous activez l’agent Java, vous devez redémarrer les applications.
+* Lorsque vous désactivez l’agent Java, les applications arrêtent d’envoyer toutes les données d’analyse après un retard en minutes. Vous pouvez redémarrer les applications pour supprimer l’agent de l’environnement de runtime Java.
 
 ## <a name="see-also"></a>Voir aussi
 * [Utiliser le suivi distribué avec Azure Spring Cloud](./how-to-distributed-tracing.md)

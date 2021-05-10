@@ -1,19 +1,19 @@
 ---
 title: 'Scénario : Isolation personnalisée des réseaux virtuels et des branches'
 titleSuffix: Azure Virtual WAN
-description: 'Scénarios de routage : empêcher certains réseaux virtuels et certaines branches de pouvoir s’atteindre mutuellement'
+description: En savoir plus sur les scénarios de routage de Virtual WAN pour empêcher les réseaux virtuels et les branches sélectionnés d’entrer en contact les uns avec les autres.
 services: virtual-wan
 author: wellee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 04/27/2021
 ms.author: wellee
-ms.openlocfilehash: e8e5a5a1b9325f40fdd51133155a0daffaa55a7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 024d3c34094ac82e158198e569e0b6f3b12bdf4c
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99396238"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162020"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>Scénario : Isolation personnalisée des réseaux virtuels et des branches
 
@@ -85,7 +85,7 @@ Suivez les étapes ci-dessous lors de la configuration du routage.
 3. Répétez les mêmes étapes pour la table de routage **RT_RED** pour les réseaux virtuels rouges.
 4. Approvisionnez un pare-feu Azure dans Virtual WAN. Pour plus d’informations sur Pare-feu Azure dans le hub Virtual WAN, consultez [Configurer Pare-feu Azure dans un hub de réseau étendu virtuel](howto-firewall.md).
 5. Ajoutez un itinéraire statique à la table de routage **Par défaut** du hub virtuel qui dirige tout le trafic destiné aux espaces d’adressage de réseau virtuel (bleu et rouge) vers Pare-feu Azure. Cette étape garantit que tous les paquets provenant de vos branches seront envoyés à Pare-feu Azure pour inspection.
-    * Exemple : **Préfixe de destination** :  10.0.0.0/24 **Tronçon suivant** : Pare-feu Azure
+    * Exemple : **Préfixe de destination** : 10.0.0.0/8 **Tronçon suivant** : Pare-feu Azure
     >[!NOTE]
     > Vous pouvez également effectuer cette étape via Firewall Manager en sélectionnant l’option « Trafic privé sécurisé ». Cette opération ajoute un itinéraire pour toutes les adresses IP privées RFC1918 applicables aux réseaux virtuels et aux branches. Vous devrez ajouter manuellement les branches ou les réseaux virtuels qui ne sont pas conformes à la norme RFC1918. 
 

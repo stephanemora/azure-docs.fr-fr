@@ -1,24 +1,24 @@
 ---
-title: Planifier des offres Dynamics 365 pour Microsoft AppSource
+title: Planifier des offres Dynamics 365 pour Microsoft AppSource - Azure
 description: Planifier des offres Dynamics 365 pour Microsoft AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/16/2021
-ms.openlocfilehash: c2b4fddc91a9bd24ac1fd4f326d225835180dd78
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/30/2021
+ms.openlocfilehash: ca4860bea15c2290b0a3edbaaaed801cd4e36d86
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144688"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316026"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Planifier une offre Microsoft Dynamics 365
 
-Cet article explique les différentes options et fonctionnalités d’une offre Dynamics 365 dans Microsoft AppSource sur le marketplace commercial. AppSource comprend des offres ou des extensions des produits Dynamics 365, Microsoft 365, Power BI et Power Apps. AppSource autorise les offres payantes (*Obtenir maintenant*), d’annonce (*Me contacter*) et d’essai (*Essayer maintenant*).
+Cet article explique les différentes options et fonctionnalités d’une offre Dynamics 365 dans Microsoft AppSource sur le marketplace commercial. AppSource comprend des offres ou des extensions des produits Dynamics 365, Microsoft 365, Power BI et Power Apps.
 
-Avant de commencer, créez un compte de marketplace commercial dans [Espace partenaires](./create-account.md) et vérifiez qu’il est inscrit au programme de marketplace commercial. Examinez également le [processus et les instructions de publication](/office/dev/store/submit-to-appsource-via-partner-center).
+Avant de commencer, créez un compte de marketplace commercial dans [Espace partenaires](./partner-center-portal/create-account.md) et vérifiez qu’il est inscrit au programme de marketplace commercial. Examinez également le [processus et les instructions de publication](/office/dev/store/submit-to-appsource-via-partner-center).
 
 ## <a name="licensing-options"></a>Options de licence
 
@@ -28,10 +28,11 @@ Voici les options de licence disponibles pour les offres Dynamics 365 :
 
 | Option de licence | Processus de transaction |
 | --- | --- |
-| Obtenez-en une maintenant (gratuit) | Référencez votre offre gratuitement pour les clients. |
-| Essai gratuit (annonce) | Offrez à vos clients une évaluation gratuite de 1, 3 ou 6 mois. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft. |
 | Me contacter | Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre système CRM, consultez la section **Prospects** de la page **Configuration de l’offre** de votre type d’offre. |
-|
+| Essai gratuit (annonce) | Offrez à vos clients une évaluation gratuite de 1, 3 ou 6 mois. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft. |
+| Obtenez-en une maintenant (gratuit) | Référencez votre offre gratuitement pour les clients. |
+| Obtenir maintenant | Cela vous permet de gérer vos licences tierces dans l’Espace partenaires.<br>Actuellement disponible pour le type d’offre suivant uniquement :<ul><li>Dynamics 365 pour Customer Engagement et Power Apps</li></ul><br>Pour plus d’informations sur cette option, consultez [Gestion de licence d’application tierce via Microsoft](third-party-license.md). |
+|||
 
 ## <a name="test-drive"></a>Test drive
 
@@ -76,7 +77,7 @@ Pour faciliter la création de votre offre, préparez ces éléments à l’avan
 
 ## <a name="additional-sales-opportunities"></a>Opportunités de ventes supplémentaires
 
-Vous pouvez opter pour des canaux marketing et de vente pris en charge par Microsoft. Lorsque vous créez votre offre dans Espace partenaires, deux onglets s’affichent vers la fin du processus pour **Co-vendre avec Microsoft**. cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option Co-vente de l’Espace partenaires](./co-sell-configure.md).
+Vous pouvez opter pour des canaux marketing et de vente pris en charge par Microsoft. Lorsque vous créez votre offre dans Espace partenaires, deux onglets s’affichent vers la fin du processus pour **Co-vendre avec Microsoft**. cette option permet aux équipes de vente de Microsoft de tenir compte de votre solution éligible de co-vente IP lors de l’évaluation des besoins de leurs clients. Pour plus d’informations sur la façon de préparer votre offre à des fins d’évaluation, consultez [Option Co-vente de l’Espace partenaires](commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -88,4 +89,4 @@ Une fois que vous avez étudié les éléments de planification décrits ci-dess
 | [Dynamics 365 pour Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
 | [Dynamics 365 pour Customer Engagement et Power Apps](dynamics-365-customer-engage-offer-setup.md) | Examinez d’abord ces [processus et instructions de publication](/dynamics365/customer-engagement/developer/publish-app-appsource) supplémentaires. |
 | [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | Examinez d’abord ces [processus et instructions de publication](/power-bi/developer/office-store) supplémentaires. |
-|
+|||

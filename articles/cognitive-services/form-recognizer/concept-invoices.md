@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 51a59c0daa8fb0c5e59007ac4474ca09cccf4ac5
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e30e431ec393a59e0799bf1c56611fbba84d8960
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126144"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330581"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modèle de facture prédéfini Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations dans les factures à l’aide de ses modèles de facture prédéfinis. L’API Invoice permet aux clients d’accepter des factures dans une multitude de formats et de retourner des données structurées pour automatiser le traitement des factures. Elle combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/overview-ocr.md) avec des modèles de Deep Learning qui comprennent les factures dans le but d’extraire des informations clés de ces factures. Elle extrait le texte, les tableaux et les informations comme le client, le fournisseur, le numéro de facture, la date d’échéance, le total, le montant dû, le montant des taxes, l’adresse d’expédition, l’adresse de facturation, les éléments de ligne, etc. L’API Invoice prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1.
+Azure Form Recognizer peut analyser et extraire des informations dans les factures à l’aide de ses modèles de facture prédéfinis. L’API de facture permet aux clients d’accepter des factures dans divers formats et de retourner des données structurées pour automatiser le traitement des factures. L’API combine nos puissantes fonctionnalités de [Reconnaissance optique de caractères (OCR)](../computer-vision/overview-ocr.md) à des modèles de Deep Learning qui comprennent les factures afin d’extraire des informations clés des factures écrites en anglais. Elle extrait le texte, les tableaux et les informations comme le client, le fournisseur, le numéro de facture, la date d’échéance, le total, le montant dû, le montant des taxes, l’adresse d’expédition, l’adresse de facturation, les éléments de ligne, etc. L’API Invoice prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1.
 
 ## <a name="what-does-the-invoice-service-do"></a>Comment le service Invoice fonctionne-t-il ?
 
-L’API Invoice extrait les champs et éléments de ligne clés des factures et les retourne dans une réponse JSON structurée et organisée. Les factures peuvent être dans divers formats et de diverses qualités. Il peut s’agir notamment d’images capturées par téléphone, de documents numérisés et de fichiers PDF numériques. L’API Invoice va extraire la sortie structurée de toutes ces factures. 
+L’API Invoice extrait les champs et éléments de ligne clés des factures et les retourne dans une réponse JSON structurée et organisée. Les factures peuvent être de formats et de qualités divers, notamment des images capturées par téléphone, des documents numérisés et des fichiers PDF numériques. L’API Invoice va extraire la sortie structurée de toutes ces factures.
 
 ![Exemple de facture Contoso](./media/invoice-example-new.jpg)
 
@@ -34,7 +34,7 @@ Pour tester le service Invoice de Form Recognizer, accédez à l’outil d’exe
 > [!div class="nextstepaction"]
 > [Essayer des modèles prédéfinis](https://fott-preview.azurewebsites.net/)
 
-Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services)), ainsi que d’un point de terminaison et d’une clé de [ressource Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) pour tester le service Invoice de Form Recognizer. 
+Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services)), ainsi que d’un point de terminaison et d’une clé de [ressource Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) pour tester le service Invoice de Form Recognizer.
 
 :::image type="content" source="media/analyze-invoice-new.png" alt-text="Exemple de facture analysée" lightbox="media/analyze-invoice-new.png":::
 
@@ -42,10 +42,9 @@ Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://a
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-locales"></a>Paramètres régionaux pris en charge 
+## <a name="supported-locales"></a>Paramètres régionaux pris en charge
 
-**Pre-built Receipt v2.0** (GA) et **Pre-built Receipt v2.1-preview.3** (préversion) prennent en charge les factures dans les paramètres régionaux EN-US.
-
+La **facture prédéfinie v2.1-preview.3** (préversion) prend en charge les factures dans les paramètres régionaux **en-us**.
 
 ## <a name="the-analyze-invoice-operation"></a>Opération d’analyse d’une facture
 
@@ -63,28 +62,29 @@ La deuxième étape consiste à appeler l’opération d’[obtention du résult
 |:-----|:----:|:----|
 |status | string | notStarted : L’opération d’analyse n’a pas commencé.<br /><br />running : L’opération d’analyse est en cours.<br /><br />failed : L’opération d’analyse a échoué.<br /><br />succeeded : L’opération d’analyse a réussi.|
 
-Quand le champ **status** a la valeur de **succeeded**, la réponse JSON inclut les résultats de la compréhension de la facture, les tables extraites et les résultats de la reconnaissance de texte facultative, si nécessaire. Le résultat de la compréhension de la facture est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Il inclut également les lignes extraites contenant chacune le montant, la description, le prix unitaire, la quantité, etc. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations relatives à la confiance.
+Quand le champ **status** a la valeur de **succeeded**, la réponse JSON inclut les résultats de la compréhension de la facture, les tables extraites et les résultats de la reconnaissance de texte facultative, si nécessaire. Le résultat de la compréhension de la facture est organisé sous la forme d’un dictionnaire de valeurs de champ nommées, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Il inclut également les lignes extraites contenant chacune le montant, la description, le prix unitaire, la quantité, etc. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations relatives à la confiance.
 
 ### <a name="sample-json-output"></a>Exemple de sortir JSON
 
-La réponse à l’opération d’obtention du résultat de l’analyse de la facture va correspondre à la représentation structurée de la facture avec toutes les informations extraites. Reportez-vous à cet [exemple de fichier de facture](media/sample-invoice.jpg) et cet [exemple de sortie de facture](media/invoice-example-new.jpg) structurée.
+La réponse à l’opération d’obtention du résultat de l’analyse de la facture va correspondre à la représentation structurée de la facture avec toutes les informations extraites.
+Reportez-vous à cet [exemple de fichier de facture](media/sample-invoice.jpg) et cet [exemple de sortie de facture](media/invoice-example-new.jpg) structurée.
 
-La sortie JSON comporte trois parties : 
-* Le nœud `"readResults"` contient tout le texte reconnu et toutes les marques de sélection. Le texte est organisé par page, puis par ligne, puis par mots individuels. 
+La sortie JSON comporte trois parties :
+* Le nœud `"readResults"` contient tout le texte reconnu et toutes les marques de sélection. Le texte est organisé par page, puis par ligne, puis par mots individuels.
 * Le nœud `"pageResults"` contient les tables et les cellules extraites avec leurs cadres englobants, la confiance et une référence aux lignes et aux mots dans « readResults ».
-* Le nœud `"documentResults"` contient les valeurs et les éléments de ligne spécifiques à la facture que le modèle a découverts. C’est ici que vous allez trouver tous les champs de la facture, comme le numéro de facture, l’adresse d’expédition, l’adresse de facturation, le client, le total, les éléments de ligne, etc.
+* Le nœud `"documentResults"` contient les valeurs et les éléments de ligne spécifiques à la facture que le modèle a découverts. C’est là que vous trouverez tous les champs de la facture, tels que l’ID de la facture, l’adresse d’expédition, l’adresse de facturation, le client, le total, les éléments de ligne et bien plus encore.
 
 ## <a name="example-output"></a>Exemple de sortie
 
-Le service Invoice extrait le texte, les tables et 26 champs de facture. Voici les champs extraits d’une facture dans la réponse de sortie JSON (la sortie ci-dessous utilise cet [exemple de facture](media/sample-invoice.jpg)).
+Le service de facture extrait le texte, les tables, ainsi que 26 champs de facture. Voici les champs extraits d’une facture dans la réponse de sortie JSON (la sortie ci-dessous utilise cet [exemple de facture](media/sample-invoice.jpg)).
 
 |Name| Type | Description | Texte | Valeur (sortie standardisée) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Client destinataire de la facture | Microsoft Corp |  |
 | CustomerId | string | ID de référence du client | CID-12345 |  |
-| PurchaseOrder | string | Numéro de référence du bon de commande | PO-3333 | | 
-| InvoiceId | string | ID de cette facture (souvent appelé « numéro de facture ») | INV-100 | | 
-| InvoiceDate | Date | Date d’émission de la facture | 15/11/2019 | 2019-11-15 | 
+| PurchaseOrder | string | Numéro de référence du bon de commande | PO-3333 | |
+| InvoiceId | string | ID de cette facture (souvent appelé « numéro de facture ») | INV-100 | |
+| InvoiceDate | Date | Date d’émission de la facture | 15/11/2019 | 2019-11-15 |
 | DueDate | Date | Date d’échéance du paiement de cette facture | 15/12/2019 | 2019-12-15 |
 | VendorName | string | Fournisseur qui a créé cette facture | CONTOSO LTD. | |
 | VendorAddress | string | Adresse postale du fournisseur | 123 456th St New York, NY, 10001 | |
@@ -95,7 +95,7 @@ Le service Invoice extrait le texte, les tables et 26 champs de facture. Voici l
 | BillingAddressRecipient | string | Nom associé à l’adresse de facturation | Services Microsoft | |
 | ShippingAddress | string | Adresse d’expédition explicite du client | 123 Ship St, Redmond WA, 98052 | |
 | ShippingAddressRecipient | string | Nom associé à l’adresse d’expédition | Livraison Microsoft | |
-| SubTotal | nombre | Champ de sous-total identifié sur cette facture | 100,00 $ | 100 | 
+| SubTotal | nombre | Champ de sous-total identifié sur cette facture | 100,00 $ | 100 |
 | TotalTax | nombre | Champ du total des taxes identifié sur cette facture | 10,00 $ | 10 |
 | InvoiceTotal | nombre | Total des nouveaux frais associés à cette facture | 110,00 $ | 110 |
 | AmountDue |  nombre | Montant total dû au fournisseur | 610,00 $ | 610 |
@@ -107,7 +107,7 @@ Le service Invoice extrait le texte, les tables et 26 champs de facture. Voici l
 | ServiceEndDate | Date | Date de fin de la période de service (par exemple, pour une période de service de facturation d’utilitaire) | 14/11/2019 | 2019-11-14 |
 | PreviousUnpaidBalance | nombre | Solde précédent impayé explicite | 500,00 $ | 500 |
 
-Voici les élément de ligne extraits d’une facture dans la réponse de la sortie JSON (la sortie ci-dessous utilise cet [exemple de facture](./media/sample-invoice.jpg)) :  
+Voici les élément de ligne extraits d’une facture dans la réponse de la sortie JSON (la sortie ci-dessous utilise cet [exemple de facture](./media/sample-invoice.jpg)) :
 
 |Name| Type | Description | Texte (élément de ligne no 1) | Valeur (sortie standardisée) |
 |:-----|:----|:----|:----| :----|
@@ -117,8 +117,8 @@ Voici les élément de ligne extraits d’une facture dans la réponse de la sor
 | Quantité | nombre | Quantité pour cet élément de ligne de la facture | 2 | 2 |
 | UnitPrice | nombre | Prix net ou brut (en fonction du paramètre de facturation brute de la facture) d’une unité de cet élément | 30,00 $ | 30 |
 | ProductCode | string| Code du produit, numéro de produit ou référence SKU associé à l’élément de ligne spécifique | A123 | |
-| Unité | string| Unité de l’élément de ligne, par exemple kg, lb, etc. | heures | |
-| Date | date| Date correspondant à chaque élément de ligne. Il s’agit souvent de la date à laquelle l’élément de ligne a été expédié | 04/03/2021| 04-03-2021 |
+| Unité | string| L’unité de l’élément de ligne (par exemple : kg, lb, etc.) | heures | |
+| Date | date| Date correspondant à chaque élément de ligne. Il s’agit souvent de la date d’expédition de l’élément de ligne | 04/03/2021| 04-03-2021 |
 | Taxe | nombre | Taxe associée à chaque élément de ligne. Les valeurs possibles incluent le montant des taxes, le pourcentage de la taxe et la valeur d’application de la taxe (O/N) | 10 % | |
 
 

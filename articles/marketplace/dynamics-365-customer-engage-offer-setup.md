@@ -6,19 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
-ms.openlocfilehash: b373ac8ef4ef8da9c4b4ac6373dd5db37ad57f2f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/30/2021
+ms.openlocfilehash: 550ae815933fd79e0cf6dc411aaddc8a8f564202
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145030"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314514"
 ---
 # <a name="how-to-create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps
 
 Cet article décrit comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps. Toutes les offres pour Dynamics 365 passent par notre processus de certification. Cette expérience d’essai permet aux utilisateurs de déployer votre solution dans un environnement Dynamics 365 en ligne.
 
-Avant de commencer, créez un compte de marketplace commercial dans [Espace partenaires](./create-account.md) et vérifiez qu’il est inscrit au programme de marketplace commercial.
+Avant de commencer, créez un compte de marketplace commercial dans [Espace partenaires](partner-center-portal/create-account.md) et vérifiez qu’il est inscrit au programme de marketplace commercial.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -27,8 +27,8 @@ Examinez [Planifier une offre Dynamics 365](marketplace-dynamics-365.md). Cet a
 ## <a name="create-a-new-offer"></a>Créer une offre
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
-3. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Dynamics 365 for Customer Engagement & PowerApps**.
+2. Dans le menu de navigation de gauche, sélectionnez **Marketplace commercial** > **Vue d’ensemble**.
+3. Sur la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** > **Dynamics 365 pour Customer Engagement et Power Apps**.
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-customer-engagement.png" alt-text="Affiche les options de menu du volet gauche et le bouton « Nouvelle offre » avec Customer Engagement sélectionné.":::
 
@@ -52,11 +52,16 @@ Sélectionnez **Créer** pour générer l’offre. Espace partenaires ouvre la p
 
 ## <a name="alias"></a>Alias
 
-Entrez un nom descriptif que nous utiliserons pour faire référence à cette offre uniquement dans l’Espace partenaires. L’alias de l’offre (pré-rempli avec les informations que vous avez entrées lors de la création de l’offre) n’est pas utilisé dans le marketplace et est différent du nom de l’offre présenté aux clients. Si vous souhaitez mettre à jour le nom de l’offre par la suite, consultez la page [Annonce de l’offre](dynamics-365-customer-engage-offer-listing.md).
+Entrez un nom descriptif que nous utiliserons pour faire référence à cette offre uniquement dans l’Espace partenaires. L’alias de l’offre (pré-rempli avec les informations que vous avez entrées lors de la création de l’offre) n’est pas utilisé dans la Place de marché et est différent du nom de l’offre présenté aux clients. Si vous souhaitez mettre à jour le nom de l’offre par la suite, consultez la page [Annonce de l’offre](dynamics-365-customer-engage-offer-listing.md).
 
 ## <a name="setup-details"></a>Détails de la configuration
 
-Pour **Comment voulez-vous qu’interagissent les clients avec l’offre de liste ?** , sélectionnez l’option que vous souhaitez utiliser pour cette offre.
+Pour **Comment voulez-vous qu’interagissent les clients potentiels avec l’offre de listing ?** , sélectionnez l’option que vous souhaitez utiliser pour cette offre :
+
+- **Activer la gestion de licence d’application via Microsoft** : gérez vos licences d’application avec Microsoft. Pour permettre aux clients d’exécuter les fonctionnalités de base de votre application sans licence, ainsi que des fonctionnalités Premium après avoir acheté une licence, sélectionnez la **case Autoriser les clients à installer mon application même si les licences ne sont pas attribuées**. Si vous sélectionnez cette deuxième case, vous devez configurer votre package de solution pour qu’il ne nécessite pas de licence.
+
+    > [!NOTE]
+    > Vous ne pouvez pas modifier ce paramètre après la publication de votre offre. Pour en savoir plus sur ce paramètre, consultez [Gestion de licence d’application tierce via Microsoft](third-party-license.md).
 
 - **Obtenez-en une maintenant (gratuit)**  : référencez votre offre gratuitement pour les clients.
 - **Essai gratuit (annonce)**  : référencez votre offre pour les clients avec un lien vers un essai gratuit. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.

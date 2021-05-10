@@ -1,14 +1,14 @@
 ---
 title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
-ms.date: 01/14/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e1867c2ba86d237a7b8937b689fef11235c1a202
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 863f85c1eeeed381eda12a066a247c2605a1d68f
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073698"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326126"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -116,7 +116,7 @@ Les définitions de stratégie Guest Configuration utilisent l’effet **AuditIf
 Les définitions de stratégie **AuditIfNotExists** ne retournent pas de résultats de conformité tant que toutes les spécifications ne sont pas satisfaites sur la machine. Les spécifications sont décrites dans la section [Configuration requise pour le déploiement de machines virtuelles Azure](#deploy-requirements-for-azure-virtual-machines).
 
 > [!IMPORTANT]
-> Dans une version antérieure de la configuration d’invité, une initiative était nécessaire pour combiner les définitions **DeployIfNoteExists** et **AuditIfNotExists**. Les définitions **DeployIfNotExists** ne sont plus nécessaires. Les définitions et les initiatives sont étiquetées `[Deprecated]` mais les attributions existantes continuent à fonctionner. Pour plus d’informations, consultez le billet de blog : [Modification importante publiée pour les stratégies d’audit de Guest Configuration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+> Dans une version précédente de Guest Configuration, une initiative était nécessaire pour combiner les définitions **DeployIfNoteExists** et **AuditIfNotExists**. Les définitions **DeployIfNotExists** ne sont plus nécessaires. Les définitions et les initiatives sont étiquetées `[Deprecated]` mais les attributions existantes continuent à fonctionner. Pour plus d’informations, consultez le billet de blog : [Modification importante publiée pour les stratégies d’audit de Guest Configuration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ### <a name="what-is-a-guest-assignment"></a>Qu’est-ce qu’une affectation d’invité ?
 

@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: a33256ae30cc26ef581128d89f43ab02dd2ec148
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 2eabbfb5928fea861874e78fa68ac196d16134d3
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017100"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291331"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Plug-in Click Analytics Auto-collection pour kit SDK JavaScript Application Insights
 
@@ -23,7 +23,7 @@ Ce plug-in suit automatiquement les événements de clic sur les pages web et ut
 
 Les utilisateurs peuvent configurer le plug-in Click Analytics Auto-collection via npm.
 
-### <a name="npm-setup"></a>Configuration npm
+### <a name="npm-setup"></a>Configuration NPM
 
 Installez le package npm :
 
@@ -52,6 +52,38 @@ const configObj = {
 
 const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
+```
+
+## <a name="snippet-setup-ignore-if-using-npm-setup"></a>Configuration d’extrait (à ignorer si vous utilisez la configuration NPM)
+
+```html
+<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.6.2.min.js"></script>
+<script type="text/javascript">
+  var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
+  // Click Analytics configuration
+  var clickPluginConfig = {
+    autoCapture : true,
+    dataTags: {
+      useDefaultContentNameOrId: true
+    }
+  }
+  // Application Insights Configuration
+  var configObj = {
+    instrumentationKey: "YOUR INSTRUMENTATION KEY",
+    extensions: [
+      clickPluginInstance
+    ],
+    extensionConfig: {
+      [clickPluginInstance.identifier] : clickPluginConfig
+    },
+  };
+  // Application Insights Snippet code
+  !function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+    crossOrigin: "anonymous",
+    cfg: configObj
+  });
+</script>
 ```
 
 ## <a name="how-to-effectively-use-the-plugin"></a>Comment utiliser efficacement le plug-in

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/26/2021
+ms.date: 04/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7da93343e7380a327b7d2586b90dd5a5df1e006f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f7ccca25bf140a51755c229f8c438e053a7ac7de
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136855"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319254"
 ---
 # <a name="audit-logs-in-azure-active-directory"></a>Journaux d’audit dans Azure Active Directory 
 
@@ -37,9 +37,9 @@ Pour vous aider à atteindre cet objectif, le portail Azure Active Directory vou
 Cet article présente une vue d’ensemble des journaux d’audit.
 
 
-## <a name="what-can-you-do-with-it"></a>Que pouvez-vous faire avec les journaux d’autdit ?
+## <a name="what-is-it"></a>Qu’est-ce que c’est ?
 
-Les journaux d’audit Azure AD vous permettent d’obtenir des enregistrements des activités du système à des fins de conformité.
+Avec les journaux d’audit dans Azure AD, vous accédez aux enregistrements des activités du système pour la conformité.
 Les affichages les plus courants de ce journal sont basés sur les catégories suivantes :
 
 - User Management
@@ -49,7 +49,7 @@ Les affichages les plus courants de ce journal sont basés sur les catégories s
 - Gestion des applications  
 
 
-L’affichage basé sur les utilisateurs et les groupes vous permet d’obtenir des réponses à des questions telles que :
+L’affichage centré sur l’utilisateur vous permet d’obtenir des réponses à des questions, telles que :
 
 - Quels types de mises à jour ont été appliqués aux utilisateurs ?
 
@@ -59,6 +59,9 @@ L’affichage basé sur les utilisateurs et les groupes vous permet d’obtenir 
 
 - Qu’a fait un administrateur dans un répertoire ?
 
+
+L’affichage centré sur les groupes vous permet d’obtenir des réponses à des questions, telles que :
+
 - Quels sont les groupes qui ont été ajoutés ?
 
 - Existe-t-il des groupes comportant des modifications d’adhésion ?
@@ -66,7 +69,6 @@ L’affichage basé sur les utilisateurs et les groupes vous permet d’obtenir 
 - Les propriétaires de groupe ont-ils été modifiés ?
 
 - Quelles licences ont été attribuées à un groupe ou un utilisateur ?
-
 
 L’affichage basé sur les applications vous permet d’obtenir des réponses à des questions telles que :
 
@@ -81,6 +83,10 @@ L’affichage basé sur les applications vous permet d’obtenir des réponses �
 - Qui a donné son consentement à une application ?
 
  
+## <a name="what-license-do-i-need"></a>De quelle licence ai-je besoin ?
+
+Le rapport d’activité d’audit est disponible dans toutes les éditions d’Azure AD.
+
 ## <a name="who-can-access-it"></a>Qui peut y accéder ?
 
 Pour accéder aux journaux d’audit, vous devez disposer d’un des rôles suivants : 
@@ -91,16 +97,19 @@ Pour accéder aux journaux d’audit, vous devez disposer d’un des rôles suiv
 - Lecteur général
 - Administrateur général
 
-## <a name="where-can-you-find-it-in-the-azure-portal"></a>Où le trouver dans le portail Azure ?
+## <a name="where-can-i-find-it"></a>Où puis-je le trouver ?
 
 Le portail Azure vous offre plusieurs options pour accéder au journal. Par exemple, dans le menu Azure Active Directory, vous pouvez ouvrir le journal dans la section **Surveillance**.  
 
-![Ouvrir les journaux de provisionnement](./media/concept-provisioning-logs/provisioning-logs-menu.png)
+![Ouvrir les journaux d’audit](./media/concept-audit-logs/audit-logs-menu.png)
 
-En outre, vous pouvez accéder directement aux journaux d’audit à l’aide de ce lien : [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents)
+En outre, vous pouvez accéder directement aux journaux d’audit en cliquant sur [ce lien](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
 
 
-## <a name="what-is-the-default-view"></a>Qu’est-ce que l’affichage par défaut ?
+Vous pouvez également accéder au journal d’audit par le biais de l’API Microsoft Graph.
+
+
+## <a name="what-is-the-default-view"></a>Qu’est-ce que la vue par défaut ?
 
 Un journal d’audit inclut un mode Liste par défaut, qui indique :
 
@@ -124,7 +133,6 @@ Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des c
 Sélectionnez un élément dans la vue sous forme de liste pour obtenir des informations plus détaillées.
 
 ![sélectionner un élément](./media/concept-audit-logs/details.png "Sélectionner un élément")
-
 
 ## <a name="filtering-audit-logs"></a>Filtrage des journaux d’audit
 
@@ -211,7 +219,6 @@ Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une 
 Vous pouvez également télécharger les données filtrées, jusqu’à 250 000 enregistrements, en sélectionnant le bouton **Télécharger**. Vous pouvez télécharger les journaux d’activité au format CSV ou JSON. Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).
 
 ![Télécharger des données](./media/concept-audit-logs/download.png "Télécharger des données")
-
 
 
 

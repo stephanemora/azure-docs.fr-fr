@@ -97,6 +97,8 @@
           href: how-to-run-a-reindex.md
         - name: Rechercher l’API Azure pour FHIR dans les exemples
           href: search-samples.md
+    - name: Validation de profil
+      href: validation-against-profiles.md
     - name: Exporter des données
       expanded: false
       items:

@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
-ms.openlocfilehash: c24baa6a89b70a8b0b6409be20e1a8d4923d12ae
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 04/30/2021
+ms.openlocfilehash: f1404417854f34b1e8a1f3ecef84c914130cab43
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107820130"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320778"
 ---
 # <a name="review-and-publish-a-dynamics-365-cepa-offer"></a>Examiner et publier une offre Dynamics 365 pour Customer Engagement et Power Apps
 
@@ -54,6 +54,9 @@ Une fois que toutes les pages sont terminées et que vous avez entré les notes 
 1. Sélectionnez **Vérifier et publier**.
 1. Sélectionnez **OK** pour rendre votre offre publiquement disponible.
 
+Une fois que vous avez sélectionné **Examiner et publier**, nous effectuons une certification, ainsi que d’autres processus de vérification avant que votre offre ne soit publiée sur AppSource. Nous vous prévenons lorsque votre offre est disponible en préversion pour que vous puissiez démarrer. En cas de problème, nous vous fournissons les détails, ainsi que des conseils sur la façon de le résoudre.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Si vous avez activé la _Gestion de licence d’application tierce via Microsoft_ pour votre offre, vous devez enregistrer la transaction dans l’Espace partenaires une fois votre offre vendue. Pour en savoir plus, consultez [Gestion de licence dans les offres marketplace](/partner-center/csp-commercial-marketplace-licensing).
 - [Mettre à jour une offre existante dans la Place de marché commerciale](partner-center-portal/update-existing-offer.md)
