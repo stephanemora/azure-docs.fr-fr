@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentation sur la plateforme Azure Industrial IoT
+summary: La plateforme Azure Industrial IoT est une suite de modules et de services Microsoft déployés sur Azure.
+metadata:
+  description: Découvrir
+  ms.service: industrial-iot
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 3/22/2021
+  ms.openlocfilehash: bced3bdbb854af75e7b521f7c5c3f2e1022a161b
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107813827"
+landingContent:
+- title: À propos de la plateforme Azure Industrial IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Définition de l’IoT industriel (IIoT)
+      url: overview-what-is-industrial-iot.md
+    - text: Qu’est-ce qu’OPC Publisher ?
+      url: overview-what-is-opc-publisher.md
+- title: Bien démarrer avec la plateforme IIoT (Industrial IoT)
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Déployer la plateforme Azure Industrial IoT
+      url: tutorial-deploy-industrial-iot-platform.md
+    - text: Configurer les composants Industrial IoT
+      url: tutorial-configure-industrial-iot-components.md
+    - text: Extraire des données Azure Industrial IoT dans ADX
+      url: tutorial-industrial-iot-azure-data-explorer.md
+    - text: Visualiser les données avec Time Series Insights (TSI)
+      url: tutorial-visualize-data-time-series-insights.md
+- title: Utiliser OPC Publisher
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Déployer OPC Publisher
+      url: tutorial-publisher-deploy-opc-publisher-standalone.md
+    - text: Configurer OPC Publisher
+      url: tutorial-publisher-configure-opc-publisher.md
+    - text: Optimiser la mémoire et les performances d’OPC Publisher
+      url: tutorial-publisher-performance-memory-tuning-opc-publisher.md
