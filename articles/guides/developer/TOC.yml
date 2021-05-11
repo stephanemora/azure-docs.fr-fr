@@ -23,8 +23,8 @@
         - name: Service de conteneur
           href: /previous-versions/azure/container-service/dcos-swarm/container-service-intro
         - name: Azure Spring Cloud
-          href: ../../spring-cloud/spring-cloud-quickstart.md
-- name: Didacticiels
+          href: ../../spring-cloud/quickstart.md
+- name: Tutoriels
   items:
     - name: Créer et déployer une application Web
       items:

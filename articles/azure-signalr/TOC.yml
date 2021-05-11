@@ -1,6 +1,6 @@
 - name: Documentation Azure SignalR Service
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "À propos du service Azure\_SignalR"
       href: signalr-overview.md
@@ -85,7 +85,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/signalr-security-baseline?toc=/azure/azure-signalr/TOC.json
         - name: Contrôles de sécurité par Azure Policy
           href: ./security-controls-policy.md
 - name: Guides pratiques
@@ -129,7 +129,7 @@
 - name: References
   items:
     - name: Azure CLI
-      href: signalr-reference-cli.md
+      href: /cli/azure/signalr
     - name: API REST
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR

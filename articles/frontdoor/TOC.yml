@@ -41,7 +41,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/front-door-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: Pools de serveurs principaux et de serveur principal
       href: front-door-backend-pool.md
     - name: Mise en cache avec Front Door
@@ -49,7 +49,7 @@
     - name: Protection DDoS
       href: front-door-ddos.md
     - name: Questions fréquentes (FAQ) sur Front Door
-      href: front-door-faq.md
+      href: front-door-faq.yml
     - name: Filtrage géographique
       href: front-door-geo-filtering.md
     - name: Sondes d’intégrité
@@ -99,7 +99,7 @@
 - name: Informations de référence
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/front-door/
+      href: /cli/azure/afd/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor
     - name: API REST

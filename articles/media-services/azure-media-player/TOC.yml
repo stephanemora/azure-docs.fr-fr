@@ -2,10 +2,8 @@
   items:
     - name: Présentation du lecteur multimédia Azure
       href: azure-media-player-overview.md
-    - name: Notes de publication
-      href: azure-media-player-release-notes.md
     - name: Journal des modifications
-      href: azure-media-player-changelog.md
+      href: 'https://amp.azure.net/libs/amp/latest/docs/changelog.html'
 - name: Démarrages rapides
   items:
     - name: Démarrage rapide du Lecteur multimédia Azure
@@ -41,7 +39,7 @@
 - name: Informations de référence
   items:
     - name: API
-      href: /javascript/api/azuremediaplayer/
+      href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
     - name: Méthodes d’API
       href: azure-media-player-api-methods.md
     - name: Options
