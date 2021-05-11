@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment détecter un problème lié à la création, à l’attribution et à la suppression de blueprints tels que les violations de stratégie et les fonctions de paramètres blueprint.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 183d27235ce738d884a02b53a498f77ebed41e66
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918842"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326414"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
 
@@ -38,7 +38,7 @@ Le déploiement du modèle a échoué à cause de la violation de stratégie.
 
 #### <a name="cause"></a>Cause
 
-Une stratégie peut entrer en conflit avec le déploiement pour plusieurs raisons :
+Une stratégie peut entrer en conflit avec le déploiement pour les raisons suivantes :
 
 - La ressource en cours de création est limitée par la stratégie (généralement des restrictions de référence SKU ou d’emplacement)
 - Le déploiement définit des champs qui sont configurés par la stratégie (courant avec les étiquettes)

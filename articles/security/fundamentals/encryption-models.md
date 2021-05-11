@@ -4,7 +4,6 @@ description: Cet article fournit une vue d’ensemble des modèles de chiffremen
 services: security
 documentationcenter: na
 author: msmbaldwin
-manager: rkarlin
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
+ms.date: 04/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 95ab5917779a73b7221a5b431126164aef88b494
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 8e39864e2246e175bb9f699f01b78646782d84eb
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812117"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315342"
 ---
 # <a name="data-encryption-models"></a>Modèles de chiffrement des données
 
@@ -91,7 +90,7 @@ Quand le chiffrement côté serveur avec des clés gérées par le service est u
 
 Dans les scénarios où les données doivent être chiffrées au repos et les clés de chiffrement doivent être contrôlées, les clients peuvent utiliser le chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault. Certains services peuvent stocker seulement la clé de chiffrement des clés racine dans Azure Key Vault et stocker la clé de chiffrement des données chiffrée à un emplacement interne plus proche des données. Dans ce scénario, les clients peuvent apporter leurs propres clés au coffre de clés (BYOK, Bring Your Own Key), ou en générer de nouvelles et les utiliser pour chiffrer les ressources souhaitées. Quand le fournisseur de ressources effectue les opérations de chiffrement et de déchiffrement, il utilise la clé de chiffrement de la clé configurée comme clé racine pour toutes les opérations de chiffrement.
 
-La perte de clés de chiffrement de clé signifie la perte de données. Pour cette raison, les clés ne doivent pas être supprimées. Les clés doivent être sauvegardées chaque fois qu’elles sont créées ou pivotées. [La suppression réversible](../../key-vault/general/soft-delete-overview.md) doit être activée sur tout coffre stockant des clés de chiffrement de clé. Au lieu de supprimer une clé, affectez à l’activé la valeur false ou définissez la date d’expiration.
+La perte de clés de chiffrement de clé signifie la perte de données. Pour cette raison, les clés ne doivent pas être supprimées. Les clés doivent être sauvegardées chaque fois qu’elles sont créées ou pivotées. La [protection contre les suppressions réversibles et définitives](../../key-vault/general/soft-delete-overview.md) doit être activée sur tout coffre stockant des clés de chiffrement de clé pour se protéger contre un effacement accidentel ou malveillant. Au lieu de supprimer une clé, il est recommandé de définir l’option « Activé » sur « false » sur la clé de chiffrement de clé.
 
 ### <a name="key-access"></a>Accès aux clés
 
@@ -198,9 +197,6 @@ Services Azure qui prennent en charge chaque modèle de chiffrement :
 | Azure Cosmos DB                  | Oui                | Oui                | -                  |
 | Azure Databricks                 | Oui                | Oui                | -                  |
 | Azure Database Migration Service | Oui                | N/A\*              | -                  |
-| **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Oui                | -                  | -                  |
-| Azure Repos                      | Oui                | -                  | -                  |
 | **Identité**                     |                    |                    |                    |
 | Azure Active Directory           | Oui                | -                  | -                  |
 | Azure Active Directory Domain Services | Oui          | Oui                | -                  |

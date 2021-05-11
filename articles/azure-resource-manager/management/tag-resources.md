@@ -3,13 +3,13 @@ title: Baliser les ressources, les groupes de ressources et les abonnements pour
 description: Indique comment appliquer des étiquettes afin d'organiser des ressources Azure dédiées à la facturation et à la gestion.
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1e755a378fd71ea2763cc3e43477876fa3e8c5d5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 0ee2274dcd13af0bcbfe342039681ecc7b949a7b
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934187"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330960"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -684,10 +684,10 @@ Le modèle suivant ajoute les étiquettes depuis un objet vers un groupe de ress
 
 Pour travailler avec des étiquettes par le biais de l’API REST Azure, utilisez :
 
-* [Étiquettes - Créer ou mettre à jour au niveau de l’étendue](/rest/api/resources/resources/tags/createorupdateatscope) (opération PUT)
-* [Balises - Mettre à jour au niveau de l’étendue](/rest/api/resources/resources/tags/updateatscope) (opération PATCH)
-* [Étiquettes - Obtenir au niveau de l’étendue](/rest/api/resources/resources/tags/getatscope) (opération GET)
-* [Étiquettes - Supprimer au niveau de l’étendue](/rest/api/resources/resources/tags/deleteatscope) (opération DELETE)
+* [Étiquettes - Créer ou mettre à jour au niveau de l’étendue](/rest/api/resources/tags/createorupdateatscope) (opération PUT)
+* [Balises - Mettre à jour au niveau de l’étendue](/rest/api/resources/tags/updateatscope) (opération PATCH)
+* [Étiquettes - Obtenir au niveau de l’étendue](/rest/api/resources/tags/getatscope) (opération GET)
+* [Étiquettes - Supprimer au niveau de l’étendue](/rest/api/resources/tags/deleteatscope) (opération DELETE)
 
 ## <a name="inherit-tags"></a>Hériter des étiquettes
 
@@ -712,11 +712,11 @@ Les limites suivantes s’appliquent aux balises :
 * Les noms de balise ne peuvent pas contenir ces caractères : `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Actuellement, les zones Azure DNS et les services Traffic Manager n’autorisent pas non plus l’utilisation des espaces dans la balise.
+   > * Les zones Azure DNS et Traffic Manager ne prennent pas en charge l’utilisation d’espaces dans l’étiquette, ou une étiquette commençant par un nombre.
    >
-   > Azure Front Door ne prend pas en charge l’utilisation de `#` dans le nom de la balise.
+   > * Azure Front Door ne prend pas en charge l’utilisation de `#` dans le nom de la balise.
    >
-   > Azure Automation et Azure CDN ne gèrent que 15 balises sur les ressources.
+   > * Azure Automation et Azure CDN ne gèrent que 15 balises sur les ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

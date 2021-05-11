@@ -1,20 +1,20 @@
 ---
 title: 'Scénario : Routage personnalisé du Pare-feu Azure pour Virtual WAN'
 titleSuffix: Azure Virtual WAN
-description: Scénarios de routage du trafic entre réseaux virtuels directement, mais utilisation du Pare-feu Azure pour les flux de trafic de réseau virtuel -> Internet/branche et de branche à réseau virtuel
+description: Découvrez les scénarios de routage direct du trafic entre réseaux virtuels, mais utilisez le Pare-feu Azure pour les flux de trafic Réseau virtuel -> Internet/Branche et Branche vers Réseau virtuel.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebe1f337e2799e2ebeafc0f4a051ed7c3d81e434
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94515567"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162002"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Scénario : Pare-feu Azure - personnalisé
 

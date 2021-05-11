@@ -2,14 +2,14 @@
 title: Verrouiller les ressources pour empêcher des modifications
 description: Empêchez les utilisateurs de mettre à jour ou de supprimer des ressources Azure en appliquant un verrou pour tous les utilisateurs et rôles.
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 71637318a60e66bf5000de2f564d740cc101cc60
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/28/2021
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 52e61dd1c84e0f5fa6267e687ab55ce386d5767b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768720"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314802"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -47,6 +47,8 @@ Si vous appliquez des verrous, il se peut que vous obteniez des résultats inatt
 * Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche Azure Resource Manager de [supprimer automatiquement les déploiements](../templates/deployment-history-deletions.md) dans l’historique. Si vous atteignez 800 déploiements dans l’historique, vos déploiements échouent.
 
 * Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** créé par le **service Sauvegarde Azure**, fera échouer les sauvegardes. Le service prend en charge un maximum de 18 points de restauration. Lorsqu’il est verrouillé, le service de sauvegarde ne peut pas nettoyer les points de restauration. Pour plus d’informations, consultez le [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../backup/backup-azure-vm-backup-faq.yml).
+
+* Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche **Azure Machine Learning** d’effectuer la mise à l’échelle automatique des [clusters de calcul Azure Machine Learning](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) pour supprimer les nœuds inutilisés.
 
 * Un verrou en lecture seule sur un **abonnement** empêche **Azure Advisor** de fonctionner correctement. Advisor ne peut pas stocker les résultats de ses requêtes.
 

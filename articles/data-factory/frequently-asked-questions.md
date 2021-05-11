@@ -5,13 +5,13 @@ author: ssabat
 ms.author: susabat
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: e40f5bfb47ff4686828457308882fb9f50ab5b4a
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 04/29/2021
+ms.openlocfilehash: d3cc2d73fb3f1076af62b8ea028260bfd5e600ed
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906131"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317988"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 
@@ -231,6 +231,94 @@ Le runtime d’intégration auto-hébergé est une construction de pipeline ADF 
 ### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Le moteur de calcul du flux de données gère-t-il plusieurs locataires ?
 
 Les clusters ne sont jamais partagés. Nous garantissons l’isolement de chaque travail exécuté dans des exécutions de production. Dans le cas d’un scénario de débogage, une personne obtient un cluster, et tous les débogages lancés par cet utilisateur sont dirigés vers ce cluster.
+
+### <a name="is-there-a-way-to-write-attributes-in-cosmos-db-in-the-same-order-as-specified-in-the-sink-in-adf-data-flow"></a>Existe-t-il un moyen d’écrire des attributs dans Cosmos DB dans le même ordre que celui spécifié dans le récepteur du flux de données ADF ?    
+
+Pour Cosmos DB, le format sous-jacent de chaque document est un objet JSON correspondant à un ensemble non trié de paires nom/valeur et dès lors, l’ordre ne peut pas être réservé. Le flux de données prépare un cluster sur le runtime d’intégration avec 15 minutes de flux de données de configuration TTL. Pour plus d’informations sur la TTL et les coûts, consultez [Performances de flux de données.](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#time-to-live)
+
+
+###  <a name="why-an-user-is-unable-to-use-data-preview-in-the-data-flows"></a>Pourquoi un utilisateur ne peut-il pas utiliser l’aperçu des données dans les flux de données ?   
+
+Vous devez vérifier les autorisations pour le rôle personnalisé. Plusieurs actions sont impliquées dans l’aperçu des données de flux de données. Vous commencez par vérifier le trafic réseau pendant le débogage dans votre navigateur. Veuillez suivre toutes les actions. Pour plus d’informations, consultez [Fournisseur de ressources.](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdatafactory)
+
+### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Le moteur de calcul du flux de données gère-t-il plusieurs locataires ?   
+
+Ce document de dépannage peut vous aider à résoudre votre problème : [Plusieurs locataires.](https://docs.microsoft.com/azure/data-factory/frequently-asked-questions#does-the-data-flow-compute-engine-serve-multiple-tenants)
+
+
+###  <a name="in-adf-can-i-calculate-value-for-a-new-column-from-existing-column-from-mapping"></a>Dans ADF, puis-je calculer la valeur d’une nouvelle colonne depuis une colonne existante à partir du mappage ?  
+
+Vous pouvez utiliser une transformation de dérivation dans le flux de données de mappage pour créer une colonne sur la logique de votre choix. Lors de la création d’une colonne dérivée, vous pouvez soit générer une nouvelle colonne, soit en mettre une à jour. Dans la zone de texte Colonne, entrez dans la colonne que vous êtes en train de créer. Pour remplacer une colonne existante dans votre schéma, vous pouvez utiliser la liste déroulante Colonne. Pour générer l’expression de la colonne dérivée, cliquez sur la zone de texte Entrer une expression. Vous pouvez soit commencer à entrer votre expression, soit ouvrir le générateur d’expressions pour construire votre logique.
+
+### <a name="why-mapping-data-flow-preview-failing-with-gateway-timeout"></a>Pourquoi l’aperçu du flux de données de mappage échoue-t-il avec une erreur de délai d’expiration de la passerelle ? 
+
+Essayez d’utiliser un cluster plus grand et de tirer parti des limites de lignes dans les paramètres de débogage afin de réduire la taille de la sortie de débogage.
+
+### <a name="how-to-parameterize-column-name-in-dataflow"></a>Comment paramétrer le nom de colonne dans le flux de données ?
+
+Le nom de colonne peut être paramétré comme d’autres propriétés. Comme dans les colonnes dérivées, le client peut utiliser **$ColumnNameParam = ToString (byName ($myColumnNameParamInData)).** Ces paramètres peuvent être transmis de l’exécution du pipeline aux flux de données.
+
+
+
+## <a name="wrangling-data-flow-data-flow-power-query"></a>Flux de wrangling data (Data Flow Power Query)
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quelles sont les régions prises en charge pour le flux de wrangling data ?
+
+La fabrique de données est disponible dans les [régions](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory) suivantes.
+La fonctionnalité Power Query est déployée dans toutes les régions. Si cette fonctionnalité n’est pas disponible dans votre région, contactez le support technique.
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow-"></a>Quelles sont les limitations et les contraintes liées à l’utilisation d’un flux de wrangling data ?
+
+Les noms de jeux de données peuvent uniquement contenir des caractères alphanumériques. Les banques de données suivantes sont prises en charge :
+
+* Jeu de données DelimitedText dans le Stockage Blob Azure à l’aide de l’authentification par clé de compte
+* Jeu de données DelimitedText dans Azure Data Lake Storage Gen2 utilisant la clé de compte ou l’authentification du principal de service
+* Jeu de données DelimitedText dans Azure Data Lake Storage Gen1 utilisant l’authentification du principal de service
+* Azure SQL Database et Data Warehouse utilisant l’authentification SQL. Reportez-vous aux types SQL pris en charge. Il n’existe aucune prise en charge de Polybase ou de phase intermédiaire pour l’entrepôt de données.
+
+À ce stade, l’intégration du service Key Vault lié n’est pas prise en charge dans les flux de wrangling data.
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Quelle est la différence entre le mappage et les flux de wrangling data ?
+
+Le mappage de flux de données permet de transformer des données à grande échelle sans aucun codage. Vous pouvez concevoir une tâche de transformation de données dans le canevas de flux de données en créant une série de transformations. Commencez par un certain nombre de transformations sources, suivies par des étapes de transformation de données. Réalisez votre flux de données avec un récepteur qui servira de destination à vos résultats. Le mappage du flux de données est très utile lors du mappage et de la transformation des données avec des schémas connus et inconnus dans les récepteurs et les sources.
+
+Les flux de wrangling data vous permettent d’effectuer une préparation et une exploration agiles des données à l’aide de l’éditeur web hybride Power Query en ligne à grande échelle via l’exécution de Spark. Si votre organisation fait partie des entreprises de plus en plus nombreuses à adopter la technologie des lacs de données, vous devez parfois simplement explorer un jeu de données ou créer un jeu de données dans le lac. Vous n’effectuez pas de mappage vers une cible connue. Les flux de wrangling data sont utilisés dans des scénarios analytiques moins formels et basés sur des modèles.
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Quelle est la différence entre les flux de données Power Platform et les flux de wrangling data ?
+
+Les Dataflows Power Platform permettent aux utilisateurs d’importer et de transformer des données provenant d'un large éventail de sources de données dans le Common Data Service et Azure Data Lake afin de créer des applications PowerApps, des rapports Power BI ou des automatisations Flow. Les Dataflows Power Platform utilisent les expériences éprouvées de préparation de données Power Query, similaires à Power BI et Excel. Les Dataflows Power Platform permettent également une réutilisation aisée au sein d'une organisation et gèrent automatiquement l’orchestration (par exemple, actualiser automatiquement les flux de données qui dépendent d’un autre flux de données lorsque l’ancien flux de données est actualisé).
+
+Azure Data Factory (ADF) est un service d’intégration de données géré qui permet aux ingénieurs de données et aux intégrateurs de données citoyens de créer des flux de travail hybrides complexes d’extraction-transformation-chargement (ETL) et d’extraction-chargement-transformation (ELT). Le flux de wrangling data dans ADF offre aux utilisateurs un environnement sans code et serverless, qui simplifie la préparation des données dans le cloud et s’adapte à n’importe quelle taille de données. Aucune gestion d’infrastructure n’est requise. Il utilise la technologie de préparation des données Power Query (également utilisée dans Power Platform flux, Excel, Power BI) pour préparer et mettre en forme les données. Conçus pour gérer l’ensemble des complexités et des défis d’échelle de l’intégration du Big Data, les flux de wrangling data permettent aux utilisateurs de préparer rapidement des données à grande échelle via l’exécution de Spark. Les utilisateurs peuvent créer des pipelines de données résilients dans un environnement visuel accessible avec notre interface basée sur un navigateur et laisser ADF gérer les complexités de l’exécution de Spark. Établissez des calendriers pour vos pipelines et surveillez les exécutions de vos flux de données à partir du portail de supervision ADF. Gérez facilement les contrats SLA de disponibilité des données avec les alertes et la supervision enrichie de la disponibilité dans ADF, ainsi que les fonctionnalités d’intégration et de déploiement continus prédéfinies pour enregistrer et gérer vos flux dans un environnement managé. Établissez des alertes et affichez des plans d’exécution pour valider que votre logique fonctionne comme prévu lorsque vous optimisez vos flux de données.
+
+### <a name="supported-sql-types"></a>Types SQL pris en charge
+
+Le flux de wrangling data prend en charge les types de données suivantes dans SQL. Vous obtiendrez une erreur de validation pour l’utilisation d’un type de données qui n’est pas pris en charge.
+
+* short
+* double
+* real
+* float
+* char
+* NCHAR
+* varchar
+* NVARCHAR
+* entier
+* int
+* bit
+* boolean
+* SMALLINT
+* TINYINT
+* bigint
+* long
+* text
+* Date
+* DATETIME
+* datetime2
+* smalldatetime
+* timestamp
+* UNIQUEIDENTIFIER
+* Xml
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

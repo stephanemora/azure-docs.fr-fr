@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 67af304de8ca6b7210e9a5d132a0eb7db3657a53
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 5db990fe4bf54c5604eb58af677ec4891639eb1b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988367"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165620"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -63,7 +63,7 @@ Cela est vrai non seulement pour un réseau virtuel spécifique, mais pour tous 
 > Pour gérer les risques liés d’exfiltration des données, nous vous recommandons d’ajouter toutes les ressources Application Insights et Log Analytics à votre AMPLS et de bloquer le trafic de sortie de vos réseaux autant que possible.
 
 ### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>Azure Monitor Private Link s’applique à l’ensemble de votre réseau
-Certains réseaux sont composés de plusieurs réseaux virtuels. Si les réseaux virtuels utilisent le même serveur DNS, ils remplacent leurs mappages DNS mutuels et peuvent éventuellement rompre leur communication avec Azure Monitor (consultez [Le problème des remplacements DNS](#the-issue-of-dns-overrides)). En fin de compte, seul le dernier réseau virtuel sera en mesure de communiquer avec Azure Monitor, puisque le DNS mappera les points de terminaison Azure Monitor à des adresses IP privées à partir de cette plage de réseaux virtuels (qui peut ne pas être accessible à partir d’autres réseaux virtuels).
+Certains réseaux sont composés de plusieurs réseaux virtuels. Si les réseaux virtuels utilisent le même serveur DNS, ils remplacent leurs mappages DNS mutuels et peuvent éventuellement rompre leur communication avec Azure Monitor (consultez [Le problème des remplacements DNS](#the-issue-of-dns-overrides)). En fin de compte, seul le dernier réseau virtuel sera en mesure de communiquer avec Azure Monitor, puisque le DNS mappera les points de terminaison Azure Monitor à des adresses IP privées de la plage de ce réseau virtuel (qui peuvent ne pas être accessibles à partir d’autres réseaux virtuels).
 
 ![Schéma des remplacements DNS dans plusieurs réseaux virtuels](./media/private-link-security/dns-overrides-multiple-vnets.png)
 
@@ -73,7 +73,7 @@ Dans le diagramme ci-dessus, VNet 10.0.1.x se connecte d’abord à AMPLS1 puis 
 > Pour conclure : La configuration AMPLS affecte tous les réseaux qui partagent les mêmes zones DNS. Pour éviter de remplacer les mappages de points de terminaison DNS de chacun des réseaux, il est préférable d’installer un point de terminaison privé unique sur un réseau appairé (par exemple, un réseau virtuel hub) ou de séparer les réseaux au niveau du DNS (par exemple à l’aide de redirecteurs DNS ou de serveurs DNS totalement distincts).
 
 ### <a name="hub-spoke-networks"></a>Réseaux hub-and-spoke
-Les topologies hub-and-spoke peuvent éviter le problème des remplacements DNS en définissant une connexion Private Link sur le réseau virtuel hub (principal) au lieu de configurer une connexion Private Link pour chaque réseau virtuel séparément. Cette configuration s’avère particulièrement utile si les ressources Azure Monitor utilisées par ces réseaux virtuels spoke sont partagées. 
+Les topologies hub-and-spoke peuvent éviter le problème des remplacements DNS en définissant la liaison privée sur le réseau virtuel hub (principal) et non sur chaque réseau virtuel spoke. Cette configuration s’avère particulièrement utile si les ressources Azure Monitor utilisées par ces réseaux virtuels spoke sont partagées. 
 
 ![Point de terminaison privé hub-and-spoke](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
@@ -90,6 +90,9 @@ Comme indiqué dans les [restrictions et limitations](#restrictions-and-limitati
 * Workspace2 se connecte à AMPLS A et AMPLS B : il utilise 2 de ses 5 connexions AMPLS possibles.
 
 ![Diagramme des limites d’AMPLS](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> Si vous utilisez des solutions Log Analytics qui requièrent un compte Automation, comme Update Management, Change Tracking ou Inventory, vous devez également configurer une liaison privée distincte pour votre compte Automation. Pour plus d’informations, consultez [Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Automation](https://docs.microsoft.com/azure/automation/how-to/private-link-security).
 
 
 ## <a name="example-connection"></a>Exemple de connexion
@@ -204,7 +207,7 @@ Cette zone configure la connectivité au compte de stockage des packs de solutio
 
 
 ### <a name="validating-you-are-communicating-over-a-private-link"></a>Validation que vous communiquez sur une liaison privée
-* Pour valider le fait que vos demandes sont désormais envoyées via le point de terminaison privé et aux points de terminaison mappés IP privés, vous pouvez les examiner avec un suivi de réseau dans des outils voire dans votre navigateur. Par exemple, lorsque vous tentez d’interroger votre espace de travail ou votre application, assurez-vous que la demande est envoyée à l’adresse IP privée mappée au point de terminaison de l’API, dans cet exemple, *172.17.0.9*.
+* Pour valider le fait que vos demandes sont désormais envoyées via le point de terminaison privé, vous pouvez les examiner avec un outil de suivi du réseau ou même votre navigateur. Par exemple, lorsque vous tentez d’interroger votre espace de travail ou votre application, assurez-vous que la demande est envoyée à l’adresse IP privée mappée au point de terminaison de l’API, dans cet exemple, *172.17.0.9*.
 
     Remarque : certains navigateurs peuvent utiliser d’autres paramètres DNS (consultez [Paramètres DNS du navigateur](#browser-dns-settings)). Vérifiez que vos paramètres DNS s’appliquent.
 

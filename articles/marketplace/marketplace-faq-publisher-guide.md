@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: 15816d58105841ee53f3724158ebcbfa65df4877
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5579aa764eaa9f367364dce6ca5db09184e04fa2
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133130"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330167"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questions courantes concernant la place de marché commerciale Microsoft
 
@@ -68,6 +68,12 @@ Les manières dont les clients peuvent utiliser votre offre sur le marketplace c
 Après vous être inscrit et avoir accepté le contrat d’éditeur, vous aurez accès à la page du marketplace commercial dans Espace partenaires. C’est l’endroit où vous créez et gérez les offres et où vous consultez les rapports d’analyse. Pour les applications Microsoft 365, vous devez également activer le programme Office Store dans l’espace partenaires.
 
 Pour plus d’informations, consultez [Bienvenue sur le marketplace commercial](index.yml) et [Monétiser votre complément Microsoft 365 en utilisant la Place de marché commerciale Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+
+### <a name="how-can-my-own-employees-use-our-offers-from-the-marketplace-without-being-charged"></a>Comment mes propres employés peuvent-ils utiliser nos offres sur le marketplace sans être facturés ?
+
+Pour empêcher Microsoft de facturer vos employés et d’évaluer les frais de service du magasin sur la vente de votre offre, vous devez d’abord créer un [plan privé](/azure/marketplace/private-offers) pour l’offre au prix de 0 USD et envoyer cette offre aux utilisateurs internes qui veulent l’acheter.
+
+Vous pouvez également utiliser notre fonctionnalité [Place de marché privée](/marketplace/create-manage-private-azure-marketplace) pour vous assurer que les utilisateurs internes achètent uniquement des offres spécifiques qui sont approuvées par votre administrateur.
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>Comment obtenir de l’aide pour la place de marché commerciale ?
 

@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 04/01/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4b6835b22e5cfa4ca703b95d70e20112b8723def
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f897df5be819838d824da1170d92c18ff42a354
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339170"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161138"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,23 +62,7 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 ## <a name="remarks"></a>Notes
 
-Cette fonction système bénéficiera d’un [index de plage](index-policy.md#includeexclude-strategy).
-
-La consommation de RU par Contains augmente en même temps que la cardinalité de la propriété dans la fonction système. En d’autres termes, si vous vérifiez si une valeur de propriété contient une chaîne donnée, la charge en RU de la requête dépend du nombre de valeurs possibles pour cette propriété.
-
-Par exemple, considérez deux propriétés : ville et pays. La cardinalité de la propriété ville est 5 000 et celle de la propriété pays est 200. Voici deux exemples de requêtes :
-
-```sql
-    SELECT * FROM c WHERE CONTAINS(c.town, "Red", false)
-```
-
-```sql
-    SELECT * FROM c WHERE CONTAINS(c.country, "States", false)
-```
-
-La première requête utilisera probablement plus de RU que la deuxième, car la cardinalité de la propriété ville est supérieure à celle de la propriété pays.
-
-Si la taille de propriété dans Contains est supérieure à 1 Ko pour certains documents, le moteur de requête doit charger ces documents. Dans ce cas, le moteur de requête ne peut pas évaluer entièrement Contains avec un index. Le coût des unités de requête pour Contains est élevé si vous avez un grand nombre de documents dont les tailles de propriété sont supérieures à 1 Ko.
+Découvrez comment [cette fonction système de chaîne utilise l'index](sql-query-string-functions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

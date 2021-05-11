@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: fb5f00cf2e7078ab8d85f0ac1c2a2d54be907f89
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5b0fcbabfa97312622bc13fbfa4e4bba4b0d847e
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127170"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227320"
 ---
-# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set-public-preview"></a>Azure Hybrid Benefit pour un groupe de machines virtuelles identiques Linux (préversion publique)
+# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux
 
-**Azure Hybrid Benefit pour un groupe de machines virtuelles identiques Linux est désormais en préversion publique**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](./overview.md) RHEL et SLES.
+**Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux est désormais en disponibilité générale**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) RHEL et SLES.
 
 Avec cet avantage, vous payez uniquement le coût d’infrastructure de votre groupe identique. L’avantage s’applique à toutes les images PAYG (paiement à l’accès) de la place de marché RHEL et SLES.
 
@@ -71,7 +71,23 @@ Pour commencer à utiliser l’avantage pour SUSE :
 
 
 ## <a name="enable-and-disable-the-benefit-on-azure-portal"></a>Activer et désactiver l’avantage sur le Portail Azure 
-L’utilisation du Portail pour l’activation et la désactivation d’AHB sur un groupe de machines virtuelles identiques n’est **pas disponible actuellement**.
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation"></a>Exemple pour activer l’avantage pendant la création via le portail Azure :
+1. Visitez le [portail Microsoft Azure](https://portal.azure.com/)
+1. Accédez à la page « Créer un groupe de machines virtuelles identiques » sur le portail.
+ ![AHB lors de la création de VMSS](./media/azure-hybrid-benefit-linux/create-vmss-ahb.png)
+1. Cochez la case pour activer la conversion AHB et utiliser des licences d’accès Cloud.
+ ![Case à cocher AHB lors de la création de VMSS](./media/azure-hybrid-benefit-linux/create-vmss-ahb-checkbox.png)
+1. Créer un groupe de machines virtuelles identiques en suivant les instructions suivantes
+1. Vérifiez le panneau **Configuration** et l’option activée s’affiche. 
+![Panneau du système d’exploitation AHB après la création](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-virtual-machine-scale-set"></a>Exemple pour activer l’avantage d’un groupe de machines virtuelles identiques existant via le portail Azure :
+1. Visitez le [portail Microsoft Azure](https://portal.azure.com/)
+1. Ouvrez la page « Groupe de machines virtuelles identiques » sur laquelle vous souhaitez appliquer la conversion.
+1. Accédez à l’option **Système d’exploitation** sur la gauche. La section Licences s’affiche. Pour activer la conversion AHB, cochez la case d’option « Oui », puis cochez la case confirmation.
+![Panneau de configuration AHB après la création](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+
 
 ## <a name="enable-and-disable-the-benefit-using-azure-cli"></a>Activer et désactiver l’avantage avec Azure CLI
 

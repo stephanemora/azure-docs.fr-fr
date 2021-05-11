@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: f4b12a9b3b830fcc4f45cb5e957232fee5a756a3
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 0ced84afc47c188dc8f5d911794a90cdbeeebd81
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078643"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164918"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
 
@@ -241,7 +241,7 @@ Le membre existant doit exécuter le script PowerShell suivant pour terminer la 
 
 ![cloud shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
-```Powershell
+```powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
 $OtherGatewayResourceId = "<NEW_MEMBER_RESOURCEID]"
 $ConnectionName = "Leader2Member"
@@ -288,7 +288,7 @@ Les administrateurs ont le pouvoir de déléguer la participation au consensus �
 
 Pour effectuer n’importe quel type de transactions via la Governance DApp, vous devez utiliser un portefeuille Ethereum. L’approche la plus simple consiste à utiliser un portefeuille dans le navigateur tel que [MetaMask](https://metamask.io). Cependant, s'agissant de contrats intelligents déployés sur le réseau, vous pouvez également automatiser vos interactions sur le contrat de gouvernance.
 
-Après avoir installé MetaMask, accédez à la Governance DApp dans le navigateur.  Vous pouvez localiser l’URL via le portail Azure dans la sortie du déploiement.  Si aucun portefeuille dans le navigateur n’est installé, vous ne pourrez pas effectuer des actions ; toutefois, vous êtes toujours en mesure de lire l’état de l’administrateur.  
+Après avoir installé MetaMask, accédez à la Governance DApp dans le navigateur.  Vous pouvez localiser l’URL via le portail Azure dans la sortie du déploiement.  Si aucun portefeuille dans le navigateur n’est installé, vous ne pourrez pas effectuer des actions ; toutefois, vous êtes toujours en mesure de lire l’état de l’administrateur.
 
 ### <a name="becoming-an-admin"></a>Devenir un administrateur
 

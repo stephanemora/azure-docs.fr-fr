@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f65614de97e8ff6eed732e624ae30c3f2b70bd60
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 94dab0124a1f5e0144aab2e271fbf89e02111d3a
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589004"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206796"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Démarrage rapide : Configurer des règles et des actions pour votre appareil dans Azure IoT Central
 
@@ -31,13 +31,13 @@ Avant de commencer, vous devez suivre les deux guides de démarrage rapide préc
 
 1. Entrez **Humidité ambiante** comme nom de la règle.
 
-1. Dans la section **Appareils cibles**, sélectionnez **Sensor Controller** comme modèle d’appareil. Cette option filtre les appareils auxquels s’applique la règle par type de modèle d’appareil. Vous pouvez ajouter d’autres critères de filtre en sélectionnant **+ Filtre**.
+1. Dans la section **Appareils cibles**, sélectionnez **Sensor Controller** comme **Modèle d’appareil**. Cette option filtre les appareils auxquels s’applique la règle par type de modèle d’appareil. Vous pouvez ajouter d’autres critères de filtre en sélectionnant **+ Filtre**.
 
 1. Dans la section **Conditions**, vous définissez ce qui déclenche votre règle. Utilisez les informations suivantes pour définir une condition basée sur la télémétrie de température :
 
     | Champ        | Valeur            |
     | ------------ | ---------------- |
-    | Mesure  | SensorHumid      |
+    | Télémétrie    | SensorHumid      |
     | Opérateur     | est supérieur à  |
     | Valeur        | 55               |
 
@@ -60,7 +60,7 @@ Avant de commencer, vous devez suivre les deux guides de démarrage rapide préc
 
     :::image type="content" source="media/quick-configure-rules/action.png" alt-text="Capture d’écran montrant une action d’e-mail ajoutée à la règle":::
 
-1. Sélectionnez **Enregistrer**. Votre règle est listée dans la page **Règles**.
+1. Sélectionnez **Enregistrer**. Votre règle est désormais listée dans la page **Règles**.
 
 ## <a name="test-the-rule"></a>Tester la règle
 

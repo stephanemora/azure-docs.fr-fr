@@ -1,19 +1,19 @@
 ---
 title: 'Créer et installer des fichiers config de client VPN P2S : authentification par certificat'
 titleSuffix: Azure VPN Gateway
-description: Créez et installez des fichiers de configuration du client VPN Windows, Linux, Linux (strongSwan) et macOS X pour l’authentification de certificat P2S.
+description: Découvrez comment créer et installer des fichiers de configuration de client VPN Windows, Linux, Linux (strongSwan) et macOS X pour l’authentification par certificat P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: c7b186aa1a6f63b1bc3e9dbefa5001faac967762
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 239166c872578b310fe8eb0393a7a37f4d25129f
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94556098"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202548"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Créer et installer des fichiers de configuration du client VPN avec des configurations d’authentification par certificat de connexions P2S Azure natives
 

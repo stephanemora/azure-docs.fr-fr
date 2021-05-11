@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 04/27/2021
 ms.author: tisande
-ms.openlocfilehash: 26465eb9826c60daad7b44e1c2fe6ae3c19b1ed0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd77d8fe2e934ebfe9d4fad994e8aa9c6644ef8e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378806"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165656"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -337,7 +337,7 @@ La stratégie d’indexation d’un conteneur peut être mise à jour à tout mo
 > La transformation d’index est une opération qui consomme des [unités de requête](request-units.md). Les unités de requête consommées par une transformation d’index ne sont pas facturées si vous utilisez des conteneurs [serverless](serverless.md). Ces unités de requête seront facturées quand les conteneurs serverless seront généralement disponibles.
 
 > [!NOTE]
-> Il est possible de suivre la progression de la transformation d’index [avec un des kits de développement logiciel (SDK)](how-to-manage-indexing-policy.md).
+> Vous pouvez suivre la progression de la transformation d'index sur le portail Azure ou [à l'aide de l'un des kits de développement logiciel (SDK)](how-to-manage-indexing-policy.md).
 
 Il n’y a aucun impact sur la disponibilité des écritures lors des transformations d’index. La transformation d’index utilise vos unités de requête approvisionnées, mais à une priorité inférieure à celles de vos opérations CRUD ou de vos requêtes.
 

@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: how-to
-ms.date: 10/6/2018
+ms.date: 04/28/2021
 ms.author: rohink
-ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ac76671dc16fb51cea35154cd7862ad1dee66f6
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94965729"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226976"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestion d’enregistrements et de jeux d’enregistrements DNS à l’aide du portail Azure
 
@@ -26,66 +26,69 @@ Pour créer un jeu d’enregistrements dans le portail Azure, consultez [Créati
 
 ## <a name="view-a-record-set"></a>Affichage d’un jeu d’enregistrements
 
-1. Dans le portail Azure, accédez au panneau **zone DNS** .
-2. Recherchez le jeu d’enregistrements et sélectionnez-le. Les propriétés du jeu d’enregistrements s’affichent.
+1. Sur le portail Azure, accédez à la page de présentation de la **zone DNS**.
 
-    ![Recherche d’un jeu d’enregistrements](./media/dns-operations-recordsets-portal/searchset500.png)
+1. Recherchez le jeu d'enregistrements et sélectionnez-le pour ouvrir ses propriétés.
+
+    :::image type="content" source="./media/dns-operations-recordsets-portal/overview.png" alt-text="Capture d'écran de la page de présentation de la zone contosotest.com.":::
 
 ## <a name="add-a-new-record-to-a-record-set"></a>Ajouter un nouvel enregistrement à un jeu d’enregistrements
 
-Vous pouvez ajouter jusqu'à 20 enregistrements à n'importe quel jeu d'enregistrements. Un jeu d’enregistrements ne peut pas contenir deux enregistrements identiques. Des jeux d'enregistrements vides (avec zéro enregistrement) peuvent être créés, mais ils n'apparaîtront pas sur les serveurs de noms Azure DNS. Les jeux d’enregistrements du type CNAME peuvent contenir un enregistrement au maximum.
+Vous pouvez ajouter jusqu'à 20 enregistrements à n'importe quel jeu d'enregistrements. Un jeu d'enregistrements ne peut pas contenir deux enregistrements identiques. Des jeux d'enregistrements vides (sans aucun enregistrement) peuvent être créés, mais ils n'apparaîtront pas sur les serveurs de noms Azure DNS. Les jeux d’enregistrements du type CNAME peuvent contenir un enregistrement au maximum.
 
-1. Dans le panneau des **propriétés du jeu d’enregistrements** de votre zone DNS, cliquez sur le jeu d’enregistrements auquel vous souhaitez ajouter un enregistrement.
+1. Sur la page **Propriétés du jeu d'enregistrements** de votre zone DNS, sélectionnez le jeu d'enregistrements auquel vous souhaitez ajouter un enregistrement.
 
-    ![Sélection d’un jeu d'enregistrements](./media/dns-operations-recordsets-portal/selectset500.png)
+    :::image type="content" source="./media/dns-operations-recordsets-portal/select-record.png" alt-text="Capture d'écran illustrant la sélection du jeu d'enregistrements www.":::
 
-2. Spécifiez les propriétés du jeu d’enregistrements en remplissant les champs.
+1. Spécifiez les propriétés du jeu d’enregistrements en remplissant les champs.
 
-    ![Ajouter un enregistrement](./media/dns-operations-recordsets-portal/addrecord500.png)
+    :::image type="content" source="./media/dns-operations-recordsets-portal/record-page.png" alt-text="Capture d'écran de la page Ajouter un enregistrement.":::
 
-3. Cliquez sur **Enregistrer** en haut du panneau pour enregistrer vos paramètres. Puis fermez le panneau.
-4. Dans l’angle, vous verrez que l’enregistrement est en cours de sauvegarde.
+1. Sélectionnez **Enregistrer** en haut de la page pour enregistrer vos paramètres. Puis fermez la page.
 
-    ![Enregistrement d’un jeu d'enregistrements](./media/dns-operations-recordsets-portal/saving150.png)
-
-Une fois que l’enregistrement a été sauvegardé, les valeurs du panneau **Zone DNS** reflètent le nouvel enregistrement.
+Une fois l'enregistrement sauvegardé, les valeurs reflètent le nouvel enregistrement sur la page **Zone DNS**.
 
 ## <a name="update-a-record"></a>Mise à jour d’un enregistrement
 
 Lors de la mise à jour d’un enregistrement dans un jeu d’enregistrements existant, les champs pouvant être mis à jour varient selon le type d’enregistrement que vous utilisez.
 
-1. Dans le panneau **Propriétés du jeu d’enregistrements** de votre jeu d’enregistrements, recherchez l’enregistrement.
-2. Modifiez l’enregistrement. Lorsque vous modifiez un enregistrement, vous pouvez modifier les paramètres disponibles pour l’enregistrement. Dans l’exemple suivant, le champ **Adresse IP** est sélectionné et l’adresse IP est en cours de modification.
+1. Sur la page **Propriétés du jeu d'enregistrements** de votre jeu d'enregistrements, recherchez l'enregistrement.
 
-    ![Modification d’un enregistrement](./media/dns-operations-recordsets-portal/modifyrecord500.png)
+1. Modifiez l’enregistrement. Lorsque vous modifiez un enregistrement, vous pouvez modifier les paramètres disponibles pour l’enregistrement. Dans l'exemple suivant, le champ **Adresse IP** est sélectionné, et l'adresse IP est modifiée.
 
-3. Cliquez sur **Enregistrer** en haut du panneau pour enregistrer vos paramètres. Une notification s’affiche dans le coin supérieur droit indiquant que l’enregistrement a été sauvegardé.
+    :::image type="content" source="./media/dns-operations-recordsets-portal/update-record-page.png" alt-text="Capture d'écran de la page Mettre à jour un enregistrement.":::
 
-    ![Ajout d’un jeu d’enregistrements](./media/dns-operations-recordsets-portal/saved150.png)
+1. Sélectionnez **Enregistrer** en haut de la page pour enregistrer vos paramètres. Une notification s’affiche dans le coin supérieur droit indiquant que l’enregistrement a été sauvegardé.
 
-Une fois que l’enregistrement a été sauvegardé, les valeurs du jeu d’enregistrements dans le panneau **Zone DNS** reflètent l’enregistrement mis à jour.
+    :::image type="content" source="./media/dns-operations-recordsets-portal/record-saved.png" alt-text="Capture d'écran d'un enregistrement sauvegardé avec succès.":::
+
+Une fois l'enregistrement sauvegardé, les valeurs du jeu d'enregistrements reflètent la mise à jour sur la page **Zone DNS**.
 
 ## <a name="remove-a-record-from-a-record-set"></a>Suppression d’un enregistrement d’un jeu d’enregistrements
 
-Vous pouvez utiliser le portail Azure pour supprimer des enregistrements d’un jeu d’enregistrements. Notez que la suppression du dernier enregistrement d’un jeu d’enregistrements ne supprime pas le jeu d’enregistrements.
+Vous pouvez utiliser le portail Azure pour supprimer des enregistrements d’un jeu d’enregistrements. La suppression du dernier enregistrement d'un jeu d'enregistrements ne supprime pas le jeu d'enregistrements.
 
-1. Dans le panneau **Propriétés du jeu d’enregistrements** de votre jeu d’enregistrements, recherchez l’enregistrement.
-2. Cliquez sur l’enregistrement que vous souhaitez supprimer. Puis sélectionnez **Supprimer**.
+1. Sur la page **Propriétés du jeu d'enregistrements** de votre jeu d'enregistrements, recherchez l'enregistrement.
 
-    ![Suppression d’un enregistrement](./media/dns-operations-recordsets-portal/removerecord500.png)
+1. Sélectionnez **...** en regard de l'enregistrement, puis **Supprimer** pour supprimer l'enregistrement du jeu d'enregistrements.
 
-3. Cliquez sur **Enregistrer** en haut du panneau pour enregistrer vos paramètres.
-4. Une fois que l’enregistrement a été supprimé, les valeurs du jeu d’enregistrements dans le panneau **Zone DNS** reflètent la suppression de l’enregistrement.
+    :::image type="content" source="./media/dns-operations-recordsets-portal/delete-record.png" alt-text="Capture d'écran illustrant la suppression d'un enregistrement.":::
+
+1. Sélectionnez **Enregistrer** en haut de la page pour enregistrer vos paramètres.
+
+1. Une fois l'enregistrement supprimé, les valeurs du jeu d'enregistrements reflètent la suppression sur la page **Zone DNS**.
 
 ## <a name="delete-a-record-set"></a><a name="delete"></a>Supprimer un jeu d’enregistrements
 
-1. Dans le panneau **Propriétés du jeu d’enregistrements** de votre jeu d’enregistrements, cliquez sur **Supprimer**.
+1. Sur la page **Propriétés du jeu d'enregistrements** de votre jeu d'enregistrements, sélectionnez **Supprimer**.
 
-    ![Supprimer un jeu d’enregistrements](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
+    :::image type="content" source="./media/dns-operations-recordsets-portal/delete-record-set.png" alt-text="Capture d'écran illustrant la suppression d'un jeu d'enregistrements.":::
 
-2. Un message s’affiche vous demandant si vous souhaitez supprimer le jeu d’enregistrements.
-3. Vérifiez que le nom correspond au jeu d’enregistrements que vous souhaitez supprimer, puis cliquez sur **Oui**.
-4. Dans le panneau de **Zone DNS** , vous pouvez vérifier que le jeu d’enregistrements n’est plus visible.
+1. Un message s’affiche vous demandant si vous souhaitez supprimer le jeu d’enregistrements.
+
+1. Vérifiez que le nom correspond au jeu d'enregistrements que vous souhaitez supprimer, puis sélectionnez **Oui**.
+
+1. Sur la page **Zone DNS**, vérifiez que le jeu d'enregistrements n'est plus visible.
 
 ## <a name="work-with-ns-and-soa-records"></a>Utilisation d’enregistrements NS et SOA
 
@@ -93,19 +96,19 @@ Les enregistrements NS et SOA qui sont créés automatiquement sont gérés diff
 
 ### <a name="modify-soa-records"></a>Modification d'enregistrements SOA
 
-Vous ne pouvez pas ajouter ou supprimer d’enregistrements dans le jeu d’enregistrements SOA créé automatiquement à l’extrémité de la zone (nom = « \@ »). Vous pouvez cependant modifier les paramètres dans l’enregistrement SOA (à l’exception de « l’hôte ») et pendant la durée de vie du jeu d’enregistrements.
+Vous ne pouvez pas ajouter ou supprimer d'enregistrements dans le jeu d'enregistrements SOA créé automatiquement à l'extrémité de la zone (nom = « \@ »). Vous pouvez cependant modifier n'importe lequel des paramètres de l'enregistrement SOA, à l'exception des paramètres « Host » et « TTL » du jeu d'enregistrements.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modification d’enregistrements NS à l’extrémité de la zone
 
 Le jeu d’enregistrements NS à l’apex de la zone est créé automatiquement avec chaque zone DNS. Il contient les noms des serveurs de noms Azure DNS attribués à la zone.
 
-Vous pouvez ajouter des serveurs de noms supplémentaires à ce jeu d’enregistrements NS, pour prendre en charge le co-hébergement de domaines avec plusieurs fournisseurs DNS. Vous pouvez également modifier la durée de vie et les métadonnées pour ce jeu d’enregistrements. Toutefois, vous ne pouvez pas supprimer ni modifier les serveurs de noms Azure DNS préremplis.
+Vous pouvez ajouter d'autres serveurs de noms à ce jeu d'enregistrements NS pour prendre en charge le co-hébergement de domaines avec plusieurs fournisseurs DNS. Vous pouvez également modifier la durée de vie et les métadonnées pour ce jeu d’enregistrements. Toutefois, vous n'avez pas la possibilité de supprimer ni de modifier les serveurs de noms Azure DNS prérenseignés.
 
-Notez que cela s’applique uniquement au jeu d’enregistrements NS défini à l’apex de la zone. Les autres jeux d’enregistrements NS dans votre zone (tels que ceux utilisés pour déléguer des zones enfants) peuvent être modifiés sans contrainte.
+Cette restriction s'applique uniquement au jeu d'enregistrements NS défini à l'extrémité de la zone. Les autres jeux d’enregistrements NS dans votre zone (tels que ceux utilisés pour déléguer des zones enfants) peuvent être modifiés sans contrainte.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Suppression de jeux d’enregistrements SOA ou NS
 
-Vous ne pouvez pas supprimer les jeux d’enregistrements SOA et NS à l’extrémité de la zone (nom = « \@ ») qui sont créés automatiquement quand la zone est créée. Ils sont automatiquement supprimés lorsque vous supprimez la zone.
+Vous ne pouvez pas supprimer les jeux d'enregistrements SOA et NS situés à l'extrémité de la zone (nom = « \@ ») qui sont créés automatiquement au moment de la création de la zone. Ceux-ci sont automatiquement supprimés lorsque vous supprimez la zone.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

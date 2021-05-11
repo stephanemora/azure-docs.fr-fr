@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: 3fc50ef5a50c2c499b1c886bcf5aa73b11ba7c45
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 04/16/2021
+ms.openlocfilehash: 7a5e4375ebe289bb5ae012f94ba9dd050563bbbb
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133346"
+ms.locfileid: "108209856"
 ---
 # <a name="co-sell-requirements"></a>Exigences en matière de co-vente
 
@@ -30,6 +30,9 @@ Ce tableau indique tous les statuts de co-vente possibles :
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>Conditions requises pour le statut Prêt pour la co-vente
+
+> [!NOTE]
+> Toute offre publiée dans le cadre du programme de développement du marketplace commercial dans Espace partenaires peut obtenir le statut Prêt pour la co-vente, sous réserve que les conditions requises pour ce statut soient remplies. Les applications et compléments Office ne sont pas éligibles (par exemple : Teams, solutions SharePoint, Outlook, Excel).
 
 Pour obtenir le statut Prêt pour la co-vente, vous devez remplir les conditions suivantes :
 

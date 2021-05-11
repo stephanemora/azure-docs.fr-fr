@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Résolution des problèmes courants liés aux clusters Kubernetes avec Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 992ea75c48b2630032e1314610986fbc610eec7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0b02e5b4e58cda246751b16542a0a2ac587e7b6
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025779"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289621"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Résolution des problèmes liés à Kubernetes avec Azure Arc
 
@@ -192,3 +192,20 @@ Azure Monitor pour conteneurs exige que son DaemonSet soit exécuté en mode pri
 ```console
 juju config kubernetes-worker allow-privileged=true
 ```
+
+## <a name="enable-custom-locations-using-service-principal"></a>Activer les emplacements personnalisés à l’aide du principal de service
+
+Lorsque vous connectez votre cluster à Azure Arc ou lorsque vous activez la fonctionnalité d’emplacement personnalisé sur un cluster existant, vous pouvez recevoir l’avertissement suivant :
+
+```console
+Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
+```
+
+L’avertissement ci-dessus est émis lorsque vous avez utilisé un principal de service pour vous connecter à Azure et que ce principal de service ne dispose pas des autorisations nécessaires pour obtenir les informations de l’application utilisée par le service Azure Arc. Exécutez les commandes suivantes pour accorder les autorisations requises :
+
+```console
+az ad app permission add --id <service-principal-app-id> --api 00000002-0000-0000-c000-000000000000 --api-permissions 3afa6a7d-9b1a-42eb-948e-1650a849e176=Role
+az ad app permission admin-consent --id <service-principal-app-id>
+```
+
+Une fois que les autorisations ci-dessus sont accordées, vous pouvez [activer la fonctionnalité d’emplacement personnalisé](custom-locations.md#enable-custom-locations-on-cluster) sur le cluster.

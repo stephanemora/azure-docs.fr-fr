@@ -1,6 +1,6 @@
 ---
 title: 'Connecter un réseau virtuel à plusieurs sites en utilisant une passerelle VPN : Classique'
-description: Connectez plusieurs sites locaux à un réseau virtuel classique à l’aide d’une passerelle VPN.
+description: Découvrez comment connecter plusieurs sites locaux à un réseau virtuel classique à l’aide d’une passerelle VPN.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: yushwang
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2dc2aad5d5b815c59d7f8add34b9700d7448e091
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94660693"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292717"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
 

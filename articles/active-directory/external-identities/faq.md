@@ -12,19 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3308c2263f80a0772a389900e08c81cfe8da32a2
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0cb886209230b0791da05632c950e58bbbf18b80
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952624"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315648"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
 Cette foire aux questions (FAQ) sur la collaboration interentreprises (B2B) Azure Active Directory (Azure AD) est régulièrement complétée par de nouvelles rubriques.
 
 > [!IMPORTANT]
-> - **À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
+> - **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
 > - **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Peut-on personnaliser sa page de connexion afin qu’elle soit plus intuitive pour les utilisateurs invités B2B Collaboration ?

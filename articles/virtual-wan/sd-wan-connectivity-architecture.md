@@ -1,19 +1,19 @@
 ---
 title: Architecture de connectivité Virtual WAN et SD-WAN
 titleSuffix: Azure Virtual WAN
-description: En savoir plus sur l’interconnexion d’un SD-WAN privé avec Azure Virtual WAN
+description: En savoir plus sur l’interconnexion d’un SD-WAN privé avec Azure Virtual WAN.
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: ea9ddd05fe6fc745a3eefc29ab4f1d6aababc936
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb6ae05b0e3c296a1ca56d3ea6085b8cd4586c23
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94564699"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165692"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Architecture de connectivité SD-WAN avec Azure Virtual WAN
 
@@ -32,11 +32,11 @@ Dans tous ces cas, l’interconnexion de Virtual WAN avec SD-WAN est similaire s
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct.png" alt-text="Modèle d’interconnexion directe":::
 
-Dans ce modèle d’architecture, l’équipement local du client côté branche SD-WAN est directement connecté à des concentrateurs Virtual WAN via des connexions IPsec. L’équipement local du client côté branche peut également être connecté à d’autres branches via le SD-WAN privé, ou tirer parti du Virtual WAN pour la connexion de branche à branche. Les branches qui ont besoin d’accéder à leurs charges de travail dans Azure pourront accéder directement et en toute sécurité à Azure via le ou les tunnels IPsec qui se terminent dans le ou les concentrateurs de Virtual WAN.
+Dans ce modèle d’architecture, l’équipement local du client côté branche SD-WAN est directement connecté à des concentrateurs Virtual WAN via des connexions IPsec. L’équipement local du client côté branche peut également être connecté à d’autres branches via le SD-WAN privé ou utiliser Virtual WAN pour la connexion de branche à branche. Les branches qui ont besoin d’accéder à leurs charges de travail dans Azure pourront accéder directement et en toute sécurité à Azure via le ou les tunnels IPsec qui se terminent dans le ou les concentrateurs de Virtual WAN.
 
-Les partenaires d’équipement local du client SD-WAN peuvent activer l’automatisation afin d’automatiser la connectivité IPsec souvent fastidieuse et sujette aux erreurs à partir de leurs appareils respectifs. L’automatisation permet au contrôleur SD-WAN de communiquer avec Azure via l’API Virtual WAN pour configurer les sites de Virtual WAN, ainsi que pour envoyer (push) la configuration de tunnel IPsec nécessaire aux équipements locaux côté branche. Pour obtenir une description de l’automatisation de l’interconnexion de Virtual WAN par différents partenaires de SD-WAN, consultez [Conseils d’automatisation](virtual-wan-configure-automation-providers.md).
+Les partenaires d’équipement local du client SD-WAN peuvent activer l’automatisation afin d’automatiser la connectivité IPsec souvent fastidieuse et sujette aux erreurs à partir de leurs appareils respectifs. L’automatisation permet au contrôleur SD-WAN de communiquer avec Azure via l’API Virtual WAN pour configurer les sites de Virtual WAN et envoyer (push) la configuration de tunnel IPsec nécessaire aux équipements locaux du client côté branche. Pour obtenir une description de l’automatisation de l’interconnexion de Virtual WAN par différents partenaires de SD-WAN, consultez [Conseils d’automatisation](virtual-wan-configure-automation-providers.md).
 
-L’équipement local SD-WAN reste l’endroit où l’optimisation du trafic et la sélection du chemin d’accès sont implémentées et appliquées. 
+L’équipement local du client SD-WAN reste l’endroit où l’optimisation du trafic et la sélection du chemin d’accès sont implémentées et appliquées. 
 
 Dans ce modèle, il est possible que certaines optimisations du trafic propriétaire du fournisseur basées sur des caractéristiques de trafic en temps réel ne soient pas prises en charge parce que la connexion au Virtual WAN est basée sur IPsec, et que le VPN IPsec se termine sur la passerelle VPN de Virtual WAN. Par exemple, la sélection du chemin d’accès dynamique au niveau de l’équipement local du client côté branche est possible en raison de l’échange de diverses informations de paquet réseau entre un appareil de la branche et un autre nœud SD-WAN, identifiant ainsi le meilleur lien à utiliser pour le trafic hiérarchisé de façon dynamique au niveau de la branche. Cette fonctionnalité peut être utile dans des zones où l’optimisation jusqu’au dernier kilomètre (entre la branche et le POP Microsoft le plus proche) est requise.
 
@@ -48,9 +48,9 @@ Avec Virtual WAN, les utilisateurs peuvent obtenir une sélection de chemin d’
 
 Ce modèle d’architecture prend en charge le déploiement d’une [appliance virtuelle réseau (Network Virtual Appliance, NVA) tierce directement dans le hub virtuel](./about-nva-hub.md). Cela permet aux clients qui souhaitent connecter les CPE de leur filiale à une NVA de la même marque dans le hub virtuel de tirer parti des capacités SD-WAN propriétaires de bout en bout lors de la connexion à des charges de travail Azure. 
 
-Plusieurs partenaires Virtual WAN ont collaboré pour fournir une expérience qui configure automatiquement la NVA dans le cadre du processus de déploiement. Une fois que la NVA a été approvisionnée dans le hub virtuel, toute configuration supplémentaire qui peut être requise pour la NVA doit être effectuée par le biais du portail des partenaires NVA ou de l’application de gestion. L’accès direct à la NVA n’est pas disponible. Les NVA disponibles au déploiement directement dans le hub Azure Virtual WAN sont conçues spécifiquement pour être utilisés dans le hub virtuel. Pour les partenaires qui prennent en charge la NVA dans le hub VWAN et leurs guides de déploiement, consultez l’article [Partenaires Virtual WAN](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings).
+Plusieurs partenaires Virtual WAN ont collaboré pour fournir une expérience qui configure automatiquement la NVA dans le cadre du processus de déploiement. Une fois que la NVA a été approvisionnée dans le hub virtuel, toute configuration supplémentaire qui peut être requise pour la NVA doit être effectuée par le biais du portail des partenaires NVA ou de l’application de gestion. L’accès direct à la NVA n’est pas disponible. Les NVA disponibles au déploiement directement dans le hub Azure Virtual WAN sont conçues spécifiquement pour être utilisés dans le hub virtuel. Pour les partenaires qui prennent en charge la NVA dans le hub VWAN et leurs guides de déploiement, consultez l’article [Partenaires Virtual WAN](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings).
 
-L’équipement local SD-WAN reste l’endroit où l’optimisation du trafic et la sélection du chemin d’accès sont implémentées et appliquées.
+L’équipement local du client SD-WAN reste l’endroit où l’optimisation du trafic et la sélection du chemin d’accès sont implémentées et appliquées.
 Dans ce modèle, l’optimisation du trafic propriétaire des fournisseurs basée sur les caractéristiques de trafic en temps réel est prise en charge car la connectivité à Virtual WAN s’effectue via la NVA SD-WAN dans le hub.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Modèle d’interconnexion indirecte

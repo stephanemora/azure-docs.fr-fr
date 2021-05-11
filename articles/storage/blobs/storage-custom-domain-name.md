@@ -9,12 +9,12 @@ ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 45ae3d80202bfb29074461f899798d278eb0895b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 286e230a501b8730dd3c33e33639d89aa319d047
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538354"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286975"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure
 
@@ -58,7 +58,7 @@ Le nom d’hôte est l’URL du point de terminaison de stockage sans l’identi
 
 2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Propriétés**.  
 
-3. Copiez la valeur du **Point de terminaison de service blob principal** ou du **Point de terminaison de site web statique principal** dans un fichier texte. 
+3. Copiez la valeur du point de terminaison **Service Blob** ou du point de terminaison **Site web statique** dans un fichier texte. 
   
    > [!NOTE]
    > Le point de terminaison de stockage Data Lake n’est pas pris en charge (par exemple, `https://mystorageaccount.dfs.core.windows.net/`).
@@ -100,14 +100,12 @@ Créez un enregistrement CNAME pointant vers votre nom d’hôte. Un enregistrem
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet de menu, sous **Service blob**, sélectionnez **Domaine personnalisé**.
+2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Réseau**.
+
+3. Dans la page **Réseau**, choisissez l’onglet **Domaine personnalisé**.
 
    > [!NOTE]
    > Cette option ne figure pas dans les comptes pour lesquels la fonctionnalité d’espace de noms hiérarchique est activée. Avec ces comptes, utilisez PowerShell ou Azure CLI pour effectuer cette étape.
-
-   ![option de domaine personnalisé](./media/storage-custom-domain-name/custom-domain-button.png "domaine personnalisé")
-
-   Le volet **Domaine personnalisé** s’affiche.
 
 3. Dans la zone de texte **Nom de domaine**, entrez le nom de votre domaine personnalisé, en incluant le sous-domaine.  
    
@@ -194,7 +192,7 @@ Le nom d’hôte est l’URL du point de terminaison de stockage sans l’identi
 
 2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Propriétés**.  
 
-3. Copiez la valeur du **Point de terminaison de service blob principal** ou du **Point de terminaison de site web statique principal** dans un fichier texte. 
+3. Copiez la valeur du point de terminaison **Service Blob** ou du point de terminaison **Site web statique** dans un fichier texte.  
 
    > [!NOTE]
    > Le point de terminaison de stockage Data Lake n’est pas pris en charge (par exemple, `https://mystorageaccount.dfs.core.windows.net/`).
@@ -238,14 +236,12 @@ Lorsque vous pré-enregistrez votre domaine personnalisé auprès d’Azure, vou
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet de menu, sous **Service blob**, sélectionnez **Domaine personnalisé**.
+2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Réseau**.
+
+3. Dans la page **Réseau**, choisissez l’onglet **Domaine personnalisé**.
 
    > [!NOTE]
    > Cette option ne figure pas dans les comptes pour lesquels la fonctionnalité d’espace de noms hiérarchique est activée. Avec ces comptes, utilisez PowerShell ou Azure CLI pour effectuer cette étape.
-
-   ![option de domaine personnalisé](./media/storage-custom-domain-name/custom-domain-button.png "domaine personnalisé")
-
-   Le volet **Domaine personnalisé** s’affiche.
 
 3. Dans la zone de texte **Nom de domaine**, entrez le nom de votre domaine personnalisé, en incluant le sous-domaine.  
    
@@ -331,12 +327,13 @@ Pour supprimer un mappage de domaine personnalisé, annulez l’inscription du d
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet de menu, sous **Service blob**, sélectionnez **Domaine personnalisé**.  
-   Le volet **Domaine personnalisé** s’affiche.
+2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Réseau**.
 
-3. Effacez le contenu de la zone de texte contenant le nom de votre domaine personnalisé.
+3. Dans la page **Réseau**, choisissez l’onglet **Domaine personnalisé**.
 
-4. Sélectionnez le bouton **Enregistrer**.
+4. Effacez le contenu de la zone de texte contenant le nom de votre domaine personnalisé.
+
+5. Sélectionnez le bouton **Enregistrer**.
 
 Une fois le domaine personnalisé supprimé, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour.
 

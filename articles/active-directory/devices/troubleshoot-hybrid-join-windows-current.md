@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 63415037b9f91936e04fa715405bfb86bf022cdd
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 87de8f27114c8b79c297f65805226a33c70b11a9
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551762"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286957"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory
 
@@ -421,6 +421,6 @@ Si les valeurs sont **NON**, il peut être dû :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Poursuivez le [dépannage des appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).
+- Poursuivez le [dépannage des appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).
 
-Pour toute question, consultez [FAQ sur la gestion des appareils](faq.yml)
+- [Outil de recherche d’erreurs Microsoft](/windows/win32/debug/system-error-code-lookup-tool)

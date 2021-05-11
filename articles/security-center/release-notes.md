@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/27/2021
+ms.date: 04/29/2021
 ms.author: memildin
-ms.openlocfilehash: 35873711753400132f47933f009365cc6383429b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f9f8078bbd3410a3dac5eb3a6a8aeb3a8fe82b54
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123480"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278881"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -28,19 +28,40 @@ Pour en savoir plus sur les changements *planifiés* qui seront bientôt disponi
 ## <a name="april-2021"></a>Avril 2021
 
 Les mises à jour du mois d’avril incluent :
-- [Les images de registre de conteneurs récemment extraites sont à présent réanalysées chaque semaine (disponibilité générale)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
-- [Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multicloud (préversion)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
-- [Recommandations concernant l’activation d’Azure Defender pour DNS et pour Resource Manager (préversion)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview)
+- [Actualisation de la page d’intégrité des ressources (en préversion)](#refreshed-resource-health-page-in-preview)
+- [Les images de registre de conteneurs qui ont été récemment extraites sont à présent réanalysées chaque semaine (en disponibilité générale)](#container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga)
+- [Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multiclouds (en préversion)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview)
+- [L’intégration de Microsoft Defender pour point de terminaison à Azure Defender prend désormais en charge Windows Server 2019 et Windows 10 Virtual Desktop (WVD) publié pour la disponibilité générale](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)
+- [Recommandations concernant l’activation d’Azure Defender pour DNS et de Resource Manager (en préversion)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview)
 - [Ajout de trois normes de conformité réglementaire : Azure CIS 1.3.0, CMMC niveau 3 et New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
-- [Quatre nouvelles recommandations relatives à la configuration des invités (préversion)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Quatre nouvelles recommandations relatives à la configuration des invités (en préversion)](#four-new-recommendations-related-to-guest-configuration-in-preview)
 - [Recommandations CMK déplacées dans le contrôle de sécurité des bonnes pratiques](#cmk-recommendations-moved-to-best-practices-security-control)
 - [Onze alertes Azure Defender déconseillées](#11-azure-defender-alerts-deprecated)
 - [Deux recommandations du contrôle de sécurité « Appliquer les mises à jour système » sont désormais déconseillées](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 - [Vignette « Azure Defender pour SQL sur des machines » supprimée du tableau de bord Azure Defender](#azure-defender-for-sql-on-machine-tile-removed-from-azure-defender-dashboard)
 - [21 recommandations déplacées entre les contrôles de sécurité](#21-recommendations-moved-between-security-controls)
 
+### <a name="refreshed-resource-health-page-in-preview"></a>Actualisation de la page d’intégrité des ressources (en préversion)
 
-### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Les images de registre de conteneurs récemment extraites sont à présent réanalysées chaque semaine (disponibilité générale)
+L’intégrité des ressources de Security Center a été développée, améliorée et perfectionnée pour fournir une vue instantanée de l’état d’intégrité global d’une ressource unique. 
+
+Vous pouvez consulter des informations détaillées sur la ressource et toutes les recommandations qui s’y appliquent. De plus, si vous utilisez [Azure Defender](azure-defender.md), les alertes de sécurité en suspens pour cette ressource spécifique s’affichent également.
+
+Pour ouvrir la page d’intégrité des ressources pour une ressource, sélectionnez n’importe quelle ressource dans la [page d’inventaire des ressources](asset-inventory.md).
+
+Cette page d’aperçu dans les pages du portail de Security Center affiche les éléments suivants :
+
+1. **Informations sur la ressource** : groupe de ressources et abonnement auxquels elle est associée, emplacement géographique, etc.
+1. **Fonctionnalité de sécurité appliquée** : indique si Azure Defender est activé pour la ressource.
+1. **Nombre de recommandations en suspens et d’alertes** : nombre de recommandations de sécurité en suspens et d’alertes Azure Defender.
+1. **Recommandations et alertes actionnables** : deux onglets listent les recommandations et les alertes qui s’appliquent à la ressource.
+
+:::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Page Intégrité des ressources d’Azure Security Center présentant des informations d’intégrité d’une machine virtuelle":::
+
+Découvrez-en plus dans le [Tutoriel : Examiner l’intégrité de vos ressources](investigate-resource-health.md).
+
+
+### <a name="container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga"></a>Les images de registre de conteneurs qui ont été récemment extraites sont à présent réanalysées chaque semaine (en disponibilité générale)
 
 Azure Defender pour les registres de conteneurs comprend un analyseur de vulnérabilité intégré. Cet analyseur analyse immédiatement toute image que vous envoyez à votre registre et toute image extraite au cours des 30 derniers jours.
 
@@ -51,7 +72,7 @@ L’analyse est facturée par image, aucuns frais supplémentaires ne sont donc 
 Apprenez-en davantage sur cet analyseur en consultant [Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs](defender-for-container-registries-usage.md).
 
 
-### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multicloud (préversion)
+### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview"></a>Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multiclouds (en préversion)
 
 Azure Defender pour Kubernetes étend ses fonctionnalités de protection contre les menaces afin de protéger vos clusters où qu'ils soient déployés. L’intégration de [Kubernetes avec Azure Arc](../azure-arc/kubernetes/overview.md) et de ses nouvelles [fonctionnalités d’extensions](../azure-arc/kubernetes/extensions.md) a rendu cela possible. 
 
@@ -72,7 +93,19 @@ Pour en savoir plus, consultez [Utiliser Azure Defender pour Kubernetes avec vos
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recommandation d’Azure Security Center relative au déploiement de l’extension Azure Defender pour les clusters Kubernetes avec Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 
-### <a name="recommendations-to-enable-azure-defender-for-dns-and-resource-manager-preview"></a>Recommandations concernant l’activation d’Azure Defender pour DNS et pour Resource Manager (préversion)
+### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga"></a>L’intégration de Microsoft Defender pour point de terminaison à Azure Defender prend désormais en charge Windows Server 2019 et Windows 10 Virtual Desktop (WVD) publié en disponibilité générale
+
+Microsoft Defender for Endpoint est une solution holistique de sécurité des points de terminaison dans le cloud. Il fournit une gestion et une évaluation des vulnérabilités basées sur les risques ainsi que la détection et la réponse des points de terminaison (EDR). Pour obtenir la liste complète des avantages de l’utilisation de Defender pour point de terminaison avec Azure Security Center, consultez [Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender pour point de terminaison](security-center-wdatp.md).
+
+Quand vous activez Azure Defender pour les serveurs sur un serveur Windows, une licence pour Defender pour point de terminaison est incluse dans le plan. Si vous avez déjà activé Azure Defender pour les serveurs et que vous avez des serveurs Windows 2019 dans votre abonnement, ils recevront automatiquement Defender pour point de terminaison avec cette mise à jour. Aucune action manuelle n’est nécessaire. 
+
+La prise en charge a été étendue de façon à inclure Windows Server 2019 et [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+
+> [!NOTE]
+> Si vous activez Defender pour point de terminaison sur une machine Windows Server 2019, vérifiez qu’elle répond aux prérequis décrits dans [Activer l’intégration de Microsoft Defender pour point de terminaison](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+
+
+### <a name="recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview"></a>Recommandations concernant l’activation d’Azure Defender pour DNS et de Resource Manager (en préversion)
 
 Deux nouvelles recommandations ont été ajoutées afin de simplifier le processus d’activation d’[Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md) et d’[Azure Defender pour DNS](defender-for-dns-introduction.md):
 
@@ -102,7 +135,7 @@ Pour en savoir plus :
 - [Tutoriel : Améliorer votre conformité aux normes](security-center-compliance-dashboard.md)
 - [Questions fréquentes (FAQ) - Tableau de bord de conformité réglementaire](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard)
 
-### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatre nouvelles recommandations relatives à la configuration des invités (préversion)
+### <a name="four-new-recommendations-related-to-guest-configuration-in-preview"></a>Quatre nouvelles recommandations relatives à la configuration des invités (en préversion)
 
 L'[extension Configuration des invités](../governance/policy/concepts/guest-configuration.md) d'Azure effectue des signalements auprès de Security Center pour renforcer les paramètres relatifs aux invités de vos machines virtuelles. L'extension n'est pas nécessaire pour les serveurs avec Arc car elle est incluse dans Azure Connected Machine Agent. L'extension nécessite une identité gérée par le système sur la machine.
 

@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.date: 04/01/2021
-ms.openlocfilehash: 6529aa49d06e64947deb5ae54db0c39ad2575569
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 547242c70986c3216a4052ca3763701264dd4282
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106288561"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108212463"
 ---
 ## <a name="business-disaster-recovery"></a>Récupération d'urgence
 
@@ -64,6 +64,7 @@ Si un événement se produit :
 
 1. Si votre région principale est affectée par un sinistre, basculez les opérations sur l’environnement Azure Time Series Insights de sauvegarde.
 1. Comme les numéros séquentiels des hubs sont remis à zéro après le basculement, recréez la source de l'événement dans les deux régions/environnements avec des groupes de consommateurs différents pour éviter de créer ce qui ressemblerait à des événements en double.
+1. Supprimez la source d’événements principale, qui est maintenant inactive, pour libérer une source d’événement disponible pour votre environnement. (Le nombre de sources d’événements actives par environnement est limité à deux.)
 1. Utilisez votre deuxième région pour sauvegarder et récupérer toutes les données de télémétrie et de requête Azure Time Series Insights.
 
 > [!IMPORTANT]

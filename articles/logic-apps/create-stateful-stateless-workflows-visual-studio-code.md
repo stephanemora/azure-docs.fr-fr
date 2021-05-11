@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/30/2021
-ms.openlocfilehash: 4010f7e2d0d20216107a45109056478694c940ca
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 0099e039c87ccf29848ecb602bc5eeff8b82f689
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772502"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163622"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Créer des workflows avec état et sans état dans Visual Studio Code à l’aide de l’extension Azure Logic Apps (préversion)
 
@@ -1028,7 +1028,10 @@ Dans Visual Studio Code, vous pouvez afficher toutes les applications logiques d
 
 1. Ouvrez l’application logique à gérer. À partir du menu contextuel de l’application logique, sélectionnez la tâche à effectuer.
 
-   Par exemple, vous pouvez sélectionner des tâches telles que l’arrêt, le démarrage, le redémarrage ou la suppression de votre application logique déployée.
+   Par exemple, vous pouvez sélectionner des tâches telles que l’arrêt, le démarrage, le redémarrage ou la suppression de votre application logique déployée. Vous pouvez [désactiver ou activer un workflow à partir du portail Azure](create-stateful-stateless-workflows-azure-portal.md#disable-enable-workflows).
+
+   > [!NOTE]
+   > Les opérations d’arrêt et de suppression d’application logique affectent les instances de workflow de différentes manières. Pour plus d’informations, consultez [Considérations relatives à l’arrêt des applications logiques](#considerations-stop-logic-apps) et [Considérations relatives à la suppression des applications logiques](#considerations-delete-logic-apps).
 
    ![Capture d’écran montrant Visual Studio Code avec le volet d’extension « Azure Logic Apps (préversion) » ouvert et le flux de travail déployé.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
@@ -1052,11 +1055,45 @@ Dans Visual Studio Code, vous pouvez afficher toutes les applications logiques d
 
    ![Capture d’écran montrant le portail Azure et la barre de recherche avec des résultats de recherche pour l’application logique déployée qui apparaît sélectionnée.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
+<a name="considerations-stop-logic-apps"></a>
+
+### <a name="considerations-for-stopping-logic-apps"></a>Considérations relatives à l’arrêt des applications logiques
+
+Voici de quelles manières l’arrêt d’une application logique affecte les instances de workflow :
+
+* Le service Logic Apps annule immédiatement toutes les exécutions en cours et en attente.
+
+* Le service Logic Apps ne crée ni n’exécute de nouvelles instances de workflow.
+
+* Les déclencheurs ne se lancent pas la prochaine fois que leurs conditions sont remplies. Cependant, l’état des déclencheurs se rappelle des points d’arrêt de l’application logique. Ainsi, si vous redémarrez l’application logique, les déclencheurs se lancent pour tous les éléments non traités depuis la dernière exécution.
+
+  Pour empêcher un déclencheur de se lancer pour les éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de redémarrer l’application logique :
+
+  1. Dans la barre d’outils gauche de Visual Studio Code, sélectionnez l’icône Azure. 
+  1. Dans le volet **Azure : Logic Apps (préversion)** , développez votre abonnement qui affiche toutes les applications logiques déployées pour cet abonnement.
+  1. Développez votre application logique, puis le nœud **Workflows**.
+  1. Ouvrez un workflow, puis modifiez une partie du déclencheur de ce workflow.
+  1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel du déclencheur.
+  1. Répétez cette opération pour chaque workflow.
+  1. Quand vous avez terminé, redémarrez votre application logique.
+
+<a name="considerations-delete-logic-apps"></a>
+
+### <a name="considerations-for-deleting-logic-apps"></a>Considérations relatives à la suppression des applications logiques
+
+Voici de quelles manières la suppression d’une application logique affecte les instances de workflow :
+
+* Le service Logic Apps annule immédiatement les exécutions en cours et en attente, mais n’exécute pas de tâches de nettoyage au niveau du stockage utilisé par l’application.
+
+* Le service Logic Apps ne crée ni n’exécute de nouvelles instances de workflow.
+
+* Si, après avoir supprimé un workflow, vous recréez le même workflow, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez réenregistrer les workflows qui ont appelé le workflow supprimé. L’appelant obtiendra ainsi les bonnes informations pour le workflow recréé. Dans le cas contraire, les appels au workflow recréé échoueront avec une erreur `Unauthorized`. Ce comportement vaut également pour les workflows qui utilisent des artefacts dans des comptes d’intégration et des workflows qui appellent des fonctions Azure.
+
 <a name="manage-deployed-apps-portal"></a>
 
 ## <a name="manage-deployed-logic-apps-in-the-portal"></a>Gérer les applications logiques déployées dans le portail
 
-Dans le portail Azure, vous pouvez afficher toutes les applications logiques déployées qui se trouvent dans votre abonnement Azure, qu’il s’agisse du type de ressource **Logic Apps** d’origine ou du type de ressource **Logic Apps (préversion)** . Actuellement, chaque type de ressource est organisé et géré en tant que catégorie distincte dans Azure. Pour rechercher les applications logiques dont le type de ressource est **Logic Apps (préversion)** , procédez comme suit :
+Une fois que vous avez déployé une application logique sur le portail Azure à partir de Visual Studio Code, vous pouvez afficher toutes les applications logiques déployées qui se trouvent dans votre abonnement Azure, qu’il s’agisse du type de ressource **Logic Apps** d’origine ou du type de ressource **Logic Apps (préversion)** . Actuellement, chaque type de ressource est organisé et géré en tant que catégorie distincte dans Azure. Pour rechercher les applications logiques dont le type de ressource est **Logic Apps (préversion)** , procédez comme suit :
 
 1. Dans la zone de recherche du portail Azure, entrez `logic app preview`. Lorsque la liste des résultats s’affiche, sous **Services**, sélectionnez **Logic Apps (préversion)** .
 

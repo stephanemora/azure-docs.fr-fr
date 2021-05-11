@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 1cd22ad59da4961644c4e4d05150ba8565bf47a0
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 86783df03a395e287a6656b52099cffc579ee31f
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929756"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226279"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool"></a>Qu’est-ce que l’outil Azure Application Consistent Snapshot Tool ?
 
@@ -44,7 +44,7 @@ AzAcSnap tire parti des fonctionnalités d’instantané de volume et de réplic
 - **Clonage des volumes de stockage** : cette fonctionnalité fournit des clones de volume de stockage économes en espace à des fins de développement et de test.
 - **Prise en charge de la récupération d’urgence** : AzAcSnap utilise la réplication du volume de stockage pour fournir des options de récupération des instantanés cohérents par rapport à l’application répliqués sur un site distant.
 
-AzAcSnap est un binaire unique.  Il n’a pas besoin d’agents ni de plug-ins supplémentaires pour interagir avec la base de données ou le stockage (Azure NetApp Files via Azure Resource Manager et Grande instance Azure via SSH).  AzAcSnap doit être installé sur un système qui dispose d’une connectivité à la base de données et au stockage.  Toutefois, la flexibilité de l’installation et de la configuration permet d’utiliser une seule installation centralisée ou une installation entièrement distribuée avec des copies installées sur chaque installation de base de données.
+AzAcSnap est un binaire unique.  Il n’a pas besoin d’agents ni de plug-ins supplémentaires pour interagir avec la base de données ou le stockage (Azure NetApp Files via Azure Resource Manager et Grande instance Azure via SSH).  AzAcSnap doit être installé sur un système qui dispose d’une connectivité à la base de données et au stockage.  Toutefois, la flexibilité de l’installation et de la configuration permet d’utiliser une seule installation centralisée (Azure NetApp Files uniquement) ou une installation entièrement distribuée (Azure NetApp Files et Grande instance Azure) avec des copies installées sur chaque installation de base de données.
 
 ## <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
 

@@ -1,18 +1,19 @@
 ---
-title: 'Passerelle VPN Azure : vérifier une connexion de passerelle'
-description: Cet article vous montre comment vérifier une connexion de passerelle VPN de réseau virtuel.
+title: Vérification de la connexion à une passerelle
+titleSuffix: Azure VPN Gateway
+description: Apprenez à vérifier une connexion de passerelle VPN de réseau virtuel.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2e70ef045101571a7a3652b610d06d788173b13e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 3616c425f191c9ff7788cb5f4333fa69d65e5728
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072600"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204600"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Vérifier une connexion de passerelle VPN
 

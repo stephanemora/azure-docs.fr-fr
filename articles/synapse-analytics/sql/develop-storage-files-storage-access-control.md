@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 266a6c27261107b883fdc0c1cdd274e6345de6db
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4419c9d64eac6eb468c5eb4414a3c9b844d7d8a7
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107483450"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181721"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -26,10 +26,12 @@ Cet article décrit les types d’informations d’identification que vous pouve
 
 ## <a name="storage-permissions"></a>Autorisations de stockage
 
-Un pool SQL serverless dans l’espace de travail Synapse Analytics peut lire le contenu des fichiers stockés dans Azure Data Lake Storage. Vous devez configurer des autorisations sur le stockage pour permettre à un utilisateur qui exécute une requête SQL de lire les fichiers. Il existe trois méthodes pour activer l’accès aux fichiers>
-- Le **[contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md)** vous permet d’attribuer un rôle à un utilisateur Azure AD dans le locataire où votre stockage est placé. Les rôles RBAC peuvent être attribués à des utilisateurs Azure AD. Un lecteur doit avoir un rôle `Storage Blob Data Reader`, `Storage Blob Data Contributor` ou `Storage Blob Data Owner`. Un utilisateur qui écrit des données dans le stockage Azure doit disposer du rôle `Storage Blob Data Writer` ou `Storage Blob Data Owner`. Notez que le rôle `Storage Owner` ne signifie pas qu’un utilisateur est également `Storage Data Owner`.
-- Les **listes de contrôle d’accès (ACL, Access Control Lists)** vous permettent de définir un modèle d’autorisation précis sur les fichiers et les répertoires du stockage Azure. Une liste ACL peut être attribuée aux utilisateurs Azure AD. Si les lecteurs veulent lire un fichier sur un chemin dans le stockage Azure, ils doivent avoir exécuter (X) la liste ACL sur chaque dossier du chemin, et lu (R) la liste ACL sur le fichier. [En savoir plus sur la définition des autorisations ACL dans la couche de stockage](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+Un pool SQL serverless dans l’espace de travail Synapse Analytics peut lire le contenu des fichiers stockés dans Azure Data Lake Storage. Vous devez configurer des autorisations sur le stockage pour permettre à un utilisateur qui exécute une requête SQL de lire les fichiers. Il existe trois méthodes pour activer l’accès aux fichiers :
+- Le **[contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md)** vous permet d’attribuer un rôle à un utilisateur Azure AD dans le locataire où votre stockage est placé. Un lecteur doit avoir le rôle RBAC `Storage Blob Data Reader`, `Storage Blob Data Contributor` ou `Storage Blob Data Owner` sur un compte de stockage. Un utilisateur qui écrit des données dans le stockage Azure doit disposer du rôle `Storage Blob Data Writer` ou `Storage Blob Data Owner`. Notez que le rôle `Storage Owner` ne signifie pas qu’un utilisateur est également `Storage Data Owner`.
+- **Les listes de contrôle d’accès (ACL, Access Control Lists)** vous permettent de définir des [autorisations Lecture (R), Écriture (W) et Exécution (X)](../../storage/blobs/data-lake-storage-access-control.md#levels-of-permission) affinées sur les fichiers et les répertoires du stockage Azure. Une liste ACL peut être attribuée aux utilisateurs Azure AD. Si les lecteurs veulent lire un fichier sur un chemin dans le Stockage Azure, ils doivent avoir l’autorisation Exécuter (X) la liste de contrôle d’accès (ACL) sur chaque dossier présent dans le chemin du fichier, et Lire (R) la liste ACL sur le fichier. [Découvrez-en plus sur la définition d’autorisations de liste de contrôle d’accès (ACL) dans la couche de stockage](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls).
 - La **signature d’accès partagé (SAS)** permet à un lecteur d’accéder aux fichiers sur le stockage Azure Data Lake à l’aide du jeton à durée limitée. Le lecteur n’a même pas besoin d’être authentifié en tant qu’utilisateur Azure AD. Le jeton SAS contient les autorisations accordées au lecteur, ainsi que la durée pendant laquelle le jeton est valide. Le jeton SAS représente un bon choix pour un accès à durée restreinte d’un utilisateur qui n’est même pas obligé de se trouver dans le même locataire Azure AD. Le jeton SAS peut être défini sur le compte de stockage ou sur des annuaires spécifiques. Apprenez-en davantage sur l’[octroi d’un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé](../../storage/common/storage-sas-overview.md).
+
+Vous pouvez également rendre vos fichiers disponibles publiquement en autorisant l’accès anonyme. Cette approche NE doit PAS être utilisée si vous avez des données non publiques. 
 
 ## <a name="supported-storage-authorization-types"></a>Types d’autorisations de stockage pris en charge
 

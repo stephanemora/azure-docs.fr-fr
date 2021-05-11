@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/24/2021
-ms.openlocfilehash: 03cfb49dabd5039453f84ef0e636d3948af70d8d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 0163b58017599ceb26f52f0e47cbc87e161f6ed2
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764834"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161234"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Démarrage rapide : Créer et gérer des définitions de workflow d’applications logiques avec Visual Studio Code
 
@@ -224,24 +224,6 @@ Pour passer en revue votre application logique dans le portail Azure, effectuez 
 
    ![Votre nouvelle application logique dans le portail Azure](./media/quickstart-create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
 
-<a name="disable-enable-logic-app"></a>
-
-## <a name="disable-or-enable-logic-app"></a>Activer ou désactiver une application logique
-
-Dans Visual Studio Code, si vous modifiez une application logique publiée et que vous enregistrez vos modifications, vous *remplacez* votre application déjà déployée. Pour éviter de rendre non opérationnelle votre application logique en production et réduire les perturbations, désactivez d’abord votre application logique. Vous pouvez ensuite réactiver votre application logique une fois que vous avez vérifié que votre application logique fonctionne toujours.
-
-1. Si vous n’êtes pas encore connecté à votre compte et à votre abonnement Azure depuis Visual Studio Code, suivez les [étapes précédentes pour vous y connecter maintenant](#access-azure).
-
-1. Dans la fenêtre Azure, sous **Logic Apps**, développez votre abonnement Azure pour voir toutes les applications logiques de cet abonnement.
-
-   1. Pour désactiver l’application logique souhaitée, ouvrez le menu de l’application logique, puis sélectionnez **Désactiver**.
-
-      ![Désactiver votre application logique](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
-
-   1. Quand vous êtes prêt à réactiver votre application logique, ouvrez le menu de l’application logique, puis sélectionnez **Activer**.
-
-      ![Activer votre application logique](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
-
 <a name="edit-logic-app"></a>
 
 ## <a name="edit-deployed-logic-app"></a>Modifier l’application logique déployée
@@ -249,7 +231,7 @@ Dans Visual Studio Code, si vous modifiez une application logique publiée et qu
 Dans Visual Studio Code, vous pouvez ouvrir et modifier la définition du workflow pour une application logique déjà déployée dans Azure.
 
 > [!IMPORTANT] 
-> Avant de modifier une application logique qui est activement exécutée en production, évitez le risque de rendre cette application logique non opérationnelle et limitez les interruptions possibles en [désactivant d’abord votre application logique](#disable-enable-logic-app).
+> Avant de modifier une application logique qui est activement exécutée en production, évitez le risque de rendre cette application logique non opérationnelle et limitez les interruptions possibles en [désactivant d’abord votre application logique](#disable-enable-logic-apps).
 
 1. Si vous n’êtes pas encore connecté à votre compte et à votre abonnement Azure depuis Visual Studio Code, suivez les [étapes précédentes pour vous y connecter maintenant](#access-azure).
 
@@ -278,7 +260,7 @@ Dans Visual Studio Code, vous pouvez ouvrir et modifier la définition du workfl
 Dans Visual Studio Code, vous pouvez ouvrir et passer en revue les versions antérieures de votre application logique. Vous pouvez également promouvoir une version antérieure en version active.
 
 > [!IMPORTANT] 
-> Avant de changer une application logique qui est activement exécutée en production, évitez le risque de rendre cette application logique non opérationnelle et limitez les interruptions possibles en [désactivant d’abord votre application logique](#disable-enable-logic-app).
+> Avant de changer une application logique qui est activement exécutée en production, évitez le risque de rendre cette application logique non opérationnelle et limitez les interruptions possibles en [désactivant d’abord votre application logique](#disable-enable-logic-apps).
 
 1. Dans la fenêtre Azure, sous **Logic Apps**, développez votre abonnement Azure pour voir toutes les applications logiques de cet abonnement.
 
@@ -307,6 +289,61 @@ Dans Visual Studio Code, vous pouvez ouvrir et passer en revue les versions ant�
       ![Confirmer la promotion d’une version antérieure](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 
       Visual Studio Code promeut la version sélectionnée en version active et affecte un nouveau numéro à la version promue. La version active précédente apparaît maintenant sous la version promue.
+
+<a name="disable-enable-logic-apps"></a>
+
+## <a name="disable-or-enable-logic-apps"></a>Activer ou désactiver des applications logiques
+
+Dans Visual Studio Code, si vous modifiez une application logique publiée et que vous enregistrez vos modifications, vous *remplacez* votre application déjà déployée. Pour éviter l’arrêt de votre application logique en production et réduire les disruptions, désactivez d’abord votre application logique. Vous pouvez ensuite réactiver votre application logique une fois que vous avez vérifié que votre application logique fonctionne toujours.
+
+> [!NOTE]
+> Voici de quelles manières la désactivation d’une application logique affecte les instances de workflow :
+>
+> * Le service Logic Apps continue toutes les exécutions en cours et en attente jusqu’à ce qu’elles se terminent. En fonction du volume ou du backlog, ce processus peut prendre du temps.
+>
+> * Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
+>
+> * Le déclencheur ne se déclenche pas la prochaine fois que ses conditions sont remplies. Toutefois, l’état du déclencheur mémorise le point auquel l’application logique a été arrêtée. Ainsi, si vous réactivez l’application logique, le déclencheur se met en œuvre pour tous les éléments non traités depuis la dernière exécution.
+>
+>   Pour empêcher le déclencheur de se mettre en œuvre pour les éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de réactiver l’application logique :
+>
+>   1. Dans l’application logique, modifiez toute partie du déclencheur du workflow.
+>   1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel de votre déclencheur.
+>   1. Réactivez votre application logique.
+
+1. Si vous n’êtes pas encore connecté à votre compte et à votre abonnement Azure depuis Visual Studio Code, suivez les [étapes précédentes pour vous y connecter maintenant](#access-azure).
+
+1. Dans la fenêtre Azure, sous **Logic Apps**, développez votre abonnement Azure pour voir toutes les applications logiques de cet abonnement.
+
+   1. Pour désactiver l’application logique souhaitée, ouvrez son menu, puis sélectionnez **Désactiver**.
+
+      ![Désactiver votre application logique](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
+
+   1. Quand vous êtes prêt à réactiver votre application logique, ouvrez son menu, puis sélectionnez **Activer**.
+
+      ![Activer votre application logique](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
+
+<a name="delete-logic-apps"></a>
+
+## <a name="delete-logic-apps"></a>Supprimer des applications logiques
+
+Voici de quelles manières la suppression d’une application logique affecte les instances de workflow :
+
+* Le service Logic Apps met tout en œuvre pour annuler les exécutions en cours et en attente.
+
+  Même avec un grand volume ou backlog, la plupart des exécutions sont annulées avant qu’elles ne finissent ou ne démarrent. Toutefois, le processus d’annulation peut prendre du temps. Pendant ce temps, certaines exécutions peuvent être récupérées pour être exécutées.
+
+* Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
+
+* Si, après avoir supprimé un workflow, vous recréez le même workflow, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez réenregistrer les workflows qui ont appelé le workflow supprimé. L’appelant obtiendra ainsi les informations adéquates du workflow recréé. Dans le cas contraire, les appels au workflow recréé échoueront avec une erreur `Unauthorized`. Ce comportement s’applique aussi aux workflows qui utilisent des artefacts dans les comptes d’intégration et les workflows qui appellent des fonctions Azure.
+
+1. Si vous n’êtes pas encore connecté à votre compte et à votre abonnement Azure depuis Visual Studio Code, suivez les [étapes précédentes pour vous y connecter maintenant](#access-azure).
+
+1. Dans la fenêtre Azure, sous **Logic Apps**, développez votre abonnement Azure pour voir toutes les applications logiques de cet abonnement.
+
+1. Recherchez l’application logique à supprimer, ouvrez son menu, puis sélectionnez **Supprimer**.
+
+   ![Supprimer votre application logique](./media/quickstart-create-logic-apps-visual-studio-code/delete-logic-app.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

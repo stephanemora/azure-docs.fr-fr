@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 04/26/2021
-ms.openlocfilehash: fd148c88eaace70caa237ce8cb694d0167db9338
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: b99422d48e3c5fe633f8fb34366d78d941fef303
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064973"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320562"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -178,7 +178,7 @@ Pour arrêter la protection et supprimer des données de sauvegarde, effectuez l
        >[!NOTE]
        >Il n’est valide que pendant cinq minutes.
     1. Dans la console de gestion, collez le code PIN, puis sélectionnez **Envoyer**.
-       ![Entrer le code PIN de sécurité](./media/backup-azure-delete-vault/enter-security-pin.png)
+       ![Entrer le code PIN de sécurité pour supprimer les éléments du serveur MABS et de la console de gestion DPM](./media/backup-azure-delete-vault/enter-security-pin.png)
 
 4. Si vous avez précédemment sélectionné **Supprimer le stockage en ligne** dans la boîte de dialogue **Arrêter la protection**, ignorez cette étape. Cliquez avec le bouton droit sur le groupe de protection inactif, puis sélectionnez **Supprimer la protection inactive**.
 
@@ -204,7 +204,7 @@ Pour arrêter la protection et supprimer des données de sauvegarde, effectuez l
        >[!NOTE]
        >Il n’est valide que pendant cinq minutes.
     1. Dans la console de gestion, collez le code PIN, puis sélectionnez **Envoyer**.
-       ![Entrer le code PIN de sécurité](./media/backup-azure-delete-vault/enter-security-pin.png)
+       ![Entrer le code PIN de sécurité pour supprimer les éléments du serveur MABS et de la console de gestion DPM](./media/backup-azure-delete-vault/enter-security-pin.png)
  
      L’état du membre protégé devient *Réplica inactif disponible*.
 

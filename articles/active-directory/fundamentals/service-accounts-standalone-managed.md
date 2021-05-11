@@ -1,5 +1,5 @@
 ---
-title: Sécurisation des comptes de service géré autonomes | Azure Active Directory
+title: Sécuriser des comptes de service géré autonomes | Azure Active Directory
 description: Guide de sécurisation des comptes de service géré autonomes.
 services: active-directory
 author: BarbaraSelden
@@ -13,59 +13,57 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146cee9ddd6f0cef5ca23272ad9991af847f30ba
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ea3bd3e6fc971901bf69c053088678e8f0f718d0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072150"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206670"
 ---
-# <a name="securing-standalone-managed-service-accounts"></a>Sécurisation de comptes de service géré autonomes
+# <a name="secure-standalone-managed-service-accounts"></a>Sécuriser les comptes de service gérés autonomes
 
-Les comptes de service géré autonomes (sMSA) sont des comptes de domaine managé utilisés pour sécuriser un ou plusieurs services exécutés sur un serveur. Ils ne peuvent pas être réutilisés sur plusieurs serveurs. Les sMSA offrent une gestion automatique des mots de passe, une gestion simplifiée du nom de principal du service (SPN) et la possibilité de déléguer la gestion à d’autres administrateurs. 
+Les comptes de service géré autonomes (sMSA) sont des comptes de domaine managé qui vous permettent de sécuriser un ou plusieurs services exécutés sur un serveur. Ils ne peuvent pas être réutilisés sur plusieurs serveurs. Les sMSA offrent une gestion automatique des mots de passe, une gestion simplifiée du nom de principal du service (SPN) et la possibilité de déléguer la gestion à d’autres administrateurs. 
 
 Dans Active Directory, les sMSA sont liés à un serveur spécifique qui exécute un service. Vous pouvez trouver ces comptes dans le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory de la console de gestion Microsoft.
 
-![Capture d’écran du composant logiciel enfichable Utilisateurs et ordinateurs Active Directory montrant l’UO de comptes de service géré.](./media/securing-service-accounts/secure-standalone-msa-image-1.png)
+![Capture d'écran du composant logiciel enfichable Utilisateurs et ordinateurs Active Directory illustrant l'UO de comptes de service géré.](./media/securing-service-accounts/secure-standalone-msa-image-1.png)
 
-Les comptes de service géré ont été introduits le schéma Active Directory de Windows Server 2008R2 et le niveau de système d’exploitation doit être au minimum Windows Server 2008R2. 
+Les comptes de service géré ont été introduits avec le schéma Active Directory de Windows Server 2008 R2, et ils requièrent au minimum Windows Server 2008 R2. 
 
 ## <a name="benefits-of-using-smsas"></a>Avantages de l’utilisation de sMSA
 
-Les sMSA offrent une plus grande sécurité que les comptes d’utilisateur utilisés comme comptes de service, tout en réduisant la charge administrative :
+Les sMSA offrent une plus grande sécurité que les comptes d'utilisateur utilisés comme comptes de service. Parallèlement, ils contribuent à réduire la charge administrative en offrant les avantages suivants :
 
-* Définition de mots de passe forts. Les sMSA utilisent des mots de passe complexes générés de manière aléatoire de 240 octets. La complexité et la longueur des mots de passe de sMSA réduisent la probabilité qu’un service soit compromis par des attaques par force brute ou par dictionnaire.
+* **Définition de mots de passe forts** : les sMSA utilisent des mots de passe complexes de 240 octets générés de manière aléatoire. La complexité et la longueur des mots de passe de sMSA réduisent la probabilité qu’un service soit compromis par des attaques par force brute ou par dictionnaire.
 
-* Recyclage régulier des mots de passe. Windows modifie automatiquement le mot de passe du sMSA tous les 30 jours. Les administrateurs de service et de domaine n’ont pas besoin de planifier des modifications de mot de passe ni de gérer les temps d’arrêt associés.
+* **Recyclage régulier des mots de passe** : Windows modifie automatiquement le mot de passe du sMSA tous les 30 jours. Les administrateurs de service et de domaine n’ont pas besoin de planifier des modifications de mot de passe ni de gérer les temps d’arrêt associés.
 
-* Simplification de la gestion des noms de principal du service. Les noms de principal du service sont automatiquement mis à jour si le niveau fonctionnel du domaine (DFL) est Windows Server 2008 R2. Par exemple, le nom de principal du service est automatiquement mis à jour dans les scénarios suivants :
-
-   * Le compte de l’ordinateur hôte a été renommé. 
-
-   * Le nom DNS de l’ordinateur hôte a été modifié.
-
-   * Lors de l’ajout ou de la suppression d’un paramètre supplémentaire sam-accountname ou dns-hostname à l’aide de [PowerShell](/powershell/module/activedirectory/set-adserviceaccount)
+* **Simplification de la gestion des licences** : les noms de principal de service sont automatiquement mis à jour si le niveau fonctionnel du domaine (DFL) est Windows Server 2008 R2. Par exemple, le nom du principal de service est automatiquement mis à jour dans les cas suivants :
+   * Changement de nom du compte de l'ordinateur hôte  
+   * Modification du nom DNS de l'ordinateur hôte  
+   * Ajout ou suppression d'autres paramètres sam-accountname ou dns-hostname à l'aide de [PowerShell](/powershell/module/activedirectory/set-adserviceaccount)
 
 ## <a name="when-to-use-smsas"></a>Quand l’utiliser des sMSA
 
-Les sMSA peuvent simplifier les tâches de gestion et de sécurité. Utilisez des sMSA lorsque vous avez un ou plusieurs services déployés sur un seul serveur et que vous ne pouvez pas utiliser un gMSA. 
+Les sMSA peuvent simplifier les tâches de gestion et de sécurité. Utilisez des sMSA lorsqu'un ou plusieurs services sont déployés sur un même serveur et que vous n'avez pas la possibilité d'utiliser un gMSA (compte de service géré de groupe). 
 
 > [!NOTE] 
-> Bien que vous puissiez utiliser des sMSA pour plusieurs services, nous recommandons que chaque service ait sa propre identité à des fins d’audit. 
+> Bien que vous puissiez utiliser des sMSA pour plusieurs services, nous recommandons que chaque service ait sa propre identité à des fins d'audit. 
 
-Si le créateur du logiciel ne peut pas vous indiquer s’il peut utiliser un MSA, vous devez tester votre application. Pour ce faire, créez un environnement de test et assurez-vous qu’il peut accéder à toutes les ressources requises. Pour obtenir des instructions pas à pas, consultez [Créer et installer un sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting).
+Si le créateur du logiciel n'est pas en mesure de vous indiquer s'il peut utiliser un MSA, vous devez tester votre application. Pour ce faire, créez un environnement de test et assurez-vous qu'il peut accéder à toutes les ressources requises. Pour plus d'informations, consultez [Créer et installer un sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting).
 
-### <a name="assess-security-posture-of-smsas"></a>Évaluer la posture de sécurité de sMSA
+### <a name="assess-the-security-posture-of-smsas"></a>Évaluer la posture de sécurité de sMSA
 
 Les sMSA sont par nature plus sécurisés que les comptes d’utilisateur standard, qui nécessitent une gestion continue des mots de passe. Toutefois, il est important de tenir compte de l’étendue de l’accès des sMSA dans le cadre de leur posture de sécurité globale.
 
-Le tableau suivant montre comment atténuer les potentiels problèmes de sécurité posés par des sMSA.
+Pour savoir comment atténuer les problèmes de sécurité potentiels posés par les sMSA, consultez le tableau suivant :
 
-| Problèmes de sécurité| Corrections |
+| Problème de sécurité| Limitation des risques |
 | - | - |
-| Le sMSA est membre de groupes privilégiés.|Supprimez le sMSA des groupes avec privilèges élevés (par exemple, Administrateurs de domaine). <br> Utilisez le modèle avec le moins de privilèges et accordez au sMSA uniquement les droits et les autorisations dont il a besoin pour exécuter ses services. <br> Si vous n’êtes pas sûr des autorisations requises, consultez le créateur du service. |
-| Le sMSA dispose d’un accès en lecture/écriture aux ressources sensibles.|Auditez l’accès aux données sensibles. Archivez les journaux d’audit dans un système SIEM (Azure Log Analytics ou Azure Sentinel) à des fins d’analyse. <br> Corrigez les autorisations de ressource si un niveau d’accès indésirable est détecté. |
-| Par défaut, la fréquence de substitution de mot de passe des sMSA est de 30 jours| La stratégie de groupe peut être utilisée pour régler la durée en fonction des exigences de l’entreprise en matière de sécurité. <br> * Vous pouvez définir la durée d’expiration du mot de passe à l’aide du chemin suivant : <br>Configuration de l’ordinateur\Stratégies\ Paramètres Windows\Paramètres de sécurité\Options de sécurité\Membre de domaine : Durée maximale du mot de passe du compte de machine |
+| Le sMSA est membre de groupes privilégiés. | <li>Supprimez le sMSA des groupes avec privilèges élevés, par exemple Administrateurs de domaine.<li>Utilisez le modèle *avec le moins de privilèges* et accordez uniquement au sMSA les droits et autorisations dont il a besoin pour exécuter ses services.<li>Si vous n’êtes pas sûr des autorisations requises, consultez le créateur du service. |
+| Le sMSA dispose d’un accès en lecture/écriture aux ressources sensibles. | <li>Auditez l’accès aux données sensibles.<li>Archivez les journaux d'audit dans un programme SIEM (Security Information and Event Management) tel qu'Azure Log Analytics ou Azure Sentinel à des fins d'analyse.<li>Corrigez les autorisations de ressource si un niveau d’accès indésirable est détecté. |
+| Par défaut, la fréquence de substitution de mot de passe des sMSA est de 30 jours. | Vous pouvez utiliser la stratégie de groupe pour régler la durée, en fonction des exigences de l'entreprise en matière de sécurité. Pour définir la durée d’expiration du mot de passe, utilisez le chemin suivant :<br>*Configuration de l'ordinateur\Stratégies\Paramètres Windows\Paramètres de sécurité\Options de sécurité*. Sous Membre de domaine, choisissez **Ancienneté maximale du mot de passe du compte d'ordinateur**. |
+| | |
 
 
 
@@ -73,63 +71,50 @@ Le tableau suivant montre comment atténuer les potentiels problèmes de sécuri
 
 Les défis associés aux sMSA sont les suivants :
 
-| Défis| Corrections |
+| Problème| Limitation des risques |
 | - | - |
-| Ils peuvent être utilisés sur un serveur unique.| Utilisez des gMSA si vous devez utiliser le compte sur plusieurs serveurs. |
-| Ils ne peuvent pas être utilisés dans plusieurs domaines.| Utilisez des gMSA si vous devez utiliser le compte sur plusieurs domaines. |
-| Toutes les applications ne prennent pas en charge les sMSA.| Utilisez des gMSA dans la mesure du possible. Si vous ne le faites pas, utilisez un compte d’utilisateur standard ou un compte d’ordinateur, comme recommandé par le créateur de l’application. |
+| Les sMSA ne peuvent être utilisés que sur un seul serveur. | Utilisez un gMSA si vous devez utiliser le compte sur plusieurs serveurs. |
+| Les sMSA ne peuvent pas être utilisés dans plusieurs domaines. | Utilisez un gMSA si vous devez utiliser le compte dans plusieurs domaines. |
+| Toutes les applications ne prennent pas en charge les sMSA. | Utilisez un gMSA dans la mesure du possible. Sinon, utilisez un compte d'utilisateur standard ou un compte d'ordinateur, comme recommandé par le créateur de l'application. |
+| | |
 
 
 ## <a name="find-smsas"></a>Rechercher des sMSA
 
-Sur n’importe quel contrôleur de domaine, exécutez DSA.msc et développez le conteneur Comptes de service géré pour afficher tous les sMSA. 
+Sur n'importe quel contrôleur de domaine, exécutez DSA.msc, puis développez le conteneur Comptes de service géré pour afficher tous les sMSA. 
 
-La commande PowerShell suivante retourne tous les sMSA et gMSA du domaine Active Directory. 
+Pour renvoyer tous les sMSA et gMSA du domaine Active Directory, exécutez la commande PowerShell suivante : 
 
 `Get-ADServiceAccount -Filter *`
 
-La commande suivante retourne uniquement les sMSA du domaine Active Directory.
+Pour ne renvoyer que les sMSA du domaine Active Directory, exécutez la commande suivante :
 
 `Get-ADServiceAccount -Filter * | where { $_.objectClass -eq "msDS-ManagedServiceAccount" }`
 
 ## <a name="manage-smsas"></a>Gérer des sMSA
 
-Vous pouvez utiliser les cmdlets PowerShell Active Directory suivantes pour gérer des sMSA :
+Pour gérer vos sMSA, vous pouvez utiliser les cmdlets PowerShell Active Directory suivantes :
 
-`Get-ADServiceAccount`
-
-` Install-ADServiceAccount`
-
-` New-ADServiceAccount`
-
-` Remove-ADServiceAccount`
-
-`Set-ADServiceAccount`
-
-`Test-ADServiceAccount`
-
+`Get-ADServiceAccount`  
+` Install-ADServiceAccount`  
+` New-ADServiceAccount`  
+` Remove-ADServiceAccount`  
+`Set-ADServiceAccount`  
+`Test-ADServiceAccount`  
 `Ininstall-ADServiceAccount`
 
 ## <a name="move-to-smsas"></a>Passer à des sMSA
 
-Si un service d’application prend en charge les sMSA, mais pas les gMSA, et qu’il utilise actuellement un compte d’utilisateur ou un compte d’ordinateur pour le contexte de sécurité, [créez et installez un sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) sur le serveur. 
+Si un service d'application prend en charge les sMSA mais pas les gMSA, et que vous utilisez actuellement un compte d'utilisateur ou un compte d'ordinateur pour le contexte de sécurité, vous devez [Créer et installer un sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) sur le serveur. 
 
-Dans l’idéal, déplacez les ressources vers Azure et utilisez des identités managées Azure ou des principaux de service.
-
- 
+L'idéal serait de déplacer les ressources vers Azure et d'utiliser des identités managées Azure ou des principaux de service.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants sur la sécurisation des comptes de service :
 
-* [Présentation des comptes de service locaux](service-accounts-on-premises.md)
+Pour en savoir plus sur la sécurisation des comptes de service, consultez les articles suivants :
 
-* [Sécuriser les comptes de service gérés de groupe](service-accounts-group-managed.md)
-
-* [Sécuriser les comptes de service gérés autonomes](service-accounts-standalone-managed.md)
-
-* [Sécuriser les comptes d’ordinateur](service-accounts-computer.md)
-
-* [Sécuriser les comptes d’utilisateur](service-accounts-user-on-premises.md)
-
+* [Présentation des comptes de service locaux](service-accounts-on-premises.md)  
+* [Sécuriser les comptes de service gérés de groupe](service-accounts-group-managed.md)  
+* [Sécuriser les comptes d’ordinateur](service-accounts-computer.md)  
+* [Sécuriser les comptes d’utilisateur](service-accounts-user-on-premises.md)  
 * [Administrer les comptes de service locaux](service-accounts-govern-on-premises.md)
-

@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/25/2021
 ms.author: mjbrown
-ms.openlocfilehash: b13f5bfffced9afd80663d606e30e028e52643ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04f79c4ab67dc2fa2e1e969bfdff169042f0d576
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94563833"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227557"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Gérer les ressources de l’API Azure Cosmos DB Core (SQL) à l’aide d’Azure CLI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,7 +21,7 @@ Le guide suivant décrit les commandes courantes permettant d’automatiser la g
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Cet article nécessite la version 2.12.1 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
+- Cet article nécessite la version 2.22.1 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 Pour obtenir des exemples d’Azure CLI pour d’autres API, consultez [Exemples de CLI pour Cassandra](cli-samples-cassandra.md), [Exemples de CLI pour l’API MongoDB](cli-samples-mongodb.md), [Exemples de CLI pour Gremlin](cli-samples-gremlin.md), [Exemples de CLI pour table](cli-samples-table.md)
 
@@ -70,6 +70,8 @@ Créez un compte Azure Cosmos avec deux régions, ajoutez une région et supprim
 > Vous ne pouvez pas ajouter ou supprimer simultanément des régions `locations` et modifier d’autres propriétés d’un compte Azure Cosmos. La modification des régions doit être effectuée en tant qu’opération distincte de toute autre modification apportée à la ressource de compte.
 > [!NOTE]
 > Cette commande vous permet d’ajouter ou de supprimer des régions, mais ne vous permet pas de modifier des priorités de basculement ni de déclencher un basculement manuel. Consultez [Définir la priorité de basculement](#set-failover-priority) et [Déclencher un basculement manuel](#trigger-manual-failover).
+> [!TIP]
+> Quand une nouvelle région est ajoutée, toutes les données doivent être entièrement répliquées et validées dans la nouvelle région avant qu’elle ne soit marquée comme disponible. Le temps nécessaire à cette opération dépend de la quantité de données stockées dans le compte.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'

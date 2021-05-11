@@ -3,25 +3,28 @@ title: Azure Service Bus - exceptions de la messagerie | Microsoft Docs
 description: Cet article fournit la liste des exceptions de messagerie Azure Service Bus et les actions suggérées à entreprendre quand une exception se produit.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 3b56aff2635593d6cb49adbcf3784ddd5cb4fa39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c980b81d18dbbcb5764b3d8c4ed040f930bce4f
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99219143"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108160976"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceptions de la messagerie Service Bus
-Cet article répertorie les exceptions .NET générées par les API .NET Framework. 
+
+Cet article répertorie les exceptions .NET générées par les API .NET Framework.
 
 ## <a name="exception-categories"></a>Catégories d'exceptions
+
 Les API de messagerie génèrent des exceptions qui peuvent être classées dans les catégories suivantes, ainsi que l'action associée que vous pouvez mener pour essayer de les résoudre. La signification et les causes d’une exception peuvent varier en fonction du type d’entité de messagerie :
 
 1. Erreur de codage utilisateur ([System.ArgumentException](/dotnet/api/system.argumentexception), [System.InvalidOperationException](/dotnet/api/system.invalidoperationexception), [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception), [System.Runtime.Serialization.SerializationException](/dotnet/api/system.runtime.serialization.serializationexception)). Action générale : essayez de corriger le code avant de poursuivre.
 2. Erreur d’installation ou de configuration ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception). Action générale : révisez la configuration et modifiez-la si besoin.
 3. Exceptions temporaires ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). Action générale : relancez l'opération ou avertissez les utilisateurs. La classe `RetryPolicy` du SDK client peut être configurée pour traiter automatiquement les nouvelles tentatives. Pour plus d’informations, consultez les [conseils sur les nouvelles tentatives](/azure/architecture/best-practices/retry-service-specific#service-bus).
-4. Autres exceptions ([System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception), [System.TimeoutException](/dotnet/api/system.timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). Action générale : propre au type d’exception. Reportez-vous au tableau de la section suivante : 
+4. Autres exceptions ([System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception), [System.TimeoutException](/dotnet/api/system.timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). Action générale : propre au type d’exception. Reportez-vous au tableau de la section suivante :
 
 ## <a name="exception-types"></a>Types d'exceptions
+
 Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs causes et les propositions d'actions que vous pouvez effectuer.
 
 | **Type d'exception** | **Description/Cause/Exemples** | **Action suggérée** | **Remarques sur la nouvelle tentative automatique/immédiate** |
@@ -49,25 +52,27 @@ Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs ca
 | [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception) |Une opération est tentée sur une transaction incertaine, ou une tentative est faite pour valider la transaction et la transaction devient incertaine. |Votre application doit gérer cette exception (comme un cas spécial), car la transaction a peut-être déjà été validée. |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
+
 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indique que le quota d’une entité spécifique a été dépassé.
 
 ### <a name="queues-and-topics"></a>Files d’attente et rubriques
+
 Pour les files d’attente et les rubriques, il s’agit souvent de la taille de la file d’attente. La propriété du message d’erreur contient davantage d’informations, comme dans l’exemple suivant :
 
-```Output
+```output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
 Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xxx-xxx'. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
 1073741824..TrackingId:xxxxxxxxxxxxxxxxxxxxxxxxxx, TimeStamp:3/15/2013 7:50:18 AM
 ```
 
-Ce message indique que la rubrique a dépassé sa limite de taille, dans ce cas 1 Go (limite de taille par défaut). 
+Ce message indique que la rubrique a dépassé sa limite de taille, dans ce cas 1 Go (limite de taille par défaut).
 
 ### <a name="namespaces"></a>Espaces de noms
 
 En ce qui concerne les espaces de noms, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) peut indiquer qu’une application a dépassé le nombre maximal de connexions à un espace de noms. Par exemple :
 
-```Output
+```output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
 <tracking-id-guid>_G12 ---> 
 System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
@@ -75,23 +80,25 @@ ConnectionsQuotaExceeded for namespace xxx.
 ```
 
 ### <a name="common-causes"></a>Causes courantes
+
 Il existe deux causes courantes pour cette erreur : la file d'attente de lettres mortes et des récepteurs de messages non fonctionnels.
 
 1. **[File d’attente de lettres mortes](service-bus-dead-letter-queues.md)** Un lecteur ne parvient pas à terminer les messages et ceux-ci sont renvoyés à la file d’attente/rubrique après expiration du verrouillage. Cela peut se produire si le lecteur rencontre une exception qui l’empêche d’appeler [BrokeredMessage.Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete). Une fois un message lu 10 fois, il passe à la file d'attente de lettres mortes par défaut. Ce comportement est contrôlé par la propriété [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) et a une valeur par défaut de 10. Quand les messages s'accumulent dans la file d'attente de lettres mortes, ils prennent de la place.
-   
+
     Pour résoudre ce problème, lisez et terminez les messages de la file d'attente de lettres mortes, comme vous le feriez pour une autre file d'attente. Vous pouvez utiliser la méthode [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) pour aider à mettre en forme le chemin d’accès de la file d’attente de lettres mortes.
 2. **Récepteur arrêté**. Un récepteur a cessé de recevoir des messages d’une file d’attente ou d’un abonnement. Pour l’identifier, examinez la propriété [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) , qui affiche la répartition complète des messages. Si la valeur de la propriété [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) est élevée ou augmente, les messages ne sont pas lus aussi rapidement qu’ils sont écrits.
 
 ## <a name="timeoutexception"></a>TimeoutException
-Une [TimeoutException](/dotnet/api/system.timeoutexception) indique qu’une opération lancée par l’utilisateur dépasse le délai d’expiration de l’opération. 
+
+Une [TimeoutException](/dotnet/api/system.timeoutexception) indique qu’une opération lancée par l’utilisateur dépasse le délai d’expiration de l’opération.
 
 Vous devez vérifier la valeur de la propriété [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) car cette limite, si elle est atteinte, peut également entraîner une exception [TimeoutException](/dotnet/api/system.timeoutexception).
 
 Des expirations de délai sont à prévoir pendant ou entre les opérations de maintenance telles que les mises à jour de service Service Bus (ou) les mises à jour de système d’exploitation sur les ressources qui exécutent le service. Pendant les mises à jour du système d’exploitation, les entités sont déplacées et les nœuds sont mis à jour ou redémarrés, ce qui peut entraîner des expirations de délai. Pour plus d’informations sur les contrats de niveau de service (SLA) pour le service Azure Service Bus, consultez [Contrat SLA pour Service Bus](https://azure.microsoft.com/support/legal/sla/service-bus/).
 
-
 ### <a name="queues-and-topics"></a>Files d’attente et rubriques
-Pour les files d’attente et les rubriques, le délai d’attente est spécifié dans la propriété [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings), au sein de la chaîne de connexion ou par le biais de [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Le message d'erreur peut varier, mais il contient toujours la valeur du délai d'attente spécifiée pour l'opération en cours. 
+
+Pour les files d’attente et les rubriques, le délai d’attente est spécifié dans la propriété [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings), au sein de la chaîne de connexion ou par le biais de [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Le message d'erreur peut varier, mais il contient toujours la valeur du délai d'attente spécifiée pour l'opération en cours.
 
 ## <a name="messagelocklostexception"></a>MessageLockLostException
 
@@ -99,7 +106,7 @@ Pour les files d’attente et les rubriques, le délai d’attente est spécifi�
 
 L’exception **MessageLockLostException** est levée lors de la réception d’un message en mode de réception [PeekLock](message-transfers-locks-settlement.md#peeklock) quand le verrou détenu par le client expire côté service.
 
-Le verrou sur un message peut expirer pour diverses raisons : 
+Le verrou associé à un message peut expirer pour diverses raisons :
 
   * Le minuteur du verrou a expiré avant que l’application cliente l’ait renouvelé.
   * L’application cliente a acquis le verrou, l’a enregistré dans un magasin persistant, puis a redémarré. Après redémarrage, l’application cliente a examiné les messages en cours et tenté de les compléter.
@@ -118,7 +125,7 @@ En cas de dépassement de la valeur **MaxDeliveryCount**, le message peut être 
 
 L’exception **SessionLockLostException** est levée quand une session est acceptée et que le verrou détenu par le client expire côté service.
 
-Le verrou sur une session peut expirer pour différentes raisons : 
+Le verrou associé à une session peut expirer pour différentes raisons :
 
   * Le minuteur du verrou a expiré avant que l’application cliente l’ait renouvelé.
   * L’application cliente a acquis le verrou, l’a enregistré dans un magasin persistant, puis a redémarré. Après redémarrage, l’application cliente a examiné les sessions en cours et tenté de traiter les messages dans celles-ci.
@@ -133,7 +140,8 @@ En cas d’exception **SessionLockLostException**, l’application cliente ne pe
 
 ### <a name="cause"></a>Cause
 
-Une exception **SocketException** est levée dans les cas ci-dessous :
+Une exception **SocketException** est générée dans les cas suivants :
+
    * Quand une tentative de connexion échoue parce que l’hôte n’a pas répondu correctement après une heure spécifiée (code d’erreur TCP 10060).
    * Quand une connexion établie a échoué parce que l’hôte connecté n’a pas pu répondre.
    * Quand une erreur s’est produite lors du traitement du message ou que l’hôte distant a dépassé le délai d’expiration.
@@ -141,11 +149,11 @@ Une exception **SocketException** est levée dans les cas ci-dessous :
 
 ### <a name="resolution"></a>Résolution
 
-Les erreurs **SocketException** indiquent que la machine virtuelle hébergeant les applications ne peut pas convertir le nom `<mynamespace>.servicebus.windows.net` en l’adresse IP correspondante. 
+Les erreurs **SocketException** indiquent que la machine virtuelle hébergeant les applications ne peut pas convertir le nom `<mynamespace>.servicebus.windows.net` en l’adresse IP correspondante.
 
 Vérifiez que la commande ci-dessous parvient à mapper à une adresse IP.
 
-```Powershell
+```powershell
 PS C:\> nslookup <mynamespace>.servicebus.windows.net
 ```
 
@@ -160,7 +168,6 @@ Aliases:  <mynamespace>.servicebus.windows.net
 Si le nom ci-dessus **n’est pas résolu** en adresse IP et en l’alias d’espace de noms, demandez à l’administrateur réseau d’effectuer des recherches plus poussées. La résolution de noms s’effectue au travers d’un serveur DNS qui est généralement une ressource du réseau du client. Si la résolution DNS est effectuée par Azure DNS, contactez le support Azure.
 
 Si la résolution de noms **fonctionne comme prévu**, vérifiez si les connexions à Azure Service Bus sont autorisées [ici](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues).
-
 
 ## <a name="messagingexception"></a>MessagingException
 
@@ -184,5 +191,6 @@ Les étapes de résolution dépendent de la cause de la levée de l’exception 
    * Pour les autres problèmes, les détails de l’exception indiquent que les étapes du problème et de sa résolution peuvent être déduits de l’exception.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour obtenir des informations complètes sur l’API .NET Service Bus, consultez les [informations de référence sur l’API .NET Azure](/dotnet/api/overview/azure/service-bus).
 Pour des conseils relatifs à la résolution des problèmes, consultez le [Guide de résolution des problèmes](service-bus-troubleshooting-guide.md).

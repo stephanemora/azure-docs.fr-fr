@@ -1,17 +1,17 @@
 ---
 title: Gérer un compte d'identification Azure Automation
-description: Cet article décrit comment gérer votre compte d’identification avec PowerShell ou à partir du portail Azure.
+description: Cet article explique comment gérer votre compte d’identification Azure Automation avec PowerShell ou à partir du portail Azure.
 services: automation
 ms.subservice: ''
-ms.date: 01/19/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e440a27c8f7778c800148feb5bec76ca5a48f4f5
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 9ba7ae8218b730408361b6787517b72f2fb5c33b
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833919"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278629"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gérer un compte d'identification Azure Automation
 
@@ -29,7 +29,7 @@ Lorsque vous renouvelez le certificat auto-signé, le certificat valide en cours
 >Si vous pensez que le compte d’identification a été compromis, vous pouvez supprimer et recréer le certificat auto-signé.
 
 >[!NOTE]
->Si vous avez configuré votre compte d’identification pour utiliser un certificat émis par votre autorité de certification d’entreprise, et que vous utilisez l’option permettant de renouveler un certificat auto-signé, le certificat d’entreprise est remplacé par un certificat auto-signé.
+>Si vous avez configuré votre compte d’identification pour utiliser un certificat émis par votre autorité de certification d’entreprise ou tierce, et que vous utilisez l’option permettant de renouveler un certificat auto-signé, le certificat d’entreprise est remplacé par un certificat auto-signé.
 
 Effectuez les étapes suivantes pour renouveler le certificat auto-signé.
 

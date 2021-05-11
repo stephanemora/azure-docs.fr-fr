@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d31f3d1c510ffe6c3f0a739a4e41313c8c6e7cf0
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 213580eeb9495ecbc949eeb648533eb069c3d581
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364819"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287137"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (SQL) : notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "107364819"
 > * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
@@ -67,6 +67,10 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 | **Migration d’un ancien Kit de développement logiciel (SDK) vers la v4** | [Migrer vers le Kit de développement logiciel (SDK) Java V4](migrate-java-v4-sdk.md) |
 | **Runtime minimal pris en charge**|[JDK 8](/java/azure/jdk/) | 
 | **Ateliers et laboratoires Azure Cosmos DB** |[Page d’accueil relative aux ateliers Cosmos DB](https://aka.ms/cosmosworkshop)
+
+> [!IMPORTANT]
+> * La version 4.13.0 met à jour les versions majeures de `reactor-core` et `reactor-netty` pour le train de mise en production de `2020.0.4 (Europium)`.
+> * La version 4.7.0 : il est fortement recommandé d’utiliser la version 4.7.0 et les versions ultérieures.
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos/CHANGELOG.md)]
 

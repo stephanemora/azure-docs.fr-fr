@@ -1,18 +1,19 @@
 ---
-title: 'Passerelle VPN Azure : Supprimer une passerelle : portail'
-description: Supprimer une passerelle de réseau virtuel à l’aide du portail Azure
+title: 'Supprimer une passerelle de réseau virtuel : Portail'
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment supprimer une passerelle de réseau virtuel à l’aide du portail Azure.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 413fd8c7f03ef44abe4bece39ca717c533dea66b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0510292b27d61c9142edd710e903ebad74b3d244
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100376380"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228925"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Supprimer une passerelle de réseau virtuel à l’aide du portail
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 04/28/2021
 ms.author: lajanuar
-ms.openlocfilehash: e952d481daf53b1806dc3cfbb658c8c0c21f6984
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 58430c94fa1b22954ca640188ced5bfb1fb197d0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516295"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293318"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -25,9 +25,11 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 ## <a name="april-2021"></a>Avril 2021
 <!-- markdownlint-disable MD029 -->
 
-### <a name="sdk-updates-api--version-21-preview3"></a>Mises à jour du SDK (API version 2.1-preview.3)
+### <a name="sdk-preview-updates-for-api--version-21-preview3"></a>Mises à jour de l’aperçu du Kit de développement logiciel (SDK) pour la version d’API 2.1-preview.3
 
-### <a name="c-version-310-beta4"></a>**C# version 3.1.0-beta.4**
+### <a name="c"></a>[**C#**](#tab/csharp)
+
+Package NuGet version 3.1.0-beta.4
 
 * **Nouvelles méthodes pour analyser les données de documents d’identité** :
 
@@ -46,7 +48,7 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
    **[RecognizeInvoicesOptions](/dotnet/api/azure.ai.formrecognizer.recognizeinvoicesoptions?view=azure-dotnet-preview&preserve-view=true)**</br>
    **[RecognizeReceiptsOptions](/dotnet/api/azure.ai.formrecognizer.recognizereceiptsoptions?view=azure-dotnet-preview&preserve-view=true)**</br>
 
-   La propriété `Pages` vous permet de sélectionner une ou plusieurs pages pour les documents PDF et TIFF multipages. Pour les pages individuelles, entrez le numéro de page, par exemple, `3`. Pour une plage de pages (par exemple, page 2 et pages 5-7), entrez les numéros et les plages de page en les séparant par des virgules : `2, 5-7`.    
+   La propriété `Pages` vous permet de sélectionner une ou plusieurs pages pour les documents PDF et TIFF multipages. Pour les pages individuelles, entrez le numéro de page, par exemple, `3`. Pour une plage de pages (par exemple, page 2 et pages 5-7), entrez les numéros et les plages de page en les séparant par des virgules : `2, 5-7`.
 
 * **Nouvelle propriété `ReadingOrder` prise en charge par la classe suivante** :
 
@@ -60,7 +62,9 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
 * La méthode **[StartRecognizeCustomForms](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecustomforms?view=azure-dotnet-preview&preserve-view=true#Azure_AI_FormRecognizer_FormRecognizerClient_StartRecognizeCustomForms_System_String_System_IO_Stream_Azure_AI_FormRecognizer_RecognizeCustomFormsOptions_System_Threading_CancellationToken_)** lève désormais une exception `RequestFailedException()` lorsqu’un fichier non valide est passé.
 
-### <a name="java-version-310-beta3"></a>**Java version 3.1.0-beta.3**
+### <a name="java"></a>[**Java**](#tab/java)
+
+Dépendance du package d’artefacts Maven version 3.1.0-beta.3
 
 * **Nouvelles méthodes pour analyser les données de documents d’identité** :
 
@@ -89,14 +93,16 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
 * **Nouvel argument de mot clé `ReadingOrder` pris en charge pour les méthodes suivantes** :
 
-* **[beginRecognizeContent](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontent?view=azure-java-preview&preserve-view=true)**</br>
+* **[beginRecognizeContent](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontent?preserve-view=true&view=azure-java-preview)**</br>
 **[beginRecognizeContentFromUrl](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizecontentfromurl?view=azure-java-preview&preserve-view=true)**</br>
 
    L’argument de mot clé `ReadingOrder` est un paramètre facultatif qui vous permet de spécifier l’algorithme d’ordre de lecture (`basic` ou `natural`) qui doit être appliqué pour ordonner l’extraction d’éléments de texte. Si elle n’est pas spécifiée, la valeur par défaut est `basic`.
 
 * Le client prend par défaut la dernière version du service pris en charge, qui est actuellement **2.1-preview.3**.
 
-### <a name="javascript-version-310-beta3"></a>**JavaScript version 3.1.0-beta.3**
+### <a name="javascript"></a>[**JavaScript**](#tab/javascript)
+
+Package npm version 3.1.0-beta.3
 
 * **Nouvelles méthodes pour analyser les données de documents d’identité** :
 
@@ -111,15 +117,17 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
     `gender` : les valeurs possibles sont `M`, `F` ou `X`.</br>
    `country` : les valeurs possibles suivent la chaîne de code du pays [ISO alpha-3](https://www.iso.org/obp/ui/#search) à trois lettres.
 
-* ** Nouvelle option `pages` prise en charge par toutes les méthodes de reconnaissance de formulaire (formulaires personnalisés et tous les modèles prédéfinis). L’argument vous permet de sélectionner une ou plusieurs pages pour les documents PDF et TIFF multipages. Pour les pages individuelles, entrez le numéro de page, par exemple, `3`. Pour une plage de pages (par exemple, page 2 et pages 5-7), entrez les numéros et les plages de page en les séparant par des virgules : `2, 5-7`.
+* Nouvelle option `pages` prise en charge par toutes les méthodes de reconnaissance de formulaire (formulaires personnalisés et tous les modèles prédéfinis). L’argument vous permet de sélectionner une ou plusieurs pages pour les documents PDF et TIFF multipages. Pour les pages individuelles, entrez le numéro de page, par exemple, `3`. Pour une plage de pages (par exemple, page 2 et pages 5-7), entrez les numéros et les plages de page en les séparant par des virgules : `2, 5-7`.
 
 * Ajout de la prise en charge d’un type **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/readingorder?view=azure-node-preview&preserve-view=true)** aux méthodes de reconnaissance du contenu. Cette option vous permet de contrôler l’algorithme utilisé par le service pour déterminer la façon dont les lignes de texte reconnues doivent être triées. Vous pouvez spécifier l’algorithme d’ordre de lecture (`basic` ou `natural`) à appliquer pour ordonner l’extraction d’éléments de texte. Si elle n’est pas spécifiée, la valeur par défaut est `basic`.
 
-* Fractionnez le type **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview&preserve-view=true)** en plusieurs interfaces différentes. Cela ne devrait pas provoquer de problèmes de compatibilité d’API sauf dans certains cas extrêmes (valueType non défini).
+* Fractionnez le type **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview&preserve-view=true)** en plusieurs interfaces différentes. Cette mise à jour ne devrait pas provoquer de problèmes de compatibilité d’API, sauf dans certains cas extrêmes (valueType non défini).
 
 * Migré vers le point de terminaison du service Form Recognizer **2.1-preview.3** pour tous les appels d’API REST.
 
-### <a name="python-version--310b4"></a>**Python version 3.1.0b4**
+### <a name="python"></a>[**Python**](#tab/python)
+
+Package pip version 3.1.0b4
 
 * **Nouvelles méthodes pour analyser les données de documents d’identité** :
 
@@ -167,6 +175,8 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
    L’argument de mot clé `readingOrder` est un paramètre facultatif qui vous permet de spécifier l’algorithme d’ordre de lecture (`basic` ou `natural`) qui doit être appliqué pour ordonner l’extraction d’éléments de texte. Si elle n’est pas spécifiée, la valeur par défaut est `basic`.
 
+---
+
 ## <a name="march-2021"></a>Mars 2021
 
 **La préversion publique 3 de Form Recognizer v2.1 est désormais disponible.** La version v2.1-preview.3 a été mise en production, qui inclut les fonctionnalités suivantes :
@@ -201,31 +211,30 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
 **La préversion publique 2 de Form Recognizer v2.1 est désormais disponible.** La version v2.1-preview.2 a été mise en production, qui inclut les fonctionnalités suivantes :
 
-- **Nouveau modèle de facture prédéfini** : le nouveau modèle de facture prédéfini permet aux clients de prendre des factures dans divers formats et de retourner des données structurées pour automatiser le traitement des factures. Il combine nos puissantes fonctionnalités de reconnaissance optique de caractères (OCR) avec des modèles de Deep Learning qui comprennent les factures dans le but d’extraire des informations clés de ces factures. Il extrait le texte clé, les tables et les informations comme le client, le fournisseur, le numéro de facture, la date d’échéance, le total, le montant dû, le montant des taxes, l’adresse d’expédition et l’adresse de facturation.
+* **Nouveau modèle de facture prédéfini** : le nouveau modèle de facture prédéfini permet aux clients de prendre des factures dans divers formats et de retourner des données structurées pour automatiser le traitement des factures. Il combine nos puissantes fonctionnalités de reconnaissance optique de caractères (OCR) avec des modèles de Deep Learning qui comprennent les factures dans le but d’extraire des informations clés de ces factures. Il extrait le texte clé, les tables et les informations comme le client, le fournisseur, le numéro de facture, la date d’échéance, le total, le montant dû, le montant des taxes, l’adresse d’expédition et l’adresse de facturation.
 
   > [En savoir plus sur le modèle de facture prédéfini](concept-invoices.md)
 
   :::image type="content" source="./media/invoice-example.jpg" alt-text="exemple de facture" lightbox="./media/invoice-example.jpg":::
 
-- **Extraction de table améliorée** : Form Recognizer propose à présent une extraction de table améliorée, qui combine nos puissantes fonctionnalités de reconnaissance optique de caractères (OCR) avec un modèle d’extraction de table Deep Learning. Form Recognizer peut extraire des données dans les tables, y compris les tables complexes avec des colonnes ou lignes fusionnées, sans aucune bordure, etc.
+* **Extraction de table améliorée** : Form Recognizer propose à présent une extraction de table améliorée, qui combine nos puissantes fonctionnalités de reconnaissance optique de caractères (OCR) avec un modèle d’extraction de table Deep Learning. Form Recognizer peut extraire des données dans les tables, y compris les tables complexes avec des colonnes ou lignes fusionnées, sans aucune bordure, etc.
 
   :::image type="content" source="./media/tables-example.jpg" alt-text="exemples de tables" lightbox="./media/tables-example.jpg":::
 
-
   > [En savoir plus sur l’extraction de dispositions](concept-layout.md)
 
-- **Mise à jour de la bibliothèque de client** : les dernières versions des [bibliothèques de client](quickstarts/client-library.md) pour .NET, Python, Java et JavaScript prennent en charge l’API Form Recognizer 2.1.
-- **Nouvelle langue prise en charge : japonais** : la nouvelle langue suivante est maintenant prise en charge pour `AnalyzeLayout` et `AnalyzeCustomForm` : japonais (`ja`). [Prise en charge linguistique](language-support.md)
-- **Indication du style de ligne de texte (écriture manuscrite/autre) (langues latines uniquement)**  : Form Recognizer génère désormais un objet `appearance` qui détermine si chaque ligne de texte relève d’un style manuscrit ou non, ainsi qu’un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
-- **Améliorations apportées à la qualité** : l’extraction a été améliorée, notamment celle des chiffres uniques.
-- **Nouvelle fonctionnalité de test dans l’outil d’étiquetage des exemples de Form Recognizer** : possibilité de tester les modèles prédéfinis de facture, de ticket de caisse et de carte de visite, ainsi que l’API Layout à l’aide de l’outil d’étiquetage des exemples de Form Recognizer. Découvrez comment vos données sont extraites sans écrire de code.
+* **Mise à jour de la bibliothèque de client** : les dernières versions des [bibliothèques de client](quickstarts/client-library.md) pour .NET, Python, Java et JavaScript prennent en charge l’API Form Recognizer 2.1.
+* **Nouvelle langue prise en charge : japonais** : la nouvelle langue suivante est maintenant prise en charge pour `AnalyzeLayout` et `AnalyzeCustomForm` : japonais (`ja`). [Prise en charge linguistique](language-support.md)
+* **Indication du style de ligne de texte (écriture manuscrite/autre) (langues latines uniquement)**  : Form Recognizer génère désormais un objet `appearance` qui détermine si chaque ligne de texte relève d’un style manuscrit ou non, ainsi qu’un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
+* **Améliorations apportées à la qualité** : l’extraction a été améliorée, notamment celle des chiffres uniques.
+* **Nouvelle fonctionnalité de test dans l’outil d’étiquetage des exemples de Form Recognizer** : possibilité de tester les modèles prédéfinis de facture, de ticket de caisse et de carte de visite, ainsi que l’API Layout à l’aide de l’outil d’étiquetage des exemples de Form Recognizer. Découvrez comment vos données sont extraites sans écrire de code.
 
   > [Tester l’exemple d’outil de Form Recognizer](https://fott-preview.azurewebsites.net/)
 
   ![Exemple FOTT](./media/ui-preview.jpg)
 
-- **Boucle de commentaires** : quand vous analysez des fichiers par le biais de l’outil d’étiquetage des exemples, vous pouvez maintenant l’ajouter au jeu d’apprentissage et ajuster les étiquettes au besoin pour effectuer l’apprentissage du modèle afin d’améliorer celui-ci.
-- **Étiquetage automatique des documents** : étiquetez automatiquement d’autres documents en fonction de documents précédemment étiquetés dans le projet.
+* **Boucle de commentaires** : quand vous analysez des fichiers par le biais de l’outil d’étiquetage des exemples, vous pouvez maintenant l’ajouter au jeu d’apprentissage et ajuster les étiquettes au besoin pour effectuer l’apprentissage du modèle afin d’améliorer celui-ci.
+* **Étiquetage automatique des documents** : étiquetez automatiquement d’autres documents en fonction de documents précédemment étiquetés dans le projet.
 
 ## <a name="august-2020"></a>Août 2020
 
@@ -233,25 +242,24 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 
 **La préversion publique de Form Recognizer v2.1 est désormais disponible.** Le version v2.1-preview.1 a été mise en production, qui inclut les fonctionnalités suivantes :
 
-
-- **La référence sur l’API REST est disponible** : afficher la [référence v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
-- **Nouvelles langues prises en charge en plus de l’anglais** : les [langues suivantes](language-support.md) sont désormais pris en charge pour `Layout` et `Train Custom Model` : anglais (`en`), chinois (simplifié) (`zh-Hans`), néerlandais (`nl`), français (`fr`), allemand (`de`), italien (`it`), portugais (`pt`) et espagnol (`es`).
-- **Détection de case à cocher/marque de sélection** : le service Form Recognizer prend en charge la détection et l’extraction de marques de sélection telles que les cases à cocher et les cases d’option. Les marques de sélection sont extraites dans `Layout` et vous pouvez désormais aussi les étiqueter et les former dans `Train Custom Model` - _Effectuer l’entraînement avec des étiquettes_ afin d’extraire des paires clé-valeur pour les marques de sélection.
-- La fonctionnalité de **composition de modèles** permet de composer et d’appeler plusieurs modèles avec un ID de modèle unique. Lors de l’envoi d’un document pour analyse avec un ID de modèle composé, une étape de classification a d’abord lieu pour l’acheminer vers le modèle personnalisé approprié. La composition de modèles est disponible pour `Train Custom Model` - _Effectuer l’entraînement avec des étiquettes_.
-- Le **Nom du modèle** permet d’ajouter un nom convivial à vos modèles personnalisés afin d’en faciliter la gestion et le suivi.
-- **[Nouveau modèle préconstruit pour les cartes de visite](concept-business-cards.md)** pour l’extraction de champs communs en anglais de cartes de visite.
-- **[Nouveaux paramètres régionaux pour les reçus préconstruits](concept-receipts.md)** . En plus de EN-US, les paramètres régionaux EN-AU, EN-CA, EN-GB, EN-IN sont désormais pris en charge.
-- **Améliorations de la qualité** pour `Layout`, `Train Custom Model` - _Effectuer l’entraînement sans étiquettes_ et _Effectuer l’entraînement avec des étiquettes_.
+* **La référence sur l’API REST est disponible** : afficher la [référence v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
+* **Nouvelles langues prises en charge en plus de l’anglais** : les [langues suivantes](language-support.md) sont désormais pris en charge pour `Layout` et `Train Custom Model` : anglais (`en`), chinois (simplifié) (`zh-Hans`), néerlandais (`nl`), français (`fr`), allemand (`de`), italien (`it`), portugais (`pt`) et espagnol (`es`).
+* **Détection de case à cocher/marque de sélection** : le service Form Recognizer prend en charge la détection et l’extraction de marques de sélection telles que les cases à cocher et les cases d’option. Les marques de sélection sont extraites dans `Layout` et vous pouvez désormais aussi les étiqueter et les former dans `Train Custom Model` - _Effectuer l’entraînement avec des étiquettes_ afin d’extraire des paires clé-valeur pour les marques de sélection.
+* La fonctionnalité de **composition de modèles** permet de composer et d’appeler plusieurs modèles avec un ID de modèle unique. Lors de l’envoi d’un document pour analyse avec un ID de modèle composé, une étape de classification a d’abord lieu pour l’acheminer vers le modèle personnalisé approprié. La composition de modèles est disponible pour `Train Custom Model` - _Effectuer l’entraînement avec des étiquettes_.
+* Le **Nom du modèle** permet d’ajouter un nom convivial à vos modèles personnalisés afin d’en faciliter la gestion et le suivi.
+* **[Nouveau modèle préconstruit pour les cartes de visite](concept-business-cards.md)** pour l’extraction de champs communs en anglais de cartes de visite.
+* **[Nouveaux paramètres régionaux pour les reçus préconstruits](concept-receipts.md)** . En plus de EN-US, les paramètres régionaux EN-AU, EN-CA, EN-GB, EN-IN sont désormais pris en charge.
+* **Améliorations de la qualité** pour `Layout`, `Train Custom Model` - _Effectuer l’entraînement sans étiquettes_ et _Effectuer l’entraînement avec des étiquettes_.
 
 La version **v2.0** inclut la mise à jour suivante :
 
-- Les [bibliothèques clientes](quickstarts/client-library.md) pour NET, Python, Java et JavaScript sont en disponibilité générale.
+* Les [bibliothèques clientes](quickstarts/client-library.md) pour NET, Python, Java et JavaScript sont en disponibilité générale.
 
 De **nouveaux exemples** sont disponibles sur GitHub.
 
-- Le manuel [Recettes d’extraction de connaissances – Playbook de formulaires](https://github.com/microsoft/knowledge-extraction-recipes-forms) recueille les meilleures pratiques d’engagement des clients de Form Recognizer, et fournit des exemples de code utilisables, des listes de contrôle et des exemples de pipelines utilisés dans le développement de ces projets.
-- L’[exemple d’outil d’étiquetage](https://github.com/microsoft/OCR-Form-Tools) a été mis à jour pour prendre en charge la nouvelle fonctionnalité v2.1. Consultez ce [démarrage rapide](quickstarts/label-tool.md) pour bien démarrer avec l’outil.
-- L’exemple de Form Recognizer de [Kiosque intelligent](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) kiosque montre comment intégrer `Analyze Receipt` et `Train Custom Model` - _Effectuer l’entraînement sans étiquettes_.
+* Le manuel [Recettes d’extraction de connaissances – Playbook de formulaires](https://github.com/microsoft/knowledge-extraction-recipes-forms) recueille les meilleures pratiques d’engagement des clients de Form Recognizer, et fournit des exemples de code utilisables, des listes de contrôle et des exemples de pipelines utilisés dans le développement de ces projets.
+* L’[exemple d’outil d’étiquetage](https://github.com/microsoft/OCR-Form-Tools) a été mis à jour pour prendre en charge la nouvelle fonctionnalité v2.1. Consultez ce [démarrage rapide](quickstarts/label-tool.md) pour bien démarrer avec l’outil.
+* L’exemple de Form Recognizer de [Kiosque intelligent](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) kiosque montre comment intégrer `Analyze Receipt` et `Train Custom Model` - _Effectuer l’entraînement sans étiquettes_.
 
 ## <a name="july-2020"></a>Juillet 2020
 
@@ -315,7 +323,6 @@ De **nouveaux exemples** sont disponibles sur GitHub.
   * `integer`
 
   Pour savoir comment utiliser cette fonctionnalité, consultez le guide de l’[outil d’étiquetage des exemples](./quickstarts/label-tool.md#specify-tag-value-types).
-
 
 * **Visualisation des tables** : l’outil d’étiquetage des exemples affiche désormais les tables reconnues dans le document. Cette fonctionnalité vous permet de visualiser les tables qui ont été reconnues et extraites du document, avant l’étiquetage et l’analyse. Cette fonctionnalité peut être activée/désactivée à l'aide de l'option couches.
 

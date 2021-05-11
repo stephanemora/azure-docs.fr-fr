@@ -8,39 +8,41 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 02/05/2021
-ms.openlocfilehash: 5ab11ac23fac73341c111d0d81fc225358bb689f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6457134e733265fa7e59f32dd522bfcddfadb9f7
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138280"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322146"
 ---
 # <a name="use-the-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Utiliser l’extension de diagnostic Linux 4.0 pour superviser les métriques et les journaux
 
 Ce document décrit les dernières versions de l’extension de diagnostic Linux.
 
 > [!IMPORTANT]
-> Pour plus d’informations sur la version 3.x, consultez [Utiliser l’extension de diagnostic Linux 3.0 pour superviser les métriques et les journaux](./diagnostics-linux-v3.md). Pour plus d’informations sur la version 2.3 et sur les versions antérieures, consultez [Superviser les données de performances et de diagnostic d’une machine virtuelle Linux](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Pour plus d’informations sur la version 3.x, consultez [Utiliser l’extension de diagnostic Linux 3.0 pour superviser les métriques et les journaux](./diagnostics-linux-v3.md).
+> Pour plus d’informations sur la version 2.3 et sur les versions antérieures, consultez [Superviser les données de performances et de diagnostic d’une machine virtuelle Linux](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introduction
 
-L’extension de diagnostic Linux aide l’utilisateur à superviser l’intégrité d’une machine virtuelle Linux s’exécutant sur Microsoft Azure. Elle présente les fonctionnalités suivantes :
+L’extension de diagnostic Linux aide l’utilisateur à superviser l’intégrité d’une machine virtuelle Linux s’exécutant sur Microsoft Azure. Elle possède la collection et les capacités suivantes :
 
-* Elle collecte des métriques de performances du système auprès de la machine virtuelle et les stocke dans une table spécifique d’un compte de stockage désigné.
-* Elle récupère les journaux d’événements Syslog et les stocke dans une table spécifique du compte de stockage désigné.
-* Elle permet aux utilisateurs de personnaliser les métriques des données qui sont collectées et chargées.
-* Elle permet aux utilisateurs de personnaliser les fonctions Syslog et les niveaux de gravité des événements qui sont collectés et chargés.
-* Elle permet aux utilisateurs de télécharger les fichiers journaux spécifiés dans la table de stockage désignée.
-* Elle prend en charge l’envoi des métriques et des événements des journaux à des points de terminaison EventHub arbitraires et à des objets blob au format JSON dans le compte de stockage désigné.
+| Source de données | Options de personnalisation | Destinations obligatoires | Destinations facultatives |
+| ----------- | --------------------- | -------------------- | --------------------- |
+| Mesures     | [Compteur, Agrégation, Échantillonnage, Spécificateurs](#performancecounters) | Stockage de table Azure | EventHub, Stockage Blob Azure (format JSON), Azure Monitor<sup>1</sup> |
+| syslog      | [Fonction, niveau de gravité](#syslogevents) | Stockage de table Azure | EventHub, Stockage Blob Azure (format JSON)
+| Fichiers       | [Chemin d’accès du journal, Table de destination](#filelogs) | Stockage de table Azure | EventHub, Stockage Blob Azure (format JSON)
 
-Cette extension fonctionne avec les deux modèles de déploiement d’Azure.
+<sup>1</sup> Nouveau dans l’extension de diagnostic Linux 4.0
 
-## <a name="install-the-extension-on-a-vm"></a>Installer l’extension sur une machine virtuelle
+Cette extension fonctionne avec les deux modèles de déploiement Azure (Azure Resource Manager et classique).
 
-Vous pouvez activer cette extension en utilisant les applets de commande Azure PowerShell, des scripts Azure CLI, des modèles Azure Resource Manager (modèles ARM) ou le portail Azure. Pour plus d’informations, consultez [Extensions et fonctionnalités](features-linux.md).
+## <a name="install-the-extension"></a>Installer l’extension
+
+Vous pouvez activer cette extension pour votre machine virtuelle et votre groupe de machines virtuelles identiques en utilisant les cmdlets Azure PowerShell, des scripts Azure CLI, des modèles Azure Resource Manager (modèles ARM) ou le portail Azure. Pour plus d’informations, consultez [Extensions et fonctionnalités](features-linux.md).
 
 >[!NOTE]
->Certains composants de l’extension de machine virtuelle de diagnostic Linux sont également fournis avec l’[extension de machine virtuelle Log Analytics](./oms-linux.md). En raison de cette architecture, des conflits peuvent survenir si les deux extensions sont instanciées dans le même modèle ARM. 
+>Certains composants de l’extension de machine virtuelle de diagnostic Linux sont également fournis avec l’[extension de machine virtuelle Log Analytics](./oms-linux.md). En raison de cette architecture, des conflits peuvent survenir si les deux extensions sont instanciées dans le même modèle ARM.
 >
 >Pour éviter ces conflits au moment de l’installation, utilisez la [directive `dependsOn`](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) pour installer les extensions de façon séquentielle. Les extensions peuvent être installées dans n’importe quel ordre.
 
@@ -80,18 +82,18 @@ Distributions et versions prises en charge :
 
 ### <a name="python-requirement"></a>Exigence relative à Python
 
-L’extension de diagnostic Linux nécessite Python 2. Si votre machine virtuelle utilise une distribution qui n’inclut pas Python 2 par défaut, installez-le. 
+L’extension de diagnostic Linux nécessite Python 2. Si votre machine virtuelle utilise une distribution qui n’inclut pas Python 2 par défaut, installez-le.
 
-Les exemples de commandes suivants installent Python 2 sur différentes distributions :    
+Les exemples de commandes suivants installent Python 2 sur différentes distributions :
 
 - Red Hat, CentOS, Oracle : `yum install -y python2`
 - Ubuntu, Debian : `apt-get install -y python2`
 - SUSE : `zypper install -y python2`
 
-Le fichier exécutable `python2` doit avoir comme alias *python*. Voici une façon de définir cet alias :
+Le fichier exécutable `python2` doit avoir comme alias *python*. Voici une façon d’y parvenir :
 
 1. Exécutez la commande suivante pour supprimer tous les alias existants.
- 
+
     ```
     sudo update-alternatives --remove-all python
     ```
@@ -102,23 +104,49 @@ Le fichier exécutable `python2` doit avoir comme alias *python*. Voici une faç
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     ```
 
+### <a name="installation"></a>Installation
+
+Vous pouvez installer et configurer l’extension de diagnostic Linux 4.0 dans Azure CLI ou dans PowerShell.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+
+Si vos paramètres protégés sont dans le fichier *ProtectedSettings.json* et que vos informations de configuration publique sont dans *PublicSettings.json*, exécutez cette commande :
+
+```azurecli
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
+```
+
+La commande suppose que vous utilisez le mode Azure Resource Manager d’Azure CLI. Pour configurer l’extension de diagnostic Linux pour des machines virtuelles du modèle de déploiement classique, passez au mode Management des services (`azure config mode asm`) et omettez le nom du groupe de ressources dans la commande.
+
+Pour plus d’informations, consultez la [documentation relative à l’interface de ligne de commande multiplateforme](/cli/azure/authenticate-azure-cli).
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Si vos paramètres protégés sont dans la variable `$protectedSettings` et que vos informations de configuration publique sont dans la variable `$publicSettings`, exécutez cette commande :
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
+```
+
+---
+
 ### <a name="sample-installation"></a>Exemple d’installation
 
 > [!NOTE]
-> Pour les exemples suivants, avant l’exécution, renseignez les valeurs correctes pour les variables dans la première section. 
+> Pour les exemples suivants, renseignez les valeurs appropriées pour les variables de la première section avant d’exécuter le code.
 
-Dans ces exemples, l’exemple de configuration collecte un ensemble de données standard et les envoie au Stockage Table. L’URL de l’exemple de configuration et son contenu peut changer. 
+Dans ces exemples, l’exemple de configuration collecte un ensemble de données standard et les envoie au Stockage Table. L’URL de l’exemple de configuration et son contenu peut changer.
 
 Dans la plupart des cas, vous devez télécharger une copie du fichier JSON des paramètres du portail et la personnaliser en fonction de vos besoins. Utilisez ensuite des modèles ou votre propre automatisation pour utiliser une version personnalisée du fichier de configuration au lieu de le télécharger à chaque fois depuis l’URL.
 
 > [!NOTE]
-> Quand vous activez le nouveau récepteur Azure Monitor, les machines virtuelles doivent avoir une identité affectée par le système activée pour générer des jetons d’authentification Managed Service Identity (MSI). Vous pouvez ajouter ces paramètres pendant ou après la création de la machine virtuelle. 
+> Quand vous activez le nouveau récepteur Azure Monitor, les machines virtuelles doivent avoir une identité affectée par le système activée pour générer des jetons d’authentification Managed Service Identity (MSI). Vous pouvez ajouter ces paramètres pendant ou après la création de la machine virtuelle.
 >
-> Pour obtenir des instructions pour le portail Azure, Azure CLI, PowerShell et Azure Resource Manager, consultez [Configurer des identités managées](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
+> Pour obtenir des instructions pour le portail Azure, Azure CLI, PowerShell et Azure Resource Manager, consultez [Configurer des identités managées](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-
-#### <a name="azure-cli-sample"></a>Exemple Azure CLI
+#### <a name="installation-sample---azure-cli"></a>Exemple d’installation – Azure CLI
 
 ```azurecli
 # Set your Azure VM diagnostic variables.
@@ -150,10 +178,46 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finally, tell Azure to install and enable the extension.
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-#### <a name="azure-cli-sample-for-installing-lad-40-on-a-virtual-machine-scale-set-instance"></a>Exemple Azure CLI pour l’installation de l’extension de diagnostic Linux 4.0 sur une instance de groupe de machines virtuelles identiques
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+#### <a name="installation-sample---powershell"></a>Exemple d’installation – PowerShell
+
+```powershell
+$storageAccountName = "yourStorageAccountName"
+$storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
+$vmName = "yourVMName"
+$VMresourceGroup = "yourVMResourceGroupName"
+
+# Get the VM object
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
+
+# Enable system-assigned identity on an existing VM
+Update-AzVM -ResourceGroupName $VMresourceGroup -VM $vm -IdentityType SystemAssigned
+
+# Get the public settings template from GitHub and update the templated values for the storage account and resource ID
+$publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
+$publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
+$publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
+
+# If you have your own customized public settings, you can inline those rather than using the preceding template: $publicSettings = '{"ladCfg":  { ... },}'
+
+# Generate a SAS token for the agent to use to authenticate with the storage account
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
+
+# Build the protected settings (storage account SAS token)
+$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
+
+# Finally, install the extension with the settings you built
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
+```
+
+---
+
+#### <a name="installation-sample-for-virtual-machine-scale-sets---azure-cli"></a>Exemple d’installation pour les groupes de machines virtuelles identiques – Azure CLI
 
 ```azurecli
-# Set your Azure virtual machine scale set diagnostic variables. 
+# Set your Azure virtual machine scale set diagnostic variables.
 $my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 $my_linux_vmss=<your_azure_linux_vmss_name>
 $my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
@@ -183,53 +247,22 @@ $my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accou
 az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-#### <a name="powershell-sample"></a>Exemple de code PowerShell
-
-```powershell
-$storageAccountName = "yourStorageAccountName"
-$storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
-$vmName = "yourVMName"
-$VMresourceGroup = "yourVMResourceGroupName"
-
-# Get the VM object
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
-
-# Enable system-assigned identity on an existing VM
-Update-AzVM -ResourceGroupName $VMresourceGroup -VM $vm -IdentityType SystemAssigned
-
-# Get the public settings template from GitHub and update the templated values for the storage account and resource ID
-$publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
-$publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
-$publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
-
-# If you have your own customized public settings, you can inline those rather than using the preceding template: $publicSettings = '{"ladCfg":  { ... },}'
-
-# Generate a SAS token for the agent to use to authenticate with the storage account
-$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
-
-# Build the protected settings (storage account SAS token)
-$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
-
-# Finally, install the extension with the settings you built
-Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0 
-```
-
 ### <a name="update-the-extension-settings"></a>Mettre à jour les paramètres de l’extension
 
 Une fois que vous avez modifié vos paramètres protégés ou publics, déployez-les sur la machine virtuelle en exécutant la même commande. Si des paramètres ont été modifiés, les mises à jour sont envoyées à l’extension. L’extension de diagnostic Linux recharge la configuration et redémarre automatiquement.
 
 ### <a name="migrate-from-previous-versions-of-the-extension"></a>Migrer depuis des versions antérieures de l’extension
 
-La dernière version de l’extension est *4.0, qui est actuellement disponible en préversion publique*. Les versions 3.x antérieures sont toujours prises en charge. Les versions 2.x ont cependant été dépréciées le 31 juillet 2018.
+La version la plus récente de l’extension est la version 4.0, *qui est actuellement disponible en préversion publique*. Les versions 3.x antérieures sont toujours prises en charge. Les versions 2.x ont cependant été dépréciées le 31 juillet 2018.
 
 > [!IMPORTANT]
 > Pour migrer de 3.x vers la version la plus récente de l’extension, désinstallez l’ancienne extension. Installez ensuite la version 4, qui comprend la configuration mise à jour pour l’identité affectée par le système et les récepteurs pour envoyer des métriques au récepteur Azure Monitor.
 
 Quand vous installez la nouvelle extension, activez les mises à niveau automatiques des versions mineures :
-* Sur les machines virtuelles du modèle de déploiement classique, spécifiez la version `4.*` si vous installez l’extension via Azure Xplat CLI ou PowerShell.
 * Sur les machines virtuelles du modèle de déploiement Azure Resource Manager, incluez `"autoUpgradeMinorVersion": true` dans le modèle de déploiement des machines virtuelles.
+* Sur les machines virtuelles du modèle de déploiement classique, spécifiez la version `4.*` si vous installez l’extension via Azure CLI ou PowerShell.
 
-Vous pouvez utiliser le même compte de stockage que celui utilisé pour l’extension de diagnostic Linux 3.x. 
+Vous pouvez utiliser le même compte de stockage que celui utilisé pour l’extension de diagnostic Linux 3.x.
 
 ## <a name="protected-settings"></a>Paramètres protégés
 
@@ -268,6 +301,9 @@ Copiez la signature d’accès partagé générée dans le champ `storageAccount
 
 ### <a name="sinksconfig"></a>sinksConfig
 
+> [!NOTE]
+> Les paramètres publics et protégés ont une section `sinksConfig` facultative. La section `sinksConfig` dans les paramètres *protégés* contient uniquement les configurations des récepteurs `EventHub` et `JsonBlob`, en raison de l’inclusion de secrets comme `sasURL`. Les configurations du récepteur `AzMonSink` **ne peuvent pas** être incluses dans vos paramètres protégés.
+
 ```json
 "sinksConfig": {
     "sink": [
@@ -281,14 +317,14 @@ Copiez la signature d’accès partagé générée dans le champ `storageAccount
 },
 ```
 
-La section facultative `sinksConfig` définit des destinations supplémentaires auxquelles l’extension envoie les informations collectées. Le tableau `"sink"` contient un objet pour chaque récepteur de données supplémentaire. L’attribut `"type"` détermine les autres attributs de l’objet.
+La section facultative `sinksConfig` définit des destinations supplémentaires auxquelles l’extension enverra les informations collectées. Le tableau `"sink"` contient un objet pour chaque récepteur de données supplémentaire. L’attribut `"type"` détermine les autres attributs de l’objet.
 
 Élément | Valeur
 ------- | -----
 name | Chaîne utilisée pour référencer ce récepteur ailleurs dans la configuration de l’extension.
 type | Type du récepteur défini. Détermine les autres valeurs (le cas échéant) dans les instances de ce type.
 
-L’extension de diagnostic Linux 4.0 prend en charge deux types de récepteur : `EventHub` et `JsonBlob`.
+L’extension de diagnostic Linux 4.0 prend en charge deux types de récepteur protégé : `EventHub` et `JsonBlob`.
 
 #### <a name="eventhub-sink"></a>Récepteur EventHub
 
@@ -329,7 +365,7 @@ Pour plus d’informations sur la génération et l’extraction d’information
 ]
 ```
 
-Les données dirigées vers un récepteur `JsonBlob` sont stockées dans des blobs dans Stockage Azure. Chaque instance de l’extension de diagnostic Linux crée un objet blob toutes les heures pour chaque nom de récepteur. Chaque blob contient toujours un tableau syntaxiquement valide d’objets JSON. Les nouvelles entrées sont ajoutées au tableau de manière atomique. 
+Les données dirigées vers un récepteur `JsonBlob` sont stockées dans des blobs dans Stockage Azure. Chaque instance de l’extension de diagnostic Linux crée un objet blob toutes les heures pour chaque nom de récepteur. Chaque blob contient toujours un tableau syntaxiquement valide d’objets JSON. Les nouvelles entrées sont ajoutées au tableau de manière atomique.
 
 Les blobs sont stockés dans un conteneur du même nom que le récepteur. Les règles du Stockage Azure pour les noms de conteneur d’objets blob s’appliquent aux noms des récepteurs `JsonBlob`. Autrement dit, les noms doivent comporter entre 3 et 63 caractères ASCII alphanumériques en minuscules ou des tirets.
 
@@ -370,12 +406,12 @@ Les sections suivantes fournissent des détails sur les éléments restants.
 
 La structure `ladCfg` contrôle la collecte des métriques et des journaux pour les délivrer au service des métriques Azure Monitor et à d’autres récepteurs. Spécifiez `performanceCounters` ou `syslogEvents`, ou les deux. Spécifiez aussi la structure `metrics`.
 
-Si vous ne voulez pas activer Syslog ou la collecte de métriques, spécifiez une structure vide pour l’élément `ladCfg`, comme dans cet exemple : 
+Si vous ne voulez pas activer Syslog ou la collecte de métriques, spécifiez une structure vide pour l’élément `ladCfg`, comme ceci :
 
 ```json
 "ladCfg": {
     "diagnosticMonitorConfiguration": {}
-    }
+}
 ```
 
 Élément | Valeur
@@ -437,17 +473,17 @@ La section facultative `performanceCounters` contrôle la collecte des métrique
 
 Élément | Valeur
 ------- | -----
-sinks | (Facultatif) Liste, séparée par des virgules, des noms des récepteurs auxquels l’extension de diagnostic Linux envoie les résultats des métriques agrégées. Toutes les métriques agrégées sont publiées sur chaque récepteur répertorié. Exemple : `"EHsink1, myjsonsink"`. Pour plus d’informations, consultez [`sinksConfig`](#sinksconfig). 
+sinks | (Facultatif) Liste, séparée par des virgules, des noms des récepteurs auxquels l’extension de diagnostic Linux envoie les résultats des métriques agrégées. Toutes les métriques agrégées sont publiées sur chaque récepteur répertorié. Exemple : `"MyEventHubSink, MyJsonSink, MyAzMonSink"`. Pour plus d’informations, consultez [`sinksConfig` (paramètres protégés)](#sinksconfig) et [`sinksConfig` (paramètres publics)](#sinksconfig-1).
 type | Identifie le fournisseur réel de la mesure.
 class | Avec `"counter"`, identifie la métrique spécifique dans l’espace de noms du fournisseur.
-counter | Avec `"class"`, identifie la métrique spécifique dans l’espace de noms du fournisseur.
+counter | Avec `"class"`, identifie la métrique spécifique dans l’espace de noms du fournisseur. Consultez la liste des compteurs disponibles [ci-dessous](#metrics-supported-by-the-builtin-provider).
 counterSpecifier | Identifie la métrique spécifique dans l’espace de noms Azure Monitor Metrics.
-condition | (Facultatif) Sélectionne une instance de l’objet auquel la métrique s’applique, ou sélectionne l’agrégation sur toutes les instances de cet objet. 
+condition | (Facultatif) Sélectionne une instance de l’objet auquel la métrique s’applique, ou sélectionne l’agrégation sur toutes les instances de cet objet.
 sampleRate | Intervalle ISO 8601 qui définit la fréquence à laquelle des échantillons bruts sont collectés pour cette métrique. Si la valeur n’est pas définie, l’intervalle de collecte est défini par la valeur de [`sampleRateInSeconds`](#ladcfg). L’échantillonnage le plus court pris en charge est de 15 secondes (PT15S).
 unité | Définit l’unité pour la métrique. Doit être une des chaînes suivantes : `"Count"`, `"Bytes"`, `"Seconds"`, `"Percent"`, `"CountPerSecond"`, `"BytesPerSecond"`, `"Millisecond"`. Les consommateurs des données collectées attendent des valeurs de données collectées correspondant à cette unité. L’extension de diagnostic Linux ignore ce champ.
-displayName | Étiquette à attacher aux données dans Azure Monitor Metrics. Cette étiquette est dans la langue spécifiée par les paramètres régionaux associés. L’extension de diagnostic Linux ignore ce champ.
+displayName | Étiquette à attacher aux données dans Azure Monitor Metrics lors de l’affichage dans l’espace de noms de métriques `Guest (classic)`. Cette étiquette est dans la langue spécifiée par les paramètres régionaux associés. L’extension de diagnostic Linux ignore ce champ.<br/>**Remarque** : Si vous affichez la même métrique dans l’espace de noms de métriques `azure.vm.linux.guestmetrics` (disponible si `AzMonSink` est configuré), le nom d’affichage dépend entièrement du compteur. Consultez les [tableaux ci-dessous](#metrics-supported-by-the-builtin-provider) pour rechercher la correspondance entre les compteurs et les noms.
 
-`counterSpecifier` est un identificateur arbitraire. Les consommateurs de métriques, comme les fonctionnalités de graphiques et d’alertes du portail Azure, utilisent `counterSpecifier` comme « clé » qui identifie une métrique ou l’instance d’une métrique. 
+`counterSpecifier` est un identificateur arbitraire. Les consommateurs de métriques, comme les fonctionnalités de graphiques et d’alertes du portail Azure, utilisent `counterSpecifier` comme « clé » qui identifie une métrique ou l’instance d’une métrique.
 
 Pour les métriques `builtin`, nous recommandons des valeurs de `counterSpecifier` commençant par `/builtin/`. Si vous collectez une instance spécifique d’une métrique, attachez l’identificateur de l’instance à la valeur de `counterSpecifier`. Voici quelques exemples :
 
@@ -457,11 +493,11 @@ Pour les métriques `builtin`, nous recommandons des valeurs de `counterSpecifie
 
 L’extension de diagnostic Linux et le portail Azure ne s’attendent pas à ce que la valeur de `counterSpecifier` corresponde à un modèle particulier. Soyez cohérent dans la façon dont vous construisez les valeurs de `counterSpecifier`.
 
-Quand vous spécifiez `performanceCounters`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des blobs JSON ou des Event Hubs, ou les deux. Vous ne pouvez cependant pas désactiver le stockage des données dans une table. 
+Quand vous spécifiez `performanceCounters`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des blobs JSON ou des Event Hubs, ou les deux. Vous ne pouvez cependant pas désactiver le stockage des données dans une table.
 
-Toutes les instances de l’extension de diagnostic Linux qui utilisent le même nom et le même point de terminaison de compte de stockage ajoutent leurs métriques et leurs journaux à la même table. Si un trop grand nombre de machines virtuelles écrivent dans la même partition de table, Azure peut limiter les écritures sur cette partition. 
+Toutes les instances de l’extension de diagnostic Linux qui utilisent le même nom et le même point de terminaison de compte de stockage ajoutent leurs métriques et leurs journaux à la même table. Si un trop grand nombre de machines virtuelles écrivent dans la même partition de table, Azure peut limiter les écritures sur cette partition.
 
-Le paramètre `eventVolume` permet de répartir les entrées entre 1 (Small), 10 (Medium) ou 100 (Large) partitions. En règle générale, 10 partitions (Medium) sont suffisantes pour éviter la limitation du trafic. 
+Le paramètre `eventVolume` permet de répartir les entrées entre 1 (Small), 10 (Medium) ou 100 (Large) partitions. En règle générale, 10 partitions (Medium) sont suffisantes pour éviter la limitation du trafic.
 
 La fonctionnalité Azure Monitor Metrics du portail Azure utilise les données de cette table pour produire des graphes ou déclencher des alertes. Le nom de la table est la concaténation des chaînes suivantes :
 
@@ -495,7 +531,7 @@ sinks | Une liste séparée par des virgules de noms de récepteurs sur lesquels
 facilityName | Nom de la fonction Syslog, comme `"LOG\_USER"` ou `"LOG\_LOCAL0"`. Pour plus d’informations, consultez la section « facility » de la [page man syslog](http://man7.org/linux/man-pages/man3/syslog.3.html).
 minSeverity | Niveau de gravité Syslog, comme `"LOG\_ERR"` ou `"LOG\_INFO"`. Pour plus d’informations, consultez la section « level » de la [page man syslog](http://man7.org/linux/man-pages/man3/syslog.3.html). L’extension capture les événements envoyés à la fonction à un niveau supérieur ou égal au niveau spécifié.
 
-Quand vous spécifiez `syslogEvents`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des blobs JSON ou des Event Hubs, ou les deux. Vous ne pouvez cependant pas désactiver le stockage des données dans une table. 
+Quand vous spécifiez `syslogEvents`, l’extension de diagnostic Linux écrit toujours les données dans une table de Stockage Azure. Les mêmes données peuvent être écrites dans des blobs JSON ou des Event Hubs, ou les deux. Vous ne pouvez cependant pas désactiver le stockage des données dans une table.
 
 Le comportement de partitionnement pour cette table est identique à celui décrit pour `performanceCounters`. Le nom de la table est la concaténation des chaînes suivantes :
 
@@ -506,10 +542,14 @@ Exemples : `LinuxSyslog20170410` et `LinuxSyslog20170609`.
 
 ### <a name="sinksconfig"></a>sinksConfig
 
-La section facultative `sinksConfig` contrôle l’activation de l’envoi de métriques au récepteur Azure Monitor en plus du compte de stockage et du panneau des métriques d’invité par défaut.
+La section `sinksConfig` publique facultative permet d’envoyer des métriques au récepteur Azure Monitor en plus du compte de stockage et du panneau Métriques d’invité par défaut.
 
 > [!NOTE]
-> La section `sinksConfig` nécessite l’activation de l’identité affectée par le système sur les machines virtuelles ou sur le groupe de machines virtuelles identiques. Vous pouvez activer l’identité affectée par le système via le portail Azure, l’interface CLI, PowerShell ou Azure Resource Manager. Suivez les [instructions détaillées](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) ou consultez les exemples d’installations précédents dans cet article. 
+> Les paramètres publics et protégés ont une section `sinksConfig` facultative. La section `sinksConfig` dans les paramètres *publics* contient uniquement la configuration du récepteur `AzMonSink`. Les configurations des récepteurs `EventHub` et `JsonBlob` **ne peuvent pas** être incluses dans vos paramètres publics.
+
+> [!NOTE]
+> La section `sinksConfig` nécessite l’activation de l’identité affectée par le système sur les machines virtuelles ou sur le groupe de machines virtuelles identiques.
+> Vous pouvez activer l’identité affectée par le système via le portail Azure, l’interface CLI, PowerShell ou Azure Resource Manager. Suivez les [instructions détaillées](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) ou consultez les exemples d’installations précédents dans cet article.
 
 ```json
   "sinksConfig": {
@@ -522,7 +562,6 @@ La section facultative `sinksConfig` contrôle l’activation de l’envoi de m�
     ]
   },
 ```
-
 
 ### <a name="filelogs"></a>fileLogs
 
@@ -544,7 +583,7 @@ La section `fileLogs` contrôle la capture des fichiers journaux. L’extension 
 Élément | Valeur
 ------- | -----
 fichier | Nom du chemin complet du fichier journal à observer et à capturer. Le nom du chemin correspond à un seul fichier. Il ne peut pas nommer un répertoire ni contenir des caractères génériques. Le compte d’utilisateur `omsagent` doit avoir un accès en lecture sur le chemin du fichier.
-table | (Facultatif) Table de Stockage Azure dans laquelle les nouvelles lignes de la « fin » du fichier sont écrites. La table doit se trouver dans le compte de stockage désigné, comme spécifié dans la configuration protégée. 
+table | (Facultatif) Table de Stockage Azure dans laquelle les nouvelles lignes de la « fin » du fichier sont écrites. La table doit se trouver dans le compte de stockage désigné, comme spécifié dans la configuration protégée.
 sinks | (Facultatif) Une liste séparée par des virgules des noms des récepteurs supplémentaires auxquels les lignes des journaux sont envoyées.
 
 Vous devez spécifier `"table"`, `"sinks"` ou les deux.
@@ -553,6 +592,13 @@ Vous devez spécifier `"table"`, `"sinks"` ou les deux.
 
 > [!NOTE]
 > Les métriques par défaut prises en charge par l’extension de diagnostic Linux sont agrégées pour l’ensemble des systèmes de fichiers, des disques ou des noms. Pour les métriques non agrégées, reportez-vous à la prise en charge des métriques plus récentes du récepteur Azure Monitor.
+
+> [!NOTE]
+> Les noms d’affichage de chaque métrique varient en fonction de l’espace de noms de métriques auquel elle appartient :
+> * `Guest (classic)` (renseigné à partir de votre compte de stockage) : le `displayName` spécifié dans la section `performanceCounters`, ou le nom d’affichage par défaut tel qu’il apparaît dans le portail Azure (Machine virtuelle > Paramètres de diagnostic > Métriques > Personnalisé).
+> * `azure.vm.linux.guestmetrics` (renseigné à partir de `AzMonSink` si configuré) : le « nom d’affichage `azure.vm.linux.guestmetrics` » spécifié dans les tableaux ci-dessous.
+>
+> En raison de détails d’implémentation, les valeurs métriques entre les versions `Guest (classic)` et `azure.vm.linux.guestmetrics` seront différentes. Alors que certaines agrégations étaient appliquées aux métriques classiques dans l’agent, les nouvelles métriques sont des compteurs non agrégés, ce qui donne aux clients la flexibilité nécessaire pour les agréger au moment de l’affichage/alerte.
 
 Le fournisseur de métriques `builtin` est une source de métriques parmi les plus intéressantes pour un large éventail d’utilisateurs. Ces métriques se répartissent en cinq classes principales :
 
@@ -564,19 +610,19 @@ Le fournisseur de métriques `builtin` est une source de métriques parmi les pl
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>métriques intégrées pour la classe Processeur
 
-La classe de métriques Processeur fournit des informations sur l’utilisation du processeur dans la machine virtuelle. Quand des pourcentages sont agrégés, le résultat est la moyenne pour tous les UC. 
+La classe de métriques Processeur fournit des informations sur l’utilisation du processeur dans la machine virtuelle. Quand des pourcentages sont agrégés, le résultat est la moyenne pour tous les UC.
 
 Dans une machine virtuelle à 2 processeurs virtuels, si un processeur virtuel est occupé à 100 % et que l’autre est inactif à 100 %, le `PercentIdleTime` signalé est de 50. Si chaque processeur virtuel est occupé à 50 % pendant la même période, le résultat signalé est également de 50. Dans une machine virtuelle à 4 processeurs virtuels, si un processeur virtuel est occupé à 100 % et que les autres sont inactifs, le `PercentIdleTime` signalé est de 75.
 
-Compteur | Signification
-------- | -------
-PercentIdleTime | Pourcentage de temps de la fenêtre d’agrégation pendant lequel les UC ont exécuté la boucle d’inactivité du noyau
-percentProcessorTime | Pourcentage de temps passé à exécuter un thread actif
-PercentIOWaitTime | Pourcentage de temps passé à attendre la fin d’opérations d’E/S
-PercentInterruptTime | Pourcentage de temps passé à exécuter des interruptions matérielles ou logicielles et des appels DPC (appels de procédure différés)
-PercentUserTime | Relativement au temps d’activité de la fenêtre d’agrégation, pourcentage de temps passé en mode utilisateur à une priorité normale
-PercentNiceTime | Pourcentage de temps passé à une priorité abaissée (commande nice), relativement au temps d’activité
-PercentPrivilegedTime | Pourcentage de temps passé en mode privilégié (noyau), relativement au temps d’activité
+Compteur | Nom d’affichage `azure.vm.linux.guestmetrics` | Signification
+--------- | ---------------------------------- | -------
+`PercentIdleTime` | `cpu/usage_idle` | Pourcentage de temps de la fenêtre d’agrégation pendant lequel les UC ont exécuté la boucle d’inactivité du noyau
+`PercentProcessorTime` |  `cpu/usage_active` | Pourcentage de temps passé à exécuter un thread actif
+`PercentIOWaitTime` |  `cpu/usage_iowait` | Pourcentage de temps passé à attendre la fin d’opérations d’E/S
+`PercentInterruptTime` |  `cpu/usage_irq` | Pourcentage de temps passé à exécuter des interruptions matérielles ou logicielles et des appels DPC (appels de procédure différés)
+`PercentUserTime` |  `cpu/usage_user` | Relativement au temps d’activité de la fenêtre d’agrégation, pourcentage de temps passé en mode utilisateur à une priorité normale
+`PercentNiceTime` |  `cpu/usage_nice` | Pourcentage de temps passé à une priorité abaissée (commande nice), relativement au temps d’activité
+`PercentPrivilegedTime` |  `cpu/usage_system` | Pourcentage de temps passé en mode privilégié (noyau), relativement au temps d’activité
 
 La somme des 4 premiers compteurs doit être de 100 %. La somme des 3 premiers compteurs est également de 100 %. Ces trois compteurs subdivisent la somme de `PercentProcessorTime`, `PercentIOWaitTime` et `PercentInterruptTime`.
 
@@ -584,109 +630,85 @@ La somme des 4 premiers compteurs doit être de 100 %. La somme des 3 premier
 
 La classe de métriques Mémoire fournit des informations sur l’utilisation, la pagination et les échanges de la mémoire.
 
-counter | Signification
-------- | -------
-AvailableMemory | Mémoire physique disponible en Mio
-PercentAvailableMemory | Mémoire physique disponible sous forme de pourcentage de la mémoire totale
-UsedMemory | Mémoire physique utilisée (Mio)
-PercentUsedMemory | Mémoire physique utilisée sous forme de pourcentage de la mémoire totale
-PagesPerSec | Pagination totale (lecture/écriture)
-PagesReadPerSec | Pages lues à partir du magasin de stockage, comme le fichier d’échange, les fichiers programme et les fichiers mappés
-PagesWrittenPerSec | Pages écrites dans le magasin de stockage, comme le fichier d’échange et les fichiers mappés
-AvailableSwap | Espace d’échange non utilisé (Mio)
-PercentAvailableSwap | Espace d’échange non utilisé sous forme de pourcentage de l’espace d’échange total
-UsedSwap | Espace d’échange utilisé (Mio)
-PercentUsedSwap | Espace d’échange utilisé sous forme de pourcentage de l’espace d’échange total
+Compteur | Nom d’affichage `azure.vm.linux.guestmetrics` | Signification
+--------- | ---------------------------------- | -------
+`AvailableMemory` | `mem/available` | Mémoire physique disponible en Mio
+`PercentAvailableMemory` | `mem/available_percent` | Mémoire physique disponible sous forme de pourcentage de la mémoire totale
+`UsedMemory` | `mem/used` | Mémoire physique utilisée (Mio)
+`PercentUsedMemory` | `mem/used_percent` | Mémoire physique utilisée sous forme de pourcentage de la mémoire totale
+`PagesPerSec` | `kernel_vmstat/total_pages` | Pagination totale (lecture/écriture)
+`PagesReadPerSec` | `kernel_vmstat/pgpgin` | Pages lues à partir du magasin de stockage, comme le fichier d’échange, les fichiers programme et les fichiers mappés
+`PagesWrittenPerSec` | `kernel_vmstat/pgpgout` | Pages écrites dans le magasin de stockage, comme le fichier d’échange et les fichiers mappés
+`AvailableSwap` | `swap/free` | Espace d’échange non utilisé (Mio)
+`PercentAvailableSwap` | `swap/free_percent` | Espace d’échange non utilisé sous forme de pourcentage de l’espace d’échange total
+`UsedSwap` | `swap/used` | Espace d’échange utilisé (Mio)
+`PercentUsedSwap` | `swap/used_percent` | Espace d’échange utilisé sous forme de pourcentage de l’espace d’échange total
 
 Cette classe de métriques n’a qu’une seule instance. L’attribut `"condition"` n’a pas de paramètres utiles et doit être omis.
 
 ### <a name="builtin-metrics-for-the-network-class"></a>métriques intégrées pour la classe Réseau
 
-La classe de métriques Réseau fournit des informations sur l’activité réseau sur une interface réseau individuelle depuis le démarrage. 
+La classe de métriques Réseau fournit des informations sur l’activité réseau sur une interface réseau individuelle depuis le démarrage.
 
 L’extension de diagnostic Linux n’expose pas les métriques de la bande passante. Vous pouvez obtenir ces métriques à partir des métriques de l’hôte.
 
-Compteur | Signification
-------- | -------
-BytesTransmitted | Nombre total d’octets envoyés depuis le démarrage
-BytesReceived | Nombre total d’octets reçus depuis le démarrage
-BytesTotal | Nombre total d’octets envoyés ou reçus depuis le démarrage
-PacketsTransmitted | Nombre total de paquets envoyés depuis le démarrage
-PacketsReceived | Nombre total de paquets reçus depuis le démarrage
-TotalRxErrors | Nombre d’erreurs de réception depuis le démarrage
-TotalTxErrors | Nombre d’erreurs de transmission depuis le démarrage
-TotalCollisions | Nombre de collisions signalées par les ports réseau depuis le démarrage
+Compteur | Nom d’affichage `azure.vm.linux.guestmetrics` | Signification
+--------- | ---------------------------------- | -------
+`BytesTransmitted` | `net/bytes_sent` | Nombre total d’octets envoyés depuis le démarrage
+`BytesReceived` | `net/bytes_recv` | Nombre total d’octets reçus depuis le démarrage
+`BytesTotal` | `net/bytes_total` | Nombre total d’octets envoyés ou reçus depuis le démarrage
+`PacketsTransmitted` | `net/packets_sent` | Nombre total de paquets envoyés depuis le démarrage
+`PacketsReceived` | `net/packets_recv` | Nombre total de paquets reçus depuis le démarrage
+`TotalRxErrors` | `net/err_in` | Nombre d’erreurs de réception depuis le démarrage
+`TotalTxErrors` | `net/err_out` | Nombre d’erreurs de transmission depuis le démarrage
+`TotalCollisions` | `net/drop_total` | Nombre de collisions signalées par les ports réseau depuis le démarrage
 
 ### <a name="builtin-metrics-for-the-file-system-class"></a>Métriques intégrées pour la classe Système de fichiers
 
 La classe de métriques Système de fichiers fournit des informations sur l’utilisation du système de fichiers. Les valeurs absolues et en pourcentage sont indiquées comme elles sont affichées pour un utilisateur ordinaire (non racine).
 
-Compteur | Signification
-------- | -------
-FreeSpace | Espace disque disponible en octets
-UsedSpace | Espace disque utilisé en octets
-PercentFreeSpace | Pourcentage d’espace libre
-PercentUsedSpace | Pourcentage d’espace utilisé
-PercentFreeInodes | Pourcentage de nœuds d’index non utilisés (inodes)
-PercentUsedInodes | Pourcentage total d’inodes alloués (utilisés) pour tous les systèmes de fichiers
-BytesReadPerSecond | Octets lus par seconde
-BytesWrittenPerSecond | Octets écrits par seconde
-BytesPerSecond | Octets lus ou écrits par seconde
-ReadsPerSecond | Opérations de lecture par seconde
-WritesPerSecond | Opérations d’écriture par seconde
-TransfersPerSecond | Opérations de lecture ou d’écriture par seconde
+Compteur | Nom d’affichage `azure.vm.linux.guestmetrics` | Signification
+--------- | ---------------------------------- | -------
+`FreeSpace` | `disk/free` | Espace disque disponible en octets
+`UsedSpace` | `disk/used` | Espace disque utilisé en octets
+`PercentFreeSpace` | `disk/free_percent` | Pourcentage d’espace libre
+`PercentUsedSpace` | `disk/used_percent` | Pourcentage d’espace utilisé
+`PercentFreeInodes` | `disk/inodes_free_percent` | Pourcentage de nœuds d’index non utilisés (inodes)
+`PercentUsedInodes` | `disk/inodes_used_percent` | Pourcentage total d’inodes alloués (utilisés) pour tous les systèmes de fichiers
+`BytesReadPerSecond` | `diskio/read_bytes_filesystem` | Octets lus par seconde
+`BytesWrittenPerSecond` | `diskio/write_bytes_filesystem` | Octets écrits par seconde
+`BytesPerSecond` | `diskio/total_bytes_filesystem` | Octets lus ou écrits par seconde
+`ReadsPerSecond` | `diskio/reads_filesystem` | Opérations de lecture par seconde
+`WritesPerSecond` | `diskio/writes_filesystem` | Opérations d’écriture par seconde
+`TransfersPerSecond` | `diskio/total_transfers_filesystem` | Opérations de lecture ou d’écriture par seconde
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métriques intégrées pour la classe Disque
 
-La classe de métriques Disque fournit des informations sur l’utilisation du disque. Ces statistiques s’appliquent à la totalité du lecteur. 
+La classe de métriques Disque fournit des informations sur l’utilisation du disque. Ces statistiques s’appliquent à la totalité du lecteur.
 
 Quand un périphérique a plusieurs systèmes de fichiers, les compteurs pour ce périphérique sont agrégés pour tous les systèmes de fichiers.
 
-Compteur | Signification
-------- | -------
-ReadsPerSecond | Opérations de lecture par seconde
-WritesPerSecond | Opérations d’écriture par seconde
-TransfersPerSecond | Nombre total d’opérations par seconde
-AverageReadTime | Nombre moyen de secondes par opération de lecture
-AverageWriteTime | Nombre moyen de secondes par opération d’écriture
-AverageTransferTime | Nombre moyen de secondes par opération
-AverageDiskQueueLength | Nombre moyen d’opérations disque en file d’attente
-ReadBytesPerSecond | Nombre d’octets lus par seconde
-WriteBytesPerSecond | Nombre d’octets écrits par seconde
-BytesPerSecond | Nombre d’octets lus ou écrits par seconde
-
-## <a name="install-and-configure-lad-40"></a>Installer et configurer l’extension de diagnostic Linux 4.0
-
-Vous pouvez installer et configurer l’extension de diagnostic Linux 4.0 dans Azure CLI ou dans PowerShell.
-
-### <a name="azure-cli"></a>Azure CLI
-
-Si vos paramètres protégés sont dans le fichier *ProtectedSettings.json* et que vos informations de configuration publique sont dans *PublicSettings.json*, exécutez cette commande :
-
-```azurecli
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
-```
-
-La commande suppose que vous utilisez le mode Azure Resource Manager d’Azure CLI. Pour configurer l’extension de diagnostic Linux pour des machines virtuelles du modèle de déploiement classique, passez au mode « asm » (`azure config mode asm`) et omettez le nom du groupe de ressources dans la commande. 
-
-Pour plus d’informations, consultez la [documentation relative à l’interface de ligne de commande multiplateforme](/cli/azure/authenticate-azure-cli).
-
-### <a name="powershell"></a>PowerShell
-
-Si vos paramètres protégés sont dans la variable `$protectedSettings` et que vos informations de configuration publique sont dans la variable `$publicSettings`, exécutez cette commande :
-
-```powershell
-Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
-```
+Compteur | Nom d’affichage `azure.vm.linux.guestmetrics` | Signification
+--------- | ---------------------------------- | -------
+`ReadsPerSecond` | `diskio/reads` | Opérations de lecture par seconde
+`WritesPerSecond` | `diskio/writes` | Opérations d’écriture par seconde
+`TransfersPerSecond` | `diskio/total_transfers` | Nombre total d’opérations par seconde
+`AverageReadTime` | `diskio/read_time` | Nombre moyen de secondes par opération de lecture
+`AverageWriteTime` | `diskio/write_time` | Nombre moyen de secondes par opération d’écriture
+`AverageTransferTime` | `diskio/io_time` | Nombre moyen de secondes par opération
+`AverageDiskQueueLength` | `diskio/iops_in_progress` | Nombre moyen d’opérations disque en file d’attente
+`ReadBytesPerSecond` | `diskio/read_bytes` | Nombre d’octets lus par seconde
+`WriteBytesPerSecond` | `diskio/write_bytes` | Nombre d’octets écrits par seconde
+`BytesPerSecond` | `diskio/total_bytes` | Nombre d’octets lus ou écrits par seconde
 
 ## <a name="example-lad-40-configuration"></a>Exemple de configuration de l’extension de diagnostic Linux 4.0
 
 À partir des définitions précédentes, cette section fournit un exemple de configuration de l’extension de diagnostic Linux 4.0 et quelques explications. Pour appliquer cet exemple à votre cas, vous devez utiliser le nom de votre compte de stockage, le jeton SAS de votre compte et vos jetons SAS pour Event Hubs.
 
 > [!NOTE]
-> Selon que vous utilisez Azure CLI ou PowerShell pour installer l’extension de diagnostic Linux, la méthode pour fournir des paramètres publics et protégés diffère : 
+> Selon que vous utilisez Azure CLI ou PowerShell pour installer l’extension de diagnostic Linux, la méthode pour fournir des paramètres publics et protégés diffère :
 >
-> * Si vous utilisez Azure CLI, enregistrez les paramètres suivants dans *ProtectedSettings.json* et *PublicSettings.json* pour utiliser l’exemple de commande précédent. 
+> * Si vous utilisez Azure CLI, enregistrez les paramètres suivants dans *ProtectedSettings.json* et *PublicSettings.json* pour utiliser l’exemple de commande précédent.
 > * Si vous utilisez PowerShell, enregistrez les paramètres suivants dans `$protectedSettings` et `$publicSettings` en exécutant `$protectedSettings = '{ ... }'`.
 
 ### <a name="protected-settings"></a>Paramètres protégés
@@ -750,7 +772,7 @@ Les paramètres publics font que l’extension de diagnostic Linux :
 Dans chaque cas, les données sont également chargées dans :
 
 * Stockage Blob Azure. Le nom du conteneur est défini dans le récepteur `JsonBlob`.
-* Un point de terminaison Event Hubs, tel que spécifié dans le récepteur `EventHubs`.
+* Un point de terminaison Event Hubs, tel que spécifié dans le récepteur `EventHub`.
 
 ```json
 {

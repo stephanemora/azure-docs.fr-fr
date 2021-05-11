@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a6d98f827c39f973714441e308dcc4f2bd061c9b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 7e5c94cad817f398ae56fb1aa9cbbd1c43cd47a4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835575"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291817"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ?
 
@@ -121,10 +121,10 @@ Pour connaître les URL que vous devez débloquer pour utiliser les clients, con
 
 ## <a name="supported-virtual-machine-os-images"></a>Images de système d’exploitation de machine virtuelle prises en charge
 
-Windows Virtual Desktop prend en charge les images de système d'exploitation x64 suivantes :
+Windows Virtual Desktop suit la [Stratégie de cycle de vie de Microsoft](https://docs.microsoft.com/lifecycle/) et prend en charge les images de système d’exploitation x64 suivantes :
 
-* Windows 10 Entreprise multisession, version 1809 ou ultérieure
-* Windows 10 Entreprise, version 1809 ou ultérieure (Canal semi-annuel uniquement)
+* Windows 10 Entreprise multisession
+* Windows 10 Entreprise
 * Windows 7 Entreprise
 * Windows Server 2019
 * Windows Server 2016
@@ -136,10 +136,8 @@ Les options d’automatisation et de déploiement qui sont disponibles dépenden
 
 |Système d’exploitation|Galerie d’images Azure|Déploiement manuel d’une machine virtuelle|Intégration du modèle Azure Resource Manager|Provisionner des pools d’hôtes sur la Place de marché Azure|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Entreprise (multisession), version 2004|Oui|Oui|Oui|Oui|
-|Windows 10 Entreprise (multisession), version 1909|Oui|Oui|Oui|Oui|
-|Windows 10 Entreprise (multisession), version 1903|Oui|Oui|Non|Non|
-|Windows 10 Entreprise (multisession), version 1809|Oui|Oui|Non|Non|
+|Windows 10 Entreprise multisession, version 1909 et ultérieure|Oui|Oui|Oui|Oui|
+|Windows 10 Entreprise, version 1909 et ultérieure|Oui|Oui|Oui|Oui|
 |Windows 7 Entreprise|Oui|Oui|Non|Non|
 |Windows Server 2019|Oui|Oui|Non|Non|
 |Windows Server 2016|Oui|Oui|Oui|Oui|

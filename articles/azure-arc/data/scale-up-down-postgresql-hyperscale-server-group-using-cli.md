@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4461fb6904d51ee8d740b633a2d0028658ac2ced
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efad54e9e6d69f4b1b9c8cef0d93e0286c6c8203
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687547"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286801"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Mettre à l’échelle un groupe de serveurs Azure Database pour PostgreSQL Hyperscale à l’aide de l’interface de ligne de commande (azdata ou kubectl)
 
@@ -27,7 +27,7 @@ Il est parfois nécessaire de modifier les caractéristiques ou la définition d
 
 Ce guide explique comment mettre à l’échelle vCore et/ou la mémoire.
 
-La mise à l’échelle des paramètres de vCore ou de mémoire de votre groupe de serveurs signifie que vous avez la possibilité de définir une valeur minimale et/ou maximale pour chacun des paramètres de vCore et de mémoire. Si vous souhaitez configurer votre groupe de serveurs pour utiliser un nombre spécifique de vCores ou une quantité spécifique de mémoire, vous devez définir la même valeur pour les paramètres min et les paramètres max.
+La mise à l’échelle des paramètres de vCore ou de mémoire de votre groupe de serveurs signifie que vous avez la possibilité de définir une valeur minimale et/ou maximale pour chacun des paramètres de vCore et de mémoire. Si vous souhaitez configurer votre groupe de serveurs pour utiliser un nombre particulier de vCores ou une quantité spécifique de mémoire, vous devez définir la même valeur pour les paramètres minimaux et les paramètres maximaux.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -43,158 +43,162 @@ azdata arc postgres server show -n <server group name>
 ### <a name="cli-with-kubectl"></a>Interface de ligne de commande avec kubectl
 
 ```console
-kubectl describe postgresql-12/<server group name> [-n <namespace name>]
+kubectl describe postgresql/<server group name> -n <namespace name>
 ```
-> [!NOTE]
-> Si vous avez créé un groupe de serveurs de PostgreSQL version 11, exécutez plutôt la commande `kubectl describe postgresql-11/<server group name>`.
 
 Celle-ci retourne la configuration de votre groupe de serveurs. Si vous avez créé le groupe de serveurs avec les paramètres par défaut, vous devez voir la définition suivante :
 
-```console
-"scheduling": {
-      "default": {
-        "resources": {
-          "requests": {
-            "memory": "256Mi"
-          }
-        }
-      }
-    },
+```json
+Spec:
+  Dev:  false
+  Engine:
+    Extensions:
+      Name:   citus
+    Version:  12
+  Scale:
+    Workers:  2
+  Scheduling:
+    Default:
+      Resources:
+        Requests:
+          Memory:  256Mi
+...
 ```
 
 ## <a name="interpret-the-definition-of-the-server-group"></a>Interpréter la définition du groupe de serveurs
 
-Dans la définition d’un groupe de serveurs, la section contenant les paramètres de nombre min/max de vCores par nœud et de mémoire min/max par nœud est la section **« planification »** . Dans cette section, les paramètres max sont conservés dans une sous-section appelée **« Limites »** , et les paramètres min dans la sous-section intitulée **« demandes »** .
+Dans la définition d’un groupe de serveurs, la section contenant les paramètres du nombre minimal ou maximal de vCores par nœud et de mémoire minimale ou maximale par nœud est la section **« planification »** . Dans cette section, les paramètres maximaux sont conservés dans une sous-section appelée **« limites »** , et les paramètres minimaux dans la sous-section intitulée **« requêtes »** .
 
-Si vous définissez des paramètres min différents des paramètres max, la configuration garantit que les ressources demandées sont allouées au groupe de serveurs si nécessaire. Les limites que vous définissez ne seront pas dépassées.
+Si vous définissez des paramètres minimaux différents des paramètres maximaux, la configuration garantit que les ressources demandées sont allouées au groupe de serveurs si nécessaire. Les limites que vous définissez ne seront pas dépassées.
 
-Les ressources (vCores et mémoire) qui seront réellement utilisées par votre groupe de serveurs sont ne dépassent pas les paramètres max et dépendent des charges de travail et des ressources disponibles sur le cluster. Si ne limitez pas les paramètres à une valeur max, votre groupe de serveurs peut utiliser toutes les ressources que le cluster Kubernetes alloue aux nœuds Kubernetes sur lesquels votre groupe de serveurs est planifié.
+Les ressources (vCores et mémoire) qui seront réellement utilisées par votre groupe de serveurs ne dépassent pas les paramètres maximaux et dépendent des charges de travail et des ressources disponibles sur le cluster. Si ne limitez pas les paramètres à une valeur max, votre groupe de serveurs peut utiliser toutes les ressources que le cluster Kubernetes alloue aux nœuds Kubernetes sur lesquels votre groupe de serveurs est planifié.
 
-Les paramètres de vCore et de mémoire s’appliquent à chacun des nœuds PostgreSQL Hyperscale (nœud coordinateur et nœuds Worker). Il n’est pas encore possible de définir le nœud coordinateur et les nœuds Worker séparément.
+Ces paramètres de vCore et de mémoire s’appliquent à chaque rôle des instances Postgres constituant le groupe de serveurs PostgreSQL Hyperscale : le coordinateur et les Workers. Vous pouvez définir des requêtes et des limites par rôle. Vous pouvez définir des paramètres de requêtes et de limites qui sont différents pour chaque rôle. Ils peuvent également être similaires, en fonction de vos besoins.
 
 Dans une configuration par défaut, seule la mémoire minimale est définie sur 256Mi, car il s’agit de la quantité minimale de mémoire recommandée pour exécuter PostgreSQL Hyperscale.
 
 > [!NOTE]
-> Le fait de définir un minimum ne signifie pas que le groupe de serveurs utilisera nécessairement ce minimum. Cela signifie que si le groupe de serveurs en a besoin, il est garanti qu’au moins ce minimum est alloué. Supposons, par exemple, que nous définissions `--minCpu 2`. Cela ne signifie pas que le groupe de serveurs utilisera au moins 2 vCores à tout moment. Au lieu de cela, le groupe de serveurs peut commencer à utiliser moins de 2 vCores s’il n’en a pas besoin, avec la garantie de se voir alloué au moins 2 vCores s’il en a besoin plus tard. Cela implique que le cluster Kubernetes alloue des ressources à d’autres charges de travail de façon à pouvoir allouer 2 vCores au groupe de serveurs s’il en a besoin.
+> Le fait de définir un minimum ne signifie pas que le groupe de serveurs utilisera nécessairement ce minimum. Cela signifie que si le groupe de serveurs en a besoin, il est garanti qu’au moins ce minimum est alloué. Supposons, par exemple, que nous définissions `--minCpu 2`. Cela ne signifie pas que le groupe de serveurs utilisera au moins 2 vCores à tout moment. Au lieu de cela, le groupe de serveurs peut commencer à utiliser moins de 2 vCores s’il n’en a pas besoin, avec la garantie de se voir alloué au moins 2 vCores s’il en a besoin plus tard. Cela implique que le cluster Kubernetes alloue des ressources à d’autres charges de travail de façon à pouvoir allouer 2 vCores au groupe de serveurs s’il en a besoin. De plus, effectuer un scale-up et un scale-down n’est pas une opération en ligne, car un redémarrage des pods kubernetes est nécessaire.
 
 >[!NOTE]
 >Avant de modifier la configuration de votre système, veillez à vous familiariser avec le modèle de ressource Kubernetes [ici](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-## <a name="scale-up-the-server-group"></a>Effectuer un scale-up du groupe de serveurs
+## <a name="scale-up-and-down-the-server-group"></a>Effectuer un scale-up et un scale-down sur le groupe de serveurs
 
-Les paramètres que vous allez définir doivent être pris en compte dans la configuration que vous définissez pour votre cluster Kubernetes. Veillez à ne pas définir de valeurs que votre cluster Kubernetes ne sera pas en mesure de satisfaire. Cela peut conduire à des erreurs ou à un comportement imprévisible. Par exemple, si l’état de votre groupe de serveurs reste défini sur _mise à jour_ pendant un temps prolongé après la modification de la configuration, cela peut indiquer que vous définissez les paramètres ci-dessous sur des valeurs que votre cluster Kubernetes ne peut pas satisfaire. Si tel est le cas, annulez la modification ou lisez _troubleshooting_section.
+Procéder à un scale-up revient à augmenter les valeurs des paramètres de vCore et/ou de mémoire de votre groupe de serveurs.
+Procéder à un scale-down revient à diminuer les valeurs des paramètres de vCore et/ou de mémoire de votre groupe de serveurs.
 
-Par exemple, supposons que vous souhaitiez effectuer un scale-up de la définition de votre groupe de serveurs vers :
+Les paramètres que vous allez définir doivent être pris en compte dans la configuration que vous définissez pour votre cluster Kubernetes. Veillez à ne pas définir de valeurs que votre cluster Kubernetes ne sera pas en mesure de satisfaire. Des erreurs ou un comportement imprévisible, comme l’indisponibilité de l’instance de la base de données, peuvent en découler. Par exemple, si l’état de votre groupe de serveurs reste défini sur _mise à jour_ pendant un temps prolongé après la modification de la configuration, cela peut indiquer que vous définissez les paramètres ci-dessous sur des valeurs que votre cluster Kubernetes ne peut pas satisfaire. Si tel est le cas, annulez la modification ou lisez _troubleshooting_section.
 
-- vCore min = 2
-- vCore max = 4
-- Mémoire min = 512 Mo
-- Mémoire max = 1 Go
+Quels paramètres devez-vous définir ?
+- Pour définir le nombre minimal de vCores, définissez `--cores-request`.
+- Pour définir le nombre maximal de vCores, définissez `--cores-limit`.
+- Pour définir la mémoire minimale, définissez `--memory-request`.
+- Pour définir la mémoire maximale, définissez `--memory-limit`.
 
-Vous devez utiliser l’une des approches suivantes :
+Comment indiquer le rôle auquel le paramètre s’applique ?
+- Pour configurer le paramètre du rôle coordinateur, spécifiez `coordinator=<value>`.
+- Pour configurer le paramètre du rôle Worker (le paramètre spécifié est défini sur la même valeur pour tous les Workers), spécifiez `worker=<value>`.
 
-### <a name="cli-with-azdata"></a>Interface de ligne de commande avec azdata
-
-```console
-azdata arc postgres server edit -n <name of your server group> --cores-request <# core-request>  --cores-limit <# core-limit>  --memory-request <# memory-request>Mi  --memory-limit <# memory-limit>Mi
-```
 
 > [!CAUTION]
-> Voici un exemple fourni pour illustrer l’utilisation de la commande. Avant d’exécuter une commande edit, veillez à définir les paramètres sur des valeurs que le cluster Kubernetes peut honorer.
+> Avec Kubernetes, la configuration d’un paramètre de limite sans configurer le paramètre de requête correspondant force la valeur de la requête à être de la même valeur que la limite. Une indisponibilité de votre groupe de serveurs risque d’en découler, car ses pods peuvent ne pas être replanifiés si aucun nœud Kubernetes n’est disponible avec suffisamment de ressources. Ainsi, pour éviter cette situation, les exemples ci-dessous montrent comment définir ces deux paramètres, de requête et de limite.
+
+
+**La syntaxe générale est la suivante :**
 
 ```console
-azdata arc postgres server edit -n <name of your server group> --cores-request 2  --cores-limit 4  --memory-request 512Mi  --memory-limit 1024Mi
+azdata arc postgres server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
 ```
 
-La commande s’exécute correctement lorsqu’elle affiche :
+La valeur que vous indiquez pour le paramètre de mémoire est un nombre suivi d’une unité de volume. Par exemple, pour indiquer 1 Go, vous devez indiquer 1024 Mi ou 1 Gi.
+Pour indiquer un nombre de cœurs, vous devez simplement transmettre un nombre sans unité. 
 
+### <a name="examples-using-the-azdata-cli"></a>Exemples utilisant l’interface CLI azdata
+
+
+
+
+
+**Configurez le rôle de coordinateur pour qu’il ne dépasse pas 2 cœurs, et le rôle de Worker pour ne pas dépasser 4 cœurs :**
 ```console
-<name of your server group> is Ready
+ azdata arc postgres server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
+ azdata arc postgres server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
+```
+
+ou
+```console
+azdata arc postgres server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
 ```
 
 > [!NOTE]
 > Pour plus d’informations sur ces paramètres, exécutez `azdata arc postgres server edit --help`.
 
-### <a name="cli-with-kubectl"></a>Interface de ligne de commande avec kubectl
+### <a name="example-using-kubernetes-native-tools-like-kubectl"></a>Exemple utilisant des outils natifs Kubernetes comme `kubectl`
 
+Exécutez la commande suivante : 
 ```console
-kubectl edit postgresql-12/<server group name> [-n <namespace name>]
+kubectl edit postgresql/<servergroup name> -n <namespace name>
 ```
 
-Vous accédez à l’éditeur vi dans lequel vous pouvez naviguer et modifier la configuration. Utilisez la commande suivante pour mapper le paramètre souhaité au nom du champ dans la spécification :
+Vous accédez à l’éditeur `vi` dans lequel vous pouvez naviguer et modifier la configuration. Utilisez la commande suivante pour mapper le paramètre souhaité au nom du champ dans la spécification :
 
 > [!CAUTION]
 > Voici un exemple fourni pour illustrer la modification de la configuration. Avant de mettre à jour la configuration, veillez à définir les paramètres sur des valeurs que le cluster Kubernetes peut honorer.
 
-Par exemple :
-- vCore min = 2 -> planification\par défaut\ressources\demandes\uc
-- vCore max = 4-> planification\par défaut\ressources\limites\uc
-- Mémoire min = 512 Mo -> planification\par défaut\ressources\demandes\uc
-- Mémoire max = 1 Go ->  planification\par défaut\ressources\limites\uc
+Par exemple, si vous souhaitez définir les paramètres suivants pour les rôles de coordinateur et de Worker sur les valeurs suivantes :
+- Nombre minimal de vCores = `2` 
+- Nombre maximal de vCores = `4`
+- Mémoire minimale = `512Mb`
+- Mémoire maximale = `1Gb` 
 
-Si vous n’êtes pas familiarisé avec l’éditeur vi, consultez la description des commandes dont vous pouvez avoir besoin [ici](https://www.computerhope.com/unix/uvi.htm) :
+Vous devez configurer la définition de votre groupe de serveurs, afin qu’elle corresponde à la configuration ci-dessous :
+
+```json
+  scheduling:
+    default:
+      resources:
+        requests:
+          memory: 256Mi
+    roles:
+      coordinator:
+        resources:
+          limits:
+            cpu: "4"
+            memory: 1Gi
+          requests:
+            cpu: "2"
+            memory: 512Mi
+      worker:
+        resources:
+          limits:
+            cpu: "4"
+            memory: 1Gi
+          requests:
+            cpu: "2"
+            memory: 512Mi
+```
+
+Si vous ne connaissez pas l’éditeur `vi`, consultez la description des commandes dont vous pouvez avoir besoin [ici](https://www.computerhope.com/unix/uvi.htm) :
 - Mode d’édition : `i`
-- se déplacer avec des flèches
-- _cesser de modifier : `esc`
-- _quitter sans enregistrer : `:qa!`
-- _quitter après enregistrement : `:qw!`
+- Se déplacer avec les flèches
+- Fin de l’édition : `esc`
+- Quitter sans enregistrer : `:qa!`
+- Quitter après l’enregistrement : `:qw!`
 
-
-## <a name="show-the-scaled-up-definition-of-the-server-group"></a>Afficher la définition de scale up du groupe de serveurs
-
-Exécutez de nouveau la commande pour afficher la définition du groupe de serveurs et vérifier qu’elle est telle que vous le souhaitez :
-
-### <a name="cli-with-azdata"></a>Interface de ligne de commande avec azdata
-
-```console
-azdata arc postgres server show -n <the name of your server group>
-```
-### <a name="cli-with-kubectl"></a>Interface de ligne de commande avec kubectl
-
-```console
-kubectl describe postgresql-12/<server group name>  [-n <namespace name>]
-```
-> [!NOTE]
-> Si vous avez créé un groupe de serveurs de PostgreSQL version 11, exécutez plutôt la commande `kubectl describe postgresql-11/<server group name>`.
-
-
-Celle-ci affiche la nouvelle définition du groupe de serveurs :
-
-```console
-"scheduling": {
-      "default": {
-        "resources": {
-          "limits": {
-            "cpu": "4",
-            "memory": "1024Mi"
-          },
-          "requests": {
-            "cpu": "2",
-            "memory": "512Mi"
-          }
-        }
-      }
-    },
-```
-
-## <a name="scale-down-the-server-group"></a>effectuer un scale-down du groupe de serveurs
-
-Pour effectuer un scale-down du groupe de serveurs, vous exécutez la même commande, mais vous définissez des valeurs inférieures pour les paramètres que vous souhaitez modifier. Pour supprimer les demandes et/ou les limites, spécifiez sa valeur en tant que chaîne vide.
 
 ## <a name="reset-to-default-values"></a>Réinitialiser les valeurs par défaut
-Pour réinitialiser les valeurs par défaut des paramètres limites/demandes de cœur/mémoire, modifiez-les et transmettez une chaîne au lieu d’une valeur réelle. Par exemple, si vous souhaitez réinitialiser le paramètre de limite de cœur (cl), exécutez les commandes suivantes :
-- Sur un client Linux :
+Pour réinitialiser les valeurs par défaut des paramètres limites/demandes de cœur/mémoire, modifiez-les et transmettez une chaîne au lieu d’une valeur réelle. Par exemple, si vous souhaitez réinitialiser le paramètre de limite de cœurs, exécutez les commandes suivantes :
 
 ```console
-    azdata arc postgres server edit -n <servergroup name> -cl ""
+azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker=''
+azdata arc postgres server edit -n postgres01 --cores-limit coordinator='',worker=''
 ```
 
-- Sur un client Windows : 
- 
+ou 
 ```console
-    azdata arc postgres server edit -n <servergroup name> -cl '""'
+azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

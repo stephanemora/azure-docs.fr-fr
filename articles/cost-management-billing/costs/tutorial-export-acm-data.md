@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 37804be38918713cdfa7aea59763054e444daa7e
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 100f4252768f6a141253d4df03a73da9f4f6b4bc
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015714"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290203"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -34,16 +34,16 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-L’exportation des données est disponible pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) et [Contrat client Microsoft](get-started-partners.md). Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Les autorisations Azure suivantes, ou étendues, sont prises en charge par abonnement pour l’exportation de données par utilisateur et par groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
+L’exportation de données est disponible pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) et [Contrat client Microsoft](get-started-partners.md). Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Les autorisations Azure suivantes, ou étendues, sont prises en charge par abonnement pour l’exportation de données par utilisateur et par groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 - Propriétaire : Peut créer, modifier ou supprimer des exportations planifiées pour un abonnement.
 - Contributeur : Peut créer, modifier ou supprimer ses propres exportations planifiées. Peut modifier le nom d’exportations planifiées créées par d’autres utilisateurs.
 - Lecteur : Peut planifier des exportations pour lesquelles il dispose des autorisations adéquates.
 
-Pour plus d’informations sur les étendues et notamment sur l’accès nécessaire pour configurer des exportations pour les étendues Contrat Entreprise et Contrat client Microsoft, consultez [Comprendre et utiliser des étendues](understand-work-scopes.md).
+**Pour plus d’informations sur les étendues, notamment sur l’accès nécessaire pour configurer les exportations pour les étendues Contrat Entreprise et Contrat client Microsoft, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md)** .
 
 Pour les comptes Stockage Azure :
-- Des autorisations d’écriture sont requises pour la modification du compte de stockage configuré, quelles que soient les autorisations sur l’exportation.
+- Des autorisations d’écriture sont nécessaires pour modifier le compte de stockage configuré, indépendamment des autorisations sur l’exportation.
 - Votre compte de stockage Azure doit être configuré pour le stockage d’objets blob ou de fichiers.
 
 Si vous disposez d’un nouvel abonnement, vous ne pouvez pas utiliser les fonctionnalités de Cost Management tout de suite. Vous risquez de devoir attendre jusqu’à 48 heures avant de pouvoir utiliser toutes les fonctionnalités de Cost Management.
@@ -55,21 +55,21 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Pour créer, afficher ou planifier une exportation de données, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Analyse du coût** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. En haut de la page Analyse des coûts, sélectionnez **Paramètres**, puis **Exportations**.
+Pour créer ou afficher une exportation de données ou pour planifier une exportation, choisissez une étendue sur le portail Azure et sélectionnez **Analyse du coût** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. En haut de la page Analyse des coûts, sélectionnez **Paramètres**, puis **Exportations**.
 
 > [!NOTE]
 > - Vous pouvez non seulement créer des exportations sur des abonnements, mais aussi sur des groupes de ressources, des groupes d'administration, des services et des inscriptions. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
->- Quand vous êtes connecté en tant que partenaire dans l’étendue du compte de facturation ou sur le locataire d’un client, vous pouvez exporter des données vers un compte de stockage Azure lié à votre compte de stockage partenaire. Toutefois, vous devez disposer d’un abonnement actif dans votre locataire CSP.
+> - Quand vous êtes connecté en tant que partenaire dans l’étendue du compte de facturation ou sur le locataire d’un client, vous pouvez exporter des données vers un compte de stockage Azure lié à votre compte de stockage partenaire. Toutefois, vous devez disposer d’un abonnement actif dans votre locataire CSP.
 
 1. Sélectionnez **Ajouter** et entrez un nom pour l'exportation.
 1. Pour la **Métrique**, effectuez une sélection :
     - **Coût réel (utilisation et achats)**  : sélectionnez cette option pour exporter l'utilisation standard et les achats.
     - **Coût amorti (utilisation et achats)**  : sélectionnez cette option pour exporter les coûts amortis pour les achats tels que les réservations Azure.
 1. Pour le **Type d'exportation**, effectuez une sélection :
-    - **Exportation quotidienne des coûts en cumul mensuel à ce jour** : Fournit quotidiennement un nouveau fichier d’exportation pour vos coûts en cumul mensuel à ce jour. Les dernières données sont agrégées avec les exportations quotidiennes précédentes.
-    - **Exportation hebdomadaire des coûts pour les sept derniers jours** : Crée une exportation hebdomadaire de vos coûts pour les sept derniers jours à compter de la date de début d’exportation sélectionnée.
-    - **Exportation mensuelle des coûts du mois précédent** : Fournit une exportation des coûts du mois précédent par rapport au mois en cours. Ensuite, le calendrier exécute une exportation le cinquième jour de chaque nouveau mois avec vos coûts des mois précédents.
-    - **Exportation unique** : Vous permet de choisir une plage de dates pour les données historiques à exporter vers le service Stockage Blob Azure. Vous pouvez exporter un maximum de 90 jours de coûts historiques à partir du jour de votre choix. Cette exportation s'exécute immédiatement et est disponible sur votre compte de stockage dans les deux heures.
+    - **Exportation quotidienne des coûts en cumul mensuel à ce jour** – Fournit chaque jour un nouveau fichier d’exportation pour vos coûts en cumul mensuel à ce jour. Les dernières données sont agrégées avec les exportations quotidiennes précédentes.
+    - **Exportation hebdomadaire des coûts pour les sept derniers jours** – Crée une exportation hebdomadaire de vos coûts pour les sept derniers jours à compter de la date de début d’exportation sélectionnée.
+    - **Exportation mensuelle des coûts du mois précédent** – Fournit une exportation des coûts du mois précédent par rapport au mois en cours. Par la suite, la planification exécute une exportation le cinquième jour de chaque nouveau mois avec vos coûts des mois précédents.
+    - **Exportation unique** – Vous permet de choisir une plage de dates pour les données historiques à exporter vers le service Stockage Blob Azure. Vous pouvez exporter un maximum de 90 jours de coûts historiques à partir du jour de votre choix. Cette exportation s'exécute immédiatement et est disponible sur votre compte de stockage dans les deux heures.
         En fonction du type d'exportation, choisissez une date de début ou une date au format **De** et **À**.
 1. Spécifiez l'abonnement associé à votre compte de stockage Azure, puis sélectionnez un groupe de ressources ou créez-en un.
 1. Sélectionnez le nom du compte de stockage ou créez-en un.
@@ -241,7 +241,7 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 ### <a name="export-schedule"></a>Planification des exportations
 
-Les exportations planifiées dépendent de l’heure et du jour de la semaine de la création initiale des exportations. Quand vous créez une exportation planifiée, chacune de ses occurrences suivantes s’exécute à la même fréquence. Par exemple, pour une exportation des coûts en cumul mensuel à ce jour définie sur une fréquence quotidienne, l'exportation s'exécute tous les jours. De même, pour une exportation hebdomadaire, l’exportation s’exécute toutes les semaines le même jour que celui planifié. Le temps de remise exact de l'exportation n'est pas garanti et les données exportées sont disponibles dans un délai de quatre heures.
+Les exportations planifiées dépendent de l’heure et du jour de la semaine de la création initiale des exportations. Quand vous créez une exportation planifiée, l’exportation s’exécute selon la même fréquence pour chaque exportation ultérieure. Par exemple, pour une exportation des coûts en cumul mensuel à ce jour définie sur une fréquence quotidienne, l'exportation s'exécute tous les jours. De même, pour une exportation hebdomadaire, l’exportation s’exécute toutes les semaines le même jour que celui planifié. Le temps de remise exact de l'exportation n'est pas garanti et les données exportées sont disponibles dans un délai de quatre heures.
 
 Chaque exportation crée un fichier, ce qui signifie que les exportations antérieures ne sont pas écrasées.
 
@@ -251,12 +251,48 @@ Si vous possédez un Accord Entreprise, vous pouvez utiliser un groupe d’admin
 
 Les exportations pour les groupes d’administration d’autres types d’abonnement ne sont pas prises en charge.
 
-1. Si vous n'avez pas encore créé de groupe d'administration, créez-en un et attribuez-lui des abonnements.
+1. Si vous n’avez pas encore créé de groupe d’administration, créez-en un et attribuez-lui des abonnements.
 1. Dans l'analyse des coûts, définissez l'étendue de votre groupe d'administration et sélectionnez **Sélectionner ce groupe d'administration**.
     :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Exemple illustrant l'option Sélectionner ce groupe d'administration" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Créez une exportation selon l’étendue pour obtenir les données de gestion des coûts pour les abonnements dans le groupe d’administration.
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Exemple illustrant l'option Créer une exportation avec l'étendue Groupe d'administration":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Exemple montrant l’option Créer une exportation avec l’étendue Groupe d’administration":::
 
+### <a name="file-partitioning-for-large-datasets"></a>Partitionnement de fichiers pour les jeux de données volumineux
+
+Si vous disposez d’un Contrat client Microsoft ou d’un Contrat Partenaire Microsoft, vous pouvez activer les exportations pour diviser votre fichier en plusieurs partitions de fichiers plus petites et ainsi faciliter l’ingestion des données. Lors de la phase initiale de configuration de l’exportation, définissez le paramètre **Partitionnement de fichiers** sur **Activé**. Ce paramètre est défini sur **Désactivé** par défaut.
+
+:::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Capture d’écran montrant l’option Partitionnement de fichiers." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
+
+#### <a name="update-existing-exports-to-use-file-partitioning"></a>Mettre à jour les exportations existantes pour utiliser le partitionnement de fichiers
+
+Si vous avez des exportations existantes et que vous souhaitez configurer le partitionnement de fichiers, créez une nouvelle exportation. Le partitionnement de fichiers n’est disponible qu’avec la dernière version des exportations. Certains champs contenus dans les fichiers d’utilisation créés peuvent avoir fait l’objet de modifications mineures.
+
+Si vous activez le partitionnement de fichiers pour une exportation existante, vous remarquerez peut-être que des modifications mineures ont été apportées aux champs de la sortie des fichiers. Les modifications sont dues aux mises à jour dont ont fait l’objet les exportations après la configuration initiale des vôtres.
+
+#### <a name="partitioning-output"></a>Sortie du partitionnement
+
+Quand le partitionnement de fichiers est activé, vous obtenez un fichier pour chaque partition de données de l’exportation avec un fichier _manifest.json. Le manifeste contient un résumé du jeu de données complet et des informations pour chaque partition de fichier qu’il contient. Chaque partition de fichier présente des en-têtes et ne contient qu’un sous-ensemble du jeu de données complet. Pour gérer le jeu de données complet, vous devez ingérer chaque partition de l’exportation.
+
+Voici un exemple de fichier manifeste _manifest.json.
+
+```json
+{
+  "manifestVersion": "2021-01-01",
+  "dataFormat": "csv",
+  "blobCount": 1,
+  "byteCount": 160769,
+  "dataRowCount": 136,
+  "blobs": [
+    {
+      "blobName": "blobName.csv",
+      "byteCount": 160769,
+      "dataRowCount": 136,
+      "headerRowCount": 1,
+      "contentMD5": "md5Hash"
+    }
+  ]
+}
+```
 ## <a name="verify-that-data-is-collected"></a>Vérifier que les données sont collectées
 
 Vous pouvez facilement vérifier que vos données Cost Management sont collectées et visualiser le fichier CSV exporté avec l’Explorateur Stockage Azure.

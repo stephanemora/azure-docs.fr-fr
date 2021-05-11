@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a08dfd1771ab0a8f866ffad1faa2c7d867b3072
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225623"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075498"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -152,5 +152,5 @@ L'équilibreur de charge inter-région achemine le trafic vers l'équilibreur de
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Voir le [tutoriel : Créer un équilibreur de charge interrégional à l’aide du portail Azure](tutorial-cross-region-portal.md) pour créer un équilibreur interrégional.
-- Consultez [Créer un équilibreur de charge standard public](quickstart-load-balancer-standard-public-portal.md) pour créer un équilibreur de charge régional standard.
+- En savoir plus sur l’[équilibreur de charge interrégional](https://www.youtube.com/watch?v=3awUwUIv950).
 - En savoir plus sur [Azure Load Balancer](load-balancer-overview.md).

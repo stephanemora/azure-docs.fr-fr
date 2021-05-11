@@ -9,20 +9,20 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 04/28/2021
 ms.author: aahi
 keywords: local, Docker, conteneur, identifier
-ms.openlocfilehash: 36cbd7bd24304871593b107f9b8ed9be02ce46de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af013000b49690a4edd71c16e607ed57b3ca163
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706790"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291025"
 ---
-# <a name="install-and-run-face-containers-preview"></a>Installer et exécuter des conteneurs Visage (préversion)
+# <a name="install-and-run-face-containers-retiring"></a>Installer et exécuter des conteneurs Visage (mise hors service)
 
 > [!IMPORTANT]
-> La limite pour les utilisateurs du conteneur Visage a été atteinte. Nous n’acceptons actuellement aucune nouvelle inscription pour le conteneur Visage.
+> La préversion du conteneur Visage n’accepte plus les applications, et le conteneur est déconseillé depuis le 29 avril 2021. Le conteneur Visage sera entièrement mis hors service le 26 juillet 2021.
 
 L’API Visage d’Azure Cognitive Services fournit un conteneur Docker Linux qui détecte et analyse les visages humains dans des images. Cette API identifie également les attributs, y compris les caractéristiques comme le nez et les yeux, le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de ces capacités de détection, l’API Visage peut vérifier si deux visages dans la même image ou dans des images différentes sont identiques à l’aide d’un score de confiance. L’API Visage peut également comparer les visages par rapport à une base de données pour voir si un visage paraissant similaire ou identique existe déjà. Elle peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.
 

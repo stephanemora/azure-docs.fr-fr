@@ -10,28 +10,29 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e247e372237572586e5a4647d24d9ed6067ea823
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba92ca8a959fae389dbdb30c295e6592f76100eb
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104949785"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288523"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Utiliser les extensions PostgreSQL dans votre groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale
 
 PostgreSQL est optimal quand vous l’utilisez avec des extensions. En fait, un élément clé de notre propre fonctionnalité Hyperscale est l’extension `citus` fournie par Microsoft qui est installée par défaut et permet à Postgres de partitionner les données sur plusieurs nœuds de façon transparente.
 
-
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="supported-extensions"></a>Extensions prises en charge
 Les extensions [`contrib`](https://www.postgresql.org/docs/12/contrib.html) standard et les extensions suivantes sont déjà déployées dans les conteneurs de votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc :
-- [`citus`](https://github.com/citusdata/citus), v: 9.4. L’extension Citus par [Citus Data](https://www.citusdata.com/) est chargée par défaut, car elle apporte la fonctionnalité Hyperscale au moteur PostgreSQL. La suppression de l’extension Citus de votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc n’est pas prise en charge.
-- [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.2
+- [`citus`](https://github.com/citusdata/citus), v: 10.0. L’extension Citus par [Citus Data](https://www.citusdata.com/) est chargée par défaut, car elle apporte la fonctionnalité Hyperscale au moteur PostgreSQL. La suppression de l’extension Citus de votre groupe de serveurs PostgreSQL Hyperscale avec Azure Arc n’est pas prise en charge.
+- [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.3
 - [`pgaudit`](https://www.pgaudit.org/), v: 1.4
 - plpgsql, v: 1.0
 - [`postgis`](https://postgis.net), v: 3.0.2
 - [`plv8`](https://plv8.github.io/), v: 2.3.14
+- [`pg_partman`](https://github.com/pgpartman/pg_partman), v: 4.4.1/
+- [`tdigest`](https://github.com/tvondra/tdigest), v: 1.0.1
 
 Cette liste sera mise à jour au fil du temps.
 
@@ -52,8 +53,8 @@ Ce guide se base sur un scénario d’utilisation de deux de ces extensions :
 |`postgis`      |Non       |Oui        |
 |`plv8`      |Non       |Oui        |
 
-## <a name="add-extensions-to-the-shared_preload_libraries"></a>Ajouter des extensions à shared_preload_libraries
-Pour plus d’informations sur shared_preload_libraries, veuillez lire la documentation PostgreSQL [ici](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES) :
+## <a name="add-extensions-to-the-shared_preload_libraries"></a>Ajouter des extensions à `shared_preload_libraries`
+Pour plus d’informations sur `shared_preload_libraries`, veuillez lire la documentation PostgreSQL [ici](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES) :
 - Cette étape n’est pas nécessaire pour les extensions qui font partie de `contrib`.
 - Cette étape n’est pas requise pour les extensions qui ne doivent pas être préchargées par shared_preload_libraries. Pour ces extensions, vous pouvez passer au paragraphe suivant intitulé [Créer des extensions](#create-extensions).
 

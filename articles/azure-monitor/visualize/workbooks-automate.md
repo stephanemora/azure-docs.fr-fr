@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 9d4aac17ca823f4eaa0f52ab260b1daca3f52f94
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: e1d96dd885fafcd95af1ae9d4757fb5c6ee4a3ef
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109745"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315306"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gérer programmatiquement des classeurs
 
@@ -205,6 +205,102 @@ Les types de classeurs spécifient dans quel type de galerie de classeurs la nou
 | `workbook` | Valeur par défaut utilisée dans la plupart des rapports, qui comprend la galerie de classeurs d’Application Insights, d’Azure Monitor, etc.  |
 | `tsg` | Galerie de guides de dépannage dans Application Insights |
 | `usage` | Galerie _Plus_ sous _Utilisation_ dans Application Insights |
+
+### <a name="working-with-json-formatted-workbook-data-in-the-serializeddata-template-parameter"></a>Utilisation de données de classeur au format JSON dans le paramètre de modèle serializedData
+
+Lors de l’exportation d’un modèle Azure Resource Manager pour un classeur Azure, il existe souvent des liens de ressources fixes incorporés dans le paramètre de modèle `serializedData` exporté. Ceux-ci incluent des valeurs potentiellement sensibles, telles que l’ID d’abonnement et le nom du groupe de ressources, ainsi que d’autres types d’ID de ressource.
+
+L’exemple ci-dessous illustre la personnalisation d’un modèle Azure Resource Manager de classeur exporté, sans recourir à la manipulation de chaînes. Le modèle présenté dans cet exemple est conçu pour utiliser les données non modifiées telles qu’elles sont exportées depuis le portail Azure. Il est également recommandé de masquer toute valeur sensible intégrée lorsque les classeurs sont gérés par programmation. Par conséquent, l’ID d’abonnement et le groupe de ressources ont été masqués ici. Aucune autre modification n’a été apportée à la valeur `serializedData` entrante brute.
+
+```json
+{
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workbookDisplayName": {
+      "type": "string"
+    },
+    "workbookSourceId": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().id]"
+    },
+    "workbookId": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
+    }
+  },
+  "variables": {
+    // serializedData from original exported Azure Resource Manager template
+    "serializedData": "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"Replace with Title\"},\"name\":\"text - 0\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"{\\\"version\\\":\\\"ARMEndpoint/1.0\\\",\\\"data\\\":null,\\\"headers\\\":[],\\\"method\\\":\\\"GET\\\",\\\"path\\\":\\\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups\\\",\\\"urlParams\\\":[{\\\"key\\\":\\\"api-version\\\",\\\"value\\\":\\\"2019-06-01\\\"}],\\\"batchDisabled\\\":false,\\\"transformers\\\":[{\\\"type\\\":\\\"jsonpath\\\",\\\"settings\\\":{\\\"tablePath\\\":\\\"$..*\\\",\\\"columns\\\":[]}}]}\",\"size\":0,\"queryType\":12,\"visualization\":\"map\",\"tileSettings\":{\"showBorder\":false},\"graphSettings\":{\"type\":0},\"mapSettings\":{\"locInfo\":\"AzureLoc\",\"locInfoColumn\":\"location\",\"sizeSettings\":\"location\",\"sizeAggregation\":\"Count\",\"opacity\":0.5,\"legendAggregation\":\"Count\",\"itemColorSettings\":null}},\"name\":\"query - 1\"}],\"isLocked\":false,\"fallbackResourceIds\":[\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/XXXXXXX\"]}",
+
+    // parse the original into a JSON object, so that it can be manipulated
+    "parsedData": "[json(variables('serializedData'))]",
+
+    // create new JSON objects that represent only the items/properties to be modified
+    "updatedTitle": {
+      "content":{
+        "json": "[concat('Resource Group Regions in subscription \"', subscription().displayName, '\"')]"
+      }
+    },
+    "updatedMap": {
+      "content": {
+        "path": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups')]"
+      }
+    },
+
+    // the union function applies the updates to the original data
+    "updatedItems": [
+      "[union(variables('parsedData')['items'][0], variables('updatedTitle'))]",
+      "[union(variables('parsedData')['items'][1], variables('updatedMap'))]"
+    ],
+
+    // copy to a new workbook object, with the updated items
+    "updatedWorkbookData": {
+      "version": "[variables('parsedData')['version']]",
+      "items": "[variables('updatedItems')]",
+      "isLocked": "[variables('parsedData')['isLocked']]",
+      "fallbackResourceIds": ["[parameters('workbookSourceId')]"]
+    },
+
+    // convert back to an encoded string
+    "reserializedData": "[string(variables('updatedWorkbookData'))]"
+  },
+  "resources": [
+    {
+      "name": "[parameters('workbookId')]",
+      "type": "microsoft.insights/workbooks",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-06-17-preview",
+      "dependsOn": [],
+      "kind": "shared",
+      "properties": {
+        "displayName": "[parameters('workbookDisplayName')]",
+        "serializedData": "[variables('reserializedData')]",
+        "version": "1.0",
+        "sourceId": "[parameters('workbookSourceId')]",
+        "category": "workbook"
+      }
+    }
+  ],
+  "outputs": {
+    "workbookId": {
+      "type": "string",
+      "value": "[resourceId( 'microsoft.insights/workbooks', parameters('workbookId'))]"
+    }
+  },
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
+}
+```
+
+Dans cet exemple, les étapes suivantes facilitent la personnalisation d’un modèle Azure Resource Manager exporté :
+1. Exportez le classeur en tant que modèle Azure Resource Manager, comme expliqué dans la section ci-dessus.
+2. Dans la section `variables` du modèle :
+    1. Analysez la valeur `serializedData` dans une variable objet JSON, qui crée une structure JSON comprenant un tableau d’éléments qui représentent le contenu du classeur.
+    2. Créez de nouveaux objets JSON qui représentent uniquement les éléments/propriétés à modifier.
+    3. Projetez un nouvel ensemble d’éléments de contenu JSON (`updatedItems`) en utilisant la fonction `union()` pour appliquer les modifications aux éléments JSON d’origine.
+    4. Créez un nouvel objet de classeur, `updatedWorkbookData`, qui contient `updatedItems` les données `version`/`isLocked` des données analysées d’origine, ainsi qu’un ensemble corrigé de `fallbackResourceIds`.
+    5. Sérialisez le nouveau contenu JSON dans une nouvelle variable de chaîne, `reserializedData`.
+3. Utilisez la nouvelle variable `reserializedData` à la place de la propriété `serializedData` d’origine.
+4. Déployez la nouvelle ressource de classeur à l’aide du modèle Azure Resource Manager mis à jour.
 
 ### <a name="limitations"></a>Limites
 Pour une raison technique, ce mécanisme ne permet pas de créer des instances de classeur dans la galerie _Classeurs_ d’Application Insights. Nous mettons tout en œuvre pour corriger cette limitation. En attendant, nous vous recommandons d’utiliser la Galerie de guides de dépannage (workbookType : `tsg`) pour déployer des classeurs Application Insights.

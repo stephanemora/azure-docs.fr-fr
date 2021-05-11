@@ -1,18 +1,19 @@
 ---
-title: 'Passerelle VPN : client VPN pour les connexions P2S de protocole OpenVPN : Authentification Azure AD'
-description: Apprenez à configurer un client VPN pour qu'il se connecte à un réseau virtuel à l'aide d'un VPN point à site et de l'authentification Azure Active Directory.
+title: 'Configurer des clients VPN pour les connexions P2S de protocole OpenVPN : authentification Azure AD'
+description: Découvrez comment configurer un client VPN pour qu’il se connecte à un réseau virtuel en utilisant un VPN point à site de passerelle VPN et l’authentification Azure Active Directory.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 04/28/2021
 ms.author: alzam
-ms.openlocfilehash: 02ce8e1809c5dd404e7afa25178acf37e7346cab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce03424288b8d0f4f7189eac9ba9d82a43aaa3d8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548408"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202890"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Authentification Azure Active Directory : Configurer un client VPN pour les connexions P2S de protocole OpenVPN
 
@@ -22,27 +23,27 @@ Cet article vous aide à configurer un client VPN pour qu’il se connecte à un
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Utilisation de profils clients
 
-Pour vous connecter, vous devez télécharger Azure VPN Client et configurer un profil de client VPN sur chaque ordinateur qui veut se connecter au réseau virtuel. Vous pouvez créer un profil client sur un ordinateur, l’exporter, puis l’importer sur des ordinateurs supplémentaires.
+Pour l’ordinateur appelé à se connecter au réseau virtuel via le client VPN, vous devez télécharger Azure VPN Client sur l’ordinateur et aussi configurer un profil client VPN. Si vous souhaitez configurer plusieurs ordinateurs, vous pouvez créer un profil client sur un ordinateur, l’exporter, puis l’importer sur les autres ordinateurs.
 
 ### <a name="to-download-the-azure-vpn-client"></a>Pour télécharger le client VPN Azure
 
-Utilisez ce [lien](https://go.microsoft.com/fwlink/?linkid=2117554) pour télécharger Azure VPN Client. Assurez-vous qu’Azure VPN Client est autorisé à s’exécuter en arrière-plan. Pour vérifier ou activer l’autorisation, suivez les étapes ci-dessous :
+1. Téléchargez [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554) sur l’ordinateur.
+1. Vérifiez qu’Azure VPN Client est autorisé à s’exécuter en arrière-plan. Pour vérifier et activer les autorisations, accédez à **Démarrer -> Paramètres -> Confidentialité -> Applications en arrière-plan**.
 
-1. Accédez à Démarrer, puis sélectionnez Paramètres > Confidentialité > Applications en arrière-plan.
-2. Sous Applications en arrière-plan, assurez-vous que l’option **Autoriser les applications à s’exécuter en arrière-plan** est activée.
-3. Sous Choisir les applications qui peuvent s’exécuter en arrière-plan, configurez les paramètres d’Azure VPN Client sur **Activé**.
+   * Sous **Applications en arrière-plan**, vérifiez que l’option **Autoriser les applications à s’exécuter en arrière-plan** est définie sur **Activé**.
+   * Sous **Choisir les applications qui peuvent s’exécuter en arrière-plan**, définissez l’option **Azure VPN Client** sur **Activé**.
 
-  ![autorisation](./media/openvpn-azure-ad-client/backgroundpermission.png)
+     ![Capture d’écran des autorisations.](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
 ### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Pour créer un profil client basé sur un certificat
 
 Lorsque vous utilisez un profil basé sur un certificat, assurez-vous que les certificats appropriés sont installés sur l’ordinateur client. Pour plus d’informations sur les certificats, consultez [Installer un certificat client](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-  ![cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
+![Capture d’écran de l’authentification par certificat.](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
 
 ### <a name="to-create-a-radius-client-profile"></a><a name="radius"></a>Pour créer un profil client RADIUS
 
-  ![radius](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+![Capture d’écran de l’authentification RADIUS.](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
   
 > [!NOTE]
 > Le secret du serveur peut être exporté dans le profil client VPN P2S.  Vous trouverez des instructions sur l’exportation d’un profil client [ici](about-vpn-profile-download.md).
@@ -160,7 +161,7 @@ Oui, avec le correctif logiciel [KB4577063](https://support.microsoft.com/help/4
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Comment faire pour ajouter des suffixes DNS au client VPN ?
 
-Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>**
+Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** .
 
 ```
 <azvpnprofile>
@@ -178,7 +179,7 @@ Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balis
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Comment ajouter des serveurs DNS personnalisés au client VPN ?
 
-Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>**
+Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** .
 
 ```
 <azvpnprofile>
@@ -197,9 +198,44 @@ Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balis
 > Le client OpenVPN Azure AD utilise les entrées de la table de stratégie de résolution de noms DNS, ce qui signifie que les serveurs DNS ne seront pas listés sous la sortie de `ipconfig /all`. Pour confirmer vos paramètres DNS en cours d’utilisation, consultez [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) dans PowerShell.
 >
 
+### <a name="can-i-configure-split-tunneling-for-the-vpn-client"></a><a name="split"></a>Puis-je configurer le tunneling fractionné pour le client VPN ?
+
+Le tunneling fractionné est configuré par défaut pour le client VPN.
+
+### <a name="how-do-i-direct-all-traffic-to-the-vpn-tunnel-forced-tunneling"></a><a name="forced-tunnel"></a>Comment diriger l’ensemble du trafic vers le tunnel VPN (tunneling forcé) ?
+
+Vous pouvez configurer le tunneling forcé selon deux méthodes différentes : en publiant des routes personnalisées ou en modifiant le fichier XML de profil.    
+
+> [!NOTE]
+> Aucune connectivité Internet n’est fournie via la passerelle VPN. De ce fait, l’ensemble du trafic lié à Internet est abandonné.
+>
+
+* **Publier des routes personnalisées :** vous pouvez publier les routes personnalisées 0.0.0.0/1 et 128.0.0.0/1. Pour plus d’informations, consultez [Publier des routes personnalisées pour des clients VPN point à site](vpn-gateway-p2s-advertise-custom-routes.md).
+
+* **Profil XML :** vous pouvez modifier le fichier XML de profil téléchargé pour ajouter les balises **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** .
+
+
+    ```
+    <azvpnprofile>
+    <clientconfig>
+          
+        <includeroutes>
+            <route>
+                <destination>0.0.0.0</destination><mask>1</mask>
+            </route>
+            <route>
+                <destination>128.0.0.0</destination><mask>1</mask>
+            </route>
+        </includeroutes>
+           
+    </clientconfig>
+    </azvpnprofile>
+    ```
+
+
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Comment ajouter des routes personnalisées au client VPN ?
 
-Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>**
+Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** .
 
 ```
 <azvpnprofile>
@@ -217,7 +253,7 @@ Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balis
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Comment bloquer (exclure) des routes à partir du client VPN ?
 
-Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>**
+Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** .
 
 ```
 <azvpnprofile>
@@ -233,14 +269,14 @@ Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balis
 </azvpnprofile>
 ```
 
-### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Puis-je importer le profil à partir d'une invite de ligne de commande ?
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Est-ce que je peux importer le profil à partir d’une invite de ligne de commande ?
 
-Vous pouvez importer le profil à partir d'une invite de ligne de commande en déplaçant le fichier **azurevpnconfig.xml** téléchargé vers le dossier **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** et en exécutant la commande suivante :
+Vous pouvez importer le profil à partir d’une invite de ligne de commande en plaçant le fichier **azurevpnconfig.xml** téléchargé dans le dossier **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** et en exécutant la commande suivante :
 
 ```
 azurevpn -i azurevpnconfig.xml 
 ```
-Pour forcer l'importation, utilisez également le commutateur **-f**
+Pour forcer l’importation, utilisez le commutateur **-f**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

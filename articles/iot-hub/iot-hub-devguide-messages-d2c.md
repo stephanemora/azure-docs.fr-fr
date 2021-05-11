@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 07bbd50dbc415b86aa0c511d46ead9f0612df107
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 545272b15862ebab81d839cb8a885560f8920b76
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642507"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286309"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -59,7 +59,7 @@ IoT Hub prend en charge l’écriture de données sur Stockage Azure au format [
 
 Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage de blobs ; il ne peut pas être modifié pour un point de terminaison existant. Pour changer les formats d’encodage d’un point de terminaison existant, vous devez supprimer et recréer le point de terminaison personnalisé avec le format souhaité. Une stratégie utile peut consister à créer un nouveau point de terminaison personnalisé avec le format d’encodage souhaité et à ajouter un itinéraire parallèle à ce point de terminaison. De cette façon, vous pouvez vérifier vos données avant de supprimer le point de terminaison existant.
 
-Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour d’IoT Hub, en particulier [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](/cli/azure/iot/hub/routing-endpoint) ou [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). L’image suivante illustre la façon de sélectionner le format d’encodage dans le portail Azure.
+Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour de hub IoT, en particulier [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le [portail Azure](https://portal.azure.com), [Azure CLI](/cli/azure/iot/hub/routing-endpoint) ou [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). L’image suivante illustre la façon de sélectionner le format d’encodage dans le portail Azure.
 
 ![Encodage du point de terminaison de stockage Blob](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -105,7 +105,7 @@ En plus du point de terminaison compatible Event Hubs intégré, vous pouvez rou
 
 Vous pouvez configurer une route en suivant ce [tutoriel](tutorial-routing.md).
 
-Utilisez les tutoriels suivants pour découvrir comment lire un message à partir d’un point de terminaison.
+Utilisez les tutoriels suivants pour découvrir comment lire les messages à partir d’un point de terminaison.
 
 * Lecture à partir du [point de terminaison intégré](quickstart-send-telemetry-node.md)
 

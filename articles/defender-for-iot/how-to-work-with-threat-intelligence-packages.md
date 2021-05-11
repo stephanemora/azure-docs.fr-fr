@@ -3,12 +3,12 @@ title: Mettre à jour les données de renseignement sur les menaces
 description: Le paquet de données pour le renseignement sur les menaces est fourni avec chaque nouvelle version de Defender pour IoT, ou entre deux versions si nécessaire.
 ms.date: 04/17/2021
 ms.topic: how-to
-ms.openlocfilehash: bb38d0a2486bda336d6881ec6f4c5d680906c973
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f5282002f406c62341f5d104c14aa1cbe9ad32dd
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750461"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208884"
 ---
 # <a name="threat-intelligence-research-and-packages"></a>Recherche et packages de renseignement sur les menaces #
 ## <a name="overview"></a>Vue d’ensemble ##
@@ -32,7 +32,9 @@ Ces renseignements fournissent des informations contextuelles qui enrichissent l
 
 ## <a name="when-are-packages-delivered"></a>Quand les packages sont-ils remis ? ##
 
-Les packages de renseignement sur les menaces sont fournis environ une fois par mois, ou plus fréquemment si nécessaire. Les annonces concernant les nouveaux packages sont disponibles à l’adresse suivante : https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT. 
+Les packages de renseignement sur les menaces sont fournis environ une fois par mois, ou plus fréquemment si nécessaire. Les annonces concernant les nouveaux packages sont disponibles à l’adresse suivante : https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT.
+
+Vous pouvez également voir le package livré le plus récent à partir de la section **Mise à jour du renseignement sur les menaces** de la page **Mises à jour** sur le portail Defender pour IoT.  
 
 ## <a name="update-threat-intelligence-packages-to-your-sensors"></a>Mettre à jour les packages de renseignement sur les menaces sur vos capteurs ##
 
@@ -114,7 +116,7 @@ Les informations sur la version et l’état de mise à jour du package s’affi
 Vérifiez les informations suivantes sur les packages de renseignement sur les menaces pour vos capteurs connectés au cloud :
 
 - Version de package installée
-- Mode de mise à jour du renseignement sur les menaces
+- Mode de mise à jour de Threat Intelligence
 - État de la mise à jour du renseignement sur les menaces
 
 Pour vérifiez les informations relatives au renseignement sur les menaces :
