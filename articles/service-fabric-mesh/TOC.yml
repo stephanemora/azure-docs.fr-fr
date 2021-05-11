@@ -1,0 +1,33 @@
+- name: Documentation Service Fabric Mesh
+  href: index.yml
+- name: Vue d’ensemble
+  expanded: true
+- name: Démarrages rapides
+- name: Tutoriels
+  items:
+    - name: Générer et déployer une application de maillage avec Visual Studio
+    - name: 'Déployer, mettre à l’échelle et mettre à jour une application de maillage de Service Fabric à l’aide d’un modèle'
+- name: Concepts
+- name: Guides pratiques
+- name: Informations de référence
+  items:
+    - name: API REST de fournisseur de ressources Service Fabric Mesh
+      href: /rest/api/servicefabric/sfmeshrp-index
+    - name: Informations de référence sur l’interface CLI Service Fabric Mesh
+      href: /cli/azure/mesh
+    - name: API REST de ressource client Service Fabric
+      href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
+- name: Ressources
+  items:
+    - name: Exemples d’applications
+      href: 'https://github.com/Azure-Samples/service-fabric-mesh'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=service-fabric-mesh'
+    - name: Vidéos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/regions/services/'

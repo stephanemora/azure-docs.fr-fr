@@ -1,6 +1,6 @@
 - name: Documentation relative au service Azure IoT Hub Device Provisioning
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’IoT Hub Device Provisioning Service\_?"
       href: about-iot-dps.md
@@ -152,7 +152,7 @@
         - name: Windows
           href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
           maintainContext: true
-    - name: Dépannage
+    - name: Résolution des problèmes
       href: how-to-troubleshoot-dps.md
 - name: Informations de référence
   items:
@@ -175,7 +175,9 @@
 - name: Ressources
   items:
     - name: Options d’aide et de support
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
+    - name: Glossaire IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
     - name: Services Azure IoT
       items:
         - name: IoT Hub
@@ -213,7 +215,7 @@
         - name: Plateforme iOS
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Catalogue d’appareils certifiés Azure pour l’IoT
-      href: 'https://catalog.azureiotsolutions.com/'
+      href: 'https://devicecatalog.azure.com/'
     - name: Centre de développement Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Demandes de données client

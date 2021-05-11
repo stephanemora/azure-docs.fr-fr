@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 4d856232d2f0780852a1f369548b08012d124834
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: de93d836731f9f8e21170d896d8c7dd2c4b90ffa
+  ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101729162"
+  ms.lasthandoff: 03/14/2021
+  ms.locfileid: "103463887"
 landingContent:
 - title: À propos d’Azure Functions
   linkLists:
@@ -22,12 +22,16 @@ landingContent:
     links:
     - text: Qu’est-ce que Azure Functions ?
       url: functions-overview.md
-    - text: Comparer les options serverless
-      url: functions-compare-logic-apps-ms-flow-webjobs.md
+  - linkListType: get-started
+    links:
+    - text: Prise en main
+      url: functions-get-started.md
   - linkListType: concept
     links:
     - text: Options d’hébergement
       url: functions-scale.md
+    - text: Comparer les options serverless
+      url: functions-compare-logic-apps-ms-flow-webjobs.md
   - linkListType: learn
     links:
     - text: Choisir une option de calcul serverless
