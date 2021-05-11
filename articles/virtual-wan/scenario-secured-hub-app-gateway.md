@@ -1,19 +1,19 @@
 ---
 title: Sécuriser le trafic entre Application Gateway et des pools de back-ends
 titleSuffix: Azure Virtual WAN
-description: 'Scénarios de routage : Sécuriser le trafic transitant par une passerelle applicative déployée dans un réseau virtuel spoke connecté à un hub Virtual WAN sécurisé.'
+description: En savoir plus sur les scénarios de routage Virtual WAN pour sécuriser le trafic transitant par une passerelle applicative. La passerelle applicative est déployée dans un réseau virtuel spoke connecté à un hub Virtual WAN sécurisé.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: d9cb1251b90cf1c928f8286072bcd91e5ddf767e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9bb3343bc9c3dffa8f84280cd0799c7e92f4f50c
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315246"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165800"
 ---
 # <a name="scenario-secure-traffic-between-application-gateway-and-backend-pools"></a>Scénario : Sécuriser le trafic entre Application Gateway et des pools de back-ends
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 04/28/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830119a5b3a7781e8b12e3d4df870f539a2cd63a
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: fa7f62c43f9d015c1ab10a204189ccebc2999ae9
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364904"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163010"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 
@@ -26,6 +26,10 @@ ms.locfileid: "107364904"
 
 Cet article décrit comment configurer la fédération directe avec une autre organisation pour la collaboration B2B. Vous pouvez configurer la fédération directe avec n’importe quelle organisation dont le fournisseur d’identité (IdP) prend en charge le protocole SAML 2.0 ou WS-Fed.
 Lorsque vous configurez la fédération directe avec un fournisseur d’identité partenaire, les nouveaux utilisateurs invités de ce domaine peuvent utiliser leur propre compte professionnel géré par le fournisseur d’identité pour se connecter à votre locataire Azure AD et commencer à travailler avec vous. Il n’est pas nécessaire pour l’utilisateur invité de créer un compte Azure AD séparé.
+
+> [!IMPORTANT]
+> - Nous avons supprimé la limitation qui exigeait que le domaine de l'URL d'authentification corresponde au domaine cible ou qu'il provienne d'un fournisseur d'identité autorisé. Pour plus d'informations, consultez [Étape 1 : Déterminer si le partenaire doit mettre à jour ses enregistrements texte DNS](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records).
+>-  Nous recommandons maintenant que le partenaire définisse le public du fournisseur d'identité basé sur SAML ou WS-Fed sur un public avec locataire. Reportez-vous aux sections relatives aux attributs et revendications requis pour [SAML 2.0](#required-saml-20-attributes-and-claims) et [WS-Fed](#required-ws-fed-attributes-and-claims) ci-dessous.
 
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quand un utilisateur invité est-il authentifié avec la fédération directe ?
 Après avoir configuré la fédération directe avec une organisation, tous les utilisateurs invités que vous invitez seront authentifiés à l’aide de la fédération directe. Il est important de noter que configurer la fédération directe ne change pas la méthode d’authentification pour les utilisateurs invités qui ont déjà utilisé une invitation de votre part. Voici quelques exemples :
@@ -57,21 +61,6 @@ Vous pouvez également fournir aux utilisateurs invités de la fédération dire
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domaines vérifiés par DNS dans Azure AD
 Le domaine avec lequel vous voulez vous fédérer ne doit ***pas*** être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
 
-### <a name="authentication-url"></a>URL d’authentification
-La fédération directe est uniquement autorisée pour les stratégies où le domaine de l’URL d’authentification correspond au domaine cible, ou lorsque l’URL d’authentification correspond à l’un de ces fournisseurs d’identité autorisés (cette liste est susceptible de changer) :
-
--   accounts.google.com
--   pingidentity.com
--   login.pingone.com
--   okta.com
--   oktapreview.com
--   okta-emea.com
--   my.salesforce.com
--   federation.exostar.com
--   federation.exostartest.com
-
-Par exemple, lorsque vous configurez la fédération directe pour **fabrikam.com**, l’URL d’authentification `https://fabrikam.com/adfs` transmet la validation. Un ordinateur hôte dans le même domaine passe également, par exemple `https://sts.fabrikam.com/adfs`. Toutefois, l’URL d’authentification `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` pour le même domaine ne passera pas.
-
 ### <a name="signing-certificate-renewal"></a>Renouvellement du certificat de signature
 Si vous spécifiez l’URL de métadonnées dans les paramètres du fournisseur d’identité, Azure AD renouvelle automatiquement le certificat de signature à son expiration. Toutefois, si le certificat pivote avant le délai d’expiration pour une raison quelconque, ou si vous ne fournissez pas une URL de métadonnées, Azure AD ne pourra pas le renouveler. Dans ce cas, vous devez mettre à jour le certificat de signature manuellement.
 
@@ -90,8 +79,36 @@ Lorsque la fédération directe est établie avec une organisation partenaire, e
 Non, la fonctionnalité de connexion par [code secret à usage unique par e-mail](one-time-passcode.md) doit être utilisée dans ce cas. Une « location partiellement synchronisée » fait référence à un locataire Azure AD partenaire où les identités utilisateur locales ne sont pas entièrement synchronisées avec le cloud. Un invité dont l’identité n’existe pas encore dans le cloud mais qui essaie d’utiliser votre invitation B2B ne pourra pas se connecter. La fonctionnalité de code secret à usage unique permettrait à cet invité de se connecter. La fonctionnalité de fédération directe répond aux scénarios où l’invité a son propre compte professionnel géré par le fournisseur d’identité, mais que l’organisation n’a aucune présence sur Azure AD.
 ### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Une fois que la fédération directe est configurée avec une organisation, faut-il envoyer une invitation individuelle à chaque invité pour qu’il l’utilise ?
 La configuration de la fédération directe ne change pas la méthode d’authentification pour les utilisateurs invités qui ont déjà utilisé une invitation de votre part. Vous pouvez mettre à jour la méthode d’authentification d’un utilisateur invité en [réinitialisant l’état d’acceptation](reset-redemption-status.md).
-## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Étape 1 : Configurer le fournisseur d’identité de l’organisation partenaire
-Votre organisation partenaire doit d’abord configurer son fournisseur d’identité avec les revendications requises et les approbations de partie de confiance. 
+
+## <a name="step-1-determine-if-the-partner-needs-to-update-their-dns-text-records"></a>Étape 1 : Déterminer si le partenaire doit mettre à jour ses enregistrements texte DNS
+
+En fonction de son fournisseur d'identité, le partenaire devra peut-être mettre à jour ses enregistrements DNS pour activer la fédération directe avec vous. Procédez comme suit pour déterminer si des mises à jour des enregistrements DNS sont nécessaires.
+
+1. Si le fournisseur d'identité du partenaire correspond à l'un des fournisseurs d'identité autorisés suivants, aucune modification des enregistrements DNS n'est nécessaire (cette liste est sujette à modification) :
+
+     - accounts.google.com
+     - pingidentity.com
+     - login.pingone.com
+     - okta.com
+     - oktapreview.com
+     - okta-emea.com
+     - my.salesforce.com
+     - federation.exostar.com
+     - federation.exostartest.com
+     - idaptive.app
+     - idaptive.qa
+
+2. Si le fournisseur d'identité ne fait pas partie des fournisseurs autorisés répertoriés à l'étape précédente, vérifiez l'URL d'authentification du fournisseur d'identité du partenaire pour déterminer si le domaine correspond au domaine cible ou à un hôte du domaine cible. En d'autres termes, lors de la configuration de la fédération directe pour `fabrikam.com` :
+
+     - Si l'URL d'authentification est `https://fabrikam.com` ou `https://sts.fabrikam.com/adfs` (hôte du même domaine), aucune modification des enregistrements DNS n'est nécessaire.
+     - Si l'URL d'authentification est `https://fabrikamconglomerate.com/adfs`,   ou  `https://fabrikam.com.uk/adfs`, le domaine ne correspond pas au domaine fabrikam.com. Le partenaire doit donc ajouter à sa configuration DNS un enregistrement texte pour l'URL d'authentification ; passez à l'étape suivante.
+
+3. Si des modifications des enregistrements DNS sont nécessaires en fonction de l'étape précédente, demandez au partenaire d'ajouter un enregistrement TXT aux enregistrements DNS de son domaine, comme dans l'exemple suivant :
+
+   `fabrikam.com.  IN   TXT   DirectFedAuthUrl=https://fabrikamconglomerate.com/adfs`
+## <a name="step-2-configure-the-partner-organizations-identity-provider"></a>Étape 2 : Configurer le fournisseur d'identité de l'organisation partenaire
+
+Votre organisation partenaire doit ensuite configurer son fournisseur d'identité avec les revendications requises et les approbations de partie de confiance.
 
 > [!NOTE]
 > Pour illustrer comment configurer un fournisseur d’identité pour la fédération directe, nous allons utiliser les services de fédération Active Directory (AD FS) comme exemple. Consultez l’article [Configurer la fédération directe avec AD FS](direct-federation-adfs.md), qui donne des exemples montrant comment configurer AD FS en tant que fournisseur d’identité SAML 2.0 ou WS-Fed en vue de la fédération directe.
@@ -111,7 +128,7 @@ Attributs requis pour la réponse SAML 2.0 du fournisseur d’identité :
 |Attribut  |Valeur  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Public visé     |`urn:federation:MicrosoftOnline`         |
+|Public visé     |`https://login.microsoftonline.com/<tenant ID>/` (Public avec locataire recommandé.) Remplacez `<tenant ID>` par l'ID du locataire Azure AD avec lequel vous configurez la fédération directe.<br><br>`urn:federation:MicrosoftOnline` (Cette valeur sera déconseillée.)          |
 |Émetteur     |L’URI de l’émetteur du fournisseur d’identité partenaire, par exemple `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
@@ -137,7 +154,7 @@ Attributs requis dans le message WS-Fed du fournisseur d’identité :
 |Attribut  |Valeur  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Public visé     |`urn:federation:MicrosoftOnline`         |
+|Public visé     |`https://login.microsoftonline.com/<tenant ID>/` (Public avec locataire recommandé.) Remplacez `<tenant ID>` par l'ID du locataire Azure AD avec lequel vous configurez la fédération directe.<br><br>`urn:federation:MicrosoftOnline` (Cette valeur sera déconseillée.)          |
 |Émetteur     |L’URI de l’émetteur du fournisseur d’identité partenaire, par exemple `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Revendications requises pour le jeton WS-Fed émis par le fournisseur d’identité :
@@ -147,7 +164,7 @@ Revendications requises pour le jeton WS-Fed émis par le fournisseur d’identi
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Étape 2 : Configurer la fédération directe dans Azure AD 
+## <a name="step-3-configure-direct-federation-in-azure-ad"></a>Étape 3 : Configurer la fédération directe dans Azure AD 
 Ensuite, vous allez configurer la fédération avec le fournisseur d’identité configuré à l’étape 1 dans Azure AD. Vous pouvez utiliser le portail Azure AD ou PowerShell. La stratégie de la fédération directe prend effet au bout de 5 à 10 minutes. Pendant ce temps, n’essayez pas d’utiliser une invitation pour le domaine de la fédération directe. Les attributs suivants sont requis :
 - URI de l’émetteur du fournisseur d’identité du partenaire
 - Point de terminaison de l’authentification passive du fournisseur d’identité du partenaire (https uniquement est pris en charge)
@@ -178,13 +195,13 @@ Ensuite, vous allez configurer la fédération avec le fournisseur d’identité
 
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>Pour configurer la fédération directe dans Azure AD via PowerShell
 
-1. Installez la dernière version d’Azure AD PowerShell pour le module Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (Si vous avez besoin d’obtenir des instructions détaillées, le démarrage rapide pour l’ajout d’un utilisateur invité comprend la section [Installer le dernier module AzureADPreview](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module).) 
+1. Installez la dernière version d’Azure AD PowerShell pour le module Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). Si vous avez besoin d'une procédure détaillée, le Guide de démarrage rapide comprend des instructions : [Module PowerShell](b2b-quickstart-invite-powershell.md#prerequisites).
 2. Exécutez la commande suivante : 
    ```powershell
    Connect-AzureAD
    ```
-1. À l’invite de connexion, connectez-vous avec le compte d’administrateur général géré. 
-2. Exécutez les commandes suivantes, en remplaçant les valeurs à partir du fichier de métadonnées de fédération. Pour le serveur AD FS et Okta, le fichier de la fédération est federationmetadata.xml, par exemple : `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
+3. À l’invite de connexion, connectez-vous avec le compte d’administrateur général géré. 
+4. Exécutez les commandes suivantes, en remplaçant les valeurs à partir du fichier de métadonnées de fédération. Pour le serveur AD FS et Okta, le fichier de la fédération est federationmetadata.xml, par exemple : `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -198,7 +215,7 @@ Ensuite, vous allez configurer la fédération avec le fournisseur d’identité
    New-AzureADExternalDomainFederation -ExternalDomainName $domainName  -FederationSettings $federationSettings
    ```
 
-## <a name="step-3-test-direct-federation-in-azure-ad"></a>Étape 3 : Tester la fédération directe dans Azure AD
+## <a name="step-4-test-direct-federation-in-azure-ad"></a>Étape 4 : Tester la fédération directe dans Azure AD
 Testez maintenant la configuration de votre fédération directe en invitant un utilisateur invité B2B. Pour plus d’informations, consultez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](add-users-administrator.md).
  
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Comment modifier une relation de fédération directe ?

@@ -1,20 +1,20 @@
 ---
 title: À propos du routage de hub virtuel
 titleSuffix: Azure Virtual WAN
-description: Cet article décrit le routage de hub virtuel
+description: En savoir plus sur le routage de hub virtuel Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c1a2a54bf2d4c5de3e6cfca66256f60592fc1f3e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 641fc76775d4aa535490d3c6f720d81777665b36
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737509"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165278"
 ---
 # <a name="about-virtual-hub-routing"></a>À propos du routage de hub virtuel
 

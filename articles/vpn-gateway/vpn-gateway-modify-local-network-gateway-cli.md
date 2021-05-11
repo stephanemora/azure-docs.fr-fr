@@ -1,18 +1,19 @@
 ---
-title: 'Passerelle VPN : Modifier les paramètres d’adresse IP de la passerelle : Azure CLI'
-description: Cet article vous guide tout au long du processus de modification des préfixes d’adresse IP de la passerelle de votre réseau local à l’aide d’Azure CLI.
+title: "Modifier les paramètres d'adresse IP de la passerelle : Azure CLI"
+titleSuffix: Azure VPN Gateway
+description: Apprenez à modifier les préfixes d'adresse IP de votre passerelle réseau locale à partir d'Azure CLI.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: aadb2107cd009ac58cf8edb12853b10a5a0e3677
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e03da37a727c87995496878b191cbf48cfe0347
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659996"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229609"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modifier les paramètres de la passerelle du réseau local à l’aide d’Azure CLI
 

@@ -1,6 +1,6 @@
 ---
 title: Télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S
-description: Cet article vous guide dans le téléchargement de scripts de configuration de périphérique VPN pour les connexions VPN S2S avec des passerelles VPN Azure à l’aide d’Azure Resource Manager.
+description: Apprenez à télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S avec les passerelles VPN Azure.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: yushwang
@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: d2593c656e17310c5afb4a897b94cc8c12a618f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2caa392ced15f96287c3218f1413c9aa9c16fe20
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879492"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226333"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S
 
-Cet article vous guide dans le téléchargement de scripts de configuration de périphérique VPN pour les connexions VPN S2S avec des passerelles VPN Azure à l’aide d’Azure Resource Manager. Le schéma qui suit présente le flux de travail général.
+Cet article vous guide tout au long du téléchargement des scripts de configuration de périphérique VPN pour les connexions VPN S2S avec les passerelles VPN Azure. Le schéma qui suit présente le flux de travail général.
 
 ![télécharger-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
 

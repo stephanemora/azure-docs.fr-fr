@@ -2,33 +2,30 @@
 title: Concepts - Gestion des API
 description: Découvrez comment la Gestion des API protège les API s’exécutant sur des machines virtuelles Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: 958cc52c48d1121a69dca2fc901289ad1ed671cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/28/2021
+ms.openlocfilehash: aba60f255019701722b38036c87bcb592a0a4410
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94541961"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204528"
 ---
-# <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>Gestion des API pour publier et protéger des API qui s’exécutent sur des machines virtuelles Azure VMware Solution
+# <a name="publish-and-protect-apis-running-on-azure-vmware-solution-vms"></a>Publier et protéger des API qui s’exécutent sur des machines virtuelles Azure VMware Solution
 
-Microsoft Azure [Gestion des API](https://azure.microsoft.com/services/api-management/) vous permet de publier en toute sécurité des contrôles serveur consommateurs internes ou externes.  Seuls les SKU Développeur et Premium permettent l’intégration de Réseau virtuel Azure pour publier des API qui s’exécutent sur des charges de travail Azure VMware Solution.  Les deux SKU activent en toute sécurité la connectivité entre le service de Gestion des API et le serveur principal. 
+[Gestion des API](https://azure.microsoft.com/services/api-management/) de Microsoft Azure vous permet de publier de manière sécurisée sur des contrôles serveur consommateurs internes ou externes.  Seuls les SKU Développeur (développement) et Premium (production) permettent l’intégration de Réseau virtuel Microsoft Azure pour publier des API qui s’exécutent sur des charges de travail Azure VMware Solution.  Les deux SKU activent la connectivité entre le service de Gestion des API et le serveur principal. 
 
->[!NOTE]
->La référence SKU Développeur est destinée au développement et aux tests, tandis que la référence SKU Premium est destinée aux déploiements de production.
-
-La configuration de Gestion des API est la même pour les services principaux qui s’exécutent sur des machines virtuelles Azure VMware Solution et localement. Pour les deux types de déploiements, Gestion des API configure l’adresse IP virtuelle (VIPA) sur l’équilibreur de charge comme point de terminaison principal lorsque le serveur principal est placé derrière un équilibreur de charge NSX sur Azure VMware Solution. 
+La configuration de Gestion des API est la même pour les services principaux qui s’exécutent sur des machines virtuelles Azure VMware Solution et localement. Pour les deux types de déploiements, Gestion des API configure l’adresse IP virtuelle sur l’équilibreur de charge comme point de terminaison principal lorsque le serveur principal est placé derrière un équilibreur de charge NSX sur Azure VMware Solution. 
 
 
 ## <a name="external-deployment"></a>Déploiement externe
 
-Un déploiement externe publie les API consommées par les utilisateurs externes à l’aide d’un point de terminaison public. Les développeurs et les ingénieurs DevOps peuvent gérer les API via le portail Azure ou PowerShell et le portail des développeurs de Gestion des API.
+Un déploiement externe publie les API consommées par les utilisateurs externes qui se servent d’un point de terminaison public. Les développeurs et les ingénieurs DevOps peuvent gérer les API via le portail Azure ou PowerShell et le portail des développeurs de Gestion des API.
 
 Le diagramme de déploiement externe montre l’ensemble du processus et des acteurs impliqués (affiché en haut). Les acteurs sont les suivants :
 
 - **Administrateur(s) :** représente l’équipe d’administrateurs ou DevOps qui gère Azure VMware Solution au moyen du Portail Azure et de mécanismes d’automatisation comme PowerShell ou Azure DevOps.
 
-- **Utilisateurs :**  Représente les contrôles serveur consommateurs des API exposées et représente à la fois les utilisateurs et les services qui consomment les API.
+- **Utilisateurs :** représente les contrôles serveur consommateurs des API exposées et représente à la fois les utilisateurs et les services qui consomment les API.
 
 Le flux de trafic passe par l’instance de Gestion des API, qui soustrait les services principaux, branchés au réseau virtuel hub. La passerelle ExpressRoute achemine le trafic vers le canal ExpressRoute Global Reach et atteint un équilibreur de charge NSX distribuant le trafic entrant aux différentes instances des services principaux.
 
@@ -39,9 +36,9 @@ Gestion des API a une API publique Azure, et l’activation du service Azure DDo
 
 ## <a name="internal-deployment"></a>Déploiement interne
 
-Un déploiement interne publie des API consommées par des utilisateurs ou des systèmes internes. L’équipe DevOps et les développeurs d’API utilisent les mêmes outils de gestion et le même portail des développeurs que dans le cadre du déploiement externe.
+Un déploiement interne publie des API consommées par des utilisateurs ou des systèmes internes. Les équipes DevOps et les développeurs d’API utilisent les mêmes outils de gestion et le même portail des développeurs que dans le cadre du déploiement externe.
 
-Les déploiements internes peuvent être effectués [avec Azure Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) pour créer un point de terminaison public et sécurisé pour l’API.  Les capacités de la passerelle sont utilisées pour créer un déploiement hybride qui permet différents scénarios.  
+Utilisez [Azure Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) pour les déploiements internes, afin de créer un point de terminaison public et sécurisé destiné à l’API.  Les capacités de la passerelle sont utilisées pour créer un déploiement hybride qui permet différents scénarios.  
 
 * Utilisez la même ressource de Gestion des API pour la consommation à la fois par les consommateurs internes et externes.
 

@@ -1,18 +1,19 @@
 ---
 title: Connexions VPN site à site via un peering privé ExpressRoute
-description: Cet article vous aide à activer le VPN site à site via un peering privé ExpressRoute afin de chiffrer le trafic.
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment configurer des connexions VPN site à site via un Peering privé ExpressRoute afin de chiffrer le trafic.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c84b46fe3265b5ada792cbe47d92768e602fa20
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880523"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229033"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configurer une connexion VPN site à site via un peering privé ExpressRoute
 

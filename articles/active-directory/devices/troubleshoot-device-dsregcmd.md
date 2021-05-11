@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ced48308673c6688def7b949fc225eeb5b2ced4
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ea502deee0caf5418bf5554473180eb405792567
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551728"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287047"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dépannage des appareils à l’aide de la commande dsregcmd
 
@@ -36,10 +36,10 @@ Cette section répertorie les paramètres de l’état de jointure de l’appare
 > [!NOTE]
 > L’état de Workplace Join (inscrit à Azure AD) est affiché dans la section « État utilisateur ».
 
-- **AzureAdJoined :** - défini sur « Oui » si l’appareil est joint à Azure AD. « NON » dans le cas contraire.
-- **EnterpriseJoined :** - défini sur « Oui » si l’appareil est joint à un DRS local. Un appareil ne peut pas être à la fois EnterpriseJoined et AzureAdJoined.
-- **DomainJoined :** - défini sur « Oui » si l’appareil est joint à un domaine (AD).
-- **DomainName :** - définit sur le nom du domaine si l’appareil est joint à un domaine.
+- **AzureAdJoined :** défini sur « YES » si l’appareil est joint à Azure AD. « NO » dans le cas contraire.
+- **EnterpriseJoined :** défini sur « YES » si l’appareil est joint à une instance Data Replication Service locale. Un appareil ne peut pas être à la fois EnterpriseJoined et AzureAdJoined.
+- **DomainJoined :** défini sur « YES » si l’appareil est joint à un domaine (AD).
+- **DomainName :** définit sur le nom du domaine si l’appareil est joint à un domaine.
 
 ### <a name="sample-device-state-output"></a>Exemple de sortie d’état de l’appareil
 
@@ -58,12 +58,12 @@ Cette section répertorie les paramètres de l’état de jointure de l’appare
 
 S’affiche uniquement lorsque l’appareil est joint à Azure AD ou à Azure AD hybride (pas inscrit dans Azure AD). Cette section répertorie les détails d’identification des appareils stockés dans le cloud.
 
-- **DeviceID :** - ID unique de l’appareil dans le locataire Azure AD
-- **Empreinte :** -empreinte du certificat de l’appareil 
-- **DeviceCertificateValidity :** - validité du certificat de l’appareil
+- **DeviceID :** ID unique de l’appareil dans le locataire Azure AD.
+- **Empreinte :** empreinte du certificat de l’appareil.
+- **DeviceCertificateValidity :** validité du certificat de l’appareil.
 - **KeyContainerId :** -ContainerId de la clé privée de l’appareil associée au certificat de l’appareil
-- **KeyProvider :** - KeyProvider (matériel/logiciel) utilisé pour stocker la clé privée de l’appareil
-- **TpmProtected :** - « OUI » si la clé privée de l’appareil est stockée dans un module de plateforme sécurisée (TPM) matériel.
+- **KeyProvider :** fournisseur de clé (matériel/logiciel) utilisé pour stocker la clé privée de l’appareil.
+- **TpmProtected :** « YES » si la clé privée de l’appareil est stockée dans un module TPM matériel.
 
 ### <a name="sample-device-details-output"></a>Exemple de sortie des détails de l’appareil
 
@@ -89,7 +89,7 @@ S’affiche uniquement lorsque l’appareil est joint à Azure AD ou à Azure AD
 > Si les URL de la Gestion des données de référence de cette section sont vides, cela indique que la GPM est soit non configurée soit que l’utilisateur actuel n’est pas dans l’étendue de l’accord de mise en œuvre de la GPM. Vérifiez les paramètres de mobilité dans Azure AD pour vérifier votre configuration GPM.
 
 > [!NOTE]
-> Même si vous voyez des URL MDM, cela ne signifie pas que l’appareil est géré par un MDM. Les informations s’affichent si le locataire a une configuration MDM pour l’inscription automatique, même si l’appareil proprement dit n’est pas géré. 
+> Même si vous voyez des URL MDM, cela ne signifie pas que l’appareil est géré par un MDM. Les informations s’affichent si le locataire a une configuration MDM pour l’inscription automatique, même si l’appareil proprement dit n’est pas géré.
 
 ### <a name="sample-tenant-details-output"></a>Exemple de sortie de détails du locataire
 
@@ -129,15 +129,15 @@ Cette section répertorie l’état de différents attributs pour l’utilisateu
 > [!NOTE]
 > La commande doit s’exécuter dans un contexte utilisateur pour récupérer un état valide.
 
-- **NgcSet :** -défini sur « OUI » si une clé Windows Hello est définie pour l’utilisateur actuellement connecté.
-- **NgcSet :** - l’ID de la clé Windows Hello est définie pour l’utilisateur actuellement connecté.
-- **CanReset :** - indique si la clé Windows Hello peut être réinitialisée par l’utilisateur. 
-- **Valeurs possibles :** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive ou Unknown en cas d’erreur. 
-- **WorkplaceJoined :** - défini sur « OUI » si des comptes inscrits à Azure AD ont été ajoutés à l’appareil dans le contexte NTUSER actuel.
-- **WamDefaultSet :** - défini sur « OUI » si un compte WebAccount par défaut est créé pour l’utilisateur connecté. Ce champ peut afficher une erreur si dsreg /status est exécuté dans une invite de commandes avec élévation de privilèges. 
-- **WamDefaultAuthority :** -défini sur « organisations » pour Azure AD.
-- **WamDefaultId :** - toujours « https://login.microsoft.com  » pour Azure AD.
-- **WamDefaultGUID :** - le GUID du fournisseur WAM (Azure AD/compte Microsoft) pour le compte WebAccount par défaut. 
+- **NgcSet :** défini sur « YES » si une clé Windows Hello est définie pour l’utilisateur actuellement connecté.
+- **NgcSet :** ID de la clé Windows Hello si une telle clé est définie pour l’utilisateur actuellement connecté.
+- **CanReset :** indique si la clé Windows Hello peut être réinitialisée par l’utilisateur.
+- **Valeurs possibles :** DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive ou Unknown en cas d’erreur.
+- **WorkplaceJoined :** défini sur « YES » si des comptes inscrits à Azure AD ont été ajoutés à l’appareil dans le contexte NTUSER actuel.
+- **WamDefaultSet :** défini sur « YES » si un compte WAM par défaut est créé pour l’utilisateur connecté. Ce champ peut afficher une erreur si dsreg /status est exécuté dans une invite de commandes avec élévation de privilèges.
+- **WamDefaultAuthority :** défini sur « organisations » pour Azure AD.
+- **WamDefaultId :** toujours « https://login.microsoft.com  » pour Azure AD.
+- **WamDefaultGUID :** GUID du fournisseur WAM (compte Azure AD/Microsoft) pour le compte WAM par défaut.
 
 ### <a name="sample-user-state-output"></a>Exemple de sortie d’état utilisateur
 
@@ -165,14 +165,14 @@ Cette section peut être ignorée pour les appareils inscrits à Azure AD.
 > [!NOTE]
 > La commande doit s’exécuter dans un contexte utilisateur afin de récupérer un état valide pour cet utilisateur.
 
-- **AzureAdPrt :** - défini sur « OUI » si un PRT est présent sur l’appareil pour l’utilisateur connecté.
-- **AzureAdPrtUpdateTime :** - défini sur l’heure UTC de la dernière mise à jour du PRT.
-- **AzureAdPrtExpiryTime :** - défini sur l’heure UTC de l’expiration du PRT s’il n’est pas renouvelé.
-- **AzureAdPrtAuthority :** - URL d’autorité Azure AD
-- **EnterprisePrt :** - défini sur « OUI » si l’appareil a un PRT à partir d’ADFS local. Pour les appareils hybrides Azure AD joints, l’appareil peut avoir un PRT provenant à la fois d’Azure AD et d’AD local. Les appareils joints locaux ne disposent que d’un PRT d’entreprise.
-- **EnterprisePrtUpdateTime :** - défini sur l’heure UTC de la dernière mise à jour du PRT d’entreprise.
-- **EnterprisePrtExpiryTime :** - défini sur l’heure UTC de l’expiration du PRT s’il n’est pas renouvelé.
-- **EnterprisePrtAuthority :** - URL de l’autorité ADFS
+- **AzureAdPrt :** défini sur « YES » si un PRT est présent sur l’appareil pour l’utilisateur connecté.
+- **AzureAdPrtUpdateTime :** défini sur l’heure UTC de la dernière mise à jour du PRT.
+- **AzureAdPrtExpiryTime :** défini sur l’heure UTC de l’expiration du PRT s’il n’est pas renouvelé.
+- **AzureAdPrtAuthority :** URL d’autorité Azure AD.
+- **EnterprisePrt :** défini sur « YES » si l’appareil dispose d’un PRT à partir d’ADFS local. Pour les appareils hybrides Azure AD joints, l’appareil peut avoir un PRT provenant à la fois d’Azure AD et d’AD local. Les appareils joints locaux ne disposent que d’un PRT d’entreprise.
+- **EnterprisePrtUpdateTime :** défini sur l’heure UTC de la dernière mise à jour du PRT d’entreprise.
+- **EnterprisePrtExpiryTime :** défini sur l’heure UTC de l’expiration du PRT s’il n’est pas renouvelé.
+- **EnterprisePrtAuthority :** URL de l’autorité ADFS.
 
 ### <a name="sample-sso-state-output"></a>Exemple de sortie d’état SSO
 
@@ -201,33 +201,35 @@ Cette section s’affiche uniquement si l’appareil est joint à un domaine et 
 
 Dans cette section, différents tests sont effectués pour faciliter le diagnostic des échecs de jointure. Cette section contient également les détails de (?) précédent(e). Ces informations incluent la phase d’erreur, le code d’erreur, l’ID de la requête serveur, l’état http de la réponse du serveur, le message d’erreur de réponse du serveur.
 
-- **Contexte utilisateur :** - le contexte dans lequel les diagnostics sont exécutés. Valeurs possibles : SYSTEM (système), utilisateur UN-ELEVATED (sans élévation de privilèges), utilisateur ELEVATED (avec élévation de privilèges). 
+- **User Context :** contexte dans lequel les diagnostics sont exécutés. Valeurs possibles : SYSTEM (système), utilisateur UN-ELEVATED (sans élévation de privilèges), utilisateur ELEVATED (avec élévation de privilèges).
 
    > [!NOTE]
    > Étant donné que la jointure réelle est effectuée dans le contexte SYSTEM, l’exécution des diagnostics dans le contexte SYSTEM est plus proche du scénario de jointure réel. Pour exécuter des diagnostics dans le contexte SYSTEM, la commande dsregcmd/état doit être exécutée à partir d’une invite de commandes avec élévation de privilèges.
 
-- **Heure du client :** - l’heure UTC du système.
-- **Test de connectivité AD :** - un test de connectivité est effectué sur le contrôleur de domaine. Une erreur dans ce test entraînera probablement des erreurs de jointure lors de la phase de vérification préalable.
-- **Test de configuration AD** :- le test permet de lire et de vérifier si l’objet SCP est correctement configuré dans la forêt AD locale. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase de découverte avec le code d’erreur 0x801c001d.
-- **Test de détection DRS :** - le test permet d’obtenir les points de terminaison DRS à partir du point de terminaison de métadonnées de découverte et d’exécuter une requête de domaine d’utilisateur. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase de découverte.
-- **Test de connectivité DRS :** - un test de connectivité de base est effectué sur le point de terminaison DRS.
-- **Test d’acquisition de jeton :**  - le test tente d’obtenir un jeton d’authentification Azure AD si le locataire de l’utilisateur est fédéré. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase d’authentification. En cas d’échec de l’authentification, une jointure de synchronisation est tentée en tant qu’option de secours, sauf si celle-ci est explicitement désactivée avec les paramètres de clé de registre ci-dessous.
+- **Client Time :** heure UTC du système.
+- **AD Connectivity Test :** test de connectivité effectué sur le contrôleur de domaine. Une erreur dans ce test entraînera probablement des erreurs de jointure lors de la phase de vérification préalable.
+- **AD Configuration Test** : test permettant de lire et de vérifier si l’objet SCP est correctement configuré dans la forêt AD locale. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase de découverte avec le code d’erreur 0x801c001d.
+- **DRS Discovery Test :** test obtenant les points de terminaison Data Replication Service à partir du point de terminaison des métadonnées de découverte, et exécutant une requête de domaine d’utilisateur. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase de découverte.
+- **DRS Connectivity Test :** test de connectivité de base effectué sur le point de terminaison Data Replication Service.
+- **Token acquisition Test :**  test tentant d’obtenir un jeton d’authentification Azure AD si le locataire de l’utilisateur est fédéré. Des erreurs dans ce test entraîneraient probablement des erreurs de jointure dans la phase d’authentification. En cas d’échec de l’authentification, une jointure de synchronisation est tentée en tant qu’option de secours, sauf si celle-ci est explicitement désactivée avec les paramètres de clé de registre ci-dessous.
+
 ```
-    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
-    Value: FallbackToSyncJoin
-    Type:  REG_DWORD
-    Value: 0x0 -> Disabled
-    Value: 0x1 -> Enabled
-    Default (No Key): Enabled
- ```
-- **Fallback to Sync-Join :** définissez cette option sur « Enabled » (Activé) si la clé de registre ci-dessus n’est PAS présente afin d’empêcher l’option de secours de jointure de synchronisation en cas d’échec de l’authentification. Cette option est disponible à partir de Windows 10 1803 et versions ultérieures.
-- **Inscription précédente :** - heure à laquelle la tentative de jointure précédente a eu lieu. Seules les tentatives de jointure ayant échoué sont journalisées.
-- **Phase d’erreur :** - l’étape de la jointure où celle-ci a été abandonnée. Les valeurs possibles sont prévérification, détection, authentification et jointure.
+Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+Value: FallbackToSyncJoin
+Type:  REG_DWORD
+Value: 0x0 -> Disabled
+Value: 0x1 -> Enabled
+Default (No Key): Enabled
+```
+
+- **Fallback to Sync-Join :** défini sur « Enabled » (Activé) si la clé de Registre ci-dessus n’est PAS présente afin d’empêcher l’option de secours de jointure de synchronisation en cas d’échec de l’authentification. Cette option est disponible à partir de Windows 10 1803 et versions ultérieures.
+- **Previous Registration :** heure à laquelle la tentative de jointure précédente a eu lieu. Seules les tentatives de jointure ayant échoué sont journalisées.
+- **Error Phase :** étape de la jointure où celle-ci a été abandonnée. Les valeurs possibles sont prévérification, détection, authentification et jointure.
 - **Client ErrorCode :** code d’erreur client retourné (HRESULT).
-- **Server ErrorCode:** code d’erreur de serveur si une requête a été envoyée au serveur et que le serveur a retourné un code d’erreur. 
-- **Message de serveur** : message de serveur retourné avec le code d’erreur.
-- **État https :** - état HTTP retourné par le serveur.
-- **ID de requête :** - l’identifiant requestId du client envoyé au serveur. Utile pour la corrélation avec les journaux côté serveur.
+- **Server ErrorCode :** code d’erreur serveur si une requête a été envoyée au serveur et que le serveur a retourné un code d’erreur.
+- **Server Message** : message de serveur retourné avec le code d’erreur.
+- **Https Status :** état HTTP retourné par le serveur.
+- **Request ID :** identifiant de requête du client envoyé au serveur. Utile pour la corrélation avec les journaux côté serveur.
 
 ### <a name="sample-pre-join-diagnostics-output"></a>Exemple de sortie de diagnostics de préjointure
 
@@ -288,8 +290,8 @@ L’exemple suivant montre que les tests de diagnostic sont réussis, mais que l
 
 Cette section affiche la sortie des vérifications d’intégrité effectuées sur un appareil joint au cloud.
 
-- **AadRecoveryEnabled :** - si « OUI », les clés stockées dans l’appareil ne sont pas utilisables et l’appareil est marqué pour la récupération. La connexion suivante déclenche le flux de récupération et réinscrit l’appareil.
-- **KeySignTest :** - « RÉUSSITE » indique que les clés d’appareil sont en bonne santé. Si KeySignTest échoue, l’appareil est généralement marqué pour la récupération. La connexion suivante déclenche le flux de récupération et réinscrit l’appareil. Pour les appareils hybrides Azure AD joints, la récupération est silencieuse. Pendant la jonction ou l’inscription d’Azure AD, les appareils demandent l’authentification utilisateur pour récupérer et réinscrire l’appareil si nécessaire. **Le test KeySignTest requiert des privilèges élevés.**
+- **AadRecoveryEnabled :** si « YES », les clés stockées dans l’appareil ne sont pas utilisables et l’appareil est marqué pour la récupération. La connexion suivante déclenche le flux de récupération et réinscrit l’appareil.
+- **KeySignTest :** « PASSED » (RÉUSSITE) indique que les clés d’appareil sont saines. Si KeySignTest échoue, l’appareil est généralement marqué pour la récupération. La connexion suivante déclenche le flux de récupération et réinscrit l’appareil. Pour les appareils hybrides Azure AD joints, la récupération est silencieuse. Pendant la jonction ou l’inscription d’Azure AD, les appareils demandent l’authentification utilisateur pour récupérer et réinscrire l’appareil si nécessaire. **Le test KeySignTest requiert des privilèges élevés.**
 
 #### <a name="sample-post-join-diagnostics-output"></a>Exemple de sortie de diagnostics après la jointure
 
@@ -305,22 +307,22 @@ Cette section affiche la sortie des vérifications d’intégrité effectuées s
 
 ## <a name="ngc-prerequisite-check"></a>Vérification du prérequis NGC
 
-Cette section effectue les vérifications des conditions préalables de l’approvisionnement de Windows Hello Entreprise (WHFB). 
+Cette section effectue les vérifications des conditions préalables de l’approvisionnement de Windows Hello Entreprise (WHFB).
 
 > [!NOTE]
 > Il est possible que les détails des vérifications des conditions préalables ne soient pas visibles dans dsregcmd/status si l’utilisateur a déjà correctement configuré WHFB.
 
-- **IsDeviceJoined:**  - défini sur « YES » si l’appareil est joint à Azure AD.
-- **IsUserAzureAD:**  - défini sur « YES » si l’utilisateur connecté est présent dans Azure AD.
-- **PolicyEnabled:**  - défini sur « YES » si la stratégie WHFB est activée sur l’appareil.
-- **PostLogonEnabled:**  - défini sur « YES » si l’inscription WHFB est déclenchée en mode natif par la plateforme. Si la valeur définie est « NO », cela indique que l’inscription Windows Hello Entreprise est déclenchée par un mécanisme personnalisé
-- **DeviceEligible:**  - défini sur « YES » si l’appareil respecte la configuration matérielle exigée pour l’inscription auprès de WHFB.
-- **SessionIsNotRemote:**  -défini sur « YES » si l’utilisateur actuel est connecté à l’appareil directement, et non à distance.
-- **CertEnrollment:**  - spécifique au déploiement d’approbation avec certificat WHFB, indiquant l’autorité d’inscription de certificats pour WHFB. Défini sur « enrollment authority » (autorité d’inscription) si la source de la stratégie WHFB est la Stratégie de groupe, ou sur « mobile device management » (gestion des appareils mobiles) si la source est MDM. Sinon, « none » (aucun)
-- **AdfsRefreshToken:**  - spécifique au déploiement d’approbation avec certificat WHFB. Présent uniquement si CertEnrollment a la valeur « enrollment authority » (autorité d’inscription). Indique si l’appareil possède un PRT d’entreprise pour l’utilisateur.
-- **AdfsRaIsReady:**  - spécifique au déploiement d’approbation avec certificat WHFB.  Présent uniquement si CertEnrollment a la valeur « enrollment authority » (autorité d’inscription). Défini sur « YES » si ADFS indiquait dans les métadonnées de découverte qu’il prend en charge WHFB *et* si un modèle de certificat d’ouverture de session est disponible.
-- **LogonCertTemplateReady:**  - spécifique au déploiement d’approbation avec certificat WHFB. Présent uniquement si CertEnrollment a la valeur « enrollment authority » (autorité d’inscription). Défini sur « YES » si l’état du modèle de certificat d’ouverture de session est valide et permet de résoudre les problèmes liés à l’autorité d’inscription ADFS.
-- **PreReqResult:**  - fournit le résultat de l’évaluation de toutes les conditions préalables de WHFB. Défini sur « Will Provision » (Provisionnement ultérieur) si l’inscription de WHFB sera lancée en tant que tâche après ouverture de session lors de la prochaine connexion de l’utilisateur.
+- **IsDeviceJoined :**  défini sur « YES » si l’appareil est joint à Azure AD.
+- **IsUserAzureAD:**  défini sur « YES » si l’utilisateur connecté est présent dans Azure AD.
+- **PolicyEnabled:**  défini sur « YES » si la stratégie WHFB est activée sur l’appareil.
+- **PostLogonEnabled:**  défini sur « YES » si l’inscription WHFB est déclenchée en mode natif par la plateforme. Si la valeur définie est « NO », cela indique que l’inscription Windows Hello Entreprise est déclenchée par un mécanisme personnalisé
+- **DeviceEligible:**  défini sur « YES » si l’appareil respecte la configuration matérielle exigée pour l’inscription auprès de WHFB.
+- **SessionIsNotRemote:**  défini sur « YES » si l’utilisateur actuel est connecté à l’appareil directement, et non à distance.
+- **CertEnrollment:**  spécifique au déploiement d’approbation avec certificat WHFB, indiquant l’autorité d’inscription de certificats pour WHFB. Défini sur « enrollment authority » (autorité d’inscription) si la source de la stratégie WHFB est la Stratégie de groupe, ou sur « mobile device management » (gestion des appareils mobiles) si la source est MDM. Sinon, « none » (aucun).
+- **AdfsRefreshToken:**  spécifique au déploiement d’approbation avec certificat WHFB. Présent uniquement si CertEnrollment a la valeur « enrollment authority » (autorité d’inscription). Indique si l’appareil possède un PRT d’entreprise pour l’utilisateur.
+- **AdfsRaIsReady:** spécifique au déploiement d’approbation avec certificat WHFB.  Présent uniquement si CertEnrollment a la valeur « enrollment authority » (autorité d’inscription). Défini sur « YES » si ADFS indiquait dans les métadonnées de découverte qu’il prend en charge WHFB *et* si un modèle de certificat d’ouverture de session est disponible.
+- **LogonCertTemplateReady :** spécifique au déploiement d’approbation avec certificat WHFB. Présent uniquement si CertEnrollment a la valeur « enrollment authority » (autorité d’inscription). Défini sur « YES » si l’état du modèle de certificat d’ouverture de session est valide et permet de résoudre les problèmes liés à l’autorité d’inscription ADFS.
+- **PreReqResult :**  fournit le résultat de l’évaluation de toutes les conditions préalables de WHFB. Défini sur « Will Provision » (Provisionnement ultérieur) si l’inscription de WHFB est lancée en tant que tâche après ouverture de session lors de la prochaine connexion de l’utilisateur.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Exemple de sortie de vérification du prérequis NGC
 
@@ -345,4 +347,4 @@ Cette section effectue les vérifications des conditions préalables de l’appr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour toute question, consultez [FAQ sur la gestion des appareils](faq.yml)
+- [Outil de recherche d’erreurs Microsoft](/windows/win32/debug/system-error-code-lookup-tool)

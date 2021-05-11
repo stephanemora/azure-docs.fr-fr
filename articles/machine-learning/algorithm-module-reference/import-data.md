@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
-ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b55cafcb45cd2004702dc0f10ddf6c7b2d7f0c47
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94592632"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317772"
 ---
 # <a name="import-data-module"></a>Module Importer des données
 
@@ -98,6 +98,10 @@ Après l’importation des données, d’autres préparations seront peut-être 
 - Utilisez [Sélectionner des colonnes dans le jeu de données](./select-columns-in-dataset.md) pour sélectionner un sous-ensemble de colonnes à transformer ou à utiliser dans la modélisation. Les colonnes transformées ou supprimées peuvent facilement être réassociées au jeu de données d’origine à l’aide du module [Ajouter des colonnes](./add-columns.md).  
 
 - Utilisez [Partition and Sample](./partition-and-sample.md) (Partition et échantillon) pour diviser le jeu de données, effectuer un échantillonnage ou obtenir les n premières lignes.
+
+## <a name="limitations"></a>Limites
+
+En raison de la limitation de l’accès au magasin de données, si votre pipeline d’inférence contient un module **Importer des données**, il est automatiquement supprimé lors du déploiement sur le point de terminaison en temps réel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/03/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 8da5ba5c4408cb96008c3d9802ce3a5ccdc25f1f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: de701e79677f7e862d953eb5f03534b4eaefb367
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140170"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290737"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Démarrage rapide : Connecter un cluster Kubernetes existant à Azure Arc 
 
@@ -48,11 +48,8 @@ Dans ce guide de démarrage rapide, nous allons tirer parti des avantages de Kub
   az extension add --name connectedk8s
   ```
 
-
-
 >[!TIP]
 > Si l'extension `connectedk8s` est déjà installée, mettez-la à jour vers la version la plus récente à l'aide de la commande suivante - `az extension update --name connectedk8s`
-
 
 >[!NOTE]
 >La liste des régions prises en charge par Kubernetes avec Azure Arc est disponible [ici](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -148,6 +145,9 @@ eastus      AzureArcTest
 
 > [!TIP]
 > La commande ci-dessus sans paramètre d’emplacement spécifié crée la ressource Kubernetes avec Azure Arc dans le même emplacement que le groupe de ressources. Pour créer la ressource Kubernetes avec Azure Arc dans un emplacement différent, spécifiez `--location <region>` ou `-l <region>` lors de l’exécution de la commande `az connectedk8s connect`.
+
+> [!NOTE]
+> Si vous êtes connecté à Azure CLI avec un principal de service, des [autorisations supplémentaires](troubleshooting.md#enable-custom-locations-using-service-principal) sont requises sur celui-ci pour activer la fonctionnalité d’emplacement personnalisé lors de la connexion du cluster à Azure Arc.
 
 ## <a name="verify-cluster-connection"></a>Vérifier la connexion du cluster
 

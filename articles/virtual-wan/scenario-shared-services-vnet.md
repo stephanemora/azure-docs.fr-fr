@@ -1,20 +1,20 @@
 ---
 title: 'Scénario : Router vers des réseaux virtuels de services partagés'
 titleSuffix: Azure Virtual WAN
-description: 'Scénarios de routage : configurez des routes pour accéder à un réseau virtuel de services partagés avec une charge de travail à laquelle vous voulez que chaque réseau virtuel et chaque branche aient accès.'
+description: En savoir plus sur les scénarios de routage Virtual WAN. Dans ce scénario, vous configurez des itinéraires pour accéder à un réseau virtuel de services partagés avec une charge de travail à laquelle vous voulez que chaque réseau virtuel et chaque branche aient accès.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4a6d0a662930deec29cdf6b09c349f33dbd17a0a
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102442959"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165782"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scénario : Router vers des réseaux virtuels de services partagés
 

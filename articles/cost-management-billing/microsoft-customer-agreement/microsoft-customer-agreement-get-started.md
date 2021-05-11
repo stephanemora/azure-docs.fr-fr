@@ -6,15 +6,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/29/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: f32c43b08b8259467fb00a75ca2e7089d7ec87e8
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 60d42598da2e0b7f29bfea832d27dc5156761556
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107485582"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322056"
 ---
 # <a name="key-next-steps-after-accepting-your-microsoft-customer-agreement"></a>Étapes clés après avoir accepté votre Contrat client Microsoft
 
@@ -45,7 +45,7 @@ Si vous êtes un nouveau client, Azure crée automatiquement un abonnement par d
 
 Après le déplacement de vos abonnements, l’accès aux abonnements reste inchangé pour vos utilisateurs. Les factures sont routées vers votre nouveau contrat pour toute consommation associée aux abonnements.
 
-Quand vous commencez à consommer des services Azure, votre nouvelle facture au titre du Contrat client Microsoft est générée le cinquième jour de chaque mois. Veillez à [mettre à jour votre numéro de bon de commande dans votre profil de facturation](../manage/change-azure-account-profile.md). Votre mode de paiement par défaut est le virement bancaire. Pour savoir comment configurer votre mode de paiement pour éviter les retards, consultez l’[article sur le mode de paiement de votre abonnement](../understand/pay-bill.md#wire-bank-details). Il explique comment obtenir les informations nécessaires sur le paiement bancaire.
+Quand vous commencez à consommer des services Azure, votre nouvelle facture dans le cadre du Contrat client Microsoft est générée le cinquième jour de chaque mois. Votre mode de paiement par défaut est le virement bancaire. Pour savoir comment configurer votre mode de paiement pour éviter les retards, consultez l’[article sur le mode de paiement de votre abonnement](../understand/pay-bill.md#wire-bank-details). Il explique comment obtenir les informations nécessaires sur le paiement bancaire.
 
 ## <a name="confirm-payment-details"></a>Confirmer les détails du paiement
 
@@ -67,6 +67,22 @@ Quand vous passez du paiement à l’utilisation ou d’un contrat entreprise à
 ## <a name="complete-outstanding-payments"></a>Régler les factures en attente
 
 Veillez à régler les éventuelles factures en attente pour vos abonnements avec [paiement à l’utilisation](../manage/ea-portal-enrollment-invoices.md) ou [Contrat Entreprise](../understand/download-azure-invoice.md) précédents. Pour plus d’informations, consultez [Comprendre votre facture de Contrat client Microsoft dans Azure](../understand/mca-understand-your-invoice.md#billing-period).
+
+## <a name="update-a-po-number"></a>Mettre à jour un numéro de BDC
+
+Par défaut, une facture pour le profil de facturation n’est associée à aucun numéro de BDC. Si vous ajoutez un numéro de BDC pour un profil de facturation, ce numéro apparaîtra sur les factures du profil de facturation.
+
+Pour ajouter ou changer le numéro de BDC pour un profil de facturation, effectuez les étapes suivantes.
+
+1.  Connectez-vous au portail Azure.
+1.  Recherchez **Cost Management + Billing**, puis sélectionnez **Étendues de facturation**.
+1.  Sélectionnez votre étendue de facturation.
+1.  Dans le menu de gauche, sous **Facturation**, sélectionnez **Profils de facturation**.
+1.  Sélectionnez le profil de facturation approprié.
+1.  Dans le menu de gauche, sous **Paramètres**, sélectionnez **Propriétés**.
+1.  Sélectionnez **Mettre à jour le numéro de BDC**.
+1.  Entrez un numéro de bon de commande, puis sélectionnez **Mettre à jour**.
+
 
 ## <a name="update-your-tax-id"></a>Mettre à jour votre numéro d’identification de contribuable
 

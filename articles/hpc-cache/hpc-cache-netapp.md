@@ -4,14 +4,14 @@ description: Comment utiliser Azure HPC Cache pour améliorer l’accès aux don
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 04/26/2021
 ms.author: v-erkel
-ms.openlocfilehash: e955ddc14bb2b0a7abc0dc815c6955247568876b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1358f3cfebcd5cdc6d9e402e9c487f80f1aa8bcd
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86497010"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322021"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Utiliser Azure HPC Cache avec Azure NetApp Files
 
@@ -50,13 +50,13 @@ Utilisez la taille minimale du sous-réseau délégué lors de la création d’
 
 La taille minimale, spécifiée avec le masque réseau /28, fournit 16 adresses IP. Dans la pratique, Azure NetApp Files utilise uniquement trois des adresses IP disponibles pour l’accès au volume. Cela signifie que vous n’avez qu’à créer trois cibles de stockage dans votre cache Azure HPC Cache pour couvrir tous les volumes.
 
-Si le sous-réseau délégué est trop grand, il est possible que les volumes Azure NetApp Files utilisent davantage d’adresses IP que ce que peut gérer une seule instance de cache Azure HPC Cache. Un seul cache peut avoir au maximum 10 cibles de stockage.
+Si le sous-réseau délégué est trop grand, il est possible que les volumes Azure NetApp Files utilisent davantage d’adresses IP que ce que peut gérer une seule instance de cache Azure HPC Cache. Un seul cache a une limite de 10 cibles de stockage pour la plupart des tailles de débit de cache, ou de 20 cibles de stockage pour les configurations les plus volumineuses.
 
 L’exemple de démarrage rapide dans la Documentation Azure NetApp Files utilise 10.7.0.0/16 pour le sous-réseau délégué, ce qui donne un sous-réseau trop grand.
 
 ### <a name="capacity-pool-service-level"></a>Niveau de service du pool de capacité
 
-Lorsque vous choisissez le niveau de service pour votre pool de capacité, pensez à votre flux de travail. Si vous écrivez fréquemment des données sur le volume Azure NetApp Files, les performances du cache peuvent être restreintes si le temps d’écriture différée est lent. Choisissez un niveau de service élevé pour les volumes qui auront des écritures fréquentes.
+Lorsque vous choisissez le [niveau de service](../azure-netapp-files/azure-netapp-files-service-levels.md) pour votre pool de capacité, pensez à votre flux de travail. Si vous écrivez fréquemment des données sur le volume Azure NetApp Files, les performances du cache peuvent être restreintes si le temps d’écriture différée est lent. Choisissez un niveau de service élevé pour les volumes qui auront des écritures fréquentes.
 
 Les volumes avec des niveaux de service faibles peuvent également indiquer un décalage au début d’une tâche, tandis que le cache prérenseigne le contenu. Une fois que le cache est opérationnel et qu’il fonctionne avec un bon jeu de fichiers, le délai doit devenir invisible.
 

@@ -16,19 +16,19 @@ ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85f5322d43a26e35d86fd92f6d85a49815db0491
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762848"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165728"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
 Cet article fournit des informations sur les problèmes courants liés à l’authentification directe Azure AD.
 
->[!IMPORTANT]
->Si vous êtes confronté à des problèmes de connexion utilisateur avec l’authentification directe, ne désactivez pas la fonctionnalité. En outre, ne désinstallez pas les agents d’authentification directe si vous ne disposez pas d’un compte d’administrateur général cloud comme solution de secours. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../fundamentals/add-users-azure-active-directory.md). Cette étape est essentielle pour éviter que votre locataire ne soit verrouillé.
+> [!IMPORTANT]
+> Si vous êtes confronté à des problèmes de connexion utilisateur avec l’authentification directe, ne désactivez pas la fonctionnalité. En outre, ne désinstallez pas les agents d’authentification directe si vous ne disposez pas d’un compte d’administrateur général cloud comme solution de secours. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../fundamentals/add-users-azure-active-directory.md). Cette étape est essentielle pour éviter que votre locataire ne soit verrouillé.
 
 ## <a name="general-issues"></a>Problèmes d’ordre général
 
@@ -42,34 +42,36 @@ Assurez-vous que la fonctionnalité d’authentification directe est toujours **
 
 ### <a name="user-facing-sign-in-error-messages"></a>Message d’erreur lors de la connexion utilisateur
 
-Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l’un des messages d’erreur suivants peut s’afficher sur l’écran de connexion Azure AD : 
+Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l’un des messages d’erreur suivants peut s’afficher sur l’écran de connexion Azure AD :
 
 |Error|Description|Résolution
 | --- | --- | ---
-|AADSTS80001|Impossible de se connecter à Active Directory|Assurez-vous que les serveurs des agents sont membres de la même forêt Active Directory que les utilisateurs dont les mots de passe doivent être validés, et qu’ils peuvent se connecter à Active Directory.  
+|AADSTS80001|Impossible de se connecter à Active Directory|Assurez-vous que les serveurs des agents sont membres de la même forêt Active Directory que les utilisateurs dont les mots de passe doivent être validés, et qu’ils peuvent se connecter à Active Directory.
 |AADSTS8002|Délai d’attente dépassé lors de la connexion à Active Directory|Vérifiez qu’Active Directory est disponible et répond aux demandes des agents.
 |AADSTS80004|Le nom d’utilisateur envoyé à l’agent n’était pas valide|Vérifiez que l’utilisateur tente de se connecter avec le nom d’utilisateur correct.
 |AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. Relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux d’activité de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
 
-### <a name="users-get-invalid-usernamepassword-error"></a>Les utilisateurs obtiennent une erreur de nom d’utilisateur/mot de passe non valide 
+### <a name="users-get-invalid-usernamepassword-error"></a>Les utilisateurs obtiennent une erreur de nom d’utilisateur/mot de passe non valide
 
 Cela peut se produire lorsque le nom d’utilisateur local UserPrincipalName (UPN) d’un utilisateur est différent de l’UPN cloud de l’utilisateur.
 
 Pour confirmer qu’il s’agit du problème, commencez par vérifier que l’agent d’authentification directe fonctionne correctement :
 
+1. Créez un compte de test.
 
-1. Créez un compte de test.  
 2. Importez le module PowerShell sur l’ordinateur de l’agent :
 
- ```powershell
- Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
- ```
-3. Exécutez la commande Invoke PowerShell : 
+   ```powershell
+   Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+   ```
 
- ```powershell
- Invoke-PassthroughAuthOnPremLogonTroubleshooter 
- ``` 
+3. Exécutez la commande Invoke PowerShell :
+
+   ```powershell
+   Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+   ```
+
 4. Lorsque vous êtes invité à entrer des informations d’identification, entrez les mêmes nom d’utilisateur et mot de passe que ceux utilisés pour vous connecter à https://login.microsoftonline.com).
 
 Si vous obtenez la même erreur de nom d’utilisateur/mot de passe, cela signifie que l’agent d’authentification directe fonctionne correctement et que le problème est que l’UPN local n’est peut-être pas routable. Pour en savoir plus, consultez [Configuration d’un ID secondaire de connexion](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
@@ -94,12 +96,12 @@ Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’adm
 | 80004 | Nom d’utilisateur principal (UPN) incorrect utilisé dans la demande de connexion. | Demandez à l’utilisateur de se connecter avec le bon nom d’utilisateur.
 | 80005 | Agent d’authentification : Une erreur s’est produite. | Erreur temporaire. Réessayez plus tard.
 | 80007 | L’Agent d’authentification ne peut pas se connecter à Active Directory. | Vérifiez que l’agent d’authentification peut accéder à Active Directory.
-| 80010 | L’Agent d’authentification ne peut pas déchiffrer le mot de passe. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel. 
+| 80010 | L’Agent d’authentification ne peut pas déchiffrer le mot de passe. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel.
 | 80011 | L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel.
 | 80014 | La demande de validation a répondu après dépassement du temps maximal. | L’agent d’authentification a expiré. Ouvrez un ticket de support avec le code d’erreur, l’ID de corrélation et l’horodatage pour obtenir plus de détails sur cette erreur.
 
->[!IMPORTANT]
->Les Agents d'authentification directe authentifient les utilisateurs Azure AD en vérifiant leur nom d'utilisateur et leur mot de passe par rapport à Active Directory et en appelant l'API [Win32 LogonUser](/windows/win32/api/winbase/nf-winbase-logonusera). Par conséquent, si vous avez configuré le paramètre « Connexion à » d'Active Directory de manière à limiter l'accès des stations de travail, vous devez également ajouter les serveurs qui hébergent les Agents d'authentification directe à la liste des serveurs « Connexion à ». Si vous ne le faites pas, vos utilisateurs ne pourront pas se connecter à Azure AD.
+> [!IMPORTANT]
+> Les Agents d'authentification directe authentifient les utilisateurs Azure AD en vérifiant leur nom d'utilisateur et leur mot de passe par rapport à Active Directory et en appelant l'API [Win32 LogonUser](/windows/win32/api/winbase/nf-winbase-logonusera). Par conséquent, si vous avez configuré le paramètre « Connexion à » d'Active Directory de manière à limiter l'accès des stations de travail, vous devez également ajouter les serveurs qui hébergent les Agents d'authentification directe à la liste des serveurs « Connexion à ». Si vous ne le faites pas, vos utilisateurs ne pourront pas se connecter à Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problèmes d’installation de l’agent d’authentification
 
@@ -157,8 +159,6 @@ Pour les erreurs relatives à l’agent d’authentification, ouvrez l’applica
 
 Pour une analyse détaillée, activez le journal « Session » (pour accéder à cette option, cliquez avec le bouton droit de la souris sur l'application Observateur d'événements). N’exécutez pas l’agent d’authentification lorsque ce journal est activé pendant le fonctionnement normal. Utilisez-le uniquement pour la résolution des problèmes. Le contenu du journal n’est visible qu’une fois celui-ci désactivé.
 
-
-
 ### <a name="detailed-trace-logs"></a>Journaux d’activité de suivi détaillés
 
 Pour résoudre les problèmes d’échec de connexion de l’utilisateur, consultez les journaux d’activité de suivi situés à l’emplacement **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** . Ces journaux d’activité incluent les raisons de l’échec de connexion utilisateur à l’aide de la fonctionnalité d’authentification directe. Le tableau précédent des raisons des échecs de connexion établit une correspondance entre ces erreurs et les raisons des échecs de connexion. Vous trouverez ci-dessous un exemple d’entrée de journal :
@@ -193,5 +193,5 @@ Un autre moyen de surveiller les agents d’authentification consiste à effectu
 
 ![Compteurs Analyseur de performances de l’authentification directe](./media/tshoot-connect-pass-through-authentication/pta12.png)
 
->[!IMPORTANT]
->L’authentification directe assure la haute disponibilité à l’aide de plusieurs agents d’authentification, et _non_ de l’équilibrage de charge. Selon votre configuration, les agents d’authentification ne reçoivent _pas_ tous le _même_ nombre exact de demandes. Il est possible qu’un agent d’authentification spécifique ne reçoive aucun trafic du tout.
+> [!IMPORTANT]
+> L’authentification directe assure la haute disponibilité à l’aide de plusieurs agents d’authentification, et _non_ de l’équilibrage de charge. Selon votre configuration, les agents d’authentification ne reçoivent _pas_ tous le _même_ nombre exact de demandes. Il est possible qu’un agent d’authentification spécifique ne reçoive aucun trafic du tout.
