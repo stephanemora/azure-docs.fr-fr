@@ -1,5 +1,6 @@
 ---
-title: 'Passerelle VPN Azure : Configurer la capture de paquets'
+title: Configurer la capture de paquets pour une passerelle VPN
+titleSuffix: Azure VPN Gateway
 description: Découvrez la fonctionnalité de capture de paquets que vous pouvez utiliser sur les passerelles VPN pour cerner plus précisément la cause d’un problème.
 services: vpn-gateway
 author: anzaman
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alzam
-ms.openlocfilehash: 0983139d1c9af235eba4c9f99da7bc9dea3f231b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f423b2a4a1edcfdb71fd387cae0ec8c63113627
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726612"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229177"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurer la capture de paquets pour les passerelles VPN
 

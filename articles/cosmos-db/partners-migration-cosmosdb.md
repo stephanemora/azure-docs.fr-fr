@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 66f26cfa14d51a985e2bb420bec294f7ef3a6cd1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4b2bb3659d68ec5c4a4ed7d21f39542d1329452b
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048129"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331589"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +34,7 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Personnalisation en temps réel, inventaire de vente au détail, développement d’applications | Brésil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), développement d’applications  |    États-Unis     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migration NoSQL      |   États-Unis      |
-| [Ricoh Digital Services](https://www.ricoh.com/) | IoT, personnalisation en temps réel, inventaire de détail, migration NoSQL | Royaume-Uni  |
+| [Ricoh Digital Experience](https://www.ricoh-europe.com/contact-us) | IoT, personnalisation en temps réel, inventaire de détail, migration NoSQL | Royaume-Uni, Europe  |
 |[SNP Technologies](https://www.snp.com/) | Migration NoSQL| États-Unis |
 | [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | Migration NoSQL | Croatie, Suède, Danemark, Irlande, Bulgarie, Slovénie, Chypre, Malte, Lituanie, la République tchèque, Islande, Suisse et Liechtenstein|
 | [Spanish Point Technologies](https://www.spanishpoint.ie/) | Migration NoSQL| Irlande|

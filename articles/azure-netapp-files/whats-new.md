@@ -12,20 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/21/2021
+ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: fa028d8fffd2a4097b5bf7d7326d355ae56aebd7
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 46e84814e27562097a4c5dc4e3daa1e5b36669f7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862810"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287824"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
 Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les dernières fonctionnalités et améliorations. 
 
 ## <a name="april-2021"></a>Avril 2021
+
+* [Gestion manuelle des volumes et des pools de capacités](volume-quota-introduction.md) (quota strict) 
+
+    Le comportement du provisionnement des volumes et des pools de capacité Azure NetApp Files a changé pour un mécanisme manuel et contrôlable. La capacité de stockage d’un volume est limitée à la taille définie (quota) du volume. Quand la consommation du volume atteint la limite maximale, ni le volume ni le pool de capacité sous-jacent n’augmentent automatiquement. Au lieu de cela, le volume reçoit une condition « espace insuffisant ». Toutefois, vous pouvez [redimensionner le pool de capacité ou un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) en fonction des besoins. Vous devez activement [superviser la capacité d’un volume](monitor-volume-capacity.md) et le pool de capacité sous-jacent.
+
+    Ce changement de comportement résulte des demandes clés suivantes indiquées par de nombreux utilisateurs :
+
+    * Avant, les clients de machines virtuelles voyaient la capacité provisionnée dynamiquement (100 Tio) d’un volume donné quand ils utilisaient l’espace du système d’exploitation ou des outils de supervision de la capacité.  Cette situation pouvait entraîner une visibilité inexacte de la capacité côté client ou application. Ce comportement a été corrigé.  
+    * Le comportement de croissance automatique précédent des pools de capacité ne donnait aux propriétaires d’applications aucun contrôle sur l’espace du pool de capacité provisionnée (et sur le coût associé). Ce comportement était particulièrement fastidieux dans les environnements où les « pertes de contrôle de processus » pouvaient rapidement remplir et augmenter la capacité provisionnée. Ce comportement a été corrigé.  
+    * Les utilisateurs veulent voir et maintenir une corrélation directe entre la taille du volume (quota) et le niveau de performance. Le comportement précédent autorisait un sur-abonnement (implicite) d’un volume (capacité) et une croissance automatique d’un pool de capacité. Ainsi, les utilisateurs ne pouvaient pas établir de corrélation directe tant que le quota de volume n’avait pas été défini ou réinitialisé activement. Ce comportement a été corrigé.
+
+    Les utilisateurs ont demandé un contrôle direct sur la capacité provisionnée. Les utilisateurs souhaitent contrôler et équilibrer la capacité et l’utilisation du stockage. Ils souhaitent également contrôler les coûts et disposer de la visibilité, côté application et côté client, de la capacité disponible, utilisée et provisionnée et du niveau de performance de leurs volumes d’application. Avec ce nouveau comportement, toute cette fonctionnalité est désormais activée.
 
 * [Prise en charge des partages à disponibilité continue SMB pour les conteneurs de profil utilisateur FSLogix](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (préversion)  
 

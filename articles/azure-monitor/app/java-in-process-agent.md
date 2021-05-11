@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dc6eaaec334e7373f1a673bd1513ef05b761fee6
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b32b1fb3e0e21374fab2068d337440003005b1e7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450019"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291313"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights
 
@@ -92,9 +92,7 @@ Dans le fichier `applicationinsights.json`, vous pouvez également configurer :
 
 Pour plus d’informations, consultez [Options de configuration](./java-standalone-config.md).
 
-## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Demandes, dépendances, journaux et métriques collectés automatiquement
-
-### <a name="requests"></a>Demandes
+## <a name="auto-collected-requests"></a>Requêtes collectées automatiquement
 
 * Consommateurs JMS
 * Consommateurs Kafka
@@ -102,7 +100,9 @@ Pour plus d’informations, consultez [Options de configuration](./java-standalo
 * Servlets
 * Spring Scheduling
 
-### <a name="dependencies-with-distributed-trace-propagation"></a>Dépendances avec propagation de suivi distribué
+## <a name="auto-collected-dependencies"></a>Dépendances collectées automatiquement
+
+Dépendances collectées automatiquement et propagation de trace distribuée en aval :
 
 * Apache HttpClient et HttpAsyncClient
 * gRPC
@@ -112,27 +112,63 @@ Pour plus d’informations, consultez [Options de configuration](./java-standalo
 * Client Netty
 * OkHttp
 
-### <a name="other-dependencies"></a>Autres dépendances
+Dépendances collectées automatiquement (sans propagation de trace distribuée en aval) :
 
 * Cassandra
 * JDBC
 * MongoDB (asynchrone et synchrone)
 * Redis (Lettuce et Jedis)
 
-### <a name="logs"></a>Journaux d’activité
+## <a name="auto-collected-logs"></a>Journaux collectés automatiquement
 
 * java.util.logging
 * Log4j (y compris les propriétés MDC)
 * SLF4J/Logback (y compris les propriétés MDC)
 
-### <a name="metrics"></a>Mesures
+## <a name="auto-collected-metrics"></a>Métriques collectées automatiquement
 
 * Micrometer (y compris les métriques de Spring Boot Actuator)
 * Métriques JMX
 
-### <a name="azure-sdks"></a>SDK Azure
+## <a name="azure-sdks-preview"></a>Kits de développement logiciel (SDK) Azure (préversion)
 
-* Cette fonctionnalité est en préversion. Pour savoir comment l’activer, consultez les [options de configuration](./java-standalone-config.md#auto-collected-azure-sdk-telemetry).
+Consultez les [options de configuration](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview) pour activer cette fonctionnalité d’évaluation et capturer automatiquement la télémétrie émise par ces Kits de développement logiciel (SDK) Azure :
+
+* [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Recherche cognitive](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Communication Sms](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Event Hubs - Magasin de points de contrôle de Stockage Blob Azure](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Identity](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Key Vault - Certificats](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Key Vault - Clés](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Analyse de texte](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "les noms et les liens ci-dessus ont été scrapés de https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "et synchronisés avec la version la plus ancienne dans Maven Central, basée sur azure-core 1.14.0"
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "pour (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    continue"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version"
+[//]: # "}"
+[//]: # "console.log(str)"
 
 ## <a name="send-custom-telemetry-from-your-application"></a>Envoyer des données de télémétrie personnalisées à partir de votre application
 

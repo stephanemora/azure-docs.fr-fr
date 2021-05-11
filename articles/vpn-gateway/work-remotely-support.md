@@ -1,23 +1,24 @@
 ---
-title: 'Travail à distance avec P2S : Passerelle VPN Azure'
-description: Cette page décrit comment vous pouvez tirer parti de la passerelle VPN pour travailler à distance dans le contexte de la pandémie du COVID-19.
+title: Travail à distance et passerelles VPN point à site
+titleSuffix: Azure VPN Gateway
+description: Apprenez à utiliser les connexions point à site de la passerelle VPN pour travailler à distance dans le contexte de la pandémie de COVID-19.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: alzam
-ms.openlocfilehash: eb0291b18952efc643de18e111154ebe58f041af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57328748f21dda9efe3b2208aeb4854360a76e38
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880082"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288679"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Travail à distance à l’aide d’une connexion point à site par passerelle VPN Azure
 
 >[!NOTE]
->Cet article décrit comment vous pouvez tirer parti d’une Passerelle VPN Azure, d’Azure, du réseau Microsoft et de l’écosystème de partenaires Azure pour travailler à distance et atténuer les problèmes de réseau auxquels vous faites face dans le contexte de la crise de COVID-19.
+>Cet article vous explique comment tirer parti d'une Passerelle VPN Azure, d'Azure, du réseau Microsoft et de l'écosystème de partenaires Azure pour travailler à distance et atténuer les problèmes de réseau auxquels vous êtes confronté dans le contexte de la crise de la COVID-19.
 >
 
 Cet article décrit les options disponibles pour les organisations afin de configurer l’accès à distance de leurs utilisateurs ou de compléter leurs solutions existantes avec une capacité supplémentaire pendant l’épidémie de COVID-19.

@@ -3,17 +3,17 @@ title: Gérer Microsoft Azure Maps Creator (préversion)
 description: Cet article explique comment gérer Microsoft Azure Maps Creator (préversion).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 02/16/2021
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d26df4287032bc59cc58dd1d832d9d5a9c40afcd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24a462fdb2c68bcccd539c9d18252822e2730bd6
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100559131"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326882"
 ---
 # <a name="manage-azure-maps-creator-preview"></a>Gérer Azure Maps Creator (préversion) 
 
@@ -21,7 +21,7 @@ ms.locfileid: "100559131"
 > Les services Azure Maps Creator sont disponibles en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Le Créateur Azure Maps vous permet de créer des données cartographiques d’intérieur privées. L’API Azure Maps et le module Cartes d’intérieur vous permettent de développer des applications web de carte d’intérieur interactives et dynamiques. Actuellement, le Créateur n’est disponible qu’aux États-Unis au niveau tarifaire S1.
+Le Créateur Azure Maps vous permet de créer des données cartographiques d’intérieur privées. L’API Azure Maps et le module Cartes d’intérieur vous permettent de développer des applications web de carte d’intérieur interactives et dynamiques. Actuellement, le Créateur n’est disponible qu’aux États-Unis au niveau tarifaire Gen 2 ou Gen 1 (S1).
 
 Cet article vous guide tout au long des étapes de création et de suppression d’une ressource de Créateur dans un compte Azure Maps.
 

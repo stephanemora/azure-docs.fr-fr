@@ -1,6 +1,6 @@
 ---
-title: Créer un groupe de serveurs PostgreSQL Hyperscale compatible avec Azure Arc
-description: Créer un groupe de serveurs PostgreSQL Hyperscale compatible avec Azure Arc
+title: Créer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc à partir de l'interface CLI
+description: Créer un groupe de serveurs PostgreSQL Hyperscale avec Azure Arc à partir de l'interface CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 046f9d80c034e1ac1f2e7ffe144b4f389861b043
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebc8405a2afe9a6e2d802b68c59142f6fbf01de5
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687938"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288109"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer un groupe de serveurs PostgreSQL Hyperscale compatible avec Azure Arc
 
@@ -234,6 +234,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Connectez-vous à votre instance de PostgreSQL Hyperscale avec Azure Arc : lisez [Obtenir des points de terminaison de connexion et des chaînes de connexion](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Lisez les concepts et les guides pratiques d’Azure Database pour PostgreSQL Hyperscale pour distribuer vos données sur plusieurs nœuds PostgreSQL Hyperscale et tirer parti d’une amélioration potentielle des performances :
     * [Nœuds et tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Déterminer le type d’application](../../postgresql/concepts-hyperscale-app-type.md)

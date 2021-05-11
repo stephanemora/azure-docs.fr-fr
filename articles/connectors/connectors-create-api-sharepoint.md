@@ -1,22 +1,24 @@
 ---
 title: Se connecter à SharePoint à partir d’Azure Logic Apps
-description: Automatiser les tâches et les flux de travail qui supervisent et gèrent des ressources dans SharePoint Online ou SharePoint Server en local à l’aide d’Azure Logic Apps
+description: Superviser et gérer des ressources dans SharePoint Online ou SharePoint Server en local à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 04/27/2021
 tags: connectors
-ms.openlocfilehash: c72330792e508361830c1bf391f85eefe78bdd1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 750253d5607262614cf8576c376b261616361266
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87283977"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285445"
 ---
-# <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Superviser et gérer les ressources SharePoint avec Azure Logic Apps
+# <a name="connect-to-sharepoint-resources-with-azure-logic-apps"></a>Se connecter à des ressources SharePoint avec Azure Logic Apps
 
-Avec Azure Logic Apps et le connecteur SharePoint, vous pouvez créer des tâches et des flux de travail automatisés qui supervisent et gèrent des ressources, telles que des fichiers, dossiers, listes, éléments ou personnes, dans SharePoint Online ou SharePoint Server en local, par exemple :
+Pour automatiser les tâches qui surveillent et gèrent les ressources, telles que des fichiers, dossiers, listes et éléments, dans SharePoint Online ou SharePoint Server en local, vous pouvez créer des workflows d’intégration automatisés en utilisant Azure Logic Apps et le connecteur SharePoint.
+
+La liste suivante décrit des exemples de tâches que vous pouvez automatiser :
 
 * Superviser à quel moment les fichiers ou éléments sont créés, changés ou supprimés.
 * Créer, obtenir, mettre à jour ou supprimer des éléments.
@@ -30,58 +32,74 @@ Avec Azure Logic Apps et le connecteur SharePoint, vous pouvez créer des tâche
 * Envoyer des requêtes HTTP à SharePoint.
 * Obtenir les valeurs d’une entité.
 
-Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de SharePoint et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions dans vos applications logiques pour effectuer des tâches dans SharePoint. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions SharePoint. Par exemple, si vous récupérez régulièrement des fichiers de SharePoint, vous pouvez envoyer des messages à votre équipe à l’aide du connecteur Slack.
-Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
+Dans votre workflow d’application logique, vous pouvez utiliser un déclencheur qui supervise les événements dans SharePoint et met la sortie à la disposition d’autres actions. Vous pouvez ensuite utiliser les actions pour effectuer diverses tâches dans SharePoint. Vous pouvez également inclure d’autres actions qui utilisent la sortie des actions SharePoint. Par exemple, si vous récupérez régulièrement des fichiers provenant de SharePoint, vous pouvez envoyer des alertes par e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md). Ou essayez ce [de démarrage rapide pour créer votre premier exemple de workflow d’application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
-* Vos informations d’identification utilisateur et adresse du site SharePoint
+* L’adresse de votre site SharePoint et vos informations d’identification utilisateur. Vous avez besoin de ces informations d’identification pour autoriser votre workflow à accéder à votre compte SharePoint.
 
-  Vos informations d’identification autorisent votre application logique à créer une connexion et à accéder à votre compte SharePoint. 
+* Pour les connexions à un serveur SharePoint local, vous devez [installer et configurer la passerelle de données](../logic-apps/logic-apps-gateway-install.md) sur un ordinateur local et une [ressource de passerelle de données déjà créée dans Azure](../logic-apps/logic-apps-gateway-connection.md).
 
-* Pour pouvoir connecter les applications logiques aux systèmes locaux tels que SQL Server, vous devez [installer et configurer une passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). De cette façon, vous pouvez spécifier que soit utilisée votre installation de passerelle quand vous créez la connexion à SharePoint Server pour votre application logique.
+  Vous pouvez ensuite sélectionner la ressource de passerelle à utiliser lorsque vous créez la connexion SharePoint Server à partir de votre workflow.
 
-* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Le workflow d’application logique dans lequel vous devez accéder à votre site ou serveur SharePoint.
 
-* L’application logique à partir de laquelle vous souhaitez accéder à votre compte SharePoint. Pour démarrer avec un déclencheur SharePoint, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action SharePoint, démarrez votre application logique avec un déclencheur, tel qu’un déclencheur Salesforce, si vous avez un compte Salesforce.
-
-  Par exemple, vous pouvez démarrer votre application logique avec le déclencheur Salesforce **Lorsqu’un enregistrement est créé**. 
-  Ce déclencheur se déclenche chaque fois qu’un enregistrement, tel qu’un prospect, est créé dans Salesforce. 
-  Vous pouvez ensuite suivre ce déclencheur avec l’action SharePoint **Créer un fichier**. Ainsi, quand l’enregistrement est créé, votre application logique crée dans SharePoint un fichier contenant des informations sur ce nouvel enregistrement.
+  * Pour démarrer le workflow avec un déclencheur SharePoint, vous avez besoin d’un workflow d’application logique vierge.
+  * Pour ajouter une action SharePoint, votre workflow doit déjà avoir un déclencheur.
 
 ## <a name="connect-to-sharepoint"></a>Se connecter à SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
+## <a name="add-a-trigger"></a>Ajouter un déclencheur
 
-1. Pour les applications logiques vides, dans la zone de recherche, entrez « sharepoint » comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
+1. Dans le portail Azure, Visual Studio Code ou Visual Studio, ouvrez votre workflow d’application logique dans le concepteur d’applications logiques, si ce n’est pas déjà fait.
 
-   -ou-
+1. Dans la zone de recherche du concepteur, entrez `sharepoint` comme terme de recherche. Sélectionnez le connecteur **SharePoint**.
 
-   Pour les applications logiques existantes, sous la dernière étape où vous souhaitez ajouter une action SharePoint, choisissez **Nouvelle étape**. 
-   Dans la zone de recherche, entrez le filtre « sharepoint ». 
-   Dans la liste des actions, sélectionnez l’action souhaitée.
+1. Dans la liste **Déclencheurs**, sélectionnez le déclencheur que vous souhaitez utiliser.
 
-   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+1. Lorsque vous êtes invité à vous connecter et à créer une connexion, choisissez l’une des options suivantes :
 
-1. Quand vous êtes invité à vous connecter, fournissez les informations de connexion nécessaires. Si vous utilisez SharePoint Server, veillez à sélectionner **Se connecter via une passerelle de données locale**. Lorsque vous êtes prêt, choisissez **Créer**.
+   * Pour SharePoint Online, sélectionnez **Se connecter** et authentifiez-vous avec vos informations d’identification.
+   * Pour SharePoint Server, sélectionnez **Se connecter via la passerelle de données locale**. Fournissez les informations de la demande concernant la ressource de passerelle à utiliser, le type d’authentification et les autres informations nécessaires.
 
-1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
+1. Sélectionnez **Créer** lorsque vous avez terminé.
+
+   Une fois que votre workflow a créé la connexion, le déclencheur sélectionné s’affiche.
+
+1. Fournissez les informations nécessaires à la configuration du déclencheur et poursuivez la construction de votre workflow.
+
+## <a name="add-an-action"></a>Ajouter une action
+
+1. Dans le portail Azure, Visual Studio Code ou Visual Studio, ouvrez votre workflow d’application logique dans le concepteur d’applications logiques, si ce n’est pas déjà fait.
+
+1. Choisissez l’une des options suivantes :
+
+   * Pour ajouter une action en tant que dernière étape, sélectionnez **Nouvelle étape**.
+   * Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Sélectionnez le signe plus ( **+** ), puis sélectionnez **Ajouter une action**.
+
+1. Sous **Choisir une opération**, dans la zone de recherche, entrez `sharepoint` comme terme de recherche. Sélectionnez le connecteur **SharePoint**.
+
+1. Dans la liste **Actions**, sélectionnez l’action que vous souhaitez utiliser.
+
+1. Lorsque vous êtes invité à vous connecter et à créer une connexion, choisissez l’une des options suivantes :
+
+   * Pour SharePoint Online, sélectionnez **Se connecter** et authentifiez-vous avec vos informations d’identification.
+   * Pour SharePoint Server, sélectionnez **Se connecter via la passerelle de données locale**. Fournissez les informations de la demande concernant la ressource de passerelle à utiliser, le type d’authentification et les autres informations nécessaires.
+
+1. Sélectionnez **Créer** lorsque vous avez terminé.
+
+   Une fois que votre workflow a créé la connexion, l’action sélectionnée s’affiche.
+
+1. Fournissez les informations nécessaires à la configuration de l’action et poursuivez la construction de votre workflow.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence](/connectors/sharepoint/) du connecteur.
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Pour toute question, consultez la [page de questions Microsoft Q&A pour Azure Logic Apps](/answers/topics/azure-logic-apps.html).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/sharepoint/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)
-
+En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

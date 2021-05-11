@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2021
 ms.author: aahi
-ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dc9aa1636bf4594d1e0b51315b520c6e893ced88
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934034"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288469"
 ---
-# <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
+# <a name="configure-face-docker-containers-retiring"></a>Configurer des conteneurs Docker Visage (retrait)
+
+> [!IMPORTANT]
+> La préversion du conteneur Visage n’accepte plus d’applications et le conteneur a été déprécié le 29 avril 2021. Le conteneur Visage sera entièrement retiré le 26 juillet 2021.
 
 L’environnement d’exécution de conteneur **Visage** est configuré à l’aide des arguments de la commande `docker run`. Ce conteneur a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs correspondent aux paramètres de facturation. 
 

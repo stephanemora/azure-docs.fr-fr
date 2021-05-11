@@ -1,18 +1,18 @@
 ---
 title: Afficher les métriques de la passerelle VPN Azure
-description: Procédure d’affichage des métriques de la passerelle VPN
+description: Découvrez comment afficher les métriques de la passerelle VPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: alzam
-ms.openlocfilehash: 4b33af3e64726e124373f57920836bce145cd891
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cff09df246bf83618b5bc7e2593657c9b30094c7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89443175"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289495"
 ---
 # <a name="view-vpn-gateway-metrics"></a>Afficher les métriques de la passerelle VPN
 

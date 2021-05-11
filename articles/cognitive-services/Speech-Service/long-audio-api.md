@@ -10,28 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: 65c0d80394317c2b2bfbf621d3cc2ad0c2e3448a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c7b695455ab571d97be06f8b0f5293e3007083be
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618404"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331211"
 ---
 # <a name="long-audio-api"></a>API Audio long
 
-L’API Audio long est conçue pour la synthèse asynchrone de texte long en parole (par exemple, livres audio, articles de presse et documents). Cette API ne retourne pas d’audio synthétisé en temps réel. Au lieu de cela, vous êtes supposé interroger la ou les réponses et utiliser la ou les sorties à mesure que le service les rend disponibles. Contrairement à l’API de synthèse vocale utilisée par le Kit de développement logiciel (SDK) Speech, l’API Audio long peut créer de l’audio synthétisé de plus de 10 minutes, ce qui la rend idéale pour les éditeurs et les plateformes de contenu audio pour créer un contenu audio de longue durée comme des livres audio dans un lot.
+L’API Audio long fournit une synthèse asynchrone de texte long en parole (par exemple, livres audio, articles de presse et documents). Cette API ne renvoie pas l’audio synthétisé en temps réel. Au lieu de cela, vous interrogez les réponses et consommez les sorties au fur et à mesure que le service les rend disponibles. Contrairement à l’API de synthèse vocale utilisée par le Kit de développement logiciel (SDK) Speech, l’API Audio long peut créer de l’audio synthétisé de plus de 10 minutes. Cela la rend idéale pour les éditeurs et les plateformes de contenu audio qui souhaitent créer des contenus audio longs, comme des livres audio, en un seul lot.
 
-Autres avantages de l’API Audio long  :
+Autres avantages de l’API Audio long :
 
 * La synthèse vocale renvoyée par le service utilise les meilleures voix neuronales.
-* Il n’est pas nécessaire de déployer de point de terminaison vocal, car celui-ci synthétise les voix dans un mode batch qui n’est pas en temps réel.
+* Il n’est pas nécessaire de déployer un point de terminaison vocal.
 
 > [!NOTE]
-> L’API Audio long prend désormais en charge les [voix neuronales publiques](./language-support.md#neural-voices) et les [voix neuronales personnalisées](./how-to-custom-voice.md#custom-neural-voices).
+> L’API Audio long prend en charge les [voix neuronales publiques](./language-support.md#neural-voices) et les [voix neuronales personnalisées](./how-to-custom-voice.md#custom-neural-voices).
 
 ## <a name="workflow"></a>Workflow
 
-En règle générale, lorsque vous utilisez l’API Audio long, vous envoyez un ou plusieurs fichiers texte à synthétiser, interrogez l’état, puis, si celui-ci indique une réussite, vous pouvez télécharger la sortie audio.
+Lorsque vous utilisez l’API Audio long, vous envoyez généralement un ou plusieurs fichiers texte à synthétiser, interrogez l’état et téléchargez la sortie audio lorsque l’état indique une réussite.
 
 Le diagramme suivant donne une vue d’ensemble du workflow.
 
@@ -41,14 +41,15 @@ Le diagramme suivant donne une vue d’ensemble du workflow.
 
 Lors de la préparation de votre fichier texte, vérifiez les points suivants :
 
-* Il s’agit d’un texte brut (.txt) ou d’un texte SSML (.txt)
-* Le texte est encodé au format [UTF-8 avec marque d’ordre d’octet (BOM, Byte Order Mark)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
-* Il s’agit d’un fichier unique, non d’un fichier zip
-* Contient plus de 400 caractères pour le texte brut ou 400 [caractères facturables](./text-to-speech.md#pricing-note) pour du texte SSML, et moins de 10 000 paragraphes
-  * Pour du texte brut, chaque paragraphe est séparé en appuyant sur la touche **Entrée/Retour** ([exemple d’entrée de texte brut](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt))
-  * Pour du texte SSML, chaque élément SSML est considéré comme un paragraphe. Les éléments SSML sont séparés par différents paragraphes - Consultez [Exemple d’entrée de texte SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+* Il s’agit d’un texte brut (.txt) ou d’un texte SSML (.txt).
+* Le texte est encodé au format [UTF-8 avec marque d’ordre d’octet (BOM, Byte Order Mark)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom).
+* Il s’agit d’un fichier unique, non d’un fichier zip.
+* Il contient plus de 400 caractères pour le texte brut ou 400 [caractères facturables](./text-to-speech.md#pricing-note) pour du texte SSML, et moins de 10 000 paragraphes.
+  * Pour du texte brut, chaque paragraphe est séparé en appuyant sur la touche **Entrée/Retour**. Voir un [exemple d’entrée de texte brut](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
+  * Pour du texte SSML, chaque élément SSML est considéré comme un paragraphe. Séparez les éléments SSML par des paragraphes différents. Voir un [exemple d’entrée de texte SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 
 ## <a name="sample-code"></a>Exemple de code
+
 Le reste de cette page est consacré à Python, mais des exemples de code pour l’API Audio long sont disponibles sur GitHub pour les langages de programmation suivants :
 
 * [Exemple de code : Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
@@ -71,8 +72,8 @@ Ces bibliothèques permettent de construire la requête HTTP et d’appeler l�
 
 Pour obtenir la liste des voix prises en charge, envoyez une requête GET à `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`.
 
+Ce code permet d’obtenir une liste complète des voix que vous pouvez utiliser dans une région/un point de terminaison spécifique.
 
-Ce code vous permet d’obtenir une liste complète de voix que vous pouvez utiliser pour une région/point de terminaison spécifique.
 ```python
 def get_voices():
     region = '<region>'
@@ -95,7 +96,7 @@ Remplacez les valeurs suivantes :
 
 Vous devez obtenir une sortie similaire à celle-ci :
 
-```console
+```json
 {
   "values": [
     {
@@ -130,8 +131,8 @@ Si **properties.publicAvailable** est **true**, la voix est une voix neuronale p
 Préparez un fichier texte d’entrée, soit en texte brut, soit en texte SSML, puis ajoutez le code suivant à `long_audio_synthesis_client.py` :
 
 > [!NOTE]
-> `concatenateResult` est un paramètre facultatif. S’il n’est pas défini, les sorties audio sont générées par paragraphe. Vous pouvez également concaténer les données audio en une sortie en définissant le paramètre. 
-> `outputFormat` est également facultatif. Par défaut, la sortie audio est définie sur riff-16khz-16bit-mono-pcm. Pour plus d’informations sur le formats de sortie audio pris en charge, consultez [Formats de sortie audio](#audio-output-formats).
+> `concatenateResult` est un paramètre facultatif. S’il n’est pas défini, les sorties audio sont générées par paragraphe. Vous pouvez également concaténer les données audio en une sortie en incluant le paramètre. 
+> `outputFormat` est également facultatif. Par défaut, la sortie audio est définie sur `riff-16khz-16bit-mono-pcm`. Pour plus d’informations sur le formats de sortie audio pris en charge, consultez [Formats de sortie audio](#audio-output-formats).
 
 ```python
 def submit_synthesis():
@@ -198,15 +199,16 @@ https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/<guid>
 ```
 
 > [!NOTE]
-> Si vous avez plusieurs fichiers d’entrée, vous devrez envoyer plusieurs demandes. Il existe certaines limites à connaître.
-> * Le client est autorisé à envoyer jusqu’à **5** demandes par seconde au serveur pour chaque compte d’abonnement Azure. Si la limite est dépassée, le client reçoit un code d’erreur 429 (trop de demandes). Réduisez la quantité de demandes par seconde.
-> * Le serveur est autorisé à exécuter et à mettre en file d’attente jusqu’à **120** demandes pour chaque compte d’abonnement Azure. Si la limite est dépassée, le serveur retourne un code d’erreur 429 (trop de demandes). Attendez et évitez d’envoyer une nouvelle demande avant que quelques demandes ne soient traitées.
+> Si vous avez plusieurs fichiers d’entrée, vous devrez envoyer plusieurs demandes, et vous devez tenir compte de certaines limites.
+> * Le client peut envoyer jusqu’à **cinq** demandes par seconde pour chaque compte d’abonnement Azure. Si la limite est dépassée, un **code d’erreur 429 (trop de demandes)** est renvoyé. Réduisez le rythme des soumissions pour éviter cette limite.
+> * Le serveur peut mettre en file d’attente jusqu’à **120** demandes pour chaque compte d’abonnement Azure. Si la file d’attente dépasse cette limite, le serveur renvoie le **code d’erreur 429 (trop de demandes)** . Attendez que les demandes soient terminées avant d’envoyer d’autres demandes.
 
-L’URL en sortie peut être utilisée pour obtenir l’état de la demande.
+Vous pouvez utiliser l’URL dans la sortie pour obtenir l’état de la demande.
 
-### <a name="get-information-of-a-submitted-request"></a>Obtenir des informations sur une demande envoyée
+### <a name="get-details-about-a-submitted-request"></a>Obtenir des détails sur une demande envoyée
 
-Pour obtenir l’état d’une demande de synthèse envoyée, envoyez simplement une requête GET à l’URL renvoyée par l’étape précédente.
+Pour obtenir l’état d’une demande de synthèse envoyée, envoyez une requête GET à l’URL renvoyée à l’étape précédente.
+
 ```Python
 
 def get_synthesis():
@@ -220,8 +222,10 @@ def get_synthesis():
 
 get_synthesis()
 ```
+
 La sortie se présente comme suit :
-```console
+
+```json
 response.status_code: 200
 {
   "models": [
@@ -245,7 +249,7 @@ response.status_code: 200
 }
 ```
 
-Dans la propriété `status`, vous pouvez lire l’état de cette demande. La demande commence à l’état `NotStarted`, puis passe à `Running` et devient enfin `Succeeded` ou `Failed`. Vous pouvez utiliser une boucle pour interroger cette API jusqu’à ce que l’état devienne `Succeeded`.
+La propriété `status` passe de l’état `NotStarted` à `Running`, et enfin à `Succeeded` ou `Failed`. Vous pouvez interroger cette API en boucle jusqu’à ce que l’état devienne `Succeeded` ou `Failed`.
 
 ### <a name="download-audio-result"></a>Télécharger le résultat audio
 
@@ -267,10 +271,12 @@ def get_files():
 
 get_files()
 ```
+
 Remplacez `<request_id>` par l’ID de la demande dont vous voulez télécharger le résultat. Il se trouve dans la réponse de l’étape précédente.
 
 La sortie se présente comme suit :
-```console
+
+```json
 response.status_code: 200
 {
   "values": [
@@ -299,14 +305,15 @@ response.status_code: 200
   ]
 }
 ```
-La sortie contient des informations sur deux fichiers. Celui avec `"kind": "LongAudioSynthesisScript"` est le script d’entrée envoyé. L’autre avec `"kind": "LongAudioSynthesisResult"` est le résultat de cette requête.
+Cet exemple de sortie contient des informations sur deux fichiers. Celui avec `"kind": "LongAudioSynthesisScript"` est le script d’entrée envoyé. L’autre avec `"kind": "LongAudioSynthesisResult"` est le résultat de cette requête.
+
 Le résultat est un dossier zip qui contient les fichiers de sortie audio générés, ainsi qu’une copie du texte d’entrée.
 
 Les deux fichiers peuvent être téléchargés à partir de l’URL dans leur propriété `links.contentUrl`.
 
 ### <a name="get-all-synthesis-requests"></a>Récupérer toutes les demandes de synthèse
 
-Vous pouvez obtenir la liste de toutes les demandes soumises grâce au code suivant :
+Le code suivant répertorie toutes les demandes envoyées :
 
 ```python
 def get_synthesis():
@@ -325,7 +332,8 @@ get_synthesis()
 ```
 
 La sortie se présente comme suit :
-```console
+
+```json
 response.status_code: 200
 {
   "values": [
@@ -374,7 +382,7 @@ response.status_code: 200
 }
 ```
 
-La propriété `values` contient une liste de demandes de synthèse. La liste est paginée, avec une taille de page maximale de 100. S’il y a plus de 100 demandes, une propriété `"@nextLink"` est fournie pour obtenir la page suivante de la liste paginée.
+La propriété `values` répertorie vos demandes de synthèse. La liste est paginée, avec une taille de page maximale de 100. S’il y a plus de 100 demandes, une propriété `"@nextLink"` est fournie pour obtenir la page suivante de la liste paginée.
 
 ```console
   "@nextLink": "https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/?top=100&skip=100"
@@ -384,9 +392,10 @@ Vous pouvez également personnaliser la taille de la page et le nombre de sauts 
 
 ### <a name="remove-previous-requests"></a>Supprimer les requêtes précédentes
 
-Le service conserve jusqu’à **20 000** requêtes pour chaque compte d’abonnement Azure. Si votre nombre de demandes dépasse cette limite, supprimez des demandes précédentes avant d’en créer d’autres. Si vous ne supprimez pas des demandes existantes, vous recevez une notification d’erreur.
+Le service conserve jusqu’à **20 000** requêtes pour chaque compte d’abonnement Azure. Si le nombre de vos demandes dépasse cette limite, supprimez les demandes précédentes avant d’en créer d’autres. Si vous ne supprimez pas des demandes existantes, vous recevez une notification d’erreur.
 
 Le code suivant montre comment supprimer une demande de synthèse spécifique.
+
 ```python
 def delete_synthesis():
     id = '<request_id>'
@@ -420,7 +429,7 @@ Le tableau suivant détaille les codes de réponse HTTP et les messages de l’A
 |-----|------------------|-------------|----------|
 | Créer | 400 | La synthèse vocale n’est pas activée dans cette région. | Modifiez la clé d’abonnement au service Speech de façon à utiliser une région prise en charge. |
 |        | 400 | Seuls sont valides les abonnements de niveau **Standard** au service Speech pour cette région. | Modifiez la clé d’abonnement au service Speech de façon à utiliser le niveau de tarification « Standard ». |
-|        | 400 | Dépassement de la limite de 20 000 demandes pour le compte Azure. Supprimez des demandes pour pouvoir en envoyer de nouvelles. | Le serveur conserve un maximum de 20 000 demandes pour chaque compte Azure. Supprimez des demandes pour pouvoir en envoyer de nouvelles. |
+|        | 400 | Dépassement de la limite de 20 000 demandes pour le compte Azure. Supprimez quelques demandes pour pouvoir en envoyer de nouvelles. | Le serveur conserve un maximum de 20 000 demandes pour chaque compte Azure. Supprimez des demandes pour pouvoir en envoyer de nouvelles. |
 |        | 400 | Ce modèle ne peut pas être utilisé dans la synthèse vocale : {modelID}. | Vérifiez que l’état de {modelID} est correct. |
 |        | 400 | La région de la demande ne correspond pas à celle du modèle : {modelID}. | Vérifiez que la région de {modelID} correspond à celle de la demande. |
 |        | 400 | La synthèse vocale ne prend en charge que le fichier texte au format d’encodage UTF-8 avec le marqueur d’ordre d’octet. | Vérifiez que les fichiers d’entrée sont au format d’encodage UTF-8 avec le marqueur d’ordre d’octet. |
@@ -429,7 +438,7 @@ Le tableau suivant détaille les codes de réponse HTTP et les messages de l’A
 |        | 400 | Le nombre de paragraphes dans le fichier d’entrée ne doit pas excéder 10 000. | Vérifiez que le nombre de paragraphes dans le fichier est inférieur à 10 000. |
 |        | 400 | Le fichier d’entrée doit comprendre plus de 400 caractères. | Vérifiez que votre fichier d’entrée comporte plus de 400 caractères. |
 |        | 404 | Le modèle déclaré dans la définition de synthèse vocale est introuvable : {modelID}. | Vérifiez que le {modelID} est correct. |
-|        | 429 | Dépassement de la limite de synthèse vocale active. Veuillez attendre que des demandes soient traitées. | Le serveur est autorisé à exécuter et à mettre en file d’attente un maximum de 120 demandes pour chaque compte Azure. Attendez et évitez d’envoyer de nouvelles demandes avant que quelques demandes ne soient traitées. |
+|        | 429 | Dépassement de la limite de synthèse vocale active. Attendez que des demandes soient traitées. | Le serveur est autorisé à exécuter et à mettre en file d’attente un maximum de 120 demandes pour chaque compte Azure. Attendez et évitez d’envoyer de nouvelles demandes avant que quelques demandes ne soient traitées. |
 | Tous       | 429 | Il y a trop de demandes. | Le client est autorisé à envoyer un maximum de 5 demandes par seconde au serveur pour chaque compte Azure. Réduisez la quantité de demandes par seconde. |
 | DELETE    | 400 | La tâche de synthèse vocale est toujours en cours d’utilisation. | Vous ne pouvez supprimer que les demandes ayant l’état **Terminé** ou **Échec**. |
 | GetById   | 404 | L’entité spécifiée est introuvable. | Vérifiez que l’ID de synthèse est correct. |
@@ -448,7 +457,7 @@ L’API Audio long est disponible dans plusieurs régions avec des points de ter
 
 ## <a name="audio-output-formats"></a>Formats de sortie aduio
 
-Nous prenons en charge différents formats de sortie audio. Vous pouvez générer des sorties audio par paragraphe ou concaténer les sorties audio en une seule sortie en définissant le paramètre « concatenateResult ». Les formats de sortie audio suivants sont pris en charge par l’API Audio long :
+Nous prenons en charge différents formats de sortie audio. Vous pouvez générer des sorties audio par paragraphe ou concaténer les sorties audio en une seule sortie en définissant le paramètre `concatenateResult`. Les formats de sortie audio suivants sont pris en charge par l’API Audio long :
 
 > [!NOTE]
 > Le format audio par défaut est riff-16 khz-16 bits-mono-pcm.

@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75547b50289f9fa73b6fc2a28fe7ec53b5c5367a
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 08f6e636be885fa2e647a61a6ca1a3d35281a9eb
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137974"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226585"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Révoquer les accès utilisateur dans Azure Active Directory
 
@@ -54,7 +54,7 @@ La plupart des applications basées sur un navigateur utilisent des jetons de se
 
 ## <a name="revoke-access-for-a-user-in-the-hybrid-environment"></a>Révoquer l’accès d’un utilisateur dans l’environnement hybride
 
-Dans un environnement hybride où un Active Directory local est synchronisé avec Azure Active Directory, Microsoft recommande aux administrateurs informatiques de suivre les procédures ci-après.  
+Dans un environnement hybride où un Active Directory local est synchronisé avec Azure Active Directory, Microsoft recommande aux administrateurs informatiques de suivre les procédures ci-après. Si vous avez un **environnement uniquement Azure AD**, vous pouvez ignorer la section [Environnement Active Directory local](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#on-premises-active-directory-environment).
 
 ### <a name="on-premises-active-directory-environment"></a>Environnement Active Directory local
 
@@ -130,3 +130,4 @@ Une fois que les administrateurs ont effectué les étapes ci-dessus, l’utilis
 
 - [Pratiques de sécurisation des accès pour les administrateurs d’Azure AD](../roles/security-planning.md)
 - [Ajouter ou mettre à jour les informations de profil utilisateur](../fundamentals/active-directory-users-profile-azure-portal.md)
+- [Ôter ou supprimer un ancien employé](https://docs.microsoft.com/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 50e3272be139e8b0cd30f9e5867e263efc92ae24
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96860930"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178751"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
@@ -63,7 +63,7 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
       1. Chemin d'accès clé :**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nom de la valeur : **TenantId**
       1. Type de valeur : **REG_SZ**
-      1. Données de la valeur : Le GUID ou **ID de répertoire** de votre instance Azure AD (cette valeur se trouve dans le **portail Azure** > **Azure Active Directory** > **Propriétés** > **ID de répertoire**)
+      1. Données de la valeur : GUID ou **ID de locataire** de votre instance Azure AD (cette valeur se trouve à l'emplacement suivant : **Portail Azure** > **Azure Active Directory** > **Propriétés** > **ID de locataire**)
    1. Cliquez sur **OK**
 1. Cliquez avec le bouton droit sur le Registre, puis sélectionnez **Nouveau** > **Élément du Registre**
    1. Sous l’onglet **Général**, configurez ce qui suit :

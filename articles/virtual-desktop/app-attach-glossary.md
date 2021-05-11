@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c5c596735ad91f38d5ba4217135a9373d2856182
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: cd038a0632823e4833e75596378f9b25c386d9d0
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538459"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330527"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossaire Attachement d’application MSIX
 
@@ -110,7 +110,7 @@ Le retrait indique au système d’exploitation qu’un package ou une applicati
 
 .CIM est une nouvelle extension de fichier associée à Composite Image Files System (CimFS). Le montage et le démontage des fichiers CIM sont plus rapides que ceux des fichiers VHD. Un fichier CIM consomme également moins d’UC et de mémoire qu’un fichier VHD.
 
-Un fichier CIM est un fichier avec une extension .CIM qui contient des métadonnées et au moins six fichiers supplémentaires incluant des données réelles. Les fichiers contenus dans le fichier CIM n’ont pas d’extensions. Le tableau suivant répertorie des exemples de fichiers que vous pourriez trouver dans un fichier CIM :
+Un fichier CIM est un fichier à extension .CIM qui contient des métadonnées et au moins deux fichiers supplémentaires incluant des données réelles. Les fichiers contenus dans le fichier CIM n’ont pas d’extensions. Le tableau suivant répertorie des exemples de fichiers que vous pourriez trouver dans un fichier CIM :
 
 | Nom de fichier | Extension | Taille |
 |-----------|-----------|------|

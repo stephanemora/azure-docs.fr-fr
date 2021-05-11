@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 04/29/2021
 ms.author: tamram
-ms.openlocfilehash: edadcc4025913052e048ea94d47cac253e4bcd1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e181394a67cb6762965e600ada46ab48c753fbc
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95523329"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317453"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Démarrage rapide : Charger, télécharger et lister les objets blob avec le portail Azure
 
@@ -29,13 +29,13 @@ Dans ce démarrage rapide, vous apprenez à utiliser le [portail Azure](https://
 Pour créer un conteneur dans le portail Azure, procédez comme suit :
 
 1. Accédez à votre nouveau compte de stockage dans le portail Azure.
-2. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Service Blob**, puis sélectionnez **Conteneurs**.
-3. Sélectionnez le bouton **+ Conteneur**.
-4. Entrez un nom pour votre nouveau conteneur. Le nom du conteneur doit être en minuscules, commencer par une lettre ou un chiffre, et peut comporter uniquement des lettres, des chiffres et des tirets (-). Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-5. Définissez le niveau d’accès public sur le conteneur. Le niveau par défaut est **Private (no anonymous access)** (Privé (aucun accès anonyme)).
-6. Sélectionnez **OK** pour créer le conteneur.
+1. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Stockage de données**, puis sélectionnez **Conteneurs d’objets blob**.
+1. Sélectionnez le bouton **+ Conteneur**.
+1. Entrez un nom pour votre nouveau conteneur. Le nom du conteneur doit être en minuscules, commencer par une lettre ou un chiffre, et peut comporter uniquement des lettres, des chiffres et des tirets (-). Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+1. Définissez le niveau d’accès public sur le conteneur. Le niveau par défaut est **Private (no anonymous access)** (Privé (aucun accès anonyme)).
+1. Sélectionnez **OK** pour créer le conteneur.
 
-    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Capture d’écran montrant comment créer un conteneur dans le portail Azure":::
+    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Capture d’écran montrant comment créer un conteneur dans le portail Azure" lightbox="media/storage-quickstart-blobs-portal/create-container.png":::
 
 ## <a name="upload-a-block-blob"></a>Charger un objet blob de blocs
 

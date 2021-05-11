@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6774e172c4e8607bfadd95f947d650afa62a984f
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 16edc850382ba9023b54eb34cebb7ebafb539161
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550420"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286669"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -125,7 +125,7 @@ Désactivez ou supprimez les appareils inscrits à Azure AD dans Azure AD.
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Nettoyer les appareils obsolètes dans le Portail Azure  
 
-Vous pouvez nettoyer les appareils obsolètes dans le Portail Azure. Cependant, il est plus efficace d’effectuer cette tâche à l’aide d’un script PowerShell. Utilisez le dernier module PowerShell V1 pour utiliser le filtre d’horodatage et filtrer les appareils gérés par le système comme Autopilot. À ce stade, l’utilisation de PowerShell V2 est déconseillée.
+Vous pouvez nettoyer les appareils obsolètes dans le Portail Azure. Cependant, il est plus efficace d’effectuer cette tâche à l’aide d’un script PowerShell. Utilisez le dernier module PowerShell V2 pour utiliser le filtre d’horodatage et filtrer les appareils gérés par le système comme Autopilot.
 
 La procédure classique se déroule comme suit :
 

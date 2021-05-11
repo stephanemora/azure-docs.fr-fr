@@ -11,18 +11,21 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 03/26/2021
-ms.openlocfilehash: f3bc1dfcfeeb6dda110f71ed7a1c53909153cf00
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/29/2021
+ms.openlocfilehash: 8c07026681f5381d9c4e54438c9503d170022658
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762152"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226783"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Les groupes de basculement automatique vous permettent de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur, ou de toutes les bases de données d’une instance gérée vers une autre région. Il s’agit d’une abstraction déclarative sur la fonctionnalité de [géoréplication active](active-geo-replication-overview.md) existante, conçue pour simplifier le déploiement et la gestion des bases de données géorépliquées à l’échelle. Vous pouvez déclencher le basculement manuellement, ou le déléguer au service Azure via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire, après une défaillance grave ou tout autre événement non planifié entraînant une perte totale ou partielle de la disponibilité de l’instance SQL Database ou SQL Managed Instance dans la région primaire. Un groupe de basculement peut inclure une ou plusieurs bases de données, généralement utilisées par la même application. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers une seule instance ou un seul serveur secondaire situé dans une autre région.
+
+>[!NOTE]
+>Les groupes de basculement automatique ne sont actuellement pas pris en charge dans le niveau de service [Hyperscale](service-tier-hyperscale.md). Pour le basculement géographique d’une base de données Hyperscale, utilisez la [géoréplication Active](active-geo-replication-overview.md).
 
 > [!NOTE]
 > Si vous souhaitez disposer de plusieurs instances Azure SQL Database secondaires dans la même région ou dans des régions différentes, utilisez la [géo-réplication active](active-geo-replication-overview.md).
@@ -371,7 +374,7 @@ Lorsque vous configurez un groupe de basculement entre les instances SQL Managed
 - Les réseaux virtuels utilisés par les instances SQL Managed Instance doivent être connectés via une [passerelle VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Lorsque deux réseaux virtuels se connectent via un réseau local, assurez-vous qu’il n’existe pas de ports de blocage de règle de pare-feu 5022 et 11000-11999. L’appairage de réseaux virtuels mondiaux est pris en charge avec la limitation décrite dans la note ci-dessous.
 
    > [!IMPORTANT]
-   > [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances managées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances managées ultérieures, créées dans ces sous-réseaux. Pour toutes les autres instances managées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+   > [Le 22/09/2020, l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés a été annoncé](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances managées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances managées ultérieures, créées dans ces sous-réseaux. Pour toutes les autres instances managées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. Afin de pouvoir utiliser l’appairage de réseaux virtuels mondiaux pour les instances managées SQL depuis les clusters virtuels créés avant la date de l’annonce, prévoyez de configurer la [fenêtre de maintenance](https://docs.microsoft.com/azure/azure-sql/database/maintenance-window) sur les instances, car elles seront déplacées sur de nouveaux clusters virtuels prenant en charge l’appairage de réseaux virtuels mondiaux.
 
 - Les adresses IP des deux réseaux virtuels SQL Managed Instance ne peuvent pas se chevaucher.
 - Vous devez configurer vos groupes de sécurité réseau (NSG) de telle sorte que les ports 5022 et la plage 11000 à 12000 soient ouverts en entrée et en sortie pour les connexions provenant du sous-réseau de l’autre instance gérée. Ceci est destiné à autoriser le trafic de réplication entre les instances.

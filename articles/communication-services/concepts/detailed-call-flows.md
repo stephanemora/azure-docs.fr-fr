@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 526e3a1e4eeb6ef6a31a33498241d9a7443cca35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f25f7504c8962643176785f62e0d5d33928726bb
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103490634"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325442"
 ---
 # <a name="call-flow-topologies"></a>Topologies des flux d’appels
 Cet article décrit les topologies de flux d’appels Azure Communication Services. Si vous êtes un client d’entreprise intégrant Communication Services dans un réseau que vous gérez, vous avez tout intérêt à lire cet article. Pour une présentation des flux d’appels Communication Services, consultez la [documentation conceptuelle sur les flux d’appels](./call-flows.md).
@@ -74,7 +74,7 @@ Pour en savoir plus sur le choix du chemin multimédia, consultez la [documentat
 
 ### <a name="communication-services-internet"></a>Communication Services (Internet)
 
-Cette topologie est utilisée par les clients qui utilisent Communication Services à partir du cloud sans aucun déploiement local, tel que l’interface SIP. Dans cette topologie, le trafic à destination et en provenance de Communication Services transite par Internet.
+Cette topologie est utilisée par les clients qui utilisent Communication Services à partir du cloud sans aucun déploiement local, tel que le routage direct Azure. Dans cette topologie, le trafic à destination et en provenance de Communication Services transite par Internet.
 
 :::image type="content" source="./media/call-flows/detailed-flow-general.png" alt-text="Topologie Azure Communication Services.":::
 
@@ -172,7 +172,7 @@ Cette transmission multimédia est bidirectionnelle. La direction du flux 6 ver
 
 ### <a name="use-case-communication-services-client-to-pstn-through-communication-services-trunk"></a>Cas d’usage : Du client Communication Services vers le réseau téléphonique commuté via une jonction Communication Services
 
-Communication Services permet de passer et recevoir des appels sur le réseau téléphonique commuté public (RTPC). Si la jonction RTPC est connectée avec des numéros de téléphone fournis par Communication Services, il n’y a pas de conditions de connectivité particulières pour ce cas d’usage. Si vous souhaitez connecter votre propre jonction RTPC locale à Azure Communication Services, vous pouvez utiliser l’interface SIP (disponible dans CY2021).
+Communication Services permet de passer et recevoir des appels sur le réseau téléphonique commuté public (RTPC). Si la jonction RTPC est connectée avec des numéros de téléphone fournis par Communication Services, il n’y a pas de conditions de connectivité particulières pour ce cas d’usage. Si vous souhaitez connecter votre propre jonction RTC locale à Azure Communication Services, vous pouvez utiliser le routage direct Azure (disponible au cours de l’année calendaire 2021).
 
 :::image type="content" source="./media/call-flows/acs-to-pstn.png" alt-text="Appel un-à-un avec un participant RTPC":::
 

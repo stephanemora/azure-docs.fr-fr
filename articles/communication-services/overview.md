@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8c2559315e3bfffc41c138be6826adae95dd7b07
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 6dae6e7ef5a442392972a39f75bbea8046b4beff
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588103"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324722"
 ---
 # <a name="what-is-azure-communication-services"></a>Qu’est-ce qu’Azure Communication Services ?
 
@@ -42,6 +42,7 @@ Dès la création d’une ressource Communication Services effectuée, vous pouv
 |---                                    |---                                   |
 |**[Créer votre premier jeton d’accès utilisateur](./quickstarts/access-tokens.md)**|Les jetons d’accès utilisateur servent à authentifier les clients auprès de votre ressource Azure Communication Services. Ces jetons sont provisionnés et réémis à l’aide du kit SDK Communication Services.|
 |**[Bien démarrer avec l’appel vocal et vidéo](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services vous permet d’ajouter des appels vocaux et vidéo à votre navigateur ou à vos applications natives avec le kit SDK Appel. |
+|**[Ajouter les appels téléphoniques à votre application](./quickstarts/voice-video-calling/pstn-call.md)**|Avec Azure Communication Services, vous pouvez ajouter des fonctionnalités d’appel téléphonique à votre application.|
 |**[Joindre votre application d’appel à une réunion Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services peut être utilisé pour créer des expériences de réunion personnalisées qui interagissent avec Microsoft Teams. Les utilisateurs de vos solutions Communication Services peuvent interagir avec des participants Teams via l’audio, la vidéo, la conversation et le partage d’écran.|
 |**[Bien démarrer avec les conversations](./quickstarts/chat/get-started.md)**|Le kit SDK Conversation Azure Communication Services est utilisé pour ajouter la conversation texte en temps réel à vos applications.|
 
@@ -54,6 +55,7 @@ Les exemples suivants illustrent l’utilisation de bout en bout d’Azure Commu
 |---                                    |---                                   |
 |**[Exemple de bannière d’appel de groupe](./samples/calling-hero-sample.md)**| Téléchargez un exemple d’application conçu pour l’appel de groupe sur les navigateurs ainsi que sur les appareils iOS et Android. |
 |**[Exemple de bannière de conversation de groupe](./samples/chat-hero-sample.md)**| Téléchargez un exemple d’application conçu pour la conversation texte de groupe sur les navigateurs. |
+|**[Exemple d’appel web](./samples/web-calling-sample.md)**| Téléchargez un exemple d’application web conçu pour l’appel audio, vidéo et RTC. |
 
 
 ## <a name="platforms-and-sdk-libraries"></a>Plateformes et bibliothèques du SDK

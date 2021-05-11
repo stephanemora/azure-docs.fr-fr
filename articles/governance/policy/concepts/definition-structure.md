@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 02/17/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 594dbfe3dda919e4d8dcbf3047fac78bad600127
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215066"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326198"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -799,30 +799,32 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
 - `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime** : [obligatoire] chaîne – chaîne au format DateHeure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.FFFFFFFZ »
   - **numberOfDaysToAdd** : [obligatoire] nombre entier - nombre de jours à ajouter
+
 - `field(fieldName)`
   - **fieldName** : [Obligatoire] chaîne - Nom du [champ](#fields) à récupérer
   - Retourne la valeur de ce champ à partir de la ressource en cours d’évaluation par la condition If.
   - `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
+
 - `requestContext().apiVersion`
   - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2019-09-01`).
     Cette valeur est la version d’API qui a été utilisée dans la requête PUT/PATCH pour les évaluations relatives à la création/mise à jour de ressources. La dernière version de l’API est toujours utilisée lors de l’évaluation de la conformité sur des ressources existantes.
+
 - `policy()`
   - Retourne les informations suivantes sur la stratégie en cours d’évaluation. Les propriétés sont accessibles à partir de l’objet retourné (exemple : `[policy().assignmentId]`).
   
-  ```json
-  {
-    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
-    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
-    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
-    "definitionReferenceId": "StorageAccountNetworkACLs"
-  }
-  ```
+    ```json
+    {
+      "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+      "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+      "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+      "definitionReferenceId": "StorageAccountNetworkACLs"
+    }
+    ```
 
 - `ipRangeContains(range, targetRange)`
-  - **range** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
-  - **targetRange** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
-
-  Retourne une valeur indiquant si la plage d’adresses IP donnée contient la plage d’adresses IP cible. Les plages vides ou la combinaison entre familles d’adresses IP ne sont pas autorisées et entraînent l’échec de l’évaluation.
+  - **range** : [obligatoire] chaîne – chaîne spécifiant une plage d’adresses IP dans laquelle il faut vérifier la présence de la plage _targetRange_.
+  - **targetRange** : [obligatoire] chaîne – chaîne spécifiant une plage d’adresses IP à valider comme incluses dans la plage _range_.
+  - Renvoie une _valeur booléenne_ indiquant si la plage d’adresses IP _range_ contient la plage d’adresses IP _targetRange_. Les plages vides ou la combinaison entre familles d’adresses IP ne sont pas autorisées et entraînent l’échec de l’évaluation.
 
   Formats pris en charge :
   - Adresse IP unique (exemples : `10.0.0.0`, `2001:0DB8::3:FFFE`)

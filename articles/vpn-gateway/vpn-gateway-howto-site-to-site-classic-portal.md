@@ -1,18 +1,19 @@
 ---
-title: 'Connectez votre réseau local à un réseau virtuel Azure : VPN site à site (classique) : Portail | Microsoft Docs'
-description: Créez une connexion IPsec entre votre réseau local et un réseau virtuel Azure classique via l’Internet public.
+title: 'Connecter votre réseau local à un réseau virtuel : VPN de site à site (classique) : portail'
+titleSuffix: Azure VPN Gateway
+description: Apprenez à créer une connexion IPsec entre votre réseau local et un réseau virtuel Azure classique via l'Internet public.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ad05281f13885327c855a261a3101388f38af83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f440ec76d3085e7a5ef7ec99f1a5a76c9c444ef9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98878051"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205338"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Création d’une connexion de site à site à l’aide du portail Azure (Classic)
 

@@ -6,13 +6,13 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: d6daf9788a632d329714dad186203c58f304aa21
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 04/27/2021
+ms.openlocfilehash: fad2fce019848c752217f15aaba8ba4c28a7c874
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904295"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177339"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -181,9 +181,9 @@ L’équipe Data Factory a fourni un [exemple de script de pré-déploiement et 
 
 ## <a name="manually-promote-a-resource-manager-template-for-each-environment"></a>Promouvoir manuellement un modèle Resource Manager pour chaque environnement
 
-1. Dans la liste **Modèle ARM**, sélectionnez **Exporter un modèle ARM** pour exporter le modèle Resource Manager de votre fabrique de données dans l’environnement de développement.
+1. Accédez à **Gérer** le hub dans votre fabrique de données, puis sélectionnez **Modèle ARM** dans la section « Contrôle de code source ». Sous la section **Modèle ARM**, sélectionnez **Exporter un modèle ARM** pour exporter le modèle Resource Manager destiné à votre fabrique de données dans l’environnement de développement.
 
-   ![Exporter un modèle Resource Manager](media/continuous-integration-deployment/continuous-integration-image1.png)
+   ![Exporter un modèle Resource Manager](media/continuous-integration-deployment/continuous-integration-image-1.png)
 
 1. Dans vos fabriques de données de test et de production, sélectionnez **Importer un modèle ARM**. Cette action ouvre le portail Azure, dans lequel vous pouvez importer le modèle exporté. Sélectionnez **Créer votre propre modèle dans l’éditeur** pour ouvrir l’éditeur de modèle Resource Manager.
 

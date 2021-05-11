@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 349aef1bb9382eec19d9ad9c7f6d4579c82b62de
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ba3bdc3f58395f17911042c699a0aca3cbae92a2
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043935"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290629"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -208,7 +208,7 @@ L’utilisation des extensions de stratégie de groupe Active Directory tierces 
 
 #### <a name="known-browser-limitations"></a>Limitations connues du navigateur
 
-L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur les navigateurs Firefox et Microsoft Edge (hérité). Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée. L’authentification unique transparente prend en charge la prochaine version de Microsoft Edge basée sur Chromium et est conçue pour fonctionner en modes InPrivate et Invité.
+L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée. L’authentification unique transparente prend en charge la prochaine version de Microsoft Edge basée sur Chromium et est conçue pour fonctionner en modes InPrivate et Invité. Microsoft Edge (hérité) n'est plus pris en charge.
 
 ## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 

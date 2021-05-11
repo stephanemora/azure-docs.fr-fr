@@ -1,18 +1,18 @@
 ---
-title: Réinitialiser une passerelle VPN ou une connexion pour rétablir un tunnel IPsec
+title: Réinitialiser une passerelle VPN ou une connexion pour rétablir des tunnels IPsec
 titleSuffix: Azure VPN Gateway
-description: Réinitialisez une connexion ou une passerelle VPN pour rétablir des tunnels IPsec.
+description: Découvrez comment réinitialiser une passerelle ou une connexion de passerelle pour rétablir des tunnels IPsec.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: adc2ffd63d73baaddce00324787df61061ea69dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcf92808f41d7681f2fe5c44cc958435438a1f86
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726635"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229213"
 ---
 # <a name="reset-a-vpn-gateway-or-a-connection"></a>Réinitialiser une passerelle VPN ou une connexion
 

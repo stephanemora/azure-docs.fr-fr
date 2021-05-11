@@ -1,18 +1,19 @@
 ---
-title: 'Connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager : Portail | Microsoft Docs'
-description: Étapes pour connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager à l’aide d’une passerelle VPN et du portail
+title: 'Connecter des réseaux virtuels classiques à des réseaux virtuels Azure Resource Manager : Portail'
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager à l’aide du portail.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: 9d31bcaad01b9b762e57bd619d45c1f53ffb201e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a8511c09b863550a8e5e71b2a4e6a91a4a3f757c
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100376800"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229105"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 

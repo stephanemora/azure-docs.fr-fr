@@ -1,20 +1,20 @@
 ---
 title: 'Scénario : any-to-any'
 titleSuffix: Azure Virtual WAN
-description: Scénarios pour routage - any-to-any
+description: Découvrez des scénarios de routage any-to-any Virtual WAN, où un spoke quelconque peut atteindre un autre spoke.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b25b0469eeb8c1cb449c9db0ff5e7091a9a20f28
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99525786"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163262"
 ---
 # <a name="scenario-any-to-any"></a>Scénario : Any-to-any
 

@@ -5,22 +5,24 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/16/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f5bdae17126048da153f70bf27609bcc4b92fe21
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 7f9a10aca24203b69ff38ff5fab7960681145af5
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599585"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227827"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problèmes connus avec les machines virtuelles des séries H et N
 
 Cet article tente de répertorier les problèmes courants récents et leurs solutions correspondantes en lien avec l’utilisation de machines virtuelles HPC et GPU des séries [H](../../sizes-hpc.md) et [N](../../sizes-gpu.md).
 
-## <a name="qp0-access-restriction"></a>Restriction d’accès qp0
+## <a name="cache-topology-on-standard_hb120rs_v3"></a>Topologie du cache sur Standard_HB120rs_v3
+`lstopo` affiche une topologie de cache incorrecte sur la taille de machine virtuelle Standard_HB120rs_v3. Il peut afficher qu’il n’y a que 32 Mo de L3 par NUMA. Toutefois, dans la pratique, il existe en fait 120 Mo de L3 par NUMA, comme prévu, car les mêmes 480 Mo de L3 sont disponibles pour l’ensemble de la machine virtuelle, comme pour les autres tailles de machine virtuelle HBv3 avec nombre de cœurs limité. Il s’agit d’une erreur superficielle dans l’affichage de la valeur correcte qui ne devrait pas avoir d’impact sur les charges de travail.
 
+## <a name="qp0-access-restriction"></a>Restriction d’accès qp0
 Pour empêcher l’accès au matériel de bas niveau pouvant entraîner des failles de sécurité, Queue Pair 0 n’est pas accessible aux machines virtuelles invitées. Cela ne doit affecter que les actions généralement associées à l’administration de la carte réseau ConnectX InfiniBand et l’exécution de diagnostics InfiniBand comme ibdiagnet, mais pas les applications de l’utilisateur final.
 
 ## <a name="mofed-installation-on-ubuntu"></a>Installation de MOFED sur Ubuntu

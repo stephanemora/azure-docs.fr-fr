@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 8fb4c797df7961726ca785a56a6ab25807999842
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 402618872c5a3ee8dd01c35021656312f1fe3371
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600860"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228439"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Inscrire et analyser un locataire Power BI (préversion)
 
@@ -99,6 +99,7 @@ Maintenant que vous avez accordé à l’identité managée Purview les autorisa
     > [!Note]
     > * Le changement de la configuration d’une analyse pour inclure ou exclure un espace de travail personnel déclenche l’analyse complète de la source Power BI
     > * Le nom de l’analyse doit comporter entre 3 et 63 caractères, et contenir uniquement des lettres minuscules, des chiffres, des traits de soulignement et des traits d’union. Les espaces ne sont pas autorisés.
+    > * Le schéma n’est pas disponible sous l’onglet Schéma.
 
 5. Configurez un déclencheur d’analyse. Les options disponibles sont **Une fois**, **Tous les 7 jours** et **Tous les 30 jours**.
 

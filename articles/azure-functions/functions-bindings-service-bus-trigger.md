@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4b95c25400317b2baac694f4ba2b1b1dc1eae098
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3ecc0e84541a9566b3f9e39d40f90a378ea87db5
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102435152"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226261"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Déclencheur Azure Service Bus pour Azure Functions
 
@@ -331,7 +331,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**queueName**|**QueueName**|Nom de la file d’attente à surveiller.  Défini uniquement en cas de surveillance d’une file d’attente, ne s’applique pas à une rubrique.
 |**topicName**|**TopicName**|Nom de la rubrique à surveiller. Défini uniquement en cas de surveillance d’une rubrique, ne s’applique pas à une file d’attente.|
 |**subscriptionName**|**SubscriptionName**|Nom de l’abonnement à surveiller. Défini uniquement en cas de surveillance d’une rubrique, ne s’applique pas à une file d’attente.|
-|**connection**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. |
+|**connection**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. <br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections).|
 |**accessRights**|**y accéder**|Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion. Dans Azure Functions versions 2.x et ultérieures, cette propriété n’est pas disponible parce que la version la plus récente du Kit de développement logiciel (SDK) Service Bus ne prend pas en charge les opérations de gestion.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true` en cas de connexion à une file d’attente ou à un abonnement [prenant en charge la session](../service-bus-messaging/message-sessions.md). Sinon `false`, qui est la valeur par défaut.|
 
@@ -347,9 +347,14 @@ Les types de paramètres suivants sont disponibles pour le message de la file d�
 * `byte[]` - Utile pour les données binaires.
 * Un type personnalisé - Si le message contient JSON, Azure Functions essaie de désérialiser les données JSON.
 * `BrokeredMessage` - Vous donne le message désérialisé avec la méthode [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Utilisé pour recevoir et accuser réception des messages du conteneur de messages (requis lorsque [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) est défini sur `false`)
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Utilisé pour recevoir et accuser réception des messages du conteneur de messages (requis lorsque [`autoComplete`](functions-bindings-service-bus.md#hostjson-settings) est défini sur `false`)
 
 Ces types de paramètres concernent Azure Functions version 1.x. Pour les versions 2.x et ultérieures, utilisez [`Message`](/dotnet/api/microsoft.azure.servicebus.message) au lieu de `BrokeredMessage`.
+
+### <a name="additional-types"></a>Autres types 
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Service Bus utilisent le type `ServiceBusReceivedMessage` dans [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) au lieu de celui de l’espace de noms [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message). Cette version ne prend plus en charge le type hérité `Message`, mais elle prend désormais en charge les types suivants :
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
@@ -361,6 +366,16 @@ Les types de paramètres suivants sont disponibles pour le message de la file d�
 * `BrokeredMessage` - Vous donne le message désérialisé avec la méthode [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
 
 Ces paramètres concernent Azure Functions version 1.x ; pour 2.x et ultérieur, utilisez [`Message`](/dotnet/api/microsoft.azure.servicebus.message) au lieu de `BrokeredMessage`.
+
+### <a name="additional-types"></a>Autres types 
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Service Bus utilisent le type `ServiceBusReceivedMessage` dans [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) au lieu de celui de l’espace de noms [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message). Cette version ne prend plus en charge le type hérité `Message`, mais elle prend désormais en charge les types suivants :
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
+
+### <a name="additional-types"></a>Autres types 
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Service Bus utilisent le type `ServiceBusReceivedMessage` dans [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) au lieu de celui de l’espace de noms [Microsoft.Azure.Service Bus](/dotnet/api/microsoft.azure.servicebus.message). Cette version ne prend plus en charge le type hérité `Message`, mais elle prend désormais en charge les types suivants :
+
+- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -411,9 +426,20 @@ Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](./
 |`ReplyTo`|`string`|L’adresse de file d’attente de réponse.|
 |`SequenceNumber`|`long`|Le numéro unique attribué à un message par Service Bus.|
 |`To`|`string`|L’adresse de destination.|
-|`UserProperties`|`IDictionary<string, object>`|Propriétés définies par l’expéditeur.|
+|`UserProperties`|`IDictionary<string, object>`|Propriétés définies par l’expéditeur. (Pas de prise en charge pour la version 5.x+ de l’extension, utilisez `ApplicationProperties`.)|
 
 Consultez les [exemples de code](#example) qui utilisent ces propriétés précédemment dans cet article.
+
+### <a name="additional-message-metadata"></a>Métadonnées de message supplémentaires
+
+Les propriétés de métadonnées ci-dessous sont prises en charge pour les applications utilisant la version 5.0.0 de l’extension, ou une version ultérieure. Ces propriétés sont membres de la classe [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage).
+
+|Propriété|Type|Description|
+|--------|----|-----------|
+|`ApplicationProperties`|`ApplicationProperties`|Propriétés définies par l’expéditeur. Utilisez-la à la place de la propriété de métadonnées `UserProperties`.|
+|`Subject`|`string`|Étiquette propre à l’application qui peut être utilisée à la place de la propriété de métadonnées `Label`.|
+|`MessageActions`|`ServiceBusMessageActions`|Ensemble d’actions qui peuvent être effectuées sur un élément `ServiceBusReceivedMessage`. Ceci peut être utilisé à la place de la propriété de métadonnées `MessageReceiver`.
+|`SessionActions`|`ServiceBusSessionMessageActions`|Ensemble d’actions qui peuvent être effectuées sur une session et un élément `ServiceBusReceivedMessage`. Ceci peut être utilisé à la place de la propriété de métadonnées `MessageSession`.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

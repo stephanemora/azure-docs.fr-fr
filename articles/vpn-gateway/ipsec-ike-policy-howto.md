@@ -1,19 +1,19 @@
 ---
 title: 'Stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel : Portail Azure'
 titleSuffix: Azure VPN Gateway
-description: Configurez la stratégie IPSec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel avec des passerelles VPN Azure à l’aide d’Azure Resource Manager et du portail Azure.
+description: Découvrez comment configurer la stratégie IPSec/IKE pour des connexions S2S ou de réseau virtuel à réseau virtuel avec des passerelles VPN Azure à l’aide du portail Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 04/28/2021
 ms.author: yushwang
-ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04dd5a1e8907d7314f9d96a81ae6965c943dc60c
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98878542"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229267"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel : Portail Azure
 

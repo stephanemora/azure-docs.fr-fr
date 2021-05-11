@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 60b7cfa744de244015f99a2e42070eb3430878c7
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 757de37fdc3f55170d8c620a69adf104b8884b14
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015660"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204276"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -71,7 +71,7 @@ Les autorisations, ou étendues, Azure suivantes sont prises en charge par abonn
 - Contributeur et Contributeur Cost Management : peut créer, modifier ou supprimer ses propres budgets. Peut modifier le montant des budgets créés par d’autres utilisateurs.
 - Lecteur et Lecteur Cost Management : peut afficher les budgets pour lesquels ils disposent des autorisations adéquates.
 
-Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md). Pour plus d’informations sur l’affectation d’une autorisation d’accès aux données Cost Management, consultez [Affecter une autorisation d’accès aux données Cost Management](./assign-access-acm-data.md).
+**Pour plus d’informations sur les étendues, notamment sur l’accès nécessaire pour configurer les exportations pour les étendues Contrat Entreprise et Contrat client Microsoft, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md)** . Pour plus d’informations sur l’affectation d’une autorisation d’accès aux données Cost Management, consultez [Affecter une autorisation d’accès aux données Cost Management](./assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

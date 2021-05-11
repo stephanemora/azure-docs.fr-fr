@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 42b6cb96cdcfbf4e9c2e927265954776093bb330
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: d59df677fda920be5ed9547bee3855d4c9511187
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992320"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330833"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modèle de document d’identification (ID) prédéfini de Form Recognizer
 
@@ -48,7 +48,7 @@ Le service des identités extrait les valeurs clés des passeports internationau
 |  MachineReadableZone | object | MRZ du passeport extraite, y compris 2 lignes de 44 caractères chacun | « P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816 » |
 |  DocumentType ; | string | Type de document, par exemple, passeport ou permis de conduire | « passeport » |
 |  Adresse | string | Adresse extraite (permis de conduire uniquement) | « 123 STREET ADDRESS YOUR CITY WA 99999-1234 »|
-|  Région | string | Région, État, province et autres informations extraites (permis de conduire uniquement) | « Washington » |
+|  Region | string | Région, État, province et autres informations extraites (permis de conduire uniquement) | « Washington » |
 
 ### <a name="additional-features"></a>Fonctionnalités supplémentaires
 
@@ -75,7 +75,11 @@ Pour tester le service Form Recognizer relatif aux pièces d’identité, accéd
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-id-types"></a>Types de pièces d’identité pris en charge
+## <a name="supported-locales"></a>Paramètres régionaux pris en charge
+
+ **Pre-built ID v2.1-preview.3** (préversion) prend en charge les documents d’identité dans les paramètres régionaux **en-us**.
+
+## <a name="supported-identity-document-types"></a>Types de documents d’identité pris en charge
 
 * **Pre-built IDs v2.1-preview.3** Extrait les valeurs clés de passeports internationaux et de permis de conduire émis aux États-Unis.
 
@@ -84,7 +88,7 @@ Pour tester le service Form Recognizer relatif aux pièces d’identité, accéd
   >
   > Les types d’identités actuellement pris en charge sont les passeports internationaux et les permis de conduire émis aux États-Unis. Nous cherchons activement à étendre notre prise en charge à d’autres pièces d’identité dans le monde.
 
-## <a name="post-analyze-id-document"></a>POST Analyze Id Document
+## <a name="post-analyze-id-document"></a>POST Analyze ID Document
 
 L’opération [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822) prend une image ou un fichier PDF d’une pièce d’identité en entrée, puis en extrait les valeurs intéressantes. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
 

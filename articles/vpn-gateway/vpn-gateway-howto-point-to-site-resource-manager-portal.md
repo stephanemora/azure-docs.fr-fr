@@ -1,19 +1,19 @@
 ---
 title: 'Connexion à un réseau virtuel à l’aide de P2S VPN et l’authentification par certificat : portail'
 titleSuffix: Azure VPN Gateway
-description: Connectez des clients Windows, macOS et Linux en toute sécurité à un réseau virtuel Azure à l’aide d’une connexion P2S et de certificats auto-signés ou délivrés par une autorité de certification. Cet article utilise le portail Azure.
+description: Apprenez à connecter des clients Windows, macOS et Linux à un réseau virtuel en toute sécurité à l'aide de connexions point à site de passerelle VPN et de certificats auto-signés ou délivrés par une autorité de certification.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: b515ed37b5d2c71843cb138240bd2fa77fe2fd8d
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: cb296d12d03bf05ffe628bd435ae15cfbb7b79e5
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365550"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204942"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure
 

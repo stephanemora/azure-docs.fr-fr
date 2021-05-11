@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 2f92c0646ef8c14134e8fc2f9b7558519f71fe8d
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 2b1a66c5f277f4aa46a0a8befe3a92a39b04d296
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930998"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229681"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -35,7 +35,7 @@ Les serveurs flexibles sont adaptés de façon optimale pour ce qui suit :
 
 ## <a name="high-availability-within-and-across-availability-zones"></a>Haute disponibilité à l’intérieur de zones de disponibilité et entre elles
 
-Le modèle de déploiement de serveur flexible est conçu pour prendre en charge une haute disponibilité au sein d’une même zone de disponibilité et dans plusieurs zones de disponibilité. L'architecture distingue le calcul du stockage. Le moteur de base de données s'exécute sur une machine virtuelle, tandis que les fichiers de données résident sur le stockage Azure. Le stockage gère trois copies synchrones localement redondantes des fichiers de base de données, ce qui garantit la durabilité des données en permanence. 
+Le modèle de déploiement de serveur flexible est conçu pour prendre en charge une haute disponibilité au sein d’une même zone de disponibilité et dans plusieurs zones de disponibilité. L'architecture distingue le calcul du stockage. Le moteur de base de données s’exécute sur une machine virtuelle Linux, tandis que les fichiers de données se trouvent sur le Stockage Premium Azure. Le stockage gère trois copies synchrones localement redondantes des fichiers de base de données, ce qui garantit la durabilité des données en permanence. 
 
 Au sein d’une zone de disponibilité unique, si le serveur tombe en panne en raison d’événements planifiés ou non, le service maintient la haute disponibilité des serveurs grâce à la procédure automatisée suivante :
 

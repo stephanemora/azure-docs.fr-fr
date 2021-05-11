@@ -10,69 +10,40 @@ Les limites suivantes sont communes à tous les niveaux.
 
 | Limite |  Notes | Valeur |
 | --- |  --- | --- |
-| Nombre d’espaces de noms Event Hubs par abonnement | Les espaces de noms Service Bus sont inclus dans cette limite. |100 |
-| Nombre d’Event Hubs par espace de noms | Les demandes suivantes de création d’un Event Hub sont rejetées. |10 |
-| Taille du nom d’un Event Hub |- | 256 caractères |
+ Taille du nom d’un Event Hub |- | 256 caractères |
 | Taille du nom d’un groupe de consommateurs | Le protocole Kafka ne nécessite pas la création d’un groupe de consommateurs. | <p>Kafka : 256 caractères</p><p>AMQP : 50 caractères |
 | Nombre de récepteurs non epoch par groupe de consommateurs |- |5 |
 | Nombre de règles d’autorisation par espace de noms | Les demandes suivantes pour la création de règle d’autorisation sont rejetées.|12 |
 | Nombre d’appels à la méthode GetRuntimeInformation |  - | 50 par seconde | 
 | Nombre de réseaux virtuels (VNet) | - | 128 | 
 | Nombre de règles de configuration IP | - | 128 | 
+| Longueur maximale du nom d’un groupe de schémas | | 50 |  
+| Longueur maximale du nom d’un schéma | | 100 |    
+| Taille en octets par schéma | | 1 Mo |   
+| Nombre de propriétés par groupe de schémas | | 1 024 |
+| Taille en octets par clé de propriété de groupe de schéma | | 256 | 
+| Taille en octets par valeur de propriété de groupe de schéma | | 1 024 | 
 
-### <a name="basic-vs-standard-tiers"></a>Niveaux de base ou standard
-Le tableau suivant indique les limites qui peuvent être différentes pour les niveaux de base et standard. 
+### <a name="basic-vs-standard-vs-dedicated-tiers"></a>Comparaison des niveaux de base, standard et dédié
+Le tableau suivant indique les limites qui peuvent être différentes pour les niveaux de base, standard et dédié. Dans le tableau, UC signifie [unité de capacité](../articles/event-hubs/event-hubs-dedicated-overview.md) et UD [unité de débit](../articles/event-hubs/event-hubs-faq.yml#what-are-event-hubs-throughput-units-). 
 
-| Limite | Notes | De base | standard |
-|---|---|--|---|
-| Taille maximale d’une publication Event Hubs| &nbsp; | 256 KB | 1 Mo |
-| Nombre de groupes de consommateurs par Event Hub | &nbsp; |1 |20 |
-| Nombre de connexions AMQP par espace de noms | Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |100 |5 000|
-| Période de rétention maximale des données d’événement | &nbsp; |1 jour |1 à 7 jours |
-| Unités de débit maximales |Le dépassement de cette limite entraîne la limitation de vos données et la génération d’une exception de [serveur occupé](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Vous pouvez demander une plus grande quantité d’unités de débit pour le niveau Standard en remplissant une [demande de support](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). Les [unités de débit supplémentaires](../articles/event-hubs/event-hubs-auto-inflate.md) sont disponibles par blocs de 20 sur la base d’un engagement d’achat ferme. |20 | 20 | 
-| Nombre de partitions par Event Hub | |32 | 32 | 
+| Limite | De base | standard | Dédié |
+| ----- | ----- | -------- | -------- | 
+| Taille maximale d’une publication Event Hubs | 256 KB | 1 Mo | 1 Mo |
+| Nombre de groupes de consommateurs par Event Hub | 1 | 20 | Aucune limite par unité de capacité, 1 000 par hub d’événements |
+| Nombre de connexions AMQP par espace de noms | 100 | 5 000 | 100 000 inclus et maximum |
+| Période de rétention maximale des données d’événement | 1 jour | 1 à 7 jours | 90 jours, 10 To inclus per unité de capacité |
+| Nombre maximal d’UD et d’UC |20 UD | 20 UD | 20 CUS |
+| Nombre de partitions par Event Hub | 32 | 32 | 1 024 par hub d’événements
+2 000 par unité de capacité |
+| Nombre d’espaces de noms par abonnement | 100 | 100 | 100 (50 par UC) |
+| Nombre d’Event Hubs par espace de noms | 10 | 10 | 1 000 |
+| Événements d’entrée | | Paiement par million d’événements | Inclus|
+| Capture | N/A | Paiement par heure | Inclus |
+| Taille du registre de schémas (espace de noms) en mégaoctets | N/A | 25 |  1 024 |
+| Nombre de groupes de schémas dans un registre de schémas ou espace de noms | N/A | 1 - sans compter le groupe par défaut | 1 000 |
+| Nombre de versions de schéma pour tous les groupes de schémas | N/A | 25 | 10000 |
 
 > [!NOTE]
->
-> Vous pouvez publier les événements individuellement ou par lots. 
-> La limite de publication (selon le SKU) s’applique, qu’il s’agisse d’un événement unique ou d’un lot. La publication d’événements plus volumineux que le seuil maximum sera rejetée.
+> Vous pouvez publier les événements individuellement ou par lots. La limite de publication (selon le SKU) s’applique, qu’il s’agisse d’un événement unique ou d’un lot. La publication d’événements plus volumineux que le seuil maximum sera rejetée.
 
-### <a name="dedicated-tier-vs-standard-tier"></a>Niveau dédié ou niveau standard
-L’offre Event Hubs Dedicated est facturée à un tarif mensuel fixe, avec un minimum de 4 heures d’utilisation. Le niveau Dedicated offre toutes les fonctionnalités du plan Standard, mais avec la capacité de mise à l’échelle de classe entreprise et les limites pour les clients avec des charges de travail exigeantes. 
-
-Reportez-vous à ce [document](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) sur la création d’un cluster Event Hubs dédié à l’aide du portail Azure.
-
-| Fonctionnalité | standard | Dédié |
-| --- |:---|:---|
-| Bande passante | 20 unités de débit (jusqu'à 40 unités de débit) | 20 CUS |
-| Espaces de noms |  100 par abonnement | 50 par CU (100 par abonnement) |
-| Event Hubs |  10 par espace de noms | 1 000 par espace de noms |
-| Événements d’entrée | Paiement par million d’événements | Inclus |
-| Taille des messages | 1 million d’octets | 1 million d’octets |
-| Partitions | 32 par hub d’événements | 1 024 par hub d’événements<br/>2 000 par unité de capacité |
-| Groupes de consommateurs | 20 par hub d’événements | Aucune limite par unité de capacité, 1 000 par hub d’événements |
-| Connexions réparties | 1 000 inclus, 5 000 maximum | 100 000 inclus et maximum |
-| Rétention des messages | 7 jours, 84 Go inclus par unité de débit | 90 jours, 10 To inclus per unité de capacité |
-| Capture | Paiement par heure | Inclus |
-
-
-### <a name="schema-registry-limitations"></a>Limitations du registre de schémas
-
-#### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Limites identiques pour les niveaux standard et dedicated 
-| Fonctionnalité | Limite | 
-|---|---|
-| Longueur maximale du nom d’un groupe de schémas | 50 |  
-| Longueur maximale du nom d’un schéma | 100 |    
-| Taille en octets par schéma | 1 Mo |   
-| Nombre de propriétés par groupe de schémas | 1 024 |
-| Taille en octets par clé de propriété de groupe | 256 | 
-| Taille en octets par valeur de propriété de groupe | 1 024 | 
-
-
-#### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Limites différentes pour les niveaux standard et dedicated 
-
-| Limite | standard | Dédié | 
-|---|---|--|
-| Taille du registre de schémas (espace de noms) en mégaoctets | 25 |  1 024 |
-| Nombre de groupes de schémas dans un registre de schémas ou espace de noms | 1 - sans compter le groupe par défaut | 1 000 |
-| Nombre de versions de schéma pour tous les groupes de schémas | 25 | 10000 |

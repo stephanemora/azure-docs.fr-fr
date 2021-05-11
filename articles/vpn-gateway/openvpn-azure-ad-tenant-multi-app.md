@@ -1,18 +1,19 @@
 ---
-title: 'Passerelle VPN : Locataire Azure AD pour différents groupes d’utilisateurs : Authentification Azure AD'
-description: Vous pouvez utiliser un VPN P2S pour vous connecter à votre réseau virtuel à l'aide de l'authentification Azure AD
+title: 'Guide pratique pour créer un locataire Azure AD pour les connexions P2S de protocole OpenVPN : authentification Azure AD'
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment configurer un locataire Azure AD pour l’authentification P2S OpenVPN, puis inscrivez plusieurs applications dans Azure AD pour autoriser différents accès pour différents utilisateurs et groupes.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1305ca603aef63dafcc7b055d55e3f0fe281f4fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cfb89358cf733cb17fe4a496f1799dc0952fc4f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91819670"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286421"
 ---
 # <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Active Directory (AD) pour les connexions P2S de protocole OpenVPN
 

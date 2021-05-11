@@ -8,21 +8,23 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6979f44600d29c0bcc18ebf7fc7e444e9b6bcf73
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 52adba94650c09f731cfb6142852b28a0e3f3906
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107902945"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288637"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
-Cet article fournit des exemples de requête et des instructions plus détaillées sur l’utilisation du **langage de requête Azure Digital Twins** pour interroger votre [graphe de jumeaux](concepts-twins-graph.md) afin d’obtenir des informations. (Pour une présentation du langage de requête et la liste complète de ses fonctionnalités, consultez [*Concepts : langage de requête*](concepts-query-language.md).)
+Cet article fournit des exemples de requête et des instructions sur l’utilisation du **langage de requête Azure Digital Twins** pour interroger votre [graphe de jumeaux](concepts-twins-graph.md) afin d’obtenir des informations. (Pour une présentation du langage de requête, consultez [Concepts : langage de requête](concepts-query-language.md).)
 
-Cet article commence par des exemples de requête qui illustrent la structure du langage de requête et les opérations de requête courantes pour des jumeaux numériques. Il décrit ensuite comment exécuter vos requêtes une fois que vous les avez écrites, à l’aide de l’[API de requête](/rest/api/digital-twins/dataplane/query) ou d’un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) Azure Digital Twins.
+Il contient des exemples de requête qui illustrent la structure du langage de requête et les opérations de requête courantes pour des jumeaux numériques. Il décrit également comment exécuter vos requêtes une fois que vous les avez écrites, avec l’[API de requête](/rest/api/digital-twins/dataplane/query) ou un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) Azure Digital Twins.
 
 > [!NOTE]
 > Si vous exécutez les exemples de requête ci-dessous avec un appel d’API ou de SDK, vous devez condenser le texte de la requête sur une seule ligne.
+
+[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
 
 ## <a name="show-all-digital-twins"></a>Montrer tous les jumeaux numériques
 
@@ -59,7 +61,7 @@ Vous pouvez également obtenir des jumeaux selon le **type d’une propriété**
 
 ## <a name="query-by-model"></a>Requête par modèle
 
-L’opérateur `IS_OF_MODEL` peut être utilisé pour filtrer en fonction du [**modèle**](concepts-models.md) de jumeau.
+L’opérateur `IS_OF_MODEL` peut être utilisé pour filtrer en fonction du [modèle](concepts-models.md) de jumeau.
 
 Il prend en compte l’[héritage](concepts-models.md#model-inheritance) et la [gestion des versions](how-to-manage-model.md#update-models) de modèle, et prend la valeur **true** pour un jumeau donné si le jumeau remplit l’une des conditions suivantes :
 
@@ -149,7 +151,7 @@ Vous pouvez compter le nombre d’éléments dans un jeu de résultats à l’ai
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount1":::
 
-Ajoutez une clause `WHERE` pour compter le nombre d’éléments qui répondent à un certain critère. Voici quelques exemples de comptage avec un filtre appliqué en fonction du type de modèle de jumeau (pour plus d’informations sur cette syntaxe, consultez [*Requête par modèle*](#query-by-model) ci-dessous) :
+Ajoutez une clause `WHERE` pour compter le nombre d’éléments qui répondent à un certain critère. Voici quelques exemples de comptage avec un filtre appliqué en fonction du type de modèle de jumeau (pour plus d’informations sur cette syntaxe, consultez [Requête par modèle](#query-by-model) ci-dessous) :
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="SelectCount2":::
 
@@ -227,7 +229,7 @@ Vous pouvez **combiner** un des types de requête ci-dessus avec des opérateurs
 
 ## <a name="run-queries-with-the-api"></a>Exécuter des requêtes avec l’API
 
-Une fois que vous avez choisi une chaîne de requête, exécutez-la en appelant l’[**API de requête**](/rest/api/digital-twins/dataplane/query).
+Une fois que vous avez choisi une chaîne de requête, exécutez-la en appelant l’[API de requête](/rest/api/digital-twins/dataplane/query).
 
 Vous pouvez appeler l’API directement ou utiliser l’un des [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) disponibles pour Azure Digital Twins.
 

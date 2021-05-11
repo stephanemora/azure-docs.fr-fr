@@ -4,14 +4,14 @@ description: Cette rubrique décrit comment traiter le format XML dans Azure Dat
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 04/29/2021
 ms.author: jingwang
-ms.openlocfilehash: a4082e1e00ecb1d3b0157fcc35616704eaab0aae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a7e56040a58d87cab34fdba4ebbac77757b2226
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386354"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289549"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML dans Azure Data Factory
 
@@ -91,7 +91,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
-Dans les flux de données de mappage, vous pouvez lire et écrire des données au format XML dans les magasins de données suivants : [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) et [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Vous pouvez pointer vers des fichiers XML à l’aide d’un jeu de données XML ou d’un [jeu de données inline](data-flow-source.md#inline-datasets).
+Dans les flux de données de mappage, vous pouvez lire des données au format XML dans les magasins de données suivants : [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) et [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Vous pouvez pointer vers des fichiers XML à l’aide d’un jeu de données XML ou d’un [jeu de données inline](data-flow-source.md#inline-datasets).
 
 ### <a name="source-properties"></a>Propriétés de source
 

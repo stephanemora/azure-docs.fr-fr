@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: iangithinji
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 202ccf6f540ec78c2bb30e0f0a0173609bba578c
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 820f27e770e3168277e12b85e7766cd16975ef7f
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751451"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315000"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Options d’authentification unique dans Azure AD
 
@@ -76,7 +76,7 @@ Pour configurer une application SaaS pour l’authentification unique via SAML, 
 
 Pour configurer une application pour WS-Federation, procédez de la même façon que pour configurer une application pour l’authentification unique via SAML. Lors de l’étape de configuration de l’application pour utiliser Azure AD, vous devez remplacer l’URL de connexion Azure AD par le point de terminaison `https://login.microsoftonline.com/<tenant-ID>/wsfed` WS-Federation.
 
-Pour configurer une application locale pour l’authentification unique via SAML, consultez [Authentification unique via SAML pour applications locales par le biais du proxy d’application](application-proxy-configure-single-sign-on-on-premises-apps.md).
+Pour configurer une application locale pour l’authentification unique via SAML, consultez [Authentification unique via SAML pour applications locales par le biais du proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md).
 
 Pour plus d’informations sur le protocole SAML, consultez [Protocole d’authentification unique SAML](../develop/single-sign-on-saml-protocol.md).
 
@@ -86,7 +86,7 @@ Avec l’authentification par mot de passe, les utilisateurs se connectent à l�
 
 L’authentification unique par mot de passe utilise le processus d’authentification existant fourni par l’application. Quand vous activez l’authentification unique par mot de passe pour une application, Azure AD collecte et stocke de façon sécurisée les noms d’utilisateur et les mots de passe pour l’application. Les informations d’identification de l’utilisateur sont stockées à l’état chiffré dans l’annuaire.
 
-De plus, l’administrateur peut activer des stratégies d’accès conditionnel Azure AD ou l’authentification multifacteur pour l’authentification unique basée sur un mot de passe.
+De plus, l’administrateur peut activer des stratégies d’accès conditionnel Azure AD ou l’authentification multifacteur pour l’authentification unique basée sur un mot de passe.
 
 Choisissez l’authentification unique par mot de passe quand :
 
@@ -107,7 +107,7 @@ L’authentification unique par mot de passe est prise en charge pour toutes les
 
 Pour configurer une application cloud pour l’authentification unique par mot de passe, consultez [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md).
 
-Pour configurer une application locale pour l’authentification unique via le proxy d’application, consultez [Authentification unique avec mise au coffre des mots de passe par le biais du proxy d’application](application-proxy-configure-single-sign-on-password-vaulting.md).
+Pour configurer une application locale pour l’authentification unique via le proxy d’application, consultez [Authentification unique avec mise au coffre des mots de passe par le biais du proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md).
 
 ### <a name="how-authentication-works-for-password-based-sso"></a>Fonctionnement de l’authentification unique par mot de passe
 
@@ -157,16 +157,16 @@ Notez que, si vous avez configuré l’application pour l’authentification uni
 
 ## <a name="integrated-windows-authentication-iwa-sso"></a>Authentification unique Authentification Windows intégrée (IWA)
 
-Le [proxy d’application](application-proxy.md) fournit l’authentification unique aux applications qui utilisent l’[authentification Windows intégrée (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), ou aux applications prenant en charge les revendications. Si votre application utilise l’authentification Windows intégrée, le proxy d’application s’authentifie auprès de l’application avec la délégation contrainte Kerberos. Pour une application prenant en charge les revendications qui fait confiance à Azure Active Directory, l’authentification unique fonctionne, car l’utilisateur a déjà été authentifié avec Azure AD.
+Le [proxy d’application](../app-proxy/application-proxy.md) fournit l’authentification unique aux applications qui utilisent l’[authentification Windows intégrée (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), ou aux applications prenant en charge les revendications. Si votre application utilise l’authentification Windows intégrée, le proxy d’application s’authentifie auprès de l’application avec la délégation contrainte Kerberos. Pour une application prenant en charge les revendications qui fait confiance à Azure Active Directory, l’authentification unique fonctionne, car l’utilisateur a déjà été authentifié avec Azure AD.
 
 Choisissez le mode d'authentification unique Authentification Windows intégrée pour fournir une authentification unique à une application locale qui s’authentifie auprès d'IWA.
 
-Pour configurer une application locale pour l’authentification Windows intégrée, consultez [Délégation contrainte Kerberos pour l’authentification unique auprès de vos applications avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md).
+Pour configurer une application locale pour l’authentification Windows intégrée, consultez [Délégation contrainte Kerberos pour l’authentification unique auprès de vos applications avec le proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md).
 
 ### <a name="how-single-sign-on-with-kcd-works"></a>Fonctionnement de l’authentification unique avec KCD
 Ce diagramme explique le flux quand un utilisateur accède à une application locale qui utilise I’authentification Windows intégrée.
 
-![Diagramme de flux de l’authentification Microsoft Azure AD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Diagramme de flux de l’authentification Microsoft Azure AD](../app-proxy/media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. L’utilisateur entre l’URL pour accéder à l’application locale via le proxy d’application.
 1. Le proxy d’application redirige la demande vers les services d’authentification d’Azure AD pour effectuer la préauthentification. À ce stade, Azure AD applique les stratégies d’authentification et d’autorisation applicables, comme l’authentification multifacteur. Si l’utilisateur est validé, Azure AD crée un jeton et l’envoie à l’utilisateur.
@@ -183,10 +183,10 @@ Utilisez l’authentification unique basée sur l’en-tête pour les applicatio
 
 Choisissez l’authentification unique basée sur l’en-tête lorsque le proxy d’application est configuré pour l’application locale.
 
-Pour en savoir plus sur l’authentification basée sur l’en-tête, consultez [Authentification unique basée sur l’en-tête](application-proxy-configure-single-sign-on-with-headers.md).
+Pour en savoir plus sur l’authentification basée sur l’en-tête, consultez [Authentification unique basée sur l’en-tête](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md)
 * [Planifier un déploiement de l’authentification unique](plan-sso-deployment.md)
-* [Authentification unique avec les applications locales](application-proxy-config-sso-how-to.md)
+* [Authentification unique avec les applications locales](../app-proxy/application-proxy-config-sso-how-to.md)

@@ -4,12 +4,12 @@ description: Installez le runtime et le Kit de développement logiciel (SDK), pu
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: fcf0aeec27415d03c528e42ad5341a92bd299d88
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a06e649fbbe3e7ea1036d9511a87169a5b0a655a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869398"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288253"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -26,17 +26,13 @@ L’interface de ligne de commande (CLI) Azure Service Fabric vous permet de gé
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ces versions de système d’exploitation sont prises en charge pour le développement.
+- Vérifiez que vous utilisez une [version de Linux](service-fabric-versions.md#supported-linux-versions-and-support-end-date) prise en charge.
 
-* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
-
-    Assurez-vous que le package `apt-transport-https` est bien installé.
+- Installez le package `apt-transport-https` :
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
-
 
 ## <a name="installation-methods"></a>Méthodes d’installation
 

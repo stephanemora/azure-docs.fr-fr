@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/19/2021
-ms.openlocfilehash: 90755aef66fa51084d83d036722187b61449a6fc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82821b29669139f378d4dd24e4a96ab66f3d56e1
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656904"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321930"
 ---
 # <a name="export-data-module"></a>Module Exporter les données
 
@@ -60,6 +60,10 @@ Avant d’exporter vos données, vous devez d’abord inscrire un magasin de don
 1. Pour **Format de fichier**, sélectionnez le format dans lequel les données doivent être stockées.
  
 1. Envoyez le pipeline.
+
+## <a name="limitations"></a>Limites
+
+En raison de la limitation de l’accès au magasin de données, si votre pipeline d’inférence contient un module **Exporter des données**, il est automatiquement supprimé lors du déploiement sur le point de terminaison en temps réel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

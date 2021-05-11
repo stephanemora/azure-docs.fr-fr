@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 31812a7b2dddad474ab5cd422a15f6e5368dba5c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7050718955c9a2651ecf8c646ceae7c5bb8cdd02
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774626"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319002"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob
 
@@ -195,13 +195,13 @@ Vous ne pouvez pas modifier le niveau d’accès public pour un objet blob indiv
 Pour mettre à jour le niveau d’accès public pour un ou plusieurs conteneurs du portail Azure, procédez comme suit :
 
 1. Accédez à la vue d’ensemble de votre compte de stockage dans le portail Azure.
-1. Sous l’élément **service blob** du panneau de menu, sélectionnez **Conteneurs**.
+1. Sous **Stockage des données** dans le panneau de menu, sélectionnez **Conteneurs d’objets blob**.
 1. Sélectionnez les conteneurs pour lesquels vous souhaitez définir le niveau d’accès public.
 1. Utilisez le bouton **Modifier le niveau d’accès** pour afficher les paramètres d’accès public.
 1. Sélectionnez le niveau d’accès public souhaité à partir du menu déroulant **Niveau d’accès public** et cliquez sur le bouton OK pour appliquer la modification aux conteneurs sélectionnés.
 
-    ![Capture d’écran illustrant la façon de définir le niveau d’accès public dans le portail](./media/anonymous-read-access-configure/configure-public-access-container.png)
-
+    :::image type="content" source="media/anonymous-read-access-configure/configure-public-access-container.png" alt-text="Capture d’écran illustrant la façon de définir le niveau d’accès public dans le portail." lightbox="media/anonymous-read-access-configure/configure-public-access-container.png":::
+    
 Quand l’accès public est interdit pour le compte de stockage, le niveau d’accès public d’un conteneur ne peut pas être défini. Si vous essayez de définir le niveau d’accès public du conteneur, vous verrez que le paramètre est désactivé, car l’accès public est interdit pour le compte.
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Capture d’écran montrant que la définition du niveau d’accès public du conteneur est bloquée quand l’accès public est interdit":::

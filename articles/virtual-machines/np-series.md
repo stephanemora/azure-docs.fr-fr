@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 61488b88b00206cb78beed4fe773bf9377848701
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 69af7e2129136128e87b4c9b28806b2f02f09e27
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861046"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205392"
 ---
 # <a name="np-series"></a>Série NP 
 Les machines virtuelles de la série NP sont alimentées par des FPGA [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) pour accélérer les charges de travail, notamment l’inférence machine learning, le transcodage vidéo et la recherche de base de données et Analytics. Les machines virtuelles de la série NP sont également alimentées par des processeurs Intel Xeon 8171M (Skylake) avec une vitesse d’horloge de Turbo de 3,2 GHz.
@@ -43,10 +43,17 @@ Génération de machine virtuelle prise en charge : Génération 1<br>
 
 **R :** Xilinx recommande [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
 
-
 **Q :** Ai-je besoin d’utiliser des machines virtuelles NP pour développer ma solution ? 
 
-**R :** Non, vous pouvez la développer en local, puis la déployer sur le cloud. Veillez à suivre la documentation d’attestation pour déployer sur des machines virtuelles NP. 
+**R :** Non, vous pouvez la développer en local, puis la déployer sur le cloud. Veillez à suivre la [documentation d'attestation](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) pour déployer sur des machines virtuelles NP. 
+
+**Q :** Quel fichier renvoyé par l'attestation dois-je utiliser lors de la programmation de mon FPGA dans une machine virtuelle NP ?
+
+**R :** L'attestation renvoie deux fichiers, **design.bit.xclbin** et **design.azure.xclbin**. Utilisez **design.azure.xclbin**.
+
+**Q :** Où puis-je trouver tous les fichiers XRT/Platform ?
+
+**R :** Pour accéder à l'ensemble des fichiers, visitez le site [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) de Xilinx.
 
 **Q :** Quelle version de XRT dois-je utiliser ?
 
