@@ -140,7 +140,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -204,7 +204,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -212,6 +212,8 @@
               href: backup-azure-system-state.md
         - name: Restaurer
           items:
+            - name: Vue d’ensemble
+              href: about-restore-microsoft-azure-recovery-services.md
             - name: Récupérer des fichiers à partir d’Azure vers Windows Server
               href: backup-azure-restore-windows-server.md
             - name: Restaurer tous les fichiers dans un volume
@@ -226,13 +228,13 @@
           href: disk-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-managed-disks.md
             - name: Restaurer
               href: restore-managed-disks.md
         - name: Avec PowerShell
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-managed-disks-ps.md
             - name: Restaurer
               href: restore-managed-disks-ps.md
@@ -240,17 +242,25 @@
       items:
         - name: Vue d’ensemble
           href: blob-backup-overview.md
-        - name: Configurer et gérer
-          href: blob-backup-configure-manage.md
-        - name: Restaurer
-          href: blob-restore.md
+        - name: À partir du portail Azure
+          items:
+            - name: Configurer et gérer
+              href: blob-backup-configure-manage.md
+            - name: Restaurer
+              href: blob-restore.md
+        - name: Avec PowerShell
+          items:
+            - name: Backup
+              href: backup-blobs-storage-account-ps.md
+            - name: Restaurer
+              href: restore-blobs-storage-account-ps.md
     - name: Sauvegarde des partages de fichiers Azure
       items:
         - name: Vue d’ensemble
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -258,7 +268,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -266,7 +276,7 @@
               href: manage-afs-backup-cli.md
         - name: Avec PowerShell
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-afs-automation.md
             - name: Restaurer
               href: restore-afs-powershell.md
@@ -274,7 +284,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -284,7 +294,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Sauvegarde
+        - name: Backup
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -460,7 +470,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: /security/benchmark/azure/baselines/backup-security-baseline
+          href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
     - name: Niveau d’accès
       items:
         - name: Niveau de stockage archive

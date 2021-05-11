@@ -48,7 +48,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/traffic-manager-security-baseline?toc=/azure/traffic-manager/toc.json
     - name: Profils Traffic Manager imbriqués
       href: traffic-manager-nested-profiles.md
     - name: Types de point de terminaison
