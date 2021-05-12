@@ -43,10 +43,10 @@
           displayName: 'azure stack, ash, windows, linux, hybrid, arc'
           href: quickstart-onboard-machines.md
         - name: Connecter des comptes AWS
-          displayName: 'hybrid, multicloud, amazon, arc'
+          displayName: 'hybrid, multicloud, multi-cloud, amazon, arc'
           href: quickstart-onboard-aws.md
         - name: Connecter des comptes GCP
-          displayName: 'hybrid, multicloud, google'
+          displayName: 'hybrid, multicloud, multi-cloud, google'
           href: quickstart-onboard-gcp.md
     - name: 6. Créer des réponses automatiques aux alertes
       displayName: 'Resource Manager, ARM'
@@ -66,6 +66,8 @@
       href: security-center-compliance-dashboard.md
     - name: Gérer les stratégies de sécurité
       href: tutorial-security-policy.md
+    - name: Examiner l’intégrité de vos ressources
+      href: investigate-resource-health.md
 - name: Concepts
   items:
     - name: Concepts de la gestion de la posture de sécurité cloud
@@ -108,7 +110,10 @@
         - name: Automatiser les réponses aux recommandations
           displayName: workflow
           href: workflow-automation.md
-        - name: Exempter une ressource d’une recommandation
+        - name: Désactiver une recommandation
+          href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
+        - name: 'Exempter les recommandations par ressource, abonnement ou groupe d’administration'
+          displayName: disable
           href: exempt-resource.md
         - name: Créer des stratégies et des initiatives de sécurité personnalisées
           href: custom-security-policies.md
@@ -141,7 +146,7 @@
               displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: Utiliser la licence Microsoft Defender pour point de terminaison intégrée
-          displayName: 'ATP, mdatp, wdatp'
+          displayName: 'ATP, mdatp, wdatp, mde, mdfe'
           href: security-center-wdatp.md
         - name: Définir des listes d’applications sécurisées pour les ordinateurs
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
@@ -195,6 +200,9 @@
         - name: Désactiver des résultats de vulnérabilités d’images spécifiques
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
+        - name: "Défendre les clusters Kubernetes avec Azure\_Arc"
+          displayName: 'k8s, containers, aks, hybrid, arc, azure arc, multicloud'
+          href: defender-for-kubernetes-azure-arc.md
         - name: Protéger vos charges de travail Kubernetes
           displayName: 'k8s, containers, aks'
           href: kubernetes-workload-protections.md
@@ -233,7 +241,8 @@
       href: security-center-partner-integration.md
     - name: Protéger les ressources réseau
       href: security-center-network-recommendations.md
-    - name: Protéger les identités et les accès
+    - name: Appliquer et gérer MFA
+      displayName: 'identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords'
       href: security-center-identity-access.md
     - name: Utiliser d’autres protections Security Center contre les menaces
       href: other-threat-protections.md
@@ -288,7 +297,7 @@
     - name: Documentation sur les API REST
       href: /rest/api/securitycenter/
     - name: Base de référence de la sécurité
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
     - name: Questions fréquentes (FAQ) sur Azure Security Center
       items:
         - name: Questions générales
@@ -308,6 +317,8 @@
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Évaluation de la protection de point de terminaison et recommandations
       href: security-center-endpoint-protection.md
+    - name: Azure CLI
+      href: /cli/azure/security
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

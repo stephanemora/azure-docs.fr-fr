@@ -1,0 +1,144 @@
+- name: Documentation sur les bases d’Azure Networking
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: À propos d’Azure Networking
+      href: networking-overview.md
+- name: Démarrages rapides
+  items:
+    - name: Créez un réseau virtuel
+      href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+- name: Tutoriels
+  items:
+    - name: Restreindre l’accès réseau
+      href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+- name: Concepts
+  expanded: true
+  items:
+    - name: Architecture
+      href: architecture-guides.md
+    - name: Planifier et concevoir
+      items:
+        - name: Azure pour les ingénieurs réseau
+          href: ../azure-for-network-engineers.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Télétravail
+          href: ../working-remotely-support.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Réseaux virtuels
+          href: ../../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=/azure/networking/fundamentals/toc.json
+        - name: "Connectivité entre différents locaux\_- VPN"
+          href: ../../vpn-gateway/design.md?toc=/azure/networking/fundamentals/toc.json
+        - name: "Options de connectivité entre différents locaux\_- Connexion privée dédiée"
+          href: ../../expressroute/expressroute-workflows.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Réseau Microsoft mondial
+      items:
+        - name: Vue d’ensemble
+          href: ../microsoft-global-network.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Latence du réseau Azure
+          href: ../azure-network-latency.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Préférence de routage Internet dans Azure
+          href: ../../virtual-network/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Connectivité au réseau cloud
+      items:
+        - name: Réseau virtuel
+          href: ../../virtual-network/virtual-networks-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Adresse IP publique
+          href: ../../virtual-network/public-ip-addresses.md?toc=/azure/networking/fundamentals/toc.json
+        - name: DNS
+          href: ../../dns/dns-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Router le trafic réseau
+          href: ../../virtual-network/virtual-networks-udr-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Connecter des réseaux virtuels
+          href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Accès privé aux ressources
+          href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: "Se connecter en local à Azure\_- Chiffrement VPN"
+          href: ../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Étendre une connexion privée locale vers Azure
+          href: ../../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Connectivité Internet sortante uniquement
+          href: ../../virtual-network/nat-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Sécurité du réseau
+      items:
+        - name: Groupes de sécurité réseau
+          href: ../../virtual-network/network-security-groups-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Point de terminaison privé
+          href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Pare-feu réseau
+          href: ../../firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Protection DDoS
+          href: ../../ddos-protection/ddos-protection-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Pare-feu d’application web
+          href: ../../web-application-firewall/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Contrôles de sécurité par Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md
+    - name: Livraison d’applications scalables
+      items:
+        - name: Options d’équilibrage de charge dans Azure
+          href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/networking/fundamentals/toc.json
+        - name: Équilibreur de charge réseau
+          href: ../../load-balancer/load-balancer-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: CDN cloud sécurisé et équilibreur de charge global
+          href: ../../frontdoor/front-door-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Équilibreur de charge pour les applications web
+          href: ../../application-gateway/overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Équilibreur de charge DNS
+          href: ../../traffic-manager/traffic-manager-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Supervision du réseau
+      items:
+        - name: Superviser le réseau avec Azure Monitor
+          href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Superviser et corriger l’intégrité du réseau
+          href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json
+- name: Guides pratiques
+  items:
+    - name: Créer des réseaux cloud et s’y connecter
+      items:
+        - name: Créez un réseau virtuel
+          href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: "Créer une adresse\_IP publique"
+          href: ../../virtual-network/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Optimiser les coûts liés au routage
+          href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Créer une passerelle NAT pour les connexions sortantes
+          href: ../../virtual-network/tutorial-create-nat-gateway-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Créer une zone et un enregistrement Azure DNS
+          href: ../../dns/dns-getstarted-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Router le trafic à l’aide de tables de routage
+          href: ../../virtual-network/tutorial-create-route-table-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Connecter des réseaux virtuels
+          href: ../../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Accès privé aux ressources
+          href: ../../private-link/create-private-endpoint-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: "Connecter un réseau local à un réseau virtuel - Chiffrement\_VPN"
+          href: ../../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: "Connectivité entre différents locaux\_- Dédiée"
+          href: ../../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Sécuriser votre réseau
+      items:
+        - name: Restreindre l’accès réseau
+          href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Filtrer le trafic réseau
+          href: ../../virtual-network/tutorial-filter-network-traffic.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Déployer un pare-feu réseau
+          href: ../../firewall/tutorial-firewall-deploy-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: "Protéger le réseau contre les attaques\_DDoS"
+          href: ../../ddos-protection/manage-ddos-protection.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Adapter la livraison d’une application
+      items:
+        - name: Créer un équilibreur de charge réseau
+          href: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Déployer un CDN cloud sécurisé et un équilibreur de charge global
+          href: ../../frontdoor/quickstart-create-front-door.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Créer un équilibreur de charge pour les applications web
+          href: ../../application-gateway/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Créer un équilibreur de charge DNS
+          href: ../../traffic-manager/quickstart-create-traffic-manager-profile.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Superviser le réseau
+      items:
+        - name: Superviser l’intégrité du réseau
+          href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Superviser les communications entre les ressources Azure
+          href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
+        - name: Azure Monitor Network Insights
+          href: ../../azure-monitor/insights/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json

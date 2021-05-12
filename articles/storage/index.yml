@@ -1,149 +1,145 @@
 ### YamlMime:Hub
 title: Documentation sur le stockage Azure
-summary: Le stockage Azure comprend le stockage d’objets, de fichiers, de disques, de files d’attente et de tables. Il propose également des services pour les solutions de stockage hybride, ainsi que des services pour transférer, partager et sauvegarder des données.
+summary: 'Le stockage Azure comprend le stockage d’objets, de fichiers, de disques, de files d’attente et de tables. Il propose également des services pour les solutions de stockage hybride, ainsi que des services pour transférer, partager et sauvegarder des données.'
 brand: azure
 metadata:
   title: Documentation sur le stockage Azure
-  description: Page du hub de documentation sur le stockage Azure. Dirige vers la documentation relative aux services pour les solutions de stockage hybride, ainsi qu’aux services permettant de transférer, partager et sauvegarder des données.
+  description: 'Page du hub de documentation sur le stockage Azure. Dirige vers la documentation relative aux services pour les solutions de stockage hybride, ainsi qu’aux services permettant de transférer, partager et sauvegarder des données.'
   ms.service: storage
   ms.topic: hub-page
   author: twooley
   ms.author: twooley
-  ms.date: 05/01/2020
-  ms.openlocfilehash: 886f61206bdc87dc5283a46e50ff438041be1a2f
-  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/27/2021
-  ms.locfileid: "98878474"
+  ms.date: 04/14/2021
 highlightedContent:
   items:
-  - title: Présentation des principaux services de stockage
-    itemType: concept
-    url: ./common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - title: À propos des types de comptes de stockage
-    itemType: concept
-    url: ./common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - title: Créez un compte de stockage.
-    itemType: how-to-guide
-    url: ./common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - title: À propos de la redondance des données
-    itemType: concept
-    url: ./common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - title: Transférer des données vers Azure
-    itemType: concept
-    url: ./common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - title: Présentation des principaux services de stockage
+      itemType: concept
+      url: ./common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - title: À propos des types de comptes de stockage
+      itemType: concept
+      url: ./common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - title: Créez un compte de stockage.
+      itemType: how-to-guide
+      url: ./common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - title: À propos de la redondance des données
+      itemType: concept
+      url: ./common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - title: "Migrer des données vers Stockage\_Azure"
+      itemType: concept
+      url: ./common/storage-migration-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 additionalContent:
   sections:
-  - title: Solutions de stockage cloud
-    items:
-    - title: Stockage d’objets pour vos applications
-      links:
-      - url: ./blobs/storage-blobs-introduction.md
-        text: À propos du stockage des données non structurées (stockage d’objets Blob)
-      - url: /rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
-        text: Présentation des objets blob de blocs, d’ajouts et de pages
-      - url: ./blobs/index.yml
-        text: En savoir plus >
-    - title: Stockage pour l’analytique Big Data
-      links:
-      - url: ./blobs/data-lake-storage-introduction.md
-        text: À propos du stockage des lacs de données d’entreprise (Data Lake Storage)
-      - url: ./blobs/data-lake-storage-data-scenarios.md
-        text: Options et outils de traitement des Big Data
-    - title: Partages de fichiers hébergés dans le cloud
-      links:
-      - url: ./files/storage-files-introduction.md
-        text: Utiliser les partages de fichiers fournis par la plateforme principale du stockage Azure (Azure Files)
-      - url: ../azure-netapp-files/azure-netapp-files-introduction.md
-        text: Utiliser les volumes fournis par NetApp ONTAP (Azure NetApp Files)
-    - title: Stockage sur disque pour les charges de travail IaaS
-      links:
-      - url: ../virtual-machines/managed-disks-overview.md
-        text: À propos des volumes de stockage de niveau bloc pour les machines virtuelles Azure
-      - url: ../virtual-machines/disks-types.md
-        text: Présentation des types de disques disponibles
-      - url: ../virtual-machines/windows/attach-managed-disk-portal.md
-        text: Ajouter un nouveau disque à une machine virtuelle - Windows
-      - url: ../virtual-machines/linux/attach-disk-portal.md
-        text: Attacher un disque de données à une machine virtuelle - Linux
-    - title: Stockage des files d’attente de messages asynchrones
-      links:
-      - url: ./queues/storage-queues-introduction.md
-        text: À propos de la solution Stockage Azure pour les files d’attente (Stockage File d’attente)
-      - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
-        text: Comparer le stockage File d’attente aux files d’attentes Service Bus
-      - url: ./queues/index.yml
-        text: En savoir plus >
-    - title: Stockage des données NoSQL structurées
-      links:
-      - url: ./tables/table-storage-overview.md
-        text: Stocker des données NoSQL structurées dans le cloud (Stockage Table et Cosmos DB)
-      - url: ../cosmos-db/table-support.md
-        text: Comparaison entre le stockage Table et l’API Table Cosmos DB
-      - url: ./tables/index.yml
-        text: En savoir plus >
-  - title: Solutions de stockage hybride
-    items:
-    - title: Étendre un partage de fichiers local au cloud
-      links:
-      - url: ./files/storage-sync-files-planning.md
-        text: Synchroniser les partages de fichiers Azure avec le serveur de fichiers Windows (Azure FileSync)
-      - url: ./files/storage-sync-files-deployment-guide.md
-        text: Déployer Azure File Sync
-      - url: ./files/index.yml
-        text: En savoir plus >
-    - title: Transfert de données en ligne (locales vers Azure)
-      links:
-      - url: ../databox-gateway/data-box-gateway-overview.md
-        text: Transférer facilement des données vers Azure (Data Box Gateway)
-      - url: ../databox-online/azure-stack-edge-overview.md
-        text: Traiter des données localement avant leur transfert vers Azure (Azure Stack Edge)
-      - url: ../databox-online/index.yml
-        text: En savoir plus >
-    - title: Mise en cache des charges de travail de calcul haute performance (HPC)
-      links:
-      - url: ../hpc-cache/hpc-cache-overview.md
-        text: Utiliser un service de mise en cache de fichiers complètement managé (Azure HPC Cache)
-      - url: ../avere-vfxt/avere-vfxt-overview.md
-        text: Mise en cache du NAS local dans Azure (Avere vFXT pour Azure)
-      - url: ../fxt-edge-filer/fxt-overview.md
-        text: Déployer une appliance de mise en cache locale (Azure FXT Edge Filer)
-  - title: Opérations de données
-    items:
-    - title: Transfert en bloc hors connexion vers Azure
-      links:
-      - url: ../databox/data-box-disk-overview.md
-        text: Transfert d’un volume de données inférieur à 40 To (Data Box Disk)
-      - url: ../databox/data-box-overview.md
-        text: Transférer 40 à 500 To de données (Data Box)
-      - url: ../databox/data-box-heavy-overview.md
-        text: Transfert d’un volume de données supérieur à 500 To (Data Box Heavy)
-      - url: ../databox/index.yml
-        text: En savoir plus >
-    - title: Transférer de petits jeux de données (en ligne)
-      links:
-      - url: ./common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        text: Utiliser l’outil en ligne de commande AzCopy
-      - url: ./blobs/storage-quickstart-blobs-storage-explorer.md
-        text: Utiliser l’Explorateur Stockage Azure basé sur l’interface graphique utilisateur
-    - title: Contrôle des coûts
-      links:
-      - url: ./blobs/storage-blob-storage-tiers.md
-        text: Créer des niveaux de données blob de manière économique (chaud, froid, archive)
-    - title: Partager vos données
-      links:
-      - url: ../data-share/index.yml
-        text: Partager des données avec des clients et des partenaires (Azure Data Share)
-      - url: ../data-share/supported-data-stores.md
-        text: Magasins de données pris en charge pour le partage
-      - url: ../data-share/index.yml
-        text: En savoir plus >
-    - title: Sauvegarder des données
-      links:
-      - url: ../backup/quick-backup-vm-portal.md
-        text: Sauvegarder des machines virtuelles (Sauvegarde Azure)
-      - url: ../backup/backup-afs.md
-        text: Sauvegarder des partages de fichiers Azure
-      - url: ../backup/index.yml
-        text: En savoir plus >
+    - title: Solutions de stockage cloud
+      items:
+        - title: Stockage d’objets pour vos applications
+          links:
+            - url: ./blobs/storage-blobs-introduction.md
+              text: "À propos du stockage des données non\_structurées (stockage d’objets Blob)"
+            - url: /rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs
+              text: 'Présentation des objets blob de blocs, d’ajouts et de pages'
+            - url: ./blobs/index.yml
+              text: "En savoir plus\_>"
+        - title: Stockage pour l’analytique Big Data
+          links:
+            - url: ./blobs/data-lake-storage-introduction.md
+              text: À propos du stockage des lacs de données d’entreprise (Data Lake Storage)
+            - url: ./blobs/data-lake-storage-data-scenarios.md
+              text: Options et outils de traitement des Big Data
+        - title: Partages de fichiers hébergés dans le cloud
+          links:
+            - url: ./files/storage-files-introduction.md
+              text: Utiliser les partages de fichiers fournis par la plateforme principale du stockage Azure (Azure Files)
+            - url: ../azure-netapp-files/azure-netapp-files-introduction.md
+              text: Utiliser les volumes fournis par NetApp ONTAP (Azure NetApp Files)
+        - title: Stockage sur disque pour les charges de travail IaaS
+          links:
+            - url: ../virtual-machines/managed-disks-overview.md
+              text: À propos des volumes de stockage de niveau bloc pour les machines virtuelles Azure
+            - url: ../virtual-machines/disks-types.md
+              text: Présentation des types de disques disponibles
+            - url: ../virtual-machines/windows/attach-managed-disk-portal.md
+              text: Ajouter un nouveau disque à une machine virtuelle - Windows
+            - url: ../virtual-machines/linux/attach-disk-portal.md
+              text: Attacher un disque de données à une machine virtuelle - Linux
+        - title: Stockage des files d’attente de messages asynchrones
+          links:
+            - url: ./queues/storage-queues-introduction.md
+              text: À propos de la solution Stockage Azure pour les files d’attente (Stockage File d’attente)
+            - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
+              text: Comparer le stockage File d’attente aux files d’attentes Service Bus
+            - url: ./queues/index.yml
+              text: "En savoir plus\_>"
+        - title: Stockage des données NoSQL structurées
+          links:
+            - url: ./tables/table-storage-overview.md
+              text: Stocker des données NoSQL structurées dans le cloud (Stockage Table et Cosmos DB)
+            - url: ../cosmos-db/table-support.md
+              text: Comparaison entre le stockage Table et l’API Table Cosmos DB
+            - url: ./tables/index.yml
+              text: "En savoir plus\_>"
+    - title: Solutions de stockage hybride
+      items:
+        - title: Étendre un partage de fichiers local au cloud
+          links:
+            - url: ./file-sync/file-sync-introduction.md
+              text: Découvrir Azure File Sync
+            - url: ./file-sync/file-sync-planning.md
+              text: Synchroniser les partages de fichiers Azure avec le serveur de fichiers Windows (Azure FileSync)
+            - url: ./file-sync/file-sync-deployment-guide.md
+              text: Déployer Azure File Sync
+            - url: ./file-sync/index.yml
+              text: "En savoir plus\_>"
+        - title: Transfert de données en ligne (locales vers Azure)
+          links:
+            - url: ../databox-gateway/data-box-gateway-overview.md
+              text: Transférer facilement des données vers Azure (Data Box Gateway)
+            - url: ../databox-online/azure-stack-edge-overview.md
+              text: Traiter des données localement avant leur transfert vers Azure (Azure Stack Edge)
+            - url: ../databox-online/index.yml
+              text: "En savoir plus\_>"
+        - title: Mise en cache des charges de travail de calcul haute performance (HPC)
+          links:
+            - url: ../hpc-cache/hpc-cache-overview.md
+              text: Utiliser un service de mise en cache de fichiers complètement managé (Azure HPC Cache)
+            - url: ../avere-vfxt/avere-vfxt-overview.md
+              text: Mise en cache du NAS local dans Azure (Avere vFXT pour Azure)
+            - url: ../fxt-edge-filer/fxt-overview.md
+              text: Déployer une appliance de mise en cache locale (Azure FXT Edge Filer)
+    - title: Opérations de données
+      items:
+        - title: Transfert en bloc hors connexion vers Azure
+          links:
+            - url: ../databox/data-box-disk-overview.md
+              text: "Transfert d’un volume de données inférieur à 40\_To (Data Box Disk)"
+            - url: ../databox/data-box-overview.md
+              text: "Transférer 40 à 500\_To de données (Data Box)"
+            - url: ../databox/data-box-heavy-overview.md
+              text: "Transfert d’un volume de données supérieur à 500\_To (Data Box Heavy)"
+            - url: ../databox/index.yml
+              text: "En savoir plus\_>"
+        - title: Transférer de petits jeux de données (en ligne)
+          links:
+            - url: ./common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              text: Utiliser l’outil en ligne de commande AzCopy
+            - url: ./blobs/storage-quickstart-blobs-storage-explorer.md
+              text: Utiliser l’Explorateur Stockage Azure basé sur l’interface graphique utilisateur
+        - title: Contrôle des coûts
+          links:
+            - url: ./blobs/storage-blob-storage-tiers.md
+              text: 'Créer des niveaux de données blob de manière économique (chaud, froid, archive)'
+        - title: Partager vos données
+          links:
+            - url: ../data-share/index.yml
+              text: Partager des données avec des clients et des partenaires (Azure Data Share)
+            - url: ../data-share/supported-data-stores.md
+              text: Magasins de données pris en charge pour le partage
+            - url: ../data-share/index.yml
+              text: "En savoir plus\_>"
+        - title: Sauvegarder des données
+          links:
+            - url: ../backup/quick-backup-vm-portal.md
+              text: Sauvegarder des machines virtuelles (Sauvegarde Azure)
+            - url: ../backup/backup-afs.md
+              text: Sauvegarder des partages de fichiers Azure
+            - url: ../backup/index.yml
+              text: "En savoir plus\_>"

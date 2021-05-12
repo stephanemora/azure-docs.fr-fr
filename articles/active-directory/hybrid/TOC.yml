@@ -40,6 +40,8 @@
           href: whatis-phs.md
         - name: Fonctionnement de la synchronisation de hachage de mot de passe
           href: how-to-connect-password-hash-synchronization.md
+        - name: Synchronisation de hachage du mot de passe sélective
+          href: how-to-connect-selective-password-hash-synchronization.md
     - name: Authentification directe
       items:
         - name: Qu’est-ce que l'authentification directe ?
@@ -240,6 +242,8 @@
           href: how-to-connect-fed-saml-idp.md
         - name: Tâches post-configuration concernant la jonction Azure AD Hybride
           href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+        - name: "Rotation d’urgence de certificats AD\_FS"
+          href: how-to-connect-emergency-ad-fs-certificate-rotation.md
     - name: Gérer l'authentification unique
       items:
         - name: Prendre en main l’authentification unique
@@ -254,6 +258,8 @@
           href: how-to-connect-health-adfs.md
         - name: "Rapport d’adresse IP à risque pour Azure AD Connect Health avec AD\_FS"
           href: how-to-connect-health-adfs-risky-ip.md
+        - name: "Connexions AD\_FS dans Azure\_AD avec Connect Health"
+          href: how-to-connect-health-ad-fs-sign-in.md
         - name: Utiliser Azure AD Connect Health pour la synchronisation
           href: how-to-connect-health-sync.md
         - name: Utiliser Azure AD Connect Health avec AD DS
@@ -304,6 +310,8 @@
           href: whatis-aadc-admin-agent.md
         - name: "En quoi consiste le module PowerShell de ADConnectivityTools\_?"
           href: how-to-connect-adconnectivitytools.md
+        - name: Synchronisation d’objets uniques Azure AD Connect
+          href: how-to-connect-single-object-sync.md
         - name: Connectivité
           href: tshoot-connect-connectivity.md
         - name: Résolution des erreurs lors de la synchronisation
@@ -332,6 +340,8 @@
           href: tshoot-connect-install-issues.md
         - name: Modifications de l’UPN
           href: howto-troubleshoot-upn-changes.md
+        - name: Résolution des problèmes de bout en bout des objets et attributs
+          href: /troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes
 - name: Informations de référence
   items:
     - name: Ports et protocoles nécessaires à l’identité hybride

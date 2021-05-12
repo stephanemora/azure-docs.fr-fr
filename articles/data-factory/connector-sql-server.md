@@ -1,18 +1,18 @@
 ---
 title: Copier des données depuis et vers SQL Server
 description: Découvrez comment déplacer des données vers et depuis une base de données SQL Server qui est locale ou dans une machine virtuelle Azure à l’aide d’Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 8187a71e89c364ef5a52d7ad4615ed03e6b24a4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6996a5e3f20a3c71fc5a49f9650955ce9c41683
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592049"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486788"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 
@@ -47,11 +47,11 @@ Plus précisément, ce connecteur SQL Server prend en charge :
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir des entités Data Factory propres au connecteur de base de données SQL Server.
 

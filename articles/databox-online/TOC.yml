@@ -1,4 +1,4 @@
-- name: Documentation Azure Stack Edge Pro
+- name: Documentation Azure Stack Edge
   href: ./index.yml
   expanded: true
 - name: Azure Stack Edge Pro - GPU
@@ -224,36 +224,56 @@
               href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
             - name: Configurer les paramètres TLS clients
               href: azure-stack-edge-gpu-configure-tls-settings.md
-        - name: Déployer des machines virtuelles (préversion)
+        - name: À propos des machines virtuelles (préversion)
           items:
-            - name: Déployer des machines virtuelles - Portail Azure
-              href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
-            - name: Déployer des machines virtuelles - Modèles
-              href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
-            - name: Déployer des machines virtuelles - GPU
-              href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
-            - name: Déployer des machines virtuelles - Applets de commande Azure PowerShell
-              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
-            - name: Déployer des machines virtuelles - Script Azure PowerShell
-              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
-            - name: Déployer des machines virtuelles - Azure CLI/Python
-              href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
-            - name: Déployer une extension de script personnalisé sur des machines virtuelles
-              href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
-            - name: Créer une image de machine virtuelle
-              href: azure-stack-edge-gpu-create-virtual-machine-image.md
-            - name: Utiliser une image généralisée Windows
-              href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
-            - name: Tailles et types de machines virtuelles pris en charge
+            - name: Présentation des machines virtuelles
+              href: azure-stack-edge-gpu-virtual-machine-overview.md
+            - name: Voir les machines virtuelles prises en charge
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
-            - name: Se connecter à la console de la machine virtuelle
-              href: azure-stack-edge-gpu-connect-virtual-machine-console.md
-            - name: Gérer des interfaces réseau
-              href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
-            - name: Gérer les disques
-              href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
-            - name: Gérer les tailles de VM
-              href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+            - name: Créer une image de machine virtuelle
+              items:
+                - name: Image personnalisée d’une machine virtuelle Azure
+                  href: azure-stack-edge-gpu-create-virtual-machine-image.md
+                - name: Image généralisée Windows d’un disque dur virtuel
+                  href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
+                - name: Image généralisée à partir d’une ISO
+                  href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
+                - name: Utiliser une image spécialisée
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+            - name: Déployer des machines virtuelles
+              items:
+                - name: Via le portail Azure
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+                - name: Par le biais de modèles
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+                - name: À l’aide du GPU
+                  href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
+                - name: Via les applets de commande Azure PowerShell
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
+                - name: Via le script Azure PowerShell
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
+                - name: Via Azure CLI/Python
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
+            - name: Procédures
+              items:
+                - name: Gérer des interfaces réseau
+                  href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+                - name: Gérer les disques
+                  href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+                - name: Gérer les tailles de VM
+                  href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
+                - name: Gérer les étiquettes de machine virtuelle
+                  href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+                - name: Gérer les commutateurs virtuels
+                  href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+                - name: Installer l’extension de script personnalisé
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+                - name: Sauvegarder des disques de machine virtuelle
+                  href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
+                - name: Dépanner
+                  items:
+                    - name: Se connecter à la console de la machine virtuelle
+                      href: azure-stack-edge-gpu-connect-virtual-machine-console.md
         - name: Gérer des certificats
           items:
             - name: Configuration requise
@@ -429,7 +449,11 @@
 - name: Sécurité
   items:
     - name: Base de référence de la sécurité
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
+- name: Informations de référence
+  items:
+    - name: Azure CLI
+      href: /cli/azure/databoxedge
 - name: Ressources
   items:
     - name: "Exemples de modules\_C# Azure Stack Edge Pro (.NET)"

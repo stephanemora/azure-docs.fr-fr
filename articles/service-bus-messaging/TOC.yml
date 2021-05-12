@@ -92,14 +92,42 @@
   items:
     - name: 'Files d’attente, rubriques et abonnements'
       href: service-bus-queues-topics-subscriptions.md
-    - name: Actions et filtres de rubrique
-      href: topic-filters.md
     - name: Premium-Messaging
       href: service-bus-premium-messaging.md
     - name: Comparer les files d’attente Azure et Service Bus
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-    - name: Optimiser les performances
-      href: service-bus-performance-improvements.md
+    - name: Fonctionnalités avancées
+      items:
+        - name: Sessions de message
+          href: message-sessions.md
+        - name: Détection de messages en double
+          href: duplicate-detection.md
+        - name: Actions et filtres de rubrique
+          href: topic-filters.md
+        - name: Parcours des messages
+          href: message-browsing.md
+        - name: 'Transferts, verrouillages et règlement des messages'
+          href: message-transfers-locks-settlement.md
+        - name: Files d’attente de lettres mortes
+          href: service-bus-dead-letter-queues.md
+        - name: Report de message
+          href: message-deferral.md
+        - name: Prérécupération de messages
+          href: service-bus-prefetch.md
+        - name: Chaîner des entités avec le transfert automatique
+          href: service-bus-auto-forwarding.md
+        - name: Traitement des transactions
+          href: service-bus-transactions.md
+        - name: Optimiser les performances
+          href: service-bus-performance-improvements.md
+        - name: Récupération d’urgence et géo-réplication
+          href: service-bus-geo-dr.md
+        - name: Messagerie asynchrone et haute disponibilité
+          href: service-bus-async-messaging.md
+        - name: Gestion des urgences et des pannes
+          href: service-bus-outages-disasters.md
+        - name: Limitation
+          href: service-bus-throttling.md
     - name: Fédération
       items:
         - name: Réplication des messages et fédération interrégionale
@@ -116,27 +144,15 @@
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
         - name: Obtenir des messages depuis des hubs d’événements
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
-    - name: Récupération d’urgence et géo-réplication
-      href: service-bus-geo-dr.md
-    - name: Messagerie asynchrone et haute disponibilité
-      href: service-bus-async-messaging.md
-    - name: Gestion des urgences et des pannes
-      href: service-bus-outages-disasters.md
-    - name: Limitation
-      href: service-bus-throttling.md
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/service-bus-messaging/TOC.json
         - name: Authentification et autorisation
           href: service-bus-authentication-and-authorization.md
           items:
-            - name: Utiliser des signatures d’accès partagé
-              items:
-                - name: Migrer à partir des services ACS vers SAP
-                  href: service-bus-migrate-acs-sas.md
-                - name: Authentification avec les signatures d’accès partagé
-                  href: service-bus-sas.md
+            - name: Authentification avec les signatures d’accès partagé
+              href: service-bus-sas.md
             - name: Utiliser Azure Active Directory
               items:
                 - name: Authentifier avec des identités managées pour les ressources Azure
@@ -154,28 +170,20 @@
           href: service-bus-to-event-grid-integration-concept.md
 - name: Guides pratiques
   items:
-    - name: Passer d’une région à l’autre
-      href: move-across-regions.md
-    - name: Migrer des API Azure Service Manager (Classic) vers des API Resource Manager
-      href: deprecate-service-bus-management.md
-    - name: Créer un espace de noms
-      href: service-bus-create-namespace-portal.md
     - name: Développer
       items:
+        - name: Créer un espace de noms
+          href: service-bus-create-namespace-portal.md
         - name: Définir des filtres et actions d’abonnement
           href: service-bus-filter-examples.md
         - name: Gestion des messages
           items:
-            - name: 'Files d’attente, rubriques et abonnements'
-              href: service-bus-queues-topics-subscriptions.md
             - name: "Entités Java message service (JMS)\_2.0"
               href: java-message-service-20-entities.md
             - name: Java Message Service (JMS) Developer guide.md
               href: jms-developer-guide.md
             - name: 'Messages, charges utiles et sérialisation'
               href: service-bus-messages-payloads.md
-            - name: 'Transferts, verrouillages et règlement des messages'
-              href: message-transfers-locks-settlement.md
             - name: Séquencement et horodatage des messages
               href: message-sequencing.md
             - name: Expiration des messages (durée de vie)
@@ -184,8 +192,6 @@
           href: service-bus-migrate-standard-premium.md
         - name: Files d’attente et rubriques partitionnées
           href: service-bus-partitioning.md
-        - name: Sessions de message
-          href: message-sessions.md
         - name: AMQP
           items:
             - name: Vue d’ensemble du protocole AMQP
@@ -200,30 +206,14 @@
               href: service-bus-amqp-request-response.md
             - name: Erreurs AMPQ
               href: service-bus-amqp-troubleshoot.md
-        - name: Fonctionnalités avancées
-          items:
-            - name: Files d’attente de lettres mortes
-              href: service-bus-dead-letter-queues.md
-            - name: Prérécupération de messages
-              href: service-bus-prefetch.md
-            - name: Détection de messages en double
-              href: duplicate-detection.md
-            - name: Compteurs de messages
-              href: message-counters.md
-            - name: Report de message
-              href: message-deferral.md
-            - name: Parcours des messages
-              href: message-browsing.md
-            - name: Chaîner des entités avec le transfert automatique
-              href: service-bus-auto-forwarding.md
-            - name: Traitement des transactions
-              href: service-bus-transactions.md
         - name: Créer une application Service Bus à plusieurs niveaux
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Migrer
       items:
         - name: Migrer d’ActiveMQ vers Azure Service Bus
           href: migrate-jms-activemq-to-servicebus.md
+        - name: Migrer des API Azure Service Manager (Classic) vers des API Resource Manager
+          href: deprecate-service-bus-management.md
     - name: Superviser
       items:
         - name: Diagnostics et suivi de bout en bout
@@ -238,6 +228,20 @@
           href: service-bus-integrate-with-rabbitmq.md
     - name: Gérer
       items:
+        - name: Activer les sessions pour une file d’attente ou un abonnement
+          href: enable-message-sessions.md
+        - name: Activer la détection des doublons pour une file d’attente ou une rubrique
+          href: enable-duplicate-detection.md
+        - name: Activer les partitions pour une file d’attente ou une rubrique
+          href: enable-partitions.md
+        - name: Activer le transfert automatique pour une file d’attente ou un abonnement
+          href: enable-auto-forward.md
+        - name: Activer les lettres mortes pour une file d’attente ou un abonnement
+          href: enable-dead-letter.md
+        - name: Obtenir des compteurs de messages
+          href: message-counters.md
+        - name: Passer d’une région à l’autre
+          href: move-across-regions.md
         - name: Mettre à jour automatiquement les unités de messagerie
           href: automate-update-messaging-units.md
         - name: Utiliser Azure PowerShell pour approvisionner des entités
@@ -292,9 +296,9 @@
         - name: Migrer d’azure-servicebus vers azure-messaging-servicebus
           href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md'
         - name: azure-messaging-servicebus (dernière version)
-          href: /java/api/overview/azure/servicebus?view=azure-java-preview
+          href: /java/api/com.azure.messaging.servicebus?view=azure-java-stable
         - name: azure-servicebus
-          href: /java/api/overview/azure/servicebus
+          href: /java/api/com.microsoft.azure.servicebus?view=azure-java-stable
     - name: Python
       items:
         - name: "Migrer azure-servicebus de la version\_0.50 à la version\_7"
@@ -317,6 +321,8 @@
       href: 'https://github.com/Azure/azure-sdk-for-ruby'
     - name: Go
       href: 'https://github.com/Azure/azure-service-bus-go'
+    - name: Azure CLI
+      href: /cli/azure/servicebus
     - name: Azure PowerShell
       href: /powershell/module/az.servicebus
     - name: REST
@@ -335,7 +341,7 @@
 - name: Ressources
   items:
     - name: Questions fréquentes (FAQ)
-      href: service-bus-faq.md
+      href: service-bus-faq.yml
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-service-bus
     - name: Feuille de route Azure

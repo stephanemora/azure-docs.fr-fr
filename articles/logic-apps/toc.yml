@@ -36,8 +36,12 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
 - name: Concepts
   items:
-    - name: Connecteurs pour Logic Apps
+    - name: Vue d’ensemble des connecteurs pour Logic Apps
       href: ../connectors/apis-list.md
+    - name: Connecteurs managés pour Logic Apps
+      href: ../connectors/managed.md
+    - name: Connecteurs intégrés pour Logic Apps
+      href: ../connectors/built-in.md
     - name: Planifier des workflows récurrents
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Sans serveur avec Azure
@@ -54,7 +58,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: Guides pratiques
   items:
     - name: Préversion Azure Logic Apps
@@ -129,6 +133,8 @@
               href: logic-apps-custom-api-authentication.md
             - name: Déployer et appeler des API personnalisées
               href: logic-apps-custom-api-host-deploy-call.md
+        - name: "Prendre en charge le codage de caractères non\_UTF-8 dans Logic Apps"
+          href: support-non-unicode-character-encoding.md
         - name: Résoudre les erreurs
           href: logic-apps-diagnosing-failures.md
     - name: Accéder aux réseaux virtuels Azure
@@ -214,6 +220,8 @@
           href: ../connectors/connectors-create-api-azureblobstorage.md
         - name: Azure Container Instances
           href: ../connectors/connectors-create-api-container-instances.md
+        - name: Azure Event Grid
+          href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
         - name: Hubs d'événements Azure
           href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Azure Functions
@@ -236,8 +244,6 @@
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
-        - name: Excel Online pour les entreprises ou OneDrive
-          href: ../connectors/connectors-create-api-excel.md
         - name: Système de fichiers
           href: logic-apps-using-file-connector.md
         - name: Fichier plat
@@ -388,7 +394,7 @@
     - name: Modèle tarifaire et mesure de l’utilisation
       href: logic-apps-pricing.md
     - name: Azure CLI
-      href: /cli/azure/ext/logic/logic
+      href: /cli/azure/logic
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
     - name: API REST

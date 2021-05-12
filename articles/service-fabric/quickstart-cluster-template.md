@@ -3,18 +3,18 @@ title: Créer un cluster Service Fabric avec un modèle Azure Resource Manager
 description: Dans ce guide de démarrage rapide, vous allez créer un cluster de test Azure Resource Manager à l’aide d’un modèle Azure Resource Manager.
 author: erikadoyle
 ms.author: edoyle
-ms.date: 07/29/2020
+ms.date: 05/10/2021
 ms.topic: quickstart
 ms.service: service-fabric
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: cb3758ae837dc03789371d00f768b257a9ef295d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 096894bc35f954b913020c4d3820cf096065c7df
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535312"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753270"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Démarrage rapide : Créer un cluster Service Fabric à l’aide d’un modèle Resource Manager
 
@@ -26,7 +26,7 @@ Ce cluster Windows à cinq nœuds est sécurisé avec un certificat auto-signé 
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.servicefabric%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,9 +44,9 @@ Pour suivre ce guide de démarrage rapide, vous devez effectuer les opérations 
 
 Clonez ou téléchargez le dépôt [Modèles de démarrage rapide Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Vous pouvez également copier localement les fichiers suivants à partir du dossier *service-fabric-secure-cluster-5-node-1-nodetype* :
 
-* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
-* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
-* [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
+* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
+* [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -93,7 +93,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour afficher le modèle, consultez le fichier [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour afficher le modèle, consultez le fichier [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json).
 
 Plusieurs ressources Azure ont été définies dans le modèle :
 

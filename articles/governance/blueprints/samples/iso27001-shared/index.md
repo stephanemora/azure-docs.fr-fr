@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 description: Vue d’ensemble et architecture de l’exemple de blueprint Services partagés ISO 27001. Cet exemple de blueprint aide les clients à évaluer des contrôles ISO 27001 spécifiques.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
-ms.openlocfilehash: d5ac88fc7a4fe21cef74ee23af2336a5a376471a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 112b8dbfe49cfab555c53b52747c73bdca8c7cf1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627648"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739202"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 
-L’exemple de blueprint Services partagés ISO 27001 fournit un ensemble de modèles d’infrastructure conformes et de garde-fou stratégiques qui facilitent l’attestation ISO 27001. Ce blueprint aide les clients à déployer des architectures cloud qui offrent des solutions aux scénarios qui impliquent des obligations d’accréditation ou de conformité.
+L’exemple de blueprint Services partagés ISO 27001 fournit un ensemble de modèles d’infrastructure conformes et de garde-fous stratégiques qui facilitent l’attestation ISO 27001. Ce blueprint aide les clients à déployer des architectures cloud qui offrent des solutions aux scénarios qui impliquent des obligations d’accréditation ou de conformité.
 
 L’exemple de blueprint [Charge de travail App Service Environment/SQL Database ISO 27001](../iso27001-ase-sql-workload/index.md) développe cet exemple.
 

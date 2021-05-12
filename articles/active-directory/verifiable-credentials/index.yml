@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Documentation sur les justificatifs vérifiables Azure Active Directory
+summary: Les justificatifs vérifiables vous aident à créer des solutions qui permettent aux clients de gérer leurs propres données.
+metadata:
+  author: barclayn
+  description: Découvrez comment incorporer des justificatifs vérifiables dans vos solutions pour permettre aux clients de contrôler les informations les concernant
+  manager: daveba
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 03/30/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 13eb88e8e8613c913f66185eba751a1fe3c36e1e
+  ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 04/01/2021
+  ms.locfileid: "106176204"
+landingContent:
+- title: À propos des justificatifs vérifiables
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation des justificatifs vérifiables Azure Active Directory
+      url: decentralized-identifier-overview.md
+  - linkListType: video
+    links:
+    - text: Gouverner l’accès à vos ressources
+      url: https://www.youtube.com/watch?v=r20hCF9NbTo
+- title: Les justificatifs vérifiables permettent aux utilisateurs de contrôler leurs informations personnelles
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Prise en main des justificatifs vérifiables
+      url: get-started-verifiable-credentials.md
+  - linkListType: concept
+    links:
+    - text: Exemples de communication du service émetteur
+      url: issuer-openid.md
+- title: Comment lier votre DID
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Lier votre domaine à votre identificateur distribué
+      url: how-to-dnsbind.md

@@ -1,18 +1,19 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint FedRAMP High
 description: Vue d’ensemble de l’exemple de blueprint FedRAMP High. Cet exemple de blueprint permet aux clients d’évaluer des contrôles FedRAMP High.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 1287a0369e59cc78cce775bff01fe885c1b571d0
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b98c73992202d7adeb60c3eb52219fd411cde959
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034847"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757328"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint FedRAMP High
 
-L’exemple de blueprint FedRAMP High fournit des garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md), qui vous permettent d’évaluer des contrôles FedRAMP High spécifiques. Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des contrôles FedRAMP High.
+L’exemple de blueprint FedRAMP High fournit des garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md), qui vous permettent d’évaluer des contrôles FedRAMP High spécifiques.
+Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des contrôles FedRAMP High.
 
 ## <a name="control-mapping"></a>Correspondance des contrôles
 

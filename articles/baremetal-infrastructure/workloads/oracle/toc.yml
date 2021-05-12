@@ -1,0 +1,36 @@
+- name: "Qu’est-ce que BareMetal Infrastructure pour Oracle\_?"
+  href: oracle-baremetal-overview.md
+- name: Références SKU BareMetal
+  href: oracle-baremetal-skus.md
+- name: Stockage
+  href: oracle-baremetal-storage.md
+- name: Considérations relatives à la mise à jour corrective
+  href: oracle-baremetal-patching.md
+- name: Configuration Ethernet
+  href: oracle-baremetal-ethernet.md
+- name: Architecture
+  href: oracle-baremetal-architecture.md
+- name: Provisionner
+  href: oracle-baremetal-provision.md
+- name: Haute disponibilité et récupération d’urgence
+  items:
+    - name: Présentation de la haute disponibilité/reprise d’activité
+      href: concepts-oracle-high-availability.md
+    - name: Fonctionnalités de haute disponibilité
+      href: high-availability-features.md
+    - name: Options et considérations
+      href: options-considerations-high-availability.md
+    - name: Choisir la procédure de récupération
+      href: oracle-high-availability-recovery.md
+- name: Intégration de SnapCenter
+  items:
+    - name: Présentation de SnapCenter
+      href: netapp-snapcenter-integration-oracle-baremetal.md
+    - name: Configurer SnapCenter pour router le trafic
+      href: set-up-snapcenter-to-route-traffic.md
+    - name: Configurer SnapCenter
+      href: configure-snapcenter-oracle-baremetal.md
+    - name: Créer une sauvegarde à la demande
+      href: create-on-demand-backup-oracle-baremetal.md
+    - name: Restaurer la base de données Oracle
+      href: restore-oracle-database-baremetal.md

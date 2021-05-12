@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93ae1982dfaef6e10edf39013474b6663dd688d0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c0c5f342fccf2f313777961e803643daee5b91a1
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130608"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517241"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Démarrage rapide : Créer un locataire dans Azure Active Directory
 
@@ -65,7 +65,7 @@ Votre nouveau locataire est créé avec le domaine contoso.onmicrosoft.com.
 
 Quand vous créez un locataire Azure AD, vous devenez le premier utilisateur de ce locataire. En tant que premier utilisateur, vous recevez automatiquement le rôle [Administrateur général](../roles/permissions-reference.md#global-administrator). Consultez votre compte d’utilisateur en accédant à la page [**Utilisateurs**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers).
 
-Par défaut, vous figurez aussi comme [contact technique](/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) pour le locataire. Vous pouvez modifier les informations de contact technique dans [**Propriétés**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+Par défaut, vous figurez aussi comme [contact technique](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-these-fields-mean) pour le locataire. Vous pouvez modifier les informations de contact technique dans [**Propriétés**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 > [!WARNING]
 > Vérifiez que votre annuaire a au moins deux comptes disposant des privilèges d’administrateur général. Ceci vous aidera dans le cas où un administrateur général est verrouillé. Pour plus d’informations, consultez l’article [Gérer les comptes d’accès d’urgence dans Azure AD](../roles/security-emergency-access.md).

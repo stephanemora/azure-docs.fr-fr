@@ -1,6 +1,6 @@
 ---
 title: 'Modifier les paramètres d’adresse IP de la passerelle : PowerShell'
-description: Cet article vous guide tout au long du processus de modification des préfixes d’adresse IP de la passerelle de votre réseau local à l’aide de PowerShell
+description: Découvrez comment modifier les préfixes d’adresses IP pour votre passerelle de réseau local à l’aide de PowerShell.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: 07d9124105424d42970800b1c5bca956d512722d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e2edd8b00be0ce7ef0cff2b3aa01a111b1c4c5e5
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100388666"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229573"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modification des paramètres de passerelle de réseau local à l’aide de PowerShell
 

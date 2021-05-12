@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 05/03/2021
 ms.author: rohink
-ms.openlocfilehash: fa2c1ced6405c967ca33562d6215b304b8507e5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9360555ff108937b51f9b9b491b6eec006b4f2e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76937249"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745052"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Fonctionnement d’Azure DNS avec d’autres services Azure
 
@@ -40,3 +40,8 @@ Le tableau suivant présente les types d’enregistrements pris en charge que vo
 | Azure App Service | [Adresse IP externe](dns-custom-domain.md#app-service-web-apps) |Pour les adresses IP externes, vous pouvez créer un enregistrement DNS A. Dans le cas contraire, vous devez créer un enregistrement CNAME qui mappe au nom azurewebsites.net. Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à une application Azure](../app-service/app-service-web-tutorial-custom-domain.md). |
 | Machines virtuelles Azure Resource Manager |[Adresse IP publique](dns-custom-domain.md#public-ip-address) |Les machines virtuelles Resource Manager peuvent avoir des adresses IP publiques. Une machine virtuelle avec une adresse IP publique peut également être derrière un équilibreur de charge. Vous pouvez créer un enregistrement DNS A, CNAME ou d’alias pour l’adresse publique. Vous pouvez utiliser ce nom personnalisé pour contourner l’adresse IP virtuelle sur l’équilibreur de charge. |
 | les machines virtuelles Classic, |[Adresse IP publique](dns-custom-domain.md#public-ip-address) |Les machines virtuelles classiques créées à l’aide de PowerShell ou de l’interface CLI peuvent être configurées avec une adresse virtuelle (réservée) dynamique ou statique. Vous pouvez créer un enregistrement DNS CNAME ou un enregistrement A, respectivement. |
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Découvrez comment [gérer des jeux d’enregistrements et des enregistrements](./dns-getstarted-portal.md) dans votre zone DNS.

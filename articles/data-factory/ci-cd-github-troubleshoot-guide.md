@@ -6,19 +6,19 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/12/2021
-ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.date: 04/27/2021
+ms.openlocfilehash: e5745f195fe7620aeb7ffe009c13c52cd5f02e62
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802031"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228633"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Résoudre les problèmes liés à CI-CD, Azure DevOps et GitHub dans ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explore les méthodes courantes pour résoudre les problèmes d’intégration continue/de déploiement continu (CI-CD), d’Azure DevOps et de GitHub dans Azure Data Factory.
+Dans cet article, nous allons explorer les méthodes courantes pour résoudre les problèmes d’intégration continue et déploiement continu (CI/CD), d’Azure DevOps et de GitHub dans Azure Data Factory.
 
 Si vous avez des questions ou des problèmes lors de l’utilisation de techniques de contrôle de code source ou DevOps, voici quelques articles qui pourront vous être utiles :
 
@@ -39,7 +39,7 @@ Nous avons observé que le jeton a été obtenu à partir du locataire d’origi
 
 #### <a name="recommendation"></a>Recommandation
 
-Vous devez plutôt utiliser le jeton émis par le locataire invité. Par exemple, vous devez affecter le même Azure Active Directory à votre locataire invité, ainsi qu’à votre DevOps, afin qu’il puisse définir correctement le comportement des jetons et utiliser le locataire approprié.
+Utilisez le jeton émis par le locataire invité. Par exemple, vous devez affecter le même service Azure Active Directory à votre locataire invité et à votre DevOps, pour qu’il puisse définir correctement le comportement des jetons et utiliser le bon locataire.
 
 ### <a name="template-parameters-in-the-parameters-file-are-not-valid"></a>Les paramètres de modèle dans le fichier de paramètres ne sont pas valides
 
@@ -57,7 +57,7 @@ Le pipeline CI/CD échoue avec l’erreur suivante :
 
 #### <a name="recommendation"></a>Recommandation
 
-L’erreur se produit parce que nous supprimons souvent un déclencheur, qui est paramétré. Par conséquent, les paramètres ne sont pas disponibles dans le modèle ARM (car le déclencheur n’existe plus). Comme le paramètre ne figure plus dans le modèle ARM, nous devons mettre à jour les paramètres substitués dans le pipeline DevOps. Sinon, chaque fois que les paramètres du modèle ARM changent, ils doivent mettre à jour les paramètres substitués dans le pipeline DevOps (dans la tâche de déploiement).
+L’erreur se produit parce qu’il arrive souvent qu’un déclencheur, qui est paramétré, soit supprimé. Les paramètres ne sont pas disponibles dans le modèle Azure Resource Manager (ARM), car le déclencheur n’existe plus. Comme le paramètre ne figure plus dans le modèle ARM, nous devons mettre à jour les paramètres substitués dans le pipeline DevOps. Sinon, chaque fois que les paramètres du modèle ARM changent, ils doivent mettre à jour les paramètres substitués dans le pipeline DevOps (dans la tâche de déploiement).
 
 ### <a name="updating-property-type-is-not-supported"></a>La mise à jour du type de propriété n’est pas prise en charge
 
@@ -77,7 +77,7 @@ Le pipeline de mise en production CI/CD échoue avec l’erreur suivante :
 
 #### <a name="cause"></a>Cause
 
-Cela est dû à un runtime d’intégration portant le même nom dans la fabrique cible, mais avec un type différent. Le runtime d'intégration doit être du même type lors du déploiement.
+Cette erreur est due à la présence d’un runtime d’intégration portant le même nom, mais d’un type différent, dans la fabrique cible. Le runtime d’intégration doit être du même type lors du déploiement.
 
 #### <a name="recommendation"></a>Recommandation
 
@@ -103,7 +103,7 @@ Lorsque vous tentez de publier des modifications apportées à une fabrique de d
 `
 ### <a name="cause"></a>Cause
 
-Vous avez détaché la configuration Git et l’avez reconfigurée avec l’indicateur « Importer des ressources » sélectionné, qui définit la fabrique de données comme étant « synchronisée ». Cela signifie qu’il n’y a aucune modification à publier.
+Vous avez détaché la configuration Git et l’avez reconfigurée avec l’indicateur « Importer des ressources » sélectionné, qui définit la fabrique de données comme étant « synchronisée ». Cela signifie qu’aucune modification n’a été apportée pendant la publication.
 
 #### <a name="resolution"></a>Résolution
 
@@ -131,7 +131,7 @@ Vous ne parvenez pas à déplacer une fabrique de données d’un groupe de ress
 
 #### <a name="resolution"></a>Résolution
 
-Vous devez supprimer le runtime d'intégration SSIS et les runtimes d'intégration partagés pour permettre l’opération de déplacement. Si vous ne souhaitez pas supprimer les runtimes d’intégration, le meilleur moyen consiste à copier et cloner le document pour effectuer la copie et, une fois la copie terminée, à supprimer l’ancienne fabrique de données.
+Vous pouvez supprimer le runtime SSIS-IR et les runtimes d’intégration partagés pour permettre l’opération de déplacement. Si vous ne souhaitez pas supprimer les runtimes d’intégration, le meilleur moyen consiste à copier et cloner le document pour effectuer la copie et, une fois la copie terminée, à supprimer l’ancienne fabrique de données.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>Impossible d’exporter et importer un modèle ARM
 
@@ -157,21 +157,21 @@ Jusqu’à récemment, la seule manière de publier un pipeline ADF pour les dé
 
 #### <a name="resolution"></a>Résolution
 
-Le processus CI/CD a été amélioré. La fonctionnalité **Publication automatisée** prend, valide et exporte toutes les fonctionnalités de modèle Azure Resource Manager (ARM) de l’expérience utilisateur d’ADF. Elle rend la logique consommable par le biais d’un package npm disponible publiquement [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Cela vous permet de déclencher ces actions par programmation au lieu de devoir accéder à l’interface utilisateur d’ADF et de cliquer sur un bouton. Cela donne à vos pipelines de CI/CD une **véritable** expérience d’intégration continue. Pour plus d’informations, suivez les [améliorations apportées au processus de publication pour CI/CD ADF](./continuous-integration-deployment-improvements.md). 
+Le processus CI/CD a été amélioré. La fonctionnalité **Publication automatisée** prend, valide et exporte toutes les fonctionnalités du modèle ARM à partir de l’expérience utilisateur d’ADF. Elle rend la logique consommable par le biais d’un package npm disponible publiquement [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Cette méthode vous permet de déclencher ces actions programmatiquement et de ne pas avoir à accéder à l’interface utilisateur d’ADF, puis à cliquer sur un bouton. Elle confère à vos pipelines de CI/CD une **véritable** expérience d’intégration continue. Pour plus d’informations, suivez les [améliorations apportées au processus de publication pour CI/CD ADF](./continuous-integration-deployment-improvements.md). 
 
-###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Publication impossible en raison d’une limite de 4 Mo pour le modèle ARM  
+###  <a name="cannot-publish-because-of-4-mb-arm-template-limit"></a>Publication impossible en raison de la limite de 4 Mo du modèle ARM  
 
 #### <a name="issue"></a>Problème
 
-Vous ne pouvez pas effectuer de déploiement, car vous avez atteint la limite Azure Resource Manager de 4 Mo pour la taille du modèle. Vous avez besoin d’une solution pour que le déploiement puisse avoir lieu une fois la limite franchie. 
+Vous ne pouvez pas effectuer de déploiement, car vous avez atteint la limite Azure Resource Manager de 4 Mo pour la taille totale du modèle. Vous avez besoin d’une solution pour que le déploiement puisse avoir lieu une fois la limite franchie. 
 
 #### <a name="cause"></a>Cause
 
-Azure Resource Manager limite la taille du modèle à 4 Mo. Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. Toutefois, vous avez franchi la limite. 
+Azure Resource Manager limite la taille du modèle à 4 Mo. Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions de ressources itératives et les valeurs des variables et des paramètres. Toutefois, vous avez franchi la limite. 
 
 #### <a name="resolution"></a>Résolution
 
-Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour des scénarios avancés, les modèles liés permettent de diviser la solution en composants ciblés. Suivez les bonnes pratiques indiquées à la page [Utilisation de modèles liés et imbriqués](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour des scénarios avancés, les modèles liés permettent de diviser la solution en composants ciblés. Suivez les meilleures pratiques indiquées à la page [Utilisation de modèles liés et imbriqués](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
 ### <a name="cannot-connect-to-git-enterprise"></a>Impossible de se connecter à GIT Enterprise  
 
@@ -195,13 +195,11 @@ Le client a supprimé la fabrique de données ou le groupe de ressources contena
 
 #### <a name="cause"></a>Cause
 
-Il est possible de récupérer la fabrique de données uniquement si le client a un contrôle de code source configuré (DevOps ou Git). Cette opération apporte la dernière ressource publiée et **ne restaure pas** le pipeline, le jeu de données et le service lié non publiés.
-
-À défaut de contrôle de code source, la récupération d’une fabrique de données supprimée à partir du serveur principal n’est pas possible car, après que le service a reçu la commande delete, l’instance a été supprimée et aucune sauvegarde n’a été stockée.
+Il est possible de récupérer la fabrique de données uniquement si le client a un contrôle de code source configuré (DevOps ou Git). Cette action récupère les dernières ressources publiées. Elle **ne restaure pas** le pipeline, le jeu de données ni le service lié non publiés. À défaut de contrôle de code source, la récupération d’une fabrique de données supprimée à partir du serveur principal n’est pas possible. En effet, dès que le service reçoit la commande de suppression, l’instance est supprimée sans qu’aucune sauvegarde soit stockée.
 
 #### <a name="resolution"></a>Résolution
 
-Pour récupérer la fabrique de données supprimée qui a le contrôle de code source, consultez les étapes ci-dessous :
+Pour récupérer la fabrique de données supprimée comportant le contrôle de code source, suivez la procédure ci-dessous :
 
  * Créer une Azure Data Factory
 
@@ -209,8 +207,32 @@ Pour récupérer la fabrique de données supprimée qui a le contrôle de code s
 
  * Créez une demande de tirage pour fusionner les modifications apportées à la branche de collaboration, puis publier.
 
- * Si le client disposait d’un runtime d’intégration auto-hébergé dans l’ADF supprimée, il devra créer une instance dans la nouvelle ADF, désinstaller et réinstaller l’instance sur sa machine locale/machine virtuelle à l’aide de la nouvelle clé obtenue. Une fois la configuration du runtime d’intégration terminée, le client devra modifier le service lié pour qu’il pointe vers le nouveau runtime et tester la connexion, sans quoi il échouera avec l’erreur **Référence non valide**.
+ * Si le client disposait d’un runtime d’intégration auto-hébergé dans le service ADF supprimé, il doit créer une instance dans le nouveau service ADF, puis la désinstaller et la réinstaller sur sa machine locale/virtuelle avec la nouvelle clé obtenue. Une fois la configuration du runtime d’intégration terminée, le client devra modifier le service lié pour qu’il pointe vers le nouveau runtime et tester la connexion, sans quoi il échouera avec l’erreur **Référence non valide**.
 
+### <a name="cannot-deploy-to-different-stage-using-automatic-publish-method"></a>Déploiement impossible vers une autre phase avec la méthode de publication automatique
+
+#### <a name="issue"></a>Problème
+Le client a suivi toute la procédure nécessaire, notamment l’installation du package NPM et la configuration d’une phase supérieure avec Azure DevOps et ADF. Toutefois, le déploiement ne se produit pas.
+
+#### <a name="cause"></a>Cause
+
+Bien que les packages npm puissent être consommés de différentes façons, l’un des principaux avantages est d’être consommé via Azure Pipelines. À chaque fusion dans votre branche de collaboration, vous pouvez déclencher un pipeline qui valide d’abord tout le code, puis exporte le modèle ARM dans un artefact de build qui peut être consommé par un pipeline de mise en production. Dans le pipeline de démarrage, le fichier YAML doit être valide et complet.
+
+
+#### <a name="resolution"></a>Résolution
+
+La section suivante est incorrecte, car le dossier package.json n’est pas valide.
+
+```
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: '$(Build.Repository.LocalPath)/<folder-of-the-package.json-file>' #replace with the package.json folder
+    customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'
+  displayName: 'Validate'
+```
+DataFactory doit être inclus dans customCommand :
+ *’run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName’* . Veillez à ce que le fichier YAML généré pour une phase supérieure possède les artefacts JSON requis.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

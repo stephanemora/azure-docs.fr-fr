@@ -31,6 +31,8 @@
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Équilibrer la charge de machines virtuelles dans une zone de disponibilité spécifique
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: Équilibrer la charge des machines virtuelles avec plusieurs groupes à haute disponibilité
+      href: tutorial-multi-availability-sets-portal.md
     - name: Configurer le transfert de port dans l’équilibreur de charge
       href: tutorial-load-balancer-port-forwarding-portal.md
     - name: Équilibreur de charge inter-région
@@ -41,6 +43,16 @@
           href: tutorial-cross-region-powershell.md
         - name: "Créer un équilibreur de charge interrégional - Azure\_CLI"
           href: tutorial-cross-region-cli.md
+    - name: Passerelle NAT
+      items:
+        - name: "Intégrer l’équilibreur de charge public de la passerelle\_NAT"
+          href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+        - name: "Intégrer l’équilibreur de charge interne de la passerelle\_NAT"
+          href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Back-end basé sur IP
+      items:
+        - name: "Créer un équilibreur de charge public avec un back-end basé sur\_IP\_- Portail Azure"
+          href: tutorial-load-balancer-ip-backend-portal.md
 - name: Exemples
   items:
     - name: Azure CLI
@@ -49,6 +61,8 @@
       href: powershell-samples.md
 - name: Concepts
   items:
+    - name: Paramètres du portail
+      href: manage.md
     - name: Équilibreur de charge inter-région
       href: cross-region-overview.md
     - name: Nouveautés
@@ -90,7 +104,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
     - name: Gestion des pools de back-ends
       href: backend-pool-management.md
     - name: Standard Load Balancer et Virtual Machine Scale Sets
@@ -99,8 +113,6 @@
       href: instance-metadata-service-load-balancer.md
 - name: Procédures
   items:
-    - name: Paramètres du portail
-      href: manage.md
     - name: Groupes identiques de machines virtuelles
       items:
         - name: Mettre à jour ou supprimer un équilibreur de charge Azure existant utilisé par un groupe de machines virtuelles identiques

@@ -1,19 +1,19 @@
 ---
 title: Copier des données en bloc à l’aide du portail Azure
 description: Utilisez Azure Data Factory et l’activité de copie pour copier en bloc les données d’un magasin de données source dans un magasin de données de destination.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/29/2021
-ms.openlocfilehash: bca2158f448f74ba596114fce5d1631249124a92
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 08d69e46989687cfbb3c4e766c56fd4447dfbbb5
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606733"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481532"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory sur le portail Azure
 

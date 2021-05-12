@@ -6,15 +6,15 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 05/11/2021
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28513132e75797adaafc7de32d94379b92f298ee
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217666"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752424"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Démarrage rapide : Créer un réseau virtuel – Modèle Resource Manager
 
@@ -31,9 +31,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vnet-two-subnets/azuredeploy.json).
+Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json).
 
-:::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
 
 Les ressources Azure suivantes ont été définies dans le modèle :
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : permet de créer un réseau virtuel Azure.

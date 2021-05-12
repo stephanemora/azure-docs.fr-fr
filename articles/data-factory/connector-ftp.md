@@ -1,17 +1,17 @@
 ---
 title: Copier des données depuis un serveur FTP à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’un serveur FTP vers une banque de données réceptrice prise en charge.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
-ms.openlocfilehash: a85f22381ff6d9d4568c2558beb229b4458d940a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: jianleishen
+ms.openlocfilehash: 34c484bc596f9f7e5012339ea29ac70408cca402
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583101"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485222"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 
@@ -41,11 +41,11 @@ Le connecteur FTP prend en charge le serveur FTP exécuté en mode passif. Le 
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques de FTP.
 
@@ -121,7 +121,7 @@ Les propriétés prises en charge pour le service lié FTP sont les suivantes :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour FTP sous les paramètres `location` dans le jeu de données basé sur le format :
 
@@ -163,7 +163,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="ftp-as-source"></a>FTP en tant que source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour FTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 

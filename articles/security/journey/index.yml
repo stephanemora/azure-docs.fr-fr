@@ -1,0 +1,103 @@
+### YamlMime:Landing
+title: Documentation sur la sécurité Azure pour chaque phase d’adoption du cloud
+summary: Que vous envisagiez de migrer vers le cloud ou que vous ayez déjà procédé à la migration, vous trouverez ici des conseils pour chaque phase de votre parcours de sécurité dans le cloud.
+metadata:
+  title: Documentation sur le parcours de sécurité Azure
+  description: Obtenez des conseils pour chaque phase du parcours de sécurité dans Azure.
+  services: security
+  ms.service: security
+  ms.subservice: journey
+  ms.topic: landing-page
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 04/30/2021
+  ms.openlocfilehash: 09cef5e5e209b89f3c80b7565fbffb65c3d6eb6d
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108732938"
+landingContent:
+- title: Comprendre les avantages de la sécurité dans Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Responsabilité partagée dans le cloud
+      url: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Services de sécurité de bout en bout
+      url: ../fundamentals/end-to-end.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Comment Microsoft sécurise l’infrastructure Azure
+      url: ../fundamentals/infrastructure.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Sécurité et intégrité de la plateforme Azure
+      url: ../fundamentals/platform.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Se préparer à migrer de manière sécurisée vers le cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Implémenter la sécurité dans votre entreprise
+      url: /azure/cloud-adoption-framework/get-started/security?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Concevoir une architecture sécurisée
+      url: /azure/architecture/framework/security/security-principles?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Sécurité, gouvernance et conformité à l’échelle de l’entreprise
+      url: /azure/cloud-adoption-framework/ready/enterprise-scale/security-governance-and-compliance/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Migrer votre entreprise vers le cloud
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Migrer des charges de travail sécurisées
+      url: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: overview
+    links:
+    - text: Stratégie de gouvernance ou de conformité
+      url: /azure/cloud-adoption-framework/migrate/azure-best-practices/governance-or-compliance/?tabs=MigrationTools?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Sécuriser et protéger vos charges de travail cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Bonnes pratiques de sécurité
+      url: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Contrôles de sécurité et lignes de base
+      url: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - linkListType: concept
+    links:
+    - text: Gestion des identités
+      url: ../fundamentals/identity-management-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Sécurité du réseau
+      url: ../fundamentals/network-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Chiffrement et sécurité des données
+      url: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Microsoft Antimalware
+      url: ../fundamentals/antimalware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Sécurité de la machine virtuelle
+      url: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Détecter, analyser et atténuer les menaces
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Protection contre les menaces
+      url: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Analyse des menaces
+      url: /azure/architecture/framework/security/design-threat-model?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Investiguer une activité suspecte
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Journalisation Azure
+      url: ../fundamentals/log-audit.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Examiner et auditer
+      url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Risques relatifs aux identités et aux réseaux
+      url: /azure/architecture/framework/security/monitor-identity-network?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+- title: Optimiser vos investissements de sécurité
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Gouvernance, risque, conformité
+      url: /azure/architecture/framework/governance/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - text: Risques relatifs aux identités et aux réseaux
+      url: /azure/architecture/framework/security/monitor-test?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

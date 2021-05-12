@@ -8,13 +8,13 @@ ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/16/2020
-ms.openlocfilehash: 14d96e3c8892106f67125bbd3b7bce565de13812
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.date: 05/10/2021
+ms.openlocfilehash: 6e99d0d78b87d68cf5b7a94d3b1b9f576ea4913f
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904871"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753954"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Démarrage rapide : Créer une fabrique de données Azure à l’aide d’un modèle ARM
 
@@ -33,7 +33,7 @@ Ce démarrage rapide décrit comment utiliser un modèle Azure Resource Manager 
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,7 +56,7 @@ Enregistrez-le dans le dossier **C:\ADFv2QuickStartPSH** (si le dossier n’exis
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 Des ressources sont définies dans le modèle :
 
@@ -72,7 +72,7 @@ Vous trouverez d’autres exemples de modèles Azure Data Factory dans la [galer
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un compte Azure Data Factory, un compte de stockage et un conteneur d’objets blob.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
 2. Sélectionnez ou entrez les valeurs suivantes.
 
@@ -130,9 +130,9 @@ Laissez la page du conteneur ouverte, car elle vous permettra de vérifier la so
 
 ### <a name="start-trigger"></a>Démarrer le déclencheur
 
-1. Accédez à la page **fabriques de données**, puis sélectionnez la fabrique de données que vous avez créée. 
+1. Accédez à la page **fabriques de données**, puis sélectionnez la fabrique de données que vous avez créée.
 
-2. Sélectionnez la vignette **Créer et surveiller**. 
+2. Sélectionnez la vignette **Créer et surveiller**.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Auteur et moniteur":::
 
@@ -158,13 +158,13 @@ Laissez la page du conteneur ouverte, car elle vous permettra de vérifier la so
 
 ### <a name="verify-the-output-file"></a>Vérifier le fichier de sortie
 
-Le pipeline crée automatiquement un dossier de sortie dans le conteneur d’objets blob. Ensuite, il copie le fichier emp.txt à partir du dossier d’entrée dans le dossier de sortie. 
+Le pipeline crée automatiquement un dossier de sortie dans le conteneur d’objets blob. Ensuite, il copie le fichier emp.txt à partir du dossier d’entrée dans le dossier de sortie.
 
-1. Dans le portail Azure, dans la page **Conteneurs**, sélectionnez **Actualiser** pour voir le dossier de sortie. 
+1. Dans le portail Azure, dans la page **Conteneurs**, sélectionnez **Actualiser** pour voir le dossier de sortie.
 
 2. Dans la liste des dossiers, sélectionnez **output**.
 
-3. Vérifiez que le fichier **emp.txt** a été copié dans le dossier de sortie. 
+3. Vérifiez que le fichier **emp.txt** a été copié dans le dossier de sortie.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Sortie":::
 
@@ -172,13 +172,13 @@ Le pipeline crée automatiquement un dossier de sortie dans le conteneur d’obj
 
 Vous disposez de deux moyens de supprimer les ressources que vous avez créées dans le guide de démarrage rapide. Vous pouvez [supprimer le groupe de ressources Azure](../azure-resource-manager/management/delete-resource-group.md) qui inclut toutes les ressources du groupe de ressources. Si vous souhaitez conserver les autres ressources, supprimez uniquement la fabrique de données créée dans ce tutoriel.
 
-Si vous supprimez un groupe de ressources, toutes les ressources qu’il contient, y compris les fabriques de données, seront supprimées. Exécutez la commande suivante pour supprimer l’intégralité du groupe de ressources : 
+Si vous supprimez un groupe de ressources, toutes les ressources qu’il contient, y compris les fabriques de données, seront supprimées. Exécutez la commande suivante pour supprimer l’intégralité du groupe de ressources :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-Si vous souhaitez supprimer uniquement la fabrique de données, et non pas le groupe de ressources entier, exécutez la commande suivante : 
+Si vous souhaitez supprimer uniquement la fabrique de données, et non pas le groupe de ressources entier, exécutez la commande suivante :
 
 ```azurepowershell-interactive
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName

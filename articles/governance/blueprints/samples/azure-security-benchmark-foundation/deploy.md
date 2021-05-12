@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint Azure Security Benchmark Foundation
 description: Étapes de déploiement de l’exemple de blueprint Azure Security Benchmark Foundation et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: af41dd50c976ac6c0570b8a089211fa310ef4ef1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6afdc94624d39ce60b96ad33639721f130a056ef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232611"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765176"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Déployer l’exemple de blueprint Azure Security Benchmark Foundation
 
@@ -82,7 +82,7 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
    - Paramètres de blueprint
 
      Les paramètres définis dans cette section sont utilisés par de nombreux artefacts dans la définition du blueprint à des fins de cohérence.
-    
+
      - **Préfixe pour les ressources et groupes de ressources** : cette chaîne est utilisée comme préfixe pour tous les noms de ressources et de groupes de ressources
      - **Hub name** : nom du hub
      - **Rétention du journal (jours)**  : nombre de jours pendant lesquels les journaux sont conservés ; la saisie de « 0 » conserve les journaux indéfiniment
@@ -92,9 +92,9 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
      - **Nom de Network Watcher** : nom de la ressource Network Watcher
      - **Nom du groupe de ressources Network Watcher** : nom du groupe de ressources Network Watcher
      - **Activer la protection DDos** : entrez « true » ou « false » pour spécifier si la protection DDoS est activée ou non dans le réseau virtuel
-     
-    > [!NOTE] 
-    > Si Network Watcher est déjà activé, il est recommandé d’utiliser le groupe de ressources Network Watcher existant. Vous devez également fournir l’emplacement du groupe de ressources Network Watcher existant pour le paramètre d’artefact **Emplacement du groupe de ressources Network Watcher**.
+
+     > [!NOTE]
+     > Si Network Watcher est déjà activé, il est recommandé d’utiliser le groupe de ressources Network Watcher existant. Vous devez également fournir l’emplacement du groupe de ressources Network Watcher existant pour le paramètre d’artefact **Emplacement du groupe de ressources Network Watcher**.
 
    - Paramètres d'artefact
 
@@ -115,7 +115,7 @@ Le tableau suivant fournit la liste des paramètres de blueprint :
 |Groupe de ressources de hub|Resource group|Emplacement du groupe de ressources|Verrouillé – Utilise l’emplacement du hub|
 |Modèle Pare-feu Azure|Modèle Resource Manager|Adresse IP privée du Pare-feu Azure||
 |Modèle de diagnostic et Azure Log Analytics|Modèle Resource Manager|Emplacement de l’espace de travail Log Analytics|Emplacement où l’espace de travail Log Analytics est créé ; exécutez `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` dans Azure PowersShell pour afficher les régions disponibles|
-|Modèle de diagnostic et Azure Log Analytics|Modèle Resource Manager|ID de compte Azure Automation (facultatif)|ID de ressource du compte Automation ; utilisé pour créer un service lié entre Log Analytics et un compte Automation|
+|Modèle de diagnostic et Azure Log Analytics|Modèle Resource Manager|ID de compte Azure Automation (facultatif) |ID de ressource du compte Automation ; utilisé pour créer un service lié entre Log Analytics et un compte Automation|
 |Modèle de groupe de sécurité réseau Azure|Modèle Resource Manager|Activer les journaux de flux NSG|Entrez « true » ou « false » pour activer ou désactiver les journaux de flux NSG|
 |Modèle de hub de réseau virtuel Azure|Modèle Resource Manager|Préfixe d’adresse de réseau virtuel|Préfixe d’adresse de réseau virtuel pour le réseau virtuel de hub|
 |Modèle de hub de réseau virtuel Azure|Modèle Resource Manager|Préfixe d’adresse de sous-réseau de pare-feu|Préfixe d’adresse de sous-réseau de pare-feu pour le réseau virtuel de hub|
@@ -138,7 +138,7 @@ Le tableau suivant fournit la liste des paramètres de blueprint :
 |Modèle Azure Network Watcher|Modèle Resource Manager|Emplacement Network Watcher|Emplacement de la ressource Network Watcher|
 |Modèle Azure Network Watcher|Modèle Resource Manager|Emplacement du groupe de ressources Network Watcher|Si Network Watcher est déjà activé, la valeur de ce paramètre **doit** correspondre à l’emplacement du groupe de ressources Network Watcher existant.|
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 Si vous rencontrez l’erreur `The resource group 'NetworkWatcherRG' failed to deploy due to the
 following error: Invalid resource group location '{location}'. The Resource group already exists in

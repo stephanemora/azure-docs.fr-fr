@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41d7d45fd11f2dc26fc50182a7649b23cd21196
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 203ea5bb372c3afc77eb62508d1c95dc5f00bb4b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008754"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315720"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Ajouter un flux de travail d’approbation personnalisé à l’inscription en libre-service
 
@@ -28,7 +28,7 @@ Cet article fournit un exemple d’intégration à un système d’approbation. 
 - Déclencher une révision manuelle. Si la requête est approuvée, le système d’approbation utilise Microsoft Graph pour approvisionner le compte d’utilisateur. Le système d’approbation peut également informer l’utilisateur que son compte a été créé.
 
 > [!IMPORTANT]
->**À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
+> **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion via vue web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
 
 ## <a name="register-an-application-for-your-approval-system"></a>Inscrire une application pour votre système d’approbation
 

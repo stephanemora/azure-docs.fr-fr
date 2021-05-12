@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les problèmes de sa
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 07e101fe87fb3f5db0bb716f0bc9ea6f8773aa3e
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 54425496428c3534c4c7ae47d10bc3a68256a656
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518556"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163964"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Résoudre les problèmes de sauvegarde de l’état du système
 
@@ -42,15 +42,15 @@ Nous vous recommandons d’effectuer les étapes de validation suivantes avant d
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de résoudre les problèmes de sauvegarde de l’état du système avec le service Sauvegarde Azure, effectuez la vérification des prérequis ci-dessous.  
+Avant de résoudre les problèmes de sauvegarde de l’état du système avec le service Sauvegarde Azure, effectuez la vérification des prérequis ci-dessous.
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Vérifier que la fonctionnalité Sauvegarde Windows Server est installée
 
 Assurez-vous que la fonctionnalité Sauvegarde Windows Server est installée et activée sur le serveur. Pour vérifier l’état de l’installation, exécutez la commande PowerShell suivante :
 
- ```powershell
+```powershell
 Get-WindowsFeature Windows-Server-Backup
- ```
+```
 
 Si la sortie affiche **l’état d’installation** **disponible**, cela signifie que la fonctionnalité Sauvegarde Windows Server est disponible pour l’installation, mais qu’elle n’est pas installée sur le serveur. Toutefois, si elle n’est pas installée, utilisez l’une des méthodes ci-dessous pour l’installer.
 
@@ -118,7 +118,7 @@ Pour valider l’état de la fonctionnalité Sauvegarde Windows Server, effectue
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
-      >Remplacez X par la lettre du lecteur du volume où vous voulez stocker l’image de sauvegarde de l’état du système.
+      > Remplacez X par la lettre du lecteur du volume où vous voulez stocker l’image de sauvegarde de l’état du système.
 
     - Vérifiez régulièrement l’état du travail en exécutant la commande `Get-WBJob` à partir d’une invite PowerShell avec élévation de privilèges.
     - Une fois le travail de sauvegarde terminé, vérifiez son état final en exécutant la commande `Get-WBJob -Previous 1`.
@@ -131,19 +131,19 @@ Si le travail échoue, cela indique un problème lié à la Sauvegarde Windows S
 
 | Symptôme | Cause | Résolution
 | -- | -- | --
-| - MARS Agent échoue avec le message d’erreur suivant : « La tâche Sauvegarde Windows Server a échoué avec des erreurs VSS. Consultez les journaux d’événements VSS pour résoudre l’échec ».<br/><br/> - Le journal des erreurs suivant est présent dans les journaux d’événements d’application VSS : « Un enregistreur VSS a rejeté un événement avec l’erreur 0x800423f2. Le délai de l’enregistreur a expiré entre les événements Freeze et Thaw. »| L’enregistreur VSS ne peut pas terminer la tâche à temps en raison d’un manque de ressources d’UC et de mémoire sur la machine. <br/><br/> Comme un autre logiciel de sauvegarde utilise déjà l’enregistreur VSS, l’opération de capture instantanée n’a pas pu se terminer pour cette sauvegarde. | Attendez que des ressources d’UC/de mémoire se libèrent sur le système ou abandonnez les processus qui en consomment trop, puis réessayez l’opération. <br/><br/>  Attendez que la sauvegarde en cours se termine, puis recommencez l’opération ultérieurement lorsque aucune sauvegarde n’est en cours d’exécution sur la machine.
+| - L’agent MARS échoue avec le message d’erreur suivant : « La tâche Sauvegarde Windows Server a échoué avec des erreurs VSS. Consultez les journaux des événements VSS pour résoudre l’échec. »<br/><br/> - Le journal des erreurs suivant est présent dans les journaux des événements d’application VSS : « Un enregistreur VSS a rejeté un événement avec l’erreur 0x800423f2. Le délai de l’enregistreur a expiré entre les événements Freeze et Thaw. »| L’enregistreur VSS ne peut pas terminer la tâche à temps en raison d’un manque de ressources d’UC et de mémoire sur la machine. <br/><br/> Comme un autre logiciel de sauvegarde utilise déjà l’enregistreur VSS, l’opération de capture instantanée n’a pas pu se terminer pour cette sauvegarde. | Attendez que des ressources d’UC/de mémoire se libèrent sur le système ou abandonnez les processus qui en consomment trop, puis réessayez l’opération. <br/><br/>  Attendez que la sauvegarde en cours se termine, puis recommencez l’opération ultérieurement lorsque aucune sauvegarde n’est en cours d’exécution sur la machine.
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Espace disque insuffisant pour augmenter le volume de clichés instantanés
 
 | Symptôme | Résolution
 | -- | --
-| - MARS Agent échoue avec le message d’erreur suivant : La sauvegarde a échoué, car le volume de clichés instantanés ne peut pas augmenter en raison d’un espace disque insuffisant sur les volumes contenant les fichiers système. <br/><br/> - Le journal des erreurs/avertissements suivant est présent dans les journaux d’événements système volsnap : « Espace disque insuffisant sur le volume C: pour agrandir l’espace de stockage des clichés instantanés de C:. Suite à cette défaillance, tous les clichés instantanés du volume C: risquent d’être supprimés. » | - Libérez de l’espace dans le volume mis en surbrillance dans le journal des événements afin que l’espace disque soit suffisant pour augmenter le volume des clichés instantanés pendant la sauvegarde. <br/><br/> - Nous pouvons limiter la quantité d’espace utilisé pour les clichés instantanés lors de la configuration de cet espace. Pour plus d’informations, consultez cet [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| - MARS Agent échoue avec le message d’erreur suivant : La sauvegarde a échoué, car le volume de clichés instantanés ne peut pas augmenter en raison d’un espace disque insuffisant sur les volumes contenant les fichiers système. <br/><br/> - Le journal des erreurs/avertissements suivant est présent dans les journaux des événements système volsnap : « Espace disque insuffisant sur le volume C: pour agrandir l’espace de stockage des clichés instantanés de C:. En raison de cette défaillance, tous les clichés instantanés du volume C: risquent d’être supprimés. » | - Libérez de l’espace dans le volume mis en surbrillance dans le journal des événements afin que l’espace disque soit suffisant pour augmenter le volume des clichés instantanés pendant la sauvegarde. <br/><br/> - Nous pouvons limiter la quantité d’espace utilisé pour les clichés instantanés lors de la configuration de cet espace. Pour plus d’informations, consultez cet [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Partition EFI verrouillée
 
 | Symptôme | Résolution
 | -- | --
-| \- MARS Agent échoue avec le message d’erreur suivant : « La sauvegarde de l’état système a échoué car la partition système EFI est verrouillée. Cela peut être causé par un logiciel de sécurité ou de sauvegarde tiers qui accède à la partition système. » | - Si le problème est dû à un logiciel de sécurité tiers, vous devez contacter le fournisseur de l’antivirus afin qu’il autorise l’agent MARS <br/><br/> - Si un logiciel de sauvegarde tiers est en cours d’exécution, attendez qu’elle se termine, puis faites une nouvelle tentative de sauvegarde
+| L’agent MARS échoue avec le message d’erreur suivant : « La sauvegarde de l’état système a échoué, car la partition système EFI est verrouillée. Cela peut être causé par un logiciel de sécurité ou de sauvegarde tiers qui accède à la partition système. » | - Si le problème est dû à un logiciel de sécurité tiers, vous devez contacter le fournisseur de l’antivirus afin qu’il autorise l’agent MARS <br/><br/> - Si un logiciel de sauvegarde tiers est en cours d’exécution, attendez qu’elle se termine, puis faites une nouvelle tentative de sauvegarde
 
 ## <a name="next-steps"></a>Étapes suivantes
 
