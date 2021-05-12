@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2021
 ms.author: Zhchia
-ms.openlocfilehash: a2c4e151ba6acb4b9fc308459b7bcd8c063edba8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 99857aab921d1c09de09db04dededef187094ae5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124182"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740012"
 ---
 # <a name="tutorial-configure-bentley---automatic-user-provisioning-for-automatic-user-provisioning"></a>Tutoriel : Configurer Bentley - Automatic User Provisioning pour le provisionnement automatique des utilisateurs
 
@@ -150,9 +150,6 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).
-
-## <a name="connector-limitations"></a>Limitations du connecteur
-* L’attribut d’extension d’entreprise « urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager » n’est pas pris en charge et sera supprimé.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

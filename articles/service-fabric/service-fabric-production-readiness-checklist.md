@@ -3,12 +3,12 @@ title: Liste de contrôle de disponibilité de production Azure Service Fabric
 description: Préparez votre application Service Fabric et votre cluster de production en suivant les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: a03df40a8ce213c5de9ed7017d47713c4de3449d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5872de420b72f9b453c4b64cd7790a14c0d5d305
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87835865"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732197"
 ---
 # <a name="production-readiness-checklist"></a>Liste de vérification de disponibilité de la production
 
@@ -34,7 +34,7 @@ Votre application et le cluster sont prêts à accepter le trafic de production�
 1. Désactivez les mises à niveau automatiques dans les clusters de production, et activez-les pour les clusters de développement et de préproduction (restaurez au besoin). 
 1. Fixez un objectif de point de récupération (RPO) pour votre service, configurez un [processus de récupération d’urgence](service-fabric-disaster-recovery.md), puis testez-le.
 1. Planifiez la [mise à l’échelle](service-fabric-cluster-scaling.md) de votre cluster manuellement ou par programmation.
-1. Planifiez la [mise à jour corrective](service-fabric-patch-orchestration-application.md) de vos nœuds de cluster. 
+1. Planifiez la [mise à jour corrective](how-to-patch-cluster-nodes-windows.md) de vos nœuds de cluster. 
 1. Établissez un pipeline d’intégration/livraison continue afin que vos dernières modifications soient testées en permanence. Par exemple, en utilisant [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)
 1. Testez vos clusters de développement et de préproduction sous charge avec le [service d’analyse des défaillances](service-fabric-testability-overview.md), et provoquez un [chaos](service-fabric-controlled-chaos.md) contrôlé. 
 1. Planifiez la [mise à l’échelle](service-fabric-concepts-scalability.md) de vos applications. 

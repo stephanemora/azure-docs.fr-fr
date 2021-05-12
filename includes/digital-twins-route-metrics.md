@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
-ms.openlocfilehash: d486b5e8486d2c3c1c343701e0f3f4d474738063
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0e60d8e947036e709734f7a4795d1efa8e78f49
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "87809005"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "109789918"
 ---
 ## <a name="monitor-event-routes"></a>Surveiller les itinéraires d’événements
 
@@ -22,4 +22,4 @@ Dans la page d’accueil du portail, recherchez votre instance Azure Digital Twi
 
 À partir de là, vous pouvez afficher les métriques de votre instance et créer des vues personnalisées.
 
-Pour plus d’informations sur la visualisation des métriques d’Azure Digital Twins, consultez [*Guide pratique : Afficher les métriques avec Azure Monitor*](../articles/digital-twins/troubleshoot-metrics.md).
+Pour plus d’informations sur la visualisation des métriques d’Azure Digital Twins, consultez [Guide pratique : Afficher les métriques avec Azure Monitor](../articles/digital-twins/troubleshoot-metrics.md).
