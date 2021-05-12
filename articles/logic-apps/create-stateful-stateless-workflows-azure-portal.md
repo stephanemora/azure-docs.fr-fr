@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.openlocfilehash: 3f2dcfd910fac849c668521030f7304fe40c28ce
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563944"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164576"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Créer des workflows avec état et sans état dans le portail Azure à l’aide d’Azure Logic Apps (préversion)
 
@@ -355,9 +355,9 @@ Pour un workflow avec état, après chaque exécution du workflow, vous pouvez a
    | **Annulé** | ![Icône d’état d’action « Annulée »][cancelled-icon] | L’action était en cours d’exécution mais a reçu une demande d’annulation. |
    | **Échec** | ![Icône d’état d’action « Échec »][failed-icon] | L’action a échoué. |
    | **Exécution** | ![Icône d’état d’action « Exécution »][running-icon] | L’action est en cours d’exécution. |
-   | **Ignoré** | ![Icône d’état d’action « Ignorée »][skipped-icon] | L’action a été ignorée parce qu’elle précède immédiatement l’action qui a échoué. Une action a une condition `runAfter` qui exige que l’action précédente se termine correctement avant que l’action en cours puisse s’exécuter. |
+   | **Ignoré** | ![Icône d’état d’action « Ignorée »][skipped-icon] | L’action a été ignorée, car les conditions `runAfter` n’étaient pas remplies. Par exemple, une action précédente a échoué. Chaque action possède un objet `runAfter` dans lequel vous pouvez configurer les conditions nécessaires pour que l’action en cours puisse s’exécuter. |
    | **Réussi** | ![Icône d’état d’action « Réussie »][succeeded-icon] | L’action a réussi. |
-   | **Réussie avec de nouvelles tentatives** | ![Icône d’état d’action « Réussie avec de nouvelles tentatives »][succeeded-with-retries-icon] | L’action a réussi, mais uniquement après une ou plusieurs tentatives. Pour consulter l’historique des tentatives, dans la vue des détails de l’historique des exécutions, sélectionnez cette action afin de voir les entrées et sorties. |
+   | **Réussie avec de nouvelles tentatives** | ![Icône d’état d’action « Réussie avec de nouvelles tentatives »][succeeded-with-retries-icon] | L’action a réussi, mais uniquement au bout de deux tentatives ou plus. Pour consulter l’historique des tentatives, dans la vue des détails de l’historique des exécutions, sélectionnez cette action afin de voir les entrées et sorties. |
    | **Délai dépassé** | ![Icône d’état de l’action « Expirée »][timed-out-icon] | L’action a été arrêtée en raison du délai d’expiration spécifié par les paramètres de cette action. |
    | **En attente** | ![Icône d’état d’action « En attente »][waiting-icon] | S’applique à une action de webhook qui attend une demande entrante d’un appelant. |
    ||||
@@ -455,6 +455,152 @@ Pour supprimer un élément de votre workflow à partir du concepteur, procédez
 
   > [!TIP]
   > Si le menu de sélection n’est pas visible, développez la fenêtre de votre navigateur suffisamment pour que le volet d’informations affiche le bouton de sélection ( **…** ) dans le coin supérieur droit.
+
+<a name="restart-stop-start"></a>
+
+## <a name="restart-stop-or-start-logic-apps"></a>Redémarrer, arrêter ou démarrer des applications logiques
+
+Vous pouvez arrêter ou démarrer une [application logique](#restart-stop-start-single-logic-app) ou [plusieurs applications logiques simultanément](#stop-start-multiple-logic-apps). Vous pouvez également redémarrer une application logique spécifique sans l’arrêter au préalable. Votre application logique à locataire unique peut inclure plusieurs workflows. Vous pouvez donc arrêter l’application logique entière ou [désactiver uniquement des workflows](#disable-enable-workflows).
+
+> [!NOTE]
+> Les opérations d’arrêt de l’application logique et de désactivation de workflows ont des effets différents. Pour plus d’informations, consultez [Considérations relatives à l’arrêt des applications logiques](#considerations-stop-logic-apps) et [Considérations relatives à la désactivation des workflows](#disable-enable-workflows).
+
+<a name="considerations-stop-logic-apps"></a>
+
+### <a name="considerations-for-stopping-logic-apps"></a>Considérations relatives à l’arrêt des applications logiques
+
+L’arrêt d’une application logique affecte les instances de workflow de différentes manières :
+
+* Le service Logic Apps annule immédiatement toutes les exécutions en cours et en attente.
+
+* Le service Logic Apps ne crée pas, ni n’exécute de nouvelles instances de workflow.
+
+* Les déclencheurs ne sont pas activés la prochaine fois que les conditions sont remplies. Cependant, les états des déclencheurs mémorisent les points auxquels l’application logique a été arrêtée. Ainsi, si vous redémarrez l’application logique, les déclencheurs s’activent pour tous les éléments non traités depuis la dernière exécution.
+
+  Pour arrêter le déclenchement de chaque workflow pour les éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de redémarrer l’application logique en procédant comme suit :
+
+  1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
+  1. Dans le menu de l’application logique, sous **Workflows**, sélectionnez **Workflows**.
+  1. Ouvrez un workflow, puis modifiez une partie du déclencheur de ce workflow.
+  1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel du déclencheur.
+  1. Répétez cette opération pour chaque workflow.
+  1. Quand vous avez terminé, [redémarrez votre application logique](#restart-stop-start-single-logic-app).
+
+<a name="restart-stop-start-single-logic-app"></a>
+
+### <a name="restart-stop-or-start-a-single-logic-app"></a>Redémarrer, arrêter ou démarrer une application logique spécifique
+
+1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
+
+1. Dans le menu de l’application logique, sélectionnez **Vue d’ensemble**.
+
+   * Pour redémarrer une application logique sans l’arrêter, dans la barre d’outils du volet Vue d’ensemble, sélectionnez **Redémarrer**.
+   * Pour arrêter une application logique en cours d’exécution, dans la barre d’outils du volet Vue d’ensemble, sélectionnez **Arrêter**. Confirmez votre sélection.
+   * Pour démarrer une application logique arrêtée, dans la barre d’outils du volet Vue d’ensemble, sélectionnez **Démarrer**.
+
+   > [!NOTE]
+   > Si votre application logique est déjà arrêtée, vous voyez uniquement l’option **Démarrer**. Si votre application logique est déjà en cours d’exécution, vous voyez uniquement l’option **Arrêter**.
+   > Vous pouvez redémarrer votre application logique à tout moment.
+
+1. Pour vérifier si votre opération a réussi ou échoué, dans la barre d’outils Azure principale, ouvrez la liste **Notifications** (icône de cloche).
+
+<a name="stop-start-multiple-logic-apps"></a>
+
+### <a name="stop-or-start-multiple-logic-apps"></a>Arrêter ou démarrer plusieurs applications logiques
+
+Vous pouvez arrêter ou démarrer plusieurs applications logiques en même temps, mais vous ne pouvez pas redémarrer plusieurs applications logiques sans les arrêter au préalable.
+
+1. Dans la zone de recherche principale du portail Azure, entrez `logic apps`, puis sélectionnez **Logic Apps**.
+
+1. Dans la page **Logic Apps**, passez en revue la colonne **État** de l’application logique.
+
+1. Dans la colonne des cases à cocher, sélectionnez les applications logiques que vous souhaitez arrêter ou démarrer.
+
+   * Pour arrêter les applications logiques en cours d’exécution sélectionnées, dans la barre d’outils du volet Vue d’ensemble, sélectionnez **Désactiver/Arrêter**. Confirmez votre sélection.
+   * Pour démarrer les applications logiques arrêtées sélectionnées, dans la barre d’outils du volet Vue d’ensemble, sélectionnez **Activer/Démarrer**.
+
+1. Pour vérifier si votre opération a réussi ou échoué, dans la barre d’outils Azure principale, ouvrez la liste **Notifications** (icône de cloche).
+
+<a name="disable-enable-workflows"></a>
+
+## <a name="disable-or-enable-workflows"></a>Désactiver ou activer des workflows
+
+Pour empêcher le déclencheur de s’activer la prochaine fois que la condition de déclenchement est remplie, désactivez votre workflow. Vous pouvez désactiver ou activer un workflow spécifique, mais vous ne pouvez pas activer ni désactiver plusieurs workflows simultanément. Voici de quelles manières la désactivation d’un workflow affecte les instances de workflow :
+
+* Le service Logic Apps continue toutes les exécutions en cours et en attente jusqu’à ce qu’elles se terminent. En fonction du volume ou du backlog, ce processus peut prendre du temps.
+
+* Le service Logic Apps ne crée pas, ni n’exécute de nouvelles instances de workflow.
+
+* Le déclencheur ne se déclenche pas la prochaine fois que ses conditions sont remplies. Toutefois, l’état du déclencheur mémorise le point auquel le workflow a été arrêté. Ainsi, si vous réactivez le workflow, le déclencheur s’active pour tous les éléments non traités depuis la dernière exécution.
+
+  Pour empêcher le déclencheur de se mettre en œuvre pour les éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de réactiver le workflow :
+
+  1. Dans le workflow, modifiez toute partie du déclencheur du workflow.
+  1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel de votre déclencheur.
+  1. [Réactivez votre workflow](#disable-enable-workflows).
+
+> [!NOTE]
+> Les opérations de désactivation de workflow et d’arrêt de l’application logique ont des effets différents. Pour plus d’informations, consultez [Considérations relatives à l’arrêt des applications logiques](#considerations-stop-logic-apps).
+
+<a name="disable-workflow"></a>
+
+### <a name="disable-workflow"></a>Désactiver le workflow
+
+1. Dans le menu de l’application logique, sous **Workflows**, sélectionnez **Workflows**. Dans la colonne des cases à cocher, sélectionnez le workflow à désactiver.
+
+1. Dans la barre d’outils Workflows, sélectionnez **Désactiver**.
+
+1. Pour vérifier si votre opération a réussi ou échoué, dans la barre d’outils Azure principale, ouvrez la liste **Notifications** (icône de cloche).
+
+<a name="enable-workflow"></a>
+
+### <a name="enable-workflow"></a>Activer le workflow
+
+1. Dans le menu de l’application logique, sous **Workflows**, sélectionnez **Workflows**. Dans la colonne des cases à cocher, sélectionnez le workflow à activer.
+
+1. Dans la barre d’outils Workflows, sélectionnez **Activer**.
+
+1. Pour vérifier si votre opération a réussi ou échoué, dans la barre d’outils Azure principale, ouvrez la liste **Notifications** (icône de cloche).
+
+<a name="delete"></a>
+
+## <a name="delete-logic-apps-or-workflows"></a>Supprimer des applications logiques ou des workflows
+
+Vous pouvez [supprimer une application logique spécifique ou plusieurs applications logiques simultanément](#delete-logic-apps). Votre application logique à locataire unique peut inclure plusieurs workflows. Vous pouvez donc supprimer l’application logique entière ou [supprimer uniquement des workflows](#delete-workflows).
+
+<a name="delete-logic-apps"></a>
+
+### <a name="delete-logic-apps"></a>Supprimer des applications logiques
+
+La suppression d’une application logique entraîne l’annulation immédiate des exécutions en cours et en attente, mais pas l’exécution de tâches de nettoyage au niveau du stockage utilisé par l’application.
+
+1. Dans la zone de recherche principale du portail Azure, entrez `logic apps`, puis sélectionnez **Logic Apps**.
+
+1. Dans la liste **Logic Apps**, dans la colonne des cases à cocher, sélectionnez une ou plusieurs applications logiques à supprimer. Dans la barre d’outils, sélectionnez **Supprimer**.
+
+1. Quand la boîte de confirmation s’affiche, entrez `yes`, puis sélectionnez **Supprimer**.
+
+1. Pour vérifier si votre opération a réussi ou échoué, dans la barre d’outils Azure principale, ouvrez la liste **Notifications** (icône de cloche).
+
+<a name="delete-workflows"></a>
+
+### <a name="delete-workflows"></a>Supprimer des workflows
+
+Voici de quelles manières la suppression d’un workflow affecte les instances de workflow :
+
+* Le service Logic Apps annule immédiatement les exécutions en cours et en attente, mais exécute des tâches de nettoyage au niveau du stockage utilisé par l’application.
+
+* Le service Logic Apps ne crée pas, ni n’exécute de nouvelles instances de workflow.
+
+* Si, après avoir supprimé un workflow, vous recréez le même workflow, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez enregistrer de nouveau les workflows qui ont appelé le workflow supprimé. L’appelant obtient ainsi les informations correctes du workflow recréé. Dans le cas contraire, les appels au workflow recréé échouent avec une erreur `Unauthorized`. Ce comportement s’applique aussi aux workflows qui utilisent des artefacts dans les comptes d’intégration et aux workflows qui appellent des fonctions Azure.
+
+1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
+
+1. Dans le menu de l’application logique, sous **Workflows**, sélectionnez **Workflows**. Dans la colonne des cases à cocher, sélectionnez un ou plusieurs workflows à supprimer.
+
+1. Dans la barre d’outils, sélectionnez **Supprimer**.
+
+1. Pour vérifier si votre opération a réussi ou échoué, dans la barre d’outils Azure principale, ouvrez la liste **Notifications** (icône de cloche).
 
 <a name="troubleshoot"></a>
 

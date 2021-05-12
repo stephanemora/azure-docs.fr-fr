@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 3c3d1930234c178a56227830ef0702450ddf4a8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 174f177080a421ec65f4ba79c550292737284de4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580668"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734789"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Surveiller l’état d’exécution, examiner l’historique du déclencheur et configurer des alertes pour Azure Logic Apps
 
@@ -20,7 +20,7 @@ Après avoir [créé et exécuté une application logique](../logic-apps/quickst
 Pour une surveillance des événements en temps réel et un débogage enrichi, configurez une journalisation des diagnostics pour votre application logique à l’aide de [journaux Azure Monitor](../azure-monitor/overview.md). Ce service Azure vous aide à superviser vos environnements cloud et locaux afin pouvoir maintenir plus facilement leur disponibilité et leurs performances. Vous pouvez ensuite rechercher et consulter des événements, tels que des événements de déclencheur, des événements d’exécution et des événements d’action. En stockant ces informations dans des [journaux Azure Monitor](../azure-monitor/logs/data-platform-logs.md), vous pouvez créer des [requêtes de journal](../azure-monitor/logs/log-query-overview.md) qui vous aident à rechercher et à analyser ces informations. Vous pouvez également utiliser ces données de diagnostic avec d’autres services Azure, tels que Stockage Azure et Azure Event Hubs. Pour plus d’informations, voir [Superviser les applications logiques à l’aide d’Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
-> Si vos applications logiques s’exécutent dans un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) créé pour utiliser un [point de terminaison d’accès interne](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), vous pouvez afficher les entrées et sorties de l’historique des exécutions de l’application logique, ainsi qu’y accéder, *uniquement depuis l’intérieur de votre réseau virtuel*. Vérifiez que vous disposez d’une connectivité réseau entre les points de terminaison privés et l’ordinateur à partir duquel vous souhaitez accéder à l’historique des exécutions. Par exemple, votre ordinateur client peut exister à l’intérieur du réseau virtuel de l’environnement de service d’intégration ou à l’intérieur d’un réseau virtuel connecté au réseau virtuel de l’environnement de service d’intégration, par exemple, par le biais d’un appairage (peering) ou d’un réseau privé virtuel. Pour plus d’informations, consultez [Accès aux points de terminaison de l’environnement ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
+> Si vos applications logiques s’exécutent dans un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) créé pour utiliser un [point de terminaison d’accès interne](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), vous pouvez afficher les entrées et sorties de l’historique des exécutions de l’application logique, ainsi qu’y accéder, *uniquement depuis l’intérieur de votre réseau virtuel*. Vérifiez que vous disposez d’une connectivité réseau entre les points de terminaison privés et l’ordinateur à partir duquel vous souhaitez accéder à l’historique des exécutions. Par exemple, votre ordinateur client peut exister à l’intérieur du réseau virtuel de l’environnement de service d’intégration ou à l’intérieur d’un réseau virtuel connecté au réseau virtuel de l’environnement de service d’intégration, par exemple, par le biais d’un appairage (peering) ou d’un réseau privé virtuel. Pour plus d’informations, consultez [Accès aux points de terminaison de l’environnement ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
 <a name="review-runs-history"></a>
 
@@ -43,7 +43,8 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
    Dans le volet Vue d’ensemble, sous **Historique des exécutions**, toutes les exécutions passées, actuelles et en attente de votre application logique s’affichent. Si la liste affiche de nombreuses exécutions et que vous ne trouvez pas l’entrée souhaitée, essayez de filtrer la liste.
 
    > [!TIP]
-   > Si l’état d’exécution ne s’affiche pas, essayez d’actualiser la page de présentation en sélectionnant **Actualiser**. Aucune exécution ne se produit pour un déclencheur ignoré en raison de critères non respectés ou d’une absence de données.
+   > Si l’état d’exécution ne s’affiche pas, essayez d’actualiser la page de présentation en sélectionnant **Actualiser**.
+   > Aucune exécution ne se produit pour un déclencheur ignoré en raison de critères non respectés ou d’une absence de données.
 
    ![Vue d’ensemble, historique des exécutions et autres informations sur l’application logique](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
@@ -91,7 +92,9 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
      Vous pouvez maintenant afficher des informations telles que des entrées et des sorties pour cette étape, par exemple :
 
    > [!NOTE]
-   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Il sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez [masquer des entrées et sorties dans l’historique des exécutions](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou contrôler l’accès utilisateur à ces informations à l’aide du [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/overview.md).
+   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps.
+   > Il sont déchiffrés uniquement quand un utilisateur demande à consulter ces données.
+   > Vous pouvez [masquer des entrées et sorties dans l’historique des exécutions](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou contrôler l’accès utilisateur à ces informations à l’aide du [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 
@@ -189,10 +192,10 @@ Pour recevoir des alertes basées sur des métriques spécifiques ou des dépass
 
 > [!TIP]
 > Pour exécuter une application logique à partir d’une alerte, vous pouvez inclure le [déclencheur de demande](../connectors/connectors-native-reqres.md) dans votre flux de travail, ce qui vous permet d’effectuer des tâches telles que les exemples suivants :
-> 
+>
 > * [Publier sur Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-> * [Envoyer un texte](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-> * [Ajouter un message à une file d'attente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+> * [Envoyer un texte](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app)
+> * [Ajouter un message à une file d'attente](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

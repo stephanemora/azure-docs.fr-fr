@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/17/2021
+ms.date: 05/02/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: ee8451365dd6a5d4e8e4b155c081e24e959730af
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 49cd718bc0beb5128980e5e25a01cef94e966221
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128448"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754016"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -290,9 +290,9 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 
 Vous pouvez gérer l’audit Azure SQL Database à l’aide de modèles [Azure Resource Manager](../../azure-resource-manager/management/overview.md), comme indiqué dans ces exemples :
 
-- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
+- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-oms/)
+- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans Event Hubs](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-eventhub/)
 
 > [!NOTE]
 > Les exemples liés se trouvent sur un référentiel public externe et sont fournis « en l’état », sans garantie et ne sont pas pris en charge dans n’importe quel service/programme de support Microsoft.

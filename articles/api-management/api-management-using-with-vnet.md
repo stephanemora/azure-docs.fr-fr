@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 5808cda95cdf9ce6477f47fcdbb8a0421d92e72a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 39e4661cb4ac664580539aca061fed4eb0f411fa
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817122"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737507"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -51,7 +51,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 1. Configurez l’instance du service Gestion des API à déployer à l’intérieur d’un réseau virtuel.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Sélectionnez un réseau virtuel dans Portail Azure.":::
-    
+
 1. Sélectionnez le type d’accès souhaité :
 
     * **Off** : Il s’agit de la valeur par défaut. Gestion des API n’est pas déployé dans un réseau virtuel.
@@ -71,7 +71,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
     > [!IMPORTANT]
     > * Lorsque votre client utilise la **version 2020-12-01 ou une version antérieure de l’API** pour déployer une instance Gestion des API Azure dans un réseau virtuel Resource Manager, le service doit se trouver dans un sous-réseau dédié qui ne contient aucune ressource, à l’exception des instances Gestion des API Azure. Si vous essayez de déployer une instance de gestion des API Azure sur un sous-réseau virtuel Resource Manager qui contient d’autres ressources, le déploiement échouera.
-    > * Lorsque votre client utilise la **version d’API 2021-01-01-preview ou une version ultérieure** pour déployer une instance Gestion des API Azure dans un réseau virtuel, seul un réseau virtuel Resource Manager est pris en charge. En outre, le sous-réseau utilisé peut contenir d’autres ressources. Vous n’êtes pas obligé d’utiliser un sous-réseau dédié aux instances Gestion des API. 
+    > * Lorsque votre client utilise la **version d’API 2021-01-01-preview ou une version ultérieure** pour déployer une instance Gestion des API Azure dans un réseau virtuel, seul un réseau virtuel Resource Manager est pris en charge. En outre, le sous-réseau utilisé peut contenir d’autres ressources. Vous n’êtes pas obligé d’utiliser un sous-réseau dédié aux instances Gestion des API.
 
 1. Sélectionnez **Appliquer**. La page **Réseau virtuel** de votre instance Gestion des API est mise à jour avec vos nouveaux choix de réseau virtuel et de sous-réseau.
 
@@ -99,9 +99,9 @@ Vous pouvez également activer une connectivité de réseau virtuel à l’aide 
 
 ### <a name="api-version-2020-12-01"></a>API version 2020-12-01
 
-* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet) Azure Resource Manager
-    
-     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+* [Modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet) Azure Resource Manager
+
+     [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet%2Fazuredeploy.json)
 
 * Applets de commande Azure PowerShell : [créez](/powershell/module/az.apimanagement/new-azapimanagement) ou [mettez à jour](/powershell/module/az.apimanagement/update-azapimanagementregion) une instance Gestion des API dans un réseau virtuel
 
@@ -170,12 +170,12 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
 + **Azure Load Balancer** : le fait d’autoriser les demandes entrantes à partir de la balise de service `AZURE_LOAD_BALANCER` n’est pas obligatoire pour la référence SKU `Developer`, puisque nous déployons une seule unité de calcul derrière elle. Toutefois, le trafic entrant à partir de [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) devient critique lors de la mise à l’échelle vers une référence SKU supérieure comme `Premium`, car la défaillance de la sonde d’intégrité de Load Balancer fait échouer un déploiement.
 
-+ **Application Insights** : Si la surveillance d’[Azure Application Insights](api-management-howto-app-insights.md) est activée sur Gestion des API, nous devons autoriser la connectivité sortante vers le [point de terminaison de télémétrie](../azure-monitor/app/ip-addresses.md#outgoing-ports) à partir du réseau virtuel. 
++ **Application Insights** : Si la surveillance d’[Azure Application Insights](api-management-howto-app-insights.md) est activée sur Gestion des API, nous devons autoriser la connectivité sortante vers le [point de terminaison de télémétrie](../azure-monitor/app/ip-addresses.md#outgoing-ports) à partir du réseau virtuel.
 
 + **Tunneling forcé du trafic vers le pare-feu local à l’aide d’ExpressRoute ou de l’appliance virtuelle réseau** : une configuration cliente courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force tout le trafic du sous-réseau délégué de Gestion des API à traverser un pare-feu local ou une appliance virtuelle réseau. Ce flux de trafic interrompt la connectivité avec la gestion des API Azure, car le trafic sortant peut être bloqué sur site, ou faire l’objet d’une opération NAT sur un jeu d’adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure. La solution vous oblige à faire deux choses :
 
   * Activer les points de terminaison de service sur le sous-réseau où le service Gestion des API est déployé. Les [points de terminaison de service][ServiceEndpoints] doivent être activés pour Azure SQL, Stockage Azure, Azure EventHub et Azure ServiceBus. L’activation des points de terminaison directement à partir du sous-réseau délégué Gestion des API leur permet d’utiliser le réseau principal de Microsoft Azure pour un routage optimal du trafic de service. Si vous utilisez des points de terminaison de service avec le service Gestion des API tunnelisé de force, le trafic des services Azure susmentionnés n’est pas tunnelisé de force. L’autre trafic de dépendance Gestion des API est tunnelisé de force et ne peut pas être perdu, ou le service Gestion des API ne fonctionnerait pas correctement.
-    
+
   * Tout le trafic du plan de contrôle entre Internet et le point de terminaison de gestion de votre service Gestion des API est acheminé à travers un ensemble d’adresses IP entrantes hébergé par Gestion des API. Lorsque le trafic est tunnélisé de force, les réponses ne correspondent pas symétriquement à ces adresses IP sources entrantes. Pour passer cette limitation, nous devons ajouter les routes définies par l’utilisateur ([UDR][UDRs]) suivantes pour rediriger le trafic vers Azure en définissant la destination de ces routes hôtes vers « Internet ». L’ensemble des adresses IP entrantes pour le trafic du plan de contrôle est décrit dans [Adresses IP du plan de contrôle](#control-plane-ips).
 
   * Pour les autres dépendances de service de gestion d’API qui sont tunnélisées de force, il doit exister un moyen de résoudre le nom d’hôte et d’atteindre le point de terminaison. Cela comprend

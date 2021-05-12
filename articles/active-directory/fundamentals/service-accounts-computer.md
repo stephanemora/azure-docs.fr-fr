@@ -13,91 +13,76 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22faba20cb12ae755f19fe43c295d98f9b364cbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec2e8cddb93e2e6fdf9ff804bbc28fd283436131
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100416502"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206616"
 ---
-# <a name="securing-computer-accounts"></a>Sécurisation des comptes d’ordinateur
+# <a name="secure-on-premises-computer-accounts"></a>Sécurisation des comptes d’ordinateur locaux
 
-Le compte d’ordinateur, ou compte LocalSystem, est un compte intégré doté de privilèges élevés qui donne accès à pratiquement toutes les ressources de l’ordinateur local. Ce compte n’est associé à aucun compte d’utilisateur connecté. Les services qui s’exécutent en tant que LocalSystem accèdent aux ressources réseau en présentant les informations d’identification de l’ordinateur aux serveurs distants. Il présente les informations d’identification sous la forme <domain_name>\<computer_name>$. Le nom prédéfini d’un compte d’ordinateur est NT AUTHORITY\SYSTEM. Il peut être utilisé pour démarrer un service et fournir le contexte de sécurité pour ce service.
+Un compte d’ordinateur, ou compte LocalSystem, est un compte intégré doté de privilèges élevés qui a accès à pratiquement toutes les ressources de l’ordinateur local. Il n’est associé à aucun compte d’utilisateur connecté. Les services qui s’exécutent en tant que LocalSystem accèdent aux ressources réseau en présentant les informations d’identification de l’ordinateur aux serveurs distants au format <nom_domaine>\\<nom_ordinateur>$. Le nom prédéfini d’un compte d’ordinateur est NT AUTHORITY\SYSTEM. Vous pouvez l’utiliser pour démarrer un service et fournir le contexte de sécurité associé.
 
-![[Image 4](.\media\securing-service-accounts\secure-computer-accounts-image-1.png)](.\media\securing-service-accounts\secure-computer-accounts-image-1.png)
+![Capture d’écran de la liste des services locaux d’un compte d’ordinateur.](.\media\securing-service-accounts\secure-computer-accounts-image-1.png)
 
-## <a name="benefits-of-using-the-computer-account"></a>Avantages de l’utilisation du compte d’ordinateur
+## <a name="benefits-of-using-a-computer-account"></a>Avantages du compte d’ordinateur
 
-Le compte d’ordinateur offre les avantages suivants :
+Un compte d’ordinateur offre les avantages suivants :
 
 * **Accès local sans restriction** : Le compte d’ordinateur donne un accès complet aux ressources locales de la machine.
 
-* **Gestion automatique des mots de passe** : Le compte d’ordinateur vous évite de devoir modifier manuellement les mots de passe. Au lieu de cela, ce compte est membre d’Active Directory et le mot de passe du compte est modifié automatiquement. Cela évite également d’avoir à inscrire le nom de principal du service pour le service.
+* **Gestion automatique des mots de passe** : le compte d’ordinateur vous évite d’avoir à change manuellement de mot de passe. Il est membre d’Active Directory. Son mot de passe est modifié automatiquement. Vous n’avez pas besoin d’inscrire le nom de principal du service.
 
-* **Droits d’accès limités hors machine** : La liste de contrôle d’accès (ACL, access-control list) par défaut dans Active Directory Domain Services permet un accès minimal aux comptes d’ordinateur. Si ce service devait être piraté, il n’aurait qu’un accès limité aux ressources de votre réseau.
+* **Droits d’accès limités hors machine** : la liste de contrôle d’accès par défaut dans Active Directory Domain Services (AD DS) permet un accès minimal aux comptes d’ordinateur. En cas d’accès par un utilisateur non autorisé, le service ne dispose que d’un accès limité aux ressources du réseau.
 
-## <a name="assess-security-posture-of-computer-accounts"></a>Évaluer la posture de sécurité de comptes d’ordinateur
+## <a name="assess-the-security-posture-of-computer-accounts"></a>Évaluation de l’état de la sécurité des comptes d’ordinateur
 
-Défis potentiels et atténuations associées lors de l’utilisation de comptes d’ordinateur : 
-
-| Problèmes| Corrections |
+Quelques difficultés potentielles liées à l’utilisation d’un compte d’ordinateur et les atténuations associées sont présentées dans le tableau suivant :
+ 
+| Problème | Limitation des risques |
 | - | - |
-| Les comptes d’ordinateur sont sujets à la suppression et à la récréation lorsque l’ordinateur quitte et rejoint le domaine.| Validez la nécessité d’ajouter un ordinateur à un groupe AD et vérifiez quel compte d’ordinateur a été ajouté à un groupe en utilisant les exemples de scripts fournis sur cette page.| 
-| Si vous ajoutez un compte d’ordinateur à un groupe, tous les services qui s’exécutent en tant que LocalSystem sur cet ordinateur reçoivent les droits d’accès du groupe.| Soyez sélectif quant à l’appartenance de votre compte d’ordinateur à un groupe. Évitez de faire des comptes d’ordinateur des membres d’un groupe d’administrateurs de domaine, car le service associé dispose d’un accès complet à Active Directory Domain Services. |
-| Mauvaise configuration par défaut du réseau pour LocalSystem| Ne partez pas du principe que le compte d’ordinateur dispose par défaut d’un accès limité aux ressources réseau. Vérifiez plutôt avec soin l’appartenance de ce compte à un groupe. |
-| Services inconnus exécutés en tant que LocalSystem| Assurez-vous que tous les services exécutés sous le compte LocalSystem sont des services Microsoft ou des services approuvés de tiers. |
+| Les comptes d’ordinateur sont sujets à la suppression et à la recréation lorsque l’ordinateur quitte et rejoint le domaine. | Validez la nécessité d’ajouter un ordinateur à un groupe Active Directory, puis vérifiez quel compte d’ordinateur a été ajouté au groupe en utilisant les exemples de scripts de la section suivante de cet article.| 
+| Si vous ajoutez un compte d’ordinateur à un groupe, tous les services qui s’exécutent en tant que LocalSystem sur cet ordinateur reçoivent les droits d’accès du groupe.| Sélectionnez avec soin l’appartenance aux groupes de votre compte d’ordinateur. Évitez de l’ajouter à des groupes d’administrateurs de domaine, car le service associé dispose d’un accès complet à AD DS. |
+| La configuration réseau par défaut de LocalSystem est incorrecte. | Ne partez pas du principe que le compte d’ordinateur dispose par défaut d’un accès limité aux ressources réseau. Vérifiez plutôt avec soin l’appartenance aux groupes du compte. |
+| Des services inconnus s’exécutent en tant que LocalSystem. | Vérifiez que tous les services qui s’exécutent sous le compte LocalSystem sont des services Microsoft ou des services tiers approuvés. |
+| | |
 
+## <a name="find-services-that-run-under-the-computer-account"></a>Recherche des services qui s’exécutent sous le compte d’ordinateur
 
-## <a name="find-services-running-under-the-computer-account"></a>Rechercher les services s’exécutant sous le compte d’ordinateur
-
-Utilisez la cmdlet PowerShell suivante pour rechercher les services s’exécutant sous le contexte LocalSystem.
+Pour rechercher les services qui s’exécutent sous le contexte LocalSystem, utilisez la cmdlet PowerShell suivante :
 
 ```powershell
-
 Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartName -eq "LocalSystem")}
 ```
 
-**Rechercher les comptes d’ordinateur qui sont membres d’un groupe spécifique**
-
-Utilisez la cmdlet PowerShell suivante pour rechercher les comptes d’ordinateur qui sont membres d’un groupe spécifique.
+Pour rechercher les comptes d’ordinateur membres d’un groupe spécifique, utilisez la cmdlet PowerShell suivante :
 
 ```powershell
-
-```Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
+Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
 ```
 
-**Rechercher les comptes d’ordinateur qui sont membres d’un groupe privilégié**
-
-Utilisez la cmdlet PowerShell suivante pour rechercher les comptes d’ordinateur qui sont membres de groupes d’administrateurs d’identité (Administrateurs de domaine, Administrateurs de l’entreprise, Administrateurs).
+Pour rechercher les comptes d’ordinateur membres de groupes d’administrateurs d’identité (administrateurs de domaine, administrateurs de l’entreprise et administrateurs), utilisez la cmdlet PowerShell suivante :
 
 ```powershell
 Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "computer"
 ```
+
 ## <a name="move-from-computer-accounts"></a>Passer de comptes d’ordinateur à un autre type de compte
 
 > [!IMPORTANT]
-> Les comptes d’ordinateur sont des comptes à privilèges élevés et doivent être utilisés uniquement quand votre service a besoin d’un accès illimité aux ressources locales sur l’ordinateur et que vous ne pouvez pas utiliser un compte de service géré (MSA).
+> Les comptes d’ordinateur sont des comptes dotés de privilèges élevés. Ils ne doivent être utilisés que si votre service a besoin d’un accès illimité aux ressources locales de l’ordinateur et que vous ne pouvez pas utiliser un compte de service administré (MSA, Managed Service Account).
 
-* Demandez au propriétaire de votre service si ce dernier peut être exécuté à l’aide d’un MSA, et utilisez un compte de service géré de groupe (gMSA) ou un compte de service géré autonome (sMSA) si votre service le prend en charge.
+* Demandez au propriétaire de votre service si ce dernier peut être exécuté à l’aide d’un compte MSA, et utilisez un compte de service administré de groupe (gMSA, group Managed Service Account) ou un compte de service administré autonome (sMSA, standalone Managed Service Account) si votre service le prend en charge.
 
-* Utilisez un compte d’utilisateur de domaine avec juste les privilèges nécessaires pour exécuter votre service.
+* Utilisez un compte d’utilisateur de domaine doté seulement des autorisations nécessaires pour exécuter votre service.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-Consultez les articles suivants sur la sécurisation des comptes de service :
+Pour plus d’informations sur la sécurisation des comptes de service, consultez les articles suivants :
 
 * [Présentation des comptes de service locaux](service-accounts-on-premises.md)
-
 * [Sécuriser les comptes de service gérés de groupe](service-accounts-group-managed.md)
-
 * [Sécuriser les comptes de service gérés autonomes](service-accounts-standalone-managed.md)
-
-* [Sécuriser les comptes d’ordinateur](service-accounts-computer.md)
-
-* [Sécuriser les comptes d’utilisateur](service-accounts-user-on-premises.md)
-
+* [Sécuriser les comptes d’utilisateur](service-accounts-user-on-premises.md)  
 * [Administrer les comptes de service locaux](service-accounts-govern-on-premises.md)
-
- 
-
- 

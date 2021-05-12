@@ -3,12 +3,12 @@ title: Schéma d’alerte commun pour les alertes Azure Monitor
 description: Comprendre le schéma d’alerte commun, pourquoi vous devez l’utiliser et comment l’activer
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 39ea469b4109f4715db0d0a73ad069121058a46f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ea05c010ff9ee732302054a07c8157e02e3e0034
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038255"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739796"
 ---
 # <a name="common-alert-schema"></a>Schéma d’alerte courant
 
@@ -32,7 +32,6 @@ Le schéma d’alerte commun se manifeste principalement dans vos notifications 
 
 | Action | Améliorations|
 |:---|:---|
-| sms | Modèle de SMS cohérent pour tous les types d’alerte. |
 | E-mail | Un modèle d’e-mail cohérent et détaillé, ce qui vous permet de facilement diagnostiquer les problèmes en un clin d’œil. Des liens profonds incorporés vers l’instance d’alerte sur le portail et la ressource affectée vous permettent d’accéder rapidement au processus de correction. |
 | Webhook/application logique/fonction Azure/runbook automation | Une structure JSON cohérente pour tous les types d’alertes, ce qui vous permet de générer facilement des intégrations entre les différents types d’alerte. |
 

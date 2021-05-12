@@ -3,18 +3,18 @@ title: Demander des données météorologiques en temps réel et prévues à l�
 description: Découvrez comment demander des données météorologiques en temps réel (actuelles) et prévues (par minute, heure, jour) à l’aide des services Météo Microsoft Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 46d9847e8463d5413409ebcacc7cd62d68f13e65
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 77bc1b435e92861cdabce7b0ce0ac7e9b4212138
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259402"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326702"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Demander des données météorologiques en temps réel et prévues à l’aide des services Météo Azure Maps
 
@@ -40,7 +40,7 @@ Cette vidéo fournit des exemples montrant comment effectuer des appels REST ver
 2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
     >[!IMPORTANT]
-    >[L’API Get Minute Forecast](/rest/api/maps/weather/getminuteforecast) requiert une clé de niveau tarifaire S1. Toutes les autres API requièrent une clé de niveau tarifaire S0.
+    >Un niveau tarifaire Gen1 (S1) or Gen2 est nécessaire pour utiliser [l’API Get Minute Forecast](/rest/api/maps/weather/getminuteforecast).  Toutes les autres API requièrent une clé de niveau tarifaire S0.
 
 Ce tutoriel utilise l’application [Postman](https://www.postman.com/), mais vous pouvez choisir un autre environnement de développement d’API.
 
@@ -290,7 +290,7 @@ Dans cet exemple, vous allez utiliser [l’API Get Severe Weather Alerts](/rest/
 [L’API Get Daily Forecast](/rest/api/maps/weather/getdailyforecast) retourne des prévisions météorologiques quotidiennes détaillées, telles que la température et le vent. La demande peut spécifier le nombre de jours à retourner : 1, 5, 10, 15, 25 ou 45 jours pour des coordonnées données. La réponse comprend des détails tels que la température, le vent, les précipitations, la qualité de l’air et l’indice UV.  Dans cet exemple, nous avons demandé des données sur cinq jours en définissant `duration=5`.
 
 >[!IMPORTANT]
->Dans le niveau tarifaire S0, vous pouvez demander des prévisions quotidiennes pour les 1, 5, 10 et 15 jours suivants. Dans le niveau tarifaire S1, vous pouvez aussi demander des prévisions quotidiennes pour les 25 et les 45 jours suivants.
+>Dans le niveau tarifaire S0, vous pouvez demander des prévisions quotidiennes pour les 1, 5, 10 et 15 jours suivants. Les niveaux tarifaires Gen1 (S1) et Gen2 offrent tous deux la possibilité de demander les prévisions quotidiennes à 25 jours et à 45 jours.
 
 Dans cet exemple, vous allez utiliser [l’API Get Daily Forecast](/rest/api/maps/weather/getdailyforecast) pour récupérer les prévisions météorologiques sur cinq jours pour des coordonnées situées à Seattle, WA.
 
@@ -538,7 +538,7 @@ Dans cet exemple, vous allez utiliser [l’API Get Daily Forecast](/rest/api/map
 [L’API Get Hourly Forecast](/rest/api/maps/weather/gethourlyforecast) retourne les prévisions météorologiques détaillées par heure pour les 1, 12, 24 (1 jour), 72 (3 jours), 120 (5 jours) et 240 (10 jours) prochaines heures pour les coordonnées données. L’API retourne des détails tels que la température, l’humidité, le vent, les précipitations et l’index UV.
 
 >[!IMPORTANT]
->Dans le niveau tarifaire S0, vous pouvez demander des prévisions horaires pour les 1, 12, 24 (1 jour) prochaines heures, et les 72 prochaines heures (3 jours). Dans le niveau tarifaire S1, vous pouvez aussi demander des prévisions horaires pour les 120 (5 jours) et les 240 (10 jours) prochaines heures.
+>Dans le niveau tarifaire S0, vous pouvez demander des prévisions horaires pour les 1, 12, 24 (1 jour) prochaines heures, et les 72 prochaines heures (3 jours). Les niveaux tarifaires Gen1 (S1) et Gen2 offrent tous deux la possibilité de demander les prévisions horaires à 120 heures (5 jours) et à 240 heures (10 jours).
 
 Dans cet exemple, vous allez utiliser [l’API Get Hourly Forecast](/rest/api/maps/weather/gethourlyforecast) pour récupérer les prévisions météorologiques horaires des 12 prochaines heures pour des coordonnées situées à Seattle, WA.
 

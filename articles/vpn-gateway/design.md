@@ -1,18 +1,18 @@
 ---
-title: À propos de la conception de la passerelle VPN Azure
-description: Découvrez comment concevoir une topologie de passerelle VPN pour vous connecter à des réseaux virtuels Azure.
+title: Topologies et conceptions de passerelles VPN Azure
+description: Découvrez les topologies et les conceptions de passerelles VPN permettant de connecter des emplacements locaux à des réseaux virtuels.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2283af1f2fc64e5a0d547fb462695a7442cad2f5
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ce2bf657b54ae824410fe4607e1c37bdfd84ac54
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2021
-ms.locfileid: "108122940"
+ms.locfileid: "108205878"
 ---
 # <a name="vpn-gateway-design"></a>Conception de la passerelle VPN
 

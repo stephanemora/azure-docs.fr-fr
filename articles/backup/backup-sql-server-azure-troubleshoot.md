@@ -3,12 +3,12 @@ title: Résoudre les problèmes de sauvegarde de base de données SQL Server
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc53494ec8dad7cab4a1cf267e9ad838b9d34a29
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99557737"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277423"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -103,115 +103,128 @@ Pour déclencher une restauration sur les instances SQL saines, effectuez les é
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | This SQL database does not support the requested backup type. (Cette base de données SQL ne prend pas en charge le type de sauvegarde demandé.) | Se produit lorsque le mode de récupération de la base de données n’autorise pas le type de sauvegarde demandé. L’erreur peut se produire dans les situations suivantes : <br/><ul><li>Une base de données utilisant un mode de récupération simple n’autorise pas la sauvegarde de fichier journal.</li><li>Les sauvegardes différentielles et de fichier journal ne sont pas autorisées pour une base de données master.</li></ul>Pour plus d’informations, consultez la documentation [Modes de récupération de SQL Server](/sql/relational-databases/backup-restore/recovery-models-sql-server). | Si la sauvegarde de fichier journal échoue pour la base de données en mode de récupération simple, essayez une des options suivantes :<ul><li>Si la base de données est en mode de récupération simple, désactivez les sauvegardes de fichier journal.</li><li>Utilisez la [documentation de SQL Server](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) pour changer le mode de récupération de la base de données en Complet ou Journalisation en bloc. </li><li> Si vous ne souhaitez pas modifier le mode de récupération et si vous disposez d’une stratégie standard pour sauvegarder plusieurs bases de données ne pouvant être changée, ignorez l’erreur. Vos sauvegardes complètes et différentielles fonctionneront par planification. Les sauvegardes de fichier journal seront ignorées, ce qui est attendu dans ce cas.</li></ul>S’il s’agit d’une base de données MASTER et que vous avez configuré la sauvegarde différentielle ou de fichier journal, procédez de l’une des manières suivantes :<ul><li>Utilisez le portail pour changer la planification de la stratégie de sauvegarde pour la base de données master en Complète.</li><li>Si vous disposez d’une stratégie standard pour sauvegarder plusieurs bases de données ne pouvant être changée, ignorez l’erreur. Votre sauvegarde complète fonctionnera par planification. Les sauvegardes différentielles ou de fichier journal n’auront pas lieu, ce qui est attendu dans ce cas.</li></ul> |
-| Operation canceled as a conflicting operation was already running on the same database. (Opération annulée car une opération conflictuelle était déjà en cours d’exécution sur la même base de données.) | Consultez le [billet de blog sur les limitations relatives à la sauvegarde et à la restauration](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) qui s’exécutent simultanément.| [Utilisez SQL Server Management Studio (SSMS) pour surveiller les travaux de sauvegarde](manage-monitor-sql-database-backup.md). Après l’échec de l’opération en conflit, recommencez l’opération.|
+
+### <a name="operationcancelledbecauseconflictingoperationrunningusererror"></a>OperationCancelledBecauseConflictingOperationRunningUserError
+
+| Message d’erreur | Causes possibles | Action recommandée |
+|---|---|---|
+| Opération annulée car une opération conflictuelle était déjà en cours d’exécution sur la même base de données. | Ce code d’erreur est susceptible d’apparaître dans les cas suivants :<br><ul><li>Ajout ou suppression de fichiers dans une base de données pendant une sauvegarde</li><li>Réduction de fichiers pendant des sauvegardes de base de données</li><li>Déclenchement d’un travail de sauvegarde par l’extension Sauvegarde Azure pendant une sauvegarde de base de données effectuée par un autre produit de sauvegarde configuré pour la base de données</li></ul>| Désactivez l’autre produit de sauvegarde pour résoudre le problème.
+
+
+### <a name="usererrorfilemanipulationisnotallowedduringbackup"></a>UserErrorFileManipulationIsNotAllowedDuringBackup
+
+| Message d’erreur | Causes possibles | Actions recommandées |
+|---|---|---|
+| La sauvegarde, les opérations de manipulation de fichiers (comme ALTER DATABASE ADD FILE) et les changements de chiffrement sur une base de données doivent être sérialisés. | Cette erreur est susceptible de se produire lorsque le travail de sauvegarde déclenché à la demande ou planifié est en conflit avec une opération de sauvegarde déjà en cours d’exécution, déclenchée par l’extension Sauvegarde Azure sur la même base de données.<br> Ce code d’erreur est susceptible d’apparaître dans les cas suivants :<br><ul><li>Déclenchement d’une sauvegarde complète pendant l’exécution d’une autre sauvegarde complète sur la base de données</li><li>Déclenchement d’une sauvegarde différentielle pendant l’exécution d’une autre sauvegarde différentielle sur la base de données</li><li>Déclenchement d’une sauvegarde de fichier journal pendant l’exécution d’une autre sauvegarde de fichier journal sur la base de données</li></ul>| Après l’échec de l’opération en conflit, recommencez l’opération.
+
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | SQL database does not exist. (La base de données SQL n’existe pas.) | La base de données a été supprimée ou renommée. | Vérifiez si la base de données a été supprimée ou renommée par inadvertance.<br/><br/> Si la base de données a été supprimée par inadvertance, restaurez la base de données à l’emplacement d’origine pour poursuivre les sauvegardes.<br/><br/> Si vous avez supprimé la base de données et si vous n’avez pas besoin de sauvegardes ultérieures, dans le coffre Recovery Services, sélectionnez **Arrêter la sauvegarde** avec **Conserver les données de sauvegarde** ou **Supprimer les données de sauvegarde**. Pour plus d’informations, consultez [Gérer et surveiller des bases de données SQL Server sauvegardées](manage-monitor-sql-database-backup.md).
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | Log chain is broken. (La séquence de journaux de transactions consécutifs est altérée.) | La base de données ou la machine virtuelle est sauvegardée via une autre solution de sauvegarde, ce qui tronque la séquence de journaux de transactions consécutifs.|<ul><li>Vérifiez si un autre script ou une autre solution de sauvegarde est en cours d’utilisation. Si c’est le cas, arrêtez l’autre solution de sauvegarde. </li><li>Si la sauvegarde était de type sauvegarde de fichier journal à la demande, déclenchez une sauvegarde complète pour commencer une nouvelle séquence de journaux de transactions consécutifs. Pour les sauvegardes de fichier journal planifiées, aucune action n’est nécessaire, car le service Sauvegarde Azure va déclencher automatiquement une sauvegarde complète pour corriger ce problème.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | Azure Backup is not able to connect to the SQL instance. (Sauvegarde Azure n’est pas en mesure de se connecter à l’instance SQL.) | Sauvegarde Azure ne peut pas se connecter à l’instance SQL Server. | Utilisez les informations supplémentaires disponibles sur le menu des erreurs du portail Azure pour déterminer les causes racines. Consultez [Résoudre les problèmes de connexion au moteur de base de données SQL Server](/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) pour corriger l’erreur.<br/><ul><li>Si les paramètres SQL par défaut n’autorisent pas les connexions à distance, modifiez les paramètres. Pour plus d’informations sur le changement des paramètres, consultez les articles suivants :<ul><li>[MSSQLSERVER_-1](/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>En cas de problème de connexion, utilisez les liens suivants pour les corriger :<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | First full backup is missing for this data source. (La première sauvegarde complète est manquante pour cette source de données.) | La sauvegarde complète est manquante pour la base de données. Les sauvegardes différentielles et de fichier journal sont apparentées à une sauvegarde complète : veillez donc à effectuer des sauvegardes complètes avant de déclencher des sauvegardes différentielles ou de fichier journal. | Déclenchez une sauvegarde complète à la demande.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full. (Impossible de prendre la sauvegarde car le journal des transactions de la source de données est plein.) | L’espace dédié au journal des transactions de la base de données est plein. | Pour résoudre ce problème, reportez-vous à la [documentation SQL Server](/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
 
 ### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | Database with same name already exists at the target location (Une base de données portant le même nom existe déjà dans l’emplacement cible) | La destination de restauration cible a déjà une base de données portant le même nom.  | <ul><li>Changez le nom de la base de données cible.</li><li>Vous pouvez aussi utiliser l’option de remplacement disponible sur la page de restauration.</li> |
 
 ### <a name="usererrorrestorefaileddatabasecannotbeofflined"></a>UserErrorRestoreFailedDatabaseCannotBeOfflined
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | Restore failed as the database could not be brought offline. (Échec de la restauration car la base de données n’a pas pu être mise hors connexion.) | Pendant que vous effectuez une restauration, la base de données cible doit être mise hors connexion. Sauvegarde Azure ne peut pas mettre ces données hors connexion. | Utilisez les informations supplémentaires disponibles sur le menu des erreurs du portail Azure pour déterminer les causes racines. Pour plus d’informations, consultez la [documentation SQL Server](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ### <a name="wlextgenericiofaultusererror"></a>WlExtGenericIOFaultUserError
 
-|Message d’erreur |Causes possibles  |Action recommandée  |
+|Message d’erreur |Causes possibles  |Actions recommandées  |
 |---------|---------|---------|
 |Une erreur d’entrée/de sortie s’est produite durant l’opération. Recherchez les erreurs d’E/S courantes sur la machine virtuelle.   |   Autorisations d’accès ou contraintes d’espace sur la cible.       |  Recherchez les erreurs d’E/S courantes sur la machine virtuelle. Vérifiez que le lecteur/partage réseau cible sur l’ordinateur : <li> dispose d’une autorisation en lecture/écriture pour le compte NT AUTHORITY\SYSTEM sur l’ordinateur. <li> a suffisamment d’espace pour que l’opération se termine correctement.<br> Pour plus d’informations, consultez [Restaurer sous forme de fichiers](restore-sql-database-azure-vm.md#restore-as-files).
        |
 
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | Cannot find the server certificate with thumbprint on the target. (Impossible de trouver le certificat de serveur avec l’empreinte sur la cible.) | La base de données master sur l’instance de destination n’a pas une empreinte de chiffrement valide. | Importez l’empreinte de certificat valide utilisée sur l’instance source vers l’instance cible. |
 
 ### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | La sauvegarde de fichier journal utilisée pour la récupération contient des modifications journalisées en bloc. Elle n’est pas utilisable pour s’arrêter à un point arbitraire dans le temps conformément aux directives SQL. | Quand une base de données est en mode de récupération avec journalisation en bloc, les données entre une transaction journalisée en bloc et la transaction de journal suivante ne peuvent pas être récupérées. | Choisissez un autre point de récupération dans le temps. [Plus d’informations](/sql/relational-databases/backup-restore/recovery-models-sql-server)
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | Backup preference for SQL Always On Availability Group cannot be met as some nodes of the Availability Group are not registered. (Les préférences de sauvegarde pour le groupe de disponibilité Always On ne peuvent pas être respectées car certains nœuds du groupe de disponibilité ne sont pas inscrits.) | Les nœuds requis pour effectuer des sauvegardes ne sont pas inscrits ou sont inaccessibles. | <ul><li>Vérifiez que tous les nœuds nécessaires pour effectuer des sauvegardes de cette base de données sont inscrits et sains, puis réessayez l’opération.</li><li>Changez la préférence de sauvegarde pour le groupe de disponibilité SQL Server Always On.</li></ul> |
 
 ### <a name="vmnotinrunningstateusererror"></a>VMNotInRunningStateUserError
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | SQL server VM is either shutdown and not accessible to Azure Backup service. (La machine virtuelle SQL Server est arrêtée ou indisponible pour le service Sauvegarde Azure.) | La machine virtuelle est arrêtée. | Vérifiez que l’instance SQL Server est en cours d’exécution. |
 
 ### <a name="guestagentstatusunavailableusererror"></a>GuestAgentStatusUnavailableUserError
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. (Le service Sauvegarde Azure utilise l’agent invité de machine virtuelle Azure pour effectuer la sauvegarde, mais l’agent invité n’est pas disponible sur le serveur cible.) | L’agent invité n’est pas activé ou n’est pas sain. | [Installez l’agent invité de machine virtuelle](../virtual-machines/extensions/agent-windows.md) manuellement. |
 
 ### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 | L’intention de protection automatique a été supprimée ou n’est pas plus valide. | Quand vous activez la protection automatique sur une instance SQL Server, les travaux **Configurer la sauvegarde** s’exécutent pour toutes les bases de données de cette instance. Si vous désactivez la protection automatique pendant l’exécution des tâches, les tâches **En cours** sont annulées avec ce code d’erreur. | Réactivez la protection automatique pour protéger toutes les bases de données restantes. |
 
 ### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 L’opération est bloquée, car vous avez atteint la limite du nombre d’opérations autorisées en 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur s’affiche. <br> Par exemple : Si vous avez atteint la limite du nombre de tâches de sauvegarde de configuration qui peuvent être déclenchées par jour et que vous essayez de configurer la sauvegarde sur un nouvel élément, cette erreur s’affiche. | En règle générale, le fait de retenter l’opération après 24 heures résout ce problème. Toutefois, si le problème persiste, vous pouvez contacter le support technique Microsoft pour obtenir de l’aide.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 L’opération est bloquée, car le coffre a atteint sa limite maximale pour ces opérations autorisées dans une plage de 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur s’affiche. Cette erreur s’affiche généralement en cas d’opérations à grande échelle, comme une modification de la stratégie ou la protection automatique. Contrairement au cas de CloudDosAbsoluteLimitReached, il n’y a pas grand-chose à faire pour résoudre cet état. En fait, le service de sauvegarde Azure réessaiera les opérations en interne pour tous les éléments en question.<br> Par exemple : si vous avez un grand nombre de sources de données protégées par une stratégie et que vous essayez de modifier cette stratégie, des tâches de protection de configuration sont déclenchées pour chaque élément protégé et peuvent parfois atteindre la limite maximale autorisée pour de telles opérations par jour.| Le service Sauvegarde Azure réessaiera automatiquement cette opération après 24 heures.
 
 ### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 L’opération d’extension de la charge de travail AzureBackup a échoué. | La machine virtuelle est arrêtée ou elle ne peut pas contacter le service Azure Backup en raison de problèmes de connectivité Internet.| <li> Assurez-vous que la machine virtuelle est en cours d’exécution et qu’elle dispose d’une connexion Internet.<li> [Réinscrire une extension sur la machine virtuelle SQL Server](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
 
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
-| Message d’erreur | Causes possibles | Action recommandée |
+| Message d’erreur | Causes possibles | Actions recommandées |
 |---|---|---|
 La machine virtuelle ne peut pas contacter le service Sauvegarde Azure en raison de problèmes de connectivité Internet. | La machine virtuelle a besoin d’une connectivité sortante vers le service de sauvegarde Azure, le stockage Azure ou les services Azure Active Directory.| <li> Si vous utilisez NSG afin de limiter la connectivité, vous devez utiliser la balise de service *AzureBackup* pour autoriser l'accès sortant au service Sauvegarde Azure, et de même pour les services Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Suivez ces [étapes](./backup-sql-server-database-azure-vms.md#nsg-tags) pour autoriser l’accès. <li> Assurez-vous que DNS résout les points de terminaison Azure. <li> Vérifiez si la machine virtuelle se trouve derrière un équilibreur de charge bloquant l’accès à Internet. La détection fonctionnera en affectant une adresse IP publique aux machines virtuelles. <li> Vérifiez qu’aucun pare-feu/antivirus/proxy ne bloque les appels aux trois services cibles ci-dessus.
 

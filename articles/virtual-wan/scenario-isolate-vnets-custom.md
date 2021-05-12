@@ -1,23 +1,23 @@
 ---
 title: 'Scénario : Isolation personnalisée pour réseaux virtuels'
 titleSuffix: Azure Virtual WAN
-description: Scénarios de routage - empêcher les réseaux virtuels sélectionnés de pouvoir s’atteindre mutuellement
+description: Découvrez les scénarios d’isolement personnalisé du routage Virtual WAN consistant à empêcher un ensemble spécifique de réseaux virtuels d’atteindre un autre ensemble spécifique de réseaux virtuels, sachant que les réseaux virtuels sont nécessaires pour atteindre toutes les branches.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56a0fe561d026f1b01f27cf3015c31820e8110bb
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92461819"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162038"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scénario : Isolation personnalisée pour réseaux virtuels
 
-Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario d’isolation personnalisée pour réseaux virtuels, l’objectif est d’empêcher un ensemble spécifique de réseaux virtuels de pouvoir atteindre d’autres ensembles de réseaux virtuels spécifiques. Toutefois, les réseaux virtuels sont nécessaires pour atteindre toutes les branches (VPN/ER/VPN utilisateur). Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario d’isolement personnalisé de réseaux virtuels, l’objectif est d’empêcher un ensemble spécifique de réseaux virtuels d’atteindre un autre ensemble spécifique de réseaux virtuels. Toutefois, les réseaux virtuels sont nécessaires pour atteindre toutes les branches (VPN/ER/VPN utilisateur). Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
 
 ## <a name="design"></a><a name="design"></a>Conception
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97c07f010fad6c12424b1684d4ff5e12c7cac3ce
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 3b785a8853e37e1a24e3eb9bd4fd13c49be39069
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553241"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229393"
 ---
 # <a name="operating-system-upgrade"></a>Mise à niveau du système d’exploitation
 Ce document décrit en détail les mises à niveau du système d’exploitation sur les grandes instances HANA.
@@ -153,4 +153,4 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour la classe de références SKU de type I de sauvegarde du système d’exploitation, consultez [Sauvegarde et restauration](hana-overview-high-availability-disaster-recovery.md).
-- Pour la classe SKU Type II, consultez [Sauvegarde du système d’exploitation pour les SKU Type II des tampons Révision 3](os-backup-type-ii-skus.md).
+- Consultez [Sauvegarde du système d’exploitation](./large-instance-os-backup.md) pour HLI.

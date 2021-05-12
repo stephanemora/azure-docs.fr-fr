@@ -7,12 +7,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 889df16191104ca5b335d067abe0f3d1311c4603
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 095e746e3cb40767fe1afb9c6fbd75cd2c1450d4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450104"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736794"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -527,7 +527,7 @@ Pour ajouter le rôle, exécutez la commande suivante :
 - Remplacez `<filename>` par le nom du fichier.
 - Si vous exécutez la commande à partir d’un chemin autre que celui du dossier dans lequel est enregistré le fichier, incluez dans la commande le chemin du dossier où se trouve le fichier.
 
-```bash
+```azurecli-interactive
 az role definition create --role-definition "<filename>.json"
 ```
 

@@ -3,12 +3,12 @@ title: Vue d’ensemble de Container Insights | Microsoft Docs
 description: Cet article décrit Container Insights qui surveille la solution AKS Container Insights et la valeur qu’elle offre en surveillant l’intégrité de vos clusters AKS et de Container Instances dans Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3310be54476a9449188c2b7fbfa5bbb6e21cb005
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441514"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177707"
 ---
 # <a name="container-insights-overview"></a>Vue d’ensemble de Container Insights
 
@@ -39,7 +39,7 @@ Container Insights offre une expérience de surveillance complète à l’aide d
 * Voir la quantité de ressources utilisée par les charges de travail qui sont exécutées sur l’hôte et qui ne sont pas liées aux processus standard nécessaires à la prise en charge du pod
 * Comprendre le comportement du cluster lorsqu’il subit des charges moyennes et très importantes. Cette information peut vous aider à identifier les besoins en capacité et à déterminer la charge maximale que le cluster peut supporter.
 * Configurer des alertes pour vous avertir de manière proactive ou les enregistrer lorsque l’utilisation de l’UC et de la mémoire sur des nœuds ou des conteneurs dépasse vos seuils, ou encore lorsqu’un changement d’état d’intégrité se produit dans le cluster au niveau de l’infrastructure ou du cumul d’intégrité des nœuds.
-* Bénéficier d’une intégration à [Prometheus](https://prometheus.io/docs/introduction/overview/) pour afficher les métriques d’application et de charge de travail qu’il collecte à partir des nœuds et Kubernetes à l’aide de [requêtes](container-insights-log-search.md) pour créer des alertes personnalisées, des tableaux de bord et une analyse détaillée des performances.
+* Offrir une intégration avec [Prometheus](https://prometheus.io/docs/introduction/overview/) pour afficher les métriques d’application et de charge de travail qu’il collecte sur les nœuds et sur Kubernetes à l’aide de [requêtes](container-insights-log-search.md) afin de créer des alertes personnalisées et des tableaux de bord, et d’effectuer une analyse détaillée.
 * Surveiller les charges de travail de conteneur [déployées sur le moteur AKS](https://github.com/Azure/aks-engine) local et le [moteur AKS sur Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 * Surveiller les charges de travail de conteneur [déployées sur Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 

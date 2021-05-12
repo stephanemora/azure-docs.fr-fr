@@ -1,19 +1,19 @@
 ---
-title: 'Connectez votre réseau local à un réseau virtuel Azure : VPN de site à site : PowerShell'
-description: Créez une connexion de passerelle VPN de site à site IPsec à partir de votre réseau local vers un réseau virtuel Azure via l’Internet public à l’aide de PowerShell.
+title: 'Connecter votre réseau local à un réseau virtuel VNet Azure : VPN de site à site : PowerShell'
+description: Découvrez comment créer une connexion de passerelle VPN de site à site entre votre réseau local et un réseau virtuel VNet Azure à l’aide de PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1488aa6f48c05a8c2dfa2c6162c1bd1df35d4f58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f9b408cd6f6fbeb9123f8e2dc506b14fe0427a1
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380484"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229699"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de PowerShell
 

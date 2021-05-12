@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 24dc0d2b243eb6c13e5670a1438876132c5e429e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 25880a60bd086afa84b0c3eaf901bfb987190f4a
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833649"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166340"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -35,8 +35,8 @@ Si vous n’avez pas d’espace de travail Azure Monitor Log Analytics, consulte
 
 Le rôle Runbook Worker hybride requiert l’[agent Log Analytics](../azure-monitor/agents/log-analytics-agent.md) pour le système d’exploitation Linux pris en charge. Pour les serveurs ou les ordinateurs hébergés en dehors d’Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md).
 
->[!NOTE]
->Après l’installation de l’agent Log Analytics pour Linux, vous ne devez modifier ni les autorisations du dossier `sudoers.d` ni son appartenance. L’autorisation sudo est requise pour le compte **nxautomation**, qui est le contexte utilisateur sous lequel le Runbook Worker hybride s’exécute. Les autorisations ne doivent pas être supprimées. Limiter ce principe à certains dossiers ou à certaines commandes peut entraîner une modification critique.
+> [!NOTE]
+> Après l’installation de l’agent Log Analytics pour Linux, vous ne devez modifier ni les autorisations du dossier `sudoers.d` ni son appartenance. L’autorisation sudo est requise pour le compte **nxautomation**, qui est le contexte utilisateur sous lequel le Runbook Worker hybride s’exécute. Les autorisations ne doivent pas être supprimées. Limiter ce principe à certains dossiers ou à certaines commandes peut entraîner une modification critique.
 >
 
 ### <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
@@ -76,8 +76,8 @@ Voici la configuration minimale requise pour un système Linux et un Runbook Wor
 
 Vous pouvez ajouter l’ordinateur Worker à un groupe de Runbook Workers hybrides dans l’un de vos comptes Automation. Pour les ordinateurs qui hébergent le Runbook Worker hybride système géré par Update Management, ils peuvent être ajoutés à un groupe de Runbook Workers hybrides. Toutefois, vous devez utiliser le même compte Automation pour Update Management et l’appartenance au groupe de Runbook Workers hybrides.
 
->[!NOTE]
->Azure Automation [Update Management](./update-management/overview.md) installe automatiquement le Runbook Worker hybride système sur un ordinateur Azure ou non Azure où la fonctionnalité Update Management est activée. Toutefois, ce Worker n’est inscrit auprès d’aucun des groupes de Runbook Workers hybrides figurant dans votre compte Automation. Pour exécuter vos runbooks sur ces ordinateurs, vous devez les ajouter à un groupe de Runbook Workers hybrides. Suivez l’étape 4 de la section [Installer un Runbook Worker hybride Linux](#install-a-linux-hybrid-runbook-worker) pour l’ajouter à un groupe.
+> [!NOTE]
+> Azure Automation [Update Management](./update-management/overview.md) installe automatiquement le Runbook Worker hybride système sur un ordinateur Azure ou non Azure où la fonctionnalité Update Management est activée. Toutefois, ce Worker n’est inscrit auprès d’aucun des groupes de Runbook Workers hybrides figurant dans votre compte Automation. Pour exécuter vos runbooks sur ces ordinateurs, vous devez les ajouter à un groupe de Runbook Workers hybrides. Suivez l’étape 4 de la section [Installer un Runbook Worker hybride Linux](#install-a-linux-hybrid-runbook-worker) pour l’ajouter à un groupe.
 
 ## <a name="supported-linux-hardening"></a>Renforcement de la sécurité Linux pris en charge
 
@@ -209,9 +209,9 @@ Pour installer et configurer un runbook Worker hybride pour Linux, effectuez les
 
 Par défaut, les Runbooks Workers hybrides Linux nécessitent la validation de signature. Si vous exécutez un runbook non signé sur un Worker, l'erreur `Signature validation failed` s'affiche. Pour désactiver la validation de la signature, exécutez la commande suivante. Remplacez le deuxième paramètre par votre ID d’espace de travail Log Analytics.
 
- ```bash
- sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <logAnalyticsworkspaceId>
- ```
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <logAnalyticsworkspaceId>
+```
 
 ## <a name="remove-the-hybrid-runbook-worker"></a><a name="remove-linux-hybrid-runbook-worker"></a>Supprimer le Runbook Worker hybride
 

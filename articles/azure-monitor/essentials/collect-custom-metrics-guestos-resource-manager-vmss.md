@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
-ms.openlocfilehash: c5f536295bce07e70606f1ff286b08f8465d59f9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3a42de2ac948a583f9d2de130626f37658dfc9e
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048932"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732251"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour un groupe de machines virtuelles identiques Windows
 
@@ -35,7 +35,7 @@ Si vous découvrez les modèles Resource Manager, obtenez plus d’informations 
 L’extension Diagnostics Azure utilise une fonctionnalité appelée **récepteurs de données** pour acheminer les métriques et les journaux vers différents emplacements. Les étapes suivantes montrent comment utiliser un modèle Resource Manager et PowerShell pour déployer une machine virtuelle à l’aide du nouveau récepteur de données Azure Monitor. 
 
 ## <a name="author-a-resource-manager-template"></a>Créer un modèle Resource Manager 
-Pour cet exemple, vous pouvez utiliser un [exemple de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale) public :  
+Pour cet exemple, vous pouvez utiliser un [exemple de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-windows-autoscale) public :  
 
 - **Azuredeploy.json** est un modèle Resource Manager préconfiguré pour le déploiement d’un groupe de machines virtuelles identiques.
 

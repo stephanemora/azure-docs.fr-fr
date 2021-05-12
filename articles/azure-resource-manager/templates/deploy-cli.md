@@ -3,12 +3,12 @@ title: Déployer des ressources avec Azure CLI et un modèle
 description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager ou un fichier Bicep.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: f616a40f2683268f0cc26314fcc88ecca23bdbcf
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ddcb9adad545f27dfe29f3a9354520b0e141e933
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782060"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737078"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure
 
@@ -103,7 +103,7 @@ Pour déployer un modèle externe, utilisez le paramètre `template-uri`.
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json" \
   --parameters storageAccountType=Standard_GRS
 ```
 

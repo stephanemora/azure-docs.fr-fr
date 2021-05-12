@@ -6,13 +6,13 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
-ms.author: tyao
-ms.openlocfilehash: 32bf7a5ecc93fa23c8c704dc346048c26c086121
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.author: victorh
+ms.openlocfilehash: cb45120f55cd55ae129599a4179f0cd1a60c8648
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107860848"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732647"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurer une règle de restriction IP avec un Pare-feu d’applications web pour Azure Front Door
 
@@ -33,7 +33,7 @@ Créez un profil Azure Front Door en suivant les instructions décrites dans [D�
 1. Dans le portail Azure, sélectionnez **Créer une ressource**, saisissez **Pare-feu d’applications web** dans la zone de recherche, puis sélectionnez **Pare-feu d’applications web (WAF)** .
 2. Sélectionnez **Create** (Créer).
 3. Dans la page **Créer une stratégie WAF**, utilisez les valeurs suivantes pour renseigner l’onglet **De base** :
-   
+
    |Paramètre  |Valeur  |
    |---------|---------|
    |Stratégie pour     |WAF global (Front Door)|
@@ -95,9 +95,10 @@ Créez un profil Azure Front Door en suivant les instructions décrites dans [D�
 
 ### <a name="create-a-waf-policy"></a>Créer une stratégie de pare-feu d’applications web (WAF).
 
-Créer une stratégie WAF à l’aide de la commande [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create). Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
+Créer une stratégie WAF à l’aide de la commande [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create).
+Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
 
-```azurecli-interactive 
+```azurecli-interactive
 az network front-door waf-policy create \
   --resource-group <resource-group-name> \
   --subscription <subscription ID> \
@@ -111,7 +112,7 @@ Dans les exemples suivants :
 -  Remplacez *IPAllowPolicyExampleCLI* par votre stratégie unique créée précédemment.
 -  Remplacez *ip-address-range-1*, *ip-address-range-2* par votre propre plage.
 
-Tout d’abord, créez une règle d’autorisation IP pour la stratégie créée à l’étape précédente. 
+Tout d’abord, créez une règle d’autorisation IP pour la stratégie créée à l’étape précédente.
 > [!NOTE]
 > **--defer** est requis, car une règle doit avoir une condition de correspondance pour être ajoutée à l’étape suivante.
 
@@ -134,10 +135,10 @@ az network front-door waf-policy rule match-condition add \
 --negate true \
 --name IPAllowListRule \
   --resource-group <resource-group-name> \
-  --policy-name IPAllowPolicyExampleCLI 
+  --policy-name IPAllowPolicyExampleCLI
   ```
-                                                   
-### <a name="find-the-id-of-a-waf-policy"></a>Rechercher l’ID d’une stratégie WAF 
+
+### <a name="find-the-id-of-a-waf-policy"></a>Rechercher l’ID d’une stratégie WAF
 Recherchez une stratégie WAF à l’aide de la commande [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_show). Là encore, remplacez *IPAllowPolicyExampleCLI* dans l’exemple suivant par votre stratégie unique que vous avez créée précédemment.
 
    ```azurecli
@@ -178,10 +179,10 @@ Vous pouvez installer [Azure PowerShell](/powershell/azure/) sur votre ordinateu
 
     ```
     Install-Module PowerShellGet -Force -AllowClobber
-    ``` 
+    ```
 
-3. Installez le module Az.FrontDoor du collecteur de données à l’aide de la commande suivante. 
-    
+3. Installez le module Az.FrontDoor du collecteur de données à l’aide de la commande suivante.
+
     ```
     Install-Module -Name Az.FrontDoor
     ```
@@ -190,7 +191,7 @@ Créez un profil Azure Front Door en suivant les instructions décrites dans [D�
 
 ### <a name="define-an-ip-match-condition"></a>Définir une condition de correspondance IP
 Utilisez la commande [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) pour définir une condition de correspondance IP.
-Dans l’exemple suivante, remplacez *ip-address-range-1*, *ip-address-range-2* par votre propre plage.    
+Dans l’exemple suivante, remplacez *ip-address-range-1*, *ip-address-range-2* par votre propre plage.
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
@@ -198,7 +199,7 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 -NegateCondition 1
 ```
-     
+
 ### <a name="create-a-custom-ip-allow-rule"></a>Créer une règle d’autorisation IP personnalisée
 
 Utilisez la commande [New-AzFrontDoorWafCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) pour définir une action et une priorité. Dans l’exemple suivant, les requêtes ne provenant pas d’adresses IP clientes qui correspondent à la liste sont autorisées.
@@ -240,7 +241,7 @@ Liez un objet de stratégie WAF à un hôte front-end existant et mettez à jour
 
 
 ## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Configurer une stratégie WAF avec un modèle Resource Manager
-Pour afficher le modèle qui crée une stratégie Azure Front Door et WAF avec des règles de restriction IP personnalisées, rendez-vous sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
+Pour afficher le modèle qui crée une stratégie Azure Front Door et WAF avec des règles de restriction IP personnalisées, rendez-vous sur [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-clientip).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

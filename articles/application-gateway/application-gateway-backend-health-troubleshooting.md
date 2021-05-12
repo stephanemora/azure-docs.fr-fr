@@ -8,18 +8,17 @@ ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 87c022ee7ccf3f1de2d9420ee799157ba96aa353
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 3bb3a89443cdefeedbe5df254d215dfcec770983
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317646"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737844"
 ---
-<a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
-==================================================
+# <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 
-<a name="overview"></a>Vue d’ensemble
---------
+## <a name="overview"></a>Vue d’ensemble
+
 
 Par défaut, Azure Application Gateway sonde les serveurs back-end afin de vérifier leur état d’intégrité et leur disponibilité pour traiter les requêtes. Les utilisateurs peuvent également créer des sondes personnalisées pour indiquer le nom d’hôte, le chemin à sonder et les codes d’état à considérer comme sains. Dans les deux cas, si le serveur back-end ne répond pas, Application Gateway marque le serveur comme Non sain et arrête la transmission des requêtes au serveur. Quand le serveur répond de nouveau, Application Gateway reprend la transmission des requêtes.
 
@@ -37,8 +36,7 @@ Toutes ces méthodes font apparaître l’un des états suivants :
 
 Si l’état d’intégrité d’un serveur back-end est Sain, Application Gateway transmet les requêtes à ce serveur. Toutefois, si tous les serveurs back-end d’un pool de back-ends sont dans un état Non sain ou Inconnu, vous risquez de rencontrer des problèmes lors de l’accès aux applications. Cet article décrit les symptômes, causes et modes de résolution de chaque erreur présentée.
 
-<a name="backend-health-status-unhealthy"></a>État d’intégrité des back-ends : Unhealthy
--------------------------------
+## <a name="backend-health-status-unhealthy"></a>État d’intégrité des back-ends : Unhealthy
 
 Si l’état d’intégrité des back-ends est Non sain, la vue du portail se présente comme sur la capture suivante :
 
@@ -77,6 +75,7 @@ BackendAddressPoolsText : [
                             }
                         ]
 ```
+
 Quand vous recevez un état d’intégrité Non sain pour tous les serveurs back-end d’un pool de back-ends, les requêtes ne sont pas transmises à ces serveurs, et Application Gateway retourne l’erreur « Passerelle incorrecte - 502 » au client à l’origine des requêtes. Pour résoudre ce problème, examinez la colonne **Détails** de l’onglet **Intégrité principale**.
 
 Le message affiché dans la colonne **Détails** fournit des insights plus détaillés, qui vous aident à entreprendre la résolution du problème.
@@ -84,9 +83,10 @@ Le message affiché dans la colonne **Détails** fournit des insights plus déta
 > [!NOTE]
 > La demande de sonde par défaut est envoyée au format \<protocol\>://127.0.0.1:\<port\>/. Par exemple, http://127.0.0.1:80 pour une sonde HTTP sur le port 80. Seuls les codes d’état HTTP de 200 à 399 sont considérés comme sains. Le protocole et le port de destination sont hérités des paramètres HTTP. Si vous souhaitez qu’Application Gateway sonde sur un autre protocole, nom d’hôte ou chemin et reconnaisse un autre code d’état comme sain, configurez une sonde personnalisée et associez-la aux paramètres HTTP.
 
-<a name="error-messages"></a>Messages d’erreur
-------------------------
-#### <a name="backend-server-timeout"></a>Délai d’attente dépassé pour le serveur back-end
+## <a name="error-messages"></a>Messages d’erreur
+
+
+### <a name="backend-server-timeout"></a>Délai d’attente dépassé pour le serveur back-end
 
 **Message :** Le temps pris par le serveur back-end pour répondre à la sonde d’intégrité d\'Application Gateway est supérieur au seuil de délai d’attente défini dans les paramètres de la sonde.
 
@@ -104,7 +104,7 @@ Pour augmenter la valeur du délai, effectuez les étapes suivantes :
 
 1.  Enregistrez les paramètres de la sonde personnalisée et vérifiez si l’intégrité du back-end a désormais l’état Sain.
 
-#### <a name="dns-resolution-error"></a>Erreur de résolution du DNS
+### <a name="dns-resolution-error"></a>Erreur de résolution du DNS
 
 **Message :** Application Gateway n’a pas pu créer de sonde pour ce back-end. Cela se produit généralement quand le nom de domaine complet du back-end n’a pas été entré correctement. 
 
@@ -122,7 +122,7 @@ Pour augmenter la valeur du délai, effectuez les étapes suivantes :
 
 1.  Si le domaine est privé ou interne, essayez de le résoudre à partir d’une machine virtuelle dans le même réseau virtuel. Si vous pouvez le résoudre, redémarrez Application Gateway et vérifiez de nouveau. Pour redémarrer Application Gateway, vous devez l’[arrêter](/powershell/module/azurerm.network/stop-azurermapplicationgateway) et le [démarrer](/powershell/module/azurerm.network/start-azurermapplicationgateway) à l’aide des commandes PowerShell correspondantes (cliquez sur les liens fournis ici pour plus d’informations).
 
-#### <a name="tcp-connect-error"></a>Erreur de connexion TCP
+### <a name="tcp-connect-error"></a>Erreur de connexion TCP
 
 **Message :** Application Gateway n’a pas pu se connecter au serveur back-end.
 Vérifiez que le serveur back-end répond sur le port utilisé pour la sonde.
@@ -188,7 +188,7 @@ Si vous pensez que la réponse est légitime et que vous souhaitez qu’Applicat
 
 Pour créer une sonde personnalisée, effectuez les étapes décrites [ici](./application-gateway-create-probe-portal.md).
 
-#### <a name="http-response-body-mismatch"></a>Non-correspondance du corps de la réponse HTTP
+### <a name="http-response-body-mismatch"></a>Non-correspondance du corps de la réponse HTTP
 
 **Message :** Le corps de la réponse HTTP du back-end ne correspond pas au paramètre de la sonde. Le corps de la réponse reçue ne contient pas l’élément {string}.
 
@@ -208,7 +208,7 @@ Pour en savoir plus sur la correspondance des sondes d’Application Gateway, [c
 > Pour tous les messages d’erreur liés au protocole TLS, consultez la page de [présentation de TLS](ssl-overview.md) afin d’en savoir plus sur le comportement SNI et les différences entre les références SKU v1 et v2.
 
 
-#### <a name="backend-server-certificate-invalid-ca"></a>Autorité de certification non valide pour le certificat du serveur back-end
+### <a name="backend-server-certificate-invalid-ca"></a>Autorité de certification non valide pour le certificat du serveur back-end
 
 **Message :** Le certificat de serveur utilisé par le serveur back-end n’est pas signé par une autorité de certification reconnue. Autorisez le back-end sur l’instance Application Gateway en chargeant le certificat racine du certificat de serveur utilisé par le back-end.
 
@@ -241,7 +241,7 @@ Vous pouvez aussi exporter le certificat racine à partir d’une machine client
 
 Pour plus d’informations sur l’extraction et le chargement de certificats racines approuvés dans Application Gateway, consultez [Exporter le certificat racine approuvé (pour le SKU v2)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
-#### <a name="trusted-root-certificate-mismatch"></a>Non-correspondance du certificat racine approuvé
+### <a name="trusted-root-certificate-mismatch"></a>Non-correspondance du certificat racine approuvé
 
 **Message :** Le certificat racine du certificat de serveur utilisé par le serveur back-end ne correspond pas au certificat racine approuvé qui a été ajouté dans Application Gateway. Assurez-vous d’ajouter le certificat racine approprié pour faire figurer le serveur back-end dans la liste d’autorisation.
 
@@ -255,6 +255,7 @@ Le certificat qui a été chargé dans les paramètres HTTP d’Application Gate
 Effectuez les étapes 1-11 de la méthode précédente pour charger le certificat racine approuvé correct dans Application Gateway.
 
 Pour plus d’informations sur l’extraction et le chargement de certificats racines approuvés dans Application Gateway, consultez [Exporter le certificat racine approuvé (pour le SKU v2)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
+
 > [!NOTE]
 > Cette erreur peut également se produire si le serveur back-end ne passe pas la chaîne complète du certificat, y compris les éléments Root > Intermediate (le cas échéant) > Leaf pendant la négociation TLS. Pour vérifier ce point, utilisez les commandes OpenSSL à partir de n’importe quel client et connectez-vous au serveur back-end avec les paramètres configurés dans la sonde d’Application Gateway.
 
@@ -262,6 +263,7 @@ Par exemple :
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
+
 Si la sortie n’affiche pas la chaîne complète du certificat retourné, réexportez le certificat avec la chaîne complète incluant le certificat racine. Configurez ce certificat sur votre serveur back-end. 
 
 ```
@@ -281,7 +283,7 @@ Si la sortie n’affiche pas la chaîne complète du certificat retourné, réex
   \-----END CERTIFICATE-----
 ```
 
-#### <a name="backend-certificate-invalid-common-name-cn"></a>Nom commun (CN) non valide pour le certificat du back-end
+### <a name="backend-certificate-invalid-common-name-cn"></a>Nom commun (CN) non valide pour le certificat du back-end
 
 **Message :** Le nom commun (CN) du certificat du back-end ne correspond pas à l’en-tête d’hôte de la sonde.
 
@@ -322,7 +324,7 @@ Pour Linux avec OpenSSL :
 
 2.  Dans les propriétés affichées, recherchez le nom commun du certificat et entrez le même nom dans le champ du nom d’hôte des paramètres HTTP. Si ce n’est pas le nom d’hôte souhaité pour votre site web, vous devez obtenir un certificat pour ce domaine ou entrer le nom d’hôte correct dans la configuration de la sonde personnalisée ou des paramètres HTTP.
 
-#### <a name="backend-certificate-is-invalid"></a>Le certificat du back-end n’est pas valide
+### <a name="backend-certificate-is-invalid"></a>Le certificat du back-end n’est pas valide
 
 **Message :** Le certificat du back-end n’est pas valide. La date actuelle ne s’inscrit pas dans la plage de dates définie par les options \"Valide à partir du\" et \"Valide jusqu’au\" pour le certificat.
 
@@ -336,7 +338,7 @@ Pour Linux avec OpenSSL :
 
 1.  Supprimez l’ancien certificat en cliquant sur l’icône **Supprimer** à côté du certificat, puis sélectionnez **Enregistrer**.
 
-#### <a name="certificate-verification-failed"></a>Échec de la vérification du certificat
+### <a name="certificate-verification-failed"></a>Échec de la vérification du certificat
 
 **Message :** La validité du certificat du back-end n’a pas pu être vérifiée. Pour en déterminer la raison, examinez le message associé au code d’erreur {errorCode} dans les diagnostics OpenSSL
 
@@ -344,8 +346,8 @@ Pour Linux avec OpenSSL :
 
 **Solution :** Pour résoudre ce problème, vérifiez que le certificat sur votre serveur a été créé correctement. Par exemple, utilisez [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html) pour vérifier le certificat et ses propriétés, puis réessayez de charger le certificat dans les paramètres HTTP d’Application Gateway.
 
-<a name="backend-health-status-unknown"></a>État d’intégrité des back-ends : Inconnu
--------------------------------
+## <a name="backend-health-status-unknown"></a>État d’intégrité des back-ends : Inconnu
+
 Si l’état d’intégrité des back-ends est présenté comme Inconnu, la vue du portail est semblable à la capture suivante :
 
 ![Intégrité des back-ends dans Application Gateway - Inconnu](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
@@ -396,7 +398,6 @@ Ce comportement peut être dû à différentes raisons :
 
 1.  Pour vérifier si Application Gateway est sain et en cours d’exécution, accédez à l’option **Intégrité des ressources** dans le portail et vérifiez que l’état est **Sain**. Si l’état est **Non sain** ou **Dégradé**, [contactez le support](https://azure.microsoft.com/support/options/).
 
-<a name="next-steps"></a>Étapes suivantes
-----------
+## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur [les diagnostics et la journalisation dans Application Gateway](./application-gateway-diagnostics.md).
