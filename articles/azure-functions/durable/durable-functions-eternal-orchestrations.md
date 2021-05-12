@@ -1,6 +1,6 @@
 ---
-title: Orchestrations externes dans Fonctions durables - Azure
-description: Découvrez comment implémenter des orchestrations externes à l’aide de l’extension Fonctions durables pour Azure Functions.
+title: Orchestrations éternelles dans Fonctions durables - Azure
+description: Découvrez comment implémenter des orchestrations éternelles à l’aide de l’extension Fonctions durables pour Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
@@ -12,13 +12,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182058"
 ---
-# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations externes dans Fonctions durables (Azure Functions)
+# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations éternelles dans Fonctions durables (Azure Functions)
 
-Les *orchestrations externes* sont des fonctions d’orchestrateur qui ne se terminent jamais. Elles sont utiles si vous souhaitez utiliser [Fonctions Durable](durable-functions-overview.md) pour des agrégateurs et tout scénario qui nécessite une boucle infinie.
+Les *orchestrations éternelles* sont des fonctions d’orchestrateur qui ne se terminent jamais. Elles sont utiles si vous souhaitez utiliser [Fonctions Durable](durable-functions-overview.md) pour des agrégateurs et tout scénario qui nécessite une boucle infinie.
 
 ## <a name="orchestration-history"></a>Historique d’orchestration
 
-Comme expliqué dans la rubrique [Historique d’orchestration](durable-functions-orchestrations.md#orchestration-history), l’infrastructure Durable Task Framework effectue le suivi de l’historique de chaque orchestration de fonction. Cet historique augmente sans cesse tant que la fonction d’orchestrateur continue de planifier une nouvelle tâche. Si la fonction d’orchestrateur entre dans une boucle infinie et planifie sans cesse des tâches, cet historique risque de devenir très volumineux et de provoquer d’importants problèmes de performances. Le concept *d’orchestration externe* a été conçu pour limiter ces types de problèmes dans les applications nécessitant des boucles infinies.
+Comme expliqué dans la rubrique [Historique d’orchestration](durable-functions-orchestrations.md#orchestration-history), l’infrastructure Durable Task Framework effectue le suivi de l’historique de chaque orchestration de fonction. Cet historique augmente sans cesse tant que la fonction d’orchestrateur continue de planifier une nouvelle tâche. Si la fonction d’orchestrateur entre dans une boucle infinie et planifie sans cesse des tâches, cet historique risque de devenir très volumineux et de provoquer d’importants problèmes de performances. Le concept *d’orchestration éternelle* a été conçu pour limiter ces types de problèmes dans les applications nécessitant des boucles infinies.
 
 ## <a name="resetting-and-restarting"></a>Réinitialisation et redémarrage
 
@@ -31,7 +31,7 @@ Lorsque la méthode `ContinueAsNew` est appelée, l’instance garde un message 
 
 ## <a name="periodic-work-example"></a>Exemple de travail périodique
 
-Voici un cas d’utilisation des orchestrations externes : un code a besoin d’effectuer un travail périodique indéfiniment.
+Voici un cas d’utilisation des orchestrations éternelles : un code a besoin d’effectuer un travail périodique indéfiniment.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -93,12 +93,12 @@ main = df.Orchestrator.create(orchestrator_function)
 
 La différence entre cet exemple et une fonction déclenchée par un minuteur est que les heures de déclenchement du nettoyage ne sont pas ici basées sur une planification. Par exemple, une planification CRON qui exécute une fonction toutes les heures se produira à 1 h 00, 2 h 00, 3 h 00 etc., et risque d’entraîner des problèmes de chevauchement. Mais dans cet exemple, si le nettoyage prend 30 minutes, il sera alors planifié à 1 h 00, 2 h 30, 4 h 00, etc., et il n’existe aucun risque de chevauchement.
 
-## <a name="starting-an-eternal-orchestration"></a>Démarrage d’une orchestration externe
+## <a name="starting-an-eternal-orchestration"></a>Démarrage d’une orchestration éternelle
 
-Utilisez la méthode `StartNewAsync` (.NET), `startNew` (JavaScript) ou `start_new` (Python) pour démarrer une orchestration externe, comme vous le feriez pour toute autre fonction d’orchestration.  
+Utilisez la méthode `StartNewAsync` (.NET), `startNew` (JavaScript) ou `start_new` (Python) pour démarrer une orchestration éternelle, comme vous le feriez pour toute autre fonction d’orchestration.  
 
 > [!NOTE]
-> Si vous devez vous assurer qu’une orchestration externe singleton est en cours d’exécution, il est important de conserver le même `id` d’instance lors du démarrage de l’orchestration. Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
+> Si vous devez vous assurer qu’une orchestration éternelle singleton est en cours d’exécution, il est important de conserver le même `id` d’instance lors du démarrage de l’orchestration. Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -150,7 +150,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 ---
 
-## <a name="exit-from-an-eternal-orchestration"></a>Fermeture d’une orchestration externe
+## <a name="exit-from-an-eternal-orchestration"></a>Fermeture d’une orchestration éternelle
 
 Si une fonction d’orchestrateur doit se terminer, il vous suffit de ne *pas* appeler `ContinueAsNew` et de laisser la fonction se terminer.
 
