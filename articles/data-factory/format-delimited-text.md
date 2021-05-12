@@ -1,17 +1,17 @@
 ---
 title: Format de texte délimité dans Azure Data Factory
 description: Cette rubrique décrit comment traiter le format de texte délimité dans Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.author: jingwang
-ms.openlocfilehash: 1cff49e4ddb7423e1e5956e1436cefd18abe6dfe
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.author: jianleishen
+ms.openlocfilehash: 5f5b7205c5ed0ad353ee6e0b4ff814288b0c1a26
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107072"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486590"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format de texte délimité dans Azure Data Factory
 

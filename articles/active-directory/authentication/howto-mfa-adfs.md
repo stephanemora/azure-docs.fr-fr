@@ -5,22 +5,25 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 04/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b42f920726d4b3046ab0c292e1090f5217e8b1f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8c0628d9e2d0d89fcb84569d227f592b5ad0943
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743239"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285571"
 ---
 # <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources cloud avec Azure AD Multi-Factor Authentication et AD FS
 
 Si votre organisation est fédérée avec Azure Active Directory, utilisez Azure AD Multi-Factor Authentication ou les services de fédération Active Directory (AD FS) pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory à l’aide d’Azure AD Multi-Factor Authentication ou des services de fédération Active Directory (AD FS).
+
+>[!NOTE]
+>Pour sécuriser une ressource Azure AD, il est recommandé d’exiger l’authentification MFA par le biais d’une [stratégie d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa), de définir le paramètre de domaine SupportsMfa sur $True et [d’émettre la revendication multipleauthn](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-adfs#secure-azure-ad-resources-using-ad-fs) dès que la vérification en deux étapes effectuée par un utilisateur a abouti.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Sécurisation des ressources Azure AD à l’aide d’AD FS
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
-ms.openlocfilehash: 9b5526af03bdbefeb54633c49bbd43743555f60b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a20571e411b2849c3487582a9c316f0f0b35c91d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383226"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790934"
 ---
 # <a name="how-to-create-plans-for-your-managed-service-offer"></a>Comment créer des plans pour votre offre Service managé
 
@@ -79,7 +79,7 @@ Pour ajouter jusqu’à 10 000 ID d’abonnement avec un fichier .CSV :
 
 ## <a name="technical-configuration"></a>Configuration technique
 
-Cette section crée un manifeste contenant des informations d’autorisation pour la gestion des ressources du client. Ces informations sont nécessaires pour activer la [gestion des ressources déléguées Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+Cette section crée un manifeste contenant des informations d’autorisation pour la gestion des ressources du client. Ces informations sont nécessaires pour activer la [gestion des ressources déléguées Azure](../lighthouse/concepts/architecture.md).
 
 Consultez [Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) afin de comprendre quels rôles sont pris en charge, ainsi que les bonnes pratiques pour la définition de vos autorisations.
 

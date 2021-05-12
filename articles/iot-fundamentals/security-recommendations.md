@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eeb8a8132b905254c02c86460c376d69948b9264
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96457612"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481406"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recommandations de sécurité pour le déploiement d’Azure IoT
 
@@ -40,14 +40,14 @@ Certaines recommandations contenues dans cet article peuvent être supervisées 
 
 | Recommandation | Commentaires | Pris en charge par ASC |
 |-|----|--|
-| Définir le contrôle d’accès pour le hub | [Comprenez et définissez le type d’accès](iot-security-deployment.md#securing-the-cloud) que chaque composant aura dans votre solution IoT Hub, selon sa fonctionnalité. Les autorisations admises sont *Lecture du Registre*, *RegistryReadWrite*, *ServiceConnect* et *DeviceConnect*. Les [stratégies d’accès partagé par défaut dans votre hub IoT](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) peuvent également aider à définir les autorisations pour chaque composant en fonction de son rôle. | - |
+| Définir le contrôle d’accès pour le hub | [Comprenez et définissez le type d’accès](iot-security-deployment.md#securing-the-cloud) que chaque composant aura dans votre solution IoT Hub, selon sa fonctionnalité. Les autorisations admises sont *Lecture du Registre*, *RegistryReadWrite*, *ServiceConnect* et *DeviceConnect*. Les [stratégies d’accès partagé par défaut dans votre hub IoT](../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions) peuvent également aider à définir les autorisations pour chaque composant en fonction de son rôle. | - |
 | Définir le contrôle d’accès pour les services principaux | Les données reçues par votre solution IoT Hub peuvent être utilisées par d’autres services Azure tels que [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml) et le [stockage d’objets Blob](../storage/blobs/storage-blobs-introduction.md). Assurez-vous de comprendre et d’autoriser les autorisations d’accès appropriées comme indiqué pour ces services. | - |
 
 ## <a name="data-protection"></a>Protection de données
 
 | Recommandation | Commentaires | Pris en charge par ASC |
 |-|----|--|
-| Sécuriser l’authentification des appareils | Assurez une communication sécurisée entre vos appareils et votre IoT Hub, en utilisant soit [une clé d’identité ou un jeton de sécurité unique](iot-security-deployment.md#iot-hub-security-tokens), soit [un certificat X.509 sur l’appareil](iot-security-deployment.md#x509-certificate-based-device-authentication) pour chaque appareil. Utilisez la méthode appropriée pour [ utiliser les jetons de sécurité basés sur le protocole choisi (MQTT, AMQP ou HTTPS)](../iot-hub/iot-hub-devguide-security.md). | - |
+| Sécuriser l’authentification des appareils | Assurez une communication sécurisée entre vos appareils et votre IoT Hub, en utilisant soit [une clé d’identité ou un jeton de sécurité unique](iot-security-deployment.md#iot-hub-security-tokens), soit [un certificat X.509 sur l’appareil](iot-security-deployment.md#x509-certificate-based-device-authentication) pour chaque appareil. Utilisez la méthode appropriée pour [ utiliser les jetons de sécurité basés sur le protocole choisi (MQTT, AMQP ou HTTPS)](../iot-hub/iot-hub-dev-guide-sas.md). | - |
 | Sécuriser la communication des appareils | IoT Hub sécurise la connexion aux appareils à l’aide du standard TLS (Transport Layer Security) pour les versions 1.2 et 1.0. Utilisez [TLS 1.2](https://tools.ietf.org/html/rfc5246) afin de garantir une sécurité maximale. | - |
 | Sécuriser les communications des services | IoT Hub fournit des points de terminaison pour se connecter à des services principaux tels que [Stockage Azure](../storage/index.yml) ou [Event Hubs](../event-hubs/index.yml) en utilisant uniquement le protocole TLS, et aucun point de terminaison n’est exposé sur un canal non chiffré. Une fois que ces données atteignent ces services principaux à des fins de stockage ou d’analyse, assurez-vous d’utiliser des méthodes de sécurité et de chiffrement appropriées pour ce service et de protéger les informations sensibles sur le serveur principal. | - |
 

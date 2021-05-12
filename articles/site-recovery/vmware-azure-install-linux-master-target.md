@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1404b2dd035b7fd4b06c5f959fd9ba45f6be9c75
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019240"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164972"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -21,7 +21,6 @@ Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer 
 Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’un serveur cible maître Windows. Si vous avez une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Pour savoir comment créer et installer un serveur cible maître Linux, lisez les étapes ci-dessous.
 
 > [!IMPORTANT]
-> À partir de la version 9.10.0, le serveur cible maître le plus récent ne peut être installé que sur un serveur Ubuntu 16.04. Les nouvelles installations ne sont pas autorisées sur les serveurs de CentOS6.6. Toutefois, vous pouvez continuer la mise à niveau de vos anciens serveurs cible maître à l’aide de la version 9.10.0.
 > Un serveur cible maître sur une machine virtuelle Linux n’est pas pris en charge.
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -58,6 +57,9 @@ Procédez comme suit pour installer le système d’exploitation Ubuntu 16.04.2 
 
 1.   Accédez au [lien de téléchargement](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) et choisissez le miroir le plus proche et téléchargez un fichier ISO Ubuntu 16.04.2 Minimal 64 bits.
 Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et démarrez le système.
+
+>[!NOTE]
+> À partir de la version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), le système d’exploitation Ubuntu 20.04 est pris en charge pour le serveur cible maître Linux. Si vous souhaitez utiliser le système d’exploitation le plus récent, effectuez la configuration de la machine avec une image ISO Ubuntu 20.04.
 
 1.  Sélectionnez **French** (Français) comme langue par défaut, puis appuyez sur **Entrée**.
     
@@ -182,6 +184,10 @@ Le serveur cible maître Azure Site Recovery nécessite une version spécifique 
 > Vérifiez que vous avez accès à Internet pour télécharger et installer les packages supplémentaires. Si vous n’êtes pas connecté à Internet, vous devez rechercher ces packages Deb et les installer manuellement.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
+
+>[!NOTE]
+> À partir de la version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), le système d’exploitation Ubuntu 20.04 est pris en charge pour le serveur cible maître Linux.
+> Si vous souhaitez utiliser le système d’exploitation le plus récent, mettez à niveau le système d’exploitation vers Ubuntu 20.04 avant de continuer. Pour mettre à niveau le système d’exploitation ultérieurement, vous pouvez suivre les instructions répertoriées [ici](#upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004).
 
 ### <a name="get-the-installer-for-setup"></a>Obtenir le programme d’installation
 
@@ -335,6 +341,17 @@ Exécutez le programme d’installation. Il détecte automatiquement que l’age
 
 
 Vous pouvez constater que le champ **Version** indique le numéro de version du serveur cible maître.
+
+## <a name="upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004"></a>Mettre à niveau le système d’exploitation du serveur cible maître de la version Ubuntu 16.04 vers Ubuntu 20.04
+
+À partir de la version 9.42, la récupération automatique du système prend en charge le serveur cible maître Linux sur Ubuntu 20.04. Pour mettre à niveau le système d’exploitation du serveur cible maître existant,
+
+1. Assurez-vous que le serveur cible maître scale-out Linux n’est pas utilisé pour l’opération de reprotection d’une machine virtuelle protégée.
+2. Désinstaller le programme d’installation du serveur cible maître de la machine
+3. À présent, mettez à niveau le système d’exploitation de la version Ubuntu 16.04 vers 20.04
+4. Après la mise à niveau réussie du système d’exploitation, redémarrez la machine.
+5. Ensuite, [téléchargez le programme d’installation le plus récent](#download-the-master-target-installation-packages) et suivez les instructions indiquées [ci-dessus](#install-the-master-target) pour terminer l’installation du serveur cible maître.
+
 
 ## <a name="common-issues"></a>Problèmes courants
 

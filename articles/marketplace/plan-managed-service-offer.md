@@ -8,18 +8,18 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ffa7e35bed1713a5ef9e04b59a8dbdb692b9630f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371938"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790952"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Comment planifier une offre Service géré pour le marketplace commercial de Microsoft
 
 Cet article présente la configuration requise pour la publication d’une offre Service géré sur le marketplace commercial de Microsoft via Espace partenaires.
 
-Les services gérés sont des offres de Place de marché Azure qui permettent une gestion multi-locataire et interlocataire avec Azure Lighthouse. Pour en savoir plus, consultez [Présentation d’Azure Lighthouse](../lighthouse/overview.md). Lorsqu'un client achète une offre Service géré, il peut déléguer un ou plusieurs abonnements ou groupes de ressources. Vous pouvez ensuite travailler sur ces ressources à l'aide des fonctionnalités de [gestion déléguée des ressources Azure](../lighthouse/concepts/azure-delegated-resource-management.md) d'Azure Lighthouse.
+Les services gérés sont des offres de Place de marché Azure qui permettent une gestion multi-locataire et interlocataire avec Azure Lighthouse. Pour en savoir plus, consultez [Présentation d’Azure Lighthouse](../lighthouse/overview.md). Lorsqu'un client achète une offre Service géré, il peut déléguer un ou plusieurs abonnements ou groupes de ressources. Vous pouvez ensuite travailler sur ces ressources à l'aide des fonctionnalités de [gestion déléguée des ressources Azure](../lighthouse/concepts/architecture.md) d'Azure Lighthouse.
 
 ## <a name="eligibility-requirements"></a>Conditions d’éligibilité
 

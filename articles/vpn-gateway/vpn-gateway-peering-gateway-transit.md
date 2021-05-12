@@ -1,19 +1,19 @@
 ---
 title: Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
-description: Configurez le transit par passerelle pour l’appairage de réseaux virtuels, afin de connecter en toute transparence deux réseaux virtuels Azure en un seul à des fins de connectivité.
+description: Découvrez comment configurer le transit par passerelle pour le peering de réseaux virtuels, afin de connecter en toute transparence deux réseaux virtuels Azure en un seul à des fins de connectivité.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 73a7d76de34d29b2d51c54569b234cd8221b08f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7573f33082e1915bdf75ffe015afedfedbfda469
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98872177"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205284"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
 

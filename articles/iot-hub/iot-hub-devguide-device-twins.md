@@ -11,12 +11,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc1f9aaa0409300f99535b0b64f5719f8e8c97ad
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093030"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484610"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -224,7 +224,7 @@ Le back-end de solution opère sur le jumeau d’appareil en utilisant les opér
     }
     ```
 
-Toutes les opérations précédentes prennent en charge [l’accès concurrentiel optimiste](iot-hub-devguide-device-twins.md#optimistic-concurrency) et nécessitent l’autorisation **ServiceConnect** définie dans [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md).
+Toutes les opérations précédentes prennent en charge [l’accès concurrentiel optimiste](iot-hub-devguide-device-twins.md#optimistic-concurrency) et nécessitent l’autorisation **ServiceConnect** définie dans [Contrôler l’accès à IoT Hub](iot-hub-dev-guide-sas.md).
 
 En plus de ces opérations, le back-end de la solution peut :
 
@@ -242,7 +242,7 @@ L’application d’appareil opère sur le jumeau d’appareil en utilisant les 
 
 * **Observer les propriétés souhaitées (Desired)** . L’appareil actuellement connecté peut choisir d’être informé des mises à jour des propriétés souhaitées au moment où elles se produisent. L’appareil reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le serveur principal de la solution.
 
-Toutes les opérations précédentes nécessitent l’autorisation **DeviceConnect**, comme défini dans [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md).
+Toutes les opérations précédentes nécessitent l’autorisation **DeviceConnect**, comme défini dans [Contrôler l’accès à IoT Hub](iot-hub-dev-guide-sas.md).
 
 Les kits [Azure IoT device SDK](iot-hub-devguide-sdks.md) simplifient l’utilisation des opérations précédentes dans un grand nombre de langages et de plateformes. Pour plus d’informations sur les détails des primitives d’IoT Hub concernant la synchronisation des propriétés souhaitées, consultez [Flux de reconnexion d’appareil](iot-hub-devguide-device-twins.md#device-reconnection-flow).
 

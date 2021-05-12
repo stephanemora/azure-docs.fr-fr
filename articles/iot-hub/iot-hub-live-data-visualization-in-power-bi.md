@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 0b099f4ce91fd24e8d7baec054bcfc5a6cf0b032
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 6ff0a0bb8bc1ca9b26968d002bb44d206c36e158
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567108"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483908"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualiser des données de capteur en temps réel depuis Azure IoT Hub, à l’aide de Power BI
 
@@ -26,7 +26,7 @@ Dans cet article, vous apprenez à visualiser les données de capteur en temps r
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivez le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoyer des données de télémétrie](quickstart-send-telemetry-dotnet.md). Ces articles demandent les éléments suivants :
+* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoyer des données de télémétrie](quickstart-send-telemetry-dotnet.md). Ces articles demandent les éléments suivants :
   
   * Un abonnement Azure actif.
   * Un hub Azure IoT dans votre abonnement.
@@ -74,7 +74,7 @@ Commençons par la création d’une tâche Stream Analytics. Une fois la tâche
 
    **Point de terminaison** : sélectionnez **Messagerie**.
 
-   **Nom de la stratégie d'accès partagé** : sélectionnez le nom de la stratégie d’accès partagé que vous souhaitez voir utiliser par le travail Stream Analytics. Pour ce tutoriel, vous pouvez sélectionner *service*. La stratégie *service* est créée par défaut sur les nouveaux hubs IoT ; elle accorde l’autorisation d’envoyer et de recevoir sur des points de terminaison côté cloud qui sont exposés par le hub IoT. Pour plus d’informations, consultez [Contrôle d’accès et autorisations](iot-hub-devguide-security.md#access-control-and-permissions).
+   **Nom de la stratégie d'accès partagé** : sélectionnez le nom de la stratégie d’accès partagé que vous souhaitez voir utiliser par le travail Stream Analytics. Pour ce tutoriel, vous pouvez sélectionner *service*. La stratégie *service* est créée par défaut sur les nouveaux hubs IoT ; elle accorde l’autorisation d’envoyer et de recevoir sur des points de terminaison côté cloud qui sont exposés par le hub IoT. Pour plus d’informations, consultez [Contrôle d’accès et autorisations](iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
    **Clé de la stratégie d’accès partagé** : ce champ est automatiquement renseigné par rapport à votre sélection pour le nom de stratégie d’accès partagé.
 

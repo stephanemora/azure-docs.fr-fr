@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 20c394520e8d4100470c0176c284cf4136e9d3db
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 3221712fcf74022f2899380b4573ab3a821dce4d
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227976"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109627248"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -64,6 +64,9 @@ Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Installation de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
+
+> [!WARNING]
+> Vous ne pouvez pas utiliser le micro de votre ordinateur lorsque vous exécutez l’interface CLI de Speech dans un conteneur Docker. Toutefois, vous pouvez lire et enregistrer des fichiers audio dans votre répertoire monté local. 
 
 Suivez la procédure ci-dessous pour installer l’interface CLI Speech dans un conteneur Docker :
 
@@ -126,9 +129,6 @@ Dans Windows, entrez cette commande pour démarrer un conteneur qui expose une i
 ```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
-
-> [!WARNING]
-> Vous ne pouvez pas utiliser le micro de votre ordinateur lorsque vous exécutez l’interface CLI de Speech dans un conteneur Docker. Toutefois, vous pouvez lire et enregistrer des fichiers audio dans votre répertoire monté local. 
 
 <!-- Need to troubleshoot issues with docker pull image
 
