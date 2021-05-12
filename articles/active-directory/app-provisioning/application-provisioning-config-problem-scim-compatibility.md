@@ -3,20 +3,20 @@ title: Problèmes connus avec la conformité du protocole SCIM (System for Cross
 description: Comment résoudre les problèmes courants de compatibilité des protocoles rencontrés lors de l’ajout d’une application ne figurant pas dans la galerie qui prend en charge SCIM 2.0 dans Azure AD
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/07/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 268931715500631ac2d10feacebff1d5c65931bf
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 0e369a6ab857b95035b0aaca28525e54e15835e8
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028789"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783258"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
 

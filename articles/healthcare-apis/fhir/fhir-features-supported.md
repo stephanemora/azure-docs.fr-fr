@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 1ff2a069b7690817c8fc431d920e93a8cb6c3544
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 92f6f5c449b5f47b0a9a59f432c130446b324091
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656197"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783564"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -94,9 +94,13 @@ Actuellement, les actions autorisées pour un rôle donné sont appliquées *à 
 
 * **Taille des données** : les éléments Données/Documents doivent chacun être un peu inférieurs à 2 Mo.
 
+* **Limite d’abonnement** : par défaut, chaque abonnement est limité à un maximum de 10 instances de serveur FHIR. Si vous avez besoin d’un plus grand nombre d’instances par abonnement, ouvrez un ticket de support et fournissez des informations détaillées sur vos besoins.
+
+* **Connexions et instances simultanées** : par défaut, vous disposez de 15 connexions simultanées sur deux instances du cluster (pour un total de 30 demandes simultanées). Si vous avez besoin de plus de demandes simultanées, ouvrez un ticket de support et fournissez des informations détaillées sur vos besoins.
+
 ## <a name="performance-expectations"></a>Attentes en matière de niveau de performance
 
-Les performances du système dépendent du nombre d’unités de requête, des connexions simultanées et du type d’opérations que vous exécutez (Put, Post, etc.). Vous trouverez ci-dessous quelques plages générales de ce que vous pouvez attendre en fonction des unités de requête configurées. En règle générale, les performances évoluent de façon linéaire avec l’augmentation des unités de requête :
+Les performances du système dépendent du nombre d’unités de requête, des connexions simultanées et du type d’opérations que vous effectuez (put, poster, etc.). Vous trouverez ci-dessous quelques plages générales de ce que vous pouvez attendre en fonction des unités de requête configurées. En règle générale, les performances évoluent de façon linéaire avec l’augmentation des unités de requête :
 
 | Nombre d’unités de requête | Ressources/s |    Stockage max. (Go)*    |
 |----------|---------------|--------|                 

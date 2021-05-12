@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 01/11/2021
-ms.openlocfilehash: dd4e53eebe6593db457798f009d3d05ddcbd77b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38c21ff71971868f6597856c4048ec179faf4e01
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100654767"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759433"
 ---
 # <a name="what-is-azure-iot-device-and-application-development"></a>Qu’est-ce que le développement d’applications et d’appareils Azure IoT ?
 
@@ -74,5 +74,5 @@ Pour en savoir plus sur la sélection d’une plateforme d’application et d’
 
 ## <a name="next-steps"></a>Étapes suivantes
 Sélectionnez ci-dessous la série de démarrages rapides la plus pertinente pour votre rôle de développement. Ces articles présentent les principes fondamentaux de la création d’une application Azure IoT pour héberger des appareils, l’utilisation d’un Kit de développement logiciel (SDK), la connexion d’un appareil et l’envoi de données de télémétrie.  
-- Pour le développement d’applications pour appareils : [Démarrage rapide : Envoyer des données de télémétrie d’un appareil à Azure IoT Central](quickstart-send-telemetry-python.md)
+- Pour le développement d’applications pour appareils : [Démarrage rapide : Envoyer des données de télémétrie d’un appareil à Azure IoT Central](quickstart-send-telemetry-central.md)
 - Pour le développement d’appareils intégrés : [Prise en main du développement d’appareils intégrés Azure IoT](quickstart-device-development.md)

@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 658ebe027565a3acaf427a7b3dbf3963701069d8
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c355902eae6aed1504b64dd12d056c6059771e57
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868642"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759416"
 ---
 # <a name="iot-central-administrator-guide"></a>Guide de l’administrateur IoT Central
-
-*Cet article concerne les administrateurs.*
 
 Une application IoT Central vous permet de surveiller et de gérer des millions d’appareils tout au long de leur cycle de vie. Ce guide est destiné aux administrateurs qui gèrent des applications IoT Central.
 

@@ -6,13 +6,13 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/1/2021
-ms.custom: references_regions
-ms.openlocfilehash: fb53ad309c741fc898bcf3e27347038c0e382ea4
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 6f441572ea57789f6700194a24e7f1af663d0f4f
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107508961"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750354"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Gérer la haute disponibilité redondante interzone dans le serveur flexible Azure Database pour MySQL avec Azure CLI
 
@@ -24,18 +24,18 @@ Cet article explique comment vous pouvez activer ou désactiver la configuration
 La fonctionnalité de haute disponibilité provisionne physiquement des réplicas principaux et secondaires séparés dans différentes zones. Pour plus d’informations, consultez la [documentation sur les concepts de haute disponibilité](./concepts/../concepts-high-availability.md). L’activation ou la désactivation de la haute disponibilité ne change pas vos autres paramètres, notamment la configuration du réseau virtuel, les paramètres du pare-feu et la conservation des sauvegardes. La désactivation de la haute disponibilité n’a pas d’impact sur la connectivité et le fonctionnement de votre application.
 
 > [!IMPORTANT]
-> La haute disponibilité redondante interzone est disponible dans un ensemble limité de régions. Consultez [ici](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions) les régions prises en charge. 
+> La haute disponibilité redondante interzone est disponible dans un ensemble limité de régions. Consultez [ici](./overview.md#azure-regions) les régions prises en charge. 
 
 ## <a name="prerequisites"></a>Prérequis
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Installez ou mettez à niveau Azure CLI avec la dernière version. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
--  Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
+- Installez ou mettez à niveau Azure CLI vers la dernière version. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+-  Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
 
     ```azurecli-interactive
     az login
     ````
 
-- Si vous avez plusieurs abonnements, choisissez l’abonnement approprié dans lequel vous voulez créer le serveur à l’aide de la commande ```az account set```.
+- Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel vous souhaitez créer le serveur à l’aide de la commande ```az account set```.
 `
     ```azurecli
     az account set --subscription <subscription id>
