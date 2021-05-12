@@ -1,17 +1,17 @@
 ---
 title: Copier des données de Concur avec Azure Data Factory (préversion)
 description: Découvrez comment utiliser l’activité de copie pour copier des données de Concur vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2020
-ms.author: jingwang
-ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 3de92c047a23e132ddcd474fa29d36186af56108
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383668"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487346"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copier des données de Concur avec Azure Data Factory (préversion)
 
@@ -36,7 +36,7 @@ Vous pouvez copier des données de Concur vers n’importe quel magasin de donn�
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes donnent des précisions sur les propriétés utilisées pour définir des entités Data Factory propres au connecteur Concur.
 

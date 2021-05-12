@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2462b585bb37db769aafafbb0d224557c53ee81d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f9518466aacddee9e31d8bc15f3b89c1f214ab58
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127080"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737996"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>Tutoriel : Configurer BioCatch avec Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ Contactez [BioCatch](https://www.biocatch.com/contact-us) et créez un compte.
 
 Il est recommandé de masquer le champ d’ID de session client. Utilisez CSS, JavaScript ou toute autre méthode pour masquer le champ. À des fins de test, vous pouvez l’afficher. Par exemple, JavaScript est utilisé pour masquer le champ d’entrée comme suit :
 
-```
+```JavaScript
 document.getElementById("clientSessionId").style.display = 'none';
 ```
 
@@ -84,7 +84,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. Créez un nouveau fichier, qui hérite du fichier d’extensions.
 
-    ```
+    ```XML
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -96,7 +96,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. Créez une référence à l’interface utilisateur personnalisée pour masquer la zone d’entrée, sous la ressource BuildingBlocks.
 
-    ```
+    ```XML
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -112,7 +112,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. Ajoutez les revendications suivantes sous la ressource BuildingBlocks.
 
-    ```
+    ```XML
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -146,7 +146,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. Configurez le fournisseur de revendications auto-déclaré pour le champ d’ID de session client.
 
-    ```
+    ```XML
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -190,7 +190,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. Configurez le fournisseur de revendications de l’API REST pour BioCatch. 
 
-    ```
+    ```XML
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -247,7 +247,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. Si le *risque* de revendication retourné est égal à *faible*, ignorez l’étape pour l’authentification multifacteur, sinon forcez l’authentification multifacteur de l’utilisateur
 
-    ```
+    ```XML
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
               <ClaimsExchanges> 
@@ -296,7 +296,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     Il est utile de transmettre les informations renvoyées par BioCatch à votre application sous forme de revendications dans le jeton, en particulier *risklevel* et *score*.
 
-    ```
+    ```XML
     <RelyingParty> 
 
         <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
@@ -373,7 +373,7 @@ Procédez comme suit pour ajouter les fichiers de stratégie à Azure AD B2C
 
 4. Suivez le processus d’inscription et créez un compte. Le jeton renvoyé à JWT.MS doit avoir 2 revendications pour riskLevel et score. Suivez l’exemple.  
 
-    ```
+    ```JavaScript
     { 
 
       "typ": "JWT", 

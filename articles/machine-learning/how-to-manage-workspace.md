@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6271875c368f637140010401cf2ebe21039be9a9
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: a9afef0e2616664578e66be3735104c47bfcffa9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897358"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760748"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
@@ -252,7 +252,7 @@ from azureml.core import Workspace
 
 ### <a name="download-a-configuration-file"></a>Télécharger un fichier de configuration
 
-Si vous comptez créer une [instance de calcul](tutorial-1st-experiment-sdk-setup.md#azure), ignorez cette étape.  L’instance de calcul a déjà créé une copie de ce fichier pour vous.
+Si vous comptez créer une [instance de calcul](quickstart-create-resources.md), ignorez cette étape.  L’instance de calcul a déjà créé une copie de ce fichier pour vous.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -391,8 +391,7 @@ L'espace de travail Azure Machine Learning utilise Azure Container Registry (ACR
 ## <a name="examples"></a>Exemples
 
 Exemples de création d’espace de travail :
-* utiliser le portail Azure pour [créer un espace de travail et une instance de calcul](tutorial-1st-experiment-sdk-setup.md) ;
-* Utiliser le Kit de développement logiciel (SDK) Python pour [créer un espace de travail dans votre propre environnement](tutorial-1st-experiment-sdk-setup-local.md).
+* utiliser le portail Azure pour [créer un espace de travail et une instance de calcul](quickstart-create-resources.md) ;
 
 ## <a name="next-steps"></a>Étapes suivantes
 

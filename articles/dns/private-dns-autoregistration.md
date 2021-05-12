@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 04/26/2021
 ms.author: rohink
-ms.openlocfilehash: c7eedee50e8a8bfd270640ff332d21f28108239a
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: c9ed45d452f2a6ed89ee71826fbee5e107a395ae
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108065188"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761630"
 ---
 # <a name="what-is-the-auto-registration-feature-in-azure-dns-private-zones"></a>Qu’est-ce que la fonctionnalité d’inscription automatique dans les zones privées Azure DNS ?
 
@@ -37,4 +37,4 @@ Pour activer l’inscription automatique, activez la case à cocher Activer l’
 
 * Passez en revue certains [scénarios de zones privées](./private-dns-scenarios.md) courants qui peuvent être réalisés avec des zones privées dans Azure DNS.
 
-* Pour les questions et réponses courantes sur les zones privées dans Azure DNS, consultez la [FAQ sur le DNS privé](./dns-faq-private.md).
+* Pour trouver des réponses aux questions fréquemment posées concernant les zones privées dans Azure DNS, notamment le comportement spécifique auquel vous attendre pour certains types d’opérations, voir le [FAQ sur les DNS privés](./dns-faq-private.yml).

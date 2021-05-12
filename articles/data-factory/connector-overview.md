@@ -1,17 +1,17 @@
 ---
 title: Vue d’ensemble du connecteur Azure Data Factory
 description: Découvrez les connecteurs pris en charge dans Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2021
-ms.author: jingwang
-ms.openlocfilehash: cfd3376174ec0f7789389988245f7377b9896a00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 072abfacb4fc62dd381c53b2bfd38d4000828d81
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015916"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487148"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Vue d’ensemble du connecteur Azure Data Factory
 
@@ -21,7 +21,7 @@ Azure Data Factory prend en charge les magasins de données et les formats suiva
 
 ## <a name="supported-data-stores"></a>Magasins de données pris en charge
 
-[!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+[!INCLUDE [Connector overview](includes/data-factory-v2-connector-overview.md)]
 
 ## <a name="integrate-with-more-data-stores"></a>Intégrer avec d’autres magasins de données
 

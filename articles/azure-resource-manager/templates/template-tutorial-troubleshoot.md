@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88898d3a0e42ff362a5ab6fa586c52064fcb8221
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589115"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736736"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutoriel : Résoudre les problèmes des déploiements de modèles ARM
 
@@ -47,7 +47,7 @@ Ouvrez un modèle nommé [Créer un compte de stockage standard](https://azure.m
 2. Collez l’URL suivante dans **Nom de fichier** :
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
     ```
 
 3. Sélectionnez **Ouvrir** pour ouvrir le fichier.

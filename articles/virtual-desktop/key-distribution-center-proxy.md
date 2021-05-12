@@ -3,22 +3,17 @@ title: Configurer le proxy de centre de distribution de clés Kerberos pour Wind
 description: Comment configurer un pool d’hôtes Windows Virtual Desktop pour utiliser un proxy de centre de distribution de clés Kerberos.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/20/2021
+ms.date: 05/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 79ae61d21693ae56dff280402c7a3d114822be7f
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 74fc1eeabe8af754d3ac5809818b6d648453ee45
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132356"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108732721"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configurer un proxy de centre de distribution de clés Kerberos (préversion)
-
-> [!IMPORTANT]
-> Cette fonctionnalité est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Configurer un proxy de centre de distribution de clés Kerberos
 
 Les clients soucieux de la sécurité, tels que les organisations financières ou gouvernementales, se connectent souvent à l’aide de cartes à puces. Les cartes à puces permettent de sécuriser les déploiements en exigeant une authentification multifacteur (MFA). Toutefois, pour la partie RDP d’une session de Windows Virtual Desktop, les cartes à puces nécessitent une connexion directe, ou « ligne de vue », avec un contrôleur de domaine Active Directory (AD) pour l’authentification Kerberos. Sans cette connexion directe, les utilisateurs ne peuvent pas se connecter automatiquement au réseau de l’organisation à partir de connexions distantes. Les utilisateurs dans un déploiement de Windows Virtual Desktop peuvent utiliser le service proxy KDC pour acheminer ce trafic d’authentification et se connecter à distance. Le proxy KDC permet l’authentification pour le protocole Bureau à distance d’une session de Windows Virtual Desktop, permettant à l’utilisateur de se connecter en toute sécurité. Il est ainsi beaucoup plus facile de travailler à domicile, et certains scénarios de récupération d’urgence peuvent se dérouler plus facilement.
 

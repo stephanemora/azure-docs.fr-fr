@@ -3,13 +3,13 @@ title: Lier des modèles pour déploiement
 description: Décrit l’utilisation des modèles liés dans un modèle ARM (Azure Resource Manager) pour créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a014fae0825bc3bfe6e7a808582d071e1f240ade
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 80fabe5f720182e51e731e0d4d833ed0e7ab9137
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318402"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751542"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 

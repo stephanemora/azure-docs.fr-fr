@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous utilisez Azure CLI pour cr
 ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f626ce795db7f4470f1a6b8b418eca48fcef4736
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 189f8cab18051dbebd3e22df67116311f431cae8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323300"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733820"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Démarrage rapide : Créer un groupe d’administration avec Azure CLI
 

@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a720b1b51c2f1bafa581e75cb8ab00b15a4b2d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97725018"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750426"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parité du cloud souverain Azure Machine Learning
 
@@ -180,7 +180,7 @@ Nous entendons fournir une parité maximale entre notre cloud public et les rég
 | Prise en charge du réseau virtuel (Vnet) pour la formation                                | GA               | YES       | N/A        |
 | Prise en charge du réseau virtuel (Vnet) pour l’inférence                               | GA               | YES       | N/A        |
 | Authentification du point de terminaison scoring                                            | Version préliminaire publique   | YES       | N/A        |
-| Liaison privée de l’espace de travail                                                     | Version préliminaire publique   | Non        | N/A        |
+| Liaison privée de l’espace de travail                                                     | GA               | Non        | N/A        |
 | ACI derrière réseau virtuel                                                            | Version préliminaire publique   | Non        | N/A        |
 | ACR derrière réseau virtuel                                                            | Version préliminaire publique   | Non        | N/A        |
 | Adresse IP privée du cluster AKS                                                  | Version préliminaire publique   | Non        | N/A        |

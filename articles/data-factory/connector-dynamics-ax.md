@@ -1,18 +1,18 @@
 ---
 title: Copier des données à partir de Dynamics AX
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Dynamics CRM vers des magasins de données récepteurs pris en charge.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 38ff77ad56f16fbd33b77021b18be77f6a153b3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69972bc9ca0b4082eaa6148b5879b487f240e78f
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380982"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487184"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copier des données de Dynamics AX en utilisant Azure Data Factory
 
@@ -36,7 +36,7 @@ Plus précisément, ce connecteur Dynamics AX prend en charge la copie de donné
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés que vous pouvez utiliser pour définir des entités Data Factory propres au connecteur Dynamics AX.
 
