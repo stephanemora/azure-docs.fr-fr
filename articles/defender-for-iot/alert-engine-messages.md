@@ -1,24 +1,27 @@
 ---
 title: Types et descriptions d’alertes
 description: Consultez les descriptions d’alertes de Defender pour IoT.
-ms.date: 4/8/2021
+ms.date: 04/28/2021
 ms.topic: how-to
-ms.openlocfilehash: 483563b53a5849b0354986269568bc42b9124cc2
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: bc2adabe4183420f79972d8fd58b132b38864efe
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107477993"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226477"
 ---
 # <a name="alert-types-and-descriptions"></a>Types et descriptions d’alertes
 
-Cet article décrit tous les types d’alerte qui peuvent être générés à partir de moteurs Defender pour IoT. Les alertes s’affichent dans la fenêtre Alertes, qui vous permet de gérer les événements d’alerte. 
+Cet article donne des informations sur les alertes qui peuvent être générées à partir de moteurs Defender pour IoT, notamment leur type, leur description et leur gravité. Ces informations peuvent être utilisées pour relier des alertes à des guides opérationnels, définir des règles de transfert, des règles d’exclusion et des alertes personnalisées, et définir les règles appropriées au sein d’un système SIEM. Les alertes s’affichent dans la fenêtre Alertes, qui vous permet de gérer les événements d’alerte. 
 
 ## <a name="policy-engine-alerts"></a>Alertes du moteur de stratégie
 
 Les alertes du moteur de stratégie décrivent les écarts détectés par rapport au comportement de base appris.
 
-| Titre  | Description | Gravité |
+>[!NOTE]
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+
+| Intitulé  | Description | Gravité |
 |--|--|--|
 | Utilisation anormale d’adresses MAC | Un nouvel appareil source détecté sur le réseau n’a pas été autorisé. | Secondaire |
 | Logiciel Beckhoff modifié | Le microprogramme a été mis à jour sur un appareil source. Il peut s’agir d’une activité autorisée, par exemple une procédure de maintenance planifiée. | Majeure |

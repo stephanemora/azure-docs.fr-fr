@@ -24,7 +24,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: Guides pratiques
   items:
     - name: Créer un hôte
@@ -57,6 +57,8 @@
       href: diagnostic-logs.md
     - name: Superviser et gérer les sessions
       href: session-monitoring.md
+    - name: 'Métriques, supervision et alertes'
+      href: howto-metrics-monitor-alert.md
     - name: Dépanner
       href: troubleshoot.md
 - name: Informations de référence

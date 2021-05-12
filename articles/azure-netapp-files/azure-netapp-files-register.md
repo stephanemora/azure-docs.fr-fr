@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: a61d6ba1f908a7dae56db066bfae329fc26f1c5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e37b0a2657c3e3f388ad94eb7da864c1b03023bb
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97696131"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790016"
 ---
 # <a name="register-for-azure-netapp-files"></a>S’inscrire à Azure NetApp Files
 
@@ -53,13 +53,13 @@ Pour utiliser le service, vous devez inscrire le fournisseur de ressources Azure
 
 2. Si vous disposez de plusieurs abonnements sur votre compte Azure, sélectionnez celui qui a été approuvé pour Azure NetApp Files :
     
-    ```azurepowershell
+    ```azurecli
     az account set --subscription <subscriptionId>
     ```
 
 3. Dans la console Azure Cloud Shell, entrez la commande suivante pour vérifier que votre abonnement a été approuvé :
     
-    ```azurepowershell
+    ```azurecli
     az feature list | grep NetApp
     ```
 
@@ -76,7 +76,7 @@ Pour utiliser le service, vous devez inscrire le fournisseur de ressources Azure
 
 4. Dans la console Azure Cloud Shell, entrez la commande suivante pour inscrire le fournisseur de ressources Azure : 
     
-    ```azurepowershell
+    ```azurecli
     az provider register --namespace Microsoft.NetApp --wait
     ```
 
@@ -84,7 +84,7 @@ Pour utiliser le service, vous devez inscrire le fournisseur de ressources Azure
 
 5. Dans la console Azure Cloud Shell, entrez la commande suivante pour vérifier que le fournisseur de ressources Azure a été inscrit : 
     
-    ```azurepowershell
+    ```azurecli
     az provider show --namespace Microsoft.NetApp
     ```
 

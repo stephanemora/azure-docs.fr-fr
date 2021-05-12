@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 45085c910974402a968075a66087a04fb30e8bd9
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 69e5f3f454721681505d2a748aa2738f579146b8
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576201"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754134"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor pour solutions SAP (préversion)
 
@@ -33,7 +33,7 @@ Bases de données prises en charge :
 - Base de données SAP HANA
 - Microsoft SQL Server
 
-Azure Monitor pour SAP Solutions utilise la puissance des capacités actuelles d’[Azure Monitor](../../../azure-monitor/overview.md), telles qu’Analytique des journaux d’activité et [Classeurs](../../../azure-monitor/visualize/workbooks-overview.md), pour fournir des capacités de surveillance supplémentaires. Les clients peuvent créer des [visualisations personnalisées](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) en modifiant les classeurs par défaut fournis par Azure Monitor pour solutions SAP, écrire des [requêtes personnalisées](../../../azure-monitor/logs/log-analytics-tutorial.md) et créer des [alertes personnalisées](../../../azure-monitor/alerts/tutorial-response.md) à l’aide de l’espace de travail Azure Log Analytics, tirer parti d’une [période de rétention flexible](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) et connecter les données de surveillance à leur système de création de tickets.
+Azure Monitor pour SAP Solutions utilise la puissance des capacités actuelles d’[Azure Monitor](../../../azure-monitor/overview.md), telles qu’Analytique des journaux d’activité et [Classeurs](../../../azure-monitor/visualize/workbooks-overview.md), pour fournir des capacités de surveillance supplémentaires. Les clients peuvent créer des [visualisations personnalisées](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) en modifiant les classeurs par défaut fournis par Azure Monitor pour solutions SAP, écrire des [requêtes personnalisées](../../../azure-monitor/logs/log-analytics-tutorial.md) et créer des [alertes personnalisées](../../../azure-monitor/alerts/alerts-log.md) à l’aide de l’espace de travail Azure Log Analytics, tirer parti d’une [période de rétention flexible](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) et connecter les données de surveillance à leur système de création de tickets.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Quelles sont les données collectées par Azure Monitor pour solutions SAP ?
 

@@ -3,18 +3,18 @@ title: Créer un groupe identique à partir d’une image généralisée avec Az
 description: Créez un groupe identique à l’aide d’une image généralisée dans Shared Image Gallery en utilisant l’interface de ligne de commande Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.openlocfilehash: de50540345ac6170d229549cad736dafb04e488c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.reviewer: mimckitt
+ms.openlocfilehash: cc2260f4b4220ae79b87a8836b144c3a68672ab0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792360"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768496"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Créer un groupe identique à partir d’une image généralisée avec Azure CLI
 

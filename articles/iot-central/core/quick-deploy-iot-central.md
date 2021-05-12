@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 7b33beaad580e64a4760b0557f04f266ecfc1b4d
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: ef76b1283215da9ff08efb4d151d8e0e99a228f0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718806"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768748"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Démarrage rapide - Créer une application Azure IoT Central
 
@@ -76,6 +76,3 @@ En suivant ce guide de démarrage rapide, vous avez créé une application IoT C
 > [!div class="nextstepaction"]
 > [Ajouter un appareil simulé à votre application IoT Central](./quick-create-simulated-device.md)
 
-Si vous êtes développeur d’appareils et que vous souhaitez vous immerger dans du code, l’étape suivante suggérée consiste à :
-> [!div class="nextstepaction"]
-> [Créer et connecter une application cliente à votre application Azure IoT Central](./tutorial-connect-device.md)

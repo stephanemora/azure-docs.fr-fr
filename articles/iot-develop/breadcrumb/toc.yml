@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+    - name: Internet des Objets
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-fundamentals/index
+      items:
+        - name: Développement d’appareil IoT
+          tocHref: /azure/iot-develop/
+          topicHref: /azure/iot-develop/index/
+        - name: Développement d’appareil IoT
+          tocHref: /azure/iot-fundamentals/
+          topicHref: /azure/iot-develop/index

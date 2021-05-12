@@ -6,12 +6,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 4/22/2021
 ms.author: rohink
-ms.openlocfilehash: 767cd6e2f9f78ea4077a6093af08022c21a2db4a
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 227d20d487b95dd43cf8106b5f4e07075cf69da6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107898240"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770980"
 ---
 # <a name="what-is-azure-dns"></a>Présentation d’Azure DNS
 
@@ -69,4 +69,4 @@ Pour plus d’informations, consultez [Vue d’ensemble des enregistrements d’
 
 * Pour en savoir plus sur la création d’une zone dans Azure DNS, consultez [Créer une zone DNS](./dns-getstarted-portal.md).
 
-* Pour les questions fréquemment posées sur Azure DNS, consultez le [FAQ sur Azure DNS](dns-faq.md).
+* Pour les questions fréquemment posées sur Azure DNS, consultez le [FAQ sur Azure DNS](dns-faq.yml).

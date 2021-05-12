@@ -1,14 +1,14 @@
 ---
 title: Déployer l’exemple de blueprint Services partagés ISO 27001
 description: Étapes de déploiement pour l’exemple de blueprint Services partagés ISO 27001 et informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
-ms.openlocfilehash: 2eb9ed2199b28ad7cb349e6088c3cc583d8f011d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 872f8ea492d1983f3c527ddb1c0eac7b26406844
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577315"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739166"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Déployer l’exemple de blueprint Services partagés ISO 27001
 

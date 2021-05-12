@@ -83,13 +83,15 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
     - name: SSL
       items:
         - name: Arrêt SSL et SSL de bout en bout
           href: ssl-overview.md
         - name: Vue d’ensemble des stratégies SSL
           href: application-gateway-ssl-policy-overview.md
+        - name: Authentification mutuelle
+          href: mutual-authentication-overview.md
         - name: Utilisation de Key Vault
           href: key-vault-certs.md
     - name: Entrée pour AKS
@@ -140,18 +142,28 @@
               href: end-to-end-ssl-portal.md
             - name: SSL de bout en bout - PowerShell
               href: application-gateway-end-to-end-ssl-powershell.md
+        - name: Authentification mutuelle
+          items:
+            - name: Authentification mutuelle - Portail
+              href: mutual-authentication-portal.md
+            - name: Authentification mutuelle - PowerShell
+              href: mutual-authentication-powershell.md
         - name: Gérer des certificats
           items:
             - name: Certificats pour le back-end
               href: certificates-for-backend-authentication.md
             - name: Renouveler les certificats
               href: renew-certificates.md
-            - name: Générer des certificats auto-signés
+            - name: Générer des certificats auto-signés pour le back-end
               href: self-signed-certificates.md
+            - name: Certificats clients approuvés
+              href: mutual-authentication-certificate-management.md
         - name: Stratégie SSL
           items:
             - name: Configurer la stratégie SSL
               href: application-gateway-configure-ssl-policy-powershell.md
+            - name: Stratégie SSL spécifique à un écouteur
+              href: application-gateway-configure-listener-specific-ssl-policy.md
     - name: Entrée pour AKS
       items:
         - name: Ingress pour AKS via Helm (Brownfield)
@@ -254,6 +266,8 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: Erreurs (502) de passerelle incorrecte
           href: application-gateway-troubleshooting-502.md
+        - name: Authentification mutuelle
+          href: mutual-authentication-troubleshooting.md
         - name: Entrée pour AKS
           href: ingress-controller-troubleshoot.md
         - name: Intégrité des ressources
