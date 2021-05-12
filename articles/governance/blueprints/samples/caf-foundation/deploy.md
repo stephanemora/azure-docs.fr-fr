@@ -3,12 +3,12 @@ title: Déployer un exemple de blueprint de base de CAF
 description: Étapes de déploiement pour l’exemple de blueprint de base du framework d’adoption du cloud, incluant des informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: a8d41364451bf2ebf1e48b90fad74f4b24c804e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 281bd0fdae5aa144799499d583b5673a569612b1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470147"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757868"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Déployer l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure
 
@@ -86,7 +86,7 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
      - **Organisation** : entrez le nom de votre organisation, par exemple Contoso. Ce nom doit être unique.
      - **Région Azure** : sélectionnez la région Azure pour le déploiement.
      - **Emplacements autorisés** : dans quelles régions Azure autoriserez-vous la génération de ressources ?
-     
+
    - Paramètres d'artefact
 
      Les paramètres définis dans cette section s’appliquent à l’artefact sous lequel elle est définie. Ces paramètres sont des [paramètres dynamiques](../../concepts/parameters.md#dynamic-parameters) puisqu’ils sont définis lors de l’affectation du blueprint. Pour obtenir la liste complète des paramètres d’artefact et leur description, consultez le [tableau des paramètres d’artefact](#artifact-parameters-table).
