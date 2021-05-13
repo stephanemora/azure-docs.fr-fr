@@ -39,6 +39,8 @@
   items:
     - name: Applications et déploiement
       href: concept-understand-app-and-deployment.md
+    - name: Stratégies de déploiement bleu-vert
+      href: concepts-blue-green-deployment-strategies.md
     - name: Quotas et limites
       href: quotas.md
     - name: Mesures

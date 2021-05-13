@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/28/2021
+ms.date: 04/30/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: e5f7db6b360769b7a3c2e3ffdafe66f94c2582aa
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 6cc64c9b3ad3f177d50f3e659e8ea628ba485159
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178301"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764168"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -203,7 +203,13 @@ Sous Android, Microsoft recommande de toujours autoriser l'application à accéd
 
 **Q** : Pourquoi j’ai des problèmes avec Apple Watch sur watchOS 7 ?
 
-**R** : Un problème perturbe l’approbation des notifications sur watchOS 7 et nous travaillons avec Apple pour le résoudre. En attendant, toutes les notifications qui nécessitent l’application Microsoft Authenticator watchOS doivent être approuvées sur votre téléphone à la place.
+**R** : Parfois, l’approbation ou le refus d’une session sur watchOS 7 échoue avec le message d’erreur « Impossible de communiquer avec le téléphone. Veillez à maintenir l’écran de votre Apple Watch actif lors de futures requêtes. Consultez les FAQ pour plus d’informations. » Il existe un problème connu lié aux notifications lorsque le verrou d’application est activé ou lorsque la correspondance du numéro est requise, et nous travaillons avec Apple pour résoudre ce problème. En attendant, toutes les notifications qui nécessitent l’application Microsoft Authenticator watchOS doivent être approuvées sur votre téléphone à la place.
+
+### <a name="signing-into-an-ios-app"></a>Connexion à une application iOS
+
+**Q** : J’essaie de me connecter à une application iOS et je dois approuver une notification sur l’application Authenticator. Quand je reviens à l’application iOS, je suis bloqué. Que puis-je faire ?
+
+**R** : Il s’agit d’un problème connu dans iOS 13+. Contactez l’administrateur du support pour obtenir de l’aide et transmettez-lui les informations suivantes : `Use Azure MFA, not MFA server.`
 
 ### <a name="apple-watch-doesnt-show-accounts"></a>Apple Watch n’affiche pas les comptes
 

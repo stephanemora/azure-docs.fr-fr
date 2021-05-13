@@ -1,14 +1,14 @@
 ---
 title: Exemples et modèles Azure Lighthouse
-description: Ces exemples et modèles Azure Resource Manager vous montrent comment intégrer des clients pour la gestion des ressources déléguée Azure et prendre en charge les scénarios Azure Lighthouse.
+description: Ces exemples et ces modèles Azure Resource Manager vous aident à intégrer des clients et à prendre en charge les scénarios Azure Lighthouse.
 ms.topic: sample
-ms.date: 12/11/2020
-ms.openlocfilehash: c91f79f50b03142a4be935eac6409e0a07371a54
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.date: 05/11/2021
+ms.openlocfilehash: 356b929749e9098dbb618dfd7a484c87ae3d69a5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356262"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785868"
 ---
 # <a name="azure-lighthouse-samples"></a>Exemples Azure Lighthouse
 
@@ -32,5 +32,5 @@ Le tableau suivant comprend des liens vers les principaux modèles Azure Resourc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez [Gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
+- Découvrez [l’architecture et les concepts techniques d’Azure Lighthouse](../concepts/architecture.md).
 - Explorez le [Dépôt d’exemples Azure Lighthouse](https://github.com/Azure/Azure-Lighthouse-samples/).

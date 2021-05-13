@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: depadia
-ms.openlocfilehash: a13b62da91e3ce6f18ba4dcda2b3b0f22c815026
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0eff97ac5aeecf712674bca247bb6305e550f482
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144382"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773698"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-windows-on-azure"></a>Guide de déploiement de la plateforme SAP BusinessObjects BI pour Windows sur Azure
 
@@ -320,11 +319,11 @@ boaudit                                                                         
 
 ## <a name="post-installation"></a>Après l'installation
 
-Après l’installation de plusieurs instances de la plateforme SAP BOBI, d’autres étapes post-configuration doivent être effectuées pour prendre en charge la haute disponibilité des applications.
+Après l'installation de plusieurs instances de la plateforme SAP BOBI, d'autres étapes post-configuration doivent être effectuées pour prendre en charge la haute disponibilité des applications.
 
 ### <a name="configuring-cluster-name"></a>Configurer le nom du cluster
 
-Dans un déploiement à plusieurs instances de la plateforme SAP BOBI, vous souhaitez exécuter plusieurs serveurs CMS ensemble dans un cluster. Un cluster se compose d’au moins deux serveurs CMS qui travaillent conjointement sur une base de données système CMS commune. Si un nœud qui s’exécute sur CMS échoue, un nœud avec un autre CMS continue à traiter les requêtes de la plateforme BI. Par défaut, dans la plateforme SAP BOBI, un nom de cluster reflète le nom d’hôte du premier CMS que vous installez. 
+Dans le cadre d'un déploiement à plusieurs instances de la plateforme SAP BOBI, vous devez exécuter plusieurs serveurs CMS ensemble au sein d'un cluster. Un cluster se compose d’au moins deux serveurs CMS qui travaillent conjointement sur une base de données système CMS commune. Si un nœud qui s'exécute sur un CMS échoue, un nœud situé sur un autre CMS continue à traiter les requêtes de la plateforme BI. Par défaut, dans la plateforme SAP BOBI, un nom de cluster reflète le nom d’hôte du premier CMS que vous installez. 
 
 Pour configurer le nom du cluster sous Windows, suivez les instructions indiquées dans le [Guide de l’administrateur de la plateforme SAP Business Intelligence](https://help.sap.com/viewer/2e167338c1b24da9b2a94e68efd79c42/4.3.1/en-US). Après avoir configuré le nom du cluster, suivez la note SAP [1660440](https://launchpad.support.sap.com/#/notes/1660440) pour définir l’entrée système par défaut sur la page de connexion Launchpad CMC ou BI. 
 
@@ -373,14 +372,14 @@ Dans le cadre d’un déploiement multi-instance de SAP BOBI, les serveurs d’a
 
 La plateforme décisionnelle SAP BusinessObjects comprend différents niveaux, qui sont optimisés pour des tâches et des opérations spécifiques. Lorsque le composant d’un niveau quelconque devient indisponible, l’application SAP BOBI devient inaccessible ou certaines fonctionnalités de l’application ne fonctionnent pas. Vous devez donc vous assurer que chaque niveau est conçu pour être fiable afin de garantir le bon fonctionnement de l’application sans aucune interruption de l’activité.
 
-Ce guide explique comment les fonctionnalités natives d’Azure en association avec la configuration de la plateforme SAP BOBI améliorent la disponibilité du déploiement SAP. Cette section se concentre sur les options suivantes pour la plateforme SAP BOBI sur Azure -
+Ce guide explique comment les fonctionnalités natives d'Azure, combinées à la configuration de la plateforme SAP BOBI, améliorent la disponibilité du déploiement SAP. Cette section se concentre sur les options suivantes pour assurer la fiabilité de la plateforme SAP BOBI sur Azure :
 
-- **Sauvegarde et restauration** : un processus qui consiste à créer des copies périodiques des données et des applications vers un emplacement distinct. Il est donc possible de restaurer ou de revenir à l’état antérieur si les données ou les applications d’origine sont perdues ou endommagées.
+- **Sauvegarde et restauration** : processus consistant à créer des copies périodiques des données et des applications dans des emplacements distincts. Il est donc possible de restaurer ou de revenir à l’état antérieur si les données ou les applications d’origine sont perdues ou endommagées.
 
 - **Haute disponibilité :** Une plateforme à haute disponibilité dispose d’au moins deux copies de chaque élément dans la région Azure pour que l’application reste opérationnelle si l’un des serveurs n’est plus disponible.
 - **Reprise d’activité après sinistre :** Il s’agit du processus de restauration des fonctionnalités de votre application en cas de perte irrécupérable, par exemple si l’intégralité de la région Azur devenait indisponible en raison d’une catastrophe naturelle.
 
-L’implémentation de cette solution varie selon la nature de la configuration du système dans Azure. Le client doit donc adapter la solution de sauvegarde/restauration, haute disponibilité et récupération d’urgence en fonction de ses besoins professionnels.
+L’implémentation de cette solution varie selon la nature de la configuration du système dans Azure. Le client doit donc adapter sa solution de sauvegarde/restauration, de haute disponibilité et de récupération d'urgence en fonction de ses besoins professionnels.
 
 ## <a name="back-up-and-restore"></a>Sauvegarde et restauration
 
@@ -441,13 +440,13 @@ Actuellement, certaines régions Azure n’offrent pas de zones de disponibilit�
 
 ### <a name="high-availability-for-cms-database"></a>Haute disponibilité pour la base de données CMS
 
-Si vous utilisez le service Azure Database en tant que service (DBaaS) pour les bases de données CMS et d’audit, l’infrastructure de haute disponibilité localement redondante est fournie par défaut. Il vous suffit de sélectionner la région et les capacités de haute disponibilité, de redondance et de résilience inhérentes au service, sans avoir à configurer de composants supplémentaires. Si la stratégie de déploiement de la plateforme SAP BOBI se fait sur une zone de disponibilité, vous devez vous assurer que vous obtenez une redondance de zone pour vos bases de données CMS et d’audit. Pour plus d’informations sur l’offre de haute disponibilité pour une offre DBaaS prise en charge dans Azure, consultez [haute disponibilité pour Azure SQL Database](../../../azure-sql/database/high-availability-sla.md) et la [Haute disponibilité dans Azure Database pour MySQL](../../../mysql/concepts-high-availability.md). 
+Si vous utilisez le service Azure Database as a Service (DBaaS) pour la base de données CMS et d'audit, une infrastructure de haute disponibilité localement redondante est fournie par défaut. Il vous suffit de sélectionner la région et les capacités de haute disponibilité, de redondance et de résilience inhérentes au service, sans avoir à configurer de composants supplémentaires. Si la stratégie de déploiement de la plateforme SAP BOBI se fait sur une zone de disponibilité, vous devez vous assurer que vous obtenez une redondance de zone pour vos bases de données CMS et d’audit. Pour plus d’informations sur l’offre de haute disponibilité pour une offre DBaaS prise en charge dans Azure, consultez [haute disponibilité pour Azure SQL Database](../../../azure-sql/database/high-availability-sla.md) et la [Haute disponibilité dans Azure Database pour MySQL](../../../mysql/concepts-high-availability.md). 
 
 Pour les autres déploiements SGBD pour la base de données CMS, reportez-vous à l’article [Guides de déploiement SGBD pour charge de travail SAP](dbms_guide_general.md), qui fournit des informations sur différents déploiements SGBD et leur approche pour atteindre une haute disponibilité.
 
 ### <a name="high-availability-for-filestore"></a>Haute disponibilité pour les magasins de fichiers
 
-Le magasin de fichiers désigne les répertoires de disque pour le stockage de contenu comme des rapports, univers et connexions. Il est partagé par tous les serveurs d’applications de ce système. Vous devez donc vous assurer qu’il est hautement disponible, tout comme les autres composants de la plateforme SAP BOBI.
+Le terme « magasin de fichiers » désigne les répertoires de disque où sont stockés les contenus tels que les rapports, les univers et les connexions. Il est partagé par tous les serveurs d’applications de ce système. Vous devez donc vous assurer qu’il est hautement disponible, tout comme les autres composants de la plateforme SAP BOBI.
 
 Pour la plateforme SAP BOBI s’exécutant sur Windows, vous pouvez choisir des [fichiers Azure Premium](../../../storage/files/storage-files-introduction.md) ou [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) pour le cache de fichiers, qui est conçu pour être hautement disponible et hautement durable par nature. Les fichiers Azure Premium prennent en charge le stockage redondant interzone, qui peut être utile pour le déploiement entre zones de la plateforme SAP BOBI. Pour plus d’informations, consultez la section [Redondance](../../../storage/files/storage-files-planning.md#redundancy) pour Azure Files.
 
@@ -459,7 +458,7 @@ Pour distribuer le trafic sur le serveur web, vous pouvez utiliser Azure Load Ba
 
 1. Pour Azure Load Balancer, la redondance peut être obtenue en configurant le serveur frontal de Standard Load Balancer comme redondant interzone. Pour en savoir plus, consultez [Standard Load Balancer et Zones de disponibilité](../../../load-balancer/load-balancer-standard-availability-zones.md).
 2. Pour Application Gateway, la haute disponibilité peut être obtenue en fonction du type de niveau sélectionné lors du déploiement.
-   1. Le SKU v1 prend en charge les scénarios de haute disponibilité lorsque vous avez déployé deux instances ou plus. Azure distribue ces instances entre les domaines de mise à jour et d’erreur pour garantir qu'elles n’échouent pas toutes en même temps. Ainsi, grâce à ce SKU, la redondance peut être obtenue au sein de la zone.
+   1. Le SKU v1 prend en charge les scénarios de haute disponibilité lorsque vous avez déployé deux instances ou plus. Azure distribue ces instances entre les domaines de mise à jour et d’erreur pour garantir qu'elles n’échouent pas toutes en même temps. Ainsi, grâce à cette référence SKU, la redondance peut être obtenue au sein de la zone.
    2. Le SKU v2 garantit automatiquement que les nouvelles instances sont réparties sur les domaines d’erreur et les domaines de mise à jour. Si vous choisissez une redondance de zone, les instances les plus récentes sont également réparties sur les zones de disponibilité pour offrir une résilience zonale en cas d’échec. Pour plus de détails, consultez [Application Gateway v2 avec mise à l’échelle automatique et redondance interzone](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="reference-high-availability-architecture-for-sap-businessobjects-bi-platform"></a>Architecture haute disponibilité de référence pour la plateforme décisionnelle SAP BusinessObjects
@@ -476,15 +475,15 @@ Dans le cas où les zones de disponibilité ne sont pas disponibles dans la rég
 
 ## <a name="disaster-recovery"></a>Récupération d'urgence
 
-Les instructions de cette section expliquent la stratégie visant à fournir une protection de récupération d’urgence pour la plateforme SAP BOBI. Elles complètent le document [Récupération d’urgence pour SAP](../../../site-recovery/site-recovery-sap.md), qui représente les principales ressources pour l’approche globale de la récupération d’urgence SAP. Pour la plateforme SAP BusinessObjects BI, reportez-vous à la note SAP [2056228](https://launchpad.support.sap.com/#/notes/2056228), qui décrit ci-dessous les méthodes d’implémentation de l’environnement de récupération d’urgence.
+Les instructions de cette section expliquent la stratégie visant à fournir une protection de récupération d’urgence pour la plateforme SAP BOBI. Elles complètent le document [Récupération d’urgence pour SAP](../../../site-recovery/site-recovery-sap.md), qui représente les principales ressources pour l’approche globale de la récupération d’urgence SAP. Pour la plateforme SAP BusinessObjects BI, reportez-vous à la note SAP [2056228](https://launchpad.support.sap.com/#/notes/2056228) qui décrit les méthodes permettant d'implémenter en toute sécurité un environnement de récupération d'urgence.
 
  1. Utilisation complète ou sélective de la gestion du cycle de vie (LCM) ou de la fédération pour promouvoir/distribuer le contenu à partir du système principal.
- 2. Copie périodique du contenu CMS et FRS.
+ 2. Copie périodique du contenu des serveurs CMS et FRS.
 
-Dans ce guide, nous allons parler de la deuxième option d’implémentation de l’environnement de récupération d’urgence. Il ne couvre pas la liste exhaustive de toutes les options de configuration possibles pour la récupération d’urgence, mais couvre une solution qui utilise des services Azure natifs en association avec la configuration de la plateforme SAP BOBI.
+Dans ce guide, nous allons nous pencher sur la deuxième option d'implémentation d'un environnement de récupération d'urgence. Il ne s'agit pas de dresser une liste exhaustive de toutes les options de configuration possibles pour la récupération d'urgence, mais de couvrir une solution qui utilise des services Azure natifs en association avec la configuration de la plateforme SAP BOBI.
 
 >[!Important]
->La disponibilité de chaque composant dans la plateforme SAP BusinessObjects BI doit être prise en compte dans la région secondaire, et la stratégie de récupération d’urgence complète doit être testée minutieusement.
+>La disponibilité de chaque composant de la plateforme SAP BusinessObjects BI doit être prise en compte dans la région secondaire, et l'ensemble de la stratégie de récupération d'urgence doit être minutieusement testée.
 
 ### <a name="reference-disaster-recovery-architecture-for-sap-businessobjects-bi-platform"></a>Architecture de récupération d’urgence de référence pour la plateforme décisionnelle SAP BusinessObjects
 
@@ -494,11 +493,11 @@ Cette architecture de référence exécute un déploiement multi-instance de la 
 
 ### <a name="load-balancer"></a>Équilibrage de charge
 
-L’équilibreur de charge est utilisé pour distribuer le trafic sur les serveurs d’applications web de la plateforme SAP BOBI. Dans Azure, vous pouvez utiliser Azure Load Balancer ou Azure Application Gateway pour équilibrer la charge du trafic entre vos serveurs web. Pour obtenir la récupération d’urgence pour les services d’équilibrage de charge, vous devez implémenter une autre instance d’Azure Load Balancer ou d’Azure Application Gateway sur la région secondaire. Pour conserver la même URL après un basculement de récupération d’urgence, vous devez modifier l’entrée dans le DNS, en pointant sur le service d’équilibrage de charge en cours d’exécution sur la région secondaire.
+L’équilibreur de charge est utilisé pour distribuer le trafic sur les serveurs d’applications web de la plateforme SAP BOBI. Dans Azure, vous pouvez utiliser Azure Load Balancer ou Azure Application Gateway pour équilibrer la charge du trafic entre vos serveurs web. Afin de bénéficier de la récupération d'urgence pour les services d'équilibrage de charge, vous devez implémenter une autre instance d'Azure Load Balancer ou d'Azure Application Gateway dans la région secondaire. Pour conserver la même URL après un basculement de récupération d'urgence, vous devez modifier l'entrée dans le DNS, en pointant vers le service d'équilibrage de charge exécuté dans la région secondaire.
 
 ### <a name="virtual-machines-running-web-and-bi-application-servers"></a>Machines virtuelles exécutant des serveurs d’applications web et décisionnelles
 
-Le service [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) peut être utilisé pour répliquer des machines virtuelles exécutant des serveurs d’applications web et décisionnelles sur la région secondaire. Il réplique les serveurs et leurs disques managés attachés sur la région secondaire afin que, en cas de catastrophe ou de panne, vous puissiez facilement basculer sur votre environnement répliqué et continuer à travailler. Pour commencer la réplication de toutes les machines virtuelles d’application SAP vers le centre de données de reprise d’activité Azure, suivez les instructions dans [Répliquer une machine virtuelle vers Azure](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+Le service [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) peut être utilisé pour répliquer des machines virtuelles exécutant des serveurs d'applications web et des serveurs d'applications décisionnelles dans la région secondaire. Il réplique les serveurs et les disques managés attachés à ceux-ci dans la région secondaire afin que, en cas de catastrophe ou de panne, vous puissiez facilement basculer vers votre environnement répliqué et continuer à travailler. Pour commencer la réplication de toutes les machines virtuelles d’application SAP vers le centre de données de reprise d’activité Azure, suivez les instructions dans [Répliquer une machine virtuelle vers Azure](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 
 ### <a name="filestore"></a>Magasin de fichiers
 
@@ -512,7 +511,7 @@ Le magasin de fichiers est un répertoire de disque où sont stockés les fichie
 
 ### <a name="cms-database"></a>Base de données CMS
 
-Les bases de données CMS et d’audit dans la région de récupération d’urgence doivent être une copie des bases de données qui s’exécutent dans la région primaire. Selon le type de base de données, il est important de copier la base de données dans la région de récupération d’urgence en fonction du RTO et du RPO requis de l’entreprise. Cette section décrit les différentes options disponibles pour chaque service de base de données en tant que service (DBaaS) dans Azure, pris en charge pour une application SAP BOBI exécutée sur Windows.
+La base de données CMS et d'audit de la région de récupération d'urgence doit être une copie de celle qui est exécutée dans la région primaire. Selon le type de base de données, il est important de copier la base de données dans la région de récupération d’urgence en fonction du RTO et du RPO requis de l’entreprise. Cette section décrit les différentes options disponibles pour chaque service de base de données en tant que service (DBaaS) dans Azure, pris en charge pour une application SAP BOBI exécutée sur Windows.
 
 #### <a name="azure-sql-database"></a>Base de données Azure SQL
 

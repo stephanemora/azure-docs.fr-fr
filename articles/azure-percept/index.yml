@@ -3,19 +3,19 @@ title: Documentation Azure Percept
 summary: Azure Percept est une solution de bout en bout pour la création et le déploiement de l’intelligence artificielle basée sur la perception à la périphérie.
 metadata:
   title: Documentation Azure Percept
-  description: Azure Percept est une plateforme IA de périphérie de bout en bout.
+  description: Azure Percept est une plateforme IA de périphérie de bout en bout et un kit de développement.
   services: azure-percept
   ms.service: azure-percept
   ms.topic: landing-page
-  author: elqu20
-  ms.author: v-elqu
-  ms.date: 02/11/2021
-  ms.openlocfilehash: b979f147c67e8e877b5bb0e9d3dc557317c7aa50
-  ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+  author: mimcco
+  ms.author: mimcco
+  ms.date: 03/25/2021
+  ms.openlocfilehash: 0cf9e95897554cb51ff6837dec72700124471025
+  ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102097493"
+  ms.lasthandoff: 04/01/2021
+  ms.locfileid: "106107725"
 landingContent:
 - title: Qu’est-ce qu’Azure Percept ?
   linkLists:
@@ -31,13 +31,17 @@ landingContent:
       url: overview-azure-percept-studio.md
     - text: Vue d’ensemble de la sécurité Azure Percept
       url: overview-percept-security.md
+    - text: Intégration 80/20
+      url: overview-8020-integration.md
+    - text: Modèles IA Azure Percept
+      url: overview-ai-models.md
 - title: Bien démarrer avec le DK Azure Percept
   linkLists:
   - linkListType: quickstart
     links:
     - text: Déballer et assembler votre DK Azure Percept
       url: quickstart-percept-dk-unboxing.md
-    - text: Connecter le DK Azure Percept à Azure et déployer un modèle IA de vision
+    - text: Connecter votre DK Azure Percept à Azure
       url: quickstart-percept-dk-set-up.md
   - linkListType: reference
     links:
@@ -45,8 +49,10 @@ landingContent:
       url: azure-percept-dk-datasheet.md
     - text: Fiche technique Azure Percept Vision
       url: azure-percept-vision-datasheet.md
-    - text: Dépannage
+    - text: Résolution des problèmes généraux liés au DK Azure Percept
       url: troubleshoot-dev-kit.md
+    - text: Résolution des problèmes d’installation
+      url: how-to-troubleshoot-setup.md
 - title: Bien démarrer avec Azure Percept Audio
   linkLists:
   - linkListType: quickstart
@@ -59,9 +65,9 @@ landingContent:
       url: azure-percept-audio-datasheet.md
     - text: Résolution des problèmes Azure Percept Audio
       url: troubleshoot-audio-accessory-speech-module.md
-    - text: LED et bouton Azure Percept Audio
+    - text: Comportement du voyant et du bouton Azure Percept Audio
       url: audio-button-led-behavior.md
-- title: Créer un prototype IA de vision sans code
+- title: Générer une solution de vision sans code
   linkLists:
   - linkListType: tutorial
     links:
@@ -77,11 +83,11 @@ landingContent:
       url: how-to-capture-images.md
     - text: Afficher la télémétrie de votre devkit
       url: how-to-view-telemetry.md
-  - linkListType: concept
+  - linkListType: reference
     links:
-    - text: Utilisation de solutions IA
-      url: overview-ai-models.md
-- title: Créer une solution d’assistant vocal sans code
+    - text: Résolution des problèmes liés à la solution de vision
+      url: vision-solution-troubleshooting.md
+- title: Générer une solution de reconnaissance vocale sans code
   linkLists:
   - linkListType: tutorial
     links:
@@ -89,9 +95,9 @@ landingContent:
       url: tutorial-no-code-speech.md
   - linkListType: how-to-guide
     links:
-    - text: Gérer votre assistant vocal
+    - text: Configurer l’Assistant vocal dans Azure Percept Studio
       url: how-to-manage-voice-assistant.md
-    - text: Configurer votre Assistant vocal avec IoT Hub
+    - text: Configurer l’Assistant vocal dans IoT Hub
       url: how-to-configure-voice-assistant.md
 - title: Développement avancé avec Azure Percept
   linkLists:
@@ -111,9 +117,9 @@ landingContent:
       url: overview-update-experience.md
   - linkListType: how-to-guide
     links:
-    - text: Configurer des mises à jour OTA
+    - text: Configurer des mises à jour OTA (Over-The-Air)
       url: how-to-set-up-over-the-air-updates.md
-    - text: Mises à jour à distance
+    - text: Mettre à jour votre appareil en OTA (Over-The-Air)
       url: how-to-update-over-the-air.md
-    - text: Mise à jour par USB
+    - text: Mettre à jour votre appareil par USB
       url: how-to-update-via-usb.md

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6d06a46d2eaaad362890f1e3e44dbc746fa10898
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5fd0394feb8b58688bd163d62af30b031125b46
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98633372"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109663925"
 ---
 Azure Files offre quatre niveaux de stockage, premium, optimisé pour les transactions, chaud et froid, pour vous permettre de personnaliser vos partages en fonction des performances et du budget demandés par votre scénario :
 
@@ -22,7 +22,7 @@ Azure Files offre quatre niveaux de stockage, premium, optimisé pour les transa
 - **Hot** : Les partages de fichiers chauds offrent un stockage optimisé pour les scénarios de partage de fichiers à usage général, tels que les partages d’équipe. Les partages de fichiers chauds sont proposés sur le matériel de stockage standard reposant sur des HDD.
 - **Froid** : Les partages de fichiers froids offrent un stockage abordable optimisé pour les scénarios de stockage d’archive en ligne. Les partages de fichiers froids sont proposés sur le matériel de stockage standard reposant sur des HDD.
 
-Les partages de fichiers Premium sont déployés dans le type de **compte de stockage FileStorage** et sont disponibles uniquement dans un modèle de facturation provisionnée. Pour plus d’informations sur le modèle de facturation avec approvisionnement pour les partages de fichiers Premium, consultez [Comprendre l’approvisionnement des partages de fichiers Premium](../articles/storage/files/understanding-billing.md#provisioned-model). Les partages de fichiers standard, notamment les partages de fichiers optimisés pour les transactions, chauds et froids, sont déployés dans le type de **compte de stockage à usage générale version 2 (GPv2)** et sont disponibles via une facturation avec paiement à l’utilisation. Les partages de fichiers chauds et froids sont disponibles dans toutes les régions Azure publiques et Azure Government. Les partages de fichiers optimisés pour les transactions sont disponibles dans toutes les régions Azure, y compris les régions Azure Chine et Azure Allemagne.
+Les partages de fichiers Premium sont déployés dans le type de **compte de stockage FileStorage** et sont disponibles uniquement dans un modèle de facturation provisionnée. Pour plus d’informations sur le modèle de facturation avec approvisionnement pour les partages de fichiers Premium, consultez [Comprendre l’approvisionnement des partages de fichiers Premium](../articles/storage/files/understanding-billing.md#provisioned-model). Les partages de fichiers standard, notamment les partages de fichiers optimisés pour les transactions, chauds et froids, sont déployés dans le type de **compte de stockage à usage générale version 2 (GPv2)** et sont disponibles via une facturation avec paiement à l’utilisation. 
 
 Au moment de sélectionner un niveau de stockage pour votre charge de travail, tenez compte de vos besoins en matière de performances et d’utilisation. Si votre charge de travail nécessite une latence à un chiffre ou si vous utilisez un média de stockage SSD local, le niveau Premium est probablement le mieux adapté. Si une faible latence ne constitue pas un problème, par exemple si vous avez des partages d’équipe montés localement à partir d’Azure ou mis en mémoire cache localement à l’aide d’Azure File Sync, le stockage standard est peut être plus indiqué du point de vue du coût.
 

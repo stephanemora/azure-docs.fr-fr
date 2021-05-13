@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8e7de74a75bc0cf2a298b7ff75cf7b6b92eaec9d
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92536077"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109716111"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importer et exporter des identités d’appareil IoT Hub en bloc
 
@@ -87,7 +87,7 @@ while(true)
 ```
 
 > [!NOTE]
-> Si votre compte de stockage a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
+> Si votre compte de stockage a des configurations de pare-feu qui limitent la connectivité d’IoT Hub, envisagez d’utiliser l’[exception interne approuvée de Microsoft](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) (disponible dans certaines régions pour les hubs IoT avec identité de service managée).
 
 
 ## <a name="device-importexport-job-limits"></a>Limites de travail d’importation/exportation d’appareil

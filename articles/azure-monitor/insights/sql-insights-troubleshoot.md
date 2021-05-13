@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 9228faade46c2bfec3ed5170be5e256ead7d5220
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 35aa53def1a72f98309e7616ce64194dd77c5a4d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017903"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331283"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Résolution des problèmes liés à SQL Insights (préversion)
 Pour résoudre des problèmes liés à la collecte de données dans SQL insights, vérifiez l’état de la machine d’analyse dans l’onglet **Gérer le profil**. Elle aura l’un des états suivants :
@@ -25,6 +25,9 @@ Cliquez sur l'**État** pour accéder aux journaux et obtenir plus d’informati
 
 ## <a name="not-collecting-state"></a>État Collecte non active 
 L’état de la machine d’analyse est *Collecte non active* s’il n’existe aucune donnée dans *InsightsMetrics* pour SQL au cours des 10 dernières minutes. 
+
+> [!NOTE]
+> Vérifiez que vous utilisez une [version prise en charge de SQL](sql-insights-overview.md#supported-versions) pour tenter de recueillir des données. Par exemple, si votre profil et votre chaîne de connexion sont valides, mais que votre version d’Azure SQL Database n’est pas prise en charge, vous obtenez un état Données non collectées.
 
 SQL Insights utilise la requête suivante pour récupérer ces informations :
 

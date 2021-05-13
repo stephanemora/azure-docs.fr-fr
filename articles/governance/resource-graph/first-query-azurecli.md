@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous suivez les étapes pour ac
 ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a1bd6d70536e351838acf8d7f01cf7181d871edb
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 3cf4b75d3e2ade6803d2950fa13ee2e01d99de6d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325100"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751910"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure CLI
 

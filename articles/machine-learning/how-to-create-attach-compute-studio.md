@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 84db002e35f88bcee1e59a22b678f2a76047b5ef
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: fbe9c1585ab2eee6e0d38c309a2d1d279ffab0b4
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885827"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331481"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle dans Azure Machine Learning Studio
 
@@ -80,7 +80,7 @@ Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis
     :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Affichez l’état du calcul dans une liste":::
 
 
-### <a name="compute-instance"></a>Instance de calcul
+### <a name="compute-instance"></a><a name="compute-instance"></a> Instance de calcul
 
 Utilisez les [étapes ci-dessus](#portal-create) pour créer l’instance de calcul.  Remplissez ensuite le formulaire comme suit :
 
@@ -93,7 +93,7 @@ Utilisez les [étapes ci-dessus](#portal-create) pour créer l’instance de cal
 |Type de machine virtuelle |  Choisissez UC ou GPU. Vous ne pouvez pas modifier ce type après la création.     |
 |Taille de la machine virtuelle     |  Il se peut que les tailles de machines virtuelles prises en charge soient restreintes dans votre région. Vérifier la [liste de disponibilité](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Activer/désactiver l’accès SSH     |   L’accès SSH est désactivé par défaut.  Il n’est pas possible de modifier l’accès SSH après sa création. Veillez à activer l’accès si vous envisagez de déboguer de manière interactive avec [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Paramètres avancés     |  facultatif. Configurez un réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources**, le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](./how-to-secure-training-vnet.md) pour le réseau virtuel.  |
+|Paramètres avancés     |  facultatif. Configurez un réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources**, le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](./how-to-secure-training-vnet.md) pour le réseau virtuel.  Utilisez également des paramètres avancés pour spécifier un [script de configuration](how-to-create-manage-compute-instance.md#setup-script). |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Clusters de calcul
 

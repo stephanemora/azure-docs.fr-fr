@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 90a873b7de6ccc1ba21a05bf4c0e288ed668cac0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8eefda763765fd17fbf86bcf3205e854459a9f6
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694459"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656238"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Gérer des sources de données dans Azure Purview (préversion)
 
@@ -30,11 +30,11 @@ Suivez cette procédure pour inscrire une nouvelle source.
 
    :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Sélectionner un type de source de données dans la page Inscrire les sources":::
 
-1. Remplissez le formulaire sur la page **Inscrire des sources**. Sélectionnez un nom pour votre source et entrez les informations pertinentes. Si vous avez choisi **À partir d’un abonnement Azure** comme méthode de sélection de votre compte, les sources de votre abonnement s’affichent dans une liste déroulante. Vous pouvez également entrer manuellement les informations relatives à votre source.
+2. Remplissez le formulaire sur la page **Inscrire des sources**. Sélectionnez un nom pour votre source et entrez les informations pertinentes. Si vous avez choisi **À partir d’un abonnement Azure** comme méthode de sélection de votre compte, les sources de votre abonnement s’affichent dans une liste déroulante. 
 
    :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Formulaire pour les informations sur la source de données":::
 
-1. Sélectionnez **Terminer**.
+3. Sélectionnez **Inscription**.
 
 ## <a name="view-sources"></a>Afficher les sources
 
