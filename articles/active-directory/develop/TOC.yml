@@ -657,8 +657,6 @@
     - name: Authentification unique (SSO) pour mobile
       href: mobile-sso-support-overview.md
       displayName: 'android, ios'
-    - name: Demandes et défis liés aux revendications
-      href: claims-challenge.md
     - name: Autorisations et consentement
       displayName: Scopes
       items:

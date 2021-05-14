@@ -1,18 +1,18 @@
 ---
 title: Copier des données vers et depuis Azure Databricks Delta Lake
 description: Découvrez comment copier des données depuis et vers Azure Databricks Delta Lake à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/29/2021
-ms.openlocfilehash: fcf533ad95e2567e62d44d6997752df6f3145ecb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b1aa174645288f5f3024779a0e5b9e8bdbb57452
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726785"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480452"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copier des données vers et à partir d’Azure Databricks Delta Lake avec Azure Data Factory
 
@@ -67,7 +67,7 @@ Pour plus d’informations sur la configuration du cluster, consultez [Configure
 
 ## <a name="get-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes donnent des précisions sur les propriétés utilisées qui définissent des entités Data Factory propres à un connecteur Azure Databricks Delta Lake.
 

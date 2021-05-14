@@ -7,12 +7,12 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: e468898daffe8fc42250575d3efa42f99279c410
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ed67862bc7c4277d95df7ddf6a6f34c563eed49
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88031646"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736049"
 ---
 # <a name="concurrency-control"></a>Contrôle d’accès concurrentiel
 
@@ -24,8 +24,7 @@ Chaque appel d’API de publication du Portail Cloud Partner doit spécifier exp
 -   **Optimiste** : le client appliquant la mise à jour vérifie si les données ont changé depuis la dernière lecture des données.
 -   **Last one wins** (Dernier) : le client met à jour directement les données, indépendamment du fait qu’une autre application les a modifiées depuis la dernière lecture.
 
-<a name="optimistic-concurrency-workflow"></a>Flux de travail de l’accès concurrentiel optimiste
--------------------------------
+## <a name="optimistic-concurrency-workflow"></a>Flux de travail de l’accès concurrentiel optimiste
 
 Nous vous recommandons d’utiliser la stratégie d’accès concurrentiel optimiste, avec le flux de travail suivant, afin de garantir qu’aucune modification inattendue n’est apportée à vos ressources.
 

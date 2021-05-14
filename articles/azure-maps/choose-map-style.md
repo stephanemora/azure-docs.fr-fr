@@ -3,18 +3,18 @@ title: Modifier le style du contrôle de carte web Azure Maps
 description: Découvrez comment modifier le style et les options d’une carte. Découvrez comment ajouter un contrôle sélecteur de styles à un mappage dans Azure Maps afin que les utilisateurs puissent basculer entre différents styles.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 556e265cc0d1aae33823185ec98d23f191ed1694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec79f1427e4561447b80f500adabfa8e8400d7f5
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680018"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325190"
 ---
 # <a name="change-the-style-of-the-map"></a>Changer le style de la carte
 
@@ -104,7 +104,7 @@ L’image ci-dessous montre le contrôle du sélecteur de styles avec la disposi
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Disposition de la liste du sélecteur de styles":::
 
 > [!IMPORTANT]
-> Par défaut, le contrôle du sélecteur de styles répertorie tous les styles disponibles sous le niveau tarifaire S0 d’Azure Maps. Si vous voulez réduire le nombre de styles figurant dans cette liste, passez dans l’option `mapStyle` du sélecteur de styles un tableau des styles que vous voulez voir apparaître dans la liste. Si vous utilisez S1 et que vous voulez afficher tous les styles disponibles, affectez à l’option `mapStyles` du sélecteur de styles la valeur `"all"`.
+> Par défaut, le contrôle du sélecteur de styles répertorie tous les styles disponibles sous le niveau tarifaire S0 d’Azure Maps. Si vous voulez réduire le nombre de styles figurant dans cette liste, passez dans l’option `mapStyle` du sélecteur de styles un tableau des styles que vous voulez voir apparaître dans la liste. Si vous utilisez le niveau tarifaire Gen1 (S1) or Gen2 et que vous voulez afficher tous les styles disponibles, donnez la valeur `"all"` à l’option `mapStyles` du Sélecteur de styles.
 
 Le code suivant montre comment remplacer la liste de styles de base `mapStyles` par défaut. Dans cet exemple, nous définissons l’option `mapStyles` pour répertorier les styles de base que le contrôle du sélecteur de styles doit afficher.
 

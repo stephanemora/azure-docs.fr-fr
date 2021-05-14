@@ -32,6 +32,8 @@
     - name: "Attribuer une stratégie\_- Modèle ARM"
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: Attribuer une stratégie - Bicep
+      href: ./assign-policy-bicep.md
     - name: Attribuer une stratégie - Terraform
       displayName: 'assign, compliance, hcl, provider'
       href: ./assign-policy-terraform.md
@@ -46,6 +48,9 @@
     - name: Gérer la gouvernance des balises
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Router des événements relatifs au changement d’état des stratégies
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./tutorials/route-state-change-events.md
     - name: Implémenter Azure Policy en tant que code avec GitHub
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./tutorials/policy-as-code-github.md
@@ -87,6 +92,8 @@
           href: ./samples/azure-security-benchmark.md
         - name: "Azure Security Benchmark\_v1"
           href: ./samples/azure-security-benchmarkv1.md
+        - name: PBMM fédéral du Canada
+          href: ./samples/canada-federal-pbmm.md
         - name: "CIS Microsoft Azure Foundations Benchmark\_1.3.0"
           href: ./samples/cis-azure-1-3-0.md
         - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
@@ -95,6 +102,8 @@
           href: ./samples/cmmc-l3.md
         - name: HIPAA HITRUST 9.2
           href: ./samples/hipaa-hitrust-9-2.md
+        - name: "IRS 1075 septembre\_2016"
+          href: ./samples/irs-1075-sept2016.md
         - name: 'ISO 27001:2013'
           href: ./samples/iso-27001.md
         - name: New Zealand ISM Restricted
@@ -103,6 +112,14 @@
           href: ./samples/nist-sp-800-53-r4.md
         - name: NIST SP 800-171 R2
           href: ./samples/nist-sp-800-171-r2.md
+        - name: UK OFFICIAL et UK NHS
+          href: ./samples/ukofficial-uknhs.md
+    - name: Base de référence de configuration des invités
+      items:
+        - name: Base de référence Linux pour Azure Security Benchmark
+          href: ./samples/guest-configuration-baseline-linux.md
+        - name: Base de référence Windows pour Azure Security Benchmark
+          href: ./samples/guest-configuration-baseline-windows.md
 - name: Concepts
   items:
     - name: Structure de définition
@@ -120,6 +137,9 @@
     - name: Structure d’attribution
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: Réagir aux événements relatifs au changement d’état des stratégies
+      displayName: 'event grid, subject, topic, subscription'
+      href: ./concepts/event-overview.md
     - name: Structure d’exemption
       displayName: 'waiver, mitigated, compliance'
       href: ./concepts/exemption-structure.md
@@ -149,7 +169,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité pour Azure Security Benchmark
-          href: ./concepts/azure-security-benchmark-baseline.md
+          href: /security/benchmark/azure/baselines/policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Guides pratiques
   items:
     - name: Extension Azure Policy pour VS Code
@@ -259,22 +279,8 @@
           href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
     - name: REST
       items:
-        - name: Événements
-          href: /rest/api/policy-insights/policyevents
-        - name: États
-          href: /rest/api/policy-insights/policystates
-        - name: Attributions
-          href: /rest/api/resources/policyassignments
-        - name: Définitions de stratégies
-          href: /rest/api/resources/policydefinitions
-        - name: Exemptions de stratégies
-          href: /rest/api/resources/policyexemptions
-        - name: Définitions d’initiatives
-          href: /rest/api/resources/policysetdefinitions
-        - name: Ressources suivies par les stratégies
-          href: /rest/api/policy-insights/policytrackedresources
-        - name: Corrections
-          href: /rest/api/policy-insights/remediations
+        - name: Stratégie
+          href: /rest/api/policy/
         - name: Guest Configuration
           href: /rest/api/guestconfiguration/
     - name: Modèles Resource Manager

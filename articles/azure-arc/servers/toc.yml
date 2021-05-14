@@ -27,11 +27,11 @@
           href: security-overview.md
 - name: Guides pratiques
   items:
-    - name: "Se connecter à Azure\_Arc"
+    - name: Déployer
       items:
         - name: Vue d’ensemble de l’agent Machine connectée
           href: agent-overview.md
-        - name: Planifier le déploiement à grande échelle
+        - name: Planifier le déploiement
           href: plan-at-scale-deployment.md
         - name: Connecter des ordinateurs à Azure Arc depuis le portail Azure
           href: onboard-portal.md
@@ -43,6 +43,10 @@
           href: onboard-windows-admin-center.md
         - name: Connecter des ordinateurs à Azure Arc avec PowerShell
           href: onboard-powershell.md
+    - name: Migrate
+      items:
+        - name: Migrer une machine vers Azure
+          href: scenario-migrate-to-azure.md
     - name: Gérer
       items:
         - name: Extensions de machine virtuelle
@@ -65,6 +69,8 @@
           href: manage-howto-migrate.md
     - name: Scénarios
       items:
+        - name: Tester des serveurs avec Arc en utilisant une machine virtuelle Azure
+          href: plan-evaluate-on-azure-virtual-machine.md
         - name: Intégrer à Azure Sentinel
           href: scenario-onboard-azure-sentinel.md
         - name: Intégrer à Azure Security Center
@@ -80,7 +86,7 @@
     - name: Résidence des données
       href: data-residency.md
     - name: Azure CLI
-      href: /cli/azure/ext/connectedmachine/connectedmachine
+      href: /cli/azure/connectedmachine
     - name: Azure PowerShell
       href: /powershell/module/az.connectedmachine
     - name: .NET

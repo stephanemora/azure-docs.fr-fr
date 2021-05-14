@@ -1,17 +1,17 @@
 ---
 title: Mappage de schéma et de type de données dans l’activité de copie
 description: Découvrez comment l’activité de copie dans Azure Data Factory mappe les schémas et les types de données des données de la source aux données du récepteur.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.author: jingwang
-ms.openlocfilehash: 68d90fa56d5dce902a44a32b322e582a81e419d5
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.author: jianleishen
+ms.openlocfilehash: 2bd616ddec207d2aad47608c6f0200c7b629471e
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011635"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482522"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mappage de schéma et de type de données dans l’activité de copie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

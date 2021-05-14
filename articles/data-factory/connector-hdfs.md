@@ -1,17 +1,17 @@
 ---
 title: Copier des données depuis HDFS à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’une source HDFS dans le cloud ou en local vers des banques de données réceptrices prises en charge.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
-ms.openlocfilehash: 9c274bdfb5854529dbb82bd2d8b7cefdf07390b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 9495ffded4230dbffc62ba4f1e8aa405e448bf19
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588900"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485078"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur HDFS à l’aide d’Azure Data Factory
 
@@ -39,14 +39,14 @@ Plus précisément, le connecteur HDFS prend en charge ce qui suit :
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
 > Assurez-vous que le runtime d'intégration peut accéder à *tous* les éléments [serveur du nœud de nom]:[port du nœud de nom] et [serveurs du nœud de données]:[port du nœud de données] du cluster Hadoop. Le [port du nœud de nom] par défaut est 50070 et le [port du nœud de données] par défaut est 50075.
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques de HDFS :
 
@@ -111,7 +111,7 @@ Les propriétés prises en charge pour le service lié HDFS sont les suivantes 
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez [Jeux de données dans Azure Data Factory](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres `location` dans le jeu de données basé sur le format :
 
@@ -153,7 +153,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="hdfs-as-source"></a>HDFS en tant que source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 

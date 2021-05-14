@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour la Gestion des API Azure
 description: Liste les définitions de stratégie intégrées Azure Policy pour la Gestion des API Azure. Ces définitions de stratégie intégrées fournissent des approches pour la gestion de vos ressources Azure.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d2d3fac2bee78b44db824b3878960c4e639c1f4d
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: a552b1014355ee04870f9899730669d58bdcb200
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108184103"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755786"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Définitions de stratégie intégrées Azure Policy pour la Gestion des API Azure
 

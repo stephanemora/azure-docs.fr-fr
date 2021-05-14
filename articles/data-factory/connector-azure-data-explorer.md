@@ -2,17 +2,17 @@
 title: Copier des données depuis ou vers Azure Data Explorer
 description: Découvrez comment copier des données vers ou depuis Azure Data Explorer à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
 ms.author: orspodek
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: f343cf820632c8b53f74a938a039820ea4f56eac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 606d10694b6806b62871ddf24afd259d7bc224bc
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027395"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482972"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 
@@ -46,7 +46,7 @@ Le connecteur Azure Data Explorer vous permet d’effectuer les opérations suiv
 >[!TIP]
 >Pour obtenir une description de l’utilisation du connecteur Azure Data Explorer, consultez [Copier des données vers ou depuis Azure Data Explorer à l’aide d’Azure Data Factory](/azure/data-explorer/data-factory-load-data) et [Copie en bloc depuis une base de données vers Azure Data Explorer](/azure/data-explorer/data-factory-template).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir des entités Data Factory spécifiques du connecteur Azure Data Explorer.
 

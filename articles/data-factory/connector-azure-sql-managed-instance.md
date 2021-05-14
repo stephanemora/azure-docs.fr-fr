@@ -3,16 +3,16 @@ title: Copier et transformer des données dans Azure SQL Managed Instance
 description: Apprenez à copier et à transformer des données dans Azure SQL Managed Instance à l’aide d’Azure Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: eae085a73e8f43813aa3f02fa910c7931f10f36c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6313843cac97ec93fb538c1ddf8ca5477a4cce81
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597410"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487454"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Managed Instance à l’aide d’Azure Data Factory
 
@@ -46,7 +46,7 @@ Pour accéder au point de terminaison privé SQL Managed Instance, configurez un
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir des entités Azure Data Factory spécifiques au connecteur SQL Managed Instance.
 

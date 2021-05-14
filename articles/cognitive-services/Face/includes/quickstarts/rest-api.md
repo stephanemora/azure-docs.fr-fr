@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 1a360a19da8006a8ab6d918560f1b1d566fdd66d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6e3827ca9f729f1fa231a58a11c829b1ee8a4f44
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105104862"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108792761"
 ---
 Commencez à utiliser la reconnaissance faciale avec l’API REST Visage. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -39,7 +39,7 @@ Utilisez l’API REST Visage pour :
 
 Vous allez utiliser une commande similaire à ce qui suit pour appeler l’API Visage et obtenir les données d’attribut de visage d’une image. Pour commencer, copiez le code dans un éditeur de texte. Avant de l’exécuter, vous devez changer certaines parties.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_2":::
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_3":::
 
 Effectuez les modifications suivantes :
 1. Affectez `Ocp-Apim-Subscription-Key` à votre clé d’abonnement Visage valide.

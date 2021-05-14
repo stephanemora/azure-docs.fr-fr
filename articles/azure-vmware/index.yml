@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: shortpatti
   ms.author: v-patsho
-  ms.date: 05/04/2021
-  ms.openlocfilehash: 20d2d685c6ac634a1463669c262f599fb465e05d
-  ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+  ms.date: 05/11/2021
+  ms.openlocfilehash: ae12f4ed9d356eb7a196164574766868ea469f1a
+  ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108803907"
+  ms.lasthandoff: 05/11/2021
+  ms.locfileid: "109754332"
 landingContent:
 - title: À propos d’Azure VMware Solution
   linkLists:
@@ -94,6 +94,14 @@ landingContent:
       url: tutorial-scale-private-cloud.md
     - text: Supprimer un cloud privé
       url: tutorial-delete-private-cloud.md
+- title: Gestion des identités
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Accès et identité pour les clouds privés
+      url: concepts-identity.md
+    - text: Rotation des informations d’identification cloudadmin
+      url: rotate-cloudadmin-credentials.md
 - title: Étendre Azure VMware Solution
   linkLists:
   - linkListType: reference

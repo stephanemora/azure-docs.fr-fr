@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint SWIFT CSP-CSCF v2020
 description: Vue d’ensemble de l’exemple de blueprint SWIFT CSP-CSCF v2020. Cet exemple de blueprint aide les clients à évaluer des contrôles SWIFT CSP-CSCF v2020 spécifiques.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 2fc2aa437cc6e69df3c5ae7c3a0acedfba67e636
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: b1db64d59f0517b8cbe9ebd4bcc0cf2dbad0309e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048740"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733928"
 ---
 # <a name="overview-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint SWIFT CSP-CSCF v2020
 
-L’exemple de blueprin SWIFT CSP-CSCF v2020 fournit des garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md), qui vous permettent d’évaluer des contrôles SWIFT CSP spécifiques. Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des contrôles SWIFT CSP.
+L’exemple de blueprint SWIFT CSP-CSCF v2020 fournit des garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md), qui vous permettent d’évaluer des contrôles SWIFT CSP spécifiques. Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des contrôles SWIFT CSP.
 
 ## <a name="control-mapping"></a>Correspondance des contrôles
 

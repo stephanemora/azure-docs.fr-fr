@@ -4,14 +4,14 @@ description: Apprenez à créer un runtime d’intégration Azure dans Azure Dat
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/09/2020
-author: nabhishek
-ms.author: abnarain
-ms.openlocfilehash: ecf2a74a16234084fbac4d1c26157d1703b56a13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: lrtoyou1223
+ms.author: lle
+ms.openlocfilehash: 778942fe9e2705612b138a7ea1c8452064572caa
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373060"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488606"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Comment créer et configurer un runtime d’intégration Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

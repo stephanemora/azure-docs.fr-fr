@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.openlocfilehash: b42aba84dcbff795ee4ca1f8d622527e8039f27a
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 72cf06049ae272e3e55017dd8a0207739c25d960
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107508958"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738752"
 ---
 # <a name="configure-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Configurer des journaux des requêtes lentes pour un serveur flexible Azure Database pour MySQL à l’aide de l’interface Azure CLI
 
@@ -22,14 +22,14 @@ L’article vous montre comment configurer des [journaux de requêtes lentes](co
 
 ## <a name="prerequisites"></a>Prérequis
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Installez ou mettez à niveau Azure CLI vers la dernière version. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
--  Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
+- Installez ou mettez à niveau Azure CLI vers la dernière version. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+-  Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
 
     ```azurecli-interactive
     az login
     ````
 
-- Si vous avez plusieurs abonnements, choisissez l’abonnement approprié dans lequel vous voulez créer le serveur à l’aide de la commande ```az account set```.
+- Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel vous souhaitez créer le serveur à l’aide de la commande ```az account set```.
 `
     ```azurecli
     az account set --subscription <subscription id>

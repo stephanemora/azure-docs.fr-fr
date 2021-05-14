@@ -5,12 +5,12 @@ author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.openlocfilehash: 7ab719560320882a3a6569bff5df7d2e2cf0b747
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 626f46030fc8ee5ab7c788a9b45f440d8a0fe5a4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037555"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733835"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Appeler un webhook avec une alerte de métrique classique dans Azure Monitor
 
@@ -18,7 +18,7 @@ ms.locfileid: "102037555"
 > Cet article décrit comment utiliser des alertes de métrique classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](./alerts-overview.md). Les alertes classiques sont [retirées](./monitoring-classic-retirement.md) pour les utilisateurs du cloud public, avec une utilisation limitée jusqu’au **31 mai 2021**. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet vont être mises hors service le **29 février 2024**.
 >
 
-Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions. 
+Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions.
 
 Cet article décrit comment définir un Webhook sur une alerte de métrique Azure. Il montre également à quoi ressemble la charge utile d’une requête HTTP POST sur un Webhook. Pour plus d’informations sur la configuration et le schéma d’une alerte de journal d’activité Azure (alertes sur les événements), consultez [Appeler un Webhook sur une alerte de journal d’activité Azure](../alerts/alerts-log-webhook.md).
 
@@ -105,6 +105,6 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les Webhooks et les alertes Azure par le biais de la vidéo décrivant [l’intégration d’alertes Azure à PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
 * Découvrez comment [exécuter des scripts Azure Automation (runbooks) sur des alertes Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
-* Découvrez comment [utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
+* Découvrez comment [utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app).
 * Découvrez comment [utiliser une application logique pour envoyer un message Slack à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
-* Découvrez comment [utiliser une application logique pour envoyer un message à une file d’attente Azure à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+* Découvrez comment [utiliser une application logique pour envoyer un message à une file d’attente Azure à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app).

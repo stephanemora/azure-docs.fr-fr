@@ -3,12 +3,12 @@ title: Définir plusieurs instances d’une propriété
 description: Utilisez l’opération de copie dans un modèle Azure Resource Manager (modèle ARM) pour effectuer une itération à plusieurs reprises lors de la création d’une propriété sur une ressource.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 16c293f1c3aff64aeb8b6cae4b7f1aa14dcd0a77
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 3f6eeac8b32e0fb34b973e82557cc48bab532ffd
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479999"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736931"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Itération de propriété dans les modèles ARM
 
@@ -372,7 +372,7 @@ L’exemple suivant montre un scénario courant pour la création de plusieurs v
 
 |Modèle  |Description  |
 |---------|---------|
-|[Déploiement de machine virtuelle avec un nombre variable de disques de données](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Déploie plusieurs disques de données avec une machine virtuelle. |
+|[Déploiement de machine virtuelle avec un nombre variable de disques de données](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-windows-copy-datadisks) |Déploie plusieurs disques de données avec une machine virtuelle. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
