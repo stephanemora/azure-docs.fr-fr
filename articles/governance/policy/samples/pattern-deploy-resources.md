@@ -3,12 +3,12 @@ title: 'Modèle : Déployer des ressources avec une définition de stratégie'
 description: Ce modèle Azure Policy fournit un exemple de déploiement de ressources à l’aide d’une définition de stratégie deployIfNotExists.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 1dda3d5f2d4bef57919931ec3c1635310723e0c8
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 2220a0c66cecac3dc9dfd342fe6b802df41c1f10
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093398"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752451"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Modèle Azure Policy : Déployer des ressources
 
@@ -43,7 +43,7 @@ La partie **deployment** de la définition de stratégie a un bloc de **properti
 - **template** : cette propriété inclut le modèle lui-même. Dans cet exemple, le paramètre de modèle **location** définit l’emplacement de la nouvelle ressource d’observateur réseau.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
-  
+
 - **parameters** : cette propriété définit les paramètres qui sont fournis au **template**. Les noms des paramètres doivent correspondre à ce qui est défini dans **template**. Dans cet exemple, le paramètre se nomme **location** afin qu’il y ait correspondance. La valeur de **location** utilise de nouveau la fonction `field()` pour récupérer la valeur de la ressource évaluée, qui est le réseau virtuel dans le bloc **policyRule.if**.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::

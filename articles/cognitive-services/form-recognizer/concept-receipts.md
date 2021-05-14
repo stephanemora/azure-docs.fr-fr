@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8248b3ed21561340e963c848dee4430c48829ab1
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 96625959c089c46b04b13216bbb9ea4b74ef4feb
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285295"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331859"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modèle de reçu prédéfini dans Form Recognizer
 
@@ -23,14 +23,14 @@ Azure Form Recognizer peut analyser et extraire des informations dans des reçus
 
 ## <a name="understanding-receipts"></a>Comprendre les tickets de caisse
 
-Beaucoup d’entreprises et de particuliers s’appuient encore sur les données extraites manuellement des tickets de caisse. L’extraction automatique des données de ces tickets de caisse peut être compliquée. Les tickets de caisse peuvent être froissés, difficiles à lire, comporter des éléments manuscrits et contenir des images de mauvaise qualité provenant de smartphones. En outre, les champs et les modèles de ticket de caisse peuvent varier considérablement selon le marché, la région et le commerçant. Ces difficultés d’extraction des données et de détection des champs font du traitement des tickets de caisse un problème unique.  
+Beaucoup d’entreprises et de particuliers s’appuient encore sur les données extraites manuellement des tickets de caisse. L’extraction automatique des données de ces tickets de caisse peut être compliquée. Les tickets de caisse peuvent être froissés, difficiles à lire, comporter des éléments manuscrits et contenir des images de mauvaise qualité provenant de smartphones. En outre, les champs et les modèles de ticket de caisse peuvent varier considérablement selon le marché, la région et le commerçant. Ces difficultés d’extraction des données et de détection des champs font du traitement des tickets de caisse un problème unique.
 
 L’API Receipt utilise la reconnaissance optique de caractères (OCR) et notre modèle prédéfini pour permettre de vastes scénarios de traitement des tickets de caisse. Grâce à l’API Receipt, il n’est pas nécessaire d’effectuer l’apprentissage d’un modèle. Envoyez l’image du ticket de caisse à l’API d’analyse des tickets de caisse et les données sont extraites.
 
 ![exemple de ticket de caisse](./media/receipts-example.jpg)
 
 
-## <a name="what-does-the-receipt-service-do"></a>Comment fonctionne le service Receipt ? 
+## <a name="what-does-the-receipt-service-do"></a>Comment fonctionne le service Receipt ?
 
 Le service Receipt prédéfini extrait le contenu des reçus, c’est-à-dire le type de reçu que vous recevez généralement dans un restaurant, chez un détaillant ou dans une épicerie.
 
@@ -73,17 +73,18 @@ Pour tester le service de ticket de caisse de Form Recognizer, accédez à l’o
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-locales"></a>Paramètres régionaux pris en charge 
+## <a name="supported-locales"></a>Paramètres régionaux pris en charge
 
-* **Receipt v2.0 intégré** (GA) prend en charge les tickets de caisse de ventes dans les paramètres régionaux EN-US
-* **Receipt v2.1-preview.3 intégré** (préversion publique) ajoute une prise en charge supplémentaire pour les paramètres régionaux de ticket de caisse suivants : 
-  * EN-AU 
-  * EN-CA 
-  * EN-GB 
-  * EN-IN 
+* **Receipt v2.0 intégré** (GA) prend en charge les tickets de caisse dans les paramètres régionaux **en-us**.
+* **Receipt v2.1-preview.3 intégré** (préversion publique) ajoute une prise en charge supplémentaire pour les paramètres régionaux anglais suivants :
+
+* **en-au**
+* **en-ca**
+* **en-gb**
+* **en-in**
 
   > [!NOTE]
-  > Entrée de langue 
+  > Entrée de langue
   >
   > Receipt v2.1-preview.3 intégré compte un paramètre de demande facultatif permettant de spécifier les paramètres régionaux de tickets de caisse provenant de marchés anglophones supplémentaires. Pour les tickets de caisse en anglais d’Australie (EN-AU), du Canada (EN-CA), de Grande-Bretagne (EN-GB) et d’Inde (EN-IN), vous pouvez spécifier les paramètres régionaux pour obtenir des résultats améliorés. Si aucun paramètre régional n’est spécifié dans Receipt v2.1-preview.3, le modèle utilise par défaut est le modèle EN-US.
 
@@ -117,28 +118,28 @@ Quand le champ d’**état** a la valeur de **réussite**, la réponse JSON incl
 La réponse à l’opération d’obtention du résultat de l’analyse du ticket de caisse va correspondre à la représentation structurée du ticket de caisse avec toutes les informations extraites.  Consultez ici un [exemple de fichier de ticket de caisse](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) et sa sortie structurée dans l’[exemple de sortie de ticket de caisse](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
 Voici un exemple de réponse JSON correcte :
-* Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. 
+* Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels.
 * Le nœud `"documentResults"` contient les valeurs spécifiques de la carte de visite découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles comme le prénom, le nom, le nom de la société, etc.
 
 ```json
-{ 
+{
   "status":"succeeded",
   "createdDateTime":"2019-12-17T04:11:24Z",
   "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
-  "analyzeResult":{ 
+  "analyzeResult":{
     "version":"2.0.0",
-    "readResults":[ 
-      { 
+    "readResults":[
+      {
         "page":1,
         "angle":0.6893,
         "width":1688,
         "height":3000,
         "unit":"pixel",
         "language":"en",
-        "lines":[ 
-          { 
+        "lines":[
+          {
             "text":"Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               635,
               510,
               1086,
@@ -148,10 +149,10 @@ Voici un exemple de réponse JSON correcte :
               643,
               604
             ],
-            "words":[ 
-              { 
+            "words":[
+              {
                 "text":"Contoso",
-                "boundingBox":[ 
+                "boundingBox":[
                   639,
                   510,
                   1087,
@@ -169,24 +170,24 @@ Voici un exemple de réponse JSON correcte :
         ]
       }
     ],
-    "documentResults":[ 
-      { 
+    "documentResults":[
+      {
         "docType":"prebuilt:receipt",
-        "pageRange":[ 
+        "pageRange":[
           1,
           1
         ],
-        "fields":{ 
-          "ReceiptType":{ 
+        "fields":{
+          "ReceiptType":{
             "type":"string",
             "valueString":"Itemized",
             "confidence":0.692
           },
-          "MerchantName":{ 
+          "MerchantName":{
             "type":"string",
             "valueString":"Contoso Contoso",
             "text":"Contoso Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               378.2,
               292.4,
               1117.7,
@@ -198,16 +199,16 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.613,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/0/words/0",
               "#/readResults/0/lines/1/words/0"
             ]
           },
-          "MerchantAddress":{ 
+          "MerchantAddress":{
             "type":"string",
             "valueString":"123 Main Street Redmond, WA 98052",
             "text":"123 Main Street Redmond, WA 98052",
-            "boundingBox":[ 
+            "boundingBox":[
               302,
               675.8,
               848.1,
@@ -219,7 +220,7 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/2/words/0",
               "#/readResults/0/lines/2/words/1",
               "#/readResults/0/lines/2/words/2",
@@ -228,11 +229,11 @@ Voici un exemple de réponse JSON correcte :
               "#/readResults/0/lines/3/words/2"
             ]
           },
-          "MerchantPhoneNumber":{ 
+          "MerchantPhoneNumber":{
             "type":"phoneNumber",
             "valuePhoneNumber":"+19876543210",
             "text":"987-654-3210",
-            "boundingBox":[ 
+            "boundingBox":[
               278,
               1004,
               656.3,
@@ -244,15 +245,15 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/4/words/0"
             ]
           },
-          "TransactionDate":{ 
+          "TransactionDate":{
             "type":"date",
             "valueDate":"2019-06-10",
             "text":"6/10/2019",
-            "boundingBox":[ 
+            "boundingBox":[
               265.1,
               1228.4,
               525,
@@ -264,15 +265,15 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/5/words/0"
             ]
           },
-          "TransactionTime":{ 
+          "TransactionTime":{
             "type":"time",
             "valueTime":"13:59:00",
             "text":"13:59",
-            "boundingBox":[ 
+            "boundingBox":[
               541,
               1248,
               677.3,
@@ -284,20 +285,20 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.977,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/5/words/1"
             ]
           },
-          "Items":{ 
+          "Items":{
             "type":"array",
-            "valueArray":[ 
-              { 
+            "valueArray":[
+              {
                 "type":"object",
-                "valueObject":{ 
-                  "Quantity":{ 
+                "valueObject":{
+                  "Quantity":{
                     "type":"number",
                     "text":"1",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       245.1,
                       1581.5,
                       300.9,
@@ -309,15 +310,15 @@ Voici un exemple de réponse JSON correcte :
                     ],
                     "page":1,
                     "confidence":0.92,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/7/words/0"
                     ]
                   },
-                  "Name":{ 
+                  "Name":{
                     "type":"string",
                     "valueString":"Cappuccino",
                     "text":"Cappuccino",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       322,
                       1586,
                       654.2,
@@ -329,15 +330,15 @@ Voici un exemple de réponse JSON correcte :
                     ],
                     "page":1,
                     "confidence":0.923,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/7/words/1"
                     ]
                   },
-                  "TotalPrice":{ 
+                  "TotalPrice":{
                     "type":"number",
                     "valueNumber":2.2,
                     "text":"$2.20",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       1107.7,
                       1584,
                       1263,
@@ -349,7 +350,7 @@ Voici un exemple de réponse JSON correcte :
                     ],
                     "page":1,
                     "confidence":0.918,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/8/words/0"
                     ]
                   }
@@ -358,11 +359,11 @@ Voici un exemple de réponse JSON correcte :
               ...
             ]
           },
-          "Subtotal":{ 
+          "Subtotal":{
             "type":"number",
             "valueNumber":11.7,
             "text":"11.70",
-            "boundingBox":[ 
+            "boundingBox":[
               1146,
               2221,
               1297.3,
@@ -374,15 +375,15 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.955,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/13/words/1"
             ]
           },
-          "Tax":{ 
+          "Tax":{
             "type":"number",
             "valueNumber":1.17,
             "text":"1.17",
-            "boundingBox":[ 
+            "boundingBox":[
               1190,
               2359,
               1304,
@@ -394,15 +395,15 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.979,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/15/words/1"
             ]
           },
-          "Tip":{ 
+          "Tip":{
             "type":"number",
             "valueNumber":1.63,
             "text":"1.63",
-            "boundingBox":[ 
+            "boundingBox":[
               1094,
               2479,
               1267.7,
@@ -414,15 +415,15 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.941,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/17/words/1"
             ]
           },
-          "Total":{ 
+          "Total":{
             "type":"number",
             "valueNumber":14.5,
             "text":"$14.50",
-            "boundingBox":[ 
+            "boundingBox":[
               1034.2,
               2617,
               1387.5,
@@ -434,7 +435,7 @@ Voici un exemple de réponse JSON correcte :
             ],
             "page":1,
             "confidence":0.985,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/19/words/0"
             ]
           }
@@ -445,23 +446,23 @@ Voici un exemple de réponse JSON correcte :
 }
 ```
 
-## <a name="customer-scenarios"></a>Scénarios clients  
+## <a name="customer-scenarios"></a>Scénarios clients
 
 Les données extraites avec l’API Receipt peuvent être utilisées pour effectuer diverses tâches. Vous trouverez ci-dessous quelques exemples de ce que les clients ont accompli grâce à l’API Receipt.
 
-### <a name="business-expense-reporting"></a>Notes de frais professionnels  
+### <a name="business-expense-reporting"></a>Notes de frais professionnels
 
-Souvent, le classement des dépenses commerciales implique de consacrer du temps à la saisie manuelle de données à partir d’images de ticket de caisse. Avec l’API Receipt, vous pouvez utiliser les champs extraits pour automatiser partiellement ce processus et analyser rapidement vos tickets de caisse.  
+Souvent, le classement des dépenses commerciales implique de consacrer du temps à la saisie manuelle de données à partir d’images de ticket de caisse. Avec l’API Receipt, vous pouvez utiliser les champs extraits pour automatiser partiellement ce processus et analyser rapidement vos tickets de caisse.
 
-L’API Receipt est une simple sortie JSON qui vous permet d’utiliser les valeurs de champ extraites de plusieurs façons. Intégrez les applications de dépenses internes pour préremplir les notes de frais. Pour en savoir plus sur ce scénario, lisez comment Acumatica utilise l’API Receipt pour [faire de la déclaration de dépenses un processus moins fastidieux](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
+L’API Receipt est une simple sortie JSON qui vous permet d’utiliser les valeurs de champ extraites de plusieurs façons. Intégrez les applications de dépenses internes pour préremplir les notes de frais. Pour en savoir plus sur ce scénario, lisez comment Acumatica utilise l’API Receipt pour [faire de la déclaration de dépenses un processus moins fastidieux](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).
 
 ### <a name="auditing-and-accounting"></a>Audit et comptabilité
 
-La sortie de l’API Receipt peut également être utilisée pour effectuer une analyse sur un grand nombre de dépenses à différents stades de la note de frais et du processus de remboursement. Vous pouvez traiter les tickets de caisse pour les trier en vue d’un audit manuel ou d’approbations rapides.  
+La sortie de l’API Receipt peut également être utilisée pour effectuer une analyse sur un grand nombre de dépenses à différents stades de la note de frais et du processus de remboursement. Vous pouvez traiter les tickets de caisse pour les trier en vue d’un audit manuel ou d’approbations rapides.
 
 La sortie de Receipt est également utile pour la gestion générale des livres comptables pour une utilisation professionnelle ou personnelle. Utilisez l’API Receipt pour transformer toute image de réception brute/données PDF en une sortie numérique exploitable.
 
-### <a name="consumer-behavior"></a>Comportement du consommateur 
+### <a name="consumer-behavior"></a>Comportement du consommateur
 
 Les tickets de caisse contiennent des données utiles vous permettant d’analyser le comportement des consommateurs et les tendances d’achat.
 

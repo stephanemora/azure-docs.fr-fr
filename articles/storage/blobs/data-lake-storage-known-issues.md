@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: db55a29e53c53e26fbb04d96ddf1864946bafbfd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a7fb228763870792765c954589b347a18c560b5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581276"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758966"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -98,10 +98,6 @@ Le réglage du nombre de jours de rétention n’est pas encore pris en charge, 
 ## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Stratégies de gestion du cycle de vie avec niveau Premium pour Azure Data Lake Storage
 
 Il n’est pas possible de déplacer des données stockées dans le niveau Premium entre les niveaux chaud, froid et archive. Vous pouvez toutefois copier des données du niveau Premium vers le niveau d’accès chaud dans un autre compte.
-
-## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>Prise en charge Dremio avec des comptes de stockage BlockBlobStorage de niveau de performance Premium
-
-Dremio ne se connecte pas encore à un compte BlockBlobStorage sur lequel la fonctionnalité d’espace de noms hiérarchique est activée. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Pilote Windows Azure Storage Blob (WASB) (non pris en charge avec Data Lake Storage Gen2)
 

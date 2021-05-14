@@ -12,13 +12,21 @@
       href: quickstart-configure-route-server-powershell.md
     - name: Configurer un serveur de routage – CLI
       href: quickstart-configure-route-server-cli.md
+    - name: Configurer un serveur de routes - Modèle ARM
+      href: quickstart-configure-template.md
   expanded: true
+- name: Exemples
+  items:
+    - name: Modèles Resource Manager
+      href: resource-manager-template-samples.md
 - name: Concepts
   items:
     - name: Forum aux questions sur Route Server
       href: route-server-faq.md
     - name: Prise en charge d’ExpressRoute et de VPN Azure
       href: expressroute-vpn-support.md
+    - name: Réseau à double hébergement
+      href: about-dual-homed-network.md
 - name: Guides pratiques
   items:
     - name: Résoudre les problèmes liés à Route Server
@@ -38,7 +46,7 @@
     - name: Blog sur la mise en réseau
       href: 'https://azure.microsoft.com/blog/topics/networking/'
     - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/routeserver/'
+      href: 'https://azure.microsoft.com/pricing/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Mises à jour de service

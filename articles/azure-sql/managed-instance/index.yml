@@ -12,15 +12,21 @@ metadata:
   ms.author: sstein
   ms.reviewer: 
   ms.date: 05/27/2020
-  ms.openlocfilehash: 7d1b6f9f79226cac4e0956d551943e40ac178387
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: 28155337abbb777dad871253c0aa6ae8513178bb
+  ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101655868"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104589036"
 landingContent:
 - title: Azure SQL Managed Instance
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Nouveautés
+      url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: Vous souhaitez formuler des commentaires ? Répondez à l’enquête !
+      url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456
   - linkListType: quickstart
     links:
     - text: Créer une instance SQL Database Managed Instance
@@ -31,8 +37,6 @@ landingContent:
       url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61
   - linkListType: concept
     links:
-    - text: Nouveautés
-      url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
     - text: Qu’est-ce que SQL Managed Instance ?
       url: sql-managed-instance-paas-overview.md
     - text: Options d’achat

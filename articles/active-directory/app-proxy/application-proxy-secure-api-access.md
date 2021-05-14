@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6c7d617473f684317e5bb954c8ac82db24d4e4eb
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 660d76d03db3b3d918ad616da9d6ab7b4205860d
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481244"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108185947"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-active-directory-application-proxy"></a>Sécurisation de l’accès aux API locales avec le Proxy d’application Azure Active Directory
 
@@ -110,7 +110,7 @@ Pour inscrire l’application native AppProxyNativeAppSample :
 
    1. Sous **Nom**, entrez *AppProxyNativeAppSample*.
 
-   1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel**.
+   1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 
    1. Sous **URI de redirection**, dans la liste déroulante, sélectionnez **Client public (mobile et poste de travail)** , puis entrez *https://login.microsoftonline.com/common/oauth2/nativeclient* .
 

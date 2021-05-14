@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 23b7a66afcc91cf1cf4a5dd9f720aad24ad40071
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf6cde94374133e10b077ac799be0b85ae02bcb7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98133988"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773392"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Dépanner Azure Bastion
 
@@ -24,7 +24,7 @@ Cet article explique comment résoudre les problèmes liés à Azure Bastion.
 
 **R :** Si vous créez un groupe de sécurité réseau et l’appliquez à *AzureBastionSubnet*, vérifiez que vous avez ajouté les règles requises au groupe de sécurité réseau. Pour obtenir la liste des règles requises, consultez [Utiliser l’accès au groupe de sécurité réseau et Azure Bastion](./bastion-nsg.md). Si vous n’ajoutez pas ces règles, la création/mise à jour du groupe de sécurité réseau échouera.
 
-Un exemple de règles de groupe de sécurité réseau est disponible à des fins de référence dans le [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
+Un exemple de règles de groupe de sécurité réseau est disponible à des fins de référence dans le [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/101-azure-bastion-nsg/).
 Pour plus d’informations, consultez [Guide pour les groupes de sécurité réseau pour Azure Bastion](bastion-nsg.md).
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Impossible d’utiliser ma clé SSH avec Azure Bastion

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/22/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 18b23dc8b7ed8b074ac3afbc7d44e5d132a2ee58
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 80ea49436e9bfec5203f3a0493d441cfdbd1dbde
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890075"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755114"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement Python pour Azure Machine Learning
 
@@ -102,7 +102,7 @@ Pour configurer un environnement de développement local ou une machine virtuell
 1. Installez le [Kit SDK Python d’Azure Machine Learning](/python/api/overview/azure/ml/install).
 1. Pour configurer votre environnement local de sorte qu’il utilise votre espace de travail Azure Machine Learning, [créez un fichier de configuration d’espace de travail](#workspace) ou utilisez un fichier existant.
 
-Maintenant que votre environnement local est configuré, vous pouvez commencer à utiliser Azure Machine Learning. Pour commencer, consultez le [guide de prise en main d’Azure Machine Learning pour Python](tutorial-1st-experiment-sdk-setup-local.md).
+Maintenant que votre environnement local est configuré, vous pouvez commencer à utiliser Azure Machine Learning. Pour commencer, consultez le [guide de prise en main d’Azure Machine Learning pour Python](tutorial-1st-experiment-hello-world.md).
 
 ### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter Notebook
 
@@ -147,7 +147,7 @@ L’[instance de calcul](concept-compute-instance.md) Azure Machine Learning est
 
 Vous n’avez rien à installer ou à configurer pour une instance de calcul.  
 
-créez à tout moment depuis votre espace de travail Azure Machine Learning. Indiquez juste un nom et spécifiez un type de machine virtuelle Azure. Essayez dès maintenant avec ce [Didacticiel : Configurer l'environnement et l'espace de travail](tutorial-1st-experiment-sdk-setup.md).
+créez à tout moment depuis votre espace de travail Azure Machine Learning. Indiquez juste un nom et spécifiez un type de machine virtuelle Azure. Essayez dès maintenant avec ce [Didacticiel : Configurer l'environnement et l'espace de travail](quickstart-create-resources.md).
 
 Pour en savoir plus sur les instances de calcul, notamment sur la manière d’installer des packages, consultez [Créer et gérer une instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md).
 
@@ -179,7 +179,7 @@ Pour utiliser Data Science VM comme environnement de développement :
 
     * Utilisez le Portail Azure pour créer une DSVM [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) ou [Windows](data-science-virtual-machine/provision-vm.md).
     * [Créez une Data Science VM à l’aide de modèles ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
-    * Utilisation de l’interface de ligne de commande Microsoft Azure
+    * Utiliser Azure CLI
 
         Pour créer une Data Science VM Ubuntu, utilisez la commande suivante :
 
