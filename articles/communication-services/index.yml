@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Communication Services
-summary: Azure Communication Services est un service de communication basé sur le cloud qui vous permet d’ajouter des fonctionnalités vocales, vidéo, conversationnelles et de téléphonie à vos applications. Notez qu’Azure Communication Services est actuellement en préversion publique.
+summary: Azure Communication Services est un service de communication basé sur le cloud qui vous permet d’ajouter des fonctionnalités vocales, vidéo, conversationnelles et de téléphonie à vos applications.
 metadata:
   title: Azure Communication Services
-  description: Azure Communication Services est un service de communication basé sur le cloud qui vous permet d’ajouter des fonctionnalités vocales, vidéo, conversationnelles et de téléphonie à vos applications. Notez qu’Azure Communication Services est actuellement en préversion publique.
+  description: Azure Communication Services est un service de communication basé sur le cloud qui vous permet d’ajouter des fonctionnalités vocales, vidéo, conversationnelles et de téléphonie à vos applications.
   ms.service: azure-communication-services
   ms.topic: landing-page
   author: mikben
   ms.author: mikben
-  ms.date: 08/10/2020
-  ms.openlocfilehash: 4727e7ca3e0831483811c77be34e69f794cfb576
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 03/10/2021
+  ms.openlocfilehash: b68af98c5b55ddff605bb1c88274daf483f19f35
+  ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101690513"
+  ms.lasthandoff: 04/30/2021
+  ms.locfileid: "108288397"
 landingContent:
 - title: À propos d’Azure Communication Services
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Options de la bibliothèque de client
+    - text: Options du SDK
       url: concepts/sdk-options.md
     - text: Interopérabilité avec Teams
       url: concepts/teams-interop.md
@@ -43,22 +43,24 @@ landingContent:
     - text: Authentification et autorisation
       url: concepts/authentication.md
     - text: Gestion des événements
-      url: concepts/event-handling.md
+      url: ../event-grid/event-schema-communication-services.md
     - text: Notifications
       url: concepts/notifications.md
+    - text: Résolution des problèmes
+      url: concepts/troubleshooting-info.md
 - title: Appel vocal et appel vidéo
   linkLists:
   - linkListType: quickstart
     links:
     - text: Ajouter l’appel vocal et l’appel vidéo à votre application
       url: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - text: Utiliser la bibliothèque de client Appel
+    - text: Utiliser le SDK Calling
       url: quickstarts/voice-video-calling/calling-client-samples.md
   - linkListType: concept
     links:
-    - text: Concepts relatifs à la voix et à la vidéo
+    - text: Concepts vocaux et vidéo
       url: concepts/voice-video-calling/about-call-types.md
-    - text: Vue d’ensemble de la bibliothèque de client Appel
+    - text: Vue d’ensemble du kit SDK Appel
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Flux d’appels
       url: concepts/call-flows.md
@@ -76,12 +78,16 @@ landingContent:
     links:
     - text: Concepts relatifs au SMS
       url: concepts/telephony-sms/concepts.md
-    - text: Vue d’ensemble de la bibliothèque de client SMS
+    - text: Vue d’ensemble du kit SDK SMS
       url: concepts/telephony-sms/sdk-features.md
     - text: Vue d’ensemble de l’appel
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Types de numéro de téléphone
       url: concepts/telephony-sms/plan-solution.md
+  - linkListType: learn
+    links:
+    - text: Envoyer un SMS à l’aide de code C#
+      url: /learn/modules/communication-service-send-sms-console-app/
 - title: Conversation
   linkLists:
   - linkListType: quickstart
@@ -92,7 +98,7 @@ landingContent:
     links:
     - text: Concepts relatifs à la conversation
       url: concepts/chat/concepts.md
-    - text: Vue d’ensemble de la bibliothèque de client Conversation
+    - text: Vue d’ensemble du kit SDK Conversation
       url: concepts/chat/sdk-features.md
 - title: Exemples
   linkLists:

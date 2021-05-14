@@ -12,9 +12,9 @@
       href: ./samples/index.md
 - name: Concepts
   items:
-    - name: Gestion des ressources déléguées Azure
-      displayName: 'delegation, projection'
-      href: ./concepts/azure-delegated-resource-management.md
+    - name: Architecture
+      displayName: 'delegation, projection, resource, registration'
+      href: ./concepts/architecture.md
     - name: Expériences de la gestion multilocataire
       displayName: 'scenarios, supported, enhanced, services, limitations, current'
       href: ./concepts/cross-tenant-management-experience.md
@@ -59,7 +59,7 @@
           displayName: 'ARM, template, delegation, authorization, resource management'
           href: ./how-to/onboard-customer.md
         - name: Publier des offres de services managés sur la Place de marché Azure
-          displayName: 'managed services offer, azure marketplace, publish, marketplace'
+          displayName: 'managed services, azure marketplace, publish, marketplace'
           href: ./how-to/publish-managed-services-offers.md
         - name: Mettre à jour des délégations
           displayName: upgrade

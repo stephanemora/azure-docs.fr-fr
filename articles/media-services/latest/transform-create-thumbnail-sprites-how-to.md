@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 2/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3bbfd200dae6ee2cf724aaf4cccf9a6883075c68
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 138918b69582b85c9d59f87ac7f8dc181c56332f
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281328"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684916"
 ---
 # <a name="create-a-thumbnail-sprite-transform"></a>Créer une transformation de sprites de miniatures
 
@@ -37,7 +37,7 @@ Ajoutez les extraits de code pour votre langage de développement préféré.
 
 [!INCLUDE [code snippet for thumbnail sprites using REST](./includes/task-create-thumb-sprites-dotnet.md)]
 
-Consultez également la section sur la création d’un sprite de miniatures avec un [exemple d’encodage complet](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESCustomPresetAndSprite/Program.cs#L261-L287) dans les exemples Azure.
+Consultez également la section sur la création d’un sprite de miniatures avec un [exemple d’encodage complet](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/Encoding_SpriteThumbnail/Program.cs#L261-L287) dans les exemples Azure.
 
 ---
 

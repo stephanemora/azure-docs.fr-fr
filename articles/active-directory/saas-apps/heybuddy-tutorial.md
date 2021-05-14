@@ -11,39 +11,37 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 40c533874dcfb00384ae3ab604a3aef8b9c50fc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b10e91a29eeece8201fcf20c9c6d108de4a1897d
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98726113"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108801601"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-heybuddy"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec HeyBuddy
 
 Ce tutoriel explique comment intégrer HeyBuddy avec Azure Active Directory (Azure AD). Quand vous intégrez HeyBuddy avec Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à HeyBuddy.
-* Permettre à vos utilisateurs de se connecter automatiquement à HeyBuddy avec leur compte Azure AD.
-* Gérer vos comptes à un emplacement central : le Portail Azure.
-
+- Contrôler dans Azure AD qui a accès à HeyBuddy.
+- Permettre à vos utilisateurs de se connecter automatiquement à HeyBuddy avec leur compte Azure AD.
+- Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Abonnement HeyBuddy pour lequel l’authentification unique (SSO) est activée.
+- Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+- Abonnement HeyBuddy pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* HeyBuddy prend en charge l’authentification unique initiée par le **fournisseur de services**
-* HeyBuddy prend en charge l’approvisionnement d’utilisateur **juste-à-temps**.
+- HeyBuddy prend en charge l’authentification unique initiée par le **fournisseur de services**
+- HeyBuddy prend en charge l’approvisionnement d’utilisateur **juste-à-temps**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
-
 
 ## <a name="adding-heybuddy-from-the-gallery"></a>Ajout de HeyBuddy à partir de la galerie
 
@@ -56,7 +54,6 @@ Pour configurer l’intégration de HeyBuddy à Azure AD, vous devez ajouter Hey
 1. Dans la section **Ajouter à partir de la galerie**, tapez **HeyBuddy** dans la zone de recherche.
 1. Sélectionnez **HeyBuddy** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-heybuddy"></a>Configurer et tester l’authentification unique Azure AD pour HeyBuddy
 
 Configurez et testez l’authentification unique Azure AD avec HeyBuddy à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur HeyBuddy associé.
@@ -64,10 +61,10 @@ Configurez et testez l’authentification unique Azure AD avec HeyBuddy à l’
 Pour configurer et tester l’authentification unique Azure AD auprès de HeyBuddy, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+   1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+   1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique HeyBuddy](#configure-heybuddy-sso)** – pour configurer les paramètres d’authentification unique côté application.
-    1. **[Créer un utilisateur de test HeyBuddy](#create-heybuddy-test-user)** – pour avoir un équivalent de B.Simon dans HeyBuddy qui soit lié à la représentation Azure AD de l’utilisateur.
+   1. **[Créer un utilisateur de test HeyBuddy](#create-heybuddy-test-user)** – pour avoir un équivalent de B.Simon dans HeyBuddy qui soit lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -82,28 +79,28 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://api.heybuddy.com/auth/<ENTITY ID>`
+   a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://api.heybuddy.com/auth/<ENTITY ID>`
 
-    > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Dans l’URL de connexion, l’`Entity ID` est généré automatiquement pour chaque organisation. Pour obtenir ces valeurs, contactez l’[équipe de support aux clients HeyBuddy](mailto:support@heybuddy.com).
+   > [!NOTE]
+   > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Dans l’URL de connexion, l’`Entity ID` est généré automatiquement pour chaque organisation. Pour obtenir ces valeurs, contactez l’[équipe de support aux clients HeyBuddy](mailto:support@heybuddy.com).
 
 1. L’application HeyBuddy attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/edit-attribute.png)
+   ![image](common/edit-attribute.png)
 
 1. En plus de ce qui précède, l’application EZOfficeInventory s’attend à ce que quelques attributs supplémentaires, indiqués ci-après, soient passés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-    | Nom |  Attribut source|
-    | -------- | --------- |
-    | Rôles  | user.assignedroles |
-    | | |
-    
-    > [!NOTE]
-    > Pour plus d’informations sur la configuration des rôles d’une application, cliquez sur [ce lien](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+   | Nom  | Attribut source   |
+   | ----- | ------------------ |
+   | Rôles | user.assignedroles |
+   |       |                    |
+
+   > [!NOTE]
+   > Pour plus d’informations sur la configuration des rôles d’une application, cliquez sur [ce lien](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+   ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -112,7 +109,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom**, entrez `B.Simon`.
    1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
@@ -140,16 +137,15 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans HeyBuddy
 > [!Note]
 > Si vous devez créer un utilisateur manuellement, contactez l’[équipe de support HeyBuddy](mailto:support@heybuddy.com).
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à HeyBuddy, à partir de laquelle vous pouvez lancer le flux de connexion. 
+- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à HeyBuddy, à partir de laquelle vous pouvez lancer le flux de connexion.
 
-* Accédez directement à l’URL de connexion à HeyBuddy pour y lancer le processus de connexion.
+- Accédez directement à l’URL de connexion à HeyBuddy pour y lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette HeyBuddy dans Mes applications vous redirige vers l’URL de connexion à HeyBuddy. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
+- Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette HeyBuddy dans Mes applications vous redirige vers l’URL de connexion à HeyBuddy. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

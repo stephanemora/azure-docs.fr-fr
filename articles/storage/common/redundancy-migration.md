@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb8bbf852803df53c43cef90bd2229bfcddd60d4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 222518f21cb9940efd4fbf266b9248e4b0414f43
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766184"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316319"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -62,10 +62,10 @@ La modification du mode de réplication de votre compte de stockage n’entraîn
 Pour modifier l’option de redondance de votre compte de stockage dans le Portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage dans le portail Azure.
-1. Sélectionnez le paramètre **Configuration**.
+1. Sous **Paramètres**, sélectionnez **Configuration**.
 1. Mettez à jour le paramètre **Réplication**.
 
-![Capture d’écran montrant comment modifier l’option de réplication dans le portail](media/redundancy-migration/change-replication-option.png)
+    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Capture d’écran montrant comment modifier l’option de réplication sur le portail." lightbox="media/redundancy-migration/change-replication-option.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

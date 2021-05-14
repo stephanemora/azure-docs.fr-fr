@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c20974513d5e52661fed16f671ca672950c054
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028860"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331787"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -351,6 +351,7 @@ function updateMetadataCallback(err, items, responseOptions) {
         if(!accept) throw "Unable to update metadata, abort";
         return;
 }
+}
 ```
 
 Un élément important à noter est l’exécution transactionnelle des déclencheurs dans Azure Cosmos DB. Le post-déclencheur s’exécute dans le cadre de la même transaction pour l’élément sous-jacent lui-même. Une exception pendant l’exécution du post-déclencheur fait échouer toute la transaction. Tout ce qui est déjà validé est annulé et une exception est retournée.
@@ -388,16 +389,29 @@ function tax(income) {
 
 Pour des exemples d’inscription et d’utilisation d’une fonction définie par l’utilisateur, consultez l’article [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) (Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB).
 
-## <a name="logging"></a>Journalisation 
+## <a name="logging"></a>Journalisation
 
-Lorsque vous utilisez une procédure stockée, des déclencheurs ou des fonctions définies par l’utilisateur, vous pouvez journaliser les étapes à l’aide de la commande `console.log()`. Cette commande concentre une chaîne à des fins de débogage lorsque `EnableScriptLogging` a la valeur true, comme indiqué dans l’exemple suivant :
+Lorsque vous utilisez une procédure stockée, des déclencheurs ou des fonctions définies par l’utilisateur, vous pouvez consigner les étapes en activant la journalisation du script. Une chaîne de débogage est générée lorsque `EnableScriptLogging` a la valeur true, comme dans les exemples suivants :
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
+let requestOptions = { enableScriptLogging: true };
+const { resource: result, headers: responseHeaders} await container.scripts
+      .storedProcedure(Sproc.id)
+      .execute(undefined, [], requestOptions);
+console.log(responseHeaders[Constants.HttpHeaders.ScriptLogResults]);
+```
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+```csharp
 var response = await client.ExecuteStoredProcedureAsync(
 document.SelfLink,
 new RequestOptions { EnableScriptLogging = true } );
 Console.WriteLine(response.ScriptLog);
 ```
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,16 +7,14 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6032300bd203db78e8cd147cf79300d6dcd9b1dc
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 87f188b414791636e147a19202b6fcf314d6f307
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751685"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683644"
 ---
 # <a name="transform-data-for-iot-central"></a>Transformation de données pour IoT Central
-
-*Cette rubrique s’applique aux créateurs de solutions.*
 
 Les appareils IoT envoient des données dans différents formats. Pour utiliser les données d’appareil avec votre application IoT Central, vous devrez peut-être utiliser une transformation pour :
 
@@ -41,9 +39,9 @@ Le tableau suivant présente trois exemples de types de transformation :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer les étapes de cet article, vous avez besoin d’un compte Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Pour suivre les étapes décrites dans ce guide pratique, vous devez disposer des éléments suivants :
 
-Pour configurer la solution, vous avez besoin d’une application IoT Central. Pour savoir comment créer une application IoT Central, consultez [Créer une application Azure IoT Central](quick-deploy-iot-central.md).
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## <a name="data-transformation-at-ingress"></a>Transformation des données à l’entrée
 
@@ -87,6 +85,8 @@ Vous souhaitez utiliser un module IoT Edge pour transformer les données au form
   }
 }
 ```
+
+[![Parcourir le code](media/common/browse-code.svg)](https://github.com/iot-for-all/iot-central-transform-with-iot-edge)
 
 Les étapes suivantes vous montrent comment préparer et configurer ce scénario :
 

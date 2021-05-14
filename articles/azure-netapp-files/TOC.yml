@@ -77,15 +77,17 @@
       href: azure-netapp-files-register.md
     - name: Créer un compte NetApp
       href: azure-netapp-files-create-netapp-account.md
-    - name: Configurer un pool de capacité
-      href: azure-netapp-files-set-up-capacity-pool.md
-    - name: Gérer un pool de capacités de QoS manuel
-      href: manage-manual-qos-capacity-pool.md
+    - name: Créer et gérer des pools de capacité
+      items:
+        - name: Configurer un pool de capacité
+          href: azure-netapp-files-set-up-capacity-pool.md
+        - name: Gérer un pool de capacités de QoS manuel
+          href: manage-manual-qos-capacity-pool.md
     - name: Déléguer un sous-réseau à Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
     - name: Créer et gérer des connexions Active Directory
       href: create-active-directory-connections.md
-    - name: Créer et gérer un volume NFS
+    - name: Créer et gérer des volumes NFS
       items:
         - name: Créer un volume NFS
           href: azure-netapp-files-create-volumes.md
@@ -97,8 +99,12 @@
           href: configure-ldap-extended-groups.md
         - name: Configurer un client NFS pour Azure NetApp Files
           href: configure-nfs-clients.md
-    - name: Créer un volume SMB
-      href: azure-netapp-files-create-volumes-smb.md
+    - name: Créer et gérer des volumes SMB
+      items:
+        - name: Créer un volume SMB
+          href: azure-netapp-files-create-volumes-smb.md
+        - name: Convertir des volumes SMB existants pour utiliser la disponibilité continue
+          href: convert-smb-continuous-availability.md
     - name: Créer un volume à deux protocoles
       href: create-volumes-dual-protocol.md
     - name: Configurer ADDS LDAP sur TLS
@@ -111,7 +117,7 @@
       href: azure-netapp-files-manage-snapshots.md
     - name: Redimensionner un pool de capacités ou un volume
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-    - name: Superviser la capacité d’un volume
+    - name: Surveiller la capacité d'un volume
       href: monitor-volume-capacity.md
     - name: Changer dynamiquement le niveau de service d’un volume
       href: dynamic-change-volume-service-level.md
