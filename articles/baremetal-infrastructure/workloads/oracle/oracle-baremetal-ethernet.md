@@ -4,12 +4,12 @@ description: En savoir plus sur la configuration des interfaces Ethernet sur les
 ms.topic: reference
 ms.subservice: workloads
 ms.date: 04/14/2021
-ms.openlocfilehash: c57cbc86d17090d6960a334c2790d80b43420aca
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: c381d06c5f152ef1bfecfb76747bf26dbb24f06e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588885"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516954"
 ---
 # <a name="ethernet-configuration-of-baremetal-for-oracle"></a>Configuration Ethernet de BareMetal pour Oracle
 
@@ -58,7 +58,7 @@ Pour les instances BareMetal, la valeur par défaut aura neuf adresses IP affect
 - L’adresse IP attribuée à « Ethernet C » doit être utilisée pour la communication à NFS. Ce type d’adresse ne doit pas être conservé dans le répertoire etc/hosts.
 - Ethernet « D » doit être utilisé exclusivement pour la configuration de la portée mondiale en vue d’accéder aux instances BareMetal dans votre région de récupération d’urgence.
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur BareMetal Infrastructure pour l’architecture Oracle.
 

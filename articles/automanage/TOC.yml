@@ -1,4 +1,4 @@
-- name: Azure Automanage
+- name: Azure Automanage (préversion)
   href: automanage-virtual-machines.md
 - name: Démarrages rapides
   expanded: true
@@ -15,6 +15,8 @@
       items:
         - name: Hotpatch pour les nouvelles machines virtuelles
           href: automanage-hotpatch.md
+    - name: Compte Automanage
+      href: automanage-account.md
 - name: Guides pratiques
   expanded: true
   items:
@@ -22,6 +24,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Activer sur des machines virtuelles par le biais d’Azure Policy
       href: virtual-machines-policy-enable.md
+    - name: Activer sur des machines virtuelles par le biais d’un modèle ARM
+      href: arm-deploy.md
     - name: Résoudre les problèmes d’erreurs d’intégration
       href: common-errors.md
     - name: Réparer un compte Automanage endommagé

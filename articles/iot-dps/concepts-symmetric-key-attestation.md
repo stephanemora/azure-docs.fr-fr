@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0455fe634b44465b4b16d48145fcf51f733f121d
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 32ad3bb4f9a845ded60694d42d0b2708a61aea6a
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107929360"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483296"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation de clé symétrique
 
@@ -37,7 +37,7 @@ Vous pouvez également fournir vos propres clés symétriques pour les inscripti
 
 ## <a name="detailed-attestation-process"></a>Processus d’attestation détaillé
 
-L’attestation de clé symétrique avec le service Device Provisioning est effectuée en utilisant les mêmes [jetons de sécurité](../iot-hub/iot-hub-devguide-security.md#security-token-structure) que ceux pris en charge par les hubs IoT pour identifier les appareils. Ces jetons de sécurité sont [des jetons de signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md). 
+L’attestation de clé symétrique avec le service Device Provisioning est effectuée en utilisant les mêmes [jetons de sécurité](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure) que ceux pris en charge par les hubs IoT pour identifier les appareils. Ces jetons de sécurité sont [des jetons de signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md). 
 
 Les jetons SAP ont une *signature* hachée créée en utilisant la clé symétrique. La signature est recréée par le service Device Provisioning pour vérifier si un jeton de sécurité présenté lors de l’attestation est authentique ou non.
 
@@ -57,7 +57,7 @@ Voici les composants de chaque jeton :
 
 Quand un appareil atteste avec une inscription individuelle, il utilise la clé symétrique définie dans l’entrée d’inscription individuelle pour créer la signature hachée pour le jeton SAP.
 
-Pour obtenir des exemples de code qui créent un jeton SAP, consultez [Jetons de sécurité](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
+Pour obtenir des exemples de code qui créent un jeton SAP, consultez [Jetons de sécurité](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
 La création de jetons de sécurité pour l’attestation de clé symétrique est prise en charge par le SDK C d’Azure IoT. Pour obtenir un exemple utilisant le SDK C d’Azure IoT pour attester avec une inscription individuelle, consultez [Provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md).
 

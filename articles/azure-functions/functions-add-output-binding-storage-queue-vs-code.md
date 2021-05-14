@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 96384d2c50e7d5b4b5b6e652d01c4a89cd519573
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 785ed0ee38e27087750542c0719ab9e85ecd00ed
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493376"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516665"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Connecter Azure Functions à Stockage Azure avec Visual Studio Code
 
@@ -172,7 +172,7 @@ Dans la mesure où vous utilisez la chaîne de connexion de stockage, votre fonc
 
 Ignorez cette section si vous avez déjà installé l’Explorateur Stockage Azure et si vous l’avez connecté à votre compte Azure.
 
-1. Exécutez l’outil [Explorateur Stockage Azure], sélectionnez l’icône de connexion sur la gauche, puis sélectionnez **Ajouter un compte**.
+1. Exécutez l’outil [Explorateur Stockage Azure](https://storageexplorer.com/), sélectionnez l’icône de connexion sur la gauche, puis **Ajouter un compte**.
 
     ![Ajouter un compte Azure à l’Explorateur Stockage Microsoft Azure](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 

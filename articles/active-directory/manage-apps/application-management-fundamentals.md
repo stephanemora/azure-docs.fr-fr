@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c895d77b9c6ab48c60b7a337dd8c44414d8d9b5
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e9f77ff371bfb53cff08d860be6cc0160debe491
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318510"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765986"
 ---
 # <a name="application-management-best-practices"></a>Bonnes pratiques relatives à la gestion des applications
 
@@ -55,4 +55,3 @@ Cet article contient des recommandations et des bonnes pratiques pour la gestion
 | Localiser les serveurs de connecteur à proximité des serveurs d’applications et s’assurer qu’ils se trouvent dans le même domaine | Pour optimiser les performances, placez physiquement le serveur de connecteur à proximité des serveurs d’applications (voir [Considérations sur la topologie réseau](../app-proxy/application-proxy-network-topology.md)). De plus, le serveur de connecteur et les serveurs d’applications web doivent appartenir au même domaine Active Directory, ou couvrir des domaines autorisés. Cette configuration est exigée pour l’authentification unique avec l’authentification Windows intégrée (IWA) et la délégation Kerberos contrainte (KCD). Si les serveurs se trouvent dans des domaines différents, vous devez utiliser la délégation basée sur les ressources pour l’authentification unique (voir [KCD pour l’authentification unique avec Proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)). |
 | Activer les mises à jour automatiques pour les connecteurs | Activez les mises à jour automatiques de vos connecteurs pour les fonctionnalités et résolutions de bogues les plus récentes. Microsoft fournit une prise en charge directe de la version la plus récente du connecteur et de la version précédente. (Voir [Historique des versions Proxy d’application](../app-proxy/application-proxy-release-version-history.md).) |
 | Ignorer votre proxy local | Pour faciliter la maintenance, configurez le connecteur de manière à ce qu’il contourne votre proxy local et se connecte ainsi directement aux services Azure. (Voir [Connecteurs de Proxy d’application et serveurs proxy](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md).) |
-| Utiliser Proxy d’application Azure AD sur Proxy d’application web | Utilisez Proxy d’application Azure AD pour la plupart des scénarios locaux. Proxy d’application web est préférable uniquement dans les scénarios qui demandent un serveur proxy pour AD FS, et dans lesquels vous ne pouvez pas utiliser de domaines personnalisés dans Azure Active Directory. (Voir [Migration de Proxy d’application](../app-proxy/application-proxy-migration.md).) |

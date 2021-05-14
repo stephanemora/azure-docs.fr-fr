@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 3a70c11fd4f2a0549370933c300f431a03ffcf1d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 93fd6528799b6a96aba226ac0841ec4d96eff717
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061296"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713159"
 ---
 # <a name="403006-devicemaximumactivefileuploadlimitexceeded"></a>403006 DeviceMaximumActiveFileUploadLimitExceeded
 
@@ -31,7 +31,7 @@ Vous pouvez facilement dépasser la limite si votre appareil ne signale pas à I
 
 ## <a name="solution"></a>Solution
 
-Assurez-vous que l’appareil peut rapidement [signaler à IoT Hub l’achèvement des chargements de fichiers](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload). Ensuite, essayez de [réduire la durée de vie du jeton SAP pour la configuration du chargement de fichiers](iot-hub-configure-file-upload.md).
+Assurez-vous que l’appareil peut rapidement [signaler à IoT Hub l’achèvement des chargements de fichiers](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload-rest). Ensuite, essayez de [réduire la durée de vie du jeton SAP pour la configuration du chargement de fichiers](iot-hub-configure-file-upload.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

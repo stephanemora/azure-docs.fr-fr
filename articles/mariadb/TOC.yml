@@ -145,7 +145,7 @@
     - name: Présentation de la sécurité
       href: concepts-security.md
     - name: Base de référence de la sécurité
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/mariadb-security-baseline?toc=/azure/mariadb/TOC.json
     - name: Contrôles de sécurité par Azure Policy
       displayName: 'regulatory, compliance, standards, domains'
       href: ./security-controls-policy.md
@@ -183,6 +183,9 @@
           href: howto-restore-server-cli.md
         - name: Azure PowerShell
           href: howto-restore-server-powershell.md
+    - name: Restaurer un serveur supprimé
+      href: howto-restore-dropped-server.md
+      displayName: 'restore server,dropped, deleted, recover'
 - name: Surveiller et régler
   items:
     - name: Concepts
@@ -201,6 +204,8 @@
       href: concepts-query-performance-insight.md
     - name: Recommandations sur les performances
       href: concepts-performance-recommendations.md
+    - name: Recommandations Azure Advisor
+      href: concepts-azure-advisor-recommendations.md
 - name: Réplication
   items:
     - name: Réplication de données entrantes

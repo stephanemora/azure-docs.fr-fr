@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 597bcf9d7654b88cb4a3f9b7df32ea1c7b770da2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010694"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109508456"
 ---
 Cet article fournit davantage de détails sur la sécurisation de l’infrastructure Internet des objets (IoT) basée sur Azure IoT. Il est lié à la procédure au niveau de l’implémentation pour la configuration et le déploiement de chaque composant. Il fournit également des comparaisons et des choix entre les différentes méthodes.
 
@@ -43,13 +43,13 @@ IoT Hub utilise des jetons de sécurité pour authentifier les appareils et les 
 
 Vous trouverez plus d’informations sur la structure du jeton de sécurité et son utilisation dans les articles suivants :
 
-* [Structure du jeton de sécurité](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
+* [Structure du jeton de sécurité](../articles/iot-hub/iot-hub-dev-guide-sas.md#security-token-structure)
 
-* [Utilisation de jetons SAP comme appareil](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
+* [Utilisation de jetons SAP comme appareil](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device)
 
 Chaque IoT Hub dispose d’un [registre d’identité](../articles/iot-hub/iot-hub-devguide-identity-registry.md) servant à créer des ressources par appareil dans le service, par exemple, une file d’attente contenant des messages actuels envoyés du cloud vers l’appareil. En outre, il autorise l’accès aux points de terminaison des appareils. Le registre des identités IoT Hub stocke de manière sécurisée les identités des appareils et les clés de sécurité d’une solution. Des identités d’appareil peuvent être ajoutées à une liste verte ou une liste rouge, individuellement ou en groupe, permettant un contrôle total de l’accès à l’appareil. Les articles suivants fournissent plus de détails sur la structure du registre d’identité et les opérations prises en charge.
 
-[IoT Hub prend en charge les protocoles tels que MQTT, AMQP, and HTTP](../articles//iot-hub/iot-hub-devguide-security.md). Chacun de ces protocoles utilise des jetons de sécurité à partir de l’appareil IoT vers IoT Hub différemment :
+[IoT Hub prend en charge les protocoles tels que MQTT, AMQP, and HTTP](../articles//iot-hub/iot-hub-dev-guide-sas.md). Chacun de ces protocoles utilise des jetons de sécurité à partir de l’appareil IoT vers IoT Hub différemment :
 
 * AMQP : sécurité basée sur des revendications AMQP et SASL PLAIN (`{policyName}@sas.root.{iothubName}` avec des jetons au niveau d’IoT Hub ; `{deviceId}` dans le cas de jetons à l’échelle de l’appareil).
 
@@ -57,11 +57,11 @@ Chaque IoT Hub dispose d’un [registre d’identité](../articles/iot-hub/iot-
 
 * HTTP : le jeton valide se trouve dans l’en-tête de la requête d’autorisation.
 
-Vous pouvez utiliser le registre d’identité IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil. Cependant, si une solution IoT représente déjà un investissement significatif dans un [registre d’identité des appareils personnalisé et/ou un schéma d’authentification](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), vous pouvez intégrer cette infrastructure existante à IoT Hub en créant un service de jeton.
+Vous pouvez utiliser le registre d’identité IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil. Cependant, si une solution IoT représente déjà un investissement significatif dans un [registre d’identité des appareils personnalisé et/ou un schéma d’authentification](../articles/iot-hub/iot-hub-dev-guide-sas.md#create-a-token-service-to-integrate-existing-devices), vous pouvez intégrer cette infrastructure existante à IoT Hub en créant un service de jeton.
 
 ### <a name="x509-certificate-based-device-authentication"></a>Authentification des appareils basée sur un certificat X.509
 
-L’utilisation d’un [certificat X.509 basé sur un appareil](../articles/iot-hub/iot-hub-devguide-security.md) et sa paire de clés privée et publique associée permet d’obtenir une authentification supplémentaire au niveau de la couche physique. La clé privée est stockée en toute sécurité dans l’appareil et n’est pas détectable en dehors de l’appareil. Le certificat X.509 contient des informations sur l’appareil, telles que l’identifiant de l’appareil et d’autres détails organisationnels. Une signature du certificat est générée à l’aide de la clé privée.
+L’utilisation d’un [certificat X.509 basé sur un appareil](../articles/iot-hub/iot-hub-dev-guide-sas.md) et sa paire de clés privée et publique associée permet d’obtenir une authentification supplémentaire au niveau de la couche physique. La clé privée est stockée en toute sécurité dans l’appareil et n’est pas détectable en dehors de l’appareil. Le certificat X.509 contient des informations sur l’appareil, telles que l’identifiant de l’appareil et d’autres détails organisationnels. Une signature du certificat est générée à l’aide de la clé privée.
 
 Flux d’approvisionnement des appareils de haut niveau :
 
@@ -81,7 +81,7 @@ La connexion Internet entre l’appareil IoT et IoT Hub est sécurisée à l’a
 
 ## <a name="securing-the-cloud"></a>Sécurisation du cloud
 
-Azure IoT Hub permet la définition de [stratégies de contrôle d’accès](../articles/iot-hub/iot-hub-devguide-security.md) pour chaque clé de sécurité. Azure IoT Hub utilise l’ensemble d’autorisations qui suit pour accorder l’accès à chaque point de terminaison IoT Hub. Les autorisations limitent l’accès à un hub IoT selon les fonctionnalités.
+Azure IoT Hub permet la définition de [stratégies de contrôle d’accès](../articles/iot-hub/iot-hub-dev-guide-sas.md) pour chaque clé de sécurité. Azure IoT Hub utilise l’ensemble d’autorisations qui suit pour accorder l’accès à chaque point de terminaison IoT Hub. Les autorisations limitent l’accès à un hub IoT selon les fonctionnalités.
 
 * **RegistryRead**. Accorde l’accès en lecture au registre des identités. Pour plus d’informations, consultez [Registre des identités](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
@@ -91,9 +91,9 @@ Azure IoT Hub permet la définition de [stratégies de contrôle d’accès](../
 
 * **DeviceConnect**. Accorde l’accès aux points de terminaison côté appareil. Par exemple, elle permet d’envoyer des messages appareil-à-cloud et de recevoir des messages cloud-à-appareil. Cette autorisation est utilisée par les appareils.
 
-Il existe deux façons d’obtenir des autorisations **DeviceConnect** avec IoT Hub avec [jetons de sécurité](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app) : avec une clé d’identité d’appareil ou une clé d’accès partagé. En outre, il est important de noter que toutes les fonctionnalités accessibles à partir des appareils sont exposées dès le départ sur les points de terminaison avec le préfixe `/devices/{deviceId}`.
+Il existe deux façons d’obtenir des autorisations **DeviceConnect** avec IoT Hub avec [jetons de sécurité](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device) : avec une clé d’identité d’appareil ou une clé d’accès partagé. En outre, il est important de noter que toutes les fonctionnalités accessibles à partir des appareils sont exposées dès le départ sur les points de terminaison avec le préfixe `/devices/{deviceId}`.
 
-Les [composants de service peuvent uniquement créer des jetons de sécurité](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components) utilisant des stratégies d’accès partagé pour accorder les autorisations adaptées.
+Les [composants de service peuvent uniquement créer des jetons de sécurité](../articles/iot-hub/iot-hub-dev-guide-sas.md#use-security-tokens-from-service-components) utilisant des stratégies d’accès partagé pour accorder les autorisations adaptées.
 
 Azure IoT Hub et d’autres services pouvant faire partie de la solution autorisent la gestion des utilisateurs à l’aide d’Azure Active Directory.
 

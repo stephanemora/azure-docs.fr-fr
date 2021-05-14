@@ -9,12 +9,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 04/15/2021
   ms.author: banders
-  ms.openlocfilehash: e96ba3c42ddce1ed12ad560b2d73b99a35c61f8b
-  ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+  ms.openlocfilehash: 4d56dcf2d6aed950723170f542a45f5ab5a9e405
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/19/2021
-  ms.locfileid: "107730686"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108765608"
 title: Questions fréquentes (FAQ) sur Azure Cost Management + Billing
 summary: ''
 sections:
@@ -95,10 +95,10 @@ sections:
       Oui, vous utilisez [Power BI Desktop pour vous connecter à des données Cost Management](/power-bi/connect-data/desktop-connect-azure-cost-management) ou vous pouvez utiliser l’[application Power BI Cost Management pour les EA](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
   - question: Quels sont les types d’offres pris en charge dans Cost Management ?
     answer: >
-      Consultez [Offres Microsoft Azure prises en charge](/costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
+      Consultez [Offres Microsoft Azure prises en charge](/azure/cost-management-billing/costs/understand-cost-mgt-data#supported-microsoft-azure-offers).
   - question: Quand pourrai-je voir mes données d’utilisation et de coût dans Azure Cost Management ?
     answer: >
-      Consultez [Mises à jour et conservation des données de coût et d’utilisation](/costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
+      Consultez [Mises à jour et conservation des données de coût et d’utilisation](/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention).
   - question: Puis-je trouver toutes mes informations sur les coûts dans Azure Cost Management ?
     answer: >
       Consultez [Coûts inclus dans Cost Management](costs/understand-cost-mgt-data.md#costs-included-in-cost-management).
@@ -140,7 +140,7 @@ sections:
     answer: >
       Il existe deux façons d’afficher vos économies.
 
-      -  Si vous êtes client EA, vous pouvez utiliser l’application Power BI Azure Cost Management pour EA pour consulter le [rapport d’économie RI](/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md).
+      -  Si vous êtes client EA, vous pouvez utiliser l’application Power BI Azure Cost Management pour EA pour consulter le [rapport d’économie RI](/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md).
 
       -  Utilisez le fichier de données Utilisation + frais pour [déterminer](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings) manuellement les économies liées aux réservations.
   - question: Comment identifier une sous-utilisation d’une réservation ?
@@ -151,7 +151,7 @@ sections:
       Consultez [Rétrofacturation des coûts Azure Reservations](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json).
   - question: Comment afficher les frais engagés pour les machines virtuelles Spot ?
     answer: >
-      Consultez [Voir les frais associés aux machines virtuelles Spot](/costs/cost-analysis-common-uses.md#view-your-spot-vm-charges).
+      Consultez [Voir les frais associés aux machines virtuelles Spot](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-your-spot-vm-charges).
   - question: Comment obtenir un rapport des détails d’une réservation ?
     answer: >
       Lisez la documentation de l’API pour [générer un rapport des détails d’une réservation](/rest/api/cost-management/generatereservationdetailsreport).

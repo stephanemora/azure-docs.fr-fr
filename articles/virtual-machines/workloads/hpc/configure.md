@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 486bb13b1603f239d04d8805020713aaf3a7333f
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 7269309a3ed682da4d67e2509508276a3133601e
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227773"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516863"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurer et optimiser les machines virtuelles
 
@@ -48,7 +48,7 @@ Notez également que toutes les tailles de machine virtuelle ci-dessus prennent 
 
 #### <a name="sr-iov-enabled-vms"></a>Machines virtuelles compatibles SR-IOV
 Pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances), des images de machine virtuelle CentOS-HPC versions 7.6 et ultérieures conviennent. Ces images de machine virtuelle sont optimisées et préchargées avec les pilotes Mellanox OFED pour RDMA, ainsi que les diverses bibliothèques MPI et différents packages de calcul scientifique couramment utilisés.
-- Les versions disponibles ou les plus récentes des images de machine virtuelle peuvent être répertoriées avec les informations suivantes à l’aide de [CLI](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list) ou de [Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
+- Les versions disponibles ou les plus récentes des images de machine virtuelle peuvent être répertoriées avec les informations suivantes à l’aide de [CLI](/cli/azure/vm/image#az_vm_image_list) ou de [Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
    "offer": "CentOS-HPC",
@@ -73,7 +73,7 @@ Pour [les machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-
 
 ### <a name="ubuntu-hpc-vm-images"></a>Images de machine virtuelle Ubuntu-HPC
 Pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances) avec SR-IOV, des images de machine virtuelle Ubuntu-HPC versions 18.04 et ultérieures conviennent. Ces images de machine virtuelle sont optimisées et préchargées avec les pilotes Mellanox OFED pour RDMA, les pilotes GPU de Nvidia, la pile logicielle de calcul GPU (CUDA, NCCL) et les diverses bibliothèques MPI et les différents packages de calcul scientifique couramment utilisés.
-- Les versions disponibles ou les plus récentes des images de machine virtuelle peuvent être répertoriées avec les informations suivantes à l’aide de [CLI](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list) ou de [Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
+- Les versions disponibles ou les plus récentes des images de machine virtuelle peuvent être répertoriées avec les informations suivantes à l’aide de [CLI](/cli/azure/vm/image#az_vm_image_list) ou de [Place de marché](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",
    "offer": "Ubuntu-HPC",
