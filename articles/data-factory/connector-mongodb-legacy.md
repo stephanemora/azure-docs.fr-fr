@@ -1,18 +1,18 @@
 ---
 title: Copier des données à partir de MongoDB
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory hérité pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: e13a1a5a939d314bdf4500c0827fa13201505016
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4882949abd21e782d98dff8de2ba7be1b66ecdfb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368844"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482180"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copier des données à partir de MongoDB à l’aide d’Azure Data Factory (hérité)
 
@@ -37,13 +37,13 @@ Plus précisément, ce connecteur MongoDB prend en charge :
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 Le runtime d’intégration fournit un pilote MongoDB intégré, ce qui évite d’avoir à en installer un manuellement lors de la copie des données issues de MongoDB.
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur MongoDB.
 

@@ -11,33 +11,33 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 3339516193af6e1ff832ac586f4a81f8799c5b83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44ea8afcb42365b2b01d81674d0f76781cca0ea9
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98727675"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108801727"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-count-me-in---operations-dashboard"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Count Me In - Operations Dashboard
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Count Me In - Operations Dashboard à Azure Active Directory (Azure AD). Quand vous intégrez Count Me In - Operations Dashboard à Azure AD, vous pouvez :
 
-* Contrôler qui dans Azure AD a accès à Count Me In - Operations Dashboard
-* Autoriser les utilisateurs à se connecter automatiquement à Count Me In - Operations Dashboard avec leur compte Azure AD
-* Gérer vos comptes à un emplacement central : le Portail Azure.
+- Contrôler qui dans Azure AD a accès à Count Me In - Operations Dashboard
+- Autoriser les utilisateurs à se connecter automatiquement à Count Me In - Operations Dashboard avec leur compte Azure AD
+- Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement Count Me In - Operations Dashboard pour lequel l’authentification unique (SSO) est activée
+- Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+- Un abonnement Count Me In - Operations Dashboard pour lequel l’authentification unique (SSO) est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Count Me In - Operations Dashboard prend en charge l’authentification unique lancée par le **fournisseur de services**
+- Count Me In - Operations Dashboard prend en charge l’authentification unique lancée par le **fournisseur de services**
 
 ## <a name="adding-count-me-in---operations-dashboard-from-the-gallery"></a>Ajout de Count Me In - Operations Dashboard à partir de la galerie
 
@@ -57,10 +57,10 @@ Configurez et testez l’authentification unique Azure AD avec Count Me In - Ope
 Pour configurer et tester l’authentification unique Azure AD avec Count Me In - Operations Dashboard, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+   1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+   1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Count Me In-Operations Dashboard](#configure-count-me-in-operations-dashboard-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Count Me In-Operations Dashboard](#create-count-me-in-operations-dashboard-test-user)** pour avoir un équivalent de B.Simon dans Count Me In - Operations Dashboard qui soit lié à la représentation Azure AD de l’utilisateur.
+   1. **[Créer un utilisateur de test Count Me In-Operations Dashboard](#create-count-me-in-operations-dashboard-test-user)** pour avoir un équivalent de B.Simon dans Count Me In - Operations Dashboard qui soit lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -75,35 +75,36 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
+   a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `api-us.localz.io/<PROJECT_ID>`
+   b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `api-us.localz.io/<PROJECT_ID>`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
+   c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
 
-    > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique Count Me In - Operations Dashboard](mailto:support@localz.co). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+   > [!NOTE]
+   > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique Count Me In - Operations Dashboard](mailto:support@localz.co). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application Count Me In - Operations Dashboard attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/default-attributes.png)
+   ![image](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application Count Me In - Operations Dashboard s’attend à ce que quelques attributs supplémentaires, indiqués ci-après, soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
-    
-    | Nom |  Attribut source|
-    | ----------- | --------- |
-    | rôles affectés | user.assignedroles |
 
-    > [!NOTE]
-    > Count Me In - Operations Dashboard attend des rôles pour les utilisateurs affectés à l’application. Veuillez configurer ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Pour comprendre comment configurer des rôles dans Azure AD, consultez [cette page](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+   | Nom           | Attribut source   |
+   | -------------- | ------------------ |
+   | rôles affectés | user.assignedroles |
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+   > [!NOTE]
+   > Count Me In - Operations Dashboard attend des rôles pour les utilisateurs affectés à l’application. Veuillez configurer ces rôles dans Azure AD pour pouvoir affecter les rôles appropriés aux utilisateurs. Pour comprendre comment configurer des rôles dans Azure AD, consultez [cette page](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
-    ![Lien Téléchargement de certificat](common/certificatebase64.png)
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+
+   ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
 1. Dans la section **Configurer Count Me In - Operations Dashboard**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+   ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -111,7 +112,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom**, entrez `B.Simon`.
    1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
@@ -136,16 +137,15 @@ Pour configurer l’authentification unique côté **Count Me In-Operations Dash
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Count Me In - Operations Dashboard. Collaborez avec l’[équipe du support technique Count Me In - Operations Dashboard](mailto:support@localz.co) pour ajouter les utilisateurs à la plateforme Count Me In - Operations Dashboard. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion Count Me In - Operations Dashboard où vous pouvez démarrer le flux de connexion. 
+- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion Count Me In - Operations Dashboard où vous pouvez démarrer le flux de connexion.
 
-* Accédez directement à l’URL de connexion Count Me In - Operations Dashboard et démarrez le flux de connexion.
+- Accédez directement à l’URL de connexion Count Me In - Operations Dashboard et démarrez le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Count Me In - Operations Dashboard dans Mes applications vous redirige vers l’URL de connexion Count Me In - Operations Dashboard. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
+- Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Count Me In - Operations Dashboard dans Mes applications vous redirige vers l’URL de connexion Count Me In - Operations Dashboard. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

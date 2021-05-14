@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 3a9e36f691a107f17e92ffbeb1221459d688b97e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 92500be4ef793fc71c828b84b6b62f833884b372
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146974"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628281"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -378,6 +378,7 @@ En outre, lorsqu’un groupe de sécurité réseau est supprimé, la ressource d
 
 **Services incompatibles** : En raison des limitations actuelles de la plateforme, un petit ensemble de services Azure n’est pas pris en charge par les journaux de flux NSG. La liste actuelle des services incompatibles est
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
+- [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
 ## <a name="best-practices"></a>Meilleures pratiques

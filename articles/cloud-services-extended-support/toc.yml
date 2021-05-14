@@ -1,4 +1,4 @@
-- name: Documentation Cloud Services (support étendu)
+- name: Documentation Azure Cloud Services (support étendu)
   href: index.yml
 - name: Vue d'ensemble
   items:
@@ -51,33 +51,57 @@
           href: schema-cscfg-role.md
         - name: Schéma NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
-    - name: Forum Aux Questions (FAQ)
-      href: faq.md
 - name: Procédure
   items:
-    - name: Appliquer l’extension Bureau à distance
-      href: enable-rdp.md
-    - name: Appliquer l’extension WAD
-      href: enable-wad.md
+    - name: Migration vers Azure Cloud Services (support étendu)
+      items:
+        - name: Vue d’ensemble de la migration
+          href: in-place-migration-overview.md
+        - name: Détails techniques sur la migration
+          href: in-place-migration-technical-details.md
+        - name: Effectuer une migration avec le portail Azure
+          href: in-place-migration-portal.md
+        - name: Migrer à l’aide de PowerShell
+          href: in-place-migration-powershell.md
+        - name: Erreurs courantes et problèmes connus
+          href: in-place-migration-common-errors.md
+    - name: Appliquer des extensions
+      items:
+        - name: Appliquer l’extension Bureau à distance
+          href: enable-rdp.md
+        - name: Appliquer l’extension WAD
+          href: enable-wad.md
     - name: Activer les alertes
       href: enable-alerts.md
     - name: Configurer la mise à l’échelle
       href: configure-scaling.md
     - name: Certificats
       href: certificates-and-key-vault.md
+    - name: "Générer un modèle\_ARM à l’aide du portail Azure"
+      href: generate-template-portal.md
+    - name: Permuter les déploiements de service cloud
+      href: swap-cloud-service.md
+    - name: Remplacer les détails de référence SKU
+      href: override-sku.md
+    - name: Dépanner
+      items:
+        - name: Échec du démarrage des rôles
+          href: role-startup-failure.md
+        - name: Forum aux questions
+          href: faq.md
 - name: Exemples
   items:
-    - name: Exemples de modèle
+    - name: Exemples de modèles
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
-    - name: Créer un service cloud
+    - name: Créer un nouveau service de cloud computing
       href: sample-create-cloud-service.md
     - name: Obtenir les détails d’un service cloud
       href: sample-get-cloud-service.md
     - name: Réinitialiser un service cloud
       href: sample-reset-cloud-service.md
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Exemple de fichiers de déploiement
+    - name: Exemples de fichiers de déploiement
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
     - name: Module Az.CloudService
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
@@ -88,9 +112,11 @@
     - name: REST
       href: /rest/api/compute/cloudservices
     - name: .NET
-      href: /dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview
+      href: /dotnet/api/overview/azure/virtualmachines/management
     - name: Kit SDK
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
+    - name: Interface de ligne de commande
+      href: 'https://docs.microsoft.com/cli/azure/cloud-service?view=azure-cli-latest'
 - name: Ressources
   items:
     - name: Feuille de route Azure

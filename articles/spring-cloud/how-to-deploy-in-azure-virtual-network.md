@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5a27fdc91f376127f26ba9f207ca72d8ada8a7b9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
+ms.openlocfilehash: 2ff56857eca112ebd808a96f3aaa097ab4be5c18
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891749"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291529"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Déployer Azure Spring Cloud dans un réseau virtuel
 
@@ -88,16 +88,9 @@ Sélectionnez le réseau virtuel **azure-spring-cloud-vnet** que vous avez cré�
 
     ![Capture d’écran de la fenêtre Contrôle d’accès](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Dans la boîte de dialogue **Ajouter une attribution de rôle**, entrez ou sélectionnez les informations suivantes :
+1. Affectez le rôle [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) à [utilisateur | groupe | principal-de-service | identité-managée] pour l’étendue [groupe-de-gestion | abonnement | groupe-de-ressources | ressources].
 
-    |Paramètre  |Valeur                                             |
-    |---------|--------------------------------------------------|
-    |Role     |Sélectionnez **Propriétaire**.                                 |
-    |Sélectionnez   |Entrez **Fournisseur de ressources Azure Spring Cloud**.   |
-
-    Ensuite, sélectionnez **Fournisseur de ressources Azure Spring Cloud** puis **Enregistrer**.
-
-    ![Capture d’écran montrant la sélection du fournisseur de ressources Azure Spring Cloud](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    Pour connaître la procédure détaillée, consultez [Attribution de rôles Azure à l’aide du Portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 Vous pouvez également effectuer cette étape en exécutant la commande Azure CLI suivante :
 

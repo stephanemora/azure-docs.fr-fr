@@ -10,12 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f0aaa996d6520a69f5546976d89c7cc4aa802d38
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "81730748"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481352"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole AMQP
 
@@ -34,7 +34,7 @@ Les informations suivantes sont requises pour le client du service :
 | Nom d’hôte du hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Nom de clé | `service` |
 | Clé d’accès | Clé primaire ou secondaire associée au service |
-| Signature d’accès partagé | Signature d’accès partagé à courte durée de vie au format suivant : `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Pour obtenir le code de génération de cette signature, consultez [Contrôler l’accès à IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Signature d’accès partagé | Signature d’accès partagé à courte durée de vie au format suivant : `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Pour obtenir le code de génération de cette signature, consultez [Contrôler l’accès à IoT Hub](./iot-hub-dev-guide-sas.md#security-token-structure).
 
 L’extrait de code suivant utilise la [bibliothèque uAMQP dans Python](https://github.com/Azure/azure-uamqp-python) pour se connecter à un hub IoT par le biais d’une liaison d’expéditeur.
 
@@ -229,7 +229,7 @@ Les informations suivantes sont requises pour le client d’appareil :
 |-------------|--------------|
 | Nom d’hôte du hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Clé d’accès | Clé primaire ou secondaire associée à l’appareil |
-| Signature d’accès partagé | Signature d’accès partagé à courte durée de vie au format suivant : `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Pour obtenir le code de génération de cette signature, consultez [Contrôler l’accès à IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Signature d’accès partagé | Signature d’accès partagé à courte durée de vie au format suivant : `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Pour obtenir le code de génération de cette signature, consultez [Contrôler l’accès à IoT Hub](./iot-hub-dev-guide-sas.md#security-token-structure).
 
 L’extrait de code suivant utilise la [bibliothèque uAMQP dans Python](https://github.com/Azure/azure-uamqp-python) pour se connecter à un hub IoT par le biais d’une liaison d’expéditeur.
 

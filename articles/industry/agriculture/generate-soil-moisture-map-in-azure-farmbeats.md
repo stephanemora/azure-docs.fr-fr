@@ -1,16 +1,16 @@
 ---
 title: Générer une carte thermique d’humidité du sol
 description: Décrit comment générer une carte thermique d’humidité du sol dans Azure FarmBeats
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: dd8d688355e0f71ce77cdbc6012d788c7b16d825
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: riyazp
+ms.openlocfilehash: 4b796af22604a2f09482bcb9a321159ebaafea11
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102173781"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756770"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Générer une carte thermique d’humidité du sol
 

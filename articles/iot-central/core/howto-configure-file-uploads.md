@@ -7,16 +7,14 @@ ms.author: dobett
 ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: ed2eff4d6ccbb9f85dfaf7049fa3cc18711bae0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cca508e213d132f96a131f1b0029c13e1b67c47
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796902"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760784"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Charger des fichiers de vos appareils vers le cloud
-
-*Cette rubrique s’applique aux administrateurs et aux développeurs d’appareils.*
 
 IoT Central vous permet de charger des médias et d’autres fichiers à partir d’appareils connectés et vers le stockage cloud. Vous configurez la capacité de chargement de fichiers dans votre application IoT Central, puis vous implémentez les chargements de fichiers dans le code de votre appareil.
 

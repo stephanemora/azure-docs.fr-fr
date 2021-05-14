@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5c528b61f4d590c0402ac7c89d97f545911d883
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95972757"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627939"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Microsoft 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les capacités multigéographiques dans Microsoft 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Microsoft 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -203,7 +203,7 @@ En règle générale, un cycle de synchronisation complet est nécessaire. Ceci 
 
 1. Exécutez une **Importation intégrale** sur le connecteur Active Directory local :
 
-   1. Accédez à l’onglet **Opérations** dans Synchronization Service Manager.
+   1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
    2. Cliquez avec le bouton droit sur le **connecteur Active Directory local**, puis sélectionnez **Exécuter**.
    3. Dans la boîte de dialogue, sélectionnez **Importation intégrale**, puis **OK**.
    4. Attendez que l’opération se termine.

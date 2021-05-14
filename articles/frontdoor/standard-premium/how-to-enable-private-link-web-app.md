@@ -7,13 +7,13 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.author: tyao
-ms.openlocfilehash: 805c3ba0360fcffe2bfd4217c0ef625fe61e5d64
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.author: duau
+ms.openlocfilehash: d30b73d1e80273d766f4f94224798ddb04763195
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030577"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633247"
 ---
 # <a name="connect-azure-front-door-premium-to-a-web-app-origin-with-private-link"></a>Connecter Azure Front Door Premium à une origine d’application web avec Private Link
 

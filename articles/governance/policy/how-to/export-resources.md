@@ -4,12 +4,12 @@ description: Apprenez à exporter des ressources Azure Policy vers GitHub, comme
 ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca7e5de5238bab50e31b25d6a0bf5068aad397a8
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 36e3c28d8448bba94222a23581dda7bd6d3ffaeb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073644"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752666"
 ---
 # <a name="export-azure-policy-resources"></a>Exporter les ressources Azure Policy
 
@@ -35,7 +35,7 @@ Pour exporter une définition de stratégie à partir du Portail Azure, procéde
    - **Répertoire** : Le _dossier racine_ vers lequel exporter les ressources Azure Policy. Les sous-dossiers de ce répertoire sont créés en fonction des ressources exportées.
 
 1. Sous l’onglet **Stratégies**, définissez l’étendue à rechercher en sélectionnant les points de suspension et en choisissant une combinaison de groupes d’administration, d’abonnements ou de groupes de ressources.
-   
+
 1. Utilisez le bouton **Ajouter une ou plusieurs définitions de stratégie** pour rechercher l’étendue des objets à exporter. Dans la fenêtre latérale qui s’ouvre, sélectionnez chaque objet à exporter. Filtrez la sélection avec la zone de recherche ou en sélectionnant un type. Une fois que vous avez sélectionné tous les objets à exporter, utilisez le bouton **Ajouter** au bas de la page.
 
 1. Pour chaque objet sélectionné, sélectionnez les options d’exportation souhaitées, par exemple _Définition seulement_ ou _Définition et affectation(s)_ pour une définition de stratégie. Sélectionnez ensuite l’onglet **Vérifier + exporter** ou le bouton **Suivant : Vérifier + exporter** en bas de la page.

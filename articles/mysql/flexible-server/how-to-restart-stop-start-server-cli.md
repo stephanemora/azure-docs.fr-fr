@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.openlocfilehash: c9e646ad40c669e51f052ac9888cdd7c6883a848
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: cf4f053167c477fd68c8c56f6f03ee15b7877638
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107508941"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738730"
 ---
 # <a name="restartstopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Redémarrer/Arrêter/Démarrer un serveur flexible Azure Database pour MySQL (préversion)
 
@@ -22,14 +22,14 @@ Cet article explique comment redémarrer, démarrer et arrêter un serveur flexi
 
 ## <a name="prerequisites"></a>Prérequis
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Installez ou mettez à niveau Azure CLI vers la dernière version. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
--  Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
+- Installez ou mettez à niveau Azure CLI vers la dernière version. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+-  Connectez-vous au compte Azure à l’aide de la commande [az login](/cli/azure/reference-index#az_login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
 
     ```azurecli-interactive
     az login
     ````
 
-- Si vous avez plusieurs abonnements, choisissez l’abonnement approprié dans lequel vous voulez créer le serveur à l’aide de la commande ```az account set```.
+- Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel vous souhaitez créer le serveur à l’aide de la commande ```az account set```.
 `
     ```azurecli
     az account set --subscription <subscription id>

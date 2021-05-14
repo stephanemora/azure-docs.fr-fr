@@ -3,12 +3,12 @@ title: Détection des messages dupliqués dans Azure Service Bus | Microsoft Doc
 description: Cet article explique la façon dont vous pouvez détecter les doublons dans les messages Azure Service Bus. Le message en double peut être ignoré et abandonné.
 ms.topic: article
 ms.date: 04/19/2021
-ms.openlocfilehash: 0b4c90885c9da817e4f78eea883e2d39e65b2480
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 9e1837d0e8859791e3834519af4a9966d2435b60
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989285"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759074"
 ---
 # <a name="duplicate-detection"></a>Détection des doublons
 
@@ -21,7 +21,7 @@ La détection des doublons lève ce type d’incertitude en permettant à l’ex
 > [!NOTE]
 > Le niveau De base de Service Bus ne prend pas en charge la détection des doublons. Les niveaux Standard et Premium prennent en charge la détection des doublons. Pour connaître les différences entre ces niveaux, voir [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-## <a name="how-it-works"></a>Fonctionnement 
+## <a name="how-it-works"></a>Fonctionnement
 L’activation de la détection des doublons vous aide à effectuer le suivi du *MessageId*, contrôlé par l’application, de chaque message envoyé dans une file d’attente ou une rubrique pendant une fenêtre de temps spécifiée. Si un nouveau message est envoyé avec un *MessageId* journalisé pendant la fenêtre de temps, le message est signalé comme étant accepté (réussite de l’opération d’envoi), mais le message qui vient d’être envoyé est instantanément ignoré et supprimé. Excepté le *MessageId*, aucune autre partie du message n’est prise en compte.
 
 Le contrôle de l’identificateur par l’application est essentiel, car lui seul permet à l’application d’associer l’identificateur *MessageId* à un contexte de processus métier à partir duquel il peut être reconstruit en cas d’échec.

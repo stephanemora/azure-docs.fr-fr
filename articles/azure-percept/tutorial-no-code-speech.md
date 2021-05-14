@@ -1,18 +1,18 @@
 ---
 title: Créer un Assistant vocal avec le DK Azure Percept et Azure Percept Audio
 description: Découvrez comment créer et déployer une solution vocale sans code sur votre DK Azure Percept
-author: elqu20
-ms.author: v-elqu
+author: philmea
+ms.author: philmea
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 76333e11916641be71c72ce6142cd59b496a17e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 441d0b4b76e0c543bd82c5546e0ca89250e418e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023161"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748166"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Créer un Assistant vocal avec le DK Azure Percept et Azure Percept Audio
 

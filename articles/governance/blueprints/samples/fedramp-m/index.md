@@ -1,18 +1,19 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint FedRAMP Moderate
 description: Vue d’ensemble de l’exemple de blueprint FedRAMP Moderate. Cet exemple de blueprint aide les clients à évaluer des contrôles FedRAMP Moderate.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 65deb175c3a608b5f3a14048239bfa8be799619d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 537053b516f1783969b3031a0924d606539c23f4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033810"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757184"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint FedRAMP Moderate
 
-L’exemple de blueprint FedRAMP Moderate fournit des garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md), qui vous permettent d’évaluer des contrôles FedRAMP Moderate spécifiques. Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des contrôles FedRAMP Moderate.
+L’exemple de blueprint FedRAMP Moderate fournit des garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md), qui vous permettent d’évaluer des contrôles FedRAMP Moderate spécifiques.
+Avec ce blueprint, les clients peuvent déployer un ensemble de stratégies pour toute architecture déployée par Azure devant implémenter des contrôles FedRAMP Moderate.
 
 ## <a name="control-mapping"></a>Correspondance des contrôles
 

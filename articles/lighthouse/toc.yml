@@ -1,6 +1,6 @@
 - name: Documentation Azure Lighthouse
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Lighthouse\_?"
       displayName: 'management at scale, service providers'
@@ -42,7 +42,7 @@
           displayName: 'mfa, authentication, secure, group'
           href: ./concepts/recommended-security-practices.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/lighthouse-security-baseline?toc=/azure/lighthouse/toc.json
 - name: Guides pratiques
   items:
     - name: Actions des clients
@@ -53,48 +53,50 @@
         - name: Voir l’activité des fournisseurs de services
           displayName: 'monitor, log, customer, visibility, transparency, control'
           href: ./how-to/view-service-provider-activity.md
-    - name: Intégrer un client à Azure Lighthouse
-      displayName: resource management
-      href: ./how-to/onboard-customer.md
-    - name: Publier des offres de services managés sur la Place de marché Azure
-      displayName: 'managed services offer, azure marketplace, publish, marketplace'
-      href: ./how-to/publish-managed-services-offers.md
+    - name: Gestion de la délégation et de l’intégration
+      items:
+        - name: Intégrer des clients
+          displayName: 'ARM, template, delegation, authorization, resource management'
+          href: ./how-to/onboard-customer.md
+        - name: Publier des offres de services managés sur la Place de marché Azure
+          displayName: 'managed services offer, azure marketplace, publish, marketplace'
+          href: ./how-to/publish-managed-services-offers.md
+        - name: Mettre à jour des délégations
+          displayName: upgrade
+          href: ./how-to/update-delegation.md
+        - name: Supprimer l’accès aux délégations
+          displayName: 'delete, undelegate'
+          href: ./how-to/remove-delegation.md
+        - name: Superviser les changements de délégation
+          displayName: activity log
+          href: ./how-to/monitor-delegation-changes.md
     - name: Voir et gérer les clients
       displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Lier votre ID de partenaire
       displayName: 'partner earned credit, pec, mpn'
       href: ./how-to/partner-earned-credit.md
-    - name: Mettre à jour une délégation
-      displayName: upgrade
-      href: ./how-to/update-delegation.md
-    - name: Supprimer l’accès à une délégation
-      displayName: 'delete, undelegate'
-      href: ./how-to/remove-delegation.md
-    - name: Intégration d’Azure Arc
-      displayName: 'server, kubernetes, hybrid, infrastructure'
-      href: ./how-to/manage-hybrid-infrastructure-arc.md
-    - name: Intégration d’Azure Migrate
-      displayName: 'migration, project, on-prem'
-      href: ./how-to/migration-at-scale.md
-    - name: Intégration d’Azure Monitor
+    - name: Intégration des services Azure
       items:
-        - name: Utiliser les journaux Azure Monitor à grande échelle
+        - name: Intégration d’Azure Arc
+          displayName: 'server, kubernetes, hybrid, infrastructure'
+          href: ./how-to/manage-hybrid-infrastructure-arc.md
+        - name: Intégration d’Azure Migrate
+          displayName: 'migration, project, on-prem'
+          href: ./how-to/migration-at-scale.md
+        - name: Intégration d’Azure Monitor
           displayName: 'log, analytics, analyze, activity'
           href: ./how-to/monitor-at-scale.md
-        - name: Superviser les changements de délégation
-          displayName: activity log
-          href: ./how-to/monitor-delegation-changes.md
-    - name: Intégration d’Azure Policy
-      items:
-        - name: Déployer une stratégie à grande échelle
-          displayName: storage
-          href: ./how-to/policy-at-scale.md
-        - name: Déployer une stratégie pouvant être corrigée
-          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
-          href: ./how-to/deploy-policy-remediation.md
-    - name: Intégration Azure Sentinel
-      href: ./how-to/manage-sentinel-workspaces.md
+        - name: Intégration d’Azure Policy
+          items:
+            - name: Déployer une stratégie à grande échelle
+              displayName: storage
+              href: ./how-to/policy-at-scale.md
+            - name: Déployer une stratégie pouvant être corrigée
+              displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+              href: ./how-to/deploy-policy-remediation.md
+        - name: Intégration Azure Sentinel
+          href: ./how-to/manage-sentinel-workspaces.md
 - name: Informations de référence
   items:
     - name: Azure CLI

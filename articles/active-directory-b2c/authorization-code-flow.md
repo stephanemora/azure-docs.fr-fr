@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 05/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a6a993fdf4fd266afb9459fedd13412d8796e0a5
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: d37ad4571df0912cdb2ac8954a2292df8c8a238e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611502"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742802"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flux de code d’autorisation OAuth 2.0 dans Azure Active Directory B2C
 
@@ -128,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | client_id |Obligatoire |ID d’application affecté à votre application dans le [portail Azure](https://portal.azure.com).|
 | client_secret | Oui, dans Web Apps | Secret d'application qui a été généré dans le [portail Azure](https://portal.azure.com/). Les clés secrètes client sont utilisées dans ce flux pour les scénarios de type application web, dans lesquels le client peut les stocker de manière sécurisée. Dans les scénarios de type application native (client public), les clés secrètes client ne peuvent pas être stockées de façon sécurisée et ne sont donc pas utilisées dans cet appel. Si vous utilisez une clé secrète client, modifiez-la régulièrement. |
 | grant_type |Obligatoire |Type d’autorisation. Pour le flux de code d’autorisation, le type d’autorisation doit être `authorization_code`. |
-| scope |Recommandé |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. Utiliser l’ID de client comme étendue indique que votre application a besoin d’un jeton d’accès qui peut être utilisé avec votre propre service ou API web, représenté par le même ID de client.  L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour un accès durable aux ressources.  Vous pouvez également utiliser l’étendue `openid` pour demander un jeton d’ID à partir d’Azure AD B2C. |
+| scope |Obligatoire |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. Utiliser l’ID de client comme étendue indique que votre application a besoin d’un jeton d’accès qui peut être utilisé avec votre propre service ou API web, représenté par le même ID de client.  L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour un accès durable aux ressources.  Vous pouvez également utiliser l’étendue `openid` pour demander un jeton d’ID à partir d’Azure AD B2C. |
 | code |Obligatoire |Code d’autorisation acquis dans le premier tronçon du flux. |
 | redirect_uri |Obligatoire |URI de redirection de l’application où vous avez reçu le code d’autorisation. |
 | code_verifier | recommandé | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
@@ -145,6 +145,7 @@ Un jeton de réponse correct se présente ainsi :
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | Paramètre | Description |
 | --- | --- |
 | not_before |Heure à laquelle le jeton est considéré comme valide, en heure epoch. |

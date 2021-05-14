@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/22/2020
-ms.openlocfilehash: badeb850e8d0346347a994f053fb0f64fd01240a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96518f82b44af5e4cfa629c0e81387abaffdb383
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91283341"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803797"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Démarrage rapide : Créer une instance managée Azure SQL Managed Instance à l’aide d’un modèle Resource Manager
 
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide porte essentiellement sur le déploiement d’un m
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sqlmi-new-vnet%2Fazuredeploy.json)
+[![Déployer sur Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fsqlmi-new-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sqlmi-new-vnet/azuredeploy.json":::
 
 Ces ressources Azure sont définies dans le modèle :
 
@@ -59,7 +59,7 @@ Sélectionnez **Essayer** à partir du bloc de code PowerShell suivant pour ouvr
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sqlmi-new-vnet/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.sql/sqlmi-new-vnet/azuredeploy.json"
 
 $resourceGroupName = "${projectName}rg"
 
@@ -74,7 +74,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 ```azurecli-interactive
 read -p "Enter a project name that is used for generating resource names:" projectName &&
 read -p "Enter the location (i.e. centralus):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sqlmi-new-vnet/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.sql/sqlmi-new-vnet/azuredeploy.json" &&
 resourceGroupName="${projectName}rg" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&

@@ -1,17 +1,17 @@
 ---
 title: Copier des données à partir d’Amazon Redshift
 description: Découvrez comment utiliser Azure Data Factory pour copier des données d’Amazon Redshift vers des banques de données réceptrices prises en charge.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 9441885766dad97dfc237ab81a59710245bf13ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1dd0144395d1eed533300808d8d872742f0d710
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100364254"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482234"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copier des données d’Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -43,7 +43,7 @@ Plus précisément, ce connecteur Amazon Redshift prend en charge la récupérat
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Amazon Redshift.
 

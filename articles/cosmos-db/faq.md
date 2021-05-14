@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 81c959467c4bb3700120917cf150773fb18e866d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb5eb3f08436001d83ce807ce775c7e49cf0e8e4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359827"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741974"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -219,5 +219,5 @@ Pour en savoir plus sur les questions fréquentes relatives à d’autres API, c
 
 * Questions fréquentes sur l’[API MongoDB d’Azure Cosmos DB](mongodb-api-faq.md)
 * Questions fréquentes sur l’[API Gremlin dans Azure Cosmos DB](gremlin-api-faq.md)
-* Questions fréquentes sur l’[API Cassandra dans Azure Cosmos DB](cassandra-faq.md)
+* Questions fréquentes sur l’[API Cassandra dans Azure Cosmos DB](cassandra-faq.yml)
 * Questions fréquentes sur l’[API Table dans Azure Cosmos DB](table-api-faq.md)

@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint FedRAMP High
 description: Étapes de déploiement pour l’exemple de blueprint FedRAMP High, incluant des informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 0ba321bb0048499e12eec55fbc55d67b0a1289f9
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: f05f81121bc27e080f9a4b366278514b231f2ca1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386690"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757436"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Déployer l’exemple de blueprint FedRAMP High
 
@@ -106,10 +106,10 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Espace de travail Log Analytics pour les machines virtuelles Windows|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
 |Déployer Advanced Threat Protection sur les comptes de stockage|Affectation de rôle|Résultat|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
-|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Valeur en jours de la période de conservation (0 indique une conservation illimitée)|Durée de conservation en jours (facultatif ; 180 jours si non spécifié)|
+|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Valeur en jours de la période de conservation (0 indique une conservation illimitée) |Durée de conservation en jours (facultatif ; 180 jours si non spécifié) |
 |Déployer l’audit sur des serveurs SQL|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage pour l’audit SQL Server|L’audit écrit des événements de base de données dans un journal d’audit dans votre compte Stockage Azure (un compte de stockage sera créé dans chaque région où est créé un serveur SQL Server qui sera partagé par tous les serveurs de cette région). Important : Pour un bon fonctionnement de l’audit, vous ne devez ni supprimer ni renommer le groupe de ressources ou les comptes de stockage.|
 |Déployer les paramètres de diagnostic pour les groupes de sécurité réseau|Affectation de rôle|Préfixe du compte de stockage pour les diagnostics du groupe de sécurité réseau|Ce préfixe peut être combiné à l’emplacement du groupe de sécurité réseau pour former le nom de compte de stockage créé.|
-|Déployer les paramètres de diagnostic pour les groupes de sécurité réseau|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage pour les diagnostics du groupe de sécurité réseau (doit exister)|Groupe de ressources dans lequel le compte de stockage sera créé. Ce groupe de ressources doit déjà exister.|
+|Déployer les paramètres de diagnostic pour les groupes de sécurité réseau|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage pour les diagnostics du groupe de sécurité réseau (doit exister) |Groupe de ressources dans lequel le compte de stockage sera créé. Ce groupe de ressources doit déjà exister.|
 |\[Préversion\] : Auditer les contrôles FedRAMP High et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|Emplacements autorisés pour les ressources et les groupes de ressources|Liste des emplacements Azure que votre organisation peut spécifier lors du déploiement de ressources. Cette valeur fournie est également utilisée par la stratégie « Emplacements autorisés » au sein de l’initiative de stratégie.|
 |\[Préversion\] : Auditer les contrôles FedRAMP High et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
 |\[Préversion\] : Auditer les contrôles FedRAMP High et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
@@ -132,7 +132,6 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |\[Préversion\] : Auditer les contrôles FedRAMP High et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
 |\[Préversion\] : Auditer les contrôles FedRAMP High et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
 |\[Préversion\] : Auditer les contrôles FedRAMP High et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|La sauvegarde géoredondante à long terme doit être activée pour les bases de données Azure SQL|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

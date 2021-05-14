@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 35ef2ea3f03ca86aea34f736de4317d75a44ae59
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 5d5706738a0d85beed839d324ae3da055cafe39a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330509"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747518"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
 
@@ -57,6 +57,7 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 |   | RDS MySQL | X |   |
 | **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
+|  | Oracle | X |   |
 | **Azure DB pour PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 
@@ -80,12 +81,9 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | ✔ | GA |
 |   | Azure DB pour PostgreSQL - Serveur unique | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | Préversion publique (destinée à la dépréciation après le 1er mai 2021) |
+|   | Oracle | X |   |
 | **Azure DB pour PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-
-> [!IMPORTANT]
-> Le scénario de migration « Oracle vers Azure Database pour PostgreSQL » (actuellement en préversion) ne sera plus disponible après le 1er mai 2021. Nous continuerons à assurer un support via des outils alternatifs (tels que Ora2pg) et fournissons la meilleure expérience de migration pour les migrations d’Oracle vers PostgreSQL. Pour connaître les bonnes pratiques en matière de migration, consultez [Guide de migration d’Oracle vers Azure Database pour PostgreSQL](https://aka.ms/OracletoPGguide).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

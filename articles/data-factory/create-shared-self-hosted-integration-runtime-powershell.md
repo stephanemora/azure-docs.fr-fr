@@ -3,16 +3,16 @@ title: Créer un runtime d’intégration auto-hébergé partagé à l’aide de
 description: Apprenez à créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory afin que plusieurs fabriques de données aient accès au runtime d’intégration.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 16feeb124859fa6199303d9d590fa0a286033ef9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f87f73c37f5809cb2f3911ba9883271aa514841e
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389431"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481694"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
 

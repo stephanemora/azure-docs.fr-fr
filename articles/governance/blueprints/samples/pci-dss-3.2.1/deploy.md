@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint PCI-DSS v3.2.1
 description: Étapes de déploiement de l’exemple de blueprint Payment Card Industry Data Security Standard v3.2.1, y compris les détails du paramètre d’artefact blueprint.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: da247a77ab347fffab21ce7614440bc11595e97e
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c9bc3632544669c646f7f182a13e5e8c3f764acb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386081"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756896"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Déployer l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -93,11 +93,11 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|PCI v3.2.1:2018|Affectation de rôle|Liste des types de ressources | Auditez le paramètre de diagnostic pour les types de ressources sélectionnés. Par défaut, toutes les ressources sont sélectionnées.| 
-|Emplacements autorisés|Affectation de rôle|Liste des emplacements autorisés|Liste des emplacements de centre de données autorisés sur lesquels toutes vos ressources peuvent êtres déployées. Vous pouvez personnaliser cette liste pour indiquer les emplacements Azure de votre choix de manière globale. Sélectionnez les emplacements que vous voulez autoriser.| 
-|Emplacements autorisés pour les groupes de ressources|Affectation de rôle |Emplacement autorisé |Cette stratégie vous permet de restreindre les emplacements où votre organisation peut créer des groupes de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.| 
-|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Jours de conservation|Rétention des données en nombre de jours. La valeur par défaut est 180, mais PCI nécessite une valeur de 365.| 
-|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage|L’audit écrit des événements de base de données dans un journal d’audit dans votre compte Stockage Azure (un compte de stockage sera créé dans chaque région où est créé un serveur SQL Server qui sera partagé par tous les serveurs de cette région).| 
+|PCI v3.2.1:2018|Affectation de rôle|Liste des types de ressources | Auditez le paramètre de diagnostic pour les types de ressources sélectionnés. Par défaut, toutes les ressources sont sélectionnées.|
+|Emplacements autorisés|Affectation de rôle|Liste des emplacements autorisés|Liste des emplacements de centre de données autorisés sur lesquels toutes vos ressources peuvent êtres déployées. Vous pouvez personnaliser cette liste pour indiquer les emplacements Azure de votre choix de manière globale. Sélectionnez les emplacements que vous voulez autoriser.|
+|Emplacements autorisés pour les groupes de ressources|Affectation de rôle |Emplacement autorisé |Cette stratégie vous permet de restreindre les emplacements où votre organisation peut créer des groupes de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.|
+|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Jours de conservation|Rétention des données en nombre de jours. La valeur par défaut est 180, mais PCI nécessite une valeur de 365.|
+|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage|L’audit écrit des événements de base de données dans un journal d’audit dans votre compte Stockage Azure (un compte de stockage sera créé dans chaque région où est créé un serveur SQL Server qui sera partagé par tous les serveurs de cette région).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,20 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 05/03/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c3ea17a4f6dc2fb5134c6ceb1ae37d25e0881365
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 47947945759faee9f38393f06f7ec9396d9c715b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715154"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749102"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Gérer votre locataire Azure Active Directory B2C
 
-Dans Azure Active Directory B2C (Azure AD B2C), un locataire représente votre répertoire d’utilisateurs consommateurs. Chaque locataire Azure AD B2C est distinct et séparé des autres locataires Azure AD B2C. Un locataire Azure AD B2C n’est pas un locataire Azure Active Directory ; d’ailleurs vous disposez peut-être déjà de ce dernier. Dans cet article, vous allez apprendre à gérer votre locataire Azure AD B2C.
+Dans Azure Active Directory B2C (Azure AD B2C), un locataire représente votre répertoire d’utilisateurs consommateurs. Chaque locataire Azure AD B2C est distinct et séparé des autres locataires Azure AD B2C. Un locataire Azure AD B2C n’est pas un locataire Azure Active Directory ; d’ailleurs vous disposez peut-être déjà de ce dernier. Dans cet article, vous allez apprendre à gérer votre locataire Azure AD B2C.
 
 ## <a name="supported-azure-ad-features"></a>Fonctionnalités Azure AD prises en charge
 
@@ -57,14 +57,14 @@ Lors de la planification de votre stratégie de contrôle d’accès, il est pr�
 
 |Ressource  |Description  |Role  |
 |---------|---------|---------|
-|[Inscriptions d’applications](tutorial-register-applications.md) | Créez et gérez tous les aspects de vos inscriptions d’applications web, mobiles et natives dans Azure AD B2C.|[Administrateur d’application](../active-directory/roles/permissions-reference.md#global-administrator)|
+|[Inscriptions d’applications](tutorial-register-applications.md) | Créez et gérez tous les aspects de vos inscriptions d’applications web, mobiles et natives dans Azure AD B2C.|[Administrateur d’application](../active-directory/roles/permissions-reference.md#application-administrator)|
 |[Fournisseurs d’identité](add-identity-provider.md)| Configurez le [fournisseur d’identité local](identity-provider-local.md) et les fournisseurs d’identité sociale ou d’entreprise externes. | [Administrateur de fournisseurs d’identité externes](../active-directory/roles/permissions-reference.md#external-identity-provider-administrator)|
-|[Connecteurs d’API](add-api-connector.md)| Intégrez vos flux d’utilisateurs aux API web pour personnaliser l’expérience utilisateur et pour intégrer des systèmes externes.|[Administrateur d’attribut de flux d’utilisateurs ID externe](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
+|[Connecteurs d’API](add-api-connector.md)| Intégrez vos flux d’utilisateurs aux API web pour personnaliser l’expérience utilisateur et pour intégrer des systèmes externes.|[Administrateur de flux d’utilisateurs ID externe](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
 |[Marque de société](customize-ui.md#configure-company-branding)| Personnalisez vos pages de flux d’utilisateurs.| [Administrateur général](../active-directory/roles/permissions-reference.md#global-administrator)|
 |[Attributs utilisateur](user-flow-custom-attributes.md)| Ajoutez ou supprimez des attributs personnalisés disponibles pour tous les flux d’utilisateurs.| [Administrateur d’attribut de flux d’utilisateurs ID externe](../active-directory/roles/permissions-reference.md#external-id-user-flow-attribute-administrator)|
 |Gestion des utilisateurs| Gérez les [comptes consommateur](manage-users-portal.md) et les comptes d’administration comme décrit dans cet article.| [Administrateur d’utilisateurs](../active-directory/roles/permissions-reference.md#user-administrator)|
 |Rôles et administrateurs| Gérer les attributions de rôle dans le répertoire Azure AD B2C. Créez et gérez des groupes qui peuvent être affectés à des rôles Azure AD B2C. |[Administrateur général](../active-directory/roles/permissions-reference.md#global-administrator), [Administrateur de rôle privilégié](../active-directory/roles/permissions-reference.md#privileged-role-administrator)|
-|[Flux d’utilisateurs](user-flow-overview.md)|Pour une configuration rapide et l’activation de tâches d’identité courantes, telles que l’inscription, la connexion et la modification de profil.| [Administrateur d’attribut de flux d’utilisateurs ID externe](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
+|[Flux d’utilisateurs](user-flow-overview.md)|Pour une configuration rapide et l’activation de tâches d’identité courantes, telles que l’inscription, la connexion et la modification de profil.| [Administrateur de flux d’utilisateurs ID externe](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
 |[Stratégies personnalisées](user-flow-overview.md)| Créez, lisez, mettez à jour et supprimez toutes les stratégies personnalisées dans Azure AD B2C.| [Administrateur de stratégies B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)|
 |[Clés de stratégies](policy-keys-overview.md)|Ajoutez et gérez des clés de chiffrement pour la signature et la validation de jetons, de clés secrètes client, de certificats et de mots de passe utilisés dans des stratégies personnalisées.|[Administrateur de jeux de clés B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-keyset-administrator)|
 
