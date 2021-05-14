@@ -116,8 +116,10 @@
                   href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
             - name: Dépanner
               items:
-                - name: Problèmes liés à Data Box
+                - name: Problèmes de copie vers un appareil Data Box
                   href: data-box-troubleshoot.md
+                - name: Problèmes de chargement à partir d’un appareil Data Box
+                  href: data-box-troubleshoot-data-upload.md
                 - name: Problèmes liés au stockage Blob Data Box
                   href: data-box-troubleshoot-rest.md
     - name: Data Box Disk
@@ -168,7 +170,7 @@
                   href: data-box-disk-troubleshoot-data-copy.md
                 - name: Problèmes de validation
                   href: data-box-disk-troubleshoot.md
-                - name: Problèmes de chargement
+                - name: Examiner les erreurs de chargement
                   href: data-box-disk-troubleshoot-upload.md
             - name: Contacter le support technique
               href: data-box-disk-contact-microsoft-support.md

@@ -1,17 +1,17 @@
 ---
 title: Copier des données vers ou à partir d’IBM Informix à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données vers ou à partir d’IBM Informix à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
-ms.openlocfilehash: af907704862e80a2747ac064b98242a1d9d7edb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: c992140863649752a9c964424923c917462f16f7
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588866"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485870"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copier des données vers ou à partir d’IBM Informix à l’aide d’Azure Data Factory
 
@@ -38,7 +38,7 @@ Pour utiliser ce connecteur Informix, vous devez :
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des détails sur les propriétés utilisées pour définir des entités Data Factory spécifiques au connecteur Informix.
 

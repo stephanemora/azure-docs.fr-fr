@@ -1,7 +1,7 @@
 ---
 title: 'Scénario : Isolation des réseaux virtuels'
 titleSuffix: Azure Virtual WAN
-description: Scénarios pour le routage - Isolation des réseaux virtuels
+description: 'Découvrez les scénarios de routage Virtual WAN consistant à empêcher les réseaux virtuels de s’atteindre mutuellement : l’isolement des réseaux virtuels.'
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aaa5281bf1513da4a7bb97f2a1001998064f06f2
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92424749"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162056"
 ---
 # <a name="scenario-isolating-vnets"></a>Scénario : Isolation des réseaux virtuels
 

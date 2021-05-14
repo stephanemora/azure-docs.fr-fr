@@ -3,16 +3,16 @@ title: Copier des données locales vers Azure à l’aide de PowerShell
 description: Ce script PowerShell copie des données à partir d’une base de données SQL Server vers un autre stockage Blob Azure.
 ms.service: data-factory
 ms.topic: article
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0158abc5b0397a55bc3cf30f0a2444b373b772e2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373383"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486356"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Utiliser PowerShell pour créer un pipeline de fabrique de données afin de copier des données de SQL Server sur Azure
 

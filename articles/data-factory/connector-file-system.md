@@ -1,17 +1,17 @@
 ---
 title: Copier des données vers/à partir d’un système de fichiers à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données d’un système de fichiers vers des banques de données réceptrices prises en charge (ou) depuis des banques de données sources prises en charge vers un système de fichiers à l’aide d’Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.author: jingwang
-ms.openlocfilehash: c49b543b13dddf4c4ba7e36196795c6a0d638ae2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: jianleishen
+ms.openlocfilehash: 16be6dee6a1afa8808220790dd4cb7bd40cf50cc
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731953"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488678"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -41,11 +41,11 @@ Plus précisément, ce connecteur de système de fichiers prend en charge ce qui
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques du système de fichiers.
 
@@ -98,7 +98,7 @@ Les propriétés prises en charge pour le service lié de système de fichiers s
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `location` dans le jeu de données basé sur le format :
 
@@ -140,7 +140,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="file-system-as-source"></a>Système de fichiers en tant que source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans la source de copie basée sur le format :
 
@@ -205,7 +205,7 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
 
 ### <a name="file-system-as-sink"></a>Système de fichiers en tant que récepteur
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 Les propriétés suivantes sont prises en charge pour le système de fichiers sous les paramètres `storeSettings` dans le récepteur de copie basé sur le format :
 

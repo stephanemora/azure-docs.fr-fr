@@ -3,15 +3,15 @@ title: Résolution des problèmes Azure Automation Update Management
 description: Cet article explique comment dépanner et résoudre les problèmes liés à Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 04/16/2021
+ms.date: 04/18/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 36bfd2185cb7a192ce0113ee0722395c8a4ee928
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 5d73f7232afc9dcd6f7e069297efac763c242f7b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830301"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164252"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -394,10 +394,10 @@ Passez en revue les clés de Registre répertoriées sous [Configuration automat
 
 ### <a name="issue"></a>Problème
 
-Un ordinateur affiche l’état `Failed to start`. Lorsque vous affichez les détails spécifiques de l’ordinateur, vous voyez l’erreur suivante :
+Un ordinateur affiche l’état `Failed to start` ou `Failed`. Lorsque vous affichez les détails spécifiques de l’ordinateur, vous voyez l’erreur suivante :
 
 ```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+For one or more machines in schedule, UM job run resulted in either Failed or Failed to start state. Guide available at https://aka.ms/UMSucrFailed.
 ```
 
 ### <a name="cause"></a>Cause
@@ -411,6 +411,8 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 * L’exécution de votre mise à jour a été limitée si vous avez atteint la limite de 200 tâches simultanées dans un compte Automation. Chaque déploiement est considéré comme une tâche, et chaque ordinateur dans un déploiement de mise à jour est également considéré comme une tâche. Toutes les autres tâches d’automatisation ou de déploiement de mise à jour en cours d’exécution dans votre compte Automation comptent dans la limite des tâches qu’il est possible d’effectuer simultanément.
 
 ### <a name="resolution"></a>Résolution
+
+Vous pouvez récupérer d’autres informations par programmation avec l’API REST. Pour plus d’informations sur la récupération d’une liste de passes de configuration des mises à jour de logiciel ou d’une exécution spécifique par ID, consultez [Passes de configuration des mises à jour de logiciel](/rest/api/automation/softwareupdateconfigurationmachineruns).
 
 Lorsque c’est possible, utilisez les [groupes dynamiques](../update-management/configure-groups.md) pour vos déploiements de mise à jour. Vous pouvez en outre effectuer les étapes suivantes.
 
@@ -506,11 +508,13 @@ Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData
 
 ### <a name="issue"></a>Problème
 
-La fenêtre de maintenance par défaut pour les mises à jour est de 120 minutes. Vous pouvez augmenter la taille de la fenêtre de maintenance à un maximum de 6 heures, soit 360 minutes.
+La fenêtre de maintenance par défaut pour les mises à jour est de 120 minutes. Vous pouvez augmenter la taille de la fenêtre de maintenance à un maximum de 6 heures, soit 360 minutes. Il est possible que vous receviez le message d’erreur `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`.
 
 ### <a name="resolution"></a>Résolution
 
 Pour comprendre pourquoi cela s’est produit pendant l’exécution d’une mise à jour après qu’elle a démarré avec succès, [vérifiez la sortie du travail](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) de la machine affectée dans l’exécution. Vous trouverez peut-être des messages d’erreur spécifiques provenant de votre machine, effectuer des recherches sur ces erreurs et entreprendre des actions pour les résoudre.  
+
+Vous pouvez récupérer d’autres informations par programmation avec l’API REST. Pour plus d’informations sur la récupération d’une liste de passes de configuration des mises à jour de logiciel ou d’une exécution spécifique par ID, consultez [Passes de configuration des mises à jour de logiciel](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns).
 
 Modifiez tous les déploiements de mise à jour planifiés ayant échoué et augmentez la taille de la fenêtre de maintenance.
 

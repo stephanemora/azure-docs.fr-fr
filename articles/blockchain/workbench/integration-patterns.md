@@ -4,12 +4,12 @@ description: Vue d’ensemble des modèles d’intégration de contrat intellige
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90f5f4d55519f912b6cbd586190576bfd88fa295
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96015500"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737759"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modèles d’intégration de contrat intelligent
 
@@ -153,8 +153,6 @@ Dans ce modèle, la communication avec le contrat et le changement d’état qui
 -   Le contenu du message est préparé et envoyé à une fonction spécifique du contrat intelligent. Cette remise est effectuée pour le compte de l’utilisateur associé au système externe.
 
 -   La fonction s’exécute et modifie généralement l’état. Le changement d’état fait avancer le flux de travail métier correspondant dans le contrat intelligent, en activant l’exécution des autres fonctions prévues.
-
-### 
 
 ### <a name="delivery-of-a-message-in-a-format-unknown-to-azure-blockchain-workbench"></a>Remise d’un message dans un format inconnu à Azure Blockchain Workbench
 

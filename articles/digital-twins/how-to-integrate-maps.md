@@ -8,12 +8,12 @@ ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 2fa81223c8a07e04d6c4373b430f3a49d67777a0
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: b2b6e045a86fff7ba8a0d88a938fae93a0c6812a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208578"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790448"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Utiliser Azure Digital Twins pour mettre à jour un plan intérieur Azure Maps
 
@@ -51,12 +51,12 @@ Ce modèle lit directement à partir du jumeau de la pièce, plutôt que de l’
 
 1. Créez une rubrique Event Grid, qui recevra les événements de votre instance Azure Digital Twins.
     ```azurecli-interactive
-    az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
+    az eventgrid topic create --resource-group <your-resource-group-name> --name <your-topic-name> --location <region>
     ```
 
 2. Créez un point de terminaison pour lier votre rubrique Event Grid à Azure Digital Twins.
     ```azurecli-interactive
-    az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
+    az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> --dt-name <your-Azure-Digital-Twins-instance-name>
     ```
 
 3. Créez un itinéraire dans Azure Digital Twins pour envoyer des événements de mise à jour de jumeaux à votre point de terminaison.
@@ -67,7 +67,7 @@ Ce modèle lit directement à partir du jumeau de la pièce, plutôt que de l’
     >Pour le résoudre, exécutez `az login` dans Cloud Shell avant d’exécuter la commande, ou utilisez la [CLI locale](/cli/azure/install-azure-cli) au lieu de Cloud Shell. Pour plus d’informations, consultez [résolution des problèmes : Problèmes connus dans Azure Digital Twins](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
-    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+    az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-a-function-to-update-maps"></a>Créer une fonction pour mettre les cartes à jour

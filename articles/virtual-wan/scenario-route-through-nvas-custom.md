@@ -1,20 +1,20 @@
 ---
 title: Acheminer le trafic via des appliances virtuelles réseau à l’aide de paramètres personnalisés
 titleSuffix: Azure Virtual WAN
-description: Ce scénario vous aide à acheminer le trafic via des appliances virtuelles réseau en utilisant une appliance virtuelle réseau différente pour le trafic lié à Internet.
+description: Découvrez les scénarios de routage Virtual WAN consistant à router le trafic à travers des appliances virtuelles réseau (NVA, Network Virtual Appliance). Une appliance NVA différente est utilisée pour le trafic Internet et les paramètres personnalisés.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6291964aff7c215df7f738ab103947dcb9b1b1d4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 153e3dd64546dfa713abefcff106652fc061a6a2
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036859"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165818"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Scénario : Acheminer le trafic via des appliances virtuelles réseau à l’aide de paramètres personnalisés
 

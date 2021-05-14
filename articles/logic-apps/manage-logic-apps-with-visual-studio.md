@@ -4,15 +4,15 @@ description: Modifier, mettre à jour, gérer, ajouter au contrôle de code sour
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: article
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 04/29/2020
-ms.openlocfilehash: 56b74e440fcb09ab206bbb069517dd756221f809
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/23/2021
+ms.openlocfilehash: 443dd0a1172c98b67282b50659ffeb3611470413
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639567"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163766"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -241,31 +241,59 @@ Pour vérifier l’état des exécutions d’application logique et résoudre le
 
    ![Afficher les entrées et sorties de chaque étape](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
-## <a name="disable-or-enable-logic-app"></a>Activer ou désactiver une application logique
+<a name="disable-enable-logic-apps"></a>
 
-Sans supprimer votre application logique, vous pouvez arrêter l’exécution du déclencheur dès que la prochaine condition de déclenchement est remplie. La désactivation de votre application logique empêche le moteur de Logic Apps de créer et d’exécuter les futures instances de workflow de votre application logique. Dans Cloud Explorer, ouvrez le menu contextuel de votre application logique et sélectionnez **Désactiver**.
+## <a name="disable-or-enable-logic-apps"></a>Activer ou désactiver des applications logiques
+
+Pour désactiver le déclencheur la prochaine fois que la condition de déclenchement est remplie, désactivez votre application logique. La désactivation d’une application logique affecte les instances de workflow de différentes manières :
+
+* Le service Logic Apps continue toutes les exécutions en cours et en attente jusqu’à ce qu’elles se terminent. En fonction du volume ou du backlog, ce processus peut prendre du temps.
+
+* Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
+
+* Le déclencheur ne se déclenche pas la prochaine fois que ses conditions sont remplies.
+
+* L’état du déclencheur mémorise le point auquel l’application logique a été arrêtée. Ainsi, si vous la réactivez, le déclencheur se met en œuvre pour tous les éléments non traités depuis la dernière exécution.
+
+  Pour empêcher le déclencheur de se mettre en œuvre pour les éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de réactiver l’application logique :
+
+  1. Dans l’application logique, modifiez n’importe quelle partie du déclencheur du workflow.
+  1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel de votre déclencheur.
+  1. [Réactivez votre application logique](#enable-logic-apps).
+
+<a name="disable-logic-apps"></a>
+
+### <a name="disable-logic-apps"></a>Désactivation des applications logiques
+
+Dans Cloud Explorer, ouvrez le menu contextuel de votre application logique et sélectionnez **Désactiver**.
 
 ![Désactiver votre application logique dans Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
-> [!NOTE]
-> Lorsque vous désactivez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées, ce qui peut prendre du temps.
+<a name="enable-logic-apps"></a>
 
-Pour réactiver votre application logique, dans Cloud Explorer, ouvrez le menu contextuel de celle-ci et sélectionnez **Activer**.
+### <a name="enable-logic-apps"></a>Activation des applications logiques
+
+Dans Cloud Explorer, ouvrez le menu contextuel de votre application logique et sélectionnez **Activer**.
 
 ![Activer votre application logique dans Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
-## <a name="delete-your-logic-app"></a>Supprimer votre application logique
+<a name="delete-logic-apps"></a>
+
+## <a name="delete-logic-apps"></a>Supprimer des applications logiques
+
+La suppression d’une application logique affecte les instances de workflow de différentes manières :
+
+* Le service Logic Apps met tout en œuvre pour annuler les exécutions en cours et en attente.
+
+  Même avec un gros volume ou un backlog important, la plupart des exécutions sont annulées avant qu’elles ne finissent ou ne démarrent. Toutefois, le processus d’annulation peut prendre du temps. Il peut arriver que certaines exécutions soient lancées dans l’intervalle.
+
+* Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
+
+* Si, après avoir supprimé un workflow, vous recréez le même, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez enregistrer de nouveau les workflows qui ont appelé le workflow supprimé. L’appelant obtient ainsi les bonnes informations sur le workflow recréé. Dans le cas contraire, les appels au workflow recréé échouent avec une erreur `Unauthorized`. Ce comportement s’applique aussi aux workflows qui utilisent des artefacts dans les comptes d’intégration et à ceux qui appellent des fonctions Azure.
 
 Pour supprimer votre application logique à partir du portail Azure, dans Cloud Explorer, ouvrez le menu contextuel de votre application logique, puis sélectionnez **Supprimer**.
 
 ![Supprimer votre application logique de Portail Azure](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
-
-> [!NOTE]
-> Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente sont annulées. Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps.
-
-> [!NOTE]
-> Si vous supprimez et recréez une application logique enfant, vous devez réenregistrer l’application logique parente. L’application enfant recréée aura des métadonnées différentes.
-> Si vous ne réenregistrez pas l’application logique parente après avoir recréé son enfant, vos appels à l’application logique enfant échouent et une erreur de type « non autorisé » s’affiche. Ce comportement s’applique aux applications logiques parent-enfant, par exemple celles qui utilisent des artefacts dans les comptes d’intégration ou qui appellent des fonctions Azure.
 
 ## <a name="troubleshooting"></a>Dépannage
 

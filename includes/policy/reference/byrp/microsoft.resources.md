@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/21/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 371f902cafae7fe396a34e04d7fcc432c1934d61
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 51ce7748e868793090be76a9fbe994c631bcb753
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107865129"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737228"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -41,6 +41,7 @@ ms.locfileid: "107865129"
 |[Azure Monitor doit collecter les journaux d’activité dans toutes les régions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Cette stratégie effectue l’audit du profil de journal Azure Monitor qui n’exporte pas d’activités à partir de toutes les régions Azure prises en charge, notamment la région globale. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 |[La solution 'Security and Audit' d’Azure Monitor doit être déployée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3e596b57-105f-48a6-be97-03e9243bad6e) |Cette stratégie garantit que la solution Security and Audit est déployée. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Security_Audit_MustBeDeployed.json) |
 |[Les abonnements Azure doivent avoir un profil de journal pour le journal d’activité](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7796937f-307b-4598-941c-67d3a05ebfe7) |Cette stratégie garantit l’activation d’un profil de journal pour l’exportation des journaux d’activité. Elle vérifie si aucun profil de journal n’a été créé pour exporter les journaux vers un compte de stockage ou un hub d’événements. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Logprofile_activityLogs_Audit.json) |
+|[Configurer les journaux d’activité Azure dans le flux vers l’espace de travail Log Analytics spécifié](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2465583e-4e78-4c15-b6be-a36cbc7c8b0f) |Déploie les paramètres de diagnostic de l’activité Azure sur les journaux d’audit des abonnements de flux dans un espace de travail Log Analytics pour surveiller les événements au niveau de l’abonnement |DeployIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DataConnectorsAzureActivity.json) |
 |[Configurer la reprise d’activité sur les machines virtuelles en activant la réplication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac34a73f-9fa5-4067-9247-a3ecae514468) |Les machines virtuelles sans configuration de récupération d’urgence sont vulnérables aux pannes et autres interruptions. Si la récupération d’urgence n’est pas encore configurée sur la machine virtuelle, cette opération produit le même effet en activant la réplication à l’aide de configurations prédéfinies pour faciliter la continuité des activités. Pour en savoir plus sur la reprise d’activité, consultez [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |DeployIfNotExists, Désactivé |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AzureSiteRecovery-Replication-Policy.json) |
 |[Déployer - Configurer des règles de suppression pour les alertes Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F80e94a21-c6cd-4c95-a2c7-beb5704e61c0) |Supprimez des alertes Azure Security Center pour réduire un trop grand nombre d’alertes en déployant des règles de suppression sur votre groupe d’administration ou votre abonnement. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SuppressionRulesForAlerts_Deploy.json) |
 |[Déployer l'exportation sur un hub d'événements pour les données Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcdfcce10-4578-4ecd-9703-530938e4abcb) |Activez l’exportation sur un hub d’événements pour les données Azure Security Center. Cette stratégie déploie une configuration d’exportation vers Event Hub avec vos conditions et un hub d’événements cible sur l’étendue affectée. Pour déployer cette stratégie sur des abonnements nouvellement créés, ouvrez l’onglet Conformité, sélectionnez l’attribution non conforme appropriée, puis créez une tâche de correction. |deployIfNotExists |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ExportToEventHubAzureSecurityCenterAlertsAndRecommendations_Deploy.json) |
