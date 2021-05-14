@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
-ms.openlocfilehash: c30781cb83436e15a217a1d43c0e39facae9f52d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3a5d37c546e57725b15c9ad42c7b422c8c34eed5
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770405"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685132"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gérer IoT Central à partir d’Azure CLI
 
@@ -61,7 +61,11 @@ Ces commandes créent d’abord un groupe de ressources dans la région USA Est 
 | template          | Modèle d’application à utiliser. Pour plus d’informations, consultez le tableau suivant. |
 | display-name      | Nom de l’application tel qu’il est affiché dans l’interface utilisateur. |
 
+### <a name="application-templates"></a>Modèles d’application
+
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+Si vous avez créé votre propre modèle d’application, vous pouvez l’utiliser pour créer une nouvelle application. Quand vous êtes invité à spécifier un modèle d’application, entrez l’ID d’application indiqué dans le lien partageable d’URL de l’application exportée sous la section [Exportation de modèle d’application](howto-use-app-templates.md#create-an-application-template) de votre application.
 
 ## <a name="view-your-applications"></a>Afficher vos applications
 

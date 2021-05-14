@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3707516818e54dd251bd470eb9231afc6e3fff67
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: cd82da805538abcddf2f76a20c28cb0a74b5c89b
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138676"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685600"
 ---
 # <a name="media-services-v3-samples"></a>Exemples Media Services v3
 
@@ -33,11 +33,11 @@ Vous trouverez une description et des liens vers les exemples que vous pouvez re
 
 | Dossier | Description |
 |-------------|-------------|
-| [VideoEncoding/EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESPredefinedPreset)|Procédure pour envoyer un travail en utilisant un préréglage intégré et une entrée d’URL HTTP, publier un actif multimédia de sortie pour le streaming et télécharger les résultats à des fins de vérification.|
-| [VideoEncoding/EncodingWithMESCustomPreset_H264](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_H264)|Procédure pour envoyer un travail en utilisant un préréglage d’encodage H.264 personnalisé et une entrée d’URL HTTP, publier un actif multimédia de sortie pour le streaming et télécharger les résultats à des fins de vérification.|
-| [VideoEncoding/EncodingWithMESCustomPreset_HEVC](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_HEVC)|Procédure pour envoyer un travail en utilisant un préréglage d’encodage HEVC personnalisé et une entrée d’URL HTTP, publier un actif multimédia de sortie pour le streaming et télécharger les résultats à des fins de vérification.|
-| [VideoEncoding/EncodingWithMESCustomStitchTwoAssets](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets)|Procédure pour envoyer un travail en utilisant JobInputSequence pour assembler 2 actifs multimédia ou plus qui peuvent être découpés par heure de début ou de fin. Le fichier encodé obtenu est une vidéo unique avec tous les actifs multimédia assemblés.  L’exemple publiera également un actif multimédia de sortie pour le streaming et téléchargera les résultats à des fins de vérification.|
-| [VideoEncoding/EncodingWithMESCustomPresetAndSprite](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPresetAndSprite)|Procédure pour envoyer un travail en utilisant un préréglage personnalisé avec un sprite de miniature et une entrée d’URL HTTP, publier un actif multimédia de sortie pour le streaming et télécharger les résultats à des fins de vérification.|
+| [VideoEncoding/EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_PredefinedPreset)|Procédure pour envoyer un travail en utilisant un préréglage intégré et une entrée d’URL HTTP, publier un actif multimédia de sortie pour le streaming et télécharger les résultats à des fins de vérification.|
+| [VideoEncoding/EncodingWithMESCustomPreset_H264](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264)|Procédure pour envoyer un travail en utilisant un préréglage d’encodage H.264 personnalisé et une entrée d’URL HTTP, publier un actif multimédia de sortie pour le streaming et télécharger les résultats à des fins de vérification.|
+| [VideoEncoding/EncodingWithMESCustomPreset_HEVC](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC)|Procédure pour envoyer un travail en utilisant un préréglage d’encodage HEVC personnalisé et une entrée d’URL HTTP, publier un actif multimédia de sortie pour le streaming et télécharger les résultats à des fins de vérification.|
+| [VideoEncoding/EncodingWithMESCustomStitchTwoAssets](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets)|Procédure pour envoyer un travail en utilisant JobInputSequence pour assembler 2 actifs multimédia ou plus qui peuvent être découpés par heure de début ou de fin. Le fichier encodé obtenu est une vidéo unique avec tous les actifs multimédia assemblés.  L’exemple publiera également un actif multimédia de sortie pour le streaming et téléchargera les résultats à des fins de vérification.|
+| [VideoEncoding/EncodingWithMESCustomPresetAndSprite](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_SpriteThumbnail)|Procédure pour envoyer un travail en utilisant un préréglage personnalisé avec un sprite de miniature et une entrée d’URL HTTP, publier un actif multimédia de sortie pour le streaming et télécharger les résultats à des fins de vérification.|
 | [Live/LiveEventWithDVR](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live/LiveEventWithDVR)|Procédure pour créer un LiveEvent avec une archive complète jusqu’à 25 heures et un filtre sur l’actif multimédia avec une fenêtre DVR de 5 minutes. Procédure pour utiliser un filtre afin de créer un localisateur pour le streaming.|
 | [VideoAnalytics/VideoAnalyzer](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoAnalytics/VideoAnalyzer)|Procédure pour créer une transformation de l’analyseur vidéo, charger un fichier vidéo sur un actif multimédia d’entrée, envoyer un travail avec la transformation et télécharger les résultats à des fins de vérification.|
 | [AudioAnalytics/AudioAnalyzer](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/AudioAnalytics/AudioAnalyzer)|Procédure pour créer une transformation de l’analyseur audio, charger un fichier multimédia sur un actif multimédia d’entrée, envoyer un travail avec la transformation et télécharger les résultats à des fins de vérification.|

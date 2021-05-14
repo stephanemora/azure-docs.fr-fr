@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: 0332582f65ea59f43cc55064f9cdacefe4beefe4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ea679023b2b5bb620bb9684a0e841f6cc4fa310d
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322530"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847001"
 ---
 # <a name="running-a-reindex-job"></a>Exécution d’un travail de réindexation
 
@@ -21,7 +21,7 @@ Dans certains scénarios, vous pouvez avoir des paramètres de recherche ou de t
 > [!Warning]
 > Il est important de lire cet article dans son intégralité avant de commencer. Un travail de réindexement peut être très gourmand en performances. Cet article contient des options de limitation et de contrôle du travail de réindexation.
 
-## <a name="how-to-run-a-reindex-job"></a>Comment exécuter un travail de réindexation 
+## <a name="how-to-run-a-reindex-job"></a>Guide pratique pour exécuter un travail de réindexation 
 
 Pour démarrer un travail de réindexation, utilisez l’exemple de code suivant :
 
@@ -41,7 +41,7 @@ Si la demande est réussie, l’état **201 créé** est retourné. Le résultat
 
 ```json
 HTTP/1.1 201 Created 
-Content-Location: https://cv-cosmos1.azurewebsites.net/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e 
+Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e 
 
 {
   "resourceType": "Parameters",
@@ -91,9 +91,7 @@ Content-Location: https://cv-cosmos1.azurewebsites.net/_operations/reindex/560c7
 ```
 
 > [!NOTE]
-> Pour vérifier l’état de ou pour annuler un travail de réindexation, vous avez besoin de l’ID de réindexation. Il s’agit de l’ID de la ressource de paramètres résultante (illustrée ci-dessus) et peut également être trouvé en tant que GUID à la fin de la chaîne Content-Location :
-
-`https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b86d-c53a9d29495e`
+> Pour vérifier l’état de ou pour annuler un travail de réindexation, vous avez besoin de l’ID de réindexation. Il s’agit de l’ID de la ressource de paramètres résultante (voir ci-dessus). Vous pouvez également trouver l’ID de réindexeur à la fin de la chaîne Content-Location. Dans l'exemple ci-dessus, il s'agirait de `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## <a name="how-to-check-the-status-of-a-reindex-job"></a>Vérification de l’état d’un travail de réindexation
 

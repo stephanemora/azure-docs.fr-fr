@@ -34,8 +34,7 @@ Le tableau suivant indique les limites qui peuvent être différentes pour les n
 | Nombre de connexions AMQP par espace de noms | 100 | 5 000 | 100 000 inclus et maximum |
 | Période de rétention maximale des données d’événement | 1 jour | 1 à 7 jours | 90 jours, 10 To inclus per unité de capacité |
 | Nombre maximal d’UD et d’UC |20 UD | 20 UD | 20 CUS |
-| Nombre de partitions par Event Hub | 32 | 32 | 1 024 par hub d’événements
-2 000 par unité de capacité |
+| Nombre de partitions par Event Hub | 32 | 32 | 1 024 par hub d’événements<br/> 2 000 par unité de capacité |
 | Nombre d’espaces de noms par abonnement | 100 | 100 | 100 (50 par UC) |
 | Nombre d’Event Hubs par espace de noms | 10 | 10 | 1 000 |
 | Événements d’entrée | | Paiement par million d’événements | Inclus|

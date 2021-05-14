@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: db6e4a9c6d2829c7980164d5b79bd33e4b3fb6eb
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a2c14340dc1810b8bc1fd4bb2b3276120609f33a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112892"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108792548"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -82,7 +82,7 @@ Azure Communication Services gère un répertoire LID (Lightweight Identity Dire
 
 ```python
 identity = client.create_user()
-print("\nCreated an identity with ID: " + identity.identifier)
+print("\nCreated an identity with ID: " + identity.properties['id'])
 ```
 
 ## <a name="issue-access-tokens"></a>Émettre des jetons d’accès
@@ -106,7 +106,7 @@ La méthode `create_user_and_token` permet de créer une identité Communication
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
 identity_token_result = client.create_user_and_token(["voip"])
-identity = identity_token_result[0].identifier
+identity = identity_token_result[0].properties['id']
 token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
 print("\nCreated an identity with ID: " + identity)
@@ -130,7 +130,7 @@ Dans certains cas, vous pouvez révoquer explicitement des jetons d’accès. Pa
 
 ```python
 client.revoke_tokens(identity)
-print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
+print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.properties['id'])
 ```
 
 ## <a name="delete-an-identity"></a>Supprimer une identité
@@ -139,7 +139,7 @@ Quand vous supprimez une identité, vous supprimez aussi tous les jetons d’acc
 
 ```python
 client.delete_user(identity)
-print("\nDeleted the identity with ID: " + identity.identifier)
+print("\nDeleted the identity with ID: " + identity.properties['id'])
 ```
 
 ## <a name="run-the-code"></a>Exécuter le code

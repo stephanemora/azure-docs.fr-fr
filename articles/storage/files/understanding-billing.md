@@ -4,15 +4,15 @@ description: Découvrez comment interpréter les modèles de facturation provisi
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: efcfabb931b45b8b30e755cf1a9c16d15308f9d4
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.openlocfilehash: 9d0079ac85980f97a0241780b23e639e2359c65d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064950"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787218"
 ---
 # <a name="understand-azure-files-billing"></a>Comprendre la facturation d’Azure Files
 Azure Files propose deux modèles de facturation distincts : provisionné et paiement à l’utilisation. Le modèle provisionné est disponible uniquement pour les partages de fichiers Premium, qui sont déployés dans le type de compte de stockage **FileStorage**. Le modèle de paiement à l’utilisation est disponible uniquement pour les partages de fichiers standard, qui sont déployés dans le type de compte de stockage **Usage général version 2 (GPv2)** . Cet article explique comment fonctionnent les deux modèles pour vous aider à comprendre votre facture mensuelle Azure Files.
@@ -114,7 +114,7 @@ Lorsque vous créez un partage de fichiers standard, vous choisissez entre les n
 - Le niveau Chaud est destiné aux charges de travail actives qui ne portent pas sur un grand nombre de transactions. Si leur tarif de stockage au repos des données est légèrement inférieur, il est légèrement plus élevé qu’au niveau Optimisé pour les transactions en ce qui concerne les transactions. Il s’agit en quelque sorte d’un niveau intermédiaire entre les niveaux Optimisé pour les transactions et Froid.
 - Le niveau Froid optimise le tarif pour les charges de travail dont l’activité est limitée, offrant ainsi le tarif de stockage au repos des données le plus bas, mais le tarif le plus élevée pour ce qui est des transactions.
 
-Si vous placez une charge de travail rarement sollicitée dans le niveau Optimisé pour les transactions, vous ne payez presque rien pour les quelques fois par mois où vous effectuez des transactions sur votre partage, mais vous payez un montant élevé pour le stockage de données. Si vous déplacez ce partage de fichiers vers le niveau Froid, vos coûts de transaction restent très faibles, tout simplement parce que les transactions que vous effectuez sur cette charge de travail sont rares, mais le coût du stockage de données est bien moins élevé. Le choix du niveau approprié pour votre utilisation vous permet de réduire considérablement vos coûts. Le choix du niveau approprié pour votre utilisation vous permet de réduire considérablement vos coûts.
+Si vous placez une charge de travail rarement sollicitée dans le niveau Optimisé pour les transactions, vous ne payez presque rien pour les quelques fois par mois où vous effectuez des transactions sur votre partage, mais vous payez un montant élevé pour le stockage de données. Si vous déplacez ce partage de fichiers vers le niveau Froid, vos coûts de transaction restent très faibles, tout simplement parce que les transactions que vous effectuez sur cette charge de travail sont rares, mais le coût du stockage de données est bien moins élevé. Le choix du niveau approprié pour votre utilisation vous permet de réduire considérablement vos coûts.
 
 De même, si vous placez une charge de travail très sollicitée dans le niveau Froid, vous payez des coûts de transaction bien plus élevés mais des coûts de stockage de données plus faibles. Cela peut conduire à une situation dans laquelle l’augmentation des coûts due à l’augmentation des coûts de transaction dépasse les économies réalisées grâce au faible coût du stockage, et vous finissez par payer plus avec le niveau Froid que ce que vous auriez payé avec le niveau Optimisé pour les transactions. Pour certains niveaux d’utilisation, le niveau Froid peut se révéler plus coûteux que le niveau Optimisé pour les transactions, le niveau Chaud restant le plus économique.
 
