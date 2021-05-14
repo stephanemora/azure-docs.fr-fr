@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce qu’Azure Logic Apps\_?"
+    - name: À propos d’Azure Logic Apps
       href: logic-apps-overview.md
 - name: Démarrages rapides
   expanded: true
@@ -36,13 +36,15 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
 - name: Concepts
   items:
-    - name: Vue d’ensemble des connecteurs pour Logic Apps
-      href: ../connectors/apis-list.md
-    - name: Connecteurs managés pour Logic Apps
-      href: ../connectors/managed.md
-    - name: Connecteurs intégrés pour Logic Apps
-      href: ../connectors/built-in.md
-    - name: Planifier des workflows récurrents
+    - name: Connecteurs et opérations intégrées
+      items:
+        - name: Vue d’ensemble des connecteurs
+          href: ../connectors/apis-list.md
+        - name: Connecteurs gérés
+          href: ../connectors/managed.md
+        - name: Opérations intégrées
+          href: ../connectors/built-in.md
+    - name: Workflows planifiés récurrents
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Sans serveur avec Azure
       href: logic-apps-serverless-overview.md
@@ -61,13 +63,13 @@
           href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: Guides pratiques
   items:
-    - name: Préversion Azure Logic Apps
+    - name: Environnement monolocataire Azure Logic Apps (préversion)
       items:
-        - name: Vue d’ensemble de la préversion Azure Logic Apps
+        - name: Vue d’ensemble d’un environnement monolocataire (préversion)
           href: logic-apps-overview-preview.md
-        - name: Créer des workflows avec et sans état - Portail Azure
+        - name: Créer des applications logiques en préversion - Portail
           href: create-stateful-stateless-workflows-azure-portal.md
-        - name: Créer des workflows avec et sans état - Visual Studio Code
+        - name: Créer des applications logiques en préversion - Visual Studio Code
           href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Développer
       items:

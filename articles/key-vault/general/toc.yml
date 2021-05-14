@@ -130,14 +130,16 @@
           href: backup.md
     - name: Sécuriser
       items:
+        - name: Configurer les paramètres réseau du coffre de clés
+          href: how-to-azure-key-vault-network-security.md
+        - name: Accéder à un coffre de clés derrière un pare-feu
+          href: access-behind-firewall.md
         - name: Azure Private Link
           items:
             - name: S’intégrer au service Azure Private Link
               href: private-link-service.md
             - name: Diagnostiquer les problèmes de configuration des liaisons privées
               href: private-link-diagnostics.md
-        - name: Accéder à un coffre de clés derrière un pare-feu
-          href: access-behind-firewall.md
     - name: Déplacer un coffre de clés
       items:
         - name: Déplacer un coffre de clés dans un autre groupe de ressources

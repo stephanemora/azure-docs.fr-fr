@@ -282,7 +282,7 @@
               href: managed-aad.md
             - name: "Intégration Azure\_AD (hérité)"
               href: azure-ad-integration-cli.md
-        - name: Utiliser Azure RBAC pour l’autorisation Kubernetes (préversion)
+        - name: Utiliser l’autorisation Azure RBAC pour Kubernetes
           href: manage-azure-rbac.md
         - name: Utiliser le contrôle d’accès en fonction du rôle (RBAC) Kubernetes avec l’intégration d’Azure AD
           href: azure-ad-rbac.md
