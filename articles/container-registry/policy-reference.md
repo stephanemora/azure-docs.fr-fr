@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Container Registry
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Container Registry. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e94cb8f2f4cd22f17d6e6e57efb0a8edb75795e6
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f637a1a3925e49f3b51eacbfdc2731141b0a6484
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178631"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771490"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Définitions intégrées d’Azure Policy pour Azure Container Registry
 

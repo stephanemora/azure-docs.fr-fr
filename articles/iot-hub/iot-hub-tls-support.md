@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: jlian
-ms.openlocfilehash: 3fed568d1e5b85fcfaf5c88eb736e876e9748088
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: 834ccc850a3099857dc1b88e45b0c0c3ee3a186c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930710"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486446"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Prise en charge de TLS (Transport Layer Security) dans IoT Hub
 
@@ -133,7 +133,7 @@ Les appareils IoT Edge peuvent être configurés pour utiliser TLS 1.2 lors des
 
 ## <a name="device-authentication"></a>Authentification des appareils
 
-Après l’établissement de la liaison TLS, IoT Hub peut authentifier un appareil à l’aide d’une clé symétrique ou d’un certificat X.509. Pour l’authentification par certificat, il peut s’agir de n’importe quel certificat X.509, y compris ECC. IoT Hub valide le certificat par rapport à l’empreinte ou à l’autorité de certification (CA) que vous fournissez. Pour plus d’informations, consultez [Certificats X.509 pris en charge](iot-hub-devguide-security.md#supported-x509-certificates).
+Après l’établissement de la liaison TLS, IoT Hub peut authentifier un appareil à l’aide d’une clé symétrique ou d’un certificat X.509. Pour l’authentification par certificat, il peut s’agir de n’importe quel certificat X.509, y compris ECC. IoT Hub valide le certificat par rapport à l’empreinte ou à l’autorité de certification (CA) que vous fournissez. Pour plus d’informations, consultez [Certificats X.509 pris en charge](iot-hub-dev-guide-sas.md#supported-x509-certificates).
 
 ## <a name="tls-maximum-fragment-length-negotiation-preview"></a>Négociation de la longueur maximale des fragments TLS (préversion)
 

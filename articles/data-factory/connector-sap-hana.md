@@ -1,18 +1,18 @@
 ---
 title: Copier des données à partir de SAP HANA
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP HANA vers des banques de données réceptrices prises en charge.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: ce3c1e22dd030c0730bf4d9859591c00860908a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 366165b0087755532a1d0584d43d82d7c85af798
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382274"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787146"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copier des données de SAP HANA à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -53,7 +53,7 @@ Pour utiliser ce connecteur SAP HANA, vous devez :
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des détails sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur SAP HANA.
 

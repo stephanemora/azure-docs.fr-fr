@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 35aa0110106f121adb9373f83ff29d299ce049fc
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e46d4c07f3de2441f53648b228ab7a9d2a41ab61
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135974"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753356"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copier des données vers et depuis Azure Synapse Analytics en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -30,11 +30,11 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 Vous pouvez copier des données **depuis Azure Synapse Analytics** vers les magasins de données suivants :
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 Vous pouvez copier des données depuis les magasins de données suivants **vers Azure Synapse Analytics** :
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!TIP]
 > Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure Synapse Analytics, si la table n’existe pas dans le magasin de destination, Data Factory peut automatiquement créer la table dans Azure Synapse Analytics en utilisant le schéma de la table dans le magasin de données source. Consultez [Création automatique de la table](#auto-table-creation) pour plus d’informations.
@@ -325,7 +325,7 @@ Data Factory crée la table dans le magasin de destination portant le même nom 
 | NVarChar | NVarChar (jusqu'à 4 000) |
 | Xml | Varchar (jusqu'à 8 000) |
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+[!INCLUDE [data-factory-type-repeatability-for-sql-sources](includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 ## <a name="type-mapping-for-azure-synapse-analytics"></a>Mappage des types pour Azure Synapse Analytics
 Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md) , l’activité de copie convertit automatiquement les types source en types récepteur à l’aide de l’approche en 2 étapes suivante :

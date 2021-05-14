@@ -1,17 +1,17 @@
 ---
 title: Copier des données de Table web à l’aide d’Azure Data Factory
 description: Découvrez le connecteur Table web d’Azure Data Factory, qui vous permet de copier des données d’une Table web vers des banques de données prises en charge par Data Factory en tant que récepteurs.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: 1ab45868afd8d1b7ba1f61f5eaacca283817e6d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: d3035220f719bb4afde4dec8ff8417114b6569ee
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367008"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484754"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copier des données de Table web à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -44,7 +44,7 @@ Pour utiliser ce connecteur de table web, vous devez configurer un Runtime d’i
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Table web.
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 7677e370b6ca02c4aefa337787d0c2410e105b3f
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: dc433c2058fb20630e69f3ce1bb5a462b2f68856
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072072"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802573"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles à l’aide d’un modèle Resource Manager
 
@@ -23,7 +23,7 @@ Ce guide de démarrage rapide décrit comment utiliser un modèle Azure Resource
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-2-vms-internal-load-balancer%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2F2-vms-internal-load-balancer%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/201-2-vms-internal-load-balancer).
 
-:::code language="json" source="~/quickstart-templates/201-2-vms-internal-load-balancer/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json":::
 
 Plusieurs ressources Azure ont été définies dans le modèle :
 
@@ -53,7 +53,7 @@ Pour rechercher d’autres modèles qui sont liés à l’équilibrage de charge
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
 resourceGroupName="myResourceGroupLB"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json"
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \

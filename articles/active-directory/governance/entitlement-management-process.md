@@ -3,7 +3,7 @@ title: Processus de demande et notifications - Gestion des droits d’utilisatio
 description: Découvrez le processus de demande d’un package d’accès, et les envois de notifications par e-mail dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: mamtakumar
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb84eae2db01180865db54250598f45c7b2ddca0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 95d48a3787f3dd54b5713ad0c9358e329e74aecc
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97746233"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786336"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Processus de demande et notifications par e-mail dans la gestion des droits d’utilisation Azure AD
 

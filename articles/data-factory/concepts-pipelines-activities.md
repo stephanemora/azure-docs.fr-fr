@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 870c812a68f765f987cfd3d1b953e0afeb3e9055
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c910264a01967b62ebae80f63ac3f40e98ab48a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100364509"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773272"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 
@@ -37,7 +37,7 @@ Un jeu de données d’entrée représente l’entrée d’une activité dans le
 
 L’activité de copie dans Data Factory permet de copier les données d’un magasin de données source vers un magasin de données récepteur. Data Factory prend en charge les magasins de données répertoriés dans le tableau de cette section. Les données de n’importe quelle source peuvent être écrites dans n’importe quel récepteur. Cliquez sur une banque de données pour découvrir comment copier des données depuis/vers cette banque.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
 Pour plus d’informations, consultez l’article [Activité de copie - vue d’ensemble](copy-activity-overview.md).
 

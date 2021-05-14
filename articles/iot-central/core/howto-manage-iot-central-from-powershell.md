@@ -9,12 +9,12 @@ ms.date: 03/27/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 manager: philmea
-ms.openlocfilehash: a870b72d1dda04ab29dbb5f056873d47f888b837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 932b2a5e09c335564273a1161c471182738e40b0
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501360"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685330"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gérer IoT Central à partir d’Azure PowerShell
 
@@ -79,7 +79,11 @@ Le script crée d’abord un groupe de ressources dans la région USA Est pour l
 |Modèle          | Modèle d’application à utiliser. Pour plus d’informations, consultez le tableau suivant. |
 |DisplayName       |Nom de l’application tel qu’il est affiché dans l’interface utilisateur. |
 
+### <a name="application-templates"></a>Modèles d’application
+
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+Si vous avez créé votre propre modèle d’application, vous pouvez l’utiliser pour créer une nouvelle application. Quand vous êtes invité à spécifier un modèle d’application, entrez l’ID d’application indiqué dans le lien partageable d’URL de l’application exportée sous la section [Exportation de modèle d’application](howto-use-app-templates.md#create-an-application-template) de votre application.
 
 ## <a name="view-your-iot-central-applications"></a>Afficher les applications IoT Central
 

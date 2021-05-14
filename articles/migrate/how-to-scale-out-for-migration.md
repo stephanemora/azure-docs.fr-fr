@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0f5bf01080d89e6dc6d6843312d96243b8526ba
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611971"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484538"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Mettre à l’échelle une migration sans agent de machines virtuelles VMware vers Azure
 
@@ -76,7 +76,7 @@ Le script du programme d’installation effectue les opérations suivantes :
 
 - Installe l’agent de passerelle et le gestionnaire de configuration d’appliance pour effectuer davantage de réplications de serveur simultanées.
 - Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS. [Plus d’informations](https://www.microsoft.com/download/details.aspx?id=7435)
+- Télécharge et installe un module réinscriptible IIS.
 - Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
 - Crée les fichiers suivants sous le chemin :
     - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
