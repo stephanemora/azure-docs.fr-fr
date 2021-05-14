@@ -76,8 +76,8 @@
       href: configure-site-to-site-vpn-gateway.md
     - name: Configurer le cluster de basculement Windows Server
       href: configure-windows-server-failover-cluster.md
-    - name: Rotation des informations d’identification cloudadmin
-      href: rotate-cloudadmin-credentials.md
+    - name: Réinitialiser les informations d’identification vSphere
+      href: reset-vsphere-credentials.md
     - name: Sauvegarder et restaurer avec un serveur de sauvegarde Azure
       items:
         - name: Sauvegarder des machines virtuelles VMware

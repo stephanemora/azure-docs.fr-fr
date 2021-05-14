@@ -7,13 +7,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.custom: devx-track-java
-ms.openlocfilehash: d94232a78257d21f5400b2cddbf8269635962542
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-java, subject-rbac-steps
+ms.openlocfilehash: b8474e7f322025609222b4867db988d22aa2bcb9
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144598"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291205"
 ---
 # <a name="access-config-server-and-service-registry"></a>Accéder à Config Server et Service Registry
 
@@ -21,19 +21,9 @@ Cet article explique comment accéder aux services Spring Cloud Config Server et
 
 ## <a name="assign-role-to-azure-ad-usergroup-msi-or-service-principal"></a>Attribuer un rôle à un utilisateur, un groupe ou un principal de service Azure AD, ou à une identité managée pour les ressources Azure
 
-Pour utiliser Azure AD et RBAC, vous devez attribuer le rôle *Lecteur de données Azure Spring Cloud* à un utilisateur, un groupe ou un principal de service en appliquant la procédure suivante :
+Affectez le rôle [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) à [utilisateur | groupe | principal-de-service | identité-managée] pour l’étendue [groupe-de-gestion | abonnement | groupe-de-ressources | ressources].
 
-1. Accédez à la page de vue d’ensemble du service de votre instance de service.
-
-2. Cliquez sur **Contrôle d’accès (IAM)** pour ouvrir le panneau de contrôle d’accès.
-
-3. Cliquez sur le bouton **Ajouter** et sur **Ajouter des attributions de rôles** (une autorisation peut être nécessaire pour l’ajout).
-
-4. Recherchez et sélectionnez *Lecteur de données Azure Spring Cloud* sous **Rôle**.
-5. Attribuez l’accès à `User, group, or service principal` ou `User assigned managed identity` en fonction du type d’utilisateur. Recherchez et sélectionnez l’utilisateur.  
-6. Cliquez sur `Save`
-
-   ![attribuer un rôle](media/access-data-plane-aad-rbac/assign-data-reader-role.png)
+Pour connaître la procédure détaillée, consultez [Attribution de rôles Azure à l’aide du Portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="access-config-server-and-service-registry-endpoints"></a>Accéder aux points de terminaison de Config Server et Service Registry
 

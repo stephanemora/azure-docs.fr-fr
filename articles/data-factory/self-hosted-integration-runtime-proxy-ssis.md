@@ -7,12 +7,12 @@ author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/29/2021
-ms.openlocfilehash: f0a87ef34ac4dfdccba0798a8c47f6ca6421c517
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 68a15e14b585184bd956c3ac8f79cdd5eac5d76c
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227158"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788064"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
 
@@ -53,7 +53,7 @@ Pour finir, vous téléchargez et installez la dernière version de l’IR auto-
 
 ### <a name="enable-windows-authentication-for-on-premises-tasks"></a>Utiliser l'authentification Windows pour des tâches locales
 
-Si les tâches intermédiaires locales/les tâches d'exécution de requêtes SQL sur votre IR auto-hébergé nécessitent une authentification Windows, vous devez également [configurer la fonctionnalité d'authentification Windows sur votre Azure-SSIS IR](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth.md). 
+Si les tâches intermédiaires locales/les tâches d'exécution de requêtes SQL sur votre IR auto-hébergé nécessitent une authentification Windows, vous devez également [configurer la fonctionnalité d'authentification Windows sur votre Azure-SSIS IR](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). 
 
 Vos tâches intermédiaires locales/tâches d'exécution de requêtes SQL seront appelées avec le compte de service de l'IR auto-hébergé (*NT SERVICE\DIAHostService* par défaut), et vos magasins de données seront accessibles avec le compte d'authentification Windows. Les deux comptes nécessitent que certaines stratégies de sécurité leur soient attribuées. Sur l’ordinateur IR auto-hébergé, accédez à **Stratégie de sécurité locale** > **Stratégies locales** > **Attribution des droits utilisateur**, puis effectuez les étapes suivantes :
 
@@ -69,7 +69,7 @@ Si ce n’est pas déjà fait, créez un service lié Stockage Blob Azure dans l
 - Pour **Méthode d’authentification**, sélectionnez **Clé de compte**, **URI SAS**, **Principal du service** ou **Identité managée**.  
 
 >[!TIP]
->Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**, accordez à votre identité managée par ADF un rôle approprié pour accéder à Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory avec l’identité managée par ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager.md#managed-identities-for-azure-resources-authentication).
+>Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**, accordez à votre identité managée par ADF un rôle approprié pour accéder à Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory avec l’identité managée par ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
 ![Préparer le service lié de stockage d’objets blob Azure pour la préproduction](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 

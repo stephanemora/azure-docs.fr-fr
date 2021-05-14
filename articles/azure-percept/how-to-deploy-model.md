@@ -1,18 +1,18 @@
 ---
 title: Déployer un modèle IA de vision sur votre DK Azure Percept
 description: Découvrir comment déployer un modèle IA de vision sur votre DK Azure Percept à partir d’Azure Percept Studio
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 01bd3709050d8a2b57c1bf51920308188546fb31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c9622c033309a8e6c33e49180b2a40d8b1f2720e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035481"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754322"
 ---
 # <a name="deploy-a-vision-ai-model-to-your-azure-percept-dk"></a>Déployer un modèle IA de vision sur votre DK Azure Percept
 

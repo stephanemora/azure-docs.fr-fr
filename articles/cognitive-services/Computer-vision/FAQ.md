@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 15caaad0539c9c8c61c8fef6c81761054c68f431
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: a266023bbf44ef0a3ad4a6f4951fa3995ad917c0
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108073248"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785436"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur l’API Vision par ordinateur
 
@@ -34,7 +34,7 @@ ms.locfileid: "108073248"
 
 **Question** : *Puis-je déployer la fonctionnalité OCR (Read) localement ?*
 
-**Réponse** : Oui, l’API cloud OCR (Read) est également disponible en tant que conteneur Docker pour un déploiement local. Découvrez [comment déployer les conteneurs OCR](/computer-vision-how-to-install-containers).
+**Réponse** : Oui, l’API cloud OCR (Read) est également disponible en tant que conteneur Docker pour un déploiement local. Découvrez [comment déployer les conteneurs OCR](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers).
 
 ---
 

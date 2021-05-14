@@ -1,19 +1,19 @@
 ---
 title: Résoudre les problèmes de déploiement de service cloud (classique) | Microsoft Docs
 description: Vous pouvez rencontrer quelques problèmes courants lors du déploiement d’un service cloud sur Azure. Cet article fournit des solutions pour certains d’entre eux.
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39c69d69012345cd636964ca813ac93186946cb9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98741075"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771592"
 ---
 # <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Résoudre les problèmes de déploiement d’Azure Cloud Services (classique)
 

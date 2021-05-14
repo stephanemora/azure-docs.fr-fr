@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
 ms.date: 04/21/2021
-ms.openlocfilehash: 1fff4cdf24f9be245026757e18050aa121b4d62a
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a9bc17528e1314a033cf2e45fee4b112eb088cc3
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138856"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715571"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Référence sur la surveillance des données de Media Services
 
@@ -56,7 +56,7 @@ Media Services prend en charge les journaux de ressources suivants : [Microsoft
 
 Pour une description détaillée du schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
-## <a name="key-delivery-log-schema-properties"></a>Propriétés du schéma de journal de remise de clés
+### <a name="key-delivery"></a>Remise de clés 
 
 Ces propriétés sont spécifiques au schéma du journal de remise de clé.
 
