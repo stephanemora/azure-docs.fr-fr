@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 4ae4094e4a356c5394c2bdf887d3b60e40989ecd
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f3e0a14ee917bf9b1396eef9d1ec36709e5e706a
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885737"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331384"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -41,6 +41,10 @@ Les instances de calcul peuvent exécuter des travaux en toute sécurité dans u
 * L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="create"></a>Créer
+
+> [!IMPORTANT]
+> Les éléments marqués (préversion) ci-dessous sont actuellement en préversion publique.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Durée estimée** : 5 minutes environ.
 
@@ -105,10 +109,14 @@ Pour plus d’informations sur la création d’une instance de calcul dans le s
 
 Vous pouvez également créer une instance de calcul avec un [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance). 
 
-### <a name="create-on-behalf-of-preview"></a>Créer au nom de (préversion)
+
+
+## <a name="create-on-behalf-of-preview"></a>Créer au nom de (préversion)
 
 En tant qu’administrateur, vous pouvez créer une instance de calcul au nom d’un scientifique des données et lui affecter l’instance avec :
+
 * [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Pour plus d’informations sur la façon de trouver les valeurs TenantID et ObjectID nécessaires dans ce modèle, consultez [Rechercher des ID d’objet d’identité pour la configuration de l’authentification](../healthcare-apis/fhir/find-identity-object-ids.md).  Vous pouvez également trouver ces valeurs dans le portail Azure Active Directory.
+
 * API REST
 
 Le scientifique des données pour lequel vous créez l’instance de calcul doit disposer des [autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) : 
@@ -122,6 +130,93 @@ Le scientifique des données peut démarrer, arrêter et redémarrer l’instanc
 * JupyterLab
 * RStudio
 * Notebooks intégrés
+
+## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> Personnalisation de l’instance de calcul avec un script (préversion)
+
+> [!TIP]
+> Cette préversion est actuellement disponible pour les espaces de travail des régions USA Centre-Ouest et USA Est.
+
+Utilisez un script de configuration pour personnaliser et configurer automatiquement l’instance de calcul au moment du provisionnement. En tant qu’administrateur, vous pouvez écrire un script de personnalisation visant à provisionner toutes les instances de calcul dans l’espace de travail en fonction de vos besoins. 
+
+Voici quelques exemples de ce que vous pouvez faire dans un script de configuration :
+
+* Installer des packages et des outils
+* Monter des données
+* Créer un environnement Conda personnalisé et des noyaux Jupyter
+* Cloner des référentiels Git
+
+### <a name="create-the-setup-script"></a>Création du script de configuration
+
+Le script de configuration est un script shell qui s’exécute en tant que *azureuser*.  Créez ou chargez le script dans vos fichiers **Notebooks** :
+
+1. Connectez-vous au [studio](https://ml.azure.com) et sélectionnez votre espace de travail.
+1. Sur la gauche, sélectionnez **Notebooks**.
+1. Utilisez l’outil **Ajouter des fichiers** pour créer ou charger votre script shell de configuration.  Veillez à ce que le nom de fichier du script se termine par « .sh ».  Lorsque vous créez un fichier, remplacez également le **Type de fichier** par *bash (.sh)* .
+
+:::image type="content" source="media/how-to-create-manage-compute-instance/create-or-upload-file.png" alt-text="Création ou chargement d’un script de configuration dans un fichier Notebooks dans le studio.":::
+
+Lorsque le script s’exécute, le répertoire de travail actif est le répertoire dans lequel il a été chargé.  Si vous chargez le script dans **Users>admin**, l’emplacement du fichier est */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users/admin* pour le provisionnement de l’instance de calcul nommée **ciname**.
+
+Les arguments de script peuvent être indiqués dans le script sous la forme $1, $2, etc. Par exemple, si vous exécutez `scriptname ciname`, vous pouvez utiliser la commande `cd /mnt/batch/tasks/shared/LS_root/mounts/clusters/$1/code/admin` dans le script pour accéder au répertoire dans lequel il est stocké.
+
+Vous pouvez également récupérer le chemin à l’intérieur du script :
+
+```shell
+#!/bin/bash 
+SCRIPT=$(readlink -f "$0") 
+SCRIPT_PATH=$(dirname "$SCRIPT") 
+```
+
+### <a name="use-the-script-in-the-studio"></a>Utilisation du script dans le studio
+
+Une fois que vous avez stocké le script, spécifiez-le lors de la création de votre instance de calcul :
+
+1. Connectez-vous au [studio](https://ml.azureml.com) et sélectionnez votre espace de travail.
+1. Sur la gauche, sélectionnez **Calcul**.
+1. Sélectionnez **+ Créer** pour créer une instance de calcul.
+1. [Remplissez le formulaire](how-to-create-attach-compute-studio.md#compute-instance).
+1. Sur la deuxième page du formulaire, ouvrez **Afficher les paramètres avancés**.
+1. Activez **Provisionner avec un script de configuration**.
+1. Accédez au script shell que vous avez enregistré,  ou téléchargez un script à partir de votre ordinateur.
+1. Ajoutez les arguments de commande nécessaires.
+
+:::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisionnement d’une instance de calcul avec un script de configuration dans le studio.":::
+
+### <a name="use-script-in-a-resource-manager-template"></a>Utilisation du script dans un modèle Resource Manager
+
+Dans un [modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance) Resource Manager, ajoutez `setupScripts` pour appeler le script de configuration lorsque l’instance de calcul est provisionnée. Par exemple :
+
+```json
+"setupScripts":{
+    "scripts":{
+        "creationScript":{
+        "scriptSource":"workspaceStorage",
+        "scriptData":"[parameters('creationScript.location')]",
+        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+        }
+    }
+}
+```
+
+Il est également possible d’insérer le script inline pour un modèle Resource Manager.  La commande shell peut faire référence à toutes les dépendances chargées dans le partage de fichiers des notebooks.  Lorsque vous utilisez une chaîne inline, le répertoire de travail du script est */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
+
+Par exemple, spécifiez une chaîne de commande encodée en Base64 pour `scriptData` :
+
+```json
+"setupScripts":{
+    "scripts":{
+        "creationScript":{
+        "scriptSource":"inline",
+        "scriptData":"[base64(parameters('inlineCommand'))]",
+        "scriptArguments":"[parameters('creationScript.cmdArguments')]"
+        }
+    }
+}
+```
+
+### <a name="setup-script-logs"></a>Journaux du script de configuration
+
+Les journaux issus de l’exécution du script de configuration s’affichent dans le dossier Journaux de la page Détails de l’instance de calcul. Ils sont stockés dans le partage de fichiers de vos notebooks dans le dossier Logs\<compute instance name>. Les arguments de fichier de script et de commande d’une instance de calcul particulière apparaissent sur la page de détails.
 
 ## <a name="manage"></a>Gérer
 
