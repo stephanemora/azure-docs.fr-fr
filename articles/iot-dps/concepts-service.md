@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotga
-ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9397351d1b6be5533f3a5eb9206dfd97311d9a1
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019444"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483350"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>Terminologie du service Device Provisioning (DPS) IoT Hub
 
@@ -83,7 +83,7 @@ Le mécanisme d’attestation est la méthode utilisée pour confirmer l’ident
 Le service Device Provisioning prend en charge les formes d’attestation suivantes :
 * **Certificats X.509** basés sur le flux d’authentification de certificat X.509 standard. Pour plus d’informations, consultez [Attestation X.509](concepts-x509-attestation.md).
 * **Module de plateforme sécurisée (TPM)** basé sur un défi nonce, utilisant la norme de module de plateforme sécurisée (TPM) pour les clés afin de présenter un jeton de signature d’accès partagé (SAS) signé. Il n’est pas nécessaire d’avoir un TPM physique sur l’appareil, mais le service utilise pour l’attestation la paire de clés de type EK conformément à la [spécification TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/). Pour plus d’informations, consultez [Attestation TPM](concepts-tpm-attestation.md).
-* **Clé symétrique** basée sur des [jetons de sécurité](../iot-hub/iot-hub-devguide-security.md#security-tokens) avec signature d’accès partagé (SAP), qui incluent une signature hachée et un délai d’expiration incorporé. Pour plus d’informations, consultez [Attestation de clé symétrique](concepts-symmetric-key-attestation.md).
+* **Clé symétrique** basée sur des [jetons de sécurité](../iot-hub/iot-hub-dev-guide-sas.md#security-tokens) avec signature d’accès partagé (SAP), qui incluent une signature hachée et un délai d’expiration incorporé. Pour plus d’informations, consultez [Attestation de clé symétrique](concepts-symmetric-key-attestation.md).
 
 
 ## <a name="hardware-security-module"></a>Module de sécurité matériel

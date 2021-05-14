@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: a9478948cd5232c863014631acb884cd637a2f7d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 3aa82d36db7e7c31f956bef940a33d2898302dca
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107863992"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755510"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (C)
 
@@ -51,7 +51,7 @@ Pour ce guide de démarrage rapide, vous devez utiliser [Azure IoT device SDK fo
 
 Pour les environnements suivants, vous pouvez utiliser le SDK en installant les packages et bibliothèques suivants :
 
-* **Linux** : les packages apt-get sont disponibles pour Ubuntu 16.04 et 18.04, avec les architectures d'UC suivantes : amd64, arm64, armhf et i386. Pour plus d’informations, consultez [Utilisation de apt-get pour créer un projet client d’appareil C sur Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
+* **Linux** : les packages apt-get sont disponibles pour Ubuntu 16.04 et 18.04, avec les architectures d'UC suivantes : amd64, arm64, armhf et i386.  Pour plus d’informations, consultez [Utilisation de apt-get pour créer un projet client d’appareil C sur Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-linux-development-environment).
 
 * **mbed** : pour les développeurs créant des applications d'appareil sur la plateforme mbed, nous avons publié une bibliothèque et des exemples qui les aideront à se familiariser avec Azure IoT Hub en quelques minutes. Pour plus d’informations, consultez [Utiliser la bibliothèque mbed](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
 

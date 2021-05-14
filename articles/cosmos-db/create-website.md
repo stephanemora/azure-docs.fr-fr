@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ff0543ebc341788ee9492f3e2a117c8e64c44f5
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93333577"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737381"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service avec une application web à partir de GitHub à l’aide d’un modèle Azure Resource Manager
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,9 +36,9 @@ Le déploiement obtenu dispose d’une application web entièrement fonctionnell
 
 ## <a name="step-1-deploy-the-template"></a>Étape 1 : Déployer le modèle
 
-Tout d’abord, sélectionnez le bouton **Déployer sur Azure** ci-dessous pour ouvrir le Portail Azure afin de créer un déploiement personnalisé. Vous pouvez également afficher le modèle Azure Resource Management depuis la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
+Tout d’abord, sélectionnez le bouton **Déployer sur Azure** ci-dessous pour ouvrir le Portail Azure afin de créer un déploiement personnalisé. Vous pouvez également afficher le modèle Azure Resource Management depuis la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-webapp%2Fazuredeploy.json)
 
 Une fois dans le Portail Azure, sélectionnez l’abonnement dans lequel effectuer le déploiement, puis sélectionnez ou créez un nouveau groupe de ressources. Renseignez ensuite les valeurs suivantes.
 
@@ -118,5 +118,5 @@ Enfin, nous devons déployer l’application web à partir de GitHub dans l’Ap
 
 Félicitations ! Vous avez déployé Azure Cosmos DB, Azure App Service et un échantillon d’application web qui dispose automatiquement des informations de connexion nécessaires pour se connecter à Cosmos DB, le tout en une seule opération et sans avoir à couper et coller des informations sensibles. En utilisant ce modèle comme point de départ, vous pouvez le modifier pour déployer vos propres applications web de la même façon.
 
-* Pour obtenir l’échantillon du modèle Azure Resource Manager, accédez à la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
+* Pour obtenir l’échantillon du modèle Azure Resource Manager, accédez à la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)
 * Pour obtenir le code source de l’échantillon d’application, accédez à [Cosmos DB To Do App sur GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app).

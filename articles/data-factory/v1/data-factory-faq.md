@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 450a12ae5ae1e13c9cc9b5599a41b6c29d740a9f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8f00715eac391e9180c36d8960f54c95772c564
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785323"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753158"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Forum aux Questions
 > [!NOTE]
@@ -88,13 +88,19 @@ Les pipelines sont censés regrouper des activités connexes. Vous pouvez conser
 ### <a name="what-are-the-supported-data-stores"></a>Quelles sont les banques de données prises en charge ?
 L’activité de copie dans Data Factory permet de copier les données d’un magasin de données source vers un magasin de données récepteur. Data Factory prend en charge les magasins de données suivants. Les données de n’importe quelle source peuvent être écrites dans n’importe quel récepteur. Cliquez sur une banque de données pour découvrir comment copier des données depuis/vers cette banque.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Les banques de données signalées par un astérisque (*) peuvent être locales ou résider sur une instance Azure IaaS. Elles nécessitent que vous installiez une [passerelle de gestion des données](data-factory-data-management-gateway.md) sur un ordinateur local ou Azure IaaS.
 
 ### <a name="what-are-the-supported-file-formats"></a>Quels sont les formats de fichier pris en charge ?
-[!INCLUDE [data-factory-file-format](../../../includes/data-factory-file-format.md)]
+Azure Data Factory prend en charge les types de format de fichier suivants :
+
+* [Format Texte](data-factory-supported-file-and-compression-formats.md#text-format)
+* [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format)
+* [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format)
+* [Format ORC](data-factory-supported-file-and-compression-formats.md#orc-format)
+* [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format)
 
 ### <a name="where-is-the-copy-operation-performed"></a>Où est effectuée l’opération de copie ?
 Consultez la section relative au [déplacement des données disponibles à l’échelle mondiale](data-factory-data-movement-activities.md#global) pour plus d’informations. En bref, lorsqu’il s’agit d’un magasin de données local, l’opération de copie est effectuée par la passerelle de gestion des données dans votre environnement local. Lorsque le déplacement des données se fait entre deux magasins cloud, l’opération de copie est effectuée dans la région la plus proche de l’emplacement du récepteur dans la même zone géographique.

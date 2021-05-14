@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 374c4764689447b855476128ee31e2077211a794
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 504d66501cc041d6fec4671b6955723505910d0c
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208902"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788442"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Activer une identité managée pour le routage des événements Azure Digital Twins (préversion) : Azure CLI
 
@@ -45,7 +45,7 @@ Pour ce faire, ajoutez un paramètre `--assign-identity` à la commande `az dt c
 Pour créer une instance avec une identité managée par le système, ajoutez le paramètre `--assign-identity` comme ceci :
 
 ```azurecli-interactive
-az dt create -n {new_instance_name} -g {resource_group} --assign-identity
+az dt create --dt-name {new_instance_name} --resource-group {resource_group} --assign-identity
 ```
 
 ### <a name="add-a-system-managed-identity-to-an-existing-instance"></a>Ajouter une identité gérée par le système à une instance existante
@@ -57,13 +57,13 @@ Là encore, vous pouvez utiliser la commande `az dt create` et le paramètre `--
 La commande qui permet d’**activer** l’identité managée est la même que la commande qui permet de créer une instance avec une identité managée par le système. La valeur du paramètre de nom d’instance est la seule chose qui change :
 
 ```azurecli-interactive
-az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identity
+az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity
 ```
 
 Pour **désactiver** l’identité managée sur une instance où elle est activée, utilisez la commande suivante afin d’affecter à `--assign-identity` la valeur `false`.
 
 ```azurecli-interactive
-az dt create -n {name_of_existing_instance} -g {resource_group} --assign-identity false
+az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity false
 ```
 
 ## <a name="assign-azure-roles-to-the-identity"></a>Affecter des rôles Azure à l’identité 
@@ -94,7 +94,7 @@ Vous pouvez ajouter le paramètre `--scopes` à la commande `az dt create` pour 
 Voici un exemple qui crée une instance avec une identité managée par le système, et qui attribue à cette identité un rôle personnalisé appelé `MyCustomRole` dans un hub d’événements.
 
 ```azurecli-interactive
-az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
+az dt create --dt-name {instance_name} --resource-group {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
 Pour plus d’exemples d’attributions de rôles à l’aide de cette commande, consultez la documentation de référence relative à [az dt create](/cli/azure/dt#az_dt_create).
@@ -113,7 +113,7 @@ Pour ce faire, ajoutez le paramètre `--auth-type` à la commande `az dt endpoin
 Pour créer un point de terminaison qui utilise l’authentification basée sur l’identité, spécifiez le type d’authentification `IdentityBased` avec le paramètre `--auth-type`. L’exemple ci-dessous en fournit l’illustration pour un point de terminaison Event Hubs.
 
 ```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resource-group {eventhub_resource_group} --eventhub-namespace {eventhub_namespace} --eventhub {eventhub_name} --auth-type IdentityBased -n {instance_name}
+az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resource-group {eventhub_resource_group} --eventhub-namespace {eventhub_namespace} --eventhub {eventhub_name} --auth-type IdentityBased --dt-name {instance_name}
 ```
 
 ## <a name="considerations-for-disabling-system-managed-identities"></a>Considérations relatives à la désactivation des identités gérées par le système

@@ -24,10 +24,12 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
-        - name: JavaScript - Flux de code d’authentification
+        - name: Angular - Flux de code d’authentification
+          href: quickstart-v2-javascript-auth-code-angular.md
+        - name: JavaScript
           href: quickstart-v2-javascript-auth-code.md
-        - name: JavaScript - Flux implicite
-          href: quickstart-v2-javascript.md
+        - name: React - Flux de code d’authentification
+          href: quickstart-v2-javascript-auth-code-react.md
     - name: "Application\_web"
       items:
         - name: ASP.NET
@@ -80,12 +82,14 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: Angular - Flux de code d’authentification
+          href: tutorial-v2-angular-auth-code.md
         - name: WebAssembly Blazor
           href: tutorial-blazor-webassembly.md
-        - name: JavaScript - Flux de code d’authentification
+        - name: JavaScript
           href: tutorial-v2-javascript-auth-code.md
-        - name: JavaScript - Flux implicite
-          href: tutorial-v2-javascript-spa.md
+        - name: React
+          href: tutorial-v2-react.md
     - name: "Application\_web"
       items:
         - name: ASP.NET
@@ -373,6 +377,8 @@
               href: msal-b2c-overview.md
             - name: Migrer vers MSAL.js
               href: msal-compare-msal-js-and-adal-js.md
+            - name: Migrer vers MSAL Node
+              href: msal-node-migration.md
             - name: Authentification unique avec MSAL.js
               href: msal-js-sso.md
             - name: Considérations - IE
@@ -498,7 +504,7 @@
     - name: Accepter les connexions de plusieurs locataires
       items:
         - name: Modifier les comptes pris en charge par une application
-          href: quickstart-modify-supported-accounts.md
+          href: ./howto-modify-supported-accounts.md
         - name: Activer les connexions multilocataires
           href: howto-convert-app-to-be-multi-tenant.md
         - name: Configurer le domaine du serveur de publication
@@ -512,6 +518,16 @@
           href: howto-add-app-roles-in-azure-ad-apps.md
     - name: Utiliser l’API Microsoft Graph
       href: microsoft-graph-intro.md
+    - name: Créer pour la résilience
+      items:
+        - name: Présentation du développement du
+          href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: Applications clientes
+          href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: Applications de démon
+          href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+        - name: "Actualiser les métadonnées OpenID\_Connect"
+          href: howto-build-services-resilient-to-metadata-refresh.md
     - name: Mettre une application sur le marché
       items:
         - name: Suivre les instructions de personnalisation
@@ -546,7 +562,9 @@
         - name: Diagnostiquer les erreurs pendant l’authentification
           href: vs-active-directory-error.md
     - name: Supprimer un enregistrement d’application
-      href: quickstart-remove-app.md
+      href: ./howto-remove-app.md
+    - name: Restaurer ou enlever une inscription d’application supprimée
+      href: ./howto-restore-app.md
 - name: Informations de référence
   items:
     - name: Glossaire
@@ -587,6 +605,8 @@
             - name: "Octroi des informations de mot de passe du propriétaire de la ressource OAuth\_2.0"
               displayName: ROPC
               href: v2-oauth-ropc.md
+            - name: "Flux d’assertion du porteur SAML OAuth\_2.0"
+              href: v2-saml-bearer-assertion.md
             - name: Substitution de la clé de signature
               href: active-directory-signing-key-rollover.md
             - name: Scénarios d’échange de jetons
@@ -612,6 +632,8 @@
               href: active-directory-saml-protocol-reference.md
             - name: Jetons SAML
               href: reference-saml-tokens.md
+    - name: Azure CLI
+      href: /cli/azure/identity
     - name: "Types d’applications et OAuth\_2.0"
       displayName: 'App types, OAuth'
       href: v2-app-types.md
@@ -625,6 +647,8 @@
       href: reference-v2-libraries.md
     - name: API d’identité et d’accès dans Microsoft Graph
       href: /graph/api/resources/azure-ad-overview
+    - name: Type de stratégie de mappage de revendications
+      href: reference-claims-mapping-policy-type.md
     - name: Codes d’erreur d’authentification et d’autorisation
       displayName: AADSTS
       href: reference-aadsts-error-codes.md
@@ -633,6 +657,8 @@
     - name: Authentification unique (SSO) pour mobile
       href: mobile-sso-support-overview.md
       displayName: 'android, ios'
+    - name: Demandes et défis liés aux revendications
+      href: claims-challenge.md
     - name: Autorisations et consentement
       displayName: Scopes
       items:

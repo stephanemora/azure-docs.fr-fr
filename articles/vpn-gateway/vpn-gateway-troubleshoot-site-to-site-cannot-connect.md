@@ -1,5 +1,6 @@
 ---
-title: 'Résoudre les problèmes de connexion VPN site à site Azure qio ne peut pas se connecter à titleSuffix: Passerelle VPN Azure'
+title: Résoudre les problèmes de connexion VPN site à site Azure
+titleSuffix: Azure VPN Gateway
 description: Découvrez comment résoudre un problème de connexion VPN de site à site qui cesse soudainement de fonctionner sans possibilité de reconnexion.
 services: vpn-gateway
 author: chadmath
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: cebb05b35379573fc9797e89dee3c0c2bf3de6e2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: e37e1126f71585467b4fa25877289d2bbcf8113a
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867285"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204744"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Résolution de problèmes : une connexion VPN de site à site Azure cesse de fonctionner
 

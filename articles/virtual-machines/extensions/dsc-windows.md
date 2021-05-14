@@ -8,12 +8,12 @@ author: bobbytreed
 ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
-ms.openlocfilehash: 72f66aeee64133a13ce0e49155c4b2a90240a3fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d2591fa3b6d69e403935faeca075a2c747026c1
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559985"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734735"
 ---
 # <a name="powershell-dsc-extension"></a>Extension de configuration d’état souhaité PowerShell
 
@@ -31,11 +31,11 @@ Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
-L’extension DSC pour Windows nécessite que la machine virtuelle cible soit en mesure de communiquer avec Azure et l’emplacement du package de configuration (fichier .zip) si celui-ci se trouve en dehors d’Azure. 
+L’extension DSC pour Windows nécessite que la machine virtuelle cible soit en mesure de communiquer avec Azure et l’emplacement du package de configuration (fichier .zip) si celui-ci se trouve en dehors d’Azure.
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-L’extrait JSON suivant montre le schéma de la section des paramètres de l’extension DSC dans un modèle Azure Resource Manager. 
+L’extrait JSON suivant montre le schéma de la section des paramètres de l’extension DSC dans un modèle Azure Resource Manager.
 
 ```json
 {
@@ -70,7 +70,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
             "downloadMappings": {
              "specificDependencyKey": "https://myCustomDependencyLocation"
             }
-        } 
+        }
     },
     "protectedSettings": {
         "configurationArguments": {
@@ -121,12 +121,11 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 | protectedSettings.configurationUrlSasToken | string | Spécifie le jeton SAP permettant d’accéder à l’URL définie par configuration.url. Cette propriété est chiffrée. |
 | protectedSettings.configurationDataUrlSasToken | string | Spécifie le jeton SAP permettant d’accéder à l’URL définie par configurationData.url. Cette propriété est chiffrée. |
 
-
 ## <a name="template-deployment"></a>Déploiement de modèle
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager.
 Les modèles sont idéaux lorsque vous déployez une ou plusieurs machines virtuelles nécessitant une configuration post-déploiement.
-Un exemple de modèle Resource Manager incluant l’extension DSC pour Windows est disponible dans la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+Un exemple de modèle Resource Manager incluant l’extension DSC pour Windows est disponible dans la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/automation-configuration/automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 

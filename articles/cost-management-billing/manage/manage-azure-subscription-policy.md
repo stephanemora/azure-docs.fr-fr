@@ -8,17 +8,14 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.reviewer: banders
 ms.author: andalmia
-ms.openlocfilehash: 105e090655021ed4046f8880ef9816d7f7ff559f
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 4d0ebd73065c538a78c950ab48254cb06d113897
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105631729"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804517"
 ---
 # <a name="manage-azure-subscription-policies"></a>Gérer les stratégies d’abonnement Azure
-
->[!NOTE]
->Cette fonctionnalité actuellement en préversion est progressivement déployée. Par conséquent, cette expérience n’est pas encore proposée à tout le monde dans le portail Azure.
 
 Cet article vous aide à configurer des stratégies d’abonnement Azure appropriées pour les opérations d’abonnement. Ces stratégies vous permettront de contrôler le déplacement d’abonnements Azure entre des annuaires.
 

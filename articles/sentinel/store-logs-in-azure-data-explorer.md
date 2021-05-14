@@ -14,19 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: b0bffbba34e7816b62325db7999a7f5c6398b881
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 12a6ae76b1eb4dced661b811d8f6e9030f74b4f1
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124506"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795723"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>Intégrer Azure Data Explorer pour la conservation des journaux à long terme
-
-<!--Info not included:>
-
-Script - can't xref out to a private github repo from docs
--->
 
 Par défaut, les journaux ingérés dans Azure Sentinel sont stockés dans Azure Monitor Log Analytics. Cet article explique comment réduire les coûts de conservation des données dans Azure Sentinel en les envoyant à Azure Data Explorer pour une conservation à long terme.
 
@@ -44,7 +39,7 @@ Azure Sentinel offre des capacités SIEM et SOAR complètes, un déploiement et
 
 Si vous n’avez besoin d’accéder à des tables spécifiques qu’occasionnellement, par exemple pour des enquêtes ou des audits périodiques, vous pouvez considérer que la conservation de vos données dans Azure Sentinel n’est plus rentable. À ce stade, nous vous recommandons de stocker les données dans Azure Data Explorer, qui coûte moins cher, mais vous permet toujours d’explorer à l’aide des mêmes requêtes KQL que vous exécutez dans Azure Sentinel.
 
-Vous pouvez accéder aux données dans Azure Data Explorer directement à partir d’Azure Sentinel grâce à la [fonctionnalité de proxy Azure Data Explorer de Log Analytics](//azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). Pour ce faire, utilisez des requêtes de cluster croisé dans votre recherche dans les journaux ou les classeurs.
+Vous pouvez accéder aux données dans Azure Data Explorer directement à partir d’Azure Sentinel grâce à la [fonctionnalité de proxy Azure Data Explorer de Log Analytics](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy). Pour ce faire, utilisez des requêtes de cluster croisé dans votre recherche dans les journaux ou les classeurs.
 
 > [!IMPORTANT]
 > Les principales capacités SIEM, notamment les règles d’analytique, UEBA et le graphique d’investigation, ne prennent pas en charge les données stockées dans Azure Data Explorer.

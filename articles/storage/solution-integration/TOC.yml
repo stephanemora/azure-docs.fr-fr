@@ -1,30 +1,36 @@
 - name: Solutions des partenaires validés Stockage Azure
-  href: /azure/storage/solution-integration
-- name: Partenaires Azure Storage Analytics et Big Data
+  href: ./index.yml
+- name: Partenaires Analytics et Big Data
   items:
     - name: Vue d’ensemble des partenaires validés
       href: .\validated-partners\analytics\partner-overview.md
   expanded: false
-- name: 'Partenaires Azure Storage Archive, Sauvegarde et BCDR'
+- name: 'Partenaires d’archivage, de sauvegarde et de continuité d''activité et reprise d''activité (BCDR)'
   items:
     - name: Vue d’ensemble des partenaires validés
       href: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
-    - name: Guide de démarrage rapide Commvault
+    - name: Guide de démarrage de Commvault
       href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
-    - name: Guide de démarrage rapide Veeam
+    - name: Guide de démarrage de Veeam
       href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+    - name: Guide de démarrage de DobiProtect
+      href: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
   expanded: false
-- name: Partenaires de solutions de conteneurs de stockage Azure
+- name: Partenaires de solutions de conteneurs
   items:
     - name: Vue d’ensemble des partenaires validés
       href: .\validated-partners\container-solutions\partner-overview.md
   expanded: false
-- name: Partenaires de gestion et de migration de données Stockage Azure
+- name: Partenaires de gestion et de migration de données
   items:
     - name: Vue d’ensemble des partenaires validés
       href: .\validated-partners\data-management\partner-overview.md
+    - name: Comparaison des outils de migration
+      href: ./validated-partners/data-management/migration-tools-comparison.md
+    - name: Guide de démarrage de DobiMigrate
+      href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
   expanded: false
-- name: Partenaires de stockage principal et secondaire Stockage Azure
+- name: Partenaires de stockage principal et secondaire
   items:
     - name: Vue d’ensemble des partenaires validés
       href: .\validated-partners\primary-secondary-storage\partner-overview.md

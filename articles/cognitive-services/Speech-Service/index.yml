@@ -130,14 +130,11 @@ conceptualContent:
     - title: Outils
       links:
         - itemType: overview
+          text: À propos de Speech Studio (expérience utilisateur sans code)
+          url: speech-studio-overview.md
+        - itemType: overview
           text: À propos de l’interface CLI Speech (sans outil en ligne de commande)
           url: spx-overview.md
-        - itemType: how-to-guide
-          text: Bases de l’interface CLI Speech (installation et exemples)
-          url: spx-basics.md
-        - itemType: overview
-          text: À propos de Speech Studio (personnalisations)
-          url: 'https://speech.microsoft.com'
     - title: Hébergement
       links:
         - itemType: how-to-guide

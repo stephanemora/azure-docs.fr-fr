@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/19/2021
-ms.openlocfilehash: b8754742c572a8dbc1f55c64e47bec640d757d65
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 129b8460d22de6f03a136dcb30b8f686738a9bdd
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739366"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734195"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformation de recherche dans le flux de données de mappage
 
@@ -98,8 +98,8 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     asc(ProductKey, true),
     broadcast: 'auto')~> LookupKeys
 ```
-## 
-Étapes suivantes
+
+## <a name="next-steps"></a>Étapes suivantes
 
 * Les transformations [join](data-flow-join.md) et [exists](data-flow-exists.md) prennent toutes les deux plusieurs entrées de flux
 * Utiliser une [transformation de fractionnement conditionnel](data-flow-conditional-split.md) avec ```isMatch()``` pour fractionner des lignes sur des valeurs correspondantes et non correspondantes

@@ -2,18 +2,18 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: Qu’est-ce que Service Fabric ?
-      href: service-fabric-overview.md
     - name: Clusters managés Service Fabric
       href: overview-managed-cluster.md
+    - name: Qu’est-ce que Service Fabric ?
+      href: service-fabric-overview.md
 - name: Démarrages rapides
   expanded: true
   items:
+    - name: Cluster managé
+      href: quickstart-managed-cluster-template.md
     - name: Modèle ARM
       displayName: Resource Manager
       href: quickstart-cluster-template.md
-    - name: Cluster managé
-      href: quickstart-managed-cluster-template.md
     - name: Créer une application .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Déployer une application de conteneur Linux
@@ -28,6 +28,16 @@
           href: service-fabric-quickstart-java-reliable-services.md
 - name: Tutoriels
   items:
+    - name: Créer un cluster managé Service Fabric
+      items:
+        - name: 1 - Déployer un cluster managé Service Fabric
+          href: tutorial-managed-cluster-deploy.md
+        - name: 2 - Effectuer le scale-out d’un type de nœud de cluster managé
+          href: tutorial-managed-cluster-scale.md
+        - name: 3 - Ajouter et supprimer des types de nœuds de clusters managés
+          href: tutorial-managed-cluster-add-remove-node-type.md
+        - name: 4 - Se connecter à un cluster managé et déployer une application
+          href: tutorial-managed-cluster-deploy-app.md
     - name: Déployer une application .NET
       items:
         - name: 1 - Générer une application .NET
@@ -68,17 +78,7 @@
           href: service-fabric-tutorial-package-containers.md
         - name: 3 - Effectuer un basculement ou une mise à l’échelle
           href: service-fabric-tutorial-containers-failover.md
-    - name: Créer un cluster managé Service Fabric
-      items:
-        - name: 1 - Déployer un cluster managé Service Fabric
-          href: tutorial-managed-cluster-deploy.md
-        - name: 2 - Effectuer le scale-out d’un type de nœud de cluster managé
-          href: tutorial-managed-cluster-scale.md
-        - name: 3 - Ajouter et supprimer des types de nœuds de clusters managés
-          href: tutorial-managed-cluster-add-remove-node-type.md
-        - name: 4 - Se connecter à un cluster managé et déployer une application
-          href: tutorial-managed-cluster-deploy-app.md
-    - name: Créer et gérer un cluster
+    - name: Créer un cluster sur Azure
       items:
         - name: 1- Créer un cluster sur Azure
           href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
@@ -106,8 +106,6 @@
           href: service-fabric-tutorial-standalone-clean-up.md
 - name: Meilleures pratiques
   items:
-    - name: Vue d’ensemble des bonnes pratiques Service Fabric
-      href: service-fabric-best-practices-overview.md
     - name: Sécurité
       href: service-fabric-best-practices-security.md
     - name: Mise en réseau
@@ -156,7 +154,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité pour Azure Security Benchmark
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/service-fabric-security-baseline?toc=/azure/service-fabric/toc.json
     - name: Terminologie
       href: service-fabric-technical-overview.md
     - name: Création d’applications
@@ -358,6 +356,8 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
             - name: Services de mise à l’échelle automatique
               href: service-fabric-cluster-resource-manager-autoscaling.md
+            - name: Étiquetage de nœud
+              href: service-fabric-cluster-resource-manager-node-tagging.md
     - name: Surveillance et diagnostics
       items:
         - name: Vue d'ensemble de la surveillance
@@ -396,6 +396,30 @@
       href: configure-container-repository-credentials.md
 - name: Guides pratiques
   items:
+    - name: Utiliser des clusters managés Service Fabric
+      items:
+        - name: Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé
+          href: how-to-managed-cluster-vmss-extension.md
+        - name: Ajouter des règles NSG et autres options réseau de cluster managé
+          href: how-to-managed-cluster-networking.md
+        - name: Configurer la répartition des zones de disponibilité d’un cluster managé
+          href: how-to-managed-cluster-availability-zones.md
+        - name: Configurer votre cluster managé
+          href: how-to-managed-cluster-configuration.md
+        - name: Déployer des secrets d’application de cluster managé
+          href: how-to-managed-cluster-application-secrets.md
+        - name: "Déployer des applications de cluster managé avec un modèle\_ARM"
+          href: how-to-managed-cluster-app-deployment-template.md
+        - name: Déployer des applications de cluster managé avec une identité managée
+          href: how-to-managed-cluster-application-managed-identity.md
+        - name: Déployer des types de nœuds sans état uniquement sur un cluster managé
+          href: how-to-managed-cluster-stateless-node-type.md
+        - name: Activer le chiffrement de disque pour des nœuds de cluster managés
+          href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: Sélectionner des types de disques managés pour des nœuds de clusters managés
+          href: how-to-managed-cluster-managed-disk.md
+        - name: Utiliser une identité managée pour les nœuds de clusters managés
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Configurer l''environnement de développement
       items:
         - name: Windows
@@ -442,20 +466,6 @@
                   href: service-fabric-develop-csharp-applications-with-vs-code.md
                 - name: Développer des applications Service Fabric en Java avec Visual Studio Code
                   href: service-fabric-develop-java-applications-with-vs-code.md
-    - name: Utiliser des clusters managés Service Fabric
-      items:
-        - name: Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé
-          href: how-to-managed-cluster-vmss-extension.md
-        - name: Configurer votre cluster managé
-          href: how-to-managed-cluster-configuration.md
-        - name: Ajouter des règles NSG et autres options réseau de cluster managé
-          href: how-to-managed-cluster-networking.md
-        - name: "Déployer des applications de cluster managé avec un modèle\_ARM"
-          href: how-to-managed-cluster-app-deployment-template.md
-        - name: Activer le chiffrement de disque pour des nœuds de cluster managés
-          href: how-to-enable-managed-cluster-disk-encryption.md
-        - name: Utiliser une identité managée pour les nœuds de clusters managés
-          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Planifier et préparer
       items:
         - name: Planifier la capacité d’un cluster
@@ -466,7 +476,7 @@
           href: service-fabric-disaster-recovery.md
         - name: Planifier la capacité des applications
           href: service-fabric-capacity-planning.md
-    - name: Créer et gérer des clusters
+    - name: Créer et tenir à jour des clusters
       items:
         - name: Clusters sur Azure
           items:
@@ -504,7 +514,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Mettre à niveau
               items:
-                - name: "Mise à niveau de la version de Service\_Fabric"
+                - name: Gérer les mises à niveau des clusters Service Fabric
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Mise à niveau de la configuration du cluster
                   href: service-fabric-cluster-config-upgrade-azure.md
@@ -923,12 +933,12 @@
       href: ./policy-reference.md
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Questions courantes
-      href: service-fabric-common-questions.md
     - name: Questions courantes sur les clusters managés Service Fabric
       href: faq-managed-cluster.md
+    - name: Questions courantes
+      href: service-fabric-common-questions.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
     - name: Page de questions Microsoft Q&A
       href: /answers/topics/azure-service-fabric.html
     - name: Garde-fous de déploiement Azure Resource Manager

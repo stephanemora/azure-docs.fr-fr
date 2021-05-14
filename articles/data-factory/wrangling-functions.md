@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: f7a4041d87e00fa01ae5ae4dff0cade3b9755d31
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 5985db37e6b88dc39ce1ac166c4aaf9ba368240d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600933"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737699"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Fonctions de transformation dans Power Query pour le data wrangling
 
@@ -63,8 +63,8 @@ Les fonctions M suivantes ajoutent ou transforment les colonnes : [Table.AddCol
 * Filtres de lignes en tant que colonne logique
 * Constantes de nombre, de texte, de logique, de date et de date/heure
 
-<a name="mergingjoining-tables"></a>Fusion/jointure de tables
-----------------------
+## <a name="mergingjoining-tables"></a>Fusion/jointure de tables
+
 * Power Query génère une jointure imbriquée (table.NestedJoin ; les utilisateurs peuvent également écrire manuellement [Table.AddJoinColumn](/powerquery-m/table-addjoincolumn)).
     Les utilisateurs doivent alors développer la colonne de jointure imbriquée dans une jointure non imbriquée (aucune prise en charge de Table.ExpandTableColumn dans un autre contexte).
 * La fonction M [Table.Join](/powerquery-m/table-join) peut être écrite directement afin d’éviter la nécessité d’une étape d’expansion supplémentaire, mais l’utilisateur doit s’assurer qu’il n’existe aucun nom de colonne en double au sein des tables jointes
