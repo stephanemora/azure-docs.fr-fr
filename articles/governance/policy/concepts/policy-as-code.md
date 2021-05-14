@@ -3,12 +3,12 @@ title: Concevoir des workflows Azure Policy en tant que code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 233a5d4ca6583bc6a2cd9e8366e54f3ed1e2dad3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 2f28a7798bbfd4fb79395e83b9a175f7b4ca7bfb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094895"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752738"
 ---
 # <a name="design-azure-policy-as-code-workflows"></a>Concevoir des workflows Azure Policy en tant que code
 
@@ -44,7 +44,7 @@ Des exemples de ces formats de fichier sont accessibles dans le [référentiel G
 Le workflow général recommandé d’Azure Policy en tant que code se présente comme ce diagramme :
 
 :::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagramme montrant les cadres du workflow Azure Policy en tant que code de la création jusqu’au déploiement, en passant par les tests." border="false":::
-   Diagramme montrant les cadres du workflow Azure Policy en tant que code. « Créer » couvre la création des définitions de stratégie et d’initiative. « Tester » couvre l’attribution avec le mode d’application désactivé. Une vérification de l’état de conformité de la passerelle est suivie en accordant des autorisations MSI et en corrigeant les ressources.  « Déployer » couvre la mise à jour de l’attribution avec le mode d’application activé.
+   Diagramme montrant les cadres du workflow Azure Policy en tant que code. « Créer » couvre la création des définitions de stratégie et d’initiative. « Tester » couvre l’attribution avec le mode d’application désactivé. Une vérification de l’état de conformité de la passerelle est suivie en accordant des autorisations MSI et en corrigeant les ressources. « Déployer » couvre la mise à jour de l’attribution avec le mode d’application activé.
 :::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Créer et mettre à jour des définitions de stratégies

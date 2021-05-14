@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: e994dbb9932dd661486fa37511db79178be826ca
-  ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+  ms.openlocfilehash: e840dfb19b868b0e809778a2fb0aa67741f90309
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/05/2021
-  ms.locfileid: "102182211"
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "108748148"
 landingContent:
 - title: À propos d’Azure App Configuration
   linkLists:
@@ -46,10 +46,10 @@ landingContent:
       url: https://azure.microsoft.com/updates/?query=%22App%20Configuration%22
   - linkListType: concept
     links:
-    - text: Clés et valeurs dans App Config
+    - text: Clés et valeurs
       url: concept-key-value.md
-    - text: Synchroniser votre instance App Configuration à l’aide de GitHub Actions
-      url: concept-github-action.md
+    - text: Capture instantanée à un point dans le temps
+      url: concept-point-time-snapshot.md
 - title: Créer et programmer avec Azure App Configuration
   linkLists:
   - linkListType: quickstart
@@ -68,6 +68,8 @@ landingContent:
       url: quickstart-python.md
     - text: Modèle Azure Resource Manager
       url: quickstart-resource-manager.md
+    - text: Programmer une application .NET dans Visual Studio
+      url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
   - linkListType: tutorial
     links:
     - text: Utiliser une configuration dynamique dans ASP.NET Core
@@ -84,9 +86,15 @@ landingContent:
       url: enable-dynamic-configuration-dotnet-core-push-refresh.md
   - linkListType: tutorial
     links:
-    - text: Intégrer avec un pipeline CI/CD
+    - text: Pousser des données avec Azure Pipelines
+      url: push-kv-devops-pipeline.md
+    - text: Tirer des données avec Azure Pipelines
+      url: pull-key-value-devops-pipeline.md
+    - text: Pousser des données avec GitHub Actions
+      url: concept-github-action.md
+    - text: Exporter vers le fichier de configuration du projet
       url: integrate-ci-cd-pipeline.md
-    - text: Intégrer avec le déploiement Kubernetes en utilisant Helm
+    - text: Déployer sur Kubernetes à l’aide de Helm
       url: integrate-kubernetes-deployment-helm.md
   - linkListType: tutorial
     links:
@@ -148,11 +156,13 @@ landingContent:
       url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
     - text: Fournisseur Spring Boot
       url: https://github.com/microsoft/spring-cloud-azure/tree/master/
+    - text: Kit SDK Azure pour .NET
+      url: https://go.microsoft.com/fwlink/?linkid=2092056
     - text: Kit SDK Azure pour Java
       url: https://go.microsoft.com/fwlink/?linkid=2098196
     - text: Kit SDK Azure pour Python
       url: https://go.microsoft.com/fwlink/?linkid=2103727
     - text: Kit SDK Azure pour JavaScript
       url: https://go.microsoft.com/fwlink/?linkid=2103664
-    - text: REST
+    - text: API REST de plan de données
       url: rest-api.md

@@ -1,16 +1,16 @@
 ---
 title: Générer des cartes
 description: Cet article décrit comment générer des cartes dans Azure FarmBeats.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: d0176fd337abd37f97a6dbe5cf7c68ccf94114d0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.author: riyazp
+ms.openlocfilehash: 0b936ecbd80ba0b258cea8b043f4bef789b67a35
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102173862"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751298"
 ---
 # <a name="generate-maps"></a>Générer des cartes
 

@@ -3,16 +3,16 @@ title: Modèle de ressource d’application Azure Service Fabric
 description: Cet article fournit une vue d’ensemble de la gestion d’une application Azure Service Fabric à l’aide d’Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: 0019f154f301d2b688d4c16c9adb36ec386adef2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba030abbfed4908b9d98d70bf1dce259e0d06da3
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98790721"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738767"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modèle de ressource d’application Service Fabric
 
-Vous avez plusieurs options pour déployer des applications Azure Service Fabric sur votre cluster Service Fabric. Nous vous recommandons d’utiliser Azure Resource Manager. Si vous utilisez Resource Manager, vous pouvez décrire les applications et les services au format JSON, puis les déployer dans le même modèle Resource Manager que votre cluster. Contrairement à l’utilisation de PowerShell ou d’Azure CLI pour déployer et gérer des applications, si vous utilisez Resource Manager, vous n’avez pas besoin d’attendre que le cluster soit prêt. L’inscription, le provisionnement et le déploiement d’applications peuvent tous être réalisés en une seule étape. L’utilisation de Resource Manager est la meilleure façon de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez [Meilleures pratiques : Infrastructure en tant que code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+Vous avez plusieurs options pour déployer des applications Azure Service Fabric sur votre cluster Service Fabric. Nous vous recommandons d’utiliser Azure Resource Manager. Si vous utilisez Resource Manager, vous pouvez décrire les applications et les services au format JSON, puis les déployer dans le même modèle Resource Manager que votre cluster. Contrairement à l’utilisation de PowerShell ou d’Azure CLI pour déployer et gérer des applications, si vous utilisez Resource Manager, vous n’avez pas besoin d’attendre que le cluster soit prêt. L’inscription, le provisionnement et le déploiement d’applications peuvent tous être réalisés en une seule étape. L’utilisation de Resource Manager est la meilleure façon de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez [Meilleures pratiques : Infrastructure en tant que code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
 La gestion de vos applications en tant que ressources dans Resource Manager peut vous aider à obtenir des améliorations dans les domaines suivants :
 
@@ -189,7 +189,7 @@ Obtenir des informations sur le modèle de ressource de l’application :
 
 * [Modéliser une application dans Service Fabric](service-fabric-application-model.md)
 * [Manifestes des services et applications Service Fabric](service-fabric-application-and-service-manifests.md)
-* [Bonnes pratiques : Infrastructure en tant que code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
+* [Bonnes pratiques : Infrastructure en tant que code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources)
 * [Gérer des applications et services en tant que ressources Azure](service-fabric-best-practices-infrastructure-as-code.md)
 
 

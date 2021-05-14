@@ -4,15 +4,15 @@ description: Découvrez comment améliorer la résilience de votre instance de s
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/07/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2c0a270c721d1d706b696f5b8ba5b2ccd7ece
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 6e8352a93575ec6222be463daea14aee28f08a7c
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278863"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634812"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Prise en charge des zones de disponibilité pour la Gestion des API Azure 
 
@@ -39,6 +39,7 @@ La configuration de la Gestion des API pour la redondance de zone est actuelleme
 * États-Unis - partie centrale méridionale
 * Asie Sud-Est
 * Sud du Royaume-Uni
+* Europe Ouest
 * USA Ouest 2
 * USA Ouest 3
 

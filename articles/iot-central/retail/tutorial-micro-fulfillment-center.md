@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78536867efa4894f1041a340b9d6347a4e030a69
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390468"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685654"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application Centre de microtraitement
 
@@ -52,8 +52,6 @@ Pour créer une application de centre de microtraitement qui utilise les fonctio
     >Si vous utilisez un nom d’application convivial, vous devez toujours utiliser une valeur unique pour l’URL de l’application.
 
 1. Si vous avez déjà un abonnement Azure, entrez les informations concernant l’annuaire, l’abonnement Azure et la région. Si vous n’avez pas d’abonnement, vous pouvez activer une version d’essai gratuit de 7 jours et remplir les coordonnées requises.  
-
-    Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](../core/quick-deploy-iot-central.md).
 
 1. Sélectionnez **Create** (Créer).
 

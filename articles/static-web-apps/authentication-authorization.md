@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 0728b45a72f7d4fe67807be5c9c2b5290af11c51
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8b8f42d75a0d214bdc504c8cc0adb6f234ea036e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143464"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751118"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Authentification et autorisation pour les applications Azure Static Web Apps - Préversion
 
@@ -20,8 +20,6 @@ Azure Static Web Apps simplifie l’expérience d’authentification en gérant 
 
 - Azure Active Directory
 - GitHub
-- Facebook
-- Google<sup>1</sup>
 - Twitter
 
 Les [invitations](#invitations) spécifiques au fournisseur associent les utilisateurs à des rôles, et les utilisateurs autorisés bénéficient d'un accès aux [itinéraires](configuration.md#routes) via les règles définies dans le fichier _staticwebapp.config.json_.
@@ -56,9 +54,7 @@ Les invitations sont spécifiques à chaque fournisseur d’autorisation. Tenez 
 | Fournisseur d’autorisation | Expose |
 | ---------------------- | ---------------- |
 | Azure Active Directory | de l’adresse de messagerie    |
-| Facebook               | de l’adresse de messagerie    |
 | GitHub                 | username         |
-| Google<sup>1</sup>     | de l’adresse de messagerie    |
 | Twitter                | username         |
 
 1. Accédez à la ressource Web Apps statique dans le [Portail Azure](https://portal.azure.com).
@@ -132,9 +128,7 @@ Utilisez le tableau suivant pour rechercher l’itinéraire de connexion spécif
 | Fournisseur d’autorisation | Itinéraire de connexion             |
 | ---------------------- | ----------------------- |
 | Azure Active Directory | `/.auth/login/aad`      |
-| Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
-| Google<sup>1</sup>     | `/.auth/login/google`   |
 | Twitter                | `/.auth/login/twitter`  |
 
 Par exemple, pour vous connecter avec GitHub, vous pouvez inclure un lien de connexion comme dans l’extrait de code suivant :

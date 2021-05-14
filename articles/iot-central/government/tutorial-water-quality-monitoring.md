@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c61e371cd22c305daaad6369d364b49d8db8e7d3
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: bdebe0d29f6ef781cc4b4747ff80010eeac9ff7e
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203430"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684250"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la qualité de l’eau dans Azure IoT Central
 
@@ -55,8 +55,6 @@ Dans cette section, vous utilisez le modèle Azure IoT Central **Water quality m
     * **Nom de l'application** : Par défaut, le nom de l’application est **Water quality monitoring** suivi d’une chaîne d’ID unique générée par Azure IoT Central. Si vous le souhaitez, vous pouvez entrer un nom d’affichage ou modifier ultérieurement le nom de l’application.
     * **URL** : Vous pouvez entrer l’URL de votre choix ou modifier ultérieurement la valeur de l’URL.
     * Si vous avez un abonnement Azure, entrez vos valeurs pour **Annuaire**, **Abonnement Azure** et **Région**. Si vous n’avez pas d’abonnement, vous pouvez activer **7-day free trial** (Version d’évaluation gratuite de 7 jours) et renseigner les coordonnées requises.
-
-    Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](../core/quick-deploy-iot-central.md).
 
 1. Sélectionnez le bouton **Create** (Créer) en bas à gauche de la page.
 

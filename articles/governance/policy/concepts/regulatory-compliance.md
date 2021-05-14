@@ -3,12 +3,12 @@ title: Conformité réglementaire dans les définitions d’initiative
 description: Décrit comment utiliser une définition d’initiative pour regrouper des stratégies par domaine réglementaire, par exemple le contrôle d’accès, la gestion de la configuration, etc.
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 08173cd94e0841fa7a18fd55d53aa97281724ede
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d408d4c2c720a81de315680f774482592b7552b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094062"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752684"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformité réglementaire dans Azure Policy
 
@@ -29,7 +29,7 @@ Pour lier une initiative de conformité réglementaire personnalisée à votre t
 
 ## <a name="regulatory-compliance-in-portal"></a>Conformité réglementaire dans le portail
 
-Quand une définition d’initiative est créée avec des [groupes](./initiative-definition-structure.md#policy-definition-groups), la page de détails **Conformité** correspondant à cette initiative dans le portail contient des informations supplémentaires. 
+Quand une définition d’initiative est créée avec des [groupes](./initiative-definition-structure.md#policy-definition-groups), la page de détails **Conformité** correspondant à cette initiative dans le portail contient des informations supplémentaires.
 
 Un nouvel onglet, **Contrôles** est ajouté à la page. Un filtrage est disponible par **domaine de conformité**. De plus, les définitions de stratégie sont regroupées en fonction du champ `title` de l’objet **policyMetadata**. Chaque ligne représente un **contrôle** qui indique son état de conformité, le **domaine de conformité** dont il fait partie, les informations de responsabilité ainsi que le nombre de définitions de stratégie non conformes et conformes qui composent ce **contrôle**.
 

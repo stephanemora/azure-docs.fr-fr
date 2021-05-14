@@ -4,20 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: 6c97ee01dd1ad5b669142d74a02bada010525e81
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: aa82809aaa793f1b36a31c7615dd718b9304aae5
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491085"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109719147"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de cet article, vous avez besoin des ressources suivantes :
 
-* Une application Azure IoT Central créée avec le modèle **Application personnalisée**. Pour plus d’informations, consultez [Créer une application](../articles/iot-central/core/quick-deploy-iot-central.md). L’application doit avoir été créée à partir le 14 juillet 2020 ou après.
-* Une machine de développement où [Node.js](https://nodejs.org/) version 6 ou ultérieure est installé. Vous pouvez exécuter `node --version` sur la ligne de commande pour vérifier la version. Les instructions de ce tutoriel supposent que vous exécutez la commande **node** à l’invite de commandes Windows. Toutefois, vous pouvez utiliser Node.js sur de nombreux autres systèmes d’exploitation.
-* Une copie locale du dépôt GitHub [SDK Microsoft Azure IoT pour Node.js](https://github.com/Azure/azure-iot-sdk-node) qui contient l’exemple de code. Utilisez ce lien pour télécharger une copie du dépôt : [Télécharger le fichier ZIP](https://github.com/Azure/azure-iot-sdk-node/archive/master.zip). Décompressez ensuite le fichier dans un emplacement approprié de votre ordinateur local.
+[!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
+
+- Une machine de développement où [Node.js](https://nodejs.org/) version 6 ou ultérieure est installé. Vous pouvez exécuter `node --version` sur la ligne de commande pour vérifier la version. Les instructions de ce tutoriel supposent que vous exécutez la commande **node** à l’invite de commandes Windows. Toutefois, vous pouvez utiliser Node.js sur de nombreux autres systèmes d’exploitation.
+
+- Une copie locale du dépôt GitHub [SDK Microsoft Azure IoT pour Node.js](https://github.com/Azure/azure-iot-sdk-node) qui contient l’exemple de code. Utilisez ce lien pour télécharger une copie du dépôt : [Télécharger le fichier ZIP](https://github.com/Azure/azure-iot-sdk-node/archive/master.zip). Décompressez ensuite le fichier dans un emplacement approprié de votre ordinateur local.
 
 ## <a name="review-the-code"></a>Vérifier le code
 
