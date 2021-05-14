@@ -6,8 +6,8 @@
       href: overview.md
     - name: Notes de publication
       href: release-notes.md
-    - name: Problèmes connus
-      href: known-issues.md
+    - name: Collecte des données et création de rapports
+      href: privacy-data-collection-and-reporting.md
 - name: Démarrages rapides
   items:
     - name: Créer un contrôleur de données
@@ -44,16 +44,24 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Créer un contrôleur de données
       items:
-        - name: Azure Data Studio
-          href: create-data-controller-azure-data-studio.md
-        - name: Portail Azure
-          href: create-data-controller-resource-in-azure-portal.md
-        - name: Interface de ligne de commande Azure Data (azdata)
-          href: create-data-controller-using-azdata.md
-        - name: Outils Kubernetes
-          href: create-data-controller-using-kubernetes-native-tools.md
-        - name: Appliquer SCC (OpenShift)
-          href: how-to-apply-security-context-constraint.md
+        - name: Mode de connectivité indirecte
+          items:
+            - name: Azure Data Studio
+              href: create-data-controller-azure-data-studio.md
+            - name: Portail
+              href: create-data-controller-resource-in-azure-portal.md
+            - name: Interface de ligne de commande Azure Data (azdata)
+              href: create-data-controller-using-azdata.md
+            - name: Outils Kubernetes
+              href: create-data-controller-using-kubernetes-native-tools.md
+            - name: Appliquer SCC (OpenShift)
+              href: how-to-apply-security-context-constraint.md
+        - name: Mode de connectivité directe
+          items:
+            - name: Prérequis
+              href: deploy-data-controller-direct-mode-prerequisites.md
+            - name: Déployer
+              href: deploy-data-controller-direct-mode.md
     - name: Expériences courantes dans les services de données avec Azure Arc
       items:
         - name: Superviser à l’aide des tableaux de bord (Azure Data Studio)
@@ -106,6 +114,8 @@
           href: supported-versions-postgres-hyperscale.md
         - name: Créer un groupe de serveurs Postgres Hyperscale (CLI)
           href: create-postgresql-hyperscale-server-group.md
+        - name: Créer un groupe de serveurs Postgres Hyperscale (portail)
+          href: create-postgresql-hyperscale-server-group-azure-portal.md
         - name: Créer un groupe de serveurs Postgres Hyperscale (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
         - name: Créer un groupe de serveurs Postgres Hyperscale - Outils natifs Kubernetes
@@ -140,7 +150,7 @@
               href: delete-postgresql-hyperscale-server-group.md
             - name: Lister les groupes de serveurs
               href: list-server-groups-postgres-hyperscale.md
-            - name: 'Supervision, analytique des journaux d’activité, informations de facturation, portail Azure'
+            - name: 'Supervision, analytique des journaux d’activité, informations de facturation (portail)'
               href: monitoring-log-analytics-azure-portal-postgresql.md
             - name: Sécuriser
               href: configure-security-postgres-hyperscale.md
@@ -180,7 +190,7 @@
           items:
             - name: Configurer
               href: configure-managed-instance.md
-            - name: 'Supervision, analytique des journaux d’activité, informations de facturation, portail Azure'
+            - name: 'Supervision, analytique des journaux d’activité, informations de facturation (portail)'
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: Haute disponibilité
               href: managed-instance-high-availability.md

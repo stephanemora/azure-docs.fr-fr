@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 1c01984f6a359c0fd1f5d06d26d97d4a84973f57
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 623ed91f9fc9ed469403c6dea5f1247141e44a98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056743"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764078"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Extraire des paramètres d’App Configuration à l’aide d’Azure Pipelines
 
@@ -27,40 +27,12 @@ La tâche [Azure App Configuration](https://marketplace.visualstudio.com/items?i
 
 ## <a name="create-a-service-connection"></a>Créer une connexion de service
 
-Une [connexion de service](/azure/devops/pipelines/library/service-endpoints) vous permet d’accéder aux ressources de votre abonnement Azure à partir de votre projet Azure DevOps.
-
-1. Dans Azure DevOps, accédez au projet contenant votre pipeline cible et ouvrez les **Paramètres du projet** en bas à gauche.
-1. Sous **Pipelines**, sélectionnez **Connexions de service**.
-1. Si vous n’avez aucune connexion de service, cliquez sur le bouton **Créer une connexion de service** au milieu de l’écran. Sinon, cliquez sur **Nouvelle connexion de service** en haut à droite de la page.
-1. Sélectionnez **Azure Resource Manager**.
-![La capture d’écran montre la sélection d’Azure Resource Manager dans la liste déroulante Nouvelle connexion de service.](./media/new-service-connection.png)
-1. Dans la boîte de dialogue **Méthode d’authentification** , sélectionnez **Principal du service (automatique)** .
-    > [!NOTE]
-    > L’authentification par **Identité managée** n’est actuellement pas prise en charge pour la tâche Configuration d’application.
-1. Renseignez votre abonnement et votre ressource. Donnez un nom à votre connexion de service.
-
-Maintenant que votre connexion de service est créée, recherchez le nom du principal de service qui lui est assigné. Vous ajouterez une nouvelle attribution de rôle à ce principal de service à l’étape suivante.
-
-1. Accédez à **Paramètres du projet** > **Connexions de service**.
-1. Sélectionnez la connexion de service que vous avez créée dans la section précédente.
-1. Sélectionnez **Gérer le principal du service**.
-1. Notez le **Nom complet** listé.
+[!INCLUDE [azure-app-configuration-service-connection](../../includes/azure-app-configuration-service-connection.md)]
 
 ## <a name="add-role-assignment"></a>Ajouter une attribution de rôle
 
-Attribuez le rôle App Configuration approprié à la connexion de service utilisée dans la tâche pour que celle-ci puisse accéder au magasin App Configuration.
+[!INCLUDE [azure-app-configuration-role-assignment](../../includes/azure-app-configuration-role-assignment.md)]
 
-1. Accédez à votre magasin App Configuration cible. Pour accéder à une procédure pas à pas de configuration d’un magasin App Configuration, consultez [Créer un magasin App Configuration](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) dans l’un des guides de démarrage rapide consacrés à Azure App Configuration.
-1. Sur la gauche, sélectionnez **Contrôle d’accès (IAM)** .
-1. Sur le côté droit, cliquez sur le bouton **Ajouter des attributions de rôles**.
-![Capture d’écran montrant le bouton Ajouter des attributions de rôles](./media/add-role-assignment-button.png).
-1. Sous **Rôle**, sélectionnez **Lecteur de données de l’App Configuration**. Ce rôle permet à la tâche de lire le contenu du magasin App Configuration. 
-1. Sélectionnez le principal de service associé à la connexion de service que vous avez créée dans la section précédente.
-![Capture d’écran montrant la boîte de dialogue Ajouter une attribution de rôle.](./media/add-role-assignment-reader.png)
-
-> [!NOTE]
-> Pour résoudre les références Azure Key Vault dans App Configuration, la connexion de service doit également avoir l’autorisation de lire les secrets des coffres de clés Azure Key Vault référencés.
-  
 ## <a name="use-in-builds"></a>Utiliser dans les builds
 
 Cette section explique comment utiliser la tâche Azure App Configuration dans un pipeline de build Azure DevOps.

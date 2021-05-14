@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5972882a582a0e612ecbed3f6a4ab70be8ba393c
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: a99f5ebf0fd4f3c4684446a868e1c4e342f3785e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207480"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783835"
 ---
 # <a name="add-tags-to-digital-twins"></a>Ajouter des étiquettes à des jumeaux numériques 
 
-Vous pouvez utiliser le concept d’étiquettes pour identifier et catégoriser davantage vos jumeaux numériques. En particulier, les utilisateurs peuvent être amenés à répliquer des étiquettes à partir de systèmes existants, tels que les [étiquettes Haystack](https://project-haystack.org/doc/TagModel), dans leurs instances Azure Digital Twins. 
+Vous pouvez utiliser le concept d’étiquettes pour identifier et catégoriser davantage vos jumeaux numériques. En particulier, les utilisateurs peuvent être amenés à répliquer des étiquettes à partir de systèmes existants, tels que les [étiquettes Haystack](https://project-haystack.org/doc/appendix/tags), dans leurs instances Azure Digital Twins. 
 
 Ce document décrit les modèles qui peuvent être utilisés pour implémenter des étiquettes sur des jumeaux numériques.
 

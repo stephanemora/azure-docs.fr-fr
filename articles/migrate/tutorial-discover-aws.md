@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 295cd5a6831cb64d146bb92bca74b82ff7ab29df
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: f71a8f3a720fae540773019e0ba2a3eb582fd76e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771479"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751164"
 ---
 # <a name="tutorial-discover-aws-instances-with-azure-migrate-discovery-and-assessment"></a>Découvrir des instances AWS avec Azure Migrate : découverte et évaluation
 
@@ -173,7 +173,7 @@ Le script du programme d’installation effectue les opérations suivantes :
 
 - Installe des agents et une application web pour la découverte et l’évaluation des serveurs physiques.
 - Installe des rôles Windows, notamment le service d’activation Windows, IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS. [Plus d’informations](https://www.microsoft.com/download/details.aspx?id=7435)
+- Télécharge et installe un module réinscriptible IIS.
 - Met à jour une clé de Registre (HKLM) avec les détails de paramètres persistants pour Azure Migrate.
 - Crée les fichiers suivants sous le chemin :
     - **Fichiers de configuration** : %Programdata%\Microsoft Azure\Config
@@ -216,11 +216,11 @@ Configurez l’appliance pour la première fois.
         - Seuls les proxys HTTP sont pris en charge.
         - Si vous avez ajouté des détails de proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
     - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte de serveur fonctionne correctement.
-    - **Installer les mises à jour** : Azure Migrate : découverte et évaluation vérifie que les dernières mises à jour sont installées sur l’appliance. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des composants s’exécutant sur l’appliance.
+    - **Installer les mises à jour** : Azure Migrate: Discovery and assessment vérifie que les dernières mises à jour sont installées sur l’appliance. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des composants s’exécutant sur l’appliance.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : découverte et évaluation > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
+1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : Discovery and Assessment > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
 1. Vous aurez besoin d’un code d’appareil pour vous authentifier auprès d’Azure. Le fait de cliquer sur **Connexion** ouvre une boîte de dialogue modale comprenant le code de l’appareil, comme celle affichée ci-dessous.
 
     ![Boîte de dialogue modale indiquant le code de l’appareil](./media/tutorial-discover-vmware/device-code.png)
@@ -275,7 +275,7 @@ Ceci démarre la découverte. Il faut environ deux minutes par serveur pour que 
 Une fois la découverte terminée, vous pouvez vérifier que les serveurs apparaissent dans le portail.
 
 1. Ouvrez le tableau de bord Azure Migrate.
-2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : découverte et évaluation**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**.
+2. Dans la page **Azure Migrate - Windows, Linux et serveurs SQL** > **Azure Migrate : Discovery and assessment**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

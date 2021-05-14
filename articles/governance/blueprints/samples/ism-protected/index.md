@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint Australian Government ISM PROTECTED
 description: Vue d’ensemble de l’exemple de blueprint Australian Government ISM PROTECTED. Cet exemple de blueprint aide les clients à évaluer des contrôles ISM PROTECTED spécifiques.
-ms.date: 01/21/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: ee28ccb0d76327f3db073c98bcbc44a78c2f1a17
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: d7fc5cb73c6bee01d2499930771bd4cd2153aaaa
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682249"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763178"
 ---
 # <a name="overview-of-the-australian-government-ism-protected-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Australian Government ISM PROTECTED
 
-L’exemple de blueprint de gouvernance ISM fournit un ensemble de garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md) destiné à faciliter l’obtention de l’attestation ISM PROTECTED (version de février 2020). Ce blueprint aide les clients à déployer un ensemble de stratégies pour les architectures déployées sur Azure nécessitant une accréditation ou une conformité au framework ISM. 
+L’exemple de blueprint de gouvernance ISM fournit un ensemble de garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md) destinés à faciliter l’obtention de l’attestation ISM PROTECTED (version de février 2020). Ce blueprint aide les clients à déployer un ensemble de stratégies pour les architectures déployées sur Azure nécessitant une accréditation ou une conformité au framework ISM.
 
 ## <a name="control-mapping"></a>Correspondance des contrôles
 

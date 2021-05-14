@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: f11677d9ebc31f1c1f7cc6332b07b69f8e35ad52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8581bf3ec4170b6914409d060b64a50c8bff2d2
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561175"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715607"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Exemples de scripts Azure Disk Encryption pour machines virtuelles Linux
 
@@ -267,7 +267,7 @@ Pour configurer le chiffrement lors de l’installation de la distribution, effe
 
    ![Configuration openSUSE 13.2 - Fournir la phrase secrète au démarrage](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Préparez la machine virtuelle pour le chargement dans Azure en suivant les instructions de la rubrique [Préparation d’une machine virtuelle SLES ou openSUSE pour Azure](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-131). N’exécutez pas encore la dernière étape (annulation de l’approvisionnement de la machine virtuelle).
+3. Préparez la machine virtuelle pour le chargement dans Azure en suivant les instructions de la rubrique [Préparation d’une machine virtuelle SLES ou openSUSE pour Azure](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-152). N’exécutez pas encore la dernière étape (annulation de l’approvisionnement de la machine virtuelle).
 
 Pour configurer le chiffrement afin de l’utiliser dans Azure, effectuez les étapes suivantes :
 1. Modifiez le fichier /etc/dracut.conf et ajoutez la ligne suivante :

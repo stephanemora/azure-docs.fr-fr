@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cff76672c7c687d1755996ba0dbf81daf947b8c2
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: eeb189434eea2bf65bdbbc65f0fde5e922e95f14
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070620"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175403"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -290,6 +290,6 @@ public class ResponseContent
 Consultez les articles suivants pour obtenir des exemples d’utilisation d’un profil technique RESTful :
 
 - [Intégrer les échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](api-connectors-overview.md)
-- [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](custom-policy-rest-api-claims-validation.md)
-- [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
+- [Procédure pas à pas : Ajout d’un connecteur d’API à un flux utilisateur d’inscription](add-api-connector.md)
+- [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
 - [Sécuriser vos services d’API REST](secure-rest-api.md)

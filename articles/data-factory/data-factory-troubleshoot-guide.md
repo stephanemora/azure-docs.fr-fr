@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/30/2020
 ms.author: abnarain
-ms.openlocfilehash: 101e55188b8021040e2fd6bd573c1c6330241e72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3011309da477dcfad2285e5832dfa163f69cc419
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382801"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108183539"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Résoudre les problèmes dans Azure Data Factory
 
@@ -106,6 +106,14 @@ Pour des problèmes de connecteur, tels qu’une erreur lors de l’utilisation 
 - **Cause** : L’utilisateur qui a généré le jeton d’accès n’est pas autorisé à accéder au cluster Databricks spécifié dans le service lié.
 
 - **Recommandation** : Vérifiez que l’utilisateur dispose des autorisations nécessaires dans l’espace de travail.
+
+<br/> 
+
+- **Message** : `Job is not fully initialized yet. Please retry later.`
+
+- **Cause** : le travail n’a pas été initialisé.
+
+- **Recommandation** : patientez et réessayez plus tard.
 
 ### <a name="error-code-3203"></a>Code d’erreur : 3203
 

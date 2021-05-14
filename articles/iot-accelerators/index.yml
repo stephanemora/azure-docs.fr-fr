@@ -3,7 +3,7 @@ title: Documentation sur les accélérateurs de solution Azure IoT
 summary: Les accélérateurs de solutions Azure IoT sont des solutions IoT complètes et prêtes à être déployées qui mettent en œuvre des scénarios IoT courants comme l’usine connectée.
 metadata:
   title: Documentation sur les accélérateurs de solution Azure IoT
-  description: Les accélérateurs de solution IoT sont complets et prêts à déployer des solutions IoT qui implémentent des scénarios IoT courants. Les scénarios incluent l’usine connectée et la simulation d’appareil. Lorsque vous déployez un accélérateur de solution, le déploiement inclut tous les services informatiques nécessaires ainsi que tout code d’application requis.
+  description: Les accélérateurs de solution IoT sont complets et prêts à déployer des solutions IoT qui implémentent des scénarios IoT courants. Les scénarios incluent l’usine connectée. Lorsque vous déployez un accélérateur de solution, le déploiement inclut tous les services informatiques nécessaires ainsi que tout code d’application requis.
   services: iot-accelerators
   ms.service: iot-accelerators
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 8f1b539e7201ffc31956ef48b4a155674385b97f
-  ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+  ms.openlocfilehash: 366cd9973ff72ecf638a2bbaec69004e45552ac8
+  ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/08/2020
-  ms.locfileid: "96854544"
+  ms.lasthandoff: 05/07/2021
+  ms.locfileid: "109480956"
 landingContent:
 - title: À propos des accélérateurs de solution Azure IoT
   linkLists:
@@ -44,15 +44,3 @@ landingContent:
     links:
     - text: Essayer une solution d’usine connectée basée sur le cloud
       url: quickstart-connected-factory-deploy.md
-- title: Bien démarrer avec la simulation d’appareil
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Vue d’ensemble de l’accélérateur de solution Simulation d’appareil
-      url: iot-accelerators-device-simulation-overview.md
-  - linkListType: tutorial
-    links:
-    - text: Créer et exécuter une simulation d’appareil IoT
-      url: iot-accelerators-device-simulation-create-simulation.md
-    - text: Créer un appareil simulé personnalisé
-      url: iot-accelerators-device-simulation-create-custom-device.md
