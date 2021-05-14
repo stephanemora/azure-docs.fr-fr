@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 55876d85e72555f51ce47b9bd77a961a194f4e4a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b5516af5f33292e79cfb9dc7502dfffcd2e7767f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307437"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313565"
 ---
 ## <a name="additional-prerequisites-for-java"></a>Autres composants requis pour Java
 Pour Java, vous aurez également besoin des éléments suivants :
-- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 ou ultérieure.
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## <a name="setting-up"></a>Configuration
@@ -208,4 +208,3 @@ Sending SMS using Managed Identities
 Sms id: Outgoing_202104...33f8ae1f_noam
 Send Result Successful: true
 ```
-

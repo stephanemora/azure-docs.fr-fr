@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f670af1fca4b4638988e53075f092ca1bbac55b2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a026d1c0c70fb210a1a24dd4a8d85beba97b9612
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578258"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124210"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Application web qui connecte les utilisateurs : Passer en production
 
@@ -53,7 +53,7 @@ Ce didacticiel progressif propose un code prêt pour la production d’une appli
 
 En savoir plus sur le Web Node.js dans ce tutoriel :
 
-[Tutoriel : Connecter des utilisateurs dans une application web Node.js & Express](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
+[Tutoriel : Connecter des utilisateurs dans une application web Node.js & Express](./tutorial-v2-nodejs-webapp-msal.md)
 
 ## <a name="sample-code-java-web-app"></a>Exemple de code : Applications web Java
 

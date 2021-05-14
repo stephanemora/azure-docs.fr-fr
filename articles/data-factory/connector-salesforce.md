@@ -1,18 +1,18 @@
 ---
 title: Copier des données depuis et vers Salesforce
 description: Découvrez comment copier des données de Salesforce vers des banques de données réceptrices prises en charge ou comment copier des données de banques de données sources prises en charge vers Salesforce, à l’aide de l’activité de copie disponible dans le pipeline d’une fabrique de données.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 5b49e62330c789d6d5cbe2af2edb28a2c3e1238f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5524bdf4f2055387c39c7f9c381c874ec963cc9
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583090"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486932"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 
@@ -55,7 +55,7 @@ Vous pouvez également recevoir le message d’erreur « REQUEST_LIMIT_EXCEEDED 
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir des entités Data Factory spécifiques au connecteur Salesforce.
 

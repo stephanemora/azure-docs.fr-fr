@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3e7792546531d7f443a44b127620d508816edcb
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579193"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285769"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -87,7 +87,7 @@ Pour plus d'informations sur les prix, consultez [Tarifs Azure Active Directory]
 |Tutoriels |[Effectuer un déploiement pilote de la réinitialisation de mot de passe en libre-service pour Azure AD](./tutorial-enable-sspr.md) |
 | |[Activation de la réécriture du mot de passe](./tutorial-enable-sspr-writeback.md) |
 | |[Réinitialisation de mot de passe Azure AD à partir de l'écran de connexion de Windows 10](./howto-sspr-windows.md) |
-| Questions fréquentes (FAQ)|[Forum Aux Questions sur la gestion des mots de passe](./active-directory-passwords-faq.md) |
+| Questions fréquentes (FAQ)|[Forum Aux Questions sur la gestion des mots de passe](./active-directory-passwords-faq.yml) |
 
 
 ### <a name="solution-architecture"></a>Architecture de solution
@@ -328,7 +328,7 @@ Les journaux d’audit pour l’inscription et la réinitialisation de mot de pa
 
 * Consultez [Résoudre les problèmes liés à la réinitialisation de mot de passe en libre-service](./troubleshoot-sspr.md) 
 
-* Suivez [Forum Aux Questions sur la gestion des mots de passe](./active-directory-passwords-faq.md) 
+* Suivez [Forum Aux Questions sur la gestion des mots de passe](./active-directory-passwords-faq.yml) 
 
 ### <a name="helpful-documentation"></a>Documentation utile
 

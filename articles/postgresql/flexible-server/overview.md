@@ -6,15 +6,15 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/05/2021
-ms.openlocfilehash: 090d38a92da126cd4fd8423231f856d22ea9a64c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/22/2021
+ms.openlocfilehash: efa5502c89a68be05ef8f7dc1d3d57c57e732caa
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106834"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987071"
 ---
-# <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database pour PostgreSQL - Serveur flexible
+# <a name="overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble - Azure Database pour PostgreSQL - Serveur flexible
 
 Trois modes de déploiement sont disponibles pour [Azure Database pour PostgreSQL](../overview.md) optimisé par PostgreSQL Community Edition :
 
@@ -85,6 +85,10 @@ Les serveurs flexibles permettent un accès privé complet aux serveurs à l’a
 ## <a name="monitoring-and-alerting"></a>Surveillance et alerte
 
 Le service à serveur flexible est équipé de fonctionnalités intégrées d'analyse des performances et d'alerte. Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Le service expose les métriques du serveur hôte pour surveiller l’utilisation des ressources et permet de configurer les journaux des requêtes lentes. Grâce à ces outils, vous pouvez rapidement optimiser vos charges de travail et configurer votre serveur pour bénéficier de performances optimales.
+
+## <a name="built-in-pgbouncer"></a>PgBouncer intégré
+
+Le serveur flexible est fourni avec le pooler de connexions PgBouncer intégré. Si vous le souhaitez, vous pouvez l’activer et connecter vos applications à votre serveur de base de données par le biais de PgBouncer à l’aide du même nom d’hôte et du port 6432.
 
 ## <a name="azure-regions"></a>Régions Azure
 

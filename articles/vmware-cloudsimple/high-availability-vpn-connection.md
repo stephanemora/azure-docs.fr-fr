@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Configurer une connexion haute disponibilité entre un site local et une passerelle VPN CloudSimple
 description: Décrit comment configurer une connexion haute disponibilité entre votre environnement local et une passerelle VPN CloudSimple haute disponibilité
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 44bbee4e179cd77159cd269e69dba4cd0812624e
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97895697"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176789"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurer une connexion haute disponibilité entre un site local et une passerelle VPN CloudSimple
 

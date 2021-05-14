@@ -4,16 +4,17 @@ description: Cet article fournit une vue d’ensemble de l’authentification de
 keywords: sécurité de l’automatisation ; automation sécurisée ; authentification d’automatisation
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 33402eb41ed9c22cf38890229d833cd2ab00d65d
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708898"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279511"
 ---
-# <a name="automation-account-authentication-overview"></a>Vue d’ensemble de l’authentification des comptes Automation
+# <a name="azure-automation-account-authentication-overview"></a>Vue d’ensemble de l’authentification de compte Azure Automation
 
 Azure Automation vous permet d’automatiser des tâches sur des ressources dans Azure, en local et avec d’autres fournisseurs de cloud comme Amazon Web Services (AWS). Vous pouvez utiliser des runbooks pour automatiser vos tâches, ou un Runbook Worker hybride si vous avez des processus métier ou opérationnels à gérer en dehors d’Azure. Travailler dans l’un de ces environnements nécessite des autorisations pour accéder de manière sécurisée aux ressources avec les droits minimaux requis.
 
@@ -31,6 +32,31 @@ Les ressources Automation de chaque compte Automation sont associées à une seu
 
 Toutes les tâches que vous créez sur les ressources à l’aide d’Azure Resource Manager et des cmdlets PowerShell dans Azure Automation doivent s’authentifier sur Azure à l’aide de l’authentification basée sur les informations d’identification d’organisation Azure Active Directory (Azure AD).
 
+## <a name="managed-identities-preview"></a>Identités managées (préversion)
+
+Une identité managée issue d’Azure Active Directory (Azure AD) permet à votre runbook d’accéder facilement aux autres ressources protégées par Azure AD. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans Azure AD, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
+
+Voici quelques-uns des avantages de l’utilisation des identités managées :
+
+- Vous pouvez utiliser des identités managées pour vous authentifier auprès d’un service Azure qui prend en charge l’authentification Azure AD. Elles peuvent être utilisées pour les tâches cloud et hybrides. Les tâches hybrides peuvent utiliser des identités managées lorsqu’elles sont exécutées sur un runbook Worker hybride qui s’exécute sur une machine virtuelle Azure ou non Azure.
+
+- Les identités managées peuvent être utilisées sans coût supplémentaire.
+
+- Vous n’avez pas à renouveler le certificat utilisé par le compte d’identification Automation.
+
+- Vous n’avez pas besoin de spécifier l’objet de connexion d’identification dans le code de votre runbook. Vous pouvez accéder aux ressources à l’aide de l’identité managée de votre compte Automation à partir d’un runbook sans créer de certificats, de connexions, de comptes d’identification, etc.
+
+Deux types d’identités peuvent être accordés à un compte Automation :
+
+- Une identité attribuée par le système est liée à votre application et est supprimée si votre application est supprimée. Une application ne peut avoir qu’une seule identité attribuée par le système.
+
+- Une identité attribuée par l’utilisateur est une ressource Azure autonome qui peut être assignée à votre application. Une application peut avoir plusieurs identités attribuées par l’utilisateur.
+
+>[!NOTE]
+> Les identités affectées par l’utilisateur ne sont pas encore prises en charge.
+
+Pour plus d’informations sur l’utilisation des identités gérées, consultez [Activer une identité managée pour Azure Automation (préversion)](enable-managed-identity-for-automation.md).
+
 ## <a name="run-as-accounts"></a>Comptes d'identification
 
 Les comptes d’identification dans Azure Automation fournissent une authentification pour la gestion des ressources Azure Resource Manager ou des ressources déployées sur le modèle de déploiement Classic. Il existe deux types de comptes d’identification dans Azure Automation :
@@ -43,7 +69,10 @@ Pour en savoir plus sur les modèles de déploiement Azure Resource Manager et C
 >[!NOTE]
 >Les abonnements Fournisseur de solutions Azure Cloud (CSP) prennent uniquement en charge le modèle Azure Resource Manager. Les services non-Azure Resource Manager ne sont pas disponibles dans le programme. Lorsque vous utilisez un abonnement CSP, le compte d’identification Azure Classic n’est pas créé, c’est le compte d’identification Azure qui l’est. Pour en savoir plus sur les abonnements CSP, consultez [Services disponibles dans les abonnements CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-Lorsque vous créez un compte Automation, le compte d’identification est créé par défaut en même temps. Si vous avez choisi de ne pas le créer avec le compte Automation, vous pouvez le créer à un moment ultérieur. Un compte d’identification Azure Classic est facultatif et est créé séparément si vous devez gérer des ressources classiques.
+Lorsque vous créez un compte Automation, le compte d’identification est créé par défaut en même temps avec un certificat auto-signé. Si vous avez choisi de ne pas le créer avec le compte Automation, vous pouvez le créer à un moment ultérieur. Un compte d’identification Azure Classic est facultatif et est créé séparément si vous devez gérer des ressources classiques.
+
+Si vous souhaitez utiliser un certificat émis par votre entreprise ou une autorité de certification (AC) tierce au lieu du certificat auto-signé par défaut, vous pouvez vous servir de l’option [Script PowerShell pour créer un compte d’identification](create-run-as-account.md#powershell-script-to-create-a-run-as-account) pour votre compte d’identification et votre compte d’identification Classic.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
@@ -94,7 +123,7 @@ Dans une situation où les responsabilités sont partagées, le tableau suivant 
 
 <sup>1</sup> Les utilisateurs non administrateurs dans votre locataire Azure AD peuvent [inscrire des applications AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) si l’option **Les utilisateurs peuvent inscrire des applications** du locataire Azure AD dans la page **Paramètres utilisateur** a la valeur **Oui**. Si le paramètre d’inscription des applications est **Non**, l’utilisateur qui effectue cette action doit être tel que défini dans ce tableau.
 
-Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général de l’abonnement, vous êtes ajouté en tant qu’invité. Dans ce cas, vous recevez un avertissement `You do not have permissions to create…` sur la page **Ajouter un compte Automation**.
+Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général de l’abonnement, vous êtes ajouté en tant qu’invité. Dans ce cas, vous recevez un avertissement `You do not have permissions to create…` dans la page **Ajouter un compte Automation**.
 
 Pour vérifier que la situation produisant le message d’erreur a été corrigée :
 
@@ -120,3 +149,4 @@ Pour les runbooks qui utilisent des Runbook Workers hybrides sur des machines vi
 * Pour créer un compte Automation à partir du portail Azure, consultez [Créer un compte Azure Automation autonome](automation-create-standalone-account.md).
 * Si vous préférez créer votre compte à l’aide d’un modèle, consultez [Créer un compte Automation à l’aide d’un modèle Azure Resource Manager](quickstart-create-automation-account-template.md).
 * Pour l’authentification à l’aide de Amazon Web Services, consultez [Authentifier des runbooks avec Amazon Web Services](automation-config-aws-account.md).
+* Pour obtenir la liste des services Azure qui prennent en charge la fonctionnalité d’identités managées pour les ressources Azure, consultez [Services qui prennent en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).

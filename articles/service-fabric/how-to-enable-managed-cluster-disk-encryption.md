@@ -3,19 +3,16 @@ title: Activer le chiffrement de disque pour les nœuds de cluster managé Servi
 description: Découvrez comment activer le chiffrement de disque pour les nœuds de cluster managé dans Windows à l’aide d’un modèle ARM.
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.openlocfilehash: b7e56ff8db9f94b8c6681a1a7d69a4751b3f43a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa6388d9d165cd149faae3c19b81320198fd0b02
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100640982"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127278"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-managed-cluster-preview-nodes"></a>Activer le chiffrement de disque pour les nœuds de cluster managé Service Fabric (préversion)
 
 Dans ce guide, vous allez apprendre à activer le chiffrement de disque sur les nœuds de cluster managé Service Fabric dans Windows, à l’aide de la fonctionnalité [Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) pour les [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md) avec des modèles Azure Resource Manager (ARM).
-
-> [!IMPORTANT]
-> Le chiffrement de disque du groupe de machines virtuelles identiques (préversion) ne prend pas en charge pour l’instant la mise à niveau d’image ou le réimageage. Ne pas utiliser si vous devez mettre à niveau l’image du système d’exploitation.
 
 ## <a name="register-for-azure-disk-encryption"></a>S’inscrire auprès d’Azure Disk Encryption
 
@@ -118,7 +115,7 @@ L’étape suivante vous guide tout au long des modifications nécessaires du mo
             "properties": { 
                 "publisher": "Microsoft.Azure.Security", 
                 "type": "AzureDiskEncryption", 
-                "typeHandlerVersion": "2.1", 
+                "typeHandlerVersion": "2.2", 
                 "autoUpgradeMinorVersion": true, 
                 "settings": {                     
                     "EncryptionOperation": "EnableEncryption", 

@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: ed8007c81479c73e4503d74af4c4043e503baf2b
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 9e74f35a99bb57fff6d7134fb1fb4b596306a21b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120144"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072420"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -152,15 +152,14 @@ Si l’application utilise la bibliothèque MSAL, un échec d’acquisition du j
 
 ## <a name="scenario-single-page-app-spa-using-msaljs"></a>Scénario : Application monopage (SPA) utilisant MSAL.js
 
-Dans ce scénario, nous abordons le cas d’une application monopage (SPA), utilisant MSAL.js pour appeler une API web protégée par l’accès conditionnel. Il s’agit d’une architecture simple mais avec des nuances qui doivent être prises en compte lors du développement autour de l’accès conditionnel.
+Dans ce scénario, nous abordons le cas d’une application monopage (SPA) appelant une API web protégée par l’accès conditionnel à l’aide de MSAL.js. Il s’agit d’une architecture simple mais avec des nuances qui doivent être prises en compte lors du développement autour de l’accès conditionnel.
 
-Dans MSAL.js, il existe quelques fonctions qui obtiennent des jetons : `loginPopup()`, `acquireTokenSilent(...)`, `acquireTokenPopup(…)` et `acquireTokenRedirect(…)`.
+Dans MSAL.js, plusieurs fonctions obtiennent des jetons : `acquireTokenSilent()`, `acquireTokenPopup()` et `acquireTokenRedirect()`.
 
-* `loginPopup()` obtient un jeton d’ID via une demande de connexion interactive, mais n’obtient pas les jetons d’accès pour n’importe quel service (y compris une API Web protégée par l’accès conditionnel).
-* `acquireTokenSilent(…)` peut ensuite être utilisé pour obtenir silencieusement un jeton d’accès c'est-à-dire qu’il n’affiche pas l’interface utilisateur dans tous les cas.
-* `acquireTokenPopup(…)` et `acquireTokenRedirect(…)` sont tous deux utilisés pour demander interactivement un jeton pour une ressource, ce qui signifie qu’ils affichent toujours l’interface utilisateur de connexion.
+* `acquireTokenSilent()` peut être utilisé pour obtenir silencieusement un jeton d’accès, c'est-à-dire qu’il n’affiche pas l’interface utilisateur dans tous les cas.
+* `acquireTokenPopup()` et `acquireTokenRedirect()` sont tous deux utilisés pour demander interactivement un jeton pour une ressource, ce qui signifie qu’ils affichent toujours l’interface utilisateur de connexion.
 
-Lorsqu’une application a besoin d’un jeton d’accès pour appeler une API web, elle tente une `acquireTokenSilent(…)`. Si la session du jeton a expiré ou si nous devons nous conformer à une stratégie d’accès conditionnel, la fonction *acquireToken* échoue et l’application utilise `acquireTokenPopup()` ou `acquireTokenRedirect()`.
+Lorsqu’une application a besoin d’un jeton d’accès pour appeler une API web, elle tente une `acquireTokenSilent()`. Si le jeton a expiré ou si nous devons nous conformer à une stratégie d’accès conditionnel, la fonction *acquireToken* échoue et l’application utilise `acquireTokenPopup()` ou `acquireTokenRedirect()`.
 
 ![Application monopage utilisant le diagramme de flux MSAL](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
@@ -176,7 +175,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Notre application a besoin d’intercepter le `error=interaction_required`. L’application peut alors utiliser `acquireTokenPopup()` ou `acquireTokenRedirect()` sur la même ressource. L’utilisateur est obligé d’effectuer une authentification multifacteur. Une fois que l’utilisateur a terminé l’authentification multifacteur, l’application émet un nouveau jeton d’accès pour la ressource demandée.
 
-Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). Cet exemple de code utilise la stratégie d’accès conditionnel et l’API Web précédemment inscrites avec un SPA JS pour illustrer ce scénario. Il explique comment gérer correctement le défi de revendications et obtenir un jeton d’accès qui peut être utilisé pour votre API web. Vous pouvez également extraire [l’exemple de code Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) général pour obtenir des conseils sur une SPA Angular
+Pour tester ce scénario, consultez notre exemple de code [JavaScript SPA appelant l’API web Node.js à l’aide du flux On-Behalf-Of](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/2-call-api-api-ca). Cet exemple de code utilise la stratégie d’accès conditionnel et l’API web précédemment inscrite avec JavaScrip SPA pour illustrer ce scénario. Il explique comment gérer correctement le défi de revendications et obtenir un jeton d’accès qui peut être utilisé pour votre API web.
 
 ## <a name="see-also"></a>Voir aussi
 

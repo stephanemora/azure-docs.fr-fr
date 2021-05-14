@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 2a52635dbaa7a76034f3a535b099320a901e8c07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79c7171db1ac80126dcf1174f8b303b5b99da615
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83758773"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751578"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gérer l’accès à la gestion Azure avec l’accès conditionnel
 
@@ -44,6 +44,11 @@ La stratégie que vous créez s’applique à tous les points de terminaison de 
 - Portail de l’administrateur d’abonnements Visual Studio
 - Azure DevOps
 - Portail Azure Data Factory
+- Azure Event Hubs
+- Azure Service Bus
+- [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/conditional-access-configure)
+- Instance managée SQL
+- Azure Synapse
 
 Notez que la stratégie s’applique à Azure PowerShell, qui appelle l’API Azure Resource Manager. Elle ne s’applique pas à [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), qui appelle Microsoft Graph.
 

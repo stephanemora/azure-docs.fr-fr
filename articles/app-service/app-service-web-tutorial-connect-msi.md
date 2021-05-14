@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 0012c3d208998786ef5aa34320f3bccc4e51ebe6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fb13e5015a589efc575d5a7bbb8b662fc23b72be
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782780"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076398"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -249,6 +249,9 @@ Il ne vous reste plus qu’à publier vos modifications sur Azure.
 ![Publier à partir de l’Explorateur de solutions](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 Dans la page de publication, cliquez sur **Publier**. 
+
+> [!IMPORTANT]
+> Vérifiez que le nom de votre service d’application ne correspond à aucune [inscription d’application](../active-directory/manage-apps/add-application-portal.md) existante. Vous éviterez ainsi d’éventuels conflits d’ID de principal.
 
 **Si vous êtes parti du [Tutoriel : Créer une application ASP.NET Core et SQL Database dans Azure App Service](tutorial-dotnetcore-sqldb-app.md)** , publiez vos modifications avec Git, au moyen des commandes suivantes :
 

@@ -5,17 +5,17 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 5/11/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 09723030f0da0252120f66f36347cad2e3a3546a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 958c40ed311ebe8b2a83ce0d4d394d00f48d1afa
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93376125"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732537"
 ---
-Accédez au compte de stockage pour lequel vous souhaitez créer un point de terminaison privé. Dans la table des matières du compte de stockage, sélectionnez **Connexion de point de terminaison privé**, puis **+ Point de terminaison privé** pour créer un point de terminaison privé. 
+Accédez au compte de stockage pour lequel vous souhaitez créer un point de terminaison privé. Dans la table des matières du compte de stockage, sélectionnez **Réseau**, **Connexions de point de terminaison privé**, puis **+ Point de terminaison privé** pour créer un point de terminaison privé. 
 
 [![Capture d’écran de l’élément Connexions de point de terminaison privé dans la table des matières du compte de stockage](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png)](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png#lightbox)
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3c896e2aad7dae8d03b26e2a16ecb96224ab547b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ac794fda92e2ad005b30fc1aa153cc0546430fbe
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303756"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208560"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
-Vous pouvez gérer les [modèles](concepts-models.md) de votre instance Azure Digital Twins à l'aide des [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou de l'[interface CLI Azure Digital Twins](how-to-use-cli.md). 
+Vous pouvez gérer les [modèles](concepts-models.md) de votre instance Azure Digital Twins à l'aide des [API DigitalTwinModels](/rest/api/digital-twins/dataplane/models), du [SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou de l'[interface CLI Azure Digital Twins](how-to-use-cli.md). 
 
 Les opérations de gestion incluent le chargement, la validation, la récupération et la suppression des modèles. 
 
@@ -120,7 +120,7 @@ Quand vous créez un jumeau, étant donné que la nouvelle version du modèle et
 
 Cela signifie également que le chargement d’une nouvelle version d’un modèle n’affecte pas automatiquement les jumeaux existants. Les jumeaux existants vont simplement rester des instances de l’ancienne version du modèle.
 
-Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [*Mettre à jour le modèle d’un jumeau numérique*](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques*. Dans le même correctif, vous devez mettre à jour à la fois l’**ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle**.
+Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [Mettre à jour le modèle d’un jumeau numérique](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques*. Dans le même correctif, vous devez mettre à jour à la fois l’**ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle**.
 
 ## <a name="remove-models"></a>Supprimer des modèles
 
@@ -142,7 +142,7 @@ L’état de désaffectation d’un modèle est inclus dans les enregistrements 
 
 Vous pouvez supprimer tous les modèles de votre instance d’une seule traite, ou vous pouvez le faire sur une base individuelle.
 
-Pour obtenir un exemple de suppression de tous les modèles, téléchargez l’exemple d’application utilisé dans le didacticiel [ *: Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllModels`.
+Pour obtenir un exemple de suppression de tous les modèles, téléchargez l’exemple d’application utilisé dans le didacticiel [ : Explorer les bases avec un exemple d’application cliente](tutorial-command-line-app.md). Le fichier *CommandLoop.cs* le fait dans une fonction `CommandDeleteAllModels`.
 
 Le reste de cette section décompose la suppression du modèle plus en détails et montre comment le faire pour un modèle individuel.
 
@@ -198,4 +198,4 @@ Azure Digital Twins n’empêche pas cet état, veillez donc à lier les représ
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment créer et gérer des représentations numériques basées sur vos modèles :
-* [*Guide pratique : Gérer des jumeaux numériques*](how-to-manage-twin.md)
+* [Guide pratique pour Gérer des représentations numériques](how-to-manage-twin.md)

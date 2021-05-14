@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 22e0c7304f7a53a86bc5c6739a2061352d738d29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6da9737416eb3d23977d0e4e6b0d981019944cd
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98784810"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277243"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
@@ -106,7 +106,7 @@ Pour afficher des historiques d’exécution précédentes dans Visual Studio ou
 
 Après avoir créé une solution d’application logique, vous pouvez capturer et déployer votre application comme un [modèle Azure Resource Manager](../azure-resource-manager/templates/overview.md) à n’importe quelle région Azure dans le monde. Vous pouvez utiliser cette fonctionnalité pour modifier les paramètres pour la création de différentes versions de votre application et pour l’intégration de votre solution dans Azure Pipelines. Vous pouvez également inclure Azure Functions dans votre modèle de déploiement afin de gérer la solution entière avec toutes les dépendances en tant que modèle unique. Apprenez comment [automatiser le déploiement d’applications logiques](logic-apps-azure-resource-manager-templates-overview.md).
 
-Vous trouverez un exemple de modèle de déploiement avec une fonction Azure dans le [référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+Vous trouverez un exemple de modèle de déploiement avec une fonction Azure dans le [référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

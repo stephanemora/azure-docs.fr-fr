@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37c672f8784052424e058837d31bc1d22fcfc57
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: dd95f89510cbb591f05338e2bd076967982d8761
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552612"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734034"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 
@@ -155,7 +155,6 @@ En savoir plus sur les [rôles d’administration d’Azure AD](../roles/permis
 
 *Appliquez toujours le principe des privilèges minimum pour réduire le risque de compromission des comptes*. Envisagez d’implémenter [Privileged Identity Management](../privileged-identity-management/pim-configure.md) pour renforcer la sécurité de votre organisation.
 
-##  
 
 ## <a name="deploy-azure-ad-reporting-and-monitoring"></a>Déployer les fonctionnalités de création de rapports et de la supervision Azure AD
 

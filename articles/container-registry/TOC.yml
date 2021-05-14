@@ -44,7 +44,7 @@
               displayName: 'regulatory, compliance, standards, domains'
               href: ./security-controls-policy.md
             - name: Base de référence de la sécurité
-              href: security-baseline.md
+              href: /security/benchmark/azure/baselines/container-registry-security-baseline?toc=/azure/container-registry/TOC.json
         - name: Niveaux et limites des registres de conteneurs
           href: container-registry-skus.md
         - name: 'Registres, dépôts et images'
@@ -270,5 +270,5 @@
       href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-registry'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

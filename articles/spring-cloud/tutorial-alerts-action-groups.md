@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: d12a48729616a5181f019f84f19779390e736cb4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 919c72453b4fcbe3b7decc7a045a6656171ecb06
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877082"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132446"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutoriel : Superviser les ressources Spring Cloud avec des alertes et des groupes d’actions
 
@@ -26,7 +26,7 @@ Deux étapes sont nécessaires pour configurer un pipeline d’alerte :
 
 ## <a name="prerequisites"></a>Prérequis
 
-En plus des exigences liées à Azure Spring, les procédures de ce tutoriel fonctionnent avec une instance Azure Spring Cloud déployée.  Pour bien démarrer, suivez un [guide de démarrage rapide](spring-cloud-quickstart.md).
+En plus des exigences liées à Azure Spring, les procédures de ce tutoriel fonctionnent avec une instance Azure Spring Cloud déployée.  Pour bien démarrer, suivez un [guide de démarrage rapide](./quickstart.md).
 
 Les procédures suivantes initialisent le **groupe d’actions** et l’**alerte** à partir de l’option **Alertes** dans le volet de navigation gauche d’une instance de Spring Cloud. (La procédure peut également démarrer à partir de la page **Vue d’ensemble d’Azure Monitor** du portail Azure.) 
 
@@ -86,7 +86,7 @@ Les étapes précédentes ont permis de créer un **Groupe d’actions** qui uti
 
 1. Cliquez sur **Done**.
 
-   Pour plus d’informations sur les conditions pouvant être supervisées, consultez [Options de métriques du portail de l’utilisateur](spring-cloud-concept-metrics.md#user-metrics-options).
+   Pour plus d’informations sur les conditions pouvant être supervisées, consultez [Options de métriques du portail de l’utilisateur](./concept-metrics.md#user-metrics-options).
 
 1. Sous **ACTIONS**, cliquez sur **Sélectionner un groupe d’actions**. Dans le volet **ACTIONS**, sélectionnez le **Groupe d’actions** que vous avez défini.
 

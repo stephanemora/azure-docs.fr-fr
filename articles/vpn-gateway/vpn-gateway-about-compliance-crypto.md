@@ -1,18 +1,19 @@
 ---
-title: 'Passerelle VPN Azure : Exigences de chiffrement'
-description: En savoir plus sur la configuration des passerelles VPN Azure pour satisfaire les exigences de chiffrement pour les tunnels VPN S2S entre différents locaux et les connexions de réseau virtuel à réseau virtuel d’Azure.
+title: Exigences de chiffrement des passerelles VPN
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment configurer des passerelles VPN Azure pour satisfaire aux exigences de chiffrement des tunnels S2S VPN entre différents locaux et des connexions de réseau virtuel à réseau virtuel Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a657d041ddf46664bdb4e923fd7accb970bd32e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96546843"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292177"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>À propos des exigences de chiffrement et des passerelles VPN Azure
 

@@ -5,18 +5,18 @@ description: Contrôler l’accès aux espaces de travail Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 295228e9eaa3529b05055869bd46f9aefc938a6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-python
+ms.openlocfilehash: 64d110243a8be5756e7de635b55e229078251a3c
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102212771"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897340"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 

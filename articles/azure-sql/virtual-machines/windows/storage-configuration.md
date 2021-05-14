@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 982bd9239c5e95c9b7af09b5f54c5a09067ca7c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c1b4980c401fd91c589b080e907e651a59c6ab43
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565414"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753908"
 ---
 # <a name="configure-storage-for-sql-server-vms"></a>Configurer le stockage pour les machines virtuelles SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,7 +48,7 @@ Lors de l’approvisionnement d’une machine virtuelle Azure à l’aide d’un
 
 Sélectionnez le type de charge de travail pour lequel vous déployez SQL Server sous **Optimisation du stockage**. Avec l’option d’optimisation **Général**, par défaut, vous disposez d’un disque de données avec 5000 E/S par seconde max, et utilisez ce même disque pour vos données, journal des transactions et stockage TempDB. 
 
-Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données**, vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données**, mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](performance-guidelines-best-practices.md). 
+Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données**, vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données**, mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](./performance-guidelines-best-practices-checklist.md). 
 
 ![Configuration du stockage des machines virtuelles SQL Server lors de la configuration](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -89,7 +89,7 @@ Si vous utilisez les modèles Resource Manager suivants, deux disques de donnée
 
 Vous pouvez utiliser le modèle de démarrage rapide suivant pour déployer une machine virtuelle SQL Server à l’aide de l’optimisation du stockage. 
 
-* [Créer une machine virtuelle avec optimisation du stockage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [Créer une machine virtuelle avec optimisation du stockage](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage/)
 * [Créer une machine virtuelle à l’aide de UltraSSD](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
 
 ## <a name="existing-vms"></a>Machines virtuelles existantes
@@ -197,7 +197,7 @@ Pour activer l’accélération d’écriture à l’aide du portail Azure, proc
 Pour augmenter le débit, vous pouvez ajouter des disques de données et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, analysez le débit et la bande passante nécessaires pour vos fichiers de données SQL Server, y compris le journal et tempdb. Les limites de débit et de bande passante varient en fonction de la taille de machine virtuelle. Pour en savoir plus, consultez [Taille de la machine virtuelle](../../../virtual-machines/sizes.md)
 
 
-* Pour Windows 8/Windows Server 2012 ou version ultérieure, utilisez des [espaces de stockage](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) en respectant les consignes suivantes :
+* Pour Windows 8/Windows Server 2012 ou version ultérieure, utilisez des [espaces de stockage](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) en respectant les consignes suivantes :
 
   1. Définissez l’entrelacement (taille de la bande) à 64 ko (65 536 octets) pour éviter tout impact sur les performances dû au mauvais alignement des partitions. Ces paramètres doivent être définis avec PowerShell.
 
@@ -216,9 +216,9 @@ Par exemple, le code PowerShell suivant crée un pool de stockage avec un entrel
       -AllocationUnitSize 65536 -Confirm:$false 
   ```
 
-  * Pour Windows 2008 R2 ou version antérieure, vous pouvez utiliser des disques dynamiques (volumes entrelacés de système d’exploitation). La taille de l’entrelacement restera 64 Ko. Cette option est déconseillée à partir de Windows 8/Windows Server 2012. Pour plus d’informations, consultez les instructions du support dans [Transition du service de disque virtuel vers l’API de gestion de stockage Windows](https://docs.microsoft.com/windows/win32/w8cookbook/vds-is-transitioning-to-wmiv2-based-windows-storage-management-api).
+  * Pour Windows 2008 R2 ou version antérieure, vous pouvez utiliser des disques dynamiques (volumes entrelacés de système d’exploitation). La taille de l’entrelacement restera 64 Ko. Cette option est déconseillée à partir de Windows 8/Windows Server 2012. Pour plus d’informations, consultez les instructions du support dans [Transition du service de disque virtuel vers l’API de gestion de stockage Windows](/windows/win32/w8cookbook/vds-is-transitioning-to-wmiv2-based-windows-storage-management-api).
  
-  * Si vous utilisez les [espaces de stockage direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) avec des [instances de cluster de basculement SQL Server](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure), vous devez configurer un pool unique. Même si vous créez différents volumes sur ce pool unique, tous partageront les mêmes caractéristiques, par exemple la même stratégie de mise en cache.
+  * Si vous utilisez les [espaces de stockage direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) avec des [instances de cluster de basculement SQL Server](./failover-cluster-instance-storage-spaces-direct-manually-configure.md), vous devez configurer un pool unique. Même si vous créez différents volumes sur ce pool unique, tous partageront les mêmes caractéristiques, par exemple la même stratégie de mise en cache.
  
   * Déterminez le nombre de disques associés à votre pool de stockage en fonction de vos attentes en matière de charge. N’oubliez pas que les différentes tailles de machines virtuelles autorisent différents nombres de disques de données attachés. Pour plus d’informations, consultez [Tailles des machines virtuelles](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json).
 

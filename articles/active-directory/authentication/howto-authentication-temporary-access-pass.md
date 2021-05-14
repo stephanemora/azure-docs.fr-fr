@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/26/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8774df6a2eee15f8b5a0c37362e5b20f14b07549
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 0f0473a266cffb083a82ffc9afb333da7eecf59c
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167360"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015696"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurer un passe d’accès temporaire dans Azure AD pour inscrire des méthodes d’authentification sans mot de passe (préversion)
 
@@ -152,6 +152,7 @@ Gardez ces limites à l’esprit :
 
 - Lors de l’utilisation d’un passe d’accès temporaire à usage unique pour inscrire une méthode sans mot de passe telle que FIDO2 ou une connexion par téléphone, l’utilisateur doit accomplir l’inscription dans les 10 minutes suivant la connexion avec le passe. Cette limitation ne s’applique pas à un passe d’accès temporaire utilisable plusieurs fois.
 - Des utilisateurs invités ne peuvent pas se connecter avec un passe d’accès temporaire.
+- Le passe d’accès temporaire est en préversion publique et n’est actuellement pas disponible dans Azure pour le gouvernement des États-Unis.
 - Les utilisateurs concernés par la stratégie d’inscription Réinitialisation du mot de passe en libre-service (SSPR) *ou* par la [stratégie d’inscription de l’authentification multifacteur Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)seront tenus d’inscrire des méthodes d’authentification après s’être connectés avec un passe d’accès temporaire. Les utilisateurs concernés par ces stratégies seront redirigés vers le [mode d’interruption de l’inscription combinée](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Cette expérience ne prend actuellement pas en charge l’inscription de FIDO2 et de la connexion par téléphone. 
 - Un passe d’accès temporaire ne peut pas être utilisé avec l’extension Network Policy Server (NPS) et l’adaptateur Services de fédération Active Directory (AD FS), ou pendant l’expérience OOBE ( Setup/Out-of-Box-Experience) Windows et AutoPilot. 
 - Lorsque l’authentification unique fluide est activée sur le locataire, les utilisateurs sont invités à entrer un mot de passe. Le lien **Utiliser plutôt un passe d’accès temporaire** sera disponible pour que l’utilisateur se connecte avec un passe d’accès temporaire.

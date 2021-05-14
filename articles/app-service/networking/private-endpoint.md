@@ -4,17 +4,17 @@ description: Connexion privée à une application web avec Azure Private Endpoin
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/16/2021
+ms.date: 04/27/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4de405e07a9ae9d1efb33f2cee3630a1eefdef33
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c95c90e7860b0257f63802b321c35b38ec00bb23
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655901"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140962"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilisation de points de terminaison privés pour une application web Azure
 
@@ -122,6 +122,8 @@ La fonctionnalité de débogage à distance n’est pas disponible lorsque le po
 
 L’accès FTP est fourni par le biais de l’IP publique entrante. Le point de terminaison privé ne prend pas en charge l’accès FTP à l’application web.
 
+Il existe une limitation connue affectant les points de terminaison privés et le routage du trafic avec des emplacements ([fonctionnalité Test en production][TiP]). Depuis avril 2021, le routage automatique et manuel des requêtes entre les emplacements entraîne une erreur « 403 Accès refusé ». Cette limite sera supprimée dans une prochaine version.
+
 Nous améliorons régulièrement la fonctionnalité de liaison privée et le point de terminaison privé. Pour obtenir des informations à jour sur les limitations, voir [cet article][pllimitations].
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -150,3 +152,4 @@ Nous améliorons régulièrement la fonctionnalité de liaison privée et le poi
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md
 [howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
 [howtoguide6]: ../scripts/terraform-secure-backend-frontend.md
+[TiP]: https://docs.microsoft.com/azure/app-service/deploy-staging-slots#route-traffic

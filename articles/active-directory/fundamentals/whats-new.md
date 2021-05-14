@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a909d946b55ee8b06d68aa8bee53bc50d2190e
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: ab14df388579f46d9467c9d4d68146450691270c
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532300"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108180389"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -59,7 +59,7 @@ Les environnements affectés sont les suivants :
 - Azure Commercial Cloud
 - Office 365 GCC et WW
 
-Pour obtenir des instructions supplémentaires, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+Pour obtenir des instructions supplémentaires, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
 
@@ -79,7 +79,7 @@ Les organisations qui utilisent la multigéographie SharePoint Online peuvent d�
 **Catégorie de service :** Autres  
 **Fonctionnalité de produit :** Expérience de développement
  
-Les clients peuvent désormais afficher, restaurer et supprimer définitivement des inscriptions d’applications supprimées à partir du portail Azure. Cela s’applique uniquement aux applications associées à un annuaire, et non aux applications d’un compte Microsoft personnel. [Plus d’informations](../develop/quickstart-restore-app.md)
+Les clients peuvent désormais afficher, restaurer et supprimer définitivement des inscriptions d’applications supprimées à partir du portail Azure. Cela s’applique uniquement aux applications associées à un annuaire, et non aux applications d’un compte Microsoft personnel. [Plus d’informations](../develop/howto-restore-app.md)
  
 ---
 
@@ -101,7 +101,7 @@ Actuellement, cette action utilisateur vous permet uniquement d’activer MFA en
 **Catégorie de service :** Proxy d’application  
 **Fonctionnalité de produit :** Contrôle d’accès
  
-Avec cette nouvelle fonctionnalité, les groupes de connecteurs peuvent être affectés au service de proxy d’application régional le plus proche dans lequel une application est hébergée. Cela peut améliorer les performances des applications dans les scénarios où elles sont hébergées dans des régions autres que la région du locataire d’accueil. [Plus d’informations](../manage-apps/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview) 
+Avec cette nouvelle fonctionnalité, les groupes de connecteurs peuvent être affectés au service de proxy d’application régional le plus proche dans lequel une application est hébergée. Cela peut améliorer les performances des applications dans les scénarios où elles sont hébergées dans des régions autres que la région du locataire d’accueil. [Plus d’informations](../app-proxy/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview) 
  
 ---
 
@@ -153,7 +153,7 @@ Les clients peuvent désormais mettre à jour le type des utilisateurs Azure AD
 **Catégorie de service :** Services de domaine Azure AD  
 **Fonctionnalité de produit :** Services de domaine Azure AD
  
-La capacité des jeux de réplicas dans Azure AD Domain Services est désormais en disponibilité générale. [Plus d’informations](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-replica-sets)
+La capacité des jeux de réplicas dans Azure AD Domain Services est désormais en disponibilité générale. [Plus d’informations](../../active-directory-domain-services/concepts-replica-sets.md)
  
 ---
 
@@ -210,7 +210,7 @@ Pour découvrir comment sécuriser plus efficacement votre organisation à l’a
 **Catégorie de service :** MS Graph  
 **Fonctionnalité de produit :** B2B/B2C
 
-[L’API MS Graph pour la personnalisation de l’entreprise](https://docs.microsoft.com/graph/api/resources/organizationalbrandingproperties) est disponible pour l’expérience de connexion Azure AD ou Microsoft 365, afin d’autoriser la gestion par programmation des paramètres de personnalisation.
+[L’API MS Graph pour la personnalisation de l’entreprise](/graph/api/resources/organizationalbrandingproperties) est disponible pour l’expérience de connexion Azure AD ou Microsoft 365, afin d’autoriser la gestion par programmation des paramètres de personnalisation.
 
 ---
 
@@ -768,7 +768,7 @@ Les environnements affectés sont les suivants :
 
 Annonce : toutes les combinaisons client-serveur et navigateur-serveur doivent utiliser TLS 1.2 et des suites de chiffrement modernes afin de maintenir une connexion sécurisée à Azure Active Directory pour les services Azure, Office 365 et Microsoft 365. Cette modification est liée à l’article [Azure Active Directory TLS 1.0 & 1.1, and 3DES Cipher Suite Deprecation in US Gov Cloud](whats-new.md#azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud).
 
-Pour obtenir des conseils sur la suppression des dépendances envers les protocoles dépréciés, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+Pour obtenir des conseils sur la suppression des dépendances envers les protocoles dépréciés, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
 
@@ -997,7 +997,7 @@ Les environnements affectés sont les suivants :
 - Azure US Gov
 - [Office 365 GCC High et DoD](/microsoft-365/compliance/tls-1-2-in-office-365-gcc)
 
-Pour obtenir des conseils sur la suppression des dépendances envers les protocoles dépréciés, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+Pour obtenir des conseils sur la suppression des dépendances envers les protocoles dépréciés, consultez [Activer la prise en charge de TLS 1.2 dans votre environnement en vue de la dépréciation de TLS 1.1 et 1.0 dans Azure AD](/troubleshoot/azure/active-directory/enable-support-tls-environment).
  
 ---
 

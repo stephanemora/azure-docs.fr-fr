@@ -3,12 +3,12 @@ title: Définir l’ordre de déploiement des ressources
 description: Décrit la procédure permettant de définir une ressource Azure comme dépendante d’une autre ressource au cours du déploiement. Les dépendances garantissent que le déploiement des ressources s’effectue dans l’ordre adéquat.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 009f5731e871c47aba418fca0937ae7aa195919e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934745"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737060"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles ARM
 
@@ -75,7 +75,7 @@ L’exemple suivant montre un serveur SQL et une base de données. Notez qu’un
 ]
 ```
 
-Pour obtenir le modèle complet, consultez [Modèle de démarrage rapide pour Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/101-sql-database/azuredeploy.json).
+Pour obtenir le modèle complet, consultez [Modèle de démarrage rapide pour Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.sql/sql-database/azuredeploy.json).
 
 ## <a name="reference-and-list-functions"></a>fonctions reference et list
 

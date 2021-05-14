@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8a18a47331eb5d4a9ed5578cca320beef5e0ba45
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6a98571f513e25d801acd4f4a9c2901dcd56fabc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766984"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869218"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
 
@@ -48,7 +48,7 @@ Cliquez sur le nom d’une solution pour ouvrir la page de résumé de cette der
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Utilisez la commande [az monitor log-analytics solution list](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-list) pour lister les solutions de supervision installées dans votre abonnement.   Avant d’exécuter la commande `list`, assurez-vous que les prérequis indiqués dans la section [Installer une solution de supervision](#install-a-monitoring-solution) sont respectés.
+Utilisez la commande [az monitor log-analytics solution list](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_list) pour lister les solutions de supervision installées dans votre abonnement.   Avant d’exécuter la commande `list`, assurez-vous que les prérequis indiqués dans la section [Installer une solution de supervision](#install-a-monitoring-solution) sont respectés.
 
 ```azurecli
 # List all log-analytics solutions in the current subscription.
@@ -142,7 +142,7 @@ Les membres de la communauté peuvent soumettre des solutions de gestion aux mod
 
 Lorsque vous installez une solution, vous devez sélectionner un [espace de travail Log Analytics](../logs/manage-access.md) dans lequel elles seront installées et où leurs données seront collectées.  Avec l’interface Azure CLI, vous gérez les espaces de travail à l’aide des commandes de référence [az monitor log-analytics workspace](/cli/azure/monitor/log-analytics/workspace).  Suivez la procédure décrite dans [Espace de travail Log Analytics et compte Automation](#log-analytics-workspace-and-automation-account) pour lier un compte et un espace de travail.
 
-Utilisez la commande [az monitor log-analytics solution create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) pour installer une solution de supervision.  Les paramètres entre crochets sont facultatifs.
+Utilisez la commande [az monitor log-analytics solution create](/cli/azure/monitor/log-analytics/solution) pour installer une solution de supervision.  Les paramètres entre crochets sont facultatifs.
 
 ```azurecli
 az monitor log-analytics solution create --name
@@ -241,7 +241,7 @@ Pour supprimer une solution installée à l’aide du portail, recherchez-la dan
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour supprimer une solution installée à l’aide de l’interface Azure CLI, utilisez la commande [az monitor log-analytics solution delete](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution#ext-log-analytics-solution-az-monitor-log-analytics-solution-delete).
+Pour supprimer une solution installée à l’aide de l’interface Azure CLI, utilisez la commande [az monitor log-analytics solution delete](/cli/azure/monitor/log-analytics/solution#az_monitor_log_analytics_solution_delete).
 
 ```azurecli
 az monitor log-analytics solution delete --name

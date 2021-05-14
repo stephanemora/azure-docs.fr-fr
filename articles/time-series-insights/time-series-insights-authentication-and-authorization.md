@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: 225e72bc00ce0a80ff655a76562b5c6b70b7fa79
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: c174504ea48330821d7734def5b6a5904d3ec2b8
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479489"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107883919"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -79,7 +79,7 @@ Lorsque votre environnement Azure Time Series Insights reçoit une demande, le j
 
 - Pour accorder l’accès via l’interface utilisateur du [portail Azure](https://portal.azure.com/), suivez les instructions fournies dans l’article [Accorder l’accès aux données dans un environnement](concepts-access-policies.md) . Lors de la sélection de l’utilisateur, vous pouvez rechercher l’identité managée ou l’inscription d’application par son nom ou par son ID.
 
-- Pour accorder l’accès à l’aide d’Azure CLI, exécutez la commande suivante. Pour obtenir la liste complète des commandes disponibles pour gérer l’accès, consultez la documentation [ici](/cli/azure/ext/timeseriesinsights/tsi/access-policy).
+- Pour accorder l’accès à l’aide d’Azure CLI, exécutez la commande suivante. Pour obtenir la liste complète des commandes disponibles pour gérer l’accès, consultez la documentation [ici](/cli/azure/tsi/access-policy).
 
    ```azurecli-interactive
    az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"

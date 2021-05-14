@@ -3,12 +3,12 @@ title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 1a53915f4cdbae03fd86137f3a436bb6e9a6f615
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802350"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108147586"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -32,7 +32,7 @@ Les [pools](nodes-and-pools.md#pools) sont les ressources de calcul pour l’ex�
 - **Les pools doivent avoir plusieurs nœuds de calcul :** il n’est pas garanti que les nœuds individuels soient toujours disponibles. Bien que rares, les défaillances matérielles, les mises à jour du système d’exploitation et une foule d’autres problèmes peuvent entraîner la déconnexion de nœuds individuels. Si votre charge de travail Batch requiert une progression déterministe et garantie, vous devez allouer des pools avec plusieurs nœuds.
 
 - **N’utilisez pas d’images avec des dates de fin de vie (EOL) imminentes.**
-    Il est fortement recommandé d’éviter les images avec des dates de fin de vie (EOL) de prise en charge de Batch imminentes. Vous pouvez découvrir ces dates via l’[`ListSupportedImages`API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages) , [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage) ou [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Il vous incombe d’actualiser régulièrement votre affichage des dates de fin de vie pertinentes pour vos pools, et de migrer vos charges de travail avant la date de fin de vie. Si vous utilisez une image personnalisée avec un agent de nœud spécifié, vous devez vous assurer que vous suivez les dates de fin de vie de prise en charge de Batch pour l’image pour laquelle votre image personnalisée est dérivée ou avec laquelle elle est alignée.
+    Il est fortement recommandé d’éviter les images avec des dates de fin de vie (EOL) de prise en charge de Batch imminentes. Vous pouvez découvrir ces dates via l’[`ListSupportedImages`API](/rest/api/batchservice/account/listsupportedimages) , [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) ou [Azure CLI](/cli/azure/batch/pool/supported-images). Il vous incombe d’actualiser régulièrement votre affichage des dates de fin de vie pertinentes pour vos pools, et de migrer vos charges de travail avant la date de fin de vie. Si vous utilisez une image personnalisée avec un agent de nœud spécifié, vous devez vous assurer que vous suivez les dates de fin de vie de prise en charge de Batch pour l’image pour laquelle votre image personnalisée est dérivée ou avec laquelle elle est alignée.
 
 - **Ne réutilisez pas les noms de ressources.**
     Les ressources Batch (travaux, pools, etc.) vont et viennent souvent au fil du temps. Par exemple, vous pouvez créer un pool le lundi, le supprimer le mardi, puis créer un autre pool le jeudi. Chaque nouvelle ressource que vous créez doit avoir un nom unique que vous n’avez pas utilisé auparavant. Pour ce faire, vous pouvez utiliser un GUID (comme nom complet de la ressource ou comme partie de celui-ci) ou incorporer l’heure de création de la ressource dans son nom. Batch prend en charge [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), qui peut être utilisé pour donner un nom lisible par l’utilisateur à une ressource, même si l’ID réel de la ressource est un nom qui n’est pas convivial. L’utilisation de noms uniques facilite la différenciation des ressources particulières dans les journaux et les métriques. Cela élimine également toute ambiguïté si vous devez créer une demande de support pour une ressource.

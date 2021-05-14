@@ -4,16 +4,16 @@ description: Découvrez comment créer un partage de fichiers Azure qui peut êt
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b549c625f0a6ff0480eafc38f84d292e66350950
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521235"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717124"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Comment créer un partage NFS
 Les partages de fichiers Azure sont des partages de fichiers entièrement gérés qui résident dans le cloud. Cet article explique comment créer un partage de fichiers qui utilise le protocole NFS. Pour plus d’informations sur les deux protocoles, voir [Protocoles de partage de fichiers Azure](storage-files-compare-protocols.md).
@@ -107,25 +107,24 @@ Pour créer un compte de stockage FileStorage, accédez au portail Azure.
 
 1. Dans le portail Azure, sélectionnez **Comptes de stockage** dans le menu de gauche.
 
-    ![Sur la page principale du portail Azure, sélectionnez le compte de stockage](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![Sur la page principale du portail Azure, sélectionnez le compte de stockage.](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
-2. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
-3. Sélectionnez l’abonnement dans lequel créer le compte de stockage.
-4. Sélectionnez le groupe de ressources dans lequel créer le compte de stockage
+1. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
+1. Sélectionnez l’abonnement dans lequel créer le compte de stockage.
+1. Sélectionnez le groupe de ressources dans lequel créer le compte de stockage
+1. Ensuite, entrez un nom pour votre compte de stockage. Le nom choisi doit être unique dans tout Azure. Le nom doit aussi contenir entre 3 et 24 caractères, et uniquement des lettres minuscules et des chiffres.
+1. Sélectionnez l’emplacement de votre compte de stockage ou utilisez l’emplacement par défaut.
+1. Pour **Performances**, sélectionnez **Premium**.
 
-5. Ensuite, entrez un nom pour votre compte de stockage. Le nom choisi doit être unique dans tout Azure. Le nom doit aussi contenir entre 3 et 24 caractères, et uniquement des lettres minuscules et des chiffres.
-6. Sélectionnez l’emplacement de votre compte de stockage ou utilisez l’emplacement par défaut.
-7. Pour **Performances**, sélectionnez **Premium**.
+    Vous devez sélectionner **Premium** pour que **Partages de fichiers** soit une option disponible dans la liste déroulante **Type de compte**.
 
-    Vous devez sélectionner **Premium** pour que **FileStorage** soit une option disponible dans la liste déroulante **Type de compte**.
+1. Pour le **type de compte Premium**, choisissez **Partages de fichiers**.
 
-8. Sélectionnez **Type de compte** et choisissez **FileStorage**.
-9. Laissez **Réplication** défini sur sa valeur par défaut, **Stockage localement redondant (LRS)** .
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Capture d’écran des performances Premium sélectionnées.":::
 
-    ![Création d'un compte de stockage pour un partage de fichiers premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
-
-10. Cliquez sur **Vérifier + créer** pour passer en revue vos paramètres de compte de stockage et créer le compte.
-11. Sélectionnez **Create** (Créer).
+1. Laissez **Réplication** défini sur sa valeur par défaut, **Stockage localement redondant (LRS)** .
+1. Cliquez sur **Vérifier + créer** pour passer en revue vos paramètres de compte de stockage et créer le compte.
+1. Sélectionnez **Create** (Créer).
 
 Une fois que votre ressource de compte de stockage a été créée, accédez-y.
 
@@ -180,7 +179,7 @@ Maintenant que vous avez créé un compte FileStorage et configuré la mise en r
     
 1. Sélectionnez **Create** (Créer).
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Capture d’écran du panneau de création de partage de fichiers":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/files-nfs-create-share.png" alt-text="Capture d’écran du panneau de création de partage de fichiers.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 840045da33938d4c1cd725fd5a99bf1b8014f6b1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 6754e4e60c31c35531b27e6cc2047e9f8ce3d0bc
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748463"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817392"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Sécuriser et utiliser des stratégies sur des machines virtuelles dans Azure
 
@@ -53,7 +53,7 @@ Le chiffrement de disques virtuels dans Azure n’entraîne aucun frais. Les cl�
 
 Les secrets et certificats peuvent être modélisés en tant que ressources et fournies par [Key Vault](../key-vault/general/basic-concepts.md). Vous pouvez utiliser Azure PowerShell pour créer des coffres de clé pour les[machines virtuelles Windows](windows/key-vault-setup.md) et l’interface de ligne de commande Azure pour les [machines virtuelles Linux](linux/key-vault-setup.md). Vous pouvez également créer des clés de chiffrement.
 
-Les stratégies d’accès à un coffre de clés accordent des autorisations s’appliquant soit aux clés, soit aux secrets, soit aux certificats. Par exemple, vous pouvez donner accès aux clés à un utilisateur, mais aucune autorisation pour les secrets. Toutefois, les autorisations d’accès aux clés, aux secrets ou aux certificats concernent le niveau du coffre. En d’autres termes, la [stratégie d’accès à un coffre de clés](../key-vault/general/security-overview.md) ne prend pas en charge les autorisations de niveau objet.
+Les stratégies d’accès à un coffre de clés accordent des autorisations s’appliquant soit aux clés, soit aux secrets, soit aux certificats. Par exemple, vous pouvez donner accès aux clés à un utilisateur, mais aucune autorisation pour les secrets. Toutefois, les autorisations d’accès aux clés, aux secrets ou aux certificats concernent le niveau du coffre. En d’autres termes, la [stratégie d’accès à un coffre de clés](../key-vault/general/security-features.md) ne prend pas en charge les autorisations de niveau objet.
 
 Lorsque vous vous connectez à des machines virtuelles, vous devez utiliser un chiffrement à clé publique pour garantir une connexion plus sûre à ces dernières. Ce processus implique un échange de clés publiques et privées à l’aide de la commande SSH (secure shell) pour vous authentifier vous-même plutôt qu’un nom d’utilisateur et un mot de passe. Les mots de passe sont vulnérables aux attaques en force brute, en particulier sur les machines virtuelles connectées à Internet comme les serveurs web. Avec une paire de clés SSH (secure shell), vous pouvez créer une [machine virtuelle Linux](linux/mac-create-ssh-keys.md) qui utilise des clés SSH pour l’authentification, éliminant ainsi la nécessité de recourir aux mots de passe pour la connexion. Vous pouvez également utiliser des clés SSH pour vous connecter d’une [machine virtuelle Windows](linux/ssh-from-windows.md) à une machine virtuelle Linux.
 

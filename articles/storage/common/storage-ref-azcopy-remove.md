@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d28a20a6afc78939491e56f46a32782b4c0844cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd221215d6be3c14ce1200e8bd374a97cb7608a0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879001"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503012"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -30,7 +30,6 @@ azcopy remove [resourceURL] [flags]
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
 - [Transférer des données avec AzCopy et le Stockage Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
-- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemples
 
@@ -103,7 +102,7 @@ Chaîne **--include-path**   Inclut uniquement ces chemins lors de la suppressio
 
 Chaîne **--list-of-files**  Définit l’emplacement d’un fichier qui contient la liste des fichiers et répertoires à supprimer. Les chemins d’accès relatifs doivent être délimités par des sauts de ligne, et les chemins d’accès ne doivent pas être codés URL. 
 
-Chaîne **--list-of-versions**   Spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un objet blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement à l’objet blob source. Les ID de version spécifiés de l’objet blob donné seront supprimés du stockage Azure. 
+Chaîne **--list-of-versions** : spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement au blob source. Les ID de version spécifiés de l’objet Blob donné seront supprimés du stockage Azure. 
 
 Chaîne **--log-level**   Définit la verbosité du journal pour le fichier journal. Les niveaux disponibles sont les suivants : `INFO` (toutes les demandes/réponses), `WARNING` (réponses lentes), `ERROR` (uniquement les demandes ayant échoué) et `NONE` (aucun journal de sortie). (par défaut `INFO`) (par défaut `INFO`)
 

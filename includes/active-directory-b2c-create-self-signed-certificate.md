@@ -5,18 +5,18 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: e26dd7ea9f45af6f725f4deaefd9b5bd79a37e1c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 32a47a34d9a4c8562dd1cec44f5a2ec519cb1a7f
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106072869"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107984359"
 ---
 Si vous n’avez pas encore de certificat, vous pouvez utiliser un certificat auto-signé. Un certificat auto-signé est un certificat de sécurité qui n’est pas signé par une autorité de certification et qui n’offre pas les garanties de sécurité d’un certificat signé par une autorité de certification. 
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-Sur Windows, utilisez la cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell pour générer un certificat.
+Sur Windows, utilisez la cmdlet [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) de PowerShell pour générer un certificat.
 
 1. Exécutez cette commande PowerShell pour générer un certificat auto-signé. Modifiez l’argument `-Subject` comme il convient pour votre application et le nom de locataire Azure AD B2C. Vous pouvez également ajuster la date de `-NotAfter` pour spécifier un délai d’expiration différent pour le certificat.
 

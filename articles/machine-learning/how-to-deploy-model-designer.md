@@ -9,14 +9,14 @@ ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
-ms.topic: conceptual
-ms.custom: how-to, deploy, studio, designer
-ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: deploy, studio, designer
+ms.openlocfilehash: 110bb5e6349ab5cb64366ba365ccace8ab029362
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97722621"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949431"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Utiliser Studio pour déployer des modèles entraînés dans le concepteur
 
@@ -33,7 +33,7 @@ Le déploiement dans Studio se compose des étapes suivantes :
 
 Vous pouvez également déployer des modèles directement dans le concepteur pour ignorer les étapes d’inscription de modèle et de téléchargement de fichier. Cela peut être utile pour un déploiement rapide. Pour plus d’informations, consultez [Déployer un modèle avec le concepteur](tutorial-designer-automobile-price-deploy.md).
 
-Les modèles entraînés dans le concepteur peuvent également être déployés par le biais du SDK ou de l’interface de ligne de commande (CLI). Pour plus d’informations, consultez [Déployer votre modèle existant avec Azure Machine Learning](how-to-deploy-existing-model.md).
+Les modèles entraînés dans le concepteur peuvent également être déployés par le biais du SDK ou de l’interface de ligne de commande (CLI). Pour plus d’informations, consultez [Déployer votre modèle existant avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

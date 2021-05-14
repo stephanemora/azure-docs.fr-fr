@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 69582f26544d954088fd5a57bfe5730750b7b5a8
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 33e1b069221331aed8f8ca13bd088ba067a85ba7
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447911"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752460"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers
 
@@ -28,7 +28,7 @@ Lorsque vous créez la machine virtuelle, veillez à la placer sur le même rés
 
 - [Créer une machine virtuelle à partir d’une image Azure Gallery](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Créer une machine virtuelle à partir d’une image managée](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 Après avoir créé la machine virtuelle, joignez-la au domaine en procédant comme suit :
 

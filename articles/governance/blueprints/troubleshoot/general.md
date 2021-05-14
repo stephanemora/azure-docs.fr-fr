@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment détecter un problème lié à la création, à l’attribution et à la suppression de blueprints tels que les violations de stratégie et les fonctions de paramètres blueprint.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca86b81f846465c996d05f08d3a721829f8e496f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918842"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733892"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
 
@@ -38,7 +38,7 @@ Le déploiement du modèle a échoué à cause de la violation de stratégie.
 
 #### <a name="cause"></a>Cause
 
-Une stratégie peut entrer en conflit avec le déploiement pour plusieurs raisons :
+Une stratégie peut entrer en conflit avec le déploiement pour les raisons suivantes :
 
 - La ressource en cours de création est limitée par la stratégie (généralement des restrictions de référence SKU ou d’emplacement)
 - Le déploiement définit des champs qui sont configurés par la stratégie (courant avec les étiquettes)
@@ -82,5 +82,5 @@ Les attributions de blueprint dans un état non terminal sont automatiquement ma
 Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
 - Obtenez des réponses de la part d’experts Azure via les [Forums Azure](https://azure.microsoft.com/support/forums/).
-- Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.
+- Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 - Si vous avez besoin de plus d’aide, vous pouvez signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.

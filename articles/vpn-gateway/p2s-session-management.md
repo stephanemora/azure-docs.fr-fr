@@ -1,28 +1,30 @@
 ---
-title: 'Passerelle VPN Azure : Gestion de session VPN de point à site'
-description: Cet article vous aide à afficher et à déconnecter des sessions VPN de point à site.
+title: Gestion de session VPN de point à site
+titleSuffix: Azure VPN Gateway
+description: Apprenez à afficher et à déconnecter des sessions VPN de point à site.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 04/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79432bfd65feeae79017a883be990d88134cbb10
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91274231"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202530"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Gestion de session VPN de point à site
 
-Les passerelles de réseau virtuel Azure offrent un moyen simple d’afficher et de déconnecter les sessions VPN de point à site actuelles. Cet article vous aide à afficher et à déconnecter les sessions actuelles.
+Les passerelles de réseau virtuel Azure offrent un moyen simple d’afficher et de déconnecter les sessions VPN de point à site actuelles. Cet article vous aide à afficher et à déconnecter les sessions actuelles. L’état de la session est mis à jour toutes les 5 minutes. Il n’est pas mis à jour immédiatement. 
 
->[!NOTE]
->L’état de la session est mis à jour toutes les 5 minutes. Il n’est pas mis à jour immédiatement.
->
 
 ## <a name="portal"></a>Portail
+
+>[!NOTE]
+> Les informations relatives à la source de connexion sont fournies pour les connexions IKEv2 et OpenVPN uniquement.
+> 
 
 Pour afficher et déconnecter une session dans le portail :
 
@@ -32,6 +34,8 @@ Pour afficher et déconnecter une session dans le portail :
    :::image type="content" source="./media/p2s-session-management/portal.png" alt-text="Exemple de portail":::
 1. Vous pouvez afficher toutes les sessions en cours dans le volet.
 1. Sélectionnez **« ... »** pour la session que vous souhaitez déconnecter, puis sélectionnez **Déconnecter**.
+
+Actuellement, vous ne pouvez pas utiliser cette fonctionnalité dans le portail pour les références SKU VpnGw4 et VpnGw5. Si vous avez une de ces passerelles, utilisez la méthode PowerShell décrite dans la section suivante.
 
 ## <a name="powershell"></a>PowerShell
 

@@ -1,19 +1,19 @@
 ---
-title: Activer InifinBand avec des machines virtuelles HPC - Machines virtuelles Azure | Microsoft Docs
+title: Activer InfiniBand sur des machines virtuelles HPC – Machines virtuelles Microsoft Azure | Microsoft Docs
 description: Découvrez comment activer InfiniBand avec des machines virtuelles Azure HPC.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 089976f2009e006f53dd2a77f09f57d5090429b7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6f2a9502074543272b69f01b567da89b421f6fa6
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721232"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227755"
 ---
 # <a name="enable-infiniband"></a>Activer InfiniBand
 
@@ -22,9 +22,7 @@ Les machines virtuelles [Série H](../../sizes-hpc.md) et [Série N](../../sizes
 Il existe plusieurs façons d’activer InfiniBand sur les tailles de machines virtuelles compatibles.
 
 ## <a name="vm-images-with-infiniband-drivers"></a>Images de machine virtuelle avec des pilotes InfiniBand
-Pour obtenir la liste des images de machines virtuelles prises en charge sur la Place de marché, consultez les [Images de machine virtuelle](configure.md#vm-images), qui sont préchargées avec des pilotes InfiniBand (pour les machines virtuelles SR-IOV ou non-SR-IOV) ou peuvent être configurées avec les pilotes appropriés pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances).
-- Les images de machines virtuelles [CentOS-HPC](configure.md#centos-hpc-vm-images) de la Place de marché sont le moyen le plus simple de démarrer.
-- Les [images de machine virtuelle Ubuntu](configure.md#ubuntu-vm-images) peuvent être configurées avec les bons pilotes IB.
+Pour obtenir la liste des images de machines virtuelles prises en charge sur la Place de marché, consultez les [Images de machine virtuelle](configure.md#vm-images), qui sont préchargées avec des pilotes InfiniBand (pour les machines virtuelles SR-IOV ou non-SR-IOV) ou peuvent être configurées avec les pilotes appropriés pour les [machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances).  Les images de machines virtuelles [CentOS-HPC](configure.md#centos-hpc-vm-images) et [Ubuntu-HPC](configure.md#ubuntu-hpc-vm-images) de Place de marché sont le moyen le plus simple de démarrer.
 
 ## <a name="infiniband-driver-vm-extensions"></a>Extensions de machine virtuelle du pilote InfiniBand
 Sur Linux, pour les machines virtuelles des séries H et N prenant en charge SR-IOV, [l’extension de machine virtuelle InfiniBandDriverLinux](../../extensions/hpc-compute-infiniband-linux.md) peut être utilisée pour installer les pilotes OFED Mellanox et activer InfiniBand.
@@ -67,7 +65,7 @@ sudo systemctl restart waagent
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez-en davantage sur l’installation des [différentes bibliothèques MPI prises en charge](setup-mpi.md) et leur configuration optimale sur les machines virtuelles.
+- En savoir plus sur l’installation et l’exécution des différentes [bibliothèques MPI prises en charge](setup-mpi.md) sur les machines virtuelles.
 - Consultez la [Présentation de la série HBv3](hbv3-series-overview.md) et la [Présentation de la série HC](hc-series-overview.md).
 - Consultez les dernières annonces, des exemples de charge de travail HPC et les résultats des performances sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

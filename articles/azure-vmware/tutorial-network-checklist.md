@@ -2,13 +2,13 @@
 title: Tutoriel - Liste de vérification pour la planification réseau
 description: Découvrez la configuration réseau requise pour la connectivité réseau et les ports réseau dans Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 03/13/2021
-ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/23/2021
+ms.openlocfilehash: 2e7854100df7e19ec8cfcc9b6de647fa8ed31d38
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462063"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945446"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Liste de vérification pour la planification réseau pour Azure VMware Solution 
 
@@ -88,8 +88,6 @@ Les sous-réseaux :
 Les applications et les charges de travail exécutées dans un environnement de cloud privé nécessitent une résolution de nom et des services DHCP pour la recherche et les affectations d’adresses IP. Une infrastructure DHCP et DNS appropriée est requise pour fournir ces services. Vous pouvez configurer une machine virtuelle pour fournir ces services dans votre environnement de cloud privé.  
 
 Utilisez le service DHCP intégré à NSX ou un serveur DHCP local dans le cloud privé au lieu de router le trafic DHCP de diffusion sur le réseau étendu (WAN) vers l’emplacement local.
-
-Pour plus d’informations, consultez l’article [Fournir des services DHCP au segment réseau NSX-T](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

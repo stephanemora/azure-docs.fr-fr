@@ -1,5 +1,5 @@
 ---
-title: Configurer une stratégie d’exportation pour un volume NFS – Azure NetApp Files
+title: Configurer la stratégie d’exportation pour les volumes NFS ou à deux protocoles d’Azure NetApp Files – Azure NetApp Files
 description: Décrit comment configurer une stratégie d’exportation pour contrôler l’accès à un volume NFS à l’aide d’Azure NetApp Files.
 services: azure-netapp-files
 author: b-juche
@@ -8,16 +8,16 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: d3f268a4ce2660350055367770e987a06828e2d7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b71d3cc0636e5edeb78e1d88be1df2d2d61f239b
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740117"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988457"
 ---
-# <a name="configure-export-policy-for-an-nfs-volume"></a>Configurer une stratégie d’exportation pour un volume NFS
+# <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>Configurer la stratégie d’exportation pour les volumes NFS ou à deux protocoles
 
-Vous pouvez configurer une stratégie d’exportation pour contrôler l’accès à un volume Azure NetApp Files. La stratégie d’exportation d’Azure NetApp Files prend en charge les volumes qui utilisent le protocole NFS (NFSv3 et NFSv4.1) et le protocole double (NFSv3 et SMB). 
+Vous pouvez configurer la stratégie d’exportation pour contrôler l’accès à un volume Azure NetApp Files qui utilise le protocole NFS (NFSv3 et NFSv4.1) ou le double protocole (NFSv3 et SMB). 
 
 Vous pouvez créer jusqu’à cinq règles de stratégie d’exportation.
 
@@ -49,5 +49,5 @@ Vous pouvez créer jusqu’à cinq règles de stratégie d’exportation.
       ![Exporter la stratégie](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-* [Monter ou démonter un volume pour les machines virtuelles](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Monter ou démonter un volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Gérer les instantanés](azure-netapp-files-manage-snapshots.md)

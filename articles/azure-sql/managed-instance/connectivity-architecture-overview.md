@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 10/22/2020
-ms.openlocfilehash: c91b0231271c6cbcf9ec92c7ad6d25f1bc0f9136
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.date: 04/29/2021
+ms.openlocfilehash: 8a753d598c55653536284679f2848c24dd571f2a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960467"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289369"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architecture de connectivité d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -87,7 +87,7 @@ Quand les connexions sont lancées à l’intérieur de l’instance managée SQ
 
 Pour répondre aux exigences de gestion et de sécurité des clients, SQL Managed Instance passe d’une configuration manuelle à une configuration de sous-réseau assistée par service.
 
-Avec la configuration de sous-réseau assistée par service, l’utilisateur contrôle totalement le trafic de données (TDS), tandis que SQL Managed Instance assume la responsabilité de garantir un flux ininterrompu du trafic de gestion afin de respecter le contrat de niveau de service.
+Avec la configuration de sous-réseaux assistée par le service, l’utilisateur contrôle totalement le trafic de données (TDS), tandis que le plan de contrôle SQL Managed Instance doit garantir un flux ininterrompu du trafic de gestion afin de respecter un contrat de niveau de service (SLA).
 
 La configuration de sous-réseau assistée par le service s’appuie sur la fonctionnalité de [délégation de sous-réseau](../../virtual-network/subnet-delegation-overview.md) de réseau virtuel pour fournir une gestion automatique de la configuration du réseau et activer les points de terminaison de service. 
 
@@ -100,16 +100,17 @@ Des points de terminaison de service pourraient être utilisés pour configurer 
 
 Déployer SQL Managed Instance sur un sous-réseau dédié à l’intérieur du réseau virtuel. Le sous-réseau doit disposer des caractéristiques suivantes :
 
-- **Sous-réseau dédié :** le sous-réseau de SQL Managed Instance ne doit contenir aucun autre service cloud qui lui est associé et ne doit pas être un sous-réseau de passerelle. SQL Managed Instance est la seule ressource que le sous-réseau doit contenir, et vous ne pouvez pas ajouter d’autres types de ressources au sous-réseau ultérieurement.
+- **Sous-réseau dédié :** le sous-réseau de l’instance gérée ne doit contenir aucun autre service cloud qui lui est associé, mais les autres instances gérées sont autorisées. De plus, cela ne peut pas être un sous-réseau de passerelle. Le sous-réseau ne peut contenir aucune ressource en dehors de(s) instance(s) gérée(s) et vous ne pouvez pas ajouter d’autres types de ressource au sous-réseau ultérieurement.
 - **Délégation de sous-réseau :** le sous-réseau de SQL Managed Instance doit être délégué à un fournisseur de ressources `Microsoft.Sql/managedInstances`.
 - **Groupe de sécurité réseau :** Un groupe de sécurité réseau (NSG) doit être associé au sous-réseau de SQL Managed Instance. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance managée SQL en filtrant le trafic sur les ports 1433 et 11000 à 11999 quand SQL Managed Instance est configuré pour rediriger les connexions. Le service approvisionne et conserve automatiquement les [règles](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) actuelles requises pour permettre un flux ininterrompu du trafic de gestion.
-- **Table d’itinéraire défini par l’utilisateur (UDR) :** Une table UDR doit être associée au sous-réseau de SQL Managed Instance. Vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA) pour ajouter des entrées à la table d’itinéraires pour acheminer le trafic disposant de plages d’adresses IP privées locales en tant que destination. Le service approvisionne et conserve automatiquement les [entrées](#user-defined-routes-with-service-aided-subnet-configuration) actuelles requises pour permettre un flux ininterrompu du trafic de gestion.
+- **Table d’itinéraire défini par l’utilisateur (UDR) :** Une table UDR doit être associée au sous-réseau de SQL Managed Instance. Vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA) pour ajouter des entrées à la table d’itinéraires pour acheminer le trafic disposant de plages d’adresses IP privées locales en tant que destination. Le service approvisionne et conserve automatiquement les [entrées](#mandatory-user-defined-routes-with-service-aided-subnet-configuration) actuelles requises pour permettre un flux ininterrompu du trafic de gestion.
 - **Nombre d’adresses IP suffisant :** le sous-réseau SQL Managed Instance doit disposer d’au moins 32 adresses IP. Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour SQL Managed Instance](vnet-subnet-determine-size.md). Vous pouvez déployer des instances gérées dans [le réseau existant](vnet-existing-add-subnet.md) une fois que vous l’avez configuré de manière à satisfaire les [exigences réseau pour SQL Managed Instance](#network-requirements). Sinon, créez un [nouveau réseau et sous-réseau](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
 > Lorsqu’une instance gérée est créée, une stratégie d’intention réseau est appliquée au sous-réseau afin d’empêcher toute modification non conforme de la configuration réseau. Lorsque la dernière instance restante est supprimée du sous-réseau, la stratégie d’intention réseau est également supprimée. Les règles ci-dessous sont fournies à titre d’information uniquement et ne doivent pas être déployées à l’aide d’un modèle ARM/PowerShell/CLI. Si vous souhaitez utiliser le dernier modèle officiel, vous pouvez toujours [le récupérer à partir du portail](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Règles de sécurité du trafic entrant obligatoires avec configuration du sous-réseau assistée par le service
+Ces règles sont nécessaires pour garantir le flux du trafic de gestion entrant. Pour plus d’informations sur l’architecture de connectivité et le trafic de gestion, consultez le [paragraphe ci-dessus](#high-level-connectivity-architecture).
 
 | Nom       |Port                        |Protocol|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
@@ -120,13 +121,15 @@ Déployer SQL Managed Instance sur un sous-réseau dédié à l’intérieur du 
 |health_probe|Quelconque                         |Quelconque     |AzureLoadBalancer|SOUS-RÉSEAU MI  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Règles de sécurité du trafic sortant obligatoires avec configuration du sous-réseau assistée par le service
+Ces règles sont nécessaires pour garantir le flux du trafic de gestion sortant. Pour plus d’informations sur l’architecture de connectivité et le trafic de gestion, consultez le [paragraphe ci-dessus](#high-level-connectivity-architecture).
 
 | Nom       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestion  |443, 12000    |TCP     |SOUS-RÉSEAU MI        |AzureCloud |Allow |
 |mi_subnet   |Quelconque           |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |Allow |
 
-### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Itinéraires définis par l’utilisateur avec configuration de sous-réseau assistée par le service
+### <a name="mandatory-user-defined-routes-with-service-aided-subnet-configuration"></a>Itinéraires définis par l’utilisateur obligatoires avec configuration de sous-réseau assistée par le service
+Ces itinéraires sont nécessaires pour garantir que le trafic de gestion est acheminé directement vers une destination. Pour plus d’informations sur l’architecture de connectivité et le trafic de gestion, consultez le [paragraphe ci-dessus](#high-level-connectivity-architecture).
 
 |Nom|Préfixe de l’adresse|Tronçon suivant|
 |----|--------------|-------|
@@ -142,6 +145,7 @@ Déployer SQL Managed Instance sur un sous-réseau dédié à l’intérieur du 
 |mi-storage-internet|Stockage|Internet|
 |mi-storage-REGION-internet|Storage.REGION|Internet|
 |mi-storage-REGION_PAIR-internet|Storage.REGION_PAIR|Internet|
+|mi-azureactivedirectory-internet|AzureActiveDirectory|Internet|
 ||||
 
 \* SOUS-RÉSEAU MI fait référence à la plage d’adresses IP du sous-réseau sous la forme x.x.x.x/y. Ces informations sont disponibles sur le portail Azure, dans les propriétés du sous-réseau.
@@ -163,6 +167,8 @@ Les fonctionnalités de réseau virtuel suivantes *ne sont pas prises en charge*
 - **AzurePlatformDNS** : L’utilisation de l’[étiquette de service](../../virtual-network/service-tags-overview.md) AzurePlatformDNS pour bloquer la résolution DNS de plateforme rendrait SQL Managed Instance indisponible. Même si SQL Managed Instance prend en charge le DNS défini par le client pour la résolution DNS à l’intérieur du moteur, il existe une dépendance envers le système DNS de plateforme pour les opérations de plateforme.
 - **Passerelle NAT** : L’utilisation du service [NAT de réseau virtuel Azure](../../virtual-network/nat-overview.md) pour contrôler la connectivité sortante avec une adresse IP publique spécifique rendrait SQL Managed Instance indisponible. Le service SQL Managed Instance est actuellement limité à l’utilisation d’un équilibreur de charge de base qui ne permet pas la coexistence de flux entrants et sortants avec le service NAT de réseau virtuel.
 - **IPv6 pour réseau virtuel Azure** : Le déploiement de SQL Managed Instance sur des [réseaux virtuels IPv4/IPv6 à double pile](../../virtual-network/ipv6-overview.md) se solde par un échec. L’association d’un groupe NSG (groupe de sécurité réseau) ou d’une table UDR (table de routage) contenant des préfixes d’adresses IPv6 à un sous-réseau SQL Managed Instance, ou l’ajout de préfixes d’adresses IPv6 à un groupe NSG ou une table UDR déjà associé(e) à un sous-réseau Managed Instance, ne permet pas d’utiliser SQL Managed Instance. Les déploiements de SQL Managed Instance sur un sous-réseau avec un groupe NSG et une table UDR disposant déjà de préfixes IPv6 se soldent par un échec.
+- **Zones privées Azure DNS avec un nom réservé aux services Microsoft** : Voici la liste des noms réservés :windows.net, database.windows.net, core.windows.net, blob.core.windows.net, table.core.windows.net, management.core.windows.net, monitoring.core.windows.net, queue.core.windows.net, graph.windows.net, login.microsoftonline.com, login.windows.net, servicebus.windows.net, vault.azure.net. Le déploiement de SQL Managed Instance sur un réseau virtuel auquel est associée une [zone privée Azure DNS](../../dns/private-dns-privatednszone.md) avec un nom réservé aux services Microsoft échoue. L’association d’une zone privée Azure DNS avec un nom réservé à un réseau virtuel contenant Managed Instance rendrait SQL Managed Instance indisponible. Respectez la [configuration DNS du point de terminaison privé Azure](../../private-link/private-endpoint-dns.md) pour une configuration correcte d’Azure Private Link.
+- **Stratégies de point de terminaison de service pour Stockage Azure** : Le déploiement de SQL Managed instance sur un sous-réseau auquel sont associées des [stratégies de point de terminaison de service](../../virtual-network/virtual-network-service-endpoint-policies-overview.md) échoue. Les stratégies de point de terminaison de service n’ont pas pu être associées à un sous-réseau qui héberge Managed Instance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 3370389027805cfb5a68b5b0551d14dc31154804
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 14f7a88e756123b807852d78b6511939b81fd9db
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611835"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126054"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Mise en réseau du module Azure HSM dédié
 
@@ -133,7 +133,7 @@ Command Result : 0 (Success)
 
 ### <a name="alternative-to-using-global-vnet-peering"></a>Alternative à l’utilisation de Global VNET Peering
 Il existe deux architectures que vous pouvez utiliser comme alternative à Global VNET Peering.
-1.  Utiliser une [connexion de passerelle VPN réseau virtuel à réseau virtuel](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal). 
+1.  Utiliser une [connexion de passerelle VPN réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). 
 2.  Connecter le réseau virtuel HSM à un autre réseau virtuel avec un circuit ER. Cela fonctionne mieux lorsqu’un chemin local direct est requis sur le réseau virtuel VPN. 
 
 #### <a name="hsm-with-direct-express-route-connectivity"></a>HSM avec connectivité ExpressRoute directe

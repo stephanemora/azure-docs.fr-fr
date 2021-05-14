@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e2f4cbdf7f84f7b6cbd749225a2e0f7ed60cdd5
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95015254"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202872"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Chiffrement du service Speech pour les données au repos
 
@@ -34,6 +34,8 @@ Lorsque vous utilisez Custom Speech et Custom Voice, le service Speech peut stoc
 Par défaut, vos données sont stockées dans un compte de stockage Microsoft et votre abonnement utilise des clés de chiffrement gérées par Microsoft. Vous pouvez également préparer votre propre compte de stockage. L’accès au magasin est géré par la fonctionnalité Identité managée, et le service Speech ne peut pas accéder directement à vos propres données, notamment les données de trace Speech, les données de formation de personnalisation et les modèles personnalisés.
 
 Pour plus d’informations sur Identité managée, consultez [Que sont les identités managées ?](../../active-directory/managed-identities-azure-resources/overview.md).
+
+En attendant, quand vous utilisez une commande personnalisée, vous pouvez gérer votre abonnement avec vos propres clés de chiffrement. Les clés gérées par le client (CMK), également appelées BYOK (Bring Your Own Key), offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données. Pour plus d’informations sur les commandes personnalisées et les CMK, consultez [Chiffrement Commandes personnalisées des données au repos](custom-commands-encryption-of-data-at-rest.md).
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Mode Bring your own storage (BYOS) pour la personnalisation et la journalisation
 

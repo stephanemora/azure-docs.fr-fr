@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: d1302d44a4cb5b09f6dc3b1bf0cb08a12a932c87
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 92f9c3baaa8260bdc154f8752b56a63cf1444ebe
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029401"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140404"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -78,6 +78,7 @@ Une ressource Private Link est la cible de destination d’une instance Private 
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | domaine |
 |**Azure App Service** | Microsoft.Web/sites    | sites |
+|**Emplacements Azure App Service** | Microsoft.Web/sites    | sites-`<slot name>` |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
@@ -110,7 +111,7 @@ Le propriétaire de la ressource Private Link peut effectuer les actions suivant
 > Seule une instance Private Endpoint dans un état approuvé peut envoyer le trafic vers une ressource Private Link donnée. 
 
 ### <a name="connecting-using-alias"></a>Connexion à l’aide de l’alias
-Alias est un moniker unique qui est généré lorsque le propriétaire du service crée le service Private Link derrière un Standard Load Balancer. Le propriétaire du service peut partager cet alias avec ses consommateurs hors connexion. Les consommateurs peuvent demander une connexion au service Private Link à l’aide de l’URI de ressource ou de l’alias. Si vous souhaitez vous connecter à l’aide de l’alias, vous devez créer une instance Private Endpoint à l’aide de la méthode d’approbation de connexion manuelle. Pour utiliser la méthode d’approbation de connexion manuelle, affectez la valeur true au paramètre de demande manuelle au cours de la création de votre Private Endpoint. Étudiez [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) et [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) pour plus de détails. 
+Alias est un moniker unique qui est généré lorsque le propriétaire du service crée le service Private Link derrière un Standard Load Balancer. Le propriétaire du service peut partager cet alias avec ses consommateurs hors connexion. Les consommateurs peuvent demander une connexion au service Private Link à l’aide de l’URI de ressource ou de l’alias. Si vous souhaitez vous connecter à l’aide de l’alias, vous devez créer une instance Private Endpoint à l’aide de la méthode d’approbation de connexion manuelle. Pour utiliser la méthode d’approbation de connexion manuelle, affectez la valeur true au paramètre de demande manuelle au cours de la création de votre Private Endpoint. Étudiez [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) et [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) pour plus de détails. 
 
 ## <a name="dns-configuration"></a>Configuration DNS 
 Lors de la connexion à une ressource Private Link à l’aide d’un nom de domaine complet (FQDN) dans la chaîne de connexion, il est important de configurer correctement vos paramètres DNS pour résoudre l’adresse IP privée allouée. Les services Azure existants peuvent déjà avoir une configuration DNS à utiliser lors de la connexion à un point de terminaison public. Cette valeur doit être remplacée pour la connexion à l’aide de votre instance Private Endpoint. 
@@ -133,9 +134,9 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer un point de terminaison privé pour SQL Database à l’aide du portail](create-private-endpoint-portal.md)
-- [Créer un point de terminaison privé pour SQL Database à l’aide de PowerShell](create-private-endpoint-powershell.md)
-- [Créer un point de terminaison privé pour SQL Database à l’aide de l’interface CLI](create-private-endpoint-cli.md)
+- [Créer un point de terminaison privé pour Azure Web Apps à l’aide du portail](create-private-endpoint-portal.md)
+- [Créer un point de terminaison privé pour Azure Web Apps à l’aide de PowerShell](create-private-endpoint-powershell.md)
+- [Créer un point de terminaison privé pour Azure Web Apps à l’aide de CLI](create-private-endpoint-cli.md)
 - [Créer un point de terminaison privé pour un compte de stockage à l’aide du portail](./tutorial-private-endpoint-storage-portal.md)
 - [Créer un point de terminaison privé pour un compte Cosmos Azure à l’aide du portail](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Créer votre propre service Liaison privée à l’aide d’Azure PowerShell](create-private-link-service-powershell.md)

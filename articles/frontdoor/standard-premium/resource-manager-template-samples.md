@@ -6,13 +6,13 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/24/2021
-ms.openlocfilehash: 929adb0be948339af033d85b0dabd7e1cedf353e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: 387ff5ef13892c11867e26cff63ec482c1cdc5ee
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561744"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795525"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Modèles Azure Resource Manager pour Azure Front Door
 
@@ -23,11 +23,15 @@ Le tableau suivant comprend des liens vers des modèles Azure Resource Manager p
 
 | Exemple | Description |
 |-|-|
+| [Front Door (création rapide)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium/) | Crée un profil Front Door de base incluant un point de terminaison, un groupe d’origine, une origine et une route.  |
 | [Ensemble de règles](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Crée un profil et un ensemble de règles Front Door.  |
+| [Stratégie WAF avec l’ensemble de règles managées](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-waf-managed/) | Crée un profil Front Door et une stratégie WAF avec un ensemble de règles managées.  |
+| [Stratégie WAF avec une règle personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | Crée un profil Front Door et une stratégie WAF avec une règle personnalisée.  |
+| [Stratégie WAF avec limite de débit](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rate-limit/) | Crée un profil Front Door et un pare-feu d’applications web avec une règle personnalisée pour limiter le débit.  |
+| [Stratégie WAF avec géofiltrage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-geo-filtering/) | Crée un profil Front Door et un pare-feu d’applications web avec une règle personnalisée pour appliquer un géofiltrage.  |
 |**Origines App Service**| **Description** |
 | [App Service](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Crée une application App Service avec un point de terminaison public et un profil Front Door.  |
 | [App Service avec Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Crée une application App Service avec un point de terminaison privé et un profil Front Door.  |
-| [App Service Environment avec Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-environment-internal-private-link) | Crée un environnement App Service, une application avec un point de terminaison privé et un profil Front Door.  |
 |**Origines Azure Functions**| **Description** |
 | [Azure Functions](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-function-public/) | Crée une application Azure Functions avec un point de terminaison public et un profil Front Door.  |
 | [Azure Functions avec Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-function-private-link) | Crée une application Azure Functions avec un point de terminaison privé et un profil Front Door.  |

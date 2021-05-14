@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: f382646c889d004738064cae2d09fd66d897b110
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dc279ea48472ac86dd9502e37788e8b2aad4f37c
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438265"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906791"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Appliquer les recommandations d’Azure Security Center
 
@@ -30,22 +30,22 @@ Après avoir lu toutes les recommandations, vous devez décider laquelle appliqu
 
 1. Une fois l’opération terminée, une notification vous indique si le problème est résolu.
 
-## <a name="quick-fix-remediation"></a>Application d’un correctif rapide
+## <a name="fix-button"></a>Bouton Corriger
 
-Pour simplifier la correction et améliorer la sécurité de votre environnement (et ainsi votre degré de sécurisation), de nombreuses recommandations comportent une option de correctif rapide.
+Pour simplifier la correction et améliorer la sécurité de votre environnement (et ainsi votre degré de sécurisation), de nombreuses recommandations comportent une option **Corriger**.
 
-Le correctif rapide vous permet d’appliquer rapidement une recommandation à plusieurs ressources.
+La fonctionnalité **Corriger** vous permet d'appliquer rapidement une recommandation à plusieurs ressources.
 
 > [!TIP]
-> Les solutions de correctif rapide sont disponibles uniquement pour des recommandations spécifiques. Pour connaître les recommandations concernées, utilisez le filtre **Actions de réponse** dans la liste des recommandations :
+> La fonctionnalité **Corriger** est uniquement disponible pour des recommandations spécifiques. Pour connaître les recommandations concernées, utilisez le filtre **Actions de réponse** dans la liste des recommandations :
 > 
-> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Utilisez les filtres au-dessus de la liste des recommandations pour rechercher des recommandations incluant l’option correctif rapide":::
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Utilisez les filtres disponibles au-dessus de la liste des recommandations pour rechercher des recommandations incluant l'option Corriger":::
 
-Pour mettre en œuvre une solution de correctif rapide :
+Pour implémenter une option **Corriger** :
 
-1. Dans la liste des recommandations qui ont l’étiquette **Correctif rapide !** , sélectionnez une recommandation.
+1. Dans la liste des recommandations accompagnées de l'icône d'action **Corriger**, :::image type="icon" source="media/security-center-remediate-recommendations/fix-icon.png" border="false":::sélectionnez une recommandation.
 
-    [![Sélectionnez Correctif rapide !](media/security-center-remediate-recommendations/security-center-quick-fix-select.png)](media/security-center-remediate-recommendations/security-center-quick-fix-select.png#lightbox)
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-recommendations-fix-action.png" alt-text="Liste des recommandations mettant en évidence les recommandations accompagnées de l'action Corriger" lightbox="./media/security-center-remediate-recommendations/security-center-recommendations-fix-action.png#lightbox":::
 
 1. Sous l’onglet **Ressources défectueuses**, sélectionnez les ressources auxquelles vous souhaitez implémenter la recommandation, puis sélectionnez **Corriger**.
 
@@ -57,7 +57,7 @@ Pour mettre en œuvre une solution de correctif rapide :
     ![Correctif rapide](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
-    > Les implications sont listées dans la zone grise de la fenêtre **Corriger les ressources** qui s’ouvre après que vous avez cliqué sur **Corriger**. Elles indiquent les changements apportés si vous implémentez le correctif rapide.
+    > Les implications sont listées dans la zone grise de la fenêtre **Corriger les ressources** qui s’ouvre après que vous avez cliqué sur **Corriger**. Elles indiquent les changements apportés si vous utilisez l'option **Corriger**.
 
 1. Ajoutez les paramètres appropriés, si nécessaire, et approuvez la correction.
 
@@ -66,7 +66,7 @@ Pour mettre en œuvre une solution de correctif rapide :
 
 1. Une fois l’opération terminée, une notification s’affiche pour vous informer si la mise à jour a réussi.
 
-## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Journalisation de l’application du correctif rapide dans le journal d’activité <a name="activity-log"></a>
+## <a name="fix-actions-logged-to-the-activity-log"></a>Actions de correction consignées dans le journal d'activité <a name="activity-log"></a>
 
 L’opération de correction applique la configuration à la ressource à l’aide d’un déploiement de modèle ou d’un appel à l’API REST PATCH. Ces opérations sont consignées dans le [journal d’activité Azure](../azure-resource-manager/management/view-activity-logs.md).
 

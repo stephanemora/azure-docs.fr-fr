@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.custom: subject-armqs
 ms.author: jgao
-ms.date: 01/14/2021
-ms.openlocfilehash: 75d6c484a0f1d6325aaa7894d8902ff78cadbd74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/26/2021
+ms.openlocfilehash: 732606c24b116edb3f89f9f60db2bd5621d90e63
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99092498"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277405"
 ---
 # <a name="quickstart-create-an-azure-ddos-protection-standard-using-arm-template"></a>Démarrage rapide : Créer un plan Azure DDoS Protection Standard avec un modèle ARM
 
@@ -27,7 +27,7 @@ Ce guide de démarrage rapide explique comment utiliser un modèle ARM (Azure Re
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-create-and-enable-ddos-protection-plans%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fcreate-and-enable-ddos-protection-plans%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-create-and-enable-ddos-protection-plans).
 
-:::code language="json" source="~/quickstart-templates/101-create-and-enable-ddos-protection-plans/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/create-and-enable-ddos-protection-plans/azuredeploy.json":::
 
 Le modèle définit deux ressources :
 
@@ -50,7 +50,7 @@ Dans cet exemple, le modèle crée un groupe de ressources, un plan de protectio
 
 1. Pour vous connecter à Azure et ouvrir le modèle, sélectionnez le bouton **Déployer sur Azure**.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-create-and-enable-ddos-protection-plans%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fcreate-and-enable-ddos-protection-plans%2Fazuredeploy.json)
 
 1. Entrez les valeurs pour créer un groupe de ressources, un plan de protection DDoS et un nom de réseau virtuel.
 

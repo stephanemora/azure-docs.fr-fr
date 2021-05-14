@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 44fe6bb3787e1fe0df7ccf83200497b46c473568
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 79ccd1f8107eb5d287cf74084978b92715b936fa
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728497"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133742"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>Tutoriel : Créer une hiérarchie d’appareils IoT Edge
 
@@ -77,7 +77,7 @@ Pour créer une hiérarchie d’appareils IoT Edge, vous aurez besoin des élém
     --query "properties.outputs.[publicFQDN.value, publicSSH.value]" -o tsv
    ```
 
-   La machine virtuelle utilise des clés SSH pour authentifier les utilisateurs. Si vous n’êtes pas familiarisé avec la création et l’utilisation de clés SSH, vous pouvez suivre les [instructions relatives aux paires de clés publiques-privées SSH pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+   La machine virtuelle utilise des clés SSH pour authentifier les utilisateurs. Si vous n’êtes pas familiarisé avec la création et l’utilisation de clés SSH, vous pouvez suivre les [instructions relatives aux paires de clés publiques-privées SSH pour les machines virtuelles Linux dans Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
    IoT Edge version 1.2 est préinstallé avec ce modèle ARM, ce qui évite d’avoir à installer manuellement les ressources sur les machines virtuelles. Si vous installez IoT Edge sur vos propres appareils, consultez [Installer Azure IoT Edge pour Linux (version 1.2)](how-to-install-iot-edge.md) ou [Mettre à jour IoT Edge vers la version 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 

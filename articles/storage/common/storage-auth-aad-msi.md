@@ -10,13 +10,13 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 552d2587f35ed391b470c6d5b1693b79fd57306b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 04ff93f8fa19e6ec18ebf606291a09f558d93529
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879576"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075912"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure
 
@@ -67,7 +67,7 @@ Si votre environnement de développement ne prend pas en charge l’authentifica
 
 #### <a name="create-the-service-principal"></a>Créer le principal du service
 
-Pour créer un principal du service avec Azure CLI et attribuer un rôle Azure, appelez la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Fournissez un rôle d’accès aux données de Stockage Azure à attribuer au nouveau principal du service. Indiquez également l’étendue de l’attribution de rôle. Pour plus d’informations sur les rôles intégrés fournis pour Stockage Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
+Pour créer un principal du service avec Azure CLI et attribuer un rôle Azure, appelez la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Fournissez un rôle d’accès aux données de Stockage Azure à attribuer au nouveau principal du service. Indiquez également l’étendue de l’attribution de rôle. Pour plus d’informations sur les rôles intégrés fournis pour Stockage Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 Si vous ne disposez pas des autorisations suffisantes pour attribuer un rôle au principal du service, vous devrez peut-être demander au propriétaire du compte ou à l’administrateur d’effectuer l’attribution de rôle.
 

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 33bafac9247f007978fef568469d643f1a1098df
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 8707578eef3467cc24cfeb3cd1c5156d7f5b3b1d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383584"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288757"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Questions fréquentes (FAQ) sur Azure Cloud Services (support étendu)
 Cet article traite des questions fréquemment posées relatives à Azure Cloud Services (support étendu).
@@ -59,7 +59,7 @@ Le déploiement d’Azure Cloud Services (support étendu) prend uniquement en c
 Les déploiements d’Azure Cloud Services (support étendu) ne peuvent pas être mis à l’échelle sur plusieurs clusters, zones de disponibilité et régions. 
 
 ### <a name="how-can-i-get-the-deployment-id-for-my-cloud-service-extended-support"></a>Comment obtenir l’ID de déploiement pour mon service cloud (support étendu)
-L’ID de déploiement, ou ID privé, est accessible à l’aide de l’API [CloudServiceInstanceView](https://docs.microsoft.com/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview). Il est également disponible sur le portail Azure sous le panneau rôle et instances du service cloud (support étendu)
+L’ID de déploiement, ou ID privé, est accessible à l’aide de l’API [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview). Il est également disponible sur le portail Azure sous le panneau rôle et instances du service cloud (support étendu)
 
 ### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>Existe-t-il des différences de tarification entre Azure Cloud Services (classique) et Azure Cloud Services (support étendu) ?
 Azure Cloud Services (support étendu) utilise Azure Key Vault et des IP publiques du niveau De base (ARM). Les clients ayant besoin de certificats doivent utiliser Azure Key Vault pour la gestion des certificats ([en savoir plus](https://azure.microsoft.com/pricing/details/key-vault/) sur la tarification d’Azure Key Vault).  Chaque IP publique pour Azure Cloud Services (support étendu) est facturée séparément ([en savoir plus](https://azure.microsoft.com/pricing/details/ip-addresses/) sur la tarification des IP publiques.) 

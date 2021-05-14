@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4141e60370b397e799664b7d42384bbeb096bd05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5281c02f68598b1cf121a6ab8a574f0694f5ea2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071169"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813431"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Démarrage rapide : Définir et récupérer une clé dans Azure Key Vault avec Azure CLI
 
@@ -66,4 +66,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et vous 
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - Consulter la référence des [commandes az keyvault Azure CLI](/cli/azure/keyvault)
-- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-features.md)

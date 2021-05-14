@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: dd36bb18e84ea299195b77286887a3b279f81469
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c1837b6992090f1b02d89720db298fe5714d4c3
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877373"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286494"
 ---
 # <a name="introduction-to-the-sample-app"></a>Présentation de l’exemple d’application
 
@@ -64,33 +64,38 @@ Les instructions fournies dans les guides de démarrage rapide suivants font ré
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Dans ce guide de démarrage rapide, nous utilisons un exemple d’application de finances personnelles appelé PiggyMetrics pour vous montrer comment déployer une application dans le service Azure Spring Cloud. PiggyMetrics permet de voir le modèle d’architecture de microservices, ainsi que la décomposition des services. Vous verrez comment elle est déployée sur Azure avec les puissantes fonctionnalités d’Azure Spring Cloud, y compris la découverte de service, le serveur de configuration, les journaux, les métriques et le suivi distribué.
+Dans ce guide de démarrage rapide, nous utilisons la version de microservices de l’exemple d’application [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) connu qui vous montrera comment déployer des applications sur le service Azure Spring Cloud. L’exemple **PetClinic** présente le modèle d’architecture de microservices et met en évidence la décomposition des services. Vous verrez comment les services sont déployés sur Azure avec les fonctionnalités Azure Spring Cloud, notamment la découverte de service, le serveur de configuration, les journaux, les métriques, le suivi distribué et la prise en charge d’outils conviviaux pour les développeurs. 
 
 Pour suivre les exemples de déploiement Azure Spring Cloud, vous avez seulement besoin de l’emplacement du code source, qui est fourni quand c’est nécessaire.
 
-## <a name="functional-services"></a>Services fonctionnels
+![Architecture de PetClinic](media/build-and-deploy/microservices-architecture-diagram.jpg)
 
-PiggyMetrics se décompose en trois microservices principaux. Ce sont tous des applications qui peuvent être déployées de façon indépendante et organisées par domaine métier.
+## <a name="functional-services-to-be-deployed"></a>Services fonctionnels à déployer
 
-* **Service de compte (à déployer)**  : Contient la logique générale et la validation des entrées utilisateur : éléments des revenus/dépenses, économies et paramètres de compte.
-* **Service de statistiques (non utilisé dans ce guide de démarrage rapide)**  : Effectue des calculs sur les paramètres statistiques majeurs et capture les séries chronologiques pour chaque compte. Datapoint contient des valeurs normalisées selon une devise de base et une période de temps. Ces données sont utilisées pour effectuer le suivi de la dynamique des flux de trésorerie pendant la durée de vie du compte.
-* **Service de notification (non utilisé dans ce guide de démarrage rapide)**  : Stocke les informations de contact et les paramètres de notification des utilisateurs, comme la fréquence des rappels et des sauvegardes. Le Worker planifié collecte les informations nécessaires auprès d’autres services et envoie des messages par e-mail aux clients abonnés.
+PetClinic est décomposée en 4 microservices principaux. Ce sont tous des applications qui peuvent être déployées de façon indépendante et organisées par domaine métier.
 
-## <a name="infrastructure-services"></a>Services d’infrastructure
+* **Service clients** : contient la logique générale et la validation des entrées utilisateur, notamment les informations sur les animaux et les propriétaires (Nom, Adresse, Ville, Téléphone).
+* **Service des visites** : stocke et affiche les informations sur les visites concernant les commentaires de chaque animal.
+* **Service des vétérinaires** : stocke et affiche les informations sur les vétérinaires, notamment les noms et les spécialisations.
+* **Passerelle API** : il s’agit d’un point d’entrée unique dans le système, utilisé pour traiter les demandes et les router vers un service approprié ou pour appeler plusieurs services, puis agréger les résultats.  Les trois services principaux exposent une API externe au client. Dans les vrais systèmes, le nombre de fonctions peut grimper très rapidement avec la complexité du système. Des centaines de services peuvent être impliqués dans le rendu d’une page web complexe. 
 
-Il existe plusieurs modèles courants dans les systèmes distribués qui facilitent le fonctionnement des services de base. Azure Spring Cloud fournit des outils puissants qui améliorent le comportement des applications Spring Boot pour implémenter ces modèles : 
+## <a name="infrastructure-services-hosted-by-azure-spring-cloud"></a>Services d’infrastructure hébergés par Azure Spring Cloud
 
-* **Service de configuration (hébergé par Azure Spring Cloud)**  : Le service de configuration Azure Spring Cloud est un service de configuration centralisé avec scalabilité horizontale pour les systèmes distribués. Il utilise un dépôt enfichable qui prend actuellement en charge le stockage local, Git et Subversion.
-* **Service de découverte (hébergé par Azure Spring Cloud)**  : Il permet la détection automatique des emplacements réseau pour les instances de service, qui pourraient avoir des adresses affectées dynamiquement en raison de la mise à l’échelle automatique, des défaillances et des mises à niveau.
-* **Service d’authentification (à déployer)** Les responsabilités liées aux autorisations sont complètement déportées sur un serveur distinct, qui accorde des jetons OAuth2 pour les services des ressources de back-end. Le serveur d’authentification traite les autorisations utilisateur et la communication entre machines au sein d’un périmètre.
-* **Passerelle d’API (à déployer)**  : Les trois services principaux exposent une API externe au client. Dans les vrais systèmes, le nombre de fonctions peut grimper très rapidement avec la complexité du système. Des centaines de services peuvent être impliqués dans le rendu d’une page web complexe. La passerelle d’API est un point d’entrée unique dans le système, utilisé pour traiter les demandes et les router vers le service de back-end approprié ou pour appeler plusieurs services de back-end, en agrégeant les résultats. 
+Il existe plusieurs modèles courants dans les systèmes distribués qui prennent en charge les services principaux. Azure Spring Cloud fournit des outils qui améliorent les applications Spring Boot pour implémenter les modèles suivants : 
 
-## <a name="sample-usage-of-piggymetrics"></a>Exemple d’utilisation de PiggyMetrics
+* **Service de configuration** : la configuration Azure Spring Cloud est un service de configuration centralisé avec scalabilité horizontale pour les systèmes distribués. Il utilise un dépôt enfichable qui prend actuellement en charge le stockage local, Git et Subversion.
+* **Découverte des services** : elle permet la détection automatique des emplacements réseau pour les instances de service, qui pourraient avoir des adresses affectées dynamiquement en raison de la mise à l’échelle automatique, des défaillances et des mises à niveau.
 
-Pour plus d’informations sur l’implémentation complète, consultez [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics). Les exemples référencent le code source quand c’est nécessaire.
+## <a name="database-configuration"></a>Configuration de la base de données
+Dans sa configuration par défaut, **PetClinic** utilise une base de données en mémoire (HSQLDB) qui est renseignée au démarrage avec des données. Une configuration similaire est fournie pour MySql si une configuration de base de données persistante est nécessaire. La dépendance pour le Connecteur/J, le pilote JDBC MySQL, est déjà incluse dans les fichiers pom.xml.
+
+## <a name="sample-usage-of-petclinic"></a>Exemple d’utilisation de PetClinic
+
+Pour obtenir tous les détails sur l’implémentation, consultez notre branche de [PetClinic](https://github.com/Azure-Samples/spring-petclinic-microservices). Les exemples référencent le code source quand c’est nécessaire.
+
 ::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Provisionner une instance Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
+> [Provisionner une instance Azure Spring Cloud](./quickstart-provision-service-instance.md)

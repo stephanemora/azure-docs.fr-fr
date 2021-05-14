@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d5c638a63e4e8dc1a55c07f4bdf713fd36ca6b3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8999889bf09d5dc9bb40989c5d71ebf324ef56f4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550873"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753023"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Attacher un disque de données à une machine virtuelle Windows dans Azure avec PowerShell
 
-Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Windows à l’aide de PowerShell. 
+Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Windows à l’aide de PowerShell.
 
 Commencez par passer en revue ces conseils :
 
@@ -35,14 +35,14 @@ Cet exemple montre comment ajouter un disque de données vide à une machine vir
 ```azurepowershell-interactive
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'East US' 
+$location = 'East US'
 $storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
 $dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzVM -VM $vm -ResourceGroupName $rgName
@@ -62,7 +62,7 @@ $dataDiskName = $vmName + '_datadisk1'
 $diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
 $dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
 Update-AzVM -VM $vm -ResourceGroupName $rgName
@@ -90,7 +90,7 @@ Le fichier de script peut contenir du code pour initialiser les disques, par exe
 
     foreach ($disk in $disks) {
         $driveLetter = $letters[$count].ToString()
-        $disk | 
+        $disk |
         Initialize-Disk -PartitionStyle MBR -PassThru |
         New-Partition -UseMaximumSize -DriveLetter $driveLetter |
         Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] -Confirm:$false -Force
@@ -105,11 +105,11 @@ Vous pouvez attacher un disque géré existant à une machine virtuelle en tant 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $vmName = "myVM"
-$location = "East US" 
+$location = "East US"
 $dataDiskName = "myDisk"
-$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
+$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName
 
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
 
 $vm = Add-AzVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
 
@@ -118,4 +118,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également déployer des disques managés à l’aide de modèles. Pour plus d’informations, consultez [Utilisation de disques managés dans les modèles Azure Resource Manager](../using-managed-disks-template-deployments.md) ou le [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) consacré au déploiement de plusieurs disques de données.
+Vous pouvez également déployer des disques managés à l’aide de modèles. Pour plus d’informations, consultez [Utilisation de disques managés dans les modèles Azure Resource Manager](../using-managed-disks-template-deployments.md) ou le [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-multiple-data-disk) consacré au déploiement de plusieurs disques de données.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: IoT Plug and Play Certification Requirements
 ms.service: certification
-ms.openlocfilehash: b26fab6f8b92e3cb996f545f1f6201d32b1eaced
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 06c09527556c92cc3a1bd4bb2784084aeb373d97
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310510"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131744"
 ---
 # <a name="iot-plug-and-play-certification-requirements"></a>Critères de certification IoT Plug-and-Play
 
@@ -29,7 +29,7 @@ Les promesses de la certification IoT Plug-and-Play sont les suivantes :
 3.  Intégration facile avec les solutions Azure IoT à l’aide des [API de jumeau numérique](../iot-pnp/concepts-digital-twin.md) : Azure IOT Hub et Azure IOT central
 4.  Véracité du produit validée sur les appareils certifiés
 
-## <a name="requirements"></a>Spécifications
+## <a name="requirements"></a>Configuration requise
 
 **[Obligatoire] Appareil-à-cloud : l’objectif du test est de s’assurer que les appareils qui envoient la télémétrie fonctionnent avec IoT Hub**
 
@@ -62,7 +62,7 @@ Les promesses de la certification IoT Plug-and-Play sont les suivantes :
 | **SE**                  | Sans dépendance                                                     |
 | **Type de validation**     | Automatisé                                                    |
 | **Validation**          | Le [flux de travail du portail](https://certify.azure.com) valide : **1.** Annonce de l’ID de modèle et vérification que l’appareil est connecté à l’aide du protocole MQTT ou MQTT sur WebSockets **2.** Les modèles sont conformes au langage DTDL v2 **3.** La télémétrie, les propriétés et les commandes sont correctement implémentées et interagissent entre le jumeau numérique IoT Hub et le jumeau numérique sur l’appareil |
-| **Ressources**           | [Mises à jour d’actualisation en préversion publique](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **Ressources**           | [Mises à jour d’actualisation en préversion publique](../iot-pnp/overview-iot-plug-and-play.md) |
 
 **[Obligatoire] Les modèles d’appareil sont publiés dans le référentiel de modèles publics**
 
@@ -73,7 +73,7 @@ Les promesses de la certification IoT Plug-and-Play sont les suivantes :
 | **SE**                  | Sans dépendance                                                     |
 | **Type de validation**     | Automatisé                                                    |
 | **Validation**          | Tous les modèles d’appareil doivent être publiés dans un référentiel public. Les modèles d’appareil sont résolus via des modèles disponibles dans le référentiel public **1.** L’utilisateur doit publier manuellement les modèles dans le référentiel public avant de demander la certification. **2.** Notez qu’une fois les modèles publiés, ils sont immuables. Nous vous recommandons vivement de ne publier que lorsque les modèles et le code d’appareil incorporé sont finalisés.* 1 * 1 L’utilisateur doit contacter le support Microsoft pour révoquer les modèles une fois ceux-ci publiés dans le référentiel de modèles **3.** Le [flux de travail du portail](https://certify.azure.com) vérifie l’existence des modèles dans le référentiel public lorsque l’appareil est connecté au service de certification |
-| **Ressources**           | [Référentiel de modèles](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **Ressources**           | [Référentiel de modèles](../iot-pnp/overview-iot-plug-and-play.md) |
 
 **[Obligatoire] Validation de l’appareil physique à l’aide du guide de prise en main**
 
@@ -96,7 +96,7 @@ Les promesses de la certification IoT Plug-and-Play sont les suivantes :
 | **SE**                  | Sans dépendance                                                     |
 | **Type de validation**     | Automatisé                                                    |
 | **Validation**          | Le [flux de travail du portail](https://certify.azure.com) vérifie que le code de l’appareil implémente l’interface d’informations sur l’appareil **1.** Vérifie que les valeurs sont envoyées par le code de l’appareil à IoT Hub **2.** Vérifie que l’interface est implémentée dans le DCM (cette implémentation changera en DTDL v2) **3.** Vérifie que les propriétés sont inaccessibles en écriture (lecture seule) **4.** Vérifie que le type de schéma est string et/ou long et non null |
-| **Ressources**           | [Interface définie par Microsoft](../iot-pnp/overview-iot-plug-and-play-preview-updates.md) |
+| **Ressources**           | [Interface définie par Microsoft](../iot-pnp/overview-iot-plug-and-play.md) |
 | **Recommandé par Azure**  | N/A                                                          |
 
 **[Si implémenté] Cloud-à-appareil : l’objectif du test est de s’assurer que des messages peuvent être envoyés du cloud aux appareils**

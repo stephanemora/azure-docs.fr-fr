@@ -12,16 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e9983c265fcc032908424f747066f8f348771f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 455d0ee4855645104dda662785794225f5a23d2d
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87907334"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109520531"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory
 
 Les utilisateurs Azure Active Directory (Azure AD) B2B Collaboration sont ajoutés en tant qu’utilisateurs invités au répertoire et les autorisations des invités dans le répertoire sont restreintes par défaut. Votre entreprise a peut-être besoin que certains utilisateurs invités occupent des rôles avec davantage de privilèges dans votre organisation. Pour prendre la définition de rôles avec davantage de privilèges, les utilisateurs invités peuvent être ajoutés à n’importe quel rôle souhaité, en fonction des besoins de votre organisation.
+
+Si un rôle d’annuaire est attribué à un utilisateur invité, l’utilisateur invité reçoit les autorisations supplémentaires qui accompagnent le rôle, y compris les autorisations de lecture de base. Consultez [Rôles intégrés Azure AD](../roles/permissions-reference.md).
 
 ## <a name="default-role"></a>Rôle par défaut
 

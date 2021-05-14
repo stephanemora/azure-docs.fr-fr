@@ -1,20 +1,22 @@
 ---
 title: Créer un compte d'identification Azure Automation
-description: Cet article décrit comment créer un compte d’identification avec PowerShell ou à partir du portail Azure.
+description: Cet article explique comment créer un compte d’identification Azure Automation avec PowerShell ou à partir du portail Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/06/2021
+ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: ef6afff30da48b79b42e5fb4b3c72c3500f22dd1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 368bbfd0bc4dd0a3c8c2792487db52e8585c2ea1
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172301"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277621"
 ---
 # <a name="how-to-create-an-azure-automation-run-as-account"></a>Créer un compte d’identification Azure Automation
 
 Les comptes d’identification d’Azure Automation assurent l’authentification pour la gestion des ressources sur le modèle de déploiement Azure Resource Manager ou Azure Classic à l’aide de runbooks Automation et d’autres fonctionnalités Automation. Cet article explique comment créer un compte d’identification standard ou Classic à partir du portail Azure ou d’Azure PowerShell.
+
+Quand vous créez le compte d’identification standard ou le compte d’identification Classic dans le portail Azure, un certificat auto-signé est utilisé par défaut. Si vous souhaitez utiliser un certificat émis par votre autorité de certification d’entreprise ou tierce, il est possible d’utiliser le [script PowerShell pour créer un compte d’identification](#powershell-script-to-create-a-run-as-account).
 
 ## <a name="create-account-in-azure-portal"></a>Créer un compte dans le portail Azure
 
@@ -63,9 +65,8 @@ Pour obtenir les valeurs de `AutomationAccountName`, `SubscriptionId` et `Resour
 
 Le script PowerShell comprend la prise en charge de plusieurs configurations.
 
-* Créez un compte d’identification à l’aide d’un certificat auto-signé.
 * Créez un compte d’identification standard et/ou un compte d’identification Classic à l’aide d’un certificat auto-signé.
-* Créez un compte d’identification standard et/ou un compte d’identification Classic à l’aide d’un certificat émis par votre autorité de certification d’entreprise.
+* Créez un compte d’identification standard et/ou un compte d’identification Classic à l’aide d’un certificat émis par votre autorité de certification d’entreprise ou tierce.
 * Créez un compte d’identification standard et/ou un compte d’identification Classic à l’aide d’un certificat auto-signé dans le cloud Azure Government.
 
 1. Téléchargez et enregistrez le script dans un dossier local à l’aide de la commande suivante.
@@ -108,6 +109,6 @@ Le script PowerShell comprend la prise en charge de plusieurs configurations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la création graphique, consultez [Créer des runbooks graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
 * Pour commencer à utiliser des runbooks PowerShell, consultez [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+
 * Pour commencer à utiliser un runbook Python 3, consultez le [Tutoriel : Créer un runbook Python 3](learn/automation-tutorial-runbook-textual-python-3.md).

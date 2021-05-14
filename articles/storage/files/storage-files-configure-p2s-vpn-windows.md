@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: de342267292c6a93c4a1ba2eae232403ccaf9514
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e7b7445fe293ae6cec975409a15e979873ec64aa
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785268"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331247"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurer un VPN point à site (P2S) sur Windows pour l’utiliser avec Azure Files
 Vous pouvez utiliser une connexion VPN point à site (P2S) pour monter vos partages de fichiers Azure sur SMB en dehors d’Azure, sans ouvrir le port 445. Une connexion VPN point à site est une connexion VPN entre Azure et un client individuel. Pour utiliser une connexion VPN P2S avec Azure Files, une connexion VPN P2S doit être configurée pour chaque client qui souhaite se connecter. Si de nombreux clients doivent se connecter à vos partages de fichiers Azure depuis votre réseau local, vous pouvez utiliser une connexion VPN site à site (S2S) au lieu d’une connexion point à site pour chaque client. Pour plus d’informations, consultez [Configurer un VPN site à site pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
@@ -26,56 +26,45 @@ L’article décrit en détail la procédure à suivre pour configurer un VPN po
 
 - Un partage de fichiers Azure que vous voulez monter localement. Les partages de fichiers Azure sont déployés sur des comptes de stockage. Ces comptes sont des constructions de gestion représentant un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Pour plus d’informations sur le déploiement des partages de fichiers et des comptes de stockage Azure, consultez [Créer un partage de fichiers Azure](storage-how-to-create-file-share.md).
 
-- Un point de terminaison privé pour le compte de stockage sur lequel se trouve le partage de fichiers Azure que vous souhaitez monter localement. Pour plus d’informations sur la création d’un point de terminaison privé, consultez [Configuration des points de terminaison réseau Azure Files](storage-files-networking-endpoints.md?tabs=azure-powershell). 
+- Un réseau virtuel avec un point de terminaison privé pour le compte de stockage sur lequel se trouve le partage de fichiers Azure que vous souhaitez monter localement. Pour plus d’informations sur la création d’un point de terminaison privé, consultez [Configuration des points de terminaison réseau Azure Files](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
-## <a name="deploy-a-virtual-network"></a>Déployer un réseau virtuel
-Pour accéder à votre partage de fichiers Azure et à d’autres ressources Azure depuis un environnement local via un VPN point à site, vous devez créer un réseau virtuel. La connexion VPN point à site que vous allez créer automatiquement constitue un pont entre votre machine Windows locale et ce réseau virtuel Azure.
+## <a name="collect-environment-information"></a>Collecte d’informations sur l’environnement
+Pour configurer le VPN de point à site, nous devons tout d’abord collecter les informations sur votre environnement qui seront utilisées au fil du guide. Si vous n’avez pas encore créé de compte de stockage, de réseau virtuel ou de points de terminaison privés, consultez la section [Prérequis](#prerequisites).
 
-Le script PowerShell suivant crée un réseau virtuel Azure avec trois sous-réseaux : un pour le point de terminaison de service de votre compte de stockage, un pour le point de terminaison privé de votre compte de stockage (celui-ci est nécessaire pour accéder localement au compte de stockage sans créer de routage personnalisé pour l’adresse IP publique du compte de stockage, qui peut changer), et un pour votre passerelle de réseau virtuel qui fournit le service VPN. 
-
-N’oubliez pas de remplacer `<region>`, `<resource-group>` et `<desired-vnet-name>` par les valeurs correspondant à votre environnement.
+N’oubliez pas de remplacer `<resource-group>`, `<vnet-name>`, `<subnet-name>` et `<storage-account-name>` par les valeurs correspondant à votre environnement.
 
 ```PowerShell
-$region = "<region>"
-$resourceGroupName = "<resource-group>" 
-$virtualNetworkName = "<desired-vnet-name>"
+$resourceGroupName = "<resource-group-name>" 
+$virtualNetworkName = "<vnet-name>"
+$subnetName = "<subnet-name>"
+$storageAccountName = "<storage-account-name>"
 
-$virtualNetwork = New-AzVirtualNetwork `
-    -ResourceGroupName $resourceGroupName `
-    -Name $virtualNetworkName `
-    -Location $region `
-    -AddressPrefix "192.168.0.0/16"
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "ServiceEndpointSubnet" `
-    -AddressPrefix "192.168.0.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -ServiceEndpoint "Microsoft.Storage" `
-    -WarningAction SilentlyContinue | Out-Null
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "PrivateEndpointSubnet" `
-    -AddressPrefix "192.168.1.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -WarningAction SilentlyContinue | Out-Null
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "GatewaySubnet" `
-    -AddressPrefix "192.168.2.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -WarningAction SilentlyContinue | Out-Null
-
-$virtualNetwork | Set-AzVirtualNetwork | Out-Null
 $virtualNetwork = Get-AzVirtualNetwork `
     -ResourceGroupName $resourceGroupName `
     -Name $virtualNetworkName
 
-$serviceEndpointSubnet = $virtualNetwork.Subnets | `
-    Where-Object { $_.Name -eq "ServiceEndpointSubnet" }
-$privateEndpointSubnet = $virtualNetwork.Subnets | `
-    Where-Object { $_.Name -eq "PrivateEndpointSubnet" }
-$gatewaySubnet = $virtualNetwork.Subnets | ` 
-    Where-Object { $_.Name -eq "GatewaySubnet" }
+$subnetId = $virtualNetwork | `
+    Select-Object -ExpandProperty Subnets | `
+    Where-Object { $_.Name -eq "StorageAccountSubnet" } | `
+    Select-Object -ExpandProperty Id
+
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName
+
+$privateEndpoint = Get-AzPrivateEndpoint | `
+    Where-Object {
+        $subnets = $_ | `
+            Select-Object -ExpandProperty Subnet | `
+            Where-Object { $_.Id -eq $subnetId }
+
+        $connections = $_ | `
+            Select-Object -ExpandProperty PrivateLinkServiceConnections | `
+            Where-Object { $_.PrivateLinkServiceId -eq $storageAccount.Id }
+        
+        $null -ne $subnets -and $null -ne $connections
+    } | `
+    Select-Object -First 1
 ```
 
 ## <a name="create-root-certificate-for-vpn-authentication"></a>Créer un certificat racine pour l’authentification VPN

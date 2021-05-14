@@ -1,21 +1,21 @@
 ---
 title: Configurer un environnement Gen2 à l'aide du portail Azure - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Apprenez à configurer un environnement dans Azure Time Series Insights Gen2 à l'aide du portail Azure.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: riserrad
+ms.author: riserrad
+manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 09068d966df871d4b6804978a543db50bccbee37
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: e10685b1b64e8e3cd636245625c13df12f177fbb
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952845"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951819"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-portal"></a>Créer un environnement Azure Time Series Insights Gen2 à l'aide du portail Azure
 
@@ -77,6 +77,11 @@ Vous pouvez également apporter votre propre stockage (BYOS) via un [modèle Azu
    * Azure Time Series Insights prend en charge [Azure IoT Hub](./how-to-ingest-data-iot-hub.md) et [Azure Event Hubs](./how-to-ingest-data-event-hub.md) en tant que source d’événement. Si vous ne pouvez ajouter qu’une seule source d’événement lors de la création d’un environnement, vous pouvez en ajouter une autre ultérieurement.
 
      Vous pouvez sélectionner un groupe de consommateurs existant ou bien en créer un nouveau lors de l’ajout de la source d’événement. Veillez à ce que la source de l'événement utilise un groupe de consommateurs unique pour permettre à votre environnement d'y lire les données.
+
+   * Choisissez quand commencer à collecter des données à partir de la source de l'événement. Par défaut, la collecte commence au moment où la source d'événement est créée.
+
+     > [!TIP]
+     > Si vous choisissez l'option **Toutes mes données** pour collecter des données préexistantes à partir de votre source d'événements, la latence initiale risque d'être élevée, car votre environnement Azure Time Series Insights Gen2 traitera toutes vos données. Cette latence devrait finir par s'estomper à mesure que vos données seront indexées.
 
    * Choisissez la propriété Timestamp appropriée. Par défaut, Azure Time Series Insights utilise l’heure de placement du message dans la file d’attente pour chaque source d’événement.
 

@@ -5,18 +5,18 @@ description: Découvrez comment créer un cluster de service Azure Kubernetes vi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 1c9434d137114560b5585b081961497412dfbf69
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 949975c1f28c2c1d630319e5172f853f5ed44b35
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770252"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890021"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Créer et attacher un cluster Azure Kubernetes Service
 
@@ -198,7 +198,7 @@ Pour plus d’informations sur les classes, les méthodes et les paramètres uti
 az ml computetarget create aks -n myaks
 ```
 
-Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -275,7 +275,7 @@ Pour attacher le cluster existant à votre espace de travail, utilisez la comman
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Pour plus d’informations, consultez la référence [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks).
+Pour plus d’informations, consultez la référence [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach_aks).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

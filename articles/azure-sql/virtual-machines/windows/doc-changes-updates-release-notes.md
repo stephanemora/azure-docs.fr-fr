@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a42457848c2a21889e15ebe5bc5b6ceaba8d6999
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325721"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129744"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -118,7 +118,7 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 * [Approvisionner SQL Server sur une machine virtuelle Windows](create-sql-vm-portal.md)
 * [Migrer d’une base de données vers SQL Server sur une machine virtuelle Azure](migrate-to-vm-from-sql-server.md)
 * [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
-* [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](performance-guidelines-best-practices.md)
+* [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](./performance-guidelines-best-practices-checklist.md)
 * [Modèles d'application et stratégies de développement pour SQL Server sur des machines virtuelles Azure](application-patterns-development-strategies.md)
 
 **Machines virtuelles Linux** :

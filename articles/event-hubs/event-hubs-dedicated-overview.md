@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Event Hubs Dedicated - Azure Event Hubs | Microsoft 
 description: Cet article fournit une vue d’ensemble d’Azure Event Hubs Dedicated, qui offre des déploiements de concentrateurs d’événements à locataire unique.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: fe63b074bfdd01191d81dfb7024af5532a87a12f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7f4693857f2c963623cb7ab7c132781d1061f5d7
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310765"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017460"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -31,10 +31,12 @@ Event Hubs Dedicated offre trois avantages convaincants pour les clients qui ont
 
 Un cluster dédié garantit une capacité à pleine échelle. Il peut gérer l’entrée de jusqu’à plusieurs gigaoctets de données de diffusion en continu avec un stockage durable et une latence inférieure à la seconde pour s’adapter à tout pic de trafic. 
 
-#### <a name="inclusive-and-exclusive-access-to-features"></a>Accès inclusif et exclusif aux fonctionnalités 
-L’offre Dedicated comprend des fonctionnalités gratuites telles que Capture et fournit un accès exclusif à de futures fonctionnalités comme BYOK (Bring Your Own Key). le service gère également l’équilibrage de la charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement. Vous pouvez donc consacrer moins de temps à la maintenance de l’infrastructure, et plus de temps à la création de fonctionnalités côté client.  
+#### <a name="inclusive-and-exclusive-access-to-features"></a>Accès inclusif et exclusif aux fonctionnalités
+
+L’offre Dedicated comprend des fonctionnalités gratuites telles que Capture et fournit un accès exclusif à des fonctionnalités comme BYOK (Bring Your Own Key). le service gère également l’équilibrage de la charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement. Vous pouvez donc consacrer moins de temps à la maintenance de l’infrastructure, et plus de temps à la création de fonctionnalités côté client.  
 
 #### <a name="cost-savings"></a>Réduction des coûts
+
 À des volumes d’entrée élevés (>100 unités de débit), un cluster coûte nettement moins cher par heure que l’achat d’une quantité comparable d’unités de débit avec l’offre Standard.
 
 

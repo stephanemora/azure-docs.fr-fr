@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 584e421b6beac0e4ecfab5b3e3cb735b8465e1b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57f5da06909436e0cbce92559c29c309ca9e20e3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503519"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819229"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Présentation des pipelines Azure Machine Learning
 
@@ -47,7 +47,7 @@ Une fois conçu, le pipeline fait souvent l’objet de réglages précis au cour
 
 Avec les pipelines, vous pouvez choisir d’utiliser un matériel différent pour différentes tâches. Azure effectue la coordination des différentes [cibles de calcul](concept-azure-machine-learning-architecture.md) utilisées afin que les données intermédiaires soient transmises de manière uniforme aux cibles de calcul en aval.
 
-Vous pouvez [suivre les métrique de vos expériences de pipeline](./how-to-track-experiments.md) directement dans le Portail Azure ou dans la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com). Après la publication d'un pipeline, vous pouvez configurer un point de terminaison REST qui vous permet de réexécuter le pipeline à partir de n'importe quelle plateforme ou pile.
+Vous pouvez [suivre les métrique de vos expériences de pipeline](./how-to-log-view-metrics.md) directement dans le Portail Azure ou dans la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com). Après la publication d'un pipeline, vous pouvez configurer un point de terminaison REST qui vous permet de réexécuter le pipeline à partir de n'importe quelle plateforme ou pile.
 
 En résumé, toutes les tâches complexes du cycle de vie Machine Learning peuvent être facilitées avec les pipelines. D’autres technologies de pipeline Azure ont leurs propres atouts. Les [pipelines Azure Data Factory](../data-factory/concepts-pipelines-activities.md) conviennent parfaitement pour exploiter les données, tandis qu’[Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) est l’outil approprié pour l’intégration et le déploiement continus. Toutefois, si votre objectif est le Machine Learning, les pipelines Azure Machine Learning sont susceptibles d’être le meilleur choix pour vos besoins en matière de workflow. 
 

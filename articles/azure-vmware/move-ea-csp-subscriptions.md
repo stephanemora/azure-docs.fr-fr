@@ -1,41 +1,72 @@
 ---
-title: Déplacer des abonnements Azure VMware Solution d’EA et de CSP
-description: Découvrez comment déplacer le cloud privé d’un abonnement à un autre. Le déplacement peut être effectué pour diverses raisons, telles que la facturation.
+title: Déplacer l’abonnement Azure VMware Solution vers un autre abonnement
+description: Cet article explique comment déplacer un abonnement Azure VMware Solution vers un autre abonnement. Vous pouvez déplacer vos ressources pour diverses raisons, telles que la facturation.
+ms.custom: subject-moving-resources
 ms.topic: how-to
-ms.date: 03/15/2021
-ms.openlocfilehash: 608f46dbd84d6bb899a3e7fcd1f8a63b3a5e85fb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/26/2021
+ms.openlocfilehash: 0cd06eb72f8ed93cc5a491070baded76f9dc9f6f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103555049"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145492"
 ---
-# <a name="move-ea-and-csp-azure-vmware-solution-subscriptions"></a>Déplacer des abonnements Azure VMware Solution d’EA et de CSP
+# <a name="move-azure-vmware-solution-subscription-to-another-subscription"></a>Déplacer l’abonnement Azure VMware Solution vers un autre abonnement
 
-Dans cet article, vous allez apprendre à déplacer le cloud privé d’un abonnement à un autre. Le déplacement peut être effectué pour diverses raisons, telles que la facturation. 
+Cet article explique comment déplacer un abonnement Azure VMware Solution vers un autre abonnement. Vous pouvez déplacer votre abonnement pour diverses raisons, telles que la facturation.
+
+## <a name="prerequisites"></a>Prérequis
+Vous devez disposer au moins des droits de contributeur sur les abonnements **source** et **cible**. 
 
 >[!IMPORTANT]
->Vous devez disposer au moins des droits de contributeur sur les abonnements source et cible. Le réseau virtuel et la passerelle de réseau virtuel ne peuvent pas être déplacés d’un abonnement à un autre. En outre, le déplacement de vos abonnements n’a aucun impact sur la gestion et les charges de travail, comme les machines virtuelles vCenter, NSX et de charge de travail.
+>Le réseau virtuel et la passerelle de réseau virtuel ne peuvent pas être déplacés d’un abonnement à un autre. En outre, le déplacement de vos abonnements n’a aucun impact sur la gestion et les charges de travail, comme les machines virtuelles vCenter, NSX et de charge de travail.
 
-1. Connectez-vous au portail Azure et sélectionnez le cloud privé que vous souhaitez déplacer.
+## <a name="prepare-and-move"></a>Préparer et déplacer 
+
+1. Dans le portail Azure, sélectionnez le cloud privé que vous souhaitez déplacer.
+
+   :::image type="content" source="media/move-subscriptions/source-subscription-id.png" alt-text="Capture d’écran montrant les détails de la vue d’ensemble du cloud privé sélectionné.":::
+
+1. À partir d’une invite de commandes, effectuez un test ping sur les composants et les charges de travail pour vérifier qu’ils effectuent un test ping à partir du même abonnement.  
+
+   :::image type="content" source="media/move-subscriptions/verify-components-workloads.png" alt-text="Capture d’écran montrant la commande ping et les résultats du test ping.":::
 
 1. Sélectionnez le lien **Abonnement (modifier)** .
 
-   :::image type="content" source="media/private-cloud-overview-subscription-id.png" alt-text="Capture d’écran montrant les détails du cloud privé.":::
+   :::image type="content" source="media/move-subscriptions/private-cloud-overview-subscription-id.png" alt-text="Capture d’écran montrant les détails du cloud privé."::: 
 
 1. Fournissez les détails de l’abonnement pour la **cible**, puis sélectionnez **Suivant**.
 
-   :::image type="content" source="media/move-resources-subscription-target.png" alt-text="Capture d’écran de la ressource cible." lightbox="media/move-resources-subscription-target.png":::
+   :::image type="content" source="media/move-subscriptions/move-resources-subscription-target.png" alt-text="Capture d’écran de la ressource cible.":::
 
-1. Confirmez la validation des ressources que vous avez sélectionnées pour le déplacement, puis sélectionnez **Suivant**. 
+1. Confirmez la validation des ressources que vous avez sélectionnées pour être déplacées.  Cette opération permet de valider toutes les ressources sélectionnées pour être déplacées. Pendant la validation des ressources sélectionnées, vous verrez l’état **Validation en attente**. 
 
-   :::image type="content" source="media/confirm-move-resources-subscription-target.png" alt-text="Capture d’écran montrant le déplacement de la ressource." lightbox="media/confirm-move-resources-subscription-target.png":::
+   :::image type="content" source="media/move-subscriptions/pending-move-resources-subscription-target.png" alt-text="Capture d’écran montrant le déplacement de la ressource.":::
+
+1. Une fois la validation terminée, sélectionnez **Suivant** pour démarrer la migration de votre cloud privé.
+
+   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text="Capture d’écran montrant l’état de validation Opération réussie.":::
 
 1. Cochez la case indiquant que vous comprenez que les outils et les scripts associés ne fonctionneront pas tant que vous ne les aurez pas mis à jour pour utiliser les nouveaux ID de ressource. Sélectionnez ensuite **Déplacer**.
 
-   :::image type="content" source="media/review-move-resources-subscription-target.png" alt-text="Capture d’écran montrant le résumé de la ressource sélectionnée qui est déplacée." lightbox="media/review-move-resources-subscription-target.png":::
+   :::image type="content" source="media/move-subscriptions/review-move-resources-subscription-target.png" alt-text="Capture d’écran montrant le résumé de la ressource sélectionnée qui est déplacée.":::
 
-   Une notification s’affiche une fois le déplacement de la ressource terminé. Le nouvel abonnement s’affiche dans l’onglet Vue d’ensemble du cloud privé.
+## <a name="verify-the-move"></a>Vérifier le déplacement
 
-   :::image type="content" source="media/moved-subscription-target.png" alt-text="Capture d’écran montrant un nouvel abonnement." lightbox="media/moved-subscription-target.png":::
+Une notification s’affiche une fois le déplacement de la ressource terminé. 
+
+:::image type="content" source="media/move-subscriptions/notification-move-resources-subscription-target.png" alt-text="Capture d’écran de la notification une fois le déplacement des ressources terminé.":::
+
+Le nouvel abonnement s’affiche dans l’onglet Vue d’ensemble du cloud privé.
+
+:::image type="content" source="media/move-subscriptions/moved-subscription-target.png" alt-text="Capture d’écran montrant un nouvel abonnement.":::
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus :
+
+- [Conseils sur le déplacement de ressources réseau](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
+- [Conseils pour le déplacement de machines virtuelles](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
+- [Conseils de déplacement de ressources App Service](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
+
+
 

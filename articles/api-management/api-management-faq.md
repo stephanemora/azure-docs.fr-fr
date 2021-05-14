@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8b0c977a2dd754c12e476c724afa591695b7f822
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94697983"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330671"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -92,7 +93,7 @@ Pour savoir comment configurer un serveur d’autorisation OAuth 2.0 avec la sé
 Le service Gestion des API utilise la [méthode de routage du trafic basé sur les performances](../traffic-manager/traffic-manager-routing-methods.md#performance) lors de déploiements sur plusieurs emplacements géographiques. Le trafic entrant est acheminé vers la passerelle API la plus proche. Si une région est déconnectée, le trafic entrant est automatiquement redirigé vers la passerelle suivante la plus proche. Pour en savoir plus sur les méthodes de routage, consultez [Méthodes de routage de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Puis-je utiliser un modèle Azure Resource Manager pour créer une instance de service Gestion des API ?
-Oui. Consultez les modèles de démarrage rapide [Service Gestion des API Azure](https://aka.ms/apimtemplate).
+Oui. Consultez les modèles de démarrage rapide [Service Gestion des API Azure](https://azure.microsoft.com/resources/templates/101-azure-api-management-create/).
 
 ### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>Puis-je utiliser un certificat TLS/SSL auto-signé pour un service principal ?
 Oui. Vous pouvez utiliser PowerShell, ou l’envoyer directement à l’API. Cela désactive la validation de chaîne de certificat et vous permet d’utiliser des certificats auto-signés ou signés de manière privée lors des communications entre la fonction Gestion des API et les services back end.

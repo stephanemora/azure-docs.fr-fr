@@ -1,58 +1,74 @@
 ---
-title: Introduction à l’API Azure Cosmos DB pour MongoDB
+title: Introduction à l’API Azure Cosmos DB pour MongoDB
 description: Découvrez comment utiliser Azure Cosmos DB pour stocker et interroger de grandes quantités de données à l’aide de l’API Azure Cosmos DB pour MongoDB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 03/02/2021
-author: sivethe
-ms.author: sivethe
-ms.openlocfilehash: dfaa04077a5148f19f06aa5e1257b986377ea8c0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/22/2021
+author: gahl-levy
+ms.author: gahllevy
+ms.openlocfilehash: ead8bf6620bbe53af6c28870fa94b7a16490fcb1
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307127"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202782"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb"></a>API d’Azure Cosmos DB pour MongoDB
+# <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-[Azure Cosmos DB](introduction.md) est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale pour les applications stratégiques. Azure Cosmos DB fournit la [distribution mondiale clés en main](distribute-data-globally.md), la [mise à l’échelle élastique du débit et du stockage](partitioning-overview.md), des latences de l’ordre de quelques millisecondes dans le monde entier dans plus de 99 pour cent des cas, et une haute disponibilité garantie, le tout soutenu par nos [contrats de niveau de service de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexe automatiquement les données](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sans avoir à s’occuper de la gestion des schémas et des index. Il est multi-modèle et prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur. Le service Azure Cosmos DB implémente les protocoles de transmission des API NoSQL courantes, y compris Cassandra, MongoDB, Gremlin et Stockage Table Azure. Vous pouvez ainsi utiliser les outils et pilotes de clients NoSQL que vous connaissez pour interagir avec votre base de données Cosmos.
+L’API Azure Cosmos DB pour MongoDB permet d’utiliser facilement Cosmos DB comme s’il s’agissait d’une base de données MongoDB. Vous pouvez tirer parti de votre expérience MongoDB et continuer à utiliser vos pilotes, kits SDK et outils MongoDB préférés en faisant pointer votre application sur la chaîne de connexion du compte de l’API pour MongoDB.
+
+## <a name="why-choose-the-api-for-mongodb"></a>Pourquoi choisir l’API pour MongoDB
+
+Reposant sur [Azure Cosmos DB](introduction.md), l’API pour MongoDB présente de nombreux avantages par rapport aux offres de service telles que MongoDB Atlas :
+
+* **Scalabilité instantanée** : En activant la fonctionnalité de [mise à l’échelle automatique](provision-throughput-autoscale.md), votre base de données peut effectuer un scale-up/scale-down avec une période de préparation nulle.
+* **Partitionnement automatique et transparent** : l’API pour MongoDB gère l’ensemble de l’infrastructure pour vous. Cela comprend le partitionnement et le nombre de partitions, contrairement à d’autres offres MongoDB comme MongoDB Atlas qui vous demandent de spécifier et de gérer le partitionnement pour une mise à l’échelle horizontale. Vous avez ainsi plus de temps pour vous concentrer sur le développement d’applications pour vos utilisateurs.
+* **Une disponibilité à cinq 9** : Une [disponibilité de 99,999 %](high-availability.md) est facilement configurable pour garantir que vos données seront toujours là pour vous.  
+* **Scalabilité économique, précise et illimitée** : les collections partitionnées peuvent être mises à l’échelle à n’importe quelle taille, contrairement aux autres offres de service MongoDB. Les utilisateurs de l’API pour MongoDB exécutent des bases de données avec plus de 600 To de stockage aujourd’hui. La mise à l’échelle s’effectue de façon économique, puisque contrairement à d’autres offres de service MongoDB, la plateforme Cosmos DB peut évoluer par incréments aussi petits que 1/100e de machine virtuelle en raison des économies d’échelle et de la gouvernance des ressources.
+* **Déploiements serverless** : contrairement à MongoDB Atlas, l’API pour MongoDB est une base de données native cloud qui offre un [mode de capacité serverless](serverless.md). Avec le mode [serverless](serverless.md), vous êtes facturé uniquement par opération et ne payez pas pour la base de données quand vous ne l’utilisez pas.
+* **Niveau gratuit** : avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 400 RU/s et 5 Go de stockage dans votre compte sans limite de durée, appliqués au niveau du compte.
+* **Mises à niveau en quelques secondes** : Toutes les versions d’API sont contenues dans un seul codebase, ce qui rend le changement de versions aussi simple que d’[appuyer sur un bouton](mongodb-version-upgrade.md), sans temps d’arrêt.
+* **Analytique en temps réel (HTAP) à n’importe quelle échelle** : l’API pour MongoDB offre la possibilité d’exécuter des requêtes analytiques complexes pour des cas d’usage tels que le décisionnel sur les données de votre base de données en temps réel, sans aucun impact sur cette dernière. Cette fonctionnalité est rapide et économique, en raison de l’utilisation du magasin analytique natif cloud en colonnes, sans pipelines ETL. Découvrez-en plus sur [Azure Synapse Link](synapse-link.md).
 
 > [!NOTE]
-> Le [mode de capacité serverless](serverless.md) est maintenant disponible sur l’API d’Azure Cosmos DB pour MongoDB.
+> [Vous pouvez utiliser l’API Azure Cosmos DB pour MongoDB gratuitement avec le niveau gratuit.](how-pricing-works.md) Avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 400 RU/s et 5 Go de stockage dans votre compte, appliqués au niveau du compte.
 
-## <a name="wire-protocol-compatibility"></a>Compatibilité des protocoles de transmission
 
-Azure Cosmos DB implémente le protocole filaire pour MongoDB. Cette implémentation permet une compatibilité transparente avec les outils, les pilotes et les kits SDK clients MongoDB natifs. Azure Cosmos DB n’héberge pas le moteur de base de données MongoDB. Vous trouverez les détails des fonctionnalités prises en charge par MongoDB ici : 
-- [Version 4.0 de l’API pour MongoDB d’Azure Cosmos DB](mongodb-feature-support-40.md)
-- [Version 3.6 de l’API pour MongoDB d’Azure Cosmos DB](mongodb-feature-support-36.md)
+## <a name="how-the-api-works"></a>Comment fonctionne l’API
 
-Par défaut, les nouveaux comptes créés à l’aide de l’API Azure Cosmos DB pour MongoDB sont compatibles avec la version 3.6 du protocole filaire MongoDB. Les pilotes de client MongoDB comprenant cette version de protocole doivent être en mesure de se connecter de façon native à Cosmos DB.
+L’API Azure Cosmos DB pour MongoDB implémente le protocole filaire pour MongoDB. Cette implémentation permet une compatibilité transparente avec les outils, les pilotes et les kits SDK clients MongoDB natifs. Azure Cosmos DB n’héberge pas le moteur de base de données MongoDB. Tout pilote client MongoDB compatible avec la version d’API que vous utilisez doit être en mesure de se connecter, sans configuration spéciale.
+
+Compatibilité des fonctionnalités MongoDB :
+
+L’API Azure Cosmos DB pour MongoDB est compatible avec les versions suivantes du serveur MongoDB :
+- [Version 4.0](mongodb-feature-support-40.md)
+- [Version 3.6](mongodb-feature-support-36.md)
+- [Version 3.2](mongodb-feature-support.md)
+
+Toutes les versions de l’API pour MongoDB s’exécutent sur le même codebase. Ainsi, les mises à niveau constituent une tâche simple pouvant être effectuée en quelques secondes sans temps d’arrêt. Azure Cosmos DB inverse simplement quelques indicateurs de fonctionnalité pour passer d’une version à une autre.  Les indicateurs de fonctionnalité permettent également la prise en charge continue d’anciennes versions d’API, telles que 3.2 et 3.6. Vous pouvez choisir la version de serveur qui vous convient le mieux.
 
 :::image type="content" source="./media/mongodb-introduction/cosmosdb-mongodb.png" alt-text="API pour MongoDB d’Azure Cosmos DB" border="false":::
 
-## <a name="key-benefits"></a>Principaux avantages
+## <a name="what-you-need-to-know-to-get-started"></a>Éléments à savoir pour commencer
 
-Les principaux avantages de l’utilisation de Cosmos DB comme base de données en tant que service entièrement gérée distribuée à l’échelle mondiale sont décrits [ici](introduction.md). En outre, en implémentant en mode natif des protocoles de transmission d’API NoSQL courantes, Cosmos DB offre les avantages suivants :
+* Les machines virtuelles figurant dans un cluster ne vous sont pas facturées. Les [tarifs](how-pricing-works.md) sont basés sur le débit dans les unités de requête (RU) configurées par base de données ou par collection. Les 400 premières RU par seconde sont gratuites avec le [niveau gratuit](how-pricing-works.md).
 
-* Migrer facilement votre application vers Cosmos DB tout en conservant des parties importantes de la logique d’application.
-* Préserver la mobilité de votre application et garder votre indépendance vis-à-vis des fournisseurs.
-* Obtenez des contrats de niveau de service soutenus financièrement pour les API NoSQL courantes propulsées par Cosmos DB.
-* Profitez d’une mise à l’échelle élastique du débit et du stockage approvisionnés pour vos bases de données Cosmos selon vos besoins et payez uniquement le débit et le stockage dont vous avez besoin. Vous réaliserez ainsi des économies considérables.
-* Une distribution mondiale clé en main avec une réplication des écritures multirégions.
+* Il existe trois façons de déployer l’API Azure Cosmos DB pour MongoDB :
+     * [Débit provisionné](set-throughput.md) : Définissez un nombre de RU/s et changez-le manuellement. Ce modèle est le mieux adapté aux charges de travail régulières.
+     * [Mise à l’échelle automatique](provision-throughput-autoscale.md) : Définissez une limite supérieure pour le débit dont vous avez besoin. Le débit est instantanément mis à l’échelle selon vos besoins. Ce modèle est le mieux adapté aux charges de travail qui changent fréquemment, et optimise leurs coûts.
+     * [Serverless](serverless.md) (préversion) : Payez uniquement pour le débit que vous utilisez. Ce modèle est le mieux adapté aux charges de travail de développement et de test. 
 
-## <a name="cosmos-dbs-api-for-mongodb"></a>API Cosmos DB pour MongoDB
+* Les performances d’un cluster partitionné dépendent de la clé de partition que vous choisissez lors de la création d’une collection. Choisissez une clé de partition avec soin pour vous assurer que vos données seront réparties uniformément entre les partitions.
 
-Suivez les guides de démarrage rapide pour créer un compte Azure Cosmos et migrer votre application MongoDB existante afin d’utiliser Azure Cosmos DB, ou en générer une nouvelle :
+## <a name="quickstart"></a>Démarrage rapide
 
 * [Migrer une application web Node.js MongoDB existante](create-mongodb-nodejs.md).
 * [Générer une application web en utilisant l’API Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) .NET](create-mongodb-dotnet.md)
 * [Générer une application console en utilisant l’API Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) Java](create-mongodb-java.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Voici quelques conseils pour vous aider à démarrer :
 
 * Pour savoir comment obtenir les informations de chaîne de connexion de votre compte, suivez le didacticiel [Connecter une application MongoDB à Azure Cosmos DB](connect-mongodb-account.md).
 * Pour savoir comment créer une connexion entre votre base de données Cosmos et l’application MongoDB dans Studio 3T, suivez le didacticiel [Utiliser Studio 3T avec Azure Cosmos DB](mongodb-mongochef.md).

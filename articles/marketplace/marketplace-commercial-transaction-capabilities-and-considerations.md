@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 0a25e1b50455cad5bdbe5b76b2a291f2a1c11940
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b17041f25fdd26bd0f8328a206267ef1c4984672
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107004"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144742"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -73,7 +73,7 @@ Selon l’option Transaction choisie, les frais d’abonnement se présentent ai
 > [!NOTE]
 > Les offres qui sont facturées en fonction de la consommation après l’utilisation d’une solution ne sont pas éligibles à un remboursement.
 
-Les éditeurs qui souhaitent modifier les frais d’utilisation associés à une offre doivent tout d’abord supprimer l’offre (ou le plan spécifique de l’offre) de la place de marché commerciale. Cette suppression doit se faire conformément aux dispositions du [Contrat d’Éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). L’éditeur peut ensuite publier une nouvelle offre (ou un plan intégré à une offre) avec les nouveaux frais d’utilisation. Pour plus d’informations sur la suppression d’une offre ou d’un plan, consultez [Arrêter la vente d’une offre ou d’un plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+Les éditeurs qui souhaitent modifier les frais d’utilisation associés à une offre doivent tout d’abord supprimer l’offre (ou le plan spécifique de l’offre) de la place de marché commerciale. Cette suppression doit se faire conformément aux dispositions du [Contrat d’Éditeur Microsoft](/legal/marketplace/msft-publisher-agreement). L’éditeur peut ensuite publier une nouvelle offre (ou un plan intégré à une offre) avec les nouveaux frais d’utilisation. Pour plus d’informations sur la suppression d’une offre ou d’un plan, consultez [Arrêter la vente d’une offre ou d’un plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
 ### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Options tarifaires Gratuit, Me contacter et BYOL (apportez votre propre licence)
 
@@ -147,7 +147,7 @@ Dans ce scénario, Microsoft facture 100 $ pour votre licence logicielle et vou
 
 ### <a name="commercial-marketplace-service-fees"></a>Frais de service de la Place de marché commerciale
 
-Nous facturons un tarif de 20 % pour le service de magasin standard quand les clients achètent votre offre à partir de la Place de marché commerciale. Pour plus d’informations sur ces frais, consultez la section 5c du [Contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560).
+Nous facturons un tarif de 20 % pour le service de magasin standard quand les clients achètent votre offre à partir de la Place de marché commerciale. Pour plus d’informations sur ces frais, consultez la section 5c du [Contrat de l’éditeur Microsoft](/legal/marketplace/msft-publisher-agreement).
 
 Pour certaines offres de transaction que vous publiez sur la Place de marché commerciale, vous pouvez bénéficier d’un tarif de service de magasin réduit de 10 %. Pour que votre offre soit éligible, elle doit avoir été désignée par Microsoft comme étant une _offre de co-vente Azure IP incitative_. L’éligibilité doit être respectée pendant au moins cinq jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace. Une fois le droit d’éligibilité atteint, les frais de service réduits sont accordés à toutes les transactions effectives le premier jour du mois suivant jusqu’à ce que l’état de la _co-vente d’Azure IP encouragés_ soit perdu. Pour plus d’informations sur l’éligibilité à la co-vente IP, consultez [Prérequis relatifs à l’état de co-vente](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
@@ -178,7 +178,7 @@ Les clients achètent généralement avec un Contrat Entreprise, ou par carte de
 
 #### <a name="billing-questions-and-support"></a>Questions et support sur la facturation
 
-Pour obtenir plus d’informations et connaître les règles juridiques, consultez le [Contrat d’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). Pour obtenir de l’aide sur les questions de facturation, contactez le [support de l’éditeur de la place de marché commerciale](https://aka.ms/marketplacepublishersupport).
+Pour obtenir plus d’informations et connaître les règles juridiques, consultez le [Contrat d’éditeur Microsoft](/legal/marketplace/msft-publisher-agreement). Pour obtenir de l’aide sur les questions de facturation, contactez le [support de l’éditeur de la place de marché commerciale](https://aka.ms/marketplacepublishersupport).
 
 ## <a name="transact-requirements"></a>Exigences relatives aux offres Transaction
 

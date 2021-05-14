@@ -1,22 +1,23 @@
 ---
-title: Comprendre les quotas Azure IoT Hub et la limitation | Microsoft Docs
+title: Performance du contenu http://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling
 description: Guide du développeur - description des quotas qui s’appliquent à IoT Hub et comportement de limitation attendu.
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/05/2021
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 4b65d42522f40eb7d0e65356223313a924de3039
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+- ms.custom:contperf-fy21q4
+ms.openlocfilehash: a18ca18a6e9f7e26c6189cf66322b16f36a42ecb
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656989"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277801"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -79,7 +80,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 
 ### <a name="traffic-shaping"></a>Régulation de flux
 
-Pour prendre en charge le trafic en rafale, IoT Hub accepte les requêtes dépassant la limitation sur une durée limitée. Les quelques premières requêtes sont traitées immédiatement. Toutefois, si le nombre de requêtes continue à enfreindre la limitation, IoT Hub commence à placer les requêtes dans une file d’attente. Elles sont alors traitées selon le taux limite. Cet effet est appelé la *régulation de flux*. En outre, la taille de cette file d’attente est limitée. Si la violation de limitation continue, la file d’attente finit par se remplir, et IoT Hub commence à rejeter les requêtes avec `429 ThrottlingException`.
+Pour prendre en charge le trafic en rafale, IoT Hub accepte les requêtes dépassant la limitation sur une durée limitée. Les quelques premières requêtes sont traitées immédiatement. Cependant, si le nombre de requêtes continue d’enfreindre la limitation, IoT Hub commence à placer les requêtes dans une file d’attente et elles sont alors traitées au débit limite. Cet effet est appelé la *régulation de flux*. En outre, la taille de cette file d’attente est limitée. Si la violation de limitation continue, la file d’attente finit par se remplir, et IoT Hub commence à rejeter les requêtes avec `429 ThrottlingException`.
 
 Par exemple, vous utilisez un appareil simulé pour envoyer 200 messages appareil-à-cloud par seconde à votre IoT Hub S1 (dont les envois appareil-à-cloud sont limités à 100/s). Pendant la première ou les deux premières minutes, les messages sont traités immédiatement. Toutefois, étant donné que l’appareil continue à envoyer plus de messages que ne l’autorise la limitation, IoT Hub commence à traiter uniquement 100 messages par seconde et place le reste dans une file d’attente. Vous commencez alors à remarquer une latence plus élevée. Finalement, la file d’attente se remplit et vous obtenez une exception `429 ThrottlingException`, et la valeur [« number of throttle errors » (nombre d’erreurs de limitation) dans les métriques IoT Hub](monitor-iot-hub-reference.md#device-telemetry-metrics) commence à augmenter. Pour savoir comment créer des alertes et des graphiques basés sur des métriques, consultez [Surveiller IoT Hub](monitor-iot-hub.md).
 
@@ -87,7 +88,7 @@ Par exemple, vous utilisez un appareil simulé pour envoyer 200 messages apparei
 
 Les opérations du registre des identités d’appareil sont prévues pour une utilisation au moment de l’exécution dans les scénarios de gestion et d’approvisionnement des appareils. La lecture ou la mise à jour d’un grand nombre d’identités d’appareils est prise en charge par le biais des [travaux d’importation et d’exportation](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-Lors du lancement d’opérations d’identité via des [opérations de mise à jour de registre en bloc](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) (*pas* les travaux d’importation et d’exportation en bloc), les mêmes limites de limitation s’appliquent. Par exemple, si vous souhaitez envoyer une opération en bloc pour créer 50 appareils et que vous avez une IoT Hub S1 avec 1 unité, seules deux de ces demandes en bloc sont acceptées par minute. Cela est dû au fait que la limitation de l’opération d’identité pour un IoT Hub S1 avec 1 unité est de 100/min/unité. En outre, dans ce cas, une troisième requête (et au-delà) dans la même minute est rejetée, car la limite a déjà été atteinte. 
+Lors du lancement d’opérations d’identité via des [opérations de mise à jour de registre en bloc](/rest/api/iothub/service/bulkregistry/updateregistry) (*pas* les travaux d’importation et d’exportation en bloc), les mêmes limites de limitation s’appliquent. Par exemple, si vous souhaitez envoyer une opération en bloc pour créer 50 appareils et que vous avez une IoT Hub S1 avec 1 unité, seules deux de ces demandes en bloc sont acceptées par minute. Cela est dû au fait que la limitation de l’opération d’identité pour un hub IoT S1 avec 1 unité est de 100/mn/unité. En outre, dans ce cas, une troisième requête (et au-delà) dans la même minute est rejetée, car la limite a déjà été atteinte. 
 
 ### <a name="device-connections-throttle"></a>Limitation des connexions d’appareils
 

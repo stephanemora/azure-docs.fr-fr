@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 0bfb23977f6553568da24df614621bdf1eb9d06d
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: f5f9f30103381a8e91cd38bb7fa3547e6ca4c97e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106112807"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157594"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +38,7 @@ dotnet build
 Toujours dans le répertoire de l’application, installez le package de la bibliothèque de client Communication Services PhoneNumbers pour .NET à l’aide de la commande `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
 ```
 
 Ajoutez une directive `using` en haut du fichier **Program.cs** pour inclure les espaces de noms.

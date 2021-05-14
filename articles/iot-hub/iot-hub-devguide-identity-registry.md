@@ -2,23 +2,22 @@
 title: Comprendre le registre des identités d’Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Description du registre des identités IoT Hub et de la manière de l’utiliser pour gérer vos appareils. Contient des informations sur l’importation et l’exportation d’identités d’appareils en bloc.
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 05/06/2021
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2590ffd15ec046d0fc81e73b98577fa9ad91ae41
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93146924"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109712745"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -32,11 +31,6 @@ Utilisez le registre des identités lorsque vous avez besoin d’effectuer les a
 
 * Provisionner des appareils ou modules qui se connectent à votre hub IoT.
 * Contrôler l’accès par appareil/module aux points de terminaison côté appareil ou module de votre hub.
-
-> [!NOTE]
-> * Le registre des identités ne contient pas de métadonnées spécifiques de l’application.
-> * L’identité de module et le jumeau de module sont disponibles en préversion publique. Les fonctionnalités ci-après seront prises en charge sur l’identité de module quand il sera en disponibilité générale.
->
 
 ## <a name="identity-registry-operations"></a>Opérations du registre d’identité
 
@@ -58,10 +52,6 @@ Toutes ces opérations peuvent utiliser un accès concurrentiel optimiste, comme
 Un registre des identités IoT Hub :
 
 * ne contient pas de métadonnées de l’application ;
-* est accessible en tant que dictionnaire à l’aide de la clé **deviceId** ou **moduleId**.
-* ne prend pas en charge les requêtes expressives.
-
-Une solution IoT possède généralement une zone de stockage distincte spécifique à la solution qui contient les métadonnées propres à l’application. Dans une solution de développement intelligente, par exemple, la zone de stockage spécifique à la solution doit enregistrer l’espace dans lequel un capteur de température sera déployé.
 
 > [!IMPORTANT]
 > Utilisez le registre des identités uniquement pour les opérations de gestion et d’approvisionnement. Les opérations à haut débit ne doivent pas dépendre de l’exécution d’opérations dans le registre des identités au moment de leur exécution. Par exemple, la vérification de l’état de la connexion d’un appareil avant l’envoi d’une commande n’est pas un modèle pris en charge. Veillez à vérifier les [taux de limitation](iot-hub-devguide-quotas-throttling.md) du registre d’identités et le modèle de [pulsation de l’appareil](iot-hub-devguide-identity-registry.md#device-heartbeat).
@@ -106,7 +96,7 @@ Une implémentation plus complexe peut inclure les informations d’[Azure Monit
 
 ## <a name="device-and-module-lifecycle-notifications"></a>Notifications de cycle de vie des appareils et des modules
 
-IoT Hub peut avertir votre solution IoT quand une identité est créée ou supprimée, en envoyant des notifications de cycle de vie. Pour ce faire, votre solution IoT doit créer un itinéraire et définir la source de données *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Par défaut, aucune notification du cycle de vie n’est envoyée. Autrement dit, aucun itinéraire n’existe préalablement. Le message de notification inclut le corps et les propriétés.
+IoT Hub peut avertir votre solution IoT quand une identité d’appareil est créée ou supprimée, en envoyant des notifications de cycle de vie. Pour ce faire, votre solution IoT doit créer un itinéraire et définir la source de données *DeviceLifecycleEvents*. Par défaut, aucune notification du cycle de vie n’est envoyée. Autrement dit, aucun itinéraire n’existe préalablement. En créant une route avec une source de données égale à *DeviceLifecycleEvents*, les événements de cycle de vie est envoyés à la fois pour les identités d’appareil et pour les identités de module. Toutefois, le contenu du message varie selon que les événements sont générés pour des identités de module ou pour des identités d’appareil.  Il convient de noter que pour les modules IoT Edge, le flux de création d’identité de module est différent de celui des autres modules. Par conséquent, pour les modules IoT Edge, la notification de création est envoyée uniquement si l’appareil IoT Edge correspondant pour l’identité de module IoT Edge mise à jour est en cours d’exécution. Pour tous les autres modules, les notifications de cycle de vie sont envoyées chaque fois que l’identité de module est mise à jour côté IoT Hub.  Le message de notification inclut le corps et les propriétés.
 
 Propriétés : les propriétés système du message ont pour préfixe le symbole `$`.
 

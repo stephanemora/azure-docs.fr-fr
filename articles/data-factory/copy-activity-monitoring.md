@@ -1,17 +1,17 @@
 ---
 title: Superviser une activité de copie
 description: Découvrez comment surveiller l’activité de copie dans Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.author: jingwang
-ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.author: jianleishen
+ms.openlocfilehash: 1382d92b09bef59a7b9e79a758c41c6bbaec7343
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771377"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482630"
 ---
 # <a name="monitor-copy-activity"></a>Surveiller l'activité de copie
 

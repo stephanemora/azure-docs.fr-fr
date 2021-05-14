@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7746b8aa84bea9ec8c18b4c4af0851ca3e5e3957
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640093"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132014"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,8 +61,8 @@ Ce tableau fournit une comparaison rapide concernant la modification de la termi
 
 | Fonctionnalité | Détails |
 | ---| --- |
-| [Transactions distribuées](/azure/azure-sql/database/elastic-transactions-overview) | Transactions distribuées sur les instances managées. |
-| [Pools d’instances](/azure/sql-database/sql-database-instance-pools) | Moyen pratique et économique de migrer des instances SQL plus petites vers le cloud. |
+| [Transactions distribuées](./elastic-transactions-overview.md) | Transactions distribuées sur les instances managées. |
+| [Pools d’instances](../managed-instance/instance-pools-overview.md) | Moyen pratique et économique de migrer des instances SQL plus petites vers le cloud. |
 | [Principaux de serveur (connexions) Azure AD au niveau de l’instance](/sql/t-sql/statements/create-login-transact-sql) | Créez des connexions de niveau instance avec l’instruction [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true). |
 | [Réplication transactionnelle](../managed-instance/replication-transactional-overview.md) | Répliquez les modifications de vos tableaux dans d’autres bases de données dans SQL Managed Instance, SQL Database ou SQL Server. Ou mettez à jour vos tableaux lorsque certaines lignes sont modifiées dans d’autres instances de SQL Managed Instance ou SQL Server. Pour plus d’informations, consultez [Configurer la réplication dans Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Détection de menaces |Pour plus d’informations, consultez [Configurer la détection des menaces dans Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
@@ -95,6 +95,7 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 
 |Problème  |Date de la détection  |Statut  |Date de la résolution  |
 |---------|---------|---------|---------|
+|[La modification du type de connexion n’affecte pas les connexions via le point de terminaison du groupe de basculement](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Janvier 2021|Solution de contournement||
 |[La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre @query est utilisé](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Janvier 2021|Solution de contournement||
 |[Les transactions distribuées peuvent être exécutées après la suppression de Managed Instance du groupe d'approbation de serveurs](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octobre 2020|Solution de contournement||
 |[Les transactions distribuées ne peuvent pas être exécutées après l'opération de mise à l'échelle de Managed Instance](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octobre 2020|Solution de contournement||
@@ -126,6 +127,12 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 |La restauration intégrée de base de données à un point dans le temps du niveau Critique pour l’entreprise vers le niveau Usage général échoue si la base de données source contient des objets OLTP en mémoire.||Résolu|Octobre 2019|
 |Fonctionnalité Database Mail avec des serveurs de messagerie externes (non Azure) utilisant une connexion sécurisée||Résolu|Octobre 2019|
 |Bases de données autonomes non prises en charge dans SQL Managed Instance||Résolu|août 2019|
+
+### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>La modification du type de connexion n’affecte pas les connexions via le point de terminaison du groupe de basculement
+
+Si une instance participe à un [groupe de basculement automatique](./auto-failover-group-overview.md), la modification du [type de connexion](../managed-instance/connection-types-overview.md) de l’instance ne prend pas effet pour les connexions établies via le point de terminaison de l’écouteur de groupe de basculement.
+
+**Solution de contournement** : supprimez et recréez le groupe de basculement automatique après avoir modifié le type de connexion.
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre @query est utilisé
 

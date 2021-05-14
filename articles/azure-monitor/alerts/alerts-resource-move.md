@@ -6,16 +6,16 @@ ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 02/14/2021
-ms.openlocfilehash: eb6dbb74fe0d345a157049e79f7a3642499d7cfa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d21ee7a60d11a154737c5380ec20d3e9c4490962
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037980"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786060"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Guide pratique pour mettre à jour des règles d’alerte ou des règles d’action quand la ressource cible est déplacée vers une autre région Azure
 
-Cet article explique pourquoi les [règles d’alerte](./alerts-overview.md) et [règles d’action](./alerts-action-rules.md) existantes peuvent être affectées quand vous déplacez d’autres ressources Azure entre des régions, et comment identifier et résoudre ces problèmes. Pour plus d’informations sur les cas où le déplacement des ressources entre les régions est utile et pour obtenir une liste de vérification de la conception d’un processus de déplacement, consultez la [documentation principale relative au déplacement de ressources](../../azure-resource-manager/management/move-region.md).
+Cet article explique pourquoi les [règles d’alerte](./alerts-overview.md) et [règles d’action](./alerts-action-rules.md) existantes peuvent être affectées quand vous déplacez d’autres ressources Azure entre des régions, et comment identifier et résoudre ces problèmes. Pour plus d’informations sur les cas où le déplacement des ressources entre les régions est utile et pour obtenir une liste de vérification de la conception d’un processus de déplacement, consultez la [documentation principale relative au déplacement de ressources](../../azure-resource-manager/management/move-resources-overview.md).
 
 ## <a name="why-the-problem-exists"></a>Pourquoi le problème existe-il ?
 
@@ -82,7 +82,7 @@ Si **seules certaines ressources** de l’étendue ont été déplacées, vous d
 
 ### <a name="change-the-scope-of-a-rule-using-azure-resource-manager-templates"></a>Modifier l’étendue d’une règle à l’aide de modèles Azure Resource Manager
 
-1. Récupérez le modèle Azure Resource Manager de la règle.  Pour exporter le modèle d’une règle à partir du portail Azure :
+1. Récupérez le modèle Azure Resource Manager de la règle.   Pour exporter le modèle d’une règle à partir du portail Azure :
    1. Accédez à la section Groupes de ressources dans le portail et ouvrez le groupe de ressources contenant la règle.
    2. Dans la section Vue d’ensemble, cochez la case **Afficher les types masqués**, puis filtrez en fonction du type de règle approprié.
    3. Sélectionnez la règle concernée pour afficher ses détails.
@@ -104,8 +104,8 @@ Si **seules certaines ressources** de l’étendue ont été déplacées, vous d
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Modifier l’étendue d’une règle à l’aide d’Azure CLI
 
-1.  Récupérez la règle existante ([alertes de métrique](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
-2.  Mettez directement à jour l’étendue de la règle ([alertes de métrique](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert/scope)).
+1.  Récupérez la règle existante ([alertes de métrique](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_show), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert#az_monitor_activity_log-alert_list)).
+2.  Mettez directement à jour l’étendue de la règle ([alertes de métrique](/cli/azure/monitor/metrics/alert#az_monitor_metrics_alert_update), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert/scope)).
 3.  Si nécessaire, fractionnez en deux règles (pertinent pour certains cas d’alertes de métrique, comme indiqué ci-dessus).
 
 ## <a name="next-steps"></a>Étapes suivantes

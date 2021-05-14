@@ -1,19 +1,19 @@
 ---
 title: La taille par défaut du dossier TEMP est trop petite pour un rôle | Microsoft Docs
 description: Un rôle de service cloud offre un espace limité pour le dossier TEMP. Cet article fournit quelques suggestions pour éviter de manquer d'espace.
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 1b7bfb47168c31f9e2e1b7e40764439118c00805
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4afe520a747fb7f14c82f7163dd62c4b84067178
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743200"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735908"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-classic-webworker-role"></a>La taille par défaut du dossier TEMP est trop petite pour un rôle web/de travail de service cloud (classique)
 

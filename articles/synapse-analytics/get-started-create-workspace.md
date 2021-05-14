@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 4b7251be220c012ca51970863ac2eed55d46d711
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366060"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751145"
 ---
 # <a name="creating-a-synapse-workspace"></a>Création d’un espace de travail Synapse
 
@@ -43,7 +43,10 @@ Remplissez les champs suivants :
 Remplissez les champs suivants :
 
 1. **Nom de l’espace de travail** : Choisissez un nom unique au monde. Dans ce tutoriel, nous utiliserons **myworkspace**.
-1. **Région** : Choisissez n’importe quelle région.
+1. **Région** : Choisissez la région où vous avez placé vos applications/services clients (par exemple Machines virtuelles Azure, Power BI, Azure Analysis Services) et les stockages qui contiennent des données (par exemple stockage Azure Data Lake, stockage analytique Azure Cosmos DB).
+
+> [!NOTE]
+> Un espace de travail qui n’est pas colocalisé avec les applications clientes ou le stockage peut être à l’origine de nombreux problèmes de performances. Si vos données ou les clients sont placés dans plusieurs régions, vous pouvez créer des espaces de travail distincts dans des régions différentes colocalisées avec vos données et vos clients.
 
 Sous **Sélectionner Data Lake Storage Gen2** :
 
@@ -66,14 +69,22 @@ Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Sy
 * Accédez à `https://web.azuresynapse.net` et connectez-vous à votre espace de travail.
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>Placer les exemples de données dans le compte de stockage principal
-Nous allons utiliser un petit jeu de données de 100 000 lignes provenant des données de NYX Taxi Cab des nombreux exemples de ce guide de démarrage. Nous commençons par le placer dans le compte de stockage principal que vous avez créé pour l’espace de travail.
+Nous allons utiliser un petit jeu de données de 100 000 lignes provenant des données NYX Taxi Cab pour de nombreux exemples de ce guide de démarrage. Nous commençons par le placer dans le compte de stockage principal que vous avez créé pour l’espace de travail.
 
 * Téléchargez ce fichier sur votre ordinateur : https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * Dans Synapse Studio, accédez au hub de données. 
 * Sélectionnez **Lié**.
-* Sous la catégorie **Azure Data Lake Storage Gen2**, vous verrez un élément avec un nom qui ressemble à **myworkspace (Principal - contosolake)** .
+* Sous la catégorie **Azure Data Lake Storage Gen2**, vous voyez un élément avec un nom qui ressemble à **myworkspace ( Primary - contosolake )** .
 * Sélectionnez le conteneur nommé **users (Principal)** .
 * Sélectionnez **Charger**, puis sélectionnez le fichier `NYCTripSmall.parquet` que vous avez téléchargé.
+
+Une fois le fichier parquet chargé, il est disponible via deux URI équivalents :
+* `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
+* `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
+
+Dans les exemples qui suivent dans ce tutoriel, veillez à remplacer **contosolake** dans l’interface utilisateur par le nom du compte de stockage principal que vous avez sélectionné pour votre espace de travail.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

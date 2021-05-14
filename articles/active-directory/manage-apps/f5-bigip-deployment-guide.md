@@ -12,12 +12,12 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 139009c55573e1e115a22069671f66e93695a635
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aeb48b5ee2bd3fbb127b3a88e7dda4946e96c163
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783320"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108184781"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutoriel pour déployer une machine virtuelle F5 BIG-IP Virtual Edition dans Azure IaaS pour un accès hybride sécurisé
 
@@ -265,7 +265,7 @@ Un système BIG-IP est administré via son interface utilisateur de configuratio
 
 - À partir d’un client VPN connecté au réseau interne de la machine virtuelle BIG-IP
 
-- Publié via un [proxy d’application Azure AD](./application-proxy-add-on-premises-application.md)
+- Publié via un [proxy d’application Azure AD](../app-proxy/application-proxy-add-on-premises-application.md)
 
 Vous devez décider de la méthode la plus appropriée pour pouvoir continuer avec les configurations restantes. Si nécessaire, vous pouvez vous connecter directement à la configuration web à partir d’Internet en configurant l’adresse IP principale du système BIG-IP avec une adresse IP publique. Ajoutez ensuite une règle de groupe de sécurité réseau pour autoriser le trafic 8443 vers cette adresse IP principale. Veillez à limiter la source à votre propre adresse IP approuvée. Sinon, n’importe qui pourra se connecter.
 

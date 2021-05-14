@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 985cbe1128d1dd64fda86ef062750dc5dd068ffe
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1bb2b8bc7e55dde7c6fa9098640109f85bebce23
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751730"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065418"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -26,7 +26,7 @@ Il existe une exception importante à cette restriction. Si un utilisateur a cho
 Vous pouvez configurer des [pare-feux et réseaux virtuels Key Vault](network-security.md) pour refuser par défaut l’accès au trafic en provenance de tous les réseaux (y compris le trafic Internet). Vous pouvez accorder l’accès au trafic en provenance de réseaux virtuels Azure ou de plages d’adresses IP Internet publiques spécifiques, ce qui vous permet de créer une limite réseau sécurisée pour vos applications.
 
 > [!NOTE]
-> Les règles de pare-feu et de réseau virtuel Key Vault s’appliquent seulement au [plan de données](security-overview.md#privileged-access) de Key Vault. Les opérations du plan de contrôle Key Vault (comme les opérations de création, de suppression et de modification, la définition de stratégies d’accès, la définition de pare-feu et de règles de réseau virtuel ainsi que le déploiement de secrets et de clés par le biais de modèles ARM) ne sont pas affectées par les règles de pare-feu et de réseau virtuel.
+> Les règles de pare-feu et de réseau virtuel Key Vault s’appliquent seulement au [plan de données](security-features.md#privileged-access) de Key Vault. Les opérations du plan de contrôle Key Vault (comme les opérations de création, de suppression et de modification, la définition de stratégies d’accès, la définition de pare-feu et de règles de réseau virtuel ainsi que le déploiement de secrets et de clés par le biais de modèles ARM) ne sont pas affectées par les règles de pare-feu et de réseau virtuel.
 
 Voici quelques exemples d’utilisation de points de terminaison de service :
 
@@ -59,6 +59,7 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 |Azure Import/Export| [Utiliser des clés gérées par le client dans Azure Key Vault pour le service Import/Export](../../import-export/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Chiffrement du registre à l’aide de clés gérées par le client](../../container-registry/container-registry-customer-managed-keys.md)
 |Azure Application Gateway |[Utilisation de certificats Key Vault pour les écouteurs compatibles HTTPS](../../application-gateway/key-vault-certs.md)
+|Azure Front Door|[Utilisation de certificats Key Vault pour HTTPS](../../frontdoor/front-door-custom-domain-https.md#prepare-your-azure-key-vault-account-and-certificate)
 
 > [!NOTE]
 > Vous devez configurer les stratégies Key Vault appropriées pour autoriser les services correspondants à accéder à Key Vault.
@@ -66,4 +67,4 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir des instructions détaillées, consultez [Configurer les pare-feu et réseaux virtuels d’Azure Key Vault](network-security.md).
-- Consultez la [vue d’ensemble de la sécurité d’Azure Key Vault](security-overview.md).
+- Consultez la [vue d’ensemble de la sécurité d’Azure Key Vault](security-features.md).

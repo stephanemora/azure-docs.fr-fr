@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 0b30cb1767e733861d8418ea29e564bc90a5bc70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59c947684787edcf4863a8388e88c860172a9b59
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676507"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988205"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Établir des connexions d’indexeurs via un point de terminaison privé
 
@@ -192,6 +192,8 @@ Si la propriété `properties.provisioningState` de la ressource est `Succeeded`
 
 - Si vous avez créé indexeur sans que sa propriété `executionEnvironment` ne soit définie et qu’il s’exécute correctement, cela signifie que le service Recherche cognitive Azure a décidé que son environnement d’exécution est l’environnement *privé* spécifique au service de recherche. Cela peut varier en fonction des ressources consommées par l’indexeur, de la charge sur le service de recherche et d’autres facteurs. L’échec peut survenir ultérieurement. Pour résoudre ce problème :
   * Nous vous recommandons vivement de définir la propriété `executionEnvironment` sur `private` pour vous assurer qu’elle n’échouera pas à l’avenir.
+
+- Si vous consultez la page réseau de votre source de données sur le portail Azure et que vous sélectionnez un point de terminaison privé que vous avez créé pour votre service Recherche cognitive Azure afin d'accéder à cette source de données, vous risquez de rencontrer l'erreur *Aucun accès*. Ceci est normal. Vous pouvez modifier l'état de la demande de connexion via la page du portail du service cible, mais pour continuer à gérer la ressource de liaison privée partagée, vous devez accéder à celle-ci sur la page réseau de votre service de recherche sur le portail Azure.
 
 Les [quotas et limites](search-limits-quotas-capacity.md) déterminent le nombre de ressources de liaison privée partagée qui peuvent être créées et qui dépendent de la référence SKU du service de recherche.
 

@@ -3,12 +3,12 @@ title: Glossaire de Defender pour IoT
 description: Ce glossaire fournit une brève description des termes et concepts importants de la plateforme Defender pour IoT.
 ms.date: 12/09/2020
 ms.topic: article
-ms.openlocfilehash: 191b94ca37118ed6413149dd6047f94c5ee568cd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 829469a523ffd259b0108fcfc189715ba99cce74
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786819"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203682"
 ---
 # <a name="defender-for-iot-glossary"></a>Glossaire de Defender pour IoT
 
@@ -51,7 +51,6 @@ Ce glossaire fournit une brève description des termes et concepts importants po
 | Terme | Description | En savoir plus |
 |--|--|--|
 | **Exploration de données** | Générez des rapports complets et granulaires sur vos périphériques réseau :<br /><br />- **réponse aux incidents SOC** : Rapports en temps réel pour vous aider à répondre immédiatement aux incidents. Par exemple, un rapport peut répertorier les appareils qui peuvent nécessiter une mise à jour corrective.<br /><br />- **Forensique** : Rapports basés sur les données d’historique des rapports d’investigation.<br /><br />- **intégrité du réseau informatique** : Rapports qui contribuent à améliorer la sécurité globale du réseau. Par exemple, un rapport peut répertorier des appareils avec des informations d’identification faibles.<br /><br />- **visibilité** : Rapports qui couvrent tous les éléments de requête pour afficher tous les paramètres de ligne de base de votre réseau.<br /><br />Enregistrez les rapports d’exploration de données pour que les utilisateurs en lecture seule puissent les afficher. | **[Ligne de base](#b)<br /><br />[Rapports](#r)** |
-| **moteurs Defender pour IoT** | Les moteurs d’analyse d’apprentissage automatique de Defender pour IoT éliminent la nécessité de mettre à jour les signatures ou de définir des règles. Les moteurs utilisent l’analyse comportementale et la science des données propres à ICS pour analyser en permanence le trafic réseau à la recherche d’anomalies, de logiciels malveillants, de problèmes opérationnels, de violations de protocole et d’écarts par rapport à l’activité réseau de ligne de base.<br /><br />Lorsqu’un moteur détecte un écart, une alerte est déclenchée. Les alertes peuvent être affichées et gérées à partir de l’écran **Alertes** ou d’un SIEM. | **[Alerte](#glossary-a)** |
 | **plateforme Defender pour IoT** | La solution Defender pour IoT installée sur Defender pour les capteurs IoT et la console de gestion locale. | **[Capteur](#s)<br /><br />[Console de gestion locale](#o)** |
 | **Carte des appareils** | Représentation graphique des périphériques réseau détectés par Defender pour IoT. Elle montre les connexions entre les appareils et les informations sur chaque appareil. Utilisez la carte pour :<br /><br />- Récupérer et contrôler les informations critiques de l’appareil.<br /><br />- Analyser des sections du réseau.<br /><br />- Exporter les détails et les résumés des appareils. | **[Groupe de couches Purdue](#p)** |
 | **Inventaire des appareils – capteur** | L’inventaire des appareils affiche un large éventail d’attributs d’appareil détectés par Defender pour IoT. Des options sont disponibles pour :<br /><br />- Filtrer les informations affichées.<br /><br />- Exporter ces informations dans un fichier CSV.<br /><br />- Importer les détails du Registre Windows. | **[Groupe](#g)** <br /><br />**[Inventaire des appareils – console de gestion locale](#d)** |
@@ -63,6 +62,7 @@ Ce glossaire fournit une brève description des termes et concepts importants po
 
 | Terme | Description | En savoir plus |
 |--|--|--|
+| **Engines** (Moteurs) | Les moteurs d’analyse d’apprentissage automatique de Defender pour IoT éliminent la nécessité de mettre à jour les signatures ou de définir des règles. Les moteurs utilisent l’analyse comportementale et la science des données propres à ICS pour analyser en permanence le trafic réseau à la recherche d’anomalies, de logiciels malveillants, de problèmes opérationnels, de violations de protocole et d’écarts par rapport à l’activité réseau de ligne de base.<br /><br />Lorsqu’un moteur détecte un écart, une alerte est déclenchée. Les alertes peuvent être affichées et gérées à partir de l’écran **Alertes** ou d’un SIEM. | **[Alerte](#glossary-a)** |
 | **Vue entreprise** | Carte globale qui présente les unités commerciales, sites et zones où les capteurs Defender pour IoT sont installés. Affichez les emplacements géographiques des alertes malveillantes, des alertes opérationnelles et plus encore. | **[Unité commerciale](#b)<br /><br />[Site](#s)<br /><br />[Zone](#z)** |
 | **Chronologie des événements** | Chronologie des activités détectées sur votre réseau, notamment :<br /><br />- Alertes déclenchées.<br /><br />- Événements réseau (informations).<br /><br />- Opérations de l’utilisateur, comme la connexion, la suppression de l’utilisateur et la création d’un utilisateur, ainsi que les opérations de gestion des alertes, comme la désactivation, la découverte et l’envoi d’un accusé de réception. Disponible dans les consoles des capteurs. | - |
 | **Règle d’exclusion** | Demandez à Defender pour IoT d’ignorer les déclencheurs d’alerte en fonction de la période, de l’adresse de l’appareil et du nom de l’alerte, ou par capteur spécifique.<br /><br />Par exemple, si vous savez que tous les appareils OT surveillés par un capteur spécifique passent par une procédure de maintenance comprise entre 6 h 30 et 10 h 15 le matin, vous pouvez définir une règle d’exclusion qui indique que ce capteur ne doit pas envoyer d’alertes dans la période prédéfinie. | **[Alerte](#glossary-a)<br /><br />[Désactiver les événements d’alerte](#m)** |

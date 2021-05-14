@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98597964"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220898"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instances réservées de machine virtuelle Azure EA
 
@@ -96,7 +96,7 @@ Dans les scénarios où les clients EA Azure ont utilisé la totalité de leur P
 
 ### <a name="reserved-instance-expiration"></a>Expiration d’instance réservée
 
-Vous recevrez des notifications par e-mail 30 jours avant l’expiration de la réservation. Une fois que la réservation a expiré, les machines virtuelles déployées continuent à fonctionner et sont facturées au tarif du paiement à l’utilisation. Pour plus d’informations, consultez [Offre des instances de machines virtuelles réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Vous recevrez deux notifications par e-mail : la première, 30 jours avant l’expiration de la réservation, et la deuxième, à l’expiration. Une fois que la réservation a expiré, les machines virtuelles déployées continuent à fonctionner et sont facturées au tarif du paiement à l’utilisation. Pour plus d’informations, consultez [Offre des instances de machines virtuelles réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

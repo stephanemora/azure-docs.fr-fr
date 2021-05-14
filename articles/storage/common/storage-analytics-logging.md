@@ -9,12 +9,12 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: a5d1d6af68fcbd6a5822b2652ee79c464d02241f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d48ab6223485807400b6749bcf72691261405495
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200760"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134552"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
@@ -35,7 +35,7 @@ Vous pouvez également activer les journaux Storage Analytics par programmation 
  Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison Blob, mais pas dans ses points de terminaison de Table ou de File d’attente, seuls des journaux d’activité relatifs au service BLOB seront créés.
 
 > [!NOTE]
->  La journalisation Storage Analytics est disponible pour les services Blob, File d’attente et de Table. La journalisation Storage Analytics est également disponible pour les comptes [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) avec des performances Premium. Toutefois, elle n’est pas disponible pour les comptes v2 à usage général avec des performances Premium.
+>  La journalisation Storage Analytics est disponible pour les services Blob, File d’attente et de Table. La journalisation Storage Analytics est également disponible pour les comptes [BlockBlobStorage](./storage-account-create.md) avec des performances Premium. Toutefois, elle n’est pas disponible pour les comptes v2 à usage général avec des performances Premium.
 
 ## <a name="requests-logged-in-logging"></a>Requêtes consignées lors de la journalisation
 ### <a name="logging-authenticated-requests"></a>Enregistrement des demandes authentifiées

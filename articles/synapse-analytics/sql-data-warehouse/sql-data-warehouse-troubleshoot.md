@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: af653585ec1b57b5fd697dc755e495a96e04e677
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: f03b71f956f075a730939f657f42c94bebec5b02
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565404"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146578"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Résoudre les problèmes de pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -55,7 +55,7 @@ Cet article répertorie les problèmes courants liés au pool SQL dédié (ancie
 | Problèmes d’espaces TempDB | [Surveillez l’utilisation de l’espace TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb).  Les causes courantes de l’insuffisance d’espace TempDB sont les suivantes :<br>- Les ressources allouées à la requête ne sont pas suffisantes et les données sont propagées dans TempDB.  Consultez [Gestion des charges de travail](resource-classes-for-workload-management.md) <br>- Les statistiques sont manquantes ou obsolètes, ce qui entraîne un déplacement excessif des données.  Consultez la section[Maintenance des statistiques de table](sql-data-warehouse-tables-statistics.md) pour plus d’informations sur la création de statistiques<br>- L’espace TempDB est alloué par niveau de service.  La [mise à l'échelle du pool SQL dédié (anciennement SQL DW)](sql-data-warehouse-manage-compute-overview.md#scaling-compute) sur un paramètre DWU plus élevé permet d'allouer plus d'espace TempDB.|
 | Des performances des requêtes et des plans médiocres sont souvent le résultat de statistiques manquantes | La cause la plus courante de la médiocrité des performances est le manque de statistiques concernant vos tables.  Consultez la section[Maintenance des statistiques de table](sql-data-warehouse-tables-statistics.md) pour plus d’informations sur la création de statistiques et les raisons pour lesquelles elles sont essentielles à vos performances. |
 | Concurrence faible / requêtes en file d’attente                             | Comprendre la [gestion des charges de travail](resource-classes-for-workload-management.md) est important pour comprendre comment équilibrer l’allocation de mémoire avec l’accès concurrentiel. |
-| Comment mettre en œuvre les meilleures pratiques                              | Pour apprendre à améliorer le niveau de performance des requêtes, commencez par consulter l'article [Meilleures pratiques en matière de pool SQL dédié (anciennement SQL DW)](sql-data-warehouse-best-practices.md). |
+| Comment mettre en œuvre les meilleures pratiques                              | Pour apprendre à améliorer le niveau de performance des requêtes, commencez par consulter l'article [Meilleures pratiques en matière de pool SQL dédié (anciennement SQL DW)](../sql/best-practices-dedicated-sql-pool.md). |
 | Comment améliorer les performances avec la mise à l’échelle                      | Pour améliorer le niveau de performance, il suffit parfois d'ajouter de la puissance de calcul aux requêtes en procédant à une [mise à l'échelle du pool SQL dédié (anciennement SQL DW)](sql-data-warehouse-manage-compute-overview.md). |
 | Performances de requêtes médiocres en raison de la qualité médiocre de l’index     | Parfois, les requêtes peuvent ralentir en raison de la [qualité médiocre des index columnstore](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  Consultez cet article pour plus d’informations et pour découvrir comment [Reconstruire des index pour améliorer la qualité de segment](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 

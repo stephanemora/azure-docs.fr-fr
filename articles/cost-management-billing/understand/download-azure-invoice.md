@@ -1,20 +1,21 @@
 ---
 title: Consulter et télécharger votre facture Azure
-description: Décrit comment afficher et télécharger votre facture Azure.
+description: Découvrez comment voir et télécharger votre facture Azure. Vous pouvez télécharger votre facture dans le portail Azure ou la recevoir par e-mail.
 keywords: facturation, facture, téléchargement de facture, facture Azure, utilisation d’Azure
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4e77b167f00e2cfa3838439143c6074bd4122976
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 37ce1a292b6ff2efe0abecdb2ab934f096689f87
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191448"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "105560662"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Afficher et télécharger votre facture Microsoft Azure
 
@@ -25,6 +26,20 @@ Vous pouvez télécharger votre facture dans le [portail Azure](https://portal.a
 Une facture est générée en fonction du type de compte de facturation. Des factures sont créées pour les comptes de facturation Microsoft Online Service Program (MOSP), Contrat client Microsoft (MCA) et Contrat Partenaire Microsoft (MPA). Des factures sont également générées pour les comptes de facturation Contrat Entreprise (EA). Toutefois, les factures pour les comptes de facturation EA n’apparaissent pas dans le portail Azure.
 
 Pour plus d’informations sur les comptes de facturation et savoir comment identifier le type de votre compte de facturation, consultez [Afficher les comptes de facturation dans le portail Azure](../manage/view-all-accounts.md).
+
+### <a name="invoice-status"></a>État de la facture
+
+Quand vous vérifiez l’état de votre facture dans le portail Azure, chaque facture a l’un des symboles d’état suivants.
+
+|  Symbole d’état | Description  |
+|---|---|
+| ![Symbole d’état Payable](./media/download-azure-invoice/due.svg) | *Payable* s’affiche quand une facture est générée, mais qu’elle n’a pas encore été payée. |
+| ![Symbole d’état Impayé](./media/download-azure-invoice/past-due.svg)  | *Impayé* s’affiche quand Azure a essayé de débiter votre mode de paiement, mais que le paiement a été refusé. |
+| ![Symbole d’état Payé](./media/download-azure-invoice/paid.svg)  | *Payé* s’affiche quand Azure a débité votre mode de paiement. |
+
+Quand une facture est créée, elle apparaît dans le portail Azure avec l’état *Payable*. L’état Payable est normal et attendu.  
+
+Quand une facture n’a pas été payée, son état est *Impayé*. Un abonnement impayé est désactivé si la facture n’est pas payée.
 
 ## <a name="invoices-for-mosp-billing-accounts"></a>Factures pour les comptes de facturation MOSP
 
@@ -55,12 +70,12 @@ Vous devez disposer d’un rôle d’administrateur de compte sur un abonnement 
 1. Sélectionnez votre abonnement dans la [page Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
 1. Sélectionnez **Factures** dans la section de facturation.  
     ![Capture d’écran montrant un utilisateur sélectionnant l’option Factures pour un abonnement](./media/download-azure-invoice/select-subscription-invoice.png)
-1. Sélectionnez **Télécharger** pour télécharger une version PDF de votre facture, puis **Télécharger** sous la section de la facture.  
-    ![Capture d’écran montrant les périodes de facturation, l’option de téléchargement et le total des frais pour chaque période de facturation](./media/download-azure-invoice/downloadinvoice-subscription.png)
-1. Vous pouvez également télécharger une analyse quotidienne des quantités consommées et des frais en sélectionnant **Télécharger** sous la section de détails de l’utilisation. La préparation du fichier CSV peut prendre quelques minutes.  
+1. Sélectionnez la facture à télécharger, puis cliquez sur **Télécharger les factures**.  
+    ![Capture d’écran de l’option de téléchargement d’une facture MOSP](./media/download-azure-invoice/downloadinvoice-subscription.png)
+1. Vous pouvez aussi télécharger une répartition quotidienne des quantités consommées et des frais en cliquant sur l’icône de téléchargement, puis sur le bouton **Préparer le fichier d’utilisation Azure** sous la section des détails d’utilisation. La préparation du fichier CSV peut prendre quelques minutes.  
     ![Capture d’écran montrant la page Télécharger les données sur l’utilisation et la facturation](./media/download-azure-invoice/usage-and-invoice-subscription.png)
 
-Pour plus d’informations sur votre facture, consultez la page [Comprendre votre facture Microsoft Azure](../understand/review-individual-bill.md). Pour vous aider à gérer vos coûts, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts Azure](../manage/getting-started.md).
+Pour plus d’informations sur votre facture, consultez la page [Comprendre votre facture Microsoft Azure](../understand/review-individual-bill.md). Pour obtenir de l’aide afin d’identifier les coûts inhabituels, consultez [Analyser les frais inattendus](analyze-unexpected-charges.md).
 
 ## <a name="download-your-mosp-support-plan-invoice"></a>Télécharger votre facture de plan de support MOSP
 
@@ -72,12 +87,12 @@ Vous devez disposer d’un rôle d’administrateur de compte sur l’abonnement
 1. Recherchez **Gestion des coûts + facturation**.  
     ![Capture d’écran montrant la recherche dans le portail pour Gestion des coûts + facturation](./media/download-azure-invoice/search-cmb.png)
 1. Sélectionnez **Factures** dans la partie gauche.
-1. Sélectionnez votre abonnement au plan de support, puis **Télécharger**.  
-    [![Capture d’écran montrant la liste des profils de facturation](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
-1. Sélectionnez **Télécharger** pour télécharger une version PDF de votre facture.  
-    ![Capture d’écran montrant les périodes de facturation, l’option de téléchargement et le total des frais pour chaque période de facturation](./media/download-azure-invoice/download-invoice-support-plan.png)
+1. Sélectionnez votre abonnement de plan de support.  
+    [![Capture d’écran montrant la liste des profils de facturation de facture du plan de support MOSP](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
+1. Sélectionnez la facture à télécharger, puis cliquez sur **Télécharger les factures**.  
+    ![Capture d’écran montrant l’option de téléchargement d’une facture de plan de support MOSP ](./media/download-azure-invoice/download-invoice-support-plan.png)
 
-## <a name="allow-others-to-download-the-your-subscription-invoice"></a>Autoriser les autres utilisateurs à télécharger la facture de votre abonnement
+## <a name="allow-others-to-download-your-subscription-invoice"></a>Autoriser les autres utilisateurs à télécharger votre facture d’abonnement
 
 Pour télécharger une facture :
 
@@ -92,8 +107,12 @@ Pour télécharger une facture :
 4.  Sélectionnez votre abonnement Azure, puis cliquez sur **Autoriser les autres utilisateurs à télécharger la facture**.
 
     [![Capture d’écran montrant comment sélectionner Accès à la facture](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
-1.  Sélectionnez **Activé**, puis **Enregistrer** en haut de la page.  
+
+5.  Sélectionnez **Activé**, puis **Enregistrer** en haut de la page.  
     ![Capture d’écran montrant comment sélectionner Activé dans Accès à la facture](./media/download-azure-invoice/cmb-access-to-invoice.png)
+    
+> [!NOTE]
+> Microsoft ne recommande pas de partager vos informations confidentielles ou d’identification personnelle avec des tiers. Cette recommandation s’applique au partage de votre facture Azure avec un tiers pour l’optimisation des coûts. Pour plus d’informations, consultez https://azure.microsoft.com/support/legal/ et https://www.microsoft.com/trust-center.
 
 ## <a name="get-mosp-subscription-invoice-in-email"></a>Recevoir la facture d’un abonnement MOSP par e-mail
 
@@ -103,18 +122,18 @@ Vous devez être titulaire d’un rôle d’administrateur de compte sur un abon
 2.  Recherchez **Gestion des coûts + facturation**.  
 3.  Sélectionnez **Factures** dans la partie gauche.
 4.  Sélectionnez votre abonnement Azure ou votre abonnement à un plan de support, puis sélectionnez **Recevoir la facture par e-mail**.  
-    [![Capture d’écran montrant la liste des profils de facturation](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
+    [![Capture d’écran montrant l’option Recevoir la facture par e-mail](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
 5. Cliquez sur **Facture par e-mail** et acceptez les conditions.  
     ![Capture d’écran montrant l’étape 2 du flux d’activation](./media/download-azure-invoice/invoicearticlestep02.png)
 6. La facture est envoyée à votre adresse e-mail de communication par défaut. Sélectionnez **Mettre à jour le profil** pour mettre l’adresse e-mail à jour.  
     ![Capture d’écran montrant l’étape 3 du flux d’activation](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
-## <a name="share-subscription-and-support-plan-invoices"></a>Partager des factures d’abonnement et de plan de support
+## <a name="share-subscription-and-support-plan-invoice"></a>Partager une facture d’abonnement et de plan de support
 
-Chaque mois, vous pouvez partager les factures de votre abonnement et de votre plan de support avec votre équipe de comptabilité ou les envoyer à l’une de vos autres adresses e-mail.
+Chaque mois, vous pouvez partager la facture de votre abonnement et de votre plan de support avec votre équipe de comptabilité ou l’envoyer à une autre de vos adresses e-mail.
 
 1. Suivez les étapes décrites dans [Recevoir les factures de votre abonnement et de votre plan de support par e-mail](#get-mosp-subscription-invoice-in-email) et sélectionnez **Configurer les destinataires**.  
-    ![Capture d’écran montrant un utilisateur qui sélectionne Configurer les destinataires](./media/download-azure-invoice/invoice-article-step03.png)
+    [![Capture d’écran montrant un utilisateur qui sélectionne Configurer les destinataires](./media/download-azure-invoice/invoice-article-step03.png)](./media/download-azure-invoice/invoice-article-step03-zoomed.png#lightbox)
 1. Entrez une adresse e-mail, puis sélectionnez **Ajouter un destinataire**. Vous pouvez ajouter plusieurs adresses e-mail.  
     ![Capture d’écran montrant un utilisateur qui ajoute des destinataires supplémentaires](./media/download-azure-invoice/invoice-article-step04.png)
 1. Une fois que vous avez ajouté toutes les adresses e-mail, sélectionnez **Terminé** en bas de l’écran.
@@ -123,7 +142,7 @@ Chaque mois, vous pouvez partager les factures de votre abonnement et de votre p
 
 Un compte de facturation MCA est créé quand votre organisation travaille avec un représentant Microsoft pour signer un contrat MCA. Les clients de certaines régions, qui s’inscrivent par le biais du site web Azure pour obtenir un [compte avec tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) ou un [compte gratuit Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), peuvent également avoir un compte de facturation pour un contrat MCA. Pour plus d’informations, consultez [Bien démarrer avec votre compte de facturation MCA](../understand/mca-overview.md).
 
-Un compte de facturation MPA est créé pour les partenaires du fournisseur de solutions cloud (CSP) afin de gérer leurs clients dans la nouvelle expérience de commerce. Les partenaires doivent avoir au moins un client avec un [plan Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) pour gérer leur compte de facturation dans le portail Azure. Pour plus d’informations, consultez [Bien démarrer avec votre compte de facturation MPA](../understand/mpa-overview.md).
+Un compte de facturation MPA est créé pour les partenaires du fournisseur de solutions cloud (CSP) afin de gérer leurs clients dans la nouvelle expérience de commerce. Les partenaires doivent avoir au moins un client avec un [plan Azure](/partner-center/purchase-azure-plan) pour gérer leur compte de facturation dans le portail Azure. Pour plus d’informations, consultez [Bien démarrer avec votre compte de facturation MPA](../understand/mpa-overview.md).
 
 Une facture mensuelle est générée au début du mois pour chaque profil de facturation associé à votre compte. La facture contient les frais respectifs pour tous les abonnements Azure et les autres achats du mois précédent. Par exemple, John crée *Azure sub 01* le 5 mars et *Azure sub 02* le 10 mars. Il achète un abonnement *Azure support 01* le 28 mars avec le *profil de facturation 01*. Début avril, John reçoit une facture qui inclut les frais engendrés par les deux abonnements Azure et le plan de support.
 
@@ -155,50 +174,37 @@ Vous devez disposer d’un rôle de propriétaire ou de contributeur sur le prof
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com).
 1.  Recherchez **Gestion des coûts + facturation**.  
-1.  Sélectionnez **Factures** dans le volet gauche, puis **Facture par e-mail** en haut de la page.  
-    [![Capture d’écran montrant une page de factures pour un compte de facturation MCA](./media/download-azure-invoice/mca-billing-profile-select-email-invoice.png)](./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png#lightbox)
-1.  Si vous avez plusieurs profils de facturation, sélectionnez-en un, puis sélectionnez **Activer**.  
-    ![Capture d’écran montrant une page de factures pour un compte de facturation MCA](./media/download-azure-invoice/mca-billing-profile-email-invoice.png)
-1.  Sélectionnez **Update**.
-
-2.  Recherchez **Gestion des coûts + facturation**.
-
-    ![Capture d’écran montrant la recherche dans le portail pour gestion des coûts + facturation](./media/download-azure-invoice/search-cmb.png)
-
-3.  Sélectionnez **Factures** dans le volet gauche, puis **Facture par e-mail** en haut de la page.
-
-    [![Capture d’écran montrant une page de factures pour un compte de facturation MCA](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice-zoomed-in.png)
-
-4.  Si vous avez plusieurs profils de facturation, sélectionnez-en un, puis sélectionnez **Activer**.
+1.  Sélectionnez **Factures** dans le volet gauche, puis **Préférence de facture par e-mail** en haut de la page.  
+    [![Capture d’écran montrant l’option Envoyer la facture par e-mail pour les factures](./media/download-azure-invoice/mca-billing-profile-select-email-invoice.png)](./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png#lightbox)
+1.  Si vous avez plusieurs profils de facturation, sélectionnez-en un et sélectionnez **Oui**.  
+    [![Capture d’écran montrant l’option d’adhésion](./media/download-azure-invoice/mca-billing-profile-email-invoice.png)](./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png#lightbox)
+1.  Sélectionnez **Enregistrer**.
 
 Vous pouvez autoriser d’autres utilisateurs à consulter, télécharger et payer des factures en leur attribuant le rôle de gestionnaire de factures pour un profil de facturation MCA ou MPA. Si vous avez choisi d’obtenir vos factures par e-mail, ces utilisateurs reçoivent également les factures de cette façon.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Recherchez **Gestion des coûts + facturation**.  
 1. Sélectionnez **Profils de facturation** sur le côté gauche. Dans la liste des profils de facturation, sélectionnez un profil de facturation auquel vous souhaitez affecter un rôle de gestionnaire de factures.  
-   ![Capture d’écran montrant la liste des profils de facturation](./media/download-azure-invoice/mca-select-profile-zoomed-in.png)
+   ![Capture d’écran montrant la liste de profils de facturation, dans laquelle vous sélectionnez un profil de facturation](./media/download-azure-invoice/mca-select-profile-zoomed-in.png)
 1. Sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche, puis sélectionnez **Ajouter** en haut de la page.  
     ![Capture d’écran montrant la page de contrôle d’accès](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png)
 1. Dans la liste déroulante Rôle, sélectionnez **Gestionnaire de factures**. Entrez l’adresse e-mail de l’utilisateur auquel vous souhaitez accorder l’accès. Sélectionnez **Enregistrer** pour attribuer le rôle.  
-   ![Capture d’écran montrant l’ajout d’un utilisateur en tant que gestionnaire de factures](./media/download-azure-invoice/mca-added-invoice-manager.png)
-
-1. Recherchez **Gestion des coûts + facturation**.
-
-   ![Capture d’écran montrant la recherche d’abonnements dans le portail](./media/download-azure-invoice/search-cmb.png)
-
-1. Sélectionnez **Profils de facturation** sur le côté gauche. Dans la liste des profils de facturation, sélectionnez un profil de facturation auquel vous souhaitez affecter un rôle de gestionnaire de factures.
-
-   ![Capture d’écran montrant la liste des profils de facturation](./media/download-azure-invoice/mca-select-profile-zoomed-in.png)
-
-1. Sélectionnez **Contrôle d’accès (IAM)** dans le volet gauche, puis sélectionnez **Ajouter** en haut de la page.
-
-   [![Capture d’écran montrant la page de contrôle d’accès](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png)
-
-1. Dans la liste déroulante Rôle, sélectionnez **Gestionnaire de factures**. Entrez l’adresse e-mail de l’utilisateur auquel vous souhaitez accorder l’accès. Sélectionnez **Enregistrer** pour attribuer le rôle.
-
-   [![Capture d’écran montrant l’ajout d’un utilisateur en tant que gestionnaire de factures](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
+    [![Capture d’écran montrant l’ajout d’un utilisateur en tant que gestionnaire de factures](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
    
-   
+
+## <a name="share-your-billing-profiles-invoice"></a>Partager la facture de votre profil de facturation
+
+Vous pouvez avoir besoin de partager votre facture chaque mois avec votre équipe de comptabilité ou l’envoyer à une autre de vos adresses e-mail sans accorder ni à votre équipe de comptabilité ni à votre autre adresse e-mail des autorisations sur votre profil de facturation.
+
+1.  Connectez-vous au [portail Azure](https://portal.azure.com).
+1.  Recherchez **Gestion des coûts + facturation**.  
+1.  Sélectionnez **Factures** dans le volet gauche, puis **Préférence de facture par e-mail** en haut de la page.  
+    [![Capture d’écran montrant l’option Envoyer la facture par e-mail pour les factures](./media/download-azure-invoice/mca-billing-profile-select-email-invoice.png)](./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png#lightbox)
+1.  Si vous avez plusieurs profils de facturation, sélectionnez-en un.
+1.  Dans la section des destinataires supplémentaires, ajoutez les adresses e-mail auxquelles recevoir les factures.
+    [![Capture d’écran montrant des destinataires supplémentaires pour l’email de facture](./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients.png)](./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients-zoomed.png#lightbox)
+1.  Sélectionnez **Enregistrer**.
+
 ##  <a name="why-you-might-not-see-an-invoice"></a>Je ne vois pas ma facture. Pourquoi ?
 
 <a name="noinvoice"></a>
@@ -231,9 +237,9 @@ Si vous ne voyez pas de facture, cela peut être pour plusieurs raisons :
 
     - Certains clients ont deux identités avec la même adresse e-mail : un compte professionnel et un compte Microsoft. En règle générale, une seule de leurs identités dispose des autorisations d’affichage des factures. S’ils se connectent avec l’identité qui ne dispose pas de l’autorisation, ils ne voient pas les factures. Vérifiez que vous utilisez l’identité correcte pour vous connecter.
 
-- Vous vous êtes connecté au mauvais locataire Azure Active Directory (AAD). 
+- Vous êtes connecté au mauvais locataire Azure Active Directory (Azure AD). 
 
-    - Votre compte de facturation est associé à un locataire AAD. Si vous êtes connecté à un mauvais locataire, vous ne verrez pas la facture des abonnements dans votre compte de facturation. Vérifiez que vous êtes connecté au bon locataire Azure Active Directory (AAD). Si vous n’êtes pas connecté au bon locataire, utilisez la commande suivante pour changer de locataire dans le Portail Azure :
+    - Votre compte de facturation est associé à un locataire Azure AD. Si vous êtes connecté à un mauvais locataire, vous ne verrez pas la facture des abonnements dans votre compte de facturation. Vérifiez que vous êtes connecté au bon locataire Azure AD. Si vous n’êtes pas connecté au bon locataire, utilisez la commande suivante pour changer de locataire dans le Portail Azure :
 
         1. Sélectionnez votre e-mail dans l’angle supérieur droit de la page.
 

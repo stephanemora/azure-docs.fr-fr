@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a831aa7b2f3b0d438d9db8fefa3d26428fea3680
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471883"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862594"
 ---
 # <a name="manage-your-cache"></a>Gérer votre cache
 
@@ -60,13 +60,13 @@ Pour réactiver un cache arrêté, cliquez sur le bouton **Démarrer**. Aucune c
 
 [Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
-Suspendez temporairement un cache avec la commande [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop). Cette action est valide uniquement lorsque l’état d’un cache est **Sain** ou **Détérioré**.
+Suspendez temporairement un cache avec la commande [az hpc-cache stop](/cli/azure/hpc-cache#az_hpc_cache_stop). Cette action est valide uniquement lorsque l’état d’un cache est **Sain** ou **Détérioré**.
 
 Le cache vide automatiquement son contenu dans les cibles de stockage avant de s’arrêter. Ce processus peut prendre un certain temps, mais il garantit la cohérence des données.
 
 Lorsque l’action est terminée, l’état du cache prend la valeur **Arrêté**.
 
-Réactivez un cache arrêté avec la commande [az hpc-cache start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+Réactivez un cache arrêté avec la commande [az hpc-cache start](/cli/azure/hpc-cache#az_hpc_cache_start).
 
 Lorsque vous lancez la commande de démarrage ou d’arrêt, la ligne de commande affiche un message d’état « En cours d’exécution » jusqu’à ce que l’opération se termine.
 
@@ -115,7 +115,7 @@ Pour vider le cache, cliquez sur le bouton **Vider**, puis cliquez sur **Oui** p
 
 [Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
-Utilisez [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) pour forcer le cache à écrire toutes les données modifiées dans les cibles de stockage.
+Utilisez [az hpc-cache flush](/cli/azure/hpc-cache#az_hpc_cache_flush) pour forcer le cache à écrire toutes les données modifiées dans les cibles de stockage.
 
 Exemple :
 
@@ -163,9 +163,9 @@ Cliquez sur le bouton **Mettre à niveau** pour lancer la mise à jour de logici
 
 [Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
-Sur l’interface de ligne de commande Azure, les nouvelles informations relatives au logiciel sont incluses à la fin du rapport d’état du cache. (Utilisez [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) pour vérifier.) Recherchez la chaîne « upgradeStatus » dans le message.
+Sur l’interface de ligne de commande Azure, les nouvelles informations relatives au logiciel sont incluses à la fin du rapport d’état du cache. (Utilisez [az hpc-cache show](/cli/azure/hpc-cache#az_hpc_cache_show) pour vérifier.) Recherchez la chaîne « upgradeStatus » dans le message.
 
-Utilisez [az hpc-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) pour appliquer la mise à jour, le cas échéant.
+Utilisez [az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az_hpc_cache_upgrade-firmware) pour appliquer la mise à jour, le cas échéant.
 
 Si aucune mise à jour n’est disponible, cette opération n’a aucun effet.
 
@@ -227,7 +227,7 @@ Après avoir arrêté le cache, cliquez sur le bouton **Supprimer** pour supprim
 
 [Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
-Utilisez la commande [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) dans l’interface de ligne de commande Azure pour supprimer définitivement le cache.
+Utilisez la commande [az hpc-cache delete](/cli/azure/hpc-cache#az_hpc_cache_delete) dans l’interface de ligne de commande Azure pour supprimer définitivement le cache.
 
 Exemple :
 ```azurecli

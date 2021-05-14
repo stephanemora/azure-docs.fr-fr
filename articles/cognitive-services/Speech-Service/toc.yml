@@ -43,8 +43,6 @@
           items:
             - name: "Qu’est-ce que Custom Speech\_?"
               href: custom-speech-overview.md
-            - name: Tester un modèle avec des fichiers audio dans Speech Studio
-              href: quickstarts/speech-studio-test-model.md
             - name: Préparer des données pour Custom Speech
               href: how-to-custom-speech-test-and-train.md
             - name: Inspecter des données Custom Speech
@@ -489,8 +487,9 @@
           href: ../containers/azure-container-instance-recipe.md
         - name: Questions fréquentes (FAQ) sur les conteneurs
           href: speech-container-faq.md
-        - name: Documentation sur les conteneurs Cognitive Services
+        - name: Documentation sur tous les conteneurs Cognitive Services
           href: ../containers/index.yml
+          maintainContext: true
     - name: Migration
       items:
         - name: À partir de la reconnaissance vocale Bing
@@ -585,9 +584,7 @@
     - name: Speech Studio
       items:
         - name: Vue d’ensemble de Speech Studio
-          href: 'https://speech.microsoft.com'
-        - name: Créer une application de commandes personnalisées avec Speech Studio
-          href: ./quickstart-custom-commands-application.md
+          href: speech-studio-overview.md
     - name: Préparation pour l’entreprise
       items:
         - name: Prise en charge de la région

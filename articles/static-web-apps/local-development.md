@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: e19d39a32d48ec55473bb957595d47ec5148e74b
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: d279ae82d85fd877320e95c92446481c43aac40b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588783"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125640"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurer le développement local pour Azure Static Web Apps en préversion
 
@@ -79,7 +79,7 @@ Ouvrez un terminal dans le dossier racine de votre site Azure Static Web Apps ex
 
     `swa start`
 
-1. Accédez à http://localhost:4280 pour afficher l'application dans le navigateur.
+1. Accédez à `http://localhost:4280` pour afficher l'application dans le navigateur.
 
 ### <a name="other-ways-to-start-the-cli"></a>Autres façons de démarrer l'interface CLI
 
@@ -113,7 +113,7 @@ Une fois connecté :
 
 - Vous pouvez utiliser le point de terminaison `/.auth/me` ou un point de terminaison de fonction pour récupérer le [principal de client](./user-information.md)de l'utilisateur.
 
-- Accédez à `./auth/logout` pour effacer le principal de client et déconnecter l'utilisateur fictif.
+- Accédez à `/.auth/logout` pour effacer le principal de client et déconnecter l'utilisateur fictif.
 
 ## <a name="debugging"></a>Débogage
 

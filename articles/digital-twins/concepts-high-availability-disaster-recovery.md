@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 41edef58910fe2b772831ef083e5aca8bb52a321
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: ee2bd4ab66b7a67be04c1a710caa12c57c705d19
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482266"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209964"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence pour Azure Digital Twins
 
@@ -24,7 +24,7 @@ Azure Digital Twins prend en charge les options de fonctionnalité suivantes :
 * *HA intra-région* : redondance intégrée pour assurer le temps de disponibilité du service
 * *DR inter-régions* : basculement vers une région Azure associée géographiquement dans le cas d’une défaillance inattendue du centre de données
 
-Vous pouvez également consulter la section [*Meilleures pratiques*](#best-practices) pour obtenir des conseils généraux sur la conception de haute disponibilité/récupération d’urgence.
+Vous pouvez également consulter la section [Meilleures pratiques](#best-practices) pour obtenir des conseils généraux sur la conception de haute disponibilité/récupération d’urgence.
 
 ## <a name="intra-region-ha"></a>Haute disponibilité intra-région
  
@@ -65,12 +65,12 @@ Notez que les informations affichées dans cet outil ne sont pas spécifiques d�
 ## <a name="best-practices"></a>Meilleures pratiques
 
 Pour connaître les meilleures pratiques en matière de haute disponibilité/récupération d’urgence, consultez les conseils Azure suivants sur cette rubrique : 
-* L’article [*Conception d’applications résilientes pour Azure*](/azure/architecture/framework/resiliency/overview) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d’activité et de reprise d’activité. 
-* Le document [*Récupération d’urgence et haute disponibilité pour les applications Azure*](/azure/architecture/framework/resiliency/backup-and-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
+* L’article [Conception d’applications résilientes pour Azure](/azure/architecture/framework/resiliency/overview) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d’activité et de reprise d’activité. 
+* Le document [Récupération d’urgence et haute disponibilité pour les applications Azure](/azure/architecture/framework/resiliency/backup-and-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
 En savoir plus sur la prise en main des solutions Azure Digital Twins :
  
-* [*Qu’est-ce qu’Azure Digital Twins ?*](overview.md)
-* [*Démarrage rapide : Explorer un exemple de scénario*](quickstart-azure-digital-twins-explorer.md)
+* [Qu’est-ce qu’Azure Digital Twins ?](overview.md)
+* [Démarrage rapide : Explorer un exemple de scénario](quickstart-azure-digital-twins-explorer.md)

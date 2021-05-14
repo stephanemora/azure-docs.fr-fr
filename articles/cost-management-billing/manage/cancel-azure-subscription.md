@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b20134cbfb85c2dcaef1227e6390c8c6047ad5be
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735773"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109388"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annulation de votre abonnement Azure
 
@@ -76,6 +76,10 @@ Si vous disposez d’un abonnement d’essai gratuit, vous n’êtes pas tenu d�
 1. Sélectionnez votre abonnement dans la page [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
 1. Sélectionnez l'abonnement que vous souhaitez supprimer.
 1. Sélectionnez **Vue d'ensemble**, puis **Supprimer l’abonnement**.
+
+## <a name="delete-other-subscriptions"></a>Supprimer d’autres abonnements
+
+Le seul type d’abonnement que vous pouvez supprimer manuellement est un abonnement d’essai gratuit. Tous les autres types d’abonnements, y compris les abonnements avec paiement à l’utilisation, peuvent être supprimés uniquement par le biais du processus d’[annulation d’abonnement](#cancel-subscription-in-the-azure-portal). En d’autres termes, vous ne pouvez pas supprimer un abonnement directement, sauf s’il s’agit d’un abonnement d’essai gratuit. Toutefois, après avoir annulé un abonnement, vous pouvez créer une [demande de support Azure](https://go.microsoft.com/fwlink/?linkid=2083458) pour demander la suppression immédiate de l’abonnement.
 
 ## <a name="reactivate-a-subscription"></a>Réactiver un abonnement
 

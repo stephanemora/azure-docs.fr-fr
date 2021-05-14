@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: e42096fc32a504ae329d3b179004b6a123de4469
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 2e0a04cef7952822931887f038410ff867cc2afe
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365635"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286723"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -26,8 +26,8 @@ Découvrir les nouveautés du service. Ces éléments peuvent être des notes de
 ### <a name="computer-vision-v32-ga"></a>Vision par ordinateur v3.2 en disponibilité générale
 
 L’API Vision par ordinateur v3.2 est maintenant en disponibilité générale avec les mises à jour suivantes :
-* Modèle d’étiquetage d’image amélioré : analyse le contenu visuel et génère des étiquettes pertinentes en fonction des objets, des actions et du contenu affichés dans l’image. Il est disponible par le biais de l’[API Étiqueter l’image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). Pour en savoir plus, consultez le [guide pratique](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) et la [vue d’ensemble](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) de l’Analyse d’images.
-* Modèle de modération du contenu mis à jour : détecte la présence de contenu pour adultes et fournit des indicateurs permettant de filtrer les images contenant du contenu visuel pour adultes, osé et choquant. Il est disponible par le biais de l’[API Analyser](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Pour en savoir plus, consultez le [guide pratique](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) et la [vue d’ensemble](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) de l’Analyse d’images.
+* Modèle d’étiquetage d’image amélioré : analyse le contenu visuel et génère des étiquettes pertinentes en fonction des objets, des actions et du contenu affichés dans l’image. Il est disponible par le biais de l’[API Étiqueter l’image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). Pour en savoir plus, consultez le [guide pratique](./vision-api-how-to-topics/howtocallvisionapi.md) et la [vue d’ensemble](./overview-image-analysis.md) de l’Analyse d’images.
+* Modèle de modération du contenu mis à jour : détecte la présence de contenu pour adultes et fournit des indicateurs permettant de filtrer les images contenant du contenu visuel pour adultes, osé et choquant. Il est disponible par le biais de l’[API Analyser](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). Pour en savoir plus, consultez le [guide pratique](./vision-api-how-to-topics/howtocallvisionapi.md) et la [vue d’ensemble](./overview-image-analysis.md) de l’Analyse d’images.
 * [OCR (lecture) disponible pour 73 langues](./language-support.md#optical-character-recognition-ocr), dont le chinois simplifié, le chinois traditionnel, le japonais, le coréen et le latin.
 * [OCR (lecture)](./overview-ocr.md) également disponible en tant que [conteneur Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) pour un déploiement local.
 
@@ -41,7 +41,7 @@ L’API Vision par ordinateur v3.2 est maintenant en disponibilité générale 
 La préversion publique de l’API Vision par ordinateur v3.2 a été mise à jour. La préversion offre toutes les fonctionnalités de Vision par ordinateur, ainsi que les versions mises à jour des API Lire et Analyser.
 
 > [!div class="nextstepaction"]
-> [Consulter la préversion publique 3 de Vision par ordinateur v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [Consulter la préversion publique 3 de Vision par ordinateur v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>Février 2021
 
@@ -56,7 +56,7 @@ La préversion publique de l’API Lire v3.2 de Vision par ordinateur, disponibl
 Pour en savoir plus, consultez le [guide pratique consacré à l'API Read](Vision-API-How-to-Topics/call-read-api.md).
 
 > [!div class="nextstepaction"]
-> [Utiliser la préversion publique de l’API Lire v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [Utiliser la préversion publique de l’API Lire v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Janvier 2021

@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: kumud
-ms.openlocfilehash: 9b608312d66e6a3e7455c4577ea4644b33e4e82e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: c98bdbb9fba2a6ba01e4ce590c36d57e68390f17
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079743"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484793"
 ---
 # <a name="azure-networking-architecture-documentation"></a>Documentation sur l’architecture Azure Networking
 
@@ -51,6 +51,7 @@ Le tableau suivant contient des articles décrivant comment déployer vos applic
 |[IaaS : Application Web avec base de données relationnelle](/azure/architecture/high-availability/ref-arch-iaas-web-and-db)    |   Décrit comment utiliser des ressources réparties dans plusieurs zones afin de fournir une architecture de haute disponibilité pour l’hébergement d’une application web IaaS (infrastructure as a service) et d’une base de données SQL Server.     |
 |[Partage d’emplacement en temps réel avec des services Azure serverless à faible coût](/azure/architecture/example-scenario/signalr/#azure-front-door)       |   Utilise Azure Front Door pour fournir une disponibilité plus élevée à vos applications que le déploiement dans une seule région. Si une interruption de service régionale affecte la région principale, vous pouvez utiliser Front Door pour basculer vers la région secondaire.      |
 |[Appliances réseau virtuelles hautement disponible](/azure/architecture/reference-architectures/dmz/nva-ha)     | Montre comment déployer des appliances virtuelles réseau pour la haute disponibilité dans Azure.        |
+|[Équilibrage de charge sur plusieurs régions avec Traffic Manager et Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)     | Explique comment déployer des applications à plusieurs niveaux résilientes dans plusieurs régions Azure, afin d’assurer la disponibilité et d’obtenir une infrastructure de reprise d’activité fiable.        |
 
 ## <a name="secure-your-network-resources"></a>Sécuriser vos ressources réseau
 

@@ -2,14 +2,14 @@
 title: Créer et configurer des coffres Recovery Services
 description: Dans cet article, découvrez comment créer et configurer des coffres Recovery Services stockant les sauvegardes et points de récupération. Découvrez comment utiliser la restauration inter-région pour restaurer dans une région secondaire.
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 04/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1a20cd2b1245febea5fd18a9f6fe6e7a7bb6f04b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e2983e473fac72d02f0fdbc8c307e96326ac0a6
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101716752"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518573"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -69,7 +69,7 @@ Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration inte
 >- La restauration inter-région pour les bases de données SQL Server et SAP HANA sur des machines virtuelles Azure est disponible en préversion dans toutes les régions Azure publiques.
 >- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
->- Actuellement, CRR pour les machines virtuelles Azure est pris en charge uniquement pour les machines virtuelles Azure Resource Manager. Les machines virtuelles Azure classiques ne sont pas prises en charge.  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
+>- Actuellement, la CRR pour les machines virtuelles Azure est prise en charge pour les machines virtuelles Azure Azure Resource Manager et les machines virtuelles Azure chiffrées. Les machines virtuelles Azure classiques ne sont pas prises en charge. Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
 >- La restauration inter-région **ne peut actuellement pas être rétablie** pour revenir au geo-redundant storage (GRS) ou au stockage localement redondant (LRS) une fois que la protection a été lancée pour la première fois.
 >- Actuellement, la région secondaire [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) est jusqu’à 12 heures de la région primaire, même si la réplication du [stockage géo-redondant avec accès en lecture (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) est de 15 minutes.
 

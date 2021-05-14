@@ -1,17 +1,17 @@
 ---
 title: Format XML dans Azure Data Factory
 description: Cette rubrique décrit comment traiter le format XML dans Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.author: jingwang
-ms.openlocfilehash: a4082e1e00ecb1d3b0157fcc35616704eaab0aae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/29/2021
+ms.author: jianleishen
+ms.openlocfilehash: 97e08238f6057eea82bc5cb3e6d96b67ac12e344
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386354"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486500"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML dans Azure Data Factory
 
@@ -91,7 +91,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
-Dans les flux de données de mappage, vous pouvez lire et écrire des données au format XML dans les magasins de données suivants : [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) et [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Vous pouvez pointer vers des fichiers XML à l’aide d’un jeu de données XML ou d’un [jeu de données inline](data-flow-source.md#inline-datasets).
+Dans les flux de données de mappage, vous pouvez lire des données au format XML dans les magasins de données suivants : [Stockage Blob Azure](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) et [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Vous pouvez pointer vers des fichiers XML à l’aide d’un jeu de données XML ou d’un [jeu de données inline](data-flow-source.md#inline-datasets).
 
 ### <a name="source-properties"></a>Propriétés de source
 

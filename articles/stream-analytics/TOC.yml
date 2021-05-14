@@ -1,6 +1,6 @@
 - name: Documentation sur Azure Stream Analytics
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Bienvenue dans Stream\_Analytics"
       href: stream-analytics-introduction.md
@@ -39,12 +39,12 @@
     - name: Créer un désérialiseur .NET personnalisé
       href: custom-deserializer.md
     - name: Créer un travail IoT Edge
-      href: ../iot-edge/tutorial-deploy-stream-analytics.md?view=iotedge-2018-06
+      href: ../iot-edge/tutorial-deploy-stream-analytics.md
       maintainContext: true
 - name: Exemples
   items:
     - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
+      href: /samples/browse/?products=azure-stream-analytics
 - name: Concepts
   items:
     - name: Modèles de solution de bout en bout
@@ -63,7 +63,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json
     - name: Types d’entrée pour un travail
       items:
         - name: Vue d’ensemble des entrées
@@ -316,13 +316,13 @@
               href: external-error-codes.md
             - name: Erreurs internes
               href: internal-error-codes.md
-    - name: Intégrer à Machine Learning
+    - name: "Intégrer à Machine\_Learning"
       items:
         - name: Analyse d’opinions avec les modèles ML
           href: stream-analytics-machine-learning-integration-tutorial.md
         - name: Détection des anomalies
           href: stream-analytics-machine-learning-anomaly-detection.md
-        - name: Utiliser les API REST
+        - name: Utiliser les API REST ML
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Déboguer à l’aide du diagramme de travail
       href: stream-analytics-job-diagram-with-metrics.md
@@ -677,7 +677,7 @@
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: Azure CLI
-      href: /cli/azure/ext/stream-analytics/stream-analytics
+      href: /cli/azure/stream-analytics
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
@@ -688,7 +688,7 @@
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blog
-      href: 'https://azure.microsoft.com/blog/tag/azure-stream-analytics/'
+      href: 'https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure'
     - name: Forum de commentaires
       href: 'https://feedback.azure.com/forums/270577-azure-stream-analytics'
     - name: Page de questions Microsoft Q&A
@@ -705,5 +705,3 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
     - name: Études de cas clients
       href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
-    - name: Livre blanc - Traitement d’événements en temps réel
-      href: stream-analytics-real-time-event-processing-reference-architecture.md

@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: b626012ad825b263e4f837159a067ed1d817d93a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 4/15/2021
+ms.openlocfilehash: ff67d5150e6bb95e900d3a81e0025216ffb19471
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608597"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133382"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Présentation de la co-vente avec les équipes de vente et les partenaires Microsoft
 
@@ -80,13 +80,13 @@ Les offres qui obtiennent le statut de _Co-vente Azure IP avec incentives_ bén�
 - Les frais de service de la place de marché passent de 20 % à 10 %. Cette remise s’applique à votre solution IaaS (infrastructure as a service) ou SaaS (software as a service) vendue sur la Place de marché commerciale. Pour plus d’informations, consultez [Frais de service du marketplace commercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Les partenaires fournisseurs de solutions cloud (CSP) reçoivent une prime de 10 % pour vendre votre offre SaaS ou solution IaaS. Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](cloud-solution-providers.md).
 - Les ventes de votre offre via la Place de marché Azure contribueront aux engagements Azure Consumption Commitment des clients. Pour les clients éligibles, l’offre sera accompagnée de la mention **Éligible à Azure Benefit** dans le portail Azure. Pour plus d’informations, consultez [Avantage d’Azure Consumption Commitment](azure-consumption-commitment-benefit.md).
-- Les offres qui atteignent le statut _Co-vente Azure IP avec incentives_ ou qui sont inscrites dans le [Programme Microsoft Business Applications ISV Connect](business-applications-isv-program.md) avec le statut de préparation pour la co-vente recevront un badge **Solutions Microsoft préférées** dans la page d’annonce de l’offre dans les magasins en ligne. Ce badge démontre la qualité, les performances et la capacité d’une offre à répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis.
+- Les offres qui atteignent le statut _Co-vente Azure IP avec incentives_ ou qui sont inscrites dans le [Programme Microsoft Business Applications ISV Connect](business-applications-isv-program.md) avec le statut de préparation pour la co-vente recevront un badge **Solutions Microsoft préférées** dans la page d’annonce de l’offre dans les magasins en ligne : [Place de marché Azure](https://azuremarketplace.microsoft.com/) et [AppSource](https://appsource.microsoft.com/).  Une fois qu’une offre a atteint l’état correspondant, le badge de la solution préférée peut prendre jusqu’à 30 jours pour s’afficher dans le magasin en ligne. Ce badge démontre la qualité, les performances et la capacité d’une offre à répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis.
 
 Pour découvrir comment atteindre les statuts Prêt pour la co-vente et Co-vente avec incentives, consultez [Conditions des statuts Prêt pour la co-vente et Co-vente avec incentives](co-sell-requirements.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les conditions, consultez [Conditions des statuts Prêt pour la co-vente et Co-vente avec incentives](co-sell-requirements.md).
-- Pour configurer une offre pour la co-vente, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](commercial-marketplace-co-sell.md).
+- Pour configurer une offre pour la co-vente, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md).
 - Pour vérifier le statut de co-vente, consultez [Vérifier le statut de co-vente d’une offre](co-sell-status.md).
 - Découvrez plus en détail la [Co-vente avec Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).

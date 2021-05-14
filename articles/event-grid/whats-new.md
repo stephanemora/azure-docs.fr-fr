@@ -2,13 +2,13 @@
 title: Nouveautés Notes de publication - Azure Event Grid
 description: Découvrez les nouveautés d’Azure Event Grid, notamment les dernières notes de publication, les problèmes connus, les corrections de bogues, les fonctionnalités dépréciées et les modifications à venir.
 ms.topic: overview
-ms.date: 07/23/2020
-ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/27/2021
+ms.openlocfilehash: ccb8df774838a1b71ddec08394d7487bf3176039
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107531"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135920"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Nouveautés d’Azure Event Grid
 
@@ -21,6 +21,24 @@ Azure Event Grid bénéficie d’améliorations en continu. Pour vous informer d
 - Résolution des bogues
 - Fonctionnalités dépréciées
 - Modifications planifiées
+
+## <a name="610-preview-2020-10"></a>6.1.0-preview (2020-10)
+- [Rubriques relatives aux identités gérées pour les systèmes](enable-identity-system-topics.md)
+- [Propriétés de remise personnalisées](delivery-properties.md)
+- [Durée de vie des messages dans le stockage File d’attente](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)
+- [Améliorations des filtres avancés](event-filtering.md#advanced-filtering)
+    - Prise en charge du filtrage des données de tableau dans les événements entrants
+    - Possibilité de filtrage sur les attributs de contexte des extensions CloudEvents
+    - Nouveaux opérateurs
+        - StringNotContains
+        - StringNotBeginsWith
+        - StringNotEndsWith
+        - NumberInRange
+        - NumberNotInRange
+        - IsNullOrUndefined
+        - IsNotNull
+- [Autoriser les transformations du schéma Event Grid en schéma CloudEvents 1.0 pour les rubriques et les domaines personnalisés](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+        
 
 ## <a name="600-2020-06"></a>6.0.0 (2020-06)
 - Ajout de la prise en charge de la nouvelle API de service en disponibilité générale (GA) version 2020-06-01.

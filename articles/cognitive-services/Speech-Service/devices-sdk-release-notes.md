@@ -10,16 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: f9215469b1436ce9dc95c140e6969366d80d1ced
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5214d914c104fdf6df302c7879230bba2b3d2928
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607131"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891839"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notes de publication : Kit de développement logiciel (SDK) Speech Devices
 
 Les sections suivantes dressent la liste des modifications dans les versions les plus récentes.
+
+## <a name="speech-devices-sdk-1160"></a>SDK Speech Devices 1.16.0 :
+
+- Correction du [problème Github no 22](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues/22).
+- Mise à jour du composant [SDK Speech](./speech-sdk.md) vers la version 1.16.0. Pour plus d’informations, consultez ses [notes de publication](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-1150"></a>SDK Speech Devices 1.15.0 :
 

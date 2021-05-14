@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 7a30a7ab6689b602bc9ad4f696a6fe54c80f2151
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ef3b19e5064c8a88bf80eebf57539be72747fe4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90992675"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482515"
 ---
 # <a name="best-practices-when-using-managed-hsm"></a>Meilleures pratiques d’utilisation du HSM managé
 
@@ -23,8 +23,10 @@ ms.locfileid: "90992675"
 Le HSM managé est un service cloud qui protège les clés de chiffrement. Ces données étant sensibles et critiques, veillez à sécuriser l’accès à vos HSM managés en permettant seulement aux applications et utilisateurs autorisés d’y accéder. Cet [article](access-control.md) fournit une vue d’ensemble du modèle d’accès. Il décrit l’authentification et l’autorisation, ainsi que le contrôle d’accès en fonction du rôle.
 - Créez un [groupe de sécurité Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md) pour les administrateurs HSM (plutôt que de leur attribuer le rôle d’administrateur). Cela permet d’éviter un « verrouillage administratif » en cas de suppression d’un compte individuel.
 - Verrouillez l’accès à vos groupes d’administration, abonnements, groupes de ressources et HSM managés. Utilisez Azure RBAC pour contrôler l’accès à vos groupes d’administration, abonnements et groupes de ressources.
-- Créer des attributions de rôle par clé à l’aide de [RBAC local HSM managé](access-control.md#data-plane-and-managed-hsm-local-rbac)
-- Utiliser le principe des privilèges d’accès minimum pour attribuer des rôles
+- Créez des attributions de rôle par clé à l’aide du [RBAC local HSM managé](access-control.md#data-plane-and-managed-hsm-local-rbac).
+- Pour maintenir la séparation des tâches, évitez d’attribuer plusieurs rôles aux mêmes principaux. 
+- Utilisez un principal à l’accès le moins privilégié pour attribuer des rôles.
+- Créez une définition de rôle personnalisée avec un ensemble précis d’autorisations.
 
 ## <a name="choose-regions-that-support-availability-zones"></a>Choisir les régions prenant en charge les zones de disponibilité
 

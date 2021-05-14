@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/22/2021
 ms.author: b-juche
-ms.openlocfilehash: 9b061184f97abeea79912aadbae2c2b188206c72
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: b5abb26a5a96b73f06f25661c62061f664069ee3
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057998"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903485"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -44,19 +44,40 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 |  Taille maximale d’un volume     |    100 Tio    |    Non    |
 |  Taille maximale d’un fichier unique     |    16 Tio    |    Non    |    
 |  Taille maximale des métadonnées de répertoire dans un répertoire unique      |    320 Mo    |    Non    |    
+|  Nombre maximal de fichiers dans un seul répertoire  | *Environ* 4 millions. <br> Voir [Déterminer si un répertoire approche de la taille limite](#directory-limit).  |    Non    |   
 |  Nombre maximal de fichiers ([maxfiles](#maxfiles)) par volume     |    100 millions    |    Oui    |    
 |  Nombre maximal de règles de stratégie d’exportation par volume     |    5  |    Non    | 
 |  Débit minimum attribué pour un volume avec Qualité de service manuelle     |    1 Mio/s   |    Non    |    
 |  Débit maximum attribué pour un volume avec Qualité de service manuelle     |    4 500 Mio/s    |    Non    |    
 |  Nombre de volumes de protection des données de réplication inter-région (volumes de destination)     |    5    |    Oui    |     
 
-Pour voir si la taille d’un répertoire approche de la limite maximale pour des métadonnées de répertoire (320 Mo), consultez [Comment déterminer si un répertoire approche de la limite de taille](azure-netapp-files-faqs.md#how-do-i-determine-if-a-directory-is-approaching-the-limit-size).   
-
 Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs).
+
+## <a name="determine-if-a-directory-is-approaching-the-limit-size"></a>Déterminer si un répertoire approche de la taille limite<a name="directory-limit"></a>  
+
+Vous pouvez utiliser la commande `stat` à partir d’un client pour voir si la taille d’un annuaire approche de la limite maximale pour des métadonnées d’annuaire (320 Mo).   
+
+Pour un annuaire de 320 Mo, les blocs sont au nombre de 655 360, d’une taille 512 octets chacun  (soit, 320 x 1 024 x 1 024/512). Ce nombre se traduit par environ 4 millions de fichiers au maximum pour un annuaire de 320 Mo. Toutefois, le nombre de fichiers maximal réel peut être inférieur, en fonction de facteurs tels que le nombre de fichiers contenant des caractères non-ASCII dans l’annuaire. Par conséquent, vous devez utiliser la commande `stat` comme suit pour déterminer si votre annuaire approche de sa limite.  
+
+Exemples :
+
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
+ 
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
 
 ## <a name="maxfiles-limits"></a>Limites maxfiles <a name="maxfiles"></a> 
 
-Les volumes Azure NetApp Files ont une limite appelée *maxfiles*. La limite maxfiles correspond au nombre de fichiers qu’un volume peut contenir. La limite maxfiles d’un volume Azure NetApp Files est indexée en fonction de la taille (du quota) du volume. La limite maxfiles d’un volume augmente ou diminue au rythme de 20 millions de fichiers par Tio de taille de volume provisionnée. 
+Les volumes Azure NetApp Files ont une limite appelée *maxfiles*. La limite maxfiles correspond au nombre de fichiers qu’un volume peut contenir. Les systèmes de fichiers Linux se réfèrent à la limite en tant qu’*inodes*. La limite maxfiles d’un volume Azure NetApp Files est indexée en fonction de la taille (du quota) du volume. La limite maxfiles d’un volume augmente ou diminue au rythme de 20 millions de fichiers par Tio de taille de volume provisionnée. 
 
 Le service ajuste dynamiquement la limite maxfiles d’un volume en fonction de sa taille provisionnée. Par exemple, un volume configuré initialement avec une taille de 1 Tio a une limite maxfiles de 20 millions. Les modifications ultérieures apportées à la taille du volume entraînent une réajustement automatique de la limite maxfiles selon les règles suivantes : 
 
@@ -68,7 +89,9 @@ Le service ajuste dynamiquement la limite maxfiles d’un volume en fonction de 
 |    > 3 Tio mais <= 4 Tio    |    80 millions     |
 |    > 4 Tio                 |    100 millions    |
 
-Si vous avez déjà alloué au moins 4 Tio de quota pour un volume, vous pouvez initier une [demande de support](#limit_increase) afin d’augmenter la limite maxfiles au-delà de 100 millions. Tous les 100 millions de fichiers que vous augmentez (ou une fraction de ceux-ci), vous devez augmenter le quota de volume correspondant de 4 Tio.  Par exemple, si vous augmentez la limite maxfiles de 100 millions de fichiers à 200 millions de fichiers (ou n’importe quel nombre dans cette plage), vous devez augmenter le quota de volume de 4 Tio à 8 Tio.
+Si vous avez déjà alloué au moins 4 Tio de quota pour un volume, vous pouvez initier une [demande de support](#limit_increase) afin d’augmenter la limite maxfiles (inodes) au-delà de 100 millions. Tous les 100 millions de fichiers que vous augmentez (ou une fraction de ceux-ci), vous devez augmenter le quota de volume correspondant de 4 Tio.  Par exemple, si vous augmentez la limite maxfiles de 100 millions de fichiers à 200 millions de fichiers (ou n’importe quel nombre dans cette plage), vous devez augmenter le quota de volume de 4 Tio à 8 Tio.
+
+Vous pouvez augmenter la limite maxfiles à 500 millions si votre quota de volume est d’au moins 20 Tio. <!-- ANF-11854 --> 
 
 ## <a name="request-limit-increase"></a>Demander une augmentation de limite <a name="limit_increase"></a> 
 

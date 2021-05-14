@@ -1,15 +1,15 @@
 ---
-ms.openlocfilehash: cc628b1f1fcae5e837f7f61db584c8747100f353
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 340635f273c20c9d8b42fde0c07a7aa97d9f348a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644746"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293232"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/dotnet/).
-- Installer le [module PowerShell Azure Az](https://docs.microsoft.com/powershell/azure/)
+- Installer le [module PowerShell Azure Az](/powershell/azure/)
 
 ## <a name="create-azure-communication-resource"></a>Créer une ressource Azure Communication
 

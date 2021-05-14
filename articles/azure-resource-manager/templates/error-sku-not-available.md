@@ -2,19 +2,18 @@
 title: Erreurs de SKU non disponible
 description: Décrit comment résoudre les erreurs de référence SKU non disponible quand vous déployez des ressources avec Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 02/18/2020
-ms.openlocfilehash: 5b0bbd653907c109eca526af86979013b3137cfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2ed04cd3839b8146d7e988b571113a737f38801f
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737148"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318726"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Résoudre les erreurs de référence SKU non disponible
 
 Cet article décrit comment résoudre les erreurs **SkuNotAvailable**. Si vous ne parvenez pas à trouver de référence SKU appropriée dans cette région/zone ou une autre qui réponde aux besoins de votre entreprise, envoyez une [demande de référence SKU](/troubleshoot/azure/general/region-access-request-process) au support Azure.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Symptôme
 
@@ -30,7 +29,7 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Vous recevez cette erreur lorsque la ressource de référence SKU que vous avez sélectionnée (par exemple, la taille de la machine virtuelle) n’est pas disponible pour l’emplacement que vous avez sélectionné.
 
-Si vous déployez une machine virtuelle Azure Spot ou une instance de groupe identique Spot, il n’y a aucune capacité pour Azure Spot à cet emplacement. Pour plus d’informations, consultez [Messages d’erreur Spot](../../virtual-machines/error-codes-spot.md).
+Si vous déployez une machine virtuelle Azure Spot ou une instance de groupe identique Spot, il n’y a aucune capacité pour Azure Spot à cette localisation. Pour plus d’informations, consultez [Messages d’erreur Spot](../../virtual-machines/error-codes-spot.md).
 
 ## <a name="solution-1---powershell"></a>Solution 1 : PowerShell
 
@@ -51,31 +50,67 @@ virtualMachines       Standard_A2    centralus             NotAvailableForSubscr
 virtualMachines       Standard_D1_v2 centralus   {2, 1, 3}                                  MaxResourceVolumeMB
 ```
 
-Quelques exemples supplémentaires :
+Pour filtrer par localisation et référence SKU, utilisez :
 
 ```azurepowershell-interactive
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
-```
+$SubId = (Get-AzContext).Subscription.Id
 
-L’ajout de « fc » à la fin retourne plus d’informations.
+$Region = "centralus" # change region here
+$VMSku = "Standard_M" # change VM SKU here
 
-## <a name="solution-2---azure-cli"></a>Solution 2 : Azure CLI
+$VMSKUs = Get-AzComputeResourceSku | where {$_.Locations.Contains($Region) -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains($VMSku)}
 
-Pour déterminer les références SKU qui sont disponibles dans une région, utilisez la commande `az vm list-skus`. Utilisez le paramètre `--location` pour filtrer la sortie vers l’emplacement que vous utilisez. Utilisez le paramètre `--size` pour rechercher par un nom partiel.
+$OutTable = @()
 
-```azurecli-interactive
-az vm list-skus --location southcentralus --size Standard_F --output table
+foreach ($SkuName in $VMSKUs.Name)
+        {
+            $LocRestriction = if ((($VMSKUs | where Name -EQ $SkuName).Restrictions.Type | Out-String).Contains("Location")){"NotAvavalableInRegion"}else{"Available - No region restrictions applied" }
+            $ZoneRestriction = if ((($VMSKUs | where Name -EQ $SkuName).Restrictions.Type | Out-String).Contains("Zone")){"NotAvavalableInZone: "+(((($VMSKUs | where Name -EQ $SkuName).Restrictions.RestrictionInfo.Zones)| Where-Object {$_}) -join ",")}else{"Available - No zone restrictions applied"}
+            
+            
+            $OutTable += New-Object PSObject -Property @{
+                                                         "Name" = $SkuName
+                                                         "Location" = $Region
+                                                         "Applies to SubscriptionID" = $SubId
+                                                         "Subscription Restriction" = $LocRestriction
+                                                         "Zone Restriction" = $ZoneRestriction
+                                                         }
+         }
+
+$OutTable | select Name, Location, "Applies to SubscriptionID", "Region Restriction", "Zone Restriction" | Sort-Object -Property Name | FT
 ```
 
 La commande retourne des résultats similaires à ce qui suit :
 
 ```output
-ResourceType     Locations       Name              Zones    Capabilities    Restrictions
----------------  --------------  ----------------  -------  --------------  --------------
-virtualMachines  southcentralus  Standard_F1                ...             None
-virtualMachines  southcentralus  Standard_F2                ...             None
-virtualMachines  southcentralus  Standard_F4                ...             None
+Name                   Location  Applies to SubscriptionID            Region Restriction                         Zone Restriction                        
+----                   --------  -------------------------            ------------------------                   ----------------     
+Standard_M128          centralus xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Available - No region restrictions applied Available - No zone restrictions applied
+Standard_M128-32ms     centralus xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Available - No region restrictions applied Available - No zone restrictions applied
+Standard_M128-64ms     centralus xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Available - No region restrictions applied Available - No zone restrictions applied
+Standard_M128dms_v2    centralus xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx NotAvavalableInRegion                      NotAvavalableInZone: 1,2,3
+```
+
+## <a name="solution-2---azure-cli"></a>Solution 2 : Azure CLI
+
+Pour déterminer les références SKU qui sont disponibles dans une région, utilisez la commande [az vm list-skus](/cli/azure/vm#az_vm_list_skus). Utilisez le paramètre `--location` pour filtrer la sortie par localisation. Utilisez le paramètre `--size` pour rechercher par un nom partiel. Utilisez le paramètre `--all` pour afficher toutes les informations, y compris les tailles qui ne sont pas disponibles pour l’abonnement actuel.
+
+Vous devez disposer d’Azure CLI 2.15.0 ou version ultérieure. Pour vérifier votre version, utilisez `az --version`. Si nécessaire, [mettez votre installation à jour](/cli/azure/update-azure-cli).
+
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --all --output table
+```
+
+La commande retourne des résultats similaires à ce qui suit :
+
+```output
+ResourceType     Locations       Name              Zones    Restrictions
+---------------  --------------  ----------------  -------  --------------
+virtualMachines  southcentralus  Standard_F1       1,2,3    None
+virtualMachines  southcentralus  Standard_F2       1,2,3    None
+virtualMachines  southcentralus  Standard_F4       1,2,3    None
+...
+virtualMachines  southcentralus  Standard_F72s_v2  1,2,3    NotAvailableForSubscription, type: Zone, locations: southcentralus, zones: 1,2,3
 ...
 ```
 

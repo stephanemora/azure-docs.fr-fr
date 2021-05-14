@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 335f78bba24947b1b6c3d6132bc38f237b3298b9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fb874c25ab688cc5e6723d1023157b8acd9478b9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449137"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483840"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Démarrage rapide : Création de votre premier site statique avec Azure Static Web Apps
 
@@ -72,7 +72,21 @@ Ensuite, ouvrez Visual Studio Code et accédez à **Fichier > Ouvrir le dossier
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Présélections d'application : Angular":::
+    Même s’il y a une présélection Angular, sélectionnez l’option **Personnalisé** afin de fournir un emplacement de sortie qui soit adapté à cette application.
+
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Présélections d'application : Angular":::
+
+    Entrez **./** comme emplacement des fichiers d'application.
+
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Emplacement des fichiers d'application : Angular":::
+
+    Sélectionnez **Ignorer pour le moment** pour l'emplacement de l'API Azure Functions.
+
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Emplacement de l’API : Angular":::
+
+    Entrez **dist/angular-basic** pour l’emplacement de sortie de la build.
+
+    :::image type="content" source="media/getting-started/extension-angular.png" alt-text="Emplacement de sortie de la build d'application : Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 

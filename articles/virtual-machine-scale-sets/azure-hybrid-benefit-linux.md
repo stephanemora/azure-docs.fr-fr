@@ -6,27 +6,28 @@ documentationcenter: ''
 author: mathapli
 manager: rochakm
 ms.service: virtual-machine-scale-sets
+ms.subservice: azure-hybrid-benefit
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/20/2021
 ms.author: mathapli
-ms.openlocfilehash: a714434c39a0c40c2e908f2d0c424f02851921a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: afbdd490a429c86f1842b83fb62c3ce6a023a0ed
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933676"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750942"
 ---
-# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set-public-preview"></a>Azure Hybrid Benefit pour un groupe de machines virtuelles identiques Linux (préversion publique)
+# <a name="azure-hybrid-benefit-for-linux-virtual-machine-scale-set"></a>Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux
 
-**Azure Hybrid Benefit pour un groupe de machines virtuelles identiques Linux est désormais en préversion publique**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) RHEL et SLES.
+**Azure Hybrid Benefit pour groupe de machines virtuelles identiques Linux est désormais en disponibilité générale**. L’avantage AHB peut vous aider à réduire le coût d’exécution de vos [groupes de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) RHEL et SLES.
 
 Avec cet avantage, vous payez uniquement le coût d’infrastructure de votre groupe identique. L’avantage s’applique à toutes les images PAYG (paiement à l’accès) de la place de marché RHEL et SLES.
 
 
 >[!NOTE]
-> Cet article décrit les Azure Hybrid Benefit pour Linux VMSS. Il existe un autre [article disponible [ici AHB pour les machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), qui est déjà disponible pour les clients Azure depuis novembre 2020.
+> Cet article décrit les Azure Hybrid Benefit pour Linux VMSS. Il existe un autre [article disponible [ici AHB pour les machines virtuelles Linux](../virtual-machines/linux/azure-hybrid-benefit-linux.md), qui est déjà disponible pour les clients Azure depuis novembre 2020.
 
 ## <a name="benefit-description"></a>Description de l’avantage
 Azure Hybrid vous permet d’utiliser les licences d’accès cloud existantes de Red Hat ou SUSE et de convertir de manière flexible les instances de groupe de machines virtuelles identiques pour la facturation BYOS. 
@@ -71,7 +72,23 @@ Pour commencer à utiliser l’avantage pour SUSE :
 
 
 ## <a name="enable-and-disable-the-benefit-on-azure-portal"></a>Activer et désactiver l’avantage sur le Portail Azure 
-L’utilisation du Portail pour l’activation et la désactivation d’AHB sur un groupe de machines virtuelles identiques n’est **pas disponible actuellement**.
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation"></a>Exemple pour activer l’avantage pendant la création via le portail Azure :
+1. Visitez le [portail Microsoft Azure](https://portal.azure.com/)
+1. Accédez à la page « Créer un groupe de machines virtuelles identiques » sur le portail.
+ ![AHB lors de la création de VMSS](./media/azure-hybrid-benefit-linux/create-vmss-ahb.png)
+1. Cochez la case pour activer la conversion AHB et utiliser des licences d’accès Cloud.
+ ![Case à cocher AHB lors de la création de VMSS](./media/azure-hybrid-benefit-linux/create-vmss-ahb-checkbox.png)
+1. Créer un groupe de machines virtuelles identiques en suivant les instructions suivantes
+1. Vérifiez le panneau **Configuration** et l’option activée s’affiche. 
+![Panneau du système d’exploitation AHB après la création](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-virtual-machine-scale-set"></a>Exemple pour activer l’avantage d’un groupe de machines virtuelles identiques existant via le portail Azure :
+1. Visitez le [portail Microsoft Azure](https://portal.azure.com/)
+1. Ouvrez la page « Groupe de machines virtuelles identiques » sur laquelle vous souhaitez appliquer la conversion.
+1. Accédez à l’option **Système d’exploitation** sur la gauche. La section Licences s’affiche. Pour activer la conversion AHB, cochez la case d’option « Oui », puis cochez la case confirmation.
+![Panneau de configuration AHB après la création](./media/azure-hybrid-benefit-linux/create-vmss-ahb-os-blade.png)
+
+
 
 ## <a name="enable-and-disable-the-benefit-using-azure-cli"></a>Activer et désactiver l’avantage avec Azure CLI
 
@@ -94,7 +111,7 @@ az vmss update -g myResourceGroup -n myVmName --license-type None
 ```
 
 >[!NOTE]
-> Les groupes identiques ont une [« stratégie de mise à niveau »](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) qui détermine la façon dont les machines virtuelles sont mises à jour à l’aide du dernier modèle du groupe identique. Par conséquent, si votre VMSS a une stratégie de mise à niveau « automatique », l’avantage AHB est appliqué automatiquement à mesure que les instances de machine virtuelle sont mises à jour. Si les VMSS ont une stratégie de mise à niveau « propagée », en fonction des mises à jour planifiées, AHB est appliqué.
+> Les groupes identiques ont une [« stratégie de mise à niveau »](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) qui détermine la façon dont les machines virtuelles sont mises à jour à l’aide du dernier modèle du groupe identique. Par conséquent, si votre VMSS a une stratégie de mise à niveau « automatique », l’avantage AHB est appliqué automatiquement à mesure que les instances de machine virtuelle sont mises à jour. Si les VMSS ont une stratégie de mise à niveau « propagée », en fonction des mises à jour planifiées, AHB est appliqué.
 Dans le cas d’une stratégie de mise à niveau « manuelle », vous devez effectuer une « mise à niveau manuelle » de chaque machine virtuelle existante.  
 
 ### <a name="cli-example-to-upgrade-virtual-machine-scale-set-instances-in-case-of-manual-upgrade-policy"></a>Exemple de CLI pour mettre à niveau des instances de groupe de machines virtuelles identiques en cas de stratégie « Mise à niveau manuelle » 

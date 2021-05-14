@@ -3,16 +3,16 @@ title: Copier des données dans Dynamics (Common Data Service)
 description: Découvrez comment copier des données à partir de Microsoft Dynamics CRM ou Microsoft Dynamics 365 (Common Data Service/Microsoft Dataverse) vers des magasins de données récepteurs pris en charge ou à partir de magasins de données sources pris en charge vers Dynamics CRM ou Dynamics 365 à l’aide de l’activité de copie disponible dans un pipeline de Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: f2db75fdcd4519b5ba0869bf4ef89c8323435539
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c949ed8d0ecb35df0a2c31bb90514c18cf3a3755
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565977"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484322"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données depuis et vers Dynamics 365 (Common Data Service/Microsoft Dataverse) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -63,7 +63,7 @@ Pour utiliser ce connecteur avec l’authentification du principal du service Az
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques de Dynamics.
 

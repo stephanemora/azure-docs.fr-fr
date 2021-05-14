@@ -1,18 +1,18 @@
 ---
 title: Résoudre les problèmes de routage des messages Azure IoT
-description: Comment résoudre les problèmes liés au routage de messages Azure IoT
+description: Découvrez comment résoudre les problèmes de routage de messages Azure IoT Hub.
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daa0b1dd47884b104cc353a7483d71ff7eded2c7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149662"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287857"
 ---
 # <a name="troubleshooting-message-routing"></a>Résoudre les problèmes de routage des messages
 
@@ -59,11 +59,13 @@ Une fois qu’une route est créée, les données cessent de circuler vers le po
 
 L’itinéraire de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux [hubs d’événements existants](iot-hub-devguide-messages-read-builtin.md) (messages/événements), compatible avec [Event Hubs](../event-hubs/index.yml). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré.
 
-Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Panneau Routage des messages. Vous pouvez également utiliser Azure Resource Manager pour que [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) utilise un point de terminaison personnalisé pour la route de secours.
+L’itinéraire de secours envoie tous les messages qui ne satisfont à aucune des conditions de la requête sur l’un des itinéraires existants vers les [hubs d’événements intégrés](iot-hub-devguide-messages-read-builtin.md) (messages/événements) compatibles avec [Event Hubs](../event-hubs/index.yml). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. S’il n’existe pas d’itinéraire vers le point de terminaison intégré et qu’un itinéraire de secours est activé, seuls les messages qui ne satisfont à aucune des conditions de la requête sur les itinéraires sont envoyés au point de terminaison intégré. Par ailleurs, si tous les itinéraires existants sont supprimés, l’itinéraire de secours doit être activé pour recevoir toutes les données sur le point de terminaison intégré.
+
+L’itinéraire de secours peut être activé et désactivé sur le Portail Azure à l’aide du panneau Routage des messages du hub IoT. Vous pouvez également utiliser Azure Resource Manager afin que [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) emploie un point de terminaison personnalisé pour un itinéraire de secours.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>Les dernières erreurs connues pour les points de terminaison de routage IoT Hub
 
-<a id="last-known-errors"></a>
+<a id="last-known-errors"></a>  <!-- why are we using anchors? robin -->
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
 ## <a name="routes-resource-logs"></a>Journaux de ressources des routes

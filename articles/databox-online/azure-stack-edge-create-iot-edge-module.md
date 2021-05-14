@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4519bc187c4ec53294e5eef15c4ad1954b691224
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91951143"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870838"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Développer un module IoT Edge en C# pour déplacer des fichiers avec Azure Stack Edge Pro
 
@@ -57,10 +57,10 @@ Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
     - [Visual Studio Code](https://code.visualstudio.com/).
     - [Extension C# pour Visual Studio Code (développée par OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Extension Azure IoT Edge pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
-    - [SDK .NET Core 2.1](https://www.microsoft.com/net/download).
+    - [SDK .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). Vous devrez peut-être créer un compte pour télécharger et installer le logiciel.
 
-## <a name="create-a-container-registry"></a>Créer un registre de conteneur
+## <a name="create-a-container-registry"></a>Créer un registre de conteneurs
 
 Un registre Azure Container Registry est un registre Docker privé dans Azure, dans lequel vous pouvez stocker et gérer vos images conteneurs Docker privées. Azure Container Registry et Docker Hub sont les deux services de registre Docker populaires disponibles dans le cloud. Cet article utilise le service Container Registry.
 

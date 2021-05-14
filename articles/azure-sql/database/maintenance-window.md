@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/23/2021
-ms.openlocfilehash: 9d7ab0498673ad7006087b66575eea9371b96d11
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/28/2021
+ms.openlocfilehash: a02735c20b7286df4aafef998066b9edfc519ef4
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565878"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228277"
 ---
 # <a name="maintenance-window-preview"></a>Fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "105565878"
 La fonctionnalité de fenêtre de maintenance vous permet de configurer la planification de la maintenance pour les ressources [Azure SQL Database](sql-database-paas-overview.md) et [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), ce qui rend les événements de maintenance à fort impact prévisibles et moins disruptifs pour votre charge de travail. 
 
 > [!Note]
-> La fonctionnalité de fenêtre de maintenance ne protège pas contre les événements non planifiés, comme les défaillances matérielles, qui peuvent entraîner des interruptions de connexion de courte durée.
+> La fonctionnalité de fenêtre de maintenance protège uniquement de l’impact planifié des mises à niveau ou de la maintenance planifiée. Elle ne protège pas de toutes les causes de basculement ; les exceptions qui peuvent provoquer de brèves interruptions de connexion en dehors d’une fenêtre de maintenance incluent les défaillances matérielles, l’équilibrage de charge de cluster et les reconfigurations de bases de données dues à des événements tels qu’une modification de l’objectif de niveau de service de base de données. 
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -34,7 +34,7 @@ La fenêtre de maintenance est destinée aux charges de travail de production qu
 La fenêtre de maintenance peut être configurée pour des ressources Azure SQL nouvelles ou existantes. Elle peut être configurée à l’aide du portail Azure, de PowerShell, de l’interface CLI ou de l’API Azure.
 
 > [!Important]
-> La configuration de la fenêtre de maintenance est une opération asynchrone durable, similaire à la modification du niveau de service de la ressource Azure SQL. La ressource est disponible pendant l'opération, à l'exception d'une reconfiguration rapide qui se produit à la fin de l'opération et qui dure généralement moins de huit secondes, même en cas de transactions durables interrompues. Pour réduire l'impact de la reconfiguration, vous devez effectuer l'opération en dehors des heures de pointe.
+> La configuration de la fenêtre de maintenance est une opération asynchrone durable, similaire à la modification du niveau de service de la ressource Azure SQL. La ressource est disponible pendant l’opération, à l’exception d’une reconfiguration rapide qui se produit à la fin de l’opération et qui dure généralement jusqu’à huit secondes, même en cas de transactions durables interrompues. Pour réduire l'impact de la reconfiguration, vous devez effectuer l'opération en dehors des heures de pointe.
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Obtenir davantage de prévisibilité avec une fenêtre de maintenance
 

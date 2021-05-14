@@ -3,12 +3,13 @@ title: Créer une ressource Azure Application Insights | Microsoft Docs
 description: Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 7e4c4b0ba4dca9b51f120e6092c13195a061aa87
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100931"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754530"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 
@@ -32,7 +33,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressou
    | **Nom**      | `Unique value` | Nom identifiant l’application que vous analysez. |
    | **Groupe de ressources**     | `myResourceGroup`      | Nom du nouveau groupe de ressources ou existant pour héberger les données Application Insights. |
    | **Région** | `East US` | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée. |
-   | **Mode de ressources** | `Classic` ou `Workspace-based` | Actuellement en préversion publique, les ressources basées sur l’espace de travail vous permettent d’envoyer vos données de télémétrie Application Insights à un espace de travail Log Analytics commun. Pour plus d’informations, consultez l'[article relatif aux ressources basées sur l'espace de travail](create-workspace-resource.md).
+   | **Mode de ressources** | `Classic` ou `Workspace-based` | Les ressources basées sur l’espace de travail vous permettent d’envoyer votre télémétrie Application Insights à un espace de travail Log Analytics commun. Pour plus d’informations, consultez l'[article relatif aux ressources basées sur l'espace de travail](create-workspace-resource.md).
 
 > [!NOTE]
 > Bien que vous puissiez utiliser le même nom de ressource dans différents groupes de ressources, il est préférable d’utiliser un nom global unique. Ce dernier peut s’avérer utile si vous envisagez d’[exécuter des requêtes de ressources croisées](../logs/cross-workspace-query.md#identifying-an-application), car cela simplifie la syntaxe nécessaire.
@@ -155,7 +156,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Pour obtenir la documentation complète Azure CLI de cette commande et savoir comment récupérer la clé d’instrumentation, consultez la [documentation Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
+Pour obtenir la documentation complète Azure CLI de cette commande et savoir comment récupérer la clé d’instrumentation, consultez la [documentation Azure CLI](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_create).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Recherche de diagnostic](./diagnostic-search.md)
@@ -168,4 +169,3 @@ Pour obtenir la documentation complète Azure CLI de cette commande et savoir co
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
-

@@ -15,12 +15,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca99a997d621bfd2455e909b36b6802775b20ac2
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: dfa329999cb7b53835907196ceaa9b02920da149
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074605"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124254"
 ---
 # <a name="adsync-service-account"></a>Compte de service ADSync
 Azure AD Connect installe un service local qui orchestre la synchronisation entre Active Directory et Azure Active Directory.  Le service de synchronisation Microsoft Azure AD Sync (ADSync) s’exécute sur un serveur de votre environnement local.  Les informations d’identification du service sont définies par défaut dans les installations Express, mais peuvent être personnalisées pour répondre aux exigences de sécurité de votre organisation.  Ces informations d’identification ne sont pas utilisées pour se connecter à vos forêts locales ou à Azure Active Directory.
@@ -53,8 +53,8 @@ Légende :
 - Non gras - Option prise en charge 
 - Compte local - Compte d’utilisateur local sur le serveur 
 - Compte de domaine - Compte d’utilisateur de domaine 
-- sMSA - [Compte de service géré autonome](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA - [Compte de service géré de groupe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
+- sMSA - [Compte de service géré autonome](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [Compte de service géré de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
 |Type de machine |**LocalDB</br> Rapide**|**LocalDB/LocalSQL</br> Personnalisée**|**Remote SQL</br> Personnalisée**|
 |-----|-----|-----|-----|
@@ -69,11 +69,11 @@ Un compte de service virtuel est un type spécial de compte local géré qui ne 
 
 Le compte de service virtuel est destiné à être utilisé dans les scénarios où le moteur de synchronisation et SQL sont sur le même serveur. Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un compte de service géré de groupe à la place. 
 
-Le compte de service virtuel ne peut pas être utilisé sur un contrôleur de domaine en raison de problèmes avec l’[API de protection des données Windows (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). 
+Le compte de service virtuel ne peut pas être utilisé sur un contrôleur de domaine en raison de problèmes avec l’[API de protection des données Windows (DPAPI)](/previous-versions/ms995355(v=msdn.10)). 
 
 ## <a name="managed-service-account"></a>Compte de service administré 
 
-Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un compte de service administré de groupe. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
+Si vous utilisez un serveur SQL distant, nous recommandons d’utiliser un compte de service administré de groupe. Pour plus d’informations sur la préparation de votre annuaire Active Directory pour le compte de service géré de groupe, consultez [Présentation des comptes de service géré de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
 
 Pour utiliser cette option, sur la page [Installer les composants requis](how-to-connect-install-custom.md#install-required-components), sélectionnez **Utiliser un compte de service existant**, puis sélectionnez **Compte de service administré**. 
 

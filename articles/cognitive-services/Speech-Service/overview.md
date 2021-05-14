@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: ddb61a79e6af402b06fe8c18df8c62f9287437a3
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: af76ba2a4ee8610a0f64265889c009416f477543
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209712"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109665065"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
-Le service Speech réunit la reconnaissance vocale, la synthèse vocale et la traduction vocale dans un même abonnement Azure. Vous pouvez aisément activer vos applications, outils et appareils pour les services [CLI Speech](spx-overview.md), [SDK Speech](./speech-sdk.md), [SDK Speech Devices](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](https://speech.microsoft.com/) ou les [API REST](#reference-docs).
+Le service Speech réunit la reconnaissance vocale, la synthèse vocale et la traduction vocale dans un même abonnement Azure. Vous pouvez aisément activer vos applications, outils et appareils pour les services [CLI Speech](spx-overview.md), [SDK Speech](./speech-sdk.md), [SDK Speech Devices](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](speech-studio-overview.md) ou les [API REST](#reference-docs).
 
 > [!IMPORTANT]
 > Le service Speech remplace l’API Reconnaissance vocale Bing et Traduction de conversation Translator Speech. Pour obtenir des instructions de migration, consultez la section _Migration_.
@@ -64,8 +64,8 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
 1. Dans la fenêtre **Nouveau**, saisissez « speech » dans la zone de recherche et appuyez sur ENTRÉE.
 
 1. Dans les résultats de la recherche, sélectionnez **Speech**.
-
-   ![résultats de la recherche speech](media/index/speech-search.png)
+   
+   :::image type="content" source="media/index/speech-search.png" alt-text="Créez une ressource Speech dans le portail Azure.":::
 
 1. Sélectionnez **Créer**, puis :
 

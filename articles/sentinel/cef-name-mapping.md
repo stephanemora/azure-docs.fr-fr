@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 04/12/2021
-ms.openlocfilehash: 1670d1bb291e30295018146f2a24c5282feac6e7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 107d10bec77ea7bb2b67ae86f48d5b88a286869d
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311649"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229501"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>Mappage de champs CEF et CommonSecurityLog
 
@@ -72,7 +72,6 @@ Pour plus d’informations, consultez [Connecter votre solution externe à l’a
 
 |Nom de la clé CEF  |Nom CommonSecurityLog  |Description  |
 |---------|---------|---------|
-|end     |  EndTime       | Heure à laquelle l’activité associée à l’événement s’est terminée.        |
 |externalId    |   ExternalID      | Un ID utilisé par l’appareil d’origine. En règle générale, ces valeurs ont des valeurs de plus en plus associées à un événement.        |
 |fileCreateTime     |  FileCreateTime      | Heure de création du fichier.        |
 |fileHash     |   FileHash      |   Hachage d’un fichier.      |
@@ -111,7 +110,6 @@ Pour plus d’informations, consultez [Connecter votre solution externe à l’a
 
 |Nom de la clé CEF  |Nom CommonSecurityLog  |Description  |
 |---------|---------|---------|
-|Raison     |  Motif      |Raison pour laquelle un événement d’audit a été généré. <br><br>Par exemple, `Bad password` ou `Unknown user`.         |
 |Requête     |   RequestURL      | URL accessible pour une requête HTTP, y compris le protocole. Par exemple : `http://www/secure.com`        |
 |requestClientApplication     |   RequestClientApplication      |   L'agent utilisateur associé à la requête.      |
 | requestContext | RequestContext | Décrit le contenu d’où provient la requête, tel que le référent HTTP. |
@@ -131,7 +129,6 @@ Pour plus d’informations, consultez [Connecter votre solution externe à l’a
 | sproc | SourceProcessName | Nom du processus source de l’événement.|
 | spt | SourcePort | Numéro de port source. <br>Des numéros de port valides sont `0` - `65535`. |
 | src | SourceIP |Source à laquelle un événement fait référence dans un réseau IP, comme une adresse IPv4. |
-| start | StartTime | Heure de début de l’activité à laquelle l’événement fait référence. |
 | suid | SourceUserID | Identifie l’utilisateur source par ID. |
 | suser | SourceUserName | Identifie l’utilisateur source par nom. |
 | type | Type d’événement | Type d'événement. Les valeurs de valeur incluent : <br>- `0` : événement de base <br>- `1` : agrégés <br>- `2` : événement de corrélation <br>- `3` : événement d’action <br><br>**Remarque** : cet événement peut être omis pour les événements de base. |

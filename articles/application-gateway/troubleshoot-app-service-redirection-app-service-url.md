@@ -3,17 +3,18 @@ title: Résoudre les problèmes relatifs à la redirection vers le scénario de 
 titleSuffix: Azure Application Gateway
 description: Cet article fournit des informations sur la façon de résoudre les problèmes de redirection lorsque vous utilisez Azure Application Gateway avec Azure App Service
 services: application-gateway
-author: abshamsft
+author: jaesoni
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/14/2019
-ms.author: absha
-ms.openlocfilehash: 1cc7df755198461643703cac988c8c31f2ac25db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/15/2021
+ms.author: jaysoni
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d2291bc88a90a703239764a2d5fda9b2889a7af7
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96182884"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319662"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Résoudre les problèmes d’App Service dans Application Gateway
 
@@ -80,37 +81,35 @@ Dans l’exemple précédent, notez que l’en-tête de réponse a un code d’�
 
 ## <a name="solution-rewrite-the-location-header"></a>Solution : réécrire l’en-tête de l’emplacement
 
-Définissez le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application. Pour ce faire, créez une [règle de réécriture](./rewrite-http-headers.md) avec une condition qui détermine si l’en-tête d’emplacement de la réponse contient azurewebsites.net. Elle doit aussi exécuter une action de façon à réécrire l’en-tête d’emplacement et lui attribuer le nom d’hôte de la passerelle d’application. Pour plus d’informations, voir les instructions de [réécriture de l’en-tête d’emplacement](./rewrite-http-headers.md#modify-a-redirection-url).
+Définissez le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application. Pour ce faire, créez une [règle de réécriture](./rewrite-http-headers-url.md) avec une condition qui détermine si l’en-tête d’emplacement de la réponse contient azurewebsites.net. Elle doit aussi exécuter une action de façon à réécrire l’en-tête d’emplacement et lui attribuer le nom d’hôte de la passerelle d’application. Pour plus d’informations, voir les instructions de [réécriture de l’en-tête d’emplacement](./rewrite-http-headers-url.md#modify-a-redirection-url).
 
 > [!NOTE]
-> La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour les [références (SKU) Standard_v2 et WAF_v2](./application-gateway-autoscaling-zone-redundant.md) d’Application Gateway. Si vous utilisez la référence (SKU) v1, nous vous recommandons de [migrer de v1 vers v2](./migrate-v1-v2.md). Vous pouvez utiliser la réécriture et d’autres [fonctionnalités avancées](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) disponibles avec la référence (SKU) v2.
+> La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour les [références (SKU) Standard_v2 et WAF_v2](./application-gateway-autoscaling-zone-redundant.md) d’Application Gateway. Nous vous recommandons de [migrer vers v2](./migrate-v1-v2.md) pour la réécriture d’en-tête et d’autres [fonctionnalités avancées](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) disponibles avec la référence SKU v2.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Autre solution : utilisez un nom de domaine personnalisé
 
-Si vous utilisez la référence (SKU) v1, vous ne pouvez pas réécrire l’en-tête d’emplacement. Cette fonctionnalité est disponible uniquement pour la référence (SKU) v2. Pour résoudre le problème de redirection, vous devrez transmettre le nom d’hôte reçu par la passerelle d’application à l’App Service au lieu de modifier l’hôte.
+L’utilisation de la fonctionnalité Domaine personnalisé d’App Service est une autre solution pour toujours rediriger le trafic vers le nom de domaine d’Application Gateway (`www.contoso.com` dans notre exemple). Cette configuration sert également de solution au problème de cookie d’affinité ARR. Par défaut, le domaine de cookie ARRAffinity est défini sur le nom d’hôte par défaut d’App Service (example.azurewebsites.net) au lieu du nom de domaine d’Application Gateway. Par conséquent, le navigateur dans ce cas rejette le cookie en raison de la différence entre les noms de domaine de la demande et du cookie.
 
-L’App Service effectue ensuite la redirection (le cas échéant) sur le même en-tête hôte d’origine qui pointe vers la passerelle d’application et pas le sien.
+Vous pouvez suivre la méthode donnée pour la redirection et les problèmes d’incompatibilité de domaine du cookie ARRAffinity. Cette méthode vous demande d’avoir un accès à la zone DNS de votre domaine personnalisé.
 
-Vous devez posséder un domaine personnalisé et procéder comme suit :
+**Étape1** : Définir un domaine personnalisé dans App Service et vérifier la propriété du domaine en ajoutant les [enregistrements DNS CNAME et TXT](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
+Les enregistrements ressemblent à
+-  `www.contoso.com` DANS CNAME `contoso.azurewebsite.net`
+-  `asuid.www.contoso.com` DANS TXT « `<verification id string>` »
 
-- Enregistrez le domaine dans la liste de domaines personnalisés de l’App Service. Vous devez disposer d’un enregistrement CNAME dans votre domaine personnalisé qui pointe vers le nom de domaine complet de l’App Service. Pour plus d’informations, consultez [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
-    ![Liste de domaines personnalisés d’App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+**Étape2** : L’enregistrement CNAME de l’étape précédente était uniquement nécessaire pour la vérification du domaine. Au final, nous avons besoin que le trafic soit routé via Application Gateway. Vous pouvez donc modifier l’enregistrement CNAME de `www.contoso.com` pour qu’il pointe vers le nom de domaine complet d’Application Gateway. Pour définir un nom de domaine complet pour Application Gateway, accédez à sa ressource d’adresse IP publique et affectez-lui une « étiquette de nom DNS ». L’enregistrement CNAME mis à jour doit maintenant ressembler à 
+-  `www.contoso.com` DANS CNAME `contoso.eastus.cloudapp.azure.com`
 
-- Votre App Service est prêt à accepter le nom d’hôte `www.contoso.com`. Modifiez votre entrée CNAME dans le DNS afin qu’elle pointe vers le nom de domaine complet de la passerelle d’application (par exemple, `appgw.eastus.cloudapp.azure.com`).
 
-- Assurez-vous que votre domaine `www.contoso.com` est résolu avec le nom de domaine complet de la passerelle d’application lorsque vous effectuez une requête DNS.
+**Étape3** : Désactiver « Choisir un nom d’hôte à partir d’une adresse back-end » pour le paramètre HTTP associé.
 
-- Configurez votre sonde personnalisée pour désactiver **Choisir le nom d’hôte à partir des paramètres HTTP du serveur principal**. Dans le portail Azure, désactivez la case à cocher dans les paramètres de sonde. Dans PowerShell, n’utilisez pas le commutateur **-PickHostNameFromBackendHttpSettings** dans la commande **Set-AzApplicationGatewayProbeConfig**. Dans le champ du nom d’hôte de la sonde, entrez le nom de domaine complet de App Service, example.azurewebsites.net. Les demandes de sondage envoyées par la passerelle d’application transportent ce nom de domaine complet dans l’en-tête de l’hôte.
+Dans PowerShell, n’utilisez pas le commutateur `-PickHostNameFromBackendAddress` dans la commande `Set-AzApplicationGatewayBackendHttpSettings`.
 
-  > [!NOTE]
-  > Pour l’étape suivante, assurez-vous que votre sonde personnalisée n’est pas associée aux paramètres HTTP du serveur principal. À ce stade, le commutateur **Choisir le nom d’hôte à partir de l’adresse du serveur principal** est toujours activé dans vos paramètres HTTP.
 
-- Configurez les paramètres HTTP d’Application Gateway pour désactiver **Choisir le nom d’hôte à partir de l’adresse du serveur principal**. Dans le portail Azure, désactivez la case à cocher. Dans PowerShell, n’utilisez pas le commutateur **-PickHostNameFromBackendAddress** dans la commande **Set-AzApplicationGatewayBackendHttpSettings**.
+**Étape4** : Pour que les sondes déclarent le back-end comme sain et le trafic opérationnel, définissez une sonde d’intégrité personnalisée avec un champ Hôte comme domaine personnalisé ou par défaut d’App Service.
 
-- Associez à nouveau la sonde personnalisée aux paramètres HTTP du serveur principal, et vérifiez l’intégrité de celui-ci.
-
-- La passerelle d’application doit maintenant transférer le même nom d’hôte (`www.contoso.com`) vers le service App Service. La redirection a lieu sur le même nom d’hôte. Examinez les exemples suivants d’en-tête de requête et de réponse.
+Dans PowerShell, n’utilisez pas le commutateur `-PickHostNameFromBackendHttpSettings` dans la commande `Set-AzApplicationGatewayProbeConfig` et utilisez le domaine personnalisé ou par défaut d’App Service dans le commutateur -HostName de la sonde.
 
 Pour implémenter les étapes précédentes à l’aide de PowerShell pour une configuration existante, suivez l’exemple de script PowerShell ci-dessous. Notez que nous n’avons pas utilisé les commutateurs **-PickHostname** dans la configuration de la sonde et des paramètres HTTP.
 

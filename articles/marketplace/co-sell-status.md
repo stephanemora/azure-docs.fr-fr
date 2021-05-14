@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 03/17/2021
-ms.openlocfilehash: d45b46f69480f24f5b2724116984a903093ffc62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 586d2f8a887f6da39111d2e3f01744952cd9a1c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593354"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133310"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Vérifier le statut de co-vente d’une offre de la Place de marché commerciale
 
@@ -40,4 +40,4 @@ Le tableau suivant montre tous les statuts de co-vente possibles. Pour plus d’
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les exigences en matière de co-vente, consultez [Exigences relatives au statut Prêt pour la co-vente](co-sell-requirements.md).
-- Pour obtenir de l’aide lors de la configuration d’une offre pour la co-vente, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](commercial-marketplace-co-sell.md).
+- Pour obtenir de l’aide lors de la configuration d’une offre pour la co-vente, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md).

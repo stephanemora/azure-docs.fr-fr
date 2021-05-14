@@ -3,18 +3,18 @@ title: Migrer des bases de données vers SQL Managed Instance à l’aide du ser
 description: Découvrez comment migrer des bases de données depuis SQL Server vers SQL Managed Instance à l’aide du service LRS (Log Replay Service)
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/31/2021
-ms.openlocfilehash: 8e78db5b9d496c2ac13c9f1214b386770c11e21e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 522f4ec2f28f9d8975a8a7a7b10e435f602af855
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075881"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484028"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrer des bases de données depuis SQL Server vers SQL Managed Instance à l’aide du service LRS (préversion)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -400,9 +400,9 @@ Les limitations fonctionnelles de LRS sont les suivantes :
 Une fois que vous avez démarré LRS, utilisez le cmdlet (`get-azsqlinstancedatabaselogreplay` ou `az_sql_midb_log_replay_show`) pour afficher l’état de l’opération. Si, après un certain temps, le service LRS ne parvient pas à démarrer et présente une erreur, recherchez les problèmes les plus courants :
 
 - Une base de données existante sur SQL Managed Instance a-t-elle le même nom que celui que vous essayez de migrer à partir de SQL Server ? Résolvez ce conflit en renommant l’une des bases de données.
-- La sauvegarde de base de données sur SQL Server a-t-elle été effectuée via l’option `CHECKSUM` ?
-- Le jeton SAS a-t-il uniquement les autorisations de lecture et de liste pour LRS ?
-- Avez-vous copié le jeton SAS pour LRS après le point d’interrogation (`?`), le contenu commençant comme suit : `sv=2020-02-10...` ? 
+- La sauvegarde de base de données sur SQL Server a-t-elle été effectuée via l’option `CHECKSUM` ?
+- Le jeton SAP a-t-il uniquement les autorisations de lecture et de liste pour LRS ?
+- Avez-vous copié le jeton SAP pour LRS après le point d’interrogation (`?`), le contenu commençant comme suit : `sv=2020-02-10...` ? 
 - Le délai de validité du jeton SAS est-il correct en fonction de la fenêtre de temps de démarrage et de fin de la migration ? Il peut y avoir des décalages en raison des différents fuseaux horaires utilisés pour SQL Managed Instance et le jeton SAS. Essayez de regénérer le jeton SAS en étendant la validité de la période de temps avant et après la date actuelle.
 - Le nom de la base de données, le nom du groupe de ressources et le nom de l’instance gérée sont-ils correctement orthographiés ?
 - Si vous avez démarré le service LRS en mode autocomplétion, le nom du dernier fichier de sauvegarde spécifié était-il valide ?

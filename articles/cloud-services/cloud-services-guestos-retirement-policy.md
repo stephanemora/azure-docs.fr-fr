@@ -2,6 +2,7 @@
 title: Guide de prise en charge et de stratégie de suppression pour le SE invité d’Azure | Microsoft Docs
 description: Fournit des informations sur les éléments pris en charge par Microsoft en ce qui concerne le SE invité d'Azure utilisé par les services cloud.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: raiye
 manager: timlt
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb59ff08409da14e01b5c36db382ef0f4f779525
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "68945453"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108735980"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité d’Azure
 Les informations de cette page concernent le système d'exploitation invité Azure ([SE invité](cloud-services-guestos-update-matrix.md)) pour les rôles Web et de travail Cloud Services (PaaS). Elles ne s'appliquent pas aux machines virtuelles (IaaS).

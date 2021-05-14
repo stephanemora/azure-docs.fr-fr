@@ -9,12 +9,12 @@ ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 79889b08baa80dc67b30ae445004e37d9f9fe295
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: b1a3d6f1c30cf6c52dde3f70f222d9cbb0fce556
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286669"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293167"
 ---
 # <a name="migrate-to-cloud-services-extended-support-using-the-azure-portal"></a>Migrer vers Azure Cloud Services (support étendu) à l’aide du portail Azure
 
@@ -37,7 +37,7 @@ Si vous n'êtes pas en mesure d'ajouter un coadministrateur, contactez un admini
 
 **S’inscrire auprès du fournisseur de ressources de migration**
 
-1. Inscrivez-vous auprès du fournisseur de ressources de migration `Microsoft.ClassicInfrastructureMigrate` et de la fonctionnalité d’évaluation `Cloud Services` sous l’espace de noms Microsoft.Compute à l’aide du [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).  
+1. Inscrivez-vous auprès du fournisseur de ressources de migration `Microsoft.ClassicInfrastructureMigrate` et de la fonctionnalité d’évaluation `Cloud Services` sous l’espace de noms Microsoft.Compute à l’aide du [portail Azure](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).  
 1. Attendez cinq minutes que l’inscription prenne effet, puis vérifiez l’état de l’approbation. 
 
 ## <a name="migrate-your-cloud-service-resources"></a>Migrer vos ressources Cloud Services
@@ -94,4 +94,4 @@ Si vous n'êtes pas en mesure d'ajouter un coadministrateur, contactez un admini
     Entrez « Oui » pour confirmer et valider la migration. La migration est à présent terminée. Le déploiement des services Cloud Servies (support étendu) migrés est déverrouillé pour toutes les opérations. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez la section [Modifications après la migration](in-place-migration-overview.md#post-migration-changes) pour voir les modifications apportées aux fichiers de déploiement, à l’automatisation et à d’autres attributs de votre nouveau déploiement d’Azure Cloud Services (support étendu). 
+Consultez la section [Modifications après la migration](in-place-migration-overview.md#post-migration-changes) pour voir les modifications apportées aux fichiers de déploiement, à l’automatisation et à d’autres attributs de votre nouveau déploiement d’Azure Cloud Services (support étendu).

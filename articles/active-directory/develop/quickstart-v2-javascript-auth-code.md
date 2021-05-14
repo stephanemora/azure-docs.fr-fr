@@ -12,20 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1e99e8ff25d895ba2248ddd1ba2520e9f14871a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ba36b80fc6a521b22dc812bdf67c3985a455ff4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022804"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071885"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Démarrage rapide : Connexion d’utilisateurs et récupération d’un jeton d’accès dans une application monopage JavaScript à l’aide du flux de code d’authentification avec PKCE 
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Démarrage rapide : Connexion d’utilisateurs et récupération d’un jeton d’accès dans une application monopage JavaScript à l’aide du flux de code d’authentification avec PKCE
 
-Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application monopage JavaScript peut connecter des utilisateurs et appeler Microsoft Graph en utilisant le flux du code d’autorisation avec PKCE (Proof Key for Code Exchange). L’exemple de code montre comment obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou n’importe quelle API web. 
+Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application monopage JavaScript peut connecter des utilisateurs et appeler Microsoft Graph en utilisant le flux du code d’autorisation avec PKCE (Proof Key for Code Exchange). L’exemple de code montre comment obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou n’importe quelle API web.
 
 Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
-
-Ce guide de démarrage rapide utilise MSAL.js v2 avec le flux du code d’autorisation. Pour obtenir un guide de démarrage rapide similaire qui utilise MSAL.js v1 avec le flux implicite, consultez [Démarrage rapide : Connecter des utilisateurs dans des applications monopages JavaScript](./quickstart-v2-javascript.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -84,10 +82,10 @@ Ce guide de démarrage rapide utilise MSAL.js v2 avec le flux du code d’autor
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Étape 3 : Configurer une application JavaScript
 >
-> Dans le dossier *app*, ouvrez le fichier *authConfig.js* et mettez à jour les valeurs `clientID`, `authority` et `redirectUri` dans l’objet `msalConfig`.
+> Dans le dossier *app*, ouvrez le fichier *authConfig.js*, puis mettez à jour les valeurs `clientID`, `authority` et `redirectUri` dans l’objet `msalConfig`.
 >
 > ```javascript
-> // Config object to be passed to Msal on creation
+> // Config object to be passed to MSAL on creation
 > const msalConfig = {
 >   auth: {
 >     clientId: "Enter_the_Application_Id_Here",
@@ -107,13 +105,13 @@ Ce guide de démarrage rapide utilise MSAL.js v2 avec le flux du code d’autor
 
 > [!div renderon="docs"]
 >
-> Modifiez les valeurs de la section `msalConfig` de la façon suivante :
+> Modifiez les valeurs dans la section `msalConfig` :
 >
 > - `Enter_the_Application_Id_Here` est **l’ID d’application (client)** de l’application que vous avez inscrite.
 >
 >    Pour connaître les valeurs de l’**ID d’application (client)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure.
 > - `Enter_the_Cloud_Instance_Id_Here` est l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez `https://login.microsoftonline.com/`. Pour les clouds **nationaux** (par exemple, Chine), consultez [Clouds nationaux](authentication-national-cloud.md).
-> - `Enter_the_Tenant_info_here` est défini de la façon suivante :
+> - `Enter_the_Tenant_info_here` prend l’une des valeurs suivantes :
 >   - Si votre application prend en charge les *comptes dans cet annuaire organisationnel*, remplacez cette valeur par l’**ID de locataire** ou le **Nom du locataire**. Par exemple : `contoso.microsoft.com`.
 >
 >    Pour connaître les valeurs de l’**Annuaire (locataire)** , consultez la page **Vue d’ensemble** de l’inscription d’application dans le portail Azure.
@@ -133,11 +131,12 @@ Ce guide de démarrage rapide utilise MSAL.js v2 avec le flux du code d’autor
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée
+>
 > Nous avons configuré votre projet avec les valeurs des propriétés de votre application.
 
 > [!div renderon="docs"]
 >
-> Ensuite, dans le même dossier, modifiez le fichier *graphConfig.js* et mettez à jour les valeurs `graphMeEndpoint` et `graphMailEndpoint` dans l’objet `apiConfig`.
+> Ensuite, ouvrez le fichier *graphConfig.js* pour mettre à jour les valeurs `graphMeEndpoint` et `graphMailEndpoint` dans l’objet `apiConfig`.
 >
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -154,9 +153,9 @@ Ce guide de démarrage rapide utilise MSAL.js v2 avec le flux du code d’autor
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here` est le point de terminaison sur lequel les appels d’API seront effectués. Pour le service API Microsoft Graph principal (mondial), entrez `https://graph.microsoft.com/` (en incluant la barre oblique de fin). Pour plus d’informations sur Microsoft Graph sur les clouds nationaux, consultez [Déploiement cloud national](/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` est le point de terminaison sur lequel les appels d’API sont effectués. Pour le service API Microsoft Graph principal (mondial), entrez `https://graph.microsoft.com/` (en incluant la barre oblique de fin). Pour plus d’informations sur Microsoft Graph sur les clouds nationaux, consultez [Déploiement cloud national](/graph/deployments).
 >
-> Les valeurs `graphMeEndpoint` et `graphMailEndpoint` dans le fichier *graphConfig.js* doivent se présenter ainsi si vous utilisez le service API Microsoft Graph principal (mondial) :
+> Si vous utilisez le service API Microsoft Graph principal (mondial), les valeurs `graphMeEndpoint` et `graphMailEndpoint` dans le fichier *graphConfig.js* doivent se présenter ainsi :
 >
 > ```javascript
 > graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
@@ -165,18 +164,20 @@ Ce guide de démarrage rapide utilise MSAL.js v2 avec le flux du code d’autor
 >
 > #### <a name="step-4-run-the-project"></a>Étape 4 : Exécuter le projet
 
-Exécutez le projet avec un serveur web en utilisant Node.js :
+Exécutez le projet avec un serveur web en utilisant Node.js.
 
 1. Pour démarrer le serveur, exécutez les commandes suivantes dans le répertoire du projet :
+
     ```console
     npm install
     npm start
     ```
+
 1. Accédez à `http://localhost:3000/`.
 
 1. Sélectionnez **Se connecter** pour lancer le processus de connexion, puis appelez l’API Microsoft Graph.
 
-    La première fois que vous vous connectez, vous êtes invité à autoriser l’application à accéder à votre profil et à vous connecter. Une fois que vous êtes connecté, les informations de votre profil utilisateur doivent s’afficher sur la page.
+    La première fois que vous vous connectez, vous êtes invité à autoriser l’application à accéder à votre profil et à vous connecter. Quand vous êtes connecté, les informations de votre profil utilisateur s’affichent sur la page.
 
 ## <a name="more-information"></a>Informations complémentaires
 
@@ -184,7 +185,7 @@ Exécutez le projet avec un serveur web en utilisant Node.js :
 
 ![Diagramme montrant le flux de code d’autorisation pour une application monopage.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
-### <a name="msaljs"></a>msal.js
+### <a name="msaljs"></a>MSAL.js
 
 La bibliothèque MSAL.js connecte les utilisateurs et demande les jetons utilisés pour accéder à une API protégée par la plateforme d’identités Microsoft. Le fichier *index.html* de l’exemple contient une référence à la bibliothèque :
 

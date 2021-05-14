@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aec870e6027d9a6d2e6c3b66363f93c73fad5e78
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587897"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064140"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Gestion des comptes de service Azure
 
@@ -172,7 +172,7 @@ L’exemple PowerShell gratuit de Microsoft collecte les autorisations OAuth2 et
 
 **Les processus de déprovisionnement doivent inclure les tâches suivantes.**
 
-1. Une fois l’application ou le script associés déprovisionnés, [surveillez les connexions](../reports-monitoring/concept-sign-ins.md#sign-ins-report) et l’accès du compte de service aux ressources.
+1. Une fois l’application ou le script associés déprovisionnés, [surveillez les connexions](../reports-monitoring/concept-sign-ins.md) et l’accès du compte de service aux ressources.
 
    * Si le compte est toujours actif, déterminez la façon dont il est utilisé avant de passer au étapes suivantes.
  

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 3e55970b0603da9be9bf28a50d4c474e34a1cad3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bdebe0d29f6ef781cc4b4747ff80010eeac9ff7e
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103017237"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684250"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la qualité de l’eau dans Azure IoT Central
 
@@ -54,9 +54,7 @@ Dans cette section, vous utilisez le modèle Azure IoT Central **Water quality m
 
     * **Nom de l'application** : Par défaut, le nom de l’application est **Water quality monitoring** suivi d’une chaîne d’ID unique générée par Azure IoT Central. Si vous le souhaitez, vous pouvez entrer un nom d’affichage ou modifier ultérieurement le nom de l’application.
     * **URL** : Vous pouvez entrer l’URL de votre choix ou modifier ultérieurement la valeur de l’URL.
-    * Si vous disposez d’un abonnement Azure, entrez vos valeurs de **Répertoire**, **Abonnement Azure** et **Région**. Si vous n’avez pas d’abonnement, vous pouvez activer **7-day free trial** (Version d’évaluation gratuite de 7 jours) et renseigner les coordonnées requises.
-
-    Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](../core/quick-deploy-iot-central.md).
+    * Si vous avez un abonnement Azure, entrez vos valeurs pour **Annuaire**, **Abonnement Azure** et **Région**. Si vous n’avez pas d’abonnement, vous pouvez activer **7-day free trial** (Version d’évaluation gratuite de 7 jours) et renseigner les coordonnées requises.
 
 1. Sélectionnez le bouton **Create** (Créer) en bas à gauche de la page.
 
@@ -102,7 +100,7 @@ Le tableau de bord inclut les types de vignettes suivants :
 
 * **Graphique à barres de concentration des agents chimiques** : vous pouvez visualiser les données de télémétrie des appareils dans un graphique à barres.
 
-* **Bouton d’action** : le tableau de bord comprend une vignette pour les actions qu’un opérateur peut lancer directement à partir du tableau de bord de suivi. La réinitialisation des propriétés d’un appareil est un exemple des actions possibles.
+* **Vignette de réinitialisation des paramètres des capteurs** : le tableau de bord comprend une vignette pour les actions qu’un opérateur peut lancer directement à partir du tableau de bord de suivi. La réinitialisation des propriétés d’un appareil est un exemple des actions possibles.
 
 * **Vignettes de liste de propriétés** : le tableau de bord comporte plusieurs vignettes de propriétés qui représentent les informations de seuil, les informations d’intégrité d’appareil et les informations de maintenance.
 
@@ -125,7 +123,7 @@ L’application de suivi de la qualité de l’eau que vous avez créée est fou
 Pour afficher ce modèle d’appareil :
 
 1. Sélectionnez **Device templates** (Modèles d’appareil) dans le volet le plus à gauche de votre application dans Azure IoT Central.
-1. Dans la liste des modèles d’appareil, sélectionnez **Water Quality Monitor** (Moniteur de qualité de l’eau). Ce modèle d’appareil s’ouvre.
+1. Dans la liste des modèles d’appareil, sélectionnez **Water Quality Monitor** (Contrôleur de qualité de l’eau) pour ouvrir ce modèle d’appareil.
 
     ![Modèle d’appareil](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
 
@@ -143,6 +141,7 @@ Exercez-vous à personnaliser les paramètres de modèle d’appareil suivants 
 
 1. Dans le menu du modèle d’appareil, sélectionnez **Cloud properties** (Propriétés cloud).
 1. Pour ajouter une nouvelle propriété cloud, sélectionnez **+ Add Cloud Property** (Ajouter une propriété cloud). Dans Azure IoT Central, vous pouvez ajouter une propriété qui s’applique à un appareil, mais qui n’est pas censée être envoyée par l’appareil. Un seuil d’alerte spécifique à la zone d’installation, aux informations sur les ressources ou aux informations de maintenance est un exemple d’une telle propriété.
+1. Entrez **Zone d’installation** comme **Nom d’affichage** et choisissez **Chaîne** comme **Schéma**.
 1. Sélectionnez **Enregistrer**.
 
 ### <a name="explore-views"></a>Explorer les vues
@@ -157,7 +156,7 @@ Si vous avez apporté des modifications, veillez à sélectionner **Publish** (P
 
 ### <a name="create-a-new-device-template"></a>Créer un modèle d’appareil
 
-1. Sélectionnez **+ New** (Nouveau) pour créer un nouveau modèle d’appareil et suivre le processus de création.
+1. Dans la page **Device templates** (Modèles d’appareil), sélectionnez **+ New** (+ Nouveau) pour créer un modèle d’appareil et suivre le processus de création.
 1. Créez un modèle d’appareil personnalisé ou choisissez un modèle d’appareil dans le catalogue d’appareils Azure IoT.
 
 ## <a name="explore-simulated-devices"></a>Explorer les appareils simulés
@@ -174,7 +173,7 @@ L’application de suivi de la qualité de l’eau que vous avez créée à part
 
     ![Sélection de l’appareil 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
 
-1. Sous l’onglet **Cloud Properties** (Propriétés cloud), modifiez la valeur **Acidity (pH) threshold** (Seuil d’acidité (pH)) en remplaçant **8** par **9**.
+1. Sous l’onglet **Cloud Properties** (Propriétés cloud), modifiez la valeur **Acidity (pH) threshold** (Seuil d’acidité (pH)) en remplaçant **8** par **9**, puis sélectionnez **Save**.
 1. Explorez l’onglet **Device Properties** (Propriétés de l’appareil) et l’onglet **Device Dashboard** (Tableau de bord de l’appareil).
 
 > [!NOTE]
@@ -182,7 +181,11 @@ L’application de suivi de la qualité de l’eau que vous avez créée à part
 
 ### <a name="add-new-devices"></a>Ajouter de nouveaux appareils
 
-Sous l’onglet **Devices** (Appareils), sélectionnez **+ New** (Nouveau) pour ajouter un nouvel appareil.
+1. Sous l’onglet **Devices** (Appareils), sélectionnez **+ New** (Nouveau) pour ajouter un nouvel appareil.
+1. Utilisez l’**ID d’appareil** suggéré ou entrez votre propre ID d’appareil. Vous pouvez également entrer un **nom** pour votre nouvel appareil.
+1. Sélectionnez **Water Quality Monitor** (Contrôleur de qualité de l’eau) comme **Device template** (Modèle d’appareil). 
+1. Vérifiez que l’option **Simulate this device** (Simuler cet appareil) est définie sur **Yes** si vous voulez créer un appareil simulé. 
+1. Sélectionnez **Create** (Créer).  
 
 ## <a name="explore-and-configure-rules"></a>Explorer et configurer les règles
 
@@ -209,7 +212,7 @@ Ensuite, ajoutez une action de messagerie à la règle :
 1. Dans la zone **To** (À), entrez l’adresse e-mail associée à votre compte Azure IoT Central.
 1. Si vous le souhaitez, entrez une note à inclure dans le texte de l’e-mail.
 1. Sélectionnez **Terminé** pour terminer l’action.
-1. Sélectionnez **Enregistrer** pour enregistrer et activer la nouvelle règle.
+1. Définissez la règle sur **Enabled** (Activée), puis sélectionnez **Save**.
 
 Après quelques minutes, vous devrez recevoir un e-mail quand la condition configurée sera remplie.
 
@@ -223,32 +226,31 @@ Pour créer une nouvelle règle, sélectionnez **Rules** (Règles) dans le volet
 Les travaux Azure IoT Central vous permettent de déclencher des mises à jour des propriétés d’appareil ou cloud sur plusieurs appareils. Vous pouvez également utiliser des travaux pour déclencher des commandes d’appareil sur plusieurs appareils. Azure IoT Central automatise le flux de travail pour vous.
 
 1. Sélectionnez **Jobs** (Travaux) dans le volet le plus à gauche de votre application.
-1. Sélectionnez **+New** (Nouveau) et configurez un ou plusieurs travaux.
+1. Sélectionnez **+ New job** (+ Nouveau travail) et configurez un ou plusieurs travaux.
 
 ## <a name="customize-your-application"></a>Personnaliser votre application
 
 En tant que réalisateur de logiciel, vous pouvez modifier plusieurs paramètres pour personnaliser l’expérience utilisateur dans votre application.
 
 1. Sélectionnez **Administration** > **Personnaliser votre application**.
-1. Sous **Logo de l’application**, sélectionnez **Modifier** pour choisir l’image à charger comme logo.
+1. Sous le **logo Masthead**, sélectionnez **Modifier** pour choisir l’image à charger comme logo.
 1. Sous **Icône du navigateur**, sélectionnez **Modifier** pour choisir l’image qui apparaîtra dans les onglets du navigateur.
 1. Sous **Couleurs du navigateur**, vous pouvez remplacer les valeurs par défaut par des codes couleur hexadécimaux HTML.
-1. Sélectionnez **Paramètres** pour modifier la valeur de **Thème**.
 
    ![Personnaliser votre application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
 
 ### <a name="update-the-application-image"></a>Mettre à jour l’image de l’application
 
-1. Sélectionnez **Administration** > **Paramètres d’application**.
+1. Sélectionnez **Administration** > **Votre application**.
 
-1. Utilisez le bouton **Sélectionner une image** pour choisir une image à télécharger en tant qu’image de l’application.
+1. Sélectionnez **Modifier** pour choisir une image à charger en tant qu’image de l’application.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez l’application en procédant comme suit :
 
 1. Ouvrez l’onglet **Administration** dans le volet le plus à gauche de votre application.
-1. Sélectionnez **Paramètres d’application**, puis sélectionnez le bouton **Supprimer**.
+1. Sélectionnez **Votre application**, puis le bouton **Supprimer**.
 
     ![Suppression de votre application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
 

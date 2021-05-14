@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1846b5478c824caa954b85ea6346d773f46b279c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659503"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315666"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur
 
@@ -140,19 +140,25 @@ Pour plus d’informations sur l’utilisation de votre service web, consultez [
 
 ## <a name="limitations"></a>Limites
 
+### <a name="update-inference-pipeline"></a>Mettre à jour le pipeline d’inférence
+
 Si vous modifiez votre pipeline d’entraînement, vous devez soumettre à nouveau le pipeline d’entraînement, **mettre à jour** le pipeline d’inférence et réexécuter le pipeline d’inférence.
 
 Notez que seuls les modèles entraînés seront mis à jour dans le pipeline d’inférence, alors que la transformation de données ne sera pas mise à jour.
 
 Pour utiliser la transformation mise à jour dans le pipeline d’inférence, vous devez inscrire la sortie de la transformation du module de transformation en tant que jeu de données.
 
-![Capture d’écran montrant comment inscrire un jeu de données de transformation](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+![Capture d’écran montrant comment inscrire le jeu de données de transformation](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
 
 Ensuite, remplacez manuellement le module **TD-** dans le pipeline d’inférence par le jeu de données inscrit.
 
 ![Capture d’écran montrant comment remplacer le module de transformation](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
 Vous pouvez ensuite envoyer le pipeline d’inférence avec le modèle et la transformation mis à jour, puis déployer.
+
+### <a name="deploy-real-time-endpoint"></a>Déployer un point de terminaison en temps réel
+
+En raison de la limitation de l’accès au magasin de données, si votre pipeline d’inférence contient un module **Importer des données**  ou **Exporter des données**, il est automatiquement supprimé lors du déploiement sur le point de terminaison en temps réel.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -1,18 +1,18 @@
 ---
 title: Copier des données depuis et vers Salesforce Service Cloud
 description: Découvrez comment copier des données du Salesforce Service Cloud vers des banques de données réceptrices prises en charge ou des magasins de données sources pris en charge vers Salesforce Service Cloud à l’aide d’une activité de copie dans un pipeline Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 6a712ad1924fd73926ff0e62a7d1b9684eb5b1d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f61b5ab4a77372071658f18e81fce8ed2c3a7c51
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583102"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486986"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copier des données depuis et vers le Salesforce Service Cloud à l’aide de Azure Data Factory
 
@@ -51,7 +51,7 @@ Vous pouvez également recevoir le message d’erreur « REQUEST_LIMIT_EXCEEDED 
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des détails sur les propriétés utilisées pour définir des entités Data Factory spécifiques au connecteur Salesforce Service Cloud.
 

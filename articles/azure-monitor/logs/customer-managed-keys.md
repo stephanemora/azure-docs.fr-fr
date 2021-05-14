@@ -4,13 +4,14 @@ description: Informations et étapes relatives à la configuration d’une clé 
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 01/10/2021
-ms.openlocfilehash: 4033421095ead47e2bd1e97c4f2f42672644d7df
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.date: 04/21/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c9f59c5c4410bbb3a8f53a53b0febaa2b04ba2aa
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364853"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315988"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -105,7 +106,7 @@ Authorization: Bearer <token>
 
 ## <a name="storing-encryption-key-kek"></a>Stockage de la clé de chiffrement (KEK)
 
-Créez un coffre de clés Azure, ou utilisez-en un existant, pour générer ou importer une clé à utiliser pour le chiffrement des données. Le coffre de clés Azure doit être configuré comme récupérable pour protéger votre clé et l’accès à vos données Azure Monitor. Vous pouvez vérifier cette configuration dans les propriétés de votre coffre de clés : les fonctionnalités de *suppression réversible* et de *protection contre la suppression définitive* doivent être activées.
+Créez ou utilisez une instance Azure Key Vault existante dans la région prévue pour le cluster, puis générez ou importez une clé à utiliser pour le chiffrement des journaux. Le coffre de clés Azure doit être configuré comme récupérable pour protéger votre clé et l’accès à vos données Azure Monitor. Vous pouvez vérifier cette configuration dans les propriétés de votre coffre de clés : les fonctionnalités de *suppression réversible* et de *protection contre la suppression définitive* doivent être activées.
 
 ![Paramètres de suppression réversible et de protection contre la suppression définitive](media/customer-managed-keys/soft-purge-protection.png)
 
@@ -163,14 +164,13 @@ Toutes les opérations sur le cluster requièrent l’autorisation de l’action
 
 Cette étape met à jour le stockage Azure Monitor avec la clé et la version à utiliser pour le chiffrement des données. Une fois mise à jour, votre nouvelle clé est utilisée pour envelopper et désenvelopper la clé de stockage (AEK).
 
-Sélectionnez la version actuelle de votre clé dans Azure Key Vault pour afficher les détails de l’identificateur de clé.
+>[!IMPORTANT]
+>- La rotation des clés peut être automatique ou nécessiter une mise à jour des clés explicite. Consultez [Rotation des clés](#key-rotation) pour déterminer l’approche adaptée à vos besoins avant de mettre à jour les détails relatifs à l’identificateur de clé dans le cluster.
+>- La mise à jour du cluster ne doit pas inclure les détails relatifs à l’identité et à l’identificateur de clé dans la même opération. S’il vous faut les mettre à jour, cette mise à jour doit faire l’objet de deux opérations consécutives.
 
 ![Octroi d’autorisations d’accès au coffre de clés](media/customer-managed-keys/key-identifier-8bit.png)
 
 Mettez à jour la propriété KeyVaultProperties du cluster avec les détails de l’identificateur de clé.
-
->[!NOTE]
->La rotation de clé prend en charge deux modes : la rotation automatique ou la mise à jour de version de clé explicite. Consultez [Rotation des clés](#key-rotation) pour déterminer la meilleure approche pour vous.
 
 L’opération est asynchrone et peut prendre du temps.
 
@@ -417,6 +417,8 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
 - Le déplacement d’un cluster vers un autre groupe de ressources ou abonnement n’est pas pris en charge.
 
 - Votre coffre Azure Key Vault, le cluster et les espaces de travail doivent se trouver dans la même région et dans le même locataire Azure Active Directory (Azure AD), mais peuvent être dans des abonnements différents.
+
+- La mise à jour du cluster ne doit pas inclure les détails relatifs à l’identité et à l’identificateur de clé dans la même opération. S’il vous faut les mettre à jour, cette mise à jour doit faire l’objet de deux opérations consécutives.
 
 - Actuellement, Lockbox n’est pas disponible en Chine. 
 

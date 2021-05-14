@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 9c81a9b48ff9fa305385c45266d88deb4047f70f
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 2f1e610113b432fa1a62350308747ffb1d5c8fc8
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599483"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790916"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutoriel : Protection de contenu de bout en bout avec Azure AD
 
@@ -134,7 +134,6 @@ Voici l’écran d’analyse des jetons JWT (access_token ou id_token) :
 Voici l’écran permettant de tester du contenu protégé avec différentes combinaisons de systèmes DRM/AES, protocoles de streaming et formats de conteneurs :
 
 ![Capture d’écran montrant le test d’un contenu protégé avec différentes combinaisons de systèmes DRM ou AES comparés à des protocoles de streaming et à des formats de conteneurs](media/aad-ams-content-protection/testing-protected-content.png)
--->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
 

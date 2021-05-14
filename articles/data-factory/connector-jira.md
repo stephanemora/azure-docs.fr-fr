@@ -1,17 +1,17 @@
 ---
 title: Copier des données de Jira avec Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Jira vers des banques de données réceptrices prises en charge.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.author: jingwang
-ms.openlocfilehash: 16ab0ab0e4c4d647f62b38d71acde69df0ae0d42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 0d7fccd134fc876ebee4c0e770068abb246caae4
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378483"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481784"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Copier des données de Jira avec Azure Data Factory
 
@@ -32,7 +32,7 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Jira.
 

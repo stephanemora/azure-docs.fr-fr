@@ -3,14 +3,14 @@ title: Utiliser les journaux Azure Monitor pour surveiller les clusters Azure HD
 description: Découvrez comment utiliser les journaux d’activité Azure Monitor pour surveiller les travaux en cours d’exécution dans un cluster HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: seoapr2020, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 0dfa89f50dedad41394cb77f1cca9b2dd3a65308
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f828d5c0183cedca9c763eb2368d1cb460b713e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865534"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074112"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Utiliser les journaux d’activité Azure Monitor pour superviser les clusters HDInsight
 
@@ -102,7 +102,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## <a name="enable-azure-monitor-using-azure-cli"></a>Activer Azure Monitor à l’aide d’Azure CLI
 
-Vous pouvez activer les journaux d’activité d’Azure Monitor à l’aide de la commande Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-enable).
+Vous pouvez activer les journaux d’activité d’Azure Monitor à l’aide de la commande Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_enable).
 
 ```azurecli
 # set variables
@@ -117,7 +117,7 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-Pour les désactiver, utilisez la commande [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable).
+Pour les désactiver, utilisez la commande [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable).
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup

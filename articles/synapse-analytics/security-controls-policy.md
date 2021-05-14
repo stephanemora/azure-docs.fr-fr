@@ -1,18 +1,19 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Azure Synapse Analytics
 description: Liste les contrôles de conformité réglementaire d’Azure Policy pour Azure Synapse Analytics. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.topic: reference
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
+ms.subservice: security
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: c6e578e743544861514c77784218a465aac4de2e
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 2b44d496c23aea4a50ba668fa59c29026b5daad0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565438"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743168"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-synapse-analytics"></a>Contrôles de conformité réglementaire d’Azure Policy pour Azure Synapse Analytics
 

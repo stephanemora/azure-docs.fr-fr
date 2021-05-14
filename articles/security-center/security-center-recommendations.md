@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 57760443746e111750e74ef55fc18729f6ba32c4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: da0826a349131d9d5716932abfc603be8103b788
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100336"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903539"
 ---
 # <a name="review-your-security-recommendations"></a>Consulter vos recommandations de sécurité
 
@@ -43,7 +43,7 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
     1. **Intervalle d’actualisation** (le cas échéant)
     1. **Nombre de ressources exemptées** ; si des exemptions existent pour cette recommandation, il indique le nombre de ressources qui ont été exemptées
     1. **Description** : courte description du problème.
-    1. **Étapes de correction** : description des étapes manuelles nécessaires pour corriger le problème de sécurité sur les ressources concernées. Pour obtenir des recommandations avec un « correctif rapide », vous pouvez sélectionner **Afficher la logique de correction** avant d’appliquer la correction suggérée à vos ressources. 
+    1. **Étapes de correction** : description des étapes manuelles nécessaires pour corriger le problème de sécurité sur les ressources concernées. Pour obtenir des recommandations avec l’option **Correctif****, vous pouvez sélectionner **Afficher la logique de correction** avant d’appliquer la correction suggérée à vos ressources.
     1. **Ressources concernées** : vos ressources sont regroupées dans des onglets :
         - **Ressources saines** : ressources pertinentes qui ne sont pas touchées ou sur lesquelles vous avez déjà corrigé le problème.
         - **Ressources non saines** : ressources qui sont encore concernées par le problème identifié.

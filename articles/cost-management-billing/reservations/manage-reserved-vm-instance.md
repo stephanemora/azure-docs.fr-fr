@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 04/21/2021
 ms.author: banders
-ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 64a6b3a313f5078368563af29ab97a871b4c3ae0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392270"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288667"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -57,8 +57,8 @@ L’étendue s’applique uniquement aux abonnements individuels MS-AZR-0003P ou
 
 Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations :
 
-- La personne qui achète une réservation et l’administrateur de compte de l’abonnement de facturation utilisé pour acheter la réservation sont ajoutés à l’ordre de réservation.
-- Les administrateurs de facturation de l’Accord Entreprise et du Contrat client Microsoft.
+- La personne qui a acheté la réservation et le propriétaire du compte de l’abonnement de facturation obtiennent un accès RBAC Azure à l’ordre de réservation.
+-  Les contributeurs de facturation Contrat Entreprise et Contrat client Microsoft peuvent gérer toutes les réservations depuis Gestion des coûts + facturation > Transactions de réservation > sélectionner la bannière bleue.
 
 Pour permettre à d’autres personnes de gérer des réservations, vous avez le choix entre deux options :
 
@@ -81,8 +81,14 @@ Pour permettre à d’autres personnes de gérer des réservations, vous avez le
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>Comment les administrateurs de facturation affichent ou gèrent les réservations
 
-1. Accédez à **Cost Management + Billing** puis, sur le côté gauche de la page, sélectionnez **Transactions de réservation**.
-2. Si vous disposez des autorisations de facturation nécessaires, vous pouvez afficher et gérer les réservations. Si vous ne voyez aucune réservation, assurez-vous que vous êtes connecté à l’aide du locataire Azure AD dans lequel les réservations ont été créées.
+Si vous êtes administrateur de facturation, suivez les étapes ci-dessous pour afficher et gérer toutes les réservations et les transactions de réservation.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Cost Management and Billing**.
+    - Si vous êtes un administrateur d’entreprise, dans le menu de gauche, sélectionnez **Étendues de facturation**, puis, dans la liste des étendues de facturation, sélectionnez-en une.
+    - Si vous êtes propriétaire d’un profil de facturation Contrat client Microsoft, dans le menu de gauche, sélectionnez **Profils de facturation**. Dans la liste des profils de facturation, sélectionnez-en un.
+2. Dans le menu de gauche, sélectionnez **Produits + services** > **Réservations**.
+3. La liste complète des réservations pour votre profil d’inscription ou de facturation d’administrateur d’entreprise s’affiche.
+4. Les administrateurs de facturation peuvent prendre possession d’une réservation en la sélectionnant, puis en sélectionnant **Accorder l’accès** dans la fenêtre qui s’affiche.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Diviser une réservation unique en deux réservations
 
@@ -177,23 +183,8 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
-
-- [Qu’est-ce qu’une réservation Azure ?](save-compute-costs-reservations.md)
-
-Acheter un plan de service :
-- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
-- [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-
-Acheter un abonnement logiciel :
-- [Prépayer des abonnements logiciels Red Hat dans Réservations Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prépayer des logiciels SUSE avec des réservations Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Comprendre la remise et l’utilisation :
-- [Comprendre comment la remise sur réservation de machine virtuelle est appliquée](../manage/understand-vm-reservation-charges.md)
-- [Comprendre comment la remise sur abonnement logiciel Red Hat Enterprise Linux est appliquée](understand-rhel-reservation-charges.md)
-- [Comprendre comment la remise sur offre logicielle SUSE Linux Enterprise est appliquée](understand-suse-reservation-charges.md)
-- [Comprendre comment les autres remises sur réservation sont appliquées](understand-reservation-charges.md)
-- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](understand-reserved-instance-usage-ea.md)
-- [Coûts des logiciels Windows non inclus dans les réservations](reserved-instance-windows-software-costs.md)
+ - [Afficher l’utilisation des réservations](reservation-utilization.md)
+ - [Échange et remboursement](exchange-and-refund-azure-reservations.md)
+ - [Renouveler des réservations](reservation-renew.md)
+ - [Transferts entre locataires](troubleshoot-reservation-transfers-between-tenants.md)
+ - [Rechercher un acheteur de réservation à partir des journaux Azure](find-reservation-purchaser-from-logs.md)

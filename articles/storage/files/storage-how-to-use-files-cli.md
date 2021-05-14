@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5611088b76d8acf785fc0951100dcd4a2f439250
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9aec838aa762cd018a96b2f17e80cc04ea95795d
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593167"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738987"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Démarrage rapide : créer et gérer des partages de fichiers Azure à l’aide d’Azure CLI
 Ce guide vous explique les bases de l’utilisation des [partages de fichiers Azure](storage-files-introduction.md) avec Azure CLI. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Les partages de fichiers Azure prennent en charge le protocole SMB (Server Message Block) standard, le protocole NFS (Network File System) (en préversion) et permettent de partager des fichiers sur plusieurs machines, applications et instances. 
@@ -73,16 +73,17 @@ export storageAccountKey=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
-Vous pouvez désormais créer votre premier partage de fichiers Azure. Créez des partages de fichiers avec la commande [az storage share create](/cli/azure/storage/share). Cet exemple crée un partage de fichiers Azure nommé *myshare* : 
+Vous pouvez désormais créer votre premier partage de fichiers Azure. Créez des partages de fichiers avec la commande [az storage share-rm create](/cli/azure/storage/share-rm?view=azure-cli-latest&preserve-view=false#az_storage_share_rm_create). Cet exemple crée un partage de fichiers Azure nommé *myshare* : 
 
 ```azurecli-interactive
 shareName="myshare"
 
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
     --name $shareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 ```
 
@@ -169,11 +170,12 @@ Une tâche courante consiste à copier les fichiers d’un partage de fichiers v
 ```azurecli-interactive
 otherShareName="myshare2"
 
-az storage share create \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
     --name $otherShareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 
 az storage directory create \

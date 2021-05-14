@@ -2,13 +2,13 @@
 title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager (modèles ARM). Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: ff2b9ecf0e4004aa6689294867f5ff93006211ec
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 04/23/2021
+ms.openlocfilehash: a9b7530f7d9e3e86a3f2137cda5fcefa5e101c23
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219941"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950187"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
@@ -16,7 +16,7 @@ Cet article explique comment utiliser les pratiques recommandées lors de la con
 
 ## <a name="template-limits"></a>Limites de modèle
 
-Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres.
+Limitez la taille de votre modèle à 4 Mo. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. Le fichier de paramètres est également limité à 4 Mo. Vous pouvez obtenir une erreur avec un modèle ou un fichier de paramètres de moins de 4 Mo si la taille totale de la demande est trop importante. Pour plus d’informations sur la simplification de votre modèle afin d’éviter une demande volumineuse, consultez [Résoudre les erreurs de dépassement de taille de la tâche](error-job-size-exceeded.md).
 
 Vous devez également respecter les limites suivantes :
 

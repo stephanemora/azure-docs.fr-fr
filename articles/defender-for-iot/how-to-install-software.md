@@ -1,14 +1,14 @@
 ---
 title: Installation de Defender pour IoT
 description: Découvrez comment installer un capteur et la console de gestion locale pour Azure Defender pour IoT.
-ms.date: 12/2/2020
+ms.date: 04/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 5bdb292750ea041be68a22519583511f58b3b517
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 77ff5a6d29544599a74bd6176e8b8e99a5c41968
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782246"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076479"
 ---
 # <a name="defender-for-iot-installation"></a>Installation de Defender pour IoT
 
@@ -210,7 +210,7 @@ Pour configurer le BIOS Dell :
 
 #### <a name="import-the-bios-configuration-file"></a>Importer le fichier config du BIOS
 
-Cet article explique comment configurer le BIOS à l’aide du fichier config.
+Cette section explique comment configurer le BIOS à l’aide du fichier config.
 
 1. Branchez un PC avec une adresse IP préconfigurée statique **10.100.100.200** au port **iDRAC**.
 
@@ -328,11 +328,11 @@ Pour effectuer l’installation :
 
 1. Sélectionnez **SENSOR-RELEASE-\<version\> Enterprise**.
 
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Capture d’écran montrant la sélection de la version.":::   
+   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Sélectionnez la version de votre capteur et le type d’entreprise.":::   
 
-1. Définissez le profil de l’appareil et les propriétés du réseau :
+1. Définissez le profil de l’appliance et les propriétés du réseau :
 
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Capture d’écran montrant le profil de l’appliance.":::   
+   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Capture d’écran montrant le profil de l’appliance et les propriétés du réseau.":::   
 
    | Paramètre | Configuration |
    |--|--|
@@ -354,7 +354,7 @@ Pour effectuer l’installation :
 
 ## <a name="hpe-proliant-dl20-installation"></a>Installation de HPE ProLiant DL20
 
-Cet article décrit le processus d’installation de HPE ProLiant DL20, qui comprend les étapes suivantes :
+Cette section décrit le processus d’installation de HPE ProLiant DL20, qui comprend les étapes suivantes :
 
   - Activer l’accès à distance et mettre à jour le mot de passe administrateur par défaut.
   - Configurer les paramètres BIOS et RAID.
@@ -470,7 +470,7 @@ Pour installer le logiciel :
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Capture d’écran de la sélection d’une version.":::
 
-1. Dans l’Assistant Installation, définissez le profil de l’appliance et les propriétés du réseau :
+1. Dans l’Assistant Installation, définissez le profil matériel et les propriétés du réseau :
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Capture d’écran montrant l’Assistant Installation.":::
 
@@ -571,10 +571,101 @@ Pour effectuer l’installation :
 
 1. Sélectionnez **Entrée** pour continuer.
 
+## <a name="hp-edgeline-300-installation"></a>Installation de HP EdgeLine 300
+
+•   Un utilisateur administratif par défaut est fourni. Nous vous recommandons de modifier le mot de passe lors de la configuration du réseau.
+
+•   Le processus d’installation prend environ 20 minutes. Après l’installation, le système redémarre plusieurs fois.
+
+### <a name="hp-edgeline-300-back-panel"></a>Panneau arrière de HP EdgeLine 300
+
+:::image type="content" source="media/tutorial-install-components/edgeline-el300-panel.png" alt-text="Vue du panneau arrière de l’EL300":::
+
+### <a name="enable-remote-access"></a>Activer l'accès à distance
+
+1. Entrez l’adresse IP iSM dans votre navigateur web.
+
+1. Connectez-vous à l’aide du nom d’utilisateur et du mot de passe par défaut trouvés sur votre appliance.
+
+1. Accédez à **Wired and Wireless Network (Réseau câblé et sans fil)**  > **IPv4**.
+
+    :::image type="content" source="media/tutorial-install-components/wired-and-wireless.png" alt-text="Accédez aux sections mis en évidence.":::
+
+1. Désactivez le **bouton bascule DHCP**.
+
+1. Configurez les adresses IPv4 comme suit :
+    - **Adresse IPV4** : `192.168.1.125`
+    - **Masque de sous-réseau IPv4** : `255.255.255.0`
+    - **Passerelle IPv4** : `192.168.1.1`
+
+1. Sélectionnez **Appliquer**.
+
+1. Déconnectez-vous et redémarrez l’appliance.
+
+### <a name="configure-the-bios"></a>Configurer le BIOS
+
+La procédure suivante décrit comment configurer le BIOS pour l’appliance HP EL300.
+
+Pour configurer le BIOS :
+
+1. Activez l’appliance et appuyez sur la touche **F9** pour entrer dans le BIOS.
+
+1. Sélectionnez **Advanced** (Avancé), puis faites défiler jusqu’à **CSM Support** (Prise en charge de CSM).
+
+    :::image type="content" source="media/tutorial-install-components/csm-support.png" alt-text="Activez la prise en charge de CSM pour ouvrir le menu supplémentaire.":::
+
+1. Appuyez sur **Entrée** pour activer la prise en charge de CSM.
+
+1. Accédez à **Storage** (Stockage) et appuyez sur **+/-** pour le définir sur Legacy (Hérité).
+
+1. Accédez à **Video** (Vidéo) et appuyez sur **+/-** pour le définir sur Legacy (Hérité).
+
+    :::image type="content" source="media/tutorial-install-components/storage-and-video.png" alt-text="Accédez à Storage (Stockage) et Video (Vidéo) et remplacez la valeur par Legacy (Hérité).":::
+
+1. Accédez à **Boot** (Démarrage)  > **Boot mode select** (Sélection du mode de démarrage).
+
+1. Appuyez sur **+/-** pour le définir sur Legacy (Hérité).
+
+    :::image type="content" source="media/tutorial-install-components/boot-mode.png" alt-text="Modifiez la sélection du mode de démarrage sur Legacy (Hérité).":::
+
+1. Accédez à **Save & Exit** (Enregistrer et quitter).
+
+1. Sélectionnez **Save Changes and Exit** (Enregistrer les modifications et quitter).
+
+    :::image type="content" source="media/tutorial-install-components/save-and-exit.png" alt-text="Enregistrez vos modifications et quittez le système.":::
+
+1. Sélectionnez **Yes** (Oui), et l’appliance redémarre.
+
+1. Appuyez sur la touche **F11** pour accéder au **menu de démarrage**.
+
+1. Sélectionnez le périphérique avec l’image du capteur. Soit **DVD**, soit **USB**.
+
+1. Sélectionnez votre langue.
+
+1. Sélectionnez **sensor-10.0.3.12-62a2a3f724 Office : 4 UC, RAM 8 GO, STOCKAGE 100 GO**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-select-screen.png" alt-text="Sélectionnez la version du capteur comme indiqué.":::
+
+1. Dans l’Assistant Installation, définissez le profil de l’appliance et les propriétés du réseau :
+
+    :::image type="content" source="media/tutorial-install-components/appliance-parameters.png" alt-text="Définissez le profil de l’appliance et les configurations réseau avec les paramètres suivants.":::
+
+    | Paramètre | Configuration |
+    |--|--|
+    | **configurer le profil matériel** | **office** |
+    | **configurer l’interface réseau de gestion** | **enp3s0** <br />ou <br />**valeur possible** |
+    | **configurer l’adresse IP du réseau de gestion** | **adresse IP fournie par le client** |
+    | **configurer le masque de sous-réseau** | **adresse IP fournie par le client** |
+    | **configurer DNS** | **adresse IP fournie par le client** |
+    | **configurer l’adresse IP par défaut de la passerelle** | **adresse IP fournie par le client** |
+    | **configurer les interfaces d’entrée** | **enp4s0** <br />ou <br />**valeur possible** |
+    | **configurer les interfaces de pont** | N/A |
+
+1. Acceptez les paramètres et continuez en entrant `Y`.
+
 ## <a name="sensor-installation-for-the-virtual-appliance"></a>Installation du capteur pour l’appliance virtuelle
 
 Vous pouvez déployer la machine virtuelle pour le capteur Defender pour IoT dans les architectures suivantes :
-
 
 | Architecture | Spécifications | Utilisation | Commentaires |
 |---|---|---|---|
@@ -703,6 +794,111 @@ Pour effectuer l’installation :
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Capture d’écran qui montre l’accès à la console de gestion.":::
 
+## <a name="on-premises-management-console-installation"></a>installation de la console de gestion locale
+
+Avant d’installer le logiciel sur l’appliance, vous devez ajuster la configuration du BIOS de l’appliance :
+
+### <a name="bios-configuration"></a>Configuration du BIOS
+
+Pour configurer le BIOS de votre appliance :
+
+1. [Activez l’accès à distance et mettez à jour le mot de passe](#enable-remote-access-and-update-the-password).
+
+1. [Configurez le BIOS](#configure-the-hpe-bios).
+
+### <a name="software-installation"></a>Installation de logiciels
+
+Le processus d’installation prend environ 20 minutes. Après l’installation, le système redémarre plusieurs fois. 
+
+Pendant le processus d’installation, vous pouvez ajouter une carte réseau secondaire. Si vous choisissez de ne pas installer la carte réseau secondaire lors de l’installation, vous pouvez [ajouter une carte réseau secondaire](#add-a-secondary-nic) ultérieurement. 
+
+Pour installer le logiciel :
+
+1. Sélectionnez la langue de votre choix pour le processus d’installation.
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Sélectionnez la langue de votre choix pour le processus d’installation.":::     
+
+1. Sélectionnez **MANAGEMENT-RELEASE-\<version\>\<deployment type\>** .
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Sélectionnez votre version.":::   
+
+1. Dans l’Assistant Installation, définissez les propriétés du réseau :
+
+   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Capture d’écran montrant le profil de l’appliance.":::   
+
+   | Paramètre | Configuration |
+   |--|--|
+   | **configurer l’interface réseau de gestion** | Pour Dell : **eth0, eth1** <br /> Pour HP : **enu1, enu2** <br /> ou <br />**valeur possible** |
+   | **configurer l’adresse IP du réseau de gestion** | **adresse IP fournie par le client** |
+   | **configurer le masque de sous-réseau** | **adresse IP fournie par le client** |
+   | **configurer DNS** | **adresse IP fournie par le client** |
+   | **configurer l’adresse IP par défaut de la passerelle** | **adresse IP fournie par le client** |
+   
+1. **(Facultatif)** Si vous souhaitez installer une carte réseau secondaire, définissez le profil d’appliance suivant et les propriétés du réseau :
+
+    :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Capture d’écran montrant les questions relatives à l’installation de la carte réseau secondaire.":::
+
+   | Paramètre | Configuration |
+   |--|--|
+   | **configurer l’interface de surveillance du capteur (Facultatif)** | **eth1** ou **valeur possible** |
+   | **configurer une adresse IP pour l’interface de surveillance du capteur** | **adresse IP fournie par le client** |
+   | **configurer un masque de sous-réseau pour l’interface de surveillance du capteur** | **adresse IP fournie par le client** |
+
+1. Acceptez les paramètres et continuez en saisissant `Y`. 
+
+1. Après environ 10 minutes, les deux jeux d’informations d’identification s’affichent. L’un est destiné à un utilisateur **CyberX**, et l’autre à un utilisateur **Support**.
+
+   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copiez ces informations d’identification, car elles ne seront pas présentées de nouveau.":::  
+
+   Enregistrez les noms d’utilisateur et les mots de passe. Vous aurez besoin de ces informations d’identification pour accéder à la plateforme la première fois que vous l’utiliserez.
+
+1. Sélectionnez **Entrée** pour continuer.
+
+Pour plus d’informations sur la façon de trouver le port physique sur votre appliance, consultez [Rechercher votre port](#find-your-port).
+
+### <a name="add-a-secondary-nic"></a>Ajouter une carte réseau secondaire
+
+Vous pouvez renforcer la sécurité de votre console de gestion locale en ajoutant une carte réseau secondaire. En ajoutant une carte réseau secondaire, vous en aurez une dédiée à vos utilisateurs, et l’autre prendra en charge la configuration d’une passerelle pour les réseaux routés. La deuxième carte réseau est dédiée à tous les capteurs connectés dans une plage d’adresses IP.
+
+L’interface utilisateur (IU) est activée sur les deux cartes réseau. Lorsque le routage n’est pas nécessaire, toutes les fonctionnalités prises en charge par l’interface utilisateur seront disponibles sur la carte réseau secondaire. La haute disponibilité s’exécutera sur la carte réseau secondaire.
+
+Si vous choisissez de ne pas déployer de carte réseau secondaire, toutes les fonctionnalités seront disponibles via la carte réseau principale. 
+
+Si vous avez déjà configuré votre console de gestion locale et que vous souhaitez y ajouter une carte réseau secondaire, procédez comme suit :
+
+1. Utilisez la commande de reconfiguration du réseau :
+
+    ```bash
+    sudo cyberx-management-network-reconfigure
+    ```
+
+1. Entrez les réponses suivantes aux questions ci-dessous :
+
+    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Entrez les réponses suivantes pour configurer votre appliance.":::
+
+    | Paramètres | Réponse à entrer |
+    |--|--|
+    | **Adresse IP du réseau de gestion** | `N` |
+    | **Masque de sous-réseau** | `N` |
+    | **DNS** | `N` |
+    | **Adresse IP par défaut de la passerelle** | `N` |
+    | **Interface de surveillance du capteur (Facultatif. S’applique lorsque les capteurs se trouvent sur un segment de réseau différent. Pour plus d’informations, consultez les instructions d’installation.)**| `Y`, **sélectionnez une valeur possible** |
+    | **Adresse IP pour l’interface de surveillance du capteur (accessible par les capteurs)** | `Y`, **adresse IP fournie par le client**|
+    | **Masque de sous-réseau pour l’interface de surveillance du capteur (accessible par les capteurs)** | `Y`, **adresse IP fournie par le client** |
+    | **Nom d’hôte** | **fourni par le client** |
+
+1. Vérifiez tous les choix, puis entrez `Y` pour accepter les modifications. Le système redémarre.
+
+### <a name="find-your-port"></a>Rechercher votre port
+
+Si vous avez des difficultés à localiser le port physique sur votre appareil, vous pouvez utiliser la commande suivante :
+
+```bash
+sudo ethtool -p <port value> <time-in-seconds>
+```
+
+Cette commande fait clignoter le voyant du port pendant la durée spécifiée. Par exemple, si vous entrez `sudo ethtool -p eno1 120`, le port eno1 clignotera pendant deux minutes, ce qui vous permet de trouver le port à l’arrière de votre appliance. 
+
 ## <a name="virtual-appliance-on-premises-management-console-installation"></a>Appliance virtuelle : installation de la console de gestion locale
 
 La machine virtuelle de la console de gestion locale prend en charge les architectures suivantes :
@@ -823,11 +1019,7 @@ Pour créer une machine virtuelle à l’aide d’Hyper-V :
 
 ### <a name="software-installation-esxi-and-hyper-v"></a>Installation des logiciels (ESXi et Hyper-V)
 
-Le démarrage de la machine virtuelle démarre le processus d’installation à partir de l’image ISO. Pour améliorer la sécurité, vous pouvez créer une deuxième interface réseau sur votre console de gestion locale. Une interface réseau est dédiée à vos utilisateurs et peut prendre en charge la configuration d’une passerelle pour les réseaux routés. La deuxième interface réseau est dédiée à tous les capteurs attachés au sein d’une plage d’adresses IP.
-
-L’interface utilisateur est activée sur les deux interfaces réseau, et toutes les fonctionnalités prises en charge par l’interface utilisateur seront disponibles sur l’interface réseau secondaire lorsque le routage n’est pas nécessaire. La haute disponibilité s’exécutera sur l’interface réseau secondaire.
-
-Si vous choisissez de ne pas déployer d’interface réseau secondaire, toutes les fonctionnalités seront disponibles via l’interface réseau principale. 
+Le démarrage de la machine virtuelle démarre le processus d’installation à partir de l’image ISO.
 
 Pour installer le logiciel :
 
@@ -837,22 +1029,9 @@ Pour installer le logiciel :
 
 1. Définissez l’interface réseau pour le réseau de gestion du capteur : interface, IP, sous-réseau, serveur DNS et passerelle par défaut.
 
-1. (Facultatif) Ajoutez une deuxième interface réseau à la console de gestion locale.
+1. Les informations d’identification de connexion sont automatiquement générées. Enregistrez le nom d’utilisateur et le mot de passe. Vous aurez besoin de ces informations d’identification pour accéder à la plateforme la première fois que vous l’utiliserez.
 
-    1. `Please type sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions): <name of interface>`
-    
-    1. `Please type an IP address for the sensor monitoring interface (accessible by the sensors): <ip address>`
-    
-    1. `Please type a subnet mask for the sensor monitoring interface (accessible by the sensors): <subnet>`
-
-1. Les informations d’identification de connexion sont automatiquement générées et présentées. Conservez ces informations d’identification dans un endroit sûr, car elles sont requises à des fins de connexion et d’administration.
-
-    | Nom d’utilisateur | Description |
-    |--|--|
-    | Support | Utilisateur administratif pour la gestion des utilisateurs. |
-    | CyberX | Équivalent de la racine pour accéder à l’appliance. |
-
-1. L’appliance redémarre.
+   L’appliance redémarre.
 
 1. Accédez à la console de gestion à l’aide de l’adresse IP précédemment configurée : `<https://ip_address>`.
 

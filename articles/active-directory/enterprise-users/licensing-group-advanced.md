@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72a28aebe71809f3e47f9cc6936366cd027a32bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cec0f2be9dc86b156bc76f0de5afb1cc19fda99b
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96546673"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016488"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -138,7 +138,7 @@ Vous pouvez utiliser un script PowerShell pour vérifier si les utilisateurs dis
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Utiliser les journaux d’audit pour surveiller l’activité de gestion des licences par groupe
 
-Vous pouvez utiliser les [Journaux d’audit AD Azure](../reports-monitoring/concept-audit-logs.md#audit-logs) pour voir toutes les activités relatives à la gestion des licences par groupe, à savoir :
+Vous pouvez utiliser les [Journaux d’audit AD Azure](../reports-monitoring/concept-audit-logs.md) pour voir toutes les activités relatives à la gestion des licences par groupe, à savoir :
 - qui a modifié les licences attribuées aux groupes ;
 - quand le système a démarré le traitement d’une modification de licence de groupe et quand il a terminé ;
 - quelles modifications de licence ont été apportées à un utilisateur à la suite d’une attribution de licence de groupe.

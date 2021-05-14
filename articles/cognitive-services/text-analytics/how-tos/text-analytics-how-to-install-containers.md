@@ -5,19 +5,19 @@ description: Utilisez les conteneurs Docker pour l’API Analyse de texte pour e
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, cog-serv-seo-aug-2020
+ms.custom: seodec18, cog-serv-seo-aug-2020, devx-track-azurecli
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: aahi
 keywords: local, Docker, conteneur, analyse des sentiments, traitement en langage naturel
-ms.openlocfilehash: 012e725e31097af5af634a1aba7693048c4c6b3e
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 09d0da5aa811f694657ae6a0b8059bf55bcbf657
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277468"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290251"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
@@ -50,7 +50,7 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs A
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
-Si vous utilisez le conteneur Analyse de texte pour la santé, l’accusé de réception [IA responsable ](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note-health) (RAI) doit également être présent avec la valeur `accept`.
+Si vous utilisez le conteneur Analyse de texte pour la santé, l’accusé de réception [IA responsable ](/legal/cognitive-services/text-analytics/transparency-note-health) (RAI) doit également être présent avec la valeur `accept`.
 
 ## <a name="the-host-computer"></a>L’ordinateur hôte
 

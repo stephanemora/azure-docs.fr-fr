@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 785c87e8136430557af819cd8c7ab1db8f54c060
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4240e7ad53725494a2b9b04d827fef0395c1bd2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507719"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483170"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
@@ -119,7 +119,7 @@ Les contrats SLA décrivent les engagements de Microsoft en matière de temps d�
 Voir [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="shared-access-signature-sas"></a><a name="sas"></a>signature d’accès partagé (SAP)
-Signature qui vous permet d’accorder un accès limité à une ressource, sans exposer votre clé de compte. Par exemple, le [stockage Azure utilise SAP](./storage/common/storage-sas-overview.md) pour accorder l’accès client à des objets tels que des objets BLOB. [IoT Hub utilise SAP](iot-hub/iot-hub-devguide-security.md#security-tokens) pour accorder à des appareils l’autorisation d’envoyer des données de télémétrie.
+Signature qui vous permet d’accorder un accès limité à une ressource, sans exposer votre clé de compte. Par exemple, le [stockage Azure utilise SAP](./storage/common/storage-sas-overview.md) pour accorder l’accès client à des objets tels que des objets BLOB. [IoT Hub utilise SAP](iot-hub/iot-hub-dev-guide-sas.md#security-tokens) pour accorder à des appareils l’autorisation d’envoyer des données de télémétrie.
 
 ## <a name="storage-account"></a>compte de stockage
 Compte qui vous donne accès aux services Azure Objet blob, File d’attente, Table et Fichier dans le stockage Azure. Le nom du compte de stockage définit l’espace de noms unique pour vos objets de données de stockage Azure.  

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 09ebbaa6bb7cd5a2b4dcdee4e18fe905c5b2fbd3
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f1eb7a5b4697801775d23091c610ab594b0b27ec
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062520"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813377"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -116,9 +116,9 @@ Lorsque vous envoyez une exécution, Azure Machine Learning compresse le répert
 
 ### <a name="logging"></a>Journalisation
 
-Azure Machine Learning journalise automatiquement les métriques d’exécution standard. Toutefois, vous pouvez également [utiliser le kit de développement logiciel (SDK) Python pour journaliser des métriques arbitraires](how-to-track-experiments.md).
+Azure Machine Learning journalise automatiquement les métriques d’exécution standard. Toutefois, vous pouvez également [utiliser le kit de développement logiciel (SDK) Python pour journaliser des métriques arbitraires](how-to-log-view-metrics.md).
 
-Il existe plusieurs façons de consulter vos journaux : surveiller l’état d’exécution en temps réel ou afficher les résultats après la fin. Pour plus d'informations, consultez [Surveiller et consulter les journaux d’exécution de ML](how-to-monitor-view-training-logs.md).
+Il existe plusieurs façons de consulter vos journaux : surveiller l’état d’exécution en temps réel ou afficher les résultats après la fin. Pour plus d'informations, consultez [Surveiller et consulter les journaux d’exécution de ML](how-to-log-view-metrics.md).
 
 
 > [!NOTE]
@@ -256,8 +256,8 @@ Les étapes de pipeline sont réutilisables et peuvent être exécutées sans av
 Azure Machine Learning propose les fonctionnalités de supervision et de journalisation suivantes :
 
 * En tant que __scientifique de données__, vous pouvez surveiller vos expériences et consigner des informations à partir de vos exécutions d’entraînement. Pour plus d’informations, consultez les articles suivants :
-   * [Démarrer, superviser et annuler des exécutions d’entraînement](how-to-manage-runs.md)
-   * [Journaliser des métriques pour les exécutions d’entraînement](how-to-track-experiments.md)
+   * [Démarrer, superviser et annuler des exécutions d’entraînement](how-to-track-monitor-analyze-runs.md)
+   * [Journaliser des métriques pour les exécutions d’entraînement](how-to-log-view-metrics.md)
    * [Suivre des expériences avec MLflow](how-to-use-mlflow.md)
    * [Visualiser les exécutions avec TensorBoard](how-to-monitor-tensorboard.md)
 * En tant qu’__Administrateur__, vous pouvez surveiller les informations sur l’espace de travail, les ressources Azure associées et les événements tels que la création et la suppression de ressources à l’aide d’Azure Monitor. Pour plus d’informations, consultez [Supervision d’Azure Machine Learning](monitor-azure-machine-learning.md).

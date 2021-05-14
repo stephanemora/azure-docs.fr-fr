@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cd0febe5ffbc1b17718043d5fc97b804f87cc46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e436427a790a3c4ebdbbedb4570c399966ab8c95
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199725"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317862"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -24,7 +24,7 @@ Cet article décrit les différentes façons dont les utilisateurs invités peuv
 Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’utilisateur invité présente un état de consentement (affichable dans PowerShell) qui est initialement défini sur **PendingAcceptance**. Ce paramètre est maintenu jusqu’à ce que l’invité accepte votre invitation et approuve votre politique de confidentialité ainsi que vos conditions d’utilisation. Après cela, l’état de consentement passe à **Accepté**, et les pages de consentement ne sont plus présentées à l’invité.
 
    > [!IMPORTANT]
-   > - **À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
+   > - **À partir du second semestre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vous utilisez la fédération Google pour les invitations B2B ou [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), ou bien si vous utilisez l’inscription en libre-service avec Gmail, les utilisateurs de Google Gmail ne pourront pas se connecter si vos applications effectuent l’authentification des utilisateurs via une vue web incorporée. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
    > - **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Acceptation et connexion via un point de terminaison commun

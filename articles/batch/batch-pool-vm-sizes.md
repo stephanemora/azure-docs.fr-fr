@@ -4,12 +4,12 @@ description: Quelle taille de machine virtuelle et quelle version de système d�
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6de7decbf40eede74dd7b92f9f1139e1b31450c8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027378"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126252"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille et une image de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -66,7 +66,10 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 
 Certaines séries de machines virtuelles, telles que [Mv2](../virtual-machines/mv2-series.md), peuvent être utilisées uniquement avec des [images de machine virtuelle de 2e génération](../virtual-machines/generation-2.md). Les images de machine virtuelle de 2e génération sont spécifiées comme n’importe quelle image de machine virtuelle à l’aide de la propriété « SKU » de la configuration [« imageReference »](/rest/api/batchservice/pool/add#imagereference) ; les chaînes « SKU » ont un suffixe tel que « -g2 » ou « -gen2 ». Pour obtenir la liste des images de machines virtuelles prises en charge par Batch, notamment les images de 2e génération, utilisez l’API [« Répertorier les images prises en charge »](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) ou [Azure CLI](/cli/azure/batch/pool/supported-images).
 
-### <a name="pools-in-cloud-service-configuration"></a>Pools dans la configuration de service cloud
+### <a name="pools-in-cloud-services-configuration"></a>Pools dans la configuration des services cloud
+
+> [!WARNING]
+> Les pools de configuration des services Cloud sont [déconseillés](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Utilisez à la place des pools de configuration de machines virtuelles.
 
 Les pools Batch dans la configuration de service cloud prennent en charge toutes les [tailles de machine virtuelle pour Services cloud](../cloud-services/cloud-services-sizes-specs.md), **sauf** les suivantes :
 
@@ -97,7 +100,7 @@ Utilisez l’une des API suivantes pour renvoyer une liste d’images de machine
 - PowerShell : [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI : [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
 
-Il est fortement recommandé d’éviter les images avec des dates de fin de vie (EOL) de prise en charge de Batch imminentes. Vous pouvez découvrir ces dates via l’[`ListSupportedImages`API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages) , [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage) ou [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Pour plus d’informations sur la sélection de l’image de machine virtuelle du pool Batch, consultez le [Guide des meilleures pratiques pour Batch](best-practices.md).
+Il est fortement recommandé d’éviter les images avec des dates de fin de vie (EOL) de prise en charge de Batch imminentes. Vous pouvez découvrir ces dates via l’[`ListSupportedImages`API](/rest/api/batchservice/account/listsupportedimages) , [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) ou [Azure CLI](/cli/azure/batch/pool/supported-images). Pour plus d’informations sur la sélection de l’image de machine virtuelle du pool Batch, consultez le [Guide des meilleures pratiques pour Batch](best-practices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

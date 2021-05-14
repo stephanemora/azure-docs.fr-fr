@@ -1,19 +1,19 @@
 ---
 title: 'Connexion d’un ordinateur à un réseau virtuel avec authentification par certificat P2S: : Portail Azure Classic'
 titleSuffix: Azure VPN Gateway
-description: Créez une connexion de passerelle VPN point à site classique avec le Portail Azure.
+description: Découvrez comment créer une connexion classique de passerelle VPN point à site avec le portail Azure.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90f2c6dd8d82b40f6a12195c2ce89b28ca4e9305
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94657072"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228907"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurer une connexion point à site à l'aide d'une authentification par certificat (classique)
 

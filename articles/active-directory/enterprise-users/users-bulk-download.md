@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57e3a059a5dd846250ba162513ef118e084c4b87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d27c95b0b16c36ca24709ec72c741dec633c5c81
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97861593"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108063960"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Télécharger une liste d’utilisateurs dans le portail Azure Active Directory
 
@@ -75,7 +75,7 @@ Pour connaître l'état de vos demandes d'opérations en bloc en attente, consul
 
 ## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
 
-Chaque opération en bloc de création de liste d’utilisateurs peut prendre jusqu’à une heure. Cela permet la création et le téléchargement d’une liste d’au moins 500 000 utilisateurs.
+Chaque opération en bloc de création de liste d’utilisateurs peut prendre jusqu’à une heure. Cela permet la création et le téléchargement d'une liste d'un maximum de 500 000 utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

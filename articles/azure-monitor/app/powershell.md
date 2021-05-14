@@ -3,12 +3,13 @@ title: Automatiser Azure Application Insights avec PowerShell | Microsoft Docs
 description: Automatisez la création et la gestion des ressources, des alertes et des tests de disponibilité dans PowerShell à l’aide d’un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: c2e3d33be487b6a92cb7038d814e17fcd5a10064
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 60417e829297eb9a7ad4e244523c546dcaff053d
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589807"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318600"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gérer les ressources Application Insights à l’aide de PowerShell
 

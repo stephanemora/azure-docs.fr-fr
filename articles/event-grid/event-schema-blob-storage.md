@@ -3,12 +3,12 @@ title: Stockage Blob Azure en tant que source Event Grid
 description: Décrit les propriétés fournies pour les événements de stockage Blob avec Azure Event Grid.
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: 893e86ecf220ceb327eed9c6f95be4c7ed1afb1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 909b70c65704d798bf0446732959f50b179c4bca
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363642"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073266"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Stockage Blob Azure en tant que source Event Grid
 
@@ -566,7 +566,7 @@ L’objet de données comporte les propriétés suivantes :
 | [Démarrage rapide : Créer et acheminer des événements de stockage d’objets blob avec le portail Azure](blob-event-quickstart-portal.md) | Montre comment utiliser le portail pour envoyer des événements de stockage d’objets blob à un webhook. |
 | [Azure CLI : S’abonner aux événements d’un compte de stockage Blob](./scripts/event-grid-cli-blob.md) | Exemple de script pour s’abonner aux événements d’un compte de stockage Blob. Il envoie l’événement à un webhook. |
 | [PowerShell : S’abonner aux événements d’un compte de stockage Blob](./scripts/event-grid-powershell-blob.md) | Exemple de script pour s’abonner aux événements d’un compte de stockage Blob. Il envoie l’événement à un webhook. |
-| [Modèle Resource Manager : Créer un abonnement et un stockage d’objets blob](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Déploie un compte de stockage blob Azure et s’abonne aux événements pour ce compte de stockage. Il envoie les événements vers un webhook. |
+| [Modèle Resource Manager : Créer un abonnement et un stockage d’objets blob](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-subscription-and-storage) | Déploie un compte de stockage blob Azure et s’abonne aux événements pour ce compte de stockage. Il envoie les événements vers un webhook. |
 | [Vue d’ensemble : Réaction aux événements de Stockage Blob](../storage/blobs/storage-blob-event-overview.md) | Vue d’ensemble de l’intégration du stockage Blob à Event Grid. |
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -6,14 +6,14 @@ ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 description: Utiliser des emplacements personnalisés pour déployer des services PaaS Azure sur des clusters Kubernetes avec Azure Arc
-ms.openlocfilehash: ddda6420acd7126cb46b043f5c1bce67758342bc
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d8e1c11069a1097b0bfea3319eeb90fcee3eec82
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450744"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287732"
 ---
 # <a name="custom-locations-on-azure-arc-enabled-kubernetes"></a>Emplacements personnalisés sur Kubernetes avec Azure Arc
 
@@ -27,7 +27,7 @@ Une vue d’ensemble conceptuelle de cette fonctionnalité est disponible dans l
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Procédez à l'installation ou à la mise à niveau d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) vers une version >= 2.16.0.
+- [Procédez à l’installation ou à la mise à niveau d’Azure CLI](/cli/azure/install-azure-cli) vers une version >= 2.16.0.
 
 - Extensions Azure CLI `connectedk8s` (version >= 1.1.0), `k8s-extension` (version >= 0.2.0) et `customlocation` (version >= 0.1.0). Installez ces extensions Azure CLI en exécutant les commandes suivantes :
   
@@ -74,6 +74,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 > [!NOTE]
 > 1. La fonctionnalité Emplacements personnalisés dépend de la fonctionnalité Connexion au cluster. Les deux fonctionnalités doivent donc être activées pour que les emplacements personnalisés fonctionnent.
 > 2. La commande `az connectedk8s enable-features` doit être exécutée sur une machine sur laquelle le fichier `kubeconfig` pointe vers le cluster sur lequel les fonctionnalités doivent être activées.
+> 3. Si vous êtes connecté à Azure CLI avec un principal de service, des [autorisations supplémentaires](troubleshooting.md#enable-custom-locations-using-service-principal) doivent être accordées à celui-ci avant d'activer la fonctionnalité Emplacements personnalisés.
 
 ## <a name="create-custom-location"></a>Créer un emplacement personnalisé
 

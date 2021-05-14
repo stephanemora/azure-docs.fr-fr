@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 8943986bf8e8c082889d3a0b18618ac54c75e6d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 884f048ac099cfc6b799fe266172a0eecef3db6f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022974"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478367"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurer la collecte de données pour l’agent Azure Monitor (version préliminaire)
 
@@ -110,7 +110,7 @@ Suivez les étapes ci-dessous pour créer une règle de collecte de données et 
 
 ## <a name="create-association-using-resource-manager-template"></a>Créer une association à l’aide d’un modèle Resource Manager
 
-Vous ne pouvez pas créer une règle de collecte de données à l’aide d’un modèle Resource Manager, mais vous pouvez créer une association entre une machine virtuelle Azure ou un serveur avec Azure Arc à l’aide d’un modèle Resource Manager. Pour des exemples de modèles, consultez [Exemples de modèle Resource Manager pour les règles de collecte de données dans Azure Monitor](./resource-manager-data-collection-rules.md).
+Vous pouvez créer une association entre une machine virtuelle Azure ou un serveur avec Azure Arc à l’aide d’un modèle Resource Manager. Pour des exemples de modèles, consultez [Exemples de modèle Resource Manager pour les règles de collecte de données dans Azure Monitor](./resource-manager-data-collection-rules.md).
 
 
 

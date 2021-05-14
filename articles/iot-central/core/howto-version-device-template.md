@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 93545c63013c95e3db498b079061da3d9b189efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03d4b0e43c9f692b90f4ab5d4d136dac92b74de6
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95995758"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107715043"
 ---
 # <a name="create-a-new-device-template-version"></a>Créer une nouvelle version de modèle d’appareil
 
@@ -86,7 +86,7 @@ Pour contrôler la version d’un modèle d’appareil :
 
 ## <a name="version-an-interface"></a>Contrôler la version d’une interface
 
-Le contrôle de version d’une interface vous permet d’ajouter, de mettre à jour et de supprimer les fonctionnalités à l’intérieur de l’interface que vous avez déjà créée.
+Le contrôle de version d’une interface vous permet d’ajouter et de mettre à jour les fonctionnalités à l’intérieur de l’interface que vous avez déjà créée.
 
 Pour contrôler la version d’une interface :
 

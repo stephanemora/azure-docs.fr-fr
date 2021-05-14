@@ -10,24 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 499c0c065cb38313c98ed9412ab1f08d70dbc654
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a6bf14691e583190c4485ae854de78b187d95211
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199524"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773896"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Utiliser l’extension IoT pour Azure CLI permettant la gestion des appareils Azure IoT Hub
 
 ![Diagramme de bout en bout](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
-
-[L’extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) est une extension IoT open source qui étend les fonctionnalités de [d’Azure CLI](/cli/azure/overview). L’interface Azure CLI comprend des commandes permettant d’interagir avec les points de terminaison de gestion et ceux d’Azure Resource Manager. Par exemple, vous pouvez utiliser Azure CLI pour créer une machine virtuelle Azure ou un hub IoT. Une extension de l’interface CLI permet à un service Azure d’enrichir l’interface CLI, donnant ainsi accès à des fonctionnalités supplémentaires propres au service. L’extension IoT offre aux développeurs IoT un accès en ligne de commande à toutes les fonctionnalités d’IoT Hub, d’IoT Edge et du service IoT Hub Device Provisioning.
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+Dans cet article, vous apprenez à utiliser l’extension IoT pour Azure CLI avec différentes options de gestion sur votre machine de développement. [L’extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) est une extension IoT open source qui étend les fonctionnalités de [d’Azure CLI](/cli/azure/overview). L’interface Azure CLI comprend des commandes permettant d’interagir avec les points de terminaison de gestion et ceux d’Azure Resource Manager. Par exemple, vous pouvez utiliser Azure CLI pour créer une machine virtuelle Azure ou un hub IoT. Une extension de l’interface CLI permet à un service Azure d’enrichir l’interface CLI, donnant ainsi accès à des fonctionnalités supplémentaires propres au service. L’extension IoT offre aux développeurs IoT un accès en ligne de commande à toutes les fonctionnalités d’IoT Hub, d’IoT Edge et du service IoT Hub Device Provisioning.
 
 | Option de gestion          | Tâche  |
 |----------------------------|-----------|
@@ -41,21 +35,19 @@ Pour plus d’explications sur les différences et des conseils sur l’utilisat
 
 Les représentations d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). IoT Hub conserve une représentation d’appareil pour chaque appareil que vous y connectez. Pour plus d’informations sur les représentations d’appareil, consultez [Prise en main des représentations d’appareils](iot-hub-node-node-twin-getstarted.md).
 
-## <a name="what-you-learn"></a>Contenu
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Vous allez apprendre à utiliser l’extension IoT pour Azure CLI avec différentes options de gestion sur votre machine de développement.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="what-you-do"></a>Procédure
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Exécutez Azure CLI et l’extension IoT pour Azure CLI avec différentes options de gestion.
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="what-you-need"></a>Ce dont vous avez besoin
+* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoyer des données de télémétrie](quickstart-send-telemetry-dotnet.md). Ces articles demandent les éléments suivants :
 
-* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil, par exemple [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Ceux-ci couvrent les exigences suivantes :
-
-  - Un abonnement Azure actif.
-  - Une instance Azure IoT Hub associée à votre abonnement.
-  - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
+  * Un abonnement Azure actif.
+  * Une instance Azure IoT Hub associée à votre abonnement.
+  * Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
 
 * Vérifiez que votre appareil exécute l’application cliente tout au long de ce didacticiel.
 
@@ -90,7 +82,7 @@ Définissez un intervalle de propriété = 3000 en exécutant la commande suivan
 
 ```azurecli
 az iot hub device-twin update -n <your hub name> \
-  -d <your device id> --set properties.desired.interval = 3000
+  -d <your device id> --set properties.desired.interval=3000
 ```
 
 Cette propriété peut être lue sur votre appareil.
@@ -119,7 +111,7 @@ Ajoutez un champ role = temperature&humidity à l’appareil en exécutant la co
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
-  --set tags = '{"role":"temperature&humidity"}}'
+  --set tags='{"role":"temperature&humidity"}'
 ```
 
 ## <a name="device-twin-queries"></a>Requêtes de représentations d’appareil

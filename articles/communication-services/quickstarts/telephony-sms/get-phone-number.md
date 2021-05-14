@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
-ms.openlocfilehash: 19bb79f9a4deaebfacc75918c46a5516d2d398be
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 269967db4daed2bb3c42e668e2b36d74f8b0f45c
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498189"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904583"
 ---
 # <a name="quickstart-manage-phone-numbers"></a>Démarrage rapide : Gérer les numéros de téléphone
 
@@ -45,7 +45,7 @@ ms.locfileid: "107498189"
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Questions et problèmes courantes :
+Questions et problèmes courants :
 
 - L’achat de téléphone est pris en charge uniquement aux États-Unis. Pour acheter des numéros de téléphone, vérifiez les points suivants :
   - L’adresse de facturation de l’abonnement Azure associé se trouve aux États-Unis. Actuellement, vous ne pouvez pas déplacer une ressource vers un autre abonnement.

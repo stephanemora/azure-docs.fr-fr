@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
-ms.openlocfilehash: 79b6fa1043b1bb8add6b6beb5fd38312ee12ea75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 43a40ff9991a5893fe6eec710194a7f8bbcf9179
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102210272"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142745"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Déployer des services Azure dédiés dans des réseaux virtuels
 
@@ -48,7 +48,7 @@ Le déploiement de services au sein d’un réseau virtuel fournit les fonctionn
 | Containers | [Azure Kubernetes Service (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Instances (ACI)](https://www.aka.ms/acivnet)<br/>[Moteur Azure Container Service](https://github.com/Azure/acs-engine) avec le [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI Réseau virtuel Azure<br/>[Azure Functions](../azure-functions/functions-networking-options.md#virtual-network-integration) |Non <sup>2</sup><br/> Oui <br/> Non <br/> Oui
 | Web | [Gestion des API](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Web Apps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Environnement App Service](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Oui <br/> Oui <br/> Oui <br/> Oui
 | Hébergée | [Module de sécurité matériel (HSM) dédié Azure](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Oui <br/> Oui <br/>
-| Azure Spring Cloud | [Déployer dans un réseau virtuel Azure (injection de réseau virtuel)](../spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network.md)<br/>| Oui <br/>
+| Azure Spring Cloud | [Déployer dans un réseau virtuel Azure (injection de réseau virtuel)](../spring-cloud/how-to-deploy-in-azure-virtual-network.md)<br/>| Oui <br/>
 | | |
 
 <sup>1</sup> « Dédié » implique que seules des ressources propres au service peuvent être déployées dans ce sous-réseau et ne peuvent pas être combinées avec des machines virtuelles/groupes de machines virtuelles identiques (VMSS) des clients <br/> 

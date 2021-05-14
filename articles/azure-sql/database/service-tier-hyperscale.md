@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 1/13/2021
-ms.openlocfilehash: e0982b4a43a931552574e447d5639d3fa92402d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 3/31/2021
+ms.openlocfilehash: a32c839479b71f09663cc80f5b1a1b2af260ba0a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773769"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124758"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
@@ -229,8 +229,8 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 | Pools élastiques |  Les pools élastiques ne sont actuellement pas pris en charge avec Hyperscale.|
 | La migration vers Hyperscale est actuellement une opération unidirectionnelle | Une fois qu’une base de données est migrée vers Hyperscale, elle ne peut pas être migrée directement vers un niveau de service non Hyperscale. À l’heure actuelle, la seule façon de migrer une base de données d’Hyperscale vers non-Hyperscale consiste à exporter/importer à l’aide d’un fichier bacpac ou d’autres technologies de déplacement de données (copie en bloc, Azure Data Factory, Azure Databricks, SSIS, etc.) L’exportation et l’importation bacpac à partir du portail Azure, à partir de PowerShell à l’aide des cmdlets [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) ou [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), à partir d’Azure CLI à l’aide des commandes [az sql db export](/cli/azure/sql/db#az_sql_db_export) et [az sql db import](/cli/azure/sql/db#az_sql_db_import), et d’une [API REST](/rest/api/sql/), ne sont pas prises en charge. L’exportation et l’importation bacpac pour des bases de données Hyperscale de plus petite taille (jusqu’à 200 Go) est prise en charge à l’aide de SSMS et de [SqlPackage](/sql/tools/sqlpackage) versions 18.4 et ultérieures. Pour des bases de données plus volumineuses, l’exportation et l’importation bacpac peuvent prendre beaucoup de temps et échouer pour différentes raisons.|
 | Migration de bases de données avec des objets OLTP en mémoire | Hyperscale prend en charge une partie des objets OLTP en mémoire, notamment les types de tables à mémoire optimisée, les variables de table et les modules compilés en mode natif. Toutefois, lorsqu’un des types d’objets OLTP en mémoire est présent dans la base de données en cours de migration, la migration des niveaux de service Premium et Critique pour l’entreprise vers Hyperscale n’est pas prise en charge. Pour migrer une telle base de données vers Hyperscale, tous les objets OLTP en mémoire et leurs dépendances doivent être supprimés. Une fois la base de données migrée, ces objets peuvent être recréés. Les tables à mémoire optimisée durables et non durables ne sont actuellement pas prises en charge dans Hyperscale et doivent être changées en tables de disques.|
-| Géo-réplication  | Vous ne pouvez pas encore configurer la géo-réplication pour Azure SQL Database Hyperscale. |
-| Copie de base de données | La copie de base de données sur Hyperscale est désormais en préversion publique. |
+| Géoréplication  | La [géoréplication](active-geo-replication-overview.md) sur Hyperscale est désormais en préversion publique. |
+| Copie de base de données | La [copie de base de données](database-copy.md) sur Hyperscale est désormais en préversion publique. |
 | Fonctionnalités de base de données intelligente | À l'exception de l'option « Forcer le plan », aucune option de réglage automatique n'est encore prise en charge sur Hyperscale : les options peuvent sembler activées, mais aucune recommandation ou action ne sera effectuée. |
 | Query Performance Insight | Query Performance Insights n’est actuellement pas pris en charge pour les bases de données Hyperscale. |
 | Réduire la base de données | DBCC SHRINKDATABASE ou DBCC SHRINKFILE n’est pas pris en charge actuellement pour les bases de données Hyperscale. |
@@ -238,7 +238,7 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour consultez un forum aux questions sur Hyperscale, consultez [Questions fréquentes (FAQ) sur Hyperscale](service-tier-hyperscale-frequently-asked-questions-faq.md).
+- Pour consultez un forum aux questions sur Hyperscale, consultez [Questions fréquentes (FAQ) sur Hyperscale](service-tier-hyperscale-frequently-asked-questions-faq.yml).
 - Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](purchasing-models.md)
 - Pour plus d'informations sur les limites au niveau du serveur et de l'abonnement, consultez [Vue d'ensemble des limites de ressources sur un serveur](resource-limits-logical-server.md).
 - Pour connaître les limites du modèle d’achat pour une base de données unique, consultez [Limites du modèle d’achat vCore Azure SQL Database pour une base de données unique](resource-limits-vcore-single-databases.md).

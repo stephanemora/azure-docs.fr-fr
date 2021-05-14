@@ -3,12 +3,12 @@ title: Déplacer des ressources de mise en réseau Azure vers un nouveau groupe 
 description: Utilisez Azure Resource Manager pour déplacer des réseaux virtuels et d’autres ressources de mise en réseau vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: b7aaf01b696b13136a0f4077f315b137c8917906
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 0ac503a778b3de8945b074628242233f9bcd6a3b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120127"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129960"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Conseils sur le déplacement de ressources réseau
 
@@ -17,7 +17,7 @@ Cet article décrit comment déplacer des réseaux virtuels et d’autres ressou
 ## <a name="dependent-resources"></a>Ressources dépendantes
 
 > [!NOTE]
-> Notez que les passerelles VPN associées à des adresses IP publiques ne sont pas en mesure de se déplacer actuellement entre des groupes de ressources ou des abonnements.
+> Notez que les passerelles VPN associées aux IP publiques de SKU Standard ne sont pas en mesure de se déplacer actuellement entre des groupes de ressources ou des abonnements.
 
 Lorsque vous déplacez une ressource, vous devez également déplacer ses ressources dépendantes (par exemple, les adresses IP publiques, les passerelles de réseau virtuel, toutes les ressources de connexion associées). Les passerelles de réseau locales peuvent se trouver dans un autre groupe de ressources.
 

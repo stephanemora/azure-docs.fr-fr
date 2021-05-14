@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 309cf3882ade99de3f2e29a037d20ca50e35f490
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a3677e50d9dab99eaedc88cdd61e8e2ed9a3761b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066668"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321750"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -34,7 +34,7 @@ Une instance de calcul est une station de travail cloud complètement managée q
 
 |Principaux avantages|Description|
 |----|----|
-|Productivité|Vous pouvez créer et déployer des modèles à l’aide des blocs-notes intégrés et des outils suivants dans Azure Machine Learning Studio :<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (préversion)<br/>L’instance de calcul est entièrement intégrée avec l’espace de travail et le studio Azure Machine Learning. Vous pouvez partager des blocs-notes et des données avec d’autres scientifiques des données dans l’espace de travail.<br/> Vous pouvez également utiliser [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) avec des instances de calcul.
+|Productivité|Vous pouvez créer et déployer des modèles à l’aide des blocs-notes intégrés et des outils suivants dans Azure Machine Learning Studio :<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code (préversion)<br/>-  RStudio (préversion)<br/>L’instance de calcul est entièrement intégrée avec l’espace de travail et le studio Azure Machine Learning. Vous pouvez partager des blocs-notes et des données avec d’autres scientifiques des données dans l’espace de travail.<br/> Vous pouvez également utiliser [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) avec des instances de calcul.
 |Managée et sécurisée|Réduisez votre empreinte de sécurité et ajoutez la conformité aux exigences de sécurité de l’entreprise. Les instances de calcul fournissent des stratégies de gestion robustes et des configurations de mise en réseau sécurisées telles que :<br/><br/>- Provisionnement automatique par les modèles Resource Manager ou le SDK Azure Machine Learning<br/>- [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Prise en charge des réseaux virtuels](./how-to-secure-training-vnet.md#compute-instance)<br/>- Stratégie SSH pour activer/désactiver l’accès SSH<br/>TLS 1.2 activé |
 |Préconfiguré&nbsp;pour&nbsp;ML|Gagnez du temps sur les tâches d’installation grâce à des packages ML préconfigurés et à jour, des infrastructures de Deep Learning et des pilotes GPU.|
 |Entièrement personnalisable|Les scénarios avancés deviennent un jeu d’enfant grâce à la prise en charge étendue des types de machines virtuelles Azure, y compris les GPU et la personnalisation de bas niveau persistante, comme l’installation de packages et de pilotes. |
@@ -98,7 +98,7 @@ Vous pouvez également cloner les exemples les plus récents d’Azure Machine L
 
 L’écriture de petits fichiers peut être plus lente sur des lecteurs réseau que sur le disque local de l’instance de calcul.  Si vous écrivez de nombreux petits fichiers, essayez d’utiliser un répertoire directement sur l’instance de calcul, par exemple un répertoire `/tmp`. Notez que ces fichiers ne seront pas accessibles à partir d’autres instances de calcul. 
 
-Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos données temporaires.  Toutefois, n’écrivez pas de fichiers de données volumineux sur le disque du système d’exploitation de l’instance de calcul.  Utilisez plutôt des [magasin de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores). Si vous avez installé l’extension Git JupyterLab, cela peut également entraîner un ralentissement des performances de l’instance de calcul.
+Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos données temporaires.  Toutefois, n’écrivez pas de fichiers de données très volumineux sur le disque du système d’exploitation de l’instance de calcul. Le disque du système d’exploitation sur l’instance de calcul a une capacité de 128 Go. En outre, ne stockez pas de données de formation volumineuses sur le partage de fichiers de notebook. Utilisez plutôt des [magasins de données et des jeux de données](concept-azure-machine-learning-architecture.md#datasets-and-datastores). 
 
 ## <a name="managing-a-compute-instance"></a>Gestion d’une instance de calcul
 
@@ -148,6 +148,8 @@ Vous pouvez également créer une instance
 
 Le quota de cœurs dédiés par région par famille de machine virtuelle et le quota régional total, qui s’appliquent à la création d’une instance de calcul, sont unifiés et partagés avec le quota de clusters de calcul d’entraînement Azure Machine Learning. L’arrêt de l’instance de calcul n’a pas pour effet de libérer le quota pour s’assurer que vous puissiez redémarrer l’instance de calcul.
 
+L’instance de calcul est fournie avec le disque du système d’exploitation P10. Le type de disque temporaire dépend de la taille de machine virtuelle choisie. Actuellement, il n’est pas possible de modifier le type de disque du système d’exploitation.
+
 
 ### <a name="create-on-behalf-of-preview"></a>Créer au nom de (préversion)
 
@@ -180,17 +182,7 @@ Une instance de calcul :
 Vous pouvez utiliser une instance de calcul en tant que cible de déploiement d’inférence locale dans des scénarios de test ou de débogage.
 
 > [!TIP]
-> L’instance de calcul a un disque de système d’exploitation de 120 Go. Si vous ne disposez pas de suffisamment d’espace disque, [utilisez le terminal](how-to-access-terminal.md) pour effacer au moins 1-2 Go avant d’[arrêter ou redémarrer](how-to-create-manage-compute-instance.md#manage) l’instance de calcul.
-
-
-## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Qu’est-il arrivé à la machine virtuelle Notebook ?
-
-Les instances de calcul remplacent la machine virtuelle Notebook.  
-
-Tous les fichiers notebook stockés dans le partage de fichiers de l’espace de travail et les données dans les banques de données de l’espace de travail sont accessibles à partir d’une instance de calcul. Toutefois, tous les packages personnalisés qui ont été précédemment installés sur une machine virtuelle de notebooks devront être réinstallés sur l’instance de calcul. Les limitations de quota qui s’appliquent à la création des clusters de calcul s’appliquent aussi à la création des instances de calcul.
-
-Impossible de créer des machines virtuelles de notebooks. Toutefois, vous pouvez toujours accéder aux machines virtuelles Notebook que vous avez créées et les utiliser, avec toutes leurs fonctionnalités. Des instances de calcul peuvent être créées dans le même espace de travail que les machines virtuelles Notebook existantes.
-
+> L’instance de calcul a un disque de système d’exploitation de 120 Go. Si vous ne disposez pas de suffisamment d’espace disque et qu’il en découle un état inutilisable, effacez au moins 5 Go d’espace sur le disque du système d’exploitation (/dev/sda1/ filesystem mounted on /) via le terminal JupyterLab en supprimant des fichiers/dossiers, puis en effectuant un redémarrage sudo. Pour accéder au terminal JupyterLab, accédez à https://ComputeInstanceName.AzureRegion.instances.azureml.ms/lab en remplaçant le nom de l’instance de calcul et la région Azure, puis cliquez sur Fichier->Nouveau->Terminal. Effacez au moins 5 Go avant d'[arrêter ou de redémarrer](how-to-create-manage-compute-instance.md#manage) l’instance de calcul. Vous pouvez vérifier l’espace disque disponible en exécutant df-h sur le terminal.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

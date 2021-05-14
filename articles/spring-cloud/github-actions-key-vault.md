@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0ea0db1faf8c452958b8d95c193d45506057777c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9c51a7a953fca4ebdd7014beeb39e732670b15df
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877388"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129024"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Authentifier Azure Spring Cloud auprès de Key Vault dans GitHub Actions
 
@@ -42,7 +42,7 @@ Avec les résultats :
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Enregistrez ensuite les résultats dans des **secrets** GitHub comme décrit dans [Configurer votre dépôt GitHub et vous authentifier auprès d’Azure](./spring-cloud-howto-github-actions.md#set-up-github-repository-and-authenticate).
+Enregistrez ensuite les résultats dans des **secrets** GitHub comme décrit dans [Configurer votre dépôt GitHub et vous authentifier auprès d’Azure](./how-to-github-actions.md#set-up-github-repository-and-authenticate).
 
 ## <a name="add-access-policies-for-the-credential"></a>Ajouter des stratégies d’accès pour les informations d’identification
 Les informations d’identification que vous avez créées ci-dessus peuvent obtenir uniquement des informations générales sur le coffre de clés, et non le contenu qu’il stocke.  Pour obtenir les secrets stockés dans le coffre de clés, vous devez définir des stratégies d’accès pour les informations d’identification.
@@ -114,4 +114,4 @@ jobs:
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [GitHub Actions avec Spring Cloud](./spring-cloud-howto-github-actions.md)
+* [GitHub Actions avec Spring Cloud](./how-to-github-actions.md)

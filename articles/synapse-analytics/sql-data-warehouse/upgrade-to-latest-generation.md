@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b5a9d1781bd0498ac6ad74439b1572c52e3c345a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12ac49154fabbc0ce96390d5fffa5d02d7886324
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96459257"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165998"
 ---
 # <a name="optimize-performance-by-upgrading-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Optimiser les performances en mettant à niveau un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -94,7 +94,7 @@ Vous pouvez maintenant effectuer une mise à niveau de manière fluide vers le n
 
    Commande T-SQL Gen1 d’origine :
 
-   ```SQL
+   ```sql
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300') ;
    ```
 
@@ -222,7 +222,7 @@ Pour récupérer une base de données, utilisez la cmdlet [Restore-AzSqlDatabase
 5. Créez la demande de récupération de la base de données, en indiquant un ServiceObjectiveName Gen2.
 6. Vérifiez l’état de la base de données affectée par la géo-restauration.
 
-```Powershell
+```powershell
 Connect-AzAccount
 Get-AzSubscription
 Select-AzSubscription -SubscriptionName "<Subscription_name>"

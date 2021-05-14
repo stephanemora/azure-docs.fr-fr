@@ -1,14 +1,14 @@
 ---
 title: Activer l’extension de machine virtuelle à partir du portail Azure
 description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs Azure Arc exécutés dans des environnements cloud hybrides à partir du portail Azure.
-ms.date: 01/22/2020
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5b4ff79d68ec9ff0cc61b9dbb7d3c5d7fe93598
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587665"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388276"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Activer les extensions de machine virtuelle Azure à partir du portail Azure
 
@@ -16,6 +16,9 @@ Cet article explique comment déployer et désinstaller des extensions de machin
 
 > [!NOTE]
 > L’extension de la machine virtuelle Key Vault (préversion) ne prend pas en charge le déploiement à partir du portail Azure, uniquement à l’aide de l’interface de ligne de commande Azure, d’Azure PowerShell ou d’un modèle Azure Resource Manager.
+
+> [!NOTE]
+> Les serveurs avec Azure Arc ne prennent pas en charge le déploiement et la gestion des extensions de machine virtuelle sur les machines virtuelles Azure. Pour les machines virtuelles Azure, consultez l’article [Vue d’ensemble de l’extension de machine virtuelle](../../virtual-machines/extensions/overview.md) suivant.
 
 ## <a name="enable-extensions-from-the-portal"></a>Activer les extensions à partir du portail
 

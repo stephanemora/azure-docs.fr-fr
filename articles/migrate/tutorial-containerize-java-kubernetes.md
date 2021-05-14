@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: 2c1a0ee78e866a12105eca77653b1063943d06db
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4e9eda21f637c285b218b7fdc627631225efdf12
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561064"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131293"
 ---
 # <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Conteneurisation d’applications web Java et leur migration vers Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ Cet article explique comment conteneuriser des applications web Java (s’exécu
 
 L’outil Conteneurisation d’applications d’Azure Migrate prend actuellement en charge les opérations suivantes :
 
-- conteneurisation d’applications ASP.NET et déploiement de celles-ci vers des conteneurs Windows sur AKS ; [En savoir plus](./tutorial-containerize-aspnet-kubernetes.md)
+- conteneurisation d’applications ASP.NET et déploiement de celles-ci vers des conteneurs Windows sur AKS ; [En savoir plus](./tutorial-app-containerization-aspnet-kubernetes.md)
 - conteneurisation d’applications web Java sur Apache Tomcat (sur serveurs Linux) et déploiement de celles-ci vers des conteneurs Linux sur AKS.
 
 
@@ -261,4 +261,4 @@ Pour résoudre tout problème lié à l’outil, vous pouvez consulter les fichi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- conteneurisation d’applications ASP.NET et déploiement de celles-ci vers des conteneurs Windows sur AKS ; [En savoir plus](./tutorial-containerize-aspnet-kubernetes.md)
+- conteneurisation d’applications ASP.NET et déploiement de celles-ci vers des conteneurs Windows sur AKS ; [En savoir plus](./tutorial-app-containerization-aspnet-kubernetes.md)

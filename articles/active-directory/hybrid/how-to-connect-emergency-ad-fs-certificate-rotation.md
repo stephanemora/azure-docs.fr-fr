@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9035c0a91bbbd7493437c692540fcbb3136a094e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9741c2e85a7cd3523ffe7fe8262e5f5d821b62c3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612950"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126594"
 ---
 # <a name="emergency-rotation-of-the-ad-fs-certificates"></a>Rotation d’urgence des certificats AD FS
 Si vous devez faire pivoter immédiatement les certificats AD FS, vous pouvez suivre les étapes décrites ci-dessous dans cette section.
@@ -26,7 +26,7 @@ Si vous devez faire pivoter immédiatement les certificats AD FS, vous pouvez s
 
 > [!NOTE]
 > Microsoft recommande vivement d’utiliser un module de sécurité matériel (HSM) pour protéger et sécuriser les certificats.
-> Pour plus d’informations, consultez [Module de sécurité matériel](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) dans les meilleures pratiques pour la sécurisation des AD FS.
+> Pour plus d’informations, consultez [Module de sécurité matériel](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) dans les meilleures pratiques pour la sécurisation des AD FS.
 
 ## <a name="determine-your-token-signing-certificate-thumbprint"></a>Déterminer l’empreinte de votre certificat de signature de jetons
 Pour révoquer l’ancien certificat de signature de jetons qu’AD FS utilise actuellement, vous devez déterminer l’empreinte du certificat de signature de jetons.  Pour ce faire, effectuez les étapes suivantes ci-dessous :
@@ -69,7 +69,7 @@ Vous pouvez utiliser les étapes suivantes pour générer les nouveaux certifica
 ## <a name="generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false"></a>Génération manuelle de nouveaux certificats si AutoCertificateRollover a la valeur FALSE
 Si vous n’utilisez pas les certificats de signature de jetons et de déchiffrement de jetons auto-signés générés automatiquement par défaut, vous devez renouveler et configurer ces certificats manuellement.  Cela implique de créer deux nouveaux certificats de signature de jetons et de les importer.  Vous en promouvez ensuite un en principal, vous révoquez l’ancien certificat et configurez le deuxième certificat comme certificat secondaire.
 
-Tout d’abord, vous devez obtenir deux nouveaux certificats auprès de votre autorité de certification et les importer dans le magasin de certificats personnels de l’ordinateur local sur chaque serveur de fédération. Pour obtenir des instructions, consultez l'article [Importer un certificat](https://technet.microsoft.com/library/cc754489.aspx).
+Tout d’abord, vous devez obtenir deux nouveaux certificats auprès de votre autorité de certification et les importer dans le magasin de certificats personnels de l’ordinateur local sur chaque serveur de fédération. Pour obtenir des instructions, consultez l'article [Importer un certificat](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754489(v=ws.11)).
 
 >[!IMPORTANT]
 >La raison pour laquelle nous créons deux certificats est qu’Azure conserve les informations relatives au certificat précédent.  En créant un deuxième certificat, nous forçons Azure à publier des informations sur l’ancien certificat et à les remplacer par des informations sur le deuxième certificat.
@@ -118,9 +118,9 @@ Pour mettre à jour les informations de certificat dans Azure AD, exécutez la c
 ## <a name="replace-ssl-certificates"></a>Remplacer des certificats SSL
 Dans le cas où vous devez remplacer votre certificat de signature de jetons en raison d’une compromission, vous devez également révoquer et remplacer les certificats SSL pour AD FS et vos serveurs WAP.  
 
-La révocation de vos certificats SSL doit être effectuée au niveau de l’autorité de certification qui a émis le certificat.  Ces certificats sont souvent émis par des fournisseurs tiers tels que GoDaddy.  Pour obtenir un exemple, consultez (Révoquer un certificat | Certificats SSL - GoDaddy Help US).  Pour plus d’informations, consultez [Fonctionnement de la révocation de certificats](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)?redirectedfrom=MSDN).
+La révocation de vos certificats SSL doit être effectuée au niveau de l’autorité de certification qui a émis le certificat.  Ces certificats sont souvent émis par des fournisseurs tiers tels que GoDaddy.  Pour obtenir un exemple, consultez (Révoquer un certificat | Certificats SSL - GoDaddy Help US).  Pour plus d’informations, consultez [Fonctionnement de la révocation de certificats](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)).
 
-Une fois que l’ancien certificat SSL a été révoqué et qu’un nouveau certificat a été émis, vous pouvez remplacer les certificats SSL. Pour plus d’informations, consultez [Remplacement du certificat SSL pour AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
+Une fois que l’ancien certificat SSL a été révoqué et qu’un nouveau certificat a été émis, vous pouvez remplacer les certificats SSL. Pour plus d’informations, consultez [Remplacement du certificat SSL pour AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
 
 
 ## <a name="remove-your-old-certificates"></a>Supprimer vos anciens certificats
@@ -139,29 +139,10 @@ Si vos partenaires de fédération ne peuvent pas consommer vos métadonnées de
 
 
 ## <a name="revoke-refresh-tokens-via-powershell"></a>Révoquer les jetons d’actualisation via PowerShell
-À présent, nous voulons révoquer les jetons d’actualisation pour les utilisateurs qui peuvent les avoir et les forcer à se reconnecter et à obtenir de nouveaux jetons.  Cela permet de déconnecter les utilisateurs de leur téléphone, les sessions webmail actuelles, ainsi que d’autres éléments qui utilisent des jetons et des jetons d’actualisation.  Vous trouverez des informations [ici](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true) et vous pouvez également consulter comment [Révoquer l’accès utilisateur dans Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md).
+À présent, nous voulons révoquer les jetons d’actualisation pour les utilisateurs qui peuvent les avoir et les forcer à se reconnecter et à obtenir de nouveaux jetons.  Cela permet de déconnecter les utilisateurs de leur téléphone, les sessions webmail actuelles, ainsi que d’autres éléments qui utilisent des jetons et des jetons d’actualisation.  Vous trouverez des informations [ici](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?preserve-view=true&view=azureadps-2.0) et vous pouvez également consulter comment [Révoquer l’accès utilisateur dans Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gestion des certificats SSL dans AD FS et WAP dans Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
-- [Obtenir et configurer des certificats de signature de jetons et de déchiffrement de jetons pour AD FS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
+- [Gestion des certificats SSL dans AD FS et WAP dans Windows Server 2016](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
+- [Obtenir et configurer des certificats de signature de jetons et de déchiffrement de jetons pour AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
 - [Renouveler des certificats de fédération pour Microsoft 365 et Azure Active Directory](how-to-connect-fed-o365-certs.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

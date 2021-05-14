@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7a88d8a0065ca7f5cb054d23295e5cfbc23489ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fb46adc6de32befd554047eded18ca16ab76dde1
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728587"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286759"
 ---
 # <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Démarrage rapide : Gérer les événements SMS pour les rapports de remise et les messages entrants
 
@@ -65,7 +65,7 @@ Vous pouvez vous abonner à des événements spécifiques pour indiquer à Event
 
 Si vous êtes invité à fournir un **Nom de rubrique système**, n’hésitez pas à fournir une chaîne unique. Ce champ n’a aucun impact sur votre expérience et est utilisé à des fins de télémétrie interne.
 
-Consultez la liste complète des [événements pris en charge par Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Consultez la liste complète des [événements pris en charge par Azure Communication Services](../../../event-grid/event-schema-communication-services.md).
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Capture d’écran montrant les types d’événements SMS Received (SMS reçu) et SMS Delivery Report Received (Rapport de remise de SMS reçu) sélectionnés.":::
 
@@ -90,7 +90,7 @@ Pour afficher des déclencheurs d’événements, nous devons en premier lieu g�
 - Les événements `SMS Received` sont générés quand le numéro de téléphone Communication Services reçoit un SMS. Pour déclencher un événement, envoyez simplement un message à partir de votre téléphone au numéro de téléphone attaché à votre ressource Communication Services.
 - Les événements `SMS Delivery Report Received` sont générés quand vous envoyez un SMS à un utilisateur à l’aide d’un numéro de téléphone Communication Services. Pour déclencher un événement, vous devez activer `Delivery Report` dans les options du [SMS envoyé](../telephony-sms/send.md). Essayez d’envoyer un message à votre téléphone avec `Delivery Report` (Rapport de remise). Effectuer cette action entraîne une petite dépense de quelques cents USD tout au plus dans votre compte Azure.
 
-Consultez la liste complète des [événements pris en charge par Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Consultez la liste complète des [événements pris en charge par Azure Communication Services](../../../event-grid/event-schema-communication-services.md).
 
 ### <a name="receiving-sms-events"></a>Réception d’événements SMS
 
@@ -100,7 +100,7 @@ Une fois que vous avez effectué l’une des actions ci-dessus, vous remarquerez
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Capture d’écran montrant le schéma Event Grid pour un événement SMS Delivery Report (Rapport de remise de SMS).":::
 
-Découvrez-en plus sur les [schémas d’événements et d’autres concepts liés aux événements](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Découvrez-en plus sur les [schémas d’événements et d’autres concepts liés aux événements](../../../event-grid/event-schema-communication-services.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

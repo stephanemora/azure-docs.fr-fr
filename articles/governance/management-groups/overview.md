@@ -1,15 +1,15 @@
 ---
 title: Organiser vos ressources avec des groupes d’administration - Azure Governance
 description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
-ms.date: 01/22/2021
+ms.date: 04/28/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 9843b824c62e0f9919d7a71a717d9aad03dcbd9c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 777f052cfb726a1370a84b76a643fdaf539ce7b3
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590835"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176285"
 ---
 # <a name="what-are-azure-management-groups"></a>Présentation des groupes d’administration Azure
 
@@ -85,8 +85,7 @@ Si vous avez des questions sur ce processus de renvoi, contactez : `managementg
   
 ## <a name="management-group-access"></a>Accès aux groupes d’administration
 
-Les groupes d’administration Azure prennent en charge le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md) pour tous les accès aux ressources et toutes les définitions de rôles.
-Les ressources enfants qui existent dans la hiérarchie héritent de ces autorisations. Vous pouvez attribuer n’importe quel rôle Azure à un groupe d’administration, qui héritera ensuite de la hiérarchie des ressources. Par exemple, un contributeur de machine virtuelle avec un rôle Azure peut être affecté à un groupe d’administration. Ce rôle n’a aucun effet sur le groupe d’administration, mais il hérite de toutes les machines virtuelles situées sous ce groupe d’administration.
+Les groupes d’administration Azure prennent en charge le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md) pour tous les accès aux ressources et toutes les définitions de rôles. Les ressources enfants qui existent dans la hiérarchie héritent de ces autorisations. Vous pouvez attribuer n’importe quel rôle Azure à un groupe d’administration, qui héritera ensuite de la hiérarchie des ressources. Par exemple, un contributeur de machine virtuelle avec un rôle Azure peut être affecté à un groupe d’administration. Ce rôle n’a aucun effet sur le groupe d’administration, mais il hérite de toutes les machines virtuelles situées sous ce groupe d’administration.
 
 Le graphique suivant montre la liste des rôles, ainsi que les actions prises en charge par les groupes d’administration.
 
@@ -166,12 +165,12 @@ Il existe plusieurs solutions pour corriger ce scénario :
 
 ### <a name="limitations"></a>Limites  
 
-Certaines limitations s’appliquent quand vous utilisez des rôles personnalisés dans des groupes d’administration. 
+Certaines limitations s’appliquent quand vous utilisez des rôles personnalisés dans des groupes d’administration.
 
- - Vous pouvez définir un seul groupe d’administration dans les étendues attribuables d’un nouveau rôle. Cette limitation vise à réduire le nombre de situations où la relation entre les définitions de rôles et les attributions de rôles est rompue. Cette situation se produit quand un abonnement ou un groupe d’administration comportant une attribution de rôle est déplacé vers un autre parent dépourvu de la définition de rôle.  
- - Il n’est pas possible de définir les actions du plan de données du fournisseur de ressources dans des rôles personnalisés de groupe d’administration. Cette restriction s’explique par un problème de latence avec la mise à jour des fournisseurs de ressources du plan de données. Nous travaillons actuellement sur ce problème de latence ; ces actions seront désactivées de la définition de rôle pour réduire les risques.
- - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle. Même si vous avez fait une faute de frappe ou indiqué un ID de groupe d’administration incorrect, la définition de rôle est créée.
- - L’attribution de rôle pour un rôle avec _dataActions_ n’est pas prise en charge. Créez plutôt l’attribution de rôle au niveau de l’étendue de l’abonnement.
+- Vous pouvez définir un seul groupe d’administration dans les étendues attribuables d’un nouveau rôle. Cette limitation vise à réduire le nombre de situations où la relation entre les définitions de rôles et les attributions de rôles est rompue. Cette situation se produit quand un abonnement ou un groupe d’administration comportant une attribution de rôle est déplacé vers un autre parent dépourvu de la définition de rôle.  
+- Il n’est pas possible de définir les actions du plan de données du fournisseur de ressources dans des rôles personnalisés de groupe d’administration. Cette restriction s’explique par un problème de latence avec la mise à jour des fournisseurs de ressources du plan de données. Nous travaillons actuellement sur ce problème de latence ; ces actions seront désactivées de la définition de rôle pour réduire les risques.
+- Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle. Même si vous avez fait une faute de frappe ou indiqué un ID de groupe d’administration incorrect, la définition de rôle est créée.
+- L’attribution d’un rôle avec _dataActions_ n’est pas prise en charge. Créez plutôt l’attribution de rôle au niveau de l’étendue de l’abonnement.
 
 > [!IMPORTANT]
 > L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production.

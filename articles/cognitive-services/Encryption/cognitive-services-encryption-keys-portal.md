@@ -6,14 +6,14 @@ services: cognitive-services
 author: erindormier
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/28/2020
+ms.date: 04/07/2021
 ms.author: egeaney
-ms.openlocfilehash: 88a723abc606a527232b7c1949f35c1fedfdba50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c7476a3ab885e9c127cbd571ad723864bf0d898
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706841"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534560"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configurer des clés gérées par le client avec Azure Key Vault pour Cognitive Services
 
@@ -31,10 +31,15 @@ Le processus d’activation des clés gérées par le client avec Azure Key Vaul
 * [Chiffrement des données au repos de QnA Maker](../QnAMaker/encrypt-data-at-rest.md)
 * [Chiffrement des données au repos du traducteur](../translator/encrypt-data-at-rest.md)
 
+## <a name="speech"></a>Voix
+
+* [Chiffrement des données au repos Speech](../speech-service/speech-encryption-of-data-at-rest.md)
+
 ## <a name="decision"></a>Décision
 
 * [Chiffrement des données au repos de Content Moderator](../Content-Moderator/encrypt-data-at-rest.md)
 * [Chiffrement des données au repos de Personalizer](../personalizer/encrypt-data-at-rest.md)
+* [Chiffrement des données au repos Metrics Advisor](../metrics-advisor/encryption.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

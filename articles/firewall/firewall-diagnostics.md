@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a682523b9486886d5be3c96a372fe36c81582649
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98788262"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988619"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Superviser les journaux d’activité et les métriques du Pare-feu Azure
 
@@ -39,13 +39,12 @@ L’affichage des données dans vos journaux d’activité peut prendre quelques
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
-   * AzureFirewallThreatIntelLog
    * AzureFirewallDnsProxy
 
 
 3. Sélectionnez **Ajouter le paramètre de diagnostic**. La page **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic.
 5. Dans cet exemple, les journaux d’activité Azure Monitor stockent les journaux d’activité. Par conséquent, tapez **analytique des journaux d’activité de pare-feu** comme nom.
-6. Sous **Journal**, sélectionnez **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog** et **AzureFirewallDnsProxy** pour collecter les journaux.
+6. Sous **Journal**, sélectionnez **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule** et **AzureFirewallDnsProxy** pour collecter les journaux.
 7. Sélectionnez **Envoyer à Log Analytics** pour configurer votre espace de travail.
 8. Sélectionnez votre abonnement.
 9. Sélectionnez **Enregistrer**.

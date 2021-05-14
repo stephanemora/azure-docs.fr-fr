@@ -3,22 +3,17 @@ title: Configurer le proxy de centre de distribution de clés Kerberos pour Wind
 description: Comment configurer un pool d’hôtes Windows Virtual Desktop pour utiliser un proxy de centre de distribution de clés Kerberos.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/20/2021
+ms.date: 05/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 21db7ed0cf13a3ed282929b09847c6c3ba8a36ed
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 74fc1eeabe8af754d3ac5809818b6d648453ee45
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307246"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108732721"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configurer un proxy de centre de distribution de clés Kerberos (préversion)
-
-> [!IMPORTANT]
-> Cette fonctionnalité est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Configurer un proxy de centre de distribution de clés Kerberos
 
 Les clients soucieux de la sécurité, tels que les organisations financières ou gouvernementales, se connectent souvent à l’aide de cartes à puces. Les cartes à puces permettent de sécuriser les déploiements en exigeant une authentification multifacteur (MFA). Toutefois, pour la partie RDP d’une session de Windows Virtual Desktop, les cartes à puces nécessitent une connexion directe, ou « ligne de vue », avec un contrôleur de domaine Active Directory (AD) pour l’authentification Kerberos. Sans cette connexion directe, les utilisateurs ne peuvent pas se connecter automatiquement au réseau de l’organisation à partir de connexions distantes. Les utilisateurs dans un déploiement de Windows Virtual Desktop peuvent utiliser le service proxy KDC pour acheminer ce trafic d’authentification et se connecter à distance. Le proxy KDC permet l’authentification pour le protocole Bureau à distance d’une session de Windows Virtual Desktop, permettant à l’utilisateur de se connecter en toute sécurité. Il est ainsi beaucoup plus facile de travailler à domicile, et certains scénarios de récupération d’urgence peuvent se dérouler plus facilement.
 
@@ -29,15 +24,15 @@ Le service Windows Virtual Desktop doit être authentifié sur deux composants 
 - Le flux du client Windows Virtual Desktop qui donne aux utilisateurs une liste des ordinateurs de bureau ou applications disponibles auxquels ils ont accès. Ce processus d’authentification se déroule dans Azure Active Directory, ce qui signifie que ce composant n’est pas l’objet de cet article.
 - La session RDP qui résulte de la sélection par un utilisateur de l’une de ces ressources disponibles. Ce composant utilise l’authentification Kerberos et requiert un proxy KDC pour les utilisateurs distants.
 
-Cet article vous montre comment configurer le flux dans le client Windows Virtual Desktop dans le portail Azure. Si vous souhaitez savoir comment configurer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](/azure/virtual-desktop/rd-gateway-role).
+Cet article vous montre comment configurer le flux dans le client Windows Virtual Desktop dans le portail Azure. Si vous souhaitez savoir comment configurer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 ## <a name="requirements"></a>Configuration requise
 
 Pour configurer un hôte de session Windows Virtual Desktop avec un proxy KDC, vous avez besoin des éléments suivants :
 
 - Un accès au portail Azure et à un compte Administrateur Azure.
-- Les ordinateurs clients distants doivent fonctionner sous Windows 10 ou Windows 7 et avoir le [client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installé.
-- Un proxy KDC doit déjà être installé sur votre ordinateur. Pour savoir comment procéder, consultez [Configurer le rôle Passerelle des services Bureau à distance pour Windows Virtual Desktop](rd-gateway-role.md).
+- Les ordinateurs clients distants doivent fonctionner sous Windows 10 ou Windows 7 et avoir le [client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installé. Actuellement, le client Web n’est pas pris en charge.
+- Un proxy KDC doit déjà être installé sur votre ordinateur. Pour savoir comment procéder, consultez [Configurer le rôle Passerelle des services Bureau à distance pour Windows Virtual Desktop](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 - Le système d’exploitation de l’ordinateur doit être Windows Server 2016 ou une version ultérieure.
 
 Une fois que vous avez vérifié que vous répondez à ces exigences, vous êtes prêt à commencer.
@@ -70,6 +65,6 @@ Pour configurer le proxy de KDC :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment gérer le côté Services Bureau à distance du proxy KDC et attribuer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](rd-gateway-role.md).
+Pour savoir comment gérer le côté Services Bureau à distance du proxy KDC et attribuer le rôle Passerelle des services Bureau à distance, consultez [Déployer le rôle Passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role).
 
 Si vous êtes intéressé par la mise à l’échelle de vos serveurs proxy KDC, découvrez comment configurer la haute disponibilité pour le proxy KDC dans [Ajouter la haute disponibilité au serveur frontal d’accès web et de passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha).

@@ -8,7 +8,7 @@
   expanded: true
   items:
     - name: Explorer un exemple de scénario
-      href: quickstart-adt-explorer.md
+      href: quickstart-azure-digital-twins-explorer.md
 - name: Tutoriels
   items:
     - name: Coder une application cliente
@@ -41,8 +41,16 @@
       href: concepts-query-language.md
     - name: Unités de requête
       href: concepts-query-units.md
+    - name: Interfaces développeur
+      items:
+        - name: API et Kits de développement logiciel (SDK)
+          href: concepts-apis-sdks.md
+        - name: Ensemble de commandes CLI
+          href: concepts-cli.md
     - name: Intégration à d’autres services
       href: concepts-integration.md
+    - name: Notifications d’événement
+      href: concepts-event-notifications.md
     - name: Routes d’événements
       href: concepts-route-events.md
     - name: Sécurité pour les solutions Azure Digital Twins
@@ -53,8 +61,6 @@
   items:
     - name: Déployer
       items:
-        - name: Utiliser l’interface CLI Azure Digital Twins
-          href: how-to-use-cli.md
         - name: Configurer une instance et l’authentification
           items:
             - name: Version du portail
@@ -91,18 +97,12 @@
           href: how-to-manage-twin.md
         - name: Gérer le graphe de jumeaux avec des relations
           href: how-to-manage-graph.md
-        - name: Interpréter les données d’événement
-          href: how-to-interpret-event-data.md
         - name: Configurer une fonction Azure pour le traitement des données
           href: how-to-create-azure-function.md
         - name: Interroger le graphe de jumeaux
           href: how-to-query-graph.md
     - name: Développer des applications clientes
       items:
-        - name: Utiliser les API et kits SDK
-          href: how-to-use-apis-sdks.md
-        - name: Créer des kits SDK de langages personnalisés avec AutoRest
-          href: how-to-create-custom-sdks.md
         - name: Faire des demandes avec Postman
           href: how-to-use-postman.md
         - name: Intégrer à Azure SignalR Service
@@ -149,6 +149,10 @@
           items:
             - name: 403 (Interdit)
               href: troubleshoot-error-403.md
+            - name: 404 Sous-domaine introuvable
+              href: troubleshoot-error-404.md
+            - name: Authentification Azure Digital Twins Explorer
+              href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Informations de référence
   items:
     - name: Référence d’API REST
@@ -172,9 +176,25 @@
             - name: Kit de développement logiciel (SDK) Python
               href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: Interface CLI Digital Twins
-      href: /cli/azure/ext/azure-iot/dt
+      href: /cli/azure/dt
     - name: Spécification DTDL v2
       href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
+    - name: Informations de référence sur le langage de requête
+      items:
+        - name: Clauses
+          items:
+            - name: SELECT
+              href: reference-query-clause-select.md
+            - name: FROM
+              href: reference-query-clause-from.md
+            - name: JOIN
+              href: reference-query-clause-join.md
+            - name: WHERE
+              href: reference-query-clause-where.md
+        - name: Fonctions
+          href: reference-query-functions.md
+        - name: Opérateurs
+          href: reference-query-operators.md
 - name: Ressources
   items:
     - name: Limites du service Digital Twins

@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b247613ba02f897d2c0b02fc12ecd4a974cffdf4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 667f81196c81f2b3e345faf9034a8a47ff07072c
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113322"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931715"
 ---
 Découvrez comment bien démarrer avec la bibliothèque de client Custom Vision pour .NET. Suivez les étapes ci-après pour installer le package et essayer l’exemple de code afin de créer un modèle de classification d’images. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -98,9 +98,9 @@ Dans la méthode **Main** de l’application, créez des variables pour la clé 
 > [!IMPORTANT]
 > Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources. Vous devez obtenir les clés pour vos ressources d’entraînement et de prédiction, ainsi que le point de terminaison d’API pour votre ressource d’entraînement.
 >
-> Vous trouverez la valeur de l’ID de ressource de prédiction sous l’onglet **Propriétés** de la ressource, listé comme **ID d’abonnement**.
+> L’ID de ressource de prédiction est disponible sous l’onglet **Propriétés** de la ressource dans le portail Azure, listé comme **ID de ressource**.
 > 
-> N’oubliez pas de supprimer les clés de votre code une fois que vous avez terminé, et ne les postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
+> N’oubliez pas de supprimer les clés de votre code une fois que vous avez terminé, et ne les postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) Cognitive Services.
 
 Dans la méthode **Main** de l’application, ajoutez des appels pour les méthodes utilisées dans ce guide de démarrage rapide. Vous les implémenterez ultérieurement.
 
@@ -175,7 +175,7 @@ Cette méthode crée la première itération d’entraînement dans le projet. E
 
 ## <a name="publish-the-current-iteration"></a>Publier l’itération actuelle
 
-Cette méthode rend l’itération actuelle du modèle disponible pour l’interrogation. Vous pouvez utiliser le nom du modèle comme référence pour envoyer des demandes de prédiction. Vous devez entrer votre propre valeur pour `predictionResourceId`. Vous trouverez l’ID de ressource de prédiction sous l’onglet **Vue d’ensemble** de la ressource dans le portail Azure, listé comme **ID d’abonnement**.
+Cette méthode rend l’itération actuelle du modèle disponible pour l’interrogation. Vous pouvez utiliser le nom du modèle comme référence pour envoyer des demandes de prédiction. Vous devez entrer votre propre valeur pour `predictionResourceId`. L’ID de ressource de prédiction est disponible sous l’onglet **Propriétés** de la ressource dans le portail Azure, listé comme **ID de ressource**.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_publish)]
 

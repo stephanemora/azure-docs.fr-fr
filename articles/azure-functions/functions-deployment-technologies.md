@@ -4,12 +4,12 @@ description: Découvrez les différentes façons de déployer du code sur Azure 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca81067fa60836d77c4d8af121ebf415c772a1d7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943634"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789210"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -106,7 +106,7 @@ Les méthodes de déploiement décrites ci-après sont disponibles dans Azure Fu
 
 Vous pouvez utiliser une URL de package externe pour référencer un fichier de package (.zip) distant qui contient votre application de fonction. Le fichier est téléchargé depuis l’URL fournie et l’application s’exécute en mode [Exécuter à partir du package](run-functions-from-deployment-package.md).
 
->__Comment l’utiliser ?__ Ajoutez [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) à vos paramètres d’application. La valeur de ce paramètre doit être une URL, correspondant à l’emplacement du fichier de package à exécuter. Vous pouvez ajouter des paramètres soit [dans le portail](functions-how-to-use-azure-function-app-settings.md#settings), soit [à l’aide d’Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+>__Comment l’utiliser ?__ Ajoutez [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) à vos paramètres d’application. La valeur de ce paramètre doit être une URL, correspondant à l’emplacement du fichier de package à exécuter. Vous pouvez ajouter des paramètres soit [dans le portail](functions-how-to-use-azure-function-app-settings.md#settings), soit [à l’aide d’Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 >
 >Si vous employez le Stockage Blob Azure, utilisez un conteneur privé associé à une [signature d’accès partagé](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) pour permettre à Functions d’accéder au package. Chaque fois que l’application redémarre, elle extrait une copie du contenu. Votre référence doit être valide pendant la durée de vie de l’application.
 
@@ -118,7 +118,7 @@ Utilisez Zip Deploy pour envoyer (push) un fichier .zip contenant votre applicat
 
 >__Comment l’utiliser ?__ Effectuez le déploiement à l’aide de votre outil client habituel : [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) ou à partir de la ligne de commande utilisant [Azure Functions Core Tools](functions-run-local.md#project-file-deployment). Par défaut, ces outils utilisent le déploiement zip et [exécutent à partir du package](run-functions-from-deployment-package.md). Core Tools et l’extension Visual Studio Code activent la [build distante](#remote-build) lors du déploiement sur Linux. Pour déployer manuellement un fichier .zip sur votre application de fonction, suivez les instructions dans [Déployer à partir d’un fichier .zip ou d’une URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Quand vous effectuez le déploiement à l’aide de Zip Deploy, vous pouvez définir votre application pour qu’elle s’exécute en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour exécuter à partir du package, définissez la valeur de paramètre d’application [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package sur `1`. Nous vous recommandons le déploiement zip. Il accélère les temps de chargement de vos applications, et il s’agit de la méthode par défaut pour VS Code, Visual Studio et Azure CLI.
+>Quand vous effectuez le déploiement à l’aide de Zip Deploy, vous pouvez définir votre application pour qu’elle s’exécute en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour utiliser le mode Exécuter à partir du package, définissez la valeur du paramètre d’application [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) sur `1`. Nous vous recommandons le déploiement zip. Il accélère les temps de chargement de vos applications, et il s’agit de la méthode par défaut pour VS Code, Visual Studio et Azure CLI.
 
 >__Quand l’utiliser ?__ Zip Deploy est la technologie de déploiement recommandée pour Azure Functions.
 

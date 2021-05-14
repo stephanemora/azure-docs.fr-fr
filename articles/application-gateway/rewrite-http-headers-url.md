@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: b7cf7c98e71da215eb30dcab556a88d6d2701591
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490962"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789444"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Réécrire des en-têtes HTTP et une URL à l’aide d’Application Gateway
 
- Application Gateway vous permet de réécrire certains contenus de requêtes et de réponses. Avec cette fonctionnalité, vous pouvez traduire des URL, interroger des paramètres de chaîne et modifier des en-têtes de requête et de réponse. Elle vous permet également d’ajouter des conditions assurant que l’URL ou les en-têtes spécifiés sont réécrits uniquement quand certaines conditions sont remplies. Ces conditions sont basées sur les informations de requête et de réponse.
+Application Gateway vous permet de réécrire certains contenus de requêtes et de réponses. Avec cette fonctionnalité, vous pouvez traduire des URL, interroger des paramètres de chaîne et modifier des en-têtes de requête et de réponse. Elle vous permet également d’ajouter des conditions assurant que l’URL ou les en-têtes spécifiés sont réécrits uniquement quand certaines conditions sont remplies. Ces conditions sont basées sur les informations de requête et de réponse.
 
 >[!NOTE]
 >Les fonctionnalités de réécriture d’en-tête HTTP et d’URL sont disponibles uniquement pour la [référence SKU Application Gateway v2](application-gateway-autoscaling-zone-redundant.md)
@@ -151,15 +151,15 @@ Un ensemble de règles de réécriture contient les éléments suivants :
 
 * **Condition de réécriture** : cette configuration est facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture. Si vous associez plusieurs conditions à une action, cette dernière ne se produit que lorsque toutes les conditions sont remplies. En d’autres termes, il s’agit d’une opération AND logique.
 
-* **Type de réécriture** :  3 types de réécriture sont disponibles :
+* **Type de réécriture** : 3 types de réécriture sont disponibles :
    * Réécriture des en-têtes de requête 
    * Réécriture des en-têtes de réponse
-   * Réécriture d’URL : Le type de réécriture d’URL a 3 composants.
+   * Réécriture des composants d’URL
       * **Chemin d’URL** : valeur vers laquelle le chemin doit être réécrit. 
       * **Chaîne de requête de l’URL** : valeur vers laquelle la chaîne de requête doit être réécrite. 
       * **Réévaluer le mappage du chemin** : utilisé pour déterminer si le mappage du chemin d’URL doit être réévalué ou non. Si cette option est désactivée, le chemin d’URL d’origine est utilisé pour la correspondance avec le chemin de modèle dans le mappage du chemin d’URL. Si la valeur est true, le mappage du chemin d’URL est réévalué pour que la correspondance avec le chemin réécrit soit vérifiée. L’activation de ce commutateur permet de router la requête vers un autre pool de back-ends après la réécriture.
 
-## <a name="rewrite-configuration-common-pitfall"></a>Erreurs courantes lors de la réécriture de la configuration
+## <a name="rewrite-configuration-common-pitfalls"></a>Erreurs courantes lors de la réécriture de la configuration
 
 * L’activation de l’option « Réévaluer le mappage de chemin » n’est pas autorisée pour les règles de routage de requête de base. Cela permet d’éviter une boucle d’évaluation infinie pour une règle de routage de base.
 
@@ -191,7 +191,7 @@ Application Gateway insère un en-tête X-Forwarded-For dans toutes les requête
 
 Quand une application back-end envoie une réponse de redirection, vous pouvez souhaiter rediriger le client vers une URL différente de celle spécifiée par l’application back-end. Par exemple, cela peut être le cas quand un service d’application est hébergé derrière une passerelle d’application et demande au client d’effectuer une redirection vers son chemin relatif. (Par exemple, une redirection de contoso.azurewebsites.net/path1 vers contoso.azurewebsites.net/path2.)
 
-App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Les services d’application ont un nom de domaine par défaut *.azurewebsites.net (par exemple, contoso.azurewebsites.net) qui est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). Sachant que le nom d’hôte de la requête d’origine du client est le nom de domaine de la passerelle d’application (contoso.com), la passerelle d’application remplace le nom d’hôte par contoso.azurewebsites.net. Ce changement vise à permettre au service d’application de router la requête vers le point de terminaison approprié.
+App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Les services d’application ont un nom de domaine par défaut \*.azurewebsites.net (par exemple, contoso.azurewebsites.net) qui est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). Sachant que le nom d’hôte de la requête d’origine du client est le nom de domaine de la passerelle d’application (contoso.com), la passerelle d’application remplace le nom d’hôte par contoso.azurewebsites.net. Ce changement vise à permettre au service d’application de router la requête vers le point de terminaison approprié.
 
 Quand le service d’application envoie une réponse de redirection, il utilise le nom d’hôte qui figure dans l’en-tête d’emplacement de sa réponse, qui est identique à celui situé dans la requête qu’il reçoit de la passerelle d’application. Le client adresse donc la demande directement à `contoso.azurewebsites.net/path2` au lieu de passer par la passerelle applicative (`contoso.com/path2`). Or, il n’est pas souhaitable de contourner la passerelle d’application.
 
@@ -226,7 +226,7 @@ Vous pouvez évaluer un en-tête de requête ou de réponse HTTP pour détermine
 
 #### <a name="parameter-based-path-selection"></a>Sélection du chemin en fonction des paramètres
 
-Pour les scénarios dans lesquels vous souhaitez choisir le pool de back-ends en fonction de la valeur d’un en-tête, d’une partie de l’URL ou d’une chaîne de requête, vous pouvez utiliser conjointement la fonctionnalité de réécriture d’URL et le routage basé sur le chemin.  Par exemple, si vous avez un site web de vente en ligne, que la catégorie de produit est transmise comme chaîne de requête dans l’URL et que vous souhaitez router la requête vers le back-end en fonction de la chaîne de requête, effectuez les étapes suivantes :
+Pour les scénarios dans lesquels vous souhaitez choisir le pool de back-ends en fonction de la valeur d’un en-tête, d’une partie de l’URL ou d’une chaîne de requête, vous pouvez utiliser conjointement la fonctionnalité de réécriture d’URL et le routage basé sur le chemin. Par exemple, si vous avez un site web de vente en ligne, que la catégorie de produit est transmise comme chaîne de requête dans l’URL et que vous souhaitez router la requête vers le back-end en fonction de la chaîne de requête, effectuez les étapes suivantes :
 
 **Étape 1 :**  Créez un mappage de chemin comme indiqué dans l’image ci-dessous.
 
@@ -234,11 +234,11 @@ Pour les scénarios dans lesquels vous souhaitez choisir le pool de back-ends en
 
 **Étape 2 (a) :** Créez un jeu de réécritures avec 3 règles de réécriture : 
 
-* La première règle inclut une condition qui vérifie *category=shoes* dans la variable *query_string* et une action qui réécrit le chemin d’URL vers /*listing1* et pour laquelle l’option **Réévaluer le mappage du chemin** est activée.
+* La première règle inclut une condition qui vérifie *category=shoes* dans la variable *query_string* et une action qui réécrit le chemin d’URL vers /*listing1* et pour laquelle l’option **Réévaluer le mappage du chemin** est activée
 
-* La deuxième règle inclut une condition qui vérifie *category=bags* dans la variable *query_string* et une action qui réécrit le chemin d’URL vers /*listing2* et pour laquelle l’option **Réévaluer le mappage du chemin** est activée.
+* La deuxième règle inclut une condition qui vérifie *category=bags* dans la variable *query_string* et une action qui réécrit le chemin d’URL vers /*listing2* et pour laquelle l’option **Réévaluer le mappage du chemin** est activée
 
-* La troisième règle inclut une condition qui vérifie *category=accessories* dans la variable *query_string* et une action qui réécrit le chemin d’URL vers /*listing3* et pour laquelle l’option **Réévaluer le mappage du chemin** est activée.
+* La troisième règle inclut une condition qui vérifie *category=accessories* dans la variable *query_string* et une action qui réécrit le chemin d’URL vers /*listing3* et pour laquelle l’option **Réévaluer le mappage du chemin** est activée
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scénario de réécriture d’URL 1-2.":::
 
@@ -250,7 +250,7 @@ Pour les scénarios dans lesquels vous souhaitez choisir le pool de back-ends en
 
 À présent, si l’utilisateur demande *contoso.com/listing?category=any*, la chaîne sera mise en correspondance avec le chemin par défaut, car aucun des modèles de chemin du mappage du chemin (/listing1, /listing2, /listing3) ne correspond. Étant donné que vous avez associé le jeu de réécritures ci-dessus à ce chemin, ce jeu de réécritures sera évalué. Étant donné que la chaîne de requête ne correspondra pas à la condition des 3 règles de réécriture de ce jeu de réécritures, aucune action de réécriture n’aura lieu. La requête sera donc routée sans modification vers le back-end associé au chemin par défaut (*GenericList*).
 
- Si l’utilisateur demande *contoso.com/listing?category=shoes*, le chemin par défaut sera de nouveau mis en correspondance. Toutefois, dans ce cas, la condition de la première règle correspondra. L’action associée à la condition sera donc exécutée, entraînant la réécriture du chemin d’URL vers /*listing1* et la réévaluation du mappage du chemin. Quand le mappage du chemin est réévalué, la requête correspond au chemin associé au modèle */listing1* et est routée vers le back-end associé à ce modèle, à savoir ShoesListBackendPool.
+Si l’utilisateur demande *contoso.com/listing?category=shoes*, le chemin par défaut sera de nouveau mis en correspondance. Toutefois, dans ce cas, la condition de la première règle correspondra. L’action associée à la condition sera donc exécutée, entraînant la réécriture du chemin d’URL vers /*listing1* et la réévaluation du mappage du chemin. Quand le mappage du chemin est réévalué, la requête correspond au chemin associé au modèle */listing1* et est routée vers le back-end associé à ce modèle, à savoir ShoesListBackendPool.
 
 >[!NOTE]
 >Ce scénario peut être étendu à n’importe quel chemin d’URL, valeur d’en-tête ou de cookie, chaîne de requête ou variable de serveur selon la condition définie et vous permet essentiellement de router les requêtes en fonction de ces conditions.
@@ -283,7 +283,7 @@ Dans le cadre d’une redirection d’URL, Application Gateway envoie une répon
 
 - Si une réponse contient plusieurs en-têtes de même nom, la réécriture de la valeur de l’un de ces en-têtes entraîne la suppression des autres en-têtes de la réponse. Cela peut généralement se produire avec l’en-tête Set-Cookie, car une réponse peut en contenir plusieurs. Tel est le cas quand vous utilisez un service d’application avec une passerelle d’application et que vous avez configuré l’affinité de session basée sur les cookies sur la passerelle d’application. Dans ce cas, la réponse contient deux en-têtes Set-Cookie : un utilisé par le service d’application, par exemple `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`, et un autre pour l’affinité de la passerelle d’application, par exemple `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. La réécriture de l’un des en-têtes Set-Cookie dans ce scénario peut entraîner la suppression de l’autre en-tête Set-Cookie de la réponse.
 - Les réécritures ne sont pas prises en charge quand la passerelle d’application est configurée pour rediriger les demandes ou afficher une page d’erreur personnalisée.
-- Les noms d’en-tête peuvent contenir n’importe quel caractère alphanumérique et des symboles spécifiques tels que définis dans la [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Nous ne prenons actuellement pas en charge le caractère spécial de soulignement (_) dans les noms d’en-tête.
+- Les noms d’en-tête peuvent contenir n’importe quel caractère alphanumérique et des symboles spécifiques tels que définis dans la [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Nous ne prenons actuellement pas en charge le caractère spécial de soulignement (\_) dans le nom d’en-tête.
 - Les en-têtes de connexion et de mise à niveau ne peuvent pas être réécrits.
 
 ## <a name="next-steps"></a>Étapes suivantes

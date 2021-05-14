@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0629606f602b975b399855a681570ecdac9ec832
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9703ef0caa5df967033001cbeb241d1649eb2a11
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256818"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930266"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partenaires ISV pour Azure Active Directory B2C
 
@@ -61,17 +61,34 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 | ![Capture d’écran d’un logo n8identity](./media/partner-gallery/n8identity-logo.png) | [N8Identity](./partner-n8identity.md) est une plateforme de gouvernance d’identité en tant que service qui fournit une solution pour répondre à la migration des comptes clients et à l’administration CSR (Customer Service Requests) s’exécutant sur Microsoft Azure. |
 | ![Capture d’écran d’un logo Saviynt](./media/partner-gallery/saviynt-logo.png) | La plateforme [Saviynt](./partner-Saviynt.md) native Cloud améliore la sécurité, la conformité et la gouvernance grâce à une analytique intelligente et à une intégration entre applications pour rationaliser la modernisation informatique. |
 
-## <a name="security"></a>Sécurité
+## <a name="secure-hybrid-access-to-on-premises-application"></a>Accès hybride sécurisé à une application locale
 
-Microsoft travaille en partenariat avec les fournisseurs de logiciels indépendants (ISV) suivants pour la sécurité.
+Microsoft travaille en partenariat avec les fournisseurs de logiciels indépendants (ISV) suivants pour fournir un accès hybride sécurisé à une application locale. 
+
+| Partenaire fournisseur de logiciels indépendant | Description et procédures pas à pas d’intégration |
+|:-------------------------|:--------------|
+| ![Capture d’écran d’un logo Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) permet un accès hybride sécurisé aux applications héritées locales sur plusieurs clouds. |
+| ![Capture d’écran d’un logo Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) fournit un accès hybride sécurisé à des applications locales en appliquant des stratégies d’accès cohérentes, en assurant la synchronisation des identités et en simplifiant la transition des applications entre des systèmes d’identité hérités et le contrôle d’accès et l’authentification standard fournis par Azure AD B2C. |
+| ![Capture d’écran d’un logo Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) fournit un accès sécurisé basé sur des stratégies aux applications privées et aux ressources, sans les risques liés aux coûts, à la charge ou à la sécurité d’un réseau privé virtuel (VPN). |
+
+## <a name="fraud-protection"></a>Protection contre les fraudes
+
+Microsoft travaille en partenariat avec les fournisseurs de logiciels indépendants (ISV) suivants pour la détection et la prévention des fraudes. 
 
 | Partenaire fournisseur de logiciels indépendant | Description et procédures pas à pas d’intégration |
 |:-------------------------|:--------------|
 | ![Capture d’écran d’un logo Arkose Labs](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) est un fournisseur de solutions de prévention des fraudes qui aide les organisations à se protéger contre les attaques de bots, les attaques de prise de contrôle de comptes et les ouvertures de comptes frauduleuses. |
+| ![Capture d’écran d’un logo BioCatch](./media/partner-gallery/biocatch-logo.png) | [BioCatch](./partner-biocatch.md) est un fournisseur de solutions de prévention des fraudes qui analyse les comportements numériques cognitifs et physiques d’un utilisateur afin de générer des informations permettant de distinguer les clients légitimes des cybercriminels. |
 | ![Capture d’écran d’un logo Microsoft Dynamics 365](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraud Protection](./partner-dynamics-365-fraud-protection.md) est une solution qui aide les organisations à se protéger contre les ouvertures de comptes frauduleuses par le biais d’une prise d’empreinte des appareils. |
-| ![Capture d’écran d’un logo Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) permet un accès hybride sécurisé aux applications héritées locales sur plusieurs clouds. |
-| ![Capture d’écran d’un logo Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) fournit un accès hybride sécurisé à des applications locales en appliquant des stratégies d’accès cohérentes, en assurant la synchronisation des identités et en simplifiant la transition des applications entre des systèmes d’identité hérités et le contrôle d’accès et l’authentification standard fournis par Azure AD B2C. |
-| ![Capture d’écran d’un logo Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) fournit un accès sécurisé basé sur des stratégies aux applications privées et aux ressources, sans les risques liés aux coûts, à la charge ou à la sécurité d’un réseau privé virtuel (VPN). |
+
+## <a name="web-application-firewall"></a>Pare-feu d’applications web 
+
+Microsoft travaille en partenariat avec les fournisseurs de logiciels indépendants (ISV) suivants pour le pare-feu d’applications web (WAF). 
+
+| Partenaire fournisseur de logiciels indépendant | Description et procédures pas à pas d’intégration |
+|:-------------------------|:--------------|
+| ![Capture d’écran du logo Cloudflare](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) est un fournisseur de WAF qui aide les organisations à se protéger contre les attaques malveillantes visant à exploiter des vulnérabilités telles que SQLi et XSS. |
+
 
 ## <a name="additional-information"></a>Informations supplémentaires
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: be05d237d2799404c3fd8b5733464e23eeb49aa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7483a097b188b9f96221a13964992c7b02332258
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94833059"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891964"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Débogage local lors du déclenchement de fonctions Azure Event Grid
 
@@ -41,59 +41,7 @@ Définissez ensuite un point d’arrêt sur la ligne commençant par `log.LogInf
 
 **Appuyez sur F5** pour démarrer une session de débogage.
 
-## <a name="allow-azure-to-call-your-local-function"></a>Autoriser Azure à appeler votre fonction locale
-
-Pour arrêter une fonction en cours de débogage sur votre ordinateur, vous devez permettre à Azure de communiquer avec votre fonction locale à partir du cloud.
-
-L’utilitaire [ngrok](https://ngrok.com/) permet à Azure d’appeler la fonction en cours d’exécution sur votre ordinateur. Démarrez *ngrok* en utilisant la commande suivante :
-
-```bash
-ngrok http -host-header=localhost 7071
-```
-Pendant la configuration de l’utilitaire, la fenêtre de commande doit ressembler à la capture d’écran suivante :
-
-![Capture d’écran de l’invite de commandes après le lancement de l’utilitaire « ngrok »](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
-
-Copiez l’URL **HTTPS** générée lorsque *ngrok* est exécuté. Cette valeur est utilisée lors de la configuration du point de terminaison de l’événement Event Grid.
-
-## <a name="add-a-storage-event"></a>Ajouter une clé de stockage
-
-Ouvrez le portail Azure, accédez à un compte de stockage, puis cliquez sur l’option **Événements**.
-
-![Ajouter un événement de compte de stockage](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
-
-Dans la fenêtre *Événements*, cliquez sur le bouton **Abonnement à un événement**. Dans la fenêtre *Abonnement à un événement*, cliquez sur la liste déroulante *Type de point de terminaison* et sélectionnez **Webhook**.
-
-![Sélectionner un type d’abonnement](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
-
-Une fois le type de point de terminaison configuré, cliquez sur **Sélectionner un point de terminaison** pour configurer la valeur du point de terminaison.
-
-![Sélectionner un type de point de terminaison](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
-
-La valeur *Point de terminaison de l’abonné* se compose de trois valeurs distinctes. Le préfixe correspond à l’adresse URL HTTPS générée par *ngrok*. Le reste de l’URL est fourni par l’URL qui se trouve dans le fichier de code de fonction, avec le nom de la fonction ajouté à la fin. En commençant par l’URL provenant du fichier de code de fonction, l’URL *ngrok* remplace `http://localhost:7071` et le nom de la fonction remplace `{functionname}`.
-
-L’URL finale doit ressembler à la capture d’écran suivante :
-
-![Sélection de point de terminaison](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint-selection.png)
-
-Une fois que vous avez entré la valeur appropriée, cliquez sur **Confirmer la sélection**.
-
-> [!IMPORTANT]
-> Chaque fois que vous démarrez *ngrok*, l’URL HTTPS est régénérée et la valeur change. Par conséquent, vous devez créer un abonnement d’événement chaque fois que vous exposez votre fonction à Azure via *ngrok*.
-
-## <a name="upload-a-file"></a>Charger un fichier
-
-Vous pouvez maintenant charger un fichier sur votre compte de stockage afin de déclencher un événement Event Grid pour votre fonction locale à gérer. 
-
-Ouvrez l’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) et connectez-vous à votre compte de stockage. 
-
-- Développer **Conteneurs d'objets blob** 
-- Cliquez avec le bouton droit et sélectionnez **Conteneurs d’objets blob**.
-- Nommez le conteneur **test**
-- Sélectionnez le conteneur *test*
-- Cliquez sur le bouton **Télécharger**
-- Cliquez sur **Charger des fichiers**
-- Sélectionnez un fichier et chargez-le dans le conteneur d’objets blob
+[!INCLUDE [functions-event-grid-local-dev](../../includes/functions-event-grid-local-dev.md)]
 
 ## <a name="debug-the-function"></a>Déboguer la fonction
 

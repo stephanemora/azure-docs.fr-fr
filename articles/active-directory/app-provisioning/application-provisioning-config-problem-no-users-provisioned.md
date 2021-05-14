@@ -3,20 +3,20 @@ title: Utilisateurs non approvisionnés dans mon application
 description: Résolution des problèmes courants rencontrés lorsque les utilisateurs ne figurent pas dans une application de la galerie Azure AD que vous avez configurée pour l’approvisionnement d’utilisateurs avec Azure AD
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 429f993764273d6b6eb23d75d0132b374d5d0ca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42bee803e6dfb025f654714a44a8a4aae3b7448b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256352"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783186"
 ---
 # <a name="no-users-are-being-provisioned"></a>Aucun utilisateur n’est en cours d’approvisionnement 
 >[!NOTE]

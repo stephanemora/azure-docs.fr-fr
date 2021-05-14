@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 04/29/2021
 ms.author: victorh
-ms.openlocfilehash: 6725bea562d3e7841b5ab82acc0a54f91f0488b4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9f63b41afebc12566c8cc2e04664850203f1e5a
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732922"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279925"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Qu’est-ce qu’Azure Firewall Manager ?
 
@@ -88,7 +88,6 @@ Les problèmes connus d’Azure Firewall Manager sont les suivants :
 |Échec de l'ajout en bloc d'adresses IP|Le pare-feu du hub sécurisé passe en état d'échec si vous ajoutez plusieurs adresses IP publiques.|Ajoutez de plus petits incréments d'adresses IP publiques. Par exemple, ajoutez 10 adresses à la fois.|
 |Protection DDoS Standard non prise en charge avec les hubs virtuels sécurisés|La protection DDoS Standard n’est pas intégrée aux réseaux WAN virtuels.|Enquête|
 |Journaux d’activité non entièrement pris en charge|La stratégie de pare-feu ne prend pas en charge les journaux d’activité.|Enquête|
-|Certains paramètres de pare-feu ne sont pas migrés lorsque le pare-feu est migré pour utiliser la stratégie de pare-feu|Les adresses privées SNAT et zones de disponibilité ne sont pas migrées lorsque vous migrez vers la stratégie de pare-feu Azure.|Enquête| 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5c0e8ae52d2af25c41550df1c59680d47360477
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92532643"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987845"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Sauvegarder et restaurer dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -69,9 +69,9 @@ Les fichiers de la base de données physique sont d’abord restaurés à partir
 
 La restauration à un point dans le temps est utile dans plusieurs scénarios. Par exemple, lorsqu’un utilisateur supprime accidentellement des données, perd une base de données ou une table importante ou si une application remplace accidentellement des données correctes par des données erronées en raison d’un défaut de l’application. Vous pourrez restaurer jusqu’à la dernière transaction en raison de la sauvegarde continue des journaux des transactions.
 
-Vous pouvez choisir entre le point de restauration le plus ancien et un point de restauration personnalisé.
+Vous pouvez choisir entre le dernier point de restauration et un point de restauration personnalisé.
 
--   **Point de restauration le plus ancien** : en fonction de votre période de conservation, il s’agira de l’heure la plus ancienne à laquelle vous pouvez restaurer. L’heure de sauvegarde la plus ancienne sera automatiquement sélectionnée et affichée dans le portail. C’est utile si vous souhaitez procéder à une investigation ou à des tests à partir de cet instant dans le passé.
+-   **Dernier point de restauration (maintenant)**  : il s'agit de l'option par défaut, qui vous permet de restaurer le serveur selon le dernier instant dans le passé. 
 
 -   **Point de restauration personnalisé** : cette option vous permet de choisir n’importe quel instant dans le passé au cours de la période de conservation définie pour ce serveur flexible. Par défaut, l’heure UTC la plus récente est sélectionnée automatiquement. C’est utile si vous souhaitez restaurer jusqu’à la dernière transaction validée à des fins de test. Vous pouvez éventuellement choisir d’autres jours et heures. 
 

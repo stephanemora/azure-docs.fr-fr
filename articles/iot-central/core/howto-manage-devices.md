@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5bab4a7a90101d3749571e0f2d4179f0fce14296
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 2ea75adfb7c2d990cfa543270f245113e15e4ee2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378633"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389840"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -58,12 +58,14 @@ Pour ajouter un appareil à votre application Azure IoT Central :
 
 ## <a name="import-devices"></a>Importer des appareils
 
-Pour connecter un grand nombre d’appareils à votre application, vous pouvez importer en bloc des appareils à partir d’un fichier CSV. Le fichier CSV doit disposer des en-têtes de colonne suivants :
+Pour connecter un grand nombre d’appareils à votre application, vous pouvez importer en bloc des appareils à partir d’un fichier CSV. Vous trouverez un exemple de fichier CSV dans le [dépôt d’exemples Azure](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). Le fichier CSV doit inclure les en-têtes de colonne suivants :
 
 | Colonne | Description 
 | - | - | 
 | IOTC_DEVICEID | L’ID d’appareil est un identifiant unique qui sera utilisé par cet appareil pour se connecter. L’ID d’appareil peut contenir des lettres, des chiffres et le caractère `-`, sans espaces. |
 | IOTC_DEVICENAME | facultatif. Le nom de l’appareil est un nom convivial qui sera affiché dans toute l’application. S’il n’est pas spécifié, il sera identique à l’ID de l’appareil.   |
+
+
 
 Pour l’inscription en masse d’appareils :
 

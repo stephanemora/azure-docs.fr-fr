@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 7ff53a700ab1b158d94af84907940f56afa74eb5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bf99f6bb41405df497b22dd220093815f4194f4d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99213900"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157538"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Windows pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](../conversation-transcription.md). Pour la transcription de conversation, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge. Pour les autres utilisations des fonctions vocales, les réseaux de microphones linéaires fournissant une géométrie de réseau de microphones sont pris en charge.
 
@@ -33,8 +33,6 @@ Ce démarrage rapide nécessite :
 * Téléchargez la dernière version du [SDK Speech Devices](https://aka.ms/sdsdk-download-JRE) pour Java et décompressez le fichier .zip dans votre répertoire de travail.
    > [!NOTE]
    > Ce guide de démarrage rapide part du principe que l’application est extraite dans C:\SDSDK\JRE-Sample-Release.
-
-La fonctionnalité de transcription de conversation n'est actuellement disponible que pour les langues « en-US » et « zh-CN » dans les régions « USA Centre » et « Asie Est ». Vous devez disposer d’une clé Speech dans une de ces régions pour utiliser la transcription de conversation.
 
 Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonnement [Language Understanding Intelligent Service (LUIS)](../../luis/luis-how-to-azure-subscription.md). Pour plus d’informations sur LUIS et la reconnaissance des intentions, consultez [Reconnaître les intentions vocales avec LUIS, C#](../how-to-recognize-intents-from-speech-csharp.md). Un [exemple de modèle LUIS](https://aka.ms/sdsdk-luis) est disponible pour cette application.
 

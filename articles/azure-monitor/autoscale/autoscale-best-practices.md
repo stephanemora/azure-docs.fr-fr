@@ -4,12 +4,12 @@ description: Modèles de mise à l’échelle automatique d’Azure pour Web App
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 9aaf9525f2fedee67a86011e938b8e995ccfe9fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a49c9812848d9ef8cbe5a4499fb1430ca146855
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100599302"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738425"
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](../../api-management/api-management-key-concepts.md).
@@ -66,7 +66,7 @@ Nous vous recommandons de choisir une marge suffisante entre les seuils de dimin
 * Augmenter les instances de 1 lorsque le % du processeur >= 80
 * Diminuer les instances de 1 lorsque le % du processeur <= 60
 
-Dans ce cas  
+Dans ce cas
 
 1. Supposons qu’il existe 2 instances pour commencer.
 2. Si le pourcentage moyen du processeur entre les instances atteint 80, la mise à l’échelle automatique augmente la taille des instances en ajoutant une troisième instance.
@@ -149,11 +149,10 @@ Les événements de mise à l’échelle automatique sont enregistrés dans le j
 * La mise à l’échelle automatique détecte un bagottement et abandonne la tentative de mise à l’échelle. Vous verrez un type de journal `Flapping` dans cette situation. Si vous voyez cela, déterminez si vos seuils sont trop rapprochés.
 * La mise à l’échelle automatique détecte un bagottement mais reste en mesure d’effectuer correctement la mise à l’échelle. Vous verrez un type de journal `FlappingOccurred` dans cette situation. Si vous voyez cela, le moteur de mise à l’échelle automatique a tenté une mise à l’échelle (par exemple, de 4 instances à 2), mais a déterminé que cela entraînerait un bagottement. Au lieu de cela, le moteur de mise à l’échelle automatique a pris en compte une mise à l’échelle vers un nombre d’instances différent (par exemple, en utilisant 3 instances au lieu de 2), ce qui ne provoque plus de bagottement, et a donc effectué la mise à l’échelle vers ce nombre d’instances.
 
-Vous pouvez également utiliser une alerte de journal d’activité pour surveiller l’intégrité du moteur de mise à l’échelle automatique. Voici des exemples pour [créer une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) ou [créer une alerte de journal d’activité pour surveiller tous les échecs d’opérations de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+Vous pouvez également utiliser une alerte de journal d’activité pour surveiller l’intégrité du moteur de mise à l’échelle automatique. Voici des exemples pour [créer une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert) ou [créer une alerte de journal d’activité pour surveiller tous les échecs d’opérations de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert).
 
 Outre l’activation des alertes de journal d’activité, vous pouvez configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie via l’onglet Notifications du paramètre de mise à l’échelle automatique.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Créer une alerte de journal d’activité pour surveiller tous les échecs d’opérations de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
-
+- [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Créer une alerte de journal d’activité pour surveiller tous les échecs d’opérations de mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)

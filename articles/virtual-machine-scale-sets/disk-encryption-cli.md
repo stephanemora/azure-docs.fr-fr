@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: d347be4e6727cdda659620befe20824678160020
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: af870b3be9c2ab7022a05c9cf9e3a662c5850214
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107792432"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875068"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Chiffrer des disques de système d’exploitation et de données attachés dans un groupe de machines virtuelles identiques avec l’interface Azure CLI
 
@@ -61,7 +61,7 @@ La création et la configuration des l’ensemble des ressources et des machines
 
 Un coffre de clés Azure peut stocker des clés, des clés secrètes ou des mots de passe vous permettant de les implémenter en toute sécurité dans vos applications et services. Les clés de chiffrement sont stockées dans le coffre de clés Azure à l’aide d’une protection logicielle, mais vous pouvez importer ou générer vos clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Ces clés de chiffrement servent à chiffrer et à déchiffrer les disques virtuels connectés à votre machine virtuelle. Vous gardez le contrôle de ces clés de chiffrement et pouvez effectuer un audit de leur utilisation.
 
-Définissez un nom de coffre de clés (*keyvault_name*) unique. Créez ensuite un coffre de clés avec [az keyvault create](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-create) dans le même abonnement et la même région que le groupe identique, puis définissez la stratégie d’accès *--enabled-for-disk-encryption*.
+Définissez un nom de coffre de clés (*keyvault_name*) unique. Créez ensuite un coffre de clés avec [az keyvault create](/cli/azure/keyvault#az_keyvault_create) dans le même abonnement et la même région que le groupe identique, puis définissez la stratégie d’accès *--enabled-for-disk-encryption*.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -75,7 +75,7 @@ az keyvault create --resource-group myResourceGroup --name $keyvault_name --enab
 
 Cette étape est requise uniquement si vous souhaitez utiliser un coffre de clés existant avec le chiffrement de disque. Ignorez cette étape si vous avez créé un coffre de clés dans la section précédente.
 
-Définissez un nom de coffre de clés (*keyvault_name*) unique. Mettez ensuite à jour votre coffre de clés avec [az keyvault update](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-update), puis définissez la stratégie d’accès *--enabled-for-disk-encryption*.
+Définissez un nom de coffre de clés (*keyvault_name*) unique. Mettez ensuite à jour votre coffre de clés avec [az keyvault update](/cli/azure/keyvault#az_keyvault_update), puis définissez la stratégie d’accès *--enabled-for-disk-encryption*.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Activer le chiffrement
 
-Pour chiffrer des instances de machine virtuelle dans un groupe identique, vous devez d’abord obtenir certaines informations sur l’ID de ressource du coffre de clés avec [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Les variables obtenues sont ensuite utilisées pour démarrer le processus de chiffrement avec [az vmss encryption enable](/cli/azure/vmss/encryption#az_vmss_encryption_enable) :
+Pour chiffrer des instances de machine virtuelle dans un groupe identique, vous devez d’abord obtenir certaines informations sur l’ID de ressource du coffre de clés avec [az keyvault show](/cli/azure/keyvault#az_keyvault_show). Les variables obtenues sont ensuite utilisées pour démarrer le processus de chiffrement avec [az vmss encryption enable](/cli/azure/vmss/encryption#az_vmss_encryption_enable) :
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault

@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a4c63cc686b08d179e20e6f3e3a7aa1efa69a5f8
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: eeba3cb579c6ef9158379403a3206f99a2cfb060
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447078"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830625"
 ---
 # <a name="data-and-metadata-locations-for-windows-virtual-desktop"></a>Emplacements de données et de métadonnées pour Windows Virtual Desktop
 
@@ -25,7 +25,7 @@ Windows Virtual Desktop est disponible pour tous les emplacements géographiques
 >Microsoft ne contrôle ni ne limite les régions où vos utilisateurs et vous pouvez accéder aux données utilisateur et aux données spécifiques de vos utilisateurs et applications.
 
 >[!IMPORTANT]
->Windows Virtual Desktop stocke des informations de métadonnées globales, telles que des noms de locataires, des noms de pools d’hôtes, des noms de groupes d’applications et des noms d’utilisateurs principaux dans un centre de données. Chaque fois qu’un client crée un objet service, il doit entrer un emplacement pour celui-ci. L’emplacement entré détermine où les métadonnées de l’objet seront stockées. Le client choisit une région Azure et les métadonnées sont stockées dans la zone géographique associée. Pour obtenir la liste de toutes les régions Azure et des zones géographiques associées, consultez [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
+>Windows Virtual Desktop stocke des informations de métadonnées globales telles que les noms des espaces de travail, des pools d’hôtes, des groupes d’applications et des utilisateurs principaux dans un centre de données. Chaque fois qu’un client crée un objet service, il doit entrer un emplacement pour celui-ci. L’emplacement entré détermine où les métadonnées de l’objet seront stockées. Le client choisit une région Azure et les métadonnées sont stockées dans la zone géographique associée. Pour obtenir la liste de toutes les régions Azure et des zones géographiques associées, consultez [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 Nous prenons actuellement en charge le stockage des métadonnées dans les zones géographiques suivantes :
 

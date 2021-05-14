@@ -5,18 +5,18 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 3bd571195a3f0df290387812e68f2b0377fe3c3c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 553483a1d7005f73bf62e2afb5cc427d96b2e211
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584048"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331193"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Créer des services inclus avec un compte gratuit Azure
 
-Au cours des 30 premiers jours suivant la création d’un compte gratuit Azure, vous disposez d’un crédit de 200 dollars US à utiliser sur n’importe quel service, à l’exception des achats tiers sur la Place de marché. Vous pouvez faire des essais avec différents niveaux et types de services Azure en utilisant le crédit gratuit qui permet de faire l’expérience d’Azure. Si vous utilisez des services ou des ressources Azure qui ne sont pas gratuits pendant cette période, les frais sont déduits de votre crédit.
+Durant les 30 premiers jours suivant la création d’un compte gratuit Azure, vous disposez d’un crédit équivalent à 200 dollars US dans votre devise de facturation à utiliser sur n’importe quel service, à l’exception d’achats de produits tiers sur la Place de marché. Vous pouvez faire des essais avec différents niveaux et types de services Azure en utilisant le crédit gratuit qui permet de faire l’expérience d’Azure. Si vous utilisez des services ou des ressources Azure qui ne sont pas gratuits pendant cette période, les frais sont déduits de votre crédit.
 
 Si vous n’avez pas utilisé l’intégralité de votre crédit à la fin des 30 premiers jours, il est perdu. Après les 30 premiers jours et jusqu’à 12 mois après l’inscription, vous ne pouvez utiliser qu’une quantité limitée de *certains services*, et tous les services Azure ne sont pas gratuits. Si vous procédez à une mise à niveau avant 30 jours et que vous disposez d’un crédit restant, vous pouvez utiliser le reste de votre crédit en utilisant un abonnement avec paiement à l’utilisation pour les jours restants. Par exemple, si vous vous inscrivez pour le compte gratuit au 1er novembre, et que vous effectuez une mise à niveau le 5 novembre, vous avez jusqu’au 30 novembre pour utiliser votre crédit dans le nouvel abonnement avec paiement à l’utilisation. 
 

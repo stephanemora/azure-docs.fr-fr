@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f78420a65cd9c2402266eb9ba973eabe758d7ee5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4119d64dcadd23415cc750e88d560057bda6af8e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608240"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138014"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles de la série HBv3 
 
@@ -130,7 +130,7 @@ Quand il est associé à une batterie agrégée par bandes, le disque SSD NVMe f
 | Prise en charge d’Orchestrator           | Azure CycleCloud, Azure Batch, AKS ; [options de configuration de cluster](../../sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> Windows Server 2012 R2 n’est pas pris en charge sur les HBv3 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques). Consultez [ce document](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) pour plus d’informations.
+> Windows Server 2012 R2 n’est pas pris en charge sur les HBv3 et autres machines virtuelles ayant plus de 64 cœurs (virtuels ou physiques). Consultez [ce document](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

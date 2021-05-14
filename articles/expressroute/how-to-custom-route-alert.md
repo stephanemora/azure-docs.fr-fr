@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9dcea1c9f25772d45e6d01e1a6b17635df9cf48
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104654388"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287515"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurer des alertes personnalisées pour superviser les routes publiées
 
@@ -271,25 +271,25 @@ Azure Logic Apps est l’orchestrateur de tous les processus de collecte et d’
 
 ### <a name="workflow"></a>Workflow
 
-Dans ce workflow, vous créez une application logique qui surveille régulièrement les passerelles ExpressRoute. Si de nouveaux éléments existent, l’application logique envoie un e-mail pour chacun d’eux. Lorsque vous avez terminé, votre application logique ressemble au flux de travail suivant à un niveau élevé :
+Pour cette application logique, vous créez un workflow qui supervise régulièrement des passerelles ExpressRoute. S’il existe de nouveaux éléments, le workflow envoie un e-mail pour chacun d’eux. Quand vous avez terminé, votre workflow ressemble globalement à cet exemple :
 
 :::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Workflow de Logic Apps":::
 
 ### <a name="1-create-a-logic-app"></a>1. Créer une application logique
 
-Dans **Concepteur d’application logique**, créez une application logique à l’aide du modèle **Application logique vide**. Pour connaître les étapes à suivre, consultez [Créer des applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app).
+Dans le **Concepteur d’application logique**, créez une application logique à l’aide du modèle **Application logique vide**. Pour les étapes, consultez [Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 :::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="Modèle vide":::
 
 ### <a name="2-add-a-trigger"></a>2. Ajouter un déclencheur
 
-Chaque application logique est démarrée par un déclencheur. Un déclencheur s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Azure Logic Apps crée une instance d’application logique qui démarre et exécute votre flux de travail.
+Chaque workflow se lance à l’aide d’un déclencheur. Un déclencheur s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur se met en œuvre, Azure Logic Apps crée et exécute une nouvelle instance de workflow.
 
-Pour exécuter régulièrement une application logique basée sur un calendrier prédéfini, ajoutez la **Périodicité : Planification** intégrée à votre workflow. Dans la zone de recherche, saisissez **Planification**. Sélectionnez **Déclencheurs**. Dans la liste Déclencheurs, sélectionnez **Planification de la périodicité**.
+Pour exécuter régulièrement un workflow selon une planification prédéfinie, ajoutez le déclencheur intégré **Périodicité** à votre workflow. Dans la zone de recherche, saisissez **Planification**. Sélectionnez l’icône **Planification**. Dans la liste des déclencheurs, sélectionnez **Périodicité**.
 
 :::image type="content" source="./media/custom-route-alert-portal/schedule.png" alt-text="Périodicité : Planification":::
 
-Dans le déclencheur Planification de la périodicité, vous pouvez définir le fuseau horaire et une périodicité pour répéter ce workflow. Ensemble, l’intervalle et la fréquence définissent la planification du déclencheur de votre application logique. Pour établir une fréquence de périodicité minimale raisonnable, tenez compte des facteurs suivants :
+Dans le déclencheur Périodicité, vous pouvez définir le fuseau horaire et une périodicité pour répéter ce workflow. Ensemble, l’intervalle et la fréquence définissent la planification du déclencheur de votre workflow. Pour établir une fréquence de périodicité minimale raisonnable, tenez compte des facteurs suivants :
 
 * Le script PowerShell du runbook Automation prend du temps pour se terminer. La durée d’exécution dépend du nombre de passerelles ExpressRoute à surveiller. Une fréquence de périodicité trop courte entraîne la mise en file d’attente des travaux.
 
@@ -303,7 +303,7 @@ Dans le déclencheur Planification de la périodicité, vous pouvez définir le 
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. Créer un travail
 
-Une application logique accède à d’autres applications, à des services et à la plateforme via des connecteurs. L’étape suivante de ce workflow consiste à sélectionner un connecteur pour accéder au compte Azure Automation qui a été défini précédemment.
+Le workflow d’une application logique accès à d’autres applications, à des services et à la plateforme via des connecteurs. L’étape suivante consiste à sélectionner un connecteur pour accéder au compte Azure Automation qui a été défini précédemment.
 
 1. Dans **Concepteur d’application logique**, sous **Périodicité**, sélectionnez **Nouvelle étape**. Sous **Choisir une action** et la zone de recherche, sélectionnez **Tous**.
 2. Dans la zone de recherche, saisissez **Azure Automation** et lancez la recherche. Sélectionnez **Créer un travail**. **Créer un travail** sera utilisé pour déclencher le runbook Automation créé précédemment.
@@ -334,7 +334,7 @@ Une application logique accède à d’autres applications, à des services et �
 
 ### <a name="5-parse-the-json"></a><a name="parse"></a>5. Analyser le JSON
 
-Les informations contenues dans la sortie de « l’action Azure Automation Créer un travail » (étapes précédentes) génèrent un objet JSON. L’action Logic Apps **Analyser JSON** est une action intégrée pour créer des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON. Vous pouvez ensuite utiliser ces propriétés dans votre workflow.
+Les informations contenues dans la sortie de « l’action Azure Automation Créer un travail » (étapes précédentes) génèrent un objet JSON. L’action intégrée **Analyser JSON** crée des jetons conviviaux à partir des propriétés et de leurs valeurs dans le contenu JSON. Vous pouvez ensuite utiliser ces propriétés dans votre workflow.
 
 1. Ajoutez une action. Sous **Obtenir la sortie du travail -> action**, sélectionnez **Nouvelle étape**.
 2. Dans la zone de recherche **Choisir une action**, saisissez « analyser json » pour rechercher des connecteurs qui proposent cette action. Dans la liste **Actions**, sélectionnez l’action **Analyser JSON** pour les opérations de données que vous souhaitez utiliser.

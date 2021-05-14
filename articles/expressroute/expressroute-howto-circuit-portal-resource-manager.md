@@ -4,21 +4,23 @@ description: Dans ce guide de démarrage rapide, vous découvrez comment créer,
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 10/21/2020
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom:
 - mode-portal
-ms.openlocfilehash: f62b60a9c33cd1b813b8f3307ec82d4242be168b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 68c700067727895a69034c6a1e87ec2b1a01a532
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534799"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946928"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Démarrage rapide : Création et modification d’un circuit ExpressRoute
 
 Ce guide de démarrage rapide vous montre comment créer un circuit ExpressRoute à l’aide du portail Azure et du modèle de déploiement Azure Resource Manager. Vous pouvez également vérifier l’état d’un circuit, le mettre à jour, le supprimer ou le déprovisionner.
+
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement de circuit ExpressRoute avec le portail Azure." border="false":::
 
 ## <a name="prerequisites"></a>Prérequis
 

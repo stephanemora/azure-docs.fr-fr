@@ -1,29 +1,25 @@
 ---
 title: Utilisation du tableau de bord de conformité réglementaire dans Azure Security Center
 description: Découvrez comment ajouter des normes réglementaires au tableau de bord de conformité réglementaire dans Security Center et comment les supprimer.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2021
+ms.date: 04/21/2021
 ms.author: memildin
-ms.openlocfilehash: dab6b504fe026324251b7284fc3abdb52bb9911a
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: f1fe1f15d2a2a2a3da7a7978b2d7645db65beae1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738951"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146686"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire
 
 Azure Security Center compare continuellement la configuration de vos ressources avec les exigences des normes, réglementations et tests d’évaluation du secteur. Le **tableau de bord de conformité réglementaire** fournit des analyses sur votre situation de conformité selon la façon dont vous répondez aux exigences de conformité.
 
+> [!TIP]
+> Pour en savoir plus sur le tableau de bord de conformité réglementaire de Security Center, consultez la [FAQ](security-center-compliance-dashboard.md#faq---regulatory-compliance-dashboard).
 
 ## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>Comment les normes de conformité réglementaire sont-elles représentées dans Security Center ?
 
@@ -38,15 +34,17 @@ Microsoft suit les normes réglementaires et améliore automatiquement sa couver
 
 ## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>Quelles sont les normes de conformité réglementaire disponibles dans Security Center ?
 
-Par défaut, le **Benchmark de sécurité Azure** est attribué à chaque abonnement. Il s’agit de l’ensemble des directives propres à Azure et créées par Microsoft contenant les meilleures pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. [En savoir plus sur le Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction).
+Par défaut, le **Benchmark de sécurité Azure** est attribué à chaque abonnement. Il s’agit de l’ensemble des directives propres à Azure et créées par Microsoft contenant les meilleures pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. [En savoir plus sur le Benchmark de sécurité Azure](/security/benchmark/azure/introduction).
 
 Vous pouvez également ajouter des normes telles que les suivantes :
 
-- NIST SP 800-53 R4
+- NIST SP 800-53
 - SWIFT CSP CSCF-v2020
 - UK Official et UK NHS
 - PBMM fédéral du Canada
-- Azure CIS 1.1.0
+- Azure CIS 1.3.0
+- CMMC niveau 3
+- New Zealand ISM Restricted
 
 Les normes sont ajoutées au tableau de bord dès qu’elles sont disponibles.
 
@@ -71,13 +69,15 @@ La procédure suivante permet d’ajouter un package pour surveiller la conformi
 
 1. Sur la page **Ajouter des normes de conformité réglementaire**, vous pouvez rechercher les normes disponibles, notamment :
 
-    - **NIST SP 800-53 R4**
-    - **NIST SP 800 171 R2**
+    - **NIST SP 800-53**
+    - **NIST SP 800 171**
     - **SWIFT CSP CSCF v2020**
     - **UKO et UK NHS**
     - **PBMM fédéral du Canada**
     - **HIPAA HITRUST**
-    - **Azure CIS 1.1.0**
+    - **Azure CIS 1.3.0**
+    - **CMMC niveau 3**
+    - **New Zealand ISM Restricted**
     
     ![Ajout de normes réglementaires au tableau de bord de conformité réglementaire d’Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
@@ -122,6 +122,6 @@ Dans cet article, vous avez découvert comment **ajouter des normes de conformit
 
 Pour obtenir des informations connexes, consultez les pages suivantes :
 
-- [Benchmark de sécurité Azure](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Benchmark de sécurité Azure](/security/benchmark/azure/introduction)
 - [Tableau de bord de conformité réglementaire de Security Center](security-center-compliance-dashboard.md) : découvrez comment suivre et exporter vos données de conformité réglementaire avec Security Center et des outils externes
 - [Utilisation de stratégies de sécurité](tutorial-security-policy.md)

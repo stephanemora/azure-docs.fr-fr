@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c937f9d75613b6550a2f05dd63a8b31dd83fe0b7
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 183b956c0ec38101f7875fe01dd7c6ef9c8c8c8f
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445719"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891677"
 ---
 # <a name="required-url-list"></a>Liste des URL requises
 
@@ -19,6 +19,52 @@ Pour déployer et utiliser Windows Virtual Desktop, vous devez débloquer certai
 
 >[!IMPORTANT]
 >Windows Virtual Desktop ne prend pas en charge les déploiements qui bloquent les URL mentionnées dans cet article.
+
+## <a name="required-url-check-tool"></a>Outil de vérification d’URL obligatoire
+
+L’outil de vérification d’URL obligatoire valide les URL et indique si les URL nécessaires au fonctionnement de la machine virtuelle sont accessibles. Si ce n’est pas le cas, l’outil répertorie les URL inaccessibles afin que vous puissiez les débloquer, si nécessaire.
+
+Il est important de garder à l’esprit les éléments suivants :
+
+- Vous ne pouvez utiliser l’outil de vérification d’URL obligatoire que pour les déploiements dans des clouds commerciaux.
+- L’outil de vérification d’URL obligatoire ne peut pas vérifier les URL avec des caractères génériques. Veillez donc à débloquer ces URL en premier.
+
+### <a name="requirements"></a>Spécifications
+
+Pour utiliser l’outil de vérification d’URL obligatoire, vous avez besoin des éléments suivants :
+
+- Votre machine virtuelle doit disposer de .NET Framework 4.6.2
+- RDAgent version 1.0.2944.400 ou ultérieure
+- Le fichier WVDAgentUrlTool.exe doit se trouver dans le même dossier que le fichier WVDAgentUrlTool.config
+
+### <a name="how-to-use-the-required-url-check-tool"></a>Utilisation de l’outil de vérification d’URL obligatoire
+
+Pour utiliser l’outil de vérification d’URL obligatoire :
+
+1. Ouvrez une invite de commandes en tant qu’administrateur sur votre machine virtuelle.
+2. Exécutez la commande suivante pour remplacer le répertoire par le même dossier que l’agent de build :
+
+    ```console
+    cd C:\Program Files\Microsoft RDInfra\RDAgent_1.0.2944.1200
+    ```
+
+3. Exécutez la commande suivante :
+
+    ```console
+    WVDAgentUrlTool.exe
+    ```
+ 
+4. Une fois que vous avez exécuté le fichier, vous voyez une liste d’URL accessibles et inaccessibles.
+
+    Par exemple, la capture d’écran suivante montre un scénario dans lequel vous devez débloquer deux URL non génériques obligatoires :
+
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la sortie des URL non accessibles.](media/noaccess.png)
+    
+    Voici à quoi ressemble la sortie une fois que vous avez débloqué toutes les URL non génériques requises :
+
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la sortie des URL non accessibles.](media/access.png)
 
 ## <a name="virtual-machines"></a>Machines virtuelles
 
@@ -49,7 +95,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 
 |Adresse|Port TCP sortant|Objectif|Étiquette du service|
 |---|---|---|---|
-|*.wvd.microsoft.us|443|Trafic de service|WindowsVirtualDesktop|
+|*.wvd.azure.us|443|Trafic de service|WindowsVirtualDesktop|
 |gcs.monitoring.core.usgovcloudapi.net|443|Trafic de l’agent|AzureCloud|
 |monitoring.core.usgovcloudapi.net|443|Trafic de l’agent|AzureCloud|
 |fairfax.warmpath.usgovcloudapi.net|443|Trafic de l’agent|AzureCloud|

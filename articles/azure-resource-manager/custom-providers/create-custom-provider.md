@@ -5,12 +5,13 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 721fe31f514cb948c93dc2a779a92ef3b2775ef9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 0aae2092a167915f2130c031808368ae52047615
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779234"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753360"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Démarrage rapide : Créer un fournisseur personnalisé et déployer des ressources personnalisées
 
@@ -265,7 +266,7 @@ Vous recevez la réponse :
 
 ## <a name="custom-resource-provider-commands"></a>Commandes de fournisseur de ressources personnalisé
 
-Utilisez les commandes [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) pour travailler avec votre fournisseur de ressources personnalisé.
+Utilisez les commandes [custom-providers](/cli/azure/custom-providers/resource-provider) pour travailler avec votre fournisseur de ressources personnalisé.
 
 ### <a name="list-custom-resource-providers"></a>Lister les fournisseurs de ressources personnalisés
 

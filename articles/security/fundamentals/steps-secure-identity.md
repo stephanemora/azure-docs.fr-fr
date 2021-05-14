@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: ffc5bafca305086b0c524c76eb91b8aec2e2655d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e795431a0a3e42b7aa91ac7dcb95c7bcb9c9990b
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98602446"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107892073"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -75,7 +75,7 @@ Microsoft recommande d’adopter la stratégie de mot de passe moderne suivante 
 2. Désactivez les règles d’expiration, qui incitent les utilisateurs à choisir des mots de passe faciles à deviner comme **Spring2019!** .
 3. Désactivez les exigences de composition de caractères et empêchez les utilisateurs de choisir des mots de passe fréquemment attaqués, car cela incite les utilisateurs à choisir des substitutions de caractères prévisibles dans les mots de passe.
 
-Vous pouvez utiliser [PowerShell pour empêcher l’expiration des mots de passe](../../active-directory/authentication/concept-sspr-policy.md) des utilisateurs en créant des identités directement dans Azure AD. Les organisations hybrides doivent implémenter ces stratégies à l’aide de [paramètres de stratégie de groupe de domaine](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou de [Windows PowerShell](/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Vous pouvez utiliser [PowerShell pour empêcher l’expiration des mots de passe](../../active-directory/authentication/concept-sspr-policy.md) des utilisateurs en créant des identités directement dans Azure AD. Les organisations hybrides doivent implémenter ces stratégies à l’aide de [paramètres de stratégie de groupe de domaine](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou de [Windows PowerShell](/powershell/module/activedirectory/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Protection contre la fuite d’informations d’identification et ajout de la tolérance aux pannes
 

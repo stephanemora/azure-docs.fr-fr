@@ -4,12 +4,12 @@ description: Découvrez les stratégies de support Azure Kubernetes Service (AKS
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d30e2aa5ab13c5d7676ca7cb455a2372981e4a46
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91892708"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714473"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -62,6 +62,7 @@ Microsoft fournit un support technique pour les exemples suivants :
   * Connectivité à d’autres services et applications Azure
   * Contrôleurs d’entrée et configurations d’équilibreur de charge ou d’entrée
   * Performances et latence réseau
+  * [Stratégies réseau](use-network-policies.md#differences-between-azure-and-calico-policies-and-their-capabilities)
 
 
 > [!NOTE]

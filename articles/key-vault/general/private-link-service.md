@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e5ddffb17c8f5acf16cf89dd58c634b6e404bf7b
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 825fb15d9c3a0a0a44a77d3feec767adc0368add
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749533"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279187"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Intégrer Key Vault avec Azure Private Link
 
@@ -233,7 +233,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     1. Vous devez avoir d’une ressource de zone DNS privée avec ce nom exact : privatelink.vaultcore.azure.net. 
     2. Pour savoir comment configurer cela, consultez le lien suivant. [Zones DNS privées](../../dns/private-dns-privatednszone.md)
     
-* Vérifiez que la zone DNS privée n’est pas liée au réseau virtuel. Ceci peut être le problème si vous continuez de recevoir l’adresse IP publique en retour. 
+* Vérifiez que la zone DNS privée est liée au réseau virtuel. Ceci peut être le problème si vous continuez de recevoir l’adresse IP publique en retour. 
     1. Si la zone DNS privée n’est pas liée au réseau virtuel, la requête DNS provenant du réseau virtuel va retourner l’adresse IP publique du coffre de clés. 
     2. Accédez à la ressource de zone DNS privée dans le portail Azure et cliquez sur l’option des liens du réseau virtuel. 
     4. Le réseau virtuel qui va effectuer les appels au coffre de clés doit être listé. 

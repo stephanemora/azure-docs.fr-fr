@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/16/2021
 ms.author: pepogors
-ms.openlocfilehash: 68c617b6e9345910bfd913e61e227a8e6c401bbc
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 4847fd88a96e96788f8e6ebdb4ee3cfa7f15fbdc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576038"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135452"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types"></a>Déployer un cluster Azure Service Fabric avec des types de nœuds sans état
 Les types de nœuds Service Fabric sont fournis en supposant qu’à un moment donné, des services avec état peuvent être placés sur les nœuds. Les types de nœuds sans état assouplissent cette hypothèse pour un type de nœud, ce qui permet au type de nœud d’utiliser d’autres fonctionnalités, telles que l’accélération des opérations de scale-out, la prise en charge des mises à niveau automatiques du système d’exploitation sur la durabilité Bronze et le scale-out de plus de 100 nœuds dans un même groupe de machines virtuelles identiques.
@@ -20,7 +20,7 @@ Les types de nœuds Service Fabric sont fournis en supposant qu’à un moment d
 * Les types de nœuds sans état ne sont pris en charge que dans le runtime Service Fabric version 7.1.409 ou ultérieure.
 
 
-Des exemples de modèles sont disponibles : [Modèle de types de nœuds sans état Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+Des exemples de modèles sont disponibles : [Modèle de types de nœuds sans état Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure)
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Activation de types de nœuds sans état dans un cluster Service Fabric
 Pour définir un ou plusieurs types de nœuds comme sans état dans une ressource de cluster, définissez la propriété **isStateless** sur **true**. Lors du déploiement d’un cluster Service Fabric avec des types de nœuds sans état, n’oubliez pas d’avoir au moins un type de nœud principal dans la ressource de cluster.
@@ -116,7 +116,7 @@ Pour activer les types de nœuds sans état, vous devez configurer la ressource 
                 "Enabled": true
             },
         },
-        "typeHandlerVersion": "1.0"
+        "typeHandlerVersion": "1.1"
     }
     },
     {
@@ -138,7 +138,7 @@ Pour activer les types de nœuds sans état, vous devez configurer la ressource 
 ```
 
 ## <a name="configuring-stateless-node-types-with-multiple-availability-zones"></a>Configuration de types de nœud sans état avec plusieurs zones de disponibilité
-Pour configurer un type de nœud sans état entre plusieurs zones de disponibilité, suivez la documentation [ici](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), avec les quelques modifications suivantes :
+Pour configurer un type de nœud sans état entre plusieurs zones de disponibilité, suivez la documentation [ici](/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), avec les quelques modifications suivantes :
 
 * Définissez **singlePlacementGroup** : **false** si plusieurs groupes de placement doivent être activés.
 * Définissez  **upgradeMode** : **Propagée** et ajoute une extension Intégrité de l’application/des sondes d’intégrité comme indiqué ci-dessus.
@@ -272,4 +272,3 @@ Une fois le déploiement des ressources terminé, vous pouvez commencer à désa
 ## <a name="next-steps"></a>Étapes suivantes 
 * [Services fiables (Reliable Services)](service-fabric-reliable-services-introduction.md)
 * [Types de nœud et groupes de machines virtuelles identiques](service-fabric-cluster-nodetypes.md)
-

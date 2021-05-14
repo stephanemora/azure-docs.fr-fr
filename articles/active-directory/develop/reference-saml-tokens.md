@@ -13,12 +13,12 @@ ms.date: 03/29/2021
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: f636b8ec04d151c855112102421dd2df0ccb6ff8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c23028e4cbbeb7e92fd8b0a7fb6b6b81a54a0806
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932877"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132230"
 ---
 # <a name="saml-token-claims-reference"></a>Informations de référence sur les revendications de jeton SAML
 
@@ -34,7 +34,7 @@ La plateforme d’identités Microsoft émet plusieurs types de jetons de sécur
 > |Méthode d'authentification | `amr` |Identifie comment le sujet du jeton a été authentifié. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Prénom | `given_name` |Fournit le prénom de l’utilisateur tel que défini dans l’objet utilisateur Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
 > |Groupes | `groups` |Fournit les ID d’objet qui représentent les appartenances aux groupes du sujet. Ces valeurs sont uniques (voir l'ID objet) et peuvent être utilisées en toute sécurité pour la gestion des accès, telle que l'autorisation d'accéder à une ressource. Les groupes inclus dans la revendication des groupes sont configurés pour chaque application, via la propriété « groupMembershipClaims » du manifeste d'application. Une valeur Null exclut tous les groupes, une valeur « SecurityGroup » inclut uniquement les appartenances aux groupes de sécurité Active Directory, et une valeur « All » inclut les groupes de sécurité et les listes de distribution Microsoft 365. <br><br> **Remarques**: <br> Si le nombre de groupes auxquels l’utilisateur appartient dépasse une limite (150 pour SAML, 200 pour JSON), une revendication de dépassement est ajoutée aux sources de revendication qui pointent sur le point de terminaison Graph contenant la liste des groupes pour l’utilisateur. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | Indicateur de dépassement des groupes | `groups:src1` | Pour les requêtes de jetons dont la longueur n’est pas limitée mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour SAML, il est ajouté en tant que nouvelle revendication à la place de la revendication `groups`. <br><br> **Remarques**: <br> L’API Azure AD Graph est remplacée par l’API Microsoft Graph. Pour en savoir plus sur le point de terminaison équivalent, consultez [utilisateur : getMemberObjects](https://docs.microsoft.com/graph/api/user-getmemberobjects). | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> | Indicateur de dépassement des groupes | `groups:src1` | Pour les requêtes de jetons dont la longueur n’est pas limitée mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour SAML, il est ajouté en tant que nouvelle revendication à la place de la revendication `groups`. <br><br> **Remarques**: <br> L’API Azure AD Graph est remplacée par l’API Microsoft Graph. Pour en savoir plus sur le point de terminaison équivalent, consultez [utilisateur : getMemberObjects](/graph/api/user-getmemberobjects). | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Fournisseur d’identité | `idp` |Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d'utilisateur est dans un autre client que l'émetteur. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Enregistre l’heure à laquelle le jeton a été émis. Il est souvent utilisé pour mesurer l’actualisation du jeton. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Émetteur | `iss` |Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Dans les jetons retournés par Azure AD, l'émetteur est sts.windows.net. Le GUID dans la valeur de revendication de l'émetteur est l'ID client de Azure AD Directory. L'ID client est un identificateur non modifiable et fiable du répertoire. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |

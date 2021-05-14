@@ -9,12 +9,12 @@ ms.service: azure-analysis-services
 tags:
 - azure-resource-manager
 ms.custom: devx-track-azurepowershell - subject-armqs - references_regions - mode-arm
-ms.openlocfilehash: e7203f4b5890ab81cbf337c5f3201d85a3aef0c0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9bd1ac25c433c2308564b5b224814d920751b143
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769364"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107948020"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Démarrage rapide : Créer un serveur - Modèle ARM
 
@@ -24,7 +24,7 @@ Ce guide de démarrage rapide explique comment créer une ressource de serveur A
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.analysisservices%2Fanalysis-services-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,7 +35,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.analysisservices/analysis-services-create/azuredeploy.json":::
 
 Une seule ressource [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysisservices/servers) avec une règle de pare-feu est définie dans le modèle.
 
@@ -43,7 +43,7 @@ Une seule ressource [Microsoft.AnalysisServices/servers](/azure/templates/micros
 
 1. Sélectionnez le lien Déployer sur Azure suivant pour vous connecter à Azure et ouvrir un modèle. Le modèle sert à créer une ressource de serveur Analysis Services et à spécifier les propriétés obligatoires et facultatives.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.analysisservices%2Fanalysis-services-create%2Fazuredeploy.json)
 
 2. Sélectionnez ou entrez les valeurs suivantes.
 

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/04/2021
-ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/29/2021
+ms.openlocfilehash: e335176b5cd7c6c35477ac9318cf20ce4b64b82d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99584921"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291007"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Générer des expressions dans un flux de données de mappage
 
@@ -71,7 +71,7 @@ Quand vous avez des noms de colonnes qui comportent des espaces ou des caractèr
 
 ### <a name="parameters"></a>Paramètres
 
-Les paramètres sont des valeurs qui sont passées dans un flux de données au moment de l’exécution à partir d’un pipeline. Pour faire référence à un paramètre, cliquez sur le paramètre à partir de la vue **Éléments d’expression** ou référencez-le avec un signe dollar devant son nom. Par exemple, un paramètre appelé parameter1 est référencé par `$parameter1`. Pour plus d’informations, consultez [Paramétrage de flux de données de mappage](parameters-data-flow.md).
+Les paramètres sont des valeurs qui sont passées dans un flux de données au moment de l’exécution à partir d’un pipeline. Pour faire référence à un paramètre, cliquez sur le paramètre à partir de la vue **Éléments d’expression** ou référencez-le avec un signe dollar devant son nom. Par exemple, un paramètre appelé parameter1 est référencé par `$parameter1`. Pour plus d’informations, consultez [Paramétrage de flux de données de mappage](parameters-data-flow.md). 
 
 ### <a name="cached-lookup"></a>Recherche mise en cache
 
@@ -169,6 +169,12 @@ Le « l » situé à la fin de l’expression précédente signifie la convers
 ### <a name="find-time-from-epoch-or-unix-time"></a>Connaître l’heure à l’aide d’Epoch ou de l’heure Unix
 
 toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS') ) * 1000l
+
+### <a name="data-flow-time-evaluation"></a>Évaluation de la durée du flux de données
+
+Le flux de données est traité jusqu’aux millisecondes. Pour *2018-07-31T20:00:00.2170000*, la sortie est *2018-07-31T20:00:00.217*.
+Sur le portail ADF, l’horodateur est affiché dans le **paramètre de navigateur actuel**. La partie des millisecondes (217) n’y figure pas toujours, mais elle est traitée lorsque le workflow est exécuté de bout en bout. Vous pouvez utiliser toString(myDateTimeColumn) comme expression pour prévisualiser les données avec une précision complète. Traitez DateHeure comme DateHeure plutôt que comme chaîne à toutes fins pratiques.
+ 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

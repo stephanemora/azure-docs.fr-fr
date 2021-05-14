@@ -1,18 +1,52 @@
 ---
 title: Résoudre les problèmes de connexion liés à l’agent Serveurs activés par Azure Arc
 description: Cet article explique comment résoudre les problèmes liés à l’agent Connected Machine qui surviennent avec des Serveurs activés par Azure Arc (préversion) lors de la tentative de connexion au service.
-ms.date: 09/02/2020
+ms.date: 04/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae26b599a72129b5ed7f47d76d10353be5c0e8ac
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90900675"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497997"
 ---
-# <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Résoudre les problèmes de connexion liés à l'agent Connected Machine
+# <a name="troubleshoot-azure-arc-enabled-servers-agent-connection-issues"></a>Résoudre les problèmes de connexion liés à l’agent Serveurs activés par Azure Arc
 
 Cet article fournit des informations sur la résolution des problèmes qui peuvent survenir lors de la tentative de configuration de l’agent Connected Machine de Serveurs activés par Azure Arc pour Windows ou Linux. Les méthodes d'installation interactive et d'installation à grande échelle utilisables lors de la configuration de la connexion au service sont toutes deux incluses. Pour obtenir des informations d’ordre général, consultez [Présentation de Serveurs avec Arc](./overview.md).
+
+## <a name="agent-error-codes"></a>Codes d’erreur de l’agent
+
+Si vous recevez une erreur lors de la configuration de l’agent des serveurs avec Azure Arc, le tableau suivant peut vous aider à identifier la cause probable et les étapes suggérées pour résoudre votre problème. Vous aurez besoin du code d’erreur `AZCM0000` (« 0000 » peut être n’importe quel nombre à 4 chiffres) imprimé sur la console ou de la sortie du script pour continuer.
+
+| Code d'erreur | Cause probable | Correction suggérée |
+|------------|----------------|-----------------------|
+| AZCM0000 | L’action a réussi | N/A |
+| AZCM0001 | Une erreur inconnue s’est produite. | Contactez le support technique Microsoft pour obtenir une assistance supplémentaire |
+| AZCM0011 | L’utilisateur a annulé l’action (CTRL+C) | Réessayez la commande précédente |
+| AZCM0012 | Le jeton d’accès fourni n’est pas valide | Obtenez un nouveau jeton d’accès et réessayez |
+| AZCM0013 | Les étiquettes fournies ne sont pas valides | Vérifiez que les étiquettes sont placées entre guillemets doubles, séparées par des virgules, et que les noms ou les valeurs avec des espaces sont placés entre guillemets simples : `--tags "SingleName='Value with spaces',Location=Redmond"`
+| AZCM0014 | Le cloud n’est pas valide | Spécifiez un cloud pris en charge : `AzureCloud` ou `AzureUSGovernment` |
+| AZCM0015 | L’ID de corrélation spécifié n’est pas un GUID valide | Fournissez un GUID valide pour `--correlation-id` |
+| AZCM0016 | Paramètre obligatoire manquant | Examinez la sortie pour identifier les paramètres manquants |
+| AZCM0017 | Le nom de ressource n’est pas valide | Spécifiez un nom qui utilise uniquement des caractères alphanumériques, des traits d’union et/ou des traits de soulignement. Le nom ne peut pas se terminer par un trait d’union ni un trait de soulignement. |
+| AZCM0018 | La commande a été exécutée sans privilèges administratifs | Réessayez la commande avec des privilèges d’administrateur ou racine dans une invite de commandes ou une session de console avec élévation de privilèges. |
+| AZCM0041 | Les informations d’identification fournies ne sont pas valides | Pour les connexions d’appareils, vérifiez que le compte d’utilisateur spécifié a accès au locataire et à l’abonnement où la ressource de serveur sera créée. Pour les connexions du principal de service, vérifiez que l’ID client et le secret sont corrects, la date d’expiration du secret et que le principal de service provient du même locataire que celui où la ressource de serveur sera créée. |
+| AZCM0042 | Échec de la création de la ressource de serveur avec Azure Arc | Vérifiez que l’utilisateur/le principal de service indiqué a accès pour créer des ressources de serveur avec Azure Arc dans le groupe de ressources spécifié. |
+| AZCM0043 | Échec de la suppression de la ressource de serveur avec Azure Arc | Vérifiez que l’utilisateur/le principal de service indiqué a accès pour supprimer des ressources de serveur avec Azure Arc dans le groupe de ressources spécifié. Si la ressource n’existe plus dans Azure, utilisez l’indicateur `--force-local-only` pour continuer. |
+| AZCM0044 | Une ressource du même nom existe déjà | Spécifiez un autre nom pour le paramètre `--resource-name` ou supprimez le serveur avec Azure Arc existant dans Azure, puis réessayez. |
+| AZCM0061 | Impossible d’atteindre le service de l’agent | Vérifiez que vous exécutez la commande dans un contexte utilisateur avec élévation de privilèges (administrateur/racine) et que le service HIMDS est en cours d’exécution sur votre serveur. |
+| AZCM0062 | Une erreur s’est produite lors de la connexion du serveur | Passez en revue les autres codes d’erreur de la sortie pour obtenir des informations plus spécifiques. Si l’erreur s’est produite après la création de la ressource Azure, vous devez supprimer le serveur Arc de votre groupe de ressources avant d’effectuer une nouvelle tentative. |
+| AZCM0063 | Une erreur s’est produite lors de la déconnexion du serveur | Passez en revue les autres codes d’erreur de la sortie pour obtenir des informations plus spécifiques. Si vous continuez à rencontrer cette erreur, vous pouvez supprimer la ressource dans Azure, puis exécuter `azcmagent disconnect --force-local-only` sur le serveur pour déconnecter l’agent. |
+| AZCM0064 | Le service de l’agent ne répond pas | Vérifiez l’état du service `himds` pour vous assurer qu’il est en cours d’exécution. Démarrez le service s’il n’est pas en cours d’exécution. S’il est en cours d’exécution, patientez une minute, puis réessayez. |
+| AZCM0065 | Une erreur de communication interne de l’agent s’est produite | Contactez le support technique Microsoft pour obtenir une assistance |
+| AZCM0066 | Le service web de l’agent ne répond pas ou n’est pas disponible | Contactez le support technique Microsoft pour obtenir une assistance |
+| AZCM0067 | L’agent est déjà connecté à Azure | Suivez d’abord les étapes décrites dans [Déconnecter l’agent](manage-agent.md#unregister-machine), puis réessayez. |
+| AZCM0068 | Une erreur interne s’est produite lors de la déconnexion du serveur d’Azure | Contactez le support technique Microsoft pour obtenir une assistance |
+| AZCM0081 | Une erreur s’est produite lors du téléchargement du certificat d’identité managée Azure Active Directory | Si ce message s’affiche lors d’une tentative de connexion du serveur à Azure, l’agent ne peut pas communiquer avec le service Azure Arc. Supprimez la ressource dans Azure et réessayez de vous connecter. |
+| AZCM0101 | La commande n’a pas été analysée correctement | Exécutez `azcmagent <command> --help` pour vérifier la syntaxe de commande correcte |
+| AZCM0102 | Impossible de récupérer le nom d’hôte de l’ordinateur | Exécutez `hostname` pour rechercher les messages d’erreur au niveau du système, puis contactez le support technique Microsoft. |
+| AZCM0103 | Une erreur s’est produite lors de la génération des clés RSA | Contactez le support technique Microsoft pour obtenir une assistance |
+| AZCM0104 | Échec de la lecture des informations système | Vérifiez que l’identité utilisée pour exécuter `azcmagent` possède des privilèges d’administrateur/racine sur le système, puis réessayez. |
 
 ## <a name="agent-verbose-log"></a>Journal d'activité détaillé de l'agent
 

@@ -3,12 +3,12 @@ title: Niveaux de service Premium et Standard d’Azure Service Bus
 description: Cet article décrit les niveaux de service Standard et Premium d’Azure Service Bus. Compare ces niveaux de service et indique les différences techniques.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: aa08a99009ef3d20e831e214ae5811059817d13c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7117da6a959181704dd136c6d5be5ab62edef55
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607549"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389483"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -29,6 +29,9 @@ Les principales différences sont répertoriées dans le tableau suivant.
 La **messagerie Service Bus Premium** isole les ressources au niveau processeur et mémoire, ce qui permet d’exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé *unité de messagerie*. Au moins une unité de messagerie est allouée à chaque espace de noms premium. Vous pouvez acheter 1, 2, 4, 8 ou 16 unités de messagerie pour chaque espace de noms Service Bus Premium. Une entité ou une charge de travail unique peut couvrir plusieurs unités de messagerie et le nombre d’unités de messagerie peut être modifié à volonté. Au final, les performances de votre solution Service Bus sont prévisibles et répétables.
 
 Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables, mais aussi supérieures. La messagerie Premium offre des performances de pointe bien supérieures à celles de la couche Standard.
+
+> [!NOTE]
+> La limite de taille de lot pour la messagerie Premium est de 1 Mo.
 
 ## <a name="premium-messaging-technical-differences"></a>Différences techniques de la messagerie Premium
 

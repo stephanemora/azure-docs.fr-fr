@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/19/2021
-ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 681a3643c04472cc42c1f672f4c9433da30e3955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699757"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565495"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -20,9 +20,11 @@ ms.locfileid: "101699757"
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Le mode de débogage du flux de données de mappage d’Azure Data Factory permet de suivre de manière interactive la transformation de la forme des données à mesure que vous générez et déboguez vos flux de données. La session de débogage peut être utilisée dans des sessions de conception de flux de données et lors de l’exécution du débogage de flux de données dans un pipeline. Pour activer le mode de débogage, utilisez le bouton « Débogage de flux de données » en haut de l’aire de conception.
+Le mode de débogage du flux de données de mappage d’Azure Data Factory permet de suivre de manière interactive la transformation de la forme des données à mesure que vous générez et déboguez vos flux de données. La session de débogage peut être utilisée dans des sessions de conception de flux de données et lors de l’exécution du débogage de flux de données dans un pipeline. Pour activer le mode débogage, utilisez le bouton **Débogage du flux de données** dans la barre supérieure du canevas de flux de données ou du canevas de pipeline quand vous avez des activités de flux de données.
 
-![Curseur de débogage](media/data-flow/debugbutton.png "Curseur de débogage")
+![Capture d’écran 1 montrant où se trouve le curseur Débogage](media/data-flow/debug-button.png)
+
+![Capture d’écran 2 montrant où se trouve le curseur Débogage](media/data-flow/debug-button-4.png)
 
 Quand vous activez le curseur, vous êtes invité à sélectionner la configuration de runtime d’intégration à utiliser. Si vous choisissez AutoResolveIntegrationRuntime, un cluster comprenant 8 cœurs de calcul général avec une durée de vie par défaut de 60 minutes est lancé. Si vous souhaitez autoriser un plus grand nombre d’équipes inactives avant l’expiration de votre session, vous pouvez choisir un paramètre TTL plus élevé. Pour plus d’informations sur les runtimes d’intégration de flux de données, consultez [Performances de flux de données](concepts-data-flow-performance.md#ir).
 

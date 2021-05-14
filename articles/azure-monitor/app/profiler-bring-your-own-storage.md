@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbd892498675b8a672104a045f5c9f66b1740caf
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589668"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017867"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configurer BYOS (Bring Your Own Storage) pour Application Insights Profiler et le Débogueur de capture instantanée
 
@@ -152,7 +152,7 @@ Pour configurer le BYOS pour des diagnostics au niveau du code (Profiler/Débogu
     ```
 
     > [!NOTE]
-    > Pour effectuer des mises à jour sur les comptes de stockage liés à votre ressource Application Insights, reportez-vous à la documentation [Application Insights CLI](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > Pour effectuer des mises à jour sur les comptes de stockage liés à votre ressource Application Insights, reportez-vous à la documentation [Application Insights CLI](/cli/azure/monitor/app-insights/component/linked-storage).
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Activer l’utilisation d’un modèle Azure Resource Manager
 

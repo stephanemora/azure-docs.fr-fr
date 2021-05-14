@@ -9,19 +9,32 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 04300b8d148bb22bf585aa81481c475b347ad462
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 4871f23577213430e530270d23b070e35d831bc4
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222042"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165350"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Recherche sémantique dans la Recherche cognitive Azure
 
 > [!IMPORTANT]
 > La recherche sémantique est en préversion publique, disponible via l’API REST en préversion et le portail. Les fonctionnalités en préversion sont proposées telles quelles, sous des [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), et ne sont pas garanties d’avoir la même implémentation lors de la mise à la disposition générale. Ces fonctionnalités sont facturables. Pour plus d’informations, consultez [Disponibilité et tarifs](semantic-search-overview.md#availability-and-pricing).
 
-La recherche sémantique est une collection de fonctionnalités de requête qui ajoutent une pertinence sémantique et une compréhension linguistique aux résultats de recherche. Le *classement sémantique* recherche le contexte et la relation entre les termes, en élevant les correspondances plus significatives en fonction de la requête. La compréhension du langage recherche des *légendes* et des *réponses* dans votre contenu, qui résument le document correspondant ou répondent à une question, qui peut ensuite être rendu sur une page de résultats de recherche pour une expérience de recherche plus productive.
+La recherche sémantique est une collection de fonctionnalités de requête qui ajoutent une pertinence sémantique et une compréhension linguistique aux résultats de recherche. Cet article est une présentation générale de la recherche sémantique dans son ensemble, avec des descriptions de chaque fonctionnalité et de la manière dont elles fonctionnent collectivement. La vidéo intégrée décrit la technologie, et la section à la fin couvre la disponibilité et la tarification.
+
+Nous vous recommandons de lire cet article pour vous familiariser avec le sujet, mais si vous préférez commencer tout de suite, procédez comme suit :
+
+1. [Inscrivez-vous à la préversion](https://aka.ms/SemanticSearchPreviewSignup), en supposant que vous disposez d’un service répondant aux [exigences relatives à la région et au niveau](#availability-and-pricing).
+1. Créez des requêtes ou modifiez celles existantes pour renvoyer [des légendes et des surlignages sémantiques](semantic-how-to-query-request.md).
+1. Ajoutez quelques propriétés supplémentaires pour renvoyer également des [réponses sémantiques](semantic-answers.md).
+1. Si vous le souhaitez, incluez une propriété de requête de [vérification orthographique](speller-how-to-add.md) pour maximiser la précision et le rappel.
+
+## <a name="what-is-semantic-search"></a>Qu’est-ce que la recherche sémantique ?
+
+La recherche sémantique est une couche facultative d’intelligence artificielle relative à la recherche qui complète le pipeline traditionnel d’exécution des requêtes par un modèle de classement sémantique et renvoie des propriétés supplémentaires qui améliorent l’expérience utilisateur.
+
+Le *classement sémantique* recherche le contexte et la relation entre les termes, en élevant les correspondances plus significatives en fonction de la requête. La compréhension du langage recherche des *légendes* et des *réponses* dans votre contenu, qui résument le document correspondant ou répondent à une question, qui peut ensuite être rendu sur une page de résultats de recherche pour une expérience de recherche plus productive.
 
 Des modèles préformés de pointe sont utilisés pour la récapitulation et le classement. Pour maintenir les performances rapides que les utilisateurs attendent de la recherche, la synthèse sémantique et le classement sont appliqués uniquement aux 50 premiers résultats, comme indiqué par l’[algorithme de notation de similarité par défaut](index-similarity-and-scoring.md#similarity-ranking-algorithms). À l’aide de ces résultats en tant que corpus de documents, le classement sémantique réévalue ces résultats en fonction de la force sémantique de la correspondance.
 
@@ -68,12 +81,6 @@ Dans le cadre du lancement de la préversion, du 2 mars au 1er avril, la corre
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Un nouveau type de requête permet le classement de pertinence et les structures de réponse de la recherche sémantique.
+[Inscrivez-vous](https://aka.ms/SemanticSearchPreviewSignup) à la préversion sur un service de recherche conforme aux exigences de niveau et de région indiquées dans la section précédente.
 
-[Créer une requête sémantique](semantic-how-to-query-request.md) pour commencer. Ou consultez les articles suivants pour obtenir des informations connexes.
-
-+ [Ajouter une vérification orthographique aux termes de la requête](speller-how-to-add.md)
-+ [Retourner une réponse sémantique](semantic-answers.md)
-+ [Classement sémantique](semantic-ranking.md)
-+ [Présentation de la recherche sémantique (billet de blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
-+ [Trouver des insights significatives à l’aide de fonctionnalités sémantiques (vidéo Présentation de l’IA)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)
+Lorsque votre service est prêt, [créez une requête sémantique](semantic-how-to-query-request.md) pour voir le classement sémantique en action.

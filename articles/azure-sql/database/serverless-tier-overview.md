@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 2/22/2021
-ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/16/2021
+ms.openlocfilehash: d5b0c8e60632be5e058900680dc376b7f0761150
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101658586"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781574"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Une mise en pause automatique est déclenchée si toutes les conditions suivante
 
 Une option permet de désactiver la mise en pause automatique si vous le souhaitez.
 
-Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.  Si l’une des fonctionnalités suivantes est utilisée, la mise en pause automatique doit être désactivée et la base de données reste en ligne quelle que soit sa durée de l’inactivité :
+Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.  Si l’une des fonctionnalités suivantes est utilisée, la mise en pause automatique doit être désactivée et la base de données restera en ligne quelle que soit sa durée d’inactivité :
 
 - Géoréplication (géoréplication active et groupes de basculement automatique).
 - Conservation de sauvegardes à long terme (LTR).
@@ -255,7 +255,7 @@ Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pau
 
 ### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
-Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pause automatique, utilisez la commande [az sql db update](/cli/azure/sql/db#az-sql-db-update) dans Azure CLI à l’aide des arguments `capacity`, `min-capacity` et `auto-pause-delay`.
+Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pause automatique, utilisez la commande [az sql db update](/cli/azure/sql/db#az_sql_db_update) dans Azure CLI à l’aide des arguments `capacity`, `min-capacity` et `auto-pause-delay`.
 
 
 ## <a name="monitoring"></a>Surveillance
@@ -266,7 +266,7 @@ Les ressources d’une base de données serverless sont encapsulées par le pack
 
 #### <a name="app-package"></a>Package d’application
 
-Le package d’application représente le maximum en termes de gestion des ressources d’une base de données, que celle-ci soit dans un niveau de calcul serverless ou provisionné. Le package d’application contient l’instance SQL et les services externes qui comprennent ensemble toutes les ressources utilisateur et système utilisées par une base de données dans SQL Database. Comme services externes, citons par exemple R et la recherche en texte intégral. En règle générale, l’instance SQL domine l’utilisation globale des ressources sur le package d’application.
+Le package d’application représente le maximum en termes de gestion des ressources d’une base de données, que celle-ci soit dans un niveau de calcul serverless ou provisionné. Le package d’application contient l’instance de SQL et des services externes tels que la recherche en texte intégral, qui comprennent ensemble toutes les ressources utilisateur et système utilisées par une base de données dans SQL Database. En règle générale, l’instance SQL domine l’utilisation globale des ressources sur le package d’application.
 
 #### <a name="user-resource-pool"></a>Pool de ressources utilisateur
 

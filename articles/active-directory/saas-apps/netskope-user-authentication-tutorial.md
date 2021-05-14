@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/01/2019
+ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 1ae9e39f5a23725b17451d7144c8304194d2a1d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df740794280350bbfcdc48e3d55b45f7e0a7b85c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92514365"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-user-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netskope User Authentication
 
@@ -25,8 +25,6 @@ Ce tutoriel explique comment intégrer Netskope User Authentication à Azure Act
 * Contrôler, dans Azure AD, qui a accès à Netskope User Authentication.
 * Permettre aux utilisateurs de se connecter automatiquement à Netskope User Authentication avec leur compte Azure AD
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,40 +37,39 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Netskope User Authentication prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**.
+* Netskope User Authentication prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
 
-## <a name="adding-netskope-user-authentication-from-the-gallery"></a>Ajout de Netskope User Authentication à partir de la galerie
+## <a name="add-netskope-user-authentication-from-the-gallery"></a>Ajout de Netskope User Authentication à partir de la galerie
 
 Pour configurer l’intégration de Netskope User Authentication dans Azure AD, vous devez ajouter Netskope User Authentication à votre liste d’applications SaaS managées à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Netskope User Authentication** dans la zone de recherche.
 1. Sélectionnez **Netskope User Authentication** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netskope-user-authentication"></a>Configurer et tester l’authentification unique Azure AD pour Netskope User Authentication
+## <a name="configure-and-test-azure-ad-sso-for-netskope-user-authentication"></a>Configurer et tester l’authentification unique Azure AD pour Netskope User Authentication
 
 Configurez et testez l’authentification unique Azure AD auprès de Netskope User Authentication avec un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Netskope User Authentication associé.
 
 Pour configurer et tester l’authentification unique Azure AD auprès de Netskope User Authentication, suivez les indications des modules ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Netskope User Authentication](#configure-netskope-user-authentication-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    * **[Créer un utilisateur de test Netskope User Authentication](#create-netskope-user-authentication-test-user)** pour avoir un équivalent de B.Simon dans Netskope User Authentication lié à la représentation Azure AD associée.
+    1. **[Créer un utilisateur de test Netskope User Authentication](#create-netskope-user-authentication-test-user)** pour avoir un équivalent de B.Simon dans Netskope User Authentication lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Netskope User Authentication**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Netskope User Authentication**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -119,15 +116,9 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Netskope User Authentication**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-netskope-user-authentication-sso"></a>Configurer l’authentification unique Netskope User Authentication
@@ -136,11 +127,11 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 1. Cliquez sur l’onglet **Active Platform**.
 
-    ![Capture d’écran montrant l’élément Active Platform sélectionné à partir de Settings.](./media/netskope-user-authentication-tutorial/user1.png)
+    ![Capture d’écran montrant l’élément Active Platform sélectionné à partir de Settings.](./media/netskope-user-authentication-tutorial/user-1.png)
 
 1. Faites défiler la page vers le bas jusqu’à **FORWARD PROXY** (Proxy de transfert) et sélectionnez **SAML**.
 
-    ![Capture d’écran montrant l’option SAML sélectionnée à partir de Active Platform.](./media/netskope-user-authentication-tutorial/config-saml.png)
+    ![Capture d’écran montrant l’option SAML sélectionnée à partir de Active Platform.](./media/netskope-user-authentication-tutorial/configuration.png)
 
 1. Sur la page **SAML Settings** , procédez comme suit :
 
@@ -152,11 +143,11 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 1. Cliquez sur **ADD ACCOUNT** (Ajouter un compte).
 
-    ![Capture d’écran montrant l’option ADD ACCOUNT sélectionnée dans le volet SAML.](./media/netskope-user-authentication-tutorial/config-addaccount.png)
+    ![Capture d’écran montrant l’option ADD ACCOUNT sélectionnée dans le volet SAML.](./media/netskope-user-authentication-tutorial/add-account.png)
 
 1. Dans la page **Add SAML Account** (Ajouter un compte SAML), effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant la page Add SAML Account dans laquelle vous pouvez indiquer les valeurs décrites.](./media/netskope-user-authentication-tutorial/config-settings1.png)
+    ![Capture d’écran montrant la page Add SAML Account dans laquelle vous pouvez indiquer les valeurs décrites.](./media/netskope-user-authentication-tutorial/configure-settings.png)
 
     a. Dans la zone de texte **NAME**, indiquez un nom comme Azure AD.
 
@@ -174,11 +165,11 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 1. Cliquez sur l’onglet **Settings** dans le volet de navigation de gauche.
 
-    ![Capture d’écran montrant l’élément Settings sélectionné.](./media/netskope-user-authentication-tutorial/config-settings.png)
+    ![Capture d’écran montrant l’élément Settings sélectionné.](./media/netskope-user-authentication-tutorial/configuration-settings.png)
 
 1. Cliquez sur l’onglet **Active Platform**.
 
-    ![Capture d’écran montrant l’élément Active Platform sélectionné à partir de Settings.](./media/netskope-user-authentication-tutorial/user1.png)
+    ![Capture d’écran montrant l’élément Active Platform sélectionné à partir de Settings.](./media/netskope-user-authentication-tutorial/user-1.png)
 
 1. Cliquez sur l’onglet **Users** (Utilisateurs).
 
@@ -194,16 +185,20 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Netskope User Authentication dans le volet d’accès, vous devez être connecté automatiquement à l’application Netskope User Authentication pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion Netskope User Authentication, à partir de laquelle vous pouvez lancer le flux de connexion.  
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL de connexion à Netskope User Authentication pour lancer le flux de connexion.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+* Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance de Netskope User Authentication pour laquelle vous avez configuré l’authentification unique. 
 
-- [Essayer Netskope User Authentication avec Azure AD](https://aad.portal.azure.com/)
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Netskope User Authentication dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de Netskope User Authentication pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez configuré Netskope User Authentication, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

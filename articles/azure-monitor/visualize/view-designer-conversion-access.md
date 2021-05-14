@@ -1,16 +1,16 @@
 ---
 title: Récapitulatif et accès pour la conversion du Concepteur de vues Azure Monitor en classeurs
 description: Autorisations requises pour l’accès aux classeurs lors de la transition à partir d’affichages dans Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 42cb8db0f67d3a01b2e8443e6cb7c47f0fc44c4b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 89b812fff9856fda2bd1da896261481eddfdc566
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043388"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316674"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Récapitulatif et accès pour la conversion du Concepteur de vues en classeurs
 Le [concepteur de vues](view-designer.md) est une fonctionnalité d'Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics, avec des graphiques, des listes et des chronologies. Celles-ci sont progressivement supprimées et remplacées par des classeurs, qui offrent des fonctionnalités supplémentaires. Cet article explique en détail comment vous pouvez créer un récapitulatif de la vue d’ensemble et les autorisations nécessaires pour accéder aux classeurs.

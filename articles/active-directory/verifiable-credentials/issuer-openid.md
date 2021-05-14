@@ -9,16 +9,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 8771c61f96b244e0cc0bca1c61ceb8042b4a5b4c
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 6aa502e1ed0e49192220174d5a8573690035a4a3
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220196"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739131"
 ---
 # <a name="issuer-service-communication-examples-preview"></a>Exemples de communication du service émetteur (Préversion)
 
-Le service émetteur de justificatifs vérifiables peut émettre des justificatifs vérifiables en extrayant les revendications d’un jeton d’ID généré par le fournisseur d’identité conforme à OpenID de votre organisation. Cet article vous indique comment configurer votre fournisseur d’identité pour que l’application Authenticator puisse communiquer avec lui et récupérer le jeton d’ID correct à transmettre au service émetteur. 
+Le service Azure AD Justificatifs vérifiables peut émettre des justificatifs vérifiables en extrayant les réclamations d’un jeton d’ID généré par votre fournisseur d’identité conforme à l’OpenID de votre organisation. Cet article vous indique comment configurer votre fournisseur d’identité pour que l’application Authenticator puisse communiquer avec lui et récupérer le jeton d’ID correct à transmettre au service émetteur. 
 
 > [!IMPORTANT]
 > Les justificatifs vérifiables Azure Active Directory sont actuellement en préversion publique.
@@ -31,9 +31,9 @@ Pour émettre des justificatifs vérifiables, Authenticator reçoit des instruct
 | ------- | ----------- |
 | Type d’autorisation | Doit prendre en charge le type d’octroi de code d’autorisation. |
 | Format de jeton | Doit produire des jetons JWT (JSON Web Token) compacts non chiffrés. |
-| Algorithme de signature | Doit produire des jetons JWT signés selon la norme RSA 256. |
+| Algorithme de signature | Doit produire des jetons JWT signés avec RSA 256. |
 | Document de configuration | Doit prendre en charge le document de configuration OpenID Connect et `jwks_uri`. | 
-| Inscription du client | Doit prendre en charge l’inscription du client public en utilisant une valeur `redirect_uri` de `vclient://openid/` . | 
+| Inscription du client | Doit prendre en charge l’inscription du client public en utilisant une valeur `redirect_uri` de `vcclient://openid/` . | 
 | PKCE | Recommandé pour des raisons de sécurité, mais pas obligatoire. |
 
 Vous trouverez ci-dessous des exemples de requêtes HTTP envoyées à votre fournisseur d’identité. Votre fournisseur d’identité doit accepter et répondre à ces demandes conformément à la norme d’authentification OpenID Connect.

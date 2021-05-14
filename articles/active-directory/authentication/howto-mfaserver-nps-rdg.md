@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff89e8c803e0edf5245a62d625a6367d68de96ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6abfbcf8aafe2c7c733cc06ae068ff1fcb43b7e
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742066"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285787"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
 
@@ -94,4 +94,4 @@ Le serveur Azure Multi-Factor Authentication est configuré en tant que proxy RA
 
 - Intégrer Azure MFA et les [applications web IIS](howto-mfaserver-iis.md)
 
-- Obtenez des réponses en consultant le [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
+- Obtenez des réponses en consultant le [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.yml)

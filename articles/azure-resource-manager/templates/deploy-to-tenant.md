@@ -2,13 +2,14 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: 0b17b8741d1701720de86d8039be3b6cd28ace5c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/27/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: dfcdd4c9fdf758b0e07c2566c50b45f534133c3c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781898"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751488"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Déploiements de locataires avec des modèles Resource Manager
 
@@ -18,13 +19,7 @@ ms.locfileid: "107781898"
 
 Tous les types de ressources ne peuvent pas être déployés au niveau du locataire. Cette section répertorie les types de ressources pris en charge.
 
-Pour les stratégies Azure, utilisez :
-
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
-* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-
-Pour le contrôle d’accès en fonction du rôle Azure (RBAC Azure), utilisez :
+Pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC), utilisez :
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 
@@ -49,6 +44,8 @@ Pour la gestion des coûts, utilisez :
 Pour la configuration du portail, utilisez :
 
 * [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
+
+Les définitions de stratégies intégrées sont des ressources au niveau du locataire, mais vous ne pouvez pas déployer de définitions de stratégies personnalisées au niveau du locataire. Pour obtenir un exemple d’attribution de définition de stratégie intégrée à une ressource, consultez [Exemple tenantResourceId](./template-functions-resource.md#tenantresourceid-example).
 
 ## <a name="schema"></a>schéma
 

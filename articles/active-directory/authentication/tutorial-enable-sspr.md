@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eec4fb6e9907b36908a87c09aceabd0dd1a678
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 8c18dd231a708030e3a454ab8708e3f0f11dbecf
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075164"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861820"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutoriel : Permettre aux utilisateurs de déverrouiller leur compte ou de réinitialiser des mots de passe à l’aide de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -37,7 +37,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour terminer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
-* Un locataire Azure AD actif sur lequel au moins une licence Azure AD gratuite ou d’essai est activée. Dans le niveau G, SSPR ne fonctionne que pour les utilisateurs cloud dans Azure AD.
+* Un locataire Azure AD actif sur lequel au moins une licence Azure AD gratuite ou d’essai est activée. Dans le niveau G, SSPR ne fonctionne que pour les utilisateurs cloud dans Azure AD. La modification du mot de passe est prise en charge dans le niveau Gratuit, mais pas sa réinitialisation. 
     * Dans les tutoriels suivants de cette série, vous avez besoin d’une licence Azure AD Premium P1 ou d’une licence d’essai est requise pour la réécriture locale du mot de passe.
     * Si nécessaire, [créez un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un compte avec des privilèges d’*Administrateur général*.

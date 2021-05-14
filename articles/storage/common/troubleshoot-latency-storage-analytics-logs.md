@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 1e6033f9a8f4cecd2429eca67a3d58e54d7ae1f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72220b33ea0d10b16ec5be94da6a26d91b9bfc1e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99221106"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161840"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Résoudre les problèmes de latence avec les journaux Storage Analytics
 
@@ -31,7 +31,7 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
 
 2. Utilisez le script PowerShell suivant pour convertir les journaux du format brut au format tabulaire :
 
-   ```Powershell
+   ```powershell
    $Columns = 
         (   "version-number",
             "request-start-time",
@@ -65,7 +65,7 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
             "client-request-id"
         )
 
-   $logs = Import-Csv “REPLACE THIS WITH FILE PATH” -Delimiter ";" -Header $Columns
+   $logs = Import-Csv "REPLACE THIS WITH FILE PATH" -Delimiter ";" -Header $Columns
 
    $logs | Out-GridView -Title "Storage Analytic Log Parser"
    ```
@@ -73,8 +73,8 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
 3. Le script lance une fenêtre GUI dans laquelle les informations peuvent être filtrées par colonnes, comme ci-dessous.
 
    ![Fenêtre de l’analyseur de journaux Storage Analytics](media/troubleshoot-latency-storage-analytics-logs/storage-analytic-log-parser-window.png)
- 
-4. Affinez les entrées du journal en fonction de « operation-type », puis recherchez celle qui a été créée pendant le laps de temps du problème.
+
+4. Affinez les entrées du journal en fonction de « operation-type », puis recherchez celle qui a été créée pendant la durée du problème.
 
    ![Entrées du journal operation-type](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
 
@@ -119,7 +119,7 @@ Dans une **opération GetBlob** avec **RequestStatus = Success**, si le **Temps 
 **Recommandation :**
 
 * Examinez le code de votre client.
-* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client. 
+* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
 
 ### <a name="getblob-operation-requeststatus--sasnetworkerror"></a>Opération GetBlob : RequestStatus = (SAS)NetworkError
 
@@ -134,7 +134,7 @@ Dans une **opération GetBlob** avec **RequestStatus = (SAS)NetworkError**, si l
 **Recommandation :**
 
 * Examinez le code dans votre client afin de comprendre pourquoi et quand le client se déconnecte du service de stockage.
-* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client. 
+* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
 
 ### <a name="put-operation-requeststatus--success"></a>Opération Put : RequestStatus = Success
 
@@ -149,7 +149,7 @@ Dans une **opération Put** avec **RequestStatus = Success**, si le **Temps maxi
 **Recommandation :**
 
 * Examinez le code de votre client.
-* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client. 
+* Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
 
 ### <a name="put-operation-requeststatus--sasnetworkerror"></a>Opération Put : RequestStatus = (SAS)NetworkError
 

@@ -4,22 +4,22 @@ description: Découvrez comment vous connecter à un serveur Azure Analysis Serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 4/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed0f3d379ca961c610958c073c27c6fc9583252b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5a430c5bb24032a2665ad078311dcb5137d2bb9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500918"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816026"
 ---
 # <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 
 Une fois que vous avez créé un serveur dans Azure avant d’y déployer un modèle tabulaire, les utilisateurs de votre entreprise sont prêts à s’y connecter et à explorer les données. 
 
-> [!TIP]
-> Assurez-vous d’utiliser la dernière version de [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+> [!NOTE]
+> Si vous publiez un modèle Power BI Desktop sur le service Power BI, sur le serveur Azure Analysis Services, vérifiez que la propriété de serveur de classement Case-Sensitive (Respecte la casse) n’est pas sélectionnée (valeur par défaut). La propriété de serveur Case-Sensitive (Respecte la casse) peut être définie à l’aide de SQL Server Management Studio.
 > 
 > 
   

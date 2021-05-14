@@ -9,12 +9,12 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e8123c252d99b2999eeef42fecae189a05e382b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 51e0205fddf9c3e6e3d622465204e647c0099f53
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778118"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715805"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -597,7 +597,7 @@ Le tableau suivant répertorie les services qui peuvent avoir accès aux donnée
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Autorise l’accès aux comptes de stockage par le biais du Runtime ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Autorise l’accès aux comptes de stockage par le biais de Data Share. |
 | Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Autorise l’accès aux comptes de stockage par le biais de DevTest Labs. |
-| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Autorise l’écriture des données d’un IoT Hub dans le stockage d’objets blob. [En savoir plus](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
+| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Autorise l’écriture des données d’un IoT Hub dans le stockage d’objets blob. [En savoir plus](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permet aux applications logiques d’accéder aux comptes de stockage. [Plus d’informations](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
 | Service Azure Machine Learning | Microsoft.MachineLearningServices      | Les espaces de travail Azure Machine Learning autorisés écrivent des sorties, des modèles et des journaux expérimentaux dans le stockage d’objets blob et lisent les données. [Plus d’informations](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) |
 | Azure Media Services           | Microsoft.Media/mediaservices          | Autorise l’accès aux comptes de stockage par le biais de Media Services. |

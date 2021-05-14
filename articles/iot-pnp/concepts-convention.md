@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a8dfb3cacf798559273361ec75cab4570a8a5228
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 88297671dedec5b4001677f88ac5b9f86de107e3
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582678"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325736"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Conventions IoT Plug-and-Play
 
@@ -218,9 +218,9 @@ Exemple de charge utile de propriété souhaitée :
 "desired" :
 {
   "targetTemperature" : 21.3,
-  "targetHumidity" : 80
-},
-"$version" : 3
+  "targetHumidity" : 80,
+  "$version" : 3
+}
 ```
 
 Exemple de première charge utile de propriété rapportée :
@@ -302,10 +302,10 @@ Exemple de charge utile de propriété souhaitée :
   "thermostat1": {
     "__t": "c",
     "targetTemperature": 21.3,
-    "targetHumidity": 80
+    "targetHumidity": 80,
+    "$version" : 3
   }
-},
-"$version" : 3
+}
 ```
 
 Exemple de première charge utile de propriété rapportée :

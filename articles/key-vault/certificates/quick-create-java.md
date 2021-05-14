@@ -2,18 +2,18 @@
 title: Démarrage rapide pour la bibliothèque de client de certificats Azure Key Vault - Java
 description: Découvrez la bibliothèque de client de certificats Azure Key Vault pour Java avec les étapes de ce guide de démarrage rapide.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.openlocfilehash: c064a35ac6136d728f75b65379c543149cc8189d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 7173dea0d6261d7d71e148677fde80511e5ef8a5
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750029"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288271"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-java-certificates"></a>Démarrage rapide : Bibliothèque de client de certificats Azure Key Vault pour Java (certificats)
 Découvrez comment démarrer avec la bibliothèque de client de certificats Azure Key Vault pour Java. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.
@@ -272,4 +272,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et cré�
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
-- Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/security-overview.md)
+- Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/security-features.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/16/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3665421ddbdd9cf079ff4aab9377fc9164a1599c
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 115587cc567aed42153fcd0b4af404392853d8c7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575358"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127332"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -73,7 +73,7 @@ Le tableau suivant répertorie les types de comptes de stockage qui prennent en 
 
 | Type de compte de stockage | Régions prises en charge | Services pris en charge |
 |--|--|--|
-| Universel v2<sup>1</sup> | (Afrique) Afrique du Sud Nord<br /> (Asie-Pacifique) Asie Sud-Est<br /> (Asie-Pacifique) Australie Est<br /> (Asie-Pacifique) Japon Est<br /> (Canada) Canada Centre<br /> (Europe) Europe Nord<br /> (Europe) Europe Ouest<br /> (Europe) France Centre<br /> (Europe) Allemagne Centre-Ouest<br /> (Europe) Royaume-Uni Sud<br /> (Amérique du Sud) Brésil Sud<br /> (États-Unis) USA Centre<br /> (États-Unis) USA Est<br /> (États-Unis) USA Est 2<br /> (États-Unis) USA Centre Sud<br /> (États-Unis) USA Ouest<br /> (USA) USA Ouest 2 | Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
+| Universel v2<sup>1</sup> | (Afrique) Afrique du Sud Nord<br /> (Asie-Pacifique) Asie Sud-Est<br /> (Asie-Pacifique) Australie Est<br /> (Asie-Pacifique) Japon Est<br /> (Canada) Canada Centre<br /> (Europe) Europe Nord<br /> (Europe) Europe Ouest<br /> (Europe) France Centre<br /> (Europe) Allemagne Centre-Ouest<br /> (Europe) Royaume-Uni Sud<br /> (Amérique du Sud) Brésil Sud<br /> (États-Unis) USA Centre<br /> (États-Unis) USA Est<br /> (États-Unis) USA Est 2<br /> (États-Unis) USA Centre Sud<br /> (USA) USA Ouest 2 | Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
 | BlockBlobStorage<sup>1</sup> | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br /> Europe occidentale<br /> France Centre <br /> Japon Est<br /> Sud du Royaume-Uni <br /> USA Est <br /> USA Est 2 <br /> USA Ouest 2| Objets blob de blocs Premium uniquement |
 | FileStorage | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br /> Europe occidentale<br /> France Centre <br /> Japon Est<br /> Sud du Royaume-Uni <br /> USA Est <br /> USA Est 2 <br /> USA Ouest 2 | Partages de fichiers Premium uniquement |
 
@@ -139,17 +139,13 @@ Les réplications GZRS et RA-GZRS sont prises en charge dans les régions suivan
 - (Europe) Europe Ouest
 - (Europe) France Centre
 - (Europe) Allemagne Centre-Ouest
-- (Europe) Norvège Est
-- (Europe) Suisse Nord
 - (Europe) Royaume-Uni Sud
-- (Moyen-Orient) Émirats arabes unis Nord
 - (Amérique du Sud) Brésil Sud
 - (États-Unis) USA Centre
 - (États-Unis) USA Est
 - (États-Unis) USA Est 2
 - (États-Unis) USA Centre Nord
 - (États-Unis) USA Centre Sud
-- (États-Unis) USA Ouest
 - (USA) USA Ouest 2
 
 Pour plus d’informations sur la tarification, consultez les détails de la tarification d’[objets BLOB](https://azure.microsoft.com/pricing/details/storage/blobs), de [Fichiers](https://azure.microsoft.com/pricing/details/storage/files/), de [Files d’attente](https://azure.microsoft.com/pricing/details/storage/queues/) et de [Tables](https://azure.microsoft.com/pricing/details/storage/tables/).

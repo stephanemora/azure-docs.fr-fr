@@ -3,12 +3,12 @@ title: Tests unitaires de l’extension Fonctions durables Azure
 description: Découvrez comment effectuer des tests unitaires sur l’extension Fonctions durables.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: fe5a25e0296eb183ef2426e12f7bdee35633ec78
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 3d3b89337d4643b59d37ebe0aaeaf6f207bf053e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076630"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165440"
 ---
 # <a name="durable-functions-unit-testing"></a>Tests unitaires de l’extension Fonctions durables
 
@@ -38,7 +38,7 @@ La simulation est prise en charge via l’interface suivante :
 * [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
 * [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
-  
+
 * [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
 Ces interfaces peuvent être utilisées avec les différents déclencheurs et liaisons pris en charge par Durable Functions. Lors de l’exécution d’Azure Functions, le runtime Functions exécute le code de votre fonction avec une implémentation concrète de ces interfaces. Pour les tests unitaires, vous pouvez transmettre une version factice de ces interfaces pour tester votre logique métier.
@@ -95,7 +95,7 @@ durableClientMock
 ```csharp
 // Mock ILogger
 var loggerMock = new Mock<ILogger>();
-```  
+```
 
 À présent, la méthode `Run` est appelée à partir du test unitaire :
 
@@ -110,7 +110,7 @@ var result = await HttpStart.Run(
     durableClientMock.Object,
     functionName,
     loggerMock.Object);
- ```
+```
 
  La dernière étape consiste à comparer la sortie avec la valeur attendue :
 
@@ -183,5 +183,5 @@ De son côté, le test unitaire vérifie le format de la sortie. Les tests unita
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
-> 
+>
 > [En savoir plus sur moq](https://github.com/Moq/moq4/wiki/Quickstart)

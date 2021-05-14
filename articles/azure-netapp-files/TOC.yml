@@ -37,6 +37,8 @@
           href: azure-netapp-files-smb-performance.md
     - name: Modèle de coût pour Azure NetApp Files
       href: azure-netapp-files-cost-model.md
+    - name: Présentation du quota de volume
+      href: volume-quota-introduction.md
     - name: Consignes pour planifier un réseau Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
     - name: Comment fonctionnent les instantanés Azure NetApp Files
@@ -61,6 +63,8 @@
               href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
             - name: Avantages d’utiliser Azure NetApp Files avec Windows Virtual Desktop
               href: solutions-windows-virtual-desktop.md
+            - name: Avantages de l’utilisation de Azure NetApp Files pour le déploiement de SQL Server
+              href: solutions-benefits-azure-netapp-files-sql-server.md
     - name: Questions fréquentes (FAQ) sur Azure NetApp Files
       href: azure-netapp-files-faqs.md
     - name: "Qu’est-ce que l’outil Azure Application Consistent Snapshot Tool\_?"
@@ -73,15 +77,17 @@
       href: azure-netapp-files-register.md
     - name: Créer un compte NetApp
       href: azure-netapp-files-create-netapp-account.md
-    - name: Configurer un pool de capacité
-      href: azure-netapp-files-set-up-capacity-pool.md
-    - name: Gérer un pool de capacités de QoS manuel
-      href: manage-manual-qos-capacity-pool.md
+    - name: Créer et gérer des pools de capacité
+      items:
+        - name: Configurer un pool de capacité
+          href: azure-netapp-files-set-up-capacity-pool.md
+        - name: Gérer un pool de capacités de QoS manuel
+          href: manage-manual-qos-capacity-pool.md
     - name: Déléguer un sous-réseau à Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
     - name: Créer et gérer des connexions Active Directory
       href: create-active-directory-connections.md
-    - name: Créer et gérer un volume NFS
+    - name: Créer et gérer des volumes NFS
       items:
         - name: Créer un volume NFS
           href: azure-netapp-files-create-volumes.md
@@ -89,20 +95,30 @@
           href: azure-netapp-files-configure-nfsv41-domain.md
         - name: "Configurer le chiffrement Kerberos NFS\_v4.1"
           href: configure-kerberos-encryption.md
+        - name: Configurer le protocole LDAP ADDS avec groupes étendus pour NFS
+          href: configure-ldap-extended-groups.md
         - name: Configurer un client NFS pour Azure NetApp Files
           href: configure-nfs-clients.md
-        - name: Configurer une stratégie d’exportation pour un volume NFS
-          href: azure-netapp-files-configure-export-policy.md
-    - name: Créer un volume SMB
-      href: azure-netapp-files-create-volumes-smb.md
+    - name: Créer et gérer des volumes SMB
+      items:
+        - name: Créer un volume SMB
+          href: azure-netapp-files-create-volumes-smb.md
+        - name: Convertir des volumes SMB existants pour utiliser la disponibilité continue
+          href: convert-smb-continuous-availability.md
     - name: Créer un volume à deux protocoles
       href: create-volumes-dual-protocol.md
-    - name: Monter ou démonter un volume pour des machines virtuelles Windows ou Linux
+    - name: Configurer ADDS LDAP sur TLS
+      href: configure-ldap-over-tls.md
+    - name: Configurer la stratégie d’exportation pour NFS ou le double protocole
+      href: azure-netapp-files-configure-export-policy.md
+    - name: Monter ou démonter un volume
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Gérer les instantanés
       href: azure-netapp-files-manage-snapshots.md
     - name: Redimensionner un pool de capacités ou un volume
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Surveiller la capacité d'un volume
+      href: monitor-volume-capacity.md
     - name: Changer dynamiquement le niveau de service d’un volume
       href: dynamic-change-volume-service-level.md
     - name: Gérer la réplication interrégion
@@ -115,6 +131,8 @@
           href: cross-region-replication-manage-disaster-recovery.md
         - name: Supprimer des volumes ou des réplications de volume
           href: cross-region-replication-delete.md
+    - name: Gérer la facturation en utilisant des étiquettes
+      href: manage-billing-tags.md
     - name: Développer
       items:
         - name: API REST
@@ -135,6 +153,8 @@
           href: troubleshoot-nfsv41-kerberos-volumes.md
         - name: Résoudre les problèmes de stratégies d’instantanés
           href: troubleshoot-snapshot-policies.md
+        - name: Résoudre les problèmes liés aux volumes LDAP
+          href: troubleshoot-ldap-volumes.md
         - name: Résoudre les erreurs de fournisseur de ressources
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Informations de référence
@@ -143,8 +163,12 @@
       href: /rest/api/netapp/
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
+    - name: Azure CLI
+      href: /cli/azure/netappfiles
     - name: Outil Azure Application Consistent Snapshot Tool (AzAcSnap)
       items:
+        - name: Notes de publication d’AzAcSnap
+          href: azacsnap-release-notes.md
         - name: Bien démarrer avec AzAcSnap
           href: azacsnap-get-started.md
         - name: Installer AzAcSnap
@@ -179,3 +203,5 @@
       href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: Vidéos
       href: azure-netapp-files-videos.md
+    - name: Comparaison entre Azure Files et Azure NetApp Files
+      href: ../storage/files/storage-files-netapp-comparison.md

@@ -3,12 +3,12 @@ title: Concept de graphe multimédia – Azure
 description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 83c51bc87321633339f75ac57b480116d450bca7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557664"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770602"
 ---
 # <a name="media-graph"></a>Graphe multimédia
 
@@ -112,7 +112,8 @@ Un nœud récepteur de ressources vous permet d’écrire des données multiméd
 
 Le nœud récepteur de fichiers vous permet d’écrire des données multimédias (vidéo ou audio) à un emplacement sur le système de fichiers local de l’appareil IoT Edge. Il ne peut y avoir qu’un seul nœud récepteur de fichiers dans un graphe multimédia, et il doit être en aval d’un nœud processeur de porte de signal. Cela limite la durée des fichiers de sortie aux valeurs spécifiées dans les propriétés du nœud processeur de la porte de signal. Pour éviter que votre appareil Edge ne manque d’espace disque, vous pouvez également définir la taille maximale utilisable par le module Live Video Analytics sur IoT Edge pour stocker des données.  
 > [!NOTE]
-Si le récepteur de fichiers est saturé, le module Live Video Analytics sur IoT Edge se met à supprimer les données les plus anciennes et à les remplacer par les nouvelles.
+> Si le récepteur de fichiers est saturé, le module Live Video Analytics sur IoT Edge se met à supprimer les données les plus anciennes et à les remplacer par les nouvelles.
+
 #### <a name="iot-hub-message-sink"></a>Récepteur de messages IoT Hub  
 
 Un nœud récepteur de messages IoT Hub vous permet de publier des événements sur un hub IoT Edge. Le hub IoT Edge peut ensuite acheminer les données vers d’autres modules ou applications sur le périphérique ou vers IoT Hub dans le cloud (par itinéraires spécifiés dans le manifeste de déploiement). Le nœud récepteur de messages IoT Hub peut accepter des événements provenant de processeurs en amont, tels qu’un nœud processeur de détection de mouvement, ou d’un service d’inférence externe via un nœud processeur d’extension HTTP.

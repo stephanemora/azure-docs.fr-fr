@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 04/27/2021
 ms.author: jeedes
-ms.openlocfilehash: a1e62dfd89ccd23ef950767d883fde80f1a5ca26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98e6290041573adb4dba0dced5268caacae47017
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953236"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162799"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-truechoice"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TrueChoice
 
@@ -90,19 +90,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application TrueChoice s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/default-attributes.png)
-
-1. En plus de ce qui précède, l’application TrueChoice s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
-    
-    | Nom |  Attribut source|
-    | ----------------- | --------- |
-    | country | user.country |
-    | name | user.displayname |
-    |
+    ![image](./media/truechoice-tutorial/default-attributes.png)
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.

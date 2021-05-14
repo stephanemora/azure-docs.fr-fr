@@ -1,0 +1,179 @@
+- name: Documentation sur le Proxy d’application
+  href: index.yml
+- name: Vue d’ensemble
+  expanded: true
+  items:
+    - name: Présentation de Proxy d’application
+      href: what-is-application-proxy.md
+    - name: Nouveautés dans la documentation
+      href: whats-new-docs.md
+- name: Tutoriels
+  expanded: true
+  items:
+    - name: Liste des tutoriels d’intégration d’application
+      href: /azure/active-directory/saas-apps/
+    - name: Ajouter une application locale via le proxy d’application
+      href: application-proxy-add-on-premises-application.md
+- name: Exemples
+  expanded: false
+  items:
+    - name: Vue d’ensemble des exemples pour le Proxy d’application
+      href: application-proxy-powershell-samples.md
+    - name: Lister les informations de base sur les applications
+      href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
+    - name: Lister les informations étendues sur les applications
+      href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
+    - name: Lister les applications par groupe de connecteurs
+      href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
+    - name: Lister les applications avec une stratégie de durée de vie des jetons
+      href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
+    - name: Lister les connecteurs et les groupes de connecteurs
+      href: ./scripts/powershell-get-all-connectors.md
+    - name: Déplacer des applications entre des groupes de connecteurs
+      href: ./scripts/powershell-move-all-apps-to-connector-group.md
+    - name: Lister les utilisateurs et les groupes affectés à une application
+      href: ./scripts/powershell-display-users-group-of-app.md
+    - name: Affecter un utilisateur à une application
+      href: ./scripts/powershell-assign-user-to-app.md
+    - name: Affecter un groupe à une application
+      href: ./scripts/powershell-assign-group-to-app.md
+    - name: Lister les applications avec des domaines par défaut
+      href: ./scripts/powershell-get-all-default-domain-apps.md
+    - name: Lister les applications avec une publication générique
+      href: ./scripts/powershell-get-all-wildcard-apps.md
+    - name: Lister tous les domaines et certificats personnalisés
+      href: ./scripts/powershell-get-all-custom-domains-and-certs.md
+    - name: Lister les applications sans certificats
+      href: ./scripts/powershell-get-all-custom-domain-no-cert.md
+    - name: Lister les applications ayant des certificats identiques
+      href: ./scripts/powershell-get-custom-domain-identical-cert.md
+    - name: Remplacer des certificats identiques
+      href: ./scripts/powershell-get-custom-domain-replace-cert.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Application Proxy (Proxy d’application)
+      href: application-proxy.md
+    - name: Authentification unique avec les applications locales
+      href: application-proxy-config-sso-how-to.md
+    - name: Planification d’un déploiement de proxy d’application
+      href: application-proxy-deployment-plan.md
+    - name: Connecteurs
+      href: application-proxy-connectors.md
+    - name: Groupes de connecteurs
+      href: application-proxy-connector-groups.md
+    - name: Haute disponibilité et équilibrage de charge
+      href: application-proxy-high-availability-load-balancing.md
+    - name: Authentification unique basée sur SAML (applications locales)
+      href: application-proxy-configure-single-sign-on-on-premises-apps.md
+    - name: Authentification unique basée sur l’en-tête
+      href: application-proxy-configure-single-sign-on-with-headers.md
+    - name: Authentification unique basée sur Kerberos
+      href: application-proxy-configure-single-sign-on-with-kcd.md
+    - name: Authentification unique par mot de passe
+      href: application-proxy-configure-single-sign-on-password-vaulting.md
+    - name: Topologie du réseau
+      href: application-proxy-network-topology.md
+    - name: Sécurité
+      href: application-proxy-security.md
+- name: Guides pratiques
+  expanded: true
+  items:
+    - name: Configurer avec des serveurs proxy
+      href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: Donner accès aux applications mobiles et de bureau aux API locales
+      href: application-proxy-secure-api-access.md
+    - name: Configurer une page d’accueil personnalisée
+      href: application-proxy-configure-custom-home-page.md
+    - name: Configurer les paramètres de cookies
+      href: application-proxy-configure-cookie-settings.md
+    - name: Publier en utilisant des caractères génériques
+      href: application-proxy-wildcard.md
+    - name: Configurer un domaine personnalisé
+      href: application-proxy-configure-custom-domain.md
+    - name: Traduire les liens inclus
+      href: application-proxy-configure-hard-coded-link-translation.md
+    - name: Configurer des applications prenant en charge les revendications
+      href: application-proxy-configure-for-claims-aware-applications.md
+    - name: Configurer des applications de clients mobile et de bureau
+      href: application-proxy-configure-native-client-application.md
+    - name: Inscrire le connecteur - installation silencieuse
+      href: application-proxy-register-connector-powershell.md
+    - name: Supprimer des données personnelles
+      href: application-proxy-remove-personal-data.md
+    - name: Publication de procédures pas à pas
+      items:
+        - name: "Intégration au proxy d’application sur un serveur\_NDES"
+          href: active-directory-app-proxy-protect-ndes.md
+        - name: Intégrer à un proxy d’application avec PingAccess
+          href: application-proxy-ping-access-publishing-guide.md
+        - name: Intégrer à Azure AD Domain Services
+          href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fapp-proxy%2fcontext%2fapp-proxy-context
+        - name: Intégrer à Power BI
+          href: application-proxy-integrate-with-power-bi.md
+        - name: Intégrer avec Cloud App Security
+          href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+        - name: Intégrer au Bureau à distance
+          href: application-proxy-integrate-with-remote-desktop-services.md
+        - name: Intégrer à SharePoint (Kerberos)
+          href: application-proxy-integrate-with-sharepoint-server.md
+        - name: Intégrer à SharePoint (SAML)
+          href: application-proxy-integrate-with-sharepoint-server-saml.md
+        - name: Intégrer à Teams
+          href: application-proxy-integrate-with-teams.md
+        - name: Intégrer à Tableau
+          href: application-proxy-integrate-with-tableau.md
+        - name: Intégrer à Qlik
+          href: application-proxy-qlik.md
+    - name: Dépanner
+      items:
+        - name: Résolution des problèmes de proxy d’application
+          href: application-proxy-troubleshoot.md
+        - name: Configurer dans le portail d’administration
+          href: application-proxy-config-how-to.md
+        - name: Organigramme de résolution des problèmes de connecteur
+          href: application-proxy-debug-connectors.md
+        - name: Organigramme de résolution des problèmes d’application
+          href: application-proxy-debug-apps.md
+        - name: Problème lors de l’affichage de la page de l’application
+          href: application-proxy-page-appearance-broken-problem.md
+        - name: Le chargement de l’application est trop long
+          href: application-proxy-page-load-speed-problem.md
+        - name: Les liens sur la page de l’application ne fonctionnent pas
+          href: application-proxy-page-links-broken-problem.md
+        - name: Problème de création d’une application dans le portail d’administration
+          href: application-proxy-config-problem.md
+        - name: Configurer une délégation Kerberos contrainte
+          href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
+        - name: Erreur Impossible d’accéder à cette application d’entreprise
+          href: application-proxy-sign-in-bad-gateway-timeout-error.md
+        - name: Problèmes lors de l’installation du connecteur d’agent de proxy d’application
+          href: application-proxy-connector-installation-problem.md
+        - name: Aucun connecteur d’un groupe de connecteurs ne fonctionne pour mon application
+          href: application-proxy-connectivity-no-working-connector.md
+        - name: Problème de connexion
+          href: application-sign-in-problem-on-premises-application-proxy.md
+        - name: Problèmes CORS dans le proxy d’application
+          href: application-proxy-understand-cors-issues.md
+- name: Informations de référence
+  items:
+    - name: Questions fréquentes (FAQ) sur le Proxy d’application
+      href: application-proxy-faq.yml
+    - name: Historique des versions du proxy d’application
+      href: application-proxy-release-version-history.md
+- name: Ressources
+  items:
+    - name: Options d’aide et de support pour les développeurs
+      href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Forum de commentaires Azure
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Page de questions Microsoft Q&A
+      href: /answers/topics/azure-active-directory.html
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=active-directory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Vidéos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

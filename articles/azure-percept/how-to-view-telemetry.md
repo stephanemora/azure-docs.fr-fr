@@ -1,18 +1,18 @@
 ---
 title: Afficher les données de télémétrie de l’inférence du modèle du DK Azure Percept
 description: Découvrez comment afficher les données de télémétrie de l’inférence du modèle de vision du DK Azure Percept dans l’explorateur Azure IoT
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 07abbc5f5e85c75b73774d11b6b81dd2085735b7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3e09646614d37a97400a7e90b380048d97c0369c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095321"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754214"
 ---
 # <a name="view-your-azure-percept-dks-model-inference-telemetry"></a>Afficher les données de télémétrie de l’inférence du modèle du DK Azure Percept
 

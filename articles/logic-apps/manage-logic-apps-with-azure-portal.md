@@ -6,15 +6,15 @@ ms.suite: integration
 author: lauradolan
 ms.author: ladolan
 ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: article
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 07/20/2020
-ms.openlocfilehash: d50f577a7170982be004cc8957114f79675fbc6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.openlocfilehash: 4c4a3b1e5d165681e921d2fadeadc5dea9633d41
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006096"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162902"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gérer les applications logiques dans le portail Azure
 
@@ -28,23 +28,15 @@ Vous pouvez gérer les applications logiques à l’aide du [portail Azure](http
 
 <a name="find-logic-app"></a>
 
-## <a name="find-your-logic-apps"></a>Trouver vos applications logiques
-
-Pour rechercher et ouvrir votre application logique, procédez comme suit :
+## <a name="find-and-open-a-logic-app"></a>Recherche et ouverture d’une application logique
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
 
-1. Dans la barre de recherche Azure, entrez `logic apps`, puis sélectionnez **Logic Apps**.
+1. Dans la zone de recherche du portail, entrez `logic apps`, puis sélectionnez **Applications logiques**.
 
-   ![Capture d’écran du menu du portail Azure, avec l’expression Logic Apps recherchée et sélectionnée dans la barre de recherche.](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+1. Dans la liste des applications logiques, recherchez la vôtre en parcourant ou en filtrant la liste.
 
-1. Dans la page **Logic Apps**, recherchez et sélectionnez l’application logique à gérer.
-
-   Une fois que le volet **Vue d’ensemble** de l’application logique s’ouvre, vous pouvez filtrer la liste qui s’affiche dans la page **Logic Apps** des manières suivantes :
-
-   * Rechercher des applications logiques par nom
-   * Filtrer les applications logiques par abonnement, groupe de ressources, emplacement et étiquettes
-   * Regrouper les applications logiques par groupe de ressources, type, abonnement et emplacement
+1. Pour ouvrir votre application logique, sélectionnez l’application que vous souhaitez gérer.
 
 ## <a name="view-logic-app-properties"></a>Afficher les propriétés de l’application logique
 
@@ -66,121 +58,80 @@ Pour rechercher et ouvrir votre application logique, procédez comme suit :
    * **Accéder aux adresses IP du point de terminaison**
    * **Adresses IP sortantes du connecteur**
 
+<a name="disable-enable-logic-apps"></a>
+
 ## <a name="disable-or-enable-logic-apps"></a>Activer ou désactiver des applications logiques
 
-Vous pouvez activer ou désactiver une [application logique spécifique](#disable-enable-single-logic-app) ou [plusieurs applications logiques en même temps](#disable-or-enable-multiple-logic-apps) dans le portail Azure. Vous pouvez également [activer ou désactiver des applications logiques dans Visual Studio](manage-logic-apps-with-visual-studio.md#disable-or-enable-logic-app).
+Pour désactiver le déclencheur la prochaine fois que la condition de déclenchement est remplie, désactivez votre application logique. Sur le Portail Azure, il est possible d’activer et de désactiver une [application logique spécifique](#disable-enable-single-logic-app) ou [plusieurs applications logiques en même temps](#disable-or-enable-multiple-logic-apps). La désactivation d’une application logique affecte les instances de workflow de différentes manières :
 
-La désactivation de votre application logique affecte vos instances et exécutions de workflow des manières suivantes :
+* Le service Logic Apps continue toutes les exécutions en cours et en attente jusqu’à ce qu’elles se terminent. En fonction du volume ou du backlog, ce processus peut prendre du temps.
 
-* Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées. En fonction du nombre de ces exécutions, ce processus peut prendre un certain temps.
+* Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
 
-* Le moteur Logic Apps ne crée pas ou n’exécute pas de nouvelles instances de workflow.
+* Le déclencheur ne se déclenche pas la prochaine fois que ses conditions sont remplies. Toutefois, l’état du déclencheur mémorise le point auquel l’application logique a été arrêtée. Ainsi, si vous la réactivez, le déclencheur se met en œuvre pour tous les éléments non traités depuis la dernière exécution.
 
-* Le déclencheur ne se déclenche pas la prochaine fois que ses conditions sont remplies.
+  Pour empêcher le déclencheur de se mettre en œuvre pour les éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de réactiver l’application logique :
 
-* L’état du déclencheur mémorise le point auquel l’application logique a été arrêtée. Ainsi, si vous réactivez l’application logique, le déclencheur se déclenche pour tous les éléments non traités depuis la dernière exécution.
-
-  Pour empêcher votre application logique de se déclencher sur des éléments non traités depuis la dernière exécution, effacez l’état du déclencheur avant de réactiver l’application logique :
-
-  1. Dans le portail Azure, [recherchez et ouvrez votre application logique](#find-logic-app).
-
-  1. Modifiez une partie du déclencheur de l’application logique.
-
+  1. Dans l’application logique, modifiez n’importe quelle partie du déclencheur du workflow.
   1. Enregistrez vos modifications. Cette étape réinitialise l’état actuel de votre déclencheur.
-
   1. [Réactivez votre application logique](#disable-enable-single-logic-app).
 
 <a name="disable-enable-single-logic-app"></a>
 
-### <a name="disable-or-enable-single-logic-app"></a>Activer ou désactiver une application logique spécifique
+### <a name="disable-or-enable-a-single-logic-app"></a>Activation et désactivation d’une application logique spécifique
 
 1. Dans le portail Azure, [recherchez et ouvrez votre application logique](#find-logic-app).
 
-1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. Choisissez l’une des options suivantes :
+1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**.
 
-   * Dans la barre d’outils, sélectionnez **Désactiver**.
+   * Pour désactiver votre application logique, sélectionnez **Désactiver** dans la barre d’outils du volet Vue d’ensemble.
+   * Pour activer votre application logique, sélectionnez **Activer** dans la barre d’outils du volet Vue d’ensemble.
 
-     ![Capture d’écran de la barre d’outils de l’application logique, avec le bouton Désactiver sélectionné.](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+     > [!NOTE]
+     > Si votre application logique est déjà désactivée, vous ne voyez que l’option **Activer**.
+     > Si votre application logique est déjà activée, vous ne voyez que l’option **Désactiver**.
 
-     Si votre application logique est déjà désactivée, vous ne voyez que l’option **Activer**.
-
-   * Dans la barre d’outils, sélectionnez **Activer**.
-
-     ![Capture d’écran de la barre d’outils de l’application logique, avec le bouton Activer sélectionné.](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
-
-     Si votre application logique est déjà activée, vous ne voyez que l’option **Désactiver**. 
-
-   Le portail Azure affiche une notification dans la barre d’outils Azure principale qui confirme si votre opération a réussi ou échoué.
-
-   ![Capture d’écran du portail Azure, montrant la notification pour confirmer l’état de l’opération](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+1. Pour savoir si l’opération a réussi ou échoué, ouvrez la liste **Notifications** (icône représentant une cloche) dans la barre d’outils Azure principale.
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
 ### <a name="disable-or-enable-multiple-logic-apps"></a>Activer ou désactiver plusieurs applications logiques
 
-1. Dans le portail Azure, [recherchez les applications logiques](#find-logic-app) que vous souhaitez activer ou désactiver.
+1. Dans la zone de recherche principale du Portail Azure, entrez `logic apps`, puis sélectionnez **Applications logiques**.
 
-1. Pour vérifier si une application logique est activée ou désactivée, dans la page **Logic Apps**, consultez la colonne **État** propre à cette application logique. 
+1. Sur la page **Applications logiques**, passez en revue la colonne **État** de l’application logique.
 
-   ![Capture d’écran de la page Logic Apps dans le portail Azure, avec la liste des applications logiques triées selon la colonne État.](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+1. Dans la colonne des cases à cocher, sélectionnez les applications logiques que vous souhaitez arrêter ou démarrer.
 
-   Si la colonne **État** n’est pas visible, dans la barre d’outils **Logic Apps**, sélectionnez **Essayer la préversion**.
+   * Pour arrêter les applications logiques en cours d’exécution sélectionnées, sélectionnez **Désactiver/arrêter** dans la barre d’outils du volet Vue d’ensemble. Confirmez votre sélection.
+   * Pour démarrer les applications logiques arrêtées sélectionnées, sélectionnez **Activer/démarrer** dans la barre d’outils du volet Vue d’ensemble.
 
-   ![Capture d’écran de la page Logic Apps dans le portail Azure, avec le bouton Essayer la préversion sélectionné.](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+1. Pour savoir si l’opération a réussi ou échoué, ouvrez la liste **Notifications** (icône représentant une cloche) dans la barre d’outils Azure principale.
 
-1. Dans la colonne des cases à cocher, sélectionnez les applications logiques que vous souhaitez activer ou désactiver. Dans la barre d’outils, sélectionnez **Désactiver** ou **Activer**.
+   > [!TIP]
+   > Si l’état ne s’affiche pas, actualisez la page.
 
-   ![Capture d’écran de la page Logic Apps dans le portail Azure, montrant les boutons Activer et Désactiver pour plusieurs applications logiques.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
-
-1. Quand la boîte de confirmation s’affiche, sélectionnez **Oui** pour continuer.
-
-   Le portail Azure affiche une notification dans la barre d’outils Azure principale qui confirme si votre opération a réussi ou échoué.
+<a name="delete-logic-apps"></a>
 
 ## <a name="delete-logic-apps"></a>Supprimer des applications logiques
 
-Vous pouvez [supprimer une application logique spécifique](#delete-single-logic-app) ou [supprimer plusieurs applications logiques en même temps](#delete-multiple-logic-apps) dans le portail Azure. Vous pouvez également [supprimer votre application logique dans Visual Studio](manage-logic-apps-with-visual-studio.md#delete-your-logic-app).
+Il est possible de supprimer une application logique spécifique ou plusieurs applications logiques en même temps. La suppression d’une application logique affecte les instances de workflow de différentes manières :
 
-La suppression de votre application logique affecte vos instances de workflow des manières suivantes :
+* Le service Logic Apps met tout en œuvre pour annuler les exécutions en cours et en attente.
 
-* Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées. En fonction du nombre de ces exécutions, ce processus peut prendre un certain temps.
+  Même avec un gros volume ou un backlog important, la plupart des exécutions sont annulées avant qu’elles ne finissent ou ne démarrent. Toutefois, le processus d’annulation peut prendre du temps. Il peut arriver que certaines exécutions soient lancées dans l’intervalle.
 
-* Le moteur Logic Apps ne crée pas ou n’exécute pas de nouvelles instances de workflow.
+* Le service Logic Apps ne crée pas ni n’exécute de nouvelles instances de workflow.
 
-> [!NOTE]
-> Si vous supprimez et recréez une application logique enfant, vous devez réenregistrer l’application logique parente. L’application enfant recréée aura des métadonnées différentes.
-> Si vous ne réenregistrez pas l’application logique parente après avoir recréé son enfant, vos appels à l’application logique enfant échouent et une erreur de type « non autorisé » s’affiche. Ce comportement s’applique aux applications logiques parent-enfant, par exemple celles qui utilisent des artefacts dans les comptes d’intégration ou qui appellent des fonctions Azure.
+* Si, après avoir supprimé un workflow, vous recréez le même, les métadonnées de ce dernier sont différentes de celles du workflow supprimé. Vous devez enregistrer de nouveau les workflows qui ont appelé le workflow supprimé. L’appelant obtient ainsi les bonnes informations sur le workflow recréé. Dans le cas contraire, les appels au workflow recréé échouent avec une erreur `Unauthorized`. Ce comportement s’applique aussi aux workflows qui utilisent des artefacts dans les comptes d’intégration et à ceux qui appellent des fonctions Azure.
 
-<a name="delete-single-logic-app"></a>
+1. Dans la zone de recherche principale du Portail Azure, entrez `logic apps`, puis sélectionnez **Applications logiques**.
 
-### <a name="delete-single-logic-app"></a>Supprimer une application logique spécifique
-
-1. Dans le portail Azure, [recherchez et ouvrez votre application logique](#find-logic-app).
-
-1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. Dans la barre d’outils de votre application logique, sélectionnez **Supprimer**.
-
-   ![Capture d’écran de la barre d’outils de l’application logique, avec le bouton Supprimer sélectionné.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
-
-1. Quand la boîte de confirmation s’affiche, entrez le nom de votre application logique, puis sélectionnez **Supprimer**.
-
-   ![Capture d’écran de l’invite Logic Apps pour confirmer la suppression d’une application logique unique.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
-
-   Le portail Azure affiche une notification dans la barre d’outils Azure principale qui confirme si votre opération a réussi ou échoué.
-
-<a name="delete-multiple-logic-apps"></a>
-
-### <a name="delete-multiple-logic-apps"></a>Supprimer plusieurs applications logiques
-
-1. Dans le portail Azure, [recherchez les applications logiques que vous souhaitez supprimer](#find-logic-app).
-
-1. Dans la colonne des cases à cocher, sélectionnez les applications logiques que vous souhaitez supprimer. Dans la barre d’outils, sélectionnez **Supprimer**.
-
-   ![Capture d’écran de la page Logic Apps, montrant plusieurs applications logiques sélectionnées pour suppression dans une liste.](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+1. Dans la colonne des cases à cocher de la liste **Applications logiques**, sélectionnez une ou plusieurs applications logiques à supprimer. Dans la barre d’outils, sélectionnez **Supprimer**.
 
 1. Quand la boîte de confirmation s’affiche, entrez `yes`, puis sélectionnez **Supprimer**.
 
-   ![Capture d’écran de l’invite Logic Apps pour confirmer la suppression de plusieurs applications logiques.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
-
-   Le portail Azure affiche une notification dans la barre d’outils Azure principale qui confirme si votre opération a réussi ou échoué.
+1. Pour savoir si l’opération a réussi ou échoué, ouvrez la liste **Notifications** (icône représentant une cloche) dans la barre d’outils Azure principale.
 
 <a name="manage-logic-app-versions"></a>
 
@@ -192,7 +143,7 @@ Il est possible d’utiliser le Portail Azure pour la gestion de version des app
 
 ### <a name="find-and-view-previous-versions"></a>Recherche et affichage des versions précédentes
 
-1. Sur le Portail Azure, [recherchez l’application logique que vous souhaitez gérer](#find-logic-app).
+1. Dans le portail Azure, [recherchez et ouvrez votre application logique](#find-logic-app).
 
 1. Dans le menu de l’application logique, sélectionnez **Versions** sous **Outils de développement**.
 

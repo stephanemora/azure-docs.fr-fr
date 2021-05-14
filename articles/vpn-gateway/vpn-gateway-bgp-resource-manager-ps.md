@@ -1,6 +1,7 @@
 ---
-title: 'Passerelle VPN Azure : Configurer BGP : PowerShell'
-description: Cet article vous guide dans la configuration de BGP avec des passerelles VPN Azure à l’aide d’Azure Resource Manager et de PowerShell.
+title: Configuration du protocole BGP pour une passerelle VPN avec PowerShell
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment configurer le protocole BGP pour des passerelles VPN avec PowerShell.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
@@ -8,17 +9,16 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8573d9e55299382392927b532966a6e6fdd8c439
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e41fe8bf77c2177deb064e13cf9d3efeef4027db
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94659758"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291259"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configurer BGP sur des passerelles VPN Azure à l’aide de PowerShell
-Cet article vous guide pas à pas dans l’activation de BGP sur une connexion VPN de site à site (S2S) et une connexion de réseau virtuel à réseau virtuel, à l’aide du modèle de déploiement de Resource Manager et de PowerShell.
 
-
+Cet article explique pas à pas comment activer le protocole BGP sur une connexion VPN site à site (S2S) entre différents locaux et une connexion de réseau virtuel à réseau virtuel avec PowerShell.
 
 ## <a name="about-bgp"></a>À propos du protocole BGP
 BGP est le protocole de routage standard couramment utilisé sur Internet pour échanger des informations de routage et d’accessibilité entre plusieurs réseaux. Il permet aux passerelles VPN Azure et à vos périphériques VPN locaux (appelés voisins ou homologues BGP) d’échanger des « itinéraires » informant les deux passerelles sur la disponibilité et l’accessibilité de ces préfixes à travers les passerelles ou routeurs impliqués. Le protocole BGP assure également le routage de transit entre plusieurs réseaux en propageant les itinéraires qu’une passerelle BGP obtient d’un homologue BGP à tous les autres homologues BGP.

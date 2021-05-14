@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-ms.openlocfilehash: 1a9ea544419ef5c688e78a25eeb0eb444b196ec9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c135e33da60bf3ed8603b8fc0d6e59bbfab27b77
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732021"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142546"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor-retired"></a>Solution Wire Data 2.0 (préversion) dans Azure Monitor (mis hors service)
 
@@ -21,7 +21,7 @@ ms.locfileid: "105732021"
 >
 >Le support pour la solution Wire Data prendra fin le **31 mars 2022**.  Jusqu’à la date de mise hors service, les clients actuels qui utilisent la solution Wire Data 2.0 (préversion) peuvent continuer à l’utiliser.
 >
->Les anciens et nouveaux clients doivent installer la solution [VM Insights](../vm/vminsights-enable-overview.md) ou [Service Map](../vm/service-map.md).  Le jeu de données Map qu’elles collectent est comparable au jeu de données de Wire Data 2.0 (préversion).  VM Insights comprend le jeu de données Service Map ainsi que des fonctionnalités et des données de performances supplémentaires pour l’analyse. Les deux offres sont [connectées à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources#map-data-types-with-azure-sentinel-connection-options).
+>Les anciens et nouveaux clients doivent installer la solution [VM Insights](../vm/vminsights-enable-overview.md) ou [Service Map](../vm/service-map.md).  Le jeu de données Map qu’elles collectent est comparable au jeu de données de Wire Data 2.0 (préversion).  VM Insights comprend le jeu de données Service Map ainsi que des fonctionnalités et des données de performances supplémentaires pour l’analyse. Les deux offres sont [connectées à Azure Sentinel](../../sentinel/connect-data-sources.md#map-data-types-with-azure-sentinel-connection-options).
  
 
 Les données de communication sont des données de performances et réseau consolidées, collectées à partir d’ordinateurs connectés à Windows et à Linux avec l’agent Log Analytics, notamment les ordinateurs analysés par Operations Manager dans votre environnement. Les données réseau sont associées aux autres données de journaux pour faciliter la mise en corrélation des données.
@@ -30,9 +30,9 @@ Outre l’agent Log Analytics, la solution Wire Data utilise des agents Microsof
 
 ## <a name="migrate-to-azure-monitor-vm-insights-or-service-map"></a>Migrer vers Azure Monitor VM Insights ou Service Map
 
-Dans de nombreux cas, nous constatons que les clients ont à la fois Wire Data 2.0 (préversion) et la solution [VM Insights](../vm/vminsights-overview.md) ou [Service Map](../vm/service-map.md) déjà activés sur les mêmes machines virtuelles.  Cela signifie que l’offre de remplacement est activée sur votre machine virtuelle.  Vous pouvez simplement [supprimer la solution Wire Data 2.0 (préversion) de votre espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution).
+Dans de nombreux cas, nous constatons que les clients ont à la fois Wire Data 2.0 (préversion) et la solution [VM Insights](../vm/vminsights-overview.md) ou [Service Map](../vm/service-map.md) déjà activés sur les mêmes machines virtuelles.  Cela signifie que l’offre de remplacement est activée sur votre machine virtuelle.  Vous pouvez simplement [supprimer la solution Wire Data 2.0 (préversion) de votre espace de travail Log Analytics](./solutions.md?tabs=portal#remove-a-monitoring-solution).
 
-Si vous avez des machines virtuelles sur lesquelles seule la solution Wire Data 2.0 (préversion) est activée, vous pouvez intégrer les machines virtuelles à la solution [VM Insights](../vm/vminsights-enable-overview.md) ou [Service Map](../vm/service-map.md), puis [supprimer la solution Wire Data 2.0 (préversion) de votre espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution).
+Si vous avez des machines virtuelles sur lesquelles seule la solution Wire Data 2.0 (préversion) est activée, vous pouvez intégrer les machines virtuelles à la solution [VM Insights](../vm/vminsights-enable-overview.md) ou [Service Map](../vm/service-map.md), puis [supprimer la solution Wire Data 2.0 (préversion) de votre espace de travail Log Analytics](./solutions.md?tabs=portal#remove-a-monitoring-solution).
 
 ## <a name="migrate-your-queries-to-the-vmconnection-table-from-azure-monitor-vm-insights"></a>Migrer vos requêtes vers la table VMConnection à partir d’Azure Monitor VM Insights
 
@@ -124,7 +124,7 @@ VMConnection
 
 ### <a name="more-examples-queries"></a>Autres exemples de requêtes
 
-Pour obtenir d’autres exemples de requêtes, consultez la [documentation relative à la recherche dans les journaux VM Insights](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-log-search) et la [documentation relative aux alertes VM Insights](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-alerts#sample-alert-queries).
+Pour obtenir d’autres exemples de requêtes, consultez la [documentation relative à la recherche dans les journaux VM Insights](../vm/vminsights-log-search.md) et la [documentation relative aux alertes VM Insights](../vm/vminsights-alerts.md#sample-alert-queries).
 
 ## <a name="uninstall-wire-data-20-solution"></a>Désinstaller la solution Wire Data 2.0
 
@@ -133,7 +133,7 @@ Pour désinstaller Wire Data 2.0, il vous suffit de supprimer la solution de v
 * Le pack d’administration de Wire Data est supprimé des machines virtuelles connectées à l’espace de travail. 
 * Le type de données Wire Data n’apparaît plus dans votre espace de travail.
 
-Suivez [ces instructions](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution) pour supprimer la solution Wire Data.
+Suivez [ces instructions](./solutions.md?tabs=portal#remove-a-monitoring-solution) pour supprimer la solution Wire Data.
 
 >[!NOTE]
 >Si votre espace de travail est doté de la solution Service Map ou VM Insights, le pack d’administration n’est pas supprimé, car ces solutions utilisent également ce pack d’administration.
@@ -231,5 +231,5 @@ Un enregistrement de type _WireData_ est créé pour chaque type de données d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour connaître les exigences et les méthodes pour activer la surveillance de vos machines virtuelles, consultez [Déployer VM Insights](./vminsights-enable-overview.md).
+- Pour connaître les exigences et les méthodes pour activer la surveillance de vos machines virtuelles, consultez [Déployer VM Insights](../vm/vminsights-enable-overview.md).
 - [Lancez une recherche dans les journaux d’activité](../logs/log-query-overview.md) pour afficher des enregistrements détaillés sur les recherches de données de communication.

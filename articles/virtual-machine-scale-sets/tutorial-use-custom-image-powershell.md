@@ -3,18 +3,17 @@ title: Tutoriel - Utiliser une image de machine virtuelle personnalisée dans un
 description: Découvrez comment utiliser Azure PowerShell afin de créer une image de machine virtuelle personnalisée que vous pouvez utiliser pour déployer un groupe de machines virtuelles identiques
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.custom: akjosh
-ms.openlocfilehash: 803bbf485d783fc160d1f2644a56e1339f73690e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mimckitt
+ms.openlocfilehash: 1edbd391f9ad265c77cd0947c94afcbbc65e2f64
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678303"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108732650"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure PowerShell
 

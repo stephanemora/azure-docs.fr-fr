@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70222f493e73c1b46dcb7dfdaedfa3ad2c30714a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c07e9604d0b95562f6c32b149b74d58fd4bf0932
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060247"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007319"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -57,7 +57,7 @@ Lire toute la configuration | Lecteur général |
 Lire les journaux d’audit B2C | Lecteur général ([consultez la documentation](../../active-directory-b2c/faq.md)) | 
 
 > [!NOTE]
-> Les lecteurs généraux Azure AD B2C n’ont pas les mêmes autorisations que les administrateurs généraux Azure AD. Si vous disposez de privilèges d’administrateur général Azure AD B2C, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un annuaire Azure AD.
+> Les administrateurs généraux Azure AD B2C n’ont pas les mêmes autorisations que les administrateurs généraux Azure AD. Si vous disposez de privilèges d’administrateur général Azure AD B2C, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un annuaire Azure AD.
 
 ## <a name="company-branding"></a>Marque de société
 

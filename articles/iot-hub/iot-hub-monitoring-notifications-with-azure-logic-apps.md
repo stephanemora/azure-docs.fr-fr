@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74724357dea9cd6c8c89a11a9eeb3d1b2933b790
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92490320"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564934"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres
 
@@ -24,11 +24,7 @@ ms.locfileid: "92490320"
 
 [Azure Logic Apps](../logic-apps/index.yml) peut vous aider à orchestrer des flux de travail entre des services locaux et cloud, une ou plusieurs entreprises et entre divers protocoles. Une application logique commence par un déclencheur, suivi d’une ou plusieurs actions qui peuvent être classées à l’aide de contrôles intégrés comme des conditions et des itérateurs. Cette flexibilité fait de Logic Apps une solution d’IoT idéale pour les scénarios de supervision IoT. Par exemple, l’arrivée de données de télémétrie d’un appareil sur un point de terminaison IoT Hub peut initier des flux de travail d’application logique afin d’entreposer les données dans un objet Blob de Stockage Azure, d’envoyer des alertes par e-mail afin d’informer d’anomalies de données, de planifier la visite d’un technicien si un appareil signale un échec, etc.
 
-## <a name="what-you-learn"></a>Contenu
-
-Vous apprenez à créer une application logique qui connecte votre IoT Hub et votre boîte aux lettres pour la surveillance de la température et les notifications.
-
-Le code client exécuté sur votre appareil définit une propriété d’application, `temperatureAlert`, dans chaque message de télémétrie qu’il envoie à votre hub IoT. Lorsque le code client détecte une température supérieure à 30 °C, il définit cette propriété sur `true` ; sinon, il définit la propriété sur `false`.
+Dans cet article, vous apprenez à créer une application logique qui connecte votre IoT Hub et votre boîte aux lettres pour la surveillance de la température et les notifications. Le code client exécuté sur votre appareil définit une propriété d’application, `temperatureAlert`, dans chaque message de télémétrie qu’il envoie à votre hub IoT. Lorsque le code client détecte une température supérieure à 30 °C, il définit cette propriété sur `true` ; sinon, il définit la propriété sur `false`.
 
 Les messages arrivant à votre IOT Hub ressemblent à ce qui suit, avec les données de télémétrie contenues dans le corps et la propriété `temperatureAlert` contenue dans les propriétés de l’application (les propriétés système ne sont pas affichées) :
 
@@ -50,15 +46,9 @@ Pour en savoir plus sur le format de message de IOT Hub, consultez [Créer et li
 
 Dans cette rubrique, vous configurez le routage sur votre IOT Hub pour envoyer des messages dont la propriété `temperatureAlert` est `true` par rapport à un point de terminaison Service Bus. Vous configurez ensuite une application logique qui se déclenche sur les messages arrivant au point de terminaison Service Bus et vous envoie une notification par courrier électronique.
 
-## <a name="what-you-do"></a>Procédure
+## <a name="prerequisites"></a>Prérequis
 
-* Créez un espace de noms Service Bus et ajoutez-lui une file d’attente.
-* Ajoutez un point de terminaison personnalisé et une règle d’acheminement à votre hub IoT pour router des messages contenant une alerte de température à la file d’attente Service Bus.
-* Créez, configurez et testez une application logique pour utiliser des messages de votre file d’attente Service Bus et envoyer des notifications par e-mail au destinataire souhaité.
-
-## <a name="what-you-need"></a>Ce dont vous avez besoin
-
-* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil, par exemple [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Ceux-ci couvrent les exigences suivantes :
+* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil. Par exemple, vous pouvez accéder à [Raspberry Pi avec Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) ou à l’un des démarrages rapides [Envoi de télémétrie](quickstart-send-telemetry-dotnet.md). Ces articles demandent les éléments suivants :
 
   * Un abonnement Azure actif.
   * Une instance Azure IoT Hub associée à votre abonnement.

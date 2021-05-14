@@ -3,12 +3,12 @@ title: Résoudre les problèmes de l’agent Sauvegarde Azure
 description: Dans cet article, découvrez comment résoudre les problèmes liés à l’installation et l’inscription de l’agent Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: c662bf8c8d9490691f45254bef01618f17bd6e2a
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 8320edbe2f9f5ae495246eb26276023b1b902764
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518182"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324776"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -21,7 +21,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 - [Vérifiez que l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
 - [Vérifiez la connectivité réseau entre l’agent MARS et Azure](#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup).
 - Vérifiez que MARS est en cours d’exécution (dans la console Service). Si nécessaire, redémarrez le système et recommencez l’opération.
-- [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier de travail](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-).
+- [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier de travail](/azure/backup/backup-azure-file-folder-backup-faq#what-s-the-minimum-size-requirement-for-the-cache-folder-).
 - [Vérifiez si un autre processus ou logiciel antivirus interfère avec le service Sauvegarde Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
 - Si le travail de sauvegarde s’est effectué avec des avertissements, consultez [Travaux de sauvegarde effectués avec des avertissements](#backup-jobs-completed-with-warning)
 - Si la sauvegarde planifiée échoue, mais que la sauvegarde manuelle fonctionne, consultez [Les sauvegardes ne s’exécutent pas comme prévu](#backups-dont-run-according-to-schedule).
@@ -79,7 +79,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 
 | Error  | Cause probable | Actions recommandées |
 | ---     | ---     | ---    |
-| Impossible d’utiliser le fichier d’informations d’identification de coffre spécifié, car il n’a pas été téléchargé à partir du coffre associé à ce serveur. (ID : 100110) Fournissez les informations d’identification de coffre appropriées. | Le fichier d’informations d’identification de coffre provient d’un coffre différent de celui auprès duquel ce serveur est déjà inscrit. | Vérifiez que l’ordinateur cible et l’ordinateur source sont inscrits auprès du même coffre Recovery Services. Si le serveur cible a déjà été inscrit auprès d’un autre coffre, utilisez l’option **Inscription du serveur** pour vous l’inscrire auprès du coffre approprié.  
+| Impossible d’utiliser le fichier d’informations d’identification de coffre spécifié, car il n’a pas été téléchargé à partir du coffre associé à ce serveur. (ID : 100110) Fournissez les informations d’identification de coffre appropriées. | Le fichier d’informations d’identification de coffre provient d’un coffre différent de celui auprès duquel ce serveur est déjà inscrit. | Vérifiez que l’ordinateur cible et l’ordinateur source sont inscrits auprès du même coffre Recovery Services. Si le serveur cible a déjà été inscrit auprès d’un autre coffre, utilisez l’option **Inscription du serveur** pour vous l’inscrire auprès du coffre approprié.
 
 ## <a name="backup-jobs-completed-with-warning"></a>Travaux de sauvegarde effectués avec des avertissements
 
@@ -91,7 +91,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
   - Attributs de fichier non pris en charge (exemples : contenu d’un dossier OneDrive, flux compressé, points d’analyse). Pour la liste complète, consultez la [matrice de prise en charge](./backup-support-matrix-mars-agent.md#supported-file-types-for-backup).
   - Problème lié au système de fichiers
   - Un autre processus interfère (par exemple, si un logiciel antivirus détient des handles sur des fichiers, cela peut empêcher l’agent MARS d’accéder à ces derniers)
-  - Fichiers verrouillés par une application  
+  - Fichiers verrouillés par une application
 
 - Le service Sauvegarde marque ces fichiers en leur affectant un état d’échec dans le fichier journal, avec la convention de nommage suivante : *FichiersAvecÉtatÉchecDernièreSauvegardexxxx.txt* dans le dossier *C:\Program Files\Microsoft Azure Recovery Service Agent\temp*.
 - Pour résoudre le problème, passez en revue le fichier journal afin de comprendre ce qui n’a pas fonctionné correctement :
@@ -99,7 +99,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
   | Code d'erreur             | Raisons                                             | Recommandations                                              |
   | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
   | 0x80070570             | Le fichier ou le répertoire est endommagé et illisible. | Exécutez **chkdsk** sur le volume source.                             |
-  | 0x80070002, 0x80070003 | Le système ne peut pas localiser le fichier spécifié.         | [Vérifiez si le dossier de travail n’est pas plein](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder)  <br><br>  Vérifiez si le volume où l’espace de travail est configuré existe (c’est-à-dire qu’il n’a pas été supprimé)  <br><br>   [Vérifiez si l’agent MARS fait partie des exclusions de l’antivirus installé sur la machine](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070002, 0x80070003 | Le système ne peut pas localiser le fichier spécifié.         | [Vérifiez si le dossier de travail n’est pas plein](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)  <br><br>  Vérifiez si le volume où l’espace de travail est configuré existe (c’est-à-dire qu’il n’a pas été supprimé)  <br><br>   [Vérifiez si l’agent MARS fait partie des exclusions de l’antivirus installé sur la machine](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
   | 0x80070005             | Accès refusé                                    | [Vérifiez si un antivirus ou tout autre logiciel tiers ne bloque pas l’accès](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
   | 0x8007018b             | L’accès au fichier cloud est refusé.                | Fichiers OneDrive, fichiers Git ou tout autre fichier pouvant être hors connexion sur la machine |
 
@@ -117,13 +117,13 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 
 | Error  | Causes possibles | Actions recommandées |
 |---------|---------|---------|
-|<br />L’activation n’a pas réussi. Échec de l’opération en cours en raison d’une erreur de service interne [0x1FC07]. Réessayez l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft.     | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.         | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />L’activation n’a pas réussi. Échec de l’opération en cours en raison d’une erreur de service interne [0x1FC07]. Réessayez l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft.     | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.         | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La phrase secrète de chiffrement n’est pas correctement configurée
 
 | Error  | Causes possibles | Actions recommandées |
 |---------|---------|---------|
-| <br />Erreur 34506. La phrase secrète de chiffrement stockée sur cet ordinateur n’est pas configurée correctement.    | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.        | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’Agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](/backup-azure-file-folder-backup-faq.yml#manage-the-backup-cache-folder).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Erreur 34506. La phrase secrète de chiffrement stockée sur cet ordinateur n’est pas configurée correctement.    | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.        | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’Agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>Les sauvegardes ne s’exécutent pas comme prévu
 
@@ -149,18 +149,18 @@ Si les sauvegardes planifiées ne se déclenchent pas automatiquement, alors que
 
 - Si la stratégie d’exécution de PowerShell pour `LocalMachine` est définie sur `restricted`, la cmdlet PowerShell qui déclenche la tâche de sauvegarde risque d’échouer. Exécutez ces commandes en mode avec élévation de privilèges pour vérifier la stratégie d’exécution et la définir sur `Unrestricted` ou `RemoteSigned` :
 
- ```PowerShell
- Get-ExecutionPolicy -List
+```powershell
+Get-ExecutionPolicy -List
 
 Set-ExecutionPolicy Unrestricted
- ```
+```
 
 - Vérifiez qu’il n’y a aucun fichier MSOnlineBackup de module PowerShell endommagé ou manquant. En cas de fichiers manquants ou endommagés, procédez comme suit :
 
   1. Sur n’importe quelle machine disposant d’un agent MARS opérationnel, copiez le dossier MSOnlineBackup depuis C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules.
   1. Sur la machine qui pose problème, collez les fichiers copiés au même emplacement de dossier (C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules).
 
-     S’il existe déjà un dossier MSOnlineBackup sur la machine, collez les fichiers dessus ou remplacez les fichiers existants.
+    S’il existe déjà un dossier MSOnlineBackup sur la machine, collez les fichiers dessus ou remplacez les fichiers existants.
 
 > [!TIP]
 > Pour veiller à ce que les modifications soient appliquées de manière cohérente, redémarrez le serveur après avoir suivi les étapes ci-dessus.
@@ -243,7 +243,7 @@ Les opérations de sauvegarde peuvent échouer si l’espace de stockage de clic
 
 ### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>Un autre processus ou logiciel antivirus bloque l’accès au dossier du cache
 
-Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers :  
+Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers :
 
 - Le dossier de travail. Son emplacement par défaut est `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 - Dossier bin à l’emplacement `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`

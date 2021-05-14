@@ -3,18 +3,18 @@ title: 'Tutoriel : Router les véhicules électriques à l’aide d’Azure Not
 description: Tutoriel sur la façon de router les véhicules électriques avec les API de routage Microsoft Azure Maps et Azure Notebooks
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7341d1f07e8814edcad7b84f6b3b46c7bece3159
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce6cb60754ed0afae27c5b5d316a7158961b55a3
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98680330"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323372"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python)
 
@@ -34,16 +34,13 @@ Ce didacticiel présente les procédures suivantes :
 > * Afficher la limite de la zone accessible et les bornes de recharge sur une carte
 > * Rechercher et visualiser une route vers la borne de recharge de véhicule électrique la plus proche en temps de conduite.
 
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="prerequisites"></a>Prérequis 
+1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account), puis [Choisir le niveau tarifaire Gen 2 ou S1](choose-pricing-tier.md).
+2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
 
-Pour suivre ce tutoriel, vous devez d’abord créer un compte Azure Maps et obtenir votre clé primaire (clé d’abonnement). 
+Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
-Pour créer un abonnement de compte Azure Maps, suivez les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-azure-maps-account). Vous avez besoin d’un abonnement de compte Azure Maps avec le niveau de prix S1. 
-
-Pour obtenir la clé primaire d’abonnement destinée à votre compte, suivez les instructions fournies dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-
-Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebooks-project"></a>Créer un projet Azure Notebooks
 

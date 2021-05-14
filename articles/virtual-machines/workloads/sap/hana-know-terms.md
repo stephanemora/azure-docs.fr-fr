@@ -10,15 +10,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2020
+ms.date: 4/16/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92ef2e59dab1921eae8e7d88249e75116601c597
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a243b348c01e6d1297a6a1fe016e3b6bc8d98d47
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670863"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719076"
 ---
 # <a name="know-the-terms"></a>Maîtriser la terminologie
 
@@ -41,12 +41,11 @@ Plusieurs définitions communes sont largement utilisées dans ce guide sur l’
     - **Classe de type I** : S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 et S224m
     - **Classe Type II** : S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m
 - **Tampon** : définit la taille de déploiement interne de Microsoft pour les Grandes instances HANA. Avant que des unités Grande instance HANA puissent être déployées, un tampon Grande instance HANA constitué de racks de calcul, de réseau et de stockage doit être déployé dans un emplacement de centre de données. Un tel déploiement est appelé « tampon Grande instance HANA » ou, depuis la Révision 4 (voir ci-dessous), nous utilisons un autre terme : **Ligne de grande instance**.
-- **Révision** : il existe deux révisions de tampons pour les tampons Grande instance HANA. Celles-ci diffèrent des hôtes de machines virtuelles Azure en termes d’architecture et de proximité
-    - « Révision 3 » (Rev 3) est la conception d’origine qui a été déployée à partir du milieu de l’année 2016.
-    - « Révision 4 » (Rev 4) est une nouvelle conception qui peut fournir une proximité plus proche des hôtes de machines virtuelles Azure, avec une faible latence réseau entre les machines virtuelles Azure et les unités Grande instance HANA. 
-    - « Révision 4.2 » (Rev 4.2) : sur les contrôleurs de domaine Révision 4 existants, les ressources sont renommées selon BareMetal Infrastructure.  Les clients peuvent accéder à leurs ressources en tant qu’instances BareMetal à partir du portail Azure. 
+- **Révision** : il existe deux révisions de tampons pour les tampons Grande instance HANA. Celles-ci diffèrent des hôtes de machines virtuelles Azure en termes d’architecture et de proximité.
+    - « Révision 3 » (Rev 3) est la conception d’origine qui a été déployée à partir du milieu de l’année 2016.
+    - « Révision 4.2 » (Rev 4.2) est une nouvelle conception qui offre une proximité plus grande avec les hôtes de machines virtuelles Azure. Rev 4.2 offre une latence réseau ultra-faible entre les machines virtuelles Azure et les unités HANA Grandes instances. Les ressources dans le portail Azure sont appelées « Infrastructure BareMetal ». Les clients peuvent accéder à leurs ressources en tant qu’instances BareMetal à partir du portail Azure. 
 
 De nombreuses ressources supplémentaires sont disponibles sur le déploiement d’une charge de travail SAP dans le cloud. Si vous planifiez un déploiement de SAP HANA dans Azure, vous devez être expérimenté, connaitre les principes d’Azure IaaS et le déploiement des charges de travail SAP sur Azure IaaS. Avant de continuer, consultez [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md) pour plus d’informations. 
 
-**Étapes suivantes**
-- Voir [Certification HLI](hana-certification.md)
+## <a name="next-steps"></a>Étapes suivantes
+- Reportez-vous à [Certification HLI](hana-certification.md).

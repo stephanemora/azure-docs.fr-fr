@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: a91329d3bd0247932614233ef5b1ec71bf4d2a6b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a497e5bc9d04577f4b4f9d373aa68d07b5a08043
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465461"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905051"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Activer Azure Defender pour serveurs SQL Server sur des machines 
 
@@ -96,6 +96,20 @@ Les alertes Azure Defender pour SQL sont disponibles sur la page des alertes de 
     * Pour améliorer votre posture de sécurité, appliquez les recommandations concernant la machine hôte que Security Center indique dans chaque alerte. Vous réduirez ainsi les risques d’attaques futures. 
 
     [En savoir plus sur la gestion des alertes et la réponse à celles-ci](security-center-managing-and-responding-alerts.md).
+
+
+## <a name="faq---azure-defender-for-sql-servers-on-machines"></a>FAQ – Azure Defender pour serveurs SQL sur des machines
+
+### <a name="if-i-enable-this-azure-defender-plan-on-my-subscription-are-all-sql-servers-on-the-subscription-protected"></a>Si j’active ce plan Azure Defender sur mon abonnement, tous les serveurs SQL de l’abonnement sont-ils protégés ? 
+
+Non. Pour défendre un déploiement de SQL Server sur une machine virtuelle Azure ou un serveur SQL s’exécutant sur une machine avec Azure Arc, Azure Defender requiert les deux éléments suivants :
+
+- un agent Log Analytics sur la machine ; 
+- l’espace de travail Log Analytics concerné pour lequel la solution Azure Defender pour SQL est activée. 
+
+L’*état* de l’abonnement, indiqué sur la page des serveurs SQL dans le portail Azure, reflète l’état par défaut de l’espace de travail et s’applique à toutes les machines connectées. Seuls les serveurs SQL sur les hôtes dotés d’un agent Log Analytics faisant leur rapport à cet espace de travail sont protégés par Azure Defender. 
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,24 +1,18 @@
 ---
 title: Fonctionnalités Azure Security Center pour les ressources Azure PaaS prises en charge.
 description: Cette page indique la disponibilité des fonctionnalités Azure Security Center pour les ressources Azure PaaS prises en charge.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/01/2020
+ms.date: 04/25/2021
 ms.author: memildin
-ms.openlocfilehash: 4c56f8cba232220844a8a8f9c408a60c89c581cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ee6b02ad60ad08022cbe2428bb9fb52c3ac2194
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91613626"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992338"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Couverture des fonctionnalités pour les services Azure PaaS <a name="paas-services"></a>
 
@@ -33,8 +27,8 @@ Le tableau ci-dessous indique la disponibilité des fonctionnalités Azure Secur
 |Cache Azure pour Redis|✔|-|-|
 |Services cloud Azure|✔|-|-|
 |Recherche cognitive Azure|✔|-|-|
-|Azure Container Registry|-|-|✔|
-|Azure Cosmos DB*|-|✔|-|
+|Azure Container Registry|✔|✔|✔|
+|Azure Cosmos DB*|✔|✔|-|
 |Service Analytique Azure Data Lake|✔|-|-|
 |Azure Data Lake Storage|✔|✔|-|
 |Azure Database pour MySQL*|-|✔|-|

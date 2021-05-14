@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 8f968572a357bb3c98d9c3133a7ec0a0a94dbf93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3873a15c6a56d6ee4944cc596f447c966c275950
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958322"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313463"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Démarrage rapide : Bibliothèque de client Visage pour JavaScript
 
@@ -178,7 +178,7 @@ Créez la fonction d’assistance suivante pour attendre la fin de l’apprentis
 ### <a name="create-a-persongroup"></a>Créer un objet PersonGroup
 
 Le code suivant :
-- Crée un [PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup).
+- Crée un [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup).
 - Ajoute des visages à l’objet **PersonGroup** en appelant `AddFacesToPersonGroup`, que vous avez défini précédemment.
 - Effectue l’apprentissage de l’objet **PersonGroup**.
 - Identifie les visages dans l’objet **PersonGroup**.

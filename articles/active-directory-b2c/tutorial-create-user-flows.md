@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/08/2021
+ms.date: 04/26/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e41c1e74dbe428ee38d4480a1587050b7f96a55f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: fa1250189c5ba11426ac993bed8fde398ae37ea2
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226224"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001463"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Les [stratégies personnalisées](custom-policy-overview.md) sont des fichiers d
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> Nous avons modifié la manière dont nous référençons les versions de flux utilisateur. Auparavant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). À présent, nous avons consolidé les flux utilisateur dans les versions **Recommandé** (préversion de nouvelle génération) et **Standard** (en disponibilité générale). Tous les flux utilisateur hérités V1.1 et V2 seront déconseillés d’ici le **1er août 2021**. Pour plus d’informations, consultez [Versions de flux utilisateur dans Azure AD B2C](user-flow-versions.md).
+> Nous avons modifié la manière dont nous référençons les versions de flux utilisateur. Auparavant, nous proposions des versions V1 (prêtes pour la production) et des versions V1.1 et V2 (préversions). À présent, nous avons regroupé les flux utilisateur en deux versions : les flux utilisateur **recommandés** avec les dernières fonctionnalités et les flux utilisateur **standard (hérités)** . Dans le cloud public, tous les flux utilisateur en préversion hérités (V1.1 et V2) sont dépréciés depuis le **1er août 2021**. Pour plus d’informations, consultez [Versions de flux utilisateur dans Azure AD B2C](user-flow-versions.md). *Ces modifications s’appliquent uniquement au cloud public Azure. Les autres environnements continueront à utiliser le [contrôle de version de flux utilisateur hérité](user-flow-versions-legacy.md).* 
 ::: zone-end
 
 ## <a name="prerequisites"></a>Prérequis
@@ -50,9 +50,11 @@ Les [stratégies personnalisées](custom-policy-overview.md) sont des fichiers d
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
 - Si vous n’en avez pas, [créez un locataire Azure AD B2C](tutorial-create-tenant.md) qui est lié à votre abonnement Azure.
 - [Inscrivez votre application](tutorial-register-applications.md) dans le locataire que vous avez créé afin qu’il puisse communiquer avec Azure AD B2C.
-- Effectuez les étapes décrites dans [Configurer l’inscription et la connexion avec un compte Facebook](identity-provider-facebook.md) pour configurer une application Facebook. Bien qu’une application Facebook ne soit pas requise pour l’utilisation de stratégies personnalisées, elle est utilisée dans cette procédure pas à pas pour illustrer l’activation de la connexion à partir de réseaux sociaux dans une stratégie personnalisée.
+- [Créez une application Facebook](identity-provider-facebook.md#create-a-facebook-application). Ignorez les prérequis et la réinitialisation des étapes de l’article [Configurer l’inscription et se connecter avec un compte Facebook](identity-provider-facebook.md). Bien qu’une application Facebook ne soit pas requise pour l’utilisation de stratégies personnalisées, elle est utilisée dans cette procédure pas à pas pour illustrer l’activation de la connexion à partir de réseaux sociaux dans une stratégie personnalisée.
+
 ::: zone-end
 
 ::: zone pivot="b2c-user-flow"

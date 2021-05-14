@@ -1,6 +1,6 @@
 ---
-title: Déplacer des machines virtuelles Azure chiffrées d’une région à une autre avec Azure Resource Mover
-description: Découvrez comment déplacer des machines virtuelles Azure chiffrées dans une autre région avec Azure Resource Mover.
+title: Déplacer des machines virtuelles Azure chiffrées d’une région à une autre à l’aide d’Azure Resource Mover
+description: Découvrez comment déplacer des machines virtuelles Azure chiffrées vers une autre région en utilisant Azure Resource Mover.
 manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
@@ -8,19 +8,21 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 457c4c4752b4d78434b1fb90710472b1998f1c4e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361007"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600690"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Tutoriel : Déplacer des machines virtuelles Azure chiffrées d’une région à une autre
 
-Dans cet article, vous allez découvrir comment déplacer des machines virtuelles Azure chiffrées vers une autre région Azure à l’aide d’[Azure Resource Mover](overview.md). Voici ce que nous voulons dire par chiffrement :
+Cet article explique comment déplacer des machines virtuelles Azure chiffrées vers une autre région Azure à l’aide d’[Azure Resource Mover](overview.md). 
 
-- Machines virtuelles sur lesquelles Azure Disk Encryption est activé. [En savoir plus](../virtual-machines/windows/disk-encryption-portal-quickstart.md)
-- Ou, machines virtuelles qui utilisent des clés gérées par le client (clés CMK) pour le chiffrement au repos (chiffrement côté serveur). [En savoir plus](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
+Les machines virtuelles chiffrées peuvent être définies de l’une des manières suivantes :
+
+- Machines virtuelles sur lesquelles Azure Disk Encryption est activé. Pour plus d’informations, consultez [Créer et chiffrer une machine virtuelle Windows à l’aide du portail Azure](../virtual-machines/windows/disk-encryption-portal-quickstart.md).
+- Machines virtuelles qui utilisent des clés gérées par le client (clés CMK) pour le chiffrement au repos, ou chiffrement côté serveur. Pour plus d’informations, consultez [Utiliser le portail Azure pour activer le chiffrement côté serveur à l’aide de clés gérées par le client pour les disques managés](../virtual-machines/disks-enable-customer-managed-keys-portal.md).
 
 
 Dans ce tutoriel, vous allez apprendre à :
@@ -28,219 +30,223 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Vérifier les prérequis. 
 > * Pour les machines virtuelles sur lesquelles Azure Disk Encryption est activé, copier les clés et les secrets du coffre de clés de la région source vers le coffre de clés de la région de destination.
-> * Préparer les machines virtuelles pour leur déplacement, puis sélectionner les ressources dans la région source que vous souhaitez déplacer.
+> * Préparer le déplacement des machines virtuelles ainsi que la sélection des ressources dans la région source à partir de laquelle vous souhaitez effectuer le déplacement.
 > * Résoudre des dépendances de ressources.
-> * Pour les machines virtuelles sur lesquelles Azure Disk Encryption est activé, attribuer manuellement le coffre de clés de destination. Pour les machines virtuelles utilisant le chiffrement côté serveur avec des clés gérées par le client, attribuer manuellement un jeu de chiffrement de disque dans la région de destination.
-> * Déplacer le coffre de clés et/ou le jeu de chiffrement de disque.
+> * Pour les machines virtuelles sur lesquelles Azure Disk Encryption est activé, attribuer manuellement le coffre de clés de destination. Pour les machines virtuelles qui utilisent le chiffrement côté serveur avec des clés gérées par le client, attribuer manuellement un jeu de chiffrement de disque dans la région de destination.
+> * Déplacer le coffre de clés ou le jeu de chiffrement de disque.
 > * Préparer et déplacer le groupe de ressources source. 
 > * Préparer et déplacer les autres ressources.
 > * Décider si vous souhaitez abandonner ou valider le déplacement. 
 > * Le cas échéant, supprimer les ressources dans la région source après le déplacement.
 
 > [!NOTE]
-> Les tutoriels enseignent le moyen le plus rapide de tester un scénario et d’utiliser les options par défaut. 
+> Ce tutoriel présente le parcours le plus rapide pour tester un scénario. Il utilise uniquement les options par défaut. 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer. Puis, connectez-vous au [portail Azure](https://portal.azure.com).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer. Ensuite, connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Prérequis
 
-**Prérequis** |**Détails**
+Condition requise |Détails
 --- | ---
-**Autorisations d’abonnement** | Veillez à disposer d’un accès *Propriétaire* sur l’abonnement contenant les ressources que vous souhaitez déplacer.<br/><br/> **Pourquoi j’ai besoin d’un accès Propriétaire ?** La première fois que vous ajoutez une ressource pour une paire source et destination spécifique dans un abonnement Azure, Resource Mover crée une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anciennement Managed Service Identify, MSI) qui est approuvée par l’abonnement. Afin de créer l’identité et lui affecter le rôle demandé (Contributeur et Administrateur de l’accès utilisateur dans l’abonnement source), le compte que vous utilisez pour ajouter des ressources a besoin des autorisations *Propriétaire* sur l’abonnement. [Explorez en détail](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) les rôles Azure.
-**Prise en charge des machines virtuelles** | Assurez-vous que les machines virtuelles que vous souhaitez déplacer sont prises en charge.<br/><br/> - [Vérifiez](support-matrix-move-region-azure-vm.md#windows-vm-support) les machines virtuelles Windows prises en charge.<br/><br/> - [Vérifiez](support-matrix-move-region-azure-vm.md#linux-vm-support) les machines virtuelles Linux et les versions du noyau prises en charge.<br/><br/> - Contrôlez les paramètres de [calcul](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), de [stockage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) et de [réseau](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) pris en charge.
-**Conditions requises pour le coffre de clés (Azure Disk Encryption)** | Si Azure Disk Encryption est activé pour les machines virtuelles, en plus du coffre de clés dans la région source, vous avez besoin d’un coffre de clés dans la région de destination. [Créez un coffre de clés](../key-vault/general/quick-create-portal.md).<br/><br/> Pour les coffres de clés dans la région source et la région cible, vous devez disposer des autorisations suivantes :<br/><br/> - Autorisations de clés : Opérations de gestion des clés (Obtenir, Lister) ; Opérations de chiffrement (Déchiffrer et Chiffrer).<br/><br/> - Autorisations de secret : Opérations de gestion des secrets (Obtenir, Lister et Définir)<br/><br/> - Certificat (Lister et Obtenir).
-**Jeu de chiffrement de disque (chiffrement côté serveur avec CMK)** | Si vous utilisez des machines virtuelles avec chiffrement côté serveur à l’aide d’une CMK, en plus du jeu de chiffrement de disque dans la région source, vous avez besoin d’un jeu de chiffrement de disque dans la région de destination. [Créez un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Le déplacement entre régions n’est pas pris en charge si vous utilisez des clés HSM pour les clés gérées par le client.
+**Autorisations d’abonnement** | Vérifiez que vous avez un accès *Propriétaire* sur l’abonnement contenant les ressources que vous souhaitez déplacer.<br/><br/> *Pourquoi ai-je besoin d’un accès Propriétaire ?* La première fois que vous ajoutez une ressource pour une paire source/destination spécifique dans un abonnement Azure, Resource Mover crée une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), anciennement appelée Managed Service Identify (MSI). Cette identité est approuvée par l’abonnement. Avant de pouvoir créer l’identité et lui affecter les rôles nécessaires (*Contributeur* et *Administrateur de l’accès utilisateur* dans l’abonnement source), vous devez vérifier que le compte que vous utilisez pour l’ajout des ressources dispose des autorisations *Propriétaire* sur l’abonnement. Pour plus d’informations, consultez [Rôles Administrateur d’abonnements classiques, rôles Azure et rôles Azure AD](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
+**Prise en charge des machines virtuelles** | Vérifiez que les machines virtuelles que vous souhaitez déplacer sont prises en charge, en procédant comme suit :<li>[Vérifiez](support-matrix-move-region-azure-vm.md#windows-vm-support) les machines virtuelles Windows prises en charge.<li>[Vérifiez](support-matrix-move-region-azure-vm.md#linux-vm-support) les machines virtuelles Linux et les versions du noyau prises en charge.<li>Contrôlez les paramètres de [calcul](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), de [stockage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) et de [réseau](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) pris en charge.
+**Conditions requises pour le coffre de clés (Azure Disk Encryption)** | Si Azure Disk Encryption est activé pour les machines virtuelles, vous avez besoin d’un coffre de clés dans les deux régions (source et de destination). Pour plus d’informations, consultez [Créer un coffre de clés](../key-vault/general/quick-create-portal.md).<br/><br/> Pour les coffres de clés dans les régions source et de destination, vous devez disposer des autorisations suivantes :<li>Autorisations de clé : Get et List pour les opérations de gestion des clés ; Decrypt et Encrypt pour les opérations de chiffrement<li>Autorisations de secret : Get, List et Set pour les opérations de gestion des secrets<li>Certificat : Get et List
+**Jeu de chiffrement de disque (chiffrement côté serveur avec CMK)** | Si vous utilisez des machines virtuelles sur lesquelles est activé le chiffrement côté serveur avec des clés gérées par le client, vous avez besoin d’un jeu de chiffrement de disque dans les régions source et de destination. Pour plus d’informations, consultez [Créer un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Le déplacement interrégional n’est pas pris en charge si vous utilisez un module de sécurité matériel (clés HSM) pour les clés gérées par le client.
 **Quota de la région cible** | L’abonnement a besoin d’un quota suffisant pour créer les ressources que vous déplacez dans la région cible. S’il n’a pas le quota, [demandez des limites supplémentaires](../azure-resource-manager/management/azure-subscription-service-limits.md).
-**Frais de la région cible** | Vérifiez le tarif et les frais associés à la région cible vers laquelle vous déplacez des machines virtuelles. Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour vous aider.
+**Frais de la région cible** | Renseignez-vous sur les tarifs et les frais qui sont associés à la région cible vers laquelle vous déplacez les machines virtuelles. Pour cela, utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/).
 
 
-## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>Vérifier les autorisations utilisateur sur le coffre de clés pour les machines virtuelles à l’aide d’Azure Disk Encryption (ADE)
+## <a name="verify-permissions-in-the-key-vault"></a>Vérifier les autorisations dans le coffre de clés
 
-Si vous déplacez des machines virtuelles sur lesquelles Azure Disk Encryption est activé, vous devez exécuter un script comme indiqué [ci-dessous](#copy-the-keys-to-the-destination-key-vault) pour lequel l’utilisateur qui exécute le script doit disposer des autorisations appropriées. Reportez-vous au tableau ci-dessous pour en savoir plus sur les autorisations nécessaires. Les options permettant de modifier les autorisations sont accessibles en accédant au coffre de clés dans le portail Azure. Sous **Paramètres**, sélectionnez **Stratégies d’accès**.
+Si vous déplacez des machines virtuelles sur lesquelles Azure Disk Encryption est activé, vous devez exécuter un script comme cela est expliqué dans la section [Copier les clés dans le coffre de clés de destination](#copy-the-keys-to-the-destination-key-vault). Les utilisateurs qui exécutent le script doivent disposer des autorisations requises. Pour connaître ces autorisations, reportez-vous au tableau ci-dessous. Vous trouverez les options permettant de changer les autorisations en accédant au coffre de clés dans le portail Azure. Sous **Paramètres**, sélectionnez **Stratégies d’accès**.
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Bouton permettant d’ouvrir les stratégies d’accès au coffre de clés." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Capture d’écran du lien « Stratégies d’accès » dans le volet Paramètres du coffre de clés." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-S’il n’y a pas d’autorisations utilisateur, sélectionnez **Ajouter une stratégie d’accès** et spécifiez les autorisations. Si le compte d’utilisateur a déjà une stratégie, sous **Utilisateur**, définissez les autorisations selon le tableau ci-dessous.
+Si les autorisations utilisateur n’ont pas été définies, sélectionnez **Ajouter une stratégie d’accès**, puis définissez les autorisations. Si le compte d’utilisateur est déjà associé à une stratégie, sous **Utilisateur**, définissez les autorisations selon les instructions données dans le tableau ci-dessous.
 
-Les machines virtuelles Azure utilisant ADE peuvent présenter les variations suivantes et les autorisations doivent être définies en conséquence pour les composants appropriés.
-- Option par défaut avec laquelle le disque est chiffré à l’aide de secrets uniquement
-- Sécurité accrue avec la [clé de chiffrement principale](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
+Les machines virtuelles Azure qui utilisent Azure Disk Encryption peuvent présenter les différences suivantes. Vous devez donc définir les autorisations pour leurs composants appropriés. Les machines virtuelles peuvent avoir été définies avec :
+- Une option par défaut où le disque est chiffré à l’aide de secrets uniquement.
+- Une sécurité accrue qui utilise une [clé de chiffrement de clés (clé KEK)](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 
-### <a name="source-region-keyvault"></a>Coffre de clés de la région source
+### <a name="source-region-key-vault"></a>Coffre de clés dans la région source
 
-Les autorisations ci-dessous doivent être définies pour l’utilisateur qui exécute le script 
+Pour les utilisateurs qui exécutent le script, définissez des autorisations pour les composants suivants : 
 
-**Composant** | **Autorisation requise**
+Composant | Autorisations nécessaires
 --- | ---
-Secrets|  Autorisation Get <br> </br> Dans **Autorisations de secret**>  **Opérations de gestion des secrets**, sélectionnez **Get** 
-Keys <br> </br> Si vous utilisez la clé de chiffrement principale, vous avez besoin de cette autorisation en plus des secrets| Autorisations Get et Decrypt <br> </br> Dans **Autorisations de clé** > **Opérations de gestion des clés**, sélectionnez **Get**. Dans **Opérations de chiffrement**, sélectionnez **Decrypt**.
+Secrets |  *Get* <br></br> Sélectionnez **Autorisations de secret** > **Opérations de gestion des secrets**, puis sélectionnez **Get**. 
+Keys <br></br> Si vous utilisez une clé KEK, vous avez besoin de ces autorisations en plus des autorisations pour les secrets. | *Get* et *Decrypt* <br></br> Sélectionnez **Autorisations de clé** > **Opérations de gestion des clés**, puis sélectionnez **Get**. Dans **Opérations de chiffrement**, sélectionnez **Decrypt**.
 
-### <a name="destination-region-keyvault"></a>Coffre de clés de la région de destination
+### <a name="destination-region-key-vault"></a>Coffre de clés dans la région de destination
 
 Dans **Stratégies d’accès**, vérifiez que **Azure Disk Encryption pour chiffrer des volumes** est activé. 
 
-Les autorisations ci-dessous doivent être définies pour l’utilisateur qui exécute le script 
+Pour les utilisateurs qui exécutent le script, définissez des autorisations pour les composants suivants : 
 
-**Composant** | **Autorisation requise**
+Composant | Autorisations nécessaires
 --- | ---
-Secrets|  Autorisation Set <br> </br> Dans **Autorisations de secret**>  **Opérations de gestion des secrets**, sélectionnez **Set** 
-Keys <br> </br> Si vous utilisez la clé de chiffrement principale, vous avez besoin de cette autorisation en plus des secrets| Autorisations Get, Create et Encrypt <br> </br> Dans **Autorisations de clé** > **Opérations de gestion des clés**, sélectionnez **Get** et **Create**. Dans **Opérations de chiffrement**, sélectionnez **Encrypt**.
+Secrets |  *Définir* <br></br> Sélectionnez **Autorisations de secret** > **Opérations de gestion des secrets**, puis sélectionnez **Set**. 
+Keys <br></br> Si vous utilisez une clé KEK, vous avez besoin de ces autorisations en plus des autorisations pour les secrets. | *Get*, *Create* et *Encrypt* <br></br> Sélectionnez **Autorisations de clé** > **Opérations de gestion des clés**, puis sélectionnez **Get** et **Create**. Dans **Opérations de chiffrement**, sélectionnez **Encrypt**.
 
-Outre les autorisations ci-dessus, dans le coffre de clés de destination, vous devez ajouter des autorisations pour l’identité [Managed Service Identity](./common-questions.md#how-is-managed-identity-used-in-resource-mover) utilisée par Resource Mover pour accéder aux ressources Azure en votre nom. 
+<br>
+
+Outre les autorisations précédentes, dans le coffre de clés de destination, vous devez ajouter des autorisations pour l’[identité MSI (Managed Service Identity)](./common-questions.md#how-is-managed-identity-used-in-resource-mover) avec laquelle Resource Mover accède aux ressources Azure en votre nom. 
 
 1. Sous **Paramètres**, sélectionnez **Ajouter des stratégies d’accès**. 
-2. Dans **Sélectionner le principal**, recherchez l’identité MSI. Le nom MSI est ```movecollection-<sourceregion>-<target-region>-<metadata-region>```. 
-3. Ajoutez les autorisations ci-dessous pour l’identité MSI
+1. Dans **Sélectionner le principal**, recherchez l’identité MSI. Le nom MSI est ```movecollection-<sourceregion>-<target-region>-<metadata-region>```. 
+1. Pour l’identité MSI, ajoutez les autorisations suivantes :
 
-**Composant** | **Autorisation requise**
---- | ---
-Secrets|  Autorisations Get et List <br> </br> Dans **Autorisations de secret**>  **Opérations de gestion des secrets**, sélectionnez **Get** et **List** 
-Keys <br> </br> Si vous utilisez la clé de chiffrement principale, vous avez besoin de cette autorisation en plus des secrets| Autorisations Get, List <br> </br> Dans **Autorisations de clé** > **Opérations de gestion des clés**, sélectionnez **Get** et **List**
+    Composant | Autorisations nécessaires
+    --- | ---
+    Secrets|  *Get* et *List* <br></br> Sélectionnez **Autorisations de secret** > **Opérations de gestion des secrets**, puis sélectionnez **Get** et **List**. 
+    Keys <br></br> Si vous utilisez une clé KEK, vous avez besoin de ces autorisations en plus des autorisations pour les secrets. | *Get* et *List* <br></br> Sélectionnez **Autorisations de clé** > **Opérations de gestion des clés**, puis sélectionnez **Get** et **List**.
 
-
+<br>
 
 ### <a name="copy-the-keys-to-the-destination-key-vault"></a>Copier les clés dans le coffre de clés de destination
 
-Vous devez copier les secrets de chiffrement et les clés du coffre de clés source vers le coffre de clés de destination, à l’aide d’un script que nous fournissons.
+Copiez les secrets et clés de chiffrement du coffre de clés source vers le coffre de clés de destination en exécutant un [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) que nous fournissons.
 
-- Vous exécutez le script dans PowerShell. Nous vous recommandons d’exécuter la dernière version de PowerShell.
+- Exécutez le script dans PowerShell. Nous vous recommandons d’utiliser la version de PowerShell la plus récente.
 - Plus précisément, le script nécessite les modules suivants :
     - Az.Compute
     - Az.KeyVault (version 3.0.0)
     - Az.Accounts (version 2.2.3)
 
-Exécutez comme suit :
+Pour exécuter le script, procédez comme suit :
 
-1. Accédez au [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) dans GitHub.
-2. Copiez le contenu du script dans un fichier local, puis nommez-le *Copy-keys.ps1*.
-3. Exécutez le script.
-4. Connectez-vous à Azure.
-5. Dans la fenêtre contextuelle **Entrée utilisateur**, sélectionnez l’abonnement source, le groupe de ressources et la machine virtuelle source. Sélectionnez ensuite l’emplacement cible et les coffres cibles pour le chiffrement de disque et de clé.
+1. Ouvrez le [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) dans GitHub.
+1. Copiez le contenu du script dans un fichier local, puis nommez-le *Copy-keys.ps1*.
+1. Exécutez le script.
+1. Connectez-vous au portail Azure.
+1. Dans les listes déroulantes de la fenêtre **Entrées utilisateur**, sélectionnez l’abonnement source, le groupe de ressources et la machine virtuelle source, puis sélectionnez l’emplacement cible et les coffres cibles pour le chiffrement de disque et de clé.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/script-input.png" alt-text="Fenêtre contextuelle pour entrer les valeurs de script." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/script-input.png" alt-text="Capture d’écran de la fenêtre « Entrées utilisateur » où vous entrez les valeurs du script." :::
 
-
-6. Une fois le script terminé, la sortie indique que CopyKeys a réussi.
+1. Sélectionnez le bouton **Sélectionner**. 
+   
+   Une fois l’exécution du script terminée, un message vous avertit que CopyKeys a réussi.
 
 ## <a name="prepare-vms"></a>Préparer les machines virtuelles
 
-1. Après avoir [vérifié que les machines virtuelles répondaient aux conditions requises](#prerequisites), vérifiez que les machines virtuelles que vous souhaitez déplacer sont allumées. Tous les disques de machines virtuelles que vous souhaitez mettre à disposition dans la région de destination doivent être attachés et initialisés dans la machine virtuelle.
-3. Vérifiez que les machines virtuelles disposent des certificats racines approuvés les plus récents et d’une liste de révocation de certificats (CRL) mise à jour. Pour ce faire :
+1. Après avoir vérifié que les machines virtuelles remplissaient les [prérequis](#prerequisites), assurez-vous que les machines virtuelles à déplacer sont allumées. Tous les disques de machine virtuelle que vous souhaitez mettre à disposition dans la région de destination doivent être attachés et initialisés dans chaque machine virtuelle.
+1. Pour vérifier que les machines virtuelles disposent des certificats racines approuvés les plus récents et d’une liste de révocation de certificats (CRL) à jour, effectuez les étapes suivantes :
     - Sur les machines virtuelles Windows, installez les dernières mises à jour Windows.
-    - Sur les machines virtuelles Linux, suivez les instructions du distributeur afin que les machines disposent des derniers certificats et des listes de révocation de certificats les plus récentes. 
-4. Autorisez une connexion sortante à partir des machines virtuelles de la manière suivante :
-    - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connexion sortante, autorisez l’accès à ces [URL](support-matrix-move-region-azure-vm.md#url-access) :
+    - Sur les machines virtuelles Linux, suivez les instructions du distributeur pour vérifier que les machines disposent des derniers certificats et des listes de révocation de certificats les plus récentes. 
+1. Pour autoriser la connectivité sortante à partir des machines virtuelles, effectuez l’une des opérations suivantes :
+    - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, [autorisez l’accès aux URL](support-matrix-move-region-azure-vm.md#url-access).
     - Si vous utilisez des règles de groupe de sécurité réseau (NSG) pour contrôler la connexion sortante, créez ces [règles d’étiquette de service](support-matrix-move-region-azure-vm.md#nsg-rules).
 
-## <a name="select-resources-to-move"></a>Sélectionner les ressources à déplacer
-
+## <a name="select-the-resources-to-move"></a>Sélectionner les ressources à déplacer
 
 - Vous pouvez sélectionner n’importe quel type de ressource pris en charge dans n’importe quel groupe de ressources de la région source sélectionnée.  
-- Vous déplacez des ressources dans une région cible du même abonnement que la région source. Si vous voulez changer d’abonnement, vous pouvez le faire après le déplacement des ressources.
+- Vous pouvez déplacer des ressources vers une région cible dans le même abonnement que la région source. Si vous voulez changer d’abonnement, vous pouvez le faire après le déplacement des ressources.
 
-Sélectionnez les ressources comme suit :
+Pour sélectionner les ressources, procédez comme suit :
 
-1. Dans le portail Azure, recherchez *resource mover*. Ensuite, sous **Services**, sélectionnez **Azure Resource Mover**.
+1. Dans le portail Azure, recherchez **resource mover**. Ensuite, sous **Services**, sélectionnez **Azure Resource Mover**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Résultats de la recherche de Resource Mover dans le portail Azure." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Capture d’écran des résultats de la recherche pour Azure Resource Mover dans le portail Azure." :::
 
-2. Dans **Vue d’ensemble**, cliquez sur **Passer d’une région à l’autre**.
+1. Dans le volet Azure Resource Mover - **Vue d’ensemble**, sélectionnez **Move across regions** (Déplacer d’une région à une autre).
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Bouton pour ajouter des ressources à déplacer dans une autre région" lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Capture d’écran du bouton « Move across regions » (Déplacer d’une région à une autre) pour ajouter les ressources à déplacer vers une autre région." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
 
-3. Dans **Déplacer des ressources** > **Source + destination**, sélectionnez l’abonnement et la région sources.
-4. Dans **Destination**, sélectionnez la région vers laquelle vous souhaitez déplacer les machines virtuelles. Cliquez ensuite sur **Suivant**.
+1. Dans le volet **Déplacer des ressources**, sélectionnez l’onglet **Source + destination**. Ensuite, dans les listes déroulantes, sélectionnez l’abonnement source et la région source.
 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/source-target.png" alt-text="Page de sélection de la région source et de la région de destination" :::
 
-5. Dans **Ressources à déplacer**, cliquez sur **Sélectionner des ressources**.
+1. Sous **Destination**, sélectionnez la région vers laquelle vous souhaitez déplacer les machines virtuelles, puis sélectionnez **Suivant**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png" alt-text="Bouton permettant de sélectionner la ressource à déplacer.]." :::
+1. Sélectionnez l’onglet **Ressources à déplacer**, puis sélectionnez **Sélectionner des ressources**.
 
-6. Dans **Sélectionner des ressources**, sélectionnez les machines virtuelles. Vous pouvez uniquement ajouter des ressources [prises en charge pour le déplacement](#prepare-vms). Cliquez ensuite sur **Terminé**.
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png" alt-text="Capture d’écran du volet « Déplacer des ressources » et du bouton « Sélectionner des ressources »." :::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png" alt-text="Page de sélection des machines virtuelles à déplacer." :::
+1. Dans le volet **Sélectionner des ressources**, sélectionnez les machines virtuelles à déplacer. Comme mentionné dans la section [Sélectionner les ressources à déplacer](#select-the-resources-to-move), vous pouvez ajouter uniquement des ressources prises en charge pour un déplacement.
+
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png" alt-text="Capture d’écran du volet « Sélectionner des ressources » utilisé pour la sélection des machines virtuelles à déplacer." :::
 
     > [!NOTE]
-    >  Dans ce tutoriel, nous allons sélectionner une machine virtuelle qui utilise le chiffrement côté serveur (rayne-vm) avec une clé gérée par le client, et une machine virtuelle sur laquelle le chiffrement de disque est activé (rayne-vm-ade).
+    >  Dans ce tutoriel, nous sélectionnons une machine virtuelle qui utilise le chiffrement côté serveur (rayne-vm) avec une clé gérée par le client, et une machine virtuelle sur laquelle le chiffrement de disque est activé (rayne-vm-ade).
 
-7.  Dans **Ressources à déplacer**, cliquez sur **Suivant**.
-8. Dans **Vérifier**, contrôlez les paramètres de source et de destination. 
+1. Sélectionnez **Terminé**.
+1. Sélectionnez l’onglet **Ressources à déplacer**, puis sélectionnez **Suivant**.
+1. Sélectionnez l’onglet **Revue**, puis vérifiez les paramètres de source et de destination. 
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/review.png" alt-text="Page de vérification des paramètres et de la poursuite du déplacement." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/review.png" alt-text="Capture d’écran du volet utilisé pour revoir les paramètres de source et de destination." :::
 
-9. Cliquez sur **Continuer** pour commencer à ajouter les ressources.
-10. Sélectionnez l’icône de notifications pour suivre la progression. Une fois le processus d’ajout terminé, sélectionnez **Ressources ajoutées pour le déplacement** dans les notifications.
+1. Cliquez sur **Continuer** pour commencer à ajouter les ressources.
+1. Sélectionnez l’icône de notifications pour suivre la progression. Une fois le processus terminé, dans le volet **Notifications**, sélectionnez **Ressources ajoutées pour le déplacement**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png" alt-text="Notification pour confirmer que les ressources ont bien été ajoutées." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png" alt-text="Capture d’écran du volet « Notifications » utilisé pour confirmer l’ajout des ressources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png":::
     
-    
-11. Après avoir cliqué sur la notification, passez en revue les ressources sur la page **Entre régions**.
+1. Après avoir sélectionné la notification, passez en revue les ressources dans la page **Entre régions**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-prepare-pending.png" alt-text="Pages montrant des ressources ajoutées avec préparation en attente." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-prepare-pending.png" alt-text="Capture d’écran des ressources ajoutées et présentant l’état « Préparation en attente »." :::
 
 > [!NOTE]
-> - Les ressources que vous ajoutez sont placées à l’état *Préparation en attente*.
+> - Les ressources que vous ajoutez sont mises dans l’état *Préparation en attente*.
 > - Le groupe de ressources pour les machines virtuelles est ajouté automatiquement.
-> - Si vous modifiez les entrées de **Configuration de destination** pour utiliser une ressource qui existe déjà dans la région de destination, l’état de la ressource devient *Validation en attente*, car vous n’avez pas besoin de lancer un déplacement pour elle.
-> - Si vous souhaitez supprimer une ressource qui a été ajoutée, la méthode permettant d’effectuer cette opération dépend de l’étape où vous vous trouvez dans la procédure de déplacement. [Plus d’informations](remove-move-resources.md)
+> - Si vous modifiez les entrées **Configuration de destination** pour utiliser une ressource qui existe déjà dans la région de destination, l’état de la ressource passe à *Validation en attente*, car vous n’avez pas besoin de lancer un déplacement pour elle.
+> - Si vous souhaitez supprimer une ressource qui a été ajoutée, la méthode à utiliser dépend de l’étape où vous vous trouvez dans le processus de déplacement. Pour plus d’informations, consultez [Gérer les collections de déplacement et les groupes de ressources](remove-move-resources.md).
 
 
 ## <a name="resolve-dependencies"></a>Résoudre les erreurs de dépendance
 
 1. Si des ressources affichent un message *Valider les dépendances* dans la colonne **Problèmes**, cliquez sur le bouton **Valider les dépendances**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Bouton permettant de vérifier les dépendances." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Capture d’écran montrant le bouton « Valider les dépendances »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
 
     Le processus de validation démarre.
-2. Si des dépendances sont trouvées, cliquez sur **Ajouter des dépendances**.  
+1. Si des dépendances sont trouvées, cliquez sur **Ajouter des dépendances**.  
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png" alt-text="Bouton pour ajouter des dépendances." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png" alt-text="Capture d’écran montrant le bouton « Ajouter des dépendances »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png":::
 
 
-3. Dans **Ajouter des dépendances**, conservez l’option par défaut **Afficher toutes les dépendances**.
+1. Dans le volet **Ajouter des dépendances**, conservez l’option par défaut **Afficher toutes les dépendances**.
 
-    - **Afficher toutes les dépendances** itère au sein de toutes les dépendances directes et indirectes d’une ressource. Par exemple, pour une machine virtuelle, la carte réseau, le réseau virtuel, les groupes de sécurité réseau, et ainsi de suite, sont affichés.
-    - **Afficher uniquement les dépendances de premier niveau** affiche uniquement les dépendances directes. Par exemple, pour une machine virtuelle, la carte réseau est affichée, mais pas le réseau virtuel.
+    - L’option **Afficher toutes les dépendances** itère au sein de toutes les dépendances directes et indirectes d’une ressource. Par exemple, pour une machine virtuelle, la carte réseau, le réseau virtuel, les groupes de sécurité réseau, etc. sont affichés.
+    - L’option **Afficher uniquement les dépendances de premier niveau** n’affiche que les dépendances directes. Par exemple, pour une machine virtuelle, la carte réseau est affichée, mais pas le réseau virtuel.
  
-4. Sélectionnez les ressources dépendantes que vous souhaitez ajouter > **Ajouter des dépendances**.
+1. Sélectionnez les ressources dépendantes que vous souhaitez ajouter, puis sélectionnez **Ajouter des dépendances**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Sélectionnez les dépendances dans la liste." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Capture d’écran de la liste des dépendances et du bouton « Ajouter des dépendances »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
 
-5. Revalidez les dépendances. 
+1. Revalidez les dépendances. 
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Page de revalidation." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Capture d’écran du volet utilisé pour revalider les dépendances." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
 
 ## <a name="assign-destination-resources"></a>Affecter les ressources de destination
 
-Les ressources de destination associées au chiffrement nécessitent une affectation manuelle.
+Vous devez attribuer manuellement les ressources de destination qui sont associées au chiffrement.
 
-- Si vous déplacez une machine virtuelle sur laquelle Azure Disk Encryption est activé, le coffre de clés de votre région de destination est affiché en tant que dépendance.
-- Si vous déplacez une machine virtuelle avec chiffrement côté serveur qui utilise des clés gérées par le client (CMK), alors le jeu de chiffrement de disque dans la région de destination est affiché en tant que dépendance. 
-- Étant donné que ce tutoriel déplace une machine virtuelle avec Azure Disk Encryption activé et une machine virtuelle utilisant une CMK, le coffre de clés de destination et le jeu de chiffrement de disque sont tous deux affichés en tant que dépendances.
+- Si vous déplacez une machine virtuelle sur laquelle Azure Disk Encryption est activé, le coffre de clés dans votre région de destination est affiché en tant que dépendance.
+- Si vous déplacez une machine virtuelle sur laquelle est activé le chiffrement côté serveur avec des clés gérées par le client, le jeu de chiffrement de disque dans la région de destination est affiché en tant que dépendance. 
+- Étant donné que ce tutoriel montre comment déplacer une machine virtuelle sur laquelle Azure Disk Encryption est activé et qui utilise une clé gérée par le client, le coffre de clés de destination et le jeu de chiffrement de disque s’affichent tous les deux en tant que dépendances.
 
-Procédez à une affectation manuelle comme suit :
+Pour attribuer les ressources de destination manuellement, effectuez les étapes suivantes :
 
 1. Dans l’entrée du jeu de chiffrement de disque, sélectionnez **Ressource non affectée** dans la colonne **Configuration de destination**.
-2. Dans **Paramètres de configuration**, sélectionnez le jeu de chiffrement de disque de destination. Sélectionnez ensuite **Enregistrer les modifications**.
-3. Vous pouvez choisir d’enregistrer et de valider les dépendances de la ressource que vous modifiez, ou simplement enregistrer les modifications et valider tout ce que vous modifiez en une seule fois.
+1. Dans **Paramètres de configuration**, sélectionnez le jeu de chiffrement de disque de destination, puis sélectionnez **Enregistrer les modifications**.
+1. Vous pouvez enregistrer et valider les dépendances de la ressource que vous modifiez, ou enregistrer uniquement les modifications et valider ensuite tout ce que vous modifiez en même temps.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png" alt-text="Page de sélection du jeu de chiffrement de disque dans la région de destination." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png" alt-text="Capture d’écran du volet « Configuration de la destination » utilisé pour l’enregistrement des modifications dans la région de destination." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png":::
 
-    Après l’ajout de la ressource de destination, l’état du jeu de chiffrement de disque devient *Validation du déplacement en attente*.
-3. Dans l’entrée du coffre de clés, sélectionnez **Ressource non affectée** dans la colonne **Configuration de destination**. Dans **Paramètres de configuration**, sélectionnez le coffre de clés de destination. Enregistrez les modifications. 
+    Une fois que vous avez ajouté la ressource de destination, l’état du jeu de chiffrement de disque change en *Validation du déplacement en attente*.
 
-À ce stade, l’état du jeu de chiffrement de disque et du coffre de clés devient *Validation du déplacement en attente*.
+1. Dans l’entrée du coffre de clés, sélectionnez **Ressource non affectée** dans la colonne **Configuration de destination**. Sous **Paramètres de configuration**, sélectionnez le coffre de clés de destination, puis enregistrez vos modifications. 
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png" alt-text="Page de sélection pour la préparation d’autres ressources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png":::
+À ce stade, l’état du jeu de chiffrement de disque et celui du coffre de clés changent en *Validation du déplacement en attente*.
 
-Pour valider et terminer le processus de déplacement pour les ressources de chiffrement
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png" alt-text="Capture d’écran du volet utilisé pour préparer d’autres ressources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png":::
 
-1. Dans **Entre régions**, sélectionnez la ressource (jeu de chiffrement de disque ou coffre de clés) > **Valider le déplacement**.
-2. Dans **Déplacer des ressources**, cliquez sur **Valider**.
+Pour valider et terminer le processus de déplacement des ressources de chiffrement, effectuez ces étapes :
+
+1. Dans **Entre régions**, sélectionnez la ressource (jeu de chiffrement de disque ou coffre de clés), puis sélectionnez **Valider le déplacement**.
+1. Dans **Déplacer des ressources**, sélectionnez **Valider**.
 
 > [!NOTE]
-> Après la validation du déplacement, la ressource est à l’état *Suppression de la source en attente*.
+> Une fois que vous avez validé le déplacement, l’état de la ressource change en *Suppression de la source en attente*.
 
 
 ## <a name="move-the-source-resource-group"></a>Déplacer le groupe de ressources source 
@@ -249,148 +255,149 @@ Avant de pouvoir préparer et déplacer une machine virtuelle, le groupe de ress
 
 ### <a name="prepare-to-move-the-source-resource-group"></a>Préparer le déplacement du groupe de ressources source
 
-Pendant le processus de préparation, Resource Mover génère des modèles Azure Resource Manager (ARM) à l’aide des paramètres du groupe de ressources. Les ressources à l’intérieur du groupe de ressources ne sont pas affectées.
+Pendant le processus de préparation, Resource Mover génère des modèles Azure Resource Manager (ARM) à partir des paramètres du groupe de ressources. Les ressources à l’intérieur du groupe de ressources ne sont pas impactées.
 
-Préparez de la manière suivante :
+Pour préparer le déplacement du groupe de ressources source, procédez comme suit :
 
-1. Dans **Entre régions**, sélectionnez le groupe de ressources source > **Préparer**.
+1. Dans **Entre régions**, sélectionnez le groupe de ressources source, puis sélectionnez **Préparer**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Préparer un groupe de ressources." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Capture d’écran du bouton « Préparer » dans le volet « Préparer les ressources »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
 
-2. Dans **Préparer les ressources**, cliquez sur **Préparer**.
+1. Dans **Préparer les ressources**, sélectionnez **Préparer**.
 
 > [!NOTE]
-> Après sa préparation, le groupe de ressources présente l’état *Lancement du déplacement en attente*. 
+> Une fois que vous avez préparé le déplacement, l’état du groupe de ressources change en *Lancement du déplacement en attente*. 
 
  
 ### <a name="move-the-source-resource-group"></a>Déplacer le groupe de ressources source
 
-Lancez le déplacement de la manière suivante :
+Lancez le déplacement du groupe de ressources source en effectuant ces étapes :
 
-1. Dans **Entre régions**, sélectionnez le groupe de ressources > **Lancer le déplacement**
+1. Dans le volet **Entre les régions**, sélectionnez le groupe de ressources, puis sélectionnez **Lancer le déplacement**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Bouton de lancement du déplacement." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Capture d’écran du bouton « Lancer le déplacement » dans le volet « Entre les régions »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
 
-2. Dans **Déplacer des ressources**, cliquez sur **Lancer le déplacement**. Le groupe de ressources passe à l’état *Lancement du déplacement en cours*.   
-3. Après l’initialisation du déplacement, le groupe de ressources cible est créé, en fonction du modèle ARM généré. Le groupe de ressources source passe à l’état *Validation du déplacement en attente*.
+1. Dans le volet **Déplacer des ressources**, sélectionnez **Lancer le déplacement**. L’état du groupe de ressources change en *Lancement du déplacement en cours*.   
+1. Une fois le déplacement lancé, le groupe de ressources cible est créé sur la base du modèle ARM généré. L’état du groupe de ressources source change en *Validation du déplacement en attente*.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Passez en revue l’état de validation du déplacement en attente." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Capture d’écran du volet « Déplacer des ressources » qui montre l’état du groupe de ressources changé en « Validation du déplacement en attente »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
 
-Pour valider et terminer la procédure de déplacement :
+Pour valider le déplacement et terminer le processus, procédez comme suit :
 
-1. Dans **Entre régions**, sélectionnez le groupe de ressources > **Valider le déplacement**.
-2. Dans **Déplacer des ressources**, cliquez sur **Valider**.
+1. Dans le volet **Entre les régions**, sélectionnez le groupe de ressources, puis sélectionnez **Valider le déplacement**.
+1. Dans le volet **Déplacer des ressources**, sélectionnez **Valider**.
 
 > [!NOTE]
-> Après la validation du déplacement, le groupe de ressources source présente l’état *Suppression de la source en attente*.
+> Une fois que vous avez validé le déplacement, l’état du groupe de ressources change en *Suppression de la source en attente*.
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Passez en revue l’état de suppression du déplacement en attente." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Capture d’écran du groupe de ressources source qui montre l’état changé en « Suppression de la source en attente »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
 
 ## <a name="prepare-resources-to-move"></a>Préparer les ressources à déplacer
 
-Maintenant que les ressources de chiffrement et le groupe de ressources source sont déplacés, vous pouvez préparer le déplacement d’autres ressources qui sont à l’état *Préparation en attente*.
+Maintenant que les ressources de chiffrement et le groupe de ressources source sont déplacés, vous pouvez préparer le déplacement d’autres ressources dont l’état actuel est *Préparation en attente*.
 
 
-1. Dans **Entre régions**, validez à nouveau et résolvez tous les problèmes.
-2. Si vous souhaitez modifier les paramètres cibles avant de commencer le déplacement, sélectionnez le lien dans la colonne **Configuration de la destination** pour la ressource, puis modifiez les paramètres. Si vous modifiez les paramètres de la machine virtuelle cible, la taille de cette machine ne doit pas être inférieure à celle de la machine virtuelle source.
-3. Sélectionnez **Préparer** pour les ressources à l’état *Préparation en attente* que vous souhaitez déplacer.
-3. Dans **Préparer les ressources**, sélectionnez **Préparer**.
+1. Dans le volet **Entre les régions**, revalidez le déplacement et résolvez les problèmes éventuels.
+1. Si vous souhaitez modifier les paramètres cibles avant de commencer le déplacement, sélectionnez le lien dans la colonne **Configuration de la destination** pour la ressource, puis modifiez les paramètres. Si vous modifiez les paramètres de la machine virtuelle cible, la taille de cette machine ne doit pas être inférieure à celle de la machine virtuelle source.
+1. Pour les ressources à déplacer qui présentent l’état *Préparation en attente*, sélectionnez **Préparer**.
+1. Dans le volet **Préparer les ressources**, sélectionnez **Préparer**.
 
-    - Durant le processus de préparation, l’agent de mobilité Azure Site Recovery est installé sur les machines virtuelles, en vue de leur réplication.
+    - Durant la préparation, l’agent Mobilité d’Azure Site Recovery est installé sur les machines virtuelles pour les besoins de la réplication.
     - Les données des machines virtuelles sont répliquées régulièrement dans la région cible. Cette opération n’a pas d’incidence sur la machine virtuelle source.
     - Le déplacement de ressources génère des modèles ARM pour les autres ressources sources.
 
-Après leur préparation, les ressources présentent l’état *Lancement du déplacement en attente*.
+> [!NOTE]
+> Après avoir préparé les ressources, leur état change en *Lancement du déplacement en attente*.
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Page montrant les ressources à l’état de lancement du déplacement en attente." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Capture d’écran du volet « Préparer les ressources », montrant les ressources à l’état « Lancement du déplacement en attente »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
 
 
 
 ## <a name="initiate-the-move"></a>Lancer le déplacement
 
-Les ressources préparées, vous pouvez maintenant lancer le déplacement. 
+La préparation des ressources est terminée. Vous pouvez maintenant lancer le déplacement. 
 
-1. Dans **Entre régions**, sélectionnez les ressources avec l’état *Lancement du déplacement en attente*. Cliquez ensuite sur **Lancer le déplacement**.
-2. Dans **Déplacer des ressources**, cliquez sur **Lancer le déplacement**.
-3. Suivez la progression du déplacement dans la barre de notification.
+1. Dans le volet **Entre les régions**, sélectionnez les ressources dont l’état est *Lancement du déplacement en attente*, puis sélectionnez **Lancer le déplacement**.
+1. Dans le volet **Déplacer des ressources**, sélectionnez **Lancer le déplacement**.
+1. Suivez la progression du déplacement dans la barre de notification.
 
     - Pour les machines virtuelles, les machines virtuelles de réplication sont créées dans la région cible. La machine virtuelle source est arrêtée, et un temps d’interruption se produit (généralement en minutes).
     - Resource Mover recrée d’autres ressources à l’aide des modèles ARM préparés. Il n’y a généralement pas de temps d’arrêt.
-    - Après leur déplacement, les ressources présentent l’état *Validation du lancement en attente*.
+    - Une fois que les ressources ont été déplacées, leur état change en *Validation du déplacement en attente*.
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Page montrant les ressources à l’état d’attente de validation du déplacement." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Capture d’écran d’une liste de ressources à l’état « Validation du déplacement en attente »." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
 
 
 ## <a name="discard-or-commit"></a>Abandonner ou valider ?
 
 Après le déplacement initial, vous pouvez décider de valider le déplacement ou de l’abandonner. 
 
-- **Abandonner** : vous pouvez abandonner un déplacement si vous effectuez un test et que vous ne souhaitez pas déplacer réellement la ressource source. Si vous abandonnez le déplacement, la ressource reviendra à l’état *Lancement du déplacement en attente*.
-- **Valider** : La validation termine le déplacement vers la région cible. Après sa validation, une ressource source se présente avec l’état de *Suppression de la source en attente*, et vous pouvez décider si vous voulez la supprimer.
+- **Abandonner** : vous pouvez abandonner un déplacement s’il s’agissait seulement d’un test et que vous ne voulez pas déplacer réellement la ressource source. Si vous abandonnez le déplacement, la ressource revient à l’état *Lancement du déplacement en attente*.
+- **Valider** : La validation termine le déplacement vers la région cible. Une fois que vous avez validé une ressource source, son état change en *Suppression de la source en attente*. Vous pouvez alors décider de la supprimer.
 
 
 ## <a name="discard-the-move"></a>Abandonner le déplacement 
 
-Vous pouvez abandonner le déplacement de la manière suivante :
+Pour abandonner le déplacement, effectuez les étapes suivantes :
 
-1. Dans **Entre régions**, sélectionnez les ressources avec l’état *Validation du déplacement en attente*, puis cliquez sur **Abandonner le déplacement**.
-2. Dans **Abandonner le déplacement**, cliquez sur **Abandonner**.
-3. Suivez la progression du déplacement dans la barre de notification.
+1. Dans le volet **Entre les régions**, sélectionnez les ressources dont l’état est *Validation du déplacement en attente*, puis sélectionnez **Abandonner le déplacement**.
+1. Dans le volet **Abandonner le déplacement**, sélectionnez **Abandonner**.
+1. Suivez la progression du déplacement dans la barre de notification.
 
 
 > [!NOTE]
-> Après l’abandon des ressources, les machines virtuelles présentent l’état *Lancement du déplacement en attente*.
+> Après l’abandon des ressources, l’état des machines virtuelles change en *Lancement du déplacement en attente*.
 
 ## <a name="commit-the-move"></a>Valider le déplacement
 
-Si vous voulez terminer la procédure de déplacement, validez le déplacement. 
+Pour terminer le processus de déplacement, validez le déplacement en procédant comme suit : 
 
-1. Dans **Entre régions**, sélectionnez les ressources avec l’état *Validation du déplacement en attente*, puis cliquez sur **Valider le déplacement**.
-2. Dans **Valider les ressources**, cliquez sur **Valider**.
+1. Dans le volet **Entre les régions**, sélectionnez les ressources dont l’état est *Validation du déplacement en attente*, puis sélectionnez **Valider le déplacement**.
+1. Dans le volet **Valider les ressources**, sélectionnez **Valider**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Page de validation des ressources permettant de finaliser le déplacement." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Capture d’écran d’une liste des ressources à valider pour terminer le déplacement." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" :::
 
-3. Suivez la progression de la validation dans la barre de notification.
+1. Suivez la progression de la validation dans la barre de notification.
 
 > [!NOTE]
-> - Après la validation du déplacement, les machines virtuelles arrêtent la réplication. La machine virtuelle source n’est pas affectée par la validation.
-> - La validation n’a pas d’incidence sur les ressources réseau sources.
-> - Après la validation du déplacement, les ressources présentent l’état de *Suppression de la source en attente*.
+> - Une fois que vous avez validé le déplacement, les machines virtuelles arrêtent la réplication. La machine virtuelle source n’est pas impactée par la validation.
+> - Le processus de validation ne s’applique pas aux ressources réseau sources.
+> - Une fois que vous avez validé le déplacement, l’état de chaque ressource change en *Suppression de la source en attente*.
 
 
 
 ## <a name="configure-settings-after-the-move"></a>Configurer des paramètres après le déplacement
 
-- Le service Mobilité n’est pas désinstallé automatiquement sur les machines virtuelles. Désinstallez-le manuellement ou laissez-le si vous envisagez de déplacer à nouveau le serveur.
-- Modifiez les règles de contrôle d’accès en fonction du rôle (Azure RBAC) après le déplacement.
+- Le service Mobilité n’est pas désinstallé automatiquement des machines virtuelles. Désinstallez-le manuellement ou laissez-le si vous envisagez de déplacer à nouveau le serveur.
+- Modifiez les règles de contrôle d’accès en fonction du rôle (RBAC) Azure après le déplacement.
 
 ## <a name="delete-source-resources-after-commit"></a>Supprimer les ressources sources après la validation
 
 Après le déplacement, vous pouvez, si vous le souhaitez, supprimer les ressources dans la région source. 
 
-1. Dans **Entre régions**, sélectionnez chaque ressource source que vous souhaitez supprimer, puis sélectionnez **Supprimer la source**.
-2. Dans **Supprimer la source**, passez en revue ce que vous avez l’intention de supprimer puis, dans **Confirmer la suppression**, tapez **Oui**. L’action étant irréversible, vérifiez attentivement !
-3. Après avoir tapé **Oui**, sélectionnez **Supprimer la source**.
+1. Dans le volet **Entre les régions**, sélectionnez chaque ressource source à supprimer, puis sélectionnez **Supprimer la source**.
+1. Dans **Supprimer la source**, passez en revue les ressources que vous comptez supprimer puis, dans **Confirmer la suppression**, tapez **Oui**. L’action étant irréversible, vérifiez attentivement !
+1. Après avoir tapé **Oui**, sélectionnez **Supprimer la source**.
 
 > [!NOTE]
->  Dans le portail de déplacement de ressources, vous ne pouvez pas supprimer des groupes de ressources, des coffres de clés ou des serveurs SQL Server. Vous devez les supprimer individuellement à partir de la page de propriétés de chaque ressource.
+>  Dans le portail Resource Move, vous ne pouvez pas supprimer des groupes de ressources, des coffres de clés ni des instances SQL Server. Vous devez les supprimer individuellement à partir de la page de propriétés de chaque ressource.
 
 
-## <a name="delete-additional-resources-created-for-move"></a>Supprimer les ressources supplémentaires créées pour le déplacement
+## <a name="delete-resources-that-you-created-for-the-move"></a>Supprimer les ressources créées pour le déplacement
 
-Après le déplacement, vous pouvez supprimer manuellement la collection de déplacement ainsi que les ressources Site Recovery qui ont été créées.
+Après le déplacement, vous pouvez supprimer manuellement la collection de déplacement ainsi que les ressources Site Recovery que vous avez créées durant ce processus.
 
 - La collection de déplacement est masquée par défaut. Pour la voir, vous devez activer les ressources masquées.
 - Le stockage de cache est équipé d’un verrou qui doit être supprimé avant de pouvoir procéder à la suppression.
 
-Supprimez comme suit : 
+Pour supprimer vos ressources, procédez comme suit : 
 1. Localisez les ressources dans le groupe de ressources ```RegionMoveRG-<sourceregion>-<target-region>```.
-2. Vérifiez que toutes les machines virtuelles et les autres ressources sources de la région source ont été déplacées ou supprimées. Cette vérification permet de s’assurer qu’aucune ressource en attente ne les utilise.
-2. Supprimer les ressources :
+1. Vérifiez que toutes les machines virtuelles et les autres ressources sources dans la région source ont été déplacées ou supprimées. Cette étape permet de vous assurer qu’aucune ressource en attente ne les utilise.
+1. Supprimer les ressources :
 
-    - Le nom de la collection de déplacement est ```movecollection-<sourceregion>-<target-region>```.
-    - Le nom du compte de stockage de cache est ```resmovecache<guid>```.
-    - Le nom du coffre est ```ResourceMove-<sourceregion>-<target-region>-GUID```.
+    - Nom de la collection de déplacement : ```movecollection-<sourceregion>-<target-region>```
+    - Nom du compte de stockage de cache : ```resmovecache<guid>```
+    - Nom du coffre : ```ResourceMove-<sourceregion>-<target-region>-GUID```
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez :
@@ -399,7 +406,7 @@ Dans ce tutoriel, vous avez :
 > * Déplacé des machines virtuelles Azure chiffrées et leurs ressources dépendantes vers une autre région Azure.
 
 
-À présent, vous allez vous intéresser au déplacement des pools élastiques et des bases de données Azure SQL vers une autre région.
+À présent, vous allez essayer de déplacer des pools élastiques et des bases de données Azure SQL vers une autre région.
 
 > [!div class="nextstepaction"]
 > [Déplacer des ressources Azure SQL](./tutorial-move-region-sql.md)

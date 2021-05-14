@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 46b056c22a6d1c70a729f5b9558f53c685a878f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2b1a66c5f277f4aa46a0a8befe3a92a39b04d296
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732851"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229681"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -35,7 +35,7 @@ Les serveurs flexibles sont adaptés de façon optimale pour ce qui suit :
 
 ## <a name="high-availability-within-and-across-availability-zones"></a>Haute disponibilité à l’intérieur de zones de disponibilité et entre elles
 
-Le modèle de déploiement de serveur flexible est conçu pour prendre en charge une haute disponibilité au sein d’une même zone de disponibilité et dans plusieurs zones de disponibilité. L'architecture distingue le calcul du stockage. Le moteur de base de données s'exécute sur une machine virtuelle, tandis que les fichiers de données résident sur le stockage Azure. Le stockage gère trois copies synchrones localement redondantes des fichiers de base de données, ce qui garantit la durabilité des données en permanence. 
+Le modèle de déploiement de serveur flexible est conçu pour prendre en charge une haute disponibilité au sein d’une même zone de disponibilité et dans plusieurs zones de disponibilité. L'architecture distingue le calcul du stockage. Le moteur de base de données s’exécute sur une machine virtuelle Linux, tandis que les fichiers de données se trouvent sur le Stockage Premium Azure. Le stockage gère trois copies synchrones localement redondantes des fichiers de base de données, ce qui garantit la durabilité des données en permanence. 
 
 Au sein d’une zone de disponibilité unique, si le serveur tombe en panne en raison d’événements planifiés ou non, le service maintient la haute disponibilité des serveurs grâce à la procédure automatisée suivante :
 
@@ -136,7 +136,7 @@ L’un des avantages de l’exécution de votre charge de travail dans Azure est
 | --- | --- | --- |
 | Europe Ouest | :heavy_check_mark: | :heavy_check_mark: |
 | Europe Nord | :heavy_check_mark: | :heavy_check_mark: |
-| Sud du Royaume-Uni | :heavy_check_mark: | :x: | 
+| Sud du Royaume-Uni | :heavy_check_mark: | :heavy_check_mark: | 
 | USA Est 2 | :heavy_check_mark: | :heavy_check_mark: |
 | USA Ouest 2 | :heavy_check_mark: | :heavy_check_mark: |
 | USA Centre | :heavy_check_mark: | :x: | 
@@ -144,8 +144,10 @@ L’un des avantages de l’exécution de votre charge de travail dans Azure est
 | Centre du Canada | :heavy_check_mark: | :x: | 
 | Asie Sud-Est | :heavy_check_mark: | :heavy_check_mark: |
 | Centre de la Corée | :heavy_check_mark: | :x: | 
-| Japon Est | :heavy_check_mark: | :x: | 
+| Japon Est | :heavy_check_mark: | :heavy_check_mark: | 
 | Australie Est | :heavy_check_mark: | :heavy_check_mark: |
+| France Centre | :heavy_check_mark: | :x:|
+| Brésil Sud | :heavy_check_mark: | :x: |
 
 Nous travaillons à l’ajout de nouvelles régions d’ici peu.
 

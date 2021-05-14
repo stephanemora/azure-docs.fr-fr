@@ -1,18 +1,18 @@
 ---
 title: Comment exécuter le runtime d’intégration auto-hébergé dans un conteneur Windows
 description: Apprenez à exécuter le runtime d’intégration auto-hébergé dans un conteneur Windows.
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: e34e1f589442be41e2a4eac3ac893f377675e4b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe951881d2f8fa4c38e529122a96f3ca1ed078bb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379503"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483494"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Comment exécuter le runtime d’intégration auto-hébergé dans un conteneur Windows
 
@@ -24,7 +24,7 @@ Azure Data Factory fournit la prise en charge officielle du conteneur Windows po
 ## <a name="prerequisites"></a>Conditions préalables requises 
 - [Configuration requise pour un conteneur Windows](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker, version 2.3 et ultérieure 
-- Version 4.11.7512.1 du runtime d’intégration auto-hébergé et versions ultérieures 
+- Version 5.2.7713.1 et ultérieures du runtime d’intégration auto-hébergé 
 ## <a name="get-started"></a>Prise en main 
 1.  Installez Docker et activez le conteneur Windows 
 2.  Télécharger le code source à partir de https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container
@@ -40,7 +40,7 @@ docker build . -t "yourDockerImageName" 
 ```
 6.  Exécutez le conteneur Docker : 
 ```console
-docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true HA_PORT=8060 "yourDockerImageName"    
+docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true -e HA_PORT=8060 "yourDockerImageName"    
 ```
 > [!NOTE]
 > AUTH_KEY est obligatoire pour cette commande. NODE_NAME, ENABLE_HA et HA_PORT sont facultatifs. Si vous ne définissez pas de valeur, la commande utilise les valeurs par défaut. La valeur par défaut est false pour ENABLE_HA et 8060 pour HA_PORT.

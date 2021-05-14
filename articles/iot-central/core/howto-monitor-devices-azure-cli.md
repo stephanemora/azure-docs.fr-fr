@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 62981686c7aadc713c4abc78075be8613fe0af45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3a592d00e4e3bc45bbb156b19f374c2fdef23005
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199304"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324758"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Superviser la connectivité des appareils à l’aide d’Azure CLI
 
@@ -22,12 +22,13 @@ ms.locfileid: "102199304"
 
 Utilisez l’extension IoT d’Azure CLI pour consulter les messages que vos appareils envoient à IoT Central et observez les modifications apportées au jumeau d’appareil. Vous pouvez utiliser cet outil pour déboguer et observer la connectivité des appareils. Vous pouvez aussi diagnostiquer les problèmes des messages d’appareil n’atteignant pas le cloud ou les appareils qui ne répondent pas aux modifications du jumeau.
 
-[Pour plus d’informations, consultez la référence sur les extensions d’Azure CLI](/cli/azure/ext/azure-iot/iot/central)
+[Pour plus d’informations, consultez la référence sur les extensions d’Azure CLI](/cli/azure/iot/central)
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Azure CLI installé et doté de la version 2.7.0 ou ultérieure. Vérifiez la version de votre Azure CLI en exécutant `az --version`. En savoir plus sur l’installation et la mise à jour à l’aide des [docs Azure CLI](/cli/azure/install-azure-cli)
-+ Un compte professionnel ou scolaire dans Azure, ajouté en tant qu’utilisateur dans une application IoT Central.
+Un compte professionnel ou scolaire dans Azure, ajouté en tant qu’utilisateur dans une application IoT Central.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ## <a name="install-the-iot-central-extension"></a>Installer l’extension IoT Central
 

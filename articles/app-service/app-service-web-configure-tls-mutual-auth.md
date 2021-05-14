@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a5b0a576e2994bd852ee5b0a356543882601fc0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97347719"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076236"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurer l’authentification mutuelle TLS pour Azure App Service
 
@@ -44,11 +44,11 @@ Lorsque vous activez l’authentification mutuelle pour votre application, tous 
 
 1. En regard de **Chemins d’exclusion de client**, cliquez sur l’icône modifier.
 
-1. Cliquez sur **Nouveau chemin d’accès**, spécifiez un chemin d’accès, puis cliquez sur **OK**.
+1. Cliquez sur **Nouveau chemin**, spécifiez un chemin ou une liste de chemins séparés par `,` ou `;` , puis cliquez sur **OK**.
 
 1. Cliquez sur **Enregistrer** dans la partie supérieure de la page.
 
-Dans la capture d’écran suivante, tout ce qui se trouve sous le chemin d’accès `/public` pour votre application ne requiert pas de certificat client.
+Dans la capture d’écran suivante, les chemins pour votre application qui commencent par `/public` ne nécessitent pas de certificat client. La correspondance de chemins ne respecte pas la casse.
 
 ![Chemins d'exclusion de certificat][exclusion-paths]
 

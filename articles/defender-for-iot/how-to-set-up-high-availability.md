@@ -3,12 +3,12 @@ title: Configurer la haute disponibilité
 description: Augmentez la résilience de votre déploiement de Defender pour IoT en installant une appliance à haute disponibilité de la console de gestion locale. Les déploiements à haute disponibilité garantissent que vos capteurs gérés envoient en permanence des rapports à la console de gestion locale active.
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.openlocfilehash: d0e09cd37fbae91d1903ca8f175c0592b567da6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f341dee00574422ec325871ff97d6f3e8644ac48
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781651"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208992"
 ---
 # <a name="about-high-availability"></a>À propos de la haute disponibilité
 
@@ -87,7 +87,7 @@ Vérifiez que les appliances principale et secondaire de la console de gestion l
 2. Exécutez la commande suivante sur l’appliance principale :
 
 ```azurecli-interactive
-sudo cyberx-management-trusted-hosts-add -ip <Secondary IP>
+sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <primary token>
 ```
 
 >[!NOTE]

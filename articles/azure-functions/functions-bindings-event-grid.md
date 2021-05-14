@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 115ff1b59ecbe3f4fdb089c2bd61da955fba3984
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbe52f6902d1c0803727fe325b51a238e46c0ff1
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92104544"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228547"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Liaisons Azure Event Grid pour Azure Functions
 
@@ -45,6 +45,19 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 [core tools]: ./functions-run-local.md
 [Bundle d’extensions]: ./functions-bindings-register.md#extension-bundles
 [Package NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
+[Mettre à jour vos extensions]: ./functions-bindings-register.md
+[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
+#### <a name="event-grid-extension-3x-and-higher"></a>Extension Event Grid 3.x et versions ultérieures
+
+Une nouvelle version de l’extension des liaisons Event Grid est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.1). Pour les applications .NET, elle change les types avec lesquels il est possible d’établir une liaison, en remplaçant les types `Microsoft.Azure.EventGrid.Models` par les types [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid), plus récents.
+
+> [!NOTE]
+> Le package en préversion n’étant pas inclus dans un bundle d’extensions, il doit être installé manuellement. Pour les applications .NET, ajoutez une référence au package. Pour tous les autres types d’applications, consultez [Mettre à jour vos extensions].
+
+[core tools]: ./functions-run-local.md
+[Bundle d’extensions]: ./functions-bindings-register.md#extension-bundles
+[Package NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
 [Mettre à jour vos extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 

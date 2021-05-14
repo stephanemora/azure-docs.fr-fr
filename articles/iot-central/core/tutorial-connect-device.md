@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 479c12ca00614b2d34bd08f41e3451826a253035
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491083"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001810"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central
 
@@ -83,7 +83,7 @@ Si vous préférez suivre l’ensemble des tutoriels IoT Central et en savoir pl
 > [!div class="nextstepaction"]
 > [Créer un modèle d’appareil de passerelle](./tutorial-define-gateway-device-type.md)
 
-En tant que développeur d’appareils, maintenant que vous avez appris les bases de la création d’un appareil en utilisant Java, les prochaines étapes suggérées sont les suivantes :
+En tant que développeur d’appareils, maintenant que vous avez appris les bases de la création d’un appareil, voici les prochaines étapes suggérées :
 
 * Pour en savoir plus sur le rôle des modèles d’appareils quand vous implémentez votre code d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
 * Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.

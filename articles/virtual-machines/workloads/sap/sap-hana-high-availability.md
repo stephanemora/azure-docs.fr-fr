@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: ea1296fd4e31c2deaed79e980ab764c523a2bfd7
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: e34ca9c3164713e62ae28581055644933d8c791d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364360"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127188"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -668,7 +668,7 @@ Avant de poursuivre, assurez-vous que le cluster haute disponibilité SUSE est e
 
 ### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Configuration supplémentaire dans l’équilibreur de charge Azure pour une installation activée par la lecture/active
 
-Pour effectuer des étapes supplémentaires lors de l’approvisionnement d’une deuxième adresse IP virtuelle, assurez-vous d’avoir configuré Azure Load Balancer comme décrit dans la section [déploiement manuel](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment).
+Pour effectuer des étapes supplémentaires lors de l’approvisionnement d’une deuxième adresse IP virtuelle, assurez-vous d’avoir configuré Azure Load Balancer comme décrit dans la section [déploiement manuel](#manual-deployment).
 
 1. Pour l’équilibreur de charge **standard**, suivez les étapes supplémentaires ci-dessous sur le même équilibreur de charge que vous avez créé dans la section précédente.
 
@@ -699,7 +699,7 @@ Pour effectuer des étapes supplémentaires lors de l’approvisionnement d’un
 
 ### <a name="configure-hana-activeread-enabled-system-replication"></a>Configurer la réplication système activée par la lecture/active HANA
 
-La procédure de configuration de la réplication de système HANA est décrite dans la section [Configuration de la réplication de système SAP HANA 2.0](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication). Si vous déployez un scénario secondaire accessible en lecture, lors de la configuration de la réplication du système sur le second nœud, exécutez la commande suivante en tant que **hanasid** adm :
+La procédure de configuration de la réplication de système HANA est décrite dans la section [Configuration de la réplication de système SAP HANA 2.0](#configure-sap-hana-20-system-replication). Si vous déployez un scénario secondaire accessible en lecture, lors de la configuration de la réplication du système sur le second nœud, exécutez la commande suivante en tant que **hanasid** adm :
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 

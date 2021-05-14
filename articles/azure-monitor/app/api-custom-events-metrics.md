@@ -4,12 +4,12 @@ description: Insérez quelques lignes de code dans votre application de périph�
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8e866dc30d83f1b1f080a1be385026dcfbc77320
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: c43ecced4c87deda3e3d92a470d6694dfd1813e2
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122099"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331517"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -42,7 +42,7 @@ Si vous n’avez pas encore de référence sur le kit SDK Application Insights :
   * [ASP.NET Core project](./asp-net-core.md)
   * [Projet Java](./java-get-started.md)
   * [Projet Node.js](./nodejs.md)
-  * [JavaScript dans chaque page web](./javascript.md) 
+  * [JavaScript dans chaque page web](./javascript.md)
 * Ajoutez au code de votre périphérique ou de votre serveur web :
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -66,6 +66,7 @@ Si vous utilisez Azure Functions v2+ ou Azure WebJobs v3+, consultez ce document
 ```csharp
 private TelemetryClient telemetry = new TelemetryClient();
 ```
+
 Si vous constatez que cette méthode contient des messages obsolètes, consultez [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152) pour plus d’informations.
 
 *Visual Basic*
@@ -78,7 +79,7 @@ Private Dim telemetry As New TelemetryClient
 
 ```java
 private TelemetryClient telemetry = new TelemetryClient();
-``` 
+```
 
 *Node.JS*
 
@@ -148,8 +149,6 @@ telemetry.trackEvent({name: "WinGame"});
 
 La télémétrie est disponible dans la table `customEvents` dans [l’onglet Journaux Application Insights](../logs/log-query-overview.md) ou [Expérience d’utilisation](usage-overview.md). Les événements peuvent provenir de `trackEvent(..)` ou du [plug-in Click Analytics Auto-collection](javascript-click-analytics-plugin.md).
 
- 
-
 Si un [échantillonnage](./sampling.md) est en cours, la propriété itemCount affiche une valeur supérieure à 1. Par exemple, itemCount==10 signifie que sur 10 appels à trackEvent(), le processus d’échantillonnage n’en a transmis qu’un seul. Pour obtenir un nombre correct d’événements personnalisés, vous devez donc utiliser un code similaire à `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
@@ -177,15 +176,15 @@ Pour envoyer une seule valeur métrique :
 
 *JavaScript*
 
- ```javascript
+```javascript
 appInsights.trackMetric("queueLength", 42.0);
- ```
+```
 
 *C#*
 
 ```csharp
 var sample = new MetricTelemetry();
-sample.Name = "metric name";
+sample.Name = "queueLength";
 sample.Value = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
@@ -198,9 +197,9 @@ telemetry.trackMetric("queueLength", 42.0);
 
 *Node.JS*
 
- ```javascript
+```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
- ```
+```
 
 ### <a name="custom-metrics-in-analytics"></a>Métriques personnalisées dans Analytics
 
@@ -504,7 +503,7 @@ Enregistrer un événement de diagnostic comme l'utilisation ou la non-utilisati
 Vous pouvez effectuer une recherche dans le contenu du message, mais (contrairement aux valeurs de propriété), vous ne pouvez pas les filtrer.
 
 La limite de taille sur `message` est plus importante que la limite des propriétés.
-l’un des avantages de TrackTrace est que vous pouvez insérer des données relativement longues dans le message. Par exemple, vous pourriez y encoder des données POST.  
+l’un des avantages de TrackTrace est que vous pouvez insérer des données relativement longues dans le message. Par exemple, vous pourriez y encoder des données POST.
 
 Par ailleurs, vous pouvez ajouter un niveau de gravité à votre message. Comme pour les autres données de télémétrie, vous pouvez également ajouter des valeurs de propriété qui permettent de filtrer ou rechercher différents jeux de traces. Par exemple :
 
@@ -601,7 +600,7 @@ finally
 }
 ```
 
-N’oubliez pas que les kits SDK de serveur incluent un [module de dépendance](./asp-net-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C’est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne. 
+N’oubliez pas que les kits SDK de serveur incluent un [module de dépendance](./asp-net-dependencies.md) qui détecte certains appels de dépendance et en effectue le suivi automatiquement. C’est notamment le cas des bases de données et des API REST. Vous devez installer un agent sur votre serveur pour que le module fonctionne.
 
 En Java, [l’Agent Java](./java-agent.md) permet de suivre automatiquement certains appels de dépendance.
 
@@ -633,7 +632,7 @@ Normalement, le Kit de développement logiciel (SDK) envoie des données à inte
 
 *C#*
 
- ```csharp
+```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
@@ -798,8 +797,6 @@ telemetry.trackEvent("WinGame", properties, metrics);
 
 > [!NOTE]
 > Veillez à ne pas journaliser des informations personnelles dans les propriétés.
->
->
 
 ### <a name="alternative-way-to-set-properties-and-metrics"></a>Autre façon de définir des propriétés et des mesures
 
@@ -820,8 +817,6 @@ telemetry.TrackEvent(event);
 
 > [!WARNING]
 > Ne réutilisez pas la même instance d’élément de télémétrie (`event` dans cet exemple) pour appeler Track*() plusieurs fois. Cela peut provoquer un envoi de données de télémétrie configurées de façon incorrecte.
->
->
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Mesures et propriétés personnalisées dans Analytique
 
@@ -912,7 +907,6 @@ gameTelemetry.TrackEvent("WinGame")
 import com.microsoft.applicationinsights.TelemetryClient;
 import com.microsoft.applicationinsights.TelemetryContext;
 ...
-
 
 TelemetryClient gameTelemetry = new TelemetryClient();
 TelemetryContext context = gameTelemetry.getContext();

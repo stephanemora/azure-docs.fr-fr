@@ -3,17 +3,17 @@ title: Compréhension de cloud-init
 description: Compréhension approfondie de la configuration d’une machine virtuelle Azure à l’aide de cloud-init.
 author: danielsollondon
 ms.service: virtual-machines
-ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 94dd57310375febb4bc9a55efa704a5fbf4e80e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: cloud-init
+ms.openlocfilehash: 63bc821648348c2936d437fef7fdd89314fad3c5
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559441"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783222"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Approfondissement de cloud-init
 Pour en savoir plus sur [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) ou pour le dépanner à un niveau plus approfondi, vous devez comprendre son fonctionnement. Ce document met en évidence les parties importantes et explique les spécificités d’Azure.

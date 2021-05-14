@@ -6,12 +6,12 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.date: 08/17/2020
-ms.openlocfilehash: 096f0425a6893d68341b97c821481fa0adf2f95c
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: a9208101777cd88f0237e661a414550759a069b0
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375268"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007378"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Déployer Azure Monitor pour les solutions SAP avec le portail Azure
 
@@ -38,6 +38,35 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
 ## <a name="configure-providers"></a>Configurer des fournisseurs
 
+### <a name="sap-netweaver-provider"></a>Fournisseur SAP NetWeaver
+
+#### <a name="prerequisites-for-adding-netweaver-provider"></a>Conditions préalables pour l’ajout du fournisseur NetWeaver
+
+Le « Service de démarrage SAP » fournit une série de services, notamment la surveillance du système SAP. Nous utilisons « SAPControl », qui est une interface de service web SOAP qui expose ces fonctionnalités. Cette interface de service web SAPControl fait la distinction entre les méthodes [protégées et non protégées](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). Pour pouvoir extraire des métriques spécifiques, vous devez ôter la protection de certaines méthodes. Pour ôter la protection des méthodes requises pour la version actuelle, veuillez suivre les étapes ci-dessous pour chaque système SAP :
+
+1. Ouvrez une connexion à l’interface graphique SAP sur le serveur SAP
+2. Connectez-vous à l’aide d’un compte d’administrateur
+3. Exécutez la transaction RZ10
+4. Sélectionnez le profil approprié (DEFAULT.PFL)
+5. Sélectionnez « Maintenance étendue », puis cliquez sur Modifier 
+6. Modifiez la valeur du paramètre affecté « service/protectedwebmethods » en « SDEFAULT -GetQueueStatistic –ABAPGetWPTable –EnqGetStatistic –GetProcessList » sur le paramètre recommandé, puis cliquez sur Copier
+7. Revenez et sélectionnez Profil->Enregistrer
+8. Redémarrez le système pour que le paramètre prenne effet
+
+>[!Tip]
+> Utilisez une liste de contrôle d’accès (ACL) pour filtrer l’accès à un port du serveur. Consultez sa [note SAP](https://launchpad.support.sap.com/#/notes/1495075)
+
+#### <a name="installing-netweaver-provider-on-the-azure-portal"></a>Installation du fournisseur NetWeaver sur le portail Azure
+1.  Assurez-vous que les étapes préalables ont été effectuées et que le serveur a été redémarré
+2.  Sur le portail Azure, sous AMS, sélectionnez Ajouter un fournisseur et choisissez SAP NetWeaver dans la liste déroulante
+3.  Entrez le nom d’hôte du système SAP et le sous-domaine (le cas échéant)
+4.  Entrez le numéro d’instance correspondant au nom d’hôte entré 
+5.  Entrez l’ID système (SID)
+6.  Lorsque vous avez terminé, sélectionnez Ajouter un fournisseur
+7.  Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez Passer en revue + créer pour terminer le déploiement
+
+![image](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+
 ### <a name="sap-hana-provider"></a>Fournisseur SAP HANA 
 
 1. Sélectionnez l’onglet **Fournisseur** pour ajouter les fournisseurs que vous souhaitez configurer. Vous pouvez ajouter plusieurs fournisseurs l’un après l’autre ou les ajouter après avoir déployé la ressource de surveillance. 
@@ -60,46 +89,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 7. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image des options de configuration lors de l’ajout d’informations sur le fournisseur." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
-
-### <a name="high-availability-cluster-pacemaker-provider"></a>Fournisseur de cluster à haute disponibilité (Pacemaker)
-
-1. Sélectionnez **Cluster à haute disponibilité (Pacemaker)** dans la liste déroulante. 
-
-   > [!IMPORTANT]
-   > Pour configurer le fournisseur de cluster à haute disponibilité (Pacemaker), assurez-vous que ha_cluster_provider est installé sur chaque nœud. Pour plus d’informations, consultez [Exportateur de cluster à haute disponibilité](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
-
-2. Entrez le point de terminaison Prometheus sous la forme http://IP:9664/metrics. 
- 
-3. Entrez l’ID système (SID), le nom d'hôte et le nom du cluster.
-
-4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
-
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="L’image montre les options relatives au fournisseur de stimulateur de cluster à haute disponibilité Pacemaker." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
-
-
-### <a name="os-linux-provider"></a>Fournisseur de système d’exploitation (Linux) 
-
-1. Sélectionnez Système d’exploitation (Linux) dans la liste déroulante. 
-
->[!IMPORTANT]
-> Pour configurer le fournisseur de système d’exploitation (Linux), assurez-vous que la dernière version de Node_Exporter est installée sur chaque hôte (BareMetal ou machine virtuelle) que vous souhaitez analyser. Utilisez ce [lien] (https://prometheus.io/download/#node_exporter) pour trouver la dernière version. Pour plus d’informations,  [Node_Exporter](https://github.com/prometheus/node_exporter).
-
-2. Entrez un nom, qui sera l’identificateur de l’instance BareMetal.
-3. Entrez le point de terminaison Node Exporter sous la forme http://IP:9100/metrics.
-
->[!IMPORTANT]
-> Utilisez l’adresse IP privée de l’hôte Linux. Vérifiez que les ressources hôte et AMS se trouvent dans le même réseau virtuel. 
-
->[!Note]
-> Le port du pare-feu « 9100 » doit être ouvert sur l’hôte Linux.
->Si vous utilisez firewall-cmd : firewall-cmd --permanent --add-port=9100/tcp firewall-cmd --reload Si vous utilisez ufw : ufw allow 9100/tcp ufw reload
-
->[!Tip]
-> Si l’hôte Linux est une machine virtuelle Azure, vérifiez que tous les groupes applicables autorisent le trafic entrant sur le port 9100 à partir de « VirtualNetwork » en tant que source.
- 
-5. Lorsque vous avez terminé, sélectionnez  **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez  **Vérifier + créer**  pour terminer le déploiement. 
-
-
+   
 ### <a name="microsoft-sql-server-provider"></a>Fournisseur Microsoft SQL Server
 
 1. Avant d’ajouter le fournisseur Microsoft SQL Server, vous devez exécuter le script suivant dans SQL Server Management Studio pour créer un utilisateur avec les autorisations appropriées nécessaires à la configuration du fournisseur.
@@ -137,31 +127,43 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="L’image montre des informations relatives à l’ajout du fournisseur Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
-### <a name="sap-netweaver-provider"></a>Fournisseur SAP NetWeaver
+### <a name="high-availability-cluster-pacemaker-provider"></a>Fournisseur de cluster à haute disponibilité (Pacemaker)
 
-#### <a name="pre-requisites-for-adding-netweaver-provider"></a>Conditions préalables pour l’ajout du fournisseur NetWeaver
+1. Sélectionnez **Cluster à haute disponibilité (Pacemaker)** dans la liste déroulante. 
 
-Le « Service de démarrage SAP » fournit une série de services, notamment la surveillance du système SAP. Nous utilisons « SAPControl », qui est une interface de service web SOAP qui expose ces fonctionnalités. Cette interface de service web SAPControl fait la distinction entre les méthodes [protégées et non protégées](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). Pour pouvoir extraire des métriques spécifiques, vous devez ôter la protection de certaines méthodes. Pour ôter la protection des méthodes requises pour la version actuelle, veuillez suivre les étapes ci-dessous pour chaque système SAP : -
+   > [!IMPORTANT]
+   > Pour configurer le fournisseur de cluster à haute disponibilité (Pacemaker), assurez-vous que ha_cluster_provider est installé sur chaque nœud. Pour plus d’informations, consultez [Exportateur de cluster à haute disponibilité](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
 
-1. Ouvrez une connexion à l’interface graphique SAP sur le serveur SAP
-2. Connectez-vous à l’aide d’un compte d’administrateur
-3. Exécutez la transaction RZ10
-4. Sélectionnez le profil approprié (DEFAULT.PFL)
-5. Sélectionnez « Maintenance étendue », puis cliquez sur Modifier 
-6. Modifiez la valeur du paramètre affecté « service/protectedwebmethods » en « SDEFAULT -GetQueueStatistic –ABAPGetWPTable –EnqGetStatistic –GetProcessList » sur le paramètre recommandé, puis cliquez sur Copier
-7. Revenez et sélectionnez Profil->Enregistrer
-8. Redémarrez le système pour que le paramètre prenne effet
+2. Entrez le point de terminaison Prometheus sous la forme http://IP:9664/metrics. 
+ 
+3. Entrez l’ID système (SID), le nom d'hôte et le nom du cluster.
 
-#### <a name="installing-netweaver-provider-on-the-azure-portal"></a>Installation du fournisseur NetWeaver sur le portail Azure
-1.  Assurez-vous que les étapes préalables ont été effectuées et que le serveur a été redémarré
-2.  Sur le portail Azure, sous AMS, sélectionnez Ajouter un fournisseur et choisissez SAP NetWeaver dans la liste déroulante
-3.  Entrez le nom d’hôte du système SAP et le sous-domaine (le cas échéant)
-4.  Entrez le numéro d’instance correspondant au nom d’hôte entré 
-5.  Entrez l’ID système (SID)
-6.  Lorsque vous avez terminé, sélectionnez Ajouter un fournisseur
-7.  Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez Passer en revue + créer pour terminer le déploiement
+4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
 
-![image](https://user-images.githubusercontent.com/75772258/114583569-5c777d80-9c9f-11eb-99a2-8c60987700c2.png)
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="L’image montre les options relatives au fournisseur de stimulateur de cluster à haute disponibilité Pacemaker." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+
+### <a name="os-linux-provider"></a>Fournisseur de système d’exploitation (Linux) 
+
+1. Sélectionnez Système d’exploitation (Linux) dans la liste déroulante. 
+
+   >[!IMPORTANT]
+   > Pour configurer le fournisseur de système d’exploitation (Linux), assurez-vous que la dernière version de Node_Exporter est installée sur chaque hôte (BareMetal ou machine virtuelle) que vous souhaitez analyser. Installez la [version la plus récente de Node Exporter](https://prometheus.io/download/#node_exporter). Pour plus d’informations, [cliquez ici](https://github.com/prometheus/node_exporter).
+
+2. Entrez un nom, qui sera l’identificateur de l’instance BareMetal.
+3. Entrez le point de terminaison Node Exporter sous la forme http://IP:9100/metrics.
+
+   >[!IMPORTANT]
+   >Utilisez l’adresse IP privée de l’hôte Linux. Vérifiez que les ressources hôte et AMS se trouvent dans le même réseau virtuel. 
+
+   >[!Note]
+   > Le port du pare-feu « 9100 » doit être ouvert sur l’hôte Linux.
+   >Si vous utilisez firewall-cmd : firewall-cmd --permanent --add-port=9100/tcp firewall-cmd --reload Si vous utilisez ufw : ufw allow 9100/tcp ufw reload
+
+    >[!Tip]
+    > Si l’hôte Linux est une machine virtuelle Azure, vérifiez que tous les groupes applicables autorisent le trafic entrant sur le port 9100 à partir de « VirtualNetwork » en tant que source.
+ 
+5. Lorsque vous avez terminé, sélectionnez  **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez  **Vérifier + créer**  pour terminer le déploiement. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

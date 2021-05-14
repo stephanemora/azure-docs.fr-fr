@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: b3435d1dabf604cf7a1394c14ee62d65b923714b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8def06990b72d6e08127e8c4f16e0dfd87905d4f
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565935"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565183"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Télécharger un disque VHD Linux à partir d’Azure
 
@@ -21,7 +21,9 @@ Dans cet article, vous apprendrez à télécharger un fichier de disque dur virt
 
 ## <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
 
-Il n’est pas possible de télécharger un disque VHD associé à une machine virtuelle en cours d’exécution à partir d’Azure. Il vous faut arrêter la machine virtuelle pour télécharger un VHD. 
+Il n’est pas possible de télécharger un disque VHD associé à une machine virtuelle en cours d’exécution à partir d’Azure. Si vous souhaitez conserver la machine virtuelle en cours d’exécution, vous pouvez [créer un instantané, puis le télécharger](#alternative-snapshot-the-vm-disk).
+
+Pour arrêter la machine virtuelle :
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 2.  Dans le menu de gauche, sélectionnez **Machines virtuelles**.
@@ -29,6 +31,24 @@ Il n’est pas possible de télécharger un disque VHD associé à une machine v
 4.  Sur la page de la machine virtuelle, sélectionnez **Arrêter**.
 
     :::image type="content" source="./media/download-vhd/export-stop.PNG" alt-text="Affiche le bouton de menu permettant d’arrêter la machine virtuelle.":::
+
+### <a name="alternative-snapshot-the-vm-disk"></a>Alternative : Prendre un instantané du disque de machine virtuelle
+
+Prenez un instantané du disque à télécharger.
+
+1. Sélectionnez la machine virtuelle dans le [portail](https://portal.azure.com).
+2. Sélectionnez **Disques** dans le menu de gauche, puis sélectionnez le disque dont vous voulez prendre un instantané. Les détails du disque s’affichent.  
+3. Sélectionnez **Créer une capture instantanée** dans le menu en haut de la page. La page **Créer une capture instantanée** s’ouvre.
+4. Dans **Nom**, saisissez le nom de l’instantané. 
+5. Pour **Type d’instantané**, sélectionnez **Complet** ou **Incrémentiel**.
+6. Quand vous avez terminé, sélectionnez **Vérifier + créer**.
+
+Votre instantané sera créé sous peu, et pourra ensuite être utilisé pour télécharger ou créer une autre machine virtuelle.
+
+> [!NOTE]
+> Si vous n’arrêtez pas d’abord la machine virtuelle, l’instantané ne sera pas propre. L’instantané sera dans le même état que si la machine virtuelle avait été mise hors tension ou s’était bloquée au moment où l’instantané a été réalisé.  Bien que cette méthode soit généralement sans danger, elle peut causer des problèmes si les applications en cours d’exécution à ce moment-là ne sont pas résistantes aux pannes.
+>  
+> Cette méthode est recommandée uniquement pour les machines virtuelles avec un seul disque de système d’exploitation. Les machines virtuelles avec un ou plusieurs disques de données doivent être arrêtées avant le téléchargement ou avant la création d’un instantané du disque du système d’exploitation et de chaque disque de données.
 
 ## <a name="generate-sas-url"></a>Générer une URL de SAP
 

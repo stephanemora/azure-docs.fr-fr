@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: c46a8753c87e981d9e3d6ecdd698bbbe6cba9894
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cd3d903aead4877fac9e5472f1ac9d579da979d2
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775780"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209568"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Démarrer un runbook depuis un Webhook
 
@@ -137,7 +138,7 @@ Le client ne peut pas déterminer l’issue du travail du runbook ou de son éta
 
 ### <a name="use-a-webhook-from-an-arm-template"></a>Utiliser un webhook d’un modèle ARM
 
-Des webhooks Automation peuvent également être appelés par des [modèles Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview). Le modèle ARM émet une demande `POST` et reçoit un code de retour comme tout autre client. Consultez [Utiliser un webhook](#use-a-webhook).
+Des webhooks Automation peuvent également être appelés par des [modèles Azure Resource Manager (ARM)](../azure-resource-manager/templates/overview.md). Le modèle ARM émet une demande `POST` et reçoit un code de retour comme tout autre client. Consultez [Utiliser un webhook](#use-a-webhook).
 
    > [!NOTE]
    > Pour des raisons de sécurité, l’URI n’est retourné que la première fois qu’un modèle est déployé.

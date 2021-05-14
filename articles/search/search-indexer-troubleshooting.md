@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7eadc9121c54b636fa8b42579284d4018043e1c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efdd9666c8876ddaf12b9555fa66beb62c56e93e
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91355123"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740055"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche cognitive Azure
 
@@ -68,6 +68,86 @@ Pour plus d’informations sur l’accès aux données dans une instance managé
 ### <a name="cosmosdb-indexing-isnt-enabled"></a>« L’indexation » CosmosDB n’est pas activée
 
 La Recherche cognitive Azure comporte une dépendance implicite vis-à-vis de l’indexation Cosmos DB. Si l’indexation automatique est désactivée dans Cosmos DB, la Recherche cognitive Azure renvoie un état réussi, mais ne parvient pas à indexer le contenu du conteneur. Pour savoir comment vérifier les paramètres et activer l’indexation, voir [Gérer l’indexation dans Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+
+### <a name="sharepoint-online-conditional-access-policies"></a>Stratégies d’accès conditionnel SharePoint Online
+
+Lors de la création d’un indexeur SharePoint Online, vous allez effectuer une étape qui vous oblige à vous connecter à votre application AAD après avoir fourni un code d’appareil. Si vous recevez un message indiquant que la connexion a réussi, mais que votre administrateur exige que l’appareil demandant l’accès soit managé, il est probable que l’indexeur ne peut pas accéder à la bibliothèque de documents SharePoint Online en raison d’une stratégie d’[accès conditionnel](https://review.docs.microsoft.com/azure/active-directory/conditional-access/overview).
+
+Pour mettre à jour la stratégie afin d’autoriser l’indexeur à accéder à la bibliothèque de documents, suivez les étapes ci-dessous :
+
+1. Ouvrez le Portail Azure et recherchez **Accès conditionnel Azure AD**, puis sélectionnez **Stratégies** dans le menu de gauche. Si vous n’avez pas accès à cette page, vous devez trouver une personne disposant d’un accès ou demander un accès.
+
+1. Déterminez quelle stratégie empêche l’indexeur SharePoint Online d’accéder à la bibliothèque de documents. La stratégie susceptible de bloquer l’indexeur inclura le compte d’utilisateur que vous avez utilisé pour l’authentification lors de l’étape de création de l’indexeur dans la section **Utilisateurs et groupes**. La stratégie peut également avoir des **conditions** qui :
+    * Limitent les plateformes **Windows**.
+    * Limitent les **Applications mobiles et clients de bureau**.
+    * Ont l’**État de l’appareil** configuré sur **Oui**.
+
+1. Une fois que vous avez confirmé qu’une stratégie bloque l’indexeur, vous devez ensuite créer une exemption pour l’indexeur. Récupérez l’adresse IP du service de recherche.
+
+    1. Obtenez le nom de domaine complet (FQDN) de votre service de recherche. Il ressemble à ceci : `<search-service-name>.search.windows.net`. Vous pouvez déterminer le FQDN en recherchant votre service de recherche sur le portail Azure.
+
+   ![Obtenir le FQDN du service](media\search-indexer-howto-secure-access\search-service-portal.png "Obtenir le FQDN du service")
+
+    Vous pouvez obtenir l’adresse IP du service de recherche en exécutant une commande `nslookup` (ou `ping`) du FQDN. Dans l’exemple ci-dessous, vous devez ajouter « 150.0.0.1 » à une règle de trafic entrant sur le Pare-feu de Stockage Azure. L’accès au compte de stockage Azure peut prendre jusqu’à 15 minutes après la mise à jour des paramètres du Pare-feu.
+
+    ```azurepowershell
+
+    nslookup contoso.search.windows.net
+    Server:  server.example.org
+    Address:  10.50.10.50
+    
+    Non-authoritative answer:
+    Name:    <name>
+    Address:  150.0.0.1
+    Aliases:  contoso.search.windows.net
+    ```
+
+1. Récupérez les plages d’adresses IP pour l’environnement d’exécution de l’indexeur pour votre région.
+
+    Des adresses IP supplémentaires sont utilisées pour les requêtes qui proviennent de l’[environnement d’exécution mutualisé](search-indexer-securing-resources.md#indexer-execution-environment) de l’indexeur. Vous pouvez récupérer cette plage d’adresses IP à partir de l’étiquette de service.
+
+    Vous pouvez obtenir les plages d’adresses IP pour la balise de service `AzureCognitiveSearch` via l’[API de découverte (préversion)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) ou le [fichier JSON téléchargeable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
+    Pour cette procédure pas à pas, en supposant que le service de recherche est le cloud public Azure, le [fichier JSON public Azure](https://www.microsoft.com/download/details.aspx?id=56519) doit être téléchargé.
+
+   ![Télécharger le fichier JSON](media\search-indexer-troubleshooting\service-tag.png "Télécharger un fichier JSON")
+
+    Dans le fichier JSON, en supposant que le service de recherche se trouve dans la région USA Centre-Ouest, les adresses IP de l’environnement d’exécution de l’indexeur mutualisé suivantes sont répertoriées.
+
+    ```json
+        {
+          "name": "AzureCognitiveSearch.WestCentralUS",
+          "id": "AzureCognitiveSearch.WestCentralUS",
+          "properties": {
+            "changeNumber": 1,
+            "region": "westcentralus",
+            "platform": "Azure",
+            "systemService": "AzureCognitiveSearch",
+            "addressPrefixes": [
+              "52.150.139.0/26",
+              "52.253.133.74/32"
+            ]
+          }
+        }
+    ```
+
+1. Retournez sur la page Accès conditionnel dans le Portail Azure, sélectionnez **Emplacements nommés** dans le menu de gauche, puis choisissez **Emplacement des plages d’adresses IP +** . Donnez un nom à votre nouvel emplacement nommé et ajoutez les plages d’adresses IP pour votre service de recherche et les environnements d’exécution de l’indexeur que vous avez collectés au cours des deux dernières étapes.
+    * Pour l’adresse IP de votre service de recherche, vous devrez peut-être ajouter « /32 » à la fin de l’adresse IP, car le système n’accepte que des plages d’adresses IP valides.
+    * N’oubliez pas que pour les plages d’adresses IP de l’environnement d’exécution de l’indexeur, vous devez uniquement ajouter les plages d’adresses IP pour la région dans laquelle se trouve votre service de recherche.
+
+1. Excluez le nouvel emplacement nommé de la stratégie. 
+    1. Sélectionnez **Stratégies** dans le menu de gauche. 
+    1. Sélectionnez la stratégie qui bloque l’indexeur.
+    1. Sélectionnez **Conditions**.
+    1. Sélectionner **Emplacements**.
+    1. Sélectionnez **Exclure**, puis ajoutez le nouvel emplacement nommé.
+    1. **Enregistrez** les modifications.
+
+1. Attendez quelques minutes pour que la stratégie se mette à jour et applique les nouvelles règles de stratégie.
+
+1. Tentative de recréation de l’indexeur
+    1. Envoyez une requête de mise à jour pour l’objet source de données que vous avez créé.
+    1. Renvoyez la requête de création de l’indexeur. Utilisez le nouveau code pour vous connecter, puis envoyez une autre requête de création d’indexeur après la réussite de la connexion.
 
 ## <a name="document-processing-errors"></a>Erreurs de traitement de documents
 

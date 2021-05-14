@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0634f75f000689f409ee81279e7d52f680ab98d8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375202"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209226"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -199,8 +199,8 @@ Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Ge
 ### <a name="configure-proxy-server-settings"></a>Configurer les paramètres du serveur proxy
 Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy HTTP, la passerelle utilise le paramètre du proxy dans diahost.exe.config et diawp.exe.config. Si aucun proxy n’est spécifié dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy. La procédure suivante fournit des instructions pour mettre à jour le fichier de configuration diahost.exe.config.
 
-1. Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* pour sauvegarder le fichier d’origine.
-2. Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config*. La balise par défaut pour system.net apparaît dans le code suivant :
+1. Dans Explorateur de fichiers, effectuez une copie de sauvegarde de *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\diahost.exe.config* pour sauvegarder le fichier d’origine.
+2. Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\diahost.exe.config*. La balise par défaut pour system.net apparaît dans le code suivant :
 
     ```
     <system.net>
@@ -276,7 +276,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 
 [Pour une passerelle à nœud unique]
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
-2. Accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
+2. Accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* .
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
 
     ```powershell
@@ -289,7 +289,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
     ```
    [Pour une passerelle multinœud à haute disponibilité et scalable](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
-2. Accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
+2. Accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* .
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
 
     Pour une passerelle avec une fonctionnalité de haute disponibilité, un paramètre AuthKey supplémentaire est nécessaire.
@@ -306,14 +306,14 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 Une fois la passerelle installée, vous pouvez lancer le Gestionnaire de configuration de passerelle de gestion des données de l’une des manières suivantes :
 
 1. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire.
-2. Exécutez le fichier exécutable *ConfigManager.exe* dans le dossier : *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared*.
+2. Exécutez le fichier exécutable *ConfigManager.exe* dans le dossier *C:\\Program Files\\Microsoft Integration Runtime\\5.0\\Shared\\* .
 
 ### <a name="home-page"></a>page d'accueil
 La page d’accueil permet d’effectuer les actions suivantes :
 
 * Afficher l’état de la passerelle (connectée au service cloud ou non, etc.).
 * **Inscrire** à l’aide d’une clé à partir du portail.
-* **Arrêter** et démarrer le **service hôte de passerelle de gestion des données** sur l’ordinateur de passerelle.
+* **Arrêter** et démarrer le **service Integration Runtime** sur la machine de la passerelle.
 * **Planifier les mises à jour** à un moment spécifique de la journée.
 * Afficher la date de la **dernière mise à jour** de la passerelle.
 
@@ -326,7 +326,7 @@ La page Paramètres permet d’effectuer les actions suivantes :
 * Afficher le **Certificat SSL** qui est utilisé pour la communication TLS/SSL entre le portail et la passerelle pour définir les informations d’identification pour les sources de données.
 
 ### <a name="remote-access-from-intranet"></a>Accès à distance à partir de l’intranet
-Cette fonctionnalité sera activée plus tard. Dans les futures mises à jour (version 3.4 ou ultérieure), nous vous autoriserons à activer / désactiver une connexion à distance qui se fait via le port 8050 (voir la section ci-dessus) tout en utilisant l’application Gestionnaire des informations d’identification ou PowerShell pour chiffrer les informations d’identification.
+Vous pouvez activer/désactiver une connexion à distance qui se fait aujourd’hui via le port 8050 (voir la section ci-dessus) tout en utilisant PowerShell ou l’application Gestionnaire des informations d’identification pour chiffrer les informations d’identification.
 
 ### <a name="diagnostics-page"></a>Page Diagnostics
 La page Diagnostics permet d’effectuer les actions suivantes :
@@ -507,7 +507,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Dans Azure PowerShell, accédez au dossier : *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Exécutez le script *RegisterGateway.ps1* associé à la variable locale **$Key**, comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+1. Dans Azure PowerShell, accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* . Exécutez le script *RegisterGateway.ps1* associé à la variable locale **$Key**, comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

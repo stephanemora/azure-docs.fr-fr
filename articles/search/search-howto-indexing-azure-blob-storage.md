@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 6f70ae726cf41395e46760dc5cf7da5b4d61478a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 40e3e804d62bfd0ece669ebd46891f0c72dcb71e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802894"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140332"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Comment configurer l’indexation de blobs dans Recherche cognitive
 
@@ -113,6 +113,7 @@ Dans un index de recherche, la clé de document identifie de façon unique chaqu
 > [!IMPORTANT]
 > En l’absence de mappage explicite pour le champ de clé dans l’index, la Recherche cognitive Azure utilise automatiquement `metadata_storage_path` en guise de clé et encode les valeurs de clés en base 64 (la deuxième option ci-dessus).
 >
+> Si vous utilisez une propriété de métadonnées personnalisée comme clé, évitez d’apporter des modifications à cette propriété. Les indexeurs ajoutent des documents en double pour le même objet blob si la propriété de clé est modifiée.
 
 #### <a name="example"></a>Exemple
 

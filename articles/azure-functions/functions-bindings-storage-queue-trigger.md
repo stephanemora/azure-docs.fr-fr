@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: f4477a09f151695b826d0becf28e92ceaf3f9e85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f9f6c18e75b0c8238583742a2a99d0e365edbd0
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453204"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166358"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Déclencheur Stockage File d’attente Azure pour Azure Functions
 
@@ -101,17 +101,17 @@ La section [utilisation](#usage) explique `myQueueItem`, qui est nommé par la p
 
 L’exemple Java suivant montre une fonction de déclencheur de file d’attente de stockage, qui consigne le message déclenché placé dans la file d’attente `myqueuename`.
 
- ```java
- @FunctionName("queueprocessor")
- public void run(
+```java
+@FunctionName("queueprocessor")
+public void run(
     @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
+                queueName = "myqueuename",
+                connection = "myconnvarname") String message,
+    final ExecutionContext context
+) {
+    context.getLogger().info(message);
+}
+```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -166,32 +166,32 @@ Un déclencheur de file d’attente de stockage est défini dans le fichier *fun
 
 ```json
 {
-  "bindings": [
-    {
-      "name": "QueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "messages",
-      "connection": "MyStorageConnectionAppSetting"
-    }
-  ]
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
 }
 ```
 
 Le code du fichier dans *Run.ps1* déclare un paramètre `$QueueItem`, ce qui vous permet de lire le message de la file d’attente dans votre fonction.
 
 ```powershell
-# Input bindings are passed in via param block.
-param([string] $QueueItem, $TriggerMetadata)
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
 
-# Write out the queue message and metadata to the information log.
-Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
-Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
-Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
-Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
-Write-Host "ID: $($TriggerMetadata.Id)"
-Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
-Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -381,7 +381,7 @@ Si vous essayez de lier à `CloudQueueMessage` et obtenez un message d’erreur,
 Les applications qui utilisent la [version 5.0.0 ou ultérieure de l’extension de stockage](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) peuvent également utiliser des types du [SDK Azure pour .NET](/dotnet/api/overview/azure/storage.queues-readme). Cette version ne prend plus en charge le type hérité `CloudQueueMessage`, mais elle prend désormais en charge les types suivants :
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
- 
+
 Pour obtenir des exemples d’utilisation de ces types, consultez [le dépôt GitHub pour l’extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
@@ -390,7 +390,7 @@ Pour obtenir des exemples d’utilisation de ces types, consultez [le dépôt Gi
 
 Accédez aux données du message en utilisant un paramètre de méthode comme `string paramName`. `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
 
-* Objet : le runtime Functions désérialise une charge utile JSON dans une instance d’une classe arbitraire définie dans votre code. 
+* Objet : le runtime Functions désérialise une charge utile JSON dans une instance d’une classe arbitraire définie dans votre code.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -462,7 +462,7 @@ En ce qui concerne la facturation, le temps passé par le runtime à interroger 
 
 Lorsque plusieurs messages de file d’attente attendent, le déclencheur de file d’attente récupère un lot de messages et appelle les instances de fonction simultanément pour les traiter. Par défaut, la taille de lot est de 16. Quand le nombre de messages en cours de traitement descend à 8, le runtime obtient un autre lot et commence à traiter ces messages. Par conséquent, le nombre maximal de messages traités simultanément par fonction sur une machine virtuelle est de 24. Cette limite s’applique séparément à chaque fonction déclenchée par une file d’attente sur chaque machine virtuelle. Si votre application de fonction est étendue à plusieurs machines virtuelles, chaque machine virtuelle attend des déclencheurs et essaie d’exécuter les fonctions. Par exemple, si une application de fonction est étendue à 3 machines virtuelles, le nombre maximal d’instances simultanées d’une fonction déclenché par une file d’attente est par défaut de 72.
 
-La taille du lot et le seuil d’obtention d’un nouveau lot sont configurables dans le [fichier host.json](functions-host-json.md#queues). Si vous souhaitez minimiser l’exécution en parallèle des fonctions déclenchées par une file d’attente dans une application de fonction, vous pouvez définir la taille du lot sur 1. Ce paramètre évite les opérations simultanées uniquement pendant l’exécution de votre application de fonction sur une machine virtuelle unique. 
+La taille du lot et le seuil d’obtention d’un nouveau lot sont configurables dans le [fichier host.json](functions-host-json.md#queues). Si vous souhaitez minimiser l’exécution en parallèle des fonctions déclenchées par une file d’attente dans une application de fonction, vous pouvez définir la taille du lot sur 1. Ce paramètre évite les opérations simultanées uniquement pendant l’exécution de votre application de fonction sur une machine virtuelle unique.
 
 Le déclencheur de la file d’attente empêche automatiquement une fonction de traiter un message de file d’attente plusieurs fois de manière simultanée.
 

@@ -4,14 +4,15 @@ description: Concepts relatifs au journal d’audit pgAudit dans Azure Database 
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 8a36062a2d29bcec10279d73211526a0dcba619e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 224f46f16f03f53009c3f7beb55d252c5ce5e1e7
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702111"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316152"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Journal d’audit dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 

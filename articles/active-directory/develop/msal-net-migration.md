@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 64107c3f667dd7e59fcf6d191e83457029b3a277
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e7dc3540dc54e0563a5ea416510bddb9a41fb65
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100546344"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861694"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -29,9 +29,17 @@ Microsoft Authentication Library pour .NET (MSAL.NET) et Azure AD Authentication
 - votre application peut activer le consentement incrémentiel, et l’accès conditionnel est plus facile à prendre en charge ;
 - vous bénéficiez de l'innovation.
 
-**MSAL.NET est désormais la bibliothèque d'authentification recommandée avec la plateforme d'identités Microsoft**. Aucune nouvelle fonctionnalité ne sera implémentée sur ADAL.NET. Les efforts se focalisent sur l'amélioration de MSAL.
+**MSAL.NET ou Microsoft.Identity.Web sont désormais les bibliothèques d’authentification recommandées à utiliser avec la plateforme d’identités Microsoft**. Aucune nouvelle fonctionnalité ne sera implémentée sur ADAL.NET. Les efforts se focalisent sur l'amélioration de MSAL.
 
 Cet article décrit les différences entre la Bibliothèque d'authentification Microsoft pour .NET (MSAL.NET) et la Bibliothèque d'authentification Azure AD pour .NET (ADAL.NET). Il vous aide également à migrer vers MSAL.
+
+## <a name="should-you-migrate-to-msalnet-or-to-microsoftidentityweb"></a>Faut-il migrer vers MSAL.NET ou vers Microsoft.Identity.Web ?
+
+Avant d’entrer dans les détails de MSAL.NET par rapport à ADAL.NET, vous pouvez vérifier si vous voulez utiliser MSAL.NET ou une abstraction de niveau supérieur comme [Microsoft.Identity.Web](microsoft-identity-web.md).
+
+Pour plus d’informations sur l’arbre de décision ci-dessous, lisez [Should I use MSAL.NET only? or a higher level abstraction?](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Is-MSAL.NET-right-for-me%3F) (Dois-je utiliser uniquement MSAL.NET ou une abstraction de niveau supérieur ?).
+
+:::image type="content" source="media/msal-net-migration/decision-diagram.png" alt-text="Schéma expliquant comment déterminer si vous devez utiliser MSAL.NET ou Microsoft.Identity.Web, ou les deux, lors de la migration à partir d’ADAL.NET":::
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Différences entre les applications ADAL et MSAL
 
@@ -41,7 +49,7 @@ Si vous êtes déjà familiarisé avec le point de terminaison Azure AD pour d�
 
 En revanche, vous devez quand même utiliser ADAL.NET si votre application a besoin de connecter les utilisateurs avec des versions antérieures des [services de fédération Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services). Pour plus d'informations, consultez le [support ADFS](https://aka.ms/msal-net-adfs-support).
 
-L’image suivante résume certaines des différences entre le ![code côte à côte](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png) ADAL.NET et MSAL.NET
+L'image suivante résume certaines des différences entre le ![code côte à côte](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png) ADAL.NET et MSAL.NET d'une application cliente publique
 
 ### <a name="nuget-packages-and-namespaces"></a>Espaces de noms et packages NuGet
 
@@ -120,20 +128,20 @@ Voici les octrois pris en charge ADAL.NET et MSAL.NET pour les applications de b
 
 Accorder | ADAL.NET | MSAL.NET
 ----- |----- | -----
-Interactive | [Authentification interactive](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquisition des jetons de manière interactive dans MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-Authentification Windows intégrée | [Authentification intégrée sur Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication)
-Nom d’utilisateur / mot de passe | [Acquisition des jetons avec un nom d’utilisateur et un mot de passe](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Authentification par nom d’utilisateur et mot de passe](msal-authentication-flows.md#usernamepassword)
-Flux de code d’appareil | [Profil d’appareil pour les appareils sans navigateurs web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Flux de code d’appareil](msal-authentication-flows.md#device-code)
+Interactive | [Authentification interactive](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquisition des jetons de manière interactive dans MSAL.NET](scenario-desktop-acquire-token.md?tabs=dotnet#acquire-a-token-interactively)
+Authentification Windows intégrée | [Authentification intégrée sur Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Authentification Windows intégrée](scenario-desktop-acquire-token.md?tabs=dotnet#integrated-windows-authentication)
+Nom d’utilisateur / mot de passe | [Acquisition des jetons avec un nom d’utilisateur et un mot de passe](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Authentification par nom d’utilisateur et mot de passe](scenario-desktop-acquire-token.md?tabs=dotnet#username-and-password)
+Flux de code d’appareil | [Profil d’appareil pour les appareils sans navigateurs web](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Flux de code d’appareil](scenario-desktop-acquire-token.md?tabs=dotnet#command-line-tool-without-a-web-browser)
 
 #### <a name="confidential-client-applications"></a>Applications clientes confidentielles
 
-Voici les octrois pris en charge dans ADAL.NET et MSAL.NET pour les applications web, les API web et les applications de démon :
+Voici les octrois pris en charge dans ADAL.NET, MSAL.NET et Microsoft.Identity.Web pour les applications web, les API web et les applications démon :
 
 Type d’application | Accorder | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
-Application web, API web, démon | Informations d’identification du client | [Flux d’informations d’identification du client dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Flux d’informations d’identification du client dans MSAL.NET](msal-authentication-flows.md#client-credentials)
-API Web | OBO (On-Behalf-Of) | [Appels de service à service pour le compte de l’utilisateur avec ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [OBO dans MSAL.NET](msal-authentication-flows.md#on-behalf-of)
-Application web | Code d’authentification | [Acquisition des jetons avec des codes d’autorisation sur les applications web avec ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Acquisition des jetons avec des codes d’autorisation sur les applications web avec MSAL.NET](msal-authentication-flows.md#authorization-code)
+Application web, API web, démon | Informations d’identification du client | [Flux d’informations d’identification du client dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Flux d’informations d’identification du client dans MSAL.NET](scenario-daemon-acquire-token.md?tabs=dotnet#acquiretokenforclient-api)
+API Web | OBO (On-Behalf-Of) | [Appels de service à service pour le compte de l’utilisateur avec ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [OBO dans MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/on-behalf-of)
+Application web | Code d’authentification | [Acquisition des jetons avec des codes d’autorisation sur les applications web avec ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Acquisition des jetons avec des codes d’autorisation sur les applications web avec MSAL.NET](scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
 
 ### <a name="cache-persistence"></a>Persistance du cache
 

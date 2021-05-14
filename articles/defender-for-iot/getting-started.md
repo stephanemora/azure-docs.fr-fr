@@ -2,13 +2,13 @@
 title: 'Démarrage rapide : Bien démarrer'
 description: Suivez ce guide de démarrage rapide pour vous familiariser avec le workflow de base du déploiement de Defender pour IoT.
 ms.topic: quickstart
-ms.date: 2/18/2021
-ms.openlocfilehash: aa26ea26a3fb0a08d931657cb7ad236c68972e2f
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.date: 04/17/2021
+ms.openlocfilehash: b1e7686e1d68d5a3f239320930d69f22c78e13cb
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384951"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750443"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Démarrage rapide : Bien démarrer avec Defender pour IoT
 
@@ -17,10 +17,6 @@ Cet article donne une vue d’ensemble de la procédure permettant de configurer
 - Inscrivez votre abonnement et les capteurs sur le Portail Azure Defender pour IoT.
 - Installez le capteur et le logiciel de la console de gestion locale.
 - Effectuez l’activation initiale du capteur et de la console de gestion.
-
-## <a name="prerequisites"></a>Prérequis
-
-- Aucun
 
 ## <a name="permission-requirements"></a>Spécifications relatives aux autorisations
 
@@ -32,7 +28,7 @@ Le tableau suivant décrit les autorisations d’accès utilisateur aux outils d
 
 | Autorisation | Lecteur de sécurité | Administrateur de sécurité | Collaborateur de l’abonnement | Propriétaire de l’abonnement |
 |--|--|--|--|--|
-| Afficher tous les écrans et toutes les données Defender pour IoT | ✓ | ✓ | ✓ | ✓ |
+| Afficher les détails et accéder aux logiciels, aux fichiers d’activation et aux packages Threat Intelligence  | ✓ | ✓ | ✓ | ✓ |
 | Intégrer un capteur  |  |  ✓ | ✓ | ✓ |
 | Mettre à jour le tarif  |  |  ✓ | ✓ | ✓ |
 | Récupérer le mot de passe  | ✓  |  ✓ | ✓ | ✓ |
@@ -85,21 +81,20 @@ Pour installer et configurer la console de gestion, procédez comme suit :
 1. Installez le logiciel de la console de gestion locale. Pour plus d’informations, consultez [Installation de Defender pour IoT](how-to-install-software.md).
 1. Activez et configurez la console de gestion. Pour plus d’informations, consultez [Activation et configuration de la console de gestion locale](how-to-activate-and-set-up-your-on-premises-management-console.md).
 
-## <a name="onboard-a-sensor"></a>Intégrer un capteur
+## <a name="onboard-a-sensor"></a>Intégrer un capteur ##
 
 Intégrez un capteur en l’inscrivant auprès d’Azure Defender pour IoT et en téléchargeant un fichier d’activation de capteur :
 
 1. Définissez un nom de capteur et associez-le à un abonnement.
+1. Choisissez un mode de connexion du capteur :
 
-1. Choisissez un mode d’administration du capteur :
+   - **Capteurs connectés au cloud** : les informations détectées par les capteurs s’affichent dans la console de ces derniers. Par ailleurs, les données des alertes, transmises par le biais d’un hub IoT, sont partageables avec d’autres services Azure, comme Azure Sentinel.  Vous pouvez également choisir d’envoyer automatiquement des packages Threat Intelligence à partir du portail Azure Defender pour IoT vers vos capteurs. Pour plus d’informations, consultez [Recherche et packages Threat Intelligence](how-to-work-with-threat-intelligence-packages.md).
 
-   - **Capteurs connectés au cloud** : les informations détectées par les capteurs s’affichent dans la console de ces derniers. Par ailleurs, les données des alertes, transmises par le biais d’un hub IoT, sont partageables avec d’autres services Azure, comme Azure Sentinel.
-
-   - **Capteurs gérés localement** : les informations détectées par les capteurs s’affichent dans la console de ces derniers. Si vous travaillez sur un réseau en air gap et que vous souhaitez une vue unifiée de toutes les informations détectées par plusieurs capteurs gérés localement, utilisez la console de gestion locale. 
+   - **Capteurs gérés localement** : Les informations détectées par les capteurs s’affichent dans leur console. Si vous travaillez sur un réseau en air gap et que vous souhaitez une vue unifiée de toutes les informations détectées par plusieurs capteurs gérés localement, utilisez la console de gestion locale.
 
 1. Téléchargez un fichier d’activation de capteur.
 
-Pour plus d’informations, consultez [Intégration et gestion des capteurs sur le portail Defender for IoT](how-to-manage-sensors-on-the-cloud.md).
+Pour plus d’informations sur l’intégration, consultez [Intégrer et gérer des capteurs dans le portail Defender pour IoT](how-to-manage-sensors-on-the-cloud.md).
 
 ## <a name="install-and-set-up-the-sensor"></a>Installation et configuration du capteur
 
@@ -131,8 +126,8 @@ Pour plus d’informations, consultez [Connexion des capteurs à la console de g
 
 Envoyez des informations d’alerte à Azure Sentinel en configurant ce dernier. Consultez [Connexion des données de Defender pour IoT à Azure Sentinel](how-to-configure-with-sentinel.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes ##
 
-> [!div class="nextstepaction"]
-> [Bienvenue dans Azure Defender pour IoT](overview.md)
-> [Architecture d’Azure Defender pour IoT](architecture.md)
+[Bienvenue sur Azure Defender pour IoT](overview.md)
+
+[Architecture de Azure Defender pour IoT](architecture.md)

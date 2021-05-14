@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 50ecf6e394d5d19d09033554272023bd6796851b
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 295579d17f3b24adcf43f6907cc4b1aca01dcae2
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581227"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565914"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Déployer une machine virtuelle avec le lancement fiable activé (préversion)
 
@@ -41,22 +41,20 @@ Créez une machine virtuelle avec le lancement fiable activé.
 5. Sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné.
 6. Sous **Groupe de ressources**, sélectionnez **Créer** et spécifiez un nom pour votre groupe de ressources ou sélectionnez un groupe de ressources existant dans la liste déroulante.
 7. Sous **Détails de l’instance**, spécifiez un nom pour la machine virtuelle et choisissez une région qui prend en charge le [lancement fiable](trusted-launch.md#public-preview-limitations).
-8. Sous **Image**, sélectionnez une [image de génération 2 qui prend en charge le lancement fiable](trusted-launch.md#public-preview-limitations). 
+8. Sous **Image**, sélectionnez une [image de génération 2 qui prend en charge le lancement fiable](trusted-launch.md#public-preview-limitations). Vérifiez que le message suivant s’affiche : **This image supports trusted launch preview. Configure in the Advanced tab** (Cette image prend en charge la préversion du lancement fiable. Configurez-la sous l’onglet Avancé).
    > [!TIP]
    > Si vous ne voyez pas la version génération 2 de l’image que vous souhaitez dans la liste déroulante, sélectionnez **Afficher toutes les images** , puis modifiez le filtre de **génération de machine virtuelle** pour afficher uniquement les images de la génération 2. Recherchez l’image dans la liste, puis utilisez la liste déroulante **Sélectionner** pour sélectionner la version génération 2.
- 
+
+    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Capture d’écran montrant le message qui confirme qu’il s’agit d’une image de génération 2 (Gen2) qui prend en charge le lancement fiable.":::
+
+13. Sélectionnez une taille de machine virtuelle qui prend en charge le lancement fiable. Consultez la liste des [tailles prises en charge](trusted-launch.md#public-preview-limitations).
+14. Renseignez les informations du **Compte d’administrateur**, puis les **Règles de port entrant**. 
 1. Basculez vers l’onglet **Avancé** en le sélectionnant en haut de la page.
 1. Descendez jusqu’à la section **Génération de machine virtuelle**. Assurez-vous que **Génération 2** est sélectionné.
 1. Toujours sous l’onglet **Avancé**, faites défiler jusqu’à **Lancement fiable**, puis cochez la case **Lancement fiable**. Deux options supplémentaires s’affichent : Amorçage sécurisé et vTPM. Sélectionnez les options appropriées pour votre déploiement.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Capture d’écran montrant les options pour le lancement fiable.":::
 
-12. Revenez à l’onglet **Général**, sous **Image**, et vérifiez que le message suivant s’affiche : **This image supports trusted launch preview. Configure in the Advanced tab** (Cette image prend en charge la préversion du lancement fiable. Effectuez la configuration dans l’onglet Avancé). L’image Gen 2 doit maintenant être sélectionnée.
-
-    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Capture d’écran montrant le message qui confirme qu’il s’agit d’une image de génération 2 (Gen2) qui prend en charge le lancement fiable.":::
-
-13. Sélectionnez une taille de machine virtuelle qui prend en charge le lancement fiable. Consultez la liste des [tailles prises en charge](trusted-launch.md#public-preview-limitations).
-14. Renseignez les informations du **Compte d’administrateur**, puis les **Règles de port entrant**.
 15. Au bas de la page, sélectionnez **Vérifier + créer**
 16. Sur la page **Créer une machine virtuelle**, vous pouvez voir les détails de la machine virtuelle que vous allez déployer. Lorsque vous êtes prêt, sélectionnez **Créer**.
 

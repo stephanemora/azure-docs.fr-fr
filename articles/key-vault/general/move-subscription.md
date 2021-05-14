@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 65dc9da03a6b763d419c51e53bf756550e8b56a4
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 1a1cd8c051f9e04c09ef2986805873d8e7fea54e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751847"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817627"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -123,5 +123,5 @@ Si vous utilisez une identité managée, vous devrez également mettre à jour l
 - En savoir plus sur les [clés, secrets et certificats](about-keys-secrets-certificates.md)
 - Pour obtenir des informations conceptuelles, notamment sur l’interprétation des journaux Key Vault, consultez [Journalisation de Key Vault](logging.md).
 - [Guide du développeur Key Vault](../general/developers-guide.md)
-- [Sécurisez votre coffre de clés](security-overview.md)
+- [Fonctionnalités de sécurité pour Azure Key Vault](security-features.md)
 - [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](network-security.md)

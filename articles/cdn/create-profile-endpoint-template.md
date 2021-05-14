@@ -9,15 +9,15 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
-ms.date: 06/25/2020
+ms.custom: subject-armqs
+ms.date: 05/10/2021
 ms.author: allensu
-ms.openlocfilehash: 31f0510ed50c9d48a46524a353d7c872b368f75c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 01aef74b5a4242f5d9b3213c447116e5c4b382ac
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779036"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751686"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Démarrage rapide : Créer un profil et un point de terminaison Azure CDN - Modèle ARM
 
@@ -27,7 +27,7 @@ Pour commencer avec Azure Content Delivery Network (CDN), utilisez un modèle AR
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Fcdn-with-custom-origin%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,7 +42,7 @@ Ce modèle est configuré pour créer les éléments suivants :
 * Profil
 * Point de terminaison
 
-:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cdn/cdn-with-custom-origin/azuredeploy.json":::
 
 Une seule ressource Azure est définie dans le modèle :
 
@@ -55,7 +55,7 @@ Une seule ressource Azure est définie dans le modèle :
 ```azurecli-interactive
 read -p "Enter the location (i.e. eastus): " location
 resourceGroupName="myResourceGroupCDN"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cdn-with-custom-origin/azuredeploy.json" 
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.cdn/cdn-with-custom-origin/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \
@@ -70,7 +70,7 @@ az deployment group create \
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cdn-with-custom-origin/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.cdn/cdn-with-custom-origin/azuredeploy.json"
 
 $resourceGroupName = "myResourceGroupCDN"
 
@@ -80,7 +80,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### <a name="portal"></a>Portail
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Fcdn-with-custom-origin%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
@@ -100,7 +100,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 Quand vous n’en avez plus besoin, utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources et toutes les ressources qu’il contient.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete \
     --name myResourceGroupCDN
 ```
@@ -109,7 +109,7 @@ Quand vous n’en avez plus besoin, utilisez la commande [az group delete](/cli/
 
 Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient.
 
-```azurepowershell-interactive 
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupCDN
 ```
 

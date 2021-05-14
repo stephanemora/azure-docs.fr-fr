@@ -8,20 +8,18 @@ ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: fee77b799ce0e415d8a968ef623f35d5ac31c6ee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b26c0631ed8a8982578d1c910d40689ff27dcc91
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726853"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903153"
 ---
 # <a name="quickstart-add-joining-a-teams-meeting-to-your-app"></a>Démarrage rapide : Ajouter à votre application la participation à une réunion Teams
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Découvrez Azure Communication Services en utilisant le kit SDK Intégration des équipes Communication Services pour ajouter des réunions Teams à votre application. 
-
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Teams Embed with Android](./includes/get-started-android.md)]

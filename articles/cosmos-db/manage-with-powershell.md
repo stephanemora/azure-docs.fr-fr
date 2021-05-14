@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/25/2021
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 2d99a760e3bf44febcee05bf9827479616bf7bd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f967c5b40facbcbfe21ae87ae962241632135c34
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93333424"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228198"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Gérer les ressources de l’API Azure Cosmos DB Core (SQL) à l’aide de PowerShell
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -120,6 +120,8 @@ Cette commande vous permet de mettre à jour les propriétés de votre compte de
 > Vous ne pouvez pas ajouter ou supprimer simultanément des régions (`locations`) et changer d’autres propriétés pour un compte Azure Cosmos. La modification des régions est une opération qui doit être effectuée séparément de toute autre modification apportée au compte.
 > [!NOTE]
 > Cette commande vous permet d’ajouter ou de supprimer des régions, mais ne vous permet pas de modifier des priorités de basculement ni de déclencher un basculement manuel. Consultez [Modifier la priorité de basculement](#modify-failover-priority) et [Déclencher un basculement manuel](#trigger-manual-failover).
+> [!TIP]
+> Lorsqu'une nouvelle région est ajoutée, toutes les données doivent y être entièrement répliquées et validées avant qu'elle ne soit marquée comme disponible. Le temps nécessaire à cette opération dépend de la quantité de données stockées dans le compte.
 
 ```azurepowershell-interactive
 # Create account with two regions

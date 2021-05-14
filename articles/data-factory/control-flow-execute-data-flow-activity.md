@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/11/2021
-ms.openlocfilehash: 3e48eee5bf36732edc4f897103cb72bbbe75a5c3
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/16/2021
+ms.openlocfilehash: da8d193d140d96d9742666429ebc85672c71ad4e
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306311"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567262"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -125,7 +125,7 @@ Vous pouvez paramétrer le nombre de cœurs ou le type de calcul si vous utilise
 
 Pour effectuer une exécution de débogage de pipeline à l’aide d’une activité de flux de données, vous devez passer en mode de débogage de flux de données à l’aide du curseur **Débogage de flux de données** dans la barre supérieure. Le mode débogage vous permet d’exécuter le flux de données sur un cluster Spark actif. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
 
-![Bouton Déboguer](media/data-flow/debugbutton.png "Bouton Déboguer")
+![Capture d’écran montrant où se trouve le bouton Débogage](media/data-flow/debug-button-3.png)
 
 Le pipeline de débogage s’exécute sur le cluster de débogage actif, et non sur l’environnement de runtime d’intégration spécifié dans les paramètres d’activité de flux de données. Vous pouvez choisir l’environnement de calcul de débogage lors du démarrage du mode de débogage.
 

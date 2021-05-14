@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9424162e847a9d92019efe907ce74f21c55cdb23
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102608816"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226243"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -413,7 +413,7 @@ Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Sen
 
 ## <a name="servicebus"></a>serviceBus
 
-Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Service Bus](functions-bindings-service-bus-output.md#host-json).
+Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Service Bus](functions-bindings-service-bus.md#host-json).
 
 ## <a name="singleton"></a>singleton
 

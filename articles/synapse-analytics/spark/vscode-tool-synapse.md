@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: e5d335ee14709ec330405419f5be8ac5fbd6ce75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83d8d6498a5ec4906f7cdd7187ae88e4a2f45126
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943763"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318024"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutoriel : Créer des applications Apache Spark avec VSCode à l’aide d’un espace de travail Synapse
 
@@ -84,7 +84,9 @@ Suivez ces étapes pour vous connecter à Azure :
 
 4. [Connectez-vous](#connect-to-your-spark-pools) à votre compte Azure, si ce n’est déjà fait.
 
-5. Sélectionnez un pool Spark comme pool Spark par défaut pour le fichier de script actuel. Les outils mettent automatiquement à jour le fichier de configuration **.VSCode\settings.json** :
+5. Sélectionnez un pool Spark comme pool Spark par défaut pour le fichier de script actuel. 
+
+6. Utilisez **Synapse : PySpark Interactive** pour envoyer ce fichier. Les outils mettent alors automatiquement à jour le fichier de configuration **.VSCode\settings.json** :
 
      ![Définir une configuration de cluster par défaut](./media/vscode-tool-synapse/set-default-cluster-configuration.png)
 

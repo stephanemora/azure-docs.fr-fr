@@ -3,15 +3,15 @@ title: Démarrer une machine virtuelle lors de la connexion – Azure
 description: Comment configurer la fonctionnalité de démarrage de machine virtuelle lors de la connexion.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 04/23/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 05500ded7512b54446d153e37233e4889b3107ff
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389806"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949185"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Démarrer une machine virtuelle lors de la connexion (préversion)
 
@@ -19,7 +19,7 @@ ms.locfileid: "107389806"
 > La fonctionnalité de démarrage de machine virtuelle lors de la connexion est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La fonctionnalité de démarrage de machine virtuelle lors de la connexion (préversion) vous aide à réduire les coûts en vous permettant de libérer vos machines virtuelles quand vous ne les utilisez pas. Quand vous avez besoin d’utiliser à nouveau une machine virtuelle, il vous suffit de la réactiver.
+La fonctionnalité Démarrer la machine virtuelle à la connexion (préversion) vous permet de réduire les coûts en permettant aux utilisateurs finaux d’activer leurs machines virtuelles uniquement quand ils en ont besoin. Vous pouvez ensuite désactiver les machines virtuelles lorsqu’elles ne sont pas nécessaires.
 
 >[!NOTE]
 >Windows Virtual Desktop (classique) ne prend pas en charge cette fonctionnalité.
@@ -32,6 +32,8 @@ Les clients Bureau à distance prenant en charge la fonctionnalité de démarrag
 
 - [client web](connect-web.md) ;
 - [client Windows (version 1.2748 ou ultérieure)](connect-windows-7-10.md).
+- [Le client Android (version 10.0.10 ou ultérieure)](connect-android.md)
+- [Le client macOS (version 10.6.4 ou ultérieure)](connect-macos.md)
 
 Vous pouvez trouver des annonces sur les mises à jour et la prise en charge de client sur le [Forum Tech Community](https://aka.ms/wvdtc).
 

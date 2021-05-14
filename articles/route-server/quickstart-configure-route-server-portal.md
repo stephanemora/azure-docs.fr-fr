@@ -7,16 +7,18 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: f76c48af4f5ebc8013daad457f9973cf7792c7c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e7572f5f39655cd6fae8a6528cacd2e074a002b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547988"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950403"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>Démarrage rapide : Créer et configurer Route Server en utilisant le portail Azure
 
 Cet article vous aide à configurer Azure Route Server pour effectuer un appairage avec une appliance virtuelle réseau (NVA) dans votre réseau virtuel en utilisant le portail Azure. Azure Route Server va apprendre les routes provenant de l’appliance virtuelle réseau et il les programmera sur les machines virtuelles du réseau virtuel. Azure Route Server publiera également les routes du réseau virtuel menant à l’appliance virtuelle réseau. Pour plus d’informations, consultez [Azure Route Server](overview.md).
+
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement du serveur de routes avec le portail Azure." border="false":::
 
 > [!IMPORTANT]
 > Azure Route Server (préversion) est en préversion publique.

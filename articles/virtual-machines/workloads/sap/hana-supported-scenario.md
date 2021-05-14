@@ -3,7 +3,7 @@ title: Scénarios pris en charge pour SAP HANA sur Azure (grandes instances) | M
 description: Scénarios pris en charge avec les détails de leur architecture pour SAP HANA sur Azure (grandes instances)
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/26/2019
-ms.author: saghorpa
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a49c55da0bb8018b3faa7c6f70b02e79d9478603
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e1868514919cdb40a0ac607b446ab944e8c36da
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666685"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738839"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scénario pris en charge pour des grandes instances HANA
 Cet article décrit les scénarios pris en charge et les détails de l’architecture des grandes instances HANA (HLI).

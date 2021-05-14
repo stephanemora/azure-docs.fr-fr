@@ -3,13 +3,13 @@ title: Supprimer un groupe de ressources et des ressources
 description: Décrit comment supprimer des groupes de ressources et des ressources. Décrit comment Azure Resource Manager organise la suppression des ressources pendant la suppression d’un groupe de ressources. Décrit les codes de réponse et comment Resource Manager les gère pour déterminer si la suppression a réussi.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.custom: seodec18
-ms.openlocfilehash: 3c062c2f775e145347129f24b201748ee517daf4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: ccf5a9b1fac50dbf96d648acbf625b360bafb249
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768666"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315234"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Suppression d’un groupe de ressources et de ressources Azure Resource Manager
 

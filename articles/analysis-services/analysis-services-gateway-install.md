@@ -4,20 +4,20 @@ description: Découvrez comment installer et configurer une passerelle de donné
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 43e5b64d06a6ec145876798b2e0da6499ab94bfc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3128b9f7ae628a0a1974bb30cf87014e269ea466
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769226"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130328"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 
-Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales.  Bien que la passerelle que vous installez soit identique à celle utilisée par d’autres services tels que Power BI, Power Apps et Logic Apps, lors de son installation pour Azure Analysis Services, vous devez effectuer certaines étapes supplémentaires. Cet article sur l’installation est spécifique d’**Azure Analysis Services**. 
+Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Bien que la passerelle que vous installez soit identique à celle utilisée par d’autres services tels que Power BI, Power Apps et Logic Apps, lors de son installation pour Azure Analysis Services, vous devez effectuer certaines étapes supplémentaires. Cet article sur l’installation est spécifique d’**Azure Analysis Services**. 
 
 Pour en savoir plus sur le fonctionnement d’Azure Analysis Services avec la passerelle, voir [Connexion à des sources de données locales](analysis-services-gateway.md). Pour en savoir plus sur les scénarios d’installation avancée et la passerelle en général, voir la [Documentation sur les passerelles de données locales](/data-integration/gateway/service-gateway-onprem).
 
@@ -156,6 +156,7 @@ Vous avez terminé. Si vous devez ouvrir des ports ou effectuer des opérations 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Gérer Analysis Services](analysis-services-manage.md)   
-* [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)   
-* [Utiliser la passerelle pour les sources de données sur un réseau virtuel Azure](analysis-services-vnet-gateway.md)
+* [Connexion à des sources de données locales](analysis-services-gateway.md)   
+* [Sources de données prises en charge dans Azure Analysis Services](analysis-services-datasource.md)   
+* [Utiliser la passerelle pour les sources de données sur un réseau virtuel Azure](analysis-services-vnet-gateway.md)   
+* [Forum aux questions sur la connectivité réseau Analysis Services](analysis-services-network-faq.md) 

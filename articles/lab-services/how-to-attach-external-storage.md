@@ -5,16 +5,16 @@ author: emaher
 ms.topic: article
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 888e04db76567051f8c5eae7cf94c77e684cb146
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 70be69cad59cd00ef9feaa78ad2294c64626d07a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110940"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125676"
 ---
 # <a name="using-external-file-storage-in-lab-services"></a>Utilisation du stockage de fichiers externes dans Lab Services
 
-Cet article aborde certaines des options de stockage de fichiers externes lors de l’utilisation d’Azure Lab Services.  [Azure Files](https://azure.microsoft.com/services/storage/files/) fournit des partages de fichiers entièrement managés dans le cloud, [accessibles via SMB 2.1 et SMB 3.0.](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)  Un partage Azure Files peut être connecté publiquement ou en privé au sein d’un réseau virtuel.  En outre, il peut être configuré pour utiliser les informations d’identification AD d’étudiant pour la connexion au partage de fichiers.  L’utilisation d’Azure NetApp Files avec des volumes NFS pour les machines Linux est une autre option pour le stockage de fichiers externes avec Azure Lab Services.  
+Cet article aborde certaines des options de stockage de fichiers externes lors de l’utilisation d’Azure Lab Services.  [Azure Files](https://azure.microsoft.com/services/storage/files/) fournit des partages de fichiers entièrement managés dans le cloud, [accessibles via SMB 2.1 et SMB 3.0.](../storage/files/storage-how-to-use-files-windows.md)  Un partage Azure Files peut être connecté publiquement ou en privé au sein d’un réseau virtuel.  En outre, il peut être configuré pour utiliser les informations d’identification AD d’étudiant pour la connexion au partage de fichiers.  L’utilisation d’Azure NetApp Files avec des volumes NFS pour les machines Linux est une autre option pour le stockage de fichiers externes avec Azure Lab Services.  
 
 ## <a name="deciding-which-solution-to-use"></a>Choix de la solution à utiliser
 
@@ -46,16 +46,16 @@ Si vous utilisez un point de terminaison privé pour le partage Azure Files, il 
 - Cette approche nécessite que le réseau virtuel de partage de fichiers soit homologué au compte de labo.  Le réseau virtuel pour le compte de stockage Azure doit être homologué au réseau virtuel pour le compte de labo **avant** la création du labo.
 
 > [!NOTE]
-> Les partages de fichiers supérieurs à 5 To sont disponibles uniquement pour les [[comptes de stockage localement redondant (LRS)]](/azure/storage/files/storage-files-how-to-create-large-file-share#restrictions).
+> Les partages de fichiers supérieurs à 5 To sont disponibles uniquement pour les [[comptes de stockage localement redondant (LRS)]](../storage/files/storage-files-how-to-create-large-file-share.md#restrictions).
 
 Procédez comme suit pour créer une machine virtuelle connectée à un partage Azure Files.
 
-1. Créez un [Compte de stockage Azure](/azure/storage/files/storage-how-to-create-file-share). Sur la page « méthode de connectivité », choisissez un point de terminaison public ou privé.
-2. Le cas échéant, créez un [point de terminaison privé](/azure/private-link/create-private-endpoint-storage-portal) afin que les partages de fichiers soient accessibles à partir du réseau virtuel.  Créez une [zone DNS privée](/azure/dns/private-dns-privatednszone) ou utilisez-en une existante. Les zones Azure DNS privées fournissent une résolution de noms au sein d’un réseau virtuel.
-3. Créez un [partage de fichiers Azure](/azure/storage/files/storage-how-to-create-file-share). Le partage de fichiers est accessible par le nom d’hôte public du compte de stockage.
+1. Créez un [Compte de stockage Azure](../storage/files/storage-how-to-create-file-share.md). Sur la page « méthode de connectivité », choisissez un point de terminaison public ou privé.
+2. Le cas échéant, créez un [point de terminaison privé](../private-link/tutorial-private-endpoint-storage-portal.md) afin que les partages de fichiers soient accessibles à partir du réseau virtuel.  Créez une [zone DNS privée](../dns/private-dns-privatednszone.md) ou utilisez-en une existante. Les zones Azure DNS privées fournissent une résolution de noms au sein d’un réseau virtuel.
+3. Créez un [partage de fichiers Azure](../storage/files/storage-how-to-create-file-share.md). Le partage de fichiers est accessible par le nom d’hôte public du compte de stockage.
 4. Montez le partage de fichiers Azure dans le modèle de machine virtuelle :
-    - [[Windows]](/azure/storage/files/storage-how-to-use-files-windows)
-    - [[Linux]](/azure/storage/files/storage-how-to-use-files-linux).  Pour éviter les problèmes de montage sur les machines virtuelles des étudiants, consultez [Utilisation d’Azure files avec Linux](#using-azure-files-with-linux).
+    - [[Windows]](../storage/files/storage-how-to-use-files-windows.md)
+    - [[Linux]](../storage/files/storage-how-to-use-files-linux.md).  Pour éviter les problèmes de montage sur les machines virtuelles des étudiants, consultez [Utilisation d’Azure files avec Linux](#using-azure-files-with-linux).
 5. [Publiez](how-to-create-manage-template.md#publish-the-template-vm) le modèle de machine virtuelle.
 
 > [!IMPORTANT]
@@ -98,14 +98,14 @@ Si le modèle de machine virtuelle déjà publié monte le partage Azure Files d
 
 Les étudiants doivent exécuter `mount -a` pour remonter les répertoires.
 
-Pour plus d’informations générales sur l’utilisation de partages de fichiers avec Linux, consultez [utiliser Azure Files avec Linux](/azure/storage/files/storage-how-to-use-files-linux).
+Pour plus d’informations générales sur l’utilisation de partages de fichiers avec Linux, consultez [utiliser Azure Files avec Linux](../storage/files/storage-how-to-use-files-linux.md).
 
 ## <a name="azure-files-with-identity-base-authorization"></a>Azure Files avec l’autorisation basée sur l’identité
 
 Les partages Azure Files sont également accessibles à l’aide de l’authentification AD si
 
 1. La machine virtuelle de l’étudiant est jointe au domaine.
-2. L’authentification AD est [activée sur le compte de stockage Azure](/azure/storage/files/storage-files-active-directory-overview) qui héberge le partage de fichiers.  
+2. L’authentification AD est [activée sur le compte de stockage Azure](../storage/files/storage-files-active-directory-overview.md) qui héberge le partage de fichiers.  
 
 Le lecteur réseau est monté sur la machine virtuelle à l’aide de l’identité de l’utilisateur, et non de la clé du compte de stockage.  L’accès au compte de stockage peut utiliser des points de terminaison publics ou privés.
 
@@ -125,13 +125,13 @@ Si vous utilisez un point de terminaison privé pour le partage Azure Files, il 
 
 Suivez les étapes ci-dessous pour créer un partage Azure Files et une jonction de domaine aux machines virtuelles du labo activés par authentification AD.
 
-1. Créez un [Compte de stockage Azure](/azure/storage/files/storage-how-to-create-file-share).
-2. Le cas échéant, créez un [point de terminaison privé](/azure/private-link/create-private-endpoint-storage-portal) afin que les partages de fichiers soient accessibles à partir du réseau virtuel.  Créez une [zone DNS privée](/azure/dns/private-dns-privatednszone) ou utilisez-en une existante. Les zones Azure DNS privées fournissent une résolution de noms au sein d’un réseau virtuel.
-3. Créez un [partage de fichiers Azure](/azure/storage/files/storage-how-to-create-file-share).
-4. Suivez les étapes pour activer l’autorisation basée sur l’identité.  Si vous utilisez AD local synchronisé avec Azure AD, suivez les étapes pour [l’authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure](/azure/storage/files/storage-files-identity-auth-active-directory-enable).  Si vous utilisez Azure AD uniquement, suivez les étapes pour [activer l’authentification Azure Active Directory Domain Services sur Azure Files](/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable).
+1. Créez un [Compte de stockage Azure](../storage/files/storage-how-to-create-file-share.md).
+2. Le cas échéant, créez un [point de terminaison privé](../private-link/tutorial-private-endpoint-storage-portal.md) afin que les partages de fichiers soient accessibles à partir du réseau virtuel.  Créez une [zone DNS privée](../dns/private-dns-privatednszone.md) ou utilisez-en une existante. Les zones Azure DNS privées fournissent une résolution de noms au sein d’un réseau virtuel.
+3. Créez un [partage de fichiers Azure](../storage/files/storage-how-to-create-file-share.md).
+4. Suivez les étapes pour activer l’autorisation basée sur l’identité.  Si vous utilisez AD local synchronisé avec Azure AD, suivez les étapes pour [l’authentification Active Directory Domain Services locale sur SMB pour les partages de fichiers Azure](../storage/files/storage-files-identity-auth-active-directory-enable.md).  Si vous utilisez Azure AD uniquement, suivez les étapes pour [activer l’authentification Azure Active Directory Domain Services sur Azure Files](../storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md).
     >[!IMPORTANT]
     >Contactez l’équipe qui gère votre AD pour vérifier que toutes les conditions préalables répertoriées dans les instructions sont remplies.
-5. Affectez des rôles d’autorisation de partage SMB dans Azure.  Pour plus d’informations sur les autorisations accordées à chaque rôle, consultez les [autorisations au niveau du partage](/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+5. Affectez des rôles d’autorisation de partage SMB dans Azure.  Pour plus d’informations sur les autorisations accordées à chaque rôle, consultez les [autorisations au niveau du partage](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
     1. Le rôle « Contributeur avec élévation de privilèges du partage SMB de données de fichiers de stockage » doit être attribué à la personne ou au groupe qui configure des autorisations pour le contenu du partage de fichiers.
     2. Le rôle « Contributeur de partage SMB de données de fichiers de stockage » doit être attribué aux étudiants qui doivent ajouter ou modifier des fichiers sur le partage de fichiers.
     3. Le rôle « Lecteur de partage SMB des données de fichiers de stockage » doit être attribué aux étudiants qui doivent uniquement lire les fichiers à partir du partage de fichiers.
@@ -147,7 +147,7 @@ Suivez les étapes ci-dessous pour créer un partage Azure Files et une jonction
 10. Sur la machine modèle, téléchargez et exécutez le script pour [joindre les machines des étudiants au domaine](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Scripts/ActiveDirectoryJoin/README.md#usage).  Le script `Join-AzLabADTemplate` [publie automatiquement le modèle de machine virtuelle](how-to-create-manage-template.md#publish-the-template-vm).  
     > [!NOTE]
     > Le modèle de machine n’est pas joint au domaine. Les formateurs doivent s’attribuer une machine virtuelle d’étudiant publiée pour afficher les fichiers sur le partage.
-11. Les étudiants qui utilisent Windows peuvent se connecter au partage Azure Files à l’aide de l'[Explorateur de fichiers](/azure/storage/files/storage-how-to-use-files-windows) avec leurs informations d’identification, une fois le chemin d’accès au partage de fichiers spécifié.  Les étudiants peuvent également exécuter le script créé ci-dessus pour se connecter au lecteur réseau.  Pour les étudiants qui utilisent Linux, exécutez le script créé ci-dessus.
+11. Les étudiants qui utilisent Windows peuvent se connecter au partage Azure Files à l’aide de l'[Explorateur de fichiers](../storage/files/storage-how-to-use-files-windows.md) avec leurs informations d’identification, une fois le chemin d’accès au partage de fichiers spécifié.  Les étudiants peuvent également exécuter le script créé ci-dessus pour se connecter au lecteur réseau.  Pour les étudiants qui utilisent Linux, exécutez le script créé ci-dessus.
 
 ## <a name="netapp-files-with-nfs-volumes"></a>NetApp Files avec volumes NFS
 
@@ -162,7 +162,7 @@ Suivez les étapes ci-dessous pour créer un partage Azure Files et une jonction
 Suivez les étapes ci-dessous pour utiliser un partage Azure NetApp Files dans Azure Lab Services.
 
 1. Intégrez à [Azure NetApp Files](https://aka.ms/azurenetappfiles), si nécessaire.
-2. Pour créer un pool de capacité NetApp Files et un ou plusieurs volumes NFS, consultez [configurer Azure NetApp Files et le volume NFS](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes).  Pour plus d’informations sur les niveaux de service, consultez [niveaux de service pour Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-service-levels).
+2. Pour créer un pool de capacité NetApp Files et un ou plusieurs volumes NFS, consultez [configurer Azure NetApp Files et le volume NFS](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).  Pour plus d’informations sur les niveaux de service, consultez [niveaux de service pour Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md).
 3. [Homologuez le réseau virtuel](how-to-connect-peer-virtual-network.md) pour le pool de capacité NetApp Files sur le compte de labo.
 4. [Créez le laboratoire de classe](how-to-manage-classroom-labs.md).
 5. Sur le modèle de machine virtuelle, installez les composants nécessaires pour utiliser des partages de fichiers NFS.
@@ -179,7 +179,7 @@ Suivez les étapes ci-dessous pour utiliser un partage Azure NetApp Files dans A
         sudo yum install nfs-utils
         ```
 
-6. Sur le modèle de machine virtuelle, enregistrez le script ci-dessous sous `mount_fileshare.sh` pour [monter le partage NetApp Files](/azure/azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines).  Affectez la variable `capacity_pool_ipaddress` à l’adresse IP cible de montage pour le pool de capacité.  Obtenez les instructions de montage pour le volume afin de trouver la valeur appropriée.  Le script attend le chemin d’accès/nom du volume NetApp Files.  N’oubliez pas d’exécuter `chmod u+x mount_fileshare.sh` pour vous assurer que le script peut être exécuté par les utilisateurs.
+6. Sur le modèle de machine virtuelle, enregistrez le script ci-dessous sous `mount_fileshare.sh` pour [monter le partage NetApp Files](../azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  Affectez la variable `capacity_pool_ipaddress` à l’adresse IP cible de montage pour le pool de capacité.  Obtenez les instructions de montage pour le volume afin de trouver la valeur appropriée.  Le script attend le chemin d’accès/nom du volume NetApp Files.  N’oubliez pas d’exécuter `chmod u+x mount_fileshare.sh` pour vous assurer que le script peut être exécuté par les utilisateurs.
 
     ```bash
     #!/bin/bash
@@ -205,7 +205,7 @@ Suivez les étapes ci-dessous pour utiliser un partage Azure NetApp Files dans A
 
 7. Si tous les étudiants partagent l’accès au même volume NetApp Files, le script `mount_fileshare.sh` peut être exécuté sur le modèle de machine avant la publication.  Si les étudiants obtiennent chacun leur propre volume, enregistrez le script pour qu’il soit exécuté ultérieurement par l’étudiant.
 8. [Publiez](how-to-create-manage-template.md#publish-the-template-vm) le modèle de machine virtuelle.
-9. [Configurez la stratégie](/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) pour le partage de fichiers.  La stratégie d’exportation peut permettre à une seule machine virtuelle ou à plusieurs machines virtuelles d’accéder à un volume.  L’accès en lecture seule ou en lecture/écriture peut être accordé.
+9. [Configurez la stratégie](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) pour le partage de fichiers.  La stratégie d’exportation peut permettre à une seule machine virtuelle ou à plusieurs machines virtuelles d’accéder à un volume.  L’accès en lecture seule ou en lecture/écriture peut être accordé.
 10. Les étudiants doivent démarrer leur machine virtuelle et exécuter le script pour monter le partage de fichiers.  Ils n’ont à exécuter le script qu’une seule fois.  La commande ressemble à ceci : `./mount_fileshare.sh myvolumename`.
 
 ## <a name="next-steps"></a>Étapes suivantes

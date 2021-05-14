@@ -11,12 +11,12 @@ ms.date: 03/19/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 373cebee4e7f95062791d8bc68bfee7d845e1465
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee850765006af15d8e323831d70dfcd7849d1287
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104725454"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145958"
 ---
 # <a name="azure-ad-connect-single-object-sync"></a>Synchronisation d’objets uniques Azure AD Connect 
 
@@ -64,7 +64,7 @@ Pour exécuter l’outil de synchronisation d’objets uniques, procédez comme 
 
  1. Ouvrez une nouvelle session Windows PowerShell sur votre serveur Azure AD Connect avec l’option Exécuter en tant qu’administrateur. 
 
- 2. Définissez la [stratégie d’exécution](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy) sur RemoteSigned ou Unrestricted. 
+ 2. Définissez la [stratégie d’exécution](/powershell/module/microsoft.powershell.security/set-executionpolicy) sur RemoteSigned ou Unrestricted. 
 
  3. Désactivez le planificateur de synchronisation après avoir vérifié qu’aucune opération de synchronisation n’est en cours d’exécution. 
 
@@ -95,4 +95,4 @@ L’outil de synchronisation d’objets uniques **est** destiné à étudier et 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Résoudre les problèmes de synchronisation d’objets](tshoot-connect-objectsync.md)
 - [Résoudre les problèmes de non synchronisation des objets](tshoot-connect-object-not-syncing.md)
-- [Résolution des problèmes de bout en bout des objets et attributs Azure AD Connect](https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)
+- [Résolution des problèmes de bout en bout des objets et attributs Azure AD Connect](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)

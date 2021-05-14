@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: 03192b8a84b78682b53bf3d47e7de7b65eb8bceb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da341d202dcfd0fc81a6becec6646b1116069aa7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104723461"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123282"
 ---
 # <a name="1---overview-of-adding-search-to-a-website"></a>1 - Vue d’ensemble de l’ajout de la recherche à un site web
 
@@ -59,7 +59,7 @@ Installez les éléments suivants pour votre environnement de développement loc
     - [Recherche cognitive Azure 0.2.0+](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - Facultatif :
-    - Ce tutoriel n’exécute pas l’API Azure Function localement mais si vous envisagez de le faire, vous devez installer [azure-functions-core-tools](/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash) globalement avec la commande bash suivante : 
+    - Ce tutoriel n’exécute pas l’API Azure Function localement mais si vous envisagez de le faire, vous devez installer [azure-functions-core-tools](../azure-functions/functions-run-local.md?tabs=linux%2ccsharp%2cbash) globalement avec la commande bash suivante : 
     
     ```bash
     npm install -g azure-functions-core-tools

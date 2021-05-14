@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 3/17/2021
-ms.openlocfilehash: 28fdd8b10c7106380c296c8131ade909ee88d0f8
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/16/2021
+ms.openlocfilehash: 7a5e4375ebe289bb5ae012f94ba9dd050563bbbb
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107089"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209856"
 ---
 # <a name="co-sell-requirements"></a>Exigences en matière de co-vente
 
@@ -30,6 +30,9 @@ Ce tableau indique tous les statuts de co-vente possibles :
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>Conditions requises pour le statut Prêt pour la co-vente
+
+> [!NOTE]
+> Toute offre publiée dans le cadre du programme de développement du marketplace commercial dans Espace partenaires peut obtenir le statut Prêt pour la co-vente, sous réserve que les conditions requises pour ce statut soient remplies. Les applications et compléments Office ne sont pas éligibles (par exemple : Teams, solutions SharePoint, Outlook, Excel).
 
 Pour obtenir le statut Prêt pour la co-vente, vous devez remplir les conditions suivantes :
 
@@ -50,12 +53,12 @@ Pour obtenir le statut Prêt pour la co-vente, vous devez remplir les conditions
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Compléter l’onglet Co-vente avec Microsoft.
 
-Lors de la publication ou de la mise à jour de votre offre, fournissez toutes les informations nécessaires sous l’onglet **Co-vente avec Microsoft**, comme indiqué dans [Configurer la co-vente pour une offre de la Place de marché commerciale](commercial-marketplace-co-sell.md). Cela comprend la fourniture des documents suivants :
+Lors de la publication ou de la mise à jour de votre offre, fournissez toutes les informations nécessaires sous l’onglet **Co-vente avec Microsoft**, comme indiqué dans [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md). Cela comprend la fourniture des documents suivants :
 
 - Page de la solution/offre
 - Jeu de diapositives de la solution/offre
 
-Nous mettons des modèles à votre disposition pour vous aider à créer ces documents. Pour plus d’informations sur les informations obligatoires et facultatives sous l’onglet Co-vente avec Microsoft, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](commercial-marketplace-co-sell.md).
+Nous mettons des modèles à votre disposition pour vous aider à créer ces documents. Pour plus d’informations sur les informations obligatoires et facultatives sous l’onglet Co-vente avec Microsoft, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md).
 
 ### <a name="publish-your-offer-live"></a>Publier votre offre en ligne
 
@@ -81,7 +84,7 @@ Condition 2 - passer la validation technique Microsoft pour une solution basée 
 - La validation technique doit confirmer que plus de 50 % de l’infrastructure de votre offre utilise du code IP (propriété intellectuelle) reproductible sur Azure. Notez que les solutions Machines virtuelles Azure et Azure Application facturables sur la Place de marché commerciale satisfont à cette exigence par défaut.
 
 Condition 3 - fournir un diagramme d’architecture de référence :
-- Chargez un diagramme d’architecture de référence avec vos documents de co-vente dans l’Espace partenaires afin qu’il soit examiné. Pour obtenir des conseils sur la création de ce diagramme, consultez [Diagramme d’architecture de référence](reference-architecture-diagram.md). Pour plus d’informations sur le chargement du diagramme, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](commercial-marketplace-co-sell.md).
+- Chargez un diagramme d’architecture de référence avec vos documents de co-vente dans l’Espace partenaires afin qu’il soit examiné. Pour obtenir des conseils sur la création de ce diagramme, consultez [Diagramme d’architecture de référence](reference-architecture-diagram.md). Pour plus d’informations sur le chargement du diagramme, consultez [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md).
 
 ## <a name="requirements-for-business-applications-co-sell-incentivized-status"></a>Conditions requises pour le statut d’incentives de co-vente Business Applications
 
@@ -89,4 +92,4 @@ Ce statut s’applique aux solutions IP reposant sur Dynamics 365 ou Power Apps 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer la co-vente pour une offre de la Place de marché commerciale](commercial-marketplace-co-sell.md)
+- [Configurer la co-vente pour une offre de la Place de marché commerciale](./co-sell-configure.md)

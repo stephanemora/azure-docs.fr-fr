@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: c49a721a4db758965c9cf8d71f5d73b5754b6088
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4e8be77851d0d7102d7c0cef85d9fbfefd8dc2a2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654473"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137163"
 ---
 # <a name="backend-pool-management"></a>Gestion du pool back-end
 Le pool back-end est un composant essentiel de l’équilibreur de charge. Il définit le groupe de ressources qui va servir le trafic pour une règle d’équilibrage de charge donnée.
@@ -324,4 +324,4 @@ Dans cet article, vous avez découvert la gestion du pool back-end Azure Load Ba
 
 En savoir plus sur [Azure Load Balancer](load-balancer-overview.md).
 
-Passez en revue l'[API REST](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerbackendaddresspools/createorupdate) pour la gestion du pool principal basée sur des adresses IP.
+Passez en revue l'[API REST](/rest/api/load-balancer/loadbalancerbackendaddresspools/createorupdate) pour la gestion du pool principal basée sur des adresses IP.

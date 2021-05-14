@@ -3,14 +3,15 @@ title: Exécution d'un Runbook dans Azure Automation
 description: Cet article fournit une vue d’ensemble du traitement des runbooks dans Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/23/2021
+ms.date: 04/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a0c734d7717f157ba062b1c9369be5dd95be03af
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954341"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278467"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -101,7 +102,7 @@ L’[agent Log Analytics pour Linux](../azure-monitor/agents/agent-linux.md) fon
 
 Le compte **nxautomation** avec les autorisations sudo correspondantes doit être présent lors de l’[installation d’un runbook Worker hybride Linux](automation-linux-hrw-install.md). Si vous essayez d’installer le Worker et que le compte n’est pas présent ou ne dispose pas des autorisations appropriées, l’installation échoue.
 
-Vous ne devez pas modifier les autorisations du dossier `sudoers.d` ou sa propriété. L’autorisation sudo est requise pour le compte **nxautomation** et les autorisations ne doivent pas être supprimées. Limiter ce principe à certains dossiers ou à certaines commandes peut entraîner une modification critique.
+Ne modifiez pas les autorisations du dossier `sudoers.d` ni sa propriété. L’autorisation sudo est requise pour le compte **nxautomation** et les autorisations ne doivent pas être supprimées. Limiter ce principe à certains dossiers ou à certaines commandes peut entraîner une modification critique.
 
 Les journaux disponibles pour l’agent Log Analytics et le compte **nxautomation** sont les suivants :
 
@@ -117,7 +118,13 @@ Un runbook a besoin d’autorisations pour l’authentification auprès d’Azur
 
 ## <a name="modules"></a>Modules
 
-Azure Automation prend en charge un certain nombre de modules par défaut, dont des modules AzureRM (AzureRM.Automation) et un module contenant plusieurs cmdlets internes. Les modules installables sont également pris en charge, dont les modules Az (Az.Automation) actuellement utilisés de préférence aux modules AzureRM. Pour plus d’informations sur les modules disponibles pour vos runbooks et configurations DSC, consultez [Gérer des modules dans Azure Automation](shared-resources/modules.md).
+Azure Automation comprend les modules PowerShell suivants :
+
+* Orchestrator.AssetManagement.Cmdlets : contient plusieurs cmdlets internes qui ne sont disponibles que si les runbooks sont exécutés dans l’environnement de bac à sable (sandbox) Azure ou sur un Runbook Worker hybride Windows. Ces cmdlets sont conçues pour être utilisées à la place des cmdlets Azure PowerShell afin d’interagir avec les ressources de votre compte Automation.
+* Az.Automation : module PowerShell recommandé pour interagir avec Azure Automation (qui remplace le module AzureRM.Automation). Il n’est pas inclus automatiquement lorsque vous créez un compte Automation : vous devez l’importer manuellement. 
+* AzureRM.Automation : module installé par défaut lorsque vous créez un compte Automation. 
+
+Sont également pris en charge les modules installables, en fonction des cmdlets requises par les runbooks et les configurations DSC. Pour plus d’informations sur les modules disponibles pour vos runbooks et configurations DSC, consultez [Gérer des modules dans Azure Automation](shared-resources/modules.md).
 
 ## <a name="certificates"></a>Certificats
 
@@ -222,7 +229,7 @@ Les runbooks qui s’exécutent dans les bacs à sable Azure ne prennent pas en 
 
 Les tâches de runbook dans les bacs à sable Azure ne peuvent avoir accès aux caractéristiques des appareils ou des applications. Pour interroger les métriques de performances sur Windows, notamment celles, courantes, qui portent sur l’utilisation de la mémoire et du processeur, L’API la plus utilisée est WMI. Cependant, quelle que soit l’API utilisée, les tâches qui s’exécutent dans le cloud ne peuvent avoir accès à l’implémentation Microsoft de WBEM (Web-Based Enterprise Management). Cette plateforme est basée sur CIM (Common Information Model), qui fait office de standard sectoriel pour la définition des caractéristiques des appareils et des applications.
 
-## <a name="webhooks"></a>webhooks
+## <a name="webhooks"></a>Webhooks
 
 Les services externes, par exemple, Azure DevOps Services et GitHub, peuvent démarrer un runbook dans Azure Automation. Pour effectuer ce type de démarrage, le service utilise un [webhook](automation-webhooks.md) via une requête HTTP unique. L’utilisation d’un Webhook permet de démarrer runbooks sans implémenter une fonctionnalité Azure Automation complète.
 
@@ -230,7 +237,7 @@ Les services externes, par exemple, Azure DevOps Services et GitHub, peuvent dé
 
 Pour partager des ressources entre tous les runbooks dans le cloud, Azure utilise un concept appelé « répartition de charge équilibrée ». Grâce à la répartition de charge équilibrée, Azure décharge ou arrête toute tâche exécutée depuis plus de trois heures. Les tâches des [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks) et des [runbooks Python](automation-runbook-types.md#python-runbooks) sont arrêtées et non redémarrées, et leur état devient Arrêté.
 
-Pour les tâches Azure Automation de longue durée, il est recommandé d’utiliser un runbook Worker hybride. Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les runbooks Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais vous devez développer des runbooks qui s’exécutent sur les Workers qui prennent en charge les redémarrages après des problèmes inattendus au niveau de l’infrastructure locale.
+Pour les tâches Azure Automation de longue durée, il est recommandé d’utiliser un runbook Worker hybride. Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les Runbooks Workers hybrides ne sont pas concernés par la limite de trois heures de la répartition de charge équilibrée. Développez malgré tout des runbooks qui s’exécutent sur les Workers prenant en charge les redémarrages après des problèmes inattendus au niveau de l’infrastructure locale.
 
 Une autre option consiste à optimiser un runbook en utilisant des runbooks enfants. Par exemple, il peut arriver que votre runbook exécute la même fonction en boucle sur plusieurs ressources, comme une opération de base de données sur diverses bases de données. Vous pouvez déplacer cette fonction dans un [runbook enfant](automation-child-runbooks.md) et faire en sorte que votre runbook l’appelle à l’aide de [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Les runbooks enfants s’exécutent en parallèle dans des processus distincts.
 

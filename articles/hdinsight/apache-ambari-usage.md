@@ -4,16 +4,16 @@ description: Présentation de l’utilisation d’Apache Ambari dans Azure HDIns
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2021
-ms.openlocfilehash: 6233c42d7fbf8dc7821d26f77171c44485fb8d34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35338cad4364abbf233e3da81b05ba912959ed65
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946930"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064487"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Utilisation d’Apache Ambari dans Azure HDInsight
 
-HDInsight utilise Apache Ambari pour le déploiement et la gestion de clusters. Des agents Ambari s’exécutent sur chaque nœud (nœud principal, nœud Worker, zookeeper et nœud de périphérie s’il existe). Le serveur Ambari s’exécute uniquement sur le nœud principal (hn0 ou hn1). Une seule instance du serveur Ambari doit être exécutée à la fois. Ceci est contrôlé par le contrôleur de basculement HDInsight. Quand l’un des nœuds principaux est en cours de redémarrage ou de maintenance, les autres nœuds principaux deviennent actifs et le serveur Ambari sur le deuxième nœud principal démarre.
+HDInsight utilise Apache Ambari pour le déploiement et la gestion de clusters. Des agents Ambari s’exécutent sur chaque nœud (nœud principal, nœud Worker, zookeeper et nœud de périphérie s’il existe). Le serveur Ambari s'exécute uniquement sur le nœud principal. Une seule instance du serveur Ambari doit être exécutée à la fois. Ceci est contrôlé par le contrôleur de basculement HDInsight. Quand l’un des nœuds principaux est en cours de redémarrage ou de maintenance, les autres nœuds principaux deviennent actifs et le serveur Ambari sur le deuxième nœud principal démarre.
 
 Toutes les configurations de cluster doivent être effectuées par le biais de l’[interface utilisateur Ambari](./hdinsight-hadoop-manage-ambari.md) ; toute modification locale est remplacée quand le nœud est redémarré.
 

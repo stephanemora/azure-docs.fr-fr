@@ -1,18 +1,19 @@
 ---
-title: À propos des connexions VPN point à site Azure | Passerelle VPN
-description: Cet article vous aide à comprendre les connexions point à site et à choisir le type d’authentification à une passerelle VPN P2S que vous devez utiliser.
+title: À propos des connexions VPN Azure point à site
+titleSuffix: Azure VPN Gateway
+description: Découvrez les connexions point à site et quel type d’authentification de la passerelle VPN P2S utiliser.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 6caf72884ce2566ad25b7dd6d80b15d737bbe664
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c7c9d1ad6aefe9fc05b77925ee6bbf4160b988d8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543582"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202404"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
@@ -22,7 +23,7 @@ Une connexion par passerelle VPN point à site (P2S) vous permet de créer une c
 
 La connexion VPN point à site peut utiliser un des protocoles suivants :
 
-* **Protocole OpenVPN®**, un protocole VPN basé sur SSL/TLS. Une solution VPN TLS peut pénétrer des pare-feu, puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole TLS. Vous pouvez utiliser OpenVPN pour vous connecter à partir d’appareils Android, iOS (versions 11.0 et versions ultérieures), Windows, Linux et Mac (OSX 10.13 et versions ultérieures).
+* **Protocole OpenVPN®**, un protocole VPN basé sur SSL/TLS. Une solution VPN TLS peut pénétrer des pare-feu, puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole TLS. Vous pouvez utiliser OpenVPN pour vous connecter à partir d’appareils Android, iOS (11.0 et versions ultérieures), Windows, Linux et Mac (OSX 10.13 et versions ultérieures).
 
 * Le Protocole SSTP (Secure Socket Tunneling Protocol) est un protocole propriétaire VPN basé sur le protocole TLS. Une solution VPN TLS peut pénétrer des pare-feu, puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole TLS. SSTP est pris en charge sur les appareils Windows uniquement. Azure prend en charge toutes les versions de Windows disposant de SSTP (Windows 7 et versions ultérieures).
 

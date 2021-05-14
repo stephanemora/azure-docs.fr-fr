@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 85dea807ee09338e7f0e9e388f6b196fd3beef33
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6c5691759983d8ec40598834e5dbcd507ccf00cf
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588662"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816869"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutoriel : Entraîner des modèles de classification d’images avec des données MNIST et scikit-learn 
 
@@ -396,7 +396,7 @@ RunDetails(run).show()
 
 ![Widget de bloc-notes](./media/tutorial-train-models-with-aml/widget.png)
 
-Si vous devez annuler une exécution, vous pouvez suivre [ces instructions](./how-to-manage-runs.md).
+Si vous devez annuler une exécution, vous pouvez suivre [ces instructions](./how-to-track-monitor-analyze-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Obtenir des résultats du journal lors de l’achèvement
 

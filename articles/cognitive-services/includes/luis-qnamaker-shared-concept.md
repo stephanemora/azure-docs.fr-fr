@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.openlocfilehash: b2b405e7f6babf84ef8297310a5a7a34c3f2dc11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b11a6082a5c86526e04a8b78db30650c37d467fc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102623502"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108791735"
 ---
 Cognitive Services fournit deux services de traitement en langage naturel, [Language Understanding](../luis/what-is-luis.md) et [QnA Maker](../qnamaker/overview/overview.md), chacun avec un objectif différent. Découvrez quand utiliser chaque service et comment ils se complètent.
 
@@ -73,7 +73,7 @@ Si votre robot de conversation a besoin d’informations supplémentaires par ra
 
 Utilisez l'outil **[CLI Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** de l’infrastructure robot pour vous aider à créer un processus permettant de travailler avec les deux services. Cet outil crée une application d'intention LUIS de premier plan qui diffuse entre LUIS et QnA Maker en tant qu'applications enfants. [En savoir plus](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs) sur l’intégration avec LUIS, QnA Maker et Bot Framework.
 
-Utilisez l’exemple de générateur de bot, **NLP avec Dispatch**, dans [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) ou [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), pour implémenter ce type de robot de conversation.
+Utilisez l’exemple de générateur de bot, **NLP avec Dispatch**, dans [C#](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/14.nlp-with-orchestrator) ou [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/javascript_nodejs/14.nlp-with-orchestrator), pour implémenter ce type de robot de conversation.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

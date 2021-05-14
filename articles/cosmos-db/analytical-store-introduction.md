@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: eaabc663ba243423bddf7ef6abfe41182e06b4f9
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 1ac3c25458df19ca1db7ee16e5c231512a7663b0
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364603"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076902"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -39,7 +39,7 @@ Le magasin analytique Azure Cosmos DB traite les défis de complexité et de lat
 
 Lorsque vous activez le magasin analytique sur un conteneur Azure Cosmos DB, un nouveau magasin de colonnes est créé en interne en fonction des données opérationnelles de votre conteneur. Ce magasin de colonnes est maintenu séparément du magasin transactionnel en lignes pour ce conteneur. Les insertions, les mises à jour et les suppressions apportées à vos données opérationnelles sont automatiquement synchronisées avec le magasin analytique. Vous n’avez pas besoin du flux de modification ou de l’ETL pour synchroniser les données.
 
-### <a name="column-store-for-analytical-workloads-on-operational-data"></a>Magasin de colonnes pour les charges de travail analytiques sur les données opérationnelles
+## <a name="column-store-for-analytical-workloads-on-operational-data"></a>Magasin de colonnes pour les charges de travail analytiques sur les données opérationnelles
 
 Les charges de travail analytiques impliquent généralement des agrégations et des analyses séquentielles de champs sélectionnés. En stockant les données dans un ordre colonne-principal, le magasin analytique permet de sérialiser un groupe de valeurs pour chaque champ. Ce format réduit le nombre d’IOPS nécessaires pour analyser ou calculer des statistiques sur des champs spécifiques. Il améliore considérablement les temps de réponse des requêtes pour les analyses sur de grands jeux de données. 
 
@@ -55,27 +55,34 @@ L’image suivante représente le magasin de lignes transactionnelles et le maga
 
 :::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Magasin de lignes transactionnelles et magasin de lignes analytiques dans Azure Cosmos DB" border="false":::
 
-### <a name="decoupled-performance-for-analytical-workloads"></a>Performances découplées pour les charges de travail analytiques
+## <a name="decoupled-performance-for-analytical-workloads"></a>Performances découplées pour les charges de travail analytiques
 
 Les requêtes analytiques n’ont aucune incidence sur les performances de vos charges de travail transactionnelles, car le magasin analytique est distinct du magasin transactionnel.  Le magasin analytique n’a pas besoin d’allouer des unités de requête distinctes.
 
-### <a name="auto-sync"></a>Synchronisation automatique
+## <a name="auto-sync"></a>Synchronisation automatique
 
 La synchronisation automatique fait référence à la fonctionnalité complètement managée d’Azure Cosmos DB où les insertions, les mises à jour, les suppressions de données opérationnelles sont automatiquement synchronisées à partir du magasin transactionnel vers le magasin analytique en temps quasi-réel en temps quasi-réel. La latence de synchronisation automatique est généralement en moins de 2 minutes. Dans le cas d’une base de données de débit partagé avec un grand nombre de conteneurs, la latence de la synchronisation automatique des conteneurs individuels peut être supérieure et prendre jusqu’à 5 minutes. Nous aimerions en savoir plus, pour savoir si cette latence est adaptée à vos scénarios. Pour cela, contactez l’équipe [Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-La fonctionnalité de synchronisation automatique et le magasin analytique offrent les principaux avantages suivants :
+À la fin de chaque exécution du processus de synchronisation automatique, vos données transactionnelles seront immédiatement disponibles pour les runtimes Azure Synapse Analytics :
 
-### <a name="scalability--elasticity"></a>Extensibilité et élasticité
+* Les pools Spark d’Azure Synapse Analytics peuvent lire toutes les données, y compris les mises à jour les plus récentes, par le biais de tables Spark, qui sont mises à jour automatiquement, ou via la commande `spark.read`, qui lit toujours le dernier état des données.
+
+*  Les pools SQL serverless d’Azure Synapse Analytics peuvent lire toutes les données, y compris les mises à jour les plus récentes, par le biais de vues, qui sont mises à jour automatiquement, ou via les commandes `SELECT` et ` OPENROWSET`, qui lisent toujours l’état le plus récent des données.
+
+> [!NOTE]
+> Vos données transactionnelles seront synchronisées au magasin analytique, même si la TTL transactionnelle est inférieure à deux minutes. 
+
+## <a name="scalability--elasticity"></a>Extensibilité et élasticité
 
 En utilisant le partitionnement horizontal, le magasin transactionnel Azure Cosmos DB peut mettre à l’échelle de manière élastique le stockage et le débit sans temps d’arrêt. Le partitionnement horizontal dans le magasin transactionnel est évolutif et élastique lors de la synchronisation automatique afin de garantir la synchronisation des données avec le magasin analytique quasiment en temps réel. La synchronisation des données se produit quel que soit le débit de trafic transactionnel, qu’il s’agisse de 1 000 opérations/s ou 1 million d’opérations/s, et elle n’a pas d’impact sur le débit approvisionné dans le magasin transactionnel. 
 
-### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Gérer automatiquement les mises à jour de schéma
+## <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Gérer automatiquement les mises à jour de schéma
 
 Le magasin transactionnel Azure Cosmos DB est indépendant des schémas et il vous permet d’itérer sur vos applications transactionnelles sans avoir à vous soucier de la gestion des schémas ou des index. À l’inverse, le magasin analytique Azure Cosmos DB est schématisé pour optimiser les performances des requêtes analytiques. Grâce à la capacité de synchronisation automatique, Azure Cosmos DB gère l’inférence du schéma sur les dernières mises à jour du magasin transactionnel.  Il gère aussi la représentation du schéma dans le magasin analytique, qui comprend la gestion des types de données imbriqués.
 
 À mesure que votre schéma évolue et que de nouvelles propriétés sont ajoutées au fil du temps, le magasin analytique présente automatiquement un schéma uni dans tous les schémas historiques du magasin transactionnel.
 
-#### <a name="schema-constraints"></a>Contraintes de schéma
+### <a name="schema-constraints"></a>Contraintes de schéma
 
 Les contraintes suivantes s’appliquent aux données opérationnelles dans Azure Cosmos DB lorsque vous activez le magasin analytique pour inférer et représenter automatiquement le schéma correctement :
 
@@ -110,16 +117,7 @@ Les contraintes suivantes s’appliquent aux données opérationnelles dans Azur
 
 * Actuellement, nous ne prenons pas en charge la lecture par Azure Synapse Spark de noms de colonnes contenant des blancs (espaces).
 
-* Un comportement différent est attendu en ce qui concerne les valeurs `null` explicites :
-  * Les pools Spark dans Azure Synapse liront ces valeurs comme `0` (zéro).
-  * Les pools serverless SQL dans Azure Synapse liront ces valeurs comme `NULL` si le premier document de la collection a, pour la même propriété, une valeur avec un type de données `non-numeric`.
-  * Les pools serverless SQL dans Azure Synapse liront ces valeurs comme `0` (zéro) si le premier document de la collection a, pour la même propriété, une valeur avec un type de données `numeric`.
-
-* Un comportement différent est attendu en ce qui concerne les colonnes manquantes :
-  * Les pools Spark dans Azure Synapse représenteront ces colonnes comme `undefined`.
-  * Les pools serverless SQL dans Azure Synapse représenteront ces colonnes comme `NULL`.
-
-#### <a name="schema-representation"></a>Représentation du schéma
+### <a name="schema-representation"></a>Représentation du schéma
 
 Il existe deux modes de représentation de schéma dans le magasin analytique. Ces modes présentent des compromis entre la simplicité d’une représentation en colonnes, la gestion des schémas polymorphes et la simplicité de l’expérience de requête :
 
@@ -127,7 +125,7 @@ Il existe deux modes de représentation de schéma dans le magasin analytique. C
 * Représentation de schéma avec une fidélité optimale
 
 > [!NOTE]
-> Pour les comptes d’API SQL (Core), lorsque le magasin analytique est activé, la représentation de schéma par défaut dans le magasin analytique est bien définie. Pour l’API Azure Cosmos DB pour les comptes MongoDB, la représentation de schéma par défaut dans le magasin analytique est une représentation de schéma de fidélité optimale. Si vous avez des scénarios nécessitant une représentation de schéma différente de l’offre par défaut pour chacune de ces API, contactez l’[équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) pour l’activer.
+> Pour les comptes d’API SQL (Core), lorsque le magasin analytique est activé, la représentation de schéma par défaut dans le magasin analytique est bien définie. Pour l’API Azure Cosmos DB pour les comptes MongoDB, la représentation de schéma par défaut dans le magasin analytique est une représentation de schéma de fidélité optimale. 
 
 **Représentation de schéma bien définie**
 
@@ -150,6 +148,14 @@ La représentation de schéma bien définie crée une représentation tabulaire 
 * Un comportement différent est attendu en ce qui concerne les différents types dans un schéma bien défini :
   * Les pools Spark dans Azure Synapse représenteront ces valeurs comme `undefined`.
   * Les pools serverless SQL dans Azure Synapse représenteront ces valeurs comme `NULL`.
+
+* Un comportement différent est attendu en ce qui concerne les valeurs `null` explicites :
+  * Les pools Spark dans Azure Synapse liront ces valeurs comme `0` (zéro). Et elles deviendront `undefined` dès que la colonne aura une valeur non nulle.
+  * Les pools SQL serverless dans Azure Synapse liront ces valeurs comme `NULL`.
+    
+* Un comportement différent est attendu en ce qui concerne les colonnes manquantes :
+  * Les pools Spark dans Azure Synapse représenteront ces colonnes comme `undefined`.
+  * Les pools serverless SQL dans Azure Synapse représenteront ces colonnes comme `NULL`.
 
 
 **Représentation du schéma de fidélité optimale**
@@ -195,28 +201,39 @@ Voici un mappage de tous les types de données de propriété et de leurs repré
 |ObjectId   |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
 |Document   |".object" |    {"a": "a"}|
 
-### <a name="cost-effective-archival-of-historical-data"></a>Archivage rentable des données historiques
+* Un comportement différent est attendu en ce qui concerne les valeurs `null` explicites :
+  * Les pools Spark dans Azure Synapse liront ces valeurs comme `0` (zéro).
+  * Les pools SQL serverless dans Azure Synapse liront ces valeurs comme `NULL`.
+  
+* Un comportement différent est attendu en ce qui concerne les colonnes manquantes :
+  * Les pools Spark dans Azure Synapse représenteront ces colonnes comme `undefined`.
+  * Les pools serverless SQL dans Azure Synapse représenteront ces colonnes comme `NULL`.
+
+## <a name="cost-effective-archival-of-historical-data"></a>Archivage rentable des données historiques
 
 La hiérarchisation des données fait référence à la séparation des données entre les infrastructures de stockage optimisées pour différents scénarios. Cela améliore les performances globales et la rentabilité de la pile de données de bout en bout. Avec le magasin analytique, Azure Cosmos DB prend désormais en charge la hiérarchisation automatique des données du magasin transactionnel vers le magasin analytique avec différentes dispositions de données. Le magasin analytique optimisé en termes de coût de stockage par rapport au magasin transactionnel vous permet de conserver des échéances plus longues pour l’analyse historique des données opérationnelles.
 
 Une fois le magasin analytique activé, selon les besoins de conservation des données des charges de travail transactionnelles, vous pouvez configurer la propriété « Transactional Store Time to Live (Transactional TTL) » de façon à ce que les enregistrements soient automatiquement supprimés du magasin transactionnel au bout d’un certain laps de temps. De même, la propriété « Analytical Store Time To Live (Analytical TTL) » vous permet de gérer le cycle de vie des données conservées dans le magasin analytique indépendamment du magasin transactionnel. En activant le magasin analytique et en configurant les propriétés TTL, vous pouvez hiérarchiser et définir de manière transparente la période de conservation des données pour les deux magasins.
 
-### <a name="global-distribution"></a>Diffusion mondiale
+> [!NOTE]
+>Actuellement, le magasin analytique ne prend pas en charge la sauvegarde ni la restauration. Votre stratégie de sauvegarde ne peut pas être planifiée en s’appuyant sur le magasin analytique. Pour plus d’informations, consultez la section relative aux limites de [ce document](synapse-link.md#limitations). Il est important de noter que les données du magasin analytique ont un schéma différent de celui qui existe dans le magasin transactionnel. Bien que vous puissiez générer des instantanés des données de votre magasin analytique, sans frais en unités de requête, nous ne pouvons pas garantir l’utilisation de cet instantané pour alimenter le magasin transactionnel. Ce processus n’est pas pris en charge.
+
+## <a name="global-distribution"></a>Diffusion mondiale
 
 Si vous avez un compte Azure Cosmos DB distribué globalement, une fois que vous avez activé le magasin analytique pour un conteneur, il est disponible dans toutes les régions de ce compte.  Toutes les modifications apportées aux données opérationnelles sont répliquées globalement dans toutes les régions. Vous pouvez effectuer des recherches analytiques efficaces sur la copie régionale la plus proche de vos données dans Azure Cosmos DB.
 
-### <a name="security"></a>Sécurité
+## <a name="security"></a>Sécurité
 
 L’authentification auprès du magasin analytique est identique à celle du magasin transactionnel pour une base de données particulière. Vous pouvez utiliser des clés primaires ou en lecture seule pour l’authentification. Vous pouvez tirer parti du service lié dans Synapse Studio pour empêcher le collage des clés Azure Cosmos DB dans les notebooks Spark. L’accès à ce service lié est accessible à toute personne ayant accès à l’espace de travail.
 
-### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Support de plusieurs runtimes Azure Synapse Analytics
+## <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Support de plusieurs runtimes Azure Synapse Analytics
 
 Le magasin analytique est optimisé pour fournir une extensibilité, une élasticité et des performances pour les charges de travail analytiques sans aucune dépendance des runtimes de calcul. La technologie de stockage est auto-gérée pour optimiser vos charges de travail analytiques sans effort manuel.
 
 En découplant le système de stockage analytique du système de calcul analytique, les données du magasin analytique Azure Cosmos DB peuvent être interrogées simultanément à partir des différents runtimes analytiques pris en charge par Azure Synapse Analytics. À l’heure actuelle, Azure Synapse Analytics prend en charge Apache Spark et le pool SQL serverless avec le magasin analytique Azure Cosmos DB.
 
 > [!NOTE]
-> Vous pouvez uniquement lire à partir du magasin analytique à l’aide du runtime Azure Synapse Analytics. Vous pouvez réécrire les données dans votre magasin transactionnel en tant que couche de service.
+> Vous pouvez uniquement lire à partir du magasin analytique à l’aide des runtimes d’Azure Synapse Analytics. L’inverse est également vrai : les runtimes d’Azure Synapse Analytics peuvent uniquement lire à partir du magasin analytique. Seul le processus de synchronisation automatique peut modifier des données dans le magasin analytique. Vous pouvez réécrire des données dans le magasin transactionnel de Cosmos DB à l’aide du pool Spark d’Azure Synapse Analytics, en utilisant le Kit de développement logiciel (SDK) OLTP Azure Cosmos DB intégré.
 
 ## <a name="pricing"></a><a id="analytical-store-pricing"></a> Tarification
 
@@ -253,11 +270,11 @@ La durée de vie analytique sur un conteneur est définie à l’aide de la prop
 *   Vous pouvez effectuer une conservation plus longue de vos données opérationnelles dans le magasin analytique en définissant la durée de vie des analyses > = transaction TTL au niveau du conteneur.
 *   Le magasin analytique peut être créé pour mettre en miroir le magasin transactionnel en définissant la durée de vie transactionnelle sur la valeur de durée de vie de l’analytique TTL.
 
-Quand vous activez le magasin analytique sur un conteneur :
+Comment activer le magasin analytique sur un conteneur :
 
-* À partir du portail Azure, l’option de durée de vie analytique est définie sur la valeur par défaut -1. Vous pouvez modifier cette valeur en « n » secondes en accédant aux paramètres du conteneur sous Explorateur de données. 
+* À partir du portail Azure, l’option de TTL analytique, lorsqu’elle est activée, est définie sur la valeur par défaut -1. Vous pouvez modifier cette valeur en « n » secondes en accédant aux paramètres du conteneur sous Explorateur de données. 
  
-* À partir du kit de développement logiciel (SDK) Azure, de PowerShell ou de l’interface de ligne de commande, vous pouvez activer l’option de durée de vie analytique en lui affectant la valeur -1 ou « n ». 
+* À partir du Kit de développement logiciel (SDK) Azure Management, des Kits de développement logiciel (SDK) Azure Cosmos DB, de PowerShell ou de l’interface de ligne de commande, vous pouvez activer l’option de TTL analytique en lui affectant la valeur -1 ou « n » secondes. 
 
 Pour plus d’informations, consultez [Guide pratique pour configurer la durée de vie analytique d’un conteneur](configure-synapse-link.md#create-analytical-ttl).
 
@@ -269,6 +286,6 @@ Pour en savoir plus, consultez les documents suivants :
 
 * [Prise en main d’Azure Synapse Link pour Azure Cosmos DB](configure-synapse-link.md)
 
-* [Forum aux questions sur Azure Synapse Link pour Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Forum aux questions sur Azure Synapse Link pour Azure Cosmos DB](synapse-link-frequently-asked-questions.yml)
 
 * [Cas d’utilisation d’Azure Synapse Link pour Azure Cosmos DB](synapse-link-use-cases.md)

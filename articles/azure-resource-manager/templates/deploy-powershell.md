@@ -3,12 +3,13 @@ title: Déployer des ressources avec PowerShell et un modèle
 description: Utilisez Azure Resource Manager et Azure PowerShell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager ou un fichier Bicep.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 11a293ca58fc6acf3bd99bb0169d817dae11fb94
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2f7d9709a62d7c791296e26d28f391c1eeeab728
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543803"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737042"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -18,7 +19,7 @@ Pour déployer des fichiers Bicep, vous devez disposer d’[Azure PowerShell ver
 
 ## <a name="prerequisites"></a>Prérequis
 
-Il vous faut un modèle à déployer. Si vous n’en avez pas déjà un, téléchargez et enregistrez un [exemple de modèle](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) à partir du référentiel de modèles de démarrage rapide Azure. Le nom de fichier local utilisé dans cet article est _C:\MyTemplates\azuredeploy.json_.
+Il vous faut un modèle à déployer. Si vous n’en avez pas déjà un, téléchargez et enregistrez un [exemple de modèle](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json) à partir du référentiel de modèles de démarrage rapide Azure. Le nom de fichier local utilisé dans cet article est _C:\MyTemplates\azuredeploy.json_.
 
 Vous devez installer Azure PowerShell et vous connecter à Azure :
 
@@ -133,7 +134,7 @@ Pour déployer un modèle externe, utilisez le paramètre `-TemplateUri`.
 New-AzResourceGroupDeployment `
   -Name remoteTemplateDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
 L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous souhaitez gérer l’accès au modèle, envisagez d’utiliser des [spécifications de modèle](#deploy-template-spec).
@@ -242,8 +243,8 @@ Pour transmettre un fichier de paramètres externe, utilisez le paramètre `Temp
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

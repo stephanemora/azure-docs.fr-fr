@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7805d6dbdb8b93968a2792ed6dfaf2ac8fea9ae5
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 5dc4891bbc8bf6397a0f041fa845f4fb0ad6c600
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363391"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142510"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Cas de test par défaut de la boîte à outils de test de modèle Resource Manager
 
@@ -698,7 +698,7 @@ Nom du test : **CommandToExecute doit utiliser ProtectedSettings pour les secre
 Dans une extension de script personnalisé, utilisez la propriété encrypted `protectedSettings` quand `commandToExecute` inclut des données secrètes telles qu’un mot de passe. Des types de données secrètes sont, par exemple, les fonctions ou scripts `secureString`, `secureObject` ou `list()`.
 
 Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles, consultez [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux) et le schéma [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](../../virtual-machines/extensions/custom-script-linux.md) et le schéma [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
 
 Dans cet exemple, un modèle avec un paramètre nommé `adminPassword` et le type `secureString` **passe** le test car la propriété chiffrée `protectedSettings` comprend `commandToExecute`.
 

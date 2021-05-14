@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentation sur la plateforme d’identités Microsoft
-summary: La plateforme d’identités Microsoft est un service d’authentification qui inclut des bibliothèques open source et des outils de gestion d’application. Apprenez à créer des solutions d’authentification modernes et basées sur des standards avec nos démarrages rapides, nos tutoriels et nos exemples de code. Créez des applications auxquelles vos utilisateurs et clients se connectent à l’aide de leurs identités Microsoft ou comptes de réseaux sociaux, et autorisez l’accès à vos API ou aux API Microsoft comme Microsoft Graph.
+summary: La plateforme d’identités Microsoft pour développeurs est un service d’authentification qui inclut des bibliothèques open source et des outils de gestion d’application. Apprenez à créer des solutions d’authentification modernes et basées sur des standards avec nos démarrages rapides, nos tutoriels et nos exemples de code. Créez des applications auxquelles vos utilisateurs et clients se connectent à l’aide de leurs identités Microsoft ou comptes de réseaux sociaux, et autorisez l’accès à vos API ou aux API Microsoft comme Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 10/07/2020
+  ms.date: 05/11/2021
   author: mmacy
   ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 954712c2056a4251bc92b71c5b7cd2f1309804b2
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: 607672d77a71dbcbe60042a2b6c6fd586aab8fe3
+  ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91962018"
+  ms.lasthandoff: 05/11/2021
+  ms.locfileid: "109750517"
 landingContent:
 - title: À propos de la plateforme d’identités Microsoft
   linkLists:
@@ -51,11 +51,11 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Angular
-      url: quickstart-v2-angular.md
-    - text: JavaScript - Flux de code d’authentification
-      url: quickstart-v2-javascript-auth-code.md
-    - text: JavaScript - Flux implicite
-      url: quickstart-v2-javascript.md
+      url: tutorial-v2-angular-auth-code.md
+    - text: JavaScript
+      url: tutorial-v2-javascript-auth-code.md
+    - text: React
+      url: tutorial-v2-react.md
 - title: Application web
   linkLists:
   - linkListType: get-started
@@ -66,6 +66,8 @@ landingContent:
       url: quickstart-v2-aspnet-core-webapp.md
     - text: Serveur Blazor
       url: tutorial-blazor-server.md
+    - text: Node.js et Express
+      url: tutorial-v2-nodejs-webapp-msal.md
 - title: Application mobile/native
   linkLists:
   - linkListType: get-started
@@ -116,13 +118,9 @@ landingContent:
       url: ../managed-identities-azure-resources/overview.md
     - text: Identités managées et machines virtuelles Azure
       url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
-- title: Nouveau dans la documentation
+- title: Nouveautés dans la documentation sur la plateforme d’identités
   linkLists:
   - linkListType: whats-new
     links:
     - text: Nouveautés dans la documentation
       url: whats-new-docs.md
-    - text: Vue d’ensemble de la bibliothèque Microsoft Identity Web
-      url: microsoft-identity-web.md
-    - text: 'Tutoriel : Blazor Server'
-      url: tutorial-blazor-server.md

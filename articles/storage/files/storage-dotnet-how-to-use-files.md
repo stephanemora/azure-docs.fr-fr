@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c00f001ae3cba9420a137a42f9f696619584d50
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96492197"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817374"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET
 
@@ -60,7 +60,7 @@ Ajoutez tous les exemples de code de cet article à la classe `Program` dans le 
 
 Reportez-vous à ces packages dans votre projet :
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 - [Bibliothèque Azure Core pour .NET](https://www.nuget.org/packages/Azure.Core/) : Ce package est l’implémentation du pipeline client Azure.
 - [Bibliothèque de client Stockage Blob Azure pour .NET](https://www.nuget.org/packages/Azure.Storage.Blobs/): Ce package fournit un accès par programmation aux ressources d’objets blob de votre compte de stockage.
@@ -80,7 +80,7 @@ Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
    - **Azure.Storage.Files.Shares**
    - **System.Configuration.ConfigurationManager**
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 - [Bibliothèque commune Microsoft Azure Stockage pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) : ce package fournit un accès programmatique aux ressources communes de votre compte de stockage.
 - [Bibliothèque Microsoft Azure Storage Blob pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) : Ce package fournit un accès par programmation aux ressources d’objets blob de votre compte de stockage.
@@ -105,13 +105,13 @@ Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
 Enregistrez ensuite vos informations d’identification dans le fichier *App.config* de votre projet. Dans l’**Explorateur de solutions**, double-cliquez sur `App.config`, puis modifiez le fichier afin qu’il soit similaire à l’exemple suivant.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 Remplacez `myaccount` par le nom de votre compte de stockage et `mykey` par la clé de votre compte de stockage.
 
 :::code language="xml" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/app.config" highlight="5,6,7":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 Remplacez `myaccount` par le nom de votre compte de stockage et `StorageAccountKeyEndingIn==` par la clé de votre compte de stockage.
 
@@ -137,11 +137,11 @@ Remplacez `myaccount` par le nom de votre compte de stockage et `StorageAccountK
 
 Dans l’**Explorateur de solutions**, ouvrez le fichier *Program.cs*, puis ajoutez les directives using suivantes en haut du fichier.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UsingStatements":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -158,13 +158,13 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 Dans le fichier *Program.cs*, ajoutez le code suivant pour accéder au partage de fichiers programmatiquement.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 La méthode suivante crée un partage de fichiers, s’il n’en existe pas déjà un. La méthode commence par créer un objet [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) à partir d’une chaîne de connexion. L’exemple tente ensuite de télécharger un fichier que nous avons créé précédemment. Appelez cette méthode à partir de `Main()`.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 Ajoutez ensuite le contenu suivant à la méthode `Main()`, après le code indiqué ci-dessus, pour récupérer la chaîne de connexion. Ce code obtient une référence au fichier créé plus tôt et retourne son contenu.
 
@@ -212,11 +212,11 @@ Le fait de définir le quota pour un partage limite la taille totale des fichier
 
 L’exemple ci-dessous illustre comment vérifier l’utilisation actuelle pour un partage et comment définir le quota pour le partage.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_SetMaxShareSize":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -254,13 +254,13 @@ if (share.Exists())
 
 À compter de la version 5.x de la bibliothèque de client Azure Files, vous pouvez générer une signature d’accès partagé (SAP) pour un partage de fichiers ou un fichier individuel.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 L’exemple de méthode suivant retourne une signature d’accès partagé sur un fichier du partage spécifié.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_GetFileSasUri":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 Vous pouvez également créer une stratégie d’accès stockée sur un partage de fichiers pour gérer les signatures d’accès partagé. Nous vous recommandons de créer une stratégie d’accès stockée, car elle vous permet de révoquer la SAS si elle est compromise. L’exemple suivant crée une stratégie d’accès stockée sur un partage. Il utilise cette stratégie pour fournir les contraintes pour une SAP sur un fichier du partage.
 
@@ -325,11 +325,11 @@ Vous pouvez également utiliser AzCopy pour copier un fichier dans un autre ou p
 
 L’exemple suivant copie un fichier dans un autre fichier au sein du même partage. Vous pouvez utiliser l’[Authentification par clé partagée](/rest/api/storageservices/authorize-with-shared-key) pour effectuer la copie car cette opération copie des fichiers dans le même compte de stockage.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFile":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -379,11 +379,11 @@ if (share.Exists())
 
 L’exemple ci-dessous crée un fichier et le copie dans un objet blob au sein du même compte de stockage. L’exemple crée une SAP pour le fichier source, que le service utilise pour autoriser l’accès au fichier source pendant l’opération de copie.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFileToBlob":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -441,11 +441,11 @@ Vous pouvez copier un objet blob dans un fichier de la même façon. Si l’obje
 
 L’exemple suivant permet de créer un instantané de partage de fichier.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShareSnapshot":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 storageAccount = CloudStorageAccount.Parse(ConnectionString); 
@@ -462,11 +462,11 @@ var snapshotShare = myShare.Snapshot();
 
 L’exemple suivant liste les instantanés présents sur un partage.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListShareSnapshots":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
@@ -478,11 +478,11 @@ var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 
 L’exemple suivant parcourt les fichiers et les répertoires figurant dans des instantanés de partage.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListSnapshotContents":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
@@ -498,11 +498,11 @@ Prendre un instantané d’un partage de fichiers vous permet de récupérer des
 
 Vous pouvez restaurer un fichier à partir d’un instantané de partage de fichiers en interrogeant les instantanés de partage d’un partage de fichiers. Vous pouvez ensuite récupérer un fichier qui appartient à un instantané de partage particulier. Utilisez cette version pour restaurer ou pour lire directement le fichier.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_RestoreFileFromSnapshot":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -533,11 +533,11 @@ fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 
 L’exemple suivant permet de supprimer un instantané de partage de fichier.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_DeleteSnapshot":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
@@ -553,11 +553,11 @@ Vous pouvez activer les métriques pour Azure Files par le biais du [Portail Azu
 
 L’exemple de code suivant montre comment utiliser la bibliothèque de client .NET afin d’activer les métriques pour Azure Files.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="azure-net-sdk-v12"></a>[Kit de développement logiciel (SDK) \.NET Azure v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UseMetrics":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="azure-net-sdk-v11"></a>[Kit de développement logiciel (SDK) \.NET Azure v11](#tab/dotnetv11)
 
 Commencez par ajouter les directives `using` suivantes à votre fichier *Program.cs*, en plus de celles que vous avez ajoutées ci-dessus :
 

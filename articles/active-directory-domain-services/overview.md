@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/20/2021
+ms.date: 04/28/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 194a5420f38e99d45f74241f67ae8cfbbaaee8f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5854d8cecd1de8121b6129d86a70c1f5ad9518f2
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660995"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175385"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Présentation d’Azure Active Directory Domain Services
 
@@ -50,9 +50,9 @@ Azure AD DS réplique les informations d’identité à partir d’Azure AD, et 
 * Si vous disposez d’un environnement AD DS local existant, vous pouvez synchroniser les informations des comptes d’utilisateurs pour fournir une identité cohérente aux utilisateurs. Pour en savoir plus, consultez [Synchronisation des objets et des informations d’identification dans un domaine managé][synchronization].
 * Pour les environnements cloud uniquement, vous n’avez pas besoin d’un environnement AD DS local traditionnel pour utiliser les services d’identité centralisés d’Azure AD DS.
 
-Vous pouvez étendre un domaine managé pour avoir plusieurs jeux de réplicas par locataire Azure AD. Les jeux de réplicas peuvent être ajoutés à n’importe quel réseau virtuel appairé dans toute région Azure prenant en charge Azure AD DS. D’autres jeux de réplicas dans des régions Azure différentes assurent la récupération d’urgence géographique pour les applications héritées si une région Azure est mise hors connexion. Les jeux de réplicas sont actuellement en préversion. Pour plus d’informations, consultez [Concepts et caractéristiques des jeux de réplicas pour les domaines managés][concepts-replica-sets].
+Vous pouvez étendre un domaine managé pour avoir plusieurs jeux de réplicas par locataire Azure AD. Les jeux de réplicas peuvent être ajoutés à n’importe quel réseau virtuel appairé dans toute région Azure prenant en charge Azure AD DS. D’autres jeux de réplicas dans des régions Azure différentes assurent la récupération d’urgence géographique pour les applications héritées si une région Azure est mise hors connexion. Pour plus d’informations, consultez [Concepts et caractéristiques des jeux de réplicas pour les domaines managés][concepts-replica-sets].
 
-La vidéo suivante fournit une vue d’ensemble de la façon dont Azure AD DS s’intègre à vos applications et charges de travail pour fournir des services d’identité dans le cloud :
+Jetez un coup d’œil à cette vidéo sur la façon dont Azure AD DS s’intègre à vos applications et charges de travail pour fournir des services d’identité dans le cloud :
 
 <br />
 

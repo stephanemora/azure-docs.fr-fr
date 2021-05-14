@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 7fd9e504448d55b4a2ef8c10b4ba1176cb2e3402
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7b18fe6584781db2ec4e81e8bf0cb85e23f0566
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96172633"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175799"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinq étapes pour l’intégration de toutes vos applications à Azure AD
 
@@ -90,7 +90,7 @@ Traditionnellement, les applications étaient sécurisées en n’autorisant l�
 
 ![Le fonctionnement du service Proxy d’application est illustré dans un schéma. Un utilisateur accède à « https://sales.contoso.com  » et la demande est redirigée via « https://sales-contoso.msappproxy.net  » dans Azure Active Directory vers l’adresse locale « http://sales  »](./media/five-steps-to-full-application-integration-with-azure-ad\app-proxy.png)
 
-Vous pouvez vous reporter au [Didacticiel : Ajoutez une application locale pour l’accès distant via Proxy d’application dans Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md) afin d’activer Proxy d’application et d’ajouter une application locale à votre locataire Azure AD.
+Vous pouvez vous reporter au [Didacticiel : Ajoutez une application locale pour l’accès distant via Proxy d’application dans Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) afin d’activer Proxy d’application et d’ajouter une application locale à votre locataire Azure AD.
 
 En outre, vous pouvez intégrer des contrôleurs de livraison d’application, tels que F5 BIG-IP APM, ou un accès privé Zscaler. En les intégrant à Azure AD, vous bénéficiez de l’authentification moderne et de la gestion des identités Azure AD en plus de la gestion du trafic et des fonctionnalités de sécurité du produit partenaire. Nous appelons cette solution [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md). Si vous utilisez actuellement l’un des services suivants, nous vous proposerons des didacticiels qui vous guideront dans la procédure à suivre pour les intégrer à Azure AD.
 

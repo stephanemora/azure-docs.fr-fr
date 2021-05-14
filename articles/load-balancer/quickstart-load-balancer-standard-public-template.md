@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 7067d7d76815103541fa4654da2bf977ba03a4ef
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4b1bdd1addec93647eaa631a89e6d419f7ecf477
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056247"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789134"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Démarrage rapide : Créer un équilibreur de charge public pour équilibrer la charge de machines virtuelles à l’aide d’un modèle Resource Manager
 
-L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les requêtes entrantes sur plusieurs machines virtuelles. 
+L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les requêtes entrantes sur plusieurs machines virtuelles.
 
 Ce guide de démarrage rapide vous montre comment déployer un équilibreur de charge standard pour équilibrer la charge des machines virtuelles.
 
@@ -33,7 +33,7 @@ L’utilisation du modèle Resource Manager comprend moins d’étapes que les a
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-load-balancer-standard-create%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fload-balancer-standard-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +45,7 @@ Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarr
 
 Les références SKU de l’équilibreur de charge et de l’adresse IP publique doivent correspondre. Lorsque vous créez un équilibreur de charge standard, vous devez également créer une adresse IP publique standard configurée en tant que front-end pour cet équilibreur de charge standard. Si vous souhaitez créer un équilibreur de charge de base, utilisez [ce modèle](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Microsoft recommande d’utiliser la référence SKU standard pour les charges de travail de production.
 
-:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/load-balancer-standard-create/azuredeploy.json":::
 
 Plusieurs ressources Azure ont été définies dans le modèle :
 
@@ -71,7 +71,7 @@ Pour rechercher d’autres modèles qui sont liés à l’équilibrage de charge
    $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
    $resourceGroupName = "${projectName}rg"
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/load-balancer-standard-create/azuredeploy.json"
 
    New-AzResourceGroup -Name $resourceGroupName -Location $location
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
@@ -119,7 +119,7 @@ Pour visualiser la distribution de trafic Load Balancer sur les trois machines 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’avez plus besoin des ressources suivantes, supprimez-les : 
+Quand vous n’avez plus besoin des ressources suivantes, supprimez-les :
 
 * Resource group
 * Équilibrage de charge

@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Votre première requête .NET Core'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour activer les packages NuGet Resource Graph pour .NET Core et vous exécutez votre première requête.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0135dfd499af48b3c60314679f4c9b635a5ce15a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0c1b7165702d00426f3459907a5558a08b12d84
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917569"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751838"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de .NET Core
 

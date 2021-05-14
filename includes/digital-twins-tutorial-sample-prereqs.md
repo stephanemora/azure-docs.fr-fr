@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 43cc3dfc5b425df6d9dd5e2c2f35a792907ccdea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00d584690d37f1dcc47b785ef533abe888befec3
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103622256"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107511405"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,7 +27,7 @@ Pour suivre ce tutoriel, **installez [Visual Studio 2019](https://visualstudio
 
 Ce tutoriel est piloté par un exemple de projet écrit en C#. L’exemple se trouve ici : [Exemples Azure Digital Twins de bout en bout](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Pour **obtenir l’exemple de projet** sur votre machine, suivez le lien vers l’exemple, puis sélectionnez le bouton *Parcourir le code* sous le titre. Vous accédez alors au dépôt GitHub des exemples, que vous pouvez télécharger au format *.ZIP* en sélectionnant le bouton *Code*, puis *Download ZIP* (Télécharger le ZIP).
 
-:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Vue du dépôt digital-twins-samples sur GitHub. La sélection du bouton Code entraîne l’ouverture d’une petite boîte de dialogue dans laquelle le bouton Download ZIP est mis en évidence." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
+:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Capture d’écran du dépôt digital-twins-samples sur GitHub. La sélection du bouton Code entraîne l’ouverture d’une petite boîte de dialogue dans laquelle le bouton Download ZIP est mis en évidence." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 
 Ceci télécharge un dossier *.ZIP* sur votre machine sous le nom **digital-twins-samples-master.zip**. Décompressez le dossier et extrayez les fichiers.
 

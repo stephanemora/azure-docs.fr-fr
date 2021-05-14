@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ba75af247888a2404619ec0a3db3b0a5d3310502
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048202"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142420"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guide de dépannage pour résoudre des problèmes courants rencontrés avec Azure SignalR Service
 
@@ -354,7 +354,7 @@ Ce scénario est normalement provoqué par Async sur Sync ou par `Task.Result`/`
 
 Consultez [Meilleures pratiques d’ASP.NET Core en matière de performances](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls).
 
-Apprenez-en davantage sur l’[insuffisance du pool de threads](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
+Apprenez-en davantage sur l’[insuffisance du pool de threads](/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
 
 ### <a name="how-to-detect-thread-pool-starvation"></a>Comment détecter une insuffisance du pool de threads
 
@@ -363,8 +363,8 @@ Vérifiez le nombre de threads. S’il n’y a pas de pics à ce stade, effectue
     
   :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-thread-count.png" alt-text="Capture d’écran du volet du nombre maximal de threads dans Azure App Service.":::
 
-* Si vous utilisez .NET Framework, vous pouvez trouver des [métriques](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) dans l’Analyseur de performances de votre machine virtuelle serveur.
-* Si vous utilisez .NET Core dans un conteneur, consultez [Collecter les diagnostics dans des conteneurs](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers).
+* Si vous utilisez .NET Framework, vous pouvez trouver des [métriques](/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) dans l’Analyseur de performances de votre machine virtuelle serveur.
+* Si vous utilisez .NET Core dans un conteneur, consultez [Collecter les diagnostics dans des conteneurs](/dotnet/core/diagnostics/diagnostics-in-containers).
 
 Vous pouvez également utiliser du code pour détecter une insuffisance du pool de threads :
 

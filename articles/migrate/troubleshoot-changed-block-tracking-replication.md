@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5487e51ad73ab903e7b61de266e2c28d282a56c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5b17df9e074375b8cdbe769c840aaf030eaff8af
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568656"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317430"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Résolution des problèmes de réplication dans la migration de machines virtuelles VMware sans agent
 
@@ -240,7 +240,7 @@ Cette erreur peut être résolue des deux manières suivantes :
 - Si vous avez choisi l’option « Réparer automatiquement la réplication » en sélectionnant « Oui » lorsque vous avez déclenché la réplication de la machine virtuelle, l’outil tente de la réparer pour vous. Cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez « Réparer la réplication ».
 - Si vous n’avez pas choisi « Réparer automatiquement la réplication » ou si l’étape ci-dessus n’a pas fonctionné pour vous, arrêtez la réplication de la machine virtuelle, [réinitialiser la fonctionnalité CBT](https://go.microsoft.com/fwlink/?linkid=2139203) sur la machine virtuelle, puis reconfigurez la réplication.
 
-L’un des problèmes connus susceptibles de provoquer une réinitialisation CBT de machine virtuelle sur VMware vSphere 5.5 est décrit dans [VMware KB 2048201 : Changed Block Tracking is reset after a storage vMotion operation in vSphere 5.x](https://go.microsoft.com/fwlink/?linkid=2138888). Si vous êtes sur VMware vSphere 5.5, veillez à appliquer les mises à jour décrites dans cet article.
+L’un des problèmes connus susceptibles de provoquer une réinitialisation CBT de machine virtuelle sur VMware vSphere 5.5 est décrit dans [VMware KB 1020128 : Changed Block Tracking is reset after a storage vMotion operation in vSphere 5.x](https://kb.vmware.com/s/article/1020128). Si vous êtes sur VMware vSphere 5.5, veillez à appliquer les mises à jour décrites dans cet article.
 
 Vous pouvez également réinitialiser la fonctionnalité CBT de VMware sur une machine virtuelle à l’aide de VMware PowerCLI.
 

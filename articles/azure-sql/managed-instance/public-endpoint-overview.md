@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/08/2019
-ms.openlocfilehash: d9c1828732b9a4e0e85c3af2263f097edd54437d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c949579d23e3acfbecde3111534209151ed61ac
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91332846"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108314550"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Utiliser Azure SQL Managed Instance en toute sécurité avec des points de terminaison publics
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Azure SQL Managed Instance peut fournir une connectivité utilisateur sur des [points de terminaison publics](../../virtual-network/virtual-network-service-endpoints-overview.md). Cet article explique comment renforcer la sécurité de cette configuration.
+Azure SQL Managed Instance peut fournir une connectivité utilisateur sur des [points de terminaison publics](public-endpoint-configure.md). Cet article explique comment renforcer la sécurité de cette configuration.
 
 ## <a name="scenarios"></a>Scénarios
 
@@ -44,7 +44,7 @@ Le schéma suivant illustre les configurations de sécurité recommandées :
 
 ![Configurations de sécurité pour le verrouillage de connectivité entrante et sortante](./media/public-endpoint-overview/managed-instance-vnet.png)
 
-Une instance gérée a une [adresse de point de terminaison public dédiée](management-endpoint-find-ip-address.md). Au niveau du pare-feu de trafic sortant côté client et dans les règles de groupe de sécurité réseau, définissez cette adresse IP de point de terminaison public de façon à limiter la connectivité sortante.
+Une instance gérée a une adresse de point de terminaison public qui est dédiée à un client. Ce point de terminaison partage l’adresse IP avec le [point de terminaison de gestion](management-endpoint-find-ip-address.md), mais utilise un port différent. Au niveau du pare-feu de trafic sortant côté client et dans les règles de groupe de sécurité réseau, définissez cette adresse IP de point de terminaison public de façon à limiter la connectivité sortante.
 
 Pour garantir que le trafic vers l’instance gérée provient de sources approuvées, nous vous recommandons d’établir une connexion à partir de sources dont les adresses IP sont bien connues. Utilisez un groupe de sécurité réseau pour limiter l’accès au point de terminaison public de l’instance gérée sur le port 3342.
 

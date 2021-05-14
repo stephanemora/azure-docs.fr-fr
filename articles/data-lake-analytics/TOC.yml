@@ -1,6 +1,6 @@
 - name: Documentation Data Lake Analytics
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Data Lake Analytics\_?"
       href: data-lake-analytics-overview.md
@@ -26,7 +26,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité pour Azure Security Benchmark
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/data-lake-analytics-security-baseline?toc=/azure/data-lake-analytics/TOC.json
 - name: Guides pratiques
   items:
     - name: Gérer Data Lake Analytics

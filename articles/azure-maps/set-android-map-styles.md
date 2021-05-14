@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 9dcb5b84faa47b7307ce8441003e8591d7c2757b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4d96d116bc4350a3326722c87f65e887d5a54791
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604785"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326540"
 ---
 # <a name="set-map-style-android-sdk"></a>Définition d’un style de carte (Android SDK)
 
@@ -23,6 +23,10 @@ Cet article vous présente deux façons de définir des styles de carte à l’a
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Veillez à suivre la procédure du document [Démarrage rapide : Création d’une application Android](quick-android-map.md).
+
+>[!important]
+>Un compte Azure Maps du niveau tarifaire Gen1 ou Gen2 est nécessaire pour suivre la procédure de cette section. Pour plus d’informations sur les niveaux tarifaires, consultez [Choix du bon niveau tarifaire dans Azure Maps](choose-pricing-tier.md).
+
 
 ## <a name="set-map-style-in-the-layout"></a>Définir le style de carte dans la disposition
 

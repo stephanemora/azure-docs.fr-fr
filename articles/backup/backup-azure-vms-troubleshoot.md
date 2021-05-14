@@ -4,18 +4,18 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 83e6af5737d332bdafbae793286d5ebc0bc09bb8
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559364"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164882"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations ci-dessous :
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 Cette section traite de l’échec d’opération de sauvegarde d’une machine virtuelle Azure.
 
@@ -50,7 +50,7 @@ Pour résoudre ce problème, excluez les répertoires ci-dessous dans la configu
 
 ### <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime – La copie des données sauvegardées du coffre a expiré.
 
-Code d’erreur : CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Code d’erreur : CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Message d’erreur : La copie des données sauvegardées du coffre a expiré.
 
 Cela peut se produire en raison d’erreurs de stockage temporaires ou d’un nombre insuffisant d’IOPS du compte de stockage pour que le service de sauvegarde transfère les données vers le coffre dans le délai imparti. Configurez la sauvegarde de machine virtuelle en appliquant ces [meilleures pratiques](backup-azure-vms-introduction.md#best-practices), puis relancez l’opération de sauvegarde.
@@ -74,7 +74,7 @@ Message d’erreur : Impossible de figer un ou plusieurs points de montage de l
 * Effectuez une vérification de cohérence de système de fichiers sur ces appareils à l’aide de la commande **fsck**.
 * Remontez les appareils, puis retentez l’opération de sauvegarde.</ol>
 
-Si vous ne pouvez pas annuler le montage, vous pouvez mettre à jour la configuration de la sauvegarde de machine virtuelle pour ignorer certains points de montage. Par exemple, si le point de montage « /mnt/Resource » ne peut pas être annulé et provoque des échecs de sauvegarde de la machine virtuelle, vous pouvez mettre à jour les fichiers de configuration de la sauvegarde de machine virtuelle avec la propriété ```MountsToSkip``` comme suit.
+Si vous ne pouvez pas annuler le montage, vous pouvez mettre à jour la configuration de la sauvegarde de machine virtuelle pour ignorer certains points de montage. Par exemple, si le point de montage « /mnt/Resource » ne peut pas être annulé et provoque des échecs de sauvegarde de la machine virtuelle, vous pouvez mettre à jour les fichiers de configuration de la sauvegarde de machine virtuelle avec la propriété `MountsToSkip` comme suit.
 
 ```bash
 cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
@@ -82,7 +82,6 @@ fsfreeze: True
 MountsToSkip = /mnt/resource
 SafeFreezeWaitInSeconds=600
 ```
-
 
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC – Échec de l’installation/opération d’extension en raison d’une erreur COM+
 
@@ -116,12 +115,12 @@ Cette erreur se produit parce que les enregistreurs VSS sont dans un état incor
 
 Étape 1 : Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect.
 
-* À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```.
+* À partir d’une invite de commandes avec élévation de privilèges, exécutez `vssadmin list writers`.
 * La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez le service de l’enregistreur VSS correspondant.
 * Pour redémarrer le service, exécutez les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
 
- ```net stop serviceName``` <br>
- ```net start serviceName```
+  `net stop serviceName` <br>
+  `net start serviceName`
 
 > [!NOTE]
 > Le redémarrage de certains services peut avoir un impact sur votre environnement de production. Assurez-vous que le processus d’approbation est respecté et que le service est redémarré à l’heure d’arrêt prévue.
@@ -156,8 +155,8 @@ Redémarrez le service VSS (cliché instantané de volume).
 (ou)<br>
 * Exécutez les commandes suivantes à partir d'une invite de commandes avec élévation de privilèges :
 
- ```net stop VSS``` <br>
- ```net start VSS```
+  `net stop VSS` <br>
+  `net start VSS`
 
 Si le problème persiste, redémarrez la machine virtuelle lors des temps d’arrêt planifiés.
 
@@ -178,7 +177,7 @@ Sauvegarde Azure prend en charge la sauvegarde et la restauration des machines v
 * Pour résoudre ce problème, utilisez l’option [Restaurer les disques](./backup-azure-arm-restore-vms.md#restore-disks) au cours de l’opération de restauration, puis utilisez des cmdlets [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) ou [Azure CLI](./tutorial-restore-disk.md) pour créer la machine virtuelle avec les informations les plus récentes sur le marketplace qui correspondent à la machine virtuelle.
 * Si l’éditeur ne dispose d’aucune information sur le marketplace, vous pouvez utiliser les disques de données pour récupérer vos données et les attacher à une machine virtuelle existante.
 
-### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure – Échec d’analyse de la configuration pour l’extension de sauvegarde
+### <a name="extensionconfigparsingfailure---failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure – Échec d’analyse de la configuration pour l’extension de sauvegarde
 
 Code d’erreur : ExtensionConfigParsingFailure<br/>
 Message d’erreur : Échec d’analyse de la configuration pour l’extension de sauvegarde.
@@ -211,7 +210,7 @@ Si les autorisations que vous voyez dans le répertoire **MachineKeys** sont dif
 
 ### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState – L’état de l’extension ne prend pas en charge l’opération de sauvegarde.
 
-Code d’erreur : ExtensionStuckInDeletionState <br/>
+Code d’erreur : ExtensionStuckInDeletionState <br/>
 Message d’erreur : L’état de l’extension ne prend pas en charge l’opération de sauvegarde.
 
 L’opération de sauvegarde a échoué en raison d’un état incohérent de l’extension de sauvegarde. Pour résoudre ce problème, effectuez les étapes suivantes :
@@ -224,7 +223,7 @@ L’opération de sauvegarde a échoué en raison d’un état incohérent de l�
 
 ### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError – L’opération de capture instantanée a échoué, car certains disques attachés ont dépassé la limite de captures instantanées
 
-Code d’erreur : ExtensionFailedSnapshotLimitReachedError  <br/>
+Code d’erreur : ExtensionFailedSnapshotLimitReachedError   <br/>
 Message d’erreur : L’opération de capture instantanée a échoué, car certains disques attachés ont dépassé la limite de captures instantanées
 
 L’opération de capture instantanée a échoué parce que la limite de captures instantanées a été dépassée pour certains des disques attachés. Suivez les étapes de dépannage ci-dessous, puis réessayez l’opération.
@@ -331,7 +330,7 @@ Si vous disposez d’une stratégie Azure Policy qui [régit les étiquettes au 
 
 Si, après la restauration, vous remarquez que les disques sont hors connexion, alors :
 
-* Vérifiez si l’ordinateur sur lequel le script est exécuté répond à la configuration requise du système d’exploitation. [En savoir plus](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script)  
+* Vérifiez si l’ordinateur sur lequel le script est exécuté répond à la configuration requise du système d’exploitation. [En savoir plus](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script)
 * Assurez-vous que vous ne restaurez pas sur la même source. [En savoir plus](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound : La restauration a échoué, car l’instantané de la machine virtuelle est introuvable
@@ -343,7 +342,8 @@ Cette erreur se produit lorsque vous essayez de restaurer à partir d’un point
 <br>
 Pour résoudre ce problème, essayez de restaurer la machine virtuelle à partir d’un autre point de restauration.<br>
 
-#### <a name="common-errors"></a>Erreurs courantes 
+#### <a name="common-errors"></a>Erreurs courantes
+
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |
 | Échec de la restauration avec une erreur interne du cloud. |<ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier : <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Si **Adresse** est configuré, les paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous tentez d’effectuer la restauration est configuré avec une **adresse IP réservée**, et les machines virtuelles existantes dans le service cloud sont à l’état arrêté. Vous pouvez vérifier qu’un service cloud a réservé une adresse IP à l’aide des cmdlets PowerShell suivantes : **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud : <ul><li>Machines virtuelles avec configuration d’un équilibreur de charge, internes et externes.<li>Machines virtuelles avec plusieurs adresses IP réservées. <li>Machines virtuelles avec plusieurs NIC. </ul><li>Sélectionnez un nouveau service cloud dans l’interface utilisateur ou consultez les [considérations relatives à la restauration](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) des machines virtuelles avec des configurations réseau spéciales.</ol> |

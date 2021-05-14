@@ -4,15 +4,15 @@ description: Découvrez comment accéder à toutes les métriques d’utilisatio
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 04/28/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 765f4f358d593cd5fcc021fbf4ec2276c422c4d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef0e3745d6a45353ef286101bcb5fef1923ce12b
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555123"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206742"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation dans les données d’analytique de la Place de marché commerciale
 
@@ -155,6 +155,13 @@ _**Tableau 1 : dictionnaire des termes relatifs aux données**_
 | RawUsage | Utilisation brute | Nombre total d’unités d’utilisation brute consommées par la ressource déployée par le client.<br>Les heures d’utilisation brute correspondent à la durée, en unités d’utilisation, pendant laquelle les machines virtuelles ont été utilisées. | RawUsage |
 | Estimation des frais d’extension (DC) | Frais étendus estimés dans la devise du client | Frais associés à l’utilisation. La colonne correspond au produit entre Prix et Quantité d’utilisation. | EstimatedExtendedChargeCC |
 | Estimation des frais d’extension (DE) | Frais étendus estimés dans la devise de paiement | Frais associés à l’utilisation. La colonne correspond au produit entre Prix estimé et Quantité d’utilisation. | EstimatedExtended ChargePC |
+| ID du compteur | ID du compteur | Désigne l’ID de compteur de l’offre. | ID du compteur |
+| Anomalie détectée par Espace partenaires | Anomalie détectée par Espace partenaires | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Indique si l’éditeur a signalé une utilisation de dépassement pour la dimension de compteur personnalisée de l’offre qui a été marquée comme une anomalie par Espace partenaires. Les valeurs possibles sont les suivantes : <ul><li>0 (N’est pas une anomalie)</li><li>1 (Anomalie)</li></ul>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | PartnerCenterDetectedAnomaly |
+| Anomalie marquée par l’éditeur | Anomalie marquée par l’éditeur | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Indique si l’éditeur a reconnu l’utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme authentique ou fausse. Les valeurs possibles sont les suivantes :<ul><li>0 (L’éditeur l’a marquée comme n’étant pas une anomalie.)</li><li>1 (L’éditeur l’a marquée comme étant une anomalie.)</li></ul>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | PublisherMarkedAnomaly |
+| Nouvelle utilisation signalée | Nouvelle utilisation signalée | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Pour l’utilisation de dépassement par le client de la dimension de compteur personnalisée de l’offre identifiée comme anormale par l’éditeur. Ce champ spécifie la nouvelle utilisation de dépassement signalée par l’éditeur.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | NewReportedUsage |
+| Action entreprise à | Action entreprise à | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Spécifie le moment où l’éditeur a reconnu l’utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme authentique ou fausse.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | ActionTakenAt |
+| Action entreprise par | Action entreprise par | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Spécifie la personne qui a reconnu l’utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme authentique ou fausse.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | ActionTakenBy |
+| Impact financier estimé (USD) | Impact financier estimé en USD | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Lorsqu’Espace partenaires signale une utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme anormale, le champ spécifie l’impact financier estimé (en USD) de l’utilisation de dépassement anormale.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par des moyens programmatiques, la valeur sera Null._ | EstimatedFinancialImpactUSD |
 |||||
 
 ### <a name="usage-page-filters"></a>Filtres de la page Utilisation

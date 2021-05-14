@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 868d1280179d63bd07b7e01d5e807339439c02f0
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96349348"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163604"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurer des revendications de groupe pour des applications avec Azure Active Directory
 
@@ -29,9 +29,9 @@ Azure Active Directory peut fournir une information d’appartenance de groupe d
 > [!IMPORTANT]
 > Il existe plusieurs mises en garde concernant cette fonctionnalité :
 >
->- La prise en charge de l’utilisation d’attributs sAMAccountName et d’identificateur de sécurité synchronisés localement est conçue pour permettre le déplacement d’applications existantes à partir d’AD FS et d’autres fournisseurs d’identité. Les groupes gérés dans Azure AD ne contiennent pas les attributs nécessaires pour émettre ces revendications.
->- Dans les grandes entreprises, le nombre de groupes dont un utilisateur est un membre peut dépasser la limite qu’Azure Active Directory ajoute à un jeton. 150 groupes pour un jeton SAML, et 200 pour un jeton JWT. Cela peut entraîner des résultats imprévisibles. Si vos utilisateurs ont un grand nombre d’appartenances à des groupes, nous vous recommandons d’utiliser l’option permettant de limiter les groupes émis dans les revendications aux groupes appropriés pour l’application.  
->- Pour un nouveau développement d’application, dans les cas où l’application peut être configurée pour celui-ci, et où une prise en charge de groupe imbriqué n’est pas obligatoire, il est recommandé que l’autorisation dans l’application soit basée sur les rôles d’application plutôt que sur des groupes.  Cela a pour effet de limiter la quantité d’informations qui doivent figurer dans le jeton, de sécuriser davantage et de séparer l’affectation d’utilisateurs de la configuration de l’application.
+> - La prise en charge de l’utilisation d’attributs sAMAccountName et d’identificateur de sécurité synchronisés localement est conçue pour permettre le déplacement d’applications existantes à partir d’AD FS et d’autres fournisseurs d’identité. Les groupes gérés dans Azure AD ne contiennent pas les attributs nécessaires pour émettre ces revendications.
+> - Dans les grandes entreprises, le nombre de groupes dont un utilisateur est un membre peut dépasser la limite qu’Azure Active Directory ajoute à un jeton. 150 groupes pour un jeton SAML, et 200 pour un jeton JWT. Cela peut entraîner des résultats imprévisibles. Si vos utilisateurs ont un grand nombre d’appartenances à des groupes, nous vous recommandons d’utiliser l’option permettant de limiter les groupes émis dans les revendications aux groupes appropriés pour l’application.
+> - Pour un nouveau développement d’application, dans les cas où l’application peut être configurée pour celui-ci, et où une prise en charge de groupe imbriqué n’est pas obligatoire, il est recommandé que l’autorisation dans l’application soit basée sur les rôles d’application plutôt que sur des groupes.  Cela a pour effet de limiter la quantité d’informations qui doivent figurer dans le jeton, de sécuriser davantage et de séparer l’affectation d’utilisateurs de la configuration de l’application.
 
 ## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Revendications de groupe pour les applications migrant à partir d’AD FS et d’autres fournisseurs d’identité
 
@@ -57,7 +57,7 @@ Les applications peuvent appeler le point de terminaison de groupes MS Graph po
 Toutefois, si une application existante attend de commencer les informations de groupe via des revendications, Azure Active Directory peut être configuré avec un certain nombre de formats de revendications différents.  Considérez les options suivantes :
 
 - Lors de l’utilisation de l’appartenance de groupe à des fins d’autorisation dans l’application, il est préférable d’utiliser l’attribut ObjectID du groupe. L’attribut ObjectID du groupe est immuable et unique dans Azure Active Directory et disponible pour tous les groupes.
-- Si vous utilisez l’attribut sAMAccountName du groupe local pour l’autorisation, utilisez les noms de domaines complets afin de réduire la probabilité de situations de conflits de noms. L’attribut sAMAccountName peut être unique au sein d’un domaine Active Directory mais, si plusieurs domaines Active Directory sont synchronisés avec un locataire Azure Active Directory, il est possible que plusieurs groupes aient le même nom.
+- Si vous vous servez de l’attribut sAMAccountName du groupe local pour l’autorisation, utilisez les noms de domaines complets afin de réduire le risque de conflit de noms. L’attribut sAMAccountName peut être unique au sein d’un domaine Active Directory mais, si plusieurs domaines Active Directory sont synchronisés avec un locataire Azure Active Directory, il est possible que plusieurs groupes aient le même nom.
 - Envisagez d’utiliser des [rôles d’application](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) pour fournir une couche d’indirection entre l’appartenance de groupe et l’application.   L’application prend alors des décisions d’autorisation interne basées sur les revendications de rôle dans le jeton.
 - Si l’application est configurée pour obtenir des attributs de groupe qui ont été synchronisés à partir d’Active Directory et qu’un groupe ne contient pas ces attributs, celui-ci n’est pas inclus dans les revendications.
 - Les revendications de groupe dans les jetons incluent des groupes imbriqués, sauf lors de l’utilisation de l’option permettant de restreindre les revendications de groupe aux groupes affectés à l’application.  Si un utilisateur est membre du GroupeB et que celui-ci est membre de GroupeA, les revendications de groupe pour l’utilisateur contiennent le GroupeA et le GroupeB. Quand les utilisateurs d’une organisation disposent d’un nombre important d’appartenances de groupe, le nombre de groupes listés dans le jeton peut faire augmenter la taille du jeton.  Azure Active Directory limite le nombre de groupes qu’il émet dans un jeton à 150 pour les assertions SAML, et à 200 pour JWT.  Si un utilisateur est membre d’un plus grand nombre de groupes, les groupes sont omis et un lien vers le point de terminaison Graph est inclus à la place, pour obtenir les informations des groupes.
@@ -70,13 +70,13 @@ Il existe deux étapes pour configurer Azure Active Directory afin qu’il émet
 
 1. **Synchronisation des noms de groupe à partir d’Active Directory** Avant qu’Azure Active Directory puisse émettre les noms de groupes ou un identificateur de sécurité (SID) de groupe local dans des revendications de groupe ou de rôle, les attributs requis doivent être synchronisés à partir d’Active Directory.  Vous devez exécuter Azure AD Connect version 1.2.70 ou ultérieure.   Les version d’Azure AD Connect antérieures à la version 1.2.70 synchronisent les objets de groupe à partir d’Active Directory, mais n’incluent pas les attributs de nom de groupe requis.  Effectuez une mise à niveau vers la version actuelle.
 
-2. **Configuration de l’inscription d’application dans Azure Active Directory afin d’inclure les revendications de groupe dans les jetons** Les revendications de groupe peuvent être configurées dans la section Applications d’entreprise du portail ou à l’aide du manifeste de l’application dans la section Inscriptions d’applications.  Pour configurer les revendications de groupe dans le manifeste de l’application, voir « Configuration de l’inscription d’application Azure Active Directory pour les attributs de groupe » ci-dessous.
+2. **Configuration de l’inscription d’application dans Azure Active Directory afin d’inclure les revendications de groupe dans les jetons** Les revendications de groupe peuvent être configurées dans la section Applications d’entreprise du portail ou à l’aide du manifeste de l’application dans la section Inscriptions d’applications.  Pour configurer les revendications de groupe dans le manifeste de l’application, consultez « Configuration de l’inscription d’application Azure Active Directory pour les attributs de groupe » ci-dessous.
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Ajouter des revendications de groupe aux jetons pour les applications SAML en configurant l’authentification unique
 
 Pour configurer les revendications de groupe pour une application SAML de galerie ou hors galerie, ouvrez **Applications d’entreprise**, cliquez sur l’application dans la liste, sélectionnez **Configuration de l’authentification unique**, puis sélectionnez **Attributs et revendications de l’utilisateur**.
 
-Cliquez sur **Ajouter une revendication de groupe**.  
+Cliquez sur **Ajouter une revendication de groupe**.
 
 ![Capture d’écran montrant la page « Attributs et revendications de l’utilisateur » avec l’option « Ajouter une revendication de groupe » sélectionnée.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
@@ -105,7 +105,7 @@ Pour émettre uniquement les groupes attribués à l’application, sélectionne
 
 Les groupes attribués à l’application sont inclus dans le jeton.  Les autres groupes dont l’utilisateur est membre sont omis.  Avec cette option, les groupes imbriqués ne sont pas inclus et l’utilisateur doit être un membre direct du groupe attribué à l’application.
 
-Pour changer les groupes attribués à l’application, sélectionnez l’application dans la liste **Applications d’entreprise** puis cliquez sur **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
+Pour changer les groupes attribués à l’application, sélectionnez celle-ci dans la liste **Applications d’entreprise**, puis cliquez sur **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
 
 Pour plus d’informations sur la gestion de l’attribution de groupe aux applications, consultez le document [Attribuer un utilisateur ou un groupe à des applications](../../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
@@ -183,11 +183,11 @@ Les valeurs autorisées sont :
    | **name:** | Doit être « groupes » |
    | **source:** | Non utilisé. Omettez ou spécifiez la valeur null |
    | **essential:** | Non utilisé. Omettez ou spécifiez la valeur false |
-   | **additionalProperties:** | Liste de propriétés supplémentaires.  Les options valides sont « sam_account_name », « dns_domain_and_sam_account_name », « netbios_domain_and_sam_account_name » et « emit_as_roles » |
+   | **additionalProperties:** | Liste de propriétés supplémentaires.  Les options valides sont « sam_account_name », « dns_domain_and_sam_account_name », « netbios_domain_and_sam_account_name » et « emit_as_roles ». |
 
-   Dans additionalProperties une seule des options « sam_account_name », « dns_domain_and_sam_account_name » ou « netbios_domain_and_sam_account_name » est requise.  Si plusieurs options sont présentes, la première est utilisée et les autres ignorées.
+   Dans additionalProperties, une seule des options « sam_account_name », « dns_domain_and_sam_account_name » ou « netbios_domain_and_sam_account_name » est nécessaire.  Si plusieurs options sont présentes, la première est utilisée et les autres ignorées.
 
-   Certaines applications requièrent des informations de groupe sur l’utilisateur dans la revendication de rôle.  Pour modifier le type de revendication de revendication de groupe en revendication de rôle, ajoutez « emit_as_roles » aux propriétés supplémentaires.  Les valeurs de groupe sont émises dans la revendication de rôle.
+   Certaines applications requièrent des informations de groupe sur l’utilisateur dans la revendication de rôle.  Pour remplacer la revendication de groupe par une revendication de rôle, ajoutez « emit_as_roles » aux propriétés supplémentaires.  Les valeurs de groupe sont émises dans la revendication de rôle.
 
    > [!NOTE]
    > Si l’option « emit_as_roles » est utilisée, les rôles d’application configurés auxquels l’utilisateur est affecté n’apparaissent pas dans la revendication de rôle
@@ -203,7 +203,7 @@ Les valeurs autorisées sont :
         "additionalProperties": ["dns_domain_and_sam_account_name"]
     }]
 }
- ```
+```
 
 Pour émettre des noms de groupes à retourner au format netbiosDomain\samAccountName en tant que revendication de rôles dans des jetons d’ID SAML et OIDC :
 
@@ -218,8 +218,8 @@ Pour émettre des noms de groupes à retourner au format netbiosDomain\samAccoun
         "name": "groups",
         "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
     }]
- }
- ```
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

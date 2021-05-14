@@ -1,35 +1,30 @@
 ---
-title: Obtenir la propriété de facturation d’abonnements Azure
-description: Découvrez comment demander la propriété de facturation des abonnements Azure à partir d’autres utilisateurs.
+title: Transférer la propriété de la facturation des abonnements Azure pour un Contrat client Microsoft
+description: Découvrez comment transférer la propriété de facturation des abonnements Azure.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 04/29/2021
 ms.author: banders
-ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: c3294c09012339cb19f04327f1933688b05ae077
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938475"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321462"
 ---
-# <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obtenir la propriété de facturation des abonnements Azure des autres comptes
+# <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Transférer la propriété de la facturation des abonnements Azure pour un Contrat client Microsoft
 
-Vous pouvez acquérir la propriété d’abonnements Azure si le propriétaire de facturation existant quitte votre organisation ou quand vous souhaitez payer les abonnements via votre compte de facturation. L’acquisition de propriété a pour effet de transférer les responsabilités liées à la facturation des abonnements vers votre compte.
-
-Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-for-access).
-
-Pour demander la propriété de facturation, vous devez être **propriétaire de section facture** ou **contributeur de section facture**. Pour plus d’informations, voir [Tâches et rôles de la section de facture](understand-mca-roles.md#invoice-section-roles-and-tasks).
+Vous devrez transférer la propriété de facturation de vos abonnements Azure dans les cas suivants :
+- Vous souhaitez transférer les responsabilités de facturation des abonnements à un autre propriétaire de facturation.
+- Vous transférez vos abonnements Azure d’un contrat de licence à un autre. Par exemple, d’un Contrat Entreprise ou d’un Contrat d’abonnement à Microsoft Online (MOSA) à un Contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-for-access).
 
 La personne à qui vous demandez la propriété de facturation doit détenir l’un des rôles suivants :
-
-- Pour un Contrat client Microsoft, l’utilisateur doit être propriétaire de facturation.
-- Pour un Accord Entreprise, l’utilisateur doit être propriétaire de compte.
-- Pour un compte de facturation du programme de service en ligne Microsoft, l’utilisateur doit être administrateur de compte.
-
-Pour plus d’informations, voir [Afficher vos comptes de facturation dans le portail Azure](view-all-accounts.md).
+- Pour un Contrat client Microsoft, la personne doit avoir un rôle de propriétaire ou de contributeur pour le compte de facturation ou pour la section de profil de facturation ou de facture appropriée. Pour plus d’informations, consultez [rôles et tâches liés à la facturation](understand-mca-roles.md#invoice-section-roles-and-tasks).
+- Pour un Contrat Entreprise, la personne doit être propriétaire de compte.
+- Pour un Contrat d’abonnement à Microsoft Online, la personne doit être administrateur de compte.
 
 ## <a name="request-billing-ownership"></a>Demander la propriété de facturation
 
@@ -137,7 +132,36 @@ Vous pouvez demander à obtenir la propriété de facturation des types d’abon
 
 ## <a name="additional-information"></a>Informations supplémentaires
 
-La section suivante fournit des informations supplémentaires sur le transfert d’abonnements.
+Les sections suivantes fournissent des informations supplémentaires sur le transfert d’abonnements.
+
+### <a name="cancel-a-prior-support-plan"></a>Annuler un plan de support antérieur
+
+Si vous disposez d’un plan de support Azure et que vous transférez tous vos abonnements Azure vers un nouveau contrat, vous devez annuler le plan de support, car il n’est pas transféré avec les abonnements. Par exemple, quand vous transférez un Contrat d’abonnement à Microsoft Online (abonnement Azure acheté sur le web) au Contrat client Microsoft. Pour annuler votre plan de support :
+
+Vous devez utiliser les informations d’identification d’administrateur de votre ancien compte si les informations d’identification sont différentes de celles utilisées pour accéder à votre nouveau compte Contrat client Microsoft.
+
+1.  Connectez-vous au portail Azure sur https://portal.azure.com.
+1.  Accédez à **Cost Management + facturation**.
+1.  Sélectionnez **Étendues de facturation** dans le volet gauche.
+1.  Sélectionnez le compte de facturation associé à votre plan de support Microsoft.
+    - Pour un Contrat client Microsoft :
+        - Sélectionnez **Charges périodiques** dans le volet gauche.
+        - Dans le volet droit, à droite de la ligne du plan de support, sélectionnez les points de suspension ( **...** ), puis **Désactiver le renouvellement automatique**.
+    - Pour un Contrat d’abonnement à Microsoft Online (MOSA) :
+        - Sélectionnez **Abonnements** dans le volet gauche.
+        - Sélectionnez l’abonnement au plan de support dans le volet droit, puis sélectionnez **Annuler**.
+
+### <a name="access-your-historical-invoices"></a>Accéder à vos factures historiques
+
+Vous pouvez accéder aux factures de votre ancien compte Contrat d’abonnement à Microsoft Online (abonnement Azure acheté sur le web) après avoir transféré la propriété de facturation vers votre nouveau compte Contrat client Microsoft. Pour cela, utilisez les étapes suivantes :
+
+Vous devez utiliser les informations d’identification d’administrateur de votre ancien compte si les informations d’identification sont différentes de celles utilisées pour accéder à votre nouveau compte Contrat client Microsoft.
+
+1.  Connectez-vous au portail Azure sur https://azure.portal.com.
+1.  Accédez à **Cost Management + facturation**.
+1.  Sélectionnez **Étendues de facturation** dans le volet gauche.
+1.  Sélectionnez le compte de facturation associé à votre compte Contrat d’abonnement à Microsoft Online.
+1.  Sélectionnez **Factures** dans le volet gauche pour accéder à vos factures historiques.
 
 ### <a name="no-service-downtime"></a>Aucune interruption de service.
 
@@ -162,10 +186,6 @@ Si vous transférez des abonnements Contrat Entreprise ou des contrats client Mi
 ### <a name="access-to-azure-services"></a>Accès aux services Azure
 
 La transition n’affecte pas l’accès d’utilisateurs, de groupes ou de principaux de service existants qui a été attribué à l’aide du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md).
-
-### <a name="azure-support-plan"></a>Plan de support Azure
-
-Le support Azure n’est pas transféré avec les abonnements. Si l’utilisateur transfère tous les abonnements Azure, demandez-leur d’annuler leur plan de support.
 
 ### <a name="charges-for-transferred-subscription"></a>Frais de transfert d’abonnement
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: ff26318cafdf493579961fc718643f831ae9efeb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30a0269b5729516d8e8e378c700c493262e77f10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564252"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "108756176"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrer de Linux vers un déploiement de cloud hybride avec Azure File Sync
 
@@ -48,9 +48,9 @@ Si vous n’exécutez pas Samba sur votre serveur Linux et que vous souhaitez pl
 * Créez une instance Windows Server 2019 comme machine virtuelle ou comme serveur physique. Windows Server 2012 R2 est la configuration minimale requise. Un cluster de basculement Windows Server est également pris en charge.
 * Approvisionnez ou ajoutez un stockage en attachement direct (DAS). Le stockage attaché au réseau (NAS) n’est pas pris en charge.
 
-  Si vous utilisez la fonctionnalité de [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) d’Azure File Sync, la quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Samba Linux. 
+  Si vous utilisez la fonctionnalité de [hiérarchisation cloud](../file-sync/file-sync-cloud-tiering-overview.md) d’Azure File Sync, la quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Samba Linux. 
 
-La quantité de stockage que vous provisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Linux Samba. Avec ce choix de configuration, il est également nécessaire d’utiliser la fonctionnalité de [hiérarchisation Cloud](storage-sync-cloud-tiering-overview.md) d’Azure File Sync. Toutefois, lorsque vous copiez vos fichiers de l’espace plus grand du serveur Samba Linux vers le volume plus petit de Windows Server à une étape ultérieure, vous devrez travailler par lots :
+La quantité de stockage que vous provisionnez peut être inférieure à celle que vous utilisez actuellement sur votre serveur Linux Samba. Avec ce choix de configuration, il est également nécessaire d’utiliser la fonctionnalité de [hiérarchisation Cloud](../file-sync/file-sync-cloud-tiering-overview.md) d’Azure File Sync. Toutefois, lorsque vous copiez vos fichiers de l’espace plus grand du serveur Samba Linux vers le volume plus petit de Windows Server à une étape ultérieure, vous devrez travailler par lots :
 
   1. Déplacez un ensemble de fichiers qui tiennent sur le disque.
   2. Autorisez la synchronisation des fichiers et la hiérarchisation cloud.
@@ -60,7 +60,7 @@ La quantité de stockage que vous provisionnez peut être inférieure à celle q
 
 La configuration des ressources (calcul et RAM) de l’instance Windows Server que vous déployez dépend principalement du nombre d’éléments (fichiers et dossiers) que vous allez synchroniser. Nous vous recommandons d’utiliser une configuration haute performance si vous rencontrez des problèmes.
 
-[Découvrez comment dimensionner une instance Windows Server en fonction du nombre d’éléments (fichiers et dossiers) que vous devez synchroniser.](storage-sync-files-planning.md#recommended-system-resources)
+[Découvrez comment dimensionner une instance Windows Server en fonction du nombre d’éléments (fichiers et dossiers) que vous devez synchroniser.](../file-sync/file-sync-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > L’article précédemment lié présente un tableau avec une plage pour la mémoire du serveur (RAM). Vous pouvez vous orienter vers le plus petit nombre de votre serveur, mais attendez-vous à ce que la synchronisation initiale prenne beaucoup plus de temps.
@@ -109,7 +109,7 @@ Exécutez la première copie locale vers votre dossier Windows Server cible :
 
 La commande Robocopy suivante copie les fichiers de votre stockage de votre serveur Samba Linux vers votre dossier cible Windows Server. Le serveur Windows Server va le synchroniser avec les partages de fichiers Azure. 
 
-Si vous avez configuré moins de stockage sur votre instance Windows Server que ce que vos fichiers occupent sur le serveur Samba Linux, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) commence et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir du serveur Samba Linux. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre la stratégie d’un espace de volume libre de 99 %.
+Si vous avez configuré moins de stockage sur votre instance Windows Server que ce que vos fichiers occupent sur le serveur Samba Linux, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](../file-sync/file-sync-cloud-tiering-overview.md) commence et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir du serveur Samba Linux. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre la stratégie d’un espace de volume libre de 99 %.
 
 Il est possible que Robocopy déplace les fichiers plus rapidement que vous ne pouvez les synchroniser dans le cloud et les hiérarchiser localement, ce qui vous amène à manquer d’espace disque local. Dans ce cas, Robocopy échoue. Nous vous recommandons de traiter les partages dans une séquence qui empêche le problème de survenir. Par exemple, envisagez de ne pas démarrer les travaux Robocopy pour tous les partages en même temps. Vous pouvez également envisager de déplacer les partages pour lesquels l’espace libre est actuellement suffisant sur l’instance Windows Server. Si votre travail RoboCopy échoue, vous pouvez toujours réexécuter la commande tant que vous utilisez l’option de mise en miroir/vidage suivante :
 
@@ -161,6 +161,6 @@ Pour plus d’informations sur la résolution des problèmes Azure File Sync, su
 
 Vous pouvez en apprendre davantage sur les partages de fichiers Azure et Azure File Sync. Les articles suivants contiennent des options avancées, les meilleures pratiques et des aides pour la résolution des problèmes. Ces articles sont liés à la [documentation relative aux partages de fichiers Azure](storage-files-introduction.md), le cas échéant.
 
-* [Vue d’ensemble d’Azure File Sync](./storage-sync-files-planning.md)
-* [Guide de déploiement d’Azure File Sync](./storage-how-to-create-file-share.md)
-* [Résolution des problèmes Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Vue d’ensemble d’Azure File Sync](../file-sync/file-sync-planning.md)
+* [Déployer Azure File Sync](../file-sync/file-sync-deployment-guide.md)
+* [Résolution des problèmes Azure File Sync](../file-sync/file-sync-troubleshoot.md)

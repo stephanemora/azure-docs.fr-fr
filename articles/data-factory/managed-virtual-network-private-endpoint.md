@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d777588f0abdd1f771deb259c597f6407e61d874
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 34211feb34b3e2ec21b9bc0e6a180df0febd8c76
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364605"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987935"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -121,9 +121,9 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 ### <a name="supported-data-sources"></a>Sources de données prises en charge
 Les sources de données suivantes sont prises en charge pour établir une connexion via une liaison privée à partir d’un réseau virtuel managé ADF.
-- Stockage Blob Azure
-- Stockage Table Azure
-- Azure Files
+- Stockage Blob Azure (ne comprend pas de compte de stockage V1)
+- Stockage Table Azure (ne comprend pas de compte de stockage V1)
+- Azure Files (ne comprend pas de compte de stockage V1)
 - Azure Data Lake Gen2
 - Azure SQL Database (sans Azure SQL Managed Instance)
 - Azure Synapse Analytics
@@ -136,32 +136,36 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - Azure Database for MariaDB
 
 ### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Le réseau virtuel managé Azure Data Factory est disponible dans les régions Azure suivantes :
-- USA Est
-- USA Est 2
-- Centre-USA Ouest
-- USA Ouest
-- USA Ouest 2
-- États-Unis - partie centrale méridionale
-- USA Centre
-- Europe Nord
-- Europe Ouest
-- Sud du Royaume-Uni
-- Asie Sud-Est
 - Australie Est
 - Sud-Australie Est
-- Norvège Est
+- Brésil Sud
+- Centre du Canada
+- Est du Canada
+- Inde centrale
+- USA Centre
+- USA Est
+- USA Est 2
+- France Centre
 - Japon Est
 - OuJapon Est
 - Centre de la Corée
-- Brésil Sud
-- France Centre
+- Europe Nord
+- Norvège Est
+- Afrique du Sud Nord
+- États-Unis - partie centrale méridionale
+- Asie Sud-Est
 - Suisse Nord
+- Émirats arabes unis Nord
+- Sud du Royaume-Uni
 - Ouest du Royaume-Uni
-- Est du Canada
-- Centre du Canada
+- Centre-USA Ouest
+- Europe Ouest
+- USA Ouest
+- USA Ouest 2
+
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Communications sortantes via un point de terminaison public à partir du réseau virtuel managé ADF
-- Seul le port 443 est ouvert pour les communications sortantes.
+- Tous les ports sont ouverts pour les communications sortantes.
 - Le Stockage Azure et Azure Data Lake Gen2 ne sont pas pris en charge pour une connexion via un point de terminaison public à partir du réseau virtuel managé ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Création d’un service lié à Azure Key Vault 

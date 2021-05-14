@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 04/27/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a0a942daae6b106bce928f8214e92c0c6294203d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7b62265d75aa7c7c09f1f6e55632dcbe98efc411
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555711"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128926"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Exiger un transfert sécurisé pour garantir des connexions sécurisées
 
@@ -38,14 +38,14 @@ Vous pouvez activer la propriété **Transfert sécurisé requis** lorsque vous 
 ### <a name="require-secure-transfer-for-a-new-storage-account"></a>Exiger un transfert sécurisé pour un nouveau compte de stockage
 
 1. Ouvrez le volet **Créer un compte de stockage** dans le portail Azure.
-1. Sous **Transfert sécurisé requis**, sélectionnez **Activé**.
+1. Sur la page **Avancé**, cochez la case **Activer le transfert sécurisé**.
 
    ![Panneau Créer un compte de stockage](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Exiger un transfert sécurisé pour un compte de stockage existant
 
 1. Sélectionnez un compte de stockage existant dans le portail Azure.
-1. Dans le volet de menu du compte de stockage, sous **PARAMÈTRES**, sélectionnez **Configuration**.
+1. Dans le volet de menu du compte de stockage, sous **Paramètres**, sélectionnez **Configuration**.
 1. Sous **Transfert sécurisé requis**, sélectionnez **Activé**.
 
    ![Volet de menu du compte de stockage](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)

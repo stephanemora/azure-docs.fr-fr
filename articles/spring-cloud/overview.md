@@ -8,12 +8,12 @@ ms.date: 12/02/2020
 ms.author: brendm
 ms.custom: devx-track-java, contperf-fy21q2
 customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring Boot microservices.
-ms.openlocfilehash: a92e535cb1edeb0eeaa285e442b4b24766e20ead
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 119128fcc2b2f08ba101c5c44768281cf7e6e600
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877334"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132806"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Qu’est-ce qu’Azure Spring Cloud ?
 
@@ -50,26 +50,26 @@ Composant de l’écosystème Azure, Azure Spring Cloud permet une liaison facil
 Cette documentation inclut des sections expliquant comment bien commencer et tirer parti des services Azure Spring Cloud.
 
 * Bien démarrer
-    * [Lancer votre première application](spring-cloud-quickstart.md)
-    * [Provisionner un service Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
+    * [Lancer votre première application](./quickstart.md)
+    * [Provisionner un service Azure Spring Cloud](./quickstart-provision-service-instance.md)
     * [Configurer le serveur de configuration]()
-    * [Créer et déployer des applications](spring-cloud-quickstart-deploy-apps.md)
-    * [Utiliser les journaux, les métriques et le suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
+    * [Créer et déployer des applications](./quickstart-deploy-apps.md)
+    * [Utiliser les journaux, les métriques et le suivi](./quickstart-logs-metrics-tracing.md)
 * Procédures
     * [Développement](how-to-prepare-app-deployment.md) : Préparez une application Java Spring existante pour le déploiement dans Azure Spring Cloud. Lorsqu’il est correctement configuré, Azure Spring Cloud fournit des services robustes pour superviser, mettre à l’échelle et mettre à jour des applications Java Spring Cloud.
-    * [Deploy](spring-cloud-howto-staging-environment.md) : Comment configurer un déploiement intermédiaire à l’aide du modèle de déploiement bleu-vert dans Azure Spring Cloud. Le déploiement bleu/vert est un modèle de livraison continue Azure DevOps qui consiste à garder en service une version existante (bleue) pendant le déploiement d’une nouvelle version (verte).
-    * [Configuration des applications](spring-cloud-howto-start-stop-delete.md) :  Démarrez, arrêtez et supprimez vos applications Azure Spring Cloud. Changez l’état d’une application dans Azure Spring Cloud en utilisant le portail Azure ou l’interface Azure CLI.
-    * [Mise à l’échelle](spring-cloud-howto-scale-manual.md) : Mettez à l’échelle une application de microservices à partir du tableau de bord Azure Spring Cloud sur le portail Azure, ou à l’aide des paramètres de mise à l’échelle automatique. Les adresses IP publiques sont disponibles pour communiquer avec des ressources externes, telles que des bases de données, du stockage et des coffres de clés.
-    * [Supervision des applications](spring-cloud-howto-distributed-tracing.md) : Outils de suivi distribué pour déboguer et superviser facilement les problèmes complexes. Azure Spring Cloud intègre Azure Spring Cloud Sleuth au service Application Insights d’Azure. Cette intégration fournit une fonctionnalité puissante de suivi distribué qui est disponible dans le portail Azure.
-    * [Applications sécurisées](spring-cloud-howto-enable-system-assigned-managed-identity.md) : Les ressources Azure fournissent une identité managée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.
-    * [Intégration à d’autres services Azure](spring-cloud-howto-bind-cosmos.md) : Au lieu de configurer manuellement vos applications Spring Boot, vous pouvez lier automatiquement à vos applications les services Azure sélectionnés, par exemple en liant votre application à une base de données Azure Cosmos DB.
-    * [Automatisation](spring-cloud-howto-cicd.md) : Les outils d’intégration continue et de livraison continue vous permettent de déployer rapidement des mises à jour d’applications existantes avec un minimum d’effort et de risque. Azure DevOps permet d’organiser et de contrôler ces tâches essentielles. 
-    * [Résoudre les problèmes](spring-cloud-howto-self-diagnose-solve.md) : Les diagnostics Azure Spring Cloud offrent une expérience interactive permettant de résoudre les problèmes d’application. Aucune configuration n'est requise. Lorsque vous rencontrez des problèmes, la fonctionnalité de diagnostic Azure Spring Cloud identifie les incidents et vous guide vers les informations qui vous aident au dépannage et à la résolution des problèmes.
+    * [Deploy](./how-to-staging-environment.md) : Comment configurer un déploiement intermédiaire à l’aide du modèle de déploiement bleu-vert dans Azure Spring Cloud. Le déploiement bleu/vert est un modèle de livraison continue Azure DevOps qui consiste à garder en service une version existante (bleue) pendant le déploiement d’une nouvelle version (verte).
+    * [Configuration des applications](./how-to-start-stop-delete.md) :  Démarrez, arrêtez et supprimez vos applications Azure Spring Cloud. Changez l’état d’une application dans Azure Spring Cloud en utilisant le portail Azure ou l’interface Azure CLI.
+    * [Mise à l’échelle](./how-to-scale-manual.md) : Mettez à l’échelle une application de microservices à partir du tableau de bord Azure Spring Cloud sur le portail Azure, ou à l’aide des paramètres de mise à l’échelle automatique. Les adresses IP publiques sont disponibles pour communiquer avec des ressources externes, telles que des bases de données, du stockage et des coffres de clés.
+    * [Supervision des applications](./how-to-distributed-tracing.md) : Outils de suivi distribué pour déboguer et superviser facilement les problèmes complexes. Azure Spring Cloud intègre Azure Spring Cloud Sleuth au service Application Insights d’Azure. Cette intégration fournit une fonctionnalité puissante de suivi distribué qui est disponible dans le portail Azure.
+    * [Applications sécurisées](./how-to-enable-system-assigned-managed-identity.md) : Les ressources Azure fournissent une identité managée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.
+    * [Intégration à d’autres services Azure](./how-to-bind-cosmos.md) : Au lieu de configurer manuellement vos applications Spring Boot, vous pouvez lier automatiquement à vos applications les services Azure sélectionnés, par exemple en liant votre application à une base de données Azure Cosmos DB.
+    * [Automatisation](./how-to-cicd.md) : Les outils d’intégration continue et de livraison continue vous permettent de déployer rapidement des mises à jour d’applications existantes avec un minimum d’effort et de risque. Azure DevOps permet d’organiser et de contrôler ces tâches essentielles. 
+    * [Résoudre les problèmes](./how-to-self-diagnose-solve.md) : Les diagnostics Azure Spring Cloud offrent une expérience interactive permettant de résoudre les problèmes d’application. Aucune configuration n'est requise. Lorsque vous rencontrez des problèmes, la fonctionnalité de diagnostic Azure Spring Cloud identifie les incidents et vous guide vers les informations qui vous aident au dépannage et à la résolution des problèmes.
     * [Migration](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud) : Comment migrer une application Spring Cloud ou Spring Boot existante pour l’exécuter sur Azure Spring Cloud.
 
  Pour commencer, consultez :
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide de Spring Cloud](spring-cloud-quickstart.md)
+> [Démarrage rapide de Spring Cloud](./quickstart.md)
 
 Des exemples sont disponibles sur GitHub. [Exemples Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/).

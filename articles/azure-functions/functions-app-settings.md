@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: b1a3563d766f0f4636086024a1f23d157e8e9a06
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773077"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228601"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -205,6 +205,45 @@ Valeurs valides :
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 
+## <a name="mdmaxbackgroundupgradeperiod"></a>MDMaxBackgroundUpgradePeriod 
+
+Contrôle la période de mise à jour en arrière-plan des dépendances gérées pour les applications de fonction PowerShell, avec une valeur par défaut de `7.00:00:00` (hebdomadaire). 
+
+Chaque rôle de travail PowerShell lance la vérification des mises à niveau de module dans PowerShell Gallery au démarrage du processus et à chaque `MDMaxBackgroundUpgradePeriod` par la suite. Quand une nouvelle version de module est disponible dans PowerShell Gallery, elle est installée dans le système de fichiers et mise à la disposition des rôles de travail PowerShell. Diminuer cette valeur permet à votre application de fonction d’obtenir plus rapidement les versions de module les plus récentes, mais cela augmente aussi l’utilisation des ressources d’application (E/S réseau, processeur, stockage). Augmenter cette valeur permet de diminuer l’utilisation des ressources d’application, mais retarde aussi la remise des nouvelles versions de module à votre application. 
+
+|Clé|Exemple de valeur|
+|---|------------|
+|MDMaxBackgroundUpgradePeriod|7.00:00:00|
+
+Pour plus d’informations, consultez [Gestion des dépendances](functions-reference-powershell.md#dependency-management).
+
+## <a name="mdnewsnapshotcheckperiod"></a>MDNewSnapshotCheckPeriod
+
+Spécifie la fréquence à laquelle chaque rôle de travail PowerShell vérifie si les mises à niveau des dépendances gérées ont été installées. La fréquence par défaut est de `01:00:00` (toutes les heures). 
+
+Lorsque les nouvelles versions de module sont installées dans le système de fichiers, chaque rôle de travail PowerShell doit être redémarré. Le redémarrage des rôles de travail PowerShell affecte la disponibilité de votre application, car il peut interrompre l’exécution de la fonction actuelle. Tant que tous les rôles de travail PowerShell n’ont pas redémarré, les appels de fonction peuvent utiliser les anciennes ou nouvelles versions du module. Le redémarrage de tous les rôles de travail PowerShell se termine pendant la période `MDNewSnapshotCheckPeriod`. 
+
+Au cours de chaque `MDNewSnapshotCheckPeriod`, le rôle de travail PowerShell vérifie si les mises à niveau des dépendances gérées ont été installées ou non. Une fois les mises à niveau installées, un redémarrage est initié. Si vous augmentez cette valeur, vous réduisez la fréquence des interruptions dues aux redémarrages. Toutefois, cette augmentation peut également accroître le temps pendant lequel les appels de fonction peuvent utiliser l’ancienne ou la nouvelle version de module, de manière non déterministe. 
+
+|Clé|Exemple de valeur|
+|---|------------|
+|MDNewSnapshotCheckPeriod|01:00:00|
+
+Pour plus d’informations, consultez [Gestion des dépendances](functions-reference-powershell.md#dependency-management).
+
+
+## <a name="mdminbackgroundupgradeperiod"></a>MDMinBackgroundUpgradePeriod
+
+Période après une précédente vérification de mise à niveau des dépendances gérées avant qu’une autre vérification de mise à niveau ne soit lancée, avec une valeur par défaut de `1.00:00:00` (quotidienne). 
+
+Pour éviter des mises à niveau de module excessives lors des fréquents redémarrages des rôles de travail, la vérification des mises à niveau de module n’est pas effectuée si un rôle de travail l’a déjà lancée pendant la dernière période `MDMinBackgroundUpgradePeriod`. 
+
+|Clé|Exemple de valeur|
+|---|------------|
+|MDMinBackgroundUpgradePeriod|1.00:00:00|
+
+Pour plus d’informations, consultez [Gestion des dépendances](functions-reference-powershell.md#dependency-management).
+
 ## <a name="pip_extra_index_url"></a>PIP\_EXTRA\_INDEX\_URL
 
 La valeur de ce paramètre indique une URL d’index des packages personnalisée pour les applications Python. Utilisez ce paramètre lorsque vous devez exécuter une build distante à l’aide de dépendances personnalisées se trouvant dans un index de packages supplémentaire.   
@@ -265,7 +304,7 @@ Chemin d’accès au code de l’application et à la configuration de la foncti
 
 Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Consommation s’exécutant sur Windows. Non pris en charge pour les plans Consommation s’exécutant sous Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-Lorsque vous utilisez Azure Resource Manager pour créer une application de fonction pendant le déploiement, n'incluez pas WEBSITE_CONTENTSHARE dans le modèle. Ce paramètre d’application est généré au cours du déploiement. Pour en savoir plus, consultez [Automatiser le déploiement de ressources pour votre application de fonction](functions-infrastructure-as-code.md#windows).   
+Lorsque vous utilisez un modèle Azure Resource Manager pour créer une application de fonction pendant le déploiement, n’incluez pas WEBSITE_CONTENTSHARE dans le modèle. Ce paramètre d’application est généré au cours du déploiement. Pour en savoir plus, consultez [Automatiser le déploiement de ressources pour votre application de fonction](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_dns_server"></a>WEBSITE\_DNS\_SERVER
 
@@ -274,6 +313,10 @@ Définit le serveur DNS qu’une application utilise lors de la résolution d’
 |Clé|Exemple de valeur|
 |---|------------|
 |WEBSITE\_DNS\_SERVER|168.63.129.16|
+
+## <a name="website_enable_brotli_encoding"></a>WEBSITE\_ENABLE\_BROTLI\_ENCODING 
+
+Contrôle si l’encodage Brotli est utilisé pour la compression au lieu de la compression gzip par défaut. Lorsque `WEBSITE_ENABLE_BROTLI_ENCODING` est défini sur `1`, l’encodage Brotli est utilisé ; sinon, c’est l’encodage gzip qui est utilisé. 
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
@@ -318,7 +361,7 @@ Vous permet de définir le fuseau horaire de votre application de fonction.
 
 ## <a name="website_vnet_route_all"></a>WEBSITE\_VNET\_ROUTE\_ALL
 
-Indique si tout le trafic sortant de l’application est routé via le réseau virtuel. La valeur de paramètre `1` indique que tout le trafic est acheminé via le réseau virtuel. Vous devez utiliser ce paramètre lorsque vous utilisez des fonctionnalités de l’[intégration du réseau virtuel régional](functions-networking-options.md#regional-virtual-network-integration). Il est également utilisé quand une [passerelle NAT de réseau virtuel est utilisée pour définir une adresse IP sortante statique](functions-how-to-use-nat-gateway.md). 
+Indique si tout le trafic sortant de l’application est routé via le réseau virtuel. La valeur de paramètre `1` indique que tout le trafic est acheminé via le réseau virtuel. Vous avez besoin de ce paramètre lorsque vous utilisez des fonctionnalités de l’[intégration du réseau virtuel régional](functions-networking-options.md#regional-virtual-network-integration). Il est également utilisé quand une [passerelle NAT de réseau virtuel est utilisée pour définir une adresse IP sortante statique](functions-how-to-use-nat-gateway.md). 
 
 |Clé|Exemple de valeur|
 |---|------------|

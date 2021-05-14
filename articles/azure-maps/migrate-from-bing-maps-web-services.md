@@ -3,18 +3,18 @@ title: 'Tutoriel : Migrer des services web à partir de Bing Cartes | Microsoft
 description: Tutoriel sur la migration des services web de Bing Cartes vers Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/07/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f108062c04292c322d07980155fea9c8808beb0a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97679073"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326738"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutoriel : Migrer un service web à partir de Bing Cartes
 
@@ -615,9 +615,9 @@ Le géocodage par lot est le processus qui consiste à traiter un grand nombre d
 
 Bing Cartes permet de transmettre jusqu’à 200 000 adresses dans une requête unique de géocodage par lot. Cette requête est envoyée dans une file d’attente et est généralement exécutée sur une période de temps, entre quelques minutes et quelques heures, en fonction de la taille du jeu de données et de la charge sur le service. Chaque adresse de la requête a généré une transaction.
 
-Azure Maps dispose d’un service de géocodage par lot, mais il permet de transmettre jusqu’à 10 000 adresses en une requête unique et sont traitement prend de quelques secondes à quelques minutes, en fonction de la taille du jeu de données et de la charge sur le service. Chaque adresse de la requête a généré une transaction. Dans Azure Maps, le service de géocodage par lot est uniquement disponible au niveau S1.
+Azure Maps dispose d’un service de géocodage par lot, mais il permet de transmettre jusqu’à 10 000 adresses en une requête unique et sont traitement prend de quelques secondes à quelques minutes, en fonction de la taille du jeu de données et de la charge sur le service. Chaque adresse de la requête a généré une transaction. Dans Azure Maps, le service de géocodage par lot est uniquement disponible au niveau tarifaire Gen 2 ou S1. Pour plus d’informations sur les niveaux tarifaires, consultez [Choisir le bon niveau tarifaire dans Azure Maps](choose-pricing-tier.md).
 
-Une autre option pour géocoder un grand nombre d’adresses avec Azure Maps consiste à effectuer des requêtes parallèles aux API de recherche standard. Ces services acceptent une seule adresse par requête, mais peuvent être utilisés avec le niveau S0 qui fournit également des limites d’utilisation gratuites. Le niveau S0 autorise jusqu’à 50 requêtes par seconde à la plateforme Azure Maps à partir d’un compte unique. Ainsi, si votre traitement ne dépasse pas cette limite, il est possible de géocoder jusqu’à 180 000 adresses par heure. Le niveau S1 n’a pas de limite documentée quant au nombre de requêtes par seconde qui peuvent être effectuées à partir d’un compte. Par conséquent, beaucoup plus de données peuvent être traitées plus rapidement lors de l’utilisation de ce niveau tarifaire. Toutefois, l’utilisation du service de géocodage par lot aide à réduire la quantité totale de données transférées et réduit considérablement le trafic réseau.
+Une autre option pour géocoder un grand nombre d’adresses avec Azure Maps consiste à effectuer des requêtes parallèles aux API de recherche standard. Ces services acceptent une seule adresse par requête, mais peuvent être utilisés avec le niveau S0 qui fournit également des limites d’utilisation gratuites. Le niveau S0 autorise jusqu’à 50 requêtes par seconde à la plateforme Azure Maps à partir d’un compte unique. Ainsi, si votre traitement ne dépasse pas cette limite, il est possible de géocoder jusqu’à 180 000 adresses par heure. Le niveau tarifaire Gen 2 ou S1 n’a pas de limite documentée quant au nombre de requêtes par seconde qui peuvent être effectuées à partir d’un compte. Par conséquent, beaucoup plus de données peuvent être traitées plus rapidement lors de l’utilisation de ce niveau tarifaire. Toutefois, l’utilisation du service de géocodage par lot aide à réduire la quantité totale de données transférées et réduit considérablement le trafic réseau.
 
 -   [Géocodage d’adresses de forme libre](/rest/api/maps/search/getsearchaddress) : spécifiez une chaîne d’adresse unique (comme `"1 Microsoft way, Redmond, WA"`) et traitez immédiatement la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles.
 -   [Géocodage d’adresses structurées](/rest/api/maps/search/getsearchaddressstructured) : Précisez les parties d’une même adresse, par exemple le nom de la rue, la ville, le pays et le code postal, et traitez aussitôt la requête. Ce service est recommandé si vous avez besoin de géocoder rapidement des adresses individuelles, et que les données sont déjà analysées en leurs parties d’adresse individuelles.

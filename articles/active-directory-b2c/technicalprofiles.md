@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 05/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcff1ffd574db910c3206d82e4da0e9428db788f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c555f86113b9a4557e3b5ebc356f63a5e5dc1eb1
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631793"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664363"
 ---
 # <a name="technical-profiles"></a>Profils techniques
 
@@ -483,10 +483,10 @@ L'exemple ci-dessous illustre l'utilisation de l'inclusion :
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
-       <Metadata>
+      <DisplayName>Update the user profile</DisplayName>  
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/update</Item>
       </Metadata>
-      <DisplayName>Update the user profile</DisplayName>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="email" />

@@ -3,15 +3,15 @@ title: Création visuelle
 description: Découvrez comment utiliser la création visuelle dans Azure Data Factory
 ms.service: data-factory
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.date: 09/08/2020
-ms.openlocfilehash: 704360ac37e016de9efe2248181f7db358f5a7cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c5bbe128b03e1d4bfe562132656fee0df51423e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371479"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905375"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 

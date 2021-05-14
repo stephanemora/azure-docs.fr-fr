@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea282cb0fcf25f7ac5f17bb9e2f693d189320078
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 953d43f93635e25da008515afd9baf9a9e9b7afa
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889159"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817068"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Entraîner un modèle à l’aide d’une image Docker personnalisée
 
@@ -173,5 +173,5 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez formé un modèle à l’aide d’une image Docker personnalisée. Pour en savoir plus sur Azure Machine Learning, consultez les articles suivants :
-* [Suivre les métriques d’exécution ](how-to-track-experiments.md) durant la formation.
+* [Suivre les métriques d’exécution ](how-to-log-view-metrics.md) durant la formation.
 * [Déployer un modèle](how-to-deploy-custom-docker-image.md) à l’aide d’une image Docker personnalisée.

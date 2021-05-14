@@ -3,12 +3,12 @@ title: Fonctions de modèle - tableaux
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des tableaux.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 099fdf6d8ca5e4221ff3ea438978f20c14557c73
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96920548"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802825"
 ---
 # <a name="array-functions-for-arm-templates"></a>Fonctions de tableau pour les modèles ARM
 
@@ -233,7 +233,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 ```
 
 ---

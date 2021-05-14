@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 46de182c7acfaf75b2e65fa318717348dd1c4b73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8824ea38121b8f440f1b0ef1f07737f46e8b7295
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667346"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732881"
 ---
 # <a name="azure-dedicated-hosts"></a>Hôtes dédiés Azure
 
 Un hôte dédié Azure est un service qui fournit des serveurs physiques capables d’héberger une ou plusieurs machines virtuelles, dédiés à un abonnement Azure. Les hôtes dédiés sont les mêmes serveurs physiques que ceux utilisés dans nos centres de données, fournis en tant que ressource. Vous pouvez approvisionner des hôtes dédiés au sein d’une région, d’une zone de disponibilité et d’un domaine d’erreur. Ensuite, vous pouvez placer des machines virtuelles directement dans vos hôtes approvisionnés, dans la configuration qui répond le mieux à vos besoins.
 
 
-## <a name="benefits"></a>Avantages 
+## <a name="benefits"></a>Avantages
 
 La réservation de l’intégralité de l’hôte offre les avantages suivants:
 
@@ -30,7 +30,7 @@ La réservation de l’intégralité de l’hôte offre les avantages suivants:
 -   Avec l’offre Azure Hybrid Benefit, vous pouvez apporter vos propres licences pour Windows et SQL à Azure. L’utilisation des avantages Hybrid Benefit vous offre des avantages supplémentaires. Pour plus d’informations, consultez [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 
-## <a name="groups-hosts-and-vms"></a>Groupes, hôtes et machines virtuelles  
+## <a name="groups-hosts-and-vms"></a>Groupes, hôtes et machines virtuelles
 
 ![Vue des nouvelles ressources pour les hôtes dédiés.](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
@@ -39,7 +39,7 @@ Un **groupe hôte** est une ressource qui représente une collection d’hôtes 
 Un **hôte** est une ressource, mappée à un serveur physique dans un centre de données Azure. Le serveur physique est alloué lors de la création de l’hôte. Un hôte est créé dans un groupe hôte. Un hôte dispose d’une référence SKU décrivant les tailles de machine virtuelle qui peuvent être créées. Chaque hôte peut héberger plusieurs machines virtuelles de différentes tailles, à condition qu’elles proviennent de la même série de tailles.
 
 
-## <a name="high-availability-considerations"></a>Considérations relatives à la haute disponibilité 
+## <a name="high-availability-considerations"></a>Considérations relatives à la haute disponibilité
 
 Pour une haute disponibilité, vous devez déployer plusieurs machines virtuelles, réparties sur plusieurs hôtes (au minimum 2). Avec les hôtes dédiés Azure, vous disposez de plusieurs options pour configurer votre infrastructure afin de mettre en forme vos limites d’isolation des erreurs.
 
@@ -63,45 +63,45 @@ Les machines virtuelles déployées sur des hôtes avec des domaines d’erreur 
 
 Vous pouvez utiliser ces deux fonctionnalités ensemble pour obtenir une isolation des erreurs encore plus étendue. Dans ce cas, vous allez spécifier la zone de disponibilité et le nombre de domaines d’erreur pour chaque groupe hôte, attribuer un domaine d’erreur à chacun de vos hôtes dans le groupe et affecter une zone de disponibilité à chacune de vos machines virtuelles.
 
-L’exemple de modèle Resource Manager, trouvé [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour diffuser des hôtes et obtenir une résilience maximale dans une région.
+L’exemple de modèle Resource Manager, trouvé [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour diffuser des hôtes et obtenir une résilience maximale dans une région.
 
 
-## <a name="manual-vs-automatic-placement"></a>Sélection élective manuelle ou automatique 
+## <a name="manual-vs-automatic-placement"></a>Sélection élective manuelle ou automatique
 
-Lorsque vous créez une machine virtuelle dans Azure, vous pouvez sélectionner l’hôte dédié à utiliser. Vous pouvez également utiliser l’option pour placer automatiquement vos machines virtuelles sur des hôtes existants, au sein d’un groupe hôte. 
+Lorsque vous créez une machine virtuelle dans Azure, vous pouvez sélectionner l’hôte dédié à utiliser. Vous pouvez également utiliser l’option pour placer automatiquement vos machines virtuelles sur des hôtes existants, au sein d’un groupe hôte.
 
-Lors de la création d’un groupe hôte, vérifiez que le paramètre de sélection élective automatique est sélectionné. Lorsque vous créez votre machine virtuelle, sélectionnez le groupe hôte et laissez Azure sélectionner le meilleur hôte pour votre machine virtuelle. 
+Lors de la création d’un groupe hôte, vérifiez que le paramètre de sélection élective automatique est sélectionné. Lorsque vous créez votre machine virtuelle, sélectionnez le groupe hôte et laissez Azure sélectionner le meilleur hôte pour votre machine virtuelle.
 
-Les groupes hôtes activés pour la sélection élective automatique n’exigent pas que toutes les machines virtuelles soient placées automatiquement. Vous pourrez toujours choisir explicitement un hôte, même si la sélection élective automatique est sélectionnée pour le groupe hôte. 
+Les groupes hôtes activés pour la sélection élective automatique n’exigent pas que toutes les machines virtuelles soient placées automatiquement. Vous pourrez toujours choisir explicitement un hôte, même si la sélection élective automatique est sélectionnée pour le groupe hôte.
 
 ### <a name="limitations"></a>Limites
 
 Problèmes connus et limitations lors de l’utilisation de la sélection élective automatique :
 
 - Vous ne pourrez pas appliquer Azure Hybrid Benefit sur vos hôtes dédiés.
-- Vous ne pourrez pas redéployer votre machine virtuelle. 
-- Vous ne pourrez pas utiliser de machines virtuelles Lsv2, NVasv4, NVsv3, Msv2 ou de série M avec des hôtes dédiés. 
+- Vous ne pourrez pas redéployer votre machine virtuelle.
+- Vous ne pourrez pas utiliser de machines virtuelles Lsv2, NVasv4, NVsv3, Msv2 ou de série M avec des hôtes dédiés.
 
 
 ## <a name="virtual-machine-scale-set-support"></a>Prise en charge de groupes de machines virtuelles identiques
 
-Les groupes de machines virtuelles identiques vous permettent de traiter un groupe de machines virtuelles en tant que ressource unique, et d’appliquer des stratégies de disponibilité, de gestion, de mise à l’échelle et d’orchestration en tant que groupe. Vos hôtes dédiés existants peuvent également être utilisés pour les groupes de machines virtuelles identiques. 
+Les groupes de machines virtuelles identiques vous permettent de traiter un groupe de machines virtuelles en tant que ressource unique, et d’appliquer des stratégies de disponibilité, de gestion, de mise à l’échelle et d’orchestration en tant que groupe. Vos hôtes dédiés existants peuvent également être utilisés pour les groupes de machines virtuelles identiques.
 
 Lorsque vous créez un groupe de machines virtuelles identiques, vous pouvez spécifier un groupe hôte existant afin que toutes les instances de machine virtuelle soient créées sur des hôtes dédiés.
 
 Les conditions suivantes s’appliquent lors de la création d’un groupe de machines virtuelles identiques dans un groupe hôte dédié :
 
 - La sélection élective automatique doit être activée.
-- Le paramètre de disponibilité de votre groupe hôte doit correspondre à votre groupe identique. 
+- Le paramètre de disponibilité de votre groupe hôte doit correspondre à votre groupe identique.
     - Un groupe hôte régional (créé sans spécifier de zone de disponibilité) doit être utilisé pour les groupes identiques régionaux.
-    - Le groupe hôte et le groupe identique doivent utiliser la même zone de disponibilité. 
+    - Le groupe hôte et le groupe identique doivent utiliser la même zone de disponibilité.
     - Le nombre de domaines d’erreur pour le niveau du groupe hôte doit correspondre au nombre de domaines d’erreur pour votre groupe identique. Le portail Azure vous permet de spécifier la *diffusion maximale* pour votre groupe identique, qui définit le nombre de domaines d’erreur sur 1.
 - Les hôtes dédiés doivent être créés en premier, avec une capacité suffisante, et avec les mêmes paramètres pour les zones de groupe identique et les domaines d’erreur.
 - Les tailles de machines virtuelles prises en charge pour vos hôtes dédiés doivent correspondre à celle utilisée pour votre groupe identique.
 
-Les paramètres d’optimisation et d’orchestration de groupe identique ne sont pas tous pris en charge par les hôtes dédiés. Appliquez les paramètres suivants à votre groupe identique : 
-- Un surprovisionnement n’est pas recommandé et il est désactivé par défaut. Vous pouvez activer le surprovisionnement, mais l’allocation du groupe identique échoue si le groupe d’hôtes n’a pas la capacité nécessaire pour toutes les machines virtuelles, y compris les instances surprovisionnées. 
-- Utilisez le mode d’orchestration ScaleSetVM. 
+Les paramètres d’optimisation et d’orchestration de groupe identique ne sont pas tous pris en charge par les hôtes dédiés. Appliquez les paramètres suivants à votre groupe identique :
+- Un surprovisionnement n’est pas recommandé et il est désactivé par défaut. Vous pouvez activer le surprovisionnement, mais l’allocation du groupe identique échoue si le groupe d’hôtes n’a pas la capacité nécessaire pour toutes les machines virtuelles, y compris les instances surprovisionnées.
+- Utilisez le mode d’orchestration ScaleSetVM.
 - N’utilisez pas de groupes de placement de proximité pour la colocalisation.
 
 
@@ -123,7 +123,7 @@ Une fois qu’un hôte dédié est approvisionné, Azure l’attribue au serveur
 Deux types de quotas sont utilisés lorsque vous déployez un hôte dédié.
 
 1. Quota de processeurs virtuels hôtes dédiés. La limite de quota par défaut est de 3000 processeurs virtuels par région.
-1. Quota de famille de tailles de machine virtuelle. Par exemple, un abonnement avec **paiement à l’utilisation** peut uniquement avoir un quota de 10 processeurs virtuels disponibles pour la série de tailles Dsv3, dans la région USA Est. Pour déployer un hôte dédié Dsv3, vous devez demander une augmentation de quota à au moins 64 processeurs virtuels avant de pouvoir déployer l’hôte dédié. 
+1. Quota de famille de tailles de machine virtuelle. Par exemple, un abonnement avec **paiement à l’utilisation** peut uniquement avoir un quota de 10 processeurs virtuels disponibles pour la série de tailles Dsv3, dans la région USA Est. Pour déployer un hôte dédié Dsv3, vous devez demander une augmentation de quota à au moins 64 processeurs virtuels avant de pouvoir déployer l’hôte dédié.
 
 Pour demander une augmentation du quota, créez une demande de support dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -147,17 +147,17 @@ Les licences logicielles, le stockage et l’utilisation du réseau sont factur�
 Pour plus d’informations, consultez la page [Tarification pour hôte dédié Azure](https://aka.ms/ADHPricing).
 
 Vous pouvez également économiser sur les coûts grâce à une [instance réservée d’ordinateurs Azure Dedicated Host](prepay-dedicated-hosts-reserved-instances.md).
- 
+
 ## <a name="sizes-and-hardware-generations"></a>Tailles et générations de matériel
 
-Une référence SKU est définie pour un hôte et représente la série et le type de la taille de machine virtuelle. Vous pouvez combiner plusieurs machines virtuelles de différentes tailles au sein d’un même hôte, à condition qu’elles soient de la même série de tailles. 
+Une référence SKU est définie pour un hôte et représente la série et le type de la taille de machine virtuelle. Vous pouvez combiner plusieurs machines virtuelles de différentes tailles au sein d’un même hôte, à condition qu’elles soient de la même série de tailles.
 
-Le *type* indique la génération du matériel. Les différents types de matériel pour les mêmes séries de machines virtuelles proviennent de différents fournisseurs de processeurs, et ont des générations d’UC et des nombres de cœurs différents. 
+Le *type* indique la génération du matériel. Les différents types de matériel pour les mêmes séries de machines virtuelles proviennent de différents fournisseurs de processeurs, et ont des générations d’UC et des nombres de cœurs différents.
 
 Les tailles et les types de matériel varient en fonction de la région. Pour en savoir plus, consultez la [page de tarification de l’hôte](https://aka.ms/ADHPricing).
 
 > [!NOTE]
-> Une fois qu’un hôte dédié est provisionné, vous ne pouvez pas modifier la taille ou le type. Si vous avez besoin d’une taille de type différente, vous devez créer un hôte.  
+> Une fois qu’un hôte dédié est provisionné, vous ne pouvez pas modifier la taille ou le type. Si vous avez besoin d’une taille de type différente, vous devez créer un hôte.
 
 ## <a name="host-life-cycle"></a>Cycle de vie de l’hôte
 
@@ -176,6 +176,6 @@ Azure surveille et gère l’état d’intégrité de vos hôtes. Les états sui
 
 - Vous pouvez déployer un hôte dédié à l’aide d’[Azure PowerShell](./windows/dedicated-hosts-powershell.md), du [portail](./dedicated-hosts-portal.md) et d’[Azure CLI](./linux/dedicated-hosts-cli.md).
 
-- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
+- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
 
 - Vous pouvez également économiser sur les coûts grâce à une [instance réservée d’ordinateurs Azure Dedicated Host](prepay-dedicated-hosts-reserved-instances.md).

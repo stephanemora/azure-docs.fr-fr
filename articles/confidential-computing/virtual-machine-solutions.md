@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8621dc8cfc10ab44ecb358a40fdae1a1b2081734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 580c53f311bc8ee70e974df2bc4111e6361d06f6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566581"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818959"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Solutions sur des machines virtuelles Azure
 
@@ -66,7 +66,7 @@ Suivez un tutoriel de démarrage rapide pour déployer une machine virtuelle de 
   
 - **Redimensionnement** : en raison de leur matériel spécialisé, vous pouvez uniquement redimensionner les instances d’informatique confidentielle qui appartiennent à la même famille de taille. Par exemple, vous pouvez uniquement redimensionner une machine virtuelle de la série DCsv2 d’une taille DCsv2 en une autre de cette même série. Le redimensionnement d’une taille d’informatique non confidentielle en une taille d’informatique confidentielle n’est pas pris en charge.  
 
-- **Image** : pour assurer la prise en charge d’Intel Software Guard Extension (Intel SGX) sur les instances d’informatique confidentielle, tous les déploiements doivent être exécutés sur des images de génération 2. L’informatique confidentielle Azure prend en charge les charges de travail s’exécutant sur Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 et Windows Server 2016 Gen 2. Consultez l’article sur la [prise en charge des machines virtuelles de génération 2 sur Azure](../virtual-machines/generation-2.md) pour en savoir plus sur les scénarios pris en charge et non pris en charge. 
+- **Image** : pour assurer la prise en charge d’Intel Software Guard Extension (Intel SGX) sur les instances d’informatique confidentielle, tous les déploiements doivent être exécutés sur des images de génération 2. L'informatique confidentielle Azure prend en charge les charges de travail exécutées sur Ubuntu 18.04 Gen 2, Ubuntu 20.04 Gen 2, Windows Server 2019 gen2 et Windows Server 2016 Gen 2. Consultez l’article sur la [prise en charge des machines virtuelles de génération 2 sur Azure](../virtual-machines/generation-2.md) pour en savoir plus sur les scénarios pris en charge et non pris en charge. 
 
 - **Stockage** : les disques de données de machines virtuelles d’informatique confidentielle Azure et nos disques de système d’exploitation éphémères se trouvent sur des disques NVMe. Les instances ne prennent en charge que les disques SSD Premium et SSD Standard, et non SSD Ultra ou HDD Standard. La taille de machine virtuelle **DC8_v2** ne prend pas en charge le stockage Premium. 
 
@@ -122,10 +122,10 @@ Sous **properties**, vous devrez également référencer une image sous **storag
         "sku": "18_04-lts-gen2",
         "version": "latest"
       },
-      "16_04-lts-gen2": {
+      "20_04-lts-gen2": {
         "offer": "UbuntuServer",
         "publisher": "Canonical",
-        "sku": "16_04-lts-gen2",
+        "sku": "20_04-lts-gen2",
         "version": "latest"
       }
 ```

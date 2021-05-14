@@ -4,12 +4,12 @@ description: Installez le runtime, le kit de développement logiciel et créez u
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fe551f8371322af8d955b5233e6d9d05741f3d9
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93086775"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868120"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ Lorsque vous avez créé et généré votre application Service Fabric, vous pou
 
 ## <a name="set-up-net-core-31-development"></a>Configurer le développement de .NET Core 3.1
 
-Installez le [Kit de développement logiciel (SDK) .NET Core 3.1 pour Mac](https://www.microsoft.com/net/core#macos) afin de démarrer [la création d’applications Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Les packages pour les applications .NET Core Service Fabric sont hébergés sur NuGet.org.
+Installez le [Kit de développement logiciel (SDK) .NET Core 3.1 pour Mac](https://dotnet.microsoft.com/download?initial-os=macos) afin de démarrer [la création d’applications Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Les packages pour les applications .NET Core Service Fabric sont hébergés sur NuGet.org.
 
 ## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Installer le plug-in Service Fabric pour Eclipse sur votre Mac
 

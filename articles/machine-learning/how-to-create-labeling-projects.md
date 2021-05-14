@@ -1,44 +1,51 @@
 ---
-title: Créer un projet d’étiquetage des données
+title: Étiquetage d’images et de texte
 titleSuffix: Azure Machine Learning
-description: Découvrez comment créer et exécuter des projets d’étiquetage de façon à marquer des données pour le machine learning. Pour faciliter cette tâche, utilisez l’étiquetage assisté par ML ou l’étiquetage par opérateur humain dans la boucle.
+description: Découvrez comment créer et exécuter des projets pour étiqueter des images ou du texte. Pour faciliter cette tâche, utilisez l’étiquetage assisté par ML ou l’étiquetage par opérateur humain dans la boucle.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
-ms.date: 07/27/2020
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.custom: data4ml
-ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c4edd4317bf125b4aa8dd8ebf404613c7fab3ba8
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656820"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290477"
 ---
-# <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes
 
-Découvrez comment créer et exécuter des projets d’étiquetage des données de façon à marquer des données dans Azure Machine Learning.  Utilisez l’étiquetage des données assisté par Machine Learning ou l’étiquetage humain dans la boucle, pour faciliter la tâche.
+Découvrez comment créer et exécuter des projets pour étiqueter des images ou des données de texte dans Azure Machine Learning.  Utilisez l’étiquetage des données assisté par Machine Learning ou l’étiquetage humain dans la boucle, pour faciliter la tâche.
 
 
 ## <a name="data-labeling-capabilities"></a>Fonctionnalités d’étiquetage des données
 
 > [!Important]
-> Les images de données doivent être disponibles dans un magasin de données d’objets blob Azure. (Si vous ne disposez pas d’un magasin de données, vous pouvez charger des images pendant la création du projet.)
+> Les images ou le texte des données doivent être disponibles dans un magasin de données d’objets blob Azure. (Si vous ne disposez pas d’un magasin de données, vous pouvez charger des fichiers pendant la création du projet.)
+
+Les données image peuvent être des fichiers des types suivants : .jpg, .jpeg, .png, .jpe, .jfif, .bmp, .tif, .tiff. Chaque fichier est un élément à étiqueter.
+Les données de texte peuvent être des fichiers .txt ou .csv.
+
+* Pour les fichiers .txt, chaque fichier représente un seul élément à étiqueter.
+* Pour les fichiers .csv, chaque ligne du fichier est un élément unique à étiqueter.
 
 L’étiquetage des données Azure Machine Learning est un emplacement central pour créer, gérer et superviser les projets d’étiquetage :
- - Coordonnez les données, les étiquettes et les membres de l’équipe pour gérer efficacement les tâches d’étiquetage. 
- - Suivez la progression et gérez la file d’attente des tâches d’étiquetage incomplètes.
- - Démarrez et arrêtez le projet pour contrôler la progression de l’étiquetage.
- - Passez en revue les données étiquetées et exportez-les au format COCO ou en tant que jeu de données Azure Machine Learning.
+
+- Coordonnez les données, les étiquettes et les membres de l’équipe pour gérer efficacement les tâches d’étiquetage. 
+- Suivez la progression et gérez la file d’attente des tâches d’étiquetage incomplètes.
+- Démarrez et arrêtez le projet pour contrôler la progression de l’étiquetage.
+- Passez en revue les données étiquetées et exportez-les au format COCO ou en tant que jeu de données Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Les données à étiqueter, dans des fichiers locaux ou un stockage Blog Azure.
-* L’ensemble d’étiquettes à appliquer.
-* Des instructions pour l’étiquetage.
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
-* Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
+- Les données à étiqueter, dans des fichiers locaux ou un stockage Blog Azure.
+- L’ensemble d’étiquettes à appliquer.
+- Des instructions pour l’étiquetage.
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
+- Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-a-data-labeling-project"></a>Créer un projet d’étiquetage des données
 
@@ -48,25 +55,42 @@ Si vos données se trouvent déjà dans le Stockage Blob Azure, vous devez les r
 
 Pour créer un projet, sélectionnez **Ajouter un projet**. Donnez-lui un nom approprié, puis sélectionnez **Type de tâche d’étiquetage**. Le nom du projet ne peut pas être réutilisé, même si le projet est supprimé ultérieurement.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Assistant Création de projet d’étiquetage":::
+### <a name="image-labeling-project"></a>Projet d’étiquetage d’image
 
-* Choisissez **Classification d'images (plusieurs classes)** pour les projets où vous souhaitez appliquer uniquement une *seule étiquette* d’un ensemble d’étiquettes à une image.
-* Choisissez **Classification d’images (plusieurs étiquettes)** pour les projets où vous souhaitez appliquer *une ou plusieurs* étiquettes d’un ensemble d’étiquettes à une image. Par exemple, vous pouvez étiqueter la photo d’un chien avec *dog* (chien) et *daytime* (jour).
-* Choisissez **Identification d’objet (cadre englobant)** pour les projets où vous souhaitez affecter une étiquette et un cadre englobant à chaque objet d’une image.
-* Choisissez **Segmentation d’instance (polygone) (préversion)** pour les projets où vous voulez affecter une étiquette et tracer un polygone autour de chaque objet dans une image.
+* Sélectionnez **Image** pour créer un projet d’étiquetage d’image.
+
+    :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Création d’un projet d’étiquetage d’image":::
+
+  * Choisissez **Classification d'images (plusieurs classes)** pour les projets où vous souhaitez appliquer uniquement une *seule étiquette* d’un ensemble d’étiquettes à une image.
+  * Choisissez **Classification d’images (plusieurs étiquettes)** pour les projets où vous souhaitez appliquer *une ou plusieurs* étiquettes d’un ensemble d’étiquettes à une image. Par exemple, vous pouvez étiqueter la photo d’un chien avec *dog* (chien) et *daytime* (jour).
+  * Choisissez **Identification d’objet (cadre englobant)** pour les projets où vous souhaitez affecter une étiquette et un cadre englobant à chaque objet d’une image.
+  * Choisissez **Segmentation d’instance (polygone)** pour les projets quand vous voulez attribuer une étiquette et tracer un polygone autour de chaque objet dans une image.
+
+    
+* Quand vous êtes prêt à continuer, sélectionnez **Suivant**.
+
+### <a name="text-labeling-project-preview"></a>Projet d’étiquetage de texte (préversion)
 
 > [!IMPORTANT]
-> La Segmentation d’instance (polygone) est en préversion publique.
-> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L’étiquetage de texte est actuellement en préversion publique.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Quand vous êtes prêt à continuer, sélectionnez **Suivant**.
+* Sélectionnez **Texte** pour créer un projet d’étiquetage de texte.
+
+    :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Création d’un projet d’étiquetage de texte":::
+
+    * Choisissez **Classification de texte multiclasse (préversion)** pour les projets quand vous voulez appliquer *une seule étiquette* issue d’un ensemble d’étiquettes à chaque morceau de texte.
+    * Choisissez **Classification de texte multiétiquette (préversion)** pour les projets quand vous voulez appliquer *une ou plusieurs* étiquettes issue d’un ensemble d’étiquettes à chaque morceau de texte.
+
+* Quand vous êtes prêt à continuer, sélectionnez **Suivant**.
 
 ## <a name="specify-the-data-to-label"></a>Spécifier les données à étiqueter
 
 Si vous avez déjà créé un jeu de données qui contient vos données, sélectionnez-le dans la liste déroulante **Sélectionner un jeu de données existant**. Sinon, sélectionnez **Créer un jeu de données** pour utiliser un magasin de données Azure existant ou pour charger des fichiers locaux.
 
 > [!NOTE]
-> Un projet ne peut pas contenir plus de 500 000 images.  Si votre jeu de données en contient davantage, seules les 500 000 premières images sont chargées.  
+> Un projet ne peut pas contenir plus de 500 000 fichiers.  Si votre jeu de données en contient davantage, seuls les 500 000 premiers fichiers sont chargés.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Créer un jeu de données à partir d’un magasin de données Azure
 
@@ -76,7 +100,7 @@ Pour créer un jeu de données à partir de données que vous avez déjà stock�
 
 1. Sélectionnez **Créer un jeu de données** > **À partir du magasin de données**.
 1. Affectez un **Nom** à votre jeu de données.
-1. Choisissez **Fichier** en tant que **Type de jeu de données**.  Seuls les types de jeux de données de fichier sont pris en charge.
+1. Choisissez le **type de jeu de données**.  Seuls les jeux de données de type fichier sont pris en charge pour les images. Les types fichier et tabulaire sont disponibles pour l’étiquetage de texte.
 1. Sélectionnez le magasin de données.
 1. Si vos données se trouvent dans un sous-dossier de votre Stockage Blob, choisissez **Parcourir** pour sélectionner le chemin.
     * Ajoutez « /** » au chemin pour inclure tous les fichiers des sous-dossiers du chemin sélectionné.
@@ -85,14 +109,13 @@ Pour créer un jeu de données à partir de données que vous avez déjà stock�
 1. Sélectionnez **Suivant**.
 1. Vérifiez les détails. Sélectionnez **Précédent** pour modifier les paramètres, ou **Créer** pour créer le jeu de données.
 
-
 ### <a name="create-a-dataset-from-uploaded-data"></a>Créer un jeu de données à partir des données chargées
 
 Pour charger directement vos données :
 
 1. Sélectionnez **Créer un jeu de données** > **À partir de fichiers locaux**.
 1. Affectez un **Nom** à votre jeu de données.
-1. Choisissez « Fichier » en tant que **Type de jeu de données**.
+1. Choisissez le **type de jeu de données**.  Seuls les jeux de données de type fichier sont pris en charge pour les images. Les types fichier et tabulaire sont disponibles pour l’étiquetage de texte.
 1. *Facultatif :* Sélectionnez **Paramètres avancés** pour personnaliser le magasin de données, le conteneur et le chemin de vos données.
 1. Sélectionnez **Parcourir** pour choisir les fichiers locaux à charger.
 1. Fournissez une description de votre jeu de données.
@@ -103,13 +126,13 @@ Les données sont chargées dans le magasin d’objets blob par défaut (« wor
 
 ## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Configurer l’actualisation incrémentielle
 
-Si vous envisagez d’ajouter de nouvelles images à votre jeu de données, utilisez l’actualisation incrémentielle pour ajouter ces nouvelles images à votre projet.   Quand l’**actualisation incrémentielle** est activée, des recherches sont régulièrement effectuées dans le jeu de données pour que de nouvelles images soient ajoutées à un projet, en fonction du taux d’achèvement de l’étiquetage.   La recherche de nouvelles données s’arrête quand le projet contient le nombre maximal de 500 000 images.
+Si vous envisagez d’ajouter de nouveaux fichiers à votre jeu de données, utilisez l’actualisation incrémentielle pour les ajouter à votre projet.   Quand l’**actualisation incrémentielle** est activée, des recherches sont régulièrement effectuées dans le jeu de données pour que de nouvelles images soient ajoutées à un projet, en fonction du taux d’achèvement de l’étiquetage.   La recherche de nouvelles données s’arrête quand le projet contient le nombre maximal de 500 000 fichiers.
 
-Pour ajouter d’autres images à votre projet, utilisez l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) à charger dans le dossier approprié du stockage Blob. 
+Pour ajouter d’autres fichiers à votre projet, utilisez l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour les charger dans le dossier approprié du stockage Blob. 
 
 Cochez la case **Activer l’actualisation incrémentielle** quand vous souhaitez que votre projet supervise continuellement les nouvelles données dans le magasin de données. Quand l’option est activée, les données sont tirées (pulled) dans votre projet une fois par jour. Les nouvelles données que vous ajoutez au magasin de données apparaîtront donc dans votre projet après un certain délai.  Vous trouverez l’horodatage de la dernière actualisation des données dans la section **Actualisation incrémentielle** de l’onglet **Détails** pour votre projet.
 
-Décochez cette case si vous ne souhaitez pas que les nouvelles images qui apparaissent dans le magasin de données soient ajoutées à votre projet.
+Décochez cette case si vous ne voulez pas que les nouveaux fichiers qui apparaissent dans le magasin de données soient ajoutés à votre projet.
 
 ## <a name="specify-label-classes"></a>Spécifier des classes d’étiquettes
 
@@ -141,14 +164,16 @@ Pour les cadres englobants, les questions importantes sont les suivantes :
 
 ## <a name="use-ml-assisted-data-labeling"></a>Utiliser l’étiquetage des données assisté par ML
 
-La page **Étiquetage assisté par ML** vous permet de déclencher des modèles Machine Learning automatiques pour accélérer la tâche d’étiquetage. Au début de votre projet d’étiquetage, les images sont mélangées dans un ordre aléatoire pour réduire le biais potentiel. Cependant, le biais éventuellement présent dans le jeu de données se reflète dans le modèle entraîné. Par exemple, si 80 % de vos images appartiennent à une même classe, environ 80 % des données utilisées pour l’entraînement du modèle feront partie de cette classe. Cet entraînement n’inclut pas l’apprentissage actif.
+La page **Étiquetage assisté par ML** vous permet de déclencher des modèles Machine Learning automatiques pour accélérer les tâches d’étiquetage. Elle est uniquement disponible pour l’étiquetage d’images.
 
+Au début de votre projet d’étiquetage, les éléments sont mélangés dans un ordre aléatoire pour réduire le biais potentiel. Cependant, le biais éventuellement présent dans le jeu de données se reflète dans le modèle entraîné. Par exemple, si 80 % de vos éléments appartiennent à une même classe, environ 80 % des données utilisées pour l’entraînement du modèle feront partie de cette classe. Cet entraînement n’inclut pas l’apprentissage actif.
 
 Sélectionnez *Enable ML assisted labeling* (Activer l’étiquetage assisté par ML) et spécifiez un GPU pour activer l’étiquetage assisté, qui se compose de deux phases :
-* Clustering
-* Préétiquetage
 
-Le nombre exact d’images étiquetées nécessaires au démarrage de l’étiquetage assisté n’est pas un nombre fixe.  Il peut varier considérablement d’un projet d’étiquetage à un autre. Pour certains projets, il est parfois possible de voir des tâches de préétiquetage ou de clustering après l’étiquetage manuel de 300 images. L’étiquetage assisté par ML s’appuie sur une technique appelée *apprentissage par transfert* (ou « Transfer Learning »), qui utilise un modèle préentraîné pour accélérer le processus d’entraînement. Si les classes de votre jeu de données sont similaires à celles du modèle préentraîné, les préétiquettes peuvent être disponibles après seulement quelques centaines d’images étiquetées manuellement. Si votre jeu de données est très différent des données utilisées pour préentraîner le modèle, cela peut prendre beaucoup plus de temps.
+* Clustering (pour l’étiquetage d’images)
+* Préétiquetage 
+
+Le nombre exact de données étiquetées nécessaires au démarrage de l’étiquetage assisté n’est pas un nombre fixe.  Il peut varier considérablement d’un projet d’étiquetage à un autre. Pour certains projets, il est parfois possible de voir des tâches de préétiquetage ou de clustering après l’étiquetage manuel de 300 éléments. L’étiquetage assisté par ML s’appuie sur une technique appelée *apprentissage par transfert* (ou « Transfer Learning »), qui utilise un modèle préentraîné pour accélérer le processus d’entraînement. Si les classes de votre jeu de données sont similaires à celles du modèle préentraîné, les préétiquettes peuvent être disponibles après seulement quelques centaines d’éléments étiquetés manuellement. Si votre jeu de données est très différent des données utilisées pour préentraîner le modèle, cela peut prendre beaucoup plus de temps.
 
 Sachant que les étiquettes finales dépendent encore de l’entrée de l’étiqueteur, cette technologie d’étiquetage est parfois appelée *Opérateur humain dans la boucle*.
 
@@ -157,17 +182,17 @@ Sachant que les étiquettes finales dépendent encore de l’entrée de l’éti
 
 ### <a name="clustering"></a>Clustering
 
-Après l’envoi d’un certain nombre d’étiquettes, le modèle Machine Learning pour la classification d’images commence à regrouper les images similaires.  Ces images similaires sont présentées aux étiqueteurs dans le même écran pour accélérer le balisage manuel. Le clustering est particulièrement utile quand l’étiqueteur affiche une grille de 4, 6 ou 9 images. 
+Après l’envoi d’un certain nombre d’étiquettes, le modèle Machine Learning pour la classification commence à regrouper les éléments similaires.  Ces images similaires sont présentées aux étiqueteurs dans le même écran pour accélérer le balisage manuel. Le clustering est particulièrement utile quand l’étiqueteur affiche une grille de 4, 6 ou 9 images.
 
 Une fois qu’un modèle Machine Learning a été entraîné sur vos données étiquetées manuellement, le modèle est tronqué à sa dernière couche entièrement connectée. Les images non étiquetées transitent ensuite par le modèle tronqué dans un processus appelé « incorporation » ou « featurization ». Chaque image est ainsi incorporée dans un espace hautement dimensionnel défini par cette couche de modèle. Les images qui correspondent aux voisins les plus proches dans l’espace sont utilisées pour les tâches de clustering. 
 
-La phase de clustering n’apparaît pas pour les modèles de détection d’objets.
+La phase de clustering n’apparaît pas pour les modèles de détection d’objets ni pour la classification de texte.
 
 ### <a name="prelabeling"></a>Préétiquetage
 
-Une fois qu’un nombre suffisant d’étiquettes d’images a été envoyé, un modèle de classification est utilisé pour prédire les balises d’images. Ou un modèle de détection d’objets est utilisé pour prédire les cadres englobants. L’étiqueteur voit dès lors les pages qui contiennent les étiquettes prédites déjà présentes dans chaque image. Pour la détection d’objets, des zones prédites sont également affichées. La tâche doit ensuite examiner ces prédictions et corriger les images mal étiquetées avant d’envoyer la page.  
+Une fois qu’un nombre suffisant d’étiquettes a été envoyé, un modèle de classification est utilisé pour prédire les étiquettes. Ou un modèle de détection d’objets est utilisé pour prédire les cadres englobants. L’étiqueteur voit dès lors les pages qui contiennent les étiquettes prédites déjà présentes dans chaque élément. Pour la détection d’objets, des zones prédites sont également affichées. La tâche doit ensuite examiner ces prédictions et corriger les images mal étiquetées avant d’envoyer la page.  
 
-Une fois qu’un modèle Machine Learning a été entraîné sur vos données étiquetées manuellement, le modèle est évalué sur un ensemble d’images de test étiquetées manuellement pour déterminer sa précision à plusieurs seuils de confiance. Ce processus d’évaluation sert à déterminer le seuil de confiance au-dessus duquel le modèle est suffisamment précis pour afficher des préétiquettes. Le modèle est ensuite évalué par rapport aux données non étiquetées. Les images dont les prédictions ont un niveau de confiance supérieur à ce seuil sont utilisées pour le préétiquetage.
+Une fois qu’un modèle Machine Learning a été entraîné sur vos données étiquetées manuellement, le modèle est évalué sur un ensemble d’éléments de test étiquetés manuellement pour déterminer sa précision à plusieurs seuils de confiance. Ce processus d’évaluation sert à déterminer le seuil de confiance au-dessus duquel le modèle est suffisamment précis pour afficher des préétiquettes. Le modèle est ensuite évalué par rapport aux données non étiquetées. Les éléments dont les prédictions ont un niveau de confiance supérieur à ce seuil sont utilisés pour le préétiquetage.
 
 ## <a name="initialize-the-data-labeling-project"></a>Initialiser le projet d’étiquetage des données
 
@@ -237,7 +262,7 @@ Pour ajouter une ou plusieurs étiquettes à un projet, effectuez les étapes su
 1. Sélectionnez l’onglet **Détails**.
 1. Dans la liste à gauche, sélectionnez **Classes d’étiquette**.
 1. En haut de la liste, sélectionnez **+ Ajouter des étiquettes** ![Ajouter une étiquette](media/how-to-create-labeling-projects/add-label.png).
-1. Dans le formulaire, ajoutez votre nouvelle étiquette et choisissez comment procéder.  Étant donné que vous avez modifié les étiquettes disponibles pour une image, choisissez comment traiter les données déjà étiquetées :
+1. Dans le formulaire, ajoutez votre nouvelle étiquette et choisissez comment procéder.  Étant donné que vous avez modifié les étiquettes disponibles, choisissez comment traiter les données déjà étiquetées :
     * Recommencer en supprimant toutes les étiquettes existantes.  Choisissez cette option si vous souhaitez commencer l’étiquetage depuis le début avec le nouvel ensemble complet d’étiquettes. 
     * Recommencer en conservant toutes les étiquettes existantes.  Choisissez cette option pour marquer toutes les données comme non étiquetées, mais en conservant les étiquettes existantes comme étiquettes par défaut pour les images précédemment étiquetées.
     * Continuer en conservant toutes les étiquettes existantes. Choisissez cette option pour laisser toutes les données déjà étiquetées telles quelles et commencer à utiliser la nouvelle étiquette pour les données qui ne sont pas encore étiquetées.
@@ -245,10 +270,18 @@ Pour ajouter une ou plusieurs étiquettes à un projet, effectuez les étapes su
 1. Une fois que vous avez ajouté toutes les nouvelles étiquettes, en haut à droite de la page, basculez **Mis en pause** sur **En cours d’exécution** pour redémarrer le projet.  
 
 ## <a name="export-the-labels"></a>Exporter les étiquettes
+ 
+Utilisez le bouton **Exporter** de la page **Détails du projet** de votre projet d’étiquetage. Vous pouvez exporter les données d’étiquette pour Machine Learning - Expérimentation à tout moment. 
 
-Vous pouvez exporter les données d’étiquette pour Machine Learning - Expérimentation à tout moment. Vous pouvez exporter les étiquettes d’image au [format COCO](http://cocodataset.org/#format-data) ou en tant que [jeu de données Azure Machine Learning avec des étiquettes](how-to-use-labeled-dataset.md). Utilisez le bouton **Exporter** de la page **Détails du projet** de votre projet d’étiquetage.
+* Vous pouvez exporter des étiquettes de texte sous forme de :
+    * Fichier AvCSV. Le fichier CSV est créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier situé dans *Labeling/export/csv*. 
+    * [Jeu de données Azure Machine Learning comportant des étiquettes](how-to-use-labeled-dataset.md). 
 
-Le fichier COCO est créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier situé au sein de *export/coco*. Vous pouvez accéder au jeu de données Azure Machine Learning exporté dans la section **Jeux de données** de Machine Learning. La page de détails du jeu de données fournit également un exemple de code pour accéder aux étiquettes à partir de Python.
+* Vous pouvez exporter des étiquettes d’image sous forme de :
+    * [Fichier au format COCO](http://cocodataset.org/#format-data) créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier situé dans *Labeling/export/coco*. 
+    * [Jeu de données Azure Machine Learning comportant des étiquettes](how-to-use-labeled-dataset.md). 
+
+Accédez aux jeux de données Azure Machine Learning exportés dans la section **Jeux de données** de Machine Learning. La page de détails du jeu de données fournit également un exemple de code pour accéder aux étiquettes à partir de Python.
 
 ![Jeu de données exporté](./media/how-to-create-labeling-projects/exported-dataset.png)
 
@@ -267,5 +300,5 @@ Si vous rencontrez l’un de ces problèmes, suivez les conseils ci-dessous.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Créer votre premier projet d’étiquetage de classification d’images](tutorial-labeling.md).
-* Étiqueter des images pour [la classification d’images ou la détection d’objets](how-to-label-images.md)
+* Étiqueter des images pour [la classification d’images ou la détection d’objets](how-to-label-data.md)
 * En savoir plus sur [Azure Machine Learning et Machine Learning Studio (classique)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

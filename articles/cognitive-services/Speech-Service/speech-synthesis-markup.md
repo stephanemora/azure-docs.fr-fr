@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1d21691af4d52892f507695a56331816b14bf517
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 423e08511003c8ba1f810bd024d0e253df612473
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588375"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293275"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -62,7 +62,7 @@ Chaque document SSML est créé avec des éléments SSML (ou les balises). Ces �
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
 | `version` | Indique la version de la spécification SSML utilisée pour interpréter le balisage de document. La version actuelle est 1.0. | Obligatoire |
-| `xml:lang` | Spécifie la langue du document racine. La valeur peut contenir un code langue de deux lettres minuscules (par exemple, `en`), ou le code langue associé au code du pays ou de la région en majuscules (par exemple, `en-US`). | Obligatoire |
+| `xml:lang` | Spécifie la langue du document racine. La valeur peut contenir un code langue de deux lettres en minuscules (par exemple, `en`), ou le code langue associé au code du pays ou de la région en majuscules (par exemple, `en-US`). | Obligatoire |
 | `xmlns` | Spécifie l’URI du document définissant le vocabulaire de balisage (types d’éléments et noms d’attribut) du document SSML. L’URI en cours est http://www.w3.org/2001/10/synthesis. | Obligatoire |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Choisir une voix de synthèse vocale
@@ -208,6 +208,9 @@ Actuellement, les ajustements de style oral suivants sont pris en charge pour ce
 * `zh-CN-XiaoxuanNeural` (version préliminaire)
 * `zh-CN-XiaoruiNeural` (version préliminaire)
 
+> [!NOTE]
+> Les voix en préversion ne sont disponibles que dans les 3 régions suivantes : USA Est, Europe Ouest et Asie Sud-Est.
+
 L’intensité du style d’élocution peut être modifiée pour mieux correspondre à votre cas d’usage. Vous pouvez spécifier un style plus fort ou plus doux avec `styledegree` pour rendre la voix plus expressive ou feutrée. Actuellement, les ajustements de style oral sont pris en charge pour les voix neuronales en chinois (mandarin, simplifié).
 
 En plus d’ajuster les styles d’élocution et le degré de style, vous pouvez aussi ajuster le paramètre `role` afin que la voix imite un âge et un sexe différents. Par exemple, une voix masculine peut devenir plus aigüe et changer d’intonation pour imiter une voix féminine, mais le nom de la voix ne changera pas. Actuellement, les ajustements de rôle sont pris en charge pour ces voix neuronales en chinois (mandarin, simplifié) :
@@ -228,7 +231,7 @@ Les modifications ci-dessus sont appliquées au niveau de la phrase, et les styl
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> À l’heure actuelle, `styledegree` ne prend en charge que les voix neuronales en chinois (mandarin, simplifié). `role` prend uniquement en charge zh-CN-XiaomoNeural et zh-CN-XiaoxuanNeural.
+> À l’heure actuelle, `styledegree` ne prend en charge que les voix neuronales en chinois (mandarin, simplifié). `role` prend uniquement en charge zh-CN-XiaomoNeural et zh-CN-XiaoxuanNeural. 
 
 **Attributs**
 
@@ -277,7 +280,8 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
 |                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.              |
 |                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.          |
-| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+|   `zh-CN-YunxiNeural`   | `style="assistant"`       | Exprime un ton chaud et détendu pour les assistants numériques    |
+|                         | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
 |                         | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.            |
 |                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
 |                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
@@ -294,23 +298,25 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |                         | `style="embarrassed"`     | Exprime un ton incertain et hésitant quand l’orateur se sent mal à l’aise   |
 |                         | `style="affectionate"`    | Exprime un ton chaleureux et affectueux, avec une hauteur de voix et une énergie vocale plus grandes. L’orateur attire l’attention de celui qui écoute. La « personnalité » de l’orateur est souvent d’une nature attachante.          |
 |                         | `style="gentle"`          | Exprime un ton doux, poli et agréable, avec une hauteur de voix et une énergie vocale moins élevées         |
-| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+| `zh-CN-XiaomoNeural`    | `style="calm"`            | Exprime une attitude sympathique, calme et posée dans une conversation. Le ton, la hauteur de la voix, la prosodie sont bien plus uniformes par rapport aux autres types de voix.                         |
+|                         | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                 |
 |                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
-|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
-|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.              |
-|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.    |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                       |
+|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.         |
+|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.  |
 |                         | `style="depressed"`       | Exprime un ton mélancolique et découragé avec une hauteur de voix plus basse et moins d’énergie    |
 |                         | `style="gentle"`          | Exprime un ton doux, poli et agréable, avec une hauteur de voix et une énergie vocale moins élevées         |
-| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+| `zh-CN-XiaoxuanNeural`  | `style="calm"`            | Exprime une attitude sympathique, calme et posée dans une conversation. Le ton, la hauteur de la voix, la prosodie sont bien plus uniformes par rapport aux autres types de voix.                         |
+|                         | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                              |
 |                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
-|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
-|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.              |
-|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.    |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                       |
+|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.         |
+|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.  |
 |                         | `style="depressed"`       | Exprime un ton mélancolique et découragé avec une hauteur de voix plus basse et moins d’énergie    |
 |                         | `style="gentle"`          | Exprime un ton doux, poli et agréable, avec une hauteur de voix et une énergie vocale moins élevées         |
-| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.            |
+| `zh-CN-XiaoruiNeural`   | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.         |
 |                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
-|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                       |
 
 Utilisez ce tableau pour vérifier les rôles pris en charge et leurs définitions.
 
@@ -477,7 +483,7 @@ L’élément `s` peut contenir du texte et les éléments suivants : `audio`, 
 
 L’élément `ph` est utilisé pour la prononciation phonétique dans des documents SSML. L’élément `ph` ne peut rien contenir d’autre que du texte. Fournissez toujours un discours contrôlable de visu comme solution de secours.
 
-Les alphabets phonétiques sont constitués de phonèmes composés de lettres, de chiffres ou de caractères parfois combinés. Chaque phonème décrit un son vocal unique. Cela contraste avec l’alphabet latin où chaque lettre peut représenter plusieurs sons parlés. Considérez les différentes prononciations de la lettre « c » dans les mots « casser » et « cesser », ou les différentes prononciations de la combinaison de lettres « ch » dans les mots « chose » et « almanach ».
+Les alphabets phonétiques sont constitués de phonèmes composés de lettres, de chiffres ou de caractères parfois combinés. Chaque phonème décrit un son vocal unique. Cela contraste avec l’alphabet latin, où chaque lettre peut représenter plusieurs sons parlés. Considérez les différentes prononciations de la lettre « c » dans les mots « casser » et « cesser », ou les différentes prononciations de la combinaison de lettres « ch » dans les mots « chose » et « almanach ».
 
 > [!NOTE]
 > Actuellement, les étiquettes de phonèmes ne sont pas prises en charge pour ces 5 voix (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural et mt-MT-GarceNeural).
@@ -665,7 +671,7 @@ L’élément `prosody` est utilisé pour spécifier des modifications apportée
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| `pitch` | Indique la tonalité de base pour le texte. Vous pouvez spécifier la tonalité comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre suivi de « Hz » (Hertz). Par exemple : `<prosody pitch="600Hz">some text</prosody>`.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » et suivi de « Hz » ou « st », qui spécifie l’importance d’un changement de tonalité. Par exemple, `<prosody pitch="+80Hz">some text</prosody>` ou `<prosody pitch="-2st">some text</prosody>`. « st » indique que l’unité de changement est le demi-ton, c’est-à-dire la moitié d’un ton sur l’échelle diatonique standard.</li><li>Valeur constante :<ul><li>x-low</li><li>low</li><li>moyenne</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Facultatif |
+| `pitch` | Indique la tonalité de base pour le texte. Vous pouvez exprimer la tonalité comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre suivi de « Hz » (Hertz). Par exemple : `<prosody pitch="600Hz">some text</prosody>`.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » et suivi de « Hz » ou « st », qui spécifie l’importance d’un changement de tonalité. Par exemple, `<prosody pitch="+80Hz">some text</prosody>` ou `<prosody pitch="-2st">some text</prosody>`. « st » indique que l’unité de changement est le demi-ton, c’est-à-dire la moitié d’un ton sur l’échelle diatonique standard.</li><li>Valeur constante :<ul><li>x-low</li><li>low</li><li>moyenne</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Facultatif |
 | `contour` |Le contour prend désormais en charge les voix neurales et standard. Le contour représente les changements de tonalité. Ces changements sont représentés sous la forme d’un tableau de cibles aux positions temporelles spécifiées dans la sortie vocale. Chaque cible est définie par des ensembles de paires de paramètres. Par exemple : <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>La première valeur dans chaque paire de paramètres spécifie l’emplacement du changement de tonalité sous la forme d’un pourcentage de la durée du texte. La deuxième valeur spécifie la quantité de hausse ou de baisse de la tonalité, à l’aide d’une valeur relative ou une valeur d’énumération pour la tonalité (voir `pitch`). | Facultatif |
 | `range` | Valeur représentant la plage de tonalités pour le texte. Vous pouvez exprimer `range` à l’aide des mêmes valeurs absolues, relatives ou d’énumération que celles utilisées pour décrire `pitch`. | Facultatif |
 | `rate` | Indique la cadence d’énonciation du texte. Vous pouvez exprimer `rate` comme suit :<ul><li>Valeur relative exprimée sous forme de nombre agissant comme multiplicateur de la valeur par défaut. Par exemple, la valeur *1* n’entraîne aucun changement de cadence. La valeur *0.5* entraîne une réduction de moitié de la cadence. La valeur *3* entraîne un triplement de la cadence.</li><li>Valeur constante :<ul><li>x-slow</li><li>slow</li><li>moyenne</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Facultatif |
@@ -789,7 +795,7 @@ Le moteur de synthèse vocale prononce l’exemple ci-dessous comme suit : « 
 
 ## <a name="add-recorded-audio"></a>Ajouter un audio enregistré
 
-`audio` est un élément facultatif qui vous permet d’insérer un audio MP3 dans un document SSML. Le corps de l’élément audio peut contenir du texte brut ou un balisage SSML qui est prononcé si le fichier audio n’est pas disponible ou ne peut pas être lu. De plus, l’élément `audio` peut contenir du texte et les éléments suivants : `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as` et `sub`.
+`audio` est un élément facultatif qui vous permet d’insérer un audio MP3 dans un document SSML. Le corps de l’élément audio peut contenir du texte brut ou un balisage SSML qui est prononcé si le fichier audio n’est pas disponible ou ne peut pas être lu. De plus, l’élément `audio` peut contenir du texte et les éléments suivants : `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as` et `sub`.
 
 Tout audio inclus dans le document SSML doit respecter les exigences suivantes :
 
@@ -909,7 +915,7 @@ Les événements `BookmarkReached` sont déclenchés à mesure que les données 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+Pour plus d’informations, consultez <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>.
 
 ```csharp
 synthesizer.BookmarkReached += (s, e) =>
@@ -928,7 +934,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+Pour plus d’informations, consultez <a href="/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
 
 ```cpp
 synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
@@ -948,7 +954,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>.
+Pour plus d’informations, consultez <a href="/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>.
 
 ```java
 synthesizer.BookmarkReached.addEventListener((o, e) -> {
@@ -966,7 +972,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
+Pour plus d’informations, consultez <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
 
 ```python
 # The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
@@ -982,7 +988,7 @@ Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
+Pour plus d’informations, consultez <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
 
 ```javascript
 synthesizer.bookmarkReached = function (s, e) {
@@ -998,7 +1004,7 @@ Pour l’exemple SSML ci-dessus, l’événement `bookmarkReached` est déclench
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+Pour plus d’informations, consultez <a href="/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
 
 ```objectivec
 [synthesizer addBookmarkReachedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisBookmarkEventArgs *eventArgs) {

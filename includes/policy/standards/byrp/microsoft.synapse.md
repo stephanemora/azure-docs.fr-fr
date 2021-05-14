@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 80c28fc9869f113a9f9217b2d475aec72c22accc
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 67cb36d87f9dc201a482575d09b34cbbbc427fec
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497662"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743167"
 ---
 ## <a name="cmmc-level-3"></a>CMMC niveau 3
 

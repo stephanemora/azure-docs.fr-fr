@@ -51,7 +51,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json
     - name: Sécurité des données
       items:
         - name: Chiffrement des ressources sécurisées
@@ -66,6 +66,14 @@
           href: automation-create-standalone-account.md
         - name: Créer un compte Automation avec un modèle Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: Identité managée
+          items:
+            - name: Activer une identité managée
+              href: enable-managed-identity-for-automation.md
+            - name: Désactiver l’identité managée
+              href: disable-managed-identity-for-automation.md
+            - name: Résoudre les problèmes d’identité managée
+              href: troubleshoot/managed-identity.md
         - name: compte d'identification
           items:
             - name: Créer un compte d’identification
@@ -86,6 +94,8 @@
           href: automation-role-based-access-control.md
         - name: Déplacer un compte Automation vers un autre abonnement
           href: how-to/move-account.md
+        - name: Supprimer un compte Automation
+          href: delete-account.md
         - name: Migrer d’Orchestrator vers Azure Automation (bêta)
           href: automation-orchestrator-migration.md
     - name: Ressources partagées
@@ -114,7 +124,7 @@
           href: troubleshoot/shared-resources.md
     - name: Automatisation de processus
       items:
-        - name: Utiliser les runbooks et les modules de PowerShell Gallery
+        - name: Utiliser des runbooks et des modules existants
           href: automation-runbook-gallery.md
         - name: Découvrir PowerShell Workflow
           href: automation-powershell-workflow.md
@@ -136,8 +146,6 @@
               href: start-runbooks.md
             - name: Démarrer un runbook depuis un Webhook
               href: automation-webhooks.md
-            - name: Suivre les fichiers mis à jour avec une tâche d’observateur
-              href: automation-watchers-tutorial.md
             - name: Utiliser le kit SDK de runbook graphique
               href: graphical-runbook-sdk.md
         - name: Superviser des runbooks
@@ -184,6 +192,8 @@
               href: automation-dsc-compile.md
             - name: Remédier à la non-conformité des serveurs State Configuration
               href: automation-dsc-remediate.md
+            - name: Supprimer le nœud et la configuration
+              href: state-configuration/remove-node-and-configuration-package.md
             - name: Configurer un déploiement continu avec Chocolatey
               href: automation-dsc-cd-chocolatey.md
             - name: Intégrer à Journaux Azure Monitor
@@ -238,7 +248,7 @@
               items:
                 - name: Résoudre les problèmes de déploiement de fonctionnalités
                   href: troubleshoot/onboarding.md
-                - name: Résoudre les problèmes rencontrés avec Suivi des modifications et inventaire
+                - name: Résoudre les problèmes rencontrés avec Change Tracking et d’inventaire
                   href: troubleshoot/change-tracking.md
     - name: Démarrer/arrêter des machines virtuelles pendant les heures creuses
       items:
@@ -312,7 +322,7 @@
               href: troubleshoot/update-agent-issues.md
             - name: Résoudre les problèmes de l’agent de mise à jour Linux
               href: troubleshoot/update-agent-issues-linux.md
-    - name: Scénarios multicomposants
+    - name: Scénarios
       items:
         - name: Envoyer un e-mail depuis un runbook
           href: automation-send-email.md
@@ -320,6 +330,8 @@
           href: automation-alert-metric.md
         - name: Déclencher un runbook depuis une alerte Azure
           href: automation-create-alert-triggered-runbook.md
+        - name: Suivre les fichiers mis à jour avec une tâche d’observateur
+          href: automation-scenario-using-watcher-task.md
         - name: "Gérer les services Office\_365"
           href: manage-office-365.md
         - name: Déployer une machine virtuelle AWS avec un runbook Automation
@@ -332,6 +344,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Informations de référence
   items:
+    - name: Azure CLI
+      href: /cli/azure/automation
     - name: Azure PowerShell Az
       href: /powershell/module/az.automation
     - name: Azure PowerShell AzureRM
@@ -361,5 +375,5 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

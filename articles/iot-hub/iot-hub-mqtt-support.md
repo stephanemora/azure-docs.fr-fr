@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 9678648b6417138e216ba2dce3a3605bb4c1bce4
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d03a221a38bc7a6f929ebcec45526aaab17dc654
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169230"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483278"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -158,11 +158,11 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > Si vous utilisez l’authentification par certificat X.509, les mots de passe de jeton SAS ne sont pas obligatoires. Pour plus d’informations, consultez [Configurer la sécurité X.509 dans Azure IoT Hub](iot-hub-security-x509-get-started.md) et suivez les instructions de code fournies dans la [section consacrée à la configuration TLS/SSL](#tlsssl-configuration).
+  > Si vous utilisez l’authentification par certificat X.509, les mots de passe de jeton SAS ne sont pas obligatoires. Pour plus d’informations, consultez [Configurer la sécurité X.509 dans Azure IoT Hub](./tutorial-x509-scripts.md) et suivez les instructions de code fournies dans la [section consacrée à la configuration TLS/SSL](#tlsssl-configuration).
 
-  Pour plus d’informations sur la génération de jetons de signature d’accès partagé, consultez la section consacrée aux appareils de [Utilisation de jetons de sécurité IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
+  Pour plus d’informations sur la génération de jetons de signature d’accès partagé, consultez la section consacrée aux appareils de [Utilisation de jetons de sécurité IoT Hub](iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device).
 
-  Lors du test, vous pouvez également utiliser [Azure IoT Tools pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) multiplateforme ou de la commande d’extension CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) afin de générer rapidement un jeton de signature d’accès partagé que vous pouvez copier et coller dans votre propre code.
+  Lors du test, vous pouvez également utiliser [Azure IoT Tools pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) multiplateforme ou de la commande d’extension CLI [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) afin de générer rapidement un jeton de signature d’accès partagé que vous pouvez copier et coller dans votre propre code.
 
 ### <a name="for-azure-iot-tools"></a>Pour Azure IoT Tools
 

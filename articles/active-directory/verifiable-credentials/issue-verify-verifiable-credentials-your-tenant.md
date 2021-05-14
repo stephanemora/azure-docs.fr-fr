@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: e4772b6701065a44416d849faa9a501bd7895f27
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 310c821bf102d267d0b5f77dbf206b896ab2f1c7
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553377"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739221"
 ---
 # <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Tutoriel - Émettre et vérifier des justificatifs vérifiables à l’aide de votre locataire (préversion)
 
@@ -234,7 +234,7 @@ Suivez les mêmes étapes que celles du tutoriel précédent pour émettre les j
     node app.js
     ```
 
-3. À l’aide d’une autre invite de commandes, exécutez ngrok pour configurer une URL sur 8081
+3. À l’aide d’une autre invite de commandes, exécutez ngrok pour configurer une URL sur 8081.
 
     ```terminal
     ngrok http 8081
@@ -248,18 +248,18 @@ Suivez les mêmes étapes que celles du tutoriel précédent pour émettre les j
 
     ![Points de terminaison de transfert NGROK](media/enable-your-tenant-verifiable-credentials/ngrok-url-screen.png)
 
-5. Choisissez **GET CREDENTIAL**
-6. Dans Authenticator, analysez le code QR.
-7. Le message d’avertissement **Cette application ou ce site web peut être risqué** s’affiche. Choisissez **Avancé**.
+5. Sélectionnez **GET CREDENTIAL**
+6. Dans Authenticator, scannez le code QR.
+7. Lorsque le message d’avertissement **Cette application ou ce site web peut être risqué** s’affiche, sélectionnez **Avancé**.
 
   ![Avertissement initial](media/enable-your-tenant-verifiable-credentials/site-warning.png)
 
-8. Dans l’avertissement de site web risqué, choisissez **Continuer quand même (non sécurisé)**
+8. Dans l’avertissement de site web risqué, sélectionnez **Continuer quand même (non sécurisé)** .
 
-  ![Deuxième avertissement concernant l’émetteur](media/enable-your-tenant-verifiable-credentials/site-warning-proceed.png)
+  ![Deuxième avertissement relatif à l’émetteur](media/enable-your-tenant-verifiable-credentials/site-warning-proceed.png)
 
 
-9. À l’écran **Ajouter des justificatifs**, notez quelques points : 
+9. Dans l’écran **Ajouter des justificatifs**, notez quelques points : 
     1. En haut de l’écran, vous pouvez voir un message rouge **Non vérifié**
     1. Les justificatifs sont personnalisés en fonction des modifications que nous avons apportées au fichier d’affichage.
     1. L’option **Connectez-vous à votre compte** pointe sur votre page de connexion Azure AD.
@@ -269,16 +269,16 @@ Suivez les mêmes étapes que celles du tutoriel précédent pour émettre les j
 10. Choisissez **Connectez-vous à votre compte** et authentifiez-vous à l’aide d’un utilisateur de votre locataire Azure AD.
 11. Une fois l’authentification réussie, le bouton **Ajouter** n’est plus grisé. Choisissez **Ajouter**.
 
-  ![Écran Ajouter des justificatifs après l’authentification](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
+  ![Écran Ajouter des justificatifs après authentification](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
 
-Nous avons maintenant publié des justificatifs vérifiables à l’aide de notre locataire pour générer nos justificatifs vérifiables tout en utilisant notre locataire B2C pour l’authentification.
+Nous avons maintenant publié des justificatifs vérifiables à l’aide de notre locataire pour générer vos justificatifs vérifiables tout en utilisant le locataire B2C d’origine à des fins d’authentification.
 
   ![Justificatifs vérifiables émis par votre locataire Azure AD et authentifiés par notre instance Azure B2C](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
 
 ## <a name="test-verifying-the-vc-using-the-sample-app"></a>Tester la vérification des justificatifs vérifiables à l’aide de l’exemple d’application
 
-Maintenant que nous avons publié les justificatifs vérifiables depuis notre propre locataire avec les revendications de votre instance Azure AD, vérifions-les à l’aide de notre exemple d’application.
+Maintenant que nous avons publié les justificatifs vérifiables depuis notre propre locataire avec les revendications de votre instance Azure AD, vérifions-les à l’aide de l’exemple d’application.
 
 1. Arrêtez l’exécution du service ngrok de l’émetteur.
 
@@ -286,7 +286,7 @@ Maintenant que nous avons publié les justificatifs vérifiables depuis notre pr
     control-c
     ```
 
-2. Exécutez maintenant ngrok avec le port vérificateur 8082.
+2. Exécutez maintenant ngrok avec le port vérificateur 8082.
 
     ```cmd
     ngrok http 8082
@@ -300,7 +300,7 @@ Maintenant que nous avons publié les justificatifs vérifiables depuis notre pr
     node app.js
     ```
 
-4. Ouvrez l’URL ngrok dans votre navigateur et analysez le code QR à l’aide de l’authentificateur sur votre appareil mobile.
+4. Ouvrez l’URL ngrok dans votre navigateur et scannez le code QR à l’aide d’Authenticator sur votre appareil mobile.
 5. Sur votre appareil mobile, choisissez **Autoriser** dans l’écran **Nouvelle demande d’autorisation**.
 
    >[!IMPORTANT]

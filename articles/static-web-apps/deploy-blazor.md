@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 5b8a94409f082177192847f2c65d44a513ecdbe4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d683507e8c35db5af3ef7e91674f6a55254e22e2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305036"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132420"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutoriel : Créer une application web statique avec Blazor dans Azure Static Web Apps
 
@@ -43,17 +43,13 @@ Ces projets sont tous nécessaires à la création d'une application d'assembly 
 
 ## <a name="fallback-route"></a>Itinéraire de secours
 
-L'application expose des URL telles que _/counter_ et _/fetchdata_ qui correspondent à des itinéraires spécifiques de l'application. Dans la mesure où cette application est implémentée sous forme d'application monopage, chaque itinéraire reçoit le fichier _index.html_. Pour garantir que les requêtes de chemin retournent _index.html_, une [route de secours](./routes.md#fallback-routes) est implémentée dans le fichier _staticwebapp.config.json_ situé dans le dossier _wwwroot_ du projet Client.
+L'application expose des URL telles que _/counter_ et _/fetchdata_ qui correspondent à des itinéraires spécifiques de l'application. Dans la mesure où cette application est implémentée sous forme d'application monopage, chaque itinéraire reçoit le fichier _index.html_. Pour garantir que les requêtes de chemin retournent _index.html_, une [route de secours](./configuration.md#fallback-routes) est implémentée dans le fichier _staticwebapp.config.json_ situé dans le dossier _wwwroot_ du projet Client.
 
 ```json
 {
-  "routes": [
-    {
-      "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
-    }
-  ]
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
 }
 ```
 

@@ -1,23 +1,23 @@
 ---
-title: Stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
+title: 'Stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel : PowerShell'
 titleSuffix: Azure VPN Gateway
-description: Configurez la stratégie IPSec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel avec des passerelles VPN Azure à l’aide d’Azure Resource Manager et de PowerShell.
+description: Apprenez à configurer la stratégie IPSec/IKE pour des connexions S2S ou de réseau virtuel à réseau virtuel avec des passerelles VPN Azure à l'aide de PowerShell.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 14c26c7e1f5751fee3ad53db2e1f72ee975aeaa3
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94649260"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229627"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
 
-Cet article vous guide dans les étapes de configuration de la stratégie IPsec/IKE pour la connexion VPN de site à site ou la connexion de réseau virtuel à réseau virtuel à l’aide du modèle de déploiement Resource Manager et de PowerShell.
+Cet article vous guide dans les étapes de configuration de la stratégie IPsec/IKE pour les connexions de site à site ou de réseau virtuel à réseau virtuel à l'aide de PowerShell.
 
 
 

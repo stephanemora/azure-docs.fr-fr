@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d24e67eac54b3ce4eadfc6a4bde47410d59fae8b
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 543beb95fd5f207ae7e9a9076feceef42cc854b4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581098"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130068"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Bien démarrer avec Azure Monitor Application Insights Agent pour les serveurs locaux
 
@@ -27,7 +27,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ### <a name="install-prerequisites"></a>Prérequis à installer
 
-- Pour activer l’analyse, vous avez besoin d’une chaîne de connexion. Votre chaîne de connexion s’affiche dans le panneau Vue d’ensemble de votre ressource Application Insights. Pour plus d’informations, consultez la page [Chaînes de connexion](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#finding-my-connection-string).
+- Pour activer l’analyse, vous avez besoin d’une chaîne de connexion. Votre chaîne de connexion s’affiche dans le panneau Vue d’ensemble de votre ressource Application Insights. Pour plus d’informations, consultez la page [Chaînes de connexion](./sdk-connection-string.md?tabs=net#finding-my-connection-string).
 
 > [!NOTE]
 > Depuis avril 2020, le protocole TLS versions 1.1 et 1.0 est déconseillé avec PowerShell Gallery.
@@ -99,4 +99,3 @@ En faire plus avec Application Insights Agent :
 
 - Examinez les [instructions détaillées](status-monitor-v2-detailed-instructions.md) pour obtenir une explication des commandes répertoriées ici.
 - Utilisez notre guide pour [résoudre les problèmes](status-monitor-v2-troubleshoot.md) d’Application Insights Agent.
-

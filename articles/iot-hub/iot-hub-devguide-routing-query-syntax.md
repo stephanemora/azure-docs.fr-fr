@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4ba48377d868404ff130ec458e50e2b42fae977
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92547705"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790514"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -168,6 +168,13 @@ length($body.Weather.Location.State) = 2
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
+
+> [!NOTE] 
+> Vous pouvez exécuter des requêtes et des fonctions uniquement sur les propriétés dans la référence de corps. Vous ne pouvez pas exécuter de requêtes ou de fonctions sur l’ensemble de la référence de corps. Par exemple, la requête suivante n’est *pas* prise en charge et sera renvoyée `undefined` :
+> 
+> ```sql
+> $body[0] = 'Feb'
+> ```
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Requête de routage de messages en fonction du jumeau d’appareil 
 

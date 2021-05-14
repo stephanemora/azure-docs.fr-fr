@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d13db238674cae62f528c3d730bf892a72b8f6c2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 1c2ebd04fa227bf20570bfee90a97711a0458177
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764690"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318564"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Créer et gérer des réplicas en lecture à partir d’Azure CLI ou de l’API REST
 
@@ -142,14 +142,14 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide de l’[API RE
    }
    ```
 
-2. [Redémarrez le serveur](/rest/api/postgresql/servers/restart) pour appliquer les modifications.
+2. [Redémarrez le serveur](/rest/api/postgresql/singleserver/servers/restart) pour appliquer les modifications.
 
    ```http
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/restart?api-version=2017-12-01
    ```
 
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
-Vous pouvez créer un réplica en lecture à l’aide de l’[API de création](/rest/api/postgresql/servers/create) :
+Vous pouvez créer un réplica en lecture à l’aide de l’[API de création](/rest/api/postgresql/singleserver/servers/create) :
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{replicaName}?api-version=2017-12-01
@@ -177,14 +177,14 @@ Le réplica doit être créé en utilisant les mêmes paramètres de calcul et d
 > Avant de modifier un paramètre du serveur principal, remplacez la valeur du paramètre du réplica par une valeur supérieure ou égale. Vous garantissez ainsi l’alignement du réplica sur les changements apportés au serveur maître.
 
 ### <a name="list-replicas"></a>Lister les réplicas
-Vous pouvez afficher la liste des réplicas d’un serveur principal à l’aide de l’[API de liste de réplicas](/rest/api/postgresql/replicas/listbyserver) :
+Vous pouvez afficher la liste des réplicas d’un serveur principal à l’aide de l’[API de liste de réplicas](/rest/api/postgresql/singleserver/replicas/listbyserver) :
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrêter la réplication vers un serveur réplica
-Vous pouvez arrêter la réplication entre un serveur principal et un réplica en lecture à l’aide de l’[API de mise à jour](/rest/api/postgresql/servers/update).
+Vous pouvez arrêter la réplication entre un serveur principal et un réplica en lecture à l’aide de l’[API de mise à jour](/rest/api/postgresql/singleserver/servers/update).
 
 Une fois que vous avez arrêté la réplication entre un serveur principal et un réplica en lecture, vous ne pouvez plus l’annuler. Le réplica en lecture devient un serveur autonome qui prend en charge les lectures et les écritures. Le serveur autonome ne peut pas être retransformé en réplica.
 
@@ -201,7 +201,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Supprimer un serveur principal ou réplica
-Pour supprimer un serveur principal ou réplica, vous devez utiliser l’[API de suppression](/rest/api/postgresql/servers/delete) :
+Pour supprimer un serveur principal ou réplica, vous devez utiliser l’[API de suppression](/rest/api/postgresql/singleserver/servers/delete) :
 
 Quand vous supprimez un serveur principal, la réplication est arrêtée sur tous les réplicas en lecture. Les réplicas en lecture deviennent des serveurs autonomes qui prennent désormais en charge les lectures et les écritures.
 

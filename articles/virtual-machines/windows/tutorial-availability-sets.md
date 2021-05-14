@@ -9,12 +9,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 178a29ea37195ddd2013ca5220663a75132beb24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b6ca281733a68b02c4fcfa6429da58e36661923
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555905"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164594"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-powershell"></a>Créer et déployer des machines virtuelles dans un groupe à haute disponibilité à l’aide d’Azure PowerShell
 
@@ -96,6 +96,12 @@ La création et la configuration des deux machines virtuelles prennent quelques 
 Si vous examinez le groupe à haute disponibilité dans le portail en accédant à **Groupes de ressources** > **myResourceGroupAvailability** > **myAvailabilitySet**, vous devez voir la façon dont les machines virtuelles sont réparties entre les deux domaines d’erreur et de mise à jour.
 
 ![Groupe à haute disponibilité dans le portail](./media/tutorial-availability-sets/fd-ud.png)
+
+> [!NOTE]
+> Dans certaines circonstances, deux machines virtuelles dans le même AvailabilitySet peuvent partager le même FaultDomain. Pour confirmer cela, accédez à votre groupe à haute disponibilité et vérifiez la colonne Domaine d'erreur Cela peut être dû à la séquence suivante lors du déploiement des machines virtuelles :
+> 1. Déployer la première machine virtuelle
+> 1. Arrêtez/libérez la première machine virtuelle
+> 1. Déployez la deuxième machine virtuelle Dans ces circonstances, le disque du système d’exploitation de la deuxième machine virtuelle peut être créé sur le même domaine d’erreur que la première, et la deuxième machine virtuelle atterrira également sur le même FaultDomain. Pour éviter ce problème, il est recommandé de ne pas arrêter ou libérer la machine virtuelle entre ses déploiements.
 
 ## <a name="check-for-available-vm-sizes"></a>Vérifier les tailles de machines virtuelles disponibles 
 

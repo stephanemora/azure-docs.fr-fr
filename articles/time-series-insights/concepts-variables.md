@@ -6,12 +6,12 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01184a4eb2aac81bbcabcebf89ef10afeabddbe8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736732"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872962"
 ---
 # <a name="time-series-model-variables"></a>Variables de modèle de série chronologique
 
@@ -32,7 +32,7 @@ Le tableau suivant répertorie les propriétés pertinentes pour chaque genre de
 | Propriétés de la variable | Description |
 | --- | ---|
 | Variable filter | Les filtres sont des clauses conditionnelles facultatives pour limiter le nombre de lignes à prendre en compte pour le calcul. |
-| Valeur de variable | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs ou transformées à l’aide d’expressions de série chronologique. Les variables de type numérique doivent être du type *Double*.|
+| Valeur de variable | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs ou transformées à l’aide d’expressions de série chronologique. Les variables de type numérique doivent être `Double` ou `Long` pour correspondre au type de données des données entrantes.|
 | Interpolation de variables | L’interpolation spécifie comment reconstruire un signal en utilisant des données existantes. Les options d’interpolation *pas à pas* et *linéaire* sont disponibles pour les variables numériques. |
 | Variable aggregation | Effectuez des calculs via les [fonctions d’agrégation prises en charge pour les types de variable numériques](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
@@ -62,7 +62,7 @@ Les variables sont conformes à l’exemple JSON suivant :
 | Propriétés de la variable | Description |
 | --- | ---|
 | Variable filter | Les filtres sont des clauses conditionnelles facultatives pour limiter le nombre de lignes à prendre en compte pour le calcul. |
-| Valeur de variable | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs. Les variables de type catégoriel doivent être *Long* ou *String*. |
+| Valeur de variable | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs. Les variables de type catégorique doivent être `Long` ou `String` pour correspondre au type de données des données entrantes. |
 | Interpolation de variables | L’interpolation spécifie comment reconstruire un signal en utilisant des données existantes. L’option d’interpolation *pas à pas* est disponible pour les variables catégorielles. |
 | Catégories de variables | Les catégories créent un mappage entre les valeurs provenant de l’appareil ou des capteurs et une étiquette. |
 | Catégorie par défaut de la variable | La catégorie par défaut correspond à toutes les valeurs qui ne sont pas mappées dans la propriété « catégories ». |

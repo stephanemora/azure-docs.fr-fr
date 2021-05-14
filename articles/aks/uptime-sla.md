@@ -5,22 +5,22 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 846446b4c19c066afe789bf636d68ad37b20709e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 288e1b9e361bd8c0cf41e4bb86fcfce15dda8ac9
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779558"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166394"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Contrat SLA de durée de fonctionnement Azure Kubernetes Service (AKS)
 
 Le contrat SLA de durée de fonctionnement est une fonctionnalité facultative permettant de bénéficier d’un contrat SLA soutenu et élevé pour un cluster. Le contrat SLA de durée de fonctionnement garantit une disponibilité de 99,95 % du point de terminaison de serveur de l’API Kubernetes pour les clusters qui utilisent des [Zones de disponibilité][availability-zones] et 99,9 % de disponibilité pour les clusters qui n’utilisent pas de Zones de disponibilité. AKS utilise les réplicas de nœud principal entre les domaines de mise à jour et d’erreur pour garantir la satisfaction des exigences de contrat SLA.
 
-Les clients ayant besoin d’un contrat SLA pour répondre aux exigences de conformité ou nécessitant l’extension d’un contrat SLA à leurs utilisateurs finaux doivent activer cette fonctionnalité. Les clients avec des charges de travail critiques qui bénéficieront d’un contrat SLA de durée de fonctionnement plus élevée peuvent également en bénéficier. L’utilisation de la fonctionnalité Contrat SLA de durée de fonctionnement avec les Zones de disponibilité permet d’obtenir une disponibilité plus élevée pour la durée de bon fonctionnement du serveur d’API Kubernetes.  
+Les clients ayant besoin d’un contrat SLA pour répondre aux exigences de conformité ou nécessitant l’extension d’un contrat SLA à leurs utilisateurs finaux doivent activer cette fonctionnalité. Les clients avec des charges de travail critiques qui bénéficieront d’un contrat SLA de durée de fonctionnement plus élevée peuvent également en bénéficier. L’utilisation de la fonctionnalité Contrat SLA de durée de fonctionnement avec les Zones de disponibilité permet d’obtenir une disponibilité plus élevée pour la durée de bon fonctionnement du serveur d’API Kubernetes.
 
 Les clients peuvent toujours créer un nombre illimité de clusters gratuits avec un objectif de niveau de service (SLO) de 99,5 % et opter pour leur durée de bon fonctionnement SLO ou SLA préférée en fonction des besoins.
 
-> [!Important]
+> [!IMPORTANT]
 > Pour les clusters avec verrouillage de sortie, consultez [limiter le trafic de sortie](limit-egress-traffic.md) pour ouvrir les ports appropriés.
 
 ## <a name="region-availability"></a>Disponibilité des régions
@@ -46,12 +46,14 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
+
 Utilisez la commande [`az aks create`][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Cette opération prend plusieurs minutes :
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
+
 Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. L’extrait de code JSON suivant montre le niveau payant pour la référence SKU, indiquant que votre cluster est activé avec un contrat SLA de durée de fonctionnement :
 
 ```output
@@ -91,18 +93,18 @@ Utilisez la commande [`az aks update`][az-aks-update] pour mettre à jour le clu
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
- az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
- ```
+az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+```
 
- L’extrait de code JSON suivant montre le niveau payant pour la référence SKU, indiquant que votre cluster est activé avec un contrat SLA de durée de fonctionnement :
+L’extrait de code JSON suivant montre le niveau payant pour la référence SKU, indiquant que votre cluster est activé avec un contrat SLA de durée de fonctionnement :
 
- ```output
+```output
   },
   "sku": {
     "name": "Basic",
     "tier": "Paid"
   },
-  ```
+```
 
 ## <a name="opt-out-of-uptime-sla"></a>Refuser le contrat de niveau de service de durée de bon fonctionnement
 
@@ -111,7 +113,7 @@ Vous pouvez mettre à jour votre cluster pour passer au niveau gratuit et refuse
 ```azurecli-interactive
 # Update an existing cluster to opt out of Uptime SLA
  az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
- ```
+```
 
 ## <a name="clean-up"></a>Nettoyer
 
@@ -120,7 +122,6 @@ Pour éviter des frais, nettoyez toutes les ressources que vous avez créées. P
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

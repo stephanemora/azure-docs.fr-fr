@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4948e17d1e0e782a8fa18c3eb5a2185e816a459a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8b32413d59abce8bc9d6d523071a701368511fc
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631402"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163658"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configurer des identités managées pour les ressources Azure sur une machine virtuelle Azure en utilisant des modèles
 
@@ -42,7 +42,7 @@ Comme pour le portail Azure et le script, les modèles [Azure Resource Manager](
    - Utiliser un [modèle personnalisé à partir de Place de marché Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), lequel vous permet de créer un modèle à partir de zéro, ou à partir d’un modèle commun existant ou d’un [modèle de démarrage rapide](https://azure.microsoft.com/documentation/templates/).
    - Dériver à partir d’un groupe de ressources existant, en exportant un modèle à partir du [déploiement d’origine](../../azure-resource-manager/templates/export-template-portal.md), ou à partir de l’[état actuel du déploiement](../../azure-resource-manager/templates/export-template-portal.md).
    - Utilisation d’un [éditeur local JSON (VS Code, par exemple)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), puis téléchargement/déploiement à l’aide de PowerShell ou Azure CLI.
-   - Utilisez le [projet de groupe de ressources Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio pour créer et déployer un modèle.  
+   - Utilisez le [projet de groupe de ressources Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) de Visual Studio pour créer et déployer un modèle.
 
 Quelle que soit l’option choisie, la syntaxe de modèle est identique lors du déploiement initial et lors du redéploiement. L’activation d’une identité managée affectée par le système ou par l’utilisateur sur une machine virtuelle s’effectue de la même manière, que la machine soit nouvelle ou existante. De plus, par défaut, Azure Resource Manager effectue une [mise à jour incrémentielle](../../azure-resource-manager/templates/deployment-modes.md) au niveau des déploiements.
 
@@ -58,17 +58,15 @@ Pour activer l’identité managée affectée par le système sur une machine vi
 
 2. Pour activer l’identité managée affectée par le système, chargez le modèle dans un éditeur, recherchez la ressource `Microsoft.Compute/virtualMachines` qui vous intéresse dans la section `resources`, puis ajoutez la propriété `"identity"` au même niveau que la propriété `"type": "Microsoft.Compute/virtualMachines"`. Utilisez la syntaxe suivante :
 
-   ```JSON
+   ```json
    "identity": {
        "type": "SystemAssigned"
    },
    ```
 
-
-
 3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
 
-   ```JSON
+   ```json
     "resources": [
         {
             //other resource provider properties...
@@ -95,7 +93,7 @@ Pour affecter un rôle à l’identité attribuée par le système à votre mach
 
    Sous la section `parameters`, ajoutez ce qui suit :
 
-    ```JSON
+    ```json
     "builtInRoleType": {
         "type": "string",
         "defaultValue": "Reader"
@@ -107,13 +105,13 @@ Pour affecter un rôle à l’identité attribuée par le système à votre mach
 
     Sous la section `variables`, ajoutez ce qui suit :
 
-    ```JSON
+    ```json
     "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
     ```
 
     Sous la section `resources`, ajoutez ce qui suit :
 
-    ```JSON
+    ```json
     {
         "apiVersion": "2017-09-01",
         "type": "Microsoft.Authorization/roleAssignments",
@@ -135,7 +133,7 @@ Pour supprimer l’identité managée affectée par le système d’une machine 
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
 
-2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachines` qui vous intéresse dans la section `resources`. Si votre machine virtuelle dispose uniquement d’une identité managée affectée par le système, vous pouvez la désactiver en remplaçant le type d’identité par `None`.  
+2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachines` qui vous intéresse dans la section `resources`. Si votre machine virtuelle dispose uniquement d’une identité managée affectée par le système, vous pouvez la désactiver en remplaçant le type d’identité par `None`.
 
    **API Microsoft.Compute/virtualMachines version 2018-06-01**
 
@@ -143,27 +141,27 @@ Pour supprimer l’identité managée affectée par le système d’une machine 
 
    **API Microsoft.Compute/virtualMachines version 2018-06-01**
 
-   Si votre `apiVersion` présente la valeur `2017-12-01` et que votre machine virtuelle comporte des identités managées affectées par le système et par l’utilisateur, supprimez `SystemAssigned` du type d’identité, et conservez `UserAssigned` avec le tableau `identityIds` des identités managées affectées par l’utilisateur.  
+   Si votre `apiVersion` présente la valeur `2017-12-01` et que votre machine virtuelle comporte des identités managées affectées par le système et par l’utilisateur, supprimez `SystemAssigned` du type d’identité, et conservez `UserAssigned` avec le tableau `identityIds` des identités managées affectées par l’utilisateur.
 
 L’exemple suivant montre comment supprimer une identité managée affectée par le système sur une machine virtuelle sans identité affectée par l’utilisateur :
 
- ```JSON
- {
-     "apiVersion": "2018-06-01",
-     "type": "Microsoft.Compute/virtualMachines",
-     "name": "[parameters('vmName')]",
-     "location": "[resourceGroup().location]",
-     "identity": {
-         "type": "None"
-     }
- }
- ```
+```json
+{
+    "apiVersion": "2018-06-01",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[parameters('vmName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "None"
+    }
+}
+```
 
 ## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
 
 Dans cette section, vous allez attribuer une identité managée affectée par l’utilisateur à une machine virtuelle Azure en utilisant un modèle Azure Resource Manager.
 
-> [!Note]
+> [!NOTE]
 > Pour créer une identité managée affectée par l’utilisateur en utilisant un modèle Azure Resource Manager, consultez [Créer une identité managée affectée par l’utilisateur](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Attribuer une identité managée affectée par l’utilisateur à une machine virtuelle Azure
@@ -176,7 +174,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    Si votre `apiVersion` est `2018-06-01`, vos identités managées affectées par l’utilisateur sont stockées au format de dictionnaire `userAssignedIdentities`, et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie dans la section `variables` de votre modèle.
 
-   ```JSON
+   ```json
     {
         "apiVersion": "2018-06-01",
         "type": "Microsoft.Compute/virtualMachines",
@@ -195,7 +193,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    Si votre `apiVersion` est `2017-12-01`, vos identités managées affectées par l’utilisateur sont stockées dans le tableau `identityIds`, et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie dans la section `variables` de votre modèle.
 
-   ```JSON
+   ```json
    {
        "apiVersion": "2017-12-01",
        "type": "Microsoft.Compute/virtualMachines",
@@ -212,9 +210,9 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
 3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
 
-   **API Microsoft.Compute/virtualMachines version 2018-06-01**    
+   **API Microsoft.Compute/virtualMachines version 2018-06-01**
 
-   ```JSON
+   ```json
      "resources": [
         {
             //other resource provider properties...
@@ -231,9 +229,10 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
         }
     ] 
    ```
+
    **API Microsoft.Compute/virtualMachines version 2017-12-01**
 
-   ```JSON
+   ```json
    "resources": [
         {
             //other resource provider properties...

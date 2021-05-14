@@ -4,12 +4,12 @@ description: Dans le cadre de ce démarrage rapide, vous créez une application 
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 665376a7616e146dbbf86caf0b4a2b62de7e5506
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96575888"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136892"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Démarrage rapide : Déployer une application de services fiables .NET sur Service Fabric
 
@@ -114,7 +114,7 @@ Lorsque vous votez dans l’application, les événements suivants se produisent
 
 ## <a name="debug-in-visual-studio"></a>Déboguer dans Visual Studio
 
-L’application doit fonctionner correctement, mais vous pouvez utiliser le débogueur pour voir comment fonctionnent les éléments clés de l’application. Lors du débogage d’application dans Visual Studio, vous utilisez un cluster de développement Service Fabric local. Vous pouvez adapter votre expérience de débogage à votre scénario. Dans cette application, les données sont stockées dans notre service backend à l’aide d’un dictionnaire fiable. Visual Studio supprime l’application par défaut lorsque vous arrêtez le débogueur. La suppression de l’application a pour effet de supprimer également les données dans le service principal. Pour rendre les données persistantes entre les sessions de débogage, vous pouvez modifier le **Mode de débogage de l'application** en tant que propriété sur le projet **Voting** dans Visual Studio.
+L’application doit fonctionner correctement, mais vous pouvez utiliser le débogueur pour voir comment fonctionnent les éléments clés de l’application. Lors du débogage d’application dans Visual Studio, vous utilisez un cluster de développement Service Fabric local. Vous pouvez adapter votre expérience de débogage à votre scénario. Dans cette application, les données sont stockées dans notre service backend à l’aide d’un dictionnaire fiable. Visual Studio supprime l’application par défaut lorsque vous arrêtez le débogueur. La suppression de l’application a pour effet de supprimer également les données dans le service principal. Pour conserver les données entre les sessions de débogage, ouvrez les **Propriétés** du projet *Voting* et définissez [**Mode de débogage de l’application**](service-fabric-manage-application-in-visual-studio.md#to-set-the-application-debug-mode-property) sur *Mise à niveau automatique*.
 
 Pour examiner ce qui se produit dans le code, procédez comme suit :
 
@@ -159,7 +159,7 @@ Pour mettre à niveau l'application, procédez comme suit :
 
     ![Boîte de dialogue Modifier la version](./media/service-fabric-quickstart-dotnet/change-version.png)
 7. Dans la boîte de dialogue **Publier une application Service Fabric**, cochez la case **Mettre à niveau l’application**.
-8.  Remplacez **Profil cible** par **PublishProfiles\Local.5Node.xml** et vérifiez que le **Point de terminaison de connexion** a la valeur **Cluster Local**. 
+8.  Remplacez **Profil cible** par **PublishProfiles\Local.5Node.xml** et vérifiez que le **Point de terminaison de connexion** a la valeur **Cluster Local**.
 9. Sélectionnez **Mettre à niveau l’application**.
 
     ![Paramètre Mettre à niveau dans la boîte de dialogue Publier](./media/service-fabric-quickstart-dotnet/upgrade-app.png)

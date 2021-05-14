@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 6c1a0853dc59b2e2ceabfd47d81aac364a2b5716
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 5d5706738a0d85beed839d324ae3da055cafe39a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589429"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747518"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
 
@@ -27,15 +27,16 @@ Azure Database Migration Service est conçu pour prendre en charge différents s
 
 Avec Azure Database Migration Service, vous pouvez opter pour une migration hors connexion ou en ligne. Avec les migrations *hors connexion*, les temps d’arrêt de l’application commencent en même temps que la migration. Pour limiter le temps d’arrêt au temps nécessaire pour basculer vers le nouvel environnement une fois la migration terminée, utilisez une migration *en ligne*. Nous vous recommandons de tester une migration hors connexion pour déterminer si le temps d’arrêt est acceptable ; dans le cas contraire, privilégiez une migration en ligne.
 
+## <a name="migration-scenario-status"></a>État du scénario de migration
+
+L’état des scénarios de migration pris en charge par Azure Database Migration Service varie dans le temps. En règle générale, les scénarios sont d’abord publiés en **préversion privée**. Au terme de la préversion privée, le scénario passe à l’état de **préversion publique**. Les utilisateurs d’Azure Database Migration Service peuvent essayer des scénarios de migration en préversion directement à partir de l’interface utilisateur. Aucune inscription n’est nécessaire.  Toutefois, il se peut que les scénarios de migration en préversion publique ne soient pas disponibles dans toutes les régions et subissent des modifications supplémentaires avant la version finale. Au terme de la préversion publique, le scénario passe à l’état de **disponibilité générale**. La disponibilité générale est l’état de la version finale : les fonctionnalités sont complètes et accessibles à tous les utilisateurs.
+
 ## <a name="migration-scenario-support"></a>Prise en charge du scénario de migration
 
 Les tableaux suivants indiquent les scénarios de migration qui sont pris en charge lorsqu’Azure Database Migration Service est utilisé.
 
 > [!NOTE]
 > Si un scénario apparaît dans la liste ci-dessous, mais qu’il ne s’affiche pas dans l’interface utilisateur, veuillez envoyer un courrier pour [Poser des questions sur les migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
-
-> [!IMPORTANT]
-> Pour voir tous les scénarios actuellement pris en charge par Azure Database Migration Service en préversion privée, consultez le [site DMS Preview](https://aka.ms/dms-preview).
 
 ### <a name="offline-one-time-migration-support"></a>Prise en charge de la migration hors connexion (migration ponctuelle)
 
@@ -52,10 +53,11 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Machine virtuelle Azure SQL** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Base de données Azure pour MySQL** | MySQL | X |   |
+| **Base de données Azure pour MySQL** | MySQL | ✔ |   |
 |   | RDS MySQL | X |   |
 | **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
+|  | Oracle | X |   |
 | **Azure DB pour PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 
@@ -79,12 +81,9 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | ✔ | GA |
 |   | Azure DB pour PostgreSQL - Serveur unique | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | Préversion publique (destinée à la dépréciation après le 1er mai 2021) |
+|   | Oracle | X |   |
 | **Azure DB pour PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-
-> [!IMPORTANT]
-> Le scénario de migration « Oracle vers Azure Database pour PostgreSQL » (actuellement en préversion) ne sera plus disponible après le 1er mai 2021. Nous continuerons à assurer un support via des outils alternatifs (tels que Ora2pg) et fournissons la meilleure expérience de migration pour les migrations d’Oracle vers PostgreSQL. Pour connaître les bonnes pratiques en matière de migration, consultez [Guide de migration d’Oracle vers Azure Database pour PostgreSQL](https://aka.ms/OracletoPGguide).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

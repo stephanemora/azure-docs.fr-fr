@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9897ad062de308563dccc7d17191d1757b887fc2
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877229"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135164"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Activer une identité managée affectée par le système pour une application Azure Spring Cloud
 
@@ -24,7 +24,7 @@ Cet article explique comment activer et désactiver les identités managées aff
 
 ## <a name="prerequisites"></a>Prérequis
 Si nécessaire, consultez la [section de présentation](../active-directory/managed-identities-azure-resources/overview.md) afin de vous familiariser avec les identités managées pour les ressources Azure.
-Une instance d'Azure Spring Cloud doit être déployée. Suivez le [Guide de démarrage Déployer à l'aide d'Azure CLI](spring-cloud-quickstart.md).
+Une instance d'Azure Spring Cloud doit être déployée. Suivez le [Guide de démarrage Déployer à l'aide d'Azure CLI](./quickstart.md).
 
 ## <a name="add-a-system-assigned-identity"></a>Ajouter une identité affectée par le système
 La création d'une application avec une identité affectée par le système requiert la définition d'une propriété supplémentaire sur cette application.

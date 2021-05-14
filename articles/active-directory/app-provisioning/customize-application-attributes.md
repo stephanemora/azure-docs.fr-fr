@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8534c21bb0dad782b89c6518ea2313b4232639a6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579465"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128664"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -113,7 +113,7 @@ Les applications et les systèmes qui prennent en charge la personnalisation de 
 - ServiceNow
 - Workday to Active Directory / Workday to Azure Active Directory
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
-- Azure Active Directory (les [attributs par défaut de l’API Azure AD Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) et les extensions d’annuaire personnalisées sont pris en charge). En savoir plus sur la [création d’extensions](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) et les [limitations connues](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues). 
+- Azure Active Directory (les [attributs par défaut de l’API Azure AD Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) et les extensions d’annuaire personnalisées sont pris en charge). En savoir plus sur la [création d’extensions](./user-provisioning-sync-attributes-for-mapping.md#create-an-extension-attribute-on-a-cloud-only-user) et les [limitations connues](./known-issues.md). 
 - Applications prenant en charge [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - Pour l’écriture différée Azure Active Directory dans Workday ou SuccessFactors, il est possible de mettre à jour les métadonnées pertinentes des attributs pris en charge (XPath et JSONPath), mais non d’ajouter des attributs Workday ou SuccessFactors au-delà de ceux du schéma par défaut.
 

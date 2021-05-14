@@ -2,13 +2,13 @@
 title: 'Tutoriel : Nouvelle affectation de stratégie avec le portail Azure'
 description: Dans ce tutoriel, vous allez utiliser le portail Azure pour créer une attribution Azure Policy afin d’identifier les ressources non conformes.
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 20cb8125a157a3ce97c88278c99f90936b449b65
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91826588"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831651"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Tutoriel : Créer une affectation de stratégie pour identifier les ressources non conformes
 
@@ -95,9 +95,9 @@ Pour supprimer l’affectation créée, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez affecté une définition de stratégie à une étendue et vous avez évalué son rapport de conformité. La définition de stratégie permet de vérifier que toutes les ressources dans l’étendue sont conformes, ainsi que d’identifier celles qui ne le sont pas. Vous êtes maintenant prêt à superviser votre machine Serveurs avec Azure Arc avec Azure Monitor pour machines virtuelles.
+Dans ce tutoriel, vous avez affecté une définition de stratégie à une étendue et vous avez évalué son rapport de conformité. La définition de stratégie permet de vérifier que toutes les ressources dans l’étendue sont conformes, ainsi que d’identifier celles qui ne le sont pas. Vous êtes maintenant prêt à superviser votre machine de serveur avec Azure Arc en activant les [insights VM](../../../azure-monitor/vm/vminsights-overview.md).
 
 Pour savoir comment superviser et afficher les performances, les processus en cours d’exécution et leurs dépendances à partir de votre machine, passez au tutoriel :
 
 > [!div class="nextstepaction"]
-> [Activer Azure Monitor pour machines virtuelles](tutorial-enable-vm-insights.md)
+> [Activer VM Insights](tutorial-enable-vm-insights.md)

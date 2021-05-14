@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 01/28/2021
 ms.author: victorh
-ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa7123a1c4dea5fcede3e94250576f6677671176
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986750"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872242"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle d’application avec un arrêt TLS à l’aide du portail Azure
 
@@ -36,7 +36,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
-Dans cette section, vous allez utiliser [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) pour créer un certificat auto-signé. Vous chargerez ensuite ce certificat sur le portail Azure au moment de créer l’écouteur pour la passerelle d’application.
+Dans cette section, vous allez utiliser [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) pour créer un certificat auto-signé. Vous chargerez ensuite ce certificat sur le portail Azure au moment de créer l’écouteur pour la passerelle d’application.
 
 Sur votre ordinateur local, ouvrez une fenêtre Windows PowerShell en tant qu’administrateur. Exécutez la commande suivante pour créer le certificat :
 
@@ -56,7 +56,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Utilisez [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat. Assurez-vous que votre mot de passe comporte de 4 à 12 caractères :
+Utilisez [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat. Assurez-vous que votre mot de passe comporte de 4 à 12 caractères :
 
 
 ```powershell

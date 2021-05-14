@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/05/2021
+ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 94981cd0912f76b710b3a60040ffbffd38381bcd
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 46e84814e27562097a4c5dc4e3daa1e5b36669f7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552102"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287824"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
@@ -27,12 +27,32 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
 ## <a name="april-2021"></a>Avril 2021
 
+* [Gestion manuelle des volumes et des pools de capacités](volume-quota-introduction.md) (quota strict) 
+
+    Le comportement du provisionnement des volumes et des pools de capacité Azure NetApp Files a changé pour un mécanisme manuel et contrôlable. La capacité de stockage d’un volume est limitée à la taille définie (quota) du volume. Quand la consommation du volume atteint la limite maximale, ni le volume ni le pool de capacité sous-jacent n’augmentent automatiquement. Au lieu de cela, le volume reçoit une condition « espace insuffisant ». Toutefois, vous pouvez [redimensionner le pool de capacité ou un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) en fonction des besoins. Vous devez activement [superviser la capacité d’un volume](monitor-volume-capacity.md) et le pool de capacité sous-jacent.
+
+    Ce changement de comportement résulte des demandes clés suivantes indiquées par de nombreux utilisateurs :
+
+    * Avant, les clients de machines virtuelles voyaient la capacité provisionnée dynamiquement (100 Tio) d’un volume donné quand ils utilisaient l’espace du système d’exploitation ou des outils de supervision de la capacité.  Cette situation pouvait entraîner une visibilité inexacte de la capacité côté client ou application. Ce comportement a été corrigé.  
+    * Le comportement de croissance automatique précédent des pools de capacité ne donnait aux propriétaires d’applications aucun contrôle sur l’espace du pool de capacité provisionnée (et sur le coût associé). Ce comportement était particulièrement fastidieux dans les environnements où les « pertes de contrôle de processus » pouvaient rapidement remplir et augmenter la capacité provisionnée. Ce comportement a été corrigé.  
+    * Les utilisateurs veulent voir et maintenir une corrélation directe entre la taille du volume (quota) et le niveau de performance. Le comportement précédent autorisait un sur-abonnement (implicite) d’un volume (capacité) et une croissance automatique d’un pool de capacité. Ainsi, les utilisateurs ne pouvaient pas établir de corrélation directe tant que le quota de volume n’avait pas été défini ou réinitialisé activement. Ce comportement a été corrigé.
+
+    Les utilisateurs ont demandé un contrôle direct sur la capacité provisionnée. Les utilisateurs souhaitent contrôler et équilibrer la capacité et l’utilisation du stockage. Ils souhaitent également contrôler les coûts et disposer de la visibilité, côté application et côté client, de la capacité disponible, utilisée et provisionnée et du niveau de performance de leurs volumes d’application. Avec ce nouveau comportement, toute cette fonctionnalité est désormais activée.
+
+* [Prise en charge des partages à disponibilité continue SMB pour les conteneurs de profil utilisateur FSLogix](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (préversion)  
+
+    [FSLogix](/fslogix/overview) est un ensemble de solutions qui améliorent, activent et simplifient les environnements informatiques Windows non persistants. Les solutions FSLogix sont adaptées aux environnements virtuels dans les clouds publics et privés. Les solutions FSLogix peuvent également être utilisées pour créer davantage de sessions de calcul portables quand vous utilisez des appareils physiques. FSLogix peut être utilisé pour fournir un accès dynamique aux conteneurs de profil utilisateur persistants stockés sur un stockage en réseau partagé SMB, y compris Azure NetApp Files. Pour améliorer la résilience FSLogix aux événements de maintenance du service de stockage, la prise en charge du basculement transparent SMB par Azure NetApp Files a été étendue avec les [partages à disponibilité continue SMB sur Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) pour les conteneurs de profil utilisateur. Pour plus d’informations, consultez la section sur les [solutions Windows Virtual Desktop](azure-netapp-files-solution-architectures.md#windows-virtual-desktop) avec Azure NetApp Files.  
+
+* [Chiffrement du protocole SMB3](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (Préversion) 
+
+    Vous pouvez désormais activer le chiffrement du protocole SMB3 sur les volumes SMB Azure NetApp Files et à double protocole. Cette fonctionnalité permet le chiffrement des données SMB3 en transit, en utilisant les connexions de l’[algorithme AES-CCM sur SMB 3.0 et de l’algorithme AES-GCM sur SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607). Les clients SMB n’utilisant pas le chiffrement SMB3 ne seront pas en mesure d’accéder à ce volume. Les données au repos sont chiffrées, indépendamment de ce paramètre. Le chiffrement SMB renforce la sécurité. Pour autant, il peut y avoir un impact sur le client (surcharge du processeur pour le chiffrement et le déchiffrement des messages). L’utilisation des ressources de stockage (réductions du débit) peut s’en trouver également impactée. Vous devez tester l’incidence des performances du chiffrement sur vos applications avant de déployer des charges de travail en production.
+
 * [Mappage d'utilisateurs LDAP Active Directory Domain Services (AD DS) avec des groupes étendus NFS](configure-ldap-extended-groups.md) (préversion)   
 
     Par défaut, Azure NetApp Files prend en charge jusqu'à 16 ID de groupe lors du traitement des informations d'identification des utilisateurs NFS, comme défini dans les normes [RFC 5531](https://tools.ietf.org/html/rfc5531). Grâce à cette nouvelle fonctionnalité, ce maximum passe désormais à 1 024 si vous avez des utilisateurs qui sont membres d'un nombre de groupes supérieur au nombre par défaut. Pour prendre en charge cette fonctionnalité, les volumes NFS peuvent désormais être ajoutés à LDAP AD DS, ce qui permet aux utilisateurs LDAP Active Directory dotés d'entrées de groupes étendus (jusqu'à 1 024 groupes) d'accéder au volume. 
 
 ## <a name="march-2021"></a>Mars 2021
-
+ 
 * [Partages d’autorité de certification SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (préversion)  
 
     Le basculement transparent SMB permet d’effectuer des opérations de maintenance sur le service Azure NetApp Files sans interrompre la connectivité aux applications du serveur qui stockent et accèdent aux données sur les volumes SMB. Pour prendre en charge le basculement transparent SMB, Azure NetApp Files prend désormais en charge l’option de partages d’autorité de certification SMB pour une utilisation avec des applications SQL Server, plutôt que SMB exécuté sur des machines virtuelles Azure. Cette fonctionnalité est actuellement prise en charge sur Windows SQL Server. Linux SQL Server n’est pas pris en charge actuellement. L’activation de cette fonctionnalité fournit des améliorations SQL Server significatives en matière de performances, de mise à l’échelle et d’avantages de coût pour [Instance unique, Instance de cluster de basculement toujours active et les déploiements de groupes de disponibilité toujours actifs](azure-netapp-files-solution-architectures.md#sql-server). Consultez[Avantages de l’utilisation d’Azure NetApp Files pour le déploiement de SQL Server](solutions-benefits-azure-netapp-files-sql-server.md).

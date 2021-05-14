@@ -1,74 +1,79 @@
 ---
-title: Prise en charge de l’attestation hors processus avec le Daemonset Intel SGX Quote Helper sur Azure (préversion)
-description: DaemonSet utilisé pour générer la déclaration QUOTE en dehors du processus de l’application SGX. Cet article explique comment la fonctionnalité d’attestation hors processus est mise en œuvre pour les charges de travail confidentielles qui s’exécutent dans un conteneur.
+title: Prise en charge de l’attestation avec le DaemonSet Intel SGX Quote Helper sur Azure (préversion)
+description: Un DaemonSet pour générer la déclaration (quote) en dehors du processus de l’application Intel SGX. Cet article explique comment la fonctionnalité d’attestation hors processus est mise en œuvre pour les charges de travail confidentielles qui s’exécutent dans un conteneur.
 ms.service: container-service
 ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: 0ebeb96557b7e20d123577c0ab9c8fc392abbfba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 849fd7afa3f9365f31ee8e03d9f9cc2174d64304
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932624"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484402"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Gestion des logiciels de plateforme avec le DaemonSet SGX Quote Helper (préversion)
+# <a name="platform-software-management-with-intel-sgx-quote-helper-daemonset-preview"></a>Gestion des logiciels de plateforme avec le DaemonSet Intel SGX Quote Helper (préversion)
 
-Les [applications de l’enclave](confidential-computing-enclaves.md) qui effectuent une attestation à distance doivent générer une déclaration, appelée QUOTE. Cette QUOTE fournit une preuve cryptographique de l’identité et de l’état de l’application, ainsi que de l’environnement où s’exécute l’enclave. La génération de la QUOTE nécessite des composants logiciels de confiance qui font partie des composants logiciels de la plateforme Intel (PSW).
+Les [applications d’enclave](confidential-computing-enclaves.md) qui effectuent une attestation à distance ont besoin d’une déclaration générée. Cette déclaration fournit une preuve de chiffrement de l’identité et de l’état de l’application ainsi que de l’environnement où l’enclave s’exécute. La génération de la déclaration nécessite des composants logiciels approuvés qui font partie des composants logiciels de la plateforme Intel (PSW).
 
 ## <a name="overview"></a>Vue d’ensemble
  
 Intel prend en charge deux modes d’attestation dans le cadre de la génération de la QUOTE :
-- **intraprocessus (in-proc)**  : les composants logiciels de confiance sont hébergés au sein du processus d’application de l’enclave.
 
-- **hors processus (out-of-proc)**  : les composants logiciels de confiance sont hébergés en dehors de l’application de l’enclave.
+- *In-process* : les composants logiciels approuvés sont hébergés au sein du processus de l’application d’enclave.
+
+- *Hors processus* : les composants logiciels approuvés sont hébergés en dehors de l’application d’enclave.
  
-Les applications SGX créées avec le SDK Open Enclave utilisent par défaut le mode d’attestation intraprocessus. Les applications SGX acceptent le mode hors processus, mais nécessitent en plus un hébergement et une exposition des composants requis, comme l’AESM (Architectural Enclave Service Manager), externes à l’application.
+Les applications Intel Software Guard Extension (Intel SGX) créées avec le SDK Open Enclave utilisent par défaut le mode d’attestation in-process. Les applications basées sur Intel SGX autorisent le mode d’attestation hors processus. Si vous voulez utiliser ce mode, vous avez besoin d’un hébergement supplémentaire et vous devez exposer les composants nécessaires, comme AESM (Architectural Enclave Service Manager), à l’extérieur de l’application.
 
-L’emploi de cette fonctionnalité est **fortement recommandé** du fait qu’elle augmente le temps d’activité de vos applications enclavées durant les mises à jour de la plateforme Intel ou celles du pilote DCAP.
+Cette fonctionnalité augmente la durée de bon fonctionnement de vos applications d’enclave lors des mises à jour de la plateforme Intel ou du pilote DCAP. C’est pourquoi nous vous recommandons de l’utiliser.
 
-Pour activer cette fonctionnalité sur un cluster AKS, modifiez la commande add --enable-sgxquotehelper dans l’interface CLI lors de l’activation du module complémentaire d’informatique confidentielle. Des instructions détaillées faisant appel à l’interface CLI sont disponibles [ici](confidential-nodes-aks-get-started.md) : 
+Pour activer cette fonctionnalité sur un cluster Azure Kubernetes Services (AKS), ajoutez la commande `--enable-sgxquotehelper` à Azure CLI quand vous activez le module complémentaire d’informatique confidentielle. 
 
 ```azurecli-interactive
 # Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
 ```
 
-## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Quels sont les avantages du mode hors processus ? Pour quelles raisons ?
+Pour plus d’informations, consultez [Démarrage rapide : Déployer un cluster AKS avec des nœuds d’informatique confidentielle en utilisant Azure CLI](confidential-nodes-aks-get-started.md).
 
--   Aucune mise à jour n’est requise pour les composants PSW de génération de QUOTE pour chaque application conteneurisée : Avec le mode hors processus, les propriétaires de conteneur n’ont pas besoin de gérer les mises à jour dans leur conteneur. À la place, ils se reposent sur l’interface du fournisseur qui appelle le service centralisé en dehors du conteneur, lequel est ensuite mis à jour et géré par le fournisseur.
+## <a name="benefits-of-the-out-of-process-mode"></a>Avantages du mode hors processus
 
--   Vous n’avez pas à vous soucier des échecs d’attestation provoqués par des composants PSW obsolètes : La génération de QUOTE fait appel aux composants logiciels de confiance QE (Quoting Enclave) et PCE (Provisioning Certificate Enclave), qui font partie de la base TCB (Trusted Computing Base). Ces composants logiciels doivent être à jour pour respecter les exigences d’attestation. Comme c’est le fournisseur qui gère les mises à jour de ces composants, les clients n’auront jamais à s’occuper des échecs d’attestation dus aux composants logiciels de confiance devenus obsolètes dans leur conteneur.
+La liste suivante décrit certains des principaux avantages de ce mode d’attestation :
 
--   Utilisation optimisée de la mémoire EPC. Avec le mode d’attestation intraprocessus, chaque application enclavée doit instancier la copie des composants QE et PCE pour l’attestation à distance. Avec le mode d’attestation hors processus, le conteneur n’a pas besoin d’héberger ces enclaves et, par conséquent, il ne consomme pas de mémoire d’enclave du quota du conteneur.
+-   Aucune mise à jour n’est nécessaire pour les composants PSW de génération de déclaration pour chaque application conteneurisée. Les propriétaires de conteneur n’ont pas besoin de gérer les mises à jour dans leur conteneur. À la place, ils s’appuient sur l’interface du fournisseur qui appelle le service centralisé en dehors du conteneur. Le fournisseur met à jour et gère le conteneur.
 
--   Protection contre l’application du mode noyau. Quand le pilote SGX est chargé dans le noyau Linux, une enclave peut se voir attribuer un privilège plus élevé. Ce privilège donne à l’enclave la possibilité d’appeler le composant PCE, entraînant l’arrêt de l’application exécutée en mode intraprocessus dans l’enclave. Par défaut, les enclaves n’obtiennent pas cette autorisation. L’attribution de ce privilège à une application enclavée nécessite de modifier le processus d’installation de l’application. Cela est facile dans le mode hors processus, car le fournisseur du service qui gère les demandes hors processus s’assurera que le service est installé avec ce privilège.
+-   Vous n’avez pas à vous soucier des échecs d’attestation provoqués par des composants PSW obsolètes. Le fournisseur gère les mises à jour de ces composants.
 
--   Vous n’avez pas besoin de vérifier la compatibilité descendante avec PSW et DCAP. Les mises à jour des composants PSW de génération de QUOTE sont validées pour la compatibilité descendante par le fournisseur avant leur application. Cela permet de mieux détecter les problèmes de compatibilité en amont et de les résoudre avant de déployer les mises à jour pour les charges de travail confidentielles.
+-   Le mode hors processus offre une meilleure utilisation de la mémoire EPC que le mode in-process. Dans le mode in-process, chaque application d’enclave doit instancier la copie des composants QE et PCE pour l’attestation à distance. Avec le mode hors processus, le conteneur n’a pas besoin d’héberger ces enclaves et il ne consomme donc pas la mémoire d’enclave du quota du conteneur.
 
-## <a name="how-does-the-out-of-proc-attestation-mode-work-for-confidential-workloads-scenario"></a>Comment le mode d’attestation hors processus fonctionne-t-il dans un scénario de charges de travail confidentielles ?
+-   Quand vous chargez le pilote Intel SGX dans un noyau Linux, il est nécessaire pour une enclave de disposer d’une privilège plus élevé. Ce privilège permet à l’enclave d’appeler le composant PCE, ce qui va entraîner l’arrêt de l’application d’enclave exécutée en mode in-process. Par défaut, les enclaves n’obtiennent pas cette autorisation. L’attribution de ce privilège à une application enclavée nécessite de modifier le processus d’installation de l’application. En revanche, dans le mode hors processus, le fournisseur du service qui gère les demandes hors processus vérifie que le service est installé avec ce privilège.
 
-La conception générale suit le modèle où le demandeur de QUOTE et la génération de QUOTE sont exécutés séparément, mais sur le même ordinateur physique. La génération de QUOTE s’effectue de manière centralisée et répond aux demandes de QUOTE provenant de toutes les entités. L’interface doit être correctement définie et détectable pour permettre à chaque entité de faire une demande de QUOTE.
+-   Vous n’avez pas besoin de vérifier la compatibilité descendante avec PSW et DCAP. Les mises à jour des composants PSW de génération de QUOTE sont validées pour la compatibilité descendante par le fournisseur avant leur application. Ceci vous permet de gérer les problèmes de compatibilité avant de déployer des mises à jour pour des charges de travail confidentielles.
 
-![sgx quote helper aesm](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
+## <a name="confidential-workloads"></a>Charges de travail confidentielles
 
-Le modèle abstrait ci-dessus convient au scénario de charge de travail confidentielle, en tirant parti du service AESM déjà disponible. L’AESM est conteneurisé et déployé en tant que DaemonSet dans le cluster Kubernetes. Kubernetes s’assure qu’une seule instance d’un conteneur de service AESM, incluse dans un pod, soit déployée sur chaque nœud d’agent. Le nouveau DaemonSet SGX Quote aura une dépendance sur le DaemonSet sgx-device-plugin, car le conteneur de service AESM aura besoin de la mémoire EPC dans sgx-device-plugin pour lancer les enclaves QE et PCE.
+Le demandeur de déclaration et la génération de déclaration s’exécutent séparément, mais sur la même machine physique. La génération de déclaration est centralisée et répond aux demandes de déclaration de toutes les entités. Pour qu’une entité puisse demander des déclarations, l’interface doit être correctement définie et découvrable.
 
-Chaque conteneur doit activer la génération de QUOTE hors processus en définissant la variable d’environnement **SGX_AESM_ADDR=1** au moment de la création. Le conteneur doit également inclure le package libsgx-quote-ex qui est chargé de rediriger la demande vers le socket de domaine UNIX par défaut.
+![Diagramme montrant les relations entre le demandeur de déclaration, la génération de déclaration et l’interface.](./media/confidential-nodes-out-of-proc-attestation/aesmmanager.png)
 
-Une application peut continuer d’utiliser l’attestation intraprocessus comme avant, mais elle ne peut pas utiliser simultanément l’attestation hors processus et l’attestation intraprocessus. L’infrastructure hors processus est disponible par défaut et consomme des ressources.
+Ce modèle abstrait s’applique au scénario des charges de travail confidentielles, en tirant parti du service AESM déjà disponible. AESM est conteneurisé et déployé en tant que DaemonSet dans le cluster Kubernetes. Kubernetes garantit qu’une seule instance d’un conteneur de service AESM, incluse dans un pod, est déployée sur chaque nœud d’agent. Le nouveau DaemonSet SGX Quote va avoir une dépendance vis-à-vis du DaemonSet sgx-device-plugin, car le conteneur du service AESM demande de la mémoire EPC auprès du sgx-device-plugin pour lancer les enclaves QE et PCE.
 
-## <a name="sample-implementation"></a>Exemple d’implémentation
+Chaque conteneur doit choisir explicitement d’utiliser la génération de déclaration hors processus en définissant la variable d’environnement `SGX_AESM_ADDR=1` au moment de la création. Le conteneur doit également inclure le package libsgx-quote-ex, qui est chargé de rediriger la demande vers le socket du domaine Unix par défaut.
 
-Le fichier docker ci-dessous est un exemple d’application basée sur Open Enclave. Ajoutez la variable d’environnement SGX_AESM_ADDR=1 dans le fichier docker ou définissez-la dans le fichier de déploiement. Consultez l’exemple ci-dessous pour les détails du fichier docker et du fichier YAML de déploiement. 
+Une application peut néanmoins toujours utiliser l’attestation in-process comme auparavant, mais elle ne peut pas utiliser simultanément l’attestation in-process et l’attestation hors processus. L’infrastructure hors processus est disponible par défaut et consomme des ressources.
+
+## <a name="sample-implementation"></a>Implémentation d'exemple
+
+Le fichier Docker suivant est un exemple d’application basée sur Open Enclave. Définissez la variable d’environnement `SGX_AESM_ADDR=1` dans le fichier Docker ou définissez-la dans le fichier de déploiement. L’exemple suivant fournit des détails sur le fichier Docker et le déploiement. 
 
   > [!Note] 
-  > Le package **libsgx-quote-ex** d’Intel doit être inclus dans le conteneur d’application pour que l’attestation hors processus fonctionne correctement.
+  > Pour que l’attestation hors processus fonctionne correctement, libsgx-quote-ex d’Intel doit être empaqueté dans le conteneur d’application.
     
 ```yaml
-# Refer to Intel_SGX_Installation_Guide_Linux for detail
+# Refer to Intel_SGX_Installation_Guide_Linux for details
 FROM ubuntu:18.04 as sgx_base
 RUN apt-get update && apt-get install -y \
     wget \
@@ -95,12 +100,12 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /opt/openenclave/share/openenclave/samples/remote_attestation
 RUN . /opt/openenclave/share/openenclave/openenclaverc \
     && make build
-# this sets the flag for out of proc attestation mode. alternatively you can set this flag on the deployment files
+# This sets the flag for out-of-process attestation mode. Alternatively you can set this flag on the deployment files.
 ENV SGX_AESM_ADDR=1 
 
 CMD make run
 ```
-Le mode d’attestation hors processus peut également être défini dans le fichier YAML de déploiement, comme indiqué ci-dessous.
+Vous pouvez aussi définir le mode d’attestation hors processus dans le fichier de déploiement .yaml. Voici comment faire :
 
 ```yaml
 apiVersion: batch/v1
@@ -130,15 +135,9 @@ spec:
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Provisionner des nœuds confidentiels (de série DCsv2) sur AKS](./confidential-nodes-aks-get-started.md)
+
+[Démarrage rapide : Déployer un cluster AKS avec des nœuds d’informatique confidentielle à l’aide d’Azure CLI](./confidential-nodes-aks-get-started.md)
 
 [Démarrer rapidement avec des exemples de conteneurs confidentiels](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Liste des références SKU DCsv2](../virtual-machines/dcv2-series.md)
-
-<!-- LINKS - external -->
-[Azure Attestation]: ../attestation/index.yml
-
-
-<!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[Références SKU DCsv2](../virtual-machines/dcv2-series.md)

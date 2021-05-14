@@ -10,19 +10,19 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: d4fb33e8e904d12e242f7eeaf9c2dc50a02eff4d
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 2133f3da926dfd1e92d911004393893f58d27db6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961249"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136447"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-virtual-machines"></a>Guide de migration d’Oracle vers SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 Ce guide explique comment migrer des schémas Oracle vers SQL Server sur les machines virtuelles Azure à l’aide de l’Assistant Migration SQL Server pour Oracle. 
 
-Pour obtenir d’autres guides de migration, consultez [Migration de base de données](https://docs.microsoft.com/data-migration). 
+Pour obtenir d’autres guides de migration, consultez [Migration de base de données](/data-migration). 
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -220,7 +220,7 @@ Pour publier votre schéma et migrer vos données, effectuez les étapes suivant
    ![Capture d’écran montrant une instance SQL dans SSMA.](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
 Au lieu d’utiliser SSMA, vous pouvez utiliser la fonctionnalité SQL Server Integration Services (SSIS) pour migrer les données. Pour plus d'informations, consultez les rubriques suivantes : 
-- L’article [SQL Server Integration Services](https://docs.microsoft.com//sql/integration-services/sql-server-integration-services).
+- L’article [SQL Server Integration Services](//sql/integration-services/sql-server-integration-services).
 - Le livre blanc [SSIS pour le déplacement des données hybrides et Azure](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx).
 
 
@@ -292,5 +292,3 @@ L’équipe d’ingénierie SQL des données a développé ces ressources. La ch
 
 - Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Pour plus d’informations sur l’exécution des tests A/B de la couche d’accès aux données, consultez [Vue d’ensemble d’Assistant Expérimentation de base de données](/sql/dea/database-experimentation-assistant-overview).
-
-

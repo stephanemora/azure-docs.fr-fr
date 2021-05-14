@@ -3,12 +3,12 @@ title: 'Tutoriel : Utiliser Azure Event Grid pour automatiser le redimensionnem
 description: 'Tutoriel : Azure Event Grid peut être déclenché en cas de chargement d’objets blob dans le stockage Azure. Vous pouvez utiliser cette fonctionnalité pour envoyer des fichiers image chargés dans le stockage Azure vers d’autres services, tels qu’Azure Functions, en vue de les redimensionner ou de leur apporter d’autres améliorations.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e88dff9dcf06ad5eb120c11c4c17c3ef318e4418
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550510"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897124"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutoriel : Automatiser le redimensionnement des images chargées à l’aide d’Event Grid
 
@@ -329,3 +329,4 @@ Passez à la troisième partie de la série de didacticiels sur le stockage pour
 + Pour essayer un autre didacticiel utilisant Azure Functions, consultez [Créer une fonction qui s’intègre à Azure Logic Apps](../azure-functions/functions-twitter-email.md).
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md
+

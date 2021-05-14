@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01289345ee6bebc0ab1a4608eb83cb8a2827e924
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547547"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "108745358"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrer de Network Attached Storage (NAS) vers un déploiement de cloud hybride avec Azure File Sync
 
@@ -54,7 +54,7 @@ Comme mentionné dans l’[article de présentation de la migration](storage-fil
 * Créez un serveur Windows Server 2019 (ou au minimum 2012R2) comme machine virtuelle ou serveur physique. Un cluster de basculement Windows Server est également pris en charge.
 * Provisionnez ou ajoutez un stockage DAS (Direct Attached Storage). Notez que les dispositifs de stockage NAS ne sont pas pris en charge.
 
-    La quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez sur votre appliance NAS. Ce choix de configuration implique que vous utilisiez également la fonctionnalité de [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) d’Azure File Sync.
+    La quantité de stockage que vous approvisionnez peut être inférieure à celle que vous utilisez sur votre appliance NAS. Ce choix de configuration implique que vous utilisiez également la fonctionnalité de [hiérarchisation cloud](../file-sync/file-sync-cloud-tiering-overview.md) d’Azure File Sync.
     Toutefois, lorsque vous copiez vos fichiers de l’espace NAS plus grand vers le volume plus petit de Windows Server à une étape ultérieure, vous devrez travailler par lots :
 
     1. Déplacer un ensemble de fichiers qui tiennent sur le disque
@@ -65,7 +65,7 @@ Comme mentionné dans l’[article de présentation de la migration](storage-fil
 
 La configuration des ressources (calcul et RAM) du Windows Server que vous déployez dépend principalement du nombre d’éléments (fichiers et dossiers) que vous allez synchroniser. Nous vous recommandons d’utiliser une configuration haute performance si vous rencontrez des problèmes.
 
-[Découvrez comment dimensionner un serveur Windows Server en fonction du nombre d’éléments (fichiers et dossiers) que vous devez synchroniser.](storage-sync-files-planning.md#recommended-system-resources)
+[Découvrez comment dimensionner un serveur Windows Server en fonction du nombre d’éléments (fichiers et dossiers) que vous devez synchroniser.](../file-sync/file-sync-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > L’article précédemment lié présente un tableau avec une plage pour la mémoire du serveur (RAM). Vous pouvez vous orienter vers le plus petit nombre de votre serveur, mais attendez-vous à ce que la synchronisation initiale prenne beaucoup plus de temps.
@@ -114,7 +114,7 @@ Exécutez la première copie locale vers votre dossier Windows Server cible :
 
 La commande RoboCopy suivante copie les fichiers de votre stockage NAS vers votre dossier cible Windows Server. Le serveur Windows Server va le synchroniser avec le(s) partage(s) de fichiers Azure. 
 
-Si vous avez configuré moins de stockage sur votre Windows Server que ce que vos fichiers occupent sur l’appliance NAS, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](storage-sync-cloud-tiering-overview.md) intervient et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir de l’appliance NAS. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre l’espace de volume libre de 99 %.
+Si vous avez configuré moins de stockage sur votre Windows Server que ce que vos fichiers occupent sur l’appliance NAS, cela signifie que vous avez configuré la hiérarchisation cloud. Quand le volume Windows Server local se remplit, la [hiérarchisation cloud](../file-sync/file-sync-cloud-tiering-overview.md) intervient et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir de l’appliance NAS. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre l’espace de volume libre de 99 %.
 Il est possible que RoboCopy déplace les fichiers plus rapidement que vous ne pouvez les synchroniser dans le cloud et le niveau local, ce qui réduit l’espace disque local. RoboCopy échoue. Il est recommandé de traiter les partages dans une séquence qui empêche cela. Par exemple, ne pas démarrer les travaux RoboCopy pour tous les partages en même temps ou déplacer uniquement les partages qui correspondent à la quantité actuelle d’espace libre sur le Windows Server, pour n’en citer que quelques-uns.
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
@@ -166,6 +166,6 @@ Pour plus d’informations sur la résolution des problèmes Azure File Sync, su
 
 Vous pouvez en apprendre davantage sur les partages de fichiers Azure et Azure File Sync. Les articles suivants vous aident à comprendre les options avancées et les meilleures pratiques et contiennent également des aides pour la résolution des problèmes. Ces articles sont liés à la [documentation relative aux partages de fichiers Azure](storage-files-introduction.md), le cas échéant.
 
-* [Vue d’ensemble d’AFS](./storage-sync-files-planning.md)
-* [Déployer AFS](./storage-how-to-create-file-share.md)
-* [Résoudre les problèmes de synchronisation de fichiers Azure](storage-sync-files-troubleshoot.md)
+* [Vue d’ensemble d’Azure File Sync](../file-sync/file-sync-planning.md)
+* [Déployer Azure File Sync](../file-sync/file-sync-deployment-guide.md)
+* [Résolution des problèmes Azure File Sync](../file-sync/file-sync-troubleshoot.md)

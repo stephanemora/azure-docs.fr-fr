@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: efa5c3192ca6f51c219cc308a776e6db7212103c
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6cf70a6cfa4b1bf0f8d065872698d16977b4cb59
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552238"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127746"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -301,7 +301,7 @@ Vous pouvez mettre à jour de la bande passante du circuit ExpressRoute à l’a
 
 ### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>J’ai reçu une notification concernant la maintenance sur mon circuit ExpressRoute. Quel est l’impact technique de cette maintenance ?
 
-Vous devriez constater un impact minimal ou nul pendant la maintenance si vous faites fonctionner votre circuit en [mode actif/actif](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections). Nous procédons à la maintenance des connexions primaire et secondaire de votre circuit séparément. La maintenance planifiée est généralement effectuée en dehors des heures de bureau dans le fuseau horaire de la localisation du peering et vous ne pouvez pas sélectionner une heure de maintenance.
+Vous devriez constater un impact minimal ou nul pendant la maintenance si vous faites fonctionner votre circuit en [mode actif/actif](./designing-for-high-availability-with-expressroute.md#active-active-connections). Nous procédons à la maintenance des connexions primaire et secondaire de votre circuit séparément. La maintenance planifiée est généralement effectuée en dehors des heures de bureau dans le fuseau horaire de la localisation du peering et vous ne pouvez pas sélectionner une heure de maintenance.
 
 ### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>J’ai reçu une notification concernant une mise à niveau ou une maintenance logicielle sur ma passerelle ExpressRoute. Quel est l’impact technique de cette maintenance ?
 

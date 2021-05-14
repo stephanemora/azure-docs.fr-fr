@@ -1,18 +1,18 @@
 ---
 title: FAQ sur la passerelle VPN Azure
-description: Le FAQ sur la passerelle VPN FAQ sur les connexions entre différents locaux de Microsoft Azure Virtual Network, les connexions de configuration hybride et les passerelles VPN.
+description: Découvrez les questions fréquemment posées sur la passerelle VPN, notamment sur la connectivité intersite, les connexions à configuration hybride et les passerelles de réseau virtuel. Ce Forum aux questions contient des informations complètes sur les paramètres de configuration des connexions de point à site, de site à site, et de réseau virtuel à réseau virtuel.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 3d29e99f3b539fdbea2a19df7ffc25d4e41a5376
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0fee7a7a58a6aabc7d545981b1f8b56033bf9857
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731256"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203754"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -258,7 +258,7 @@ Non. Seul le trafic qui possède une IP de destination contenue dans les plages 
 
 ## <a name="virtual-network-faq"></a><a name="faq"></a>Forum aux questions sur le réseau virtuel
 
-Des informations supplémentaires sur les réseaux virtuels sont disponibles dans le [Forum Aux Questions sur les réseaux virtuels](../virtual-network/virtual-networks-faq.md).
+Des informations supplémentaires sur les réseaux virtuels sont disponibles dans le [Forum aux questions consacré aux réseaux virtuels](../virtual-network/virtual-networks-faq.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

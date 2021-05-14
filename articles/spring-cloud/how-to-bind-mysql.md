@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cc1c186f9acb6d49314f5d581a4b51ffe49d6627
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 776cc002304ea96cbf81d6cf08e5a54c19f86f4b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877338"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135326"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Lier une instance Azure Database pour MySQL à votre application Azure Spring Cloud 
 
@@ -26,7 +26,7 @@ Azure Spring Cloud vous permet de lier automatiquement certains services Azure �
 * Un compte Azure Database pour MySQL
 * Azure CLI
 
-Si vous n’avez pas déployé d’instance Azure Spring Cloud, suivez les instructions du [Démarrage rapide : Lancer une application Azure Spring Cloud à l’aide du portail Azure](spring-cloud-quickstart.md) pour déployer votre première application Cloud Spring.
+Si vous n’avez pas déployé d’instance Azure Spring Cloud, suivez les instructions du [Démarrage rapide : Lancer une application Azure Spring Cloud à l’aide du portail Azure](./quickstart.md) pour déployer votre première application Cloud Spring.
 
 ## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Lier votre application à votre instance Azure Database pour MySQL
 
@@ -64,4 +64,4 @@ Si vous n’avez pas déployé d’instance Azure Spring Cloud, suivez les instr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à lier une application Azure Spring Cloud à une instance Azure Database pour MySQL. Pour en savoir plus sur la liaison de services à une application, consultez [Lier une base de données Azure Cosmos DB à une application Azure Spring Cloud](spring-cloud-howto-bind-cosmos.md).
+Dans cet article, vous avez appris à lier une application Azure Spring Cloud à une instance Azure Database pour MySQL. Pour en savoir plus sur la liaison de services à une application, consultez [Lier une base de données Azure Cosmos DB à une application Azure Spring Cloud](./how-to-bind-cosmos.md).

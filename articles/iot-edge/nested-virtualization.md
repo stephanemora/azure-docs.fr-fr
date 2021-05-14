@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0e0021ec3564ca079f9ab02fe5ed3f0cfa5a1560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f01362fd9342c1f508f165b34e121a11e8d07e2
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608601"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496586"
 ---
 # <a name="nested-virtualization-for-azure-iot-edge-for-linux-on-windows"></a>Virtualisation imbriquée pour Azure IoT Edge pour Linux sur Windows
 Deux formes de virtualisation imbriquée sont compatibles avec Azure IoT Edge pour Linux sur Windows. Les utilisateurs peuvent choisir de déployer par le biais d’une machine virtuelle locale ou d’une machine virtuelle Azure. Cet article permet aux utilisateurs de déterminer l’option la mieux adaptée à leur scénario et fournit un aperçu des exigences de configuration.

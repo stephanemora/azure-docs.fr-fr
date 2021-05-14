@@ -4,12 +4,12 @@ description: Découvrez comment créer un pool Batch dans un réseau virtuel Azu
 ms.topic: how-to
 ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f376c62a8fda4a84ec8385fb623fa304bb8c035e
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629306"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947498"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 
@@ -53,9 +53,11 @@ Votre organisation vous oblige peut-être à rediriger (forcer) le trafic Intern
 
 Pour vérifier que les nœuds de votre pool fonctionnent dans un réseau virtuel pour lequel le tunneling forcé a été activé, vous devez ajouter les [routages définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) (UDR) suivants pour ce sous-réseau :
 
-- Le service Batch doit communiquer avec les nœuds pour la planification des tâches. Pour activer cette communication, ajoutez un UDR pour chaque adresse IP utilisée par le service Batch dans la région où se trouve votre compte Batch. Pour obtenir la liste des adresses IP du service Batch, consultez [Balises de service locales](../virtual-network/service-tags-overview.md).
+- Le service Batch doit communiquer avec les nœuds pour la planification des tâches. Pour activer cette communication, ajoutez un UDR pour chaque adresse IP utilisée par le service Batch dans la région où se trouve votre compte Batch. Les adresses IP du service Batch figurent dans l'étiquette de service `BatchNodeManagement.<region>`. Pour obtenir la liste des adresses IP, consultez [Étiquettes de service locales](../virtual-network/service-tags-overview.md).
 
-- Vérifiez que le trafic sortant vers le stockage Azure (plus précisément, les URL sous la forme `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` et `<account>.blob.core.windows.net`) n’est pas bloqué par votre réseau local.
+- Assurez-vous que le trafic TCP sortant à destination du service Azure Batch n'est pas bloqué par votre réseau local sur le port de destination 443. Ces adresses IP de destination du service Azure Batch sont les mêmes que celles figurant dans l'étiquette de service `BatchNodeManagement.<region>` utilisée pour les itinéraires ci-dessus.
+
+- Vérifiez que le trafic TCP sortant à destination du service Stockage Azure (plus précisément, les URL sous la forme `*.table.core.windows.net`, `*.queue.core.windows.net` et `*.blob.core.windows.net`) n'est pas bloqué par votre réseau local sur le port de destination 443.
 
 - Si vous utilisez des montages de fichiers virtuels, passez en revue les [impératifs réseau](virtual-file-mount.md#networking-requirements), et vérifiez qu’aucun trafic nécessaire n’est bloqué.
 

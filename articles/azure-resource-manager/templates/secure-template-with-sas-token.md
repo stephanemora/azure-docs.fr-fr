@@ -3,12 +3,13 @@ title: Déployer un modèle avec un jeton SAS en toute sécurité
 description: Déployez des ressources sur Azure avec un modèle Azure Resource Manager protégé par un jeton SAP. Affiche Azure PowerShell et Azure CLI.
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 1c3dd78d8c9c0819c69b12ccb9199acd7a4a626e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88855654"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752028"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Déployer un modèle privé ARM avec un jeton SAS
 

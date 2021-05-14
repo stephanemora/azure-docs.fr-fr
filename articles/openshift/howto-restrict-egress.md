@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 04/09/2021
-ms.openlocfilehash: 24c4686306aff9d84fe7bf74ddfdccff987244d9
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: c15e7261587952c93d059cfcfadd06c7d204d80d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368459"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135670"
 ---
 # <a name="control-egress-traffic-for-your-azure-red-hat-openshift-aro-cluster-preview"></a>Contrôler le trafic de sortie pour votre cluster Azure Red Hat OpenShift (ARO) [préversion]
 
@@ -19,7 +19,7 @@ Cet article donne les informations nécessaires pour sécuriser le trafic sortan
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous créez un cluster. Si vous avez besoin d’un cluster ARO de base, consultez le [démarrage rapide ARO](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+Cet article suppose que vous créez un cluster. Si vous avez besoin d’un cluster ARO de base, consultez le [démarrage rapide ARO](./tutorial-create-cluster.md).
 
 > [!IMPORTANT]
 > Les fonctionnalités d’évaluation ARO sont disponibles en libre-service en y adhérant. Les préversions sont fournies « en l’état » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service et de la garantie limitée. Les préversions ARO sont, dans la mesure du possible, partiellement couvertes par le service clientèle.
@@ -99,7 +99,7 @@ Dans OpenShift Container Platform, les clients peuvent choisir de ne pas signale
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor pour des conteneurs
 
-Il existe deux moyens de fournir l’accès à Azure Monitor pour les conteneurs : autoriser la [balise de service](../virtual-network/service-tags-overview.md#available-service-tags) Azure Monitor **ou** fournir l’accès aux règles de nom FQDN/d’application requises.  Voici les [instructions](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-azure-redhat4-setup) à suivre pour ajouter Azure Monitor à votre cluster ARO.
+Il existe deux moyens de fournir l’accès à Azure Monitor pour les conteneurs : autoriser la [balise de service](../virtual-network/service-tags-overview.md#available-service-tags) Azure Monitor **ou** fournir l’accès aux règles de nom FQDN/d’application requises.  Voici les [instructions](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) à suivre pour ajouter Azure Monitor à votre cluster ARO.
 
 #### <a name="required-network-rules"></a>Règles de réseau requises
 

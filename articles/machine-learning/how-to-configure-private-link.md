@@ -5,18 +5,18 @@ description: Utilisez Azure Private Link pour accéder en toute sécurité à vo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 02/09/2021
-ms.openlocfilehash: 92b5283e5779cc79ce0a745190b57884a6ca0f7e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 05/06/2021
+ms.openlocfilehash: 894e25d0ee44bd057c95efba3b6389ec116c8e07
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056009"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486248"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurer Azure Private Link pour un espace de travail Azure Machine Learning
 
@@ -27,7 +27,7 @@ Azure Private Link vous permet de vous connecter à votre espace de travail à l
 > [!IMPORTANT]
 > Azure Private Link n’a pas d’effet sur le plan de contrôle Azure (opérations de gestion), comme la suppression de l’espace de travail ou la gestion des ressources de calcul. Par exemple, la création, la mise à jour ou la suppression d’une cible de calcul. Ces opérations sont effectuées sur l’Internet public comme d’habitude. Les opérations de plan de données telles que l’utilisation du studio Azure Machine Learning, des API (y compris les pipelines publiés) ou du SDK utilisent le point de terminaison privé.
 >
-> Il se peut que vous rencontriez des problèmes en tentant d’accéder au point de terminaison privé de votre espace de travail si vous utilisez Mozilla Firefox. Un de ces problème peut être lié à DNS sur HTTPS dans Mozilla. Nous vous recommandons d’utiliser Microsoft Edge ou Google Chrome comme solution de contournement.
+> Il se peut que vous rencontriez des problèmes en tentant d’accéder au point de terminaison privé de votre espace de travail si vous utilisez Mozilla Firefox. Un de ces problème peut être lié à DNS sur HTTPS dans Mozilla. Nous vous recommandons d’utiliser Microsoft Edge ou Google Chrome comme solution de contournement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -66,7 +66,7 @@ ws = Workspace.create(name='myworkspace',
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_create). Les paramètres suivants de cette commande permettent de créer un espace de travail avec un réseau privé mais requièrent un réseau virtuel existant :
+L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace create](/cli/azure/ml/workspace#az_ml_workspace_create). Les paramètres suivants de cette commande permettent de créer un espace de travail avec un réseau privé mais requièrent un réseau virtuel existant :
 
 * `--pe-name`: Nom du point de terminaison privé qui est créé.
 * `--pe-auto-approval`: Si les connexions de point de terminaison privé à l’espace de travail doivent être approuvées automatiquement.
@@ -116,10 +116,10 @@ Pour plus d’informations sur les classes et les méthodes utilisées dans cet 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace private-endpoint add](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add).
+L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace private-endpoint add](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_add).
 
 ```azurecli
-az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
+az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval --pe-vnet-name myvnet
 ```
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
@@ -153,7 +153,7 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace private-endpoint delete](/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete).
+L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace private-endpoint delete](/cli/azure/ml/workspace/private-endpoint#az_ml_workspace_private_endpoint_delete).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -192,7 +192,7 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace#ext_azure_cli_ml_az_ml_workspace_update). Pour activer l’accès public à l’espace de travail, ajoutez le paramètre `--allow-public-access true`.
+L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning-cli.md) fournit la commande [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update). Pour activer l’accès public à l’espace de travail, ajoutez le paramètre `--allow-public-access true`.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

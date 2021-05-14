@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solutions – Transfert de DNS de cloud privé vers un emplacement local
 description: Décrit comment permettre à votre serveur DNS de cloud privé CloudSimple de transférer une recherche de ressources locales
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 02/29/2020
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3481e21a93fbf5f658c5ca00513ea179c8f95400
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eed8addcf9064bddf761fabb7db22e7bcecc7a71
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97899199"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108185249"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Permettre à des serveurs DNS de cloud privé CloudSimple de transférer une recherche DNS de ressources locales à vos serveurs DNS
 
@@ -44,7 +44,7 @@ Les ports de pare-feu doivent être ouverts sur cette connexion pour que le tran
 Pour activer le transfert DNS de cloud privé vers un emplacement local, envoyez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en fournissant les informations suivantes.
 
 * Type de problème : **Technique**
-* Abonnement : **abonnement dans lequel le service CloudSimple est déployé**
+* Abonnement : **Abonnement dans lequel le service CloudSimple est déployé**
 * Service : **Solution VMware par CloudSimple**
 * Type de problème : **avis ou comment faire...**
 * Sous-type de problème : **besoin d’aide avec NW**

@@ -1,25 +1,25 @@
 ---
-title: 'Tutoriel : Filtrer le trafic Internet entrant avec le Pare-feu Azure DNAT à l’aide du portail'
-description: Ce didacticiel vous apprend à déployer et configurer un pare-feu Azure DNAT à l’aide du portail Azure.
+title: Filtrer le trafic Internet entrant avec le Pare-feu Azure DNAT à l’aide du portail
+description: Dans cet article, vous découvrez comment déployer et configurer un pare-feu Azure DNAT à l’aide du portail Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 03/01/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a1d3bdae1e870b094472a63d4b808d9df95c129d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f31cffc6996ffe5b733ba322584cb400afcc5093
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741903"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291853"
 ---
-# <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic Internet entrant avec le Pare-feu Azure DNAT à l’aide du Portail Azure
+# <a name="filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Filtrer le trafic Internet entrant avec le Pare-feu Azure DNAT à l’aide du Portail Azure
 
 Vous pouvez configurer le Pare-feu DNAT (Azure Destination Network Address Translation) pour traduire et filtrer le trafic Internet entrant vers vos sous-réseaux. Lorsque vous configurez le DNAT, l’action de collection de règles NAT est définie sur **DNAT**. Chaque règle de la collection de règles NAT peut ensuite être utilisée pour traduire l’adresse IP et le port publics de votre pare-feu en adresse IP et port privés. Les règles DNAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Par souci de sécurité, l’approche recommandée consiste à ajouter une source Internet spécifique pour autoriser l’accès de DNAT au réseau et éviter d’utiliser des caractères génériques. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
 
-Dans ce tutoriel, vous allez apprendre à :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Configurer un environnement réseau de test
@@ -27,6 +27,9 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer un itinéraire par défaut
 > * Configurer une règle DNAT
 > * Tester le pare-feu
+
+> [!NOTE]
+> Cet article utilise des règles de pare-feu classiques pour gérer le pare-feu. La méthode recommandée consiste à utiliser une [stratégie de pare-feu](../firewall-manager/policy-overview.md). Pour effectuer cette procédure à l’aide d’une stratégie de pare-feu, consultez [Tutoriel : Filtrer le trafic Internet entrant avec une stratégie DNAT de Pare-feu Azure à l’aide du portail Azure](tutorial-firewall-dnat-policy.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,7 +49,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="set-up-the-network-environment"></a>Configurer l’environnement réseau
 
-Pour ce didacticiel, vous créez deux réseaux virtuels appairés :
+Pour cet article, vous créez deux réseaux virtuels appairés :
 
 - **VN-Hub** : le pare-feu est dans ce réseau virtuel.
 - **VN-Spoke** : le serveur de la charge de travail est dans ce réseau virtuel.
@@ -142,6 +145,8 @@ Passez en revue le récapitulatif, puis sélectionnez **Créer**. L’exécution
 
 Une fois le déploiement terminé, notez l’adresse IP privée de la machine virtuelle. Elle servira ultérieurement pour configurer le pare-feu. Sélectionnez le nom de la machine virtuelle. Sous **Paramètres**, sélectionnez **Mise en réseau** pour trouver l’adresse IP privée.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="deploy-the-firewall"></a>Déployer le pare-feu
 
 1. Dans la page d’accueil du portail, sélectionnez **Créer une ressource**.
@@ -149,7 +154,7 @@ Une fois le déploiement terminé, notez l’adresse IP privée de la machine vi
 1. Sélectionnez **Create** (Créer). 
 1. Sur la page **Créer un pare-feu**, utilisez le tableau suivant pour configurer le pare-feu :
 
-   |Paramètre  |Value  |
+   |Paramètre  |Valeur  |
    |---------|---------|
    |Abonnement     |\<your subscription\>|
    |Resource group     |Sélectionner **RG-DNAT-test** |
@@ -217,20 +222,10 @@ Pour le sous-réseau **SN-Workload**, vous devez configurer l’itinéraire sort
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **RG-DNAT-Test** pour supprimer toutes les ressources associées au pare-feu.
+Vous pouvez garder vos ressources de pare-feu à des fins de test complémentaire ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **RG-DNAT-Test** pour supprimer toutes les ressources associées au pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Configurer un environnement réseau de test
-> * Déployer un pare-feu
-> * Créer un itinéraire par défaut
-> * Configurer une règle DNAT
-> * Tester le pare-feu
-
 Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
-> [!div class="nextstepaction"]
-> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)
+[Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)

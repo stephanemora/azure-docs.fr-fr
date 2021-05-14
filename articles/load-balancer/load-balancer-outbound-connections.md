@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 99f15afdab917fe28e22df8cb0e372b6c30c8526
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3b92ef3ce195a2eee9bce53e08d977593a9f1fc2
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027327"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477704"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Utilisation de SNAT (Source Network Address Translation) pour les connexions sortantes
 
@@ -64,14 +64,16 @@ Pour conserver des flux uniques, l’hôte réécrit le port source de chaque pa
   * Machine virtuelle sans IP publique.
   * Machine virtuelle sans IP publique et sans équilibreur de charge standard.
         
- ### <a name="scenario-1-virtual-machine-with-public-ip"></a><a name="scenario1"></a> Scénario 1 : Machine virtuelle avec IP publique
+ ### <a name="scenario-1-virtual-machine-with-public-ip-either-with-or-without-a-load-balancer"></a><a name="scenario1"></a> Scénario 1 : Machine virtuelle avec IP publique avec ou sans équilibreur de charge.
 
  | Associations | Méthode | Protocoles IP |
  | ---------- | ------ | ------------ |
- | Équilibreur de charge public ou autonome | [SNAT (Source Network Address Translation, traduction d’adresses réseau sources)](#snat) </br> non utilisée | Protocole TCP (Transmission Control Protocol) </br> Protocole UDP (User Datagram Protocol) </br> Protocole ICMP (Internet Control Message Protocol) </br> Protection ESP (Encapsulating Security Payload) |
+ | Équilibreur de charge public ou autonome | [SNAT (Source Network Address Translation, traduction d’adresses réseau sources)](#snat) </br> non utilisée. | Protocole TCP (Transmission Control Protocol) </br> Protocole UDP (User Datagram Protocol) </br> Protocole ICMP (Internet Control Message Protocol) </br> Protection ESP (Encapsulating Security Payload) |
 
  #### <a name="description"></a>Description
 
+ Tout le trafic est retourné au client demandeur à partir de l’adresse IP publique de la machine virtuelle (IP au niveau de l’instance).
+ 
  Azure utilise l’IP publique attribuée à la configuration IP de la carte d’interface réseau de l’instance pour tous les flux sortants. L’instance a tous les ports éphémères disponibles. Peu importe si la machine virtuelle est équilibrée en charge ou non. Ce scénario prend le pas sur les autres. 
 
  Une adresse IP publique affectée à une machine virtuelle constitue une relation 1:1 (non pas une relation 1-à-plusieurs) ; elle est implémentée comme un NAT 1:1 sans état.
@@ -120,7 +122,7 @@ Une autre option consiste à ajouter les instances back-end à un équilibreur d
 
  | Associations | Méthode | Protocoles IP |
  | ------------ | ------ | ------------ |
- |Aucun </br> Équilibreur de charge de base | [SNAT](#snat) avec adresse IP dynamique au niveau de l’instance| TCP </br> UDP | 
+ |None </br> Équilibreur de charge de base | [SNAT](#snat) avec adresse IP dynamique au niveau de l’instance| TCP </br> UDP | 
 
  #### <a name="description"></a>Description
 

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 63c7f226dcd99ec8040f2078ce12be0fe3c594df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b986ad444ac62f8e42230df6e994ead1827b0bd
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99548811"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887760"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migration de serveur Azure Migrate : Questions courantes
 
@@ -138,7 +138,52 @@ Vous pouvez limiter l’utilisation de NetQosPolicy. Par exemple :
 
 L’AppNamePrefix à utiliser dans NetQosPolicy est « GatewayWindowsService.exe ». Vous pouvez créer une stratégie sur l’appliance Azure Migrate pour limiter le trafic de réplication de l’appliance en créant une stratégie telle que celle-ci :
 
-New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1 MB
+```powershell
+New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+```
+
+Afin d’augmenter et de réduire la bande passante de réplication selon une planification, vous pouvez tirer parti des tâches planifiées Windows pour adapter la bande passante en fonction des besoins. Une tâche sera utilisée pour réduire la bande passante et une autre servira à l’augmenter.
+Remarque : Vous devez créer la NetQosPolicy, décrite ci-dessus, avant d’exécuter les commandes ci-dessous.
+```powershell
+#Replace with an account part of the local Administrators group
+$User = "localVmName\userName"
+
+#Set the task names
+$ThrottleBandwidthTask = "ThrottleBandwidth"
+$IncreaseBandwidthTask = "IncreaseBandwidth"
+
+#Create a directory to host PowerShell scaling scripts
+if (!(Test-Path "C:\ReplicationBandwidthScripts"))
+{
+ New-Item -Path "C:\" -Name "ReplicationBandwidthScripts" -Type Directory
+}
+
+#Set your minimum bandwidth to be used during replication by changing the ThrottleRateActionBitsPerSecond parameter
+#Currently set to 10 MBps
+New-Item C:\ReplicationBandwidthScripts\ThrottleBandwidth.ps1
+Set-Content C:\ReplicationBandwidthScripts\ThrottleBandwidth.ps1 'Set-NetQosPolicy -Name "ThrottleReplication" -ThrottleRateActionBitsPerSecond 10MB'
+$ThrottleBandwidthScript = "C:\ReplicationBandwidthScripts\ThrottleBandwidth.ps1"
+
+#Set your maximum bandwidth to be used during replication by changing the ThrottleRateActionBitsPerSecond parameter
+#Currently set to 1000 MBps
+New-Item C:\ReplicationBandwidthScripts\IncreaseBandwidth.ps1
+Set-Content C:\ReplicationBandwidthScripts\IncreaseBandwidth.ps1 'Set-NetQosPolicy -Name "ThrottleReplication" -ThrottleRateActionBitsPerSecond 1000MB'
+$IncreaseBandwidthScript = "C:\ReplicationBandwidthScripts\IncreaseBandwidth.ps1"
+
+#Timezone set on the Azure Migrate Appliance (VM) will be used; change the frequency to meet your needs
+#In this example, the bandwidth is being throttled every weekday at 8:00 AM local time
+#The bandwidth is being increased every weekday at 6:00 PM local time
+$ThrottleBandwidthTrigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday,Tuesday,Wednesday,Thursday,Friday -At 8:00am
+$IncreaseBandwidthTrigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday,Tuesday,Wednesday,Thursday,Friday -At 6:00pm
+
+#Setting the task action to execute the scripts
+$ThrottleBandwidthAction = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-executionpolicy bypass -noprofile -file $ThrottleBandwidthScript" 
+$IncreaseBandwidthAction = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-executionpolicy bypass -noprofile -file $IncreaseBandwidthScript" 
+
+#Creating the Scheduled tasks
+Register-ScheduledTask -TaskName $ThrottleBandwidthTask -Trigger $ThrottleBandwidthTrigger -User $User -Action $ThrottleBandwidthAction -RunLevel Highest -Force
+Register-ScheduledTask -TaskName $IncreaseBandwidthTask -Trigger $IncreaseBandwidthTrigger -User $User -Action $IncreaseBandwidthAction -RunLevel Highest -Force
+```
 
 ## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>Comment les données sont-elles transmises de l’environnement local à Azure ? Sont-elles chiffrées avant la transmission ?
 

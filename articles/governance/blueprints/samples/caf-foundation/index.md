@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption du cloud
 description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud pour Azure.
-ms.date: 09/14/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 77e8b79ec7cf217161099808cee4364e31c6d6dd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b605c1af5fcb2a37663d71fecceea169692a5ab9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950276"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757832"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -19,7 +19,7 @@ Le blueprint de base du framework d’adoption de Microsoft Cloud pour Azure dé
 L’exemple de blueprint de base du framework d’adoption du cloud déploie dans Azure des ressources d’infrastructure recommandées que les organisations peuvent utiliser pour mettre en place les contrôles de base nécessaires à la gestion de leur parc cloud. Cet exemple déploie et applique des ressources, stratégies et modèles qui permettent à une organisation de commencer à utiliser Azure en toute confiance.
 
 :::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Base du C A F, image décrivant ce qui est installé conformément aux instructions du C A F pour créer une base vous permettant de commencer à utiliser Azure." border="false":::
-   Décrit une architecture Azure qui est obtenue en déployant le blueprint Base C A F.  Il s’applique à un abonnement avec des groupes de ressources comprenant un compte de stockage pour stocker des journaux, Log Analytics configuré pour stocker dans le compte de stockage. Il décrit également Azure Key Vault configuré avec une configuration standard d’Azure Security Center. Toutes ces infrastructures de base sont accessibles avec Azure Active Directory et appliquées avec Azure Policy.     
+   Décrit une architecture Azure qui est obtenue en déployant le blueprint Base C A F. Il s’applique à un abonnement comprenant des groupes de ressources constitués d’un compte de stockage pour stocker des journaux et de Log Analytics configuré pour stocker dans le compte de stockage. Il décrit également Azure Key Vault configuré avec une configuration standard d’Azure Security Center. Toutes ces infrastructures de base sont accessibles avec Azure Active Directory et appliquées avec Azure Policy.
 :::image-end:::
 
 Cette implémentation intègre plusieurs services Azure utilisés pour fournir une base sécurisée, entièrement supervisée et prête pour les entreprises. Cet environnement comporte les éléments suivants :
@@ -29,14 +29,14 @@ Cette implémentation intègre plusieurs services Azure utilisés pour fournir u
 - [Azure Security Center](../../../../security-center/security-center-introduction.md) (version standard) assure la protection contre les menaces de vos charges de travail migrées.
 - Le blueprint définit et déploie également des définitions [Azure Policy](../../../policy/overview.md) :
   - Définitions de stratégie :
-    - Appliquer des balises (CostCenter) aux groupes de ressources
+    - Catégorisation (CostCenter) appliquée aux groupes de ressources
     - Ajouter des ressources dans un groupe de ressources avec la balise CostCenter
     - Autoriser une région Azure pour les ressources et groupes de ressources
     - Autoriser des références SKU de compte de stockage (choisir lors du déploiement)
     - Autoriser des références SKU de machines virtuelles Azure (choisir lors du déploiement)
-    - Exiger le déploiement de Network Watcher 
+    - Exiger le déploiement de Network Watcher
     - Exiger un chiffrement de transfert sécurisé de compte de stockage Azure
-    - Refuser des types de ressources (choisir lors du déploiement)  
+    - Refuser des types de ressources (choisir lors du déploiement)
   - Initiatives de stratégie :
     - Activer la supervision dans Azure Security Center (plus de 100 définitions de stratégie)
 

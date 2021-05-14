@@ -1,24 +1,18 @@
 ---
-title: Supervision d’intégrité de fichier dans Azure Security Center | Microsoft Docs
+title: Supervision d’intégrité de fichier dans Azure Security Center
 description: Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2020
+ms.date: 04/25/2021
 ms.author: memildin
-ms.openlocfilehash: 834df2387d037c19672e3287970300f4e84ca34b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e14307207ddbe9f1b89bd05d7015dafd76b10d51
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047981"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992415"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -62,6 +56,7 @@ La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier
 > Si vous supprimez la ressource **Change Tracking**, vous désactivez également la fonctionnalité FIM dans Security Center.
 
 ## <a name="which-files-should-i-monitor"></a>Quels fichiers dois-je surveiller ?
+
 Lors de la sélection des fichiers à surveiller, pensez aux fichiers essentiels au fonctionnement de votre système et de vos applications. Surveillez des fichiers qui ne sont pas susceptibles d’être modifiés sans planification. Si vous choisissez des fichiers qui sont fréquemment modifiés par des applications ou le système d’exploitation (par exemple, les fichiers journaux et les fichiers texte), cela crée une surcharge et compromet la détection des attaques.
 
 Security Center fournit la liste suivante d’éléments recommandés à surveiller en fonction de modèles d’attaque connus.
@@ -168,75 +163,69 @@ L’onglet **Serveurs** répertorie les ordinateurs qui sont en rapport avec cet
 - Le nombre total de modifications apportées au cours de la période sélectionnée
 - Une répartition des modifications selon leur type (modifications de fichier ou de registre)
 
-La fonctionnalité **Recherche dans les journaux** s’affiche lorsque vous entrez un nom d’ordinateur dans le champ de recherche ou que vous sélectionnez un ordinateur répertorié dans l’onglet Ordinateurs. Cette fonctionnalité affiche toutes les modifications apportées à l’ordinateur pendant la période sélectionnée. Vous pouvez développer chaque modification pour afficher des informations supplémentaires.
+Lorsque vous sélectionnez un ordinateur, la requête apparaît avec les résultats qui identifient les modifications apportées au cours de la période sélectionnée pour l'ordinateur. Vous pouvez développer chaque modification pour afficher des informations supplémentaires.
 
-![Recherche dans les journaux][8]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/query-machine-changes.png" alt-text="Requête Log Analytics montrant les modifications identifiées par la fonctionnalité FIM d'Azure Security Center" lightbox="./media/security-center-file-integrity-monitoring/query-machine-changes.png":::
 
 L’onglet **Modifications** (illustré ci-dessous) répertorie toutes les modifications associées à l’espace de travail pendant la période sélectionnée. Pour chaque entité qui a été modifiée, le tableau de bord affiche les informations suivantes :
 
-- L’ordinateur sur lequel la modification a été apportée
+- L'ordinateur sur lequel la modification a été apportée
 - Le type de modification (registre ou fichier)
 - La catégorie de modification (modification, ajout, suppression)
 - La date et l’heure de modification
 
-![Les modifications apportées à l’espace de travail][9]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/changes-tab.png" alt-text="Onglet Modifications de la fonctionnalité FIM d'Azure Security Center" lightbox="./media/security-center-file-integrity-monitoring/changes-tab.png":::
 
 La fenêtre **Détails des modifications** s’ouvre lorsque vous saisissez une modification dans le champ de recherche ou que vous sélectionnez une entité répertoriée dans l’onglet **Modifications**.
 
-![Détails des modifications][10]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/change-details.png" alt-text="Fonctionnalité FIM d'Azure Security Center présentant le volet d'informations dans le cadre d'une modification" lightbox="./media/security-center-file-integrity-monitoring/change-details.png":::
 
 ## <a name="edit-monitored-entities"></a>Modifier des entités surveillées
 
-1. Revenez au **tableau de bord Monitoring d’intégrité de fichier** et sélectionnez **Paramètres**.
+1. Dans le **tableau de bord de la fonctionnalité FIM** d'un espace de travail, sélectionnez **Paramètres** sur la barre d'outils. 
 
-   ![Paramètres][11]
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png" alt-text="Accès à Paramètres dans le tableau de bord de la fonctionnalité FIM d'un espace de travail" lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-dashboard-settings.png":::
 
-   La page **Configuration de l’espace de travail** s’ouvre. Elle contient trois onglets : **Registre Windows**, **Fichiers Windows** et **Fichiers Linux**. Chaque onglet répertorie les entités que vous pouvez modifier dans cette catégorie. Pour chaque entité répertoriée, Security Center identifie si la fonctionnalité FIM est activée (true) ou désactivée (false).  La modification de l’entité vous permet d’activer ou de désactiver la fonctionnalité FIM.
+   La fenêtre **Configuration de l'espace de travail** s'ouvre avec des onglets pour chaque type d'élément qui peut être surveillé :
 
-   ![Configuration de l’espace de travail][12]
+      - Registre Windows
+      - Fichiers Windows
+      - Fichiers Linux
+      - le contenu d’un fichier ;
+      - Services Windows
 
-2. Sélectionnez une protection d’identités. Dans cet exemple, nous avons sélectionné un élément dans le Registre Windows. La fenêtre **Modification pour Change Tracking** s’affiche.
+      Chaque onglet répertorie les entités que vous pouvez modifier dans cette catégorie. Pour chaque entité répertoriée, Security Center identifie si la fonctionnalité FIM est activée (true) ou désactivée (false).  La modification de l’entité vous permet d’activer ou de désactiver la fonctionnalité FIM.
 
-   ![Modification pour Change Tracking][13]
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-workspace-configuration.png" alt-text="Configuration de l'espace de travail pour la fonctionnalité FIM dans Azure Security Center":::
 
-Sous **Modification pour Change Tracking**, vous pouvez :
+1. Sélectionnez une entrée dans l'un des onglets et modifiez les champs disponibles dans le volet **Modifier pour Change Tracking**. Les options sont les suivantes :
 
-- Activer (True) ou désactiver (False) le Monitoring d’intégrité de fichier
-- Saisir ou modifier le nom de l’entité
-- Saisir ou modifier la valeur ou le chemin d’accès
-- Supprimer l’entité, ignorer la modification ou enregistrer les modifications
+    - Activer (True) ou désactiver (False) le Monitoring d’intégrité de fichier
+    - Saisir ou modifier le nom de l’entité
+    - Saisir ou modifier la valeur ou le chemin d’accès
+    - Supprimer l'entité
+
+1. Ignorez ou enregistrez vos modifications.
+
 
 ## <a name="add-a-new-entity-to-monitor"></a>Ajouter une nouvelle entité à surveiller
-1. Revenez au **tableau de bord Monitoring d’intégrité de fichier**, puis sélectionnez **Paramètres** en haut de la page. La fenêtre **Configuration de l’espace de travail** s’affiche.
-2. Sous **Configuration de l’espace de travail**, sélectionnez l’onglet correspondant au type d’entité que vous souhaitez ajouter : Registre Windows, Fichiers Windows ou Fichiers Linux. Dans cet exemple, nous avons sélectionné **Fichiers Linux**.
 
-   ![Ajoutez un nouvel élément à surveiller][14]
+1. Dans le **tableau de bord de la fonctionnalité FIM** d'un espace de travail, sélectionnez **Paramètres** sur la barre d'outils. 
 
-3. Sélectionnez **Ajouter**. La fenêtre **Ajout pour Change Tracking** s’affiche.
+    La fenêtre **Configuration de l'espace de travail** s'ouvre.
 
-   ![Saisir les informations requises][15]
+1. Dans la fenêtre **Configuration de l'espace de travail** :
 
-4. Sur la page **Ajouter**, saisissez les informations requises, puis sélectionnez **Enregistrer**.
+    1. Sélectionnez l'onglet correspondant au type d'entité que vous souhaitez ajouter : Registre Windows, fichiers Windows, fichiers Linux, contenu de fichiers, ou services Windows. 
+    1. Sélectionnez **Ajouter**. 
 
-## <a name="disable-monitored-entities"></a>Désactiver des entités surveillées
-1. Revenez au tableau de bord **Monitoring d’intégrité de fichier**.
-2. Sélectionnez un espace de travail pour lequel la fonctionnalité FIM est actuellement activée. Un espace de travail pour lequel la fonctionnalité FIM est activée ne contient pas de bouton Activer ou Mettre à niveau le plan.
+        Dans cet exemple, nous avons sélectionné **Fichiers Linux**.
 
-   ![Sélectionner un espace de travail pour lequel la fonctionnalité FIM est activée][16]
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-add-element.png" alt-text="Ajout d'un élément à surveiller dans la fonctionnalité FIM d'Azure Security Center" lightbox="./media/security-center-file-integrity-monitoring/file-integrity-monitoring-add-element.png":::
 
-3. Sous Monitoring d’intégrité de fichier, cliquez sur **Paramètres**.
+1. Sélectionnez **Ajouter**. La fenêtre **Ajout pour Change Tracking** s’affiche.
 
-   ![Sélectionner les paramètres][17]
-
-4. Sous **Configuration de l’espace de travail**, sélectionnez un groupe dans lequel la valeur **Activé** est définie sur true.
-
-   ![Configuration de l’espace de travail][18]
-
-5. Dans la fenêtre **Modification pour Change Tracking**, définissez la valeur **Activé** sur false.
-
-   ![Définir la valeur Activé sur false][19]
-
-6. Sélectionnez **Enregistrer**.
+1. Entrez les informations nécessaires, puis sélectionnez **Enregistrer**.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>Supervision de dossiers et chemins d’accès à l’aide de caractères génériques
 
@@ -249,13 +238,13 @@ Utilisez des caractères génériques pour simplifier le suivi au sein des répe
 ## <a name="disable-fim"></a>Désactiver la fonctionnalité FIM
 Vous pouvez désactiver la fonctionnalité FIM. La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. En la désactivant, vous supprimez la solution Change Tracking de l’espace de travail sélectionné.
 
-1. Pour désactiver la fonctionnalité FIM, revenez au tableau de bord **Monitoring d’intégrité de fichier**.
-2. Sélectionnez un espace de travail.
-3. Sous **Monitoring d’intégrité de fichier**, cliquez sur **Désactiver**.
+Pour désactiver la fonctionnalité FIM :
 
-   ![Désactiver la fonctionnalité FIM][20]
+1. Dans le **tableau de bord de la fonctionnalité FIM** d'un espace de travail, sélectionnez **Désactiver**.
 
-4. Sélectionnez **Supprimer** pour confirmer la désactivation.
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/disable-file-integrity-monitoring.png" alt-text="Désactiver la fonctionnalité FIM à partir de la page des paramètres":::
+
+1. Sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Security Center. Pour plus d’informations sur Security Center, consultez les pages suivantes :
@@ -265,21 +254,5 @@ Dans cet article, vous avez appris à utiliser la fonctionnalité Monitoring d�
 * [Blog sur la sécurité Azure](/archive/blogs/azuresecurity/): découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png
 [3]: ./media/security-center-file-integrity-monitoring/enable.png
 [4]: ./media/security-center-file-integrity-monitoring/upgrade-plan.png
-[5]: ./media/security-center-file-integrity-monitoring/enable-fim.png
-[7]: ./media/security-center-file-integrity-monitoring/filter.png
-[8]: ./media/security-center-file-integrity-monitoring/log-search.png
-[9]: ./media/security-center-file-integrity-monitoring/changes-tab.png
-[10]: ./media/security-center-file-integrity-monitoring/change-details.png
-[11]: ./media/security-center-file-integrity-monitoring/fim-dashboard-settings.png
-[12]: ./media/security-center-file-integrity-monitoring/workspace-config.png
-[13]: ./media/security-center-file-integrity-monitoring/edit.png
-[14]: ./media/security-center-file-integrity-monitoring/add.png
-[15]: ./media/security-center-file-integrity-monitoring/add-item.png
-[16]: ./media/security-center-file-integrity-monitoring/fim-dashboard-disable.png
-[17]: ./media/security-center-file-integrity-monitoring/fim-dashboard-settings-disabled.png
-[18]: ./media/security-center-file-integrity-monitoring/workspace-config-disable.png
-[19]: ./media/security-center-file-integrity-monitoring/edit-disable.png
-[20]: ./media/security-center-file-integrity-monitoring/disable-fim.png

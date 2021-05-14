@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 295889cf64d27761021dd09549a3366ea142516e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690428"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752027"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatiser des tâches de gestion avec des travaux élastiques (préversion)
 
@@ -159,7 +159,7 @@ Les résultats des étapes d’un travail sur chaque base de données sont enreg
 
 #### <a name="job-history"></a>Historique des travaux
 
-Affichez l’historique d’exécution des travaux élastiques dans la *base de données de travaux* en [interrogeant la table jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Un travail de nettoyage système vide les éléments de l’historique d’exécution qui datent de plus de 45 jours. Pour supprimer ceux de moins de 45 jours, appelez la procédure stockée **sp_purge_history** dans la *base de données des travaux*.
+Affichez l’historique d’exécution des travaux élastiques dans la *base de données de travaux* en [interrogeant la table jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Un travail de nettoyage système vide les éléments de l’historique d’exécution qui datent de plus de 45 jours. Pour supprimer ceux de moins de 45 jours, appelez la procédure stockée **sp_purge_jobhistory** dans la *base de données de travaux*.
 
 #### <a name="job-status"></a>Statut de tâche
 

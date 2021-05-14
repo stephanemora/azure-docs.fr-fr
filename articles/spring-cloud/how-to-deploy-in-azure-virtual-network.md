@@ -6,24 +6,24 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
+ms.openlocfilehash: 2ff56857eca112ebd808a96f3aaa097ab4be5c18
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877232"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291529"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Déployer Azure Spring Cloud dans un réseau virtuel
 
-**Cet article s’applique à :** ✔️ Java ✔️ C#
+**Cet article s’applique à :** âœ”ï¸ Java âœ”ï¸ C#
 
 Ce tutoriel explique comment déployer une instance Azure Spring Cloud dans votre réseau virtuel. Ce déploiement est parfois appelé « injection de réseau virtuel ».
 
 Le déploiement permet :
 
-* L’isolement des applications et du runtime du service Azure Spring Cloud par rapport à Internet sur votre réseau d’entreprise
-* L’interaction d’Azure Spring Cloud avec des systèmes de centres de données locaux ou des services Azure d’autres réseaux virtuels
+* L’isolement des applications et du runtime du service Azure Spring Cloud par rapport à Internet sur votre réseau d’entreprise.
+* L’interaction d’Azure Spring Cloud avec des systèmes de centres de données locaux ou des services Azure dans d’autres réseaux virtuels.
 * La possibilité pour les clients de contrôler les communications réseau entrantes et sortantes pour Azure Spring Cloud
 
 > [!Note]
@@ -88,16 +88,9 @@ Sélectionnez le réseau virtuel **azure-spring-cloud-vnet** que vous avez cré�
 
     ![Capture d’écran de la fenêtre Contrôle d’accès](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Dans la boîte de dialogue **Ajouter une attribution de rôle**, entrez ou sélectionnez les informations suivantes :
+1. Affectez le rôle [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) à [utilisateur | groupe | principal-de-service | identité-managée] pour l’étendue [groupe-de-gestion | abonnement | groupe-de-ressources | ressources].
 
-    |Paramètre  |Valeur                                             |
-    |---------|--------------------------------------------------|
-    |Role     |Sélectionnez **Propriétaire**.                                 |
-    |Sélectionnez   |Entrez **Fournisseur de ressources Azure Spring Cloud**.   |
-
-    Ensuite, sélectionnez **Fournisseur de ressources Azure Spring Cloud** puis **Enregistrer**.
-
-    ![Capture d’écran montrant la sélection du fournisseur de ressources Azure Spring Cloud](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    Pour connaître la procédure détaillée, consultez [Attribution de rôles Azure à l’aide du Portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 Vous pouvez également effectuer cette étape en exécutant la commande Azure CLI suivante :
 

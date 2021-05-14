@@ -2,13 +2,13 @@
 title: Vue d’ensemble des coffres de sauvegarde
 description: Une vue d’ensemble des coffres de sauvegarde.
 ms.topic: conceptual
-ms.date: 08/17/2020
-ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/19/2021
+ms.openlocfilehash: e2d720da9474a35870de01559201d22c9e5b567f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92091285"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739077"
 ---
 # <a name="backup-vaults-overview"></a>Vue d’ensemble des coffres de sauvegarde
 
@@ -28,7 +28,8 @@ Un coffre de sauvegarde est une entité qui stocke les sauvegardes et les points
 
 ## <a name="encryption-settings-in-the-backup-vault"></a>Paramètres de chiffrement dans le coffre de sauvegarde
 
-Cette section décrit les options disponibles pour le chiffrement de vos données de sauvegarde stockées dans le coffre de sauvegarde.
+Cette section décrit les options disponibles pour le chiffrement de vos données de sauvegarde stockées dans le coffre de sauvegarde. Le service Sauvegarde Azure utilise l’application **Service de gestion des sauvegardes** pour accéder à Azure Key Vault, mais pas à l’identité managée du coffre de sauvegarde.
+
 
 ### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par la plateforme
 
@@ -87,7 +88,7 @@ L’opération suivante est destructrice et ne peut pas être annulée. Toutes l
 
 Pour supprimer correctement un coffre, vous devez suivre les étapes ci-après dans l’ordre indiqué :
 
-- Vous devez vérifier s’il existe des éléments protégés :
+- Vérifiez s’il existe des éléments protégés :
   - Accédez à **Instances de sauvegarde** dans la barre de navigation de gauche. Tous les éléments listés ici doivent d’abord être supprimés.
 
 Une fois ces étapes terminées, vous pouvez poursuivre la suppression du coffre.

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: references_regions, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3bca2701b708bfb957dce1c954f43f60f55b7dae
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: e327a8ec5ef2df8419bd4e66a5ae92395f964f1c
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479942"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891137"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy C# (préversion)
 
@@ -37,7 +37,7 @@ Cet article décrit tout d’abord la configuration pour SSH (à l’aide du por
 
 * Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits en C#. Votre machine de développement doit disposer du SDK .NET Core 2.1.0 ou version ultérieure.
 
-    Vous pouvez télécharger le [Kit SDK .NET Core pour plusieurs plateformes sur .NET](https://www.microsoft.com/net/download/all).
+    Vous pouvez télécharger le [Kit SDK .NET Core pour plusieurs plateformes sur .NET](https://dotnet.microsoft.com/download).
 
     Vérifiez la version actuelle de C# sur votre machine de développement à l’aide de la commande suivante :
 

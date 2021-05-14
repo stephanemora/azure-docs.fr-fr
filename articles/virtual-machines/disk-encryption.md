@@ -2,18 +2,18 @@
 title: Chiffrement côté serveur de disques managés Azure
 description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés, ou vous appuyer sur des clés gérées par Microsoft pour le chiffrement de vos disques managés.
 author: roygara
-ms.date: 03/11/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 09ec15eb45029c42fd5bc02288a0c45e167e7092
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721849"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146290"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
@@ -21,7 +21,7 @@ La plupart des disques managés Azure sont chiffrés avec le chiffrement de Stoc
 
 Les données dans les disque managés Azure sont chiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Pour plus d’informations sur les modules cryptographiques des disque managés Azure, consultez [API de chiffrement : nouvelle génération](/windows/desktop/seccng/cng-portal)
 
-Le chiffrement Stockage Azure n’a pas d’impact sur les performances des disques managés et n’entraîne aucun coût supplémentaire. Pour plus d’informations sur le chiffrement du Stockage Azure, voir [Chiffrement du stockage Azure](/azure/storage/common/storage-service-encryption).
+Le chiffrement Stockage Azure n’a pas d’impact sur les performances des disques managés et n’entraîne aucun coût supplémentaire. Pour plus d’informations sur le chiffrement du Stockage Azure, voir [Chiffrement du stockage Azure](../storage/common/storage-service-encryption.md).
 
 > [!NOTE]
 > Les disques temporaires ne sont pas des disques managés et ne sont pas chiffrés par SSE, sauf si vous activez le chiffrement à l’hôte.
@@ -81,6 +81,8 @@ Les disques temporaires et disques de système d’exploitation éphémères son
 #### <a name="supported-vm-sizes"></a>Tailles des machines virtuelles prises en charge
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+
+Vous pouvez également rechercher les tailles de machine virtuelle par programmation. Pour savoir comment les récupérer par programme, reportez-vous à la section Recherche des tailles de machine virtuelle prises en charge du [module Azure PowerShell](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) ou des articles [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes).
 
 Pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte, consultez nos articles traitant de la façon de l’activer à l’aide du [module Azure PowerShell](windows/disks-enable-host-based-encryption-powershell.md), d’[Azure CLI](linux/disks-enable-host-based-encryption-cli.md) et du [portail Azure](disks-enable-host-based-encryption-portal.md).
 

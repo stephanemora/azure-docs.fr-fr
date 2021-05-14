@@ -1,14 +1,14 @@
 ---
 title: Gestion des extensions de machine virtuelle avec des serveur activés par Azure Arc
 description: Les serveurs activés par Azure Arc peuvent gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration post-déploiement sur des machines virtuelles non Azure.
-ms.date: 03/22/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e28cd7753fc85f2e40385c65392fea73502aa05b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799579"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832839"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestion des extensions de machine virtuelle avec des serveurs activés par Azure Arc
 
@@ -21,13 +21,16 @@ Les serveurs avec Azure Arc vous permettent de déployer des extensions de machi
 - [Azure PowerShell](manage-vm-extensions-powershell.md)
 - [Modèles Azure Resource Manager](manage-vm-extensions-template.md)
 
+> [!NOTE]
+> Les serveurs avec Azure Arc ne prennent pas en charge le déploiement et la gestion des extensions de machine virtuelle sur les machines virtuelles Azure. Pour les machines virtuelles Azure, consultez l’article [Vue d’ensemble de l’extension de machine virtuelle](../../virtual-machines/extensions/overview.md) suivant.
+
 ## <a name="key-benefits"></a>Principaux avantages
 
 La prise en charge des extensions de machine virtuelle des serveurs activés par Azure Arc offre les avantages clés suivants :
 
 - Collectez les données de journaux à des fins d’analyse avec [Journaux dans Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) en activant l’extension de machine virtuelle de l’agent Log Analytics. Ce point s’avère utile pour effectuer une analyse complexe de données issues de sources de différents types.
 
-- Avec [Azure Monitor pour machines virtuelles](../../azure-monitor/vm/vminsights-overview.md), analyse les performances de vos machines virtuelles Windows et Linux et supervise leurs processus et dépendances vis-à-vis d’autres ressources et les processus externes. Pour cela, il convient d’activer les extensions de machine virtuelle de l’agent Log Analytics et de Dependency Agent.
+- Avec [Insights de machine virtuelle](../../azure-monitor/vm/vminsights-overview.md), il analyse les performances des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d'autres ressources et des processus externes. Pour cela, il convient d’activer les extensions de machine virtuelle de l’agent Log Analytics et de Dependency Agent.
 
 - Télécharge et exécute des scripts sur des machines connectées hybrides à l’aide de l’extension de script personnalisé. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion.
 

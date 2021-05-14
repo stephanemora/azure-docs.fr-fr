@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5eacf9c53715bf42c466aaf6a58938bd681630b9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 631b01dadacf81d66c3f42dc1401d2cf492316b8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280647"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869236"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v11 pour .NET
 
@@ -401,5 +401,5 @@ Pour savoir comment créer une application web qui charge une image dans le stoc
 > [!div class="nextstepaction"]
 > [Charger et traiter une image](storage-upload-process-images.md)
 
-* Pour en savoir plus sur .NET Core, consultez [Prise en main de .NET en 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+* Pour en savoir plus sur .NET Core, consultez [Prise en main de .NET en 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
 * Pour explorer un exemple d’application que vous pouvez déployer depuis Visual Studio pour Windows, consultez l’[exemple d’application web de la galerie de photos .NET avec le Stockage Blob Azure](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).

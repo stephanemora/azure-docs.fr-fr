@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5eca75da57027789a06259e22e7c6cd5231404b6
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f603a4b44b555382e4178d90522ae41fa2388663
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448149"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947714"
 ---
 # <a name="configure-device-redirections"></a>Configurer des redirections d’appareil
 
@@ -53,7 +53,7 @@ Définissez la propriété RDP suivante pour configurer la redirection de la cam
 >[!NOTE]
 >Même si la propriété `camerastoredirect:s:` est désactivée, les caméras locales peuvent être redirigées via la propriété `devicestoredirect:s:`. Pour désactiver complètement la redirection de caméra, définissez `camerastoredirect:s:`, ainsi que `devicestoredirect:s:` ou un sous-ensemble d’appareils Plug-and-Play n’incluant pas de caméra.
 
-Vous pouvez également rediriger des caméras spécifiques à l’aide d’une liste séparée par des points-virgules d’interfaces KSCATEGORY_VIDEO_CAMERA, telles que `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`. 
+Vous pouvez également rediriger des caméras spécifiques à l’aide d’une liste séparée par des points-virgules d’interfaces KSCATEGORY_VIDEO_CAMERA, telles que `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`.
 
 ### <a name="clipboard-redirection"></a>Redirection du Presse-papiers
 
@@ -100,6 +100,8 @@ Définissez la propriété RDP suivante pour configurer la redirection de lecteu
 - `drivestoredirect:s:` désactive la redirection de lecteur local.
 
 Vous pouvez également sélectionner des lecteurs spécifiques à l’aide d’une liste séparée par des points-virgules, par exemple `drivestoredirect:s:C:;E:;`.
+
+Pour activer la fonctionnalité de transfert de fichiers du client web, définissez `drivestoredirect:s:*`. Si vous définissez une autre valeur pour cette propriété RDP, la fonctionnalité de transfert de fichiers du client web sera désactivée.
 
 ### <a name="printer-redirection"></a>Redirection d’imprimantes
 

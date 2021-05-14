@@ -3,14 +3,15 @@ title: Résolution des problèmes Azure Automation Update Management
 description: Cet article explique comment dépanner et résoudre les problèmes liés à Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 04/18/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5d73f7232afc9dcd6f7e069297efac763c242f7b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579743"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164252"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -188,11 +189,13 @@ Pour inscrire le fournisseur de ressources Automation, suivez ces étapes sur le
 
 5. S’il ne l’est pas, inscrivez le fournisseur Microsoft.Automation en suivant les étapes dans [Résoudre les erreurs d’inscription de fournisseurs de ressources](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
-## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Scénario : Certains ordinateurs ont été privés d’une mise à jour planifiée avec une planification dynamique
+## <a name="scenario-scheduled-update-did-not-patch-some-machines"></a><a name="scheduled-update-missed-machines"></a>Scénario : la mise à jour planifiée n’a pas corrigé certaines machines
 
 ### <a name="issue"></a>Problème
 
-Les ordinateurs inclus dans la préversion d’une mise à jour ne figurent pas tous dans la liste des ordinateurs corrigés au cours d’une exécution planifiée.
+Les machines incluses dans un aperçu de mise à jour n’apparaissent pas toutes dans la liste des machines corrigées lors d’une exécution planifiée, ou les machines virtuelles pour les étendues sélectionnées d’un groupe dynamique ne s’affichent pas dans la liste d’aperçu de mise à jour dans le portail.
+
+La liste d’aperçu de mise à jour comprend toutes les machines récupérées par une requête [Azure Resource Graph](../../governance/resource-graph/overview.md) pour les étendues sélectionnées. Les étendues sont filtrées pour les machines sur lesquelles une instance Runbook Worker hybride système est installée et pour lesquelles vous disposez d’autorisations d’accès.
 
 ### <a name="cause"></a>Cause
 
@@ -201,6 +204,12 @@ Ce problème peut avoir l’une des causes suivantes :
 * Les abonnements définis dans l’étendue d’une requête dynamique ne sont pas configurés pour le fournisseur de ressources Automation inscrit.
 
 * Les ordinateurs n’étaient pas disponibles ou n’avaient pas les étiquettes appropriées au moment où la planification s’est exécutée.
+
+* Vous ne disposez pas de l’accès approprié sur les étendues sélectionnées.
+
+* La requête Azure Resource Graph ne récupère pas les machines attendues.
+
+* L’instance Runbook Worker hybride système n’est pas installée sur les machines.
 
 ### <a name="resolution"></a>Résolution
 
@@ -238,31 +247,15 @@ Utilisez la procédure suivante si votre abonnement est configuré pour le fourn
 
 7. Réexécutez la planification de mise à jour pour faire en sorte que le déploiement avec les groupes dynamiques spécifiés englobe tous les ordinateurs.
 
-## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>Scénario : Les machines attendues n’apparaissent pas dans la préversion pour le groupe dynamique
-
-### <a name="issue"></a>Problème
-
-Les machines virtuelles correspondant aux étendues sélectionnées d’un groupe dynamique ne figurent pas dans la liste de préversion du Portail Azure. Cette liste comprend toutes les machines récupérées par une requête ARG pour les étendues sélectionnées. Les étendues sont filtrées pour les machines sur lesquelles des Runbooks Worker hybrides sont installés et pour lesquelles vous disposez d’autorisations d’accès.
-
-### <a name="cause"></a>Cause
-
-Voici les causes possibles de ce problème :
-
-* Vous ne disposez pas de l’accès approprié sur les étendues sélectionnées.
-* La requête ARG ne récupère pas les machines attendues.
-* Runbook Worker hybride n’est pas installé sur les machines.
-
-### <a name="resolution"></a>Résolution 
-
 #### <a name="incorrect-access-on-selected-scopes"></a>Accès incorrect sur les étendues sélectionnées
 
 Le portail Azure présente uniquement les machines pour lesquelles vous disposez d’un accès en écriture dans une étendue donnée. Si vous ne disposez pas de l’accès approprié pour une étendue, consultez [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-#### <a name="arg-query-doesnt-return-expected-machines"></a>La requête ARG ne retourne pas les machines attendues
+#### <a name="resource-graph-query-doesnt-return-expected-machines"></a>La requête Resource Graph ne renvoie pas les machines attendues
 
 Suivez les étapes ci-dessous pour déterminer si vos requêtes fonctionnent correctement.
 
-1. Exécutez une requête ARG dans le format indiqué ci-dessous dans le panneau Explorateur Resource Graph du portail Azure. Cette requête imite les filtres que vous avez sélectionnés au moment de créer le groupe dynamique dans Update Management. Consultez [Utiliser des groupes dynamiques avec Update Management](../update-management/configure-groups.md).
+1. Exécutez une requête Azure Resource Graph dans le format indiqué ci-dessous dans le panneau Explorateur Resource Graph du portail Azure. Si vous débutez avec Azure Resource Graph, consultez ce [guide de démarrage rapide](../../governance/resource-graph/first-query-portal.md) pour apprendre à utiliser l’explorateur Resource Graph. Cette requête imite les filtres que vous avez sélectionnés au moment de créer le groupe dynamique dans Update Management. Consultez [Utiliser des groupes dynamiques avec Update Management](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -287,7 +280,7 @@ Suivez les étapes ci-dessous pour déterminer si vos requêtes fonctionnent cor
 
 #### <a name="hybrid-runbook-worker-not-installed-on-machines"></a>Runbook Worker hybride non installé sur les machines
 
-Bien que les machines apparaissent dans les résultats de la requête ARG, elles ne figurent toujours pas dans l’aperçu du groupe dynamique. Dans ce cas, il est possible que les machines ne soient pas désignées comme étant des Workers hybrides, ce qui explique qu’elles ne peuvent pas exécuter de tâches Azure Automation et Update Management. Pour faire en sorte que les machines attendues soient définies en tant que Runbooks Worker hybrides :
+Bien que les machines apparaissent bien dans les résultats de la requête Azure Resource Graph, elles ne figurent toujours pas dans l’aperçu du groupe dynamique. Dans ce cas, il est possible que les machines ne soient pas désignées comme étant des instances Runbook Worker hybrides système, ce qui explique qu’elles ne peuvent pas exécuter de tâches Azure Automation et Update Management. Pour que les machines attendues soient définies comme des instances Runbook Worker hybrides système :
 
 1. Sur le portail Azure, accédez au compte Automation pour une machine qui n’apparaît pas correctement.
 
@@ -297,11 +290,9 @@ Bien que les machines apparaissent dans les résultats de la requête ARG, elles
 
 4. Vérifiez que le Worker hybride est présent pour la machine.
 
-5. Si la machine n’est pas définie en tant que Worker hybride, apportez les modifications indiquées dans [Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride](../automation-hybrid-runbook-worker.md).
+5. Si la machine n’est pas configurée en tant que Runbook Worker hybride système, passez en revue les méthodes permettant d’activer la machine dans la section [Activer Update Management](../update-management/overview.md#enable-update-management) de l’article Vue d’ensemble d’Update Management. La méthode à activer est basée sur l’environnement dans lequel la machine s’exécute.
 
-6. Joignez la machine au groupe Runbook Worker hybride.
-
-7. Répétez les étapes ci-dessus pour toutes les machines qui ne figurent pas dans l’aperçu.
+6. Répétez les étapes ci-dessus pour toutes les machines qui ne figurent pas dans l’aperçu.
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Scénario : Les composants d’Update Management sont activés, alors que la machine virtuelle continue à s’afficher comme étant configurée
 
@@ -403,10 +394,10 @@ Passez en revue les clés de Registre répertoriées sous [Configuration automat
 
 ### <a name="issue"></a>Problème
 
-Un ordinateur affiche l’état `Failed to start`. Lorsque vous affichez les détails spécifiques de l’ordinateur, vous voyez l’erreur suivante :
+Un ordinateur affiche l’état `Failed to start` ou `Failed`. Lorsque vous affichez les détails spécifiques de l’ordinateur, vous voyez l’erreur suivante :
 
 ```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+For one or more machines in schedule, UM job run resulted in either Failed or Failed to start state. Guide available at https://aka.ms/UMSucrFailed.
 ```
 
 ### <a name="cause"></a>Cause
@@ -420,6 +411,8 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 * L’exécution de votre mise à jour a été limitée si vous avez atteint la limite de 200 tâches simultanées dans un compte Automation. Chaque déploiement est considéré comme une tâche, et chaque ordinateur dans un déploiement de mise à jour est également considéré comme une tâche. Toutes les autres tâches d’automatisation ou de déploiement de mise à jour en cours d’exécution dans votre compte Automation comptent dans la limite des tâches qu’il est possible d’effectuer simultanément.
 
 ### <a name="resolution"></a>Résolution
+
+Vous pouvez récupérer d’autres informations par programmation avec l’API REST. Pour plus d’informations sur la récupération d’une liste de passes de configuration des mises à jour de logiciel ou d’une exécution spécifique par ID, consultez [Passes de configuration des mises à jour de logiciel](/rest/api/automation/softwareupdateconfigurationmachineruns).
 
 Lorsque c’est possible, utilisez les [groupes dynamiques](../update-management/configure-groups.md) pour vos déploiements de mise à jour. Vous pouvez en outre effectuer les étapes suivantes.
 
@@ -515,11 +508,13 @@ Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData
 
 ### <a name="issue"></a>Problème
 
-La fenêtre de maintenance par défaut pour les mises à jour est de 120 minutes. Vous pouvez augmenter la taille de la fenêtre de maintenance à un maximum de 6 heures, soit 360 minutes.
+La fenêtre de maintenance par défaut pour les mises à jour est de 120 minutes. Vous pouvez augmenter la taille de la fenêtre de maintenance à un maximum de 6 heures, soit 360 minutes. Il est possible que vous receviez le message d’erreur `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`.
 
 ### <a name="resolution"></a>Résolution
 
 Pour comprendre pourquoi cela s’est produit pendant l’exécution d’une mise à jour après qu’elle a démarré avec succès, [vérifiez la sortie du travail](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) de la machine affectée dans l’exécution. Vous trouverez peut-être des messages d’erreur spécifiques provenant de votre machine, effectuer des recherches sur ces erreurs et entreprendre des actions pour les résoudre.  
+
+Vous pouvez récupérer d’autres informations par programmation avec l’API REST. Pour plus d’informations sur la récupération d’une liste de passes de configuration des mises à jour de logiciel ou d’une exécution spécifique par ID, consultez [Passes de configuration des mises à jour de logiciel](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns).
 
 Modifiez tous les déploiements de mise à jour planifiés ayant échoué et augmentez la taille de la fenêtre de maintenance.
 

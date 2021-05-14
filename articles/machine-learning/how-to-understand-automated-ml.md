@@ -9,14 +9,14 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/09/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.topic: how-to
+ms.custom: contperf-fy21q2, automl
+ms.openlocfilehash: d104ad879919b11152d56a2c9b6b6fd8652c3ddc
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773111"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903791"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Évaluer les résultats de l’expérience de Machine Learning automatisé
 
@@ -74,7 +74,7 @@ Le tableau suivant récapitule les métriques de performances de modèle calcul�
 
 |Métrique|Description|Calcul|
 |--|--|---|
-|AUC | « AUC » est [Area under the Receiver Operating Characteristic Curve](#roc-curve) (la zone sous la courbe caractéristique de fonctionnement du récepteur).<br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li>`AUC_macro` est la moyenne arithmétique de l’AUC pour chaque classe.<li> `AUC_micro` est calculé en combinant les vrais positifs et les faux positifs de chaque classe. <li> `AUC_weighted` est la moyenne arithmétique du score pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.   |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|AUC | « AUC » est [Area under the Receiver Operating Characteristic Curve](#roc-curve) (la zone sous la courbe caractéristique de fonctionnement du récepteur).<br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li>`AUC_macro` est la moyenne arithmétique de l’AUC pour chaque classe.<li> `AUC_micro` est calculé en combinant les vrais positifs et les faux positifs de chaque classe. <li> `AUC_weighted` est la moyenne arithmétique du score pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.<br><br>Remarque : les valeurs AUC signalées par le ML automatisé peuvent ne pas correspondre au graphique ROC s’il n’y a que deux classes. Pour la classification binaire, l’implémentation de scikit-learn sous-jacente d’AUC n’applique pas réellement de valeur macro/micro/moyenne pondérée. Au lieu de cela, la valeur AUC de la classe positive la plus probable est retournée. Le graphique ROC continue à appliquer la moyenne de classe pour la classification binaire, comme c’est le cas pour les multiclasses.  |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| La précision représente le taux de prédictions qui correspondent exactement aux étiquettes de classes réelles. <br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
 |average_precision|La précision moyenne résume la courbe précision-rappel comme moyenne pondérée des précisions atteintes à chaque seuil, avec l’augmentation du rappel du seuil précédent utilisé comme pondération. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent,<li>`average_precision_score_macro` est la moyenne arithmétique du score de précision moyen de chaque classe.<li> `average_precision_score_micro` est calculé en combinant les vrais positifs et les faux positifs de chaque limite.<li>`average_precision_score_weighted` est la moyenne arithmétique du score de précision moyen pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|
 balanced_accuracy|La précision équilibrée est la moyenne arithmétique du rappel pour chaque classe.<br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
@@ -117,6 +117,7 @@ La zone sous la courbe (AUC) peut être interprétée comme la proportion d’é
 Une courbe qui approche l’angle supérieur gauche du graphique atteint une valeur TPR de 100 % et une valeur FPR de 0 %, ce qui correspond au meilleur modèle possible. Un modèle aléatoire produit une courbe ROC le long de la ligne `y = x`, de l’angle inférieur gauche à l’angle supérieur droit. Un modèle pire qu’aléatoire aurait une courbe ROC qui passe sous la ligne `y = x`.
 > [!TIP]
 > Pour les expériences de classification, chacun des graphiques en courbes produits pour les modèles ML automatisés peut être utilisé pour évaluer le modèle par classe ou la moyenne de toutes les classes. Vous pouvez basculer entre ces différentes vues en cliquant sur les étiquettes de classe dans la légende à droite du graphique.
+
 ### <a name="roc-curve-for-a-good-model"></a>Courbe ROC pour un bon modèle
 ![Courbe ROC pour un bon modèle](./media/how-to-understand-automated-ml/chart-roc-curve-good.png)
 
@@ -234,21 +235,20 @@ Dans cet exemple, notez que le meilleur modèle comporte une ligne de prédictio
 
 ## <a name="model-explanations-and-feature-importances"></a>Explications des modèles et importance des fonctionnalités
 
-Bien que les métriques et les graphiques d’évaluation des modèles conviennent parfaitement pour mesurer la qualité générale d’un modèle, il est essentiel d’inspecter les fonctionnalités du jeu de données qu’un modèle utilisé pour faire ses prédictions lorsque vous souhaitez mettre en place des pratiques IA responsables. C’est la raison pour laquelle ML automatisé fournit un tableau de bord d’interprétation des modèles permettant de mesurer et de signaler les contributions relatives des fonctionnalités du jeu de données.
+Bien que les métriques et les graphiques d’évaluation des modèles conviennent parfaitement pour mesurer la qualité générale d’un modèle, il est essentiel d’inspecter les fonctionnalités du jeu de données qu’un modèle utilisé pour faire ses prédictions lorsque vous souhaitez mettre en place des pratiques IA responsables. C’est la raison pour laquelle ML automatisé fournit un tableau de bord d’explication des modèles permettant de mesurer et de signaler les contributions relatives des fonctionnalités du jeu de données. Découvrez comment [afficher le tableau de bord d’explications dans Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
 
-Pour afficher le tableau de bord d’interprétation dans le studio :
-1. [Connectez-vous au studio](https://ml.azure.com/) et accédez à votre espace de travail
-2. Dans le menu de gauche, sélectionnez **Expériences**
-3. Sélectionnez votre expérience dans la liste des expériences
-4. Dans le tableau en bas de la page, sélectionnez une exécution AutoML
-5. Dans l’onglet **Modèles**, sélectionnez le **Nom de l’algorithme** du modèle que vous voulez expliquer
-6. Dans l’onglet **Explications**, vous pouvez voir qu’une explication a déjà été créée si le modèle était le meilleur
-7. Pour créer une nouvelle explication, sélectionnez **Expliquer le modèle**, puis choisissez le calcul distant avec lequel vous allez calculer les explications
-
-[Découvrez-en plus sur les explications de modèle dans le Machine Learning automatisé](how-to-machine-learning-interpretability-automl.md).
+Pour une expérience orientée code, consultez le guide pratique pour configurer les [explications de modèle pour les expériences de ML automatisé avec le kit de développement logiciel (SDK) Python Azure Machine Learning](how-to-machine-learning-interpretability-automl.md).
 
 > [!NOTE]
-> Le modèle ForecastTCN n’est actuellement pas pris en charge par les explications ML automatisé, et les autres modèles de prévision peuvent avoir un accès limité aux outils d’interprétation.
+> L’interprétabilité, c’est-à-dire la meilleure explication du modèle, n’est pas disponible pour les expériences de prévision de ML automatisé, qui recommandent les algorithmes suivants comme meilleur modèle ou ensemble : 
+> * TCNForecaster
+> * AutoArima
+> * ExponentialSmoothing
+> * Prophet
+> * Moyenne 
+> * Naive
+> * Moyenne saisonnière 
+> * Naive saisonnière
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Testez les exemples de notebooks disponibles dans l’[explication du modèle de Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

@@ -71,7 +71,7 @@
         - name: Contrôles de sécurité par Azure Policy
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/TOC.json
     - name: Back-ends
       href: backends.md
     - name: Abonnements
@@ -104,8 +104,8 @@
           href: import-soap-api.md
         - name: Importer une API SOAP et la convertir pour REST
           href: restify-soap-api.md
-        - name: Importer une application API
-          href: import-api-app-as-api.md
+        - name: Importer une application web
+          href: import-app-service-as-api.md
         - name: Importer une application de fonction
           href: import-function-app-as-api.md
         - name: Importer une application logique
@@ -128,6 +128,9 @@
           href: configure-custom-domain.md
         - name: Déployer sur plusieurs régions Azure
           href: api-management-howto-deploy-multi-region.md
+        - name: Activer la redondance de zone
+          displayName: Availability zones
+          href: zone-redundancy.md
         - name: Approvisionner une passerelle auto-hébergée
           href: api-management-howto-provision-self-hosted-gateway.md
         - name: Déployer une passerelle auto-hébergée sur Azure Kubernetes Service
@@ -170,48 +173,74 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Personnaliser l’expérience des développeurs
       items:
-        - name: Comprendre le portail des développeurs
-          href: api-management-howto-developer-portal.md
-        - name: Migrer depuis le portail déprécié vers le nouveau portail des développeurs
-          href: developer-portal-deprecated-migration.md
-        - name: S’authentifier avec Azure AD
-          href: api-management-howto-aad.md
-        - name: S’authentifier avec Azure AD B2C
-          href: api-management-howto-aad-b2c.md
-        - name: Authentification déléguée
-          href: api-management-howto-setup-delegation.md
-        - name: Notifications électroniques et modèles
-          href: api-management-howto-configure-notifications.md
-        - name: Activer la prise en charge de la console OAuth
-          href: api-management-howto-oauth2.md
-        - name: Portail déprécié - personnaliser le portail
-          href: api-management-customize-styles.md
-        - name: Portail déprécié - modifier les pages et les dispositions
-          href: api-management-modify-content-layout.md
-        - name: Portail déprécié - personnaliser avec des modèles
-          href: api-management-developer-portal-templates.md
-    - name: Modèles du portail déprécié
-      items:
-        - name: Référence du modèle de données
-          href: api-management-template-data-model-reference.md
-        - name: Contrôles de page
-          href: api-management-page-controls.md
-        - name: Modèles
-          href: api-management-developer-portal-templates-reference.md
-        - name: API
-          href: api-management-api-templates.md
-        - name: Products
-          href: api-management-product-templates.md
-        - name: Applications
-          href: api-management-application-templates.md
-        - name: Problèmes
-          href: api-management-issue-templates.md
-        - name: User Profile
-          href: api-management-user-profile-templates.md
-        - name: Pages
-          href: api-management-page-templates.md
-        - name: Ressources de modèle
-          href: api-management-template-resources.md
+        - name: Utiliser le portail des développeurs
+          items:
+            - name: Comprendre le portail des développeurs
+              href: api-management-howto-developer-portal.md
+            - name: Forum aux questions
+              href: developer-portal-faq.md
+            - name: Automatiser un déploiement de portail
+              href: automate-portal-deployments.md
+            - name: Migrer depuis le portail déprécié vers le nouveau portail des développeurs
+              href: developer-portal-deprecated-migration.md
+            - name: S’authentifier avec Azure AD
+              href: api-management-howto-aad.md
+            - name: S’authentifier avec Azure AD B2C
+              href: api-management-howto-aad-b2c.md
+            - name: Déléguer l’authentification
+              href: api-management-howto-setup-delegation.md
+            - name: Activer la prise en charge de la console OAuth
+              href: api-management-howto-oauth2.md
+            - name: Notifications électroniques et modèles
+              href: api-management-howto-configure-notifications.md
+            - name: Intégrer Application Insights
+              href: developer-portal-integrate-application-insights.md
+            - name: Intégrer Google Tag Manager
+              href: developer-portal-integrate-google-tag-manager.md
+        - name: Auto-héberger le portail des développeurs
+          items:
+            - name: Créer un portail auto-hébergé
+              href: developer-portal-self-host.md
+            - name: Autres approches d’auto-hébergement
+              href: developer-portal-alternative-processes-self-host.md
+            - name: Implémenter des widgets
+              href: developer-portal-implement-widgets.md
+            - name: Widgets de collaboration
+              href: developer-portal-widget-contribution-guidelines.md
+            - name: Utiliser les widgets de la communauté
+              href: developer-portal-use-community-widgets.md
+            - name: Tester le portail auto-hébergé
+              href: developer-portal-testing.md
+        - name: Portail déprécié
+          items:
+            - name: Portail déprécié - personnaliser le portail
+              href: api-management-customize-styles.md
+            - name: Portail déprécié - modifier les pages et les dispositions
+              href: api-management-modify-content-layout.md
+            - name: Portail déprécié - personnaliser avec des modèles
+              href: api-management-developer-portal-templates.md
+        - name: Modèles du portail déprécié
+          items:
+            - name: Référence du modèle de données
+              href: api-management-template-data-model-reference.md
+            - name: Contrôles de page
+              href: api-management-page-controls.md
+            - name: Modèles
+              href: api-management-developer-portal-templates-reference.md
+            - name: API
+              href: api-management-api-templates.md
+            - name: Products
+              href: api-management-product-templates.md
+            - name: Applications
+              href: api-management-application-templates.md
+            - name: Problèmes
+              href: api-management-issue-templates.md
+            - name: User Profile
+              href: api-management-user-profile-templates.md
+            - name: Pages
+              href: api-management-page-templates.md
+            - name: Ressources de modèle
+              href: api-management-template-resources.md
     - name: Définir des stratégies
       items:
         - name: Définir ou modifier des stratégies
@@ -245,6 +274,8 @@
           href: api-management-transformation-policies.md
         - name: Stratégies d’intégration Distributed Application Runtime (Dapr)
           href: api-management-dapr-policies.md
+        - name: Stratégies de validation
+          href: validation-policies.md
     - name: Gérer en production
       items:
         - name: Exporter des API vers Power Platform

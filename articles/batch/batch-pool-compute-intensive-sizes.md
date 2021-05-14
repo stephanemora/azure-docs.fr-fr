@@ -3,12 +3,12 @@ title: Utiliser des machines virtuelles Azure nécessitant beaucoup de ressource
 description: Découvrez comment tirer parti des tailles de machines virtuelles HPC et GPU dans des pools Azure Batch Apprenez-en davantage sur les dépendances du système d’exploitation et découvrez plusieurs exemples de scénarios.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8f3156296e1ae1ec892be86fc41738fcb7f29090
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86147330"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988331"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
@@ -53,13 +53,15 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Pools Windows - Configuration des services cloud
 
-> [!NOTE]
-> Les tailles de série N ne sont pas prises en charge dans les pools Batch avec la configuration de service cloud.
->
+> [!WARNING]
+> Les pools de configuration des services Cloud sont [déconseillés](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Utilisez à la place des pools de configuration de machines virtuelles.
 
 | Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012, ou<br/>2008 R2 (Famille de système d’exploitation invité) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/>Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds,<br/> désactiver l’exécution simultanée des tâches |
+
+> [!NOTE]
+> Les tailles de la série N ne sont pas prises en charge dans les pools de configuration des services cloud.
 
 ## <a name="pool-configuration-options"></a>Options de configuration de pool
 

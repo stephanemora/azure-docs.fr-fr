@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/23/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: d6e553e93d97f02c618fa33a41b939f90e9042c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 536c63fec9958823191f3b01ad2142022832ef23
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027460"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124380"
 ---
 # <a name="identity-verification-and-proofing-partners"></a>Vérification des identités et partenaires de preuve
 
@@ -38,9 +38,9 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 
 ## <a name="additional-information"></a>Informations supplémentaires
 
-- [Stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

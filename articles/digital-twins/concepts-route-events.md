@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ea412b695c12f3ff7fdfa6250e2a474b618b8032
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 925eb2aee84b135663f80dedd713151ff70898ed
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102430919"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207912"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Acheminer des événements à l’intérieur et à l’extérieur d’Azure Digital Twins
 
@@ -46,7 +46,7 @@ Le message d’événement contient également l’ID de la représentation sour
 
 La ressource de calcul doit également établir des autorisations de sécurité et d’accès de façon indépendante.
 
-Afin de passer en revue le processus de configuration d’une fonction Azure pour traiter les événements de représentation numérique, consultez [*Guide pratique : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md).
+Pour passer en revue le processus de configuration d’une fonction Azure pour traiter les événements de représentation numérique, consultez [Guide pratique pour : Configurer une fonction Azure pour le traitement des données](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Créer un point de terminaison
 
@@ -79,7 +79,7 @@ Voici un exemple de création d’une route d’événement dans une application
 
 1. Tout d’abord, un objet `DigitalTwinsEventRoute` est créé, et le constructeur prend le nom d’un point de terminaison. Le champs `endpointName` identifie un point de terminaison, comme Event Hub, Event Grid ou Service Bus. Ces points de terminaison doivent être créés dans votre abonnement et attachés à Azure Digital Twins à l’aide des API de plan de contrôle avant d’effectuer cet appel d’inscription.
 
-2. L’objet de la route d’événement comporte également un champ [**Filtre**](how-to-manage-routes-apis-cli.md#filter-events), qui peut être utilisé pour restreindre les types d’événements qui suivent cette route. Un filtre `true` active la route sans filtrage supplémentaire (un filtre `false` désactive la route). 
+2. L’objet de la route d’événement comporte également un champ [Filtre](how-to-manage-routes-apis-cli.md#filter-events), qui peut être utilisé pour restreindre les types d’événements qui suivent cette route. Un filtre `true` active la route sans filtrage supplémentaire (un filtre `false` désactive la route). 
 
 3. Cet objet de route d’événement est ensuite transmis à `CreateOrReplaceEventRouteAsync`, ainsi qu’un nom pour la route.
 
@@ -97,9 +97,9 @@ Si l’une des conditions est remplie, l’événement est abandonné ou mis en 
 
 Avant de définir l’emplacement des lettres mortes, vous devez disposer d’un compte de stockage avec un conteneur. Vous devez indiquer l’URL de ce conteneur au moment de créer le point de terminaison. La mise en file d’attente de lettres mortes est fournie sous la forme d’une URL de conteneur avec un jeton SAP. Ce jeton n’a besoin que de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète sera au format : `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Pour en savoir plus sur les jetons SAP, consultez : [*Accorder un accès limité aux ressources Stockage Azure à l’aide des signatures d’accès partagé (SAP)*](../storage/common/storage-sas-overview.md).
+Pour en savoir plus sur les jetons SAS, consultez : [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md)
 
-Pour savoir comment configurer un point de terminaison avec mise en file d’attente de lettres mortes, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+Pour savoir comment configurer un point de terminaison avec mise en file d’attente de lettres mortes, consultez [Guide pratique : Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) .
 
 ### <a name="types-of-event-messages"></a>Types de messages d'événements
 
@@ -110,7 +110,7 @@ Les différents types d’événements dans IoT Hub et Azure Digital Twins produ
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment configurer et gérer un itinéraire d’événement :
-* [*Guide pratique : Gérer les points de terminaison et les itinéraires*](how-to-manage-routes-apis-cli.md)
+* [Guide pratique pour Gérer les points de terminaison et les routes](how-to-manage-routes-apis-cli.md)
 
 Ou bien, découvrez comment utiliser Azure Functions pour acheminer des événements dans Azure Digital Twins :
-* [*Guide pratique : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md)
+* [Guide pratique pour Configurer une fonction Azure pour le traitement des données](how-to-create-azure-function.md)

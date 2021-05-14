@@ -1,18 +1,18 @@
 ---
 title: Connexion d’une passerelle de réseau virtuel à un réseau Azure Virtual WAN
-description: Cet article vous aide à connecter une passerelle de réseau virtuel Azure à une passerelle VPN Azure Virtual WAN
+description: Découvrez comment connecter une passerelle VPN Azure (passerelle réseau virtuel) à une passerelle VPN Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d8420f0138dc26e2f265ac7c4f48e646a6bfe69
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880370"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165116"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connecter une passerelle VPN (passerelle de réseau virtuel) à Virtual WAN
 

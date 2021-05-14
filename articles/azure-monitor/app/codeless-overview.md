@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9ead123338a410daf53569ff577dfc8c728a8ddf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df6271f8c036d708b93d7312076f3eee585cfcba
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708490"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287281"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Qu’est-ce que l’instrumentation automatique ou l’attachement sans code Azure Monitor Application Insights ?
 
@@ -27,7 +27,6 @@ Application Insights est intégré à différents fournisseurs de ressources et 
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service sur Windows           | Disponibilité générale, APD*       | Disponibilité générale, consentement      | En cours     | En cours     | Non pris en charge   |
 |Azure App Service sur Linux             | N/A             | Non pris en charge   | En cours     | Version préliminaire publique  | Non pris en charge   |
-|Azure App Service sur AKS               | N/A             | Intégré       | Intégré       | Intégré       | Non pris en charge   |
 |Azure Functions - De base                | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       |
 |Azure Functions Windows – Dépendances | Non pris en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Non pris en charge   |
 |Azure Kubernetes Service               | N/A             | Intégré       | Via l’agent   | Intégré       | Non pris en charge   |

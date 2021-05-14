@@ -6,13 +6,13 @@ ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 1bfae8c7afbfdc6e73dd8bb17b94e6543361e9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 7d807a15d358bd621baedbff253f0c731e43ed26
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83848226"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874168"
 ---
 # <a name="iot-hub-ip-addresses"></a>Adresses IP IoT Hub
 
@@ -45,7 +45,7 @@ Vous pouvez utiliser ces préfixes d’adresse IP pour contrôler la connectivit
 
 ## <a name="limitations-and-workarounds"></a>Limitations et solutions de contournement
 
-* La fonctionnalité de filtre IP d’IoT Hub a une limite de 10 règles. Cette limite peut être augmentée sur demande via le support client Azure. 
+* La fonctionnalité de filtre IP d’IoT Hub a une limite de 100 règles. Cette limite peut être augmentée sur demande via le support client Azure. 
 
 * Vos [règles de filtrage IP](iot-hub-ip-filtering.md) configurées sont appliquées uniquement sur vos points de terminaison IP IoT Hub et non sur votre point de terminaison Event Hub intégré à IoT Hub. Si vous avez également besoin d’appliquer le filtrage IP sur l’Event Hub dans lequel vos messages sont stockés, vous pouvez utiliser votre propre ressource Event Hub pour configurer directement les règles de filtrage IP souhaitées. Pour ce faire, vous devez configurer votre propre ressource Event Hub et configurer le [routage des messages](./iot-hub-devguide-messages-d2c.md) pour envoyer vos messages à cette ressource plutôt qu’à l’Event Hub intégré à votre IoT Hub. Enfin, comme indiqué dans le tableau ci-dessus, pour activer la fonctionnalité de routage des messages, vous devez également autoriser la connectivité des préfixes d’adresse IP IoT Hub à votre ressource Event Hub configurée.
 

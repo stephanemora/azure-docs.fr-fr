@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b65aff45cc304f59e45fc3bed925b93ee6c622fd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6b70bebc6f3aa809abf616b1d0ab2c68f85d9710
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788400"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164738"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Surveiller le service Stockage File d'attente
 
@@ -108,7 +108,7 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
    > ![Page Paramètres de diagnostic – Stockage d’archive](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK**, puis sélectionnez le bouton **Enregistrer**.
- 
+
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
    > [!NOTE]
@@ -553,7 +553,7 @@ Utilisez ces requêtes pour mieux superviser vos comptes de Stockage Azure :
 
 - Pour lister les 10 erreurs les plus courantes au cours des trois derniers jours.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
@@ -562,7 +562,7 @@ Utilisez ces requêtes pour mieux superviser vos comptes de Stockage Azure :
 
 - Pour lister les 10 principales opérations qui ont provoqué le plus d’erreurs au cours des trois derniers jours.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by OperationName
@@ -571,7 +571,7 @@ Utilisez ces requêtes pour mieux superviser vos comptes de Stockage Azure :
 
 - Pour lister les 10 opérations ayant la latence de bout en bout la plus longue au cours des trois derniers jours.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | top 10 by DurationMs desc
@@ -580,7 +580,7 @@ Utilisez ces requêtes pour mieux superviser vos comptes de Stockage Azure :
 
 - Pour lister toutes les opérations ayant provoqué des erreurs de limitation côté serveur au cours des trois derniers jours.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
@@ -588,7 +588,7 @@ Utilisez ces requêtes pour mieux superviser vos comptes de Stockage Azure :
 
 - Pour lister toutes les demandes avec un accès anonyme au cours des trois derniers jours.
 
-    ```Kusto
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
@@ -596,7 +596,7 @@ Utilisez ces requêtes pour mieux superviser vos comptes de Stockage Azure :
 
 - Pour créer un graphique à secteurs des opérations utilisées au cours des trois derniers jours.
 
-    ```Kusto
+    ```kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName

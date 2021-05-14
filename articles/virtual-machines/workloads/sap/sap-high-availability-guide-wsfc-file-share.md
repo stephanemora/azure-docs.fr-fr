@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2021
+ms.date: 04/27/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9cde810bb9f612b0dc84fb4dd7593761b057e722
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496199"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142852"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure
 
@@ -33,9 +33,23 @@ Le clustering de basculement Windows Server constitue la base d’une installati
 Un cluster de basculement est un groupe de 1 + n serveurs indépendants (nœuds) qui fonctionnent ensemble pour accroître la disponibilité des applications et des services. En cas d’échec d’un nœud, le clustering de basculement Windows Server calcule le nombre d’échecs qui peuvent se produire sans que le cluster ne perde son intégrité, de sorte que les applications et les services puissent être fournis. Différents modes de quorum sont disponibles pour obtenir un clustering de basculement.
 
 ## <a name="prerequisites"></a>Prérequis
-Avant d’aborder les tâches décrites dans cet article, consultez l’article suivant :
+Avant d’aborder les tâches décrites dans cet article, consultez les articles et notes SAP suivants :
 
 * [Scénarios et architecture de haute disponibilité de machines virtuelles Azure pour SAP NetWeaver][sap-high-availability-architecture-scenarios]
+* La note SAP [1928533][1928533], qui contient :  
+  * une liste des tailles de machines virtuelles Azure prises en charge pour le déploiement de logiciels SAP
+  * des informations importantes sur la capacité en fonction de la taille des machines virtuelles Azure
+  * les logiciels SAP pris en charge et les combinaisons entre système d’exploitation et base de données
+  * la version du noyau SAP requise pour Windows sur Microsoft Azure
+* La note SAP [2015553][2015553] répertorie les conditions préalables au déploiement de logiciels SAP pris en charge par SAP sur Azure.
+* La note SAP [2178632][2178632] contient des informations détaillées sur toutes les métriques de surveillance rapportées pour SAP sur Azure.
+* La note SAP [1999351][1999351] contient des informations de dépannage supplémentaires pour l’extension d’analyse Azure améliorée pour SAP.
+* La note SAP [2287140](https://launchpad.support.sap.com/#/notes/2287140) répertorie les conditions préalables pour la fonctionnalité d’autorité de certification prise en charge par SAP du protocole SMB 3.x.
+* La note SAP [2802770](https://launchpad.support.sap.com/#/notes/2802770) contient des informations sur la résolution des problèmes liés à l’exécution lente de la transaction SAP AL11 sur Windows 2012 et 2016.
+* La note SAP [1911507](https://launchpad.support.sap.com/#/notes/1911507) contient des informations sur la fonctionnalité de basculement transparent pour un partage de fichiers sur Windows Server avec le protocole SMB 3.0.
+* La note SAP [662452](https://launchpad.support.sap.com/#/notes/662452) offre une recommandation (désactivation de la génération de noms 8.3) pour résoudre les erreurs/performances médiocres du système de fichiers lors des accès aux données.
+* [Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure](./sap-high-availability-installation-wsfc-file-share.md) 
+* [Installation d’une instance (A)SCS sur un cluster de basculement](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 
 > [!IMPORTANT]
 > Le clustering d’instances SAP ASCS/SCS avec le partage de fichiers est pris en charge pour SAP NetWeaver 7.40 (et versions ultérieures), avec SAP Kernel 7.49 (et versions ultérieures).

@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
-ms.date: 01/26/2021
+ms.date: 04/19/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4feae11c6d8d78a43bae9882405e292a18e90bd
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592614"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725059"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Résolution des erreurs liées à Azure Policy
 
@@ -124,6 +124,24 @@ Une attribution de stratégie définie sur l’étendue de la nouvelle ressource
 #### <a name="resolution"></a>Résolution
 
 Le message d’erreur d’une attribution de stratégie de refus comprend la définition de stratégie et les ID d’attribution de la stratégie. Si vous avez besoin de retrouver les informations d’erreur indiquées dans le message, elles sont également disponibles dans le [journal d’activité](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Utilisez ces informations pour obtenir plus de détails afin de comprendre les restrictions relatives aux ressources et d’ajuster les propriétés de ressource dans votre demande pour qu’elles correspondent aux valeurs autorisées.
+
+### <a name="scenario-definition-targets-multiple-resource-types"></a>Scénario : La définition cible plusieurs types de ressources
+
+#### <a name="issue"></a>Problème
+
+La validation d’une définition de stratégie qui comprend plusieurs types de ressources échoue lors de la création ou de la mise à jour avec l’erreur suivante :
+
+```error
+The policy definition '{0}' targets multiple resource types, but the policy rule is authored in a way that makes the policy not applicable to the target resource types '{1}'.
+```
+
+#### <a name="cause"></a>Cause
+
+La règle de définition de stratégie a une ou plusieurs conditions qui ne sont pas évaluées par les types de ressources cibles.
+
+#### <a name="resolution"></a>Résolution
+
+Si un alias est utilisé, vérifiez qu’il est évalué uniquement par rapport au type de ressource auquel il appartient le faisant précéder d’une condition de type. Une autre solution consiste à diviser la définition de stratégie en plusieurs définitions afin d’éviter de cibler plusieurs types de ressources.
 
 ## <a name="template-errors"></a>Erreurs de modèle
 

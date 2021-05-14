@@ -5,28 +5,49 @@ description: Nouvelle documentation mise à jour pour la plateforme d’identit�
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 12/15/2020
+ms.date: 04/30/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 68136cc259e0be4a2f9449aa9ec15f4a14a63890
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 05d8e2e9555dbd24a812d626ce4be8900991230a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074979"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748688"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentation relative à la plateforme d’identités Microsoft : Nouveautés
 
 Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative à la plateforme d’identités Microsoft. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois.
 
+## <a name="april-2021"></a>Avril 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Type de stratégie de mappage de revendications](reference-claims-mapping-policy-type.md)
+- [Migration d’une application Node.js d’ADAL vers MSAL](msal-node-migration.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)](active-directory-configurable-token-lifetimes.md)
+- [Configurer des stratégies de durée de vie des jetons (préversion)](configure-token-lifetimes.md)
+- [Plateforme d’identités Microsoft et flux de code d’autorisation OAuth](v2-oauth2-auth-code-flow.md)
+- [Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)
+- [Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application web Node à l’aide du flux de code d’authentification](quickstart-v2-nodejs-webapp-msal.md)
+- [Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application monopage Angular](quickstart-v2-angular.md)
+- [Application monopage : Acquérir un jeton pour appeler une API](scenario-spa-acquire-token.md)
+- [Application monopage : Configuration de code](scenario-spa-app-configuration.md)
+- [Application monopage : Se connecter et se déconnecter](scenario-spa-sign-in.md)
+- [Utiliser MSAL dans un environnement de cloud national](msal-national-cloud.md)
+- [Comprendre les expériences de consentement de l’application Azure AD](application-consent-experience.md)
+
 ## <a name="march-2021"></a>Mars 2021
 
 ### <a name="new-articles"></a>Nouveaux articles
 
-- [Restaurer ou supprimer une application récemment supprimée avec la plateforme d’identités Microsoft](quickstart-restore-app.md)
+- [Restaurer ou supprimer une application récemment supprimée avec la plateforme d’identités Microsoft](./howto-restore-app.md)
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
@@ -71,26 +92,3 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 - [Démarrage rapide : Configurer un locataire](quickstart-create-new-tenant.md)
 - [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
 - [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Java à l’aide de l’identité de l’application](quickstart-v2-java-daemon.md)
-
-## <a name="january-2021"></a>Janvier 2021
-
-### <a name="new-articles"></a>Nouveaux articles
-
-- [Journalisation dans MSAL pour Android](msal-logging-android.md)
-- [Journalisation dans MSAL.NET](msal-logging-dotnet.md)
-- [Journalisation dans MSAL pour iOS/macOS](msal-logging-ios.md)
-- [Journalisation dans MSAL pour Java](msal-logging-java.md)
-- [Journalisation dans MSAL.js](msal-logging-js.md)
-- [Journalisation dans MSAL pour Python](msal-logging-python.md)
-
-### <a name="updated-articles"></a>Articles mis à jour
-
-- [Résoudre les problèmes de vérification de l’éditeur](troubleshoot-publisher-verification.md)
-- [Modèle d'application](application-model.md)
-- [Authentification ou autorisation](authentication-vs-authorization.md)
-- [Procédure : Limiter votre application Azure AD à un ensemble d’utilisateurs dans un locataire Azure AD](howto-restrict-your-app-to-a-set-of-users.md)
-- [Autorisations et consentement dans le point de terminaison de la plateforme d’identité Microsoft](v2-permissions-and-consent.md)
-- [Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)](active-directory-configurable-token-lifetimes.md)
-- [Configurer des stratégies de durée de vie des jetons (préversion)](configure-token-lifetimes.md)
-- [Bibliothèques d’authentification de plateforme d’identité Microsoft](reference-v2-libraries.md)
-- [Plateforme d’identités Microsoft et flux de code d’autorisation OAuth](v2-oauth2-auth-code-flow.md)

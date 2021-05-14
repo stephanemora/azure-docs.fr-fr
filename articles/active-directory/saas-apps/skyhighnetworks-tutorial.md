@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: eaf6b2526125b13eec67680c292ed1dbae6fcfee
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: c427353a68f06a31c214684e4e4bdd8021b68da8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284394"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203736"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutoriel : Intégrer MVISION Cloud Azure AD SSO Configuration à Azure Active Directory
 
@@ -140,8 +140,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Il vous suffit de cliquer sur **Tester cette application** sur le portail Azure pour vous connecter automatiquement à l'instance de MVISION Cloud Azure AD SSO Configuration pour laquelle vous avez configuré l'authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Lorsque vous cliquez sur la vignette MVISION Cloud Azure AD SSO Configuration dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l'application pour lancer le flux de connexion ; s'il s’agit du mode Fournisseur d'identité, vous êtes automatiquement connecté à l'instance de MVISION Cloud Azure AD SSO Configuration pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Lorsque vous cliquez sur la vignette MVISION Cloud Azure AD SSO Configuration dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l'application pour lancer le flux de connexion ; s'il s’agit du mode Fournisseur d'identité, vous êtes automatiquement connecté à l'instance de MVISION Cloud Azure AD SSO Configuration pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré MVISION Cloud Azure AD SSO Configuration, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l'exfiltration et l'infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré MVISION Cloud Azure AD SSO Configuration, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l'exfiltration et l'infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

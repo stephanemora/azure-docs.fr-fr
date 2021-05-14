@@ -3,12 +3,12 @@ title: Gérer les événements d’alerte
 description: Gérez les événements d’alerte détectés au sein de votre réseau.
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 2995ff0d2246929efb534bc21d888bad3a2cf24a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 124584026bd9ee1662ab39130b5b4dea8b61896c
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781787"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209064"
 ---
 # <a name="manage-alert-events"></a>Gérer les événements d’alerte
 
@@ -23,13 +23,26 @@ Les options suivantes sont disponibles pour gérer les événements d’alerte 
 Vous pouvez également exporter des informations sur l’alerte.
 ## <a name="about-learning-and-unlearning-events"></a>Apprendre et désapprendre des événements
 
-Les événements qui indiquent des écarts du réseau appris peuvent refléter des modifications valides du réseau. Il peut s’agir, par exemple, d’un nouvel appareil autorisé ayant rejoint le réseau ou d’une mise à jour de microprogramme autorisée.
+Les événements qui indiquent des écarts du réseau appris peuvent refléter des modifications valides du réseau. Lorsque vous souhaitez approuver ces modifications, vous pouvez demander à Defender pour IoT d’*apprendre* le comportement. Les exemples doivent inclure :
 
-Lorsque vous sélectionnez **Apprendre**, le capteur considère le trafic, les configurations ou l’activité comme valides. Cela signifie que les alertes ne seront plus déclenchées pour l’événement. Par ailleurs, l’événement ne sera pas calculé lorsque le capteur génère les rapports d’évaluation des risques, des vecteurs d’attaque, etc.
+- Une nouvelle activité a été détectée sur l’appareil existant. Par exemple, un appareil autorisé a tenté d’accéder à une nouvelle ressource sur un autre appareil.
 
-Par exemple, vous recevez une alerte indiquant une activité d’analyse d’adresse sur un appareil qu’un scanneur réseau n’avait pas définie précédemment. Si cet appareil a été ajouté au réseau à des fins d’analyse, vous pouvez demander au capteur d’apprendre l’appareil comme appareil d’analyse.
+- Un nouvel appareil est ajouté au réseau.  
+
+- Modifications de la version du microprogramme suivant les procédures de maintenance standard.
+
+- Un nouvel appareil a effectué une opération de lecture/d’écriture sur un contrôleur de destination.
+
+- Un nouvel appareil effectue une opération de lecture/d’écriture sur un contrôleur de destination et doit être défini comme un appareil de programmation.
+
+- Une nouvelle analyse légitime est effectuée, et l’appareil doit être défini comme un appareil d’analyse.
+
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/detected.png" alt-text="Fenêtre Analyse d’adresse détectée.":::
+
+L’activité reflétée dans les alertes est calculée lorsque vous générez des rapports d’exploration de données, d’évaluation des risques et de vecteur d’attaque. Lorsque vous gérez ces événements, le capteur met à jour les rapports en conséquence.
+
+Lorsque vous sélectionnez **Apprendre**, le capteur considère le trafic, les configurations ou l’activité comme valides. Cela signifie que les alertes ne seront plus déclenchées pour l’événement. Par ailleurs, l’événement ne sera pas calculé lorsque le capteur génère les rapports d’évaluation des risques, des vecteurs d’attaque, etc.
 
 Les événements appris peuvent être désappris. Quand le capteur désapprend un événement, il redéclenche les alertes liées à cet événement.
 
@@ -123,5 +136,7 @@ Pour exporter :
 1. Sélectionnez Exporter les alertes étendues pour exporter les informations d’alerte dans des lignes distinctes pour chaque alerte qui couvre plusieurs appareils. Lorsque l’option Exporter les alertes étendues est sélectionnée, le fichier .csv crée une ligne dupliquée de l’événement d’alerte avec les éléments uniques de chaque ligne. Grâce à cette option, il est plus facile d’examiner les événements d’alerte exportés.
 
 ## <a name="see-also"></a>Voir aussi
+
+[Types et descriptions d’alertes](alert-engine-messages.md)
 
 [Contrôler quel trafic est surveillé](how-to-control-what-traffic-is-monitored.md)

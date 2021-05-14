@@ -3,12 +3,12 @@ title: Déploiement conditionnel avec des modèles
 description: Explique comment déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 409d258d7dfe3ed186e5cf97cc0dbe6dc149b849
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8be42b4e57e628e41afa5cd914f9dcf72ebe4ab7
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741172"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736949"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Déploiement conditionnel dans des modèles ARM
 
@@ -58,7 +58,7 @@ resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
 
 ---
 
-Pour un exemple plus complexe, consultez [Serveur logique SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+Pour un exemple plus complexe, consultez [Serveur logique SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server).
 
 ## <a name="new-or-existing-resource"></a>Ressource nouvelle ou existante
 
@@ -138,7 +138,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 
 Lorsque le paramètre `newOrExisting` a la valeur **new**, la condition donne le résultat true. Le compte de stockage est déployé. En revanche, quand le paramètre `newOrExisting` a la valeur **existing**, la condition donne le résultat false et le compte de stockage n’est pas déployé.
 
-Pour un exemple de modèle complet qui utilise l’élément `condition`, consultez [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Machine virtuelle avec un réseau virtuel, un stockage et une adresse IP publique nouveaux ou existants).
+Pour un exemple de modèle complet qui utilise l’élément `condition`, consultez [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-new-or-existing-conditions) (Machine virtuelle avec un réseau virtuel, un stockage et une adresse IP publique nouveaux ou existants).
 
 ## <a name="runtime-functions"></a>Fonctions de runtime
 

@@ -3,14 +3,14 @@ title: Guide pratique pour créer des déploiements de mises à jour pour Azure 
 description: Cet article explique comment planifier des déploiements de mises à jour et vérifier leur état.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e410e5de529bde122fe42d21b593a6fc483dcbc0
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669676"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726672"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Guide pratique pour déployer des mises à jour et voir les résultats
 
@@ -69,15 +69,30 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 
 7. Utilisez la section **Classifications des mises à jour** pour spécifier des [classifications des mises à jour](view-update-assessments.md#work-with-update-classifications) pour les produits. Pour chaque produit, désélectionnez toutes les classifications de mises à jour prises en charge, à l’exception de celles que vous souhaitez inclure dans votre déploiement de mises à jour.
 
+   :::image type="content" source="./media/deploy-updates/update-classifications-example.png" alt-text="Exemple montrant la sélection de classifications de mises à jour spécifiques.":::
+
     Si votre déploiement est censé appliquer uniquement un ensemble de mises à jour, il est nécessaire de désélectionner toutes les classifications de mise à jour présélectionnées lors de la configuration de l’option **Inclure/exclure des mises à jour**, comme décrit à l’étape suivante. Cela garantit que seules les mises à jour que vous avez spécifiées comme devant être *incluses* dans ce déploiement sont installées sur les ordinateurs cibles.
 
+   >[!NOTE]
+   > Le déploiement de mises à jour par classification ne fonctionne pas sur les versions RTM de CentOS. Pour déployer correctement les mises à jour pour CentOS, sélectionnez toutes les classifications pour garantir que les mises à jour sont appliquées. Il n’existe actuellement aucune méthode prise en charge permettant d’activer la disponibilité des données de classification natives sur CentOS. Pour plus d’informations sur les [classifications de mises à jour](overview.md#update-classifications), consultez les rubriques suivantes.
+
 8. Utilisez la région **Inclure/exclure des mises à jour** pour ajouter ou exclure des mises à jour sélectionnées du déploiement. Dans la page **Inclure/Exclure**, vous entrez les numéros d’identification des articles de la base de connaissances à inclure ou à exclure pour les mises à jour Windows. Pour les distributions Linux prises en charge, spécifiez le nom du package.
+
+   :::image type="content" source="./media/deploy-updates/include-specific-updates-example.png" alt-text="Exemple montrant comment inclure des mises à jour spécifiques.":::
 
    > [!IMPORTANT]
    > N’oubliez pas que les exclusions sont prioritaires par rapport aux inclusions. Par exemple, si vous définissez une règle d’exclusion `*`, Update Management exclut tous les correctifs et packages de l’installation. Les correctifs exclus sont toujours affichés comme étant manquants sur les machines. Sur les machines Linux, si vous incluez un package qui a un package dépendant ayant été exclu, Update Management n’installe pas le package principal.
 
    > [!NOTE]
    > Vous ne pouvez pas spécifier des mises à jour qui ont été remplacées pour être incluses dans le déploiement des mises à jour.
+
+   Voici quelques exemples de scénarios pour vous aider à comprendre comment utiliser l’inclusion/exclusion et la classification des mises à jour simultanément dans les déploiements de mises à jour :
+
+   * Si vous souhaitez uniquement installer une liste spécifique de mises à jour, vous ne devez pas sélectionner de **classifications de mises à jour** et fournir une liste des mises à jour à appliquer à l’aide de l’option **Inclure**.
+
+   * Si vous souhaitez installer uniquement les mises à jour de sécurité et critiques, ainsi qu’une ou plusieurs mises à jour de pilotes facultatives, vous devez sélectionner **Sécurité** et **Critique** dans **Classifications de mises à jour**. Ensuite, pour l’option **Inclure**, spécifiez les mises à jour de pilote.
+
+   * Si vous souhaitez installer uniquement les mises à jour de sécurité et critiques, mais ignorer une ou plusieurs mises à jour pour Python afin d’éviter d’arrêter votre application héritée, vous devez sélectionner **Sécurité** et **Critique** sous **Classifications de mises à jour**. Ensuite, pour l’option **Exclure**, ajoutez les packages Python à ignorer.
 
 9. Sélectionnez **Paramètres de planification**. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
 

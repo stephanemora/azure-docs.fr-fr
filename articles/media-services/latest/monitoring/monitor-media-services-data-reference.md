@@ -7,84 +7,56 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
-ms.date: 03/17/2021
-ms.openlocfilehash: 8908fd1acc64fb180121ac0b6a4dc38ce5a02572
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.date: 04/21/2021
+ms.openlocfilehash: a9bc17528e1314a033cf2e45fee4b112eb088cc3
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121164"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715571"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Référence sur la surveillance des données de Media Services
 
 Cet article décrit les données qui sont utiles pour la surveillance des Media Services. Pour plus d’informations sur les métriques de plateforme prises en charge dans Azure Monitor, consultez [Métriques prises en charge avec Azure Monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
-## <a name="media-services-metrics"></a>Métriques Media Services
+## <a name="metrics"></a>Métriques
 
 Les métriques sont collectées à intervalles réguliers, que la valeur change ou non. Elles sont utiles pour créer des alertes, dans la mesure où elles peuvent être échantillonnées fréquemment, et où une alerte peut être déclenchée rapidement avec un circuit logique assez simple.
 
+
 Media Services prend en charge les métriques de surveillance pour les ressources suivantes :
 
-* Compte
-* Point de terminaison de streaming
+|Type de métrique | Fournisseur de ressources / espace de noms du type<br/> et lien vers des métriques individuelles |
+|-------|-----|
+| Généralités concernant Media Services | [Général](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservices) |
+| Événements en direct | [Microsoft.Media/mediaservices/liveEvents](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservicesliveevents) 
+| Points de terminaison de diffusion en continu | [Microsoft.Media/mediaservices/streamingEndpoints](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints), qui ont trait à l’[API REST Points de terminaison de streaming](/rest/api/media/streamingendpoints). 
 
-### <a name="account"></a>Compte
-
-Vous pouvez surveiller les métriques de compte suivantes.
-
-|Nom de métrique|Nom complet|Description|
-|---|---|---|
-|AssetCount|Nombre de ressources|Ressources dans votre compte.|
-|AssetQuota|Quota de ressources|Quota de ressources dans votre compte.|
-|AssetQuotaUsedPercentage|Pourcentage du quota de ressources utilisé|Pourcentage du quota de ressources déjà utilisé.|
-|ContentKeyPolicyCount|Nombre de stratégies de clé de contenu|Stratégies de clé de contenu dans votre compte.|
-|ContentKeyPolicyQuota|Quota de stratégies de clé de contenu|Quota de stratégies de clé de contenu dans votre compte.|
-|ContentKeyPolicyQuotaUsedPercentage|Pourcentage du quota de stratégies de clé de contenu utilisé|Pourcentage du quota de stratégies de clé de contenu déjà utilisé.|
-|StreamingPolicyCount|Nombre de stratégies de diffusion en continu|Stratégies de diffusion en continu dans votre compte.|
-|StreamingPolicyQuota|Quota de stratégies de diffusion en continu|Quota de stratégies de diffusion en continu dans votre compte.|
-|StreamingPolicyQuotaUsedPercentage|Pourcentage du quota de stratégies de diffusion en continu utilisé|Pourcentage du quota de stratégies de diffusion en continu déjà utilisé.|
 
 Vous devez également examiner les [quotas et limites de compte](../limits-quotas-constraints-reference.md).
 
-### <a name="streaming-endpoint"></a>Point de terminaison de streaming
-
-Les métriques de [points de terminaison de streaming](/rest/api/media/streamingendpoints) Media Services suivantes sont pris en charge :
-
-|Nom de métrique|Nom complet|Description|
-|---|---|---|
-|Demandes|Demandes|Fournit le nombre total de requêtes HTTP traitées par le point de terminaison de streaming.|
-|Sortie|Sortie|Nombre total d’octets de sortie par minute par point de terminaison de streaming.|
-|SuccessE2ELatency|Latence de réussite de bout en bout|Durée à partir de laquelle le point de terminaison de streaming a reçu la requête lorsque le dernier octet de la réponse a été envoyé.|
-|Utilisation de l’UC| | Utilisation de l’UC pour les points de terminaison de streaming Premium. Ces données ne sont pas disponibles pour les points de terminaison de streaming Standard. |
-|Bande passante en sortie | | Sortie de la bande passante en bits par seconde.|
 
 ## <a name="metric-dimensions"></a>Dimensions de métrique
 
 Pour plus d’informations sur les dimensions de métrique, consultez [Métriques multidimensionnelles](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
-<!--**PLACEHOLDER** for dimensions table.-->
+Media Services présente les dimensions de métriques suivantes.  Elles sont explicites selon les métriques prises en charge.  Pour plus d’informations, consultez les [Liens de métriques](#metrics) ci-dessus.   
+- OutputFormat
+- HttpStatusCode 
+- ErrorCode 
+- TrackName 
 
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
 
-## <a name="media-services-diagnostic-logs"></a>Journaux de diagnostic Media Services
+Les journaux de ressources fournissent des informations complètes et fréquentes sur le fonctionnement d’une ressource Azure. Pour plus d’informations, consultez [Comment collecter et utiliser des données de journal à partir de vos ressources Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
-Les journaux de diagnostic fournissent des informations complètes et fréquentes sur le fonctionnement d’une ressource Azure. Pour plus d’informations, consultez [Comment collecter et utiliser des données de journal à partir de vos ressources Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
-
-Media Services prend en charge les journaux de diagnostic suivants :
-
-* Remise de clés
-
-### <a name="key-delivery"></a>Remise de clés
-
-|Nom|Description|
-|---|---|
-|Demande de service de remise de clé|Journaux contenant les informations de demande de service de remise de clé. Pour plus d’informations, consultez la section relative aux [schémas](monitor-media-services-data-reference.md).|
+Media Services prend en charge les journaux de ressources suivants : [Microsoft.Media/mediaservices](../../../azure-monitor/essentials/resource-logs-categories.md#microsoftmediamediaservices)
 
 ## <a name="schemas"></a>Schémas
 
 Pour une description détaillée du schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
-## <a name="key-delivery-log-schema-properties"></a>Propriétés du schéma de journal de remise de clés
+### <a name="key-delivery"></a>Remise de clés 
 
 Ces propriétés sont spécifiques au schéma du journal de remise de clé.
 

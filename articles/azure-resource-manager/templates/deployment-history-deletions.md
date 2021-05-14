@@ -3,12 +3,13 @@ title: Suppressions de l’historique de déploiement
 description: Décrit la manière dont Azure Resource Manager supprime automatiquement les déploiements de l’historique de déploiement. Les déploiements sont supprimés lorsque l’historique approche de la limite des 800 déploiements.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: b55c022c35c43be6818bb3c551d5db85b1927ebb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2920eb1daa626b6a817b2fe3b388e8c531f12e4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781844"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751615"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Suppressions automatiques de l’historique de déploiement
 

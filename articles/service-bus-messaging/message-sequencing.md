@@ -2,17 +2,17 @@
 title: Séquencement et horodatage des messages Azure Service Bus | Microsoft Docs
 description: Cet article explique comment conserver le séquencement et le classement (avec timestamps) des messages Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: fdb18802e576ad114fd3f783d5efd7bb826a5f94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 3d5300568232afae1238445113d60eda8cdb2f1b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85341177"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497095"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Séquencement et horodatage des messages
 
-Le séquencement et l’horodatage sont deux fonctionnalités qui sont toujours activées sur toutes les entités Service Bus et qui sont exposées par le biais des propriétés [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) et [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) des messages reçus ou parcourus.
+Le séquencement et l’horodatage sont deux fonctionnalités qui sont toujours activées sur toutes les entités Service Bus et qui sont exposées via les propriétés `SequenceNumber` et `EnqueuedTimeUtc` des messages reçus ou parcourus.
 
 Dans les scénarios où le respect de l’ordre absolu des messages est important et/ou dans lesquels un consommateur a besoin de suivre les messages avec un identificateur unique fiable, le répartiteur horodate les messages avec des numéros de séquence incrémentiels continus en lien avec la file d’attente ou la rubrique. Pour les entités partitionnées, le numéro de séquence est déterminé par rapport à la partition.
 
@@ -30,7 +30,11 @@ Vous pouvez envoyer des messages dans une file d’attente ou une rubrique pour 
 
 Les messages planifiés n’apparaissent réellement dans la file d’attente qu’à l’heure définie de la mise en file d’attente. Avant ce moment, les messages planifiés peuvent être annulés. L’annulation supprime le message.
 
-Vous pouvez planifier un message soit en définissant la propriété [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) au moment de l’envoi du message via le chemin d’envoi normal, soit explicitement avec l’API [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_). Cette dernière retourne immédiatement la valeur **SequenceNumber** du message planifié, que vous pouvez utiliser ultérieurement pour annuler le message planifié si nécessaire. Les messages planifiés et leurs numéros de séquence peuvent également être découverts avec la fonctionnalité de [parcours des messages](message-browsing.md).
+Vous pouvez planifier des messages en utilisant un de nos clients de deux manières :
+- Utilisez l’API d’envoi standard, mais définissez la propriété `ScheduledEnqueueTimeUtc` sur le message avant l’envoi.
+- Utilisez l’API de message de planification, passez le message normal et l’heure planifiée. Ceci va retourner le **SequenceNumber** du message planifié, que vous pouvez utiliser ultérieurement pour annuler si nécessaire le message planifié. 
+
+Les messages planifiés et leurs numéros de séquence peuvent également être découverts avec la fonctionnalité de [parcours des messages](message-browsing.md).
 
 La valeur **SequenceNumber** d’un message planifié est valide seulement si le message est dans cet état. Quand le message passe à l’état actif, il est ajouté à la file d’attente comme s’il venait d’être mis en file d’attente, ce qui implique l’affectation d’une nouvelle valeur **SequenceNumber**.
 

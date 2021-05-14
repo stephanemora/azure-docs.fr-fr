@@ -12,23 +12,18 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 0bf08c45e82dc6f36d4e179e95e1b58e655b14db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 563f4bb3eeab6bc0329b4eb46ba06c1d4fedf259
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224365"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655243"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Démarrage rapide : Connecter et obtenir un jeton d’accès dans une application monopage (SPA) React à l’aide du flux du code d’authentification
 
 Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application monopage (SPA) React JavaScript peut connecter des utilisateurs et appeler Microsoft Graph en utilisant le flux du code d’autorisation. L’exemple de code montre comment obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou n’importe quelle API web. 
 
 Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
-
-Ce guide de démarrage rapide utilise MSAL React avec le flux du code d’autorisation. Pour obtenir un guide de démarrage rapide similaire qui utilise MSAL.js avec le flux implicite, consultez [Démarrage rapide : Connexion d’utilisateurs dans des applications monopages JavaScript](./quickstart-v2-javascript.md).
-
-> [!IMPORTANT]
-> MSAL React [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

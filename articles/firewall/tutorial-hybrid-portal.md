@@ -1,38 +1,37 @@
 ---
-title: 'Tutoriel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure'
-description: Ce tutoriel vous apprend à déployer et configurer un Pare-feu Azure à l’aide du portail Azure.
+title: Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
+description: Dans cet article, vous découvrez comment déployer et configurer Pare-feu Azure à l’aide du portail Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 11/17/2020
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 86e27c190b269763d8dd2f562a207b3f2020da29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36605d6bf17c7652e7f21b89a83af08972765a30
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98051069"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287600"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
 
 Lorsque vous connectez votre réseau local à un réseau virtuel Azure pour créer un réseau hybride, la possibilité de contrôler l’accès à vos ressources réseau Azure représente une part importante dans un plan de sécurité générale.
 
 Vous pouvez utiliser le Pare-feu Azure pour contrôler l’accès réseau d’un réseau hybride à l’aide de règles définissant le trafic réseau autorisé et refusé.
 
-Pour ce tutoriel, vous créez trois réseaux virtuels :
+Pour cet article, vous créerez trois réseaux virtuels :
 
 - **VNet-Hub** : Le pare-feu se trouve dans ce réseau virtuel.
 - **VNet-Spoke** : Le réseau virtuel spoke correspond à la charge de travail sur Azure.
-- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, ce tutoriel utilise une connexion de passerelle VPN, sachant qu’un réseau virtuel situé sur Azure est utilisé pour représenter un réseau local.
+- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, cette procédure utilise une connexion de passerelle VPN, et un réseau virtuel Azure est utilisé pour représenter un réseau local.
 
 ![Pare-feu dans un réseau hybride](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Dans ce tutoriel, vous allez apprendre à :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Déclarer les variables
 > * Créer le réseau virtuel du hub de pare-feu
 > * Créer le réseau virtuel spoke
 > * Créer le réseau virtuel local
@@ -45,19 +44,22 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous souhaitez plutôt utiliser Azure PowerShell pour suivre cette procédure, consultez [Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell](tutorial-hybrid-ps.md).
 
+> [!NOTE]
+> Cet article utilise des règles de pare-feu classiques pour gérer le pare-feu. La méthode recommandée consiste à utiliser une [stratégie de pare-feu](../firewall-manager/policy-overview.md). Pour suivre cette procédure avec une stratégie de pare-feu, consultez [Tutoriel : Déployer et configurer le Pare-feu Azure et une stratégie de pare-feu dans un réseau hybride en utilisant le portail Azure](tutorial-hybrid-portal-policy.md).
+
 ## <a name="prerequisites"></a>Prérequis
 
 Un réseau hybride utilise le modèle d’architecture Hub and Spoke pour router le trafic entre des réseaux virtuels Azure et des réseaux locaux. L’architecture Hub and Spoke présente les conditions suivantes :
 
-- Vous devez définir **AllowGatewayTransit** lors du Peering de VNet-Hub à VNet-Spoke. Dans une architecture réseau Hub and Spoke, le transit par passerelle permet aux réseaux virtuels spoke d’exploiter la passerelle VPN du hub, évitant ainsi de devoir déployer des passerelles VPN dans chaque réseau virtuel spoke. 
+- Définissez **Utiliser la passerelle ou le serveur de routes de ce réseau virtuel** pendant le peering de VNet-Hub et VNet-Spoke. Dans une architecture réseau Hub and Spoke, le transit par passerelle permet aux réseaux virtuels spoke d’exploiter la passerelle VPN du hub, évitant ainsi de devoir déployer des passerelles VPN dans chaque réseau virtuel spoke. 
 
    De plus, les routes vers les réseaux locaux ou les réseaux virtuels connectés à la passerelle sont propagés automatiquement aux tables de routage pour les réseaux virtuels homologués à l’aide du transit par passerelle. Pour plus d’informations, consultez [Configurer le transit par passerelle VPN pour le peering de réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
-- Vous devez définir **UseRemoteGateways** lors du Peering de VNet-Spoke à VNet-Hub. Si **UseRemoteGateways avec** est défini et que **AllowGatewayTransit** sur le Peering distant est également défini, le réseau virtuel spoke utilise les passerelles du réseau virtuel distant pour le transit.
+- Définissez **Utiliser les passerelles ou le serveur de routes du réseau virtuel distant** pendant le peering de VNet-Spoke et VNet-Hub. Si **Utiliser les passerelles ou le serveur de routes du réseau virtuel distant** est défini en même temps que **Utiliser la passerelle ou le serveur de routes de ce réseau virtuel** sur le peering distant, le réseau virtuel spoke utilise les passerelles du réseau virtuel distant pour le transit.
 - Pour router le trafic de sous-réseau spoke par le biais du pare-feu de hub, vous pouvez utiliser une route définie par l’utilisateur (UDR, User-Defined Route) qui pointe vers le pare-feu avec l’option **Propagation de la route de la passerelle de réseau virtuel** désactivée. L’option désactivée **Propagation de la route de la passerelle de réseau virtuel** empêche la distribution des routes vers les sous-réseaux spoke. Cela empêche que les routes apprises entrent en conflit avec votre UDR. Si vous souhaitez conserver la **Propagation de la route de la passerelle de réseau virtuel** activée, veillez à définir des routes spécifiques vers le pare-feu pour remplacer celles qui sont publiées à partir du site local sur le protocole BGP.
 - Vous devez configurer une UDR sur le sous-réseau de passerelle hub qui pointe vers l’adresse IP du pare-feu comme prochain tronçon vers les réseaux spoke. Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
 
-Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
+Pour plus d'informations sur la création de ces itinéraires, consultez la section [Créer des itinéraires](#create-the-routes) de cet article.
 
 >[!NOTE]
 >Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe.
@@ -71,7 +73,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Créer le réseau virtuel du hub de pare-feu
 
-Tout d’abord, créez le groupe de ressources qui doit contenir les ressources de ce tutoriel :
+Commencez par créer le groupe de ressources qui doit contenir les ressources :
 
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la page d’accueil du portail Azure, sélectionnez **Groupes de ressources** > **Ajouter**.
@@ -154,6 +156,7 @@ Tout d’abord, créez le groupe de ressources qui doit contenir les ressources 
    |Resource group     |**FW-Hybrid-Test** |
    |Nom     |**AzFW01**|
    |Région     |**USA Est**|
+   |Gestion de pare-feu|**Utiliser des règles de pare-feu (classique) pour gérer ce pare-feu**|
    |Choisir un réseau virtuel     |**Utiliser l’existant** :<br> **VNet-hub**|
    |Adresse IP publique     |Ajouter nouveau : <br>**fw-pip**. |
 
@@ -173,27 +176,27 @@ Tout d’abord, ajoutez une règle de réseau pour autoriser le trafic web.
 3. Sélectionnez **Ajouter une collection de règles de réseau**.
 4. Dans le champ **Nom**, tapez **RCNet01**.
 5. Pour **Priorité**, tapez **100**.
-6. Pour **Action**, sélectionnez **Autoriser**.
+6. Pour **Action de collection de règles**, sélectionnez **Autoriser**.
 6. Sous **Règles**, pour **Nom**, tapez **AllowWeb**.
-7. Pour **Protocole**, sélectionnez **TCP**.
 8. Pour **Type de source**, sélectionnez **Adresse IP**.
 9. Pour **Source**, tapez **192.168.1.0/24**.
-10. Pour **Type de destination**, sélectionnez **Adresse IP**.
-11. Pour **Adresse de destination**, tapez **10.6.0.0/16**.
-12. Pour **Ports de destination**, tapez **80**.
+7. Pour **Protocole**, sélectionnez **TCP**.
+1. Pour **Ports de destination**, tapez **80**.
+1. Pour **Type de destination**, sélectionnez **Adresse IP**.
+1. Pour **Destination**, tapez **10.6.0.0/16**.
 
 À présent, ajoutez une règle pour autoriser le trafic RDP.
 
 Sur la deuxième ligne de la règle, tapez les informations suivantes :
 
 1. Pour **Nom**, tapez **AllowRDP**.
-2. Pour **Protocole**, sélectionnez **TCP**.
 3. Pour **Type de source**, sélectionnez **Adresse IP**.
 4. Pour **Source**, tapez **192.168.1.0/24**.
-5. Pour **Type de destination**, sélectionnez **Adresse IP**.
-6. Pour **Adresse de destination**, tapez **10.6.0.0/16**.
-7. Pour **Ports de destination**, tapez **3389**.
-8. Sélectionnez **Ajouter**.
+2. Pour **Protocole**, sélectionnez **TCP**.
+1. Pour **Ports de destination**, tapez **3389**.
+1. Pour **Type de destination**, sélectionnez **Adresse IP**.
+1. Pour **Destination**, tapez **10.6.0.0/16**.
+1. Sélectionnez **Ajouter**.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Créer et connecter les passerelles VPN
 
@@ -423,6 +426,8 @@ Il s’agit d’une machine virtuelle que vous utilisez pour vous connecter au m
 10. Pour **Diagnostics de démarrage**, sélectionnez **Désactiver**.
 10. Sélectionnez **Vérifier + Créer**, vérifiez les paramètres sur la page de résumé, puis sélectionnez **Créer**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="test-the-firewall"></a>Tester le pare-feu
 
 1. Tout d’abord, notez l’adresse IP privée de la machine virtuelle **VM-spoke-01**.
@@ -457,11 +462,10 @@ Fermez les bureaux à distance existants avant de tester les règles modifiées.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **FW-Hybrid-Test** pour supprimer toutes les ressources associées au pare-feu.
+Vous pouvez garder vos ressources de pare-feu à des fins de test complémentaire ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **FW-Hybrid-Test** pour supprimer toutes les ressources associées au pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
-> [!div class="nextstepaction"]
-> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)
+[Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./firewall-diagnostics.md)

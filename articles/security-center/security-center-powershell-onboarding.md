@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 01/24/2021
+ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: 25639509cfb689e025ea4388f302378648af8ba6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f9ab258f59279112d0b90c5d460e6761ac911a2d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439491"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713351"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell
 
@@ -75,9 +75,9 @@ Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les 
     > Nous vous recommandons d’activer l’approvisionnement automatique pour vous assurer que vos machines virtuelles Azure sont automatiquement protégées par Azure Security Center.
     >
 
-1. Facultatif : il est fortement recommandé de définir les contacts de sécurité pour les abonnements que vous intégrez, qui seront utilisés comme destinataires des alertes et notifications générées par Security Center :
+1. Facultatif : il est fortement recommandé de [définir les contacts de sécurité](security-center-provide-security-contact-details.md) pour les abonnements que vous intégrez, qui seront utilisés comme destinataires des alertes et des notifications générées par Azure Security Center :
 
-    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -AlertAdmin -NotifyOnAlert```
 
 1. Assignez l’initiative de stratégie Azure Security Center par défaut :
 

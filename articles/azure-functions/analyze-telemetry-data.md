@@ -4,12 +4,12 @@ description: Découvrez comment afficher et interroger les données de télémé
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d06fe64ddc0475b5ca7d9c16876c8dfc9acda544
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 47d5bbf8d8a1f85c4f9441076ef29ffd94710947
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729366"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064122"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analyser la télémétrie d’Azure Functions dans Application Insights 
 
@@ -146,7 +146,7 @@ En plus des données de télémétrie que collecte la fonctionnalité Applicatio
 
 | Métrique | Description |
 | ---- | ---- |
-| **FunctionExecutionCount** | Le nombre d’exécutions de fonction indique le nombre de fois que votre application de fonction s’est exécutée. Cela correspond au nombre de fois qu’une fonction s’exécute dans votre application. Actuellement, cette métrique n’est pas prise en charge pour les plans Premium et Dedicated (App Service) s’exécutant sur Linux. |
+| **FunctionExecutionCount** | Le nombre d’exécutions de fonction indique le nombre de fois que votre application de fonction s’est exécutée. Cela correspond au nombre de fois qu’une fonction s’exécute dans votre application. |
 | **FunctionExecutionUnits** | Les unités d’exécution de fonction sont une combinaison du temps d’exécution et de votre utilisation de la mémoire.  La métrique des données de mémoire n’est actuellement pas disponible par le biais d’Azure Monitor. En revanche, si vous voulez optimiser l’utilisation de la mémoire de votre application, vous pouvez utiliser les données du compteur de performances collectées par Application Insights. Actuellement, cette métrique n’est pas prise en charge pour les plans Premium et Dedicated (App Service) s’exécutant sur Linux.|
 
 Pour en savoir plus sur le calcul des coûts pour un plan Consommation à l’aide de données d’Application Insights, consultez [Estimation des coûts d’un plan Consommation](functions-consumption-costs.md). Pour en savoir plus sur l’utilisation de l’explorateur de surveillance pour afficher des métriques, consultez [Prise en main d’Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).

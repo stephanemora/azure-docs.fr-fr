@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Key Vault
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Key Vault. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 5362b84135a8efd53284b9c2308ba70d9ae113bc
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: d0f4f118264b84ea143f244ace79bb7cf5e3b17a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107506169"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755162"
 ---
 # <a name="azure-policy-built-in-definitions-for-key-vault"></a>Définitions intégrées d’Azure Policy pour Key Vault
 

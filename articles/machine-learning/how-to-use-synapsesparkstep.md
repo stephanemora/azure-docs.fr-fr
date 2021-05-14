@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 2c69ec853cdeeed6f9e28fb9f2884053580ce08e
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868645"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576378"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Guide pratique pour utiliser Apache Spark (alimenté par Azure Synapse Analytics) dans votre pipeline Machine Learning (préversion)
 
@@ -199,7 +199,7 @@ Ce script de préparation des données n’effectue aucune transformation de don
 
 ## <a name="use-the-synapsesparkstep-in-a-pipeline"></a>Utiliser le `SynapseSparkStep` dans un pipeline
 
-D’autres étapes dans le pipeline peuvent avoir leurs propres environnements et s’exécuter sur différentes ressources de calcul appropriées à la tâche en cours. L’exemple de notebook exécute « l’étape d’entraînement » sur un petit cluster de processeurs :
+L’exemple suivant utilise la sortie de `SynapseSparkStep` créée dans la [section précédente](#create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool). D’autres étapes dans le pipeline peuvent avoir leurs propres environnements et s’exécuter sur différentes ressources de calcul appropriées à la tâche en cours. L’exemple de notebook exécute « l’étape d’entraînement » sur un petit cluster de processeurs :
 
 ```python
 from azureml.core.compute import AmlCompute

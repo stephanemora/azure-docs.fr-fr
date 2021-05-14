@@ -8,12 +8,12 @@ ms.date: 01/22/2018
 ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: 8bdfceff562ae2501a9d95774f7134669e929b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eaeead3120139553e0430aae885e412693d621c4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379401"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771016"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copier des données vers et depuis Data Lake Storage Gen1 à l’aide de Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -28,11 +28,11 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 Vous pouvez copier les données **à partir d’Azure Data Lake Store** dans les magasins de données suivants :
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 Vous pouvez copier les données des magasins de données suivants **dans Azure Data Lake Store** :
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
 > Créez un compte Data Lake Store avant de créer un pipeline avec activité de copie. Pour plus d’informations, consultez [Prise en main d’Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md).

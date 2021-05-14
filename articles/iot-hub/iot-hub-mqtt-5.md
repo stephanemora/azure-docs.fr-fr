@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: jlian
-ms.openlocfilehash: fb2cc0b81083936a67bcd465e0408b9f4b53996b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbe51d51da55d6708bfae96d0fec15eec9896602
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96602993"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109484844"
 ---
 # <a name="iot-hub-mqtt-5-support-overview-preview"></a>Vue d’ensemble de la prise en charge de MQTT 5 d’Azure IoT Hub (préversion)
 
@@ -111,7 +111,7 @@ L’authentification par nom d’utilisateur/mot de passe utilisée dans les ver
 
 #### <a name="sas"></a>SAS
 
-Avec l’authentification par signature d’accès partagé, le client doit fournir la signature du contexte de connexion. Cela prouve l’authenticité de la connexion MQTT. La signature doit être basée sur l’une des deux clés d’authentification de la configuration du client dans IoT Hub ou sur l’une des deux clés d’accès partagé d’une [stratégie d’accès partagé](iot-hub-devguide-security.md).
+Avec l’authentification par signature d’accès partagé, le client doit fournir la signature du contexte de connexion. Cela prouve l’authenticité de la connexion MQTT. La signature doit être basée sur l’une des deux clés d’authentification de la configuration du client dans IoT Hub ou sur l’une des deux clés d’accès partagé d’une [stratégie d’accès partagé](iot-hub-dev-guide-sas.md).
 
 La chaîne à signer doit être formée comme suit :
 

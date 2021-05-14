@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: e7fc4bacd73cec0fdab3117ada190fb7964b4282
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 77aec881cdf934888356dd276cad7d0698d56ad1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550895"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136226"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-virtual-machines"></a>Guide de migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 
@@ -30,7 +30,7 @@ Vous pouvez migrer SQL Server s’exécutant en local ou sur :
 - Amazon Relational Database Service (AWS RDS).
 - Compute Engine (Google Cloud Platform [GCP]).
 
-Pour plus d’informations sur des stratégies de migration supplémentaires, consultez la [vue d’ensemble de la migration de machine virtuelle SQL Server](sql-server-to-sql-on-azure-vm-migration-overview.md). Pour obtenir d’autres guides de migration, consultez les [Guides de migration de base de données Azure](https://docs.microsoft.com/data-migration).
+Pour plus d’informations sur des stratégies de migration supplémentaires, consultez la [vue d’ensemble de la migration de machine virtuelle SQL Server](sql-server-to-sql-on-azure-vm-migration-overview.md). Pour obtenir d’autres guides de migration, consultez les [Guides de migration de base de données Azure](/data-migration).
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="Diagramme illustrant un flux du processus de migration.":::
 
@@ -53,7 +53,7 @@ Avant de commencer votre migration, vous devez découvrir la topologie de votre 
 Azure Migrate évalue la pertinence de la migration des ordinateurs locaux, effectue un dimensionnement en fonction des performances et fournit des estimations de coût pour une exécution locale. Pour planifier la migration, utilisez Azure Migrate afin d’[identifier les sources de données existantes ainsi que les détails relatifs aux fonctionnalités](../../../migrate/concepts-assessment-calculation.md) utilisées par vos instances de SQL Server. Ce processus implique une analyse du réseau pour identifier toutes les instances de SQL Server de votre organisation ainsi que la version et les fonctionnalités utilisées.
 
 > [!IMPORTANT]
-> Quand vous choisissez une machine virtuelle Azure cible pour votre instance SQL Server, veillez à prendre en compte les [Recommandations de performances pour SQL Server sur les machines virtuelles Azure](../../virtual-machines/windows/performance-guidelines-best-practices.md).
+> Quand vous choisissez une machine virtuelle Azure cible pour votre instance SQL Server, veillez à prendre en compte les [Recommandations de performances pour SQL Server sur les machines virtuelles Azure](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 
 Pour accéder à des outils de découverte supplémentaires, consultez [Services et outils disponibles pour les scénarios de migration de données](../../../dms/dms-tools-matrix.md#business-justification-phase).
 
@@ -146,7 +146,7 @@ Le tableau ci-dessous fournit une liste des composants de référence et des mé
 | **Fonctionnalité** | **Composant** | **Méthodes de migration** |
 | --- | --- | --- |
 | **Bases de données** | Modèle | Script avec SQL Server Management Studio. |
-|| TempDB | Pour des performances optimales, prévoyez le déplacement de la base de données tempDB sur un [disque temporaire (SSD) de machine virtuelle Azure](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk). Veillez à choisir une machine virtuelle disposant d’un disque SSD local dont la taille est suffisante pour accueillir votre base de données tempDB. |
+|| TempDB | Pour des performances optimales, prévoyez le déplacement de la base de données tempDB sur un [disque temporaire (SSD) de machine virtuelle Azure](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#storage). Veillez à choisir une machine virtuelle disposant d’un disque SSD local dont la taille est suffisante pour accueillir votre base de données tempDB. |
 || Bases de données utilisateur avec FileStream | Utilisez les méthodes de [sauvegarde et de restauration](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) pour la migration. L’Assistant Migration de données ne prend pas en charge les bases de données avec FileStream. |
 | **Sécurité** | Connexions SQL Server et Windows | Utilisez l’Assistant Migration de données pour [migrer les connexions utilisateur](/sql/dma/dma-migrateserverlogins). |
 || Rôles SQL Server | Script avec SQL Server Management Studio. |
@@ -179,7 +179,7 @@ Appliquez les correctifs recommandés par l’Assistant Migration de données au
 L’approche de test pour la migration de base de données comprend les activités suivantes :
 
 1. **Développer des tests de validation** : pour tester la migration d’une base de données, vous devez utiliser des requêtes SQL. Créez des requêtes de validation à exécuter sur les bases de données source et cible. Vos requêtes de validation doivent couvrir l’étendue que vous avez définie.
-1. **Configurer un environnement de test** : l’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
+1. **Configurer un environnement de test** : L’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
 1. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
 1. **Exécuter des tests de performance** : exécutez des tests de performances sur la source et sur la cible, puis analysez et comparez les résultats.
 
@@ -193,7 +193,7 @@ La phase post-migration est cruciale pour résoudre les problèmes d’exactitud
 Pour plus d’informations sur ces problèmes et les étapes pour les atténuer, consultez :
 
 - [Guide de validation et d’optimisation post-migration](/sql/relational-databases/post-migration-validation-and-optimization-guide)
-- [Réglage des performances sur les machines virtuelles Azure SQL](../../virtual-machines/windows/performance-guidelines-best-practices.md)
+- [Réglage des performances sur les machines virtuelles Azure SQL](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md)
 - [Centre d’optimisation des coûts Azure](https://azure.microsoft.com/overview/cost-optimization/)
 
 ## <a name="next-steps"></a>Étapes suivantes

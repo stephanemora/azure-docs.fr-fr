@@ -4,20 +4,16 @@ description: Apprenez à récupérer les adresses IP d'un service Gestion des AP
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 45501fee9ae6ff47643a1ed197a07c4ba598e981
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5939292b6e810634723fada17521bb227764b989
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80047743"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534029"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Adresses IP du service Gestion des API Azure
 
@@ -106,4 +102,4 @@ Aux niveaux Développeur, De base, Standard et Premium d'un service Gestion des 
 * Le Réseau virtuel Azure est ajouté au service ou supprimé de celui-ci.
 * Le service Gestion des API bascule entre les modes de déploiement de réseau virtuel Externe et Interne.
 
-Dans les [déploiements multirégionaux](api-management-howto-deploy-multi-region.md), l'adresse IP régionale change si une région est libérée, puis rétablie.
+Dans les [déploiements multirégionaux](api-management-howto-deploy-multi-region.md), l'adresse IP régionale change si une région est libérée, puis rétablie. L’adresse IP régionale change également lorsque vous activez, ajoutez ou supprimez des [zones de disponibilité](zone-redundancy.md).

@@ -77,25 +77,25 @@
     - name: Forum Aux Questions (FAQ)
       items:
         - name: FAQ sur les coffres Recovery Services
-          href: backup-azure-backup-faq.md
+          href: backup-azure-backup-faq.yml
         - name: Questions fréquentes (FAQ) sur le Centre de sauvegarde
           href: backup-center-faq.yml
         - name: FAQ sur la sauvegarde des machines virtuelles Azure
           href: backup-azure-vm-backup-faq.yml
         - name: FAQ sur l’agent MARS
-          href: backup-azure-file-folder-backup-faq.md
+          href: backup-azure-file-folder-backup-faq.yml
         - name: FAQ sur la sauvegarde des fichiers Azure
-          href: backup-azure-files-faq.md
+          href: backup-azure-files-faq.yml
         - name: FAQ sur la sauvegarde des disques Azure
-          href: disk-backup-faq.md
+          href: disk-backup-faq.yml
         - name: FAQ sur la sauvegarde des bases de données SQL Server sur des machines virtuelles Azure
-          href: faq-backup-sql-server.md
+          href: faq-backup-sql-server.yml
         - name: FAQ sur la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
-          href: sap-hana-faq-backup-azure-vm.md
+          href: sap-hana-faq-backup-azure-vm.yml
         - name: FAQ sur le serveur de sauvegarde Azure et DPM
-          href: backup-azure-dpm-azure-server-faq.md
+          href: backup-azure-dpm-azure-server-faq.yml
         - name: FAQ sur l’alerte de supervision Sauvegarde Azure
-          href: backup-azure-monitor-alert-faq.md
+          href: backup-azure-monitor-alert-faq.yml
     - name: Architecture de sauvegarde
       href: backup-architecture.md
     - name: Aide et bonnes pratiques
@@ -140,7 +140,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -204,7 +204,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Sauvegarde
+        - name: Backup
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -212,6 +212,8 @@
               href: backup-azure-system-state.md
         - name: Restaurer
           items:
+            - name: Vue d’ensemble
+              href: about-restore-microsoft-azure-recovery-services.md
             - name: Récupérer des fichiers à partir d’Azure vers Windows Server
               href: backup-azure-restore-windows-server.md
             - name: Restaurer tous les fichiers dans un volume
@@ -224,25 +226,41 @@
       items:
         - name: Vue d’ensemble
           href: disk-backup-overview.md
-        - name: Sauvegarde
-          href: backup-managed-disks.md
-        - name: Restaurer
-          href: restore-managed-disks.md
+        - name: À partir du portail Azure
+          items:
+            - name: Backup
+              href: backup-managed-disks.md
+            - name: Restaurer
+              href: restore-managed-disks.md
+        - name: Avec PowerShell
+          items:
+            - name: Backup
+              href: backup-managed-disks-ps.md
+            - name: Restaurer
+              href: restore-managed-disks-ps.md
     - name: Sauvegarde des objets BLOB Azure
       items:
         - name: Vue d’ensemble
           href: blob-backup-overview.md
-        - name: Configurer et gérer
-          href: blob-backup-configure-manage.md
-        - name: Restaurer
-          href: blob-restore.md
+        - name: À partir du portail Azure
+          items:
+            - name: Configurer et gérer
+              href: blob-backup-configure-manage.md
+            - name: Restaurer
+              href: blob-restore.md
+        - name: Avec PowerShell
+          items:
+            - name: Backup
+              href: backup-blobs-storage-account-ps.md
+            - name: Restaurer
+              href: restore-blobs-storage-account-ps.md
     - name: Sauvegarde des partages de fichiers Azure
       items:
         - name: Vue d’ensemble
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -250,7 +268,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -258,7 +276,7 @@
               href: manage-afs-backup-cli.md
         - name: Avec PowerShell
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-afs-automation.md
             - name: Restaurer
               href: restore-afs-powershell.md
@@ -266,7 +284,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Sauvegarde
+            - name: Backup
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -276,7 +294,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Sauvegarde
+        - name: Backup
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -452,7 +470,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
     - name: Niveau d’accès
       items:
         - name: Niveau de stockage archive
@@ -492,7 +510,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: PowerShell – Agent Sauvegarde Azure
-      href: /powershell/module/msonlinebackup/msonlinebackup
+      href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
     - name: REST - Sauvegarde
       href: /rest/api/backup/
     - name: REST - Coffre Recovery Services

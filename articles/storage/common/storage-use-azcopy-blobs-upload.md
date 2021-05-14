@@ -4,18 +4,18 @@ description: Cet article contient une collection d’exemples de commandes AzCop
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7cdc10720b6fa93cf1893d2040fd1c1f3e9e1f02
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 352497f0f4d23250abe9f84121f358589664002b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728860"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502910"
 ---
-# <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Charger des fichiers vers Stockage Blob Azure avec AzCopy v10
+# <a name="upload-files-to-azure-blob-storage-by-using-azcopy"></a>Charger des fichiers sur Stockage Blob Azure avec AzCopy
 
 Vous pouvez charger des fichiers et des répertoires vers le stockage d’objets blob à l’aide de l’utilitaire en ligne de commande AzCopy v10. 
 
@@ -37,11 +37,23 @@ Vous pouvez utiliser la commande [azcopy make](storage-ref-azcopy-make.md) pour 
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple | Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'` |
-| **Exemple** | `azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'` |
-| **Exemple** (espace de noms hiérarchique) | `azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'` |
+Voici un exemple de table :
+
+**Syntaxe**
+
+`azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'`
+
+**Exemple**
+
+```azcopy
+https://mystorageaccount.blob.core.windows.net/mycontainer
+```
+
+**Exemple (espace de noms hiérarchique)**
+
+```azcopy
+https://mystorageaccount.dfs.core.windows.net/mycontainer
+```
 
 Pour obtenir des informations de référence détaillées, consultez [azcopy make](storage-ref-azcopy-make.md).
 
@@ -52,11 +64,21 @@ Chargez un fichier à l’aide de la commande [azcopy copy](storage-ref-azcopy-c
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'` |
-| **Exemple** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
-| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
+**Syntaxe**
+
+`azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'`
+
+**Exemple**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
+```
+
+**Exemple (espace de noms hiérarchique)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'
+```
 
 Vous pouvez également charger un fichier en plaçant un caractère générique (*) n’importe où dans le chemin ou le nom de fichier. Par exemple : `'C:\myDirectory\*.txt'` ou `C:\my*\*.txt`.
 
@@ -69,18 +91,35 @@ Cet exemple copie un répertoire (et tous les fichiers qu’il contient) dans un
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive` |
-| **Exemple** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
-| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --recursive` |
+**Syntaxe**
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive`
+
+**Exemple**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive
+```
+
+**Exemple (espace de noms hiérarchique)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --recursive
+```
 
 Pour copier des éléments dans un répertoire du conteneur, spécifiez simplement le nom de ce répertoire dans votre chaîne de commande.
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Exemple** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
-| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
+**Exemple**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive
+```
+
+**Exemple (espace de noms hiérarchique)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive
+```
 
 Si vous spécifiez le nom d’un répertoire qui n’existe pas dans le conteneur, AzCopy crée un répertoire portant ce nom.
 
@@ -91,12 +130,21 @@ Chargez le contenu d’un répertoire à l’aide de la commande [azcopy copy](s
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
-| **Exemple** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
-| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
+**Syntaxe**
 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` 
+
+**Exemple**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'
+```
+
+**Exemple (espace de noms hiérarchique)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'
+```
 
 Ajoutez l’indicateur `--recursive` pour charger des fichiers dans tous les sous-répertoires.
 
@@ -111,11 +159,21 @@ Vous pouvez charger des fichiers spécifiques en utilisant des noms de fichiers 
 
 Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-path`. Séparez les noms de fichiers à l’aide d’un point-virgule (`;`).
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` |
-| **Exemple** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
-| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
+**Syntaxe** 
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` 
+
+**Exemple**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
+```
+
+**Exemple (espace de noms hiérarchique)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
+```
 
 Dans cet exemple, AzCopy transfère le répertoire `C:\myDirectory\photos` et le fichier `C:\myDirectory\documents\myFile.txt`. Incluez l’option `--recursive` pour transférer tous les fichiers dans le répertoire `C:\myDirectory\photos`.
 
@@ -125,11 +183,21 @@ Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude
 
 Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-pattern`. Spécifiez des noms partiels qui incluent les caractères génériques. Séparez les noms à l’aide d’un point-virgule (`;`). 
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
-| **Exemple** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
-| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
+**Syntaxe**
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` 
+
+**Exemple**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
+```
+
+**Exemple (espace de noms hiérarchique)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
+```
 
 Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude-pattern`. Pour plus d’informations, consultez la documentation de référence sur [azcopy copy](storage-ref-azcopy-copy.md).
 
@@ -141,11 +209,21 @@ Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `
 
 Les exemples suivants chargent les fichiers qui ont été modifiés à la date spécifiée ou après celle-ci.
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
-| **Exemple** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
-| **Exemple** (espace de noms hiérarchique) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+**Syntaxe**
+
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` 
+
+**Exemple**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'
+```
+
+**Exemple (espace de noms hiérarchique)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'
+```
 
 Pour obtenir des informations de référence détaillées, consultez les documents de référence [azcopy copy](storage-ref-azcopy-copy.md).
 
@@ -164,11 +242,23 @@ Les exemples suivants montrent comment utiliser l’option `--blob-tags`.
 > [!TIP]
 > Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
 
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Charger un fichier** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
-| **Charger un annuaire** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
-| **Charger le contenu d’un répertoire** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+**Charger un fichier**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
+
+**Charger un annuaire**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
+
+**Charger le contenu d’un répertoire**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
 
 > [!NOTE]
 > Si vous spécifiez un répertoire comme source, tous les objets blob copiés vers la destination auront les mêmes balises que celles que vous spécifiez dans la commande.
@@ -192,6 +282,12 @@ Vous trouverez plus d’exemples dans ces articles :
 - [Exemples : Copier entre comptes](storage-use-azcopy-blobs-copy.md)
 - [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
 - [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
+- [Exemples : Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Exemples : Azure Files](storage-use-azcopy-files.md)
 - [Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
-- [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
+
+Consultez les articles suivants pour configurer les paramètres, optimiser les performances et résoudre les problèmes :
+
+- [Paramètres de configuration d’AzCopy](storage-ref-azcopy-configuration-settings.md)
+- [Optimiser les performances d’AzCopy](storage-use-azcopy-optimize.md)
+- [Résoudre les problèmes d’AzCopy v10 dans Stockage Azure en utilisant des fichiers journaux](storage-use-azcopy-configure.md)

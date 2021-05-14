@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: e182ef6c5fb7bf1b76424fffdbc862775e93e29c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b8a1526605195b5eb24d8044f42b70ca5336bf7c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606298"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878305"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Bibliothèques de connexions d’Azure Database pour PostgreSQL - Serveur unique
 Cet article liste les bibliothèques et les pilotes qui sont à la disposition des développeurs pour développer des applications qui se connectent à Azure Database pour PostgreSQL et l’interrogent.
@@ -27,7 +27,7 @@ La plupart des bibliothèques clientes de langages qui permettent de se connecte
 | Java | [JDBC](https://jdbc.postgresql.org/) | Pilote JDBC de type 4 | [Télécharger](https://jdbc.postgresql.org/download.html)  |
 | Ruby | [Pg gem](https://deveiate.org/code/pg/) | Interface Ruby | [Télécharger](https://rubygems.org/downloads/pg-0.20.0.gem) |
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | Pilote Go Postgres pur | [Installer](https://github.com/lib/pq/blob/master/README.md) |
-| C\#/ .NET | [Npgsql](https://www.npgsql.org/) | Fournisseur de données ADO.NET | [Télécharger](https://www.microsoft.com/net/) |
+| C\#/ .NET | [Npgsql](https://www.npgsql.org/) | Fournisseur de données ADO.NET | [Télécharger](https://dotnet.microsoft.com/download) |
 | ODBC | [psqlODBC](https://odbc.postgresql.org/) | Pilote ODBC | [Télécharger](https://www.postgresql.org/ftp/odbc/versions/) |
 | C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Interface principale du langage C | Inclus |
 | C++ | [libpqxx](http://pqxx.org/) | Interface C++ remaniée | [Télécharger](http://pqxx.org/download/software/) |

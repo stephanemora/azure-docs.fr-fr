@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/16/2020
-ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/20/2021
+ms.openlocfilehash: def73d137f3cc2c79ae8417995ec6bdf6c519b7d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963677"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812621"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -50,7 +50,7 @@ Le tableau suivant décrit les combinaisons et les options que les consommateurs
 | Explorateur de données ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage
-Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Storage Gen1 et Azure Data Lake Storage Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seuls les objets blob de blocs sont actuellement pris en charge. 
+Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Storage Gen1 et Azure Data Lake Storage Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Vous pouvez partager des objet blob de pages, d’ajouts et de blocs et ils sont reçus en tant qu’objets blob de blocs.
 
 Lorsque les systèmes de fichiers, les conteneurs ou les dossiers sont partagés dans un partage basé sur un instantané, les consommateurs de données peuvent choisir d’effectuer une copie complète des données partagées. Ils peuvent également utiliser la fonctionnalité d’instantané incrémentiel pour copier uniquement les fichiers nouveaux ou mis à jour. 
 

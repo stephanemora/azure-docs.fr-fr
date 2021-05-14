@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Modèle d’autorisation de cloud privé
 description: Décrit le modèle d’autorisation, les groupes et les catégories de cloud privé CloudSimple
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be77be14acf05aa543c1494f16e499f00598e2b4
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898043"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108184511"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modèle d’autorisation de cloud privé CloudSimple de VMware vCenter
 

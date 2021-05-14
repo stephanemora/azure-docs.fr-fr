@@ -3,13 +3,13 @@ title: Créer un hub d’événement avec capture activée - Azure Event Hubs | 
 description: Créer un espace de noms Azure Event Hubs avec un concentrateur d’événements et activer Capture à l’aide d’un modèle Azure Resource Manager
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1b7ce00c1db0866b1965ed6d1bba31aa28f8bc24
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 54dbe55448e905bab1893aac6c71baace0205be0
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304934"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736679"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Créer un espace de noms avec un Event Hub et activer Capture à l’aide d’un modèle
 
@@ -23,19 +23,19 @@ Pour plus d’informations sur les modèles et les pratiques des conventions d�
 
 Pour les modèles terminés, cliquez sur les liens GitHub suivants :
 
-- [Event Hub et activer le modèle de Capture vers le stockage][Event Hub and enable Capture to Storage template] 
+- [Event Hub et activer le modèle de Capture vers le stockage][Event Hub and enable Capture to Storage template]
 - [Event Hub et activer le modèle Azure Data Lake Store][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
 > Pour connaître les derniers modèles, recherchez Event Hubs dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates] .
-> 
-> 
+>
+>
 
 ## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
 
 Avec ce modèle, vous déployez un espace de noms Event Hubs avec un concentrateur d’événements, et activez [Event Hubs Capture](event-hubs-capture-overview.md). Event Hubs Capture vous permet de transmettre automatiquement les données de streaming des instances Event Hubs au stockage Blob Azure ou à Azure Data Lake Store et ce, dans l’intervalle de temps ou de taille que vous spécifiez. Cliquez sur le bouton suivant pour activer Event Hubs Capture dans le stockage Azure :
 
-[![Déployer sur Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
+[![Déployer sur Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.eventhub%2Feventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
 Cliquez sur le bouton suivant pour activer Event Hubs Capture dans Azure Data Lake Store :
 
@@ -52,9 +52,9 @@ Le modèle définit les paramètres suivants.
 Nom de l’espace de noms Event Hubs à créer.
 
 ```json
-"eventHubNamespaceName":{  
+"eventHubNamespaceName":{
      "type":"string",
-     "metadata":{  
+     "metadata":{
          "description":"Name of the EventHub namespace"
       }
 }
@@ -65,9 +65,9 @@ Nom de l’espace de noms Event Hubs à créer.
 Nom du concentrateur d’événements créé dans l’espace de noms Event Hubs.
 
 ```json
-"eventHubName":{  
+"eventHubName":{
     "type":"string",
-    "metadata":{  
+    "metadata":{
         "description":"Name of the event hub"
     }
 }
@@ -75,7 +75,7 @@ Nom du concentrateur d’événements créé dans l’espace de noms Event Hubs.
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
 
-Nombre de jours pendant lesquels conserver les messages dans le concentrateur d’événements. 
+Nombre de jours pendant lesquels conserver les messages dans le concentrateur d’événements.
 
 ```json
 "messageRetentionInDays":{
@@ -171,7 +171,7 @@ L’intervalle de taille pour lequel la fonctionnalité Capture démarre la capt
 ### <a name="capturenameformat"></a>captureNameFormat
 
 Le format de nom utilisé par Event Hubs Capture pour écrire les fichiers Avro. Notez qu’un format de nom de Capture doit contenir les champs `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` et `{Second}`. Ceux-ci peuvent être organisés dans n’importe quel ordre, avec ou sans délimiteurs.
- 
+
 ```json
 "captureNameFormat": {
       "type": "string",
@@ -180,7 +180,7 @@ Le format de nom utilisé par Event Hubs Capture pour écrire les fichiers Avro.
         "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
       }
     }
-  
+
 ```
 
 ### <a name="apiversion"></a>apiVersion
@@ -188,10 +188,10 @@ Le format de nom utilisé par Event Hubs Capture pour écrire les fichiers Avro.
 Version d’API du modèle.
 
 ```json
- "apiVersion":{  
+ "apiVersion":{
     "type":"string",
     "defaultValue":"2017-04-01",
-    "metadata":{  
+    "metadata":{
         "description":"ApiVersion used by the template"
     }
  }
@@ -271,13 +271,13 @@ Le chemin d’accès du dossier de destination pour les événements capturés. 
 Crée un espace de noms de type **EventHub** avec un Event Hub et active Capture pour le Stockage Blob Azure.
 
 ```json
-"resources":[  
-      {  
+"resources":[
+      {
          "apiVersion":"[variables('ehVersion')]",
          "name":"[parameters('eventHubNamespaceName')]",
          "type":"Microsoft.EventHub/Namespaces",
          "location":"[variables('location')]",
-         "sku":{  
+         "sku":{
             "name":"Standard",
             "tier":"Standard"
          },
@@ -377,7 +377,7 @@ Crée un espace de noms de type **EventHub** avec un Event Hub et active Capture
 ```
 
 > [!NOTE]
-> La propriété **skipEmptyArchives** vous permet d’activer ou de désactiver l’envoi de fichiers vides lorsqu’aucun événement ne se produit pendant la fenêtre de capture. 
+> La propriété **skipEmptyArchives** vous permet d’activer ou de désactiver l’envoi de fichiers vides lorsqu’aucun événement ne se produit pendant la fenêtre de capture.
 
 ## <a name="commands-to-run-deployment"></a>Commandes pour l’exécution du déploiement
 
@@ -388,9 +388,9 @@ Crée un espace de noms de type **EventHub** avec un Event Hub et active Capture
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Déployer votre modèle pour activer Event Hubs Capture dans le stockage Azure :
- 
+
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
 Déployer votre modèle pour activer Event Hubs Capture dans Azure Data Lake Store :
@@ -404,7 +404,7 @@ New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -Templa
 Stockage Blob Azure comme destination :
 
 ```azurecli
-az deployment group create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
+az deployment group create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
 Azure Data Lake Store comme destination :
@@ -426,5 +426,5 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Azure Resources naming conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
-[Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
+[Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture
 [Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

@@ -3,20 +3,19 @@ title: 'Démarrage rapide : Définir et récupérer un certificat dans Azure Ke
 description: Démarrage rapide montrant comment définir et récupérer un certificat dans Azure Key Vault à l’aide d’Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 587815cf9628df35f1e1efdbc6a7a3c89a27ed55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32150fb4cce76d5a2537c5ec969f265e0d8aae20
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071915"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816185"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault avec Azure PowerShell
 
@@ -63,6 +62,18 @@ Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "Exampl
 
 Vous venez de créer un coffre de clés, d’y stocker un certificat et de récupérer ce dernier.
 
+**Résolution des problèmes** :
+
+L’opération a retourné un code d’état non valide : « Forbidden ».
+
+Si vous recevez cette erreur, cela signifie que le compte qui accède à Azure Key Vault ne dispose pas des autorisations nécessaires pour créer des certificats.
+
+Exécutez la commande Azure PowerShell suivante pour attribuer les autorisations nécessaires :
+
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+```
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
@@ -73,4 +84,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et vous 
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - Consulter la référence des [applets de commande Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-features.md)

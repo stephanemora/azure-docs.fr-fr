@@ -4,17 +4,17 @@ description: Migrer une base de données de SQL Server vers Azure Arc enabled SQ
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: rothja
+ms.author: jroth
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 86563b0a44bade2cedaf76af3c247821756111fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f588ca0762cf201bf532d7b9d97ea6c4e21c9b4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90930282"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734951"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migrer : SQL Server vers Azure Arc enabled SQL Managed Instance
 
@@ -22,7 +22,7 @@ Ce scénario vous guide tout au long des étapes de migration d’une base de do
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="use-azure-blob-storage"></a>Utiliser le stockage Blob Azure 
+## <a name="use-azure-blob-storage"></a>Utiliser le stockage Blob Azure
 
 Utilisez le stockage Blob Azure pour la migration vers Azure Arc enabled SQL Managed Instance.
 
@@ -36,7 +36,7 @@ Cette méthode utilise le stockage Blob Azure comme emplacement de stockage temp
 
 ### <a name="step-1-provision-azure-blob-storage"></a>Étape 1 : Provisionner le stockage Blob Azure
 
-1. Suivez les étapes décrites dans [Créer un compte de stockage Blob Azure](../../storage/blobs/storage-blob-create-account-block-blob.md?tabs=azure-portal)
+1. Suivez les étapes décrites dans [Créer un compte de stockage Blob Azure](../../storage/common/storage-account-create.md?tabs=azure-portal)
 1. Lancer l’Explorateur Stockage Azure
 1. [Connectez-vous à Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) pour accéder au stockage Blob créé à l’étape précédente.
 1. Cliquez avec le bouton droit sur le compte de stockage Blob, puis sélectionnez **Créer un conteneur d’objets blob** pour créer un conteneur où le fichier de sauvegarde sera stocké.
@@ -133,10 +133,10 @@ Cette méthode vous montre comment produire un fichier de sauvegarde que vous cr
 
 Sauvegardez la base de données SQL Server dans le chemin de votre fichier local, comme n’importe quelle sauvegarde standard SQL Server sur disque :
 
- ```sql
+```sql
 BACKUP DATABASE Test
 TO DISK = 'c:\tmp\test.bak'
-WITH FORMAT, MEDIANAME = 'Test’ ;
+WITH FORMAT, MEDIANAME = 'Test' ;
 GO
 ```
 
@@ -146,7 +146,7 @@ Recherchez le nom du pod où l’instance SQL est déployée. C’est générale
 
 Obtenez la liste de tous les pods en exécutant :
 
- ```console
+```console
 kubectl get pods -n <namespace of data controller>
 ```
 
@@ -154,7 +154,7 @@ Exemple :
 
 Copiez le fichier de sauvegarde depuis le stockage local vers le pod SQL du cluster.
 
- ```console
+```console
 kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
 
 #Example:
@@ -186,7 +186,6 @@ WITH MOVE 'test' to '/var/opt/mssql/data/test.mdf'
 ,STATS = 5;  
 GO
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

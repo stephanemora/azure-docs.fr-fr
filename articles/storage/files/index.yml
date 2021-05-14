@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: roygara
   ms.author: rogarana
-  ms.date: 08/27/2019
-  ms.openlocfilehash: 1ede53a8e288b14696ca2c30088486478a13a3af
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 04/19/2021
+  ms.openlocfilehash: 56879a2b6efc0ae5e7278828a474d0197f37f255
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101724198"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107761706"
 landingContent:
 - title: À propos d’Azure Files
   linkLists:
@@ -25,24 +25,16 @@ landingContent:
     links:
     - text: Guide de planification Azure Files
       url: storage-files-planning.md
-    - text: Guide de planification Azure File Sync
-      url: storage-sync-files-planning.md
     - text: Qu’est-ce qu’Azure Files ?
       url: storage-files-introduction.md
+    - text: Authentification basée sur l’identité
+      url: storage-files-active-directory-overview.md
 - title: Bien démarrer
   linkLists:
   - linkListType: get-started
     links:
     - text: Créer et utiliser des partages de fichiers - Windows
       url: storage-files-quick-create-use-windows.md
-    - text: Créer des partages de fichiers Premium
-      url: ./storage-how-to-create-file-share.md
-    - text: Gérer votre serveur avec Azure File Sync
-      url: storage-sync-files-server-registration.md
-  - linkListType: tutorial
-    links:
-    - text: Étendre les serveurs de fichiers Windows avec Azure File Sync
-      url: storage-sync-files-extend-servers.md
 - title: Dépanner
   linkLists:
   - linkListType: reference
@@ -53,5 +45,3 @@ landingContent:
       url: storage-troubleshoot-linux-file-connection-problems.md
     - text: Résolution des problèmes de performances Azure Files
       url: storage-troubleshooting-files-performance.md
-    - text: Résolution des problèmes Azure File Sync
-      url: storage-sync-files-troubleshoot.md

@@ -1,25 +1,25 @@
 ---
 title: Attributs de profil utilisateur dans Azure Active Directory B2C
-description: Découvrez les attributs de type de ressource utilisateur pris en charge par le profil utilisateur du répertoire Azure AD B2C Directory. Découvrez les attributs intégrés, les extensions et la façon dont les attributs sont mappés à Microsoft Graph.
+description: Découvrez les attributs de type de ressource utilisateur pris en charge par le profil utilisateur du répertoire Azure AD B2C. Découvrez les attributs intégrés, les extensions et la façon dont les attributs sont mappés à Microsoft Graph.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/27/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 523212e0f63453e78967eb9a4716febb754ea5d6
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500527"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315270"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
-Le profil utilisateur de votre répertoire Azure Active Directory (Azure AD) B2C est fourni avec un ensemble intégré d’attributs, tels que le prénom, le nom, la ville, le code postal et le numéro de téléphone. Vous pouvez étendre le profil utilisateur avec vos propres données d’application sans avoir besoin d’un magasin de données externe. 
+Le profil utilisateur de votre répertoire Azure Active Directory (Azure AD) B2C est fourni avec un ensemble intégré d’attributs, tels que le prénom, le nom, la ville, le code postal et le numéro de téléphone. Vous pouvez étendre le profil utilisateur avec vos propres données d’application sans avoir besoin d’un magasin de données externe.
 
 La plupart des attributs qui peuvent être utilisés avec les profils utilisateur Azure AD B2C sont également pris en charge par Microsoft Graph. Cet article décrit les attributs de profil utilisateur Azure AD B2C pris en charge. Il présente également les attributs qui ne sont pas pris en charge par Microsoft Graph, ainsi que les attributs Microsoft Graph qui ne doivent pas être utilisés avec Azure AD B2C.
 
@@ -59,12 +59,11 @@ Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateu
 |ImmutableID     |String|Identificateur généralement utilisé pour les utilisateurs migrés à partir de Windows Server Active Directory.|Non|Non|Persistant, Sortie|
 |legalAgeGroupClassification|String|Classification de tranche d’âge légal. En lecture seule et calculée en fonction des propriétés ageGroup et consentProvidedForMinor. Valeurs autorisées : null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult et adult.|Oui|Non|Persistant, Sortie|
 |legalCountry<sup>1</sup>  |String|Pays/région à des fins juridiques.|Non|Non|Persistant, Sortie|
-|mail            |String|Adresse SMTP de l’utilisateur, par exemple « bob@contoso.com ». Lecture seule.|Non|Non|Persistant, Sortie|
 |mailNickName    |String|Alias de messagerie de l’utilisateur. Longueur max. : 64.|Non|Non|Persistant, Sortie|
 |mobile (mobilePhone) |String|Numéro de portable principal de l’utilisateur. Longueur max. : 64.|Oui|Non|Persistant, Sortie|
 |netId           |String|ID Net.|Non|Non|Persistant, Sortie|
 |objectId        |String|Identificateur global unique (GUID) qui est l’identificateur unique de l’utilisateur. Exemple : 12345678-9abc-def0-1234-56789abcde. Lecture seule, non modifiable.|Lecture seule|Oui|Entrée, Persistant, Sortie|
-|otherMails      |Collection de chaînes|Liste d’autres adresses e-mail pour l’utilisateur. Exemple: ["bob@contoso.com", "Robert@fabrikam.com"].|Oui (adresse e-mail secondaire)|Non|Persistant, Sortie|
+|otherMails      |Collection de chaînes|Liste d’autres adresses e-mail pour l’utilisateur. Exemple: ["bob@contoso.com", "Robert@fabrikam.com"]. REMARQUE : Les caractères accentués ne sont pas autorisés.|Oui (adresse e-mail secondaire)|Non|Persistant, Sortie|
 |mot de passe        |String|Mot de passe du compte local lors de la création de l’utilisateur.|Non|Non|Persistant|
 |passwordPolicies     |String|Stratégie du passe du compte. Il s’agit d’une chaîne composée d’un nom de stratégie différent, séparé par une virgule. Par exemple : « DisablePasswordExpiration, DisableStrongPassword ».|Non|Non|Persistant, Sortie|
 |physicalDeliveryOfficeName (officeLocation)|String|Emplacement du bureau de l’utilisateur. Longueur max. : 128.|Oui|Non|Persistant, Sortie|
@@ -72,13 +71,13 @@ Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateu
 |preferredLanguage    |String|Langue préférée pour l’utilisateur. Le format de langue par défaut est basé sur la norme RFC 4646. Le nom est la combinaison entre un code de culture à deux lettres minuscules ISO 639 associé à la langue et un code de sous-culture à deux lettres majuscules ISO 3166 associé au pays ou à la région. Exemples : « fr-FR », « es-ES ».|Non|Non|Persistant, Sortie|
 |refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Les jetons d’actualisation émis avant cet instant ne sont pas valides et les applications reçoivent une erreur lors de l’utilisation d’un jeton d’actualisation non valide pour acquérir un nouveau jeton d’accès. Dans ce cas, l’application doit acquérir un nouveau jeton d’actualisation en effectuant une demande au point de terminaison d’autorisation. Lecture seule.|Non|Non|Output|
 |signInNames ([Identities](#identities-attribute)) |String|Nom de connexion unique de l’utilisateur de compte local de tout type dans le répertoire. Utilisez cet attribut pour obtenir un utilisateur avec une valeur de connexion sans spécifier le type de compte local.|Non|Non|Entrée|
-|signInNames.userName ([Identities](#identities-attribute)) |String|Nom d’utilisateur unique de l’utilisateur du compte local dans le répertoire. Utilisez cet attribut pour créer ou obtenir un utilisateur avec un nom d’utilisateur de connexion spécifique. Si vous spécifiez cela dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
+|signInNames.userName ([Identities](#identities-attribute)) |String|Nom d’utilisateur unique de l’utilisateur du compte local dans le répertoire. Utilisez cet attribut pour créer ou obtenir un utilisateur avec un nom d’utilisateur de connexion spécifique. Si vous spécifiez cela dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants. REMARQUE : Les caractères accentués ne sont pas autorisés dans le nom d’utilisateur.|Non|Non|Entrée, Persistant, Sortie|
 |signInNames.phoneNumber ([Identities](#identities-attribute)) |String|Numéro de téléphone unique de l’utilisateur du compte local dans le répertoire. Utilisez cet attribut pour créer ou obtenir un utilisateur avec un numéro de téléphone de connexion spécifique. Si vous spécifiez cet attribut dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
 |signInNames.emailAddress ([Identities](#identities-attribute))|String|Adresse e-mail unique de l’utilisateur du compte local dans le répertoire. Utilisez ceci fonction pour créer ou obtenir une adresse e-mail de connexion propre à un utilisateur. Si vous spécifiez cet attribut dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
 |state           |String|État ou province dans l’adresse de l’utilisateur. Longueur max. : 128.|Oui|Oui|Persistant, Sortie|
 |streetAddress   |String|Adresse postale du lieu de travail de l’utilisateur. Longueur max. : 1024.|Oui|Oui|Persistant, Sortie|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|Numéro de téléphone secondaire de l’utilisateur, utilisé pour l’authentification multifacteur.|Oui|Non|Persistant, Sortie|
-|strongAuthenticationEmailAddress<sup>1</sup>|String|Adresse SMTP de l’utilisateur. Exemple : « bob@contoso.com » Cet attribut est utilisé pour la connexion avec la stratégie de nom d’utilisateur, pour stocker l’adresse e-mail de l’utilisateur. L’adresse e-mail est ensuite utilisée dans un flow de réinitialisation de mot de passe.|Oui|Non|Persistant, Sortie|
+|strongAuthenticationEmailAddress<sup>1</sup>|String|Adresse SMTP de l’utilisateur. Exemple : « bob@contoso.com » Cet attribut est utilisé pour la connexion avec la stratégie de nom d’utilisateur, pour stocker l’adresse e-mail de l’utilisateur. L’adresse e-mail est ensuite utilisée dans un flow de réinitialisation de mot de passe. Les caractères accentués ne sont pas autorisés dans cet attribut.|Oui|Non|Persistant, Sortie|
 |strongAuthenticationPhoneNumber<sup>2</sup>|String|Numéro de téléphone principal de l’utilisateur, utilisé pour l’authentification multifacteur.|Oui|Non|Persistant, Sortie|
 |surname         |String|Patronyme de l’utilisateur (nom). Longueur max. : 64.|Oui|Oui|Persistant, Sortie|
 |telephoneNumber (première entrée de businessPhones)|String|Numéro de téléphone principal du lieu de travail de l’utilisateur.|Oui|Non|Persistant, Sortie|
@@ -101,7 +100,7 @@ Un compte de client, qui peut être un consommateur, un partenaire ou un citoyen
 - Identité **locale** : Le nom d’utilisateur et le mot de passe sont stockés localement dans l’annuaire Azure AD B2C. Nous faisons souvent référence à ces identités en parlant de « comptes locaux ».
 - Identités **fédérées** : Également appelées comptes *sociaux* ou d’*entreprise*. L’identité de l’utilisateur est managée par un fournisseur d’identité fédéré, comme Facebook, Microsoft, ADFS ou Salesforce.
 
-Un utilisateur disposant d’un compte client peut se connecter avec plusieurs identités. Par exemple, le nom d’utilisateur, l’adresse e-mail, l’ID d’employé, l’ID national, etc. Un même compte peut avoir plusieurs identités, à la fois locales et de réseaux sociaux, avec le même mot de passe. 
+Un utilisateur disposant d’un compte client peut se connecter avec plusieurs identités. Par exemple, le nom d’utilisateur, l’adresse e-mail, l’ID d’employé, l’ID national, etc. Un même compte peut avoir plusieurs identités, à la fois locales et de réseaux sociaux, avec le même mot de passe.
 
 Dans l’API Microsoft Graph, les identités locales et fédérées sont stockées dans l’attribut `identities` de l’utilisateur, qui est de type [objectIdentity](/graph/api/resources/objectidentity). La collection `identities` représente un ensemble d’identités utilisées pour se connecter à un compte d’utilisateur. Cette collection permet à l’utilisateur de se connecter au compte d’utilisateur avec une de ses identités associées. L’attribut d’identités peut contenir jusqu’à dix objets [objectIdentity](/graph/api/resources/objectidentity) . Chaque objet contient les propriétés suivantes :
 
@@ -111,29 +110,29 @@ Dans l’API Microsoft Graph, les identités locales et fédérées sont stocké
 |émetteur|string|Spécifie l’émetteur de l’identité. Pour les comptes locaux (où  **signInType** n’est pas `federated`), cette propriété est le nom de domaine par défaut du locataire B2C local, par exemple `contoso.onmicrosoft.com`. Pour l’identité de réseaux sociaux (où **signInType** est `federated`), la valeur est le nom de l’émetteur, par exemple `facebook.com`|
 |issuerAssignedId|string|Spécifie l’identificateur unique affecté à l’utilisateur par l’émetteur. La combinaison de **issuer** et **issuerAssignedId** doit être unique au sein de votre locataire. Pour un compte local, quand **signInType** est défini sur `emailAddress` ou sur `userName`, il représente le nom de connexion pour l’utilisateur.<br>Quand **signInType** est défini sur : <ul><li>`emailAddress` (ou commence par `emailAddress`, comme `emailAddress1`), **issuerAssignedId** doit être une adresse e-mail valide</li><li>`userName` (ou toute autre valeur), **issuerAssignedId** doit être une [partie locale valide d’une adresse e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** représente l’identificateur unique du compte fédéré</li></ul>|
 
-L’attribut **Identities** suivant, avec une identité de compte local comprenant un nom de connexion, une adresse e-mail comme identifiant de connexion et une identité de réseau social. 
+L’attribut **Identities** suivant, avec une identité de compte local comprenant un nom de connexion, une adresse e-mail comme identifiant de connexion et une identité de réseau social.
 
- ```json
- "identities": [
-     {
-       "signInType": "userName",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "johnsmith"
-     },
-     {
-       "signInType": "emailAddress",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "jsmith@yahoo.com"
-     },
-     {
-       "signInType": "federated",
-       "issuer": "facebook.com",
-       "issuerAssignedId": "5eecb0cd"
-     }
-   ]
- ```
+```json
+"identities": [
+  {
+    "signInType": "userName",
+    "issuer": "contoso.onmicrosoft.com",
+    "issuerAssignedId": "johnsmith"
+  },
+  {
+    "signInType": "emailAddress",
+    "issuer": "contoso.onmicrosoft.com",
+    "issuerAssignedId": "jsmith@yahoo.com"
+  },
+  {
+    "signInType": "federated",
+    "issuer": "facebook.com",
+    "issuerAssignedId": "5eecb0cd"
+  }
+]
+```
 
-Pour les identités fédérées, en fonction du fournisseur d’identité, **issuerAssignedId** est une valeur unique pour un utilisateur donné par application ou par compte de développement. Configurez la stratégie Azure AD B2C avec le même ID d’application que celui précédemment attribué par le fournisseur d’identité sociale ou une autre application au sein du même compte de développement. 
+Pour les identités fédérées, en fonction du fournisseur d’identité, **issuerAssignedId** est une valeur unique pour un utilisateur donné par application ou par compte de développement. Configurez la stratégie Azure AD B2C avec le même ID d’application que celui précédemment attribué par le fournisseur d’identité sociale ou une autre application au sein du même compte de développement.
 
 ## <a name="password-profile-property"></a>Propriété de profil de mot de passe
 

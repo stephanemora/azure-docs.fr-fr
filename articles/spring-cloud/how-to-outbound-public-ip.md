@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 04174b9cffb7e853dee235a4141ccda74a7847c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f2781c159ca79b09afd2f700981a19c59865cce2
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877224"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634236"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Comment identifier des adresses IP publiques sortantes dans Azure Spring Cloud
 
@@ -40,10 +40,10 @@ Pour rechercher les adresses IP publiques sortantes actuellement utilisées par 
 Vous pouvez obtenir les mêmes informations en exécutant la commande suivante dans Cloud Shell
 
 ```Azure CLI
-az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIPs.publicIPs --output tsv
+az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIps.publicIps --output tsv
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 * [En savoir plus sur les identités managées pour les ressources Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [En savoir plus sur le coffre de clés dans Azure Spring Cloud](spring-cloud-tutorial-managed-identities-key-vault.md)
+* [En savoir plus sur le coffre de clés dans Azure Spring Cloud](./tutorial-managed-identities-key-vault.md)

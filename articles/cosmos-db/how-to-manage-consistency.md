@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b12c5864d0241fb0e76e0db9fe2c927198a59fc3
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93333475"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107891909"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gérer les niveaux de cohérence dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -115,7 +115,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 # <a name="async"></a>[Async](#tab/api-async)
 
-Kit de développement logiciel (SDK) Async Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
+Kit de développement logiciel (SDK) Async Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -131,7 +131,7 @@ AsyncDocumentClient client =
 
 # <a name="sync"></a>[Synchronisation](#tab/api-sync)
 
-Kit de développement logiciel (SDK) Sync Java v2 (Maven com.microsoft.azure::azure-documentdb)
+Kit de développement logiciel (SDK) Sync Java v2 (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -216,7 +216,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 # <a name="async"></a>[Async](#tab/api-async)
 
-Kit de développement logiciel (SDK) Async Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
+Kit de développement logiciel (SDK) Async Java v2 (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -240,7 +240,7 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 
 # <a name="sync"></a>[Synchronisation](#tab/api-sync)
 
-Kit de développement logiciel (SDK) Sync Java v2 (Maven com.microsoft.azure::azure-documentdb)
+Kit de développement logiciel (SDK) Sync Java v2 (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response

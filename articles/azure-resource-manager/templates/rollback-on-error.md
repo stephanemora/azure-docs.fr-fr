@@ -3,12 +3,13 @@ title: Restaurer en cas d’erreur vers un déploiement réussi
 description: Spécifiez qu’un déploiement ayant échoué doit être restauré vers un déploiement réussi.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 742a8f16a2dce3204b48085759091540586a4522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7a0c4deef5956804aa74ad24f072bc46e5c2a8cd
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492210"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321498"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Restaurer en cas d’erreur vers un déploiement réussi
 

@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f5edcb3a024336ce96adb015609c9faf3318b86
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92791713"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947066"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostics de résolution des problèmes de performances Hyperscale SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,9 @@ Les types d’attente suivants (dans [sys.dm_os_wait_stats](/sql/relational-data
 |RBIO_RG_STORAGE        | Se produit quand le taux de génération de journal sur le nœud de calcul principal d’une base de données Hyperscale est limité en raison d’une consommation de journal retardée sur le ou les serveurs de pages.         |
 |RBIO_RG_DESTAGE        | Se produit quand le taux de génération de journal sur le nœud de calcul d’une base de données Hyperscale est limité en raison d’une consommation de journal retardée par le stockage de journal à long terme.         |
 |RBIO_RG_REPLICA        | Se produit quand le taux de génération de journal sur le nœud de calcul d’une base de données Hyperscale est limité en raison d’une consommation de journal retardée par le ou les réplicas secondaire accessibles en lecture.         |
+|RBIO_RG_GEOREPLICA    | Se produit quand le taux de génération de journal sur le nœud de calcul d'une base de données Hyperscale est limité en raison d'une consommation de journal retardée par le réplica géo-secondaire.         |
 |RBIO_RG_LOCALDESTAGE   | Se produit quand le taux de génération de journal sur le nœud de calcul d’une base de données Hyperscale est limité en raison d’une consommation de journal retardée par le service de journal.         |
+
 
 ## <a name="page-server-reads"></a>Lectures de serveur de pages
 
@@ -75,7 +77,7 @@ Il existe un cache RBPEX local sur le réplica de calcul du stockage SSD local. 
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
-Le ratio de lectures effectuées dans le cache RBPEX par rapport aux lectures agrégées effectuées dans tous les autres fichiers de données donne le taux d’accès au cache RBPEX.
+Le ratio de lectures effectuées dans le cache RBPEX par rapport aux lectures agrégées effectuées dans tous les autres fichiers de données donne le taux d’accès au cache RBPEX. Le compteur `RBPEX cache hit ratio` est également exposé dans la vue de gestion dynamique des compteurs de performances `sys.dm_os_performance_counters`.                                                                        
 
 ### <a name="data-reads"></a>Lectures de données
 
@@ -106,6 +108,7 @@ Les E/S de données sur les serveurs de pages distants ne sont pas rapportées d
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 - Pour connaître les limites de ressources vCore pour une base de données Hyperscale unique, consultez [Limites vCore pour le niveau de service Hyperscale](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)
+- Pour la surveillance des instances d'Azure SQL Database, activez [Azure Monitor SQL Insights](../../azure-monitor/insights/sql-insights-overview.md)
 - Pour savoir comment optimiser les performances d’Azure SQL Database, consultez [Ajustement des performances de requêtes dans Azure SQL Database](performance-guidance.md)
 - Pour savoir comment optimiser les performances en utilisant le magasin de requêtes, consultez [Surveillance des performances à l’aide du magasin de requêtes](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - Pour obtenir des scripts de surveillance DMV, consultez [Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique](monitoring-with-dmvs.md)

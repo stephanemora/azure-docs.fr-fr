@@ -16,16 +16,8 @@
       displayName: 'Troubleshooting, import'
 - name: Démarrages rapides sur LUIS
   items:
-    - name: Créer un exemple d’application de domaine
-      href: luis-get-started-create-app.md
     - name: Utiliser le portail LUIS
-      items:
-        - name: Créer une application
-          href: get-started-portal-build-app.md
-          displayName: 'intent, entity, create app, test, example utterance'
-        - name: Déployer une application
-          href: get-started-portal-deploy-app.md
-          displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
+      href: luis-get-started-create-app.md
     - name: Utiliser le navigateur
       href: luis-get-started-get-intent-from-browser.md
     - name: Utiliser les bibliothèques de client et l’API REST
@@ -131,8 +123,9 @@
         - name: Limitations des conteneurs
           href: luis-container-limitations.md
           displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
-        - name: Documentation sur les conteneurs Cognitive Services
+        - name: Documentation sur tous les conteneurs Cognitive Services
           href: ../containers/index.yml
+          maintainContext: true
     - name: Préparation pour l’entreprise
       items:
         - name: Configurer des réseaux virtuels

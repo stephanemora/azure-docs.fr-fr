@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Configurer le DNS pour le cloud privé CloudSimple
 description: Décrit comment configurer la résolution de noms DNS pour l’accès au serveur vCenter sur un cloud privé CloudSimple à partir de stations de travail locales
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 63822050512421895b0cfed08fb141f77da20b03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f7537790c22bf09da89cd02ba213b1573f19d9c
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899250"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177419"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurer DNS pour la résolution de noms pour l’accès à vCenter sur cloud privé à partir de stations de travail locales
 

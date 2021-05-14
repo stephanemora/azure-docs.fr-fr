@@ -8,12 +8,12 @@ ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be7e5b1f9721cc65c2f9b371becf8b4c82fb37b4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023518"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759760"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -22,7 +22,7 @@ Le service [Azure Files](storage-files-introduction.md) peut être déployé pri
 
 - **Mise en cache d'un partage de fichiers Azure localement à l'aide d'Azure File Sync** : Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d'un serveur de fichiers local. Azure File Sync transforme une instance Windows Server locale (ou cloud) en un cache rapide de votre partage de fichiers SMB Azure. 
 
-Cet article traite principalement de considérations relatives au déploiement, afin de déployer un partage de fichiers Azure en vue de son montage directement par un client local ou un client cloud. Pour planifier un déploiement d’Azure File Sync, consultez [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md).
+Cet article traite principalement de considérations relatives au déploiement, afin de déployer un partage de fichiers Azure en vue de son montage directement par un client local ou un client cloud. Pour planifier un déploiement d’Azure File Sync, consultez [Planification d’un déploiement Azure File Sync](../file-sync/file-sync-planning.md).
 
 ## <a name="available-protocols"></a>Protocoles disponibles
 
@@ -116,7 +116,8 @@ Pour plus d’informations, consultez [Présentation d’Azure Defender pour le 
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Activer les partages de fichiers Standard pour couvrir jusqu'à 100 Tio
-[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
+Par défaut, les partages de fichiers standard peuvent couvrir jusqu’à 5 Tio seulement. Cependant, vous pouvez augmenter la limite de partage jusqu’à 100 Tio. Pour découvrir comment augmenter la limite de votre partage, consultez [Activer et créer des partages de grands fichiers](storage-files-how-to-create-large-file-share.md).
+
 
 #### <a name="limitations"></a>Limites
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
@@ -130,7 +131,7 @@ Dans de nombreux cas, vous n’établirez pas de nouveau partage de fichiers net
 L’[article vue d’ensemble de la migration](storage-files-migration-overview.md) aborde brièvement les bases et contient un tableau qui vous amène à des guides de migration susceptibles de couvrir votre scénario.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)
+* [Planification d’un déploiement Azure File Sync](../file-sync/file-sync-planning.md)
 * [Déploiement d’Azure Files](./storage-how-to-create-file-share.md)
-* [Déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Déploiement d’Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 * [Consultez l’article de vue d’ensemble de la migration pour trouver le guide de migration de votre scénario](storage-files-migration-overview.md)

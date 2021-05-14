@@ -1,5 +1,5 @@
 ---
-title: Série Msv2 (préversion) – Machines virtuelles Microsoft Azure
+title: Série de mémoire moyenne Msv2/Mdsv2 - Machines virtuelles Azure
 description: Spécifications pour les machines virtuelles de la série Msv2.
 author: ayshakeen
 ms.service: virtual-machines
@@ -7,30 +7,19 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: a7f4757467523837423d52998eb6b8204090e627
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 696125f75e41d39b4f9aaa1ff852b03eff589fb0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562569"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204240"
 ---
-# <a name="msv2-and-mdsv2-series-medium-memory-preview"></a>Mémoire moyenne des séries Msv2 et Mdsv2 (préversion)
-
-
-> [!IMPORTANT]
-> Accédez à la préversion en remplissant le formulaire à l’adresse **https://aka.ms/Mv2MedMemoryPreview** .  
+# <a name="msv2-and-mdsv2-series-medium-memory"></a>Mémoire moyenne des séries Msv2 et Mdsv2
 
 Les machines virtuelles de mémoire moyenne des séries Msv2 et Mdsv2 sont dotées d’un processeur Intel® Xeon® Platinum 8280 (Cascade Lake) avec une fréquence de base pour tous les cœurs de 2,7 GHz et une fréquence turbo monocœur de 4,0 GHz. Avec ces machines virtuelles, les clients bénéficient d’une flexibilité accrue grâce aux options de disque local et sans disque. Les clients ont également accès à un ensemble de nouvelles tailles de machines virtuelles isolées avec des capacités accrues de processeur et de mémoire allant jusqu’à 192 processeurs virtuels avec 4 Tio de mémoire. 
 
-
-Les machines virtuelles des séries Msv2 et Mdsv2 sont uniquement de 2e génération et prennent en charge un sous-ensemble d’images compatibles avec la 2e génération. Pour obtenir la liste complète des images prises en charge pour les séries Msv2 et Mdsv2, voir ci-dessous.  
-
-- Windows Server 2019 ou version ultérieure
-- SUSE Linux Enterprise Server 12 SP4 et versions ultérieures ou SUSE Linux Enterprise Server 15 SP1 et versions ultérieures
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 ou version ultérieure 
-- Oracle Enterprise Linux 7.7 ou version ultérieure
-
-Pour plus d’informations sur les machines virtuelles de 2e génération, consultez [Prise en charge des machines virtuelles de 2e génération dans Azure](./generation-2.md).
+> [!NOTE]
+> Les machines virtuelles à mémoire moyenne Msv2 et Mdsv2 appartiennent à la 2e génération. Pour plus d'informations sur les machines virtuelles de 2e génération, consultez [Prise en charge des machines virtuelles de 2e génération dans Azure](./generation-2.md).
 
 
 

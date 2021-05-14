@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 392b1a1650ab40951704d003f2a5e5337cf3c0f5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006155"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566701"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Intégration de données avec Azure Data Factory et Azure Data Share
 
@@ -64,12 +64,9 @@ Dans Azure Data Factory, les services liés définissent les informations de con
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Créer un service lié Azure SQL Database
 
-1. La page de création vous permet de créer des ressources de fabrique de données telles que des pipelines, des jeux de données, des flux de données, des déclencheurs et des services liés. Pour créer un service lié, cliquez sur le bouton **Connexions** dans le coin inférieur droit.
+1. Pour créer un service lié, sélectionnez le hub de **Gestion** dans la barre latérale de gauche. Dans le volet **Connexions**, sélectionnez ensuite **Services liés**, puis **Nouveau** pour ajouter un nouveau service lié.
 
     ![Configuration du portail 2](media/lab-data-flow-data-share/configure2.png)
-1. Sous l’onglet Connections (Connexions), cliquez sur **New** (Nouveau) pour ajouter un nouveau service lié.
-
-    ![Configuration du portail 3](media/lab-data-flow-data-share/configure3.png)
 1. Le premier service lié que vous allez configurer est un service Azure SQL DB. Vous pouvez utiliser la barre de recherche pour filtrer la liste des magasins de données. Cliquez sur la vignette **Azure SQL Database**, puis cliquez sur Continue (Continuer).
 
     ![Configuration du portail 4](media/lab-data-flow-data-share/configure-4.png)
@@ -99,9 +96,11 @@ Dans Azure Data Factory, les services liés définissent les informations de con
 
 Dans la section *Transform data using mapping data flow* (Transformer les données à l’aide du flux de données de mappage), vous allez créer des flux de données de mappage. Parmi les bonnes pratiques relatives à la création de flux de données de mappage, il en existe une qui consiste à activer le mode débogage. Cela vous permet de tester la logique de transformation en quelques secondes sur un cluster Spark actif.
 
-Pour activer le débogage, cliquez dans la barre supérieure de la fabrique sur le curseur **Data flow debug** (Débogage du flux de données). Quand la boîte de dialogue de confirmation s’affiche, cliquez sur OK. Le cluster va prendre entre 5 et 7 minutes environ pour démarrer. Pendant l’initialisation, passez à *Ingérer des données d’Azure SQL DB dans ADLS Gen2 à l’aide de l’activité de copie*.
+Pour activer le débogage, cliquez sur le curseur **Débogage du flux de données** dans la barre supérieure du canevas de flux de données ou du canevas de pipeline quand vous avez des activités de **Flux de données**. Quand la boîte de dialogue de confirmation s’affiche, cliquez sur OK. Le cluster va prendre entre 5 et 7 minutes environ pour démarrer. Pendant l’initialisation, passez à *Ingérer des données d’Azure SQL DB dans ADLS Gen2 à l’aide de l’activité de copie*.
 
 ![Configuration du portail 10](media/lab-data-flow-data-share/configure10.png)
+
+![Capture d’écran montrant où se trouve le curseur de débogage du flux de données.](media/lab-data-flow-data-share/configure-11.png)
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Ingérer des données à l’aide de l’activité de copie
 

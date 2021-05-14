@@ -1,18 +1,19 @@
 ---
-title: 'Configurer le protocole BGP sur des passerelles VPN Azure : Interface CLI'
-description: Cet article vous guide dans la configuration de BGP avec une passerelle VPN Azure à l’aide d’Azure Resource Manager et de CLI.
+title: Configurer BGP pour une passerelle VPN à l’aide de CLI
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment configurer BGP pour des passerelles VPN à l’aide de CLI.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: a69ce0592b79be0868dd7c15ac054910eee75fc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1b7d1c1928425dca7e1924bca09f2cd21e0ea06a
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89393596"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290269"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configurer BGP sur une passerelle VPN Azure à l’aide de CLI
 

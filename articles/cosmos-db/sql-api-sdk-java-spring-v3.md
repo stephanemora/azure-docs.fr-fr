@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 594d38425be0304a9f7737bdfba60b29187a2e2d
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 17db5f566b45af8ea67d551972dc9e12235f5b6c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363510"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290953"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 pour l’API Core (SQL) : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "107363510"
 > * [SDK .NET Core v2](sql-api-sdk-dotnet-core.md)
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
 > * [SDK Java Async v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
@@ -90,6 +90,9 @@ Vous pouvez utiliser Spring Data Azure Cosmos DB dans vos applications [Azure Sp
 | **Conseils sur les performances**| [Conseils de performances pour le kit de développement logiciel (SDK) Java v4 (applicables à Spring Data)](performance-tips-java-sdk-v4-sql.md)| 
 | **Dépannage** | [Résoudre les problèmes liés au kit de développement logiciel (SDK) Java V4 (applicable à Spring Data)](troubleshoot-java-sdk-v4-sql.md) | 
 | **Ateliers et laboratoires Azure Cosmos DB** |[Page d’accueil relative aux ateliers Cosmos DB](https://aka.ms/cosmosworkshop)
+
+> [!IMPORTANT]
+> * La version 3.5.0 prend en charge Spring Boot 2.4.3 et versions ultérieures.
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 

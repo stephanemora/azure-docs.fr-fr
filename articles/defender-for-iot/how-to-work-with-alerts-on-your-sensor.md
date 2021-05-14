@@ -3,12 +3,12 @@ title: Comprendre les alertes de capteur
 description: Utilisez des alertes pour vous aider à améliorer la sécurité et l’opération de votre réseau.
 ms.date: 3/29/2021
 ms.topic: how-to
-ms.openlocfilehash: a34871342e9a868ba593ae894fdd91b5e99c5a44
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 353f7fb0da85a0ffa737dc5c4afa70763b2fb185
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729420"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208938"
 ---
 # <a name="about-sensor-alerts"></a>À propos des alertes de capteur
 
@@ -56,7 +56,7 @@ Des outils sont disponibles pour activer et désactiver les moteurs de capteur. 
 
 ## <a name="alerts-and-sensor-reporting"></a>Alertes et rapports de capteur
 
-L’activité reflétée dans les alertes peut être calculée lorsque vous générez des rapports d’exploration de données, d’évaluation des risques et de vecteur d’attaque. Lorsque vous gérez ces événements, le capteur met à jour les rapports en conséquence.
+L’activité reflétée dans les alertes est calculée lorsque vous générez des rapports d’exploration de données, d’évaluation des risques et de vecteur d’attaque. Lorsque vous gérez ces événements, le capteur met à jour les rapports en conséquence.
 
 Par exemple :
 

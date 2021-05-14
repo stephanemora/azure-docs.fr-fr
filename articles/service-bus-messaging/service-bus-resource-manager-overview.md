@@ -8,12 +8,12 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df8a7fde9114f03521f0e57e072f81a867efcf39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5af10bc30a7a3bd8ca211c3fd74364c74ee36fb5
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89075254"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278503"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Création de ressources Service Bus à l’aide de modèles Azure Resource Manager
 
@@ -38,7 +38,7 @@ Ces modèles Azure Resource Manager Service Bus sont disponibles au télécharge
 
 ## <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 
-La procédure suivante décrit comment utiliser PowerShell pour déployer un modèle Azure Resource Manager qui crée un espace de noms Service Bus de niveau Standard et une file d’attente au sein de cet espace de noms. Cet exemple est basé sur le modèle [Créer un espace de noms Service Bus avec file d’attente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue). Le flux de travail est approximativement le suivant :
+La procédure suivante décrit comment utiliser PowerShell pour déployer un modèle Azure Resource Manager qui crée un espace de noms Service Bus de niveau Standard et une file d’attente au sein de cet espace de noms. Cet exemple est basé sur le modèle [Créer un espace de noms Service Bus avec file d’attente](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json). Le flux de travail est approximativement le suivant :
 
 1. Installez PowerShell.
 2. Créez le modèle et (éventuellement) un fichier de paramètres.
@@ -56,7 +56,7 @@ Installez Azure PowerShell en suivant les instructions disponibles dans [Prise e
 
 ### <a name="create-a-template"></a>Créer un modèle
 
-Clonez le dépôt ou copiez le modèle [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) à partir de GitHub :
+Clonez le dépôt ou copiez le modèle [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) à partir de GitHub :
 
 ```json
 {
@@ -131,7 +131,7 @@ Clonez le dépôt ou copiez le modèle [201-servicebus-create-queue](https://git
 
 ### <a name="create-a-parameters-file-optional"></a>Créer un fichier de paramètres (facultatif)
 
-Pour utiliser un fichier de paramètres facultatif, copiez le fichier [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Remplacez la valeur de `serviceBusNamespaceName` par le nom de l'espace de noms Service Bus que vous souhaitez créer dans ce déploiement, puis remplacez la valeur de `serviceBusQueueName` par le nom de la file d'attente que vous souhaitez créer.
+Pour utiliser un fichier de paramètres facultatif, copiez le fichier [servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.parameters.json). Remplacez la valeur de `serviceBusNamespaceName` par le nom de l'espace de noms Service Bus que vous souhaitez créer dans ce déploiement, puis remplacez la valeur de `serviceBusQueueName` par le nom de la file d'attente que vous souhaitez créer.
 
 ```json
 {

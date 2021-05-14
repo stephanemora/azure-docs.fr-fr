@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f662c825dba99ec7513a523ab511cb75ebb1f0f9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102433316"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208614"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
 Azure Digital Twins consiste en un [graphique de jumeaux](concepts-twins-graph.md) représentant l’ensemble de votre environnement. Le graphe de jumeaux est constitué de jumeaux numériques individuels connectés via des **relations**. 
 
-Une fois que vous disposez d’une [instance Azure Digital Twins](how-to-set-up-instance-portal.md) opérationnelle et que vous avez configuré un code d’[authentification](how-to-authenticate-client.md) dans votre application cliente, vous pouvez utiliser les [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) pour créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins. Vous pouvez également utiliser le [Kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
+Une fois que vous disposez d’une [instance Azure Digital Twins](how-to-set-up-instance-portal.md) opérationnelle et que vous avez configuré un code d’[authentification](how-to-authenticate-client.md) dans votre application cliente, vous pouvez utiliser les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) pour créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins. Vous pouvez également utiliser le [Kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) ou l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
-Cet article se concentre sur la gestion des relations et du graphique dans son ensemble. Pour utiliser des jumeaux numériques individuels, consultez [*Guide pratique : Gérer des jumeaux numériques*](how-to-manage-twin.md).
+Cet article se concentre sur la gestion des relations et du graphique dans son ensemble. Pour utiliser des jumeaux numériques individuels, consultez [Procédure : Gestion des jumeaux numériques](how-to-manage-twin.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -59,7 +59,7 @@ Cette fonction personnalisée peut désormais être appelée pour créer une rel
 
 Si vous souhaitez créer plusieurs relations, vous pouvez répéter des appels à la même méthode, en passant différents types de relations dans l’argument. 
 
-Pour plus d’information sur la classe d’assistance `BasicRelationship`, consultez [*Guide pratique : Utiliser les kits SDK et les API Azure Digital Twins*](how-to-use-apis-sdks.md#serialization-helpers).
+Pour plus d’informations sur la classe d’assistance `BasicRelationship`, consultez [Procédure : Utiliser les API et les Kits de développement logiciel (SDK) Azure Digital Twins](how-to-use-apis-sdks.md#serialization-helpers).
 
 ### <a name="create-multiple-relationships-between-twins"></a>Créer plusieurs relations entre jumeaux
 
@@ -152,7 +152,7 @@ L’extrait de code exécutable suivant utilise les opérations de relation de c
 
 ### <a name="set-up-the-runnable-sample"></a>Configurer l’exemple exécutable
 
-L’extrait de code utilise les définitions de modèle [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) et [*Floor.json*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) du [*Tutoriel : Explorer Azure Digital Twins avec un exemple d’application cliente*](tutorial-command-line-app.md). Vous pouvez utiliser ces liens pour accéder directement aux fichiers ou les télécharger dans le cadre de l’exemple de projet de bout en bout complet [ici](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
+L’extrait de code utilise les définitions de modèle [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) et [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) du [Tutoriel : Explorer Azure Digital Twins avec un exemple d’application cliente](tutorial-command-line-app.md). Vous pouvez utiliser ces liens pour accéder directement aux fichiers ou télécharger ces derniers dans le cadre de l’[exemple complet de projet de bout en bout](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
 Avant d’exécuter l’exemple, effectuez les étapes suivantes :
 1. Téléchargez les fichiers de modèle, placez-les dans votre projet et remplacez l’espace réservé `<path-to>` dans le code ci-dessous pour indiquer à votre programme où les trouver.
@@ -178,7 +178,7 @@ Voici la sortie de la console du programme ci-dessus :
 :::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Sortie de la console présentant les détails sur les jumeaux, les relations entrantes et sortantes des jumeaux." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
-> Le graphe de jumeaux est un concept en lien avec la création de relations entre les jumeaux. Si vous souhaitez afficher la représentation visuelle du graphe de jumeaux, consultez la section [*Visualisation*](how-to-manage-graph.md#visualization) de cet article. 
+> Le graphe de jumeaux est un concept en lien avec la création de relations entre les jumeaux. Si vous souhaitez afficher la représentation visuelle du graphe de jumeaux, consultez la section [Visualisation](how-to-manage-graph.md#visualization) de cet article. 
 
 ## <a name="create-graph-from-a-csv-file"></a>Créer un graphe à partir d’un fichier CSV
 
@@ -202,5 +202,5 @@ Dans le code ci-dessous, le fichier CSV est appelé *data.csv* et il existe un e
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur l’interrogation d’un graphique de jumeaux Azure Digital Twins :
-* [*Concepts : langage de requête*](concepts-query-language.md)
-* [*Guide pratique : Interroger le graphe de jumeaux*](how-to-query-graph.md)
+* [Concepts : Langage de requête](concepts-query-language.md)
+* [Guide pratique pour interroger le graphique de jumeaux](how-to-query-graph.md)

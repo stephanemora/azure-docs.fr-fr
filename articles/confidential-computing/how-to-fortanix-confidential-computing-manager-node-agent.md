@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: JenCook
-ms.openlocfilehash: 91a3f0a38d1182e445eba39bf31092be17f9a1fd
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 228f66a4dc10e7a518abdace22836c66bc717288
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110925"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204780"
 ---
 # <a name="how-to-run-an-application-with-fortanix-confidential-computing-manager"></a>Procédure : Exécuter une application avec Fortanix Confidential Computing Manager
 
@@ -46,8 +46,8 @@ Pour un support Fortanix spécifique, rejoignez la [communauté Fortanix Slack](
 
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-account-new.png" alt-text="Capture d’écran montrant comment créer un compte.":::
 
-1. Une fois votre compte créé, appuyez sur **SÉLECTIONNER** pour sélectionner le nouveau compte. Nous pouvons maintenant commencer à inscrire les nœuds de calcul et à créer des applications.
-1. Sélectionnez le bouton **+ APPLICATION** pour ajouter une application. Dans cet exemple, nous allons ajouter une application Flask Server Enclave OS.
+1. Une fois votre compte créé, appuyez sur **SÉLECTIONNER LE COMPTE** pour sélectionner le nouveau compte. Nous pouvons maintenant commencer à inscrire des nœuds de calcul et à créer des applications.
+1. Accédez à l'onglet **Applications**, puis cliquez sur **+ APPLICATION** pour ajouter une application. Dans cet exemple, nous allons ajouter une application Enclave OS exécutant un serveur Python Flask.
 
 1. Sélectionnez le bouton **AJOUTER** pour l'application Enclave OS.
 
@@ -61,13 +61,13 @@ Pour un support Fortanix spécifique, rejoignez la [communauté Fortanix Slack](
     - **Nom de l'application** : Python Application Server
     - **Description** : Serveur Python Flask
     - **Nom de l'image d'entrée** : fortanix/python-flask
-    - **Nom de l'image de sortie** : fortanx-private/python-flask-sgx
+    - **Nom de l'image de sortie** : fortanix-private/python-flask-sgx (à remplacer par votre propre registre)
     - **ISVPRODID** : 1
     - **ISVSVM** : 1
     - **Taille de la mémoire** : 1 Go
     - **Nombre de Threads** : 128
 
-    *Facultatif* : Exécutez l'application.
+    *Facultatif* : exécutez l'application non convertie.
     - **Docker Hub** : [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
     - **Application** : fortanix/python-flask
 
@@ -76,30 +76,30 @@ Pour un support Fortanix spécifique, rejoignez la [communauté Fortanix Slack](
       ```bash
          sudo docker run fortanix/python-flask
       ```
+      > [!NOTE]
+      > Nous vous recommandons de ne pas utiliser votre registre Docker privé pour stocker l'image de sortie.
 
 1. Ajoutez un certificat. Renseignez les informations à l'aide des détails ci-dessous, puis sélectionnez **SUIVANT** :
-    - **Domaine** : myapp.domain.dom
+    - **Domaine** : myapp.domain.com
     - **Type** : Certificat émis par Confidential Computing Manager
-    - **Chemin de la clé** : /appkey.pem
+    - **Chemin de la clé** : /run/key.pem
     - **Type de clé** : RSA
-    - **Chemin du certificat** : /appcert.pem
+    - **Chemin du certificat** : /run/cert.pem
     - **Taille de clé RSA** : 2048 bits
 
 ## <a name="create-an-image"></a>Créer une image
 
 Une image Fortanix CCM est une version d’un logiciel ou d’une application. Chaque image est associée à un code de hachage d'enclave (MRENCLAVE).
 
-1. Sur la page **Ajouter une image**, entrez les **INFORMATIONS D'IDENTIFICATION DU REGISTRE** pour le **Nom de l'image de sortie**. Ces informations d'identification sont utilisées pour accéder au registre Docker privé dans lequel l'image sera envoyée.
+1. Sur la page **Ajouter une image**, entrez les **INFORMATIONS D'IDENTIFICATION DU REGISTRE** pour le **Nom de l'image de sortie**. Ces informations d'identification sont utilisées pour accéder au registre Docker privé dans lequel l'image sera envoyée. Comme l'image d'entrée est stockée dans un registre public, il n'est pas nécessaire de fournir des informations d'identification pour celle-ci.
+1. Fournissez l'étiquette de l'image et sélectionnez **CRÉER**.
 
    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/create-image.png" alt-text="Capture d’écran montrant comment créer une image.":::
 
-1. Fournissez l'étiquette de l'image et sélectionnez **Créer**.
-
-   :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/add-tag.png" alt-text="Capture d’écran montrant comment ajouter une étiquette.":::
 
 ## <a name="domain-and-image-allowlist"></a>Liste d’autorisation de domaines et d'images
 
-Une application dont le domaine est ajouté à la liste d’autorisation reçoit un certificat TLS de Fortanix Confidential Computing Manager. De même, lorsqu’une application s’exécute à partir de l’image convertie, elle essaie de contacter Fortanix Confidential Computing Manager. L'application demande ensuite un certificat TLS.
+Une application dont le domaine est ajouté à la liste d'autorisation reçoit un certificat TLS de Fortanix Confidential Computing Manager. Lorsqu'une application Enclave OS démarre, elle contactera Fortanix Confidential Computing Manager pour recevoir ce certificat TLS.
 
 Accédez à l'onglet **Tâches**, à gauche, et approuvez les demandes en attente pour autoriser le domaine et l'image.
 
@@ -109,15 +109,15 @@ Accédez à l'onglet **Tâches**, à gauche, et approuvez les demandes en attent
 
 Dans Fortanix Confidential Computing Manager, vous allez créer un jeton. Ce jeton permettra à un nœud de calcul Azure de s'authentifier. Vous devez fournir ce jeton à votre machine virtuelle Azure.
 
-1. Dans la console de gestion, sélectionnez le bouton **+ INSCRIRE LE NŒUD**.
-1. Sélectionnez **GÉNÉRER LE JETON** pour générer le jeton Join. Copiez le jeton.
+1. Accédez à l'onglet **Nœuds de calcul** et cliquez sur le bouton **+ INSCRIRE UN NŒUD**.
+1. Cliquez sur le bouton **COPIER** pour copier le jeton Join. Ce jeton permettra au nœud de calcul de s'authentifier.
 
 ### <a name="enroll-nodes-into-fortanix-node-agent-in-azure-marketplace"></a>Inscrire des nœuds dans Fortanix Node Agent sur la Place de marché Azure
 
 La création d'une instance de Fortanix Node Agent déploiera une machine virtuelle, une interface réseau, un réseau virtuel, un groupe de sécurité réseau et une adresse IP publique dans votre groupe de ressources Azure. Votre abonnement Azure sera facturé à l'heure pour la machine virtuelle. Avant de créer une instance de Fortanix Node Agent, consultez la [page de tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) Azure de la série DCsv2. Supprimez les ressources Azure inutilisées.
 
 1. Accédez à la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/) et connectez-vous à l'aide de vos informations d'identification Azure.
-1. Sur la barre de recherche, entrez **Fortanix Confidential Computing Node Agent**. Sélectionnez l'application **Fortanix Confidential Computing Node Agent** qui apparaît dans la zone de recherche pour accéder à la page d'accueil de l'offre.
+1. Sur la barre de recherche, entrez **Fortanix Confidential Computing Node Agent**. Sélectionnez l'application **Fortanix Confidential Computing Node Agent** qui apparaît dans la zone de recherche pour accéder à la page d'accueil de l'offre. Si vous le souhaitez, cliquez sur l'URL https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent?tab=OverviewFortanix pour accéder à Node Agent.
 
    ![effectuer une recherche sur le marketplace](media/how-to-fortanix-confidential-computing-manager-node-agent/search-fortanix-marketplace.png)
 1. Sélectionnez **Obtenir maintenant**, si nécessaire entrez vos informations, puis sélectionnez **Continuer**. Vous serez redirigé vers le Portail Azure.
@@ -144,25 +144,24 @@ Exécutez l'application à l'aide de la commande suivante. Veillez à transforme
 Dans ce tutoriel, la commande à exécuter est la suivante :
 
 ```bash
-    sudo docker run `
-        --device /dev/isgx:/dev/isgx `
-        --device /dev/gsgx:/dev/gsgx `
-        -v /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket `
+    sudo docker run \
+        --device /dev/isgx:/dev/isgx \
+        --device /dev/gsgx:/dev/gsgx \
+        -v /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket \
         -e NODE_AGENT_BASE_URL=http://52.152.206.164:9092/v1/ fortanix-private/python-flask-sgx
 ```
 
 Où :
 
-- *52.152.206.164* correspond à l'adresse IP de l'hôte Node Agent
-- *9092* correspond au port que Node Agent écoute
+- *52.152.206.164* correspond à l'adresse IP de l'hôte Node Agent.
+- *9092* correspond au port d'écoute par défaut de Node Agent.
 - *fortanix-private/python-flask-sgx* correspond à l’application convertie qui se trouve sous l’onglet Images, dans la colonne **Nom de l’image** du tableau **Images** sur le portail web de Fortanix Confidential Computing Manager.
 
 ## <a name="verify-and-monitor-the-running-application"></a>Vérifier et surveiller l'application en cours d'exécution
 
 1. Revenez sur [Fortanix Confidential Computing Manager](https://ccm.fortanix.com/console).
 1. Vérifiez que vous utilisez le **Compte** dans lequel vous avez inscrit le nœud.
-1. Accédez à la **Console de gestion** en sélectionnant l'icône supérieure dans le volet de navigation de gauche.
-1. Sélectionnez l'onglet **Application**.
+1. Sélectionnez l'onglet **Applications**.
 1. Vérifiez qu'une application est en cours d'exécution avec un nœud de calcul associé.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
@@ -171,7 +170,7 @@ Dès que vous n'en avez plus besoin, vous pouvez supprimer le groupe de ressourc
 
 Sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionnez **Supprimer**. Confirmez le nom du groupe de ressources pour terminer la suppression des ressources.
 
-Pour supprimer le compte Fortanix Confidential Computing Manager que vous avez créé, accédez à la page [Comptes](https://ccm.fortanix.com/accounts) dans Fortanix Confidential Computing Manager. Pointez sur le compte que vous voulez supprimer. Sélectionnez les points noirs verticaux dans le coin supérieur droit, puis sélectionnez **Supprimer le compte**.
+Pour supprimer le compte Fortanix Confidential Computing Manager que vous avez créé, accédez à la page [Comptes](https://ccm.fortanix.com/accounts) dans Fortanix Confidential Computing Manager. Pointez sur le compte que vous voulez supprimer. Sélectionnez les points noirs verticaux dans le coin supérieur droit et choisissez **SSUPPRIMER LE COMPTE**.
 
 :::image type="content" source="media/how-to-fortanix-confidential-computing-manager-node-agent/delete-account.png" alt-text="Capture d’écran montrant comment supprimer le compte.":::
 

@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47d7d541ed7d9805641ffdfde381d482c8700006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee22ba3816e667bc58247fa81142e54587124fd6
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96858737"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865294"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -210,7 +210,7 @@ Si votre serveur a été verrouillé selon la norme Federal Information Processi
 
 **Pour activer MD5 pour la synchronisation de hachage de mot de passe, procédez comme suit :**
 
-1. Accédez à %programfiles%\Azure AD Sync\Bin.
+1. Accédez à %programfiles%\Microsoft Azure AD Sync\Bin.
 2. Ouvrez miiserver.exe.config.
 3. Accédez au nœud configuration/runtime (à la fin du fichier).
 4. Ajoutez le nœud suivant : `<enforceFIPSPolicy enabled="false"/>`

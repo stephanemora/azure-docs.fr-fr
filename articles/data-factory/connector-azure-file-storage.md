@@ -1,18 +1,18 @@
 ---
 title: Copier des données depuis/vers Stockage Fichier Azure
 description: Découvrez comment copier des données depuis Stockage Fichier Azure vers des magasins de données récepteurs pris en charge (ou) depuis des magasins de données sources pris en charge vers Stockage Fichier Azure à l’aide d’Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 1046aee7eea406cce1141382294a70c7eb2f62d4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c81b3615160cc3e096267f01f2d09b40cb9dc360
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597536"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480328"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory
 
@@ -38,7 +38,7 @@ Plus précisément, ce connecteur Stockage Fichier Azure prend en charge ce qui 
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques de Stockage Fichier Azure.
 
@@ -213,7 +213,7 @@ Pour l’authentification par signature d’accès partagé, Data Factory prend 
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `location` du jeu de données basé sur le format :
 
@@ -255,7 +255,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="azure-file-storage-as-source"></a>Stockage Fichier Azure en tant que source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` de la source de la copie basée sur le format :
 
@@ -320,7 +320,7 @@ Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dan
 
 ### <a name="azure-file-storage-as-sink"></a>Stockage Fichier Azure en tant que récepteur
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dans les paramètres `storeSettings` du récepteur de la copie basé sur le format :
 

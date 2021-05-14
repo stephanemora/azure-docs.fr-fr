@@ -1,10 +1,10 @@
 ---
-title: Vue d’ensemble du provisionnement des journaux sur le Portail Azure Active Directory (préversion) | Microsoft Docs
-description: Initiez-vous au provisionnement des rapports de journaux dans Azure Active Directory sur le Portail Azure.
+title: Journaux d’approvisionnement dans Azure Active Directory (préversion) | Microsoft Docs
+description: Présentation des journaux d’approvisionnement dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,62 +13,99 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 1/29/2021
+ms.date: 4/25/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 468e885bab6aab4becb5aaaec7b4d52ce5ef5e07
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 42a1ea52c9de3332c2b73b5c03e203f6d6694c49
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535987"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017388"
 ---
-# <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Vue d’ensemble du provisionnement des journaux sur le Portail Azure Active Directory (préversion)
+# <a name="provisioning-logs-in-azure-active-directory-preview"></a>Journaux d’approvisionnement dans Azure Active Directory (préversion)
 
-L’architecture de création de rapports dans Azure Active Directory (Azure AD) comprend les composants suivants :
+En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
 
-- Activité : 
-    - **Connexions** : Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
-    - [Journaux d’audit](concept-audit-logs.md): Informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, aux applications gérées et aux activités de répertoire.
-    - **Journaux de provisionnement** : activité système sur les utilisateurs, les groupes et les rôles provisionnés par le service de provisionnement Azure AD. 
+Pour vous aider à atteindre cet objectif, le portail Azure Active Directory vous donne accès à trois journaux d’activité :
 
-- Sécurité : 
-    - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) indique une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
-    - **Utilisateurs marqués d’un indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) indique un compte d’utilisateur susceptible d’être compromis.
+- **[Connexions](concept-sign-ins.md)**  : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
+- **[Audit](concept-audit-logs.md)**  : Informations sur les modifications appliquées à votre locataire, telles que la gestion des utilisateurs et des groupes ou les mises à jour appliquées aux ressources de votre locataire.
+- **[Approvisionnement](concept-provisioning-logs.md)**  : Activités réalisées par le service d’approvisionnement, telles que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday.
 
-Cette rubrique présente une vue d’ensemble des journaux de provisionnement. Ces derniers répondent à des questions de ce type : 
 
-* Quels groupes ont été créés avec succès dans ServiceNow ?
-* Quels utilisateurs ont été correctement supprimés d’Adobe ?
-* Quels utilisateurs de Workday ont été correctement crées dans Active Directory ? 
+Cet article présente une vue d’ensemble des journaux d’approvisionnement. 
 
-## <a name="prerequisites"></a>Prérequis
+
+## <a name="what-can-you-do-with-it"></a>Que pouvez-vous faire avec ?
+
+Vous pouvez utiliser les journaux d’approvisionnement pour trouver des réponses à des questions telles que :
+
+-  Quels groupes ont été créés avec succès dans ServiceNow ?
+
+-  Quels utilisateurs ont été correctement supprimés d’Adobe ?
+
+-  Quels utilisateurs de Workday ont été correctement crées dans Active Directory ? 
+
+
+## <a name="who-can-access-it"></a>Qui peut y accéder ?
 
 Les utilisateurs suivants peuvent accéder aux données des journaux de provisionnement :
 
-* Propriétaires d’applications (journaux de leurs propres applications)
-* Utilisateurs des rôles Administrateur de la sécurité, Lecteur de sécurité, Lecteur de rapports, Opérateur de sécurité, Administrateur d’application et Administrateur d’application cloud
-* Utilisateurs dans un rôle personnalisé avec l’[autorisation provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
-* Administrateurs généraux
+- Propriétaires d’applications (journaux de leurs propres applications)
+
+- Utilisateurs des rôles Administrateur de la sécurité, Lecteur de sécurité, Lecteur de rapports, Opérateur de sécurité, Administrateur d’application et Administrateur d’application cloud
+
+- Utilisateurs dans un rôle personnalisé avec l’[autorisation provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
+
+- Administrateurs généraux
+
+## <a name="what-azure-ad-license-do-you-need"></a>De quelle licence Azure AD avez-vous besoin ?
+
+Il faut qu’une licence Azure AD Premium soit associée à votre locataire pour que vous puissiez voir le rapport d’activité de l’approvisionnement. Pour mettre à niveau votre édition d’Azure AD, consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
 
 
-Il faut qu’une licence Azure AD Premium soit associée à votre locataire pour que vous puissiez voir le rapport d’activité de provisionnement. Pour mettre à niveau votre édition d’Azure AD, consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
+## <a name="how-can-you-access-it"></a>Comment pouvez-vous y accéder ? 
 
+Pour accéder aux données du journal, vous disposez des options suivantes :
 
-## <a name="ways-of-interacting-with-the-provisioning-logs"></a>Manières d’interagir avec les journaux de provisionnement 
-Les clients peuvent interagir avec les journaux de provisionnement de quatre manières :
+- Le portail Azure
 
-- Accès aux journaux à partir du Portail Azure (cf. section suivante)
 - Diffusion en continu des journaux de provisionnement dans [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md), méthode qui permet une conservation étendue des données et la création de tableaux de bord, d’alertes et de requêtes personnalisés
+
 - Interrogation de l’[API Microsoft Graph](/graph/api/resources/provisioningobjectsummary) pour obtenir les journaux de provisionnement.
+
 - Téléchargement des journaux de provisionnement sous la forme d’un fichier CSV ou JSON
 
-## <a name="access-the-logs-from-the-azure-portal"></a>Accéder aux journaux à partir du portail Azure
+
+
+## <a name="where-can-you-find-it-in-the-azure-portal"></a>Où le trouver dans le portail Azure ?
+
+Le portail Azure vous offre plusieurs options pour accéder au journal. Par exemple, dans le menu Azure Active Directory, vous pouvez ouvrir le journal dans la section **Surveillance**.  
+
+![Ouvrir les journaux d’approvisionnement](./media/concept-sign-ins/sign-ins-logs-menu.png)
+
+En outre, vous pouvez accéder directement aux journaux des connexions à l’aide de ce lien : [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+
+
+
+
+
+
+
+
+
+
+
+
 Vous pouvez accéder aux journaux de provisionnement en sélectionnant **Journaux de provisionnement** dans la section **Supervision** du volet **Azure Active Directory** sur le [Portail Azure](https://portal.azure.com). L’affichage de certains enregistrements de provisionnement sur le portail peut prendre jusqu’à deux heures.
 
 ![Capture d’écran montrant les sélections pour accéder aux journaux de provisionnement.](./media/concept-provisioning-logs/access-provisioning-logs.png "Journaux d’approvisionnement")
 
+
+
+## <a name="what-is-the-default-view"></a>Qu’est-ce que la vue par défaut ?
 
 Un journal d’approvisionnement comporte un affichage de liste par défaut qui indique :
 

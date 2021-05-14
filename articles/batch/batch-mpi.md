@@ -3,12 +3,12 @@ title: Exécuter des applications MPI avec des tâches multi-instances
 description: Découvrez comment exécuter des applications MPI (Message Passing Interface) en utilisant des tâches de type multi-instances dans Azure Batch.
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.openlocfilehash: e96cfb89b186d69f6ad969949b8df609956114d2
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: b25008e4001676d1289f8a035cad972084d025bc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389398"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126234"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Batch
 
@@ -310,5 +310,5 @@ Sample complete, hit ENTER to exit...
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la [prise en charge de MPI pour Linux sur Azure Batch](https://docs.microsoft.com/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
+- En savoir plus sur la [prise en charge de MPI pour Linux sur Azure Batch](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
 - Découvrez comment [créer des pools de nœuds de calcul Linux](batch-linux-nodes.md) à utiliser dans vos solutions MPI Azure Batch.

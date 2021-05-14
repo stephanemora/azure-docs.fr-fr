@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/2/2020
 ms.author: rogarana
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: d3d2afa3b02d4ab4524d9b5c5d5f981cddebe1a9
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 1793420f69bf3f56d7ae593167052eee9454986e
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107511998"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107893202"
 ---
 Si vous souhaitez utiliser des points de terminaison de service pour limiter l’accès au point de terminaison public du compte de stockage à certains réseaux virtuels, vous devez d’abord collecter des informations sur le compte de stockage et le réseau virtuel. Renseignez `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` et `<subnet-name>` pour recueillir ces informations.
 

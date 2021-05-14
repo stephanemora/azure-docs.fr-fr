@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eca74ffe7b62cc5071d8ebaeefab52e5e59409d4
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501122"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832227"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Démarrage rapide : Configurer Azure Attestation avec Azure PowerShell
 
@@ -120,6 +121,10 @@ $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
 
+ > [!NOTE]
+   > Une fois qu’un fournisseur d’attestations est créé dans ce groupe de ressources, un utilisateur Azure AD doit avoir un rôle **Contributeur d’attestation** sur le fournisseur pour effectuer des opérations telles que la gestion des certificats de signataire de stratégie/la configuration de la stratégie. Ces autorisations peuvent également être héritées avec des rôles, tels que **Propriétaire** (autorisations génériques)/ **Contributeur** (autorisations génériques) sur l’abonnement/le groupe de ressources.  
+
+
 ## <a name="create-and-manage-an-attestation-provider"></a>Créer et gérer un fournisseur d’attestations
 
 New-AzAttestation crée un fournisseur d’attestations.
@@ -170,12 +175,12 @@ Afin de gérer les stratégies, un utilisateur Azure AD doit avoir les autorisat
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-Ces autorisations peuvent être attribuées à un utilisateur AD par le biais d’un rôle tel que « Propriétaire » (autorisations génériques), « Contributeur » (autorisations génériques) ou « Contributeur d’attestation » (autorisations spécifiques pour Azure Attestation uniquement).  
+ Pour effectuer ces actions, un utilisateur Azure AD doit détenir le rôle **Contributeur d’attestation** sur le fournisseur d’attestation. Ces autorisations peuvent également être héritées avec des rôles, tels que **Propriétaire** (autorisations génériques)/ **Contributeur** (autorisations génériques) sur l’abonnement/le groupe de ressources.  
 
 Afin de lire les stratégies, un utilisateur Azure AD doit avoir l’autorisation suivante pour « Actions » :
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-Cette autorisation peut être attribuée à un utilisateur AD par le biais d’un rôle tel que « Lecteur » (autorisations génériques) ou « Lecteur d’attestation » (autorisations spécifiques pour Azure Attestation uniquement).
+ Pour effectuer cette action, un utilisateur Azure AD doit disposer du rôle **Lecteur d’attestation** sur le fournisseur d’attestation. L’autorisation de lecture peut également être héritée avec des rôles, tels que **Lecteur** (autorisations génériques) sur l’abonnement/ le groupe de ressources.  
 
 Les applets de commande PowerShell ci-dessous permettent de gérer les stratégies pour un fournisseur d’attestations (un environnement TEE à la fois).
 

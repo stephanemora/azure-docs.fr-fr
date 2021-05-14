@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 8cecd1b57395fa51fd95c824e88885d9c3ae3f09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7056027965bd5e0f41c07835d21b454ab772a55a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023297"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132248"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurer votre DK Azure Percept et déployer votre premier modèle IA
 
@@ -130,7 +130,7 @@ Pour vérifier si votre compte Azure est un « propriétaire » ou un « cont
     - Sélectionnez le niveau tarifaire S1 (standard).
 
     > [!NOTE]
-    > Si vous avez besoin d’un [débit de message](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling#message-throughput) supérieur pour vos applications périphériques d’IA, vous pouvez à tout moment [mettre à niveau votre IoT Hub vers un niveau standard plus élevé](https://docs.microsoft.com/azure/iot-hub/iot-hub-upgrade) dans le Portail Azure. Les niveaux B et F ne prennent pas en charge Azure Percept.
+    > Si vous avez besoin d’un [débit de message](../iot-hub/iot-hub-scaling.md#message-throughput) supérieur pour vos applications périphériques d’IA, vous pouvez à tout moment [mettre à niveau votre IoT Hub vers un niveau standard plus élevé](../iot-hub/iot-hub-upgrade.md) dans le Portail Azure. Les niveaux B et F ne prennent pas en charge Azure Percept.
 
 1. Ce déploiement IoT Hub peut prendre quelques minutes. Une fois le déploiement terminé, cliquez sur **Inscrire**.
 

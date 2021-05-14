@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 2f321413a275676d0abb1a075ba958885ffcd821
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 67bc4218e28e561b618ab092f0b73207438bd2aa
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505023"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633336"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Windows Virtual Desktop
 
@@ -213,33 +213,6 @@ Pour résoudre ce problème :
 7. Accédez à **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. Sous **ClusterSettings**, recherchez **SessionDirectoryListener** et assurez-vous que sa valeur de données est **rdp-sxs...** .
 9. Si **SessionDirectoryListener** n’est pas défini sur **rdp-sxs...** , vous devez suivre les étapes décrites dans la section [Désinstaller l’agent et le chargeur de démarrage](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) pour désinstaller l’agent, le chargeur de démarrage et les composants de la pile, puis [Réinstaller l’agent et le chargeur de démarrage](#step-4-reinstall-the-agent-and-boot-loader). Cela a pour effet de réinstaller la pile côte à côte.
-
-## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Erreur : problème de pulsation avec des utilisateurs constamment déconnectés des hôtes de session
-
-Si votre serveur ne détecte pas de pulsation du service Windows Virtual Desktop, vous devez modifier le seuil de pulsation. Cela permet d’atténuer temporairement les symptômes du problème, mais ne corrige pas le problème réseau sous-jacent. Suivez ces instructions si un ou plusieurs des scénarios suivants vous concernent :
-
-- Vous recevez une erreur **CheckSessionHostDomainIsReachableAsync**
-- Vous recevez une erreur **ConnectionBrokenMissedHeartbeatThresholdExceeded**
-- Vous recevez une erreur **ConnectionEstablished:UnexpectedNetworkDisconnect**
-- Les clients utilisateurs sont constamment déconnectés
-- Les utilisateurs sont constamment déconnectés des hôtes de session
-
-Pour modifier le seuil de pulsation :
-1. Ouvrez une invite de commandes en tant qu’administrateur.
-2. Entrez la commande **qwinsta** et exécutez-la.
-3. Deux composants de pile doivent s’afficher : **rdp-tcp** et **rdp-sxs**. 
-   - Selon la version du système d’exploitation que vous utilisez, **rdp-sxs** peut être suivi du numéro de build. Si c’est le cas, veillez à noter ce numéro pour une utilisation ultérieure.
-4. Ouvrez l’Éditeur du Registre.
-5. Accédez à **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
-6. Sous **WinStations**, il est possible que plusieurs dossiers s’affichent pour différentes versions de la pile. Sélectionnez le dossier correspondant au numéro de version de l’étape 3.
-7. Créez une valeur DWORD de registre en cliquant avec le bouton droit sur l’éditeur du Registre, puis en sélectionnant **Nouvelle** > **Valeur DWORD (32 bits)** . Lorsque vous créez la valeur DWORD, entrez les valeurs suivantes :
-   - HeartbeatInterval : 10000
-   - HeartbeatWarnCount : 30 
-   - HeartbeatDropCount : 60 
-8. Redémarrez votre machine virtuelle.
-
->[!NOTE]
->Si la modification du seuil de pulsation ne résout pas votre problème, vous avez peut-être un problème réseau sous-jacent nécessitant de contacter l’équipe de mise en réseau Azure.
 
 ## <a name="error-downloadmsiexception"></a>Erreur : DownloadMsiException
 

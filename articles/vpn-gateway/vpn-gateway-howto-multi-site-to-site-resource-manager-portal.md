@@ -1,19 +1,19 @@
 ---
-title: 'Ajouter plusieurs connexions site à site de passerelle VPN à un réseau virtuel : Portail Azure'
-description: Ajouter des connexions S2S multisites à une passerelle VPN qui dispose déjà d’une connexion
+title: 'Ajout de plusieurs connexions de site à site de passerelle VPN à un réseau virtuel : Portail Azure'
+description: Découvrez comment ajouter des connexions de site à site supplémentaires à une passerelle VPN.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 92d39b0d39511571701fd092f641cb8ca3ae42c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d65367b561ed94c4872ce86edede2043f99cced4
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92890146"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292681"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>Ajouter des connexions S2S à un réseau virtuel : Portail Azure
 

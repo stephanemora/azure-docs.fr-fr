@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9366bb5b2bb5820245ec1b699bbf2ddda0dd9f9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0cc32a84ee0d214df9533b480a1c29bb57ee1c7
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103173"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071736"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 
@@ -68,8 +68,6 @@ Procédez comme suit pour ajouter un URI de redirection pour une application mon
 1. Sélectionnez **Configurer** pour terminer l’ajout de l’URI de redirection.
 
 Vous avez maintenant terminé l’inscription de votre application monopage, et avez configuré un URI de redirection vers lequel le client sera redirigé et auquel tous les jetons de sécurité seront envoyés. En sélectionnant l’une des options **Jetons d’ID** ou **Jetons d’accès**, vous avez activé le flux d’octroi implicite.
-
-Pour plus de conseils, suivez le [tutoriel](tutorial-v2-javascript-spa.md).
 
 ## <a name="note-about-authorization-flows"></a>Remarque à propos des flux d’autorisation
 

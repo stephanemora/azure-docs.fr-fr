@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: ab2eb8a43fc75eea61a03bc25b2b6afc850d30aa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6ad12ac3d06d9e0a6b4f1bf45344ece2819c1486
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644399"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140044"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server
 
@@ -48,7 +48,7 @@ SQL Server sur une machine virtuelle Azure IaaS ou localement.| Réplication ave
 > * Assurez-vous que le taux de modification des données observé sur l'ordinateur se situe dans les [limites de Site Recovery](vmware-physical-azure-support-matrix.md#churn-limits). Le taux de modification est mesuré en octets écrits par seconde. Pour les machines exécutant Windows, vous pouvez afficher ce taux de modification en sélectionnant l’onglet **Performance** dans le gestionnaire des tâches. Observez la vitesse d’écriture pour chaque disque.
 > * Site Recovery prend en charge la réplication des instances de cluster de basculement sur Storage Spaces Direct. Pour plus d’informations, consultez [Comment activer la réplication de Storage Spaces Direct](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 > 
-> Lorsque vous migrez votre charge de travail SQL vers Azure, il est recommandé d’appliquer les [Recommandations de performances pour SQL Server sur les machines virtuelles Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
+> Lorsque vous migrez votre charge de travail SQL vers Azure, il est recommandé d’appliquer les [Recommandations de performances pour SQL Server sur les machines virtuelles Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 
 ## <a name="disaster-recovery-of-an-application"></a>Récupération d’urgence d’une application
 

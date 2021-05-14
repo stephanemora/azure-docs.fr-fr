@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: ae5887657e7657e60348217c21aa0ed17f9f4b07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ff26289962aa06f9638644e28da23b646554281
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97606298"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865312"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>Qu’est-ce qu’Azure Time Series Insights Gen2 ?
 
@@ -86,6 +86,21 @@ Avec l’introduction de ces fonctionnalités IoT industrielles clés, Azure Tim
 | Exploration de données en quasi temps réel | L’expérience utilisateur de [l’explorateur d’Azure Time Series Insights Gen2](./concepts-ux-panels.md) permet de visualiser toutes les données diffusées en continu via le pipeline d’ingestion. Après la connexion à une source d’événement, vous pouvez afficher, explorer et interroger des données d’événement. De cette façon, vous pouvez vérifier si un appareil émet des données comme prévu. Vous pouvez également surveiller l’intégrité, la productivité et l’efficacité globale d’une ressource IoT. |
 | Extensibilité et intégration | L’intégration du connecteur Power BI est disponible directement dans l’expérience utilisateur de l’Explorateur Time Series via l’option **Exporter**, qui permet aux clients d’exporter les requêtes de série chronologique créées dans notre expérience utilisateur directement vers Power BI Desktop, et d’afficher leurs graphes de série chronologique à côté d’autres analyses décisionnelles. Cela ouvre la voie à une nouvelle classe de scénarios pour les entreprises IoT industrielles qui ont investi dans Power BI, en offrant une grande transparence sur l’analytique à partir de différentes sources de données y compris les séries chronologiques IoT. |
 | Applications personnalisées basées sur la plateforme Application Gen2 | Azure Time Series Insights Gen2 prend en charge le [Kit de développement logiciel (SDK) JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Le kit SDK fournit des contrôles complets et un accès simplifié aux requêtes. Utilisez le Kit de développement logiciel (SDK) afin de créer des applications IoT personnalisées par dessus Azure Time Series Insights Gen2 pour répondre à vos besoins professionnels. Vous pouvez également utiliser les [API de requête](./concepts-query-overview.md) Azure Time Series Insights Gen2 directement pour intégrer directement des données dans des applications IoT personnalisées. |
+
+## <a name="region-availability"></a>Disponibilité des régions
+
+Visitez la page des [produits de l’infrastructure mondiale Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=time-series-insights) pour savoir où Azure Time Series Insights est disponible.
+
+Azure Time Series Insights réside dans une seule région. Toutefois, il stocke/traite les données client en dehors de la région dans laquelle le client déploie l’instance de service, sauf pour les régions suivantes où les données ne sont pas répliquées en dehors de la région :
+
+* Asie Est
+* Asie Sud-Est
+*   Sud-Australie Est
+*   Europe Ouest
+*   Sud du Royaume-Uni
+*   USA Ouest
+*   France Centre
+*   Centre du Canada
 
 ## <a name="next-steps"></a>Étapes suivantes
 

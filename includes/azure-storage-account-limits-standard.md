@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ef9efe389894af7c792e980922ca422e9d05929b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5124a9bfcc0d98f32ae42457c79e9f74308a1e8
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96025602"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108213067"
 ---
 Le tableau suivant présente les limites par défaut pour les comptes de stockage d’objets blob, d’objets blob de blocs et V1 et V2 universels. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
 
@@ -31,8 +31,10 @@ Le tableau suivant présente les limites par défaut pour les comptes de stockag
 | Nombre maximal de sorties pour les comptes de stockage à usage général v2 et Blob (toutes les régions) | 50 Gbit/s |
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS est activé, 30 Gbit/s pour LRS/ZRS<sup>2</sup> |
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions hors États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 15 Gbit/s pour LRS/ZRS<sup>2</sup> |
-| Nombre maximal de règles de réseau virtuel par compte de stockage | 200 |
 | Nombre maximal de règles d’adresse IP par compte de stockage | 200 |
+| Nombre maximal de règles de réseau virtuel par compte de stockage | 200 |
+| Nombre maximal de règles d’instance de ressource par compte de stockage | 200 |
+| Nombre maximal de points de terminaison privés par compte de stockage | 200 |
 
 <sup>1</sup> Les comptes de stockage standard Azure prennent en charge la demande de limites supérieures pour la capacité et les entrées. Pour demander une augmentation des limites de compte, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
 

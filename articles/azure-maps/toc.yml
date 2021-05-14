@@ -238,6 +238,8 @@
               href: spatial-io-supported-data-format-details.md
         - name: Navigateurs pris en charge pour le kit SDK web
           href: supported-browsers.md
+        - name: Meilleures pratiques
+          href: web-sdk-best-practices.md
     - name: Développer avec le kit Android SDK
       items:
         - name: Bien démarrer avec le contrôle de carte Android
@@ -369,7 +371,7 @@
 - name: Ressources
   items:
     - name: Options d’aide et de support
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
     - name: Services Azure IoT
       items:
         - name: IoT Hub

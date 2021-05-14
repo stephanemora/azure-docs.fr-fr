@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
-ms.openlocfilehash: 2e9b6ddc9da4467590946af12a47f1473a4ea494
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 51bd54fddfdbd5978c3a262ffcd81ff204d7d156
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202053"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073878"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Création d’un circuit ExpressRoute en utilisant le modèle Azure Resource Manager
 
@@ -37,7 +37,7 @@ Découvrez comment créer un circuit ExpressRoute en déployant un modèle Azure
 
 [Les modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) comprennent une bonne collection de modèles Resource Manager. Vous utilisez un des [modèles existants](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) pour créer un circuit ExpressRoute.
 
-[!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
+[!code-json[create-azure-expressroute-circuit](~/quickstart-templates/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json)]
 
 Pour afficher plusieurs modèles associés, cliquez[ici](https://azure.microsoft.com/resources/templates/?term=expressroute).
 

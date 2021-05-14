@@ -4,17 +4,17 @@ description: Fonctionnalités et capacités de SQL Managed Instance activé pour
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: rothja
+ms.author: jroth
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c3f973da688a20fa60f2fb649b2c8d689bc2a98
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d73505c3a0535c3f41b48a82545f6d2f9ac72608
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076647"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735095"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Fonctionnalités et capacités de SQL Managed Instance activé pour Azure Arc
 
@@ -35,27 +35,29 @@ Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de co
   
 |Fonctionnalité|SQL Managed Instance avec Azure Arc|
 |-------------|----------------|
-|Copie des journaux de transaction|Oui| 
-|Compression de sauvegarde|Oui|
-|Instantané de base de données|Oui|
 |Instance de cluster de basculement Always On<sup>1</sup>| Non applicable. Fonctionnalités similaires disponibles |
 |Groupes de disponibilité Always On<sup>2</sup>|Les fonctionnalités de haute disponibilité sont planifiées.|
 |Groupes de disponibilité de base <sup>2</sup>|Les fonctionnalités de haute disponibilité sont planifiées.|
 |Groupe de disponibilité à validation de réplica minimale <sup>2</sup>|Les fonctionnalités de haute disponibilité sont planifiées.|
 |Groupe de disponibilité sans cluster|Oui|
+|Sauvegarder la base de données | Oui - `COPY_ONLY` Voir [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
+|Compression de sauvegarde|Oui|
+|Miroir de sauvegarde |Oui|
+|Chiffrement de sauvegarde|Oui|
+|Sauvegarde sur Azure vers (sauvegarde sur une URL)|Oui|
+|Instantané de base de données|Oui|
+|Récupération rapide|Oui|
+|Ajout de mémoire et de processeur à chaud|Oui|
+|Copie des journaux de transaction|Oui| 
 |Restauration en ligne de pages et de fichiers|Oui|
 |Indexation en ligne|Oui|
-|Reconstructions d’index en ligne pouvant être reprises|Oui|
 |Modification de schéma en ligne|Oui|
-|Récupération rapide|Oui|
-|Sauvegardes en miroir|Oui|
-|Ajout de mémoire et de processeur à chaud|Oui|
-|Sauvegarde chiffrée|Oui|
-|Sauvegarde hybride vers Azure (sauvegarde vers une URL)|Oui|
+|Reconstructions d’index en ligne pouvant être reprises|Oui|
 
 <sup>1</sup> dans le scénario avec un échec de pod, une nouvelle instance Azure SQL Managed Instance démarre et s’attache à nouveau au volume persistant contenant vos données. [En savoir plus sur les volumes persistants Kubernetes ici](https://kubernetes.io/docs/concepts/storage/persistent-volumes).
 
-<sup>2</sup> Les versions à venir fourniront des fonctionnalités AG 
+<sup>2</sup> Les versions à venir fourniront des fonctionnalités AG. 
+
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 

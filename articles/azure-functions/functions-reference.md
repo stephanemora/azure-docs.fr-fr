@@ -4,12 +4,12 @@ description: Découvrez les concepts et techniques Azure Functions dont vous ave
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a526edfccda1e4e0e60646989a59d23ad19501ab
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614817"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227107"
 ---
 # <a name="azure-functions-developer-guide"></a>Guide du développeur Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -121,6 +121,7 @@ Les connexions basées sur une identité sont prises en charge par le déclenche
 | Objets blob Azure     | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Non                                    |
 | File d’attente Azure    | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Non                                    |
 | Hubs d'événements Azure    | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Non                                    |
+| Azure Service Bus    | [Version 5.0.0-beta2 ou ultérieure](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | Non                                    |
 
 > [!NOTE]
 > La prise en charge des connexions basées sur une identité n’est pas encore disponible pour les connexions de stockage utilisées par le runtime Functions pour les comportements de base. Cela signifie que le paramètre `AzureWebJobsStorage` doit être une chaîne de connexion.
@@ -132,7 +133,7 @@ Une connexion basée sur une identité pour un service Azure accepte les propri�
 | Propriété    | Obligatoire pour les extensions | Variable d’environnement | Description |
 |---|---|---|---|
 | URI de service | Blob Azure, File d’attente Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` |  URI du plan de données du service auquel vous vous connectez. |
-| Espace de noms complet | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Espace de noms complet d’Event Hub. |
+| Espace de noms complet | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Espace de noms complet Event Hubs et Service Bus. |
 
 Des options supplémentaires peuvent être prises en charge pour un type de connexion donné. Reportez-vous à la documentation du composant qui effectue la connexion.
 
@@ -178,6 +179,15 @@ Exemple de propriétés `local.settings.json` obligatoires pour une connexion ba
 #### <a name="grant-permission-to-the-identity"></a>Accorder l’autorisation à l’identité
 
 Quelle que soit l’identité utilisée, elle doit avoir les autorisations nécessaires pour effectuer les actions prévues. Pour ce faire, il convient généralement d’affecter un rôle dans RBAC Azure ou de spécifier l’identité dans une stratégie d’accès, en fonction du service auquel vous vous connectez. Reportez-vous à la documentation de chaque service pour savoir quelles autorisations sont nécessaires et la façon dont elles peuvent être définies.
+
+Les rôles suivants couvrent les principales autorisations nécessaires pour chaque extension dans le cadre d'une utilisation normale :
+
+| Service     | Exemples de rôles intégrés |
+|-------------|------------------------|
+| Objets blob Azure  | [Lecteur des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Propriétaire des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
+| Files d'attente Azure | [Lecteur des données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Processeur de messages de données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Expéditeur de messages de données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Contributeur aux données en file d'attente du stockage](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
+| Event Hubs   |    [Récepteur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Expéditeur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Propriétaire de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
+| Service Bus | [Récepteur de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Expéditeur de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Propriétaire de données Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
 
 > [!IMPORTANT]
 > Parmi les autorisations exposées par le service, certaines ne sont peut-être pas nécessaires pour tous les contextes. Dans la mesure du possible, adhérez au **principe du privilège minimum**, en accordant à l’identité uniquement les privilèges nécessaires. Par exemple, si l’application doit simplement lire à partir d’un blob, utilisez le rôle [Lecteur des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), car le rôle [Propriétaire des données blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) comprend des autorisations excessives pour une opération de lecture.

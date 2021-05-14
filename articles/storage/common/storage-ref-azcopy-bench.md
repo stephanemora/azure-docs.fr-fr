@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c1028d0a4a458746c08fd6fa4f16aa952d9962a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e49e787854069c2fcea30df7a43c3aacdd21b9e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87282005"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502026"
 ---
 # <a name="azcopy-benchmark"></a>référence azcopy
 
@@ -38,6 +38,12 @@ La commande benchmark exécute le même processus que « copy », à ceci prè
 Le mode « test d’évaluation » se règle automatiquement en fonction du nombre de connexions TCP parallèles qui fournit le débit maximal. Il affiche ce nombre à la fin. Pour empêcher le réglage automatique, affectez un nombre spécifique de connexions à la variable d’environnement AZCOPY_CONCURRENCY_VALUE. 
 
 Tous les types d’authentification habituels sont pris en charge. Toutefois, l’approche la plus pratique pour le test d’évaluation de chargement vise généralement à créer un conteneur vide avec un jeton SAS, et à utiliser l’authentification SAS. (Le mode de téléchargement demande la présence d’un ensemble de données de test dans le conteneur cible.)
+
+## <a name="related-conceptual-articles"></a>Articles conceptuels associés
+
+- [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
+- [Optimiser les performances d’AzCopy v10 avec Stockage Azure](storage-use-azcopy-optimize.md)
+
 
 ## <a name="examples"></a>Exemples
 

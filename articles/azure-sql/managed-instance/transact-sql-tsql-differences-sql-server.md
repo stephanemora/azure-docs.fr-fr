@@ -6,17 +6,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
 ms.topic: reference
-author: jovanpop-msft
-ms.author: jovanpop
+author: danimir
+ms.author: danil
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1a2ef6000a10c9b6879547377e26b6982e820ef1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644920"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745784"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -354,9 +354,9 @@ Les instructions DBCC non documentées qui sont activées dans SQL Server ne son
 
 ### <a name="distributed-transactions"></a>Transactions distribuées
 
-La prise en charge partielle des [transactions distribuées](../database/elastic-transactions-overview.md) est actuellement en préversion publique. Les scénarios pris en charge sont les suivants :
-* Transactions où les participants sont uniquement des instances Azure SQL Managed Instance qui font partie du [groupe d’approbations de serveurs](./server-trust-group-overview.md).
-* Transactions lancées à partir de .NET (classe TransactionScope) et de Transact-SQL.
+La prise en charge partielle des [transactions distribuées](../database/elastic-transactions-overview.md) est actuellement en préversion publique. Les transactions distribuées sont prises en charge dans les conditions suivantes (toutes doivent être remplies) :
+* Tous participants aux transactions sont des instances Azure SQL Managed Instance qui font partie du [groupe d'approbations de serveurs](./server-trust-group-overview.md).
+* Les transactions sont lancées à partir de .NET (classe TransactionScope) ou de Transact-SQL.
 
 Actuellement, Azure SQL Managed Instance ne prend pas en charge d’autres scénarios qui sont régulièrement pris en charge par MSDTC, localement ou dans des machines virtuelles Azure.
 

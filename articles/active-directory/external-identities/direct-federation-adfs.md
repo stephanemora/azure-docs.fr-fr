@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/01/2019
+ms.date: 04/27/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc66dec0ff66e61038503b752f6bd1f2760e9859
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87907222"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162992"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemple : Fédération directe avec les services de fédération Active Directory (AD FS) (préversion)
 
@@ -135,7 +135,7 @@ Un serveur AD FS doit déjà être configuré et opérationnel avant de commence
 1. Dans l’Assistant **Modifier les règles de revendication**, sélectionnez **Ajouter une règle**. Dans **Choisir le type de règle**, sélectionnez **Envoyer les revendications en utilisant une règle personnalisée**. Sélectionnez *Suivant*. 
 1. Dans **Configurer la règle de revendication**, spécifiez les valeurs suivantes :
 
-   - **Nom de la règle de revendication** : ID non modifiable du problème  
+   - **Nom de la règle de revendication** : ID non modifiable du problème  
    - **Règle personnalisée** : `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
 1. Sélectionnez **Terminer**. 
@@ -153,4 +153,4 @@ Un serveur AD FS doit déjà être configuré et opérationnel avant de commence
 1.  Cliquez sur **OK**. Le serveur AD FS est désormais configuré pour la fédération directe à l’aide de WS-Fed.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous allez ensuite [configurer la fédération directe dans Azure AD](direct-federation.md#step-2-configure-direct-federation-in-azure-ad) dans le portail Azure AD ou à l’aide de PowerShell. 
+Vous allez ensuite [configurer la fédération directe dans Azure AD](direct-federation.md#step-3-configure-direct-federation-in-azure-ad) dans le portail Azure AD ou à l’aide de PowerShell. 

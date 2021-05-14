@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 33adaf33ba15b49b0a7e4d3e8f1b2a8c435a7966
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 215ff68cd560062d15a90c52847c7f1a0ec6b4a0
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449033"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684628"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps (en préversion) avec Azure Functions
 
@@ -251,13 +251,7 @@ Ensuite, ajoutez les détails de build suivants.
 
 1. Cliquez sur le bouton **Accéder à la ressource** pour accéder à la page _Vue d’ensemble_ de l’application web.
 
-    Lorsque l’application est générée en arrière-plan, vous pouvez cliquer sur la bannière qui contient un lien pour afficher l’état de la build.
-
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Workflow GitHub":::
-
-1. Une fois le déploiement terminé, vous pouvez accéder à l’application web en cliquant sur le lien _URL_ situé dans la page _Vue d’ensemble_.
-
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Accéder à l’URL de l’application statique à partir du Portail Azure":::
+[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac0b206a86edf3157141b56e0c2623a8429b0c7a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028215"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785520"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutoriel : Utiliser l’API Video Indexer
 
@@ -38,18 +38,19 @@ Cet article explique comment les développeurs peuvent tirer parti de l’[API V
    > * Vous devez utiliser le même fournisseur que lorsque vous vous êtes inscrit à Video Indexer.
    > * Les comptes Google et Microsoft (Outlook/Live) personnels ne peuvent être utilisés que pour les comptes d’évaluation. Les comptes connectés à Azure nécessitent Azure AD.
    > * Il ne peut y avoir qu’un seul compte actif par e-mail. Si un utilisateur tente de se connecter avec user@gmail.com pour LinkedIn et après avec user@gmail.com pour Google, ce dernier affiche une page d’erreur, indiquant que l’utilisateur existe déjà.
+
 2. Abonnez-vous.
 
-    Sélectionnez l’onglet [Produits](https://api-portal.videoindexer.ai/products). Ensuite, sélectionnez Autorisation et abonnez-vous.
+   Sélectionnez l’onglet [Produits](https://api-portal.videoindexer.ai/products). Ensuite, sélectionnez Autorisation et abonnez-vous.
     
-    ![Onglet Produits dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/authorization.png)
+   ![Onglet Produits dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/authorization.png)
 
-    > [!NOTE]
-    > Les nouveaux utilisateurs sont automatiquement abonnés à l’API Autorisation.
+   > [!NOTE]
+   > Les nouveaux utilisateurs sont automatiquement abonnés à l’API Autorisation.
     
-    Après vous être abonné, vous pouvez trouver votre abonnement sous **Produits** -> **Autorisation**. Dans la page d’abonnement, vous trouverez les clés primaires et secondaires. Les clés doivent être protégées. Les clés doivent uniquement être utilisées par votre code serveur. Elles ne doivent pas être disponibles côté client (.js, .html, etc.).
+   Après vous être abonné, vous pouvez trouver votre abonnement sous **Produits** -> **Autorisation**. Dans la page d’abonnement, vous trouverez les clés primaires et secondaires. Les clés doivent être protégées. Les clés doivent uniquement être utilisées par votre code serveur. Elles ne doivent pas être disponibles côté client (.js, .html, etc.).
 
-    ![Abonnement et clés dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
+   ![Abonnement et clés dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > L’utilisateur de Video Indexer peut utiliser une clé d’abonnement unique pour se connecter à plusieurs comptes Video Indexer. Vous pouvez ensuite lier ces comptes Video Indexer à différents comptes Media Services.
@@ -64,7 +65,10 @@ Chaque appel à l’API Opérations doit être associé à un jeton d’accès c
 - Niveau Compte : les jetons d’accès de niveau compte vous permettent d’effectuer des opérations au niveau du **compte** ou de la **vidéo**. Par exemple, charger la vidéo, répertorier toutes les vidéos, obtenir des aperçus de la vidéo, etc.
 - Niveau Vidéo : les jetons d’accès de niveau vidéo vous permettent d’effectuer des opérations au niveau d’une **vidéo** spécifique. Par exemple, obtenir des aperçus de la vidéo, télécharger les sous-titres, obtenir des widgets, etc.
 
-Vous pouvez contrôler si ces jetons sont en lecture seule ou s’ils autorisent la modification en spécifiant **allowEdit=true/false**.
+Il existe deux façons de contrôler le niveau d’autorisation des jetons :
+
+* Pour les jetons de **compte**, vous pouvez utiliser l’API **Obtenir le jeton d’accès au compte avec une autorisation** et spécifier le type d’autorisation (**Lecteur**/ **Contributeur**/**MyAccessManager**/**Propriétaire**).
+* Pour tous les types de jetons (dont les jetons de **compte**), vous pouvez spécifier **allowEdit=true/false**. **false** est l’équivalent d’une autorisation de **Lecteur** (lecture seule) et **true** est l’équivalent d’une autorisation de **Contributeur** (lecture-écriture).
 
 Pour la plupart des scénarios de serveur à serveur, vous utiliserez probablement le même jeton de **compte**, dans la mesure où il couvre à la fois les opérations liées au **compte** et celles liées à la **vidéo**. Toutefois, si vous envisagez d’effectuer des appels côté client à Video Indexer (par exemple, à partir de JavaScript), vous pouvez utiliser un jeton d’accès de **vidéo** pour empêcher les clients d’accéder à l’intégralité du compte. Pour la même raison, lors de l’incorporation de code client Video Indexer dans votre client (par exemple, via le **widget d’obtention d’aperçu** ou le **widget d’obtention de lecteur**) vous devez fournir un jeton d’accès de **vidéo**.
 
@@ -88,7 +92,7 @@ Le paramètre ID de compte est requis dans tous les appels d’API opérationnel
 
 * Utilisez le **Portail des développeurs Video Indexer** pour obtenir l’ID de compte par programmation.
 
-    Utilisez l’API [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?).
+    Utilisez l’API [Get account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account).
 
     > [!TIP]
     > Vous pouvez générer des jetons d’accès pour les comptes en définissant `generateAccessTokens=true`.

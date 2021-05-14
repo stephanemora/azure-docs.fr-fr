@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: e606e21fe2b80683737970b92d57ce87b9103144
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 7c1e908b5b113c5a2eff81105b1f0cd622c57b5e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106868"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127512"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -81,11 +81,11 @@ Pour les types d’offres pris en charge dans l’Espace partenaires, toutes les
 | Machine virtuelle | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre de machine virtuelle](marketplace-virtual-machines.md). |
 | Application Azure | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre d’application Azure](create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
-| Dynamics 365 for Customer Engagement et PowerApps | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
+| Dynamics 365 for Customer Engagement et PowerApps | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](dynamics-365-customer-engage-offer-setup.md). |
 | Dynamics 365 for Operations | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md). |
 | Application Power BI | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une application Power BI pour AppSource](partner-center-portal/create-power-bi-app-offer.md). |
 | Module IoT Edge | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Conteneur | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de conteneur Azure](./create-azure-container-offer.md). |
+| Conteneur | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de conteneur Azure](./azure-container-offer-setup.md). |
 | Service de conseil | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de services de conseil](./create-consulting-service-offer.md). |
 | Service managé | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de service managé](./plan-managed-service-offer.md). |
 | Dynamics Nav Managed Service | Non | Microsoft a fait évoluer Dynamics NAV Managed Service en [Dynamics 365 Business Central](/dynamics365/business-central/). Nous avons donc supprimé les offres actives Dynamics NAV Managed Service dans AppSource. Ces offres ne sont plus détectables par les clients et n’ont pas été déplacées vers l’Espace partenaires. Pour que vos offres soient disponibles dans AppSource, transformez-les en offres Dynamics 365 Business Central et envoyez-les dans [l’Espace partenaires](https://partner.microsoft.com/). En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |

@@ -1,16 +1,16 @@
 ---
 title: Résoudre les problèmes liés à Azure FarmBeats
 description: Cet article explique comment résoudre les problèmes liés à Azure FarmBeats.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: c45b6196b82682b37e253a33eed3940b68b4d61e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: riyazp
+ms.openlocfilehash: 39a6ea048ca68733bfe127757e1547f1af8b65d2
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172982"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762926"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Résoudre les problèmes liés à Azure FarmBeats
 

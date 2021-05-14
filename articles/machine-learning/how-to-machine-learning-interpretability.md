@@ -5,18 +5,18 @@ description: Apprenez à comprendre et à expliquer la façon dont votre modèle
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, responsible-ml
+ms.topic: how-to
+ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 02/25/2021
-ms.openlocfilehash: 44ccf6b6d2459b87040fcac7d9cdcd336cc7b82f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2adbeb66229f180963eb7d2e235db5e7bebb3ef9
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522034"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889013"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interprétabilité des modèles dans le service Azure Machine Learning (version préliminaire)
 
@@ -104,5 +104,6 @@ Vous pouvez exécuter l’explication à distance sur Capacité de calcul Azure 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez le [guide pratique](how-to-machine-learning-interpretability-aml.md) pour bénéficier de l’interprétabilité des modèles entraînés à la fois localement et sur des ressources de calcul distantes Azure Machine Learning. 
+- Découvrez comment activer l’[interprétabilité des modèles de machine learning automatisé](how-to-machine-learning-interpretability-automl.md).
 - Pour obtenir des scénarios supplémentaires, consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model). 
 - Si vous êtes intéressé par l’interprétabilité des scénarios de texte, consultez [Interpret-text](https://github.com/interpretml/interpret-text), un référentiel open source associé à [Interpret-Community](https://github.com/interpretml/interpret-community/), pour les techniques d’interprétabilité pour NLP. Le package `azureml.interpret` ne prend pas en charge ces techniques pour l’instant, mais vous pouvez commencer avec un [exemple de bloc-notes sur la classification du texte](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).

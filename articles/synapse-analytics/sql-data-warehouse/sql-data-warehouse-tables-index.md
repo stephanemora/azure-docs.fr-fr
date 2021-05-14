@@ -2,21 +2,21 @@
 title: Indexation de tables
 description: Recommandations et exemples relatifs à l’indexation de tables dans un pool SQL dédié.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/18/2019
+ms.date: 04/16/2021
+author: XiaoyuMSFT
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: fabbdf330d43737ffa85379f9cc4d5ac59c4a734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58f3eed8b16ff3ed02c6dfac6dc7d72ebb4ca374
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673516"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599976"
 ---
 # <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Indexer les tables d’un pool SQL dédié dans Azure Synapse Analytics
 
@@ -70,7 +70,7 @@ WITH ( HEAP );
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Index en cluster et non cluster
 
-Les index en cluster peuvent être plus performants que les tables columnstore en cluster lorsqu’une seule ligne doit être récupérée rapidement. Pour les requêtes où une seule ligne ou très peu de choix de lignes est requis pour des performances très rapides, envisagez un index de cluster ou un index secondaire non cluster. L’inconvénient d’utiliser un index cluster est que seules les requêtes qui en bénéficient utilisent un filtre hautement sélectif sur la colonne d’index cluster. Pour améliorer le filtre sur les autres colonnes, un index non cluster peut être ajouté aux autres colonnes. Toutefois, chaque index ajouté à une table ajoute de l’espace et du temps de traitement pour les charges.
+Les index en cluster peuvent être plus performants que les tables columnstore en cluster lorsqu’une seule ligne doit être récupérée rapidement. Pour les requêtes où une recherche sur seule ligne ou très peu lignes est requise pour des performances très rapides, envisagez un index cluster ou un index secondaire non cluster. L’inconvénient d’utiliser un index cluster est que seules les requêtes qui en bénéficient utilisent un filtre hautement sélectif sur la colonne d’index cluster. Pour améliorer le filtre sur les autres colonnes, un index non cluster peut être ajouté aux autres colonnes. Toutefois, chaque index ajouté à une table ajoute de l’espace et du temps de traitement pour les charges.
 
 Pour créer une table d’index en cluster, spécifiez simplement CLUSTERED INDEX dans la clause WITH :
 
@@ -177,6 +177,16 @@ Une fois que vous avez exécuté la requête, vous pouvez commencer à examiner 
 | [CLOSED_rowgroup_rows_AVG] |Identique à ce qui précède |
 | [Rebuild_Index_SQL] |Reconstruction d’un index columnstore pour une table par SQL |
 
+## <a name="impact-of-index-maintenance"></a>Impact de la maintenance des index
+
+La colonne `Rebuild_Index_SQL` dans l’affichage `vColumnstoreDensity` contient une instruction `ALTER INDEX REBUILD` qui peut être utilisée pour reconstruire vos index. Lors de la reconstruction de vos index, veillez à allouer suffisamment de mémoire à la session qui reconstruit votre index. Pour ce faire, augmentez la [classe de ressources](resource-classes-for-workload-management.md) d’un utilisateur qui dispose des autorisations pour reconstruire l’index sur cette table conformément aux valeurs minimum recommandées. Pour obtenir un exemple, consultez [Reconstruction d’index pour améliorer la qualité des segments](#rebuilding-indexes-to-improve-segment-quality) plus loin dans cet article.
+
+Pour une table avec un index columnstore en cluster ordonné, `ALTER INDEX REBUILD` trie à nouveau les données à l’aide de tempdb. Supervisez tempdb pendant les opérations de reconstruction. Si vous avez besoin de davantage d’espace tempdb, vous pouvez effectuer un scale-up du pool de bases de données. Réeffectuez un scale down une fois la reconstruction d’index terminée.
+
+Pour une table avec un index columnstore ordonné en cluster, `ALTER INDEX REORGANIZE` ne trie pas les données à nouveau. Pour retrier les données, utilisez `ALTER INDEX REBUILD`.
+
+Pour plus d’informations sur les index columnstore ordonnés en cluster, consultez [Optimisation des performances avec un index columnstore en cluster ordonné](performance-tuning-ordered-cci.md).
+
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Causes de la qualité médiocre des index columnstore
 
 Si vous avez identifié des tables avec une qualité médiocre des segments, vous devez en déterminer la cause racine.  Vous trouverez ci-dessous d’autres causes communes de segments de qualité médiocre :
@@ -194,7 +204,7 @@ Le nombre de lignes par groupe de lignes compressé est directement lié à la l
 
 ### <a name="high-volume-of-dml-operations"></a>Volume élevé d’opérations DML
 
-Un volume élevé d’opérations DML qui mettent à jour et suppriment des lignes peut provoquer l’inefficacité du columnstore. Cela est particulièrement vrai lorsque la majorité des lignes dans un groupe de lignes est modifiée.
+Un volume élevé d’opérations DML qui mettent à jour et suppriment des lignes peut provoquer l’inefficacité du columnstore. Cela est particulièrement vrai lorsque la plupart des lignes dans un groupe de lignes est modifiée.
 
 - La suppression d’une ligne dans un groupe de lignes compressé ne fait que marquer logiquement la ligne comme étant supprimée. La ligne reste dans le groupe de lignes compressé jusqu’à ce que la partition ou la table soit reconstruite.
 - L’insertion d’une ligne ajoute cette dernière à une table de groupe de lignes interne appelée groupe de lignes delta. La ligne insérée n’est pas convertie en columnstore jusqu’à ce que le groupe de lignes delta soit rempli et marqué comme étant fermé. Les groupes de lignes sont fermés lorsqu’ils atteignent leur capacité maximale de 1 048 576 lignes.
@@ -218,38 +228,38 @@ Une fois que les tables ont été chargées avec des données, suivez les étape
 
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Étape 1 : Identifier ou créer un utilisateur qui utilise la classe de ressources appropriée
 
-Un moyen rapide d’améliorer immédiatement la qualité de segment consiste à reconstruire l’index.  La requête SQL renvoyée par la vue ci-dessus renvoie une instruction ALTER INDEX REBUILD, qui peut être utilisée pour reconstruire vos index. Lors de la reconstruction de vos index, veillez à allouer suffisamment de mémoire à la session qui reconstruit votre index.  Pour ce faire, augmentez la classe de ressources d’un utilisateur qui dispose des autorisations pour reconstruire l’index sur cette table conformément aux valeurs minimum recommandées.
+Un moyen rapide d’améliorer immédiatement la qualité de segment consiste à reconstruire l’index.  La requête SQL renvoyée par la vue ci-dessus renvoie une instruction ALTER INDEX REBUILD, qui peut être utilisée pour reconstruire vos index. Lors de la reconstruction de vos index, veillez à allouer suffisamment de mémoire à la session qui reconstruit votre index. Pour ce faire, augmentez la classe de ressources d’un utilisateur qui dispose des autorisations pour reconstruire l’index sur cette table conformément aux valeurs minimum recommandées.
 
 Voici un exemple montrant comment allouer davantage de mémoire à un utilisateur en augmentant sa classe de ressources. Pour utiliser des classes de ressources, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).
 
 ```sql
-EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+EXEC sp_addrolemember 'xlargerc', 'LoadUser';
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Étape 2 : Reconstruire les index columnstore en cluster avec un utilisateur de la classe de ressources la plus élevée
 
-Connectez-vous en tant qu’utilisateur à l’étape 1 (par exemple, LoadUser), qui utilise maintenant une classe de ressources supérieure, puis exécutez les instructions ALTER INDEX. N’oubliez pas que cet utilisateur possède l’autorisation ALTER sur les tables où l’index est reconstruit. Ces exemples illustrent comment reconstruire l’index columnstore entier ou comment reconstruire une partition unique. Sur des tables volumineuses, il est plus pratique de reconstruire les index une seule partition à la fois.
+Connectez-vous en tant qu’utilisateur à l’étape 1 (LoadUser), qui utilise maintenant une classe de ressources supérieure, puis exécutez les instructions ALTER INDEX. N’oubliez pas que cet utilisateur possède l’autorisation ALTER sur les tables où l’index est reconstruit. Ces exemples illustrent comment reconstruire l’index columnstore entier ou comment reconstruire une partition unique. Sur des tables volumineuses, il est plus pratique de reconstruire les index une seule partition à la fois.
 
 Au lieu de reconstruire l’index, vous pouvez également copier la table dans une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md). Quelle méthode est la meilleure ? Pour les gros volumes de données, CTAS est généralement plus rapide qu’[ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Pour les volumes de données plus restreints, ALTER INDEX est plus facile à utiliser et ne vous oblige pas à permuter la table.
 
 ```sql
 -- Rebuild the entire clustered index
-ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
+ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ```
 
 ```sql
 -- Rebuild a single partition
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5;
 ```
 
 ```sql
 -- Rebuild a single partition with archival compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE);
 ```
 
 ```sql
 -- Rebuild a single partition with columnstore compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE);
 ```
 
 La reconstruction d’un index dans un pool SQL dédié est une opération hors connexion.  Pour plus d’informations sur la reconstruction d’index, consultez la section ALTER INDEX REBUILD dans [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (Défragmentation d’index columnstore) et [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

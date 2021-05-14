@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/17/2021
+ms.date: 05/02/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49cd718bc0beb5128980e5e25a01cef94e966221
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577704"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754016"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -81,7 +81,7 @@ Une stratégie d’audit peut être définie pour une base de données spécifiq
 - Vous pouvez écrire des journaux d’audit dans un compte Stockage Azure derrière un réseau virtuel ou un pare-feu. Pour obtenir des instructions spécifiques, consultez [Écrire un audit dans un compte de stockage situé derrière un réseau virtuel ou un pare-feu](audit-write-storage-account-behind-vnet-firewall.md).
 - Pour plus d’informations sur le format du journal, la hiérarchie du dossier de stockage et les conventions d’affectation de nom,consultez le [document de référence sur le format des journaux d’audit d’objets blob](./audit-log-format.md).
 - L’audit sur les [réplicas en lecture seule](read-scale-out.md) est activé automatiquement. Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](audit-log-format.md).
-- Quand vous utilisez Azure AD Authentication, les échecs de connexion ne sont *pas* enregistrés dans le journal d’audit SQL. Pour voir les enregistrements d’audit des échecs de connexion, accédez au [portail Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), qui affiche les détails de ces événements.
+- Quand vous utilisez Azure AD Authentication, les échecs de connexion ne sont *pas* enregistrés dans le journal d’audit SQL. Pour voir les enregistrements d’audit des échecs de connexion, accédez au [portail Azure Active Directory](../../active-directory/reports-monitoring/concept-sign-ins.md), qui affiche les détails de ces événements.
 - Les connexions sont acheminées par la passerelle vers l’instance spécifique où se trouve la base de données.  Dans le cas des connexions AAD, les informations d’identification sont vérifiées avant toute tentative d’utilisation de cet utilisateur pour se connecter à la base de données demandée.  En cas d’échec, la base de données demandée n’est jamais accessible, de sorte qu’aucun audit n’est effectué.  Dans le cas des connexions SQL, les informations d’identification sont vérifiées sur les données demandées, de sorte qu’elles peuvent être auditées.  Les connexions réussies, qui ont manifestement atteint la base de données, sont auditées dans les deux cas.
 - Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](threat-detection-overview.md).
 
@@ -100,7 +100,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
   > [!NOTE]
   > - L’activation de l’audit sur un pool SQL dédié suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool SQL dédié. En savoir plus sur le [pool SQL dédié](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
-  > - Lorsque l’audit est configuré sur un espace de travail Log Analytics ou une destination Event Hub avec la cmdlet Portail Azure ou PowerShell, un [paramètre de diagnostic](../../azure-monitor/essentials/diagnostic-settings.md) est créé avec la catégorie « SQLSecurityAuditEvents » activée.
+  > - Lorsque l’audit est configuré sur un espace de travail Log Analytics ou une destination Event Hub par le biais du portail Azure ou d’une applet de commande PowerShell, un [paramètre de diagnostic](../../azure-monitor/essentials/diagnostic-settings.md) est créé avec la catégorie « SQLSecurityAuditEvents » activée.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet **SQL Database** ou **SQL Server**.
@@ -290,9 +290,9 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 
 Vous pouvez gérer l’audit Azure SQL Database à l’aide de modèles [Azure Resource Manager](../../azure-resource-manager/management/overview.md), comme indiqué dans ces exemples :
 
-- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-blob-storage/)
+- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-oms/)
+- [Déployer une instance Azure SQL Database avec l’audit activé pour écrire des journaux d’audit dans Event Hubs](https://azure.microsoft.com/resources/templates/sql-auditing-server-policy-to-eventhub/)
 
 > [!NOTE]
 > Les exemples liés se trouvent sur un référentiel public externe et sont fournis « en l’état », sans garantie et ne sont pas pris en charge dans n’importe quel service/programme de support Microsoft.

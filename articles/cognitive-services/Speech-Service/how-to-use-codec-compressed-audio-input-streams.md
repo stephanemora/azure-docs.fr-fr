@@ -12,16 +12,16 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 1e08203076de2073e39c5b5f5eb40b66c88490d7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db902019b4fb1237c8403c719862d8fca4ba4f28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417704"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772520"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utiliser une entrée audio compressée par codec avec le SDK Speech
 
-L’API **Compressed Audio Input Stream** du SDK du service Speech permet de diffuser en streaming du contenu audio compressé vers le service Speech à l’aide d’un `PullStream` ou d’un `PushStream`.
+Le kit de développement logiciel (SDK) du service Speech peut accepter des formats audio compressés. Il décompresse l’audio avant de l’envoyer sur le réseau service Speech en tant que PCM brut.
 
 Plateforme | Languages | Version de GStreamer prise en charge
 | :--- | ---: | :---:

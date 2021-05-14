@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Configurer le chiffrage vSAN pour le cloud privé
 description: Décrit comment configurer la fonctionnalité de chiffrement du logiciel vSAN afin que votre cloud privé CloudSimple puisse fonctionner avec un serveur de gestion de clés exécuté dans votre réseau virtuel Azure.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f5da05c7f3c6878b0804799360e512676b9002d3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de2c3d889dd7f8bae4c50dee1c68d039e26e52d4
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97899046"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181073"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configurer le chiffrement vSAN pour un cloud privé CloudSimple
 

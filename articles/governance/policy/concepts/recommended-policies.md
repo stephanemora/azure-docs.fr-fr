@@ -3,13 +3,13 @@ title: Stratégies recommandées pour les services Azure
 description: Décrit comment rechercher et appliquer les stratégies recommandées pour les services Azure, tels que Machines virtuelles Azure.
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.customer: generated
-ms.openlocfilehash: ef028dc61b10117509fdd27e815230ff27dbadfa
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.custom: generated
+ms.openlocfilehash: a505a94e580b24c19a96ea86b1237870e49a6442
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089999"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752612"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Stratégies recommandées pour les services Azure
 

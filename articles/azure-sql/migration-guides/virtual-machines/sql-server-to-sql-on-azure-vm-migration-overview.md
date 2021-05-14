@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 2702451aa3645b2702f8f38c37574a6601249dac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b3f81b9c6855522718f69f76adfd5fe9a3c6059c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641405"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136242"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Vue d’ensemble de la migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Vous pouvez migrer SQL Server s’exécutant en local ou sur :
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform – GCP)
 
-Pour obtenir d’autres guides de migration, consultez [Migration de base de données](https://docs.microsoft.com/data-migration). 
+Pour obtenir d’autres guides de migration, consultez [Migration de base de données](/data-migration). 
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -40,7 +40,7 @@ Réalisez des économies en dotant votre propre licence du [modèle de licence A
 
 ## <a name="choose-appropriate-target"></a>Choisir la cible appropriée
 
-Les machines virtuelles Azure s’exécutent dans de nombreuses régions d’Azure et offrent également une variété de [tailles de machine](../../../virtual-machines/sizes.md) et d’[options de stockage](../../../virtual-machines/disks-types.md). Pour déterminer la taille correcte de la machine virtuelle et du stockage pour votre charge de travail SQL Server, consultez [Recommandations de performances pour SQL Server sur les machines virtuelles Azure](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance). Pour déterminer les besoins en matière de stockage et de taille de machine virtuelle pour votre charge de travail, il est recommandé de les dimensionner par le biais d’une [évaluation Azure Migrate](../../../migrate/concepts-assessment-calculation.md#types-of-assessments) basée sur les performances. Si cette option n’est pas disponible, consultez l’article suivant sur la création de votre propre [ligne de base pour les performances](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Les machines virtuelles Azure s’exécutent dans de nombreuses régions d’Azure et offrent également une variété de [tailles de machine](../../../virtual-machines/sizes.md) et d’[options de stockage](../../../virtual-machines/disks-types.md). Pour déterminer la taille correcte de la machine virtuelle et du stockage pour votre charge de travail SQL Server, consultez [Recommandations de performances pour SQL Server sur les machines virtuelles Azure](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size). Pour déterminer les besoins en matière de stockage et de taille de machine virtuelle pour votre charge de travail, il est recommandé de les dimensionner par le biais d’une [évaluation Azure Migrate](../../../migrate/concepts-assessment-calculation.md#types-of-assessments) basée sur les performances. Si cette option n’est pas disponible, consultez l’article suivant sur la création de votre propre [ligne de base pour les performances](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 Il convient également de réfléchir à l’installation et à la configuration correctes de SQL Server sur une machine virtuelle. Il est recommandé d’utiliser la [galerie d’images de machine virtuelle Azure SQL](../../virtual-machines/windows/create-sql-vm-portal.md), car cela vous permet de créer une machine virtuelle SQL Server avec la version, l’édition et le système d’exploitation appropriés. Cela permettra également d’inscrire automatiquement la machine virtuelle Azure auprès du [fournisseur de ressources](../../virtual-machines/windows/create-sql-vm-portal.md) SQL Server, activant ainsi des fonctionnalités telles que les sauvegardes automatisées et la mise à jour corrective automatisée.
 

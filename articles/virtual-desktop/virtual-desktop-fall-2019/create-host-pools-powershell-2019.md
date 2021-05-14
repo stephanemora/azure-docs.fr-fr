@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9776d5f52bda56704c4839cb9edd420beec72a71
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9835a736dfd1c2ccec41eb27472f76d53b07696e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445225"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754386"
 ---
 # <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Créer un pool d’hôtes dans Windows Virtual Desktop (classique) avec PowerShell
 
@@ -64,7 +64,7 @@ Vous pouvez créer une machine virtuelle de plusieurs façons :
 
 - [Créer une machine virtuelle à partir d’une image Azure Gallery](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Créer une machine virtuelle à partir d’une image managée](../../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 >[!NOTE]
 >Si vous déployez une machine virtuelle à l’aide de Windows 7 en tant que système d’exploitation hôte, le processus de création et de déploiement sera un peu différent. Pour plus d'informations, consultez [Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).

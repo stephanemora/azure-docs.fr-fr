@@ -7,16 +7,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 07e12272eeb8d35620baafef5414060dff2e9ee2
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93396853"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319626"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Créer une passerelle d’application et réécrire des en-têtes HTTP
 
-Vous pouvez utiliser Azure PowerShell pour configurer des [règles de réécriture d’en-têtes de requête et de réponse HTTP](rewrite-http-headers.md) lorsque vous créez une [référence SKU de passerelle d’application se mettant à l’échelle automatiquement et redondante dans la zone](./application-gateway-autoscaling-zone-redundant.md)
+Vous pouvez utiliser Azure PowerShell pour configurer des [règles de réécriture d’en-têtes de requête et de réponse HTTP](./rewrite-http-headers-url.md) lorsque vous créez une [référence SKU de passerelle d’application se mettant à l’échelle automatiquement et redondante dans la zone](./application-gateway-autoscaling-zone-redundant.md)
 
 Dans cet article, vous apprendrez comment :
 

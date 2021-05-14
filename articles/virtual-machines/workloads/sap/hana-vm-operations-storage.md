@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/03/2021
+ms.date: 04/27/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c0fbb1280fc2a7eaca1d97e7e016cf480873c8b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4350f60029673af04ad263c9e9f25d7a74bc532b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666581"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131021"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -62,6 +62,7 @@ Voici une liste de certains principes de directeur quant au choix de la configur
 - Choisissez le type de stockage en vous référant aux articles [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et [Sélectionner un type de disque](../../disks-types.md)
 - Gardez à l’esprit le débit d’E/S global et les limites d’IOPS de la machine virtuelle lors du dimensionnement ou du choix d’une machine virtuelle. Le débit de stockage de machine virtuelle global est décrit dans l’article [Tailles de machine virtuelle à mémoire optimisée](../../sizes-memory.md)
 - Lorsque vous choisissez la configuration du stockage, essayez de rester en dessous du débit global de la machine virtuelle avec votre configuration de volume **/hana/data**. L’écriture de points d’enregistrement, SAP HANA peut générer des opérations d’E/S agressives. Vous pouvez facilement atteindre les limites de débit de votre volume **/hana/data** lors de l’écriture d’un point d’enregistrement. Si votre ou vos disques générant le volume **/hana/data** affichent un débit supérieur à celui autorisé par votre machine virtuelle, vous pouvez rencontrer des situations où le débit utilisé par l’écriture du point d’enregistrement interfère avec les demandes de débit des écritures de journal de rétablissement. Cette situation peut avoir un impact sur le débit de l’application
+- Si vous envisagez d’utiliser la réplication de système HANA, vous devez utiliser le même type de stockage Azure pour **/hana/data** et **/hana/log** et ce, pour toutes les machines virtuelles impliquées dans la configuration de la réplication de système HANA. Par exemple, l’utilisation du stockage Azure Premium pour **/hana/data** avec une machine virtuelle et un disque Ultra Azure pour **/hana/log** sur une autre machine virtuelle au sein de la même configuration de réplication de système HANA n’est pas prise en charge
 
 
 > [!IMPORTANT]
@@ -153,6 +154,9 @@ En particulier sur les systèmes SGBD plus petits dans lesquels votre charge de 
 > [!NOTE]
 > Dans les scénarios impliquant le stockage Azure Premium, nous implémentons des fonctionnalités en rafales dans la configuration. À mesure que vous utilisez des outils de test de stockage de toute forme, gardez à l’esprit le mode de fonctionnement de [la fonctionnalité en rafales de disque Azure Premium](../../disk-bursting.md). En exécutant les tests de stockage fournis par l’outil SAP HWCCT ou HCMT, nous ne nous attendons pas à ce que tous les tests répondent aux critères, car certains des tests dépasseront les crédits de rafales que vous pouvez cumuler. En particulier lorsque tous les tests s’exécutent séquentiellement sans interruption.
 
+> [!NOTE]
+> Avec les machines virtuelles M32ts et M32ls, il peut arriver que le débit de disque soit plus faible que prévu en utilisant des tests de disque HCMT/HWCCT, même avec le bursting de disque ou un débit d’E/S suffisamment approvisionné des disques sous-jacents. La cause racine du comportement observé est liée au fait que les fichiers de test de stockage HCMT/HWCCT ont été intégralement mis en cache dans le cache de lecture des disques de données de stockage Premium. Ce cache se trouve sur l’hôte de calcul qui héberge la machine virtuelle et peut mettre intégralement en cache les fichiers de test HCMT/HWCCT. Dans ce cas, les quotas répertoriés dans la colonne **Débit de stockage temporaire et mis en cache max : IOPS/MBits/s (taille du cache en Gio)** de l’article [Série M](../../m-series.md) sont pertinents. Spécifiquement pour les machines virtuelles M32ts et M32ls, le quota de débit par rapport au cache de lecture est limité à 400 Mo/s. Suite à la mise en cache complète des fichiers de test, il est possible qu’en dépit du bursting de disque ou d’un débit d’E/S approvisionné plus élevé, les tests soient légèrement inférieurs au débit maximal de 400 Mo/s. Vous pouvez également tester sans activer le cache de lecture sur les disques de données de stockage Premium Azure.
+
 
 > [!NOTE]
 > Pour les scénarios de production, vérifiez si un type de machine virtuelle spécifique est pris en charge pour SAP HANA dans la [documentation SAP pour IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
@@ -166,10 +170,13 @@ Configuration pour le volume SAP **/hana/data** :
 | M32ts | 192 Gio | 500 Mo/s | 4 x P6 | 200 Mbits/s | 680 Mbits/s | 960 | 14 000 |
 | M32ls | 256 Gio | 500 Mo/s | 4 x P6 | 200 Mbits/s | 680 Mbits/s | 960 | 14 000 |
 | M64ls | 512 Go | 1 000 Mbits/s | 4 x P10 | 400 Mbits/s | 680 Mbits/s | 2 000 | 14 000 |
-| M64s | 1 000 Gio | 1 000 Mbits/s | 4 x P15 | 500 Mo/s | 680 Mbits/s | 4 400 | 14 000 |
-| M64ms | 1 750 Gio | 1 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200 | 14 000 |  
-| M128s | 2 000 Gio | 2 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200| 14 000 | 
-| M128ms | 3,800 Gio | 2 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000 | pas de rafale | 
+| M32dms_v2, M32ms_v2 | 875 Gio  | 500 Mo/s | 4 x P15 | 500 Mo/s | 680 Mbits/s | 4 400 | 14 000 |
+| M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mbits/s | 4 x P15 | 500 Mo/s | 680 Mbits/s | 4 400 | 14 000 |
+| M64ms, M64dms_v2, M64ms_v2 | 1 792 Gio | 1 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200 | 14 000 |  
+| M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200| 14 000 | 
+| M192ds_v2, M192s_v2 | 2 048 Gio | 2 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200| 14 000 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3 892 Gio | 2 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000 | pas de rafale | 
+| M192ms, M192dms_v2, M128ms_v2 | 4 096 Gio | 2 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000 | pas de rafale | 
 | M208s_v2 | 2 850 Gio | 1 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000| pas de rafale | 
 | M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 4 x P40 | 1 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
 | M416s_v2 | 5 700 Gio | 2 000 Mbits/s | 4 x P40 | 1 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
@@ -183,10 +190,13 @@ Pour le volume **/hana/log**. la configuration ressemblerait à ceci :
 | M32ts | 192 Gio | 500 Mo/s | 3 x P10 | 300 Mbits/s | 510 Mbits/s | 1 500 | 10 500 | 
 | M32ls | 256 Gio | 500 Mo/s | 3 x P10 | 300 Mbits/s | 510 Mbits/s | 1 500 | 10 500 | 
 | M64ls | 512 Go | 1 000 Mbits/s | 3 x P10 | 300 Mbits/s | 510 Mbits/s | 1 500 | 10 500 | 
-| M64s | 1 000 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
-| M64ms | 1 750 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
-| M128s | 2 000 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500|  
-| M128ms | 3,800 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
+| M32dms_v2, M32ms_v2 | 875 Gio | 500 Mo/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
+| M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
+| M64ms, M64dms_v2, M64ms_v2 | 1 792 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
+| M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500| 
+| M192ds_v2, M192s_v2 | 2 048 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500| 
+| M128ms, M128dms_v2, M128ms_v2 | 3 892 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |
+| M192dms_v2, M192ms_v2 | 4 096 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
 | M208s_v2 | 2 850 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
 | M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
 | M416s_v2 | 5 700 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
@@ -200,10 +210,13 @@ Pour les autres volumes, la configuration ressemblerait à ceci :
 | M32ts | 192 Gio | 500 Mo/s | 1 x P15 | 1 x P6 | 1 x P6 |
 | M32ls | 256 Gio | 500 Mo/s |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 Go | 1 000 Mo/s | 1 x P20 | 1 x P6 | 1 x P6 |
-| M64s | 1 000 Gio | 1 000 Mbits/s | 1 x P30 | 1 x P6 | 1 x P6 |
-| M64ms | 1 750 Gio | 1 000 Mbits/s | 1 x P30 | 1 x P6 | 1 x P6 | 
-| M128s | 2 000 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M128ms | 3,800 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 |
+| M32dms_v2, M32ms_v2 | 875 Gio | 500 Mo/s | 1 x P30 | 1 x P6 | 1 x P6 |
+| M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mbits/s | 1 x P30 | 1 x P6 | 1 x P6 |
+| M64ms, M64dms_v2, M64ms_v2 | 1 792 Gio | 1 000 Mbits/s | 1 x P30 | 1 x P6 | 1 x P6 | 
+| M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M192ds_v2, M192s_v2  | 2 048 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3 892 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 |
+| M192dms_v2, M192ms_v2  | 4 096 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 |
 | M208s_v2 | 2 850 Gio | 1 000 Mbits/s |  1 x P30 | 1 x P10 | 1 x P6 |
 | M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M416s_v2 | 5 700 Gio | 2 000 Mbits/s |  1 x P30 | 1 x P10 | 1 x P6 | 
@@ -212,7 +225,7 @@ Pour les autres volumes, la configuration ressemblerait à ceci :
 
 Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log**, augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume avec davantage de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure.
 
-L’Accélérateur des écritures Azure fonctionne uniquement en association avec des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/). Cela signifie que les disques de stockage Azure Premium constituant le volume **/hana/log** doivent être déployés en tant que disques managés. Vous trouverez des instructions et des restrictions plus détaillées sur l’Accélérateur des écritures Azure dans l’article [Accélérateur des écritures](../../how-to-enable-write-accelerator.md).
+L’Accélérateur des écritures Azure fonctionne uniquement avec des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/). Cela signifie que les disques de stockage Azure Premium constituant le volume **/hana/log** doivent être déployés en tant que disques managés. Vous trouverez des instructions et des restrictions plus détaillées sur l’Accélérateur des écritures Azure dans l’article [Accélérateur des écritures](../../how-to-enable-write-accelerator.md).
 
 Pour les machines virtuelles certifiées HANA de la famille Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) et [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), vous avez besoin d’ANF pour les volumes **/hana/data** et **/hana/log**. Ou vous devez tirer parti du stockage sur disque Ultra Azure au lieu du stockage Premium Azure uniquement pour le volume **/hana/log**. Par conséquent, les configurations pour le volume **/hana/data** sur le stockage Premium Azure peuvent ressembler à ceci :
 
@@ -268,10 +281,13 @@ Les recommandations vont souvent au-delà des conditions minimales requise par S
 | M32ts | 192 Gio | 500 Mo/s | 250 Go | 400 Mbits/s | 2 500 | 96 Go | 250 Mbits/s  | 1 800 |
 | M32ls | 256 Gio | 500 Mo/s | 300 Go | 400 Mbits/s | 2 500 | 256 Go | 250 Mbits/s  | 1 800 |
 | M64ls | 512 Go | 1 000 Mo/s | 620 Go | 400 Mbits/s | 3 500 | 256 Go | 250 Mbits/s  | 1 800 |
-| M64s | 1 000 Gio | 1 000 Mo/s |  1 200 GO | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
-| M64ms | 1 750 Gio | 1 000 Mo/s | 2 100 Gio | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
-| M128s | 2 000 Gio | 2 000 Mo/s |2 400 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
-| M128ms | 3,800 Gio | 2 000 Mo/s | 4 800 Go | 750 Mo/s |9 600 | 512 Go | 250 Mbits/s  | 2 500 | 
+| M32dms_v2, M32ms_v2 | 875 Gio | 500 Mo/s |  1 200 GO | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
+| M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mo/s |  1 200 GO | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
+| M64ms, M64dms_v2, M64ms_v2 | 1 792 Gio | 1 000 Mo/s | 2 100 Gio | 600 Mbits/s | 5 000 | 512 Go | 250 Mbits/s  | 2 500 |
+| M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mo/s |2 400 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 |
+| M192ds_v2, M192s_v2 | 2 048 Gio | 2 000 Mo/s |2 400 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
+| M128ms, M128dms_v2, M128ms_v2 | 3 892 Gio | 2 000 Mo/s | 4 800 Go | 750 Mo/s |9 600 | 512 Go | 250 Mbits/s  | 2 500 | 
+| M192dms_v2, M192ms_v2 | 4 096 Gio | 2 000 Mo/s | 4 800 Go | 750 Mo/s |9 600 | 512 Go | 250 Mbits/s  | 2 500 | 
 | M208s_v2 | 2 850 Gio | 1 000 Mo/s | 3 500 Go | 750 Mo/s | 7 000 | 512 Go | 250 Mbits/s  | 2 500 | 
 | M208ms_v2 | 5 700 Gio | 1 000 Mo/s | 7 200 Go | 750 Mo/s | 14 400 | 512 Go | 250 Mbits/s  | 2 500 | 
 | M416s_v2 | 5 700 Gio | 2 000 Mo/s | 7 200 Go | 1 000 Mbits/s | 14 400 | 512 Go | 400 Mbits/s  | 4 000 | 
@@ -308,11 +324,14 @@ Une alternative moins coûteuse pour ces configurations peut ressembler à ceci�
 | E64v3 | 432 Gio | 1 200 Mo/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
 | E64ds_v4 | 504 Gio | 1 200 Mo/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | N’atteindra pas une latence de stockage inférieure à 1 ms<sup>1</sup> |
 | M64ls | 512 Go | 1 000 Mo/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
-| M64s | 1 000 Gio | 1 000 Mo/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
-| M64ms | 1 750 Gio | 1 000 Mo/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
-| M128s | 2 000 Gio | 2 000 Mo/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M32dms_v2, M32ms_v2 | 875 Gio | 500 Mo/s | 6 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 5 000<sup>2</sup> |
+| M64s, M64ds_v2, M64s_v2 | 1 024 Gio | 1 000 Mo/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
+| M64ms, M64dms_v2, M64ms_v2| 1 792 Gio | 1 000 Mo/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
+| M128s, M128ds_v2, M128s_v2 | 2 048 Gio | 2 000 Mo/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M192ds_v2, M192s_v2 | 2 048 Gio | 2 000 Mo/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M128ms, M128dms_v2, M128ms_v2  | 3,800 Gio | 2 000 Mo/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
+| M192dms_v2, M192ms_v2  | 4 096 Gio | 2 000 Mo/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
 | M208s_v2 | 2 850 Gio | 1 000 Mo/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
-| M128ms | 3,800 Gio | 2 000 Mo/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
 | M208ms_v2 | 5 700 Gio | 1 000 Mo/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 10 000<sup>2</sup> |
 | M416s_v2 | 5 700 Gio | 2 000 Mo/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |
 | M416ms_v2 | 11 400 Gio | 2 000 Mo/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | L’utilisation d’Accélérateur d’écriture pour les données combinées et le volume des journaux limite le taux d’E/S par seconde à 20 000<sup>2</sup> |

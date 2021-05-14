@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dda6fb816fcba4ab9350edd956d895a3b9b204d4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 40d54d9e495efef4b0e1ddb8dc8b8c7114421414
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276125"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165566"
 ---
 # <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>Tutoriel : Utiliser des files d’attente Stockage File d’attente Azure dans .NET
 
@@ -120,6 +120,7 @@ Créez une application .NET Core nommée `QueueApp`. Par souci pratique, cette a
    ```console
    dotnet add package Microsoft.Azure.Storage.Queue
    ```
+
    ---
 
 ### <a name="add-using-statements"></a>Ajouter des instructions using

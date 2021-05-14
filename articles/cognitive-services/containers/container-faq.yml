@@ -10,12 +10,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 03/02/2021
   ms.author: aahi
-  ms.openlocfilehash: 2adab9ab076a23260656f973e959bb14314ae8c1
-  ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+  ms.openlocfilehash: c8592674cdb6dd88e22f1089cedb935a65c8ad0a
+  ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/30/2021
-  ms.locfileid: "102035472"
+  ms.lasthandoff: 04/28/2021
+  ms.locfileid: "108128073"
 title: Questions fréquentes (FAQ) sur les conteneurs Azure Cognitive Services
 summary: ''
 sections:
@@ -74,7 +74,7 @@ sections:
       Nous ne testons pas les conteneurs avec OpenShift, mais en général, les conteneurs Cognitive Services doivent pouvoir s’exécuter sur n’importe quelle plateforme prenant en charge les images Docker. Si vous utilisez OpenShift, nous vous recommandons d’exécuter les conteneurs en tant que `root-user`.
   - question: Comment indiquer des commentaires sur le produit et suggérer des fonctionnalités ?
     answer: >
-      Les clients sont encouragés à [exprimer publiquement leurs préoccupations](https://cognitive.uservoice.com/) et à voter pour d’autres personnes qui ont signalé des problèmes potentiels se chevauchant. L’outil UserVoice peut être utilisé à la fois pour fournir des commentaires sur les produits et suggérer des fonctionnalités.
+      Les clients sont encouragés à [exprimer publiquement leurs préoccupations](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737) et à voter pour d’autres personnes qui ont signalé des problèmes potentiels se chevauchant. L’outil des commentaires peut être utilisé pour fournir des commentaires sur les produits et suggérer des fonctionnalités.
   - question: Quels sont les messages d’état et les erreurs retournés par les conteneurs Cognitive Services ?
     answer: >
       Consultez le tableau suivant pour obtenir la liste des messages d’état et des erreurs.

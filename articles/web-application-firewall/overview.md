@@ -4,19 +4,21 @@ description: Cet article fournit une vue d’ensemble du pare-feu d’applicatio
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/18/2020
+ms.date: 05/11/2021
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 49024c86d09f5cdd9e8b04d5a49f60021660b0c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7bcaf46ef6860a9546179b86d6293d24c0064c0c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "79475785"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751524"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>Qu’est-ce que le pare-feu d’applications web Azure ?
 
 Le pare-feu d’applications web (WAF) permet de centraliser la protection de vos applications web contre les vulnérabilités et les attaques courantes. Les applications web sont de plus en plus visées par des attaques malveillantes qui exploitent des vulnérabilités connues. L’injection de code SQL et l’exécution de scripts de site à site font partie des attaques les plus courantes.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM]
 
 ![Vue d’ensemble de WAF](media/overview/wafoverview.png)
 

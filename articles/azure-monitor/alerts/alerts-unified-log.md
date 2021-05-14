@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 786e9b472d1f900e94e5d0cfa6a00e0f85547704
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 367dd261e9147c2dc14f1085af553222b621d91e
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037691"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279781"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
@@ -165,9 +165,14 @@ Les résultats de la requête sont transformés en valeur numérique qui est com
 
 ### <a name="frequency"></a>Fréquence
 
-Intervalle dans lequel la requête est exécutée. La valeur peut être comprise entre 5 minutes et 1 jour. Elle doit être inférieure ou égale à l'[intervalle de temps de requête](#query-time-range) pour ne pas manquer les enregistrements de journal.
+> [!NOTE]
+> Il n’y a actuellement pas de frais supplémentaires pour les alertes de journal d’une fréquence d’une minute. La tarification des fonctionnalités en préversion sera annoncée à l’avenir et un avis sera fourni avant le début de la facturation. Si vous choisissez de continuer à utiliser les alertes de journal d’une fréquence d’une minute après la période de préavis, vous serez facturé au tarif en vigueur.
+
+Intervalle dans lequel la requête est exécutée. La valeur peut être comprise entre une minute et un jour. Elle doit être inférieure ou égale à l'[intervalle de temps de requête](#query-time-range) pour ne pas manquer les enregistrements de journal.
 
 Par exemple, si vous définissez la période sur 30 minutes et la fréquence sur 1 heure :  Si la requête est exécutée à 00h00, les enregistrements compris entre 23h30 et 00h00 sont renvoyés. La requête s'exécute ensuite à 01h00, pour renvoyer les enregistrements compris entre 00h30 et 01h00. Les enregistrements créés entre 00h00 et 00h30 ne sont jamais évalués.
+
+Pour utiliser des alertes d’une fréquence d’une minute, vous devez définir une propriété par le biais de l’API. Lorsque vous créez ou mettez à jour des règles d’alerte de journal dans la version d’API `2020-05-01-preview`, à la section `properties`, ajoutez `evaluationFrequency` avec la valeur `PT1M` de type `String`. Lorsque vous créez ou mettez à jour des règles d’alerte de journal dans la version d’API `2018-04-16`, à la section `schedule`, ajoutez `frequencyInMinutes` avec la valeur `1` de type `Int`. 
 
 ### <a name="number-of-violations-to-trigger-alert"></a>Nombre de violations à partir duquel déclencher l'alerte
 
@@ -177,9 +182,9 @@ Par exemple, si votre règle [**Précision d'agrégation**](#aggregation-granula
 
 ## <a name="state-and-resolving-alerts"></a>État et résolution des alertes
 
-Les alertes de journal sont sans état. Les alertes se déclenchent à chaque fois que la condition est remplie, même si elles ont déjà été déclenchées. Les alertes déclenchées ne sont pas résolues. Vous pouvez [marquer l'alerte comme fermée](../alerts/alerts-managing-alert-states.md). Vous pouvez également désactiver des actions pour les empêcher de se déclencher pendant un certain temps après le déclenchement d'une règle d'alerte.
+Les alertes de journal peuvent être avec ou sans état (actuellement en préversion lors de l’utilisation de l’API). 
 
-Dans les espaces de travail et Application Insights, ceci est appelé **Supprimer les alertes**. Dans tous les autres types de ressources, il s'agit de **Mettre les actions en sourdine**. 
+Les alertes sans état se déclenchent à chaque fois que la condition est remplie, même si elles ont déjà été déclenchées. Vous pouvez [marquer l’alerte comme fermée](../alerts/alerts-managing-alert-states.md) une fois l’instance d’alerte résolue. Vous pouvez également désactiver des actions pour les empêcher de se déclencher pendant un certain temps après le déclenchement d'une règle d'alerte. Dans Application Insights et les espaces de travail Log Analytics, on parle de **Supprimer les alertes**. Dans tous les autres types de ressources, il s'agit de **Mettre les actions en sourdine**. 
 
 Consultez cet exemple d'évaluation d'alerte :
 
@@ -189,6 +194,8 @@ Consultez cet exemple d'évaluation d'alerte :
 | 00:10 | true  | L’alerte se déclenche et les groupes d’actions sont appelés. Nouvel état d'alerte ACTIF.
 | 00:15 | true  | L’alerte se déclenche et les groupes d’actions sont appelés. Nouvel état d'alerte ACTIF.
 | 00:20 | false | L'alerte ne se déclenche pas. Aucune action n’est appelée. L'état d'alerte précédent reste ACTIF.
+
+Les alertes avec état se déclenchent une fois par incident et se résolvent. Lorsque vous créez ou mettez à jour des règles d’alerte de journal, ajoutez l’indicateur `autoMitigate` avec une valeur `true` de type `Boolean`, sous la section `properties`. Vous pouvez utiliser cette fonctionnalité dans les versions d’API suivantes : `2018-04-16` et `2020-05-01-preview`.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Tarification et facturation des alertes de journal
 

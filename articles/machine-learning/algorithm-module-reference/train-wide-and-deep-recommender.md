@@ -8,18 +8,20 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: d7dd7105ddb0d6503faefb996b84c0e53a62ce49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/19/2021
+ms.openlocfilehash: 6c7f4b221b1b9a1eee9a0d4d376bb6707d6b2869
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104655374"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108000851"
 ---
 # <a name="train-wide--deep-recommender"></a>Générateur de recommandations Train Wide and Deep
 Cet article explique comment utiliser le module **Générateur de recommandations Train Wide and Deep** dans le concepteur Azure Machine Learning afin d’effectuer la formation d’un modèle de recommandation. Ce module est basé sur l’apprentissage Wide and Deep, proposé par Google.
 
 Le module de **recommandation Train Wide and Deep** lit un jeu de données composé de triplets utilisateur-élément-évaluation et, éventuellement, de certaines caractéristiques d'utilisateur et d'élément. Il retourne un générateur de recommandations Wide and Deep.  Vous pouvez ensuite utiliser le modèle formé pour générer des prédictions de note ou des recommandations à l’aide du module [Générateur de recommandations Score Wide and Deep](score-wide-and-deep-recommender.md).  
+
+<!-- Currently, **Train Wide & Deep Recommender** module supports both single node and distributed training. -->
 
 ## <a name="more-about-recommendation-models-and-the-wide--deep-recommender"></a>En savoir plus sur les modèles de recommandation et le générateur de recommandations Wide and Deep  
 
@@ -34,7 +36,7 @@ Le générateur de recommandations Wide and Deep combine ces approches avec un f
 
 Comment cela fonctionne : Quand un utilisateur est relativement nouveau pour le système, les prédictions sont améliorées en exploitant les informations spécifiques relatives à l'utilisateur, et donc en abordant le problème bien connu du « démarrage à froid ». Toutefois, après avoir recueilli un nombre suffisant d'évaluations d'un utilisateur particulier, il est possible d'élaborer des prédictions entièrement personnalisées en fonction de ses propres évaluations plutôt que de ses seules caractéristiques. Il en résulte donc une transition en douceur de recommandations basées sur le contenu vers des recommandations basées sur un filtrage collaboratif. Même si les caractéristiques d'un utilisateur ou d'un élément ne sont pas disponibles, le module de recommandantion Wide and Deep continue de fonctionner en mode filtrage collaboratif.  
 
-Pour plus d'informations sur le générateur de recommandations Wide and Deep et son algorithme probabiliste sous-jacent, consultez l'étude qui lui est consacrée : [Wide & Deep Learning pour les systèmes de recommandation](https://arxiv.org/pdf/1606.07792.pdf).  
+Pour plus d’informations sur le générateur de recommandations Wide & Deep et son algorithme probabiliste sous-jacent, consultez l’étude qui lui est consacrée : [Wide & Deep Learning pour les systèmes de recommandation](https://arxiv.org/pdf/1606.07792.pdf).  
 
 ## <a name="how-to-configure-train-wide--deep-recommender"></a>Comment configurer le module Entraîner le générateur de recommandations Wide and Deep  
 
@@ -43,7 +45,7 @@ Pour plus d'informations sur le générateur de recommandations Wide and Deep et
 
 ### <a name="prepare-data"></a>Préparer les données
 
-Avant d’essayer d’utiliser le module, il est essentiel que vos données soient au format attendu par le modèle de recommandation. Un jeu de données d’apprentissage **triples utilisateur-élément-notation** est requis, mais vous pouvez également inclure des caractéristiques d’utilisateurs et des caractéristiques d’éléments (si disponibles) dans des jeux de données distincts.
+Avant d’essayer d’utiliser le module, assurez-vous que vos données sont au format attendu pour le modèle de recommandation. Un jeu de données d’apprentissage **triples utilisateur-élément-notation** est requis, mais vous pouvez également inclure des caractéristiques d’utilisateurs et des caractéristiques d’éléments (si disponibles) dans des jeux de données distincts.
 
 #### <a name="required-dataset-of-user-item-ratings"></a>Jeu de données requis de triplets utilisateur-élément-évaluation
 
@@ -137,9 +139,50 @@ Par exemple, un jeu de caractéristiques d’éléments typique peut se présent
 
 17.  Exécuter le pipeline.
 
-## <a name="results"></a>Résultats
 
-Une fois l’exécution du pipeline effectuée, si vous souhaitez utiliser le modèle à des fins de scoring, connectez le module [Effectuer l'apprentissage d’un générateur de recommandations Wide and Deep](train-wide-and-deep-recommender.md) à [Noter le générateur de recommandations Wide and Deep](score-wide-and-deep-recommender.md), pour prédire les valeurs des nouveaux exemples d’entrée.
+<!-- ## Distributed training
+
+In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Wide & Deep Recommender** module.
+
+### How to enable distributed training
+
+To enable distributed training for **Train Wide & Deep Recommender** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
+
+1. Select the module and open the right panel. Expand the **Run settings** section.
+
+    [![Screenshot showing how to set distributed training in run setting](./media/module/distributed-training-run-setting.png)](./media/module/distributed-training-run-setting.png#lightbox)
+
+1. Make sure you have select AML compute for the compute target.
+
+1. In **Resource layout** section, you need to set the following values:
+
+    - **Node count**: Number of nodes in the compute target used for training. It should be **less than or equal to** the **Maximum number of nodes** your compute cluster. By default it is 1, which means single node job.
+
+    - **Process count per node**: Number of processes triggered per node. It should be **less than or equal to** the **Processing Unit** of your compute. By default it is 1, which means single node job.
+
+    You can check the **Maximum number of nodes** and **Processing Unit** of your compute by clicking the compute name into the compute detail page.
+
+    [![Screenshot showing how to check compute cluster](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
+
+You can learn more about distributed training in Azure Machine Learning [here](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training).
+
+
+### Troubleshooting for distributed training
+
+If you enable distributed training for this module, there will be driver logs for each process. `70_driver_log_0` is for master process. You can check driver logs for error details of each process under **Outputs+logs** tab in the right pane.
+
+[![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png)](./media/module/distributed-training-error-driver-log.png#lightbox) 
+
+If the module enabled distributed training fails without any `70_driver` logs, you can check `70_mpi_log` for error details.
+
+The following example shows a common error that is **Process count per node** is larger than **Processing Unit** of the compute.
+
+[![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png)](./media/module/distributed-training-error-mpi-log.png#lightbox)
+
+## Results
+
+After pipeline run is completed, to use the model for scoring, connect the [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) to [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md), to predict values for new input examples.
+ -->
 
 ##  <a name="technical-notes"></a>Notes techniques
 

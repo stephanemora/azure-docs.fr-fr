@@ -3,12 +3,12 @@ title: Groupe de ressources Azure en tant que source Event Grid
 description: Décrit les propriétés fournies pour les événements de groupe de ressources avec Azure Event Grid.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: 4c1990909dc555e9e2a6d09538b807ba7e07ce83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7616999d820075524f6efadccd98e04c09732032
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363217"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733509"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Groupe de ressources Azure en tant que source Event Grid
 
@@ -467,7 +467,7 @@ L’objet de données comporte les propriétés suivantes :
 | [Azure CLI : S’abonner aux événements d’un groupe de ressources et filtrer pour trouver une ressource](./scripts/event-grid-cli-resource-group-filter.md) | Exemple de script pour s’abonner aux événements d’un groupe de ressources et les filtrer pour trouver une ressource. |
 | [PowerShell : S’abonner aux événements d’un groupe de ressources](./scripts/event-grid-powershell-resource-group.md) | Exemple de script qui permet de s’abonner aux événements d’un groupe de ressources. Il envoie les événements vers un webhook. |
 | [PowerShell : S’abonner aux événements d’un groupe de ressources et filtrer pour trouver une ressource](./scripts/event-grid-powershell-resource-group-filter.md) | Exemple de script pour s’abonner aux événements d’un groupe de ressources et les filtrer pour trouver une ressource. |
-| [Modèle Resource Manager : abonnement à des ressources](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Permet de s’abonner à des événements pour une inscription Azure ou un groupe de ressources. Il envoie les événements vers un webhook. |
+| [Modèle Resource Manager : abonnement à des ressources](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-resource-events-to-webhook) | Permet de s’abonner à des événements pour une inscription Azure ou un groupe de ressources. Il envoie les événements vers un webhook. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

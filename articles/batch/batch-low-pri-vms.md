@@ -5,12 +5,12 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: seodec18
-ms.openlocfilehash: cafc7216e8112640f823ecee1aea055ab78b3fc6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d6e6277292d12de10ad55c5f7d912f41e92b5b18
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098466"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107989303"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utiliser des machines virtuelles de faible priorité avec Batch
 
@@ -27,7 +27,7 @@ Les machines virtuelles de faible priorité sont proposées à un prix considér
 >
 >Les pools Azure Batch prendront en charge les machines virtuelles Spot à l’avenir, avec des nouvelles versions des [outils et API Batch](./batch-apis-tools.md). Une fois que la prise en charge des machines virtuelles Spot sera disponible, les machines virtuelles de faible priorité seront déconseillées : elles continueront d’être prises en charge, à l’aide des versions actuelles des API et des outils, pendant au moins 12 mois, afin de laisser suffisamment de temps à une migration vers des machines virtuelles Spot.
 >
-> Les machines virtuelles Spot ne seront prises en charge que pour des pools de configuration de machines virtuelles. Pour utiliser des machines virtuelles Spot, les pools de configuration de service cloud devront être [migrés vers des pools de configuration de machines virtuelles](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+> Les machines virtuelles Spot ne seront prises en charge que pour des pools de configuration de machines virtuelles. Pour utiliser des machines virtuelles Spot, les pools de configuration des services cloud devront être [migrés vers des pools de configuration de machines virtuelles](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 ## <a name="batch-support-for-low-priority-vms"></a>Prise en charge des machines virtuelles de faible priorité par Batch
 
@@ -154,4 +154,4 @@ Pour afficher ces métriques dans le portail Azure :
 
 - Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
 - Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.
-- Commencez par planifier le passage de machines virtuelles de faible priorité à des machines virtuelles Spot. Si vous utilisez des machines virtuelles de faible priorité avec des pools de **configuration de service cloud**, envisagez de migrer vers des [pools de **configuration de machine virtuelle**](nodes-and-pools.md#configurations) à la place.
+- Commencez par planifier le passage de machines virtuelles de faible priorité à des machines virtuelles Spot. Si vous utilisez des machines virtuelles de faible priorité avec des pools de **configuration de service cloud** (qui sont [dépréciés](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)), envisagez de migrer vers des [pools de **configuration de machine virtuelle**](nodes-and-pools.md#configurations) à la place.

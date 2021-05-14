@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 09/05/2019
+ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab94a83a64ca9770f0c216ddf42145b262629c6d
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460788"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598990"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Réglage des performances avec un index columstore cluster ordonné  
 
@@ -44,7 +44,7 @@ FROM sys.pdw_nodes_partitions AS pnp
    JOIN sys.pdw_nodes_column_store_segments AS cls ON pnp.partition_id = cls.partition_id AND pnp.distribution_id  = cls.distribution_id
 JOIN sys.columns as cols ON o.object_id = cols.object_id AND cls.column_id = cols.column_id
 WHERE o.name = '<Table Name>' and cols.name = '<Column Name>'  and TMap.physical_name  not like '%HdTable%'
-ORDER BY o.name, pnp.distribution_id, cls.min_data_id 
+ORDER BY o.name, pnp.distribution_id, cls.min_data_id;
 
 
 ```
@@ -66,7 +66,7 @@ Dans cet exemple, la table T1 a un index columnstore cluster ordonné dans la s�
 ```sql
 
 CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
-ORDER (Col_C, Col_B, Col_A)
+ORDER (Col_C, Col_B, Col_A);
 
 ```
 
@@ -134,6 +134,13 @@ La création d’un index columnstore cluster ordonné est une opération hors c
 5.    Répétez les étapes 3 et 4 pour chaque partition de Table_A.
 6.    Une fois que toutes les partitions sont passées de Table_A à Table_B et ont été reconstruites, supprimez Table_A, puis renommez Table_B en l’appelant Table_A. 
 
+>[!TIP]
+> Pour une table de pool SQL dédiée avec un index columnstore cluster ordonné, ALTER INDEX REBUILD retrie les données en utilisant tempdb. Supervisez tempdb pendant les opérations de reconstruction. Si vous avez besoin de davantage d’espace tempdb, effectuez un scale-up du pool. Réeffectuez un scale down une fois la reconstruction d’index terminée.
+>
+> Pour une table de pool SQL dédiée avec un index columnstore cluster ordonné, ALTER INDEX REORGANIZE ne retrie pas les données. Pour retrier les données, utilisez ALTER INDEX REBUILD.
+>
+> Pour plus d’informations sur la maintenance des index columnstore cluster ordonnés, consultez [Optimisation des index columnstore cluster](sql-data-warehouse-tables-index.md#optimizing-clustered-columnstore-indexes).
+
 ## <a name="examples"></a>Exemples
 
 **A. Pour vérifier les colonnes ordonnées et le numéro d’ordre :**
@@ -142,15 +149,15 @@ La création d’un index columnstore cluster ordonné est une opération hors c
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
 JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
-WHERE column_store_order_ordinal <>0
+WHERE column_store_order_ordinal <>0;
 ```
 
 **B. Pour modifier un numéro de colonne, ajouter ou supprimer des colonnes dans la liste des ordres ou passer d’un index columnstore cluster à un index columnstore cluster ordonné :**
 
 ```sql
-CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
+CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON dbo.InternetSales
 ORDER (ProductKey, SalesAmount)
-WITH (DROP_EXISTING = ON)
+WITH (DROP_EXISTING = ON);
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

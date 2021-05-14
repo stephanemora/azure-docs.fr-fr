@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 3f3b4d3e431d9e24549bdb8caa4b2d17f547c82c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 5b14ac194d3cf08a11edc47a84825f447be79e34
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064050"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516593"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Configurer le protocole HTTPS sur un domaine personnalisé de SKU Standard/Premium (préversion) à l’aide du portail Azure
 
@@ -49,7 +49,7 @@ Azure Front Door Standard/Premium prend en charge le certificat géré par Azure
 
 1. Validez le domaine personnalisé et associez-le à un point de terminaison en suivant les étapes de la section activation d’un [domaine personnalisé](how-to-add-custom-domain.md).
 
-1. Une fois que le domaine personnalisé a été associé au point de terminaison, un certificat managé par Azure est déployé sur Front Door. Ce processus peut prendre quelques minutes.
+1. Une fois que le domaine personnalisé a été associé au point de terminaison, un certificat managé par Azure est déployé sur Front Door. Ce processus peut prendre plusieurs minutes.
 
 ## <a name="using-your-own-certificate"></a>Utiliser votre propre certificat
 

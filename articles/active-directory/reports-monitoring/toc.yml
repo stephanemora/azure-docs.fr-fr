@@ -15,8 +15,6 @@
       href: quickstart-download-sign-in-report.md
     - name: Télécharger un rapport d’audit
       href: quickstart-download-audit-report.md
-    - name: Configurer des emplacements nommés
-      href: quickstart-configure-named-locations.md
     - name: Acheminer des journaux d’activité vers un compte de stockage
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Tutoriels
@@ -29,33 +27,29 @@
       href: tutorial-log-analytics-wizard.md
 - name: Concepts
   items:
-    - name: Planifier un déploiement de rapport et de supervision
-      href: plan-monitoring-and-reporting.md
     - name: Journaux d’audit
       href: concept-audit-logs.md
     - name: Nouveaux journaux de connexion - préversion
       href: concept-all-sign-ins.md
     - name: Journaux d’activité de connexion
       href: concept-sign-ins.md
-    - name: Rapport d’utilisation et d’insights
-      href: concept-usage-insights-report.md
-    - name: Connexions risquées
-      href: ../identity-protection/overview-identity-protection.md
-    - name: Détections de risques
-      href: ../identity-protection/overview-identity-protection.md
-    - name: Les utilisateurs à risque
-      href: ../identity-protection/overview-identity-protection.md
     - name: Journaux d’approvisionnement
       href: concept-provisioning-logs.md
+    - name: Rapport d’utilisation et d’insights
+      href: concept-usage-insights-report.md
     - name: API de création de rapports
       href: concept-reporting-api.md
     - name: Journaux d’activité Azure AD dans Azure Monitor
       href: concept-activity-logs-azure-monitor.md
+    - name: Planifier un déploiement de rapport et de supervision
+      href: plan-monitoring-and-reporting.md
 - name: Guides pratiques
   expanded: true
   items:
     - name: Rapports
       items:
+        - name: Télécharger les journaux
+          href: howto-download-logs.md
         - name: Gérer les comptes d’utilisateurs inactifs dans Azure AD
           href: howto-manage-inactive-user-accounts.md
         - name: Rechercher des rapports d’activité
@@ -107,11 +101,7 @@
       href: reference-reports-data-retention.md
     - name: Latences en termes de création de rapports
       href: reference-reports-latencies.md
-    - name: Code d’erreur de connexion
-      href: reference-sign-ins-error-codes.md
     - name: Forum aux questions
       href: reports-faq.md
-    - name: Schéma du journal d’audit
-      href: reference-azure-monitor-audit-log-schema.md
     - name: Schéma du journal de connexion
       href: reference-azure-monitor-sign-ins-log-schema.md

@@ -27,6 +27,18 @@
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
     - name: "JavaScript\_: SDK de la bibliothèque de client Form Recognizer"
       href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+- name: Utilisation responsable de l’IA
+  items:
+    - name: Notes de transparence
+      items:
+        - name: Cas d’usage de Form Recognizer
+          href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
+        - name: Caractéristiques et limitations
+          href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: Intégration et utilisation responsable
+      href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: 'Données, confidentialité et sécurité'
+      href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Guides pratiques
   items:
     - name: Créer un jeu de données d’entraînement
@@ -46,8 +58,9 @@
         - name: Utiliser des instances de conteneur
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
-        - name: Documentation sur les conteneurs Cognitive Services
+        - name: Documentation sur tous les conteneurs Cognitive Services
           href: ../containers/index.yml
+          maintainContext: true
     - name: Sauvegarder et récupérer des modèles
       href: disaster-recovery.md
     - name: Préparation pour l’entreprise

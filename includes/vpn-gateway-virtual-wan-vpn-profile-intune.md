@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/01/2021
+ms.date: 04/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c9568c51fe3a59dba83a66fc35c8d9112ade167f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: ffe433e632e2afed32f2a135d87d927686e9a004
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106178592"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018279"
 ---
 Vous pouvez déployer des profils pour les clients VPN Azure (Windows 10) à l’aide de Microsoft Intune. Cet article vous aide à créer un profil Intune avec des paramètres personnalisés.
 
@@ -66,9 +66,7 @@ Pour d’autres options prises en charge, consultez l’article [CSP VPNv2](/win
 Dans cette section, vous allez créer un profil Microsoft Intune avec des paramètres personnalisés.
 
 1. Connectez-vous à Intune et accédez à **Appareils-> Profils de configuration**. Sélectionnez **+ Créer un profil**.
-
-   :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/configuration-profile.png" alt-text="Profils de configuration":::
-1. Pour **Plateforme**, sélectionnez **Windows 10 et ultérieur**. Pour **Profil**, sélectionnez **Personnalisé**. Sélectionnez ensuite **Create** (Créer).
+1. Pour **Plateforme**, sélectionnez **Windows 10 et ultérieur**. Pour **Type de profil**, sélectionnez **Modèles** et **Personnalisé**. Sélectionnez ensuite **Create** (Créer).
 1. Donnez un nom et une description au profil, puis sélectionnez **Suivant**.
 1. Sous l’onglet **Paramètres de configuration**, sélectionnez **Ajouter**.
 

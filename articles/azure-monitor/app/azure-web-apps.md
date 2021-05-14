@@ -3,13 +3,13 @@ title: Analyser les performances d’Azure App Service | Microsoft Docs
 description: Analyse des performances des applications pour les services d’application Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-js, devx-track-dotnet, devx-track-azurepowershell
+ms.openlocfilehash: e8c794e056dca42a06bdf6b7deb274e7f5f5bfd4
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101734721"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315900"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -416,7 +416,7 @@ Pour avoir les toutes dernières informations sur l’extension/agent Applicatio
 
 Quand vous créez une application web avec le runtime `ASP.NET` ou `ASP.NET Core` dans Azure App Services, elle déploie une seule page HTML statique en tant que site web de démarrage. La page web statique charge également un composant web managé ASP.NET dans IIS. Cela permet de tester le monitoring côté serveur sans code, mais ne prend pas en charge le monitoring automatique côté client.
 
-Si vous souhaitez tester le monitoring côté client et côté serveur sans code pour ASP.NET ou ASP.NET Core dans une application web Azure App Services, nous vous recommandons de suivre les guides officiels pour [la création d’une application web ASP.NET Core](../../app-service/quickstart-dotnetcore.md) et [la création d’une application web ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md), puis d’utiliser les instructions de l’article en cours pour activer le monitoring.
+Si vous souhaitez tester le monitoring côté client et côté serveur sans code pour ASP.NET ou ASP.NET Core dans une application web Azure App Services, nous vous recommandons de suivre les guides officiels pour [la création d’une application web ASP.NET Core](../../app-service/quickstart-dotnetcore.md) et [la création d’une application web ASP.NET Framework](../../app-service/quickstart-dotnetcore.md?tabs=netframework48), puis d’utiliser les instructions de l’article en cours pour activer le monitoring.
 
 ### <a name="connection-string-and-instrumentation-key"></a>Chaîne de connexion et clé d’instrumentation
 

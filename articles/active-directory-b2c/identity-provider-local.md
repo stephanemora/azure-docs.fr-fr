@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d9eb28ad19d53df542769a89b839668bbb205e30
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 48d6f6fc983de3f9a98b81011db1a8843f678939
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256104"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896258"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurer le fournisseur d’identité d’un compte local
 
@@ -47,7 +47,7 @@ Avec l’option utilisateur, les utilisateurs peuvent s’inscrire ou se connect
 
 ![Expérience d’inscription ou de connexion avec un nom d’utilisateur](./media/identity-provider-local/local-account-username-experience.png)
 
-## <a name="phone-sign-in-preview"></a>Connexion par téléphone (préversion)
+## <a name="phone-sign-in"></a>Connexion par téléphone
 
 L’authentification sans mot de passe est un type d’authentification où un utilisateur n’a pas besoin de se connecter avec son mot de passe. Avec l’inscription et la connexion par téléphone, l’utilisateur peut s’inscrire à l’application en utilisant un numéro de téléphone comme principal identifiant de connexion. L’utilisateur fera l’expérience suivante lors de l’inscription et de la connexion :
 
@@ -81,9 +81,9 @@ Les captures d’écran suivantes illustrent le processus de récupération par 
 ![Flux d’utilisateur de la récupération par téléphone](./media/identity-provider-local/local-account-change-phone-flow.png)
 
 
-## <a name="phone-or-email-sign-in-preview"></a>Connexion par adresse e-mail ou par téléphone (préversion)
+## <a name="phone-or-email-sign-in"></a>Connexion par adresse e-mail ou par téléphone
 
-Vous pouvez choisir de combiner la [connexion par téléphone](#phone-sign-in-preview) et la [connexion par adresse e-mail](#email-sign-in). Dans la page d’inscription ou de connexion, l’utilisateur peut saisir un numéro de téléphone ou une adresse e-mail. En fonction de l’entrée utilisateur, Azure AD B2C dirige l’utilisateur vers le flux correspondant. 
+Vous pouvez choisir de combiner la [connexion par téléphone](#phone-sign-in) et la [connexion par adresse e-mail](#email-sign-in). Dans la page d’inscription ou de connexion, l’utilisateur peut saisir un numéro de téléphone ou une adresse e-mail. En fonction de l’entrée utilisateur, Azure AD B2C dirige l’utilisateur vers le flux correspondant. 
 
 ![Expérience d’inscription ou de connexion par téléphone ou adresse e-mail](./media/identity-provider-local/local-account-phone-and-email-experience.png)
 

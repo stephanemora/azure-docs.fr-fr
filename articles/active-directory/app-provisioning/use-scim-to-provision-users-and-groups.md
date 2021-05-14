@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/12/2021
+ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 9a39a1b0df364aeed970f3ed0e0d99d4d31585b2
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305597"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175475"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutoriel : Développer et planifier le provisionnement pour un point de terminaison SCIM
 
@@ -210,12 +210,14 @@ Suivez ces recommandations lors de l’implémentation d’un point de terminais
 * N’exigez pas un respect de la casse pour les éléments structurels SCIM, en particulier pour les valeurs d’opération `op` **PATCH**, comme défini dans la [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD émet les valeurs de `op` ainsi : **Ajouter**, **Remplacer** et **Supprimer**.
 * Microsoft AAD effectue des requêtes pour récupérer un utilisateur et un groupe aléatoires afin de vérifier que le point de terminaison et les informations d’identification sont valides. C’est également fait dans le cadre d’un flux de **Connexion test** dans le [portail Azure](https://portal.azure.com). 
 * L’attribut à l’aide duquel peuvent être interrogées les ressources doit être défini comme attribut correspondant dans l’application sur le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Personnalisation des mappages d’attributs pour le provisionnement d’utilisateurs](customize-application-attributes.md).
-* Prendre en charge HTTPS sur votre point de terminaison SCIM
+* L’attribut de droit n’est pas pris en charge.
+* Prenez en charge HTTPS sur votre point de terminaison SCIM.
 * [Découverte de schéma](#schema-discovery)
-  * La découverte de schéma n’est pas actuellement prise en charge sur l’application personnalisée, mais elle est utilisée sur certaines applications de la galerie. À l’avenir, la découverte de schéma sera utilisée comme méthode principale pour ajouter des attributs supplémentaires à un connecteur. 
+  * La découverte de schéma n’est pas actuellement prise en charge sur l’application personnalisée, mais elle est utilisée sur certaines applications de la galerie. À l’avenir, la découverte de schéma sera la seule méthode utilisée pour ajouter des attributs supplémentaires à un connecteur existant. 
   * Si aucune valeur n’est présente, n’envoyez pas de valeurs Null.
   * Utilisez une casse mixte pour les valeurs de propriété (par exemple, readWrite).
   * Doit retourner une réponse de liste.
+  * La requête /schemas sera effectuée par le client SCIM Azure AD chaque fois qu’une personne enregistrera la configuration du provisionnement dans le portail Azure ou chaque fois qu’un utilisateur accèdera à la page de modification du provisionnement dans le portail Azure. Tous les attributs supplémentaires découverts seront exposés aux clients dans les mappages d’attributs sous la liste des attributs cibles. La découverte de schéma entraîne uniquement l’ajout d’attributs cibles supplémentaires. Elle n’entraîne pas la suppression d’attributs. 
   
 ### <a name="user-provisioning-and-deprovisioning"></a>Approvisionnement et déprovisionnement d'utilisateurs
 

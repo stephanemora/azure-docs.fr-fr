@@ -8,18 +8,18 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: b9ed71a8fc9346ecd454eba98dcbb3b13186eba2
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 5fe3760d5baeae4b532e0af7e28b090d170e0945
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276040"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331301"
 ---
 # <a name="known-issues-azure-communication-services-calling-sdks"></a>Problèmes connus : Kit de développement logiciel (SDK) Appel pour Azure Communication Services
 Cet article fournit des informations sur les limitations et problèmes connus concernant les Kits de développement logiciel (SDK) Appel pour Azure Communication Services.
 
 > [!IMPORTANT]
-> Plusieurs facteurs peuvent affecter la qualité de votre expérience d’appel. Pour en savoir plus sur la configuration de votre réseau et les meilleures pratiques en matière de tests pour Communication Services, veuillez consulter l’article **[Garantir un contenu multimédia de qualité supérieure dans Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** .
+> Plusieurs facteurs peuvent affecter la qualité de votre expérience d’appel. Pour en savoir plus sur la configuration de votre réseau et les meilleures pratiques en matière de tests pour Communication Services, veuillez consulter l’article **[Garantir un contenu multimédia de qualité supérieure dans Azure Communication Services](./voice-video-calling/network-requirements.md)** .
 
 
 ## <a name="javascript-sdk"></a>Kit de développement logiciel (SDK) JavaScript
@@ -38,7 +38,7 @@ Si l’utilisateur envoie une vidéo avant l’actualisation, la collection `vid
 
 
 ### <a name="its-not-possible-to-render-multiple-previews-from-multiple-devices-on-web"></a>Il n’est pas possible d’afficher plusieurs aperçus à partir de plusieurs appareils sur le web
-Il s'agit d'une limitation connue. Pour en savoir plus, reportez-vous à l’article [Vue d’ensemble du kit SDK Appel](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
+Il s'agit d'une limitation connue. Pour en savoir plus, reportez-vous à l’article [Vue d’ensemble du kit SDK Appel](./voice-video-calling/calling-sdk-features.md).
 
 ### <a name="enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados"></a>L’énumération des appareils ne peut s’effectuer dans Safari lorsque l’application s’exécute sur iOS ou iPados
 
@@ -110,4 +110,16 @@ Si l’accès à un appareil est autorisé, après un certain temps, cette autor
 <br/>Système d'exploitation : iOS
 
 ###  <a name="sometimes-it-takes-a-long-time-to-render-remote-participant-videos"></a>Parfois, le rendu des vidéos des participants à une visioconférence prend beaucoup de temps
-Pendant un appel de groupe en cours, l’_utilisateur A_ envoie une vidéo, puis l’_utilisateur B_ rejoint l’appel. Parfois, l’utilisateur B ne voit pas la vidéo de l’utilisateur A, ou le rendu de la vidéo de l’utilisateur A ne commence qu’après un long délai. Ce problème peut être dû à un environnement réseau qui requiert une configuration supplémentaire. Pour obtenir des conseils sur la configuration de votre réseau, veuillez consulter l’article [Garantir un contenu multimédia de qualité supérieure dans Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements).
+Pendant un appel de groupe en cours, l’_utilisateur A_ envoie une vidéo, puis l’_utilisateur B_ rejoint l’appel. Parfois, l’utilisateur B ne voit pas la vidéo de l’utilisateur A, ou le rendu de la vidéo de l’utilisateur A ne commence qu’après un long délai. Ce problème peut être dû à un environnement réseau qui requiert une configuration supplémentaire. Pour obtenir des conseils sur la configuration de votre réseau, veuillez consulter l’article [Garantir un contenu multimédia de qualité supérieure dans Azure Communication Services](./voice-video-calling/network-requirements.md).
+
+### <a name="using-3rd-party-libraries-to-access-gum-during-the-call-may-result-in-audio-loss"></a>L’utilisation de bibliothèques tierces pour accéder à GUM pendant l’appel peut entraîner une perte audio
+L’utilisation de getUserMedia séparément dans l’application entraîne la perte du flux audio, car une bibliothèque tierce prend en charge l’accès à l’appareil à partir de la bibliothèque ACS.
+Les développeurs sont encouragés à effectuer les opérations suivantes :
+1. N’utilisez pas les bibliothèques tierces qui utilisent l’API GetUserMedia en interne pendant l’appel.
+2. Si vous avez toujours besoin d’utiliser une bibliothèque tierce, la seule façon de récupérer le flux audio est de changer l’appareil sélectionné (si l’utilisateur en possède plusieurs) ou de redémarrer l’appel.
+
+<br/>Navigateurs : Safari
+<br/>Système d'exploitation : iOS
+
+#### <a name="possible-causes"></a>Causes possibles
+Dans certains navigateurs (par exemple, Safari), l’acquisition de votre propre flux à partir du même appareil aura pour effet secondaire de créer des conditions de concurrence. L’acquisition de flux à partir d’autres appareils peut conduire à une bande passante d’E/S USB insuffisante, et le taux sourceUnavailableError montera en flèche.  

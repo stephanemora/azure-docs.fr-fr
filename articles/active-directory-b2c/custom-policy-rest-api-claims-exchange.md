@@ -7,30 +7,39 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 04/28/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: d790048b87beaf10bc19755ba2c8d631e57b6c33
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94949493"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108174593"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procédure pas à pas : Ajouter des échanges de revendications d’API REST aux stratégies personnalisées dans Azure Active Directory B2C
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) permet aux développeurs d’identité d’intégrer une interaction avec une API RESTful dans un parcours utilisateur. À la fin de cette procédure pas à pas, vous pourrez créer un parcours utilisateur Azure AD B2C qui interagit avec des [services RESTful](custom-policy-rest-api-intro.md).
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Azure Active Directory B2C (Azure AD B2C) permet aux développeurs d’identité d’intégrer une interaction avec une API RESTful dans un parcours utilisateur. À la fin de cette procédure pas à pas, vous pourrez créer un parcours utilisateur Azure AD B2C qui interagit avec des [services RESTful](api-connectors-overview.md).
 
 Dans ce scénario, nous enrichissons les données de jeton de l’utilisateur en les intégrant à un workflow métier. Lors de l’inscription ou de la connexion avec un compte local ou fédéré, Azure AD B2C appelle une API REST pour obtenir les données de profil étendues de l’utilisateur à partir d’une source de données distante. Dans cet exemple, Azure AD B2C envoie l’identificateur unique de l’utilisateur, objectId. L’API REST retourne ensuite le solde du compte de l’utilisateur (un nombre aléatoire). Utilisez cet exemple comme point de départ pour une intégration avec votre propre système CRM, votre base de données marketing ou tout workflow métier.
 
-Vous pouvez aussi concevoir l’interaction comme un profil technique de validation. Cela convient lorsque l’API REST valide les données à l’écran et renvoie des revendications. Pour plus d’informations, consultez [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C pour valider une entrée d’utilisateur](custom-policy-rest-api-claims-validation.md).
+Vous pouvez aussi concevoir l’interaction comme un profil technique de validation. Cela convient lorsque l’API REST valide les données à l’écran et renvoie des revendications. Pour plus d'informations, consultez [Procédure pas à pas : Ajouter un connecteur d'API à un flux d'utilisateur d'inscription](add-api-connector.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
-- Découvrez comment [intégrer des échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](custom-policy-rest-api-intro.md).
+- Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
+- Découvrez comment [intégrer des échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](api-connectors-overview.md).
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Préparer un point de terminaison d’API REST
 
@@ -229,3 +238,5 @@ Pour en savoir plus sur la sécurisation de vos API, consultez les articles suiv
 - [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme étape d’orchestration](custom-policy-rest-api-claims-exchange.md)
 - [Sécuriser votre API RESTful](secure-rest-api.md)
 - [Reference : Profil technique RESTful](restful-technical-profile.md)
+
+::: zone-end

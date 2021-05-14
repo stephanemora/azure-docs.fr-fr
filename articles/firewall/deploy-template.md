@@ -6,14 +6,14 @@ author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/28/2020
+ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2c3a1501c2489b5d747ac5a64bcaef0c725bad0
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94660251"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752712"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Démarrage rapide : Déployer un pare-feu Azure avec Zones de disponibilité - Modèle ARM
 
@@ -31,7 +31,7 @@ Pour plus d’informations sur le Pare-feu Azure, consultez [Déployer et config
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,7 +43,7 @@ Ce modèle crée un pare-feu Azure avec Zones de disponibilité ainsi que les re
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox/azuredeploy.json":::
 
 Plusieurs ressources Azure sont définies dans le modèle :
 
@@ -62,10 +62,10 @@ Déployez le modèle ARM sur Azure :
 
 1. Sélectionnez **Déployer sur Azure** pour vous connecter à Azure et ouvrir le modèle. Le modèle crée un pare-feu Azure, l’infrastructure réseau et deux machines virtuelles.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-with-zones-sandbox%2Fazuredeploy.json)
 
 2. Dans le portail, dans la page **Créer un programme d’installation de bac à sable de Pare-feu Azure avec zones**, tapez ou sélectionnez les valeurs suivantes :
-   - **Groupe de ressources** : Sélectionnez **Créer nouveau**, tapez un nom pour le groupe de ressources et sélectionnez **OK**. 
+   - **Groupe de ressources** : Sélectionnez **Créer nouveau**, tapez un nom pour le groupe de ressources et sélectionnez **OK**.
    - **Nom du réseau virtuel** : Tapez un nom pour le nouveau réseau virtuel.
    - **Nom d’utilisateur administrateur** : Tapez un nom d’utilisateur pour le compte d’utilisateur administrateur.
    - **Mot de passe administrateur** : Tapez un mot de passe administrateur.
@@ -86,7 +86,7 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressource
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
-Ne supprimez pas le groupe de ressources et le pare-feu si vous voulez continuer avec le tutoriel de supervision du pare-feu. 
+Ne supprimez pas le groupe de ressources et le pare-feu si vous voulez continuer avec le tutoriel de supervision du pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

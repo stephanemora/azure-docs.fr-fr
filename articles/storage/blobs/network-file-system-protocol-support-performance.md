@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: de511fa30caa608c2dc87b6c0ba166ed56ff9499
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 16c2927aef83dfa1a3a69298e865c5684f40b7b9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490180"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144580"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considérations relatives au niveau de performance du système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)
 
@@ -39,7 +39,7 @@ Le graphe suivant révèle le même effet lorsqu’il est appliqué à un compte
 
 ## <a name="use-premium-performance-tier-for-small-scale-applications"></a>Niveau de performance Premium pour les applications à petite échelle
 
-Il n’est pas possible pour toutes les applications d’effectuer un scale-up en ajoutant des clients. Dans ce cas, le [compte de stockage d’objets blob de blocs Azure Premium](storage-blob-create-account-block-blob.md) offre une faible latence et des taux de transaction élevés. Il peut atteindre une bande passante maximale avec moins de threads et de clients. Par exemple, avec un client unique, il peut enregistrer **2,3 fois** plus de bande passante que la même configuration avec un compte de stockage universel v2 à niveau de performance standard. 
+Il n’est pas possible pour toutes les applications d’effectuer un scale-up en ajoutant des clients. Dans ce cas, le [compte de stockage d’objets blob de blocs Azure Premium](../common/storage-account-create.md) offre une faible latence et des taux de transaction élevés. Il peut atteindre une bande passante maximale avec moins de threads et de clients. Par exemple, avec un client unique, il peut enregistrer **2,3 fois** plus de bande passante que la même configuration avec un compte de stockage universel v2 à niveau de performance standard. 
 
 Chaque barre du graphe ci-dessous montre la différence entre la bande passante obtenue pour les comptes de stockage de niveau de performance standard et Premium. Plus le nombre de clients augmente, plus cette différence diminue.  
 

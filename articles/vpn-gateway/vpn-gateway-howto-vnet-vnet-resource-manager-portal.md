@@ -1,18 +1,19 @@
 ---
-title: Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel Portail Azure
-description: Créer une connexion de passerelle VPN entre des réseaux virtuels à l’aide de Resource Manager et du portail Azure.
+title: 'Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel : portail Azure'
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment créer une connexion de passerelle VPN entre réseaux virtuels.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bf603d29b5e949ef83c872017bae49e71b2fcb0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98872398"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204870"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -65,7 +66,7 @@ Vous pouvez décider de connecter des réseaux virtuels à l’aide d’une conn
 
 Vous pouvez combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Ces configurations vous permettent d'établir des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagramme de connexions de réseau virtuel":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="Diagramme de connexions de réseau virtuel.":::
 
 Cet article explique comment connecter des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel. Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous servir des valeurs des paramètres d’exemple suivantes. Dans l’exemple, les réseaux virtuels se trouvent dans le même abonnement, mais dans des groupes de ressources différents. Si vos réseaux virtuels existent dans des abonnements différents, vous ne pourrez pas créer la connexion dans le portail. Utilisez plutôt [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) ou [CLI](vpn-gateway-howto-vnet-vnet-cli.md). Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#vnet-to-vnet-faq).
 

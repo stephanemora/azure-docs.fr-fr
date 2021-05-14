@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 05/07/2021
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 21f22f9aa31210b1690d0be562643d94901ce58a
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: ff56bd488fb1e9d776b99461ae1c40c9941fae0b
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106079044"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633930"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Créer et lire des messages IoT Hub
 
@@ -61,8 +61,8 @@ Pour plus d’informations sur l’encodage et le décodage des messages envoyé
 | iothub-connection-module-id |Un ID défini par IoT Hub sur les messages appareil vers cloud. Il contient la propriété **moduleId** de l’appareil qui a envoyé le message. | Non | connectionModuleId |
 | iothub-connection-auth-generation-id |Un ID défini par IoT Hub sur les messages appareil vers cloud. Il contient la propriété **connectionDeviceGenerationId** (conformément aux [Propriétés d’identité des appareils](iot-hub-devguide-identity-registry.md#device-identity-properties)) de l’appareil qui a envoyé le message. | Non |connectionDeviceGenerationId |
 | iothub-connection-auth-method |Une méthode d’authentification définie par IoT Hub sur les messages appareil-à-cloud. Cette propriété contient des informations sur la méthode d’authentification utilisée pour authentifier l’appareil qui a envoyé le message.| Non | connectionAuthMethod |
-| dt-dataschema | Cette valeur est définie par IoT Hub sur les messages appareil-à-cloud. Elle contient l’ID du modèle d’appareil défini dans la connexion de l’appareil. | Non | N/A |
-| dt-subject | Nom du composant qui envoie les messages appareil-à-cloud. | Oui | N/A |
+| dt-dataschema | Cette valeur est définie par IoT Hub sur les messages appareil-à-cloud. Elle contient l’ID du modèle d’appareil défini dans la connexion de l’appareil. | Non | $dt-dataschema |
+| dt-subject | Nom du composant qui envoie les messages appareil-à-cloud. | Oui | $dt-subject |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propriétés système des messages IoT Hub **C2D**
 
@@ -71,7 +71,7 @@ Pour plus d’informations sur l’encodage et le décodage des messages envoyé
 | message-id |Identificateur correspondant au message défini par l’utilisateur utilisé pour les modèles demande-réponse. Format: Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  |Oui|
 | sequence-number |Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message cloud-à-appareil. |Non|
 | to |Une destination spécifiée dans les messages [cloud vers appareil](iot-hub-devguide-c2d-guidance.md) . |Non|
-| absolute-expiry-time |Date et heure d’expiration du message. |Non| 
+| absolute-expiry-time |Date et heure d’expiration du message. |Oui| 
 | correlation-id |Une propriété de chaîne d’un message de réponse qui contient généralement l'ID du message de la demande dans les modèles demande-réponse. |Oui|
 | user-id |Un ID utilisé pour spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. |Oui|
 | iothub-ack |Un générateur de messages de commentaires. Cette propriété est utilisée dans les messages cloud-à-appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre maximal de remises a été atteint) sans être achevé par l’appareil, ou **full** : propriétés à la fois positive et négative. |Oui|

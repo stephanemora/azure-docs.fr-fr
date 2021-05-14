@@ -9,21 +9,21 @@ ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/11/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbf4168e59f04829603008bedea380f76a67264a
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98065250"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884567"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Activer la journalisation dans les pipelines du concepteur Azure Machine Learning
 
 
 Dans cet article, vous allez apprendre à ajouter du code de journalisation aux pipelines du concepteur. Vous allez également apprendre à afficher ces journaux à l’aide du portail web de Azure Machine Learning Studio.
 
-Pour plus d’informations sur la journalisation des métriques à l’aide de l’expérience de création du Kit de développement logiciel (SDK), consultez [Surveiller les exécutions et les métriques des expériences Azure Machine Learning](how-to-track-experiments.md).
+Pour plus d’informations sur la journalisation des métriques à l’aide de l’expérience de création du Kit de développement logiciel (SDK), consultez [Surveiller les exécutions et les métriques des expériences Azure Machine Learning](how-to-log-view-metrics.md).
 
 ## <a name="enable-logging-with-execute-python-script"></a>Activer la journalisation avec Exécuter un script Python
 
@@ -33,7 +33,7 @@ L’exemple suivant montre comment enregistrer l’erreur carrée moyenne de deu
 
 1. Connectez un module __Exécuter un script Python__ à la sortie du module __Évaluer le modèle__.
 
-    ![Connecter le module Exécuter un script Python au module Évaluer le modèle](./media/how-to-track-experiments/designer-logging-pipeline.png)
+    ![Connecter le module Exécuter un script Python au module Évaluer le modèle](./media/how-to-log-view-metrics/designer-logging-pipeline.png)
 
 1. Collez le code suivant dans l’éditeur de code __Exécuter un script Python__ pour journaliser l’erreur absolue moyenne de votre modèle formé : Vous pouvez utiliser un modèle similaire pour journaliser toute autre valeur dans le concepteur :
 
@@ -61,7 +61,7 @@ L’exemple suivant montre comment enregistrer l’erreur carrée moyenne de deu
     
 Ce code utilise le Kit de développement logiciel (SDK) Python d’Azure Machine Learning pour journaliser des valeurs. Il utilise Run. get_context() pour récupérer le contexte de l’exécution actuelle. Il journalise ensuite les valeurs dans ce contexte à l’aide de la méthode run.parent.log(). Il utilise `parent` pour journaliser les valeurs dans l’exécution du pipeline parent plutôt que dans l’exécution du module.
 
-Pour plus d’informations sur l’utilisation du Kit de développement logiciel (SDK) Python pour journaliser des valeurs, consultez [Activer la journalisation dans les exécutions de formation Azure Machine Learning](how-to-track-experiments.md).
+Pour plus d’informations sur l’utilisation du Kit de développement logiciel (SDK) Python pour journaliser des valeurs, consultez [Activer la journalisation dans les exécutions de formation Azure Machine Learning](how-to-log-view-metrics.md).
 
 ## <a name="view-logs"></a>Afficher les journaux d’activité
 
@@ -72,7 +72,7 @@ Une fois l’exécution du pipeline terminée, vous pouvez voir l’erreur *Mean
 1. Sélectionnez l’exécution dans votre expérience que vous souhaitez afficher.
 1. Sélectionnez **Métriques**.
 
-    ![Afficher les métriques d’exécution dans le studio](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
+    ![Afficher les métriques d’exécution dans le studio](./media/how-to-log-view-metrics/experiment-page-metrics-across-runs.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -80,5 +80,5 @@ Dans cet article, vous avez appris à utiliser des journaux dans le concepteur. 
 
 
 * Découvrez comment dépanner des pipelines de concepteur en consultant [Déboguer et dépanner des pipelines ML](how-to-debug-pipelines.md#azure-machine-learning-designer).
-* Découvrez comment utiliser le Kit de développement logiciel (SDK) Python pour journaliser des métriques dans l’expérience de création du Kit de développement logiciel (SDK). pour plus d’informations en consultant [Activer la journalisation dans les exécutions de formation Azure Machine Learning](how-to-track-experiments.md).
+* Découvrez comment utiliser le Kit de développement logiciel (SDK) Python pour journaliser des métriques dans l’expérience de création du Kit de développement logiciel (SDK). pour plus d’informations en consultant [Activer la journalisation dans les exécutions de formation Azure Machine Learning](how-to-log-view-metrics.md).
 * Découvrez comment utiliser le module [Exécuter un script Python](./algorithm-module-reference/execute-python-script.md) dans le concepteur.

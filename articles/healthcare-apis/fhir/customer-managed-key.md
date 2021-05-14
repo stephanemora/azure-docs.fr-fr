@@ -6,20 +6,22 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 09/28/2020
+ms.date: 05/04/2021
 ms.author: ginle
-ms.openlocfilehash: daa71a6df0ad412823736b3ee094cfd3945af492
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: e1f5159ae192d4be7aa683b68c6a994725089a7f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220847"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756860"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configurer des clés gérées par le client au repos
 
 Quand vous créez un compte d’API Azure pour FHIR, vos données sont chiffrées à l’aide de clés managées par Microsoft par défaut. À présent, vous pouvez ajouter une deuxième couche de chiffrement pour les données à l’aide de votre propre clé que vous choisissez et gérez vous-même.
 
-Dans Azure, cette opération s’effectue généralement à l’aide d’une clé de chiffrement dans le coffre de clés Azure du client. Azure SQL, Stockage Azure et Cosmos DB, pour ne citer qu’eux, offrent désormais cette fonctionnalité. L’API Azure pour FHIR tire parti de cette prise en charge à partir de Cosmos DB. Quand vous créez un compte, vous avez la possibilité de spécifier un URI de clé Azure Key Vault. Cette clé est transmise à Cosmos DB quand le compte de base de données est provisionné. Quand une demande FHIR est effectuée, Cosmos DB extrait votre clé et l’utilise pour chiffrer/déchiffrer les données. Pour commencer, vous pouvez consulter les liens suivants :
+Dans Azure, cette opération s’effectue généralement à l’aide d’une clé de chiffrement dans le coffre de clés Azure du client. Azure SQL, Stockage Azure et Cosmos DB, pour ne citer qu’eux, offrent désormais cette fonctionnalité. L’API Azure pour FHIR tire parti de cette prise en charge à partir de Cosmos DB. Quand vous créez un compte, vous avez la possibilité de spécifier un URI de clé Azure Key Vault. Cette clé est transmise à Cosmos DB quand le compte de base de données est provisionné. Quand une demande FHIR est effectuée, Cosmos DB extrait votre clé et l’utilise pour chiffrer/déchiffrer les données. 
+
+Pour commencer, reportez-vous aux liens suivants :
 
 - [Inscrire le fournisseur de ressources Azure Cosmos DB dans l’abonnement Azure](../../cosmos-db/how-to-setup-cmk.md#register-resource-provider) 
 - [Configurer votre instance Azure Key Vault](../../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
@@ -28,24 +30,30 @@ Dans Azure, cette opération s’effectue généralement à l’aide d’une cl�
 
 ## <a name="using-azure-portal"></a>En passant par le portail Azure
 
-Lors de la création de votre compte d’API Azure pour FHIR dans le portail Azure, vous pouvez voir une option de configuration « Chiffrement des données » sous « Paramètres de base de données » sous l’onglet « Paramètres supplémentaires ». Par défaut, l’option Clé gérée par le service est sélectionnée. 
+Lorsque vous créez votre compte Azure API pour FHIR sur Portail Azure, vous remarquerez l’option de configuration **chiffrement des données** sous les **paramètres de base de données** sous l’onglet **paramètres supplémentaires** . Par défaut, l’option de clé gérée par le service est sélectionnée.
+
+> [!Important]
+> L’option de chiffrement des données n’est disponible que lorsque l’API Azure pour FHIR est créée et ne peut pas être modifiée par la suite. Toutefois, vous pouvez afficher et mettre à jour la clé de chiffrement si l’option **clé gérée par le client** est sélectionnée. 
+
 
 Vous pouvez choisir votre clé dans le sélecteur de clés :
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-keypicker.png" alt-text="Sélecteur de clés":::
 
-Ou vous pouvez spécifier votre clé Azure Key Vault ici en sélectionnant l’option « Clé gérée par le client ». Vous pouvez entrer l’URI de la clé ici.
+Vous pouvez également spécifier votre clé de Azure Key Vault ici en sélectionnant l’option **de clé gérée par le client** .
+ 
+Vous pouvez également entrer l’URI de la clé ici :
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Créer l’API Azure pour FHIR":::
 
-Pour les comptes FHIR existants, vous pouvez afficher le choix du chiffrement à clé (clé gérée par le service ou le client) dans le panneau « Base de données » illustré ci-dessous. Vous ne pouvez pas modifier l’option de configuration une fois que vous l’avez choisie. Par contre, vous pouvez modifier et mettre à jour votre clé.
+> [!Important]
+> Vérifiez que toutes les autorisations pour Azure Key Vault sont correctement définies. Pour plus d’informations, consultez [Ajouter une stratégie d’accès à votre instance de Azure Key Vault](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-access-policy). En outre, assurez-vous que la suppression réversible est activée dans les propriétés de l’Key Vault. Si vous n’effectuez pas ces étapes, une erreur de déploiement se produit. Pour plus d’informations, consultez [vérifier si la suppression réversible est activée sur un coffre de clés et activer la suppression réversible](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete).
+
+Pour les comptes FHIR existants, vous pouvez afficher le choix de chiffrement à clé (clé **gérée** par le service ou **clé gérée** par le client) dans le panneau **de la base de données** , comme indiqué ci-dessous. L’option de configuration ne peut pas être modifiée une fois qu’elle est sélectionnée. Par contre, vous pouvez modifier et mettre à jour votre clé.
 
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-database.png" alt-text="Sauvegarde de la base de données":::
 
 Vous pouvez également créer une version de la clé spécifiée ; vos données seront alors chiffrées avec la nouvelle version sans aucune interruption de service. Vous pouvez également supprimer l’accès à la clé pour supprimer l’accès aux données. Lorsque la clé est désactivée, les requêtes génèrent une erreur. Si la clé est réactivée, les requêtes aboutiront.
-
-
-
 
 ## <a name="using-azure-powershell"></a>Utilisation de Microsoft Azure PowerShell
 
@@ -137,7 +145,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez vu comment configurer des clés gérées par le client au repos à l’aide du portail Azure, de PowerShell, de l’interface CLI et du modèle Resource Manager. Si vous avez d’autres questions, vous pouvez consulter la section Questions fréquentes (FAQ) d’Azure Cosmos DB : 
+Dans cet article, vous avez appris à configurer des clés gérées par le client au repos à l’aide du modèle Portail Azure, PowerShell, CLI et Gestionnaire des ressources. Pour plus d’informations, reportez-vous à la section FAQ Azure Cosmos DB. 
  
 >[!div class="nextstepaction"]
 >[Cosmos DB : comment configurer une CMK](../../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)

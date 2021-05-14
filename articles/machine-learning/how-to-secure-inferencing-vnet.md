@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 1a1a9158c06a12caaeb5702f2fdf7da3c801c143
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 610ab82bfc4665fbb30aa3d3bc0448fa9338689c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573436"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872548"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Sécuriser un environnement d’inférence Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -221,7 +221,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > L’interface CLI vous permet uniquement de créer un cluster AKS avec un équilibreur de charge interne. Il n’existe aucune commande AZ ML pour mettre à niveau un cluster existant afin d’utiliser un équilibreur de charge interne.
 
-Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks).
 
 ---
 

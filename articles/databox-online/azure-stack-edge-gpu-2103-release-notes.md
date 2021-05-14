@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d2a345ed49fae2e1d77b3c5da44b305d069874e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d6909492d09cb751ba8206599470f776d1fa0aa0
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729454"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133886"
 ---
 # <a name="azure-stack-edge-2103-release-notes"></a>Notes de publication de la version 2103 d’Azure Stack Edge
 
@@ -99,7 +99,7 @@ Le tableau suivant fournit un résumé des problèmes connus déjà présents da
 |**20**|Internet Explorer|Si les fonctionnalités de sécurité améliorées sont activées, vous ne pourrez peut-être pas accéder aux pages de l’interface utilisateur web locale. | Désactivez la sécurité renforcée, puis redémarrez votre navigateur.|
 |**21.**|Tableau de bord Kubernetes | Le point de terminaison *HTTPS* pour le tableau de bord Kubernetes avec le certificat SSL n’est pas pris en charge. | |
 |**22.**|Kubernetes |Kubernetes ne prend pas en charge « : » dans les noms de variables d’environnement utilisés par les applications .NET. Cela est également nécessaire pour que le module Event Grid IoT Edge fonctionne sur l’appareil Azure Stack Edge et d’autres applications. Pour plus d’informations, consultez la [documentation sur ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Remplacez « : » par un trait de soulignement double. Pour plus d’informations, consultez la section [Problème Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201).|
-|**23.** |Cluster Azure Arc + Kubernetes |Par défaut, lorsque les ressources `yamls` sont supprimées du référentiel Git, les ressources correspondantes ne sont pas supprimées du cluster Kubernetes.  |Pour autoriser la suppression des ressources quand elles sont supprimées du référentiel git, définissez `--sync-garbage-collection` dans OperatorParams, dans Arc. Pour plus d’informations, consultez [Supprimer une configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**23.** |Cluster Azure Arc + Kubernetes |Par défaut, lorsque les ressources `yamls` sont supprimées du référentiel Git, les ressources correspondantes ne sont pas supprimées du cluster Kubernetes.  |Pour autoriser la suppression des ressources quand elles sont supprimées du référentiel git, définissez `--sync-garbage-collection` dans OperatorParams, dans Arc. Pour plus d’informations, consultez [Supprimer une configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
 |**24.**|NFS |Les applications qui utilisent des montages de partage NFS sur votre appareil pour écrire des données doivent utiliser l’écriture exclusive. Ceci garantit que les écritures sont écrites sur le disque.| |
 |**25.**|Configuration du calcul |La configuration du calcul échoue dans les configurations réseau où les passerelles, commutateurs ou routeurs répondent aux demandes ARP (Address Resolution Protocol) pour des systèmes qui n’existent pas sur le réseau.| |
 |**26.**|Calcul et Kubernetes |Si Kubernetes est configuré en premier sur votre appareil, il réclame tous les GPU disponibles. Par conséquent, il n’est pas possible de créer des machines virtuelles Azure Resource Manager à l’aide de GPU après avoir configuré Kubernetes. |Si votre appareil a 2 GPU, vous pouvez créer 1 machine virtuelle qui utilise le GPU, puis configurer Kubernetes. Dans ce cas, Kubernetes utilise le GPU disponible restant. |

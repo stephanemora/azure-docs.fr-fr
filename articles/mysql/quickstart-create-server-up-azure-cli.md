@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfe19f71af5f8ac876ca7d57dc2ad3328c766eb4
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542165"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987017"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Démarrage rapide : Créer un serveur Azure Database pour MySQL à l’aide d’une simple commande Azure CLI - az mysql up (préversion)
 
 > [!IMPORTANT]
-> La commande Azure CLI [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) est disponible en préversion.
+> La commande Azure CLI [az mysql up](/cli/azure/mysql#az_mysql_up) est disponible en préversion.
 
-Base de données Azure pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. L’interface Azure CLI permet de créer et gérer des ressources Azure à partir de la ligne de commande ou à l’aide de scripts. Ce guide de démarrage rapide vous montre comment utiliser la commande [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) pour créer un serveur Azure Database pour MySQL à partir d’Azure CLI. En plus de créer le serveur, la commande `az mysql up` crée un exemple de base de données, un utilisateur racine dans la base de données, ouvre le pare-feu pour les services Azure et crée des règles de pare-feu par défaut pour l’ordinateur client. Cela permet d’accélérer le processus de développement.
+Base de données Azure pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. L’interface Azure CLI permet de créer et gérer des ressources Azure à partir de la ligne de commande ou à l’aide de scripts. Ce guide de démarrage rapide vous montre comment utiliser la commande [az mysql up](/cli/azure/mysql#az_mysql_up) pour créer un serveur Azure Database pour MySQL à partir d’Azure CLI. En plus de créer le serveur, la commande `az mysql up` crée un exemple de base de données, un utilisateur racine dans la base de données, ouvre le pare-feu pour les services Azure et crée des règles de pare-feu par défaut pour l’ordinateur client. Cela permet d’accélérer le processus de développement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,7 +42,8 @@ az account set --subscription <subscription id>
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Création d’un serveur Azure Database pour MySQL
 
-Pour utiliser les commandes, installez l’extension [db-up](/cli/azure/ext/db-up). Si une erreur est retournée, vérifiez que vous avez installé la dernière version d’Azure CLI. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+Pour utiliser les commandes, installez l’extension [db-up](/cli/azure/ext/db-up/mysql
+). Si une erreur est retournée, vérifiez que vous avez installé la dernière version d’Azure CLI. Consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up
@@ -71,7 +72,7 @@ admin-user | Générée par le système | Nom d’utilisateur du compte administ
 admin-password | Générée par le système | Mot de passe de l’utilisateur Administrateur.
 
 > [!NOTE]
-> Pour plus d’informations sur la commande `az mysql up` et ses paramètres supplémentaires, consultez la [documentation Azure CLI](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up).
+> Pour plus d’informations sur la commande `az mysql up` et ses paramètres supplémentaires, consultez la [documentation Azure CLI](/cli/azure/mysql#az_mysql_up).
 
 Une fois que votre serveur est créé, il présente les paramètres suivants :
 
@@ -88,7 +89,7 @@ Une fois que votre serveur est créé, il présente les paramètres suivants :
 
 Une fois que la commande `az mysql up` a abouti, une liste de chaînes de connexion pour les langages de programmation les plus courants vous est retournée. Ces chaînes de connexion sont préconfigurées avec les attributs spécifiques de votre nouveau serveur Azure Database pour MySQL.
 
-Vous pouvez utiliser la commande [az mysql show-connection-string](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) pour lister à nouveau ces chaînes de connexion.
+Vous pouvez utiliser la commande [az mysql show-connection-string](/cli/azure/mysql#az_mysql_show_connection_string) pour lister à nouveau ces chaînes de connexion.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -98,7 +99,7 @@ Supprimez toutes les ressources que vous avez créées au cours de ce démarrage
 az mysql down --delete-group
 ```
 
-Si vous souhaitez simplement supprimer le serveur nouvellement créé, vous pouvez exécuter la commande [az mysql down](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-down).
+Si vous souhaitez simplement supprimer le serveur nouvellement créé, vous pouvez exécuter la commande [az mysql down](/cli/azure/mysql#az_mysql_down).
 
 ```azurecli
 az mysql down

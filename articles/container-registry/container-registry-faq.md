@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 84567f9667619bb9208f066460b3c4483123b3fc
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783896"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331445"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -33,7 +33,7 @@ Pour obtenir des instructions sur le dépannage du registre, consultez :
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Puis-je créer un registre de conteneurs Azure à l’aide d’un modèle Resource Manager ?
 
-Oui. Voici [un modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que vous pouvez utiliser pour créer un registre.
+Oui. Voici [un modèle](https://azure.microsoft.com/resources/templates/101-container-registry/) que vous pouvez utiliser pour créer un registre.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe-t-il une analyse de sécurité des vulnérabilités pour les images dans ACR ?
 
@@ -274,6 +274,7 @@ Vous pouvez désactiver l’accès par extraction anonyme à tout moment en affe
 > * Avant de tenter une opération d’extraction anonyme, exécutez `docker logout` pour vous assurer que vous effacez les informations d’identification existantes de Docker.
 > * Seules les opérations de plan de données sont disponibles pour les clients non authentifiés.
 > * Le registre peut limiter un taux élevé de requêtes non authentifiées.
+> * Actuellement, l'accès anonyme par extraction n'est pas pris en charge dans les régions de registre [géo-répliquées](container-registry-geo-replication.md).
 
 > [!WARNING]
 > L’accès en extraction anonyme s’applique actuellement à tous les référentiels du registre. Si vous gérez l’accès au référentiel à l’aide de [jetons délimités par le référentiel](container-registry-repository-scoped-permissions.md), sachez que tous les utilisateurs peuvent extraire de ces référentiels dans un registre activé pour l’extraction anonyme. Nous vous recommandons de supprimer des jetons lorsque l’accès par extraction anonyme est activé.

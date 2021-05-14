@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-powershell
 - devx-track-azurecli
-ms.openlocfilehash: abbe3b9ed4d9a8c9bf30c6be3e6980228d319090
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+- devx-track-azurepowershell
+ms.openlocfilehash: 441cc17099379366755a6c1e41c7f544215dc19d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97937227"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866176"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Python dans Azure à partir de la ligne de commande
 
@@ -37,7 +38,7 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
     + [Azure CLI version 2.4 ou ultérieure](/cli/azure/install-azure-cli).
 
-+ [Kit SDK .NET Core 3.1](https://www.microsoft.com/net/download)
++ [Kit SDK .NET Core 3.1](https://dotnet.microsoft.com/download)
 
 ### <a name="prerequisite-check"></a>Vérification du prérequis
 

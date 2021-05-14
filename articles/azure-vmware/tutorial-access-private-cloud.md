@@ -3,12 +3,12 @@ title: Tutoriel - Accéder à votre cloud privé
 description: Découvrez comment accéder à un cloud privé Azure VMware Solution
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: f2af1cffda08bf4b9c62e63f32d36cc9bbd7024a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d2046acaf483022f977559fe74254ca58b8c42ea
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103494391"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107945644"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Accéder à un cloud privé Azure VMware Solution
 
@@ -24,7 +24,31 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="create-a-new-windows-virtual-machine"></a>Créer une machine virtuelle Windows
 
-[!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
+1. Dans le groupe de ressources, sélectionnez **+ Ajouter**, recherchez et sélectionnez **Microsoft Windows 10**, puis **Créer**.
+
+   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Capture d’écran montrant comment ajouter une nouvelle machine virtuelle Windows 10 pour un Jumpbox." border="true":::
+
+1. Entrez les valeurs nécessaires dans les champs, puis sélectionnez **Vérifier + créer**. 
+
+   Pour plus d’informations sur les champs, consultez le tableau suivant.
+
+   | Champ | Valeur |
+   | --- | --- |
+   | **Abonnement** | Cette valeur est prérenseignée avec l’abonnement appartenant au groupe de ressources. |
+   | **Groupe de ressources** | La valeur est préremplie pour le groupe de ressources actuel que vous avez créé dans le tutoriel précédent.  |
+   | **Nom de la machine virtuelle** | Entrez un nom unique pour la machine virtuelle. |
+   | **Région** | Sélectionnez le lieu géographique de la machine virtuelle. |
+   | **Options de disponibilité** | Laissez la valeur par défaut sélectionnée. |
+   | **Image** | Sélectionnez l’image de machine virtuelle. |
+   | **Taille** | Laissez la valeur de la taille par défaut. |
+   | **Type d’authentification**  | Sélectionnez **Mot de passe**. |
+   | **Nom d’utilisateur** | Entrez le nom d’utilisateur pour la connexion à la machine virtuelle. |
+   | **Mot de passe** | Entrez le mot de passe pour la connexion à la machine virtuelle. |
+   | **Confirmer le mot de passe** | Entrez le mot de passe pour la connexion à la machine virtuelle. |
+   | **Ports d’entrée publics** | Sélectionnez **Aucun**. Si vous sélectionnez Aucun, vous pouvez utiliser l’[accès JIT](../security-center/security-center-just-in-time.md#jit-configure) pour contrôler l’accès à la machine virtuelle seulement quand vous voulez y accéder. Vous pouvez également utiliser un [bastion Azure](../bastion/tutorial-create-host-portal.md) si vous souhaitez accéder au serveur de rebond de façon sécurisée à partir d’Internet sans exposer de port réseau.  |
+
+
+1. Une fois la validation réussie, sélectionnez **Créer** pour démarrer le processus de création de la machine virtuelle.
 
 ## <a name="connect-to-the-local-vcenter-of-your-private-cloud"></a>Se connecter au vCenter local de votre cloud privé
 

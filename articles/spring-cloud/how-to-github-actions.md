@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c52279108a8fd8d5a7ac8bbd7c8eb215097b21b0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: caf70a005711decae794b02d4a2ccbaf3c2c32f4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791352"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135002"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>CI/CD Azure Spring Cloud avec GitHub Actions
 
@@ -57,7 +57,7 @@ Définissez le nom du secret sur `AZURE_CREDENTIALS` et sa valeur sur la chaîne
 
  ![Définir les données du secret](./media/github-actions/actions2.png)
 
-Vous pouvez également récupérer les informations d’identification de connexion Azure à partir de Key Vault dans GitHub Actions, comme expliqué dans [Authentifier Azure Spring Cloud auprès de Key Vault dans GitHub Actions](./spring-cloud-github-actions-key-vault.md).
+Vous pouvez également récupérer les informations d’identification de connexion Azure à partir de Key Vault dans GitHub Actions, comme expliqué dans [Authentifier Azure Spring Cloud auprès de Key Vault dans GitHub Actions](./github-actions-key-vault.md).
 
 ## <a name="provision-service-instance"></a>Approvisionner une instance de service
 Pour approvisionner votre instance de service Azure Spring Cloud, exécutez les commandes suivantes à l’aide d’Azure CLI.
@@ -175,7 +175,7 @@ Définissez le nom du secret sur `AZURE_CREDENTIALS` et sa valeur sur la chaîne
 
  ![Définir les données du secret](./media/github-actions/actions2.png)
 
-Vous pouvez également récupérer les informations d’identification de connexion Azure à partir de Key Vault dans GitHub Actions, comme expliqué dans [Authentifier Azure Spring Cloud auprès de Key Vault dans GitHub Actions](./spring-cloud-github-actions-key-vault.md).
+Vous pouvez également récupérer les informations d’identification de connexion Azure à partir de Key Vault dans GitHub Actions, comme expliqué dans [Authentifier Azure Spring Cloud auprès de Key Vault dans GitHub Actions](./github-actions-key-vault.md).
 
 ## <a name="provision-service-instance"></a>Approvisionner une instance de service
 Pour approvisionner votre instance de service Azure Spring Cloud, exécutez les commandes suivantes à l’aide d’Azure CLI.
@@ -289,7 +289,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Déployer avec le plug-in Maven
-Une autre option consiste à utiliser le [plug-in Maven](./spring-cloud-quickstart.md) pour déployer le fichier jar et mettre à jour les paramètres de l’application. La commande `mvn azure-spring-cloud:deploy` est idempotente et crée automatiquement des applications si nécessaire. Vous n’avez pas besoin de créer des applications correspondantes à l’avance.
+Une autre option consiste à utiliser le [plug-in Maven](./quickstart.md) pour déployer le fichier jar et mettre à jour les paramètres de l’application. La commande `mvn azure-spring-cloud:deploy` est idempotente et crée automatiquement des applications si nécessaire. Vous n’avez pas besoin de créer des applications correspondantes à l’avance.
 
 ```
 name: AzureSpringCloud
@@ -339,6 +339,6 @@ Si votre action s’exécute par erreur, par exemple si vous n’avez pas défin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Key Vault pour GitHub Actions avec Spring Cloud](./spring-cloud-github-actions-key-vault.md)
+* [Key Vault pour GitHub Actions avec Spring Cloud](./github-actions-key-vault.md)
 * [Principaux du service Azure Active Directory](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 * [GitHub Actions pour Azure](https://github.com/Azure/actions/)

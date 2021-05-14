@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: 619123cc2723fcf8e4bd80410c6b098b113d61c6
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 6c486b5085ee5e3152367229944b7782f04dc854
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286315"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204456"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Résolution des problèmes de ParallelRunStep
 
@@ -152,11 +152,11 @@ En raison de la nature distribuée des travaux ParallelRunStep, les journaux peu
 
 Les journaux générés à partir du script d’entrée avec l’assistance EntryScript et les instructions print se trouvent dans les fichiers suivants :
 
-- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: Ces fichiers sont les journaux écrits à partir d’entry_script avec le helper EntryScript.
+- `~/logs/user/entry_script_log/<node_id>/<process_name>.log.txt`: Ces fichiers sont les journaux écrits à partir d’entry_script avec le helper EntryScript.
 
-- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt` : ces fichiers sont les journaux de stdout (par exemple, l’instruction print) d’entry_script.
+- `~/logs/user/stdout/<node_id>/<process_name>.stdout.txt` : ces fichiers sont les journaux de stdout (par exemple, l’instruction print) d’entry_script.
 
-- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt` : ces fichiers sont les journaux de stderr d’entry_script.
+- `~/logs/user/stderr/<node_id>/<process_name>.stderr.txt` : ces fichiers sont les journaux de stderr d’entry_script.
 
 Pour une compréhension concise des erreurs contenues dans votre script :
 
@@ -168,7 +168,7 @@ Pour plus d’informations sur les erreurs dans votre script :
 
 Lorsque vous avez besoin de comprendre en détail la façon dont chaque nœud a exécuté le script de score, examinez les journaux de processus individuels pour chaque nœud. Les journaux de processus se trouvent dans le dossier `sys/node`, regroupés par nœuds Worker :
 
-- `~/logs/sys/node/<ip_address>/<process_name>.txt`: Ce fichier fournit des informations détaillées sur chaque mini-lot au fur et à mesure qu’il est sélectionné ou traité par un Worker. Pour chaque mini-lot, ce fichier comprend les éléments suivants :
+- `~/logs/sys/node/<node_id>/<process_name>.txt`: Ce fichier fournit des informations détaillées sur chaque mini-lot au fur et à mesure qu’il est sélectionné ou traité par un Worker. Pour chaque mini-lot, ce fichier comprend les éléments suivants :
 
     - L’adresse IP et le PID du processus Worker. 
     - Le nombre total d’éléments, le nombre d’éléments traités avec succès et le nombre d’éléments ayant échoué.
@@ -176,7 +176,7 @@ Lorsque vous avez besoin de comprendre en détail la façon dont chaque nœud a 
 
 Vous pouvez également afficher les résultats de vérifications périodiques de l’utilisation de ressources pour chaque nœud. Les fichiers journaux et les fichiers d’installation se trouvent dans ce dossier :
 
-- `~/logs/perf` : Définissez `--resource_monitor_interval` pour modifier l’intervalle de vérification en secondes. La valeur définir pour l’intervalle par défaut est `600`, soit environ 10 minutes. Pour arrêter la surveillance, définissez la valeur sur `0`. Chaque dossier `<ip_address>` comprend les éléments suivants :
+- `~/logs/perf` : Définissez `--resource_monitor_interval` pour modifier l’intervalle de vérification en secondes. La valeur définir pour l’intervalle par défaut est `600`, soit environ 10 minutes. Pour arrêter la surveillance, définissez la valeur sur `0`. Chaque dossier `<node_id>` comprend les éléments suivants :
 
     - `os/` : informations sur tous les processus en cours d’exécution dans le nœud. Une vérification exécute une commande du système d’exploitation et enregistre le résultat dans un fichier. Sous Linux, la commande est `ps`. Sous Windows, utilisez la commande `tasklist`.
         - `%Y%m%d%H` : le nom du sous-dossier correspond à l’heure.
@@ -194,14 +194,14 @@ ParallelRunStep peut exécuter plusieurs processus sur un nœud en fonction de p
 from azureml_user.parallel_run import EntryScript
 
 def init():
-    """ Initialize the node."""
+    """Init once in a worker process."""
     entry_script = EntryScript()
     logger = entry_script.logger
     logger.debug("This will show up in files under logs/user on the Azure portal.")
 
 
 def run(mini_batch):
-    """ Accept and return the list back."""
+    """Call once for a mini batch. Accept and return the list back."""
     # This class is in singleton pattern and will return same instance as the one in init()
     entry_script = EntryScript()
     logger = entry_script.logger
@@ -209,6 +209,29 @@ def run(mini_batch):
     ...
 
     return mini_batch
+```
+
+### <a name="where-does-the-message-from-python-logging-sink-to"></a>Où le message de Python `logging` est-il reçu ?
+ParallelRunStep définit un gestionnaire sur le journaliseur racine, qui reçoit le message dans `logs/user/stdout/<node_id>/processNNN.stdout.txt`.
+
+`logging` a par défaut le niveau `WARNING`. Par défaut, les niveaux inférieurs à `WARNING` ne s’affichent pas, tels que `INFO` ou `DEBUG`.
+
+### <a name="where-is-the-message-from-subprocess-created-with-popen"></a>Où le message du sous-processus est-il créé avec Popen() ?
+Si aucun `stdout` ou `stderr` n’est spécifié, un sous-processus hérite du paramètre du processus Worker.
+
+`stdout` écrit dans `logs/sys/node/<node_id>/processNNN.stdout.txt` et `stderr` dans `logs/sys/node/<node_id>/processNNN.stderr.txt`.
+
+### <a name="how-could-i-write-to-a-file-to-show-up-in-the-portal"></a>Comment écrire dans un fichier pour qu’il apparaisse dans le portail ?
+Les fichiers dans le dossier `logs` sont chargés et s’affichent dans le portail.
+Vous pouvez accéder au dossier `logs/user/entry_script_log/<node_id>` comme ci-dessous et composer le chemin du fichier en vue de l’écriture :
+```python
+from pathlib import Path
+def init():
+    """Init once in a worker process."""
+    entry_script = EntryScript()
+    folder = entry_script.log_dir
+
+    fil_path = Path(folder) / "<file_name>"
 ```
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Comment puis-je passer une entrée supplémentaire, par exemple un ou des fichiers contenant une table de recherche, à tous mes collaborateurs ?

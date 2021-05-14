@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 42c5b315c9c3560c400c685448a11dc61bf64eb6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 24a3c1ed9b94459eaa1993a26ce910b3f16e5383
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215610"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293113"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuration DNS des points de terminaison privés Azure
 
@@ -45,6 +45,7 @@ Pour les services Azure, utilisez les noms de zone recommandés comme indiqué d
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servers) / sqlServer  | privatelink.database.windows.net | database.windows.net |
+| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
 | Compte de stockage (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | Compte de stockage (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | Compte de stockage (Microsoft.Storage/storageAccounts) / File d’attente (file d’attente, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |

@@ -6,12 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 8d66678ee963a89dcd6b469eaf2622b95a4a5ec4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581641"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752370"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Mettre à l'échelle une instance Cache Redis Azure
 Le cache Azure pour Redis offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Pour un cache De base, Standard ou Premium, vous pouvez modifier sa taille et son niveau après sa création pour répondre aux besoins de votre application. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.

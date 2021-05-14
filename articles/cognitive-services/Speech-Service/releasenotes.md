@@ -8,15 +8,15 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 04/20/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 3bbf47da3724b9df0905e2a212cda4a16bf44bdb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 99385bbb5783f6dd4cfd87f6586983e1d784e387
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258552"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287750"
 ---
 # <a name="speech-service-release-notes"></a>Notes de publication du service Speech
 
@@ -42,7 +42,7 @@ Avec cette version, nous proposons désormais un total de 142 voix dans 60 lan
 
 **Obtenir des événements de pose faciale pour animer des personnages**
 
-L’[événement Viseme](how-to-speech-synthesis-viseme.md) a été ajouté à la synthèse vocale neuronale. Il permet aux utilisateurs d’obtenir la séquence et la durée de pose faciale à partir de la synthèse vocale. Viseme peut être utilisé pour contrôler le déplacement de modèles d’avatars 2D et 3D, avec correspondance parfaite entre les mouvements de la bouche et la parole synthétisée. Actuellement, viseme fonctionne uniquement pour la voix en-US-AriaNeural.
+La synthèse vocale neuronale intègre désormais l’[événement de visème](how-to-speech-synthesis-viseme.md). Les événements de visème permettent aux utilisateurs d’obtenir une séquence de poses de visage et de parole synthétisée. Viseme peut être utilisé pour contrôler le déplacement de modèles d’avatars 2D et 3D, avec correspondance entre les mouvements de la bouche et la parole synthétisée. Les événements de visème sont uniquement disponibles pour la voix `en-US-AriaNeural` pour l’instant.
 
 **Ajouter l’élément bookmark en langage SSML (Speech Synthesis Markup Language)**
 
@@ -55,23 +55,27 @@ L’[élément bookmark](speech-synthesis-markup.md#bookmark-element) vous perme
 
 #### <a name="new-features"></a>Nouvelles fonctionnalités
 
-- **C++/c #/Java/Python**: déplacé vers la dernière version de GStreamer (1.18.3) pour ajouter le support de la transcription de tout format multimédia sur Windows, Linux et Android. Consultez la documentation [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams).
-- **C++/C#/Java/Objective-C/Python** : ajout de la prise en charge du décodage du contenu audio de synthèse vocale compressée/synthétisé vers le kit SDK. Si vous définissez le format audio de sortie sur PCM et que GStreamer est disponible sur votre système, le kit de développement logiciel (SDK) demande automatiquement un contenu audio compressé à partir du service pour économiser de la bande passante et décoder l’audio sur le client. Vous pouvez définir `SpeechServiceConnection_SynthEnableCompressedAudioTransmission` sur `false` pour désactiver cette fonctionnalité. Détails pour [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#propertyid), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.propertyid?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.propertyid?view=azure-java-stable), [Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpropertyid), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.propertyid?view=azure-python).
-- **JavaScript** : les utilisateurs Node.js peuvent désormais utiliser l’[API `AudioConfig.fromWavFileInput`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest#fromWavFileInput_File_). Cela résout le [problème GitHub #252](https://github.com/microsoft/cognitive-services-speech-sdk-JavaScript/issues/252).
-- **C++/C#/Java/Objective-C/Python** : ajout de la méthode `GetVoicesAsync()` pour la synthèse vocale afin de retourner toutes les voix de synthèse disponibles. Détails pour [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#getvoicesasync), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet#methods), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable#methods), [Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#getvoiceasync) et [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?view=azure-python#methods).
-- **C++/c #/Java/JavaScript/objective-C/python** : événement `VisemeReceived` ajouté pour la synthèse vocale/TTS pour retourner une animation de visème synchrone. Consultez la documentation [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-speech-synthesis-viseme).
-- **C++/c #/Java/JavaScript/objective-C/python** : événement `BookmarkReached` ajouté pour la synthèse vocale. Vous pouvez définir des signets dans le SSML d’entrée et obtenir les décalages audio pour chaque signet. Consultez la documentation [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup#bookmark-element).
-- **Java** : ajout de la prise en charge des API de reconnaissance de l’orateur. Détails [ici](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer?view=azure-java-stable).
-- **C++/c #/Java/JavaScript/objective-C/python** : ajout de deux nouveaux formats audio de sortie avec le conteneur WebM pour la synthèse vocale (Webm16Khz16BitMonoOpus et Webm24Khz16BitMonoOpus). Il s’agit de formats plus performants pour la diffusion audio en continu avec le codec Opus. Détails pour [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-java-stable), [JavaScript](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest), [Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesisoutputformat), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-python).
-- **C++/C#/Java** : ajout de la prise en charge de la récupération du profil vocal pour le scénario de reconnaissance de l’orateur. Détails pour [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerrecognizer), [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speakerrecognizer?view=azure-dotnet) et [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer?view=azure-java-stable).
+- **C++/c #/Java/Python**: déplacé vers la dernière version de GStreamer (1.18.3) pour ajouter le support de la transcription de tout format multimédia sur Windows, Linux et Android. Consultez la documentation [ici](how-to-use-codec-compressed-audio-input-streams.md).
+- **C++/C#/Java/Objective-C/Python** : ajout de la prise en charge du décodage du contenu audio de synthèse vocale compressée/synthétisé vers le kit SDK. Si vous définissez le format audio de sortie sur PCM et que GStreamer est disponible sur votre système, le kit de développement logiciel (SDK) demande automatiquement un contenu audio compressé à partir du service pour économiser de la bande passante et décoder l’audio sur le client. Vous pouvez définir `SpeechServiceConnection_SynthEnableCompressedAudioTransmission` sur `false` pour désactiver cette fonctionnalité. Détails pour [C++](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#propertyid), [C#](/dotnet/api/microsoft.cognitiveservices.speech.propertyid), [Java](/java/api/com.microsoft.cognitiveservices.speech.propertyid), [Objective-C](/objectivec/cognitive-services/speech/spxpropertyid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.propertyid).
+- **JavaScript** : les utilisateurs Node.js peuvent désormais utiliser l’[API `AudioConfig.fromWavFileInput`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig#fromWavFileInput_File_). Cela résout le [problème GitHub #252](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/252).
+- **C++/C#/Java/Objective-C/Python** : ajout de la méthode `GetVoicesAsync()` pour la synthèse vocale afin de retourner toutes les voix de synthèse disponibles. Détails pour [C++](/cpp/cognitive-services/speech/speechsynthesizer#getvoicesasync), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer#methods), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer#methods), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesizer#getvoiceasync) et [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#methods).
+- **C++/c #/Java/JavaScript/objective-C/python** : événement `VisemeReceived` ajouté pour la synthèse vocale/TTS pour retourner une animation de visème synchrone. Consultez la documentation [ici](/azure/cognitive-services/speech-service/how-to-speech-synthesis-viseme).
+- **C++/c #/Java/JavaScript/objective-C/python** : événement `BookmarkReached` ajouté pour la synthèse vocale. Vous pouvez définir des signets dans le SSML d’entrée et obtenir les décalages audio pour chaque signet. Consultez la documentation [ici](/azure/cognitive-services/speech-service/speech-synthesis-markup#bookmark-element).
+- **Java** : ajout de la prise en charge des API de reconnaissance de l’orateur. Détails [ici](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer).
+- **C++/c #/Java/JavaScript/objective-C/python** : ajout de deux nouveaux formats audio de sortie avec le conteneur WebM pour la synthèse vocale (Webm16Khz16BitMonoOpus et Webm24Khz16BitMonoOpus). Il s’agit de formats plus performants pour la diffusion audio en continu avec le codec Opus. Détails pour [C++](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesisoutputformat), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat).
+- **C++/C#/Java** : ajout de la prise en charge de la récupération du profil vocal pour le scénario de reconnaissance de l’orateur. Détails pour [C++](/cpp/cognitive-services/speech/speakerrecognizer), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speakerrecognizer) et [Java](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer).
 - **C++/C#/Java/Objective-C/Python** : ajout de la prise en charge de la bibliothèque partagée distincte pour le contrôle de microphone et de haut-parleur. Cela permet d’utiliser le kit SDK dans les environnements qui n’ont pas les dépendances de bibliothèque audio requises.
 - **Objective-C/SWIFT** : ajout de support du module d’infrastructure avec l’en-tête parapluie. Cela permet d’importer le kit de développement logiciel (SDK) Speech en tant que module dans les applications iOS/Mac Objective-C/Swift. Cela résout le [problème GitHub #452](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/452).
-- **Python** : ajout du support de [Python 3.9](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python) et suppression du support de Python 3.5 par la [fin de vie de Python pour 3.5](https://devguide.python.org/devcycle/#end-of-life-branches).
+- **Python** : ajout du support de [Python 3.9](/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python) et suppression du support de Python 3.5 par la [fin de vie de Python pour 3.5](https://devguide.python.org/devcycle/#end-of-life-branches).
+
+**Problèmes connus**
+
+- **C++/c #/Java** : `DialogServiceConnector` ne peut pas utiliser un `CustomCommandsConfig` pour accéder à une application de commandes personnalisées et rencontrera à la place une erreur de connexion. Pour ce faire, vous pouvez ajouter manuellement votre ID d’application à la demande avec `config.SetServiceProperty("X-CommandsAppId", "your-application-id", ServicePropertyChannel.UriQueryParameter)`. Le comportement attendu de `CustomCommandsConfig` sera restauré dans la prochaine mise en production.
 
 #### <a name="improvements"></a>Améliorations
 
 - Dans le cadre de notre effort multi-version visant à réduire l’utilisation de la mémoire et l’empreinte du disque du kit SDK Speech, les binaires Android sont maintenant de 3 à 5 % plus petits.
-- Amélioration de la précision, de la lisibilité et des sections de notre documentation de référence C# [ici](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet).
+- Amélioration de la précision, de la lisibilité et des sections de notre documentation de référence C# [ici](/dotnet/api/microsoft.cognitiveservices.speech).
 
 #### <a name="bug-fixes"></a>Résolution des bogues
 
@@ -91,7 +95,7 @@ L’[élément bookmark](speech-synthesis-markup.md#bookmark-element) vous perme
 ## <a name="speech-cli-also-known-as-spx-2021-march-release"></a>Interface CLI Speech (également appelée SPX) : mise en production de mars 2021
 
 > [!NOTE]
-> Pour bien démarrer avec l’interface de ligne de commande (CLI) du service Azure Speech, consultez [cette page](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). L’interface CLI vous permet d’utiliser le service Azure Speech sans écrire de code.
+> Pour bien démarrer avec l’interface de ligne de commande (CLI) du service Azure Speech, consultez [cette page](spx-basics.md). L’interface CLI vous permet d’utiliser le service Azure Speech sans écrire de code.
 
 #### <a name="new-features"></a>Nouvelles fonctionnalités
 
@@ -110,7 +114,7 @@ Restez en bonne santé !
 
 **Disponibilité générale de la voix neuronale personnalisée**
 
-La voix neuronale personnalisée est en disponibilité générale en février dans 13 langues : chinois (mandarin, simplifié), anglais (Australie), anglais (Inde), anglais (Royaume-Uni), anglais (États-Unis), français (Canada), français (France), allemand (Allemagne), italien (Italie), japonais (Japon), coréen (Corée), portugais (Brésil), espagnol (Mexique) et espagnol (Espagne). Apprenez-en davantage sur la [voix neuronale personnalisée](custom-neural-voice.md) et [comment l’utiliser de manière responsable](concepts-guidelines-responsible-deployment-synthetic.md). La fonctionnalité de voix neuronale personnalisée nécessite une inscription, et Microsoft peut limiter l’accès en fonction des critères d’éligibilité de Microsoft. Apprenez-en davantage sur l’[accès limité](https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).  
+La voix neuronale personnalisée est en disponibilité générale en février dans 13 langues : chinois (mandarin, simplifié), anglais (Australie), anglais (Inde), anglais (Royaume-Uni), anglais (États-Unis), français (Canada), français (France), allemand (Allemagne), italien (Italie), japonais (Japon), coréen (Corée), portugais (Brésil), espagnol (Mexique) et espagnol (Espagne). Apprenez-en davantage sur la [voix neuronale personnalisée](custom-neural-voice.md) et [comment l’utiliser de manière responsable](concepts-guidelines-responsible-deployment-synthetic.md). La fonctionnalité de voix neuronale personnalisée nécessite une inscription, et Microsoft peut limiter l’accès en fonction des critères d’éligibilité de Microsoft. Apprenez-en davantage sur l’[accès limité](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).  
 
 ## <a name="speech-sdk-1150-2021-january-release"></a>Kit SDK Speech 1.15.0 : version de janvier 2021
 

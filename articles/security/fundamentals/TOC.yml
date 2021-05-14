@@ -4,6 +4,8 @@
   items:
     - name: Présentation de la sécurité Azure
       href: overview.md
+    - name: Sécurité de bout en bout
+      href: end-to-end.md
     - name: Responsabilité partagée dans le cloud
       href: shared-responsibility.md
 - name: Sécurisation de charges de travail dans Azure
@@ -62,7 +64,9 @@
     - name: Liste de contrôle de sécurité
       href: steps-secure-identity.md
     - name: Choisir sans mot de passe
-      href: ../../active-directory/authentication/concept-authentication-passwordless.md
+      href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Authentification
+      href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Sécurité du réseau
   items:
     - name: Présentation de la sécurité
@@ -72,11 +76,11 @@
     - name: Bonnes pratiques pour la protection DDoS
       href: ../../ddos-protection/fundamental-best-practices.md
     - name: Base de référence de sécurité pour DDoS Protection
-      href: ddos-protection-security-baseline.md
+      href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/fundamentals/TOC.json
     - name: DNS non résolu et prise de contrôle des sous-domaines
       href: subdomain-takeover.md
     - name: Architecture réseau hybride sécurisée
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Sécurité IaaS
   items:
     - name: Microsoft Antimalware
@@ -87,7 +91,7 @@
       href: virtual-machines-overview.md
     - name: Meilleures pratiques - Charges de travail IaaS
       href: iaas.md
-    - name: Images du marketplace Azure
+    - name: Images de la Place de marché Azure
       href: azure-marketplace-images.md
 - name: 'Sécurité, chiffrement et stockage des données'
   items:
@@ -116,11 +120,11 @@
         - name: Liste de contrôle de sécurité
           href: database-security-checklist.md
     - name: Guide sur la sécurité du stockage
-      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Customer Lockbox
       href: customer-lockbox-overview.md
     - name: Base de référence de sécurité pour Customer Lockbox
-      href: customer-lockbox-security-baseline.md
+      href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
 - name: Application
   items:
     - name: PaaS
@@ -156,6 +160,8 @@
   items:
     - name: Services de sécurité Azure
       href: services-technologies.md
+    - name: Disponibilité des fonctionnalités pour les clouds du secteur public américain
+      href: feature-availability.md
     - name: Livres blancs sur la sécurité
       href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
     - name: Meilleures pratiques

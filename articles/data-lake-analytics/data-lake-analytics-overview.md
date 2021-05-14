@@ -7,12 +7,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: f2916b45c04aac3e36e8dfb82a6bb9b332f55286
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4932bf500de38a59a72d7a052529af1d9790ab30
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449150"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929414"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Définition d'Azure Data Lake Analytics
 
@@ -47,7 +47,10 @@ Data Lake Analytics est une solution économique permettant d'exécuter vos char
 
 ## <a name="works-with-all-your-azure-data"></a>Fonctionne avec toutes vos données Azure
   
-Data Lake Analytics fonctionne avec Azure Data Lake Storage pour fournir le niveau de performance, le débit et la parallélisation les plus élevés possibles. Il fonctionne avec les blobs Stockage Azure, Azure SQL Database et Azure Synapse Analytics.
+Data Lake Analytics fonctionne avec **Azure Data Lake Storage Gen1** pour fournir le niveau de performance, le débit et la parallélisation les plus élevés possibles. Il fonctionne avec les blobs Stockage Azure, Azure SQL Database et Azure Synapse Analytics.
+
+   > [!NOTE]
+   > Jusqu’à nouvel ordre, Data Lake Analytics ne fonctionnera pas avec Azure Data Lake Storage Gen2.
 
 ## <a name="in-region-data-residency"></a>Résidence des données dans la région
   

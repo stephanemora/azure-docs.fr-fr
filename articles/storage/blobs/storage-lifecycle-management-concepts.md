@@ -3,18 +3,18 @@ title: Optimiser les coûts en automatisant les niveaux d’accès au stockage B
 description: Créez des règles automatisées pour déplacer des données entre les niveaux chaud, froid et archive.
 author: twooley
 ms.author: twooley
-ms.date: 10/29/2020
+ms.date: 04/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: e0b9f3b5728e4604d7c51c1d49196cfcf1161aef
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 76ea6b916cc52292e8b56523d91d92ebfc957a94
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278029"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946103"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure
 
@@ -22,7 +22,7 @@ Les jeux de données ont des cycles de vie différents. Tôt dans le cycle de vi
 
 La gestion du cycle de vie vous permet de :
 
-- Transférer des objets blob du niveau froid au niveau chaud dès qu’ils sont consultés pour optimiser les performances 
+- Transférer des objets blob du niveau froid au niveau chaud dès qu’ils sont consultés pour optimiser les performances
 - Transférer les objets blob, les versions d’objets blob et les instantanés d’objets blob vers un niveau de stockage plus froid (des niveaux chaud à froid, chaud à archive ou froid à archive) s’ils ne sont pas consultés ni modifiés pendant une certaine période afin d’optimiser le coût
 - Supprimer les objets blob, les versions d’objets blob et les instantanés d’objets blob à la fin de leur cycle de vie
 - Définir des règles à exécuter une fois par jour au niveau du compte de stockage.
@@ -37,7 +37,7 @@ Considérez un scénario où des données sont sollicitées fréquemment durant 
 
 ## <a name="availability-and-pricing"></a>Disponibilité et tarification
 
-La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure pour les comptes v2 universels (GPv2), les comptes de stockage Blob, les comptes de stockage Blob de blocs Premium et les comptes Azure Data Lake Storage Gen2. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
+La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure pour les comptes à usage général v2 (GPv2), les comptes de stockage d'objets blob, les comptes de stockage d'objets blob de blocs premium et les comptes Azure Data Lake Storage Gen2. Sur le portail Azure, vous pouvez mettre à niveau un compte de stockage à usage général (GPv1) existant en le transformant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
 La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont facturés au coût de fonctionnement normal pour les appels d’API [Définir le niveau d’objet blob](/rest/api/storageservices/set-blob-tier). L’opération de suppression est gratuite. Pour plus d’informations sur les prix, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -45,12 +45,17 @@ La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont fac
 
 Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide de l’une des méthodes suivantes :
 
-* [Azure portal](https://portal.azure.com)
-* [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Azure CLI](/cli/azure/install-azure-cli)
-* [API REST](/rest/api/storagerp/managementpolicies)
+- Le portail Azure
+- Azure PowerShell
+   - [Add-AzStorageAccountManagementPolicyAction](/powershell/module/az.storage/add-azstorageaccountmanagementpolicyaction)
+   - [New-AzStorageAccountManagementPolicyFilter](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyfilter)
+   - [New-AzStorageAccountManagementPolicyRule](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyrule)
+   - [Set-AzStorageAccountManagementPolicy](/powershell/module/az.storage/set-azstorageaccountmanagementpolicy)
+   - [Remove-AzStorageAccountManagementPolicy](/powershell/module/az.storage/remove-azstorageaccountmanagementpolicy)
+- [Azure CLI](/cli/azure/storage/account/management-policy)
+- [API REST](/rest/api/storagerp/managementpolicies)
 
-Une stratégie peut être lue ou écrite dans son intégralité. Les mises à jour partielles ne sont pas prises en charge. 
+Une stratégie peut être lue ou écrite dans son intégralité. Les mises à jour partielles ne sont pas prises en charge.
 
 > [!NOTE]
 > Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions pour les services Microsoft approuvés. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](../common/storage-network-security.md#exceptions).
@@ -59,16 +64,16 @@ Cet article explique comment gérer une stratégie en utilisant le portail et de
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microsoft Azure. 
+Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microsoft Azure.
 
-* [Mode Liste du Portail Microsoft Azure](#azure-portal-list-view)
-* [Mode Code du Portail Microsoft Azure](#azure-portal-code-view)
+- [Mode Liste du Portail Microsoft Azure](#azure-portal-list-view)
+- [Mode Code du Portail Microsoft Azure](#azure-portal-code-view)
 
 #### <a name="azure-portal-list-view"></a>Mode Liste du Portail Microsoft Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage. 
+1. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage.
 
 1. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier vos règles.
 
@@ -91,7 +96,7 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
    > [!IMPORTANT]
    > La dernière préversion du suivi de l’heure d’accès concerne uniquement l’utilisation en dehors de la production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
    
-   Pour utiliser l’option **Dernier accès**, sélectionnez **Duivi d’accès activé** sur la page **Gestion du cycle de vie** du Portail Azure. Pour plus d’informations sur l’option **Dernier accès**, consultez [Déplacer des données en fonction de la date du dernier accès (préversion)](#move-data-based-on-last-accessed-date-preview).
+   Pour utiliser l'option **Dernier accès**, sélectionnez **Suivi d'accès activé** sur la page **Gestion du cycle de vie** du portail Azure. Pour plus d’informations sur l’option **Dernier accès**, consultez [Déplacer des données en fonction de la date du dernier accès (préversion)](#move-data-based-on-last-accessed-date-preview).
 
 1. Si vous avez sélectionné **Limiter les objets blob avec des filtres** dans la page **Détails**, sélectionnez **Jeu de filtres** pour ajouter un filtre facultatif. L’exemple suivant filtre sur les objets blob dans le conteneur *mylifecyclecontainer* qui commencent par « log ».
 
@@ -215,7 +220,7 @@ Vous pouvez définir une gestion du cycle de vie à l’aide de modèles Azure R
 
 ---
 
-## <a name="policy"></a>Stratégie
+## <a name="policy"></a>Policy
 
 Une stratégie de gestion du cycle de vie est un ensemble de règles dans un document JSON :
 

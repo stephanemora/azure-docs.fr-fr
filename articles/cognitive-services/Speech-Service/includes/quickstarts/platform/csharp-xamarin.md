@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Configuration de la plateforme du kit SDK Speech pour C# (Xamarin) – Service Speech'
+title: 'Démarrage rapide : Configuration de la plateforme du SDK Speech pour C# (Xamarin) – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide pour configurer votre plateforme pour C# Xamarin avec le kit SDK du service Speech.
 services: cognitive-services
@@ -11,14 +11,17 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c941f0c96c127a46bb0b888d0500223ebcd9be2
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 8ee95f272b57ac4ed1219c682ce0eb97cc965ea3
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100552209"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157487"
 ---
 Ce guide montre comment installer le [kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour [Xamarin](/xamarin/get-started/what-is-xamarin), une plateforme open source pour la création d’applications modernes et performantes pour iOS, Android et Windows avec .NET. Si vous voulez simplement le nom du package pour commencer seul, exécutez `Install-Package Microsoft.CognitiveServices.Speech` dans la console NuGet.
+
+> [!NOTE]
+> Le SDK Speech pour Xamarin prend en charge Windows Desktop (x86 et x64), ou la plateforme Windows universelle (x86, x64, ARM/ARM64), Android (x86, ARM32/64) et iOS (simulateur x64 et ARM64).
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 

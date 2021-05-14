@@ -1,6 +1,6 @@
 ---
-title: Échange entre les disques du système d’exploitation à l’aide de l’interface CLI
-description: Utilisez l’interface CLI pour remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure.
+title: Échanger entre les disques du système d’exploitation à l’aide de l’interface Azure CLI
+description: Utilisez l’interface Azure CLI pour remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: disks
@@ -8,14 +8,15 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cd71cafa9dc0bd9131255caf50841f6d5909d1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 85d6350a36e62ace8f1922d30493d0f1d448d315
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311241"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765932"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure à l’aide de l’interface CLI
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-azure-cli"></a>Remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure à l’aide de l’interface Azure CLI
 
 
 Pour remplacer le disque d’une machine virtuelle existante par un disque de sauvegarde ou un autre disque de système d’exploitation, vous pouvez utiliser l’interface CLI Azure. Il est inutile de supprimer et de recréer la machine virtuelle. Vous pouvez même utiliser le disque managé d’un autre groupe de ressources s’il n’est pas déjà utilisé.
@@ -46,7 +47,7 @@ az vm stop \
 ```
 
 
-Utilisez [az vm update](/cli/azure/vm#az-vm-update) avec l’ID complet de la ressource du nouveau disque pour le paramètre `--osdisk` 
+Utilisez [az vm update](/cli/azure/vm#az_vm_update) avec l’ID complet de la ressource du nouveau disque pour le paramètre `--osdisk` 
 
 ```azurecli-interactive 
 az vm update \

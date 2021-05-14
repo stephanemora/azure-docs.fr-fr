@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Créer un groupe d’administration avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous utilisez Azure CLI pour créer un groupe d’administration afin d’organiser vos ressources dans une hiérarchie de ressources.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fe38882bd3b025635662e228ae919a24b03dee78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 189f8cab18051dbebd3e22df67116311f431cae8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592447"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733820"
 ---
 # <a name="quickstart-create-a-management-group-with-the-azure-cli"></a>Démarrage rapide : Créer un groupe d’administration avec Azure CLI
 

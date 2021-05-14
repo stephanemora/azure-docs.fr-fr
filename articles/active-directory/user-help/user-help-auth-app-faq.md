@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/28/2021
+ms.date: 04/30/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6cc64c9b3ad3f177d50f3e659e8ea628ba485159
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103418077"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764168"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -26,6 +26,30 @@ Cet article répond aux questions courantes sur l’application Microsoft Authen
 L’application Microsoft Authenticator a remplacé l’application Azure Authenticator. Elle est désormais l’application recommandée lorsque vous utilisez Azure AD Multi-Factor Authentication. L’application Microsoft Authenticator est disponible pour [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) et [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
+
+### <a name="permission-to-access-your-location"></a>Autorisation d'accès à votre position
+
+**Q** : J'ai reçu une invite me demandant d'autoriser l'application à accéder à ma position. Pourquoi est-ce que je vois cela ?
+
+**R** : Une invite de Microsoft Authenticator réclamant l'accès à votre position apparaît lorsque votre administrateur informatique a créé une stratégie vous obligeant à partager votre position GPS pour être autorisé à accéder à certaines ressources. Vous devez partager votre position toutes les heures pour confirmer que vous vous trouvez toujours dans un pays où vous êtes autorisé à accéder à la ressource.
+
+Sous iOS, Microsoft recommande de toujours autoriser l'application à accéder à la position. Suivez les invites iOS pour octroyer cette autorisation. Les niveaux d'autorisation disponibles sont les suivants :
+
+- **Autoriser lors de l'utilisation de l'application** : si vous choisissez cette option, vous serez invité à en sélectionner deux autres.
+- **Toujours autoriser (recommandé)**  : après avoir accédé à la ressource protégée, pendant les 24 heures qui suivent, votre position est partagée en mode silencieux toutes les heures à partir de l'appareil. Il n'est donc pas nécessaire de sortir votre téléphone pour approuver manuellement la demande toutes les heures.
+- **Conserver uniquement lors de l'utilisation** : après avoir accédé à la ressource protégée, vous devez sortir votre appareil et approuver manuellement la demande toutes les heures.
+- **Autoriser une fois** : toutes les heures, après avoir accédé à la ressource, ou lors d'une nouvelle tentative d'accès à la ressource, vous devez à nouveau octroyer l'autorisation. Vous devez accéder à Paramètres et activer l'autorisation manuellement. 
+- **Ne pas autoriser** : si vous sélectionnez cette option, l'accès à la ressource est bloqué. Si vous changez d'avis, vous devez accéder à Paramètres et activer l'autorisation manuellement.
+
+Sous Android, Microsoft recommande de toujours autoriser l'application à accéder à la position. Suivez les invites Android pour octroyer cette autorisation. Les niveaux d'autorisation disponibles sont les suivants :
+
+- **Toujours autoriser (recommandé)**  : après avoir accédé à la ressource protégée, pendant les 24 heures qui suivent, votre position est partagée en mode silencieux toutes les heures à partir de l'appareil. Il n'est donc pas nécessaire de sortir votre téléphone pour approuver manuellement la demande toutes les heures.
+- **Autoriser uniquement lors de l'utilisation de l'application** : après avoir accédé à la ressource protégée, vous devez sortir votre appareil et approuver manuellement la demande toutes les heures.
+- **Refuser et ne plus me demander** : si vous sélectionnez cette option, l'accès à la ressource est bloqué.
+
+**Q** : Comment mes informations de localisation sont-elles utilisées et stockées ?
+
+**R** : L'application Authenticator collecte vos informations GPS pour déterminer dans quel pays vous vous trouvez. Le nom du pays et les coordonnées de l'emplacement sont renvoyés au système pour déterminer si vous êtes autorisé à accéder à la ressource protégée. Le nom du pays est stocké et renvoyé à votre administrateur informatique, mais vos coordonnées réelles ne sont jamais enregistrées ni stockées sur les serveurs Microsoft.
 
 ### <a name="registering-a-device"></a>Inscription d’un appareil
 
@@ -179,7 +203,13 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 **Q** : Pourquoi j’ai des problèmes avec Apple Watch sur watchOS 7 ?
 
-**R** : Un problème perturbe l’approbation des notifications sur watchOS 7 et nous travaillons avec Apple pour le résoudre. En attendant, toutes les notifications qui nécessitent l’application Microsoft Authenticator watchOS doivent être approuvées sur votre téléphone à la place.
+**R** : Parfois, l’approbation ou le refus d’une session sur watchOS 7 échoue avec le message d’erreur « Impossible de communiquer avec le téléphone. Veillez à maintenir l’écran de votre Apple Watch actif lors de futures requêtes. Consultez les FAQ pour plus d’informations. » Il existe un problème connu lié aux notifications lorsque le verrou d’application est activé ou lorsque la correspondance du numéro est requise, et nous travaillons avec Apple pour résoudre ce problème. En attendant, toutes les notifications qui nécessitent l’application Microsoft Authenticator watchOS doivent être approuvées sur votre téléphone à la place.
+
+### <a name="signing-into-an-ios-app"></a>Connexion à une application iOS
+
+**Q** : J’essaie de me connecter à une application iOS et je dois approuver une notification sur l’application Authenticator. Quand je reviens à l’application iOS, je suis bloqué. Que puis-je faire ?
+
+**R** : Il s’agit d’un problème connu dans iOS 13+. Contactez l’administrateur du support pour obtenir de l’aide et transmettez-lui les informations suivantes : `Use Azure MFA, not MFA server.`
 
 ### <a name="apple-watch-doesnt-show-accounts"></a>Apple Watch n’affiche pas les comptes
 

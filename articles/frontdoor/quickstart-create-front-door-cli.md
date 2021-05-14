@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2020
+ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: a64c91910ba65901a6d1374df9633062398a90e4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3567d5af31b0c7bc2443e3d02426a5bb7aba06f7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067650"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107862000"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Démarrage rapide : Créer une porte d’entrée pour une application web mondiale hautement disponible à l’aide d’Azure CLI
 
 Démarrez avec Azure Front Door en utilisant Azure CLI pour créer une application web globale hautement disponible et très performante.
 
 La porte d’entrée dirige le trafic web vers des ressources spécifiques dans un pool de back-ends. Vous définissez le domaine front-end, ajoutez des ressources à un pool de back-ends et créer une règle de routage. Cet article utilise une configuration simple d’un pool de back-ends avec deux ressources d’application web et une règle de routage unique utilisant le chemin par défaut correspondant à « /* ».
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement Front Door avec Azure CLI." border="false":::
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +47,7 @@ Dans Azure, vous allouez les ressources associées à un groupe de ressources. V
 
 Pour ce guide de démarrage rapide, vous avez besoin de deux groupes de ressources. L’un se trouve dans *USA Centre*, l’autre dans *USA Centre Sud*.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create) :
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create) :
 
 ```azurecli-interactive
 az group create \
@@ -53,8 +55,8 @@ az group create \
     --location centralus
 
 az group create \
-    --name myRGFDSouthCentral \
-    --location southcentralus
+    --name myRGFDEast \
+    --location eastus
 ```
 
 ## <a name="create-two-instances-of-a-web-app"></a>Créer deux instances d’une application web
@@ -65,7 +67,7 @@ Si vous n’avez pas encore d’application web, utilisez le script suivant pour
 
 ### <a name="create-app-service-plans"></a>Créer des plans App Service
 
-Avant de pouvoir créer des applications web, vous avez besoin de deux plans App Service, l’un dans *USA Centre* et l’autre dans *USA Centre Sud*.
+Avant de pouvoir créer des applications web, vous avez besoin de deux plans App Service : un dans *USA Centre* et l’autre dans *USA Est*.
 
 Créez les plans App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true) :
 
@@ -75,8 +77,8 @@ az appservice plan create \
 --resource-group myRGFDCentral
 
 az appservice plan create \
---name myAppServicePlanSouthCentralUS \
---resource-group myRGFDSouthCentral
+--name myAppServicePlanEastUS \
+--resource-group myRGFDEast
 ```
 
 ### <a name="create-web-apps"></a>Créer des applications web
@@ -87,14 +89,14 @@ Créez une application web avec la commande [az webapp create](/cli/azure/webapp
 
 ```azurecli-interactive
 az webapp create \
---name WebAppContoso1 \
+--name WebAppContoso-1 \
 --resource-group myRGFDCentral \
 --plan myAppServicePlanCentralUS 
 
 az webapp create \
---name WebAppContoso2 \
---resource-group myRGFDSouthCentral \
---plan myAppServicePlanSouthCentralUS
+--name WebAppContoso-2 \
+--resource-group myRGFDEast \
+--plan myAppServicePlanEastUS
 ```
 
 Prenez note du nom d’hôte par défaut de chaque application web afin de pouvoir définir les adresses de back-end au moment de déployer la porte d’entrée à l’étape suivante.
@@ -103,14 +105,14 @@ Prenez note du nom d’hôte par défaut de chaque application web afin de pouvo
 
 Créez une porte d’entrée de base avec les paramètres d’équilibrage de charge, la sonde d’intégrité et les règles de routage par défaut comme suit :
 
-Créez une porte d’entrée avec la commande [az network front-door create](/cli/azure/ext/front-door/network/front-door#ext_front_door_az_network_front_door_create&preserve-view=true) :
+Créez une porte d’entrée avec la commande [az network front-door create](/cli/azure/network/front-door#az_network_front_door_create&preserve-view=true) :
 
 ```azurecli-interactive
 az network front-door create \
 --resource-group myRGFDCentral \
 --name contoso-frontend \
 --accepted-protocols http https \
---backend-address webappcontoso1.azurewebsites.net webappcontoso2.azurewebsites.net 
+--backend-address webappcontoso-1.azurewebsites.net webappcontoso-2.azurewebsites.net 
 ```
 
 **--resource-group :** spécifiez un groupe de ressources dans lequel vous souhaitez déployer la porte d’entrée.
@@ -140,7 +142,7 @@ az group delete \
 --name myRGFDCentral 
 
 az group delete \
---name myRGFDSouthCentral
+--name myRGFDEast
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/27/2021
 ms.author: b-juche
-ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: b195b1a816576ec8a065ebe83bd02fa3aeb53c5a
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258416"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161390"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -39,7 +39,6 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
 * Veillez à respecter la [configuration requise pour les connexions Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Créez une zone de recherche inversée sur le serveur DNS, puis ajoutez un enregistrement pointeur (PTR) de l’ordinateur hôte AD dans cette zone de recherche inversée. Sinon, la création du volume à deux protocoles échoue.
 * Vérifiez que le client NFS est à jour et qu’il exécute les mises à jour les plus récentes du système d’exploitation.
-* Assurez-vous que le serveur LDAP Active Directory (AD) est en cours d’exécution sur AD. Vous pouvez le faire en installant et en configurant le rôle [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) sur l’ordinateur AD.
 * Pour le moment, les volumes à deux protocoles ne prennent pas en charge Azure Active Directory Domain Services (AADDS). LDAP sur TLS ne doit pas être activé si vous utilisez AADDS.
 * La version de NFS utilisée par un volume à deux protocoles est NFSv3. Par conséquent, les considérations suivantes s'appliquent :
     * Le double protocole ne prend pas en charge les attributs étendus des ACL Windows `set/get` provenant des clients NFS.
@@ -112,6 +111,27 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
 
     * Spécifiez le **Style de sécurité** à utiliser : NTFS (par défaut) ou UNIX.
 
+    * Si vous souhaitez activer le chiffrement du protocole SMB3 pour le volume à double protocole, sélectionnez **Activer le chiffrement du protocole SMB3**.   
+
+        Cette fonctionnalité active le chiffrement pour les données SMB3 à la volée uniquement. Elle ne chiffre pas les données NFSv3 à la volée. Les clients SMB qui n’utilisent pas le chiffrement SMB3 ne seront pas en mesure d’accéder à ce volume. Les données au repos sont chiffrées, indépendamment de ce paramètre. Pour plus d’informations, consultez le [Forum aux questions sur le chiffrement SMB](azure-netapp-files-faqs.md#smb-encryption-faqs). 
+
+        La fonctionnalité de **Chiffrement de protocole SMB3** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Vérifiez l’état d’inscription de la fonctionnalité : 
+
+        > [!NOTE]
+        > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit `Registered`.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription.  
+
     * En option, [configurez une stratégie d’exportation pour le volume](azure-netapp-files-configure-export-policy.md).
 
     ![Spécifier le double protocole](../media/azure-netapp-files/create-volume-protocol-dual.png)
@@ -126,7 +146,7 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
 
 Vous pouvez autoriser les utilisateurs du client NFS local qui ne sont pas présents sur le serveur LDAP Windows à accéder à un volume à deux protocoles avec la fonctionnalité LDAP avec groupes étendus activés. Pour ce faire, activez l’option **Autoriser les utilisateurs NFS locaux avec LDAP**, comme suit :
 
-1. Cliquez sur **Connexions Active Directory**.  Sur une connexion Active Directory existante, cliquez sur le menu contextuel (les points de suspension `…`), puis sélectionnez **Modifier**.  
+1. Cliquez sur **Connexions Active Directory**.  Sur une connexion Active Directory existante, cliquez sur le menu contextuel (les trois points `…`), puis sélectionnez **Modifier**.  
 
 2. Dans la fenêtre **Modifier les paramètres Active Directory** qui s’affiche, sélectionnez l’option **Autoriser les utilisateurs NFS locaux avec LDAP**.  
 

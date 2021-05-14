@@ -3,12 +3,12 @@ title: Services et schémas pris en charge pour les journaux de ressource Azure
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
 ms.topic: reference
 ms.date: 04/07/2020
-ms.openlocfilehash: 09415353d93313f1b3c4844202b59f577ef3838d
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d219153f9d1dfbcd05cbe28a5ac0609a156c68a9
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105763"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142564"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -83,7 +83,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Service Bus |[Journaux d’Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Journalisation d’Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Journaux de tâches](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Stockage | [Objets Blob](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [Fichiers](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview), [Files d’attente](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview), [Tables](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
+| Stockage | [Objets Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Fichiers](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Files d’attente](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Traffic Manager | [Schéma des journaux de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Network | Schéma non disponible. |
 | Passerelles de réseau virtuel | Schéma non disponible. |

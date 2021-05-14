@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5579aa764eaa9f367364dce6ca5db09184e04fa2
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94660217"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330167"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questions courantes concernant la place de marché commerciale Microsoft
 
@@ -46,7 +46,7 @@ Pour en savoir plus, accédez au [hub de la Place de marché commerciale Microso
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Existe-t-il des frais de listing pour Place de marché commerciale Microsoft ?
 
-Non, il n’y a aucun coût de publication des offres dans notre marketplace commercial. Nous conservons un petit pourcentage de la vente, à titre de frais de transaction, et l’investissons dans le programme Marketplace Rewards, l’innovation de la plateforme et les opérations du marketplace commercial. Ces frais de transaction sont réduits pour les offres incitatives de [co-vente Azure IP](./marketplace-co-sell.md) et les offres SaaS payantes sur AppSource associées à une application Microsoft Teams ou au moins deux compléments Microsoft 365 (Excel, PowerPoint, Word, Outlook et SharePoint).
+Non, il n’y a aucun coût de publication des offres dans notre marketplace commercial. Nous conservons un petit pourcentage de la vente, à titre de frais de transaction, et l’investissons dans le programme Marketplace Rewards, l’innovation de la plateforme et les opérations du marketplace commercial. Ces frais de transaction sont réduits pour les offres incitatives de [co-vente Azure IP](./co-sell-overview.md) et les offres SaaS payantes sur AppSource associées à une application Microsoft Teams ou au moins deux compléments Microsoft 365 (Excel, PowerPoint, Word, Outlook et SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Comment m’inscrire pour être un éditeur sur Place de marché commerciale Microsoft ?
 
@@ -68,6 +68,12 @@ Les manières dont les clients peuvent utiliser votre offre sur le marketplace c
 Après vous être inscrit et avoir accepté le contrat d’éditeur, vous aurez accès à la page du marketplace commercial dans Espace partenaires. C’est l’endroit où vous créez et gérez les offres et où vous consultez les rapports d’analyse. Pour les applications Microsoft 365, vous devez également activer le programme Office Store dans l’espace partenaires.
 
 Pour plus d’informations, consultez [Bienvenue sur le marketplace commercial](index.yml) et [Monétiser votre complément Microsoft 365 en utilisant la Place de marché commerciale Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+
+### <a name="how-can-my-own-employees-use-our-offers-from-the-marketplace-without-being-charged"></a>Comment mes propres employés peuvent-ils utiliser nos offres sur le marketplace sans être facturés ?
+
+Pour empêcher Microsoft de facturer vos employés et d’évaluer les frais de service du magasin sur la vente de votre offre, vous devez d’abord créer un [plan privé](/azure/marketplace/private-offers) pour l’offre au prix de 0 USD et envoyer cette offre aux utilisateurs internes qui veulent l’acheter.
+
+Vous pouvez également utiliser notre fonctionnalité [Place de marché privée](/marketplace/create-manage-private-azure-marketplace) pour vous assurer que les utilisateurs internes achètent uniquement des offres spécifiques qui sont approuvées par votre administrateur.
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>Comment obtenir de l’aide pour la place de marché commerciale ?
 

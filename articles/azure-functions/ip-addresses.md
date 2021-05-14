@@ -3,12 +3,12 @@ title: Adresses IP dans Azure Functions
 description: Découvrez comment trouver les adresses IP entrantes et sortantes des applications de fonction, et ce qui les fait changer.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 2c248756899459e17082bcab863a4e857b594909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30b45394ea620d05a89c3b2fd747573f1ea8017d
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104608229"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204996"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -50,7 +50,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> Lorsqu’une application de fonction qui s’exécute sur le [plan de consommation](consumption-plan.md) ou le [plan Premium](functions-premium-plan.md) est mise à l’échelle, une nouvelle plage d’adresses IP sortantes peut être attribuée. En cas d’exécution sur l’un de ces plans, il se peut que vous ayez besoin d’ajouter l’ensemble du centre de données à une liste verte.
+> Lorsqu’une application de fonction qui s’exécute sur le [plan de consommation](consumption-plan.md) ou le [plan Premium](functions-premium-plan.md) est mise à l’échelle, une nouvelle plage d’adresses IP sortantes peut être attribuée. En cas d'exécution sur l'un de ces plans, il se peut que vous ayez besoin d'ajouter l'ensemble du centre de données à une liste d'autorisation.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Adresses IP sortantes du centre de données
 
@@ -92,14 +92,24 @@ Lorsque votre application de fonction s’exécute dans un [plan de consommation
 
 ## <a name="outbound-ip-address-changes"></a>Changement d’adresse IP sortante
 
-L’ensemble d’adresses IP sortantes disponibles pour une application de fonction peut changer dans les cas suivants :
+La stabilité relative de l'adresse IP sortante dépend du plan d'hébergement.  
+
+### <a name="consumption-and-premium-plans"></a>Plans de consommation et Premium
+
+En raison des comportements de mise à l'échelle automatique, l'adresse IP sortante peut changer à tout moment en cas d'exécution sur un [plan de consommation](consumption-plan.md) ou un [plan Premium](functions-premium-plan.md). 
+
+Si vous devez contrôler l'adresse IP sortante de votre application de fonction, par exemple pour l'ajouter à une liste d'autorisation, envisagez d'implémenter une [passerelle NAT de réseau virtuel](#virtual-network-nat-gateway-for-outbound-static-ip) dans votre plan Premium.
+
+### <a name="dedicated-plans"></a>Plans dédiés
+
+En cas d'exécution sur des plans dédiés (App Service), l'ensemble des adresses IP sortantes disponibles pour une application de fonction peut changer lorsque :
 
 * vous effectuez une action susceptible de modifier l’adresse IP entrante ;
-* vous modifiez le niveau tarifaire de votre plan App Service. La liste de toutes les adresses IP sortantes utilisables par votre application, pour tous les niveaux tarifaires, est donnée dans la propriété `possibleOutboundIPAddresses`. Consultez [Trouver des adresses IP sortantes](#find-outbound-ip-addresses).
+* vous modifiez le niveau tarifaire de votre plan dédié (App Service). La liste de toutes les adresses IP sortantes utilisables par votre application, pour tous les niveaux tarifaires, est donnée dans la propriété `possibleOutboundIPAddresses`. Consultez [Trouver des adresses IP sortantes](#find-outbound-ip-addresses).
 
-Lorsque votre application de fonction s’exécute dans un [plan de consommation](consumption-plan.md) ou un [plan Premium](functions-premium-plan.md), l’adresse IP sortante peut également changer, même quand vous n’avez effectué aucune des actions [répertoriées ci-dessus](#inbound-ip-address-changes).
+#### <a name="forcing-an-outbound-ip-address-change"></a>Imposer une modification d'adresse IP sortante
 
-Utilisez la procédure suivante pour forcer délibérément une modification d’adresse IP sortante :
+Utilisez la procédure suivante pour imposer délibérément une modification d'adresse IP sortante dans un plan dédié (App Service) :
 
 1. Faites évoluer votre plan App Service entre les niveaux tarifaires Standard et Premium v2.
 

@@ -2,13 +2,14 @@
 title: Déplacer des machines virtuelles Azure vers un nouveau groupe d’abonnements ou de ressources
 description: Utilisez Azure Resource Manager pour déplacer des machines virtuelles vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: ad7023f309f1ca948711eaa9bdf3867d2ef7a6f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: f57b09900a955a3988c27f8f6990ff18db41c97c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104907"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751740"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Conseils pour le déplacement de machines virtuelles
 
@@ -56,7 +57,7 @@ Les machines virtuelles créées à partir de ressources Place de marché et aux
 
 ## <a name="virtual-machines-with-azure-backup"></a>Machines virtuelles avec Sauvegarde Azure
 
-Pour déplacer des machines virtuelles configurées avec le service Sauvegarde Azure, vous devez supprimer les points de restauration du coffre.
+Pour déplacer des machines virtuelles configurées avec le service Sauvegarde Azure, vous devez supprimer les collections de points de restauration (instantanés) du coffre. Les points de restauration déjà copiés dans le coffre peuvent être conservés et déplacés.
 
 Si la [suppression réversible](../../../backup/soft-delete-virtual-machines.md) est activée pour votre machine virtuelle, vous ne pouvez pas déplacer la machine virtuelle alors que ces points de restauration sont conservés. Vous pouvez [désactiver la suppression réversible](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou attendre 14 jours après la suppression des points de restauration.
 
@@ -73,7 +74,7 @@ Si la [suppression réversible](../../../backup/soft-delete-virtual-machines.md)
    6. Une fois l’opération de suppression terminée, vous pouvez déplacer votre machine virtuelle.
 
 3. Déplacez la machine virtuelle vers le groupe de ressources cible.
-4. Reprenez la sauvegarde.
+4. Reconfigurez la sauvegarde.
 
 ### <a name="powershell"></a>PowerShell
 

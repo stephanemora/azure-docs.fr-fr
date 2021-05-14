@@ -1,18 +1,18 @@
 ---
-title: Résoudre les problèmes de passerelle VPN Azure à l’aide des journaux de diagnostic
-description: Résoudre les problèmes de passerelle VPN Azure à l’aide des journaux de diagnostic
+title: Résoudre les problèmes de passerelle VPN Azure à l’aide des journaux de diagnostic
+description: Découvrez comment résoudre les problèmes de passerelle VPN Azure à l’aide des journaux de diagnostic.
 services: vpn-gateway
 author: stegag
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: stegag
-ms.openlocfilehash: 232e084e44696c6aa88a9dd33092c48a96e35f85
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 8b240b31d7b3fc90ad9dc62eaf49aed6af6dd93d
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771995"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229069"
 ---
 # <a name="troubleshoot-azure-vpn-gateway-using-diagnostic-logs"></a>Résoudre les problèmes de passerelle VPN Azure à l’aide des journaux de diagnostic
 
@@ -34,7 +34,7 @@ Notez que ces tables contiennent plusieurs colonnes. Cet article ne présente qu
 
 ## <a name="set-up-logging"></a><a name="setup"></a>Configurez la journalisation
 
-Pour savoir comment configurer les événements de journal de diagnostic à partir d’une passerelle VPN Azure à l’aide d’Azure Log Analytics, consultez [Configurer des alertes sur les événements de journal de diagnostic à partir d’une passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log).
+Pour savoir comment configurer les événements de journal de diagnostic à partir d’une passerelle VPN Azure à l’aide d’Azure Log Analytics, consultez [Configurer des alertes sur les événements de journal de diagnostic à partir d’une passerelle VPN](./vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
 
 ## <a name="gatewaydiagnosticlog"></a><a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 
@@ -100,8 +100,8 @@ Ce n’est qu’après avoir identifié l’horodateur d’une déconnexion, vou
 
 
 Conseils de dépannage :
-- Si vous voyez un événement de déconnexion sur une instance de passerelle, suivi d’un événement de connexion sur une instance de passerelle **différente** en quelques secondes, vous examinez un basculement de passerelle. Il s’agit généralement d’un comportement attendu résultant d’une maintenance sur une instance de passerelle. Pour en savoir plus sur ce comportement, consultez [À propos de la redondance de passerelle VPN Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy).
-- Le même comportement se produit si vous exécutez intentionnellement une réinitialisation de passerelle côté Azure, ce qui entraîne un redémarrage de l’instance de la passerelle active. Pour en savoir plus sur ce comportement, consultez [Réinitialiser une passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic).
+- Si vous voyez un événement de déconnexion sur une instance de passerelle, suivi d’un événement de connexion sur une instance de passerelle **différente** en quelques secondes, vous examinez un basculement de passerelle. Il s’agit généralement d’un comportement attendu résultant d’une maintenance sur une instance de passerelle. Pour en savoir plus sur ce comportement, consultez [À propos de la redondance de passerelle VPN Azure](./vpn-gateway-highlyavailable.md#about-azure-vpn-gateway-redundancy).
+- Le même comportement se produit si vous exécutez intentionnellement une réinitialisation de passerelle côté Azure, ce qui entraîne un redémarrage de l’instance de la passerelle active. Pour en savoir plus sur ce comportement, consultez [Réinitialiser une passerelle VPN](./reset-gateway.md).
 - Si vous voyez un événement de déconnexion sur une instance de passerelle, suivi d’un événement de connexion sur la **même** instance de passerelle en quelques secondes, vous examinez peut-être un problème de réseau provoquant une expiration de détection d’homologue mort (DPD) ou une déconnexion envoyée par erreur par l’appareil local.
 
 ## <a name="routediagnosticlog"></a><a name="RouteDiagnosticLog"></a>RouteDiagnosticLog
@@ -168,7 +168,7 @@ Conseils de dépannage :
 - Si le tunnel IPsec ne parvient pas à établir la connexion, Azure effectue une nouvelle tentative toutes les quelques secondes. C’est pourquoi le dépannage des problèmes de « VPN down » est très pratique sur IKEdiagnosticLog, car vous n’avez pas besoin d’attendre un moment spécifique pour reproduire le problème. En outre, l’échec étant en principe toujours le même à chaque tentative, il suffit d’effectuer un zoom sur un « exemple » de négociation en échec à tout moment.
 
 - Le message SA\_INIT contient les paramètres IPSec que l’homologue souhaite utiliser pour cette négociation IPSec. Le document officiel   
-Les [paramètres IPSec/IKE par défaut](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec) sont les paramètres IPSec que la passerelle Azure prend en charge avec les paramètres par défaut.
+Les [paramètres IPSec/IKE par défaut](./vpn-gateway-about-vpn-devices.md#ipsec) sont les paramètres IPSec que la passerelle Azure prend en charge avec les paramètres par défaut.
 
 
 ## <a name="p2sdiagnosticlog"></a><a name="P2SDiagnosticLog"></a>P2SDiagnosticLog
@@ -202,4 +202,3 @@ En outre, chaque fois qu’un client se connecte via IKEv2 ou OpenVPN point à s
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour configurer des alertes sur les journaux de ressources de tunnel, consultez [Configurer des alertes sur les journaux de ressources de la passerelle VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
-

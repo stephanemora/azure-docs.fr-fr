@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a0629d50ee8181ffcbfe7dad32ab76fb3e68fd
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715120"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714161"
 ---
 # <a name="select-a-vmware-migration-option"></a>Sélectionnez une option de migration VMware
 
@@ -34,7 +34,8 @@ Utilisez ces comparaisons sélectionnées pour vous aider à choisir la méthode
 **Disque cible** | Disques managés | Disques managés
 **Limites du disque** | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 32 To<br/><br/> Nombre maximal de disques : 60 | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 32 To<br/><br/> Nombre maximal de disques : 63
 **Disques directs** | Non pris en charge | Prise en charge
-**Démarrage UEFI** | Pris en charge. | Pris en charge.
+**Démarrage UEFI** | Pris en charge. | Pris en charge. 
+**Connectivité** | Internet public <br/> ExpressRoute avec peering Microsoft <br/> <br/> [Découvrez comment](./replicate-using-expressroute.md) utiliser des points de terminaison privés pour la réplication via un peering privé ExpressRoute ou une connexion VPN S2S. |Internet public <br/> ExpressRoute avec peering privé <br/> ExpressRoute avec peering Microsoft <br/> VPN site à site
 
 ## <a name="compare-deployment-steps"></a>Comparer les étapes de déploiement
 

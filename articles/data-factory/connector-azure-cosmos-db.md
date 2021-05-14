@@ -1,18 +1,18 @@
 ---
 title: Copier et transformer des données dans Azure Cosmos DB (API SQL)
 description: Apprenez à copier des données vers et depuis Azure Cosmos DB (API SQL), ainsi qu'à transformer des données dans Azure Cosmos DB (API SQL) à l'aide de Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: d42f30ebd72dca81255ddc02a9440db19979536d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a7676dfe6feedc5bb34ab6c96b4c3a03e4feb56c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608063"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483116"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 
@@ -50,7 +50,7 @@ Data Factory s’intègre à la [bibliothèque d’exécuteur en bloc Azure Cosm
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory propres à Azure Cosmos DB (API SQL).
 

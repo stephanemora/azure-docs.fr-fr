@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 86783df03a395e287a6656b52099cffc579ee31f
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869954"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226279"
 ---
-# <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Présentation de l’outil Azure Application Consistent Snapshot (préversion)
+# <a name="what-is-azure-application-consistent-snapshot-tool"></a>Qu’est-ce que l’outil Azure Application Consistent Snapshot Tool ?
 
 L’outil Captures instantanées cohérentes Azure Application (AzAcSnap) est un outil de ligne de commande qui offre la protection des données pour les bases de données tierces et gérant toute l’orchestration requise pour les placer dans un état cohérent de l’application avant de prendre une capture instantanée et les renvoyées ensuite à un état opérationnel.
 
@@ -44,7 +44,7 @@ AzAcSnap tire parti des fonctionnalités d’instantané de volume et de réplic
 - **Clonage des volumes de stockage** : cette fonctionnalité fournit des clones de volume de stockage économes en espace à des fins de développement et de test.
 - **Prise en charge de la récupération d’urgence** : AzAcSnap utilise la réplication du volume de stockage pour fournir des options de récupération des instantanés cohérents par rapport à l’application répliqués sur un site distant.
 
-AzAcSnap est un binaire unique.  Il n’a pas besoin d’agents ni de plug-ins supplémentaires pour interagir avec la base de données ou le stockage (Azure NetApp Files via Azure Resource Manager et Grande instance Azure via SSH).  AzAcSnap doit être installé sur un système qui dispose d’une connectivité à la base de données et au stockage.  Toutefois, la flexibilité de l’installation et de la configuration permet d’utiliser une seule installation centralisée ou une installation entièrement distribuée avec des copies installées sur chaque installation de base de données.
+AzAcSnap est un binaire unique.  Il n’a pas besoin d’agents ni de plug-ins supplémentaires pour interagir avec la base de données ou le stockage (Azure NetApp Files via Azure Resource Manager et Grande instance Azure via SSH).  AzAcSnap doit être installé sur un système qui dispose d’une connectivité à la base de données et au stockage.  Toutefois, la flexibilité de l’installation et de la configuration permet d’utiliser une seule installation centralisée (Azure NetApp Files uniquement) ou une installation entièrement distribuée (Azure NetApp Files et Grande instance Azure) avec des copies installées sur chaque installation de base de données.
 
 ## <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
 
@@ -80,7 +80,7 @@ Les options de commande sont les suivantes avec les commandes en tant que puces 
   - Reportez-vous à la [référence sur la commande d’obtention des informations](azacsnap-cmd-ref-details.md).
 - La commande **`-c delete`** supprime un instantané de stockage ou un ensemble d’instantanés. Vous pouvez utiliser l’ID de sauvegarde SAP HANA figurant dans HANA Studio ou le nom de l’instantané de stockage. L’ID de sauvegarde est uniquement lié aux instantanés `hana`, créés pour les volumes de données et les volumes partagés. Dans le cas contraire, si le nom de l’instantané est entré, il cherche tous les instantanés correspondant à ce nom.
   - Consultez la référence sur [la commande de suppression](azacsnap-cmd-ref-delete.md).
-- **`-c restore`** fournit deux méthodes pour restaurer un instantané sur un volume, soit en créant un volume basé sur l’instantané, soit en restaurant un volume dans un état d’aperçu.
+- **`-c restore`** fournit deux méthodes pour restaurer un instantané sur un volume, soit en créant un volume basé sur l’instantané, soit en restaurant un volume dans un état précédent.
   - **`--restore snaptovol`** crée un volume basé sur le dernier instantané sur le volume cible.
   - **`-c restore --restore revertvolume`** rétablit l’état antérieur du volume cible en fonction de l’instantané le plus récent.
   - Reportez-vous à la [référence sur la commande de restauration](azacsnap-cmd-ref-restore.md).

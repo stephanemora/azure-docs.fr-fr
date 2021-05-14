@@ -11,12 +11,12 @@ ms.date: 03/02/2019
 ms.author: iangithinji
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1acfff8a9152c767b61463bed0165d5ae390f649
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 9ad4cb5cdee3af68f7212b696dec10980ee89818
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374996"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318906"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisation de la gestion des applications avec Azure AD
 
@@ -77,7 +77,7 @@ L’identité peut vous servir de plan de contrôle uniquement si elle peut se c
 
 |Fonctionnalité  |Description|Recommandation |
 |---------|---------|---------|
-|Application Proxy (Proxy d’application)|Aujourd’hui, les employés veulent être productifs partout, tout le temps, depuis n’importe quel appareil. Ils doivent accéder aux applications SaaS dans le cloud et aux applications d’entreprise locales. Le proxy Azure AD Application offre cet accès sans réseaux privés virtuels (VPN) ni zones démilitarisées (DMZ), qui sont des systèmes coûteux et complexes.|Configurez l’[accès à distance](./application-proxy.md) pour vos applications locales. |
+|Application Proxy (Proxy d’application)|Aujourd’hui, les employés veulent être productifs partout, tout le temps, depuis n’importe quel appareil. Ils doivent accéder aux applications SaaS dans le cloud et aux applications d’entreprise locales. Le proxy Azure AD Application offre cet accès sans réseaux privés virtuels (VPN) ni zones démilitarisées (DMZ), qui sont des systèmes coûteux et complexes.|Configurez l’[accès à distance](../app-proxy/application-proxy.md) pour vos applications locales. |
 |F5, Akamai, Zscaler|Votre contrôleur de livraison et de mise en réseau vous permet de protéger facilement vos applications héritées, qui sont toujours critiques pour vos processus d’entreprise, mais que vous ne pouviez pas protéger avant avec Azure AD. Il est probable que vous disposiez déjà de tout ce dont vous avez besoin pour commencer à protéger ces applications.| Vous utilisez Akamai, Citrix, F5 ou Zscaler ? Consultez nos [solutions prédéfinies](./secure-hybrid-access.md). | 
 
 ## <a name="related-articles"></a>Articles connexes

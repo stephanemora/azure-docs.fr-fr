@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: d1574d9728036bac393cbecb37e2097be6ef90e7
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 76d62806541e0a3186cd17712b7af3930d9ccf9f
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105715"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726133"
 ---
 Commencez à utiliser la bibliothèque cliente Azure Content Moderator pour Java. Suivez les étapes suivantes pour installer le package Maven et essayer l’exemple de code pour les tâches de base. 
 
@@ -58,7 +58,7 @@ Quand vous êtes invité à choisir un **DSL**, sélectionnez **Kotlin**.
 
 ## <a name="install-the-client-library"></a>Installer la bibliothèque de client
 
-Recherchez *build.gradle.kts* et ouvrez-le avec votre IDE ou éditeur de texte préféré. Copiez-y ensuite la configuration de build suivante. Cette configuration définit le projet en tant qu’application Java dont le point d’entrée est la classe **ContentModeratorQuickstart**. Elle importe la bibliothèque de client Content Moderator ainsi que le SDK GSON pour la sérialisation JSON.
+Recherchez *build.gradle.kts* et ouvrez-le avec votre IDE ou éditeur de texte préféré. Copiez-y ensuite la configuration de build suivante. Cette configuration définit le projet en tant qu’application Java dont le point d’entrée est la classe **ContentModeratorQuickstart**. Elle importe la bibliothèque de client Content Moderator et le SDK GSON pour la sérialisation JSON.
 
 ```kotlin
 plugins {
@@ -103,9 +103,9 @@ Dans la classe **ContentModeratorQuickstart** de l’application, créez des var
 > [!IMPORTANT]
 > Accédez au portail Azure. Si la ressource Content Moderator que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
 >
-> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) Cognitive Services.
 
-Dans la méthode **main** de l’application, ajoutez des appels pour les méthodes utilisées dans ce guide de démarrage rapide. Vous les définirez plus tard.
+Dans la méthode **main** de l’application, ajoutez des appels pour les méthodes utilisées dans ce guide de démarrage rapide. Vous définissez ces méthodes plus tard.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_maincalls)]
 

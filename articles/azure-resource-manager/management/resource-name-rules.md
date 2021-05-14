@@ -3,12 +3,12 @@ title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: e260c9055b26d82f2fd2f8458d287a35a838f40f
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a7d0d934549d1dd06099bc02105cf2dcfdaa0109
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107477789"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202854"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -17,6 +17,9 @@ Cet article récapitule les règles et restrictions concernant le nommage des re
 Cet article répertorie les ressources par espace de noms de fournisseur de ressources. Pour obtenir une liste qui mappe les fournisseurs de ressources et les services Azure, voir [Fournisseurs de ressources pour les services Azure](azure-services-resource-providers.md).
 
 Les noms de ressources ne respectent pas la casse, sauf indication contraire dans la colonne des caractères valides.
+
+> [!NOTE]
+> Lors de la récupération des noms de ressource à l’aide de diverses API, les valeurs renvoyées peuvent afficher des valeurs de cas différentes de celles répertoriées dans le tableau des caractères valides.
 
 Dans les tableaux suivants, le terme « alphanumérique » fait référence aux caractères suivants :
 

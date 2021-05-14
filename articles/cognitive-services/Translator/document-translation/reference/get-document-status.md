@@ -1,5 +1,5 @@
 ---
-title: Traduction de documentation - Méthode get document status
+title: Méthode get document status
 titleSuffix: Azure Cognitive Services
 description: La méthode get document status retourne l’état d’un document spécifique.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 79bc3d076c1a7e164cab9c3231b29be84370e04a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4c6e82af46a012ad53dfa1cc1db1252ef2c0443e
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613766"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864934"
 ---
-# <a name="document-translation-get-document-status"></a>Traduction de documentation : get document status
+# <a name="get-document-status"></a>Obtenir l’état d’un document
 
 La méthode Get Document Status retourne l’état d’un document spécifique. La méthode retourne l’état de traduction d’un document spécifique en fonction de l’ID de la requête et de l’ID du document.
 
@@ -128,7 +128,7 @@ Code d’état : 401
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez notre guide de démarrage rapide pour en savoir plus sur l’utilisation du service Traduction de documentation et de la bibliothèque de client.
+Suivez notre guide de démarrage rapide pour en savoir plus sur l’utilisation du service Traduction de document et de la bibliothèque de client.
 
 > [!div class="nextstepaction"]
-> [Bien démarrer avec la traduction de documents](../get-started-with-document-translation.md)
+> [Bien démarrer avec la traduction de documentation](../get-started-with-document-translation.md)

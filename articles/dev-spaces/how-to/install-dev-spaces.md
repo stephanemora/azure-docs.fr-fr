@@ -4,13 +4,14 @@ services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: Découvrez comment activer Azure Dev Spaces sur un cluster AKS et installer les outils côté client.
+ms.custom: devx-track-azurecli
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: 177496a53d204306b2b655b8736ce063dedf0f61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 079a9e1b28b315457ac20d3aa9e7d29ce28fa077
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202244"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505358"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Activer Azure Dev Spaces sur un cluster AKS et installer les outils côté client
 
@@ -18,7 +19,7 @@ ms.locfileid: "102202244"
 
 Cet article montre plusieurs manières d’activer Azure Dev Spaces sur un cluster AKS et comment installer les outils côté client.
 
-## <a name="enable-azure-dev-spaces-using-the-cli"></a>Activer Azure Dev Spaces à l’aide de l’interface CLI
+## <a name="enable-azure-dev-spaces-using-the-azure-cli"></a>Activer Azure Dev Spaces à l’aide d’Azure CLI
 
 Pour activer Dev Spaces à l’aide de l’interface CLI, vous avez besoin des éléments suivants :
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][az-portal-create-account].
@@ -59,7 +60,7 @@ Vous pouvez utiliser les outils côté client Azure Dev Spaces pour interagir av
 * Dans [Visual Studio 2019][visual-studio], installez la charge de travail Développement Azure.
 * Téléchargez et installez l’interface CLI [Windows][cli-win], [Mac][cli-mac] ou [Linux][cli-linux]
 
-## <a name="remove-azure-dev-spaces-using-the-cli"></a>Supprimer Azure Dev Spaces à l’aide de l’interface CLI
+## <a name="remove-azure-dev-spaces-using-the-azure-cli"></a>Supprimer Azure Dev Spaces à l’aide d’Azure CLI
 
 Pour supprimer Azure Dev Spaces de votre cluster AKS, utilisez la commande `azds remove`.
 

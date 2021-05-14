@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Générer des stratégies pour appliquer la conformité'
 description: Dans ce tutoriel, vous utilisez des stratégies pour appliquer des normes, maîtriser les coûts, garantir la sécurité et imposer des principes de conception à l’échelle de l’entreprise.
-ms.date: 01/29/2021
+ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68621ee5a4cdfcb3bdbdddb2baa423d443eba36a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99221191"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325208"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutoriel : Créer et gérer des stratégies pour appliquer la conformité
 
@@ -393,7 +393,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 1. Sélectionnez **Suivant** en bas de la page ou l’onglet **Paramètres de stratégie** en haut de l’Assistant.
 
-1. Définition de stratégie ajoutée à l’initiative dont les paramètres sont affichés dans une grille. Le _type de valeur_ peut être « Default value » (Valeur par défaut), « Set value » (Définir la valeur) ou « Use Initiative Parameter » (Utiliser un paramètre d’initiative). Si « Set value » est sélectionné, la valeur associée est entrée sous _Value(s)_ [Valeurs]. Si le paramètre de la définition de stratégie a une liste de valeurs autorisées, la zone d’entrée est un sélecteur de liste déroulante. Si l’option « Use Initiative Parameter » est sélectionnée, une liste déroulante est fournie avec les noms des paramètres d’initiative créés sous l’onglet **Initiative parameters** (Paramètres d’initiative).
+1. Définitions de stratégie ajoutées à l’initiative dont les paramètres sont affichés dans une grille. Le _type de valeur_ peut être « Default value » (Valeur par défaut), « Set value » (Définir la valeur) ou « Use Initiative Parameter » (Utiliser un paramètre d’initiative). Si « Set value » est sélectionné, la valeur associée est entrée sous _Value(s)_ [Valeurs]. Si le paramètre de la définition de stratégie a une liste de valeurs autorisées, la zone d’entrée est un sélecteur de liste déroulante. Si l’option « Use Initiative Parameter » est sélectionnée, une liste déroulante est fournie avec les noms des paramètres d’initiative créés sous l’onglet **Initiative parameters** (Paramètres d’initiative).
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Capture d’écran des options pour les valeurs acceptées du paramètre de définition des emplacements autorisés sous l’onglet des paramètres de stratégie de la page de définition d’initiative.":::
 
@@ -496,10 +496,10 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 ## <a name="remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion"></a>Supprimer une ressource non conforme ou refusée de l’étendue à l’aide d’une exclusion
 
-Après avoir attribué une initiative de stratégie pour exiger un emplacement spécifique, toutes les ressources créées dans un emplacement différent sont refusées. Dans cette section, vous allez résoudre pas à pas une situation dans laquelle la demande de création d’une ressource a été refusée en créant une exclusion sur un seul groupe de ressources. L’exclusion empêche l’application de la stratégie (ou de l’initiative) à ce groupe de ressources. Dans l’exemple suivant, tous les emplacements sont autorisés dans le groupe de ressources exclu. Une exclusion peut s’appliquer à un abonnement, à un groupe de ressources ou à des ressources individuelles.
+Après avoir attribué une initiative de stratégie pour exiger un emplacement spécifique, toutes les ressources créées dans un emplacement différent sont refusées. Dans cette section, vous allez résoudre pas à pas une situation dans laquelle la demande de création d’une ressource a été refusée en créant une exclusion sur un seul groupe de ressources. L’exclusion empêche l’application de la stratégie (ou de l’initiative) à ce groupe de ressources. Dans l’exemple suivant, tous les emplacements sont autorisés dans le groupe de ressources exclu. Une exclusion peut s’appliquer à un abonnement, à un groupe de ressources ou à une ressource individuelle.
 
 > [!NOTE]
-> Une [exemption de stratégie](../concepts/exemption-structure.md) peut également être utilisée pour ignorer l’évaluation d’une ressource. Pour plus d’informations, consultez [Étendue dans Azure Policy](../concepts/scope.md).
+> Une [exemption de stratégie](../concepts/exemption-structure.md) peut également être utilisée pour ignorer l’évaluation d’une ressource. Pour plus d’informations, consultez [Étendue d’Azure Policy](../concepts/scope.md).
 
 Les déploiements empêchés par une stratégie ou une initiative affectée peuvent être vus dans le groupe de ressources ciblé par le déploiement : Sélectionnez **Déploiements** dans la partie gauche de la page, puis sélectionnez le **nom du déploiement** qui a échoué. La ressource refusée est listée avec l’état _Interdit_. Pour déterminer la stratégie ou l’initiative et l’affectation qui a refusé la ressource, sélectionnez **Échec. Cliquez ici pour plus d’informations ->** dans la page Vue d’ensemble du déploiement. Une fenêtre s’ouvre dans la partie droite de la page pour présenter les informations d’erreur. Sous **Détails de l’erreur** figurent les GUID des objets de stratégie associés.
 

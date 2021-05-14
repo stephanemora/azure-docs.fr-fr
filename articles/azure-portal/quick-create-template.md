@@ -4,12 +4,12 @@ description: Découvrez comment créer un tableau de bord du portail Azure à l�
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/15/2021
-ms.openlocfilehash: a3ab8767e09256ed8235dbd980ea3336a6f0fb1d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3cb6069b13246e561de85c7a392283a5c243f1a4
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104658321"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517781"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Démarrage rapide : Créer un tableau de bord dans le portail Azure à l’aide d’un modèle ARM
 
@@ -19,7 +19,7 @@ Dans le portail Azure, un tableau de bord est une vue ciblée et organisée de v
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.portal%2Fazure-portal-dashboard%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -61,13 +61,13 @@ Le tableau de bord que vous créez dans la prochaine partie de ce guide de déma
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour voir le modèle, consultez [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-portal-dashboard/azuredeploy.json). Une ressource Azure est définie dans le modèle, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Créer un tableau de bord dans le portail Azure.
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). Le modèle utilisé pour cet article est trop long pour être affiché ici. Pour voir le modèle, consultez [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). Une ressource Azure est définie dans le modèle, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Créer un tableau de bord dans le portail Azure.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle.
 
-    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
+    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.portal%2Fazure-portal-dashboard%2Fazuredeploy.json)
 
 1. Sélectionnez ou entrez les valeurs suivantes, puis sélectionnez **Vérifier + créer**.
 

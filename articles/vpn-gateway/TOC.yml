@@ -60,7 +60,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
     - name: Interopérabilité de connectivité du serveur principal
       items:
         - name: Préface et initialisation (tearDown) de test
@@ -262,6 +262,8 @@
     - name: Dépanner
       href: vpn-gateway-troubleshoot.md
       items:
+        - name: Résoudre les problèmes de passerelle VPN Azure à l’aide des journaux de diagnostic
+          href: troubleshoot-vpn-with-azure-diagnostics.md
         - name: Paramètres de VPN ou de pare-feu suggérés par la communauté
           href: vpn-gateway-third-party-settings.md
         - name: Configurer et valider des connexions de réseau virtuel ou de VPN
@@ -305,7 +307,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network#vpn
     - name: Azure PowerShell (Classic)
-      href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
+      href: /powershell/module/servicemanagement/azure.service/#azure
     - name: REST
       href: /rest/api/network/virtualnetworkgateways
     - name: REST (Classic)

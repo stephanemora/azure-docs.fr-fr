@@ -8,12 +8,13 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: fdfeae56ba1ef46b58fdb8f5beb32f85a6e2fcb4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183700"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752316"
 ---
 # <a name="repair-an-automanage-account"></a>Réparer un compte Automanage
 Votre [compte Azure Automanage](./automanage-virtual-machines.md#automanage-account) est l’identité ou le contexte de sécurité où les opérations automatisées se produisent. Si vous avez récemment déplacé un abonnement qui contient un compte Automanage vers un nouveau locataire, vous devez reconfigurer le compte. Pour le reconfigurer, vous devez réinitialiser le type d’identité et attribuer les rôles appropriés pour le compte.

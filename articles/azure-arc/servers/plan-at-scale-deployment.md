@@ -1,14 +1,14 @@
 ---
 title: Comment planifier et déployer des serveurs avec Azure Arc
 description: Découvrez comment activer un grand nombre de machines sur des serveurs avec Azure Arc afin de simplifier la configuration de fonctionnalités essentielles de sécurité, de gestion et de surveillance dans Azure.
-ms.date: 03/18/2021
+ms.date: 04/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f8fe410da56f627ceab5f17c980f2daa1a262c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023280"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831975"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Planifier et déployer des serveurs avec Arc
 
@@ -83,7 +83,7 @@ Au cours de la phase 3, des administrateurs ou ingénieurs système activent l�
 |-----|-------|---------|
 |Créer une alerte Resource Health |Si un serveur cesse d’envoyer des pulsations à Azure pendant plus de 15 minutes, cela peut signifier qu’il est hors connexion, que la connexion réseau a été bloquée ou que l’agent n’est pas en cours d’exécution. Élaborez un plan décrivant la manière de répondre à ces incidents et d’investiguer à leur sujet, et utilisez des [alertes Resource Health](../..//service-health/resource-health-alert-monitor-guide.md) pour être informé de leur démarrage.<br><br> Spécifiez les aspects suivants lors de la configuration de l’alerte :<br> **Type de ressource** = **Serveurs avec Azure Arc**<br> **État actuel de la ressource** = **Indisponible**<br> **État précédent de la ressource** = **Disponible** | 1 heure |
 |Créer une alerte Azure Advisor | Pour bénéficier d’une expérience optimale et des correctifs de sécurité et de bogues les plus récents, nous vous recommandons de tenir à jour l’agent des serveurs avec Azure Arc. Les agents obsolètes sont identifiés avec une [alerte Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Spécifiez les aspects suivants lors de la configuration de l’alerte :<br> **Type de recommandation** = **Opérer une mise à niveau vers la dernière version d’Azure Connected Machine Agent** | 1 heure |
-|[Attribuer des stratégies Azure](../../governance/policy/assign-policy-portal.md) à l’étendue de votre abonnement ou groupe de ressources |Attribuez la **stratégie** [Activer Azure Monitor pour machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) (et d’autres qui répondent à vos besoins) à l’étendue de l’abonnement ou du groupe de ressources. Azure Policy vous permet d’attribuer des définitions de stratégie qui installent les agents nécessaires à Azure Monitor pour machines virtuelles dans votre environnement.| Variable |
+|[Attribuer des stratégies Azure](../../governance/policy/assign-policy-portal.md) à l’étendue de votre abonnement ou groupe de ressources |Attribuez la **stratégie** [Activer Azure Monitor pour machines virtuelles](../../azure-monitor/vm/vminsights-enable-policy.md) (et d’autres qui répondent à vos besoins) à l’étendue de l’abonnement ou du groupe de ressources. Azure Policy vous permet d’attribuer des définitions de stratégie qui installent les agents nécessaires à VM Insights pour votre environnement.| Variable |
 |[Activer la Gestion des mises à jour pour vos serveurs avec Azure Arc](../../automation/update-management/enable-from-automation-account.md) |Configurez la Gestion des mises à jour dans Azure Automation afin de gérer les mises à jour de vos machines virtuelles Windows et Linux inscrites auprès de serveurs avec Arc. | 15 minutes |
 
 ## <a name="next-steps"></a>Étapes suivantes

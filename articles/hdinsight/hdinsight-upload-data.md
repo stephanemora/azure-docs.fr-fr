@@ -3,14 +3,14 @@ title: Charger des données pour des travaux Apache Hadoop dans HDInsight
 description: Découvrez comment télécharger des données et y accéder pour des tâches Apache Hadoop dans HDInsight. Utilisez l’interface de ligne de commande Azure classique, l’Explorateur Stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdiseo17may2017,seoapr2020
+ms.custom: hdiseo17may2017,seoapr2020, devx-track-azurecli
 ms.date: 04/27/2020
-ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81ce470c53374331afcc91c89fd97e96c3fa0c35
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98931346"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887411"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
@@ -34,11 +34,11 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 
 | Outil | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
-| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
-| [Commande Hadoop](#hadoop-command-line) |✔ |✔ |✔ |
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |âœ“ |âœ“ |âœ“ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |âœ“ |âœ“ |âœ“ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |âœ“ |
+| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |âœ“ | |âœ“ |
+| [Commande Hadoop](#hadoop-command-line) |âœ“ |âœ“ |âœ“ |
 
 > [!NOTE]  
 > La commande Hadoop est uniquement disponible sur le cluster HDInsight. La commande autorise uniquement le chargement de données du système de fichiers local sur le Stockage Azure.  
@@ -76,12 +76,12 @@ Plusieurs applications fournissent également une interface graphique pour utili
 
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Outils Microsoft Visual Studio pour HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
-| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
-| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
-| [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
+| [Outils Microsoft Visual Studio pour HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |âœ“ |âœ“ |âœ“ |
+| [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |âœ“ |âœ“ |âœ“ |
+| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |âœ“ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |âœ“ |
+| [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |âœ“ |
+| [Cyberduck](https://cyberduck.io/) | |âœ“ |âœ“ |
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Monter le stockage Azure comme un lecteur Local
 

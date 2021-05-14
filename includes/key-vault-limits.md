@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
-ms.openlocfilehash: c2548b1669366564809ed2fde725cb3399922a29
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ecfcff00e6f44f5c739513c063baaa3fa02a3db
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803420"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753292"
 ---
 Le service Azure Key Vault prend en charge deux types de ressources : les coffres et les HSM managés. Les deux sections suivantes décrivent les limites de service pour chacun d’entre eux.
 
@@ -65,7 +65,7 @@ Quand vous sauvegardez un objet d’un coffre de clés (secret, clé ou certific
 #### <a name="azure-private-link-integration"></a>Intégration d’Azure Private Link
 
 > [!NOTE]
-> Le nombre de coffres de clés avec des points de terminaison privés activés par abonnement est une limite modifiable. La limite indiquée ci-dessous est la limite par défaut. Si vous souhaitez demander une augmentation de la limite pour votre service, veuillez envoyer un e-mail à akv-privatelink@microsoft.com. Nous approuverons ces demandes au cas par cas.
+> Le nombre de coffres de clés avec des points de terminaison privés activés par abonnement est une limite modifiable. La limite indiquée ci-dessous est la limite par défaut. Si vous souhaitez augmenter la limite de votre service, créez une demande de support pour que celle-ci soit évaluée au cas par cas.
 
 | Ressource | Limite |
 | -------- | -----:|

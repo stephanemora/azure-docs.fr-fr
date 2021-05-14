@@ -3,18 +3,18 @@ title: Afficher des données personnalisées sur une carte raster | Microsoft Az
 description: Découvrez comment ajouter des clics-infos, des étiquettes et des formes géométriques à une carte raster. Pour ce faire, découvrez comment utiliser le service d’images statiques dans Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 04/26/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80919473d5d3f4b34ce8d621d82bf4bc458b8b58
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906078"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326846"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher des données personnalisées sur une carte raster
 
@@ -35,7 +35,7 @@ Pour accomplir les procédures de cet article, vous devez d’abord créer un co
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Afficher des repères avec des étiquettes et une image personnalisée
 
 > [!Note]
-> La réalisation de cette procédure nécessite un compte Azure Maps dans le niveau tarifaire S0 ou S1.
+> Un compte Azure Maps du niveau tarifaire Gen1 ou Gen2 est nécessaire pour suivre la procédure de cette section.
 
 Le compte Azure Maps au niveau S0 prend en charge une seule instance du paramètre `pins`. Cela vous permet d’afficher jusqu’à cinq repères, spécifiés dans la requête URL, avec une image personnalisée.
 
@@ -60,7 +60,7 @@ Pour afficher les repères avec les étiquettes et une image personnalisée, eff
 ## <a name="get-data-from-azure-maps-data-storage"></a>Obtenir des données à partir du stockage de données Azure Maps
 
 > [!Note]
-> La réalisation de cette procédure nécessite un compte Azure Maps dans le niveau tarifaire S1.
+> Un compte Azure Maps du niveau tarifaire Gen1 (S1) ou Gen2 est nécessaire pour suivre la procédure de cette section.
 
 Vous pouvez aussi obtenir les informations sur le chemin et l’emplacement du repère à l’aide de l’[API de chargement des données](/rest/api/maps/data/uploadpreview). Suivez les étapes ci-dessous pour charger les données du chemin et des repères.
 
@@ -169,7 +169,7 @@ Vous pouvez aussi obtenir les informations sur le chemin et l’emplacement du r
 ## <a name="render-a-polygon-with-color-and-opacity"></a>Afficher un polygone avec une couleur et une opacité
 
 > [!Note]
-> La réalisation de cette procédure nécessite un compte Azure Maps dans le niveau tarifaire S1.
+> Un compte Azure Maps du niveau tarifaire Gen1 (S1) ou Gen2 est nécessaire pour suivre la procédure de cette section.
 
 
 Vous pouvez modifier l’apparence d’un polygone en utilisant des modificateurs de style avec le [paramètre path](/rest/api/maps/render/getmapimage#uri-parameters).
@@ -189,7 +189,7 @@ Vous pouvez modifier l’apparence d’un polygone en utilisant des modificateur
 ## <a name="render-a-circle-and-pushpins-with-custom-labels"></a>Afficher un cercle et des repères avec des étiquettes personnalisées
 
 > [!Note]
-> La réalisation de cette procédure nécessite un compte Azure Maps dans le niveau tarifaire S1.
+> Un compte Azure Maps du niveau tarifaire Gen1 (S1) ou Gen2 est nécessaire pour suivre la procédure de cette section.
 
 
 Vous pouvez modifier l’apparence des repères en ajoutant des modificateurs de style. Par exemple, pour augmenter ou diminuer la taille des clics-infos et de leurs étiquettes, utilisez le modificateur de « style de l’échelle » `sc`. Ce modificateur accepte une valeur supérieure à zéro. La valeur 1 représente l’échelle standard. Les valeurs supérieures à 1 agrandissent les repères tandis que les valeurs qui lui sont inférieures les diminuent. Pour plus d’informations sur les modificateurs de style, consultez [Paramètres du chemin du service d’image statique](/rest/api/maps/render/getmapimage#uri-parameters).

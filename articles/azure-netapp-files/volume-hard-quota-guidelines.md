@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 5e7f71f91e5778b4f096bb760bfe5a0a89b5cbcb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a0080687d65c7165b0c2a463229a9a817fb045e0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764276"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288175"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Ce que signifie le passage au quota inconditionnel de volume pour votre service Azure NetApp Files
 
@@ -160,7 +160,7 @@ Vous pouvez utiliser le portail ou l’interface CLI pour augmenter manuellement
 
 ##### <a name="portal"></a>Portail 
 
-Vous pouvez [changer la taille d’un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume) selon les besoins. La consommation de capacité d’un volume est comptée par rapport à la capacité configurée de son pool.
+Vous pouvez [changer la taille d’un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume-using-the-azure-portal) selon les besoins. La consommation de capacité d’un volume est comptée par rapport à la capacité configurée de son pool.
 
 1. Dans le panneau Gérer le compte NetApp, cliquez sur **Volumes**.  
 2. Cliquez avec le bouton droit sur le nom du volume que vous souhaitez redimensionner ou cliquez sur l’icône `…` à la fin de la ligne correspondant au volume pour afficher le menu contextuel. 
@@ -170,7 +170,7 @@ Vous pouvez [changer la taille d’un volume](azure-netapp-files-resize-capacity
 
    ![Capture d’écran montrant la fenêtre Mettre à jour le quota de volume.](../media/azure-netapp-files/hard-quota-update-volume-quota.png) 
 
-Dans certains cas, le pool de capacité d’hébergement ne dispose pas d’une capacité suffisante pour redimensionner les volumes. Toutefois, vous pouvez [modifier la taille du pool de capacité](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-the-capacity-pool) par incréments ou décréments de 1 Tio. La taille du pool de capacité ne peut pas être inférieure à 4 Tio. *Le redimensionnement du pool de capacités change la capacité Azure NetApp Files achetée.*
+Dans certains cas, le pool de capacité d’hébergement ne dispose pas d’une capacité suffisante pour redimensionner les volumes. Toutefois, vous pouvez [modifier la taille du pool de capacité](azure-netapp-files-resize-capacity-pools-or-volumes.md#resizing-the-capacity-pool-or-a-volume-using-azure-cli) par incréments ou décréments de 1 Tio. La taille du pool de capacité ne peut pas être inférieure à 4 Tio. *Le redimensionnement du pool de capacités change la capacité Azure NetApp Files achetée.*
 
 1. Dans le panneau Gérer le compte NetApp, cliquez sur le pool de capacités que vous voulez redimensionner.
 2. Cliquez avec le bouton droit sur le nom du pool de capacité ou cliquez sur l’icône `…` à la fin de la ligne correspondant au pool de capacité pour afficher le menu contextuel.

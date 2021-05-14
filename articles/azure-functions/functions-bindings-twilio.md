@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
-ms.openlocfilehash: 31d5c528112ccacab47282729b1b5f8a72f19af0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97036266911a8ffd7dca00ad2eaeeed32e620dba
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91999281"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166376"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Liaison Twilio pour Azure Functions
 
@@ -301,7 +301,7 @@ public static CreateMessageOptions Run(
 {
     ...
 }
- ```
+```
 
 Vous trouverez un exemple complet sur la page [Exemple C#](#example).
 
@@ -336,7 +336,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Cette valeur doit être définie sur le nom d’un paramètre d’application hébergeant votre jeton d’authentification Twilio (`TwilioAccountAuthToken`). En l’absence de définition, le nom du paramètre d’application par défaut est « AzureWebJobsTwilioAuthToken ». |
 |**to**| N/A : spécifier dans le code | **To**| Cette valeur est définie sur le numéro de téléphone sur lequel est envoyé le SMS.|
 |**from**|**from** | **From**| Cette valeur est définie sur le numéro de téléphone à partir duquel est envoyé le SMS.|
-|**body**|**body** | **Corps**| Cette valeur peut être utilisée pour coder en dur le SMS, si vous n’avez pas besoin de procéder à une définition dynamique dans le code associé à votre fonction. |  
+|**body**|**body** | **Corps**| Cette valeur peut être utilisée pour coder en dur le SMS, si vous n’avez pas besoin de procéder à une définition dynamique dans le code associé à votre fonction. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

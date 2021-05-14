@@ -1,16 +1,16 @@
 ---
 title: Obtenir des données de capteur auprès des partenaires
 description: Cet article décrit comment obtenir des données de capteur auprès de partenaires.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: 474b6f8356724546105d902a15427f483f656317
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: riyazp
+ms.openlocfilehash: 3f0077a1868aaf03bf5f6ed1febd4ba5734c6806
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182772"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751280"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 

@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Élever les privilèges CloudSimple
 description: Indique comment élever les autorisations CloudSimple pour effectuer des fonctions d’administration dans le vCenter de cloud privé
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d481717a79856583d23f61107678d2ecd1af68d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38c4e9e9128cc9b68a06582863e7026e63fba6d5
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895725"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176879"
 ---
 # <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Élevez les privilèges CloudSimple pour effectuer des fonctions d’administration dans le cloud privé vCenter
 
@@ -22,7 +22,7 @@ L’approche des privilèges CloudSimple est conçue pour accorder aux utilisate
 Les privilèges peuvent être élevés pour les raison suivantes :
 
 * Configuration des sources d’identité
-* Gestion des utilisateurs
+* User Management
 * Suppression de groupe de ports distribués
 * Installation de solutions vCenter (telles que les applications de sauvegarde)
 * Création de comptes de service

@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 2d0cb2e9fed754cd373a37c1477b3133a83f3e76
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: fd96054edf376ca19946fc13f9593be72ee0a0ec
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104803487"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931734"
 ---
 Ce guide fournit des instructions et un exemple de code pour vous aider à commencer à utiliser la bibliothèque de client Custom Vision pour Node.js afin de générer un modèle de classification d’images. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -77,9 +77,9 @@ Créez des variables pour le point de terminaison et les clés Azure de votre re
 > [!IMPORTANT]
 > Accédez au portail Azure. Si la ressource d’entraînement Custom Vision que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource. 
 >
->Vous trouverez la valeur de l’ID de ressource de prédiction sous l’onglet **Propriétés** de la ressource, listé comme **ID d’abonnement**.
+>L’ID de ressource de prédiction est disponible sous l’onglet **Propriétés** de la ressource dans le portail Azure, listé comme **ID de ressource**.
 >
-> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) Cognitive Services.
 
 Ajoutez également des champs pour le nom de votre projet et un paramètre de délai d’attente pour les appels asynchrones.
 

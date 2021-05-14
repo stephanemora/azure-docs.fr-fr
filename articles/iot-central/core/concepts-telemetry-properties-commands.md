@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 995f4670b17d55fe04d5c30a834ea4be576a8348
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 11bfe1fbb9b0ba7c38eb946918b04d1568d2d1da
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106489976"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108000995"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
 
@@ -1042,11 +1042,20 @@ Une fois que l’appareil a fini de traiter la requête, il doit envoyer à IoT 
 
 ### <a name="offline-commands"></a>Commandes hors connexion
 
-Dans l’interface utilisateur web IoT Central, vous pouvez sélectionner l’option **Mettre en file d'attente si hors connexion** pour une commande. Les commandes hors connexion représentent des notifications unidirectionnelles de votre solution vers l’appareil remises dès qu’un appareil se connecte. Les commandes hors connexion peuvent avoir des paramètres de requête, mais elles ne renvoient pas de réponse.
+Dans l’interface utilisateur web IoT Central, vous pouvez sélectionner l’option **Mettre en file d'attente si hors connexion** pour une commande. Les commandes hors connexion représentent des notifications unidirectionnelles de votre solution vers l’appareil remises dès qu’un appareil se connecte. Les commandes hors connexion peuvent avoir un paramètre de requête, mais elles ne renvoient pas de réponse.
 
 Le paramètre **Mettre en file d’attente si hors connexion** n’est pas inclus si vous exportez un modèle ou une interface à partir du modèle d’appareil. En observant un modèle exporté ou une interface JSON, vous ne pouvez pas déterminer qu’une commande est hors connexion.
 
 Les commandes hors connexion utilisent des [message cloud-à-appareil IoT Hub](../../iot-hub/iot-hub-devguide-messages-c2d.md) pour envoyer la commande et la charge utile à l’appareil.
+
+La charge utile du message reçu par l'appareil est la valeur brute du paramètre. Une propriété personnalisée appelée `method-name` stocke le nom de la commande IoT Central. Le tableau suivant présente quelques exemples de charges utiles :
+
+| Schéma de requête IoT Central | Exemple de charge utile reçue par l'appareil |
+| -------------------------- | ---------------------------------- |
+| Aucun paramètre de requête       | `@`                                |
+| Double                     | `1.23`                             |
+| String                     | `sample string`                    |
+| Object                     | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
 
 L’extrait de code suivant d’un modèle d’appareil illustre la définition d’une commande. La commande possède un paramètre d’objet avec un champ d’horodatage et une énumération :
 

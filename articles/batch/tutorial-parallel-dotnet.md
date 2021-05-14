@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c172b16fa1f80944394ffb8db8ebba0319b7bc2
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97106527"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870928"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous convertissez des fichiers de multimédia MP4 en parall
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) pour Linux, macOS ou Windows.
+* [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/vs), ou [SDK .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1) pour Linux, macOS ou Windows.
 
 * Un compte Batch et un compte Stockage Azure lié. Pour créer ces comptes, consultez les démarrages rapides Azure Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md).
 

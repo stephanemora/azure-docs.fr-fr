@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bfe5dc7c4f6fc40154a6fc9bc3a087873ba9eaef
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877311"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129240"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Gérer et superviser une application avec l’actionneur Azure Spring Boot
 
@@ -21,7 +21,7 @@ ms.locfileid: "104877311"
 Après avoir déployé un nouveau binaire dans votre application, vous pouvez vérifier la fonctionnalité et afficher des informations sur votre application en cours d’exécution. Cet article explique comment accéder à l’API à partir d’un point de terminaison de test fourni par Azure Spring Cloud et exposer les fonctionnalités prêtes pour la production de votre application.
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article suppose que vous disposez d’une application Spring Boot 2.x qui peut être déployée et démarrée sur le service Azure Spring Cloud.  Consultez [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](spring-cloud-quickstart.md).
+Cet article suppose que vous disposez d’une application Spring Boot 2.x qui peut être déployée et démarrée sur le service Azure Spring Cloud.  Consultez [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](./quickstart.md).
 
 ## <a name="verify-app-through-test-endpoint"></a>Vérifier l’application via le point de terminaison de test
 1. Accédez au **tableau de bord de l’application** et cliquez sur votre application pour accéder à la page de présentation de l’application.
@@ -76,6 +76,5 @@ Pour afficher tous les points de terminaison intégrés, consultez [Exposition d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comprendre les métriques pour Azure Spring Cloud](spring-cloud-concept-metrics.md)
-* [Présentation de l’état des applications dans Azure Spring Cloud](spring-cloud-concept-app-status.md)
-
+* [Comprendre les métriques pour Azure Spring Cloud](./concept-metrics.md)
+* [Présentation de l’état des applications dans Azure Spring Cloud](./concept-app-status.md)

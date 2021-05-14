@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1c8ea1580047910cb2d6634aad885d61e99113f3
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 74cbbf13b3ecb0b784138df69a8436930c2766ef
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529971"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130896"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
@@ -211,7 +211,7 @@ La réponse contient un jeton SAML encodé en UTF8 et Base64url.
 - **SubjectConfirmationData pour une assertion SAML provenant d’un appel OBO** : si l’application cible nécessite une valeur de destinataire dans **SubjectConfirmationData**, la valeur doit être une URL de réponse sans caractère générique dans la configuration de la ressource d’application.
 - **Le nœud SubjectConfirmationData** : le nœud ne peut pas contenir d’attribut **InResponseTo**, dans la mesure où il ne fait pas partie d’une réponse SAML. L’application qui reçoit le jeton SAML doit pouvoir accepter l’assertion SAML sans attribut **InResponseTo**.
 
-- **Consentement** : un consentement doit avoir été accordé pour recevoir un jeton SAML contenant des données utilisateur sur un flux OAuth. Pour plus d’informations sur les autorisations et sur l’obtention d’un consentement de l’administrateur, consultez [Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+- **Consentement** : un consentement doit avoir été accordé pour recevoir un jeton SAML contenant des données utilisateur sur un flux OAuth. Pour plus d’informations sur les autorisations et sur l’obtention d’un consentement de l’administrateur, consultez [Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0](../azuread-dev/v1-permissions-consent.md).
 
 ### <a name="response-with-saml-assertion"></a>Réponse avec instruction d’assertion SAML
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: cd6e4e62123b4d4b927cf385aaf64a066eecc1e0
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: e8ab657ec7b4ef9a413993c064c931b4fc1523c5
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104887748"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929450"
 ---
 # <a name="how-to-update-azure-percept-dk-over-a-usb-connection"></a>Comment mettre à jour le DK Azure Percept via une connexion USB
 
@@ -41,7 +41,7 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
 
 1. [7-Zip](https://www.7-zip.org/). Ce logiciel sera utilisé pour extraire le fichier image RAW de son fichier compressé XZ. Téléchargez et installez le fichier .exe approprié.
 
-1. [Téléchargez les fichiers de mise à jour](https://go.microsoft.com/fwlink/?linkid=2155734).
+1. [Téléchargez les fichiers de mise à jour](https://go.microsoft.com/fwlink/?linkid=2155734). Ils sont tous contenus dans un fichier zip que vous extrairez dans la section suivante.
 
 1. Vérifiez que les trois artefacts de la build sont présents :
     - Azure-Percept-DK- *&lt;numéro de version&gt;* .raw.xz
@@ -54,9 +54,7 @@ Ce guide explique comment mettre à jour correctement le système d’exploitati
 
 1. Copiez l’outil UUU (**uuu.exe** ou **uuu**) dans le nouveau dossier.
 
-1. Extrayez le fichier **Azure-Percept-DK- *&lt;&gt;numéro de version*.raw** du fichier compressé en cliquant avec le bouton droit sur **Azure-Percept-DK- *&lt;numéro de version&gt;* .rax.zx**, puis en sélectionnant **7-Zip** &gt; **Extraire ici**.
-
-1. Déplacez le fichier extrait **Azure-Percept-DK- *&lt;&gt;numéro de version*.raw**, **fast-hab-fw.raw** et **emmc_full.txt** vers le dossier contenant l’outil UUU.
+1. Extrayez les fichiers de mise à jour précédemment téléchargés dans le nouveau dossier contenant l'outil UUU.
 
 ## <a name="update-your-device"></a>Mise à jour de votre appareil
 

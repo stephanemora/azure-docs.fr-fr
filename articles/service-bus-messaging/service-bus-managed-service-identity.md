@@ -2,13 +2,13 @@
 title: Identités managées pour les ressources Azure avec Service Bus
 description: Cet article explique comment utiliser des identités managées pour accéder aux entités Azure Service Bus (files d’attente, rubriques et abonnements).
 ms.topic: article
-ms.date: 01/21/2021
-ms.openlocfilehash: 0558e00ac7e8ce67d2e5194b02d2de06f2d38ff1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 3efe513d5e19ca13567b05e8f8d0aafb402ae879
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785430"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161120"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Azure Service Bus
 La fonctionnalité [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) vous permet de créer une identité sécurisée associée au déploiement sous lequel s’exécute le code de votre application. Vous pouvez ensuite associer cette identité à des rôles de contrôle d’accès qui accordent des autorisations personnalisées pour l’accès aux ressources Azure nécessaires à votre application.
@@ -91,13 +91,8 @@ Une fois que vous avez créé l’application, suivez ces étapes :
 
 Une fois ce paramètre activé, une identité de service est créée dans votre annuaire Azure Active Directory (Azure AD) et configurée dans l’hôte App Service.
 
-> [!NOTE]
-> Lorsque vous utilisez une identité managée, la chaîne de connexion doit être au format suivant : `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=ManagedIdentity`.
-
-À présent, attribuez cette identité de service à un rôle dans l’étendue requise dans vos ressources Service Bus.
-
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Pour attribuer des rôles Azure à l’aide du portail Azure
-Pour attribuer un rôle à un espace de noms Service Bus, accédez à l’espace de noms dans le portail Azure. Affichez les paramètres Contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
+À présent, attribuez l’identité du service à un rôle dans l’étendue requise dans vos ressources Service Bus. Pour attribuer un rôle à un espace de noms Service Bus, accédez à l’espace de noms dans le portail Azure. Affichez les paramètres Contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
 
 > [!NOTE]
 > Les étapes suivantes vous permettent d’attribuer un rôle d’identité de service à vos espaces de noms Service Bus. Vous pouvez effectuer les mêmes étapes pour attribuer un rôle à d’autres étendues prises en charge (groupe de ressources et abonnement). 
@@ -127,7 +122,7 @@ Pour attribuer un rôle à un espace de noms Service Bus, accédez à l’espace
 
 La page Default.aspx est votre page d’accueil. Le code se trouve dans le fichier Default.aspx.cs. Le résultat est une application web minimale avec quelques champs d’entrée et les boutons **send** (envoyer) et **receive** (recevoir) qui permettent de se connecter à Service Bus pour envoyer ou recevoir des messages.
 
-Notez la façon dont l’objet [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) est initialisé. Au lieu d’utiliser le fournisseur de jetons SAS (Jeton d’accès partagé), le code crée un fournisseur de jetons pour l’identité managée avec l’appel `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();`. Ainsi, il n’est pas nécessaire de conserver et d’utiliser des secrets. Le flux du contexte de l’identité managée vers Service Bus et la négociation des autorisations sont gérés automatiquement par le fournisseur de jetons. C’est un modèle plus simple que l’utilisation de SAS.
+Notez la façon dont l’objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) est initialisé à l’aide d’un constructeur qui prend un TokenCredential. DefaultAzureCredential dérive de TokenCredential et peut être transmis ici. Ainsi, il n’est pas nécessaire de conserver et d’utiliser des secrets. Le flux du contexte de l’identité managée vers Service Bus et l’établissement d’une liaison d’autorisation sont gérés automatiquement par les informations d’identification du jeton. C’est un modèle plus simple que l’utilisation de SAS.
 
 Après avoir apporté ces modifications, publiez et exécutez l’application. Pour obtenir facilement les données de publication correctes, téléchargez un profil de publication, puis importez-le dans Visual Studio :
 

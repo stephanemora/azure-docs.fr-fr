@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: baselden
-ms.openlocfilehash: 777daecc119a158f11d865489e4eb497c3bc7899
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 8cf1a671eeb4861919a389b02f45fee998d880e3
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376594"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108317214"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planifier la configuration de Mes applications Azure Active Directory
 
@@ -81,7 +81,7 @@ Pour plus d’informations, consultez [Configurer le consentement des utilisateu
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consentement du propriétaire du groupe pour les applications qui accèdent aux données
 
-Les propriétaires de groupes et d’équipes peuvent autoriser des applications telles que des applications publiées par des fournisseurs tiers à accéder aux données de votre organisation associées à un groupe. Pour en savoir plus, consultez [Consentement propre à la ressource dans Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent). 
+Les propriétaires de groupes et d’équipes peuvent autoriser des applications telles que des applications publiées par des fournisseurs tiers à accéder aux données de votre organisation associées à un groupe. Pour en savoir plus, consultez [Consentement propre à la ressource dans Microsoft Teams](/microsoftteams/resource-specific-consent). 
 
 Vous pouvez configurer si vous souhaitez autoriser ou désactiver cette fonctionnalité.
 
@@ -138,7 +138,7 @@ L’extension permet aux utilisateurs de lancer une application à partir de sa 
 
 #### <a name="plan-for-mobile-access"></a>Planifier l’accès mobile
 
-Pour les applications qui utilisent l’authentification unique basée sur mot de passe ou qui sont accessibles à l’aide de [Proxy d’application Microsoft Azure AD](../manage-apps/application-proxy.md), vous devez utiliser la version mobile de Microsoft Edge. Pour les autres applications, n’importe quel navigateur mobile peut être utilisé. 
+Pour les applications qui utilisent l’authentification unique basée sur mot de passe ou qui sont accessibles à l’aide de [Proxy d’application Microsoft Azure AD](../app-proxy/application-proxy.md), vous devez utiliser la version mobile de Microsoft Edge. Pour les autres applications, n’importe quel navigateur mobile peut être utilisé. 
 
 ### <a name="linked-sso"></a>Authentification unique liée
 
@@ -256,5 +256,4 @@ Vous pouvez utiliser [Privileged Identity Management](../privileged-identity-man
 
 [Planifier un déploiement d'Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-[Planifier un déploiement de proxy d’application](application-proxy-deployment-plan.md)
-
+[Planifier un déploiement de proxy d’application](../app-proxy/application-proxy-deployment-plan.md)

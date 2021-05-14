@@ -3,13 +3,13 @@ title: Limites des demandes et limitation
 description: Décrit comment utiliser la limitation avec des requêtes Azure Resource Manager lorsque les limites d’abonnement ont été atteintes.
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.custom: seodec18
-ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: cb562d6f6489ff30c6b940963a20974eb987b031
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105024623"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108322182"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
@@ -55,6 +55,10 @@ Le fournisseur de ressources Microsoft. Network applique les limites de limitati
 | --------- | ----- |
 | écriture / suppression (PUT) | 1000 toutes les 5 minutes |
 | lecture (GET) | 10000 toutes les 5 minutes |
+
+> [!NOTE]
+> **Azure Private DNS** présente une limitation de 500 opérations de lecture (GET) par 5 minutes.
+>
 
 ### <a name="compute-throttling"></a>Calculer la limitation
 

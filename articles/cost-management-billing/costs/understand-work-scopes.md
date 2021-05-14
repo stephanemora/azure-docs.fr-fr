@@ -3,18 +3,18 @@ title: Comprendre et utiliser les étendues d’Azure Cost Management
 description: Cet article vous explique les étendues de facturation et de gestion des ressources disponibles dans Azure, et comment les utiliser dans Cost Management et les API.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/12/2020
+ms.date: 04/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f1b98cdf662f6f518e0bc1c3e869de3774c1bf7e
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054802"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204150"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -42,7 +42,7 @@ Azure prend en charge trois étendues pour la gestion des ressources. Chaque ét
 
 - [**Groupes d’administration**](../../governance/management-groups/overview.md): conteneurs hiérarchiques, jusqu’à huit niveaux, pour organiser les abonnements Azure.
 
-    Type de ressource : [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Type de ressource : [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
 - **Abonnements** : conteneurs principaux pour les ressources Azure.
 
@@ -75,6 +75,19 @@ Le rôle recommandé avec le niveau de privilège minimum est celui de Contribut
 
 Les groupes d’administration sont pris en charge uniquement s’ils contiennent des abonnements Accord Entreprise (EA), Paiement à l’utilisation (PAYG) ou un abonnement interne Microsoft. Les groupes d'administration associés à d'autres types d'abonnements, comme le Contrat client Microsoft ou les abonnements Azure Active Directory, ne peuvent pas afficher les coûts. Si vous disposez d’un mélange d’abonnements, déplacez les abonnements non pris en charge vers une autre branche de la hiérarchie du groupe d’administration pour activer Cost Management sur les abonnements pris en charge. Par exemple, créez deux groupes d’administration sous le groupe d’administration racine : **Azure AD** et **Mon organisation**. Déplacez votre abonnement Azure AD vers le groupe d’administration **Azure AD**, puis affichez et gérez les coûts à l’aide du groupe d’administration **Mon organisation**.
 
+### <a name="feature-behavior-for-each-role"></a>Comportement des fonctionnalités pour chaque rôle
+
+Le tableau suivant montre comment les fonctionnalités de Cost Management sont utilisées par chaque rôle. Le comportement ci-dessous s’applique à toutes les étendues RBAC Azure.
+
+| **Fonctionnalité/Rôle** | **Propriétaire** | **Contributeur** | **Lecteur** | **Lecteur Cost Management** | **Contributeur Cost Management** |
+| --- | --- | --- | --- | --- | --- | 
+| **Analyse des coûts/ Estimation/ API de requête** | Lecture seule | Lecture seule | Lecture seule | Lecture seule | Lecture seule |
+| **Vues partagées** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Lecture seule | Lecture seule |  Créer, Lire, Mettre à jour, Supprimer|
+| **Budgets** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Lecture seule | Lecture seule | Créer, Lire, Mettre à jour, Supprimer |
+| **Alertes** | Lire, mettre à jour | Lire, mettre à jour | Lecture seule | Lecture seule | Lire, mettre à jour |
+| **Exports** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Lecture seule | Lecture seule | Créer, Lire, Mettre à jour, Supprimer |
+| **Règles d’affectation des coûts** | Fonctionnalité non disponible pour les étendues RBAC Azure | Fonctionnalité non disponible pour les étendues RBAC Azure | Fonctionnalité non disponible pour les étendues RBAC Azure | Fonctionnalité non disponible pour les étendues RBAC Azure | Fonctionnalité non disponible pour les étendues RBAC Azure | 
+
 ## <a name="enterprise-agreement-scopes"></a>Étendues Contrat Entreprise
 
 Les comptes de facturation Contrat Entreprise (EA), également appelés inscriptions, offrent les étendues suivantes :
@@ -94,10 +107,10 @@ Bien que les étendues de gouvernance soient liées à un seul répertoire, ce n
 
 Les étendues de facturation EA prennent en charge les rôles suivants :
 
-- **Administrateur d’entreprise** : peut gérer les paramètres des comptes de facturation et l’accès à ces derniers, peut afficher tous les coûts et peut gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, l’étendue de facturation de Contrat Entreprise est identique au [rôle Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Utilisateur d’entreprise en lecture seule** : peut afficher les paramètres de compte de facturation, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, l’étendue de facturation de Contrat Entreprise est identique au [rôle Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Administrateur d’entreprise** : peut gérer les paramètres des comptes de facturation et l’accès à ces derniers, peut afficher tous les coûts et peut gérer la configuration des coûts. Par exemple, les budgets et les exportations.
+- **Utilisateur d’entreprise en lecture seule** : peut afficher les paramètres de compte de facturation, les données de coûts et la configuration des coûts. Peut gérer les budgets et les exportations.
 - **Administrateur de service** : peut gérer les paramètres des départements, comme le centre de coûts, peut afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations.  Le paramètre de compte de facturation **Affichage des frais pour l’administrateur de service** doit être activé pour que les administrateurs de service et les utilisateurs en lecture seule puissent afficher les coûts. Si l'option **Affichage des frais pour l'administrateur de service** est désactivée, les utilisateurs du département ne peuvent afficher les coûts à aucun niveau, même s'ils sont propriétaires de compte ou d'abonnement.
-- **Utilisateur de service en lecture seule** : peut afficher les paramètres de département, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. Si l'option **Affichage des frais pour l'administrateur de service** est désactivée, les utilisateurs du département ne peuvent afficher les coûts à aucun niveau, même s'ils sont propriétaires de compte ou d'abonnement.
+- **Utilisateur de service en lecture seule** : peut afficher les paramètres de département, les données de coûts et la configuration des coûts. Peut gérer les budgets et les exportations. Si l'option **Affichage des frais pour l'administrateur de service** est désactivée, les utilisateurs du département ne peuvent afficher les coûts à aucun niveau, même s'ils sont propriétaires de compte ou d'abonnement.
 - **Propriétaire du compte** : peut gérer les paramètres de compte d’inscription (comme le centre de coûts), afficher tous les coûts et gérer la configuration des coûts (par exemple les budgets et les exportations) pour le compte d’inscription. Le paramètre de compte de facturation **Affichage des frais pour le propriétaire du compte** doit être activé pour que les propriétaires de compte et les utilisateurs Azure RBAC puissent afficher les coûts.
 
 Les utilisateurs de compte de facturation EA n’ont pas d’accès direct aux factures. Les factures sont disponibles à partir d’un système externe de gestion des licences en volume.
@@ -105,6 +118,43 @@ Les utilisateurs de compte de facturation EA n’ont pas d’accès direct aux f
 Les abonnements Azure sont imbriqués sous des comptes d’inscription. Les utilisateurs de facturation ont accès aux données de coûts concernant les abonnements et les groupes de ressources se trouvant dans leurs étendues respectives. Ils ne peuvent pas afficher ou gérer les ressources dans le Portail Azure. Les utilisateurs peuvent afficher les coûts en accédant à **Gestion des coûts + facturation** dans la liste de services du portail Azure. Ensuite, ils peuvent filtrer les coûts sur les abonnements et groupes de ressources spécifiques dont ils ont besoin pour créer leurs rapports.
 
 Les utilisateurs de facturation n’ont pas accès aux groupes d’administration, car ils ne relèvent pas explicitement d’un compte de facturation spécifique. Cet accès doit être accordé explicitement aux groupes d’administration. Les groupes d’administration déploient les coûts à partir de tous les abonnements imbriqués. Toutefois, ils ne comprennent que les achats basés sur l’utilisation. Ils n’incluent pas les achats comme les réservations et les offres tierces de la Place de marché. Pour afficher ces coûts, utilisez le compte de facturation EA.
+
+### <a name="feature-behavior-for-each-role"></a>Comportement des fonctionnalités pour chaque rôle
+
+Les tableaux suivants montrent comment les fonctionnalités de Cost Management peuvent être utilisées par chaque rôle.
+
+#### <a name="enrollment-scope"></a>Étendue de l’inscription
+
+| **Fonctionnalité/Rôle** | **Administrateur d'entreprise** | **Lecture seule pour l’entreprise** |
+| --- | --- | --- |
+| **Analyse des coûts/ Estimation/ API de requête** | Lecture seule | Lecture seule |
+| **Vues partagées** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Budgets** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Alertes** | Lire, mettre à jour | Lire, mettre à jour |
+| **Exports** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Règles d’affectation des coûts** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+
+#### <a name="department-scope"></a>Étendue du service
+
+| **Fonctionnalité/Rôle** | **Administrateur d'entreprise** | **Lecture seule pour l’entreprise** | **Administrateur du service (uniquement si le paramètre « Affichage des frais pour l’administrateur de service » est activé)** | **Lecture seule pour le service (uniquement si le paramètre « Affichage des frais pour l’administrateur de service » est activé)** |
+| --- | --- | --- | --- | --- |
+| **Analyse des coûts/ Estimation/ API de requête** | Lecture seule | Lecture seule | Lecture seule | Lecture seule |
+| **Vues partagées** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Budgets** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Alertes** | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour |
+| **Exports** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Règles d’affectation des coûts** | N/A – uniquement applicable à l’étendue du compte de facturation | N/A – uniquement applicable à l’étendue du compte de facturation | N/A – uniquement applicable à l’étendue du compte de facturation | N/A – uniquement applicable à l’étendue du compte de facturation |
+
+#### <a name="account-scope"></a>Étendue du compte
+
+| **Fonctionnalité/Rôle** | **Administrateur d'entreprise** | **Lecture seule pour l’entreprise** | **Administrateur du service (uniquement si « Affichage des frais pour l’administrateur de service » est activé)** | **Lecture seule pour le service (uniquement si le paramètre « Affichage des frais pour l’administrateur de service » est activé)** | **Propriétaire du compte (uniquement si le paramètre « Affichage des frais pour le propriétaire du compte » est activé)** |
+| --- | --- | --- | --- | --- | --- |
+| **Analyse des coûts/ Estimation/ API de requête** | Lecture seule | Lecture seule | Lecture seule | Lecture seule | Lecture seule |
+| **Vues partagées** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Budgets** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Alertes** | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour |
+| **Exports** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Règles d’affectation des coûts** | N/A – uniquement applicable à l’étendue du compte de facturation | N/A – uniquement applicable à l’étendue du compte de facturation | N/A – uniquement applicable à l’étendue du compte de facturation | N/A – uniquement applicable à l’étendue du compte de facturation | N/A – uniquement applicable à l’étendue du compte de facturation |
 
 ## <a name="individual-agreement-scopes"></a>Étendues Contrat individuel
 
@@ -144,13 +194,50 @@ Les étendues de facturation de contrat client prennent en charge les rôles sui
 
 - **Propriétaire** : peut gérer les paramètres de facturation et l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de Contrat client est identique au [rôle Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Collaborateur** : peut gérer les paramètres de facturation, mais pas l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de Contrat client est identique au [rôle Azure Contributeur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Lecteur** : peut afficher les paramètres de facturation, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de Contrat client est identique au [rôle Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Gestionnaire de factures** : peut afficher et payer les factures, et peut afficher les données et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de Contrat client est identique au [rôle Azure Lecteur Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Lecteur** : peut afficher les paramètres de facturation, les données de coûts et la configuration des coûts. Peut gérer les budgets et les exportations.
+- **Gestionnaire de factures** : peut afficher et payer les factures, et peut afficher les données et la configuration des coûts. Peut gérer les budgets et les exportations.
 - **Créateur de l’abonnement Azure** : peut créer des abonnements Azure, afficher les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au rôle de propriétaire de compte d’inscription EA.
 
 Les abonnements Azure sont imbriqués sous les sections de facture, comme ils le sont dans les comptes d’inscription EA. Les utilisateurs de facturation ont accès aux données de coûts concernant les abonnements et les groupes de ressources se trouvant dans leurs étendues respectives. Toutefois, ils ne peuvent pas afficher ou gérer les ressources dans le Portail Azure. Les utilisateurs de facturation peuvent afficher les coûts en accédant à **Gestion des coûts + facturation** dans la liste de services du Portail Azure. Ensuite, ils peuvent filtrer les coûts sur les abonnements et groupes de ressources spécifiques dont ils ont besoin pour créer leurs rapports.
 
 Les utilisateurs de facturation n’ont pas accès aux groupes d’administration, car ils ne relèvent pas explicitement du compte de facturation. Toutefois, lorsque des groupes d'administration sont activés pour l'organisation, tous les coûts d'abonnement sont cumulés sur le compte de facturation et dans le groupe d'administration racine, car ils sont tous deux limités à un répertoire unique. Les groupes d’administration incluent uniquement les achats basés sur l’utilisation. Les achats tels que les réservations et les offres tierces de la Place de marché ne sont pas inclus dans les groupes d’administration. Par conséquent, le compte de facturation et le groupe d’administration racine peuvent signaler des totaux différents. Pour afficher ces coûts, utilisez le compte de facturation ou le profil de facturation correspondant.
+
+### <a name="feature-behavior-for-each-role"></a>Comportement des fonctionnalités pour chaque rôle
+
+Les tableaux suivants montrent comment les fonctionnalités de Cost Management peuvent être utilisées par chaque rôle.
+
+#### <a name="billing-account"></a>Compte de facturation
+
+| **Fonctionnalité/Rôle** | **Propriétaire** | **Contributeur** | **Lecteur** |
+| --- | --- | --- | --- |
+| **Analyse des coûts/ Estimation/ API de requête** | Lecture seule | Lecture seule | Lecture seule |
+| **Vues partagées** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Budgets** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Alertes** | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour |
+| **Exports** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Règles d’affectation des coûts** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Lecture seule |
+
+#### <a name="billing-profile"></a>Profil de facturation
+
+| **Fonctionnalité/Rôle** | **Propriétaire** | **Contributeur** | **Lecteur** | **Gestionnaire de factures** |
+| --- | --- | --- | --- | --- |
+| **Analyse des coûts/ Estimation/ API de requête** | Lecture seule | Lecture seule | Lecture seule | Lecture seule |
+| **Vues partagées** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Budgets** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Alertes** | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour | Créer, Lire, Mettre à jour, Supprimer |
+| **Exports** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Lire, mettre à jour |
+| **Règles d’affectation des coûts** | N/A – uniquement applicable au compte de facturation | N/A – uniquement applicable au compte de facturation | N/A – uniquement applicable au compte de facturation | N/A – uniquement applicable au compte de facturation |
+
+#### <a name="invoice-section"></a>Section de facture
+
+| **Fonctionnalité/Rôle** | **Propriétaire** | **Contributeur** | **Lecteur** | **Créateur d’abonnement Azure** |
+| --- | --- | --- | --- | --- |
+| **Analyse des coûts/ Estimation/ API de requête** | Lecture seule | Lecture seule | Lecture seule | Lecture seule |
+| **Vues partagées** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Budgets** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Alertes** | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour | Lire, mettre à jour |
+| **Exports** | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer | Créer, Lire, Mettre à jour, Supprimer |
+| **Règles d’affectation des coûts** | N/A – uniquement applicable au compte de facturation | N/A – uniquement applicable au compte de facturation | N/A – uniquement applicable au compte de facturation | N/A – uniquement applicable au compte de facturation |
 
 ## <a name="aws-scopes"></a>Étendues AWS
 

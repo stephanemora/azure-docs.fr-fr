@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Envoyer des événements personnalisés vers une fo
 description: 'Démarrage rapide : Utilisez Azure Event Grid et Azure CLI ou le portail pour publier une rubrique et vous abonner à cet événement. Une fonction Azure est utilisée pour le point de terminaison.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6240d9595022ee4ac5a705fd48bc9618e6782659
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791725"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898024"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers une fonction Azure avec Event Grid
 
@@ -195,3 +195,11 @@ Maintenant que vous savez créer des rubriques et des abonnements d’événemen
 - [Acheminer des événements de stockage Blob Azure vers un point de terminaison Web personnalisé ](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md)
+
+Consultez les exemples suivants pour en savoir plus sur la publication d’événements sur Event Grid et leur consommation avec différents langages de programmation. 
+
+- [Exemples Azure Event Grid pour .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Exemples Azure Event Grid pour Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Exemples Azure Event Grid pour Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Exemples Azure Event Grid pour JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Exemples Azure Event Grid pour TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

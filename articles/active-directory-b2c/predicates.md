@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d5317edcf7ef00c6d82c1799582ad2a92005b7cb
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97108414"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161624"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
@@ -77,7 +77,6 @@ La méthode IsLengthRange vérifie si la longueur d’une valeur de revendicatio
 | ------- | ----------- | ----------- |
 | Maximale | Oui | Nombre maximal de caractères autorisé. |
 | Minimum | Oui | Nombre minimal de caractères autorisé. |
-
 
 L’exemple suivant montre une méthode IsLengthRange avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de la longueur de la chaîne :
 
@@ -224,7 +223,6 @@ L’élément **PredicateReference** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Id | Oui | Identificateur utilisé pour la validation de prédicat.  |
-
 
 ## <a name="configure-password-complexity"></a>Configurer la complexité du mot de passe
 
@@ -424,7 +422,7 @@ Dans votre type de revendication, ajoutez un élément **PredicateValidationRefe
   <UserInputType>DateTimeDropdown</UserInputType>
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
- ```
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

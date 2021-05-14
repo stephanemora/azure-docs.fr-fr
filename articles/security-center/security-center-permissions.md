@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 01/03/2021
 ms.author: memildin
-ms.openlocfilehash: dcbb4977e1bfd17f0cbed61abf9ba335615b7799
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbd7b13e07a19c75c4f41ff4f3e2bdc66e585c9e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443758"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903521"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -39,7 +39,7 @@ Le tableau suivant affiche les rôles et les actions autorisées dans Security C
 | Ajouter/attribuer des initiatives (y compris) des standards de conformité réglementaire)                                                                           | -                             | -              | -                                                      | -                        | ✔                 |
 | Activer/désactiver Azure Defender                                                                                                               | -                             | ✔             | -                                                      | -                        | ✔                 |
 | Activer/désactiver le provisionnement automatique                                                                                                            | -                             | ✔             | -                                                      | ✔                       | ✔                  |
-| Appliquer des recommandations de sécurité à une ressource</br> (et utiliser [Correction rapide !](security-center-remediate-recommendations.md#quick-fix-remediation)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
+| Appliquer des recommandations de sécurité à une ressource</br> (et utiliser [Corriger](security-center-remediate-recommendations.md#fix-button)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
 | Ignorer les alertes                                                                                                                                | -                             | ✔             | -                                                      | ✔                       | ✔                  |
 | Afficher les alertes et les recommandations                                                                                                               | ✔                            | ✔              | ✔                                                     | ✔                        | ✔                 |
 

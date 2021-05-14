@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40a17da6383fb1f368c74a82fefa71991cdc1b19
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556035"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517672"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Procédure d’attribution d’un rôle Azure
 
@@ -78,6 +78,8 @@ Pour attribuer des rôles, vous devez être connecté avec un utilisateur auquel
 - `Microsoft.Authorization/roleAssignments/delete`
 
 Si votre compte d’utilisateur ne dispose pas d’autorisations pour attribuer un rôle au sein de votre abonnement, un message d’erreur vous indiquera que votre compte « n’est pas autorisé à effectuer l’action "Microsoft.Authorization/roleAssignments/write" ». Dans ce cas, contactez les administrateurs de votre abonnement, car ils peuvent attribuer les autorisations à votre place.
+
+Si vous utilisez un principal de service pour attribuer des rôles, il se peut que le message d’erreur « Privilèges insuffisants pour effectuer l’opération » s’affiche. Cette erreur est probablement due au fait qu’Azure tente de rechercher l’identité de la personne responsable dans Azure Active Directory (Azure AD) et que le principal de service ne peut pas lire Azure AD par défaut. Dans ce cas, vous devez accorder au principal de service les autorisations nécessaires pour lire les données dans l’annuaire. Si vous utilisez Azure CLI, vous pouvez également créer l’attribution de rôle à l’aide de l’ID d’objet affecté pour ignorer la recherche Azure AD. Pour plus d’informations, consultez [Résoudre les problèmes liés à RBAC Azure](troubleshooting.md).
 
 ## <a name="step-5-assign-role"></a>Étape 5. Affecter le rôle
 

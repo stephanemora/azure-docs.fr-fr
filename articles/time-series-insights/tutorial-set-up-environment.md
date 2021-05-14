@@ -1,21 +1,21 @@
 ---
 title: 'Tutoriel : Configurer un environnement Gen2 - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: 'Tutoriel : Découvrez comment configurer un environnement dans Azure Time Series Insights Gen2.'
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: riserrad
+ms.author: riserrad
+manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 02/25/2021
+ms.date: 04/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: 76a33bdb773645c9e8f97a47b1378d813b165631
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3994802e82b126f426a75a26d399f6f86e21797
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464146"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951997"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutoriel : Configurer un environnement Azure Time Series Insights Gen2
 
@@ -113,19 +113,18 @@ Cette section décrit comment créer un environnement Azure Time Series Insights
    | **Nom du hub IoT** | Entrez le nom du hub IoT que vous avez créé pour le simulateur d’appareil. |
    | **Stratégie d'accès IoT Hub** | sélectionnez **iothubowner**. |
    | **Groupe de consommateurs IoT Hub** | Sélectionnez **Nouveau**, entrez un nom unique, puis sélectionnez **+ Ajouter**. Le groupe de consommateurs doit représenter une valeur unique dans Azure Time Series Insights Gen2. |
+   | **Options de démarrage** | Sélectionnez **Démarrer maintenant**. |
    | **Propriété timestamp** | Cette valeur utilisée pour identifier la propriété d'**horodatage** dans vos données de télémétrie entrantes. Pour ce didacticiel, laissez cette zone vide. Ce simulateur utilise le timestamp entrant du hub IoT auquel Azure Time Series Insights Gen2 est associé par défaut. |
 
-1. Sélectionnez **Vérifier + créer**.
-
-   [![Configurer le hub IoT créé comme une source d’événement](media/tutorial-set-up-environment/configure-event-source.png)](media/tutorial-set-up-environment/configure-event-source.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/configure-event-source.png" alt-text="Configurer le hub IoT créé en tant que source d’événement" lightbox="media/tutorial-set-up-environment/configure-event-source.png":::
 
 1. Sélectionnez **Vérifier + créer**.
 
-    [![Page Vérifier + Créer, avec le bouton Créer](media/tutorial-set-up-environment/environment-confirmation.png)](media/tutorial-set-up-environment/environment-confirmation.png#lightbox)
+   :::image type="content" source="media/tutorial-set-up-environment/environment-confirmation.png" alt-text="Page Vérifier + créer, avec le bouton Créer" lightbox="media/tutorial-set-up-environment/environment-confirmation.png":::
 
-    Vous pouvez examiner l’état de votre déploiement :
+   Vous pouvez examiner l’état de votre déploiement :
 
-    [![Notification de la fin du déploiement](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
+   [![Notification de la fin du déploiement](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
 
 1. Développez les détails du déploiement.
 

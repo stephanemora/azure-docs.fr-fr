@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: f1acd7b309a31dfe437f1f82cb9bbf73f4a5cca5
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 9edbcf30b7108c34fedddba365c20922a211777d
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061075"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109485384"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
 
@@ -38,7 +38,7 @@ De nombreux appareils se déconnectent en même temps et vous constatez une bais
 
 ### <a name="cause-1"></a>Cause 1
 
-Le [jeton SAS utilisé pour se connecter à IoT Hub](iot-hub-devguide-security.md#security-tokens) a expiré et dès lors, IoT Hub déconnecte l’appareil. La connexion est rétablie une fois le jeton actualisé par l’appareil. Par exemple, [le jeton SAS expire toutes les heures par défaut pour le kit de développement logiciel (SDK) C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), ce qui peut entraîner des déconnexions régulières.
+Le [jeton SAS utilisé pour se connecter à IoT Hub](iot-hub-dev-guide-sas.md#security-tokens) a expiré et dès lors, IoT Hub déconnecte l’appareil. La connexion est rétablie une fois le jeton actualisé par l’appareil. Par exemple, [le jeton SAS expire toutes les heures par défaut pour le kit de développement logiciel (SDK) C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), ce qui peut entraîner des déconnexions régulières.
 
 Pour plus d’informations, consultez [401003 IoTHubUnauthorized - Cause](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#cause-1).
 

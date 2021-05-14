@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: 269cae85c0f007c487f063b1f7ca7ea4dca15376
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: cc022470bf9ff799d6396f871f4a6c224d01a295
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104526"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931748"
 ---
 Bien démarrer avec l’API REST Custom Vision Suivez ces étapes pour appeler l’API et générer un modèle de classification d’images. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -175,7 +175,7 @@ Cette méthode rend l’itération actuelle du modèle disponible pour l’inter
 * Remplacez `{projectId}` par votre propre ID de projet.
 * Remplacez `{iterationId}` par l’ID renvoyé à l’étape précédente.
 * Remplacez `{publishedName}` par le nom que vous souhaitez donner à votre modèle de prédiction.
-* Remplacez `{predictionId}` par votre propre ID de ressource de prédiction. Vous le trouverez sous l’onglet **Vue d’ensemble** de votre ressource de prédiction dans le portail Azure, listé comme **ID d’abonnement**.
+* Remplacez `{predictionId}` par votre propre ID de ressource de prédiction. L’ID de ressource de prédiction est disponible sous l’onglet **Propriétés** de la ressource dans le portail Azure, listé comme **ID de ressource**.
 * Utilisez éventuellement d’autres paramètres d’URL. Consultez l’API [Publier une itération](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5).
 
 ## <a name="test-the-prediction-endpoint"></a>Tester le point de terminaison de prédiction

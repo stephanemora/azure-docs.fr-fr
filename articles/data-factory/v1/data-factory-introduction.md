@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 220c1969055ffaa5d1bea41ab547efd4596f8a20
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea7c5a82a6219e673454d627a4350291c5b3f047
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786462"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761648"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -83,12 +83,12 @@ Un pipeline peut contenir une ou plusieurs activités. Les activités définisse
 ### <a name="data-movement-activities"></a>Activités de déplacement des données
 L’activité de copie dans Data Factory permet de copier les données d’un magasin de données source vers un magasin de données récepteur. Les données de n’importe quelle source peuvent être écrites dans n’importe quel récepteur. Sélectionnez un magasin de données pour découvrir comment copier des données depuis/vers cette banque. Data Factory prend en charge les magasins de données suivants :
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 Pour plus d’informations, consultez [Déplacer des données à l’aide de l’activité de copie](data-factory-data-movement-activities.md).
 
 ### <a name="data-transformation-activities"></a>Activités de transformation des données
-[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
 
 Pour plus d’informations, consultez [Déplacer des données à l’aide de l’activité de copie](data-factory-data-transformation-activities.md).
 

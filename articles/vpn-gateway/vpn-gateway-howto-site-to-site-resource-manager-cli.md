@@ -1,6 +1,6 @@
 ---
 title: 'Connecter des réseaux locaux à un réseau virtuel : VPN de site à site : Interface de ligne de commande'
-description: Créez une connexion de passerelle VPN de site à site IPsec à partir de votre réseau local vers un réseau virtuel Azure via l’Internet public à l’aide de la CLI.
+description: Découvrez comment créer une connexion de passerelle VPN de site à site IPsec entre votre réseau local et un réseau virtuel Azure via l’Internet public en utilisant l’interface CLI.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2c59c67eb7b5ae5b26ac5517afba433fe8c028fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64c67c648244a224414c994a9edc8e25824840f4
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104611744"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226837"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de l’interface de ligne de commande
 

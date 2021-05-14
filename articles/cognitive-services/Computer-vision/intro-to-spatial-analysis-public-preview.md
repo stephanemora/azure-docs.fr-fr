@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 03/29/2021
-ms.openlocfilehash: 5aa34ce15d96112450a7c15debcd92312c1d9e19
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: fc0d0b0a589ff5b8354a56a2f8c95062f4d2d9a9
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284540"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076146"
 ---
 # <a name="what-is-spatial-analysis"></a>Qu'est-ce que l'Analyse spatiale ?
 
@@ -45,7 +45,7 @@ Les opérations de base de l'Analyse spatiale reposent toutes sur un pipeline qu
 
 ### <a name="public-preview-gating"></a>Accès à la préversion
 
-Pour veiller à ce que l'Analyse spatiale soit utilisée dans les scénarios pour lesquels elle a été conçue, nous mettons cette technologie à la disposition des clients par le biais d'un processus de demande d'accès. Pour accéder à l'Analyse spatiale, vous devez commencer par remplir notre formulaire de demande en ligne. [Commencez votre demande ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u).
+Pour veiller à ce que l'Analyse spatiale soit utilisée dans les scénarios pour lesquels elle a été conçue, nous mettons cette technologie à la disposition des clients par le biais d'un processus de demande d'accès. Pour accéder à l'Analyse spatiale, vous devez commencer par remplir notre formulaire de demande en ligne. [Commencez votre demande ici](https://aka.ms/csgate).
 
 L'accès à la préversion publique de l'Analyse spatiale est à l'entière discrétion de Microsoft conformément à ses critères d'admissibilité, à son processus de vérification et à sa capacité à prendre en charge un nombre limité de clients pendant cette période de préversion contrôlée. Dans le cadre de la préversion publique, Microsoft recherche des clients qui ont un lien privilégié avec ses équipes, et qui sont désireux de collaborer avec elles sur les cas d'usage recommandés, ainsi que d'autres scénarios en accord avec les engagements de Microsoft en matière d'IA responsable.
 

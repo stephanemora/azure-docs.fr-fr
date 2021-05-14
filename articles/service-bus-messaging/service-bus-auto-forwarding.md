@@ -2,14 +2,14 @@
 title: Transfert automatique d’entités de messagerie Azure Service Bus
 description: Cet article explique comment chaîner une file d’attente ou un abonnement Service Bus à une autre file d’attente ou rubrique.
 ms.topic: article
-ms.date: 01/20/2021
+ms.date: 04/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 80bef52d568130fa800a1da661f4867abb3df02c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78fb7478e0584d7c6dc79829d4bb242a448d43bd
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678986"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988691"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Chaînage des entités Service Bus avec transfert automatique
 
@@ -18,22 +18,16 @@ La fonctionnalité de *transfert automatique* de Service Bus vous permet de cha�
 > [!NOTE]
 > Le niveau de base de Service Bus ne prend pas en charge la fonctionnalité de transfert automatique. Les niveaux Standard et Premium prennent en charge la fonctionnalité. Pour connaître les différences entre ces niveaux, voir [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-## <a name="using-autoforwarding"></a>Utilisation du transfert automatique
-
-Vous pouvez activer le transfert automatique en définissant les propriétés [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] sur les objets [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] pour la source, comme dans l’exemple suivant :
-
-```csharp
-SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
-srcSubscription.ForwardTo = destTopic;
-namespaceManager.CreateSubscription(srcSubscription));
-```
-
 L'entité de destination doit exister au moment de la création de l'entité source. Si l'entité de destination n'existe pas, Service Bus renvoie une exception lorsqu'il lui est demandé de créer l'entité source.
 
+## <a name="scenarios"></a>Scénarios
+
+### <a name="scale-out-an-individual-topic"></a>Effectuer un scale-out d’une rubrique individuelle
 Vous pouvez utiliser le transfert automatique pour effectuer un scale-out d’une rubrique particulière. Service Bus limite le [nombre d’abonnements à une rubrique donnée](service-bus-quotas.md) à 2 000. Vous pouvez créer des abonnements supplémentaires en créant des rubriques de second niveau. Même si vous n’êtes pas lié par la limitation de Service Bus sur le nombre d’abonnements, l’ajout d’un deuxième niveau de rubriques peut améliorer le débit global de votre rubrique.
 
 ![Diagramme d’un scénario de transfert automatique qui affiche un message traité via une rubrique Commandes qui peut créer une branche vers l’une des trois rubriques Commandes de second niveau.][0]
 
+### <a name="decouple-message-senders-from-receivers"></a>Découpler les expéditeurs de messages des récepteurs
 Vous pouvez également utiliser le transfert automatique pour découpler les expéditeurs de messages des récepteurs. Par exemple, considérez un système ERP qui se compose de trois modules : Traitement des commandes, Gestion des stocks et Gestion des relations client. Chacun de ces modules génère des messages qui sont placés en file d’attente dans une rubrique correspondante. Alice et Bob sont des représentants commerciaux qui s'intéressent à tous les messages liés à leurs clients. Pour recevoir ces messages, Alice et Bob créent chacun une file d’attente personnelle et un abonnement sur chacune des rubriques ERP qui transfèrent automatiquement tous les messages à leur file d’attente.
 
 ![Diagramme d’un scénario de transfert automatique qui montre trois modules de traitement envoyant des messages via trois rubriques correspondantes à deux files d’attente distinctes.][1]
@@ -59,22 +53,9 @@ Pour créer un abonnement qui est chaîné à une autre file d’attente ou rubr
 Ne créez pas de chaîne qui dépasse 4 tronçons. Les messages qui dépassent 4 tronçons sont mis en file d’attente de lettres mortes.
 
 ## <a name="next-steps"></a>Étapes suivantes
+Pour savoir comment activer ou désactiver le transfert automatique de différentes façons (Portail Azure, PowerShell, CLI, modèle Azure Resource Manager, etc.), consultez [Activer le transfert automatique pour les files d’attente et les abonnements](enable-auto-forward.md).
 
-Pour plus d’informations sur le transfert automatique, consultez les informations de référence suivantes :
 
-* [ForwardTo][QueueDescription.ForwardTo]
-* [QueueDescription Class][QueueDescription] (Classe QueueDescription)
-* [SubscriptionDescription Class][SubscriptionDescription] (Classe SubscriptionDescription)
-
-Pour en savoir plus sur les améliorations des performances de Service Bus, consultez 
-
-* [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus](service-bus-performance-improvements.md)
-* [Entités de messagerie partitionnées][Partitioned messaging entities].
-
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
-[SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo
-[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
-[SubscriptionDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [0]: ./media/service-bus-auto-forwarding/IC628631.gif
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif
 [Partitioned messaging entities]: service-bus-partitioning.md

@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: da93da4c08a23e158d5a22c4552d5e5754ceb01a
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107055"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988043"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -42,11 +42,19 @@ L’agent Windows Virtual Desktop se met à jour au moins une fois par mois.
 
 Voici les modifications apportées à l'agent Windows Virtual Desktop :
 
+- Version 1.0.2990.800 : cette mise à jour a été publiée le 13 avril 2021 et présente les changements suivants :
+    - Mise à jour des messages d’erreur de l’agent.
+    - Ajout d’une exception qui vous empêche d’installer des agents non-Windows 7 sur des machines virtuelles Windows 7.
+    - Mise à jour de la logique du service Pulsation.
+- Version 1.0.2944.1400 : cette mise à jour a été publiée le 7 avril 2021 et présente les changements suivants :
+    - Ajout de liens vers le guide de dépannage de l’agent Windows Virtual Desktop dans les journaux de l’observateur d’événements concernant les erreurs de l’agent.
+    - Ajout d’une exception pour une meilleure gestion des erreurs.
+    - Ajout de l’outil WVDAgentUrlTool.exe qui permet aux clients de vérifier à quelles URL obligatoires ils peuvent accéder.
 - Version 1.0.2866.1500 : cette mise à jour publiée le 26 mars 2021 corrige un problème lié à la vérification de l'intégrité de la pile.
 - Version 1.0.2800.2802 : cette mise à jour publiée le 10 mars 2021 comporte des améliorations générales et des correctifs de bogues.
 - Version 1.0.2800.2800 : cette mise à jour publiée le 2 mars 2021 corrige un problème de connexion inversée.
 - Version 1.0.2800.2700 : cette mise à jour publiée le 10 février 2021 comporte des améliorations générales et des correctifs de bogues.
-- Version 1.0.2800.2700 : cette mise à jour publiée le 4 février 2021 corrige un problème d'accès refusé.
+- Version 1.0.2800.2700 : cette mise à jour publiée le 4 février 2021 corrige un problème d'accès refusé dans l’orchestration.
 
 ## <a name="fslogix-updates"></a>Mises à jour FSLogix
 
@@ -307,7 +315,7 @@ Voici ce qui a changé en août 2020 :
 
 - Azure Advisor fait désormais partie de Windows Virtual Desktop. Quand vous accédez à Windows Virtual Desktop via le portail Azure, vous pouvez voir des recommandations pour optimiser votre environnement Windows Virtual Desktop. Découvrez plus d’informations sur [Azure Advisor](azure-advisor.md).
 
-- Azure CLI prend désormais en charge Windows Virtual Desktop (`az desktopvirtualization`) pour vous aider à automatiser vos déploiements Windows Virtual Desktop. Pour obtenir la liste des commandes de l’extension, consultez [desktopvirtualization](/cli/azure/ext/desktopvirtualization/).
+- Azure CLI prend désormais en charge Windows Virtual Desktop (`az desktopvirtualization`) pour vous aider à automatiser vos déploiements Windows Virtual Desktop. Pour obtenir la liste des commandes de l’extension, consultez [desktopvirtualization](/cli/azure/desktopvirtualization).
 
 - Nous avons mis à jour nos modèles de déploiement pour les rendre entièrement compatibles avec les interfaces Azure Resource Manager de Windows Virtual Desktop. Vous trouverez les modèles sur [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 

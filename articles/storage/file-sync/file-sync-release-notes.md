@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/7/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9c00b2d4d30ac417d58f2b69e4ba460789cf6583
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9b217f9911d9a1e3ab3bfcabde5955764314cc7d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107795824"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787596"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -25,7 +25,7 @@ Les versions prises en charge de l'agent Azure File Sync sont les suivantes :
 
 | Jalon | Numéro de version de l’agent | Date de publication | Statut |
 |----|----------------------|--------------|------------------|
-| Mise en production V12 – [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 26 mars 2021 | Prise en charge : Distribution de version d’évaluation |
+| Mise en production V12 – [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 26 mars 2021 | Prise en charge |
 | Version V11.3 : [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 7 avril 2021 | Prise en charge |
 | Version V11.2 – [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 février 2021 | Prise en charge |
 | Mise en production V 11.1 – [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Prise en charge |
@@ -58,7 +58,7 @@ Les notes de publication suivantes concernent la version 12.0.0.0 de l’agent A
     - Vous pouvez désormais utiliser le portail pour désactiver l’accès au point de terminaison public du service de synchronisation du stockage, et approuver, rejeter et supprimer des connexions de point de terminaison privé. Pour configurer la stratégie d’accès réseau et les connexions de point de terminaison privé, ouvrez le portail du service de synchronisation du stockage, accédez à la section Paramètres, puis cliquez sur Réseau.
  
 - Prise en charge de la hiérarchisation cloud pour les tailles de cluster de volumes supérieures à 64 Kio
-    - La hiérarchisation cloud prend désormais en charge les tailles de cluster de volume jusqu’à 2 Mio sur le serveur 2019. Pour en savoir plus, consultez [Quelle est la taille minimale d’un fichier à hiérarchiser ?](https://docs.microsoft.com/azure/storage/files/storage-sync-choose-cloud-tiering-policies#minimum-file-size-for-a-file-to-tier).
+    - La hiérarchisation cloud prend désormais en charge les tailles de cluster de volume jusqu’à 2 Mio sur le serveur 2019. Pour en savoir plus, consultez [Quelle est la taille minimale d’un fichier à hiérarchiser ?](./file-sync-choose-cloud-tiering-policies.md#minimum-file-size-for-a-file-to-tier).
  
 - Mesurer la bande passante et la latence pour le service Azure File Sync et le compte de stockage
     - Vous pouvez désormais utiliser la cmdlet Test-StorageSyncNetworkConnectivity pour mesurer la latence et la bande passante pour le service Azure File Sync et le compte de stockage. La latence pour le service Azure File Sync et le compte de stockage est mesurée par défaut lors de l’exécution de la cmdlet.  La bande passante de chargement et de téléchargement pour le compte de stockage est mesurés lors de l’utilisation du paramètre « -MeasureBandwidth ».

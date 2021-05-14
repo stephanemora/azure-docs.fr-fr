@@ -18,7 +18,7 @@
       href: overview-percept-security.md
     - name: Intégration 80/20
       href: overview-8020-integration.md
-    - name: Mettre à jour vos appareils Percept
+    - name: Mises à jour d’appareil
       href: overview-update-experience.md
 - name: Démarrages rapides
   items:
@@ -44,6 +44,10 @@
       items:
         - name: Comportement des voyants et des boutons
           href: audio-button-led-behavior.md
+    - name: Sécurité
+      items:
+        - name: Recommandations relatives à la configuration et à la sécurité du pare-feu
+          href: concept-security-configuration.md
 - name: Guides pratiques
   items:
     - name: Développement de solutions de vision avec le DK Azure Percept
@@ -58,14 +62,16 @@
           href: how-to-view-telemetry.md
     - name: Développement de solutions de reconnaissance vocale avec le DK Azure Percept
       items:
-        - name: Configurer l’Assistant vocal dans Azure Percept Studio
-          href: how-to-configure-voice-assistant.md
         - name: Configurer l’Assistant vocal dans IoT Hub
+          href: how-to-configure-voice-assistant.md
+        - name: Configurer l’Assistant vocal dans Azure Percept Studio
           href: how-to-manage-voice-assistant.md
     - name: Mettre à jour vos appareils Azure Percept
       items:
         - name: Configurer des mises à jour OTA
           href: how-to-set-up-over-the-air-updates.md
+        - name: Identifier votre package de mise à jour
+          href: how-to-select-update-package.md
         - name: Mettre à jour le DK Azure Percept en OTA
           href: how-to-update-over-the-air.md
         - name: Mettre à jour le DK Azure Percept via USB
@@ -78,7 +84,7 @@
           href: how-to-connect-to-percept-dk-over-serial.md
     - name: Outils
       items:
-        - name: Programme d’installation du pack Devtools
+        - name: Dev Tools Pack Installer
           href: dev-tools-installer.md
     - name: Résolution des problèmes
       items:

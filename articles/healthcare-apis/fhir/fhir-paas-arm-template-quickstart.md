@@ -5,15 +5,15 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
+ms.custom: subject-armqs
 ms.author: cavoeg
-ms.date: 10/06/2020
-ms.openlocfilehash: 8d7f71477e50e4771bbc7670312943eadf1a8657
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 05/10/2021
+ms.openlocfilehash: 67958db0c56e4f37a71f67c714d4e354d570719c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103018073"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752550"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Démarrage rapide : Utiliser un modèle ARM pour déployer l’API Azure pour FHIR
 
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser un mo
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure une fois que vous êtes connecté.
 
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure un service API Azure pour FHIR en utilisant un modèle ARM dans le portail Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure un service API Azure pour FHIR en utilisant un modèle ARM dans le portail Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.healthcareapis%2fazure-api-for-fhir%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,7 +49,7 @@ Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azure-api-for-fhir/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-api-for-fhir/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json":::
 
 Le modèle définit une ressource Azure :
 
@@ -69,7 +69,7 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 Sélectionnez le lien suivant afin de déployer l’API Azure pour FHIR en utilisant le modèle ARM dans le portail Azure :
 
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure un service API Azure pour FHIR en utilisant le modèle ARM dans le portail Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure un service API Azure pour FHIR en utilisant le modèle ARM dans le portail Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.healthcareapis%2fazure-api-for-fhir%2fazuredeploy.json)
 
 Dans la page **Déployer l’API Azure pour FHIR** :
 
@@ -110,7 +110,7 @@ Write-Verbose "New-AzResourceGroup -Name $resourceGroupName -Location $resourceG
 New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupRegion
 Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure API for FHIR service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-api-for-fhir/azuredeploy.json `
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json `
     -serviceName $serviceName `
     -location $serviceLocation
 Read-Host "Press [ENTER] to continue"
@@ -135,7 +135,7 @@ params='serviceName='$serviceName' location='$serviceLocation &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
 echo "RUN az deployment group create, which creates an Azure API for FHIR service using an ARM template" &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-api-for-fhir/azuredeploy.json &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
 

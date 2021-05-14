@@ -5,12 +5,14 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 69472da4f774a1dfae86e1891255907ad711175a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+author: lzchen
+ms.author: lechen
+ms.openlocfilehash: 548cfd9d593e9adaeaaf984f756e58d242ca9f45
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047420"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576548"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurer Azure Monitor pour votre application Python
 
@@ -19,7 +21,7 @@ Azure Monitor prend en charge le traçage distribué, la collecte de métriques 
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Installation de Python. Si cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/release/python-370/), il est toutefois possible d’utiliser d’autres versions moyennant quelques modifications mineures. Le Kit de développement logiciel (SDK) prend uniquement en charge les versions 2.7 et 3.6+ de Python.
+- Installation de Python. Si cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/release/python-370/), il est toutefois possible d’utiliser d’autres versions moyennant quelques modifications mineures. Le kit SDK prend uniquement en charge Python v2.7 et v3.4-v3.7.
 - Créez une [ressource](./create-new-resource.md) Application Insights. Vous recevrez votre propre clé d’instrumentation (ikey) pour votre ressource.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentez à l’aide du Kit de développement logiciel (SDK) OpenCensus Python pour Azure Monitor
@@ -330,6 +332,54 @@ OpenCensus.stats prend en charge 4 méthodes d’agrégation, mais fournit une 
     ```
 
 1. L’exportateur envoie les données de métrique à Azure Monitor à intervalle fixe. La valeur par défaut est toutes les 15 secondes. Nous effectuons le suivi d’une seule métrique, de sorte que les données de cette métrique, quels que soient la valeur et l’horodatage qu’elles contiennent, sont envoyées à chaque intervalle. La valeur est cumulative, peut uniquement augmenter, et est remise à 0 au redémarrage. Vous pouvez rechercher les données sous `customMetrics`, mais les propriétés `customMetrics` valueCount, valueSum, valueMin, valueMax et valueStdDev ne sont pas utilisées efficacement.
+
+### <a name="setting-custom-dimensions-in-metrics"></a>Définition de dimensions personnalisées dans les métriques
+
+Le kit SDK Python Opencensus permet d’ajouter des dimensions personnalisées à votre télémétrie de métriques au moyen de `tags`, qui sont essentiellement un dictionnaire de paires clé/valeur. 
+
+1. Insérez les étiquettes que vous souhaitez utiliser dans la carte des étiquettes. Cette carte agit comme une sorte de « pool » de toutes les étiquettes que vous pouvez utiliser.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+...
+```
+
+1. Pour un objet `View` spécifique, spécifiez les étiquettes que vous souhaitez utiliser lors de l’enregistrement des métriques avec cette vue par le biais de la clé d’étiquette.
+
+```python
+...
+prompt_view = view_module.View("prompt view",
+                               "number of prompts",
+                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                               prompt_measure,
+                               aggregation_module.CountAggregation())
+...
+```
+
+1. Veillez à utiliser la carte des étiquettes lors de l’enregistrement dans la carte de mesure. Les clés d’étiquettes spécifiées dans l’objet `View` doivent se trouver dans la carte des étiquettes utilisée pour l’enregistrement.
+
+```python
+...
+mmap = stats_recorder.new_measurement_map()
+mmap.measure_int_put(prompt_measure, 1)
+mmap.record(tmap) # <-- pass the tag map in here
+...
+```
+
+1. Sous la table `customMetrics`, tous les enregistrements de métriques émis à l’aide de l’objet `prompt_view` auront des dimensions personnalisées `{"url":"http://example.com"}`.
+
+1. Pour produire des étiquettes avec des valeurs différentes à l’aide des mêmes clés, créez de nouvelles cartes d’étiquettes pour elles.
+
+```python
+...
+tmap = tag_map_module.TagMap()
+tmap2 = tag_map_module.TagMap()
+tmap.insert("url", "http://example.com")
+tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+...
+```
 
 #### <a name="performance-counters"></a>Compteurs de performance
 

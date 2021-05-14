@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/06/2021
-ms.openlocfilehash: 09810008c402d9c47d609fc0c77781af141edd30
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 2b3516d5f573f13655963b678a2f164c460fd140
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107831"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133148"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -56,7 +56,7 @@ Connectez-vous avec un compte professionnel afin de pouvoir lier le compte e-mai
 
 #### <a name="agree-to-the-terms-and-conditions"></a>Accepter les conditions générales
 
-Dans le cadre du processus d’inscription sur le marketplace commercial, vous devez accepter les conditions générales du [contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560). Si vous êtes nouveau dans Microsoft Partner Network, vous devez également accepter les conditions générales du contrat de Microsoft Partner Network.
+Dans le cadre du processus d’inscription sur le marketplace commercial, vous devez accepter les conditions générales du [contrat de l’éditeur Microsoft](/legal/marketplace/msft-publisher-agreement). Si vous êtes nouveau dans Microsoft Partner Network, vous devez également accepter les conditions générales du contrat de Microsoft Partner Network.
 
 Vous venez de créer un compte de la place de marché commerciale dans l’Espace partenaires. Continuez vers [Ajouter de nouveaux éditeurs au programme de marketplace commercial](add-publishers.md).
 
@@ -93,7 +93,7 @@ Vous pouvez ensuite attribuer les rôles d’utilisateur et les autorisations ap
 
 1. Sélectionnez l’ID MPN que vous souhaitez lier à votre compte d’éditeur, puis entrez le nom de votre entreprise.
 
-1. Lisez les conditions générales du [contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
+1. Lisez les conditions générales du [contrat de l’éditeur Microsoft](/legal/marketplace/msft-publisher-agreement), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
 
     > [!IMPORTANT]
     > Pour accepter ces conditions, vous devez être autorisé à agir au nom de votre entreprise.
@@ -119,7 +119,7 @@ Lorsque vous vous inscrivez au programme de marketplace commercial avec le même
 1. En haut à droite, sélectionnez **Paramètres** > **Paramètres du compte** > **Programmes**.
 1. Sous **Marketplace commercial**, sélectionnez **Commencer**, puis entrez votre adresse e-mail professionnelle.
 1. Renseignez les détails sur la page de votre **profil d’éditeur**.
-1. Lisez les conditions générales du [contrat de l’éditeur Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
+1. Lisez les conditions générales du [contrat de l’éditeur Microsoft](/legal/marketplace/msft-publisher-agreement), puis sélectionnez **Accepter et continuer** pour terminer l’inscription.
 
     >[!Important]
     > Pour accepter ces conditions, vous devez être autorisé à agir au nom de votre entreprise.

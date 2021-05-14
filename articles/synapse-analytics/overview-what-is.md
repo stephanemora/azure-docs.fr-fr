@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 652f98659f96b36e3185432e50d9d36dc569bd43
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383403"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537938"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Qu’est-ce qu’Azure Synapse Analytics ?
 
@@ -55,21 +55,14 @@ Azure Synapse contient le même moteur et les mêmes expériences d’intégrati
 * ETL sans code avec les activités de flux de données
 * Orchestrer des notebooks, des travaux Spark, des procédures stockées, des scripts SQL, etc.
 
-## <a name="unified-management-monitoring-and-security"></a>Gestion, supervision et sécurité unifiées
+## <a name="unified-experience"></a>Expérience unifiée 
 
-Azure Synapse offre aux entreprises une méthode unique pour gérer les ressources d’analytique, superviser l’utilisation et l’activité, et appliquer la sécurité.
+**Synapse Studio** offre aux entreprises un moyen unique de créer des solutions, ainsi que de les gérer et les sécuriser toutes dans une même expérience utilisateur.
 
-* Affecter des utilisateurs à un rôle pour simplifier l’accès aux ressources d’unique
-* Contrôle d’accès fin sur les données et le code
-* Tableau de bord unique pour superviser les ressources, l’utilisation et les utilisateurs dans SQL et Spark
-
-## <a name="unified-experience"></a>Expérience unifiée
-
-**Synapse Studio** est l’expérience utilisateur qui associe tout pour les ingénieurs de données. Elle leur permet d’effectuer toutes les tâches nécessaires à l’élaboration d’une solution d’analyse complète.
-
-* Réalisation à partir du même emplacement des principales tâches qui incombent aux ingénieurs de données : ingérer, explorer, préparer, orchestrer, visualiser
-* Productivité de pointe pour l’écriture de code SQL ou Spark : création, débogage et optimisation des performances
-* Intégrer au processus CI/CD d’entreprise
+* Effectuer les tâches clés : ingestion, exploration, préparation, orchestration, visualisation
+* Superviser les ressources, l’utilisation et les utilisateurs dans SQL et Spark
+* Utiliser le contrôle d’accès en fonction du rôle pour simplifier l’accès aux ressources d’analytique
+* Écrire du code SQL ou Spark et l’intégrer aux processus CI/CD d’entreprise
 
 ## <a name="engage-with-the-synapse-community"></a>Impliquez-vous dans la communauté Synapse
 

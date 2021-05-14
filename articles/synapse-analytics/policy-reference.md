@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées
 description: Donne la liste des définitions de stratégie intégrées Azure Policy pour Azure Synapse Analytics. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 04/14/2021
+ms.date: 05/04/2021
 ms.topic: reference
 author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8b1210e0d706161cbc790002ca7d9b7659a20c7b
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6ccdecb310c3677dc426bc89a8f89a7b9d433d4c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107498258"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738488"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-synapse-analytics"></a>Définitions intégrées Azure Policy pour Azure Synapse Analytics 
 

@@ -13,7 +13,7 @@
     - name: Création d’un profil et d’un point de terminaison
       href: cdn-create-new-endpoint.md
     - name: Créer un profil et un point de terminaison - Modèle ARM
-      displayName: Resource Manager
+      displayName: 'Resource Manager, az group, az deployment group, New-AzResourceGroup, New-AzResourceGroupDeployment, Remove-AzResourceGroup'
       href: create-profile-endpoint-template.md
 - name: Tutoriels
   items:
@@ -31,12 +31,17 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
+    - name: Azure CLI
+      items:
+        - name: Création d’un profil et d’un point de terminaison
+          displayName: 'az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group'
+          href: ./scripts/cli/cdn-azure-cli-create-endpoint.md
 - name: Concepts
   items:
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/cdn/TOC.json
     - name: Comment la mise en cache fonctionne
       href: cdn-how-caching-works.md
     - name: Distribution de contenu en Chine
@@ -172,6 +177,8 @@
           href: cdn-http-debug-headers.md
     - name: En-têtes HTTP propres à Microsoft
       href: cdn-msft-http-debug-headers.md
+    - name: Azure CLI
+      href: /cli/azure/cdn
     - name: Azure PowerShell
       href: /powershell/module/az.cdn
     - name: .NET

@@ -10,16 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: c6e8be5462e0caffec7a1c88dae54f3f818ec323
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 2a573a4df8abcdc2b32204faadbaa0df8c3dac15
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498824"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108313548"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
-
-
 L'**exemple de bannière d'appel de groupe pour Android** d'Azure Communication Services illustre de quelle façon le SDK Android Communication Services Calling peut être utilisé pour créer une expérience d'appels vocaux et vidéo. Dans cet exemple de démarrage rapide, vous allez apprendre à configurer et à exécuter l’exemple. Une vue d’ensemble de l’exemple est fournie ci-après pour le contexte.
 
 ## <a name="download-code"></a>Télécharger le code
@@ -134,11 +131,11 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 Pour plus d’informations, consultez les articles suivants :
 
-- Familiarisez-vous avec l'[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarisez-vous avec l’[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) : Autres exemples et informations dans la page GitHub officielle
 - [Exemples](./../overview.md) : Recherchez d’autres exemples sur notre page Vue d’ensemble des exemples.
-- [Fonctionnalités Azure Communication Calling](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) : découvrez-en plus sur le SDK Android Calling - [Azure Communication - SDK Android Calling](https://search.maven.org/artifact/com.azure.android/azure-communication-calling)
+- [Fonctionnalités Azure Communication Calling](../../concepts/voice-video-calling/calling-sdk-features.md) : découvrez-en plus sur le SDK Android Calling - [Azure Communication - SDK Android Calling](https://search.maven.org/artifact/com.azure.android/azure-communication-calling)

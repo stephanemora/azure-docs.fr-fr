@@ -8,14 +8,13 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 583f588004f41fc07037e7f5e4ce75538a581c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.openlocfilehash: 297721d9801385d9fdbff708c723c5b6e02949ad
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518328"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950601"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles TensorFlow à grande échelle avec Azure Machine Learning
 
@@ -23,7 +22,7 @@ Dans cet article, découvrez comment exécuter vos scripts d’entraînement [Te
 
 Cet exemple forme et inscrit un modèle TensorFlow pour classer les chiffres manuscrits à l’aide d’un réseau neuronal profond (DNN).
 
-Que vous développiez complètement un modèle TensorFlow ou que vous transmettiez un [modèle existant](how-to-deploy-existing-model.md) dans le cloud, vous pouvez utiliser Azure Machine Learning pour effectuer un scale-out des travaux de formation Open source afin de créer, déployer, versionner et surveiller des modèles de niveau production.
+Que vous développiez complètement un modèle TensorFlow ou que vous transmettiez un [modèle existant](how-to-deploy-and-where.md) dans le cloud, vous pouvez utiliser Azure Machine Learning pour effectuer un scale-out des travaux de formation Open source afin de créer, déployer, versionner et surveiller des modèles de niveau production.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -361,6 +360,6 @@ Le [guide pratique](how-to-deploy-and-where.md) complet couvre de manière plus 
 
 Dans cet article, vous avez effectué l’apprentissage d’un modèle TensorFlow et l’avez inscrit et vous avez découvert les options de déploiement. Consultez ces autres articles pour en savoir plus sur Azure Machine Learning.
 
-* [Effectuer le suivi des métriques d’exécution pendant l’entraînement](how-to-track-experiments.md)
+* [Effectuer le suivi des métriques d’exécution pendant l’entraînement](how-to-log-view-metrics.md)
 * [Optimiser les hyperparamètres](how-to-tune-hyperparameters.md)
 * [Architecture de référence de la formation du Deep Learning distribué dans Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

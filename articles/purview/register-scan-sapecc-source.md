@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: af3f54778882df9aaa06297f291c12a0f4b1577c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bc35f79bae0cd75b24b119e951f27b289ebef704
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046043"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007355"
 ---
 # <a name="register-and-scan-sap-ecc-source-preview"></a>Inscrire et analyser la source SAP ECC (préversion)
 
@@ -35,7 +35,7 @@ La source SAP ECC prend en charge l’**Analyse complète** pour extraire les m
 
     :::image type="content" source="media/register-scan-sapecc-source/requirement.png" alt-text="Prérequis" border="true":::
 
-5.  Le connecteur lit les métadonnées à partir de SAP à l’aide de l’API Java Connector (JCo) 3.0. Par conséquent, assurez-vous que Java Connector est disponible sur la machine virtuelle où est installé le runtime d’intégration auto-hébergé.
+5.  Le connecteur lit les métadonnées à partir de SAP à l’aide de l’API [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html) 3.0. Par conséquent, assurez-vous que Java Connector est disponible sur la machine virtuelle où est installé le runtime d’intégration auto-hébergé.
     Assurez-vous que vous utilisez la distribution JCo correcte pour votre environnement. Par exemple, sur une machine Microsoft Windows, assurez-vous que les fichiers sapjco3.jar et sapjco3.dll sont disponibles.
 
     > [!Note] 

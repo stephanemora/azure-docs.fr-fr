@@ -5,17 +5,17 @@ description: Découvrez comment rendre vos ressources Azure Machine Learning plu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: 7a1a63893e6e2988fc5f21e84f21c74315d856b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e25985d2868ddb6ad48b1f0931a3dce32819faa
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93325480"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279961"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Augmentez la résilience d’Azure Machine Learning
 
@@ -102,4 +102,4 @@ Si vous fournissez votre propre clé gérée par le client pour déployer un esp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour déployer Azure Machine Learning avec les ressources associées avec vos paramètres de haute disponibilité, utilisez un [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced).
+Pour déployer Azure Machine Learning avec les ressources associées avec vos paramètres de haute disponibilité, utilisez un [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced).

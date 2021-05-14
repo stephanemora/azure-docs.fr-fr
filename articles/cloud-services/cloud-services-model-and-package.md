@@ -3,17 +3,18 @@ title: Définition d’un modèle et package de service cloud (classique) | Micr
 description: Décrit le modèle de service cloud (.csdef, .cscfg) et le package (.cspkg) dans Azure.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 1cf8e966b80e005a0cb2cf7ea46f355e38cb0011
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09db85172b3b4e0c848c9763d1e37f32243aefef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98741534"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771610"
 ---
 # <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>Qu’est-ce que le modèle de service cloud (classique) et comment en créer un package ?
 

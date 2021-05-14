@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f8f9dd6d51b974ebd31804daf0402ca5535ffc92
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 51a354bfc6df43938d8e2117a7d93f9bd6749225
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751577"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140782"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Surveillance et alertes Azure Key Vault
 
@@ -26,7 +26,7 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 + Configurer les métriques et créer un tableau de bord
 + Créer des alertes lorsque les seuils spécifiés sont atteints
 
-Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. [Apprenez-en davantage sur Azure Monitor pour Key Vault ici](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
+Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. [Apprenez-en davantage sur Azure Monitor pour Key Vault ici](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-azure-monitor-for-key-vault)
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métriques Key Vault de base à surveiller
 
@@ -210,6 +210,4 @@ Veuillez consulter les paramètres de configuration suivants.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Félicitations, vous avez créé un tableau de bord de surveillance et configuré des alertes pour votre coffre de clés ! Lorsque vous aurez suivi toutes les étapes décrites ci-dessus, vous recevrez des alertes par e-mail chaque fois que votre coffre de clés répondra aux critères d'alerte que vous avez configurés. Voici un exemple. Utilisez les outils que vous avez configurés dans cet article pour surveiller activement l'intégrité de votre coffre de clés. 
-
-
+Félicitations, vous avez créé un tableau de bord de surveillance et configuré des alertes pour votre coffre de clés ! Lorsque vous aurez suivi toutes les étapes décrites ci-dessus, vous recevrez des alertes par e-mail chaque fois que votre coffre de clés répondra aux critères d'alerte que vous avez configurés. Voici un exemple. Utilisez les outils que vous avez configurés dans cet article pour surveiller activement l'intégrité de votre coffre de clés.

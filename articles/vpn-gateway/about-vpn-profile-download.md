@@ -1,22 +1,23 @@
 ---
-title: 'Passerelle VPN Azure : À propos des profils clients VPN P2S'
-description: Cet article vous permet de rechercher les informations dont vous avez besoin pour un profil client VPN.
+title: À propos des profils client VPN point à site
+titleSuffix: Azure VPN Gateway
+description: En savoir plus sur les fichiers de profil client VPN P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: cherylmc
-ms.openlocfilehash: 9bb66363d525648df08f32451842402ad1d0d93b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d26f65dfa8419b3c07825774423dec4bd5557a05
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99979066"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227809"
 ---
 # <a name="working-with-p2s-vpn-client-profile-files"></a>Utilisation de fichiers de profil client VPN P2S
 
-Le fichier de profil contient les informations nécessaires à la configuration d’une connexion VPN. Cet article vous aide à obtenir et à comprendre les informations nécessaires pour un profil client VPN.
+Les fichiers de profil contiennent les informations nécessaires à la configuration d’une connexion VPN. Cet article vous aide à obtenir et à comprendre les informations nécessaires pour un profil client VPN.
 
 ## <a name="generate-and-download-profile"></a>Générer et télécharger un profil
 

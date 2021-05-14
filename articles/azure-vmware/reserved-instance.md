@@ -3,12 +3,12 @@ title: Instances réservées d’Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution. L’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles.
 ms.topic: how-to
 ms.date: 04/09/2021
-ms.openlocfilehash: 6f181d4b6ee7e2098130633fef0eb8558add0308
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 68f61832ab01b3d7946e3bd8dffb3ef274e74aac
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210022"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145328"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -77,7 +77,7 @@ Les fournisseurs de solutions Cloud qui souhaitent acheter des instances réserv
 
 5. Sélectionnez **Acheter maintenant**, puis sélectionnez **Azure VMware Solution**.
 
-   :::image type="content" source="media/reserved-instances/csp-buy-ri-azure-portal.png" alt-text="Réservations dans Portail Microsoft Azure" lightbox="media/reserved-instances/csp-buy-ri-azure-portal.png":::
+   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Réservations dans Portail Microsoft Azure" lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
 
 6. Renseignez les champs obligatoires. Les attributs sélectionnés qui correspondent aux hôtes Azure VMware Solution en cours d’exécution sont éligibles pour la remise de réservation.  Les attributs incluent la référence SKU, les régions (le cas échéant) et l’étendue. L’étendue de réservation détermine où les économies de la réservation s’appliquent.
 

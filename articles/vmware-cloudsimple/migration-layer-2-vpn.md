@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Étendre un réseau de couche 2 local au cloud privé
 description: Explique comment configurer un VPN de couche 2 entre NSX-T sur un cloud privé CloudSimple et un client NSX Edge autonome local
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 06446b6c36e36466fe891d7327d8151603cdecd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b4b3e85323e2023afb67b2175377cb9b2d13a4f
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899369"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177509"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrer des charges de travail à l’aide de réseaux étendus de couche 2
 

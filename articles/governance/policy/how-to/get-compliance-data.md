@@ -1,14 +1,14 @@
 ---
 title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.topic: how-to
-ms.openlocfilehash: cdd23d685750fb8a5d3803f4b6030e7e67bbddce
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e1a9a7fcbbcbd7f490b2f665b40c7ed922ec61ee
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598539"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107864592"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -35,6 +35,8 @@ Différents événements permettent d’évaluer les stratégies et initiatives 
 - Mise à jour d’une stratégie ou initiative déjà assignée à une étendue. Dans ce scénario, le cycle et le temps d’évaluation sont les mêmes que pour le cas d’une nouvelle affectation à une étendue.
 
 - Déploiement ou mise à jour d’une ressource dans une étendue avec une assignation via Azure Resource Manager, l’API REST ou un kit SDK pris en charge. Dans ce scénario, l’événement d’effet (ajout, audit, refus, déploiement) et l’état de conformité deviennent disponibles dans le portail et les Kits de développement logiciel (SDK) environ 15 minutes plus tard. Cet événement n’entraîne pas une évaluation des autres ressources.
+
+- Un abonnement (type de ressource `Microsoft.Resource/subscriptions`) est créé ou déplacé dans la [hiérarchie d’un groupe d’administration](../../management-groups/overview.md) avec une définition de stratégie attribuée ciblant le type de ressource de l’abonnement. L’évaluation des effets pris en charge par l’abonnement (audit, auditIfNotExist, deployIfNotExists, modify), de la journalisation et des actions correctives prend environ 30 minutes.
 
 - Une [exemption de stratégie](../concepts/exemption-structure.md) est créée, mise à jour ou supprimée. Dans ce scénario, l’affectation correspondante est évaluée pour l’étendue d’exemption définie.
 

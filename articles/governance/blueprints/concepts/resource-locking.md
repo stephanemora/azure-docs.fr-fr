@@ -1,21 +1,21 @@
 ---
 title: Présentation du verrouillage des ressources
 description: Découvrez les options de verrouillage dans Azure Blueprints pour protéger les ressources au moment d’affecter un blueprint.
-ms.date: 01/27/2021
+ms.date: 04/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b2004ad294ae0eec1b4f2fc6f49308efd32d652e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ad6bbc80818a1ba749607c44403e3efbdb064c9
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920188"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897754"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
 La création d’environnements cohérents à l’échelle n’est vraiment utile que s’il existe un mécanisme pour gérer cette cohérence. Cet article explique le fonctionnement du verrouillage de ressources dans les blueprints Azure. Pour voir un exemple de verrouillage des ressources et d’application _d’affectations de refus_, consultez le didacticiel relatif à la [protection des nouvelles ressources](../tutorials/protect-new-resources.md).
 
 > [!NOTE]
-> Les verrous de ressources déployés par Azure Blueprints sont appliqués uniquement aux ressources déployées par l’affectation de blueprint. Aucun verrou n’est ajouté aux ressources existantes (telles que celles des groupes de ressources qui existent déjà).
+> Les verrous de ressources déployés par Azure Blueprints sont appliqués uniquement aux [ressources qui ne sont pas des extensions](../../../azure-resource-manager/templates/scope-extension-resources.md) et qui sont déployées par l’affectation du blueprint. Aucun verrou n’est ajouté aux ressources existantes (telles que celles des groupes de ressources qui existent déjà).
 
 ## <a name="locking-modes-and-states"></a>Modes et états de verrouillage
 

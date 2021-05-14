@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 04/16/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9f1043bf94276c752b816e458ee7513837db0ecd
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577986"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130626"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -76,7 +76,7 @@ Pour les appareils Windows 10 exécutant la version 1703 ou antérieure, si vo
 Tout d’abord, pour Windows 10 1803, même si un appareil tente une jonction Azure AD hybride dans un domaine fédéré par le biais d’AD FS et échoue, et si Azure AD Connect est configuré pour synchroniser les objets ordinateur/d’appareil avec Azure AD, l’appareil essaie d’effectuer la jonction Azure AD hybride en utilisant l’ordinateur/appareil synchronisé.
 
 > [!NOTE]
-> Afin que la jointure de synchronisation pour l’inscription de l’appareil réussisse, dans la configuration de l’inscription de l’appareil, n’excluez pas les attributs d’appareil par défaut de votre configuration de synchronisation Azure AD Connect. Pour en savoir plus sur les attributs d’appareil par défaut synchronisés avec Azure AD, consultez [Attributs synchronisés par Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
+> Afin que la jointure de synchronisation pour l’inscription de l’appareil réussisse, dans la configuration de l’inscription de l’appareil, n’excluez pas les attributs d’appareil par défaut de votre configuration de synchronisation Azure AD Connect. Pour en savoir plus sur les attributs d’appareil par défaut synchronisés avec Azure AD, consultez [Attributs synchronisés par Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
 
 Pour vérifier si l’appareil est en mesure d’accéder aux ressources Microsoft ci-dessus sous le compte système, vous pouvez utiliser le script [Tester la connectivité de l’inscription des appareils](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
@@ -145,7 +145,7 @@ Le script ci-après présente un exemple d’utilisation de l’applet de comman
 
 L’applet de commande `Initialize-ADSyncDomainJoinedComputerSync` :
 
-* Utilise le module Active Directory PowerShell et les outils Azure Active Directory Domain Services (Azure AD DS). Ces outils supposent que les services web Active Directory s’exécutent sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures.
+* Utilise le module Active Directory PowerShell et les outils Active Directory Domain Services (AD DS). Ces outils supposent que les services web Active Directory s’exécutent sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures.
 * Est pris en charge seulement par le module MSOnline PowerShell version 1.1.166.0. Pour télécharger ce module, utilisez ce [lien](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Si les outils AD DS ne sont pas installés, `Initialize-ADSyncDomainJoinedComputerSync` échoue. Vous pouvez installer les outils AD DS via le Gestionnaire de serveur, sous **Fonctionnalités** > **Outils d’administration de serveur distant** > **Outils d’administration de rôles**.
 

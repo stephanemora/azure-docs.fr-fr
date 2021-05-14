@@ -1,18 +1,19 @@
 ---
-title: 'Connecter un réseau virtuel à un autre réseau virtuel en utilisant une connexion de réseau virtuel à réseau virtuel de passerelle VPN Azure : PowerShell'
-description: Connectez des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel et PowerShell.
+title: 'Connecter un réseau virtuel à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel avec passerelle VPN : PowerShell'
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment connecter des réseaux virtuels à l’aide d’une connexion de réseau virtuel à réseau virtuel et de PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7de83302dd91d7d679b9c35718d184a9767ba436
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6baf0342f5fea5ee4ec062c5eed07d9761e72c1d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94655355"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289459"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 

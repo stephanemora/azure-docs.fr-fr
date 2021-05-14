@@ -3,17 +3,17 @@ title: Affecter des coûts Azure
 description: Cet article explique comment créer des règles d'affectation des coûts pour répartir les coûts des abonnements, des groupes de ressources ou des étiquettes.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/11/2020
+ms.date: 03/23/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e7afef7e0a10bb4be3c30112fc207467167e4a17
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131086"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726517"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Créer et gérer des règles d'affectation des coûts Azure (préversion)
 
@@ -58,7 +58,7 @@ Lors de la répartition des coûts par coût de calcul, coût de stockage ou co�
 
 Lors de la répartition des coûts en proportion du coût total, le pourcentage proportionnel est alloué par la somme ou le coût total des cibles sélectionnées pour le mois de facturation en cours.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Exemple illustrant la création d'un nom de règle" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Exemple illustrant le pourcentage d'affectation" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 Une fois définis, les pourcentages préremplis sont fixes. Ils sont utilisés pour toutes les affectations en cours. Les pourcentages changent uniquement lorsque la règle est mise à jour manuellement.
 
@@ -84,7 +84,7 @@ Lorsque la règle d'affectation des coûts est active, les coûts des sources s�
 
 Vous pouvez visualiser l'impact de la règle d'affectation dans l'analyse des coûts. Dans le portail Azure, accédez à [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Sélectionnez un abonnement dans la liste ciblée par une règle d'affectation des coûts active. Sélectionnez ensuite **Analyse des coûts** dans le menu. Dans Analyse des coûts, sélectionnez **Regrouper par**, puis **Affectation des coûts**. L'affichage qui en résulte présente une répartition rapide des coûts générée par l'abonnement. Les coûts affectés à l'abonnement sont également affichés, comme dans l'image suivante.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Exemple illustrant la création d'un nom de règle" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Exemple illustrant la répartition des coûts" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Visualiser l'affectation des coûts pour un groupe de ressources
 
@@ -94,18 +94,18 @@ Utilisez un processus similaire pour visualiser l'impact d'une règle d'affectat
 
 Sur le portail Azure, accédez à **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse des coûts**. Dans Analyse des coûts, sélectionnez **Ajouter un filtre**. Sélectionnez **Étiquette**, choisissez la clé et les valeurs d'étiquette auxquelles un coût est affecté.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Exemple illustrant la création d'un nom de règle" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Exemple illustrant les coûts liés aux éléments marqués" lightbox="./media/allocate-costs/tagged-costs.png" :::
+
+Voici une vidéo qui montre comment créer une règle d’affectation des coûts.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Modifier une règle d'affectation de coûts existante
 
 Vous pouvez modifier une règle d'affectation des coûts pour changer la source ou la cible, ou lorsque vous souhaitez mettre à jour le pourcentage prérempli pour les options de calcul, de stockage ou de réseau. Pour modifier les règles, procédez comme pour leur création. La modification des règles existantes peut nécessiter un maximum de deux heures de retraitement.
 
-## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
-
-Les sections suivantes contiennent des questions fréquemment posées sur l'affectation des coûts.
-
-### <a name="what-are-the-current-limitations-with-cost-allocation-in-public-preview"></a>Quelles sont les limites actuelles de la fonctionnalité d'affectation des coûts disponible en préversion ?
-<a name="limitations"></a>
+## <a name="current-limitations"></a>Limites actuelles
 
 Actuellement, dans Cost Management, la fonctionnalité d'affectation des coûts est prise en charge par les affichages d'analyse des coûts, des budgets et des prévisions. Les coûts affectés apparaissent également dans la liste des abonnements et sur la page de présentation de ceux-ci.
 
@@ -117,32 +117,9 @@ Les éléments suivants ne sont actuellement pas pris en charge par la préversi
 - [Application Power BI Cost Management](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Connecteur Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>Les coûts sont-ils pris en compte par les budgets et par les prévisions ?
-<a name="budgets-forecast"></a>
-
-Oui. Les coûts affectés sont pris en compte et pris en charge par les budgets et par les prévisions. Les affichages du budget et des prévisions présentent les coûts qui leur sont affectés, tels que configurés par les règles d'affectation des coûts.
-
-### <a name="if-a-cost-allocation-rule-is-deleted-what-happens"></a>Que se passe-t-il en cas de suppression d'une règle d'affectation des coûts ?
-<a name="delete-rule"></a>
-
-Lorsqu'une règle d'affectation des coûts est supprimée, tous les coûts des mois de facturation ouverts et en cours affectés aux cibles sont supprimés. Si la règle d'affectation des coûts existe depuis plusieurs mois, les données historiques d'affectation des mois précédents restent telles qu'elles ont été définies à l'origine par la règle d'affectation.
-
-### <a name="why-is-an-enrollment-admin-or-a-billing-account-admin-needed-to-create-cost-allocation-rules"></a>Pourquoi un administrateur d'inscription ou un administrateur de compte de facturation est-il nécessaire pour créer des règles d'affectation des coûts ?
-<a name="why-admin"></a>
-
-Les règles d'affectation des coûts sont créées au niveau de l'inscription (Contrat Entreprise) ou au niveau du compte de facturation (Contrat client Microsoft). Pour modifier ces niveaux, des privilèges d'administrateur de facturation sont nécessaires.
-
-### <a name="why-are-sources-and-targets-limited-to-25-per-rule"></a>Pourquoi les sources et les cibles sont-elles limitées à 25 par règle ?
-<a name="source-target-rule-limit"></a>
-
-Cette limite a été fixée dans la préversion pour garantir les bonnes performances et la bonne évolutivité de la fonctionnalité d'affectation des coûts. Les limites seront probablement augmentées ou supprimées lorsque la fonctionnalité d'affectation des coûts passera en disponibilité générale (GA).
-
-### <a name="what-can-happen-if-cost-allocation-rules-sourcestargets-overlap"></a>Que peut-il se passer si des règles d'affectation des coûts (sources/cibles) se chevauchent ?
-<a name="rule-overlap"></a>
-
-Il est déconseillé d'avoir recours à des règles dont les sources ou les cibles se chevauchent. Les règles d'affectation des coûts sont appliquées dans l'ordre de leur date de création. Ainsi, si des règles d'affectation des coûts se chevauchent, celle dont la date de création est la plus ancienne est prioritaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Consultez les [questions fréquentes (FAQ) sur Cost Management + Billing](../cost-management-billing-faq.yml) pour voir les questions et réponses sur l’affectation des coûts.
 - Créer ou mettre à jour des règles d'affectation à l'aide de l'[API Rest Affectation des coûts](/rest/api/cost-management/costallocationrules)
 - En savoir plus sur l'[Optimisation de votre investissement dans le cloud avec Azure Cost Management](cost-mgt-best-practices.md)

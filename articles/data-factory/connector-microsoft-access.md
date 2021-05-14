@@ -1,18 +1,18 @@
 ---
 title: Copier des données vers et à partir de Microsoft Access
 description: Découvrez comment copier des données vers ou à partir de Microsoft Access à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: f0864eb65fb1f7dcf803ea48f762ab41b8468aac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75159291f383b4d8ed5752cbae0907a6c21c26ec
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588764"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488480"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-using-azure-data-factory"></a>Copier des données vers ou à partir de Microsoft Access à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +40,7 @@ Pour utiliser ce connecteur Microsoft Access, vous devez :
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des détails sur les propriétés utilisées pour définir les entités Data Factory spécifiques au connecteur Microsoft Access.
 

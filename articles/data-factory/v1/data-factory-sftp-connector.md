@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2018
 robots: noindex
-ms.openlocfilehash: b40e9dc83629362da899d2b5ff29ad42e21c4e32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99f914ff793accbea4d348e83e2a515dfd2368e8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100382648"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741350"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Déplacer des données depuis un serveur SFTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -214,7 +214,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 En revanche, les propriétés disponibles dans la section typeProperties de l’activité varient pour chaque type d'activité. Pour l’activité de copie, les propriétés de type dépendent des types de sources et récepteurs.
 
-[!INCLUDE [data-factory-file-system-source](../../../includes/data-factory-file-system-source.md)]
+[!INCLUDE [data-factory-file-system-source](includes/data-factory-file-system-source.md)]
 
 ## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
 Pour plus d’informations, voir [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).

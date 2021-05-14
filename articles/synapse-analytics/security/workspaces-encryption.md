@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ddafb0e76799e3d8011232534c505f97c79b22e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 71249534c6a088088213659b5a45e042229721c7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751127"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813179"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Chiffrement pour les espaces de travail Azure Synapse Analytics
 
@@ -53,7 +53,7 @@ Les espaces de travail peuvent être configurés pour activer le double chiffrem
 
 ### <a name="key-access-and-workspace-activation"></a>Accès aux clés et activation de l’espace de travail
 
-Le modèle de chiffrement Azure Synapse avec des clés gérées par le client implique que l’espace de travail accède aux clés dans Azure Key Vault pour chiffrer et déchiffrer si nécessaire. Les clés sont rendues accessibles à l’espace de travail par le biais d’une stratégie d’accès ou d’un [accès RBAC Azure Key Vault](../../key-vault/general/rbac-guide.md). Lorsque vous accordez des autorisations via une stratégie d’accès Azure Key Vault, choisissez l’option [« Application uniquement](../../key-vault/general/security-overview.md#key-vault-authentication-options)  » lors de la création de la stratégie (sélectionnez l’identité managée par l’espace de travail et ne l’ajoutez pas comme application autorisée).
+Le modèle de chiffrement Azure Synapse avec des clés gérées par le client implique que l’espace de travail accède aux clés dans Azure Key Vault pour chiffrer et déchiffrer si nécessaire. Les clés sont rendues accessibles à l’espace de travail par le biais d’une stratégie d’accès ou d’un [accès RBAC Azure Key Vault](../../key-vault/general/rbac-guide.md). Lorsque vous accordez des autorisations via une stratégie d’accès Azure Key Vault, choisissez l’option [« Application uniquement](../../key-vault/general/security-features.md#key-vault-authentication-options)  » lors de la création de la stratégie (sélectionnez l’identité managée par l’espace de travail et ne l’ajoutez pas comme application autorisée).
 
  L’identité managée par l’espace de travail doit avoir les autorisations nécessaires sur le coffre de clés pour que l’espace de travail puisse être activé. Cette approche progressive de l’activation de l’espace de travail garantit le chiffrement des données dans l’espace de travail avec la clé gérée par le client. Notez que le chiffrement peut être activé ou désactivé pour les Pools SQL dédiés. Par défaut, chaque pool n’est pas activé pour le chiffrement.
 

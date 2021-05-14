@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/25/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2545915edf9e39b63100a2bb16bd34fa6777675c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff1589eb496cbc4482aaf93dfd4f0faeeda5e9cd
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100473447"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208866"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-portal"></a>Activer l’accès privé avec Private Link (préversion) : Portail Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "100473447"
 
 Cet article décrit les différentes façons d'[activer une liaison privée avec un point de terminaison privé pour une instance Azure Digital Twins](concepts-security.md#private-network-access-with-azure-private-link-preview) (actuellement en préversion). La configuration d’un point de terminaison privé pour votre instance Azure Digital Twins vous permet de sécuriser cette instance et d’éliminer l’exposition publique, tout en évitant l’exfiltration de données à partir de votre [réseau virtuel Azure (VNet)](../virtual-network/virtual-networks-overview.md).
 
-Cet article décrit le processus d’utilisation du [**portail Azure**](https://portal.azure.com).
+Cet article décrit le processus d’utilisation du [portail Azure](https://portal.azure.com).
 
 Les étapes décrites dans cet article sont les suivantes : 
 1. Activer la liaison privée et configurer un point de terminaison privé pour une instance Azure Digital Twins.
@@ -28,7 +28,7 @@ Les étapes décrites dans cet article sont les suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir configurer un point de terminaison privé, vous avez besoin d’un [**réseau virtuel Azure (VNet)**](../virtual-network/virtual-networks-overview.md) où le point de terminaison peut être déployé. Si vous ne disposez pas déjà d’un réseau virtuel, vous pouvez suivre l’un des [démarrages rapides](../virtual-network/quick-create-portal.md) de réseau virtuel Azure pour en configurer un.
+Avant de pouvoir configurer un point de terminaison privé, vous avez besoin d’un [réseau virtuel Azure (VNet)](../virtual-network/virtual-networks-overview.md)  où le point de terminaison peut être déployé. Si vous ne disposez pas déjà d’un réseau virtuel, vous pouvez suivre l’un des [démarrages rapides](../virtual-network/quick-create-portal.md) de réseau virtuel Azure pour en configurer un.
 
 ## <a name="add-a-private-endpoint-for-an-azure-digital-twins-instance"></a>Ajouter un point de terminaison privé pour une instance Azure Digital Twins 
 
@@ -43,7 +43,7 @@ L’une ou l’autre de ces méthodes de création donnera les mêmes options de
 
 ### <a name="add-a-private-endpoint-during-instance-creation"></a>Ajouter un point de terminaison privé pendant la création de l’instance
 
-Dans cette section, vous allez activer Private Link avec un point de terminaison privé sur une instance d’Azure Digital Twins en cours de création. Cette section se concentre sur l’étape de mise en réseau du processus de création. Pour une procédure pas à pas complète de création d’une instance Azure Digital Twins, consultez [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md).
+Dans cette section, vous allez activer Private Link avec un point de terminaison privé sur une instance d’Azure Digital Twins en cours de création. Cette section se concentre sur l’étape de mise en réseau du processus de création. Pour une procédure pas à pas complète de création d’une instance Azure Digital Twins, consultez [Guide pratique : Configurer une instance et l’authentification](how-to-set-up-instance-portal.md).
 
 Les options de liaison privée se trouvent dans l’onglet **Mise en réseau** de la configuration de l’instance.
 
@@ -148,4 +148,4 @@ Pour désactiver ou activer l’accès public au réseau dans le [portail Azure]
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les liaisons privées pour Azure : 
-* [*Qu’est-ce que le service Azure Private Link ?*](../private-link/private-link-service-overview.md)
+* [Qu’est-ce que le service Azure Private Link ?](../private-link/private-link-service-overview.md)

@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Votre première requête d’API REST'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’appeler le point de terminaison Resource Graph pour l’API REST et exécutez votre première requête.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef157eebbdd562262bb33f32e726d0d567c421d5
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920052"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324938"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’API REST
 

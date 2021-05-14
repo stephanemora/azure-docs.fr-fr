@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: d99f1bd97c8199de1bda12f28f3fcb31b697946f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 27d3253d1bd2ec407968ff03e22c34222797ad81
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031492"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656341"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
@@ -685,7 +685,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Les proxies générés dynamiquement sont également disponibles dans .NET pour signaler les entités de type sécurisé. En plus de la signalisation, les clients peuvent aussi interroger l’état d’une fonction d’entité à l’aide de [méthodes de type sécurisé](durable-functions-bindings.md#entity-client-usage) sur la liaison du client d’orchestration.
+> Les proxies générés dynamiquement sont également disponibles dans .NET pour signaler les entités de type sécurisé. En plus de la signalisation, les clients peuvent aussi interroger l’état d’une fonction d’entité à l’aide de [méthodes de type sécurisé](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) sur la liaison du client d’orchestration.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

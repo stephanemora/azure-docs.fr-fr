@@ -8,19 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a91d26139fae80b38383e7f65f7ae2f58358e6f6
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166885"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795309"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Déployer Azure Cloud Services (support étendu) à l’aide du SDK Azure
 
 Cet article montre comment utiliser le [Kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) pour déployer une instance d’Azure Cloud Services (support étendu) qui dispose de plusieurs rôles (rôle Web et Worker) et de l’extension Bureau à distance. Azure Cloud Services (support étendu) est un modèle de déploiement d’Azure Cloud Services qui est basé sur Azure Resource Manager.
-
-> [!IMPORTANT]
-> Cloud Services (support étendu) est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

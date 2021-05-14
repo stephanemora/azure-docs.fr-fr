@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 25f555038c1ce0d960266eacc673a62a1ffd5ac0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eee7204413face46870de049b38a79061de28347
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736360"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929792"
 ---
-# <a name="get-started-with-azure-application-consistent-snapshot-tool-preview"></a>Bien démarrer avec l’outil Azure Application Consistent Snapshot Tool (préversion)
+# <a name="get-started-with-azure-application-consistent-snapshot-tool"></a>Bien démarrer avec l’outil Azure Application Consistent Snapshot
 
 Cet article sert de guide pour installer l’outil Azure Application Consistent Snapshot Tool, que vous pouvez utiliser avec Azure NetApp Files.
 

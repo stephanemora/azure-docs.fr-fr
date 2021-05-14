@@ -4,12 +4,12 @@ description: Diagnostics de transaction de bout en bout Application Insights
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60365079c295e154ff0a38277c9ccdec35157e6e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746095"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481393"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -94,3 +94,6 @@ Les chronologies sont ajustées pour les variations d’horloges dans le graphiq
 
 C'est la procédure normale. Tous les éléments associés, sur tous les composants, sont déjà disponibles sur le côté gauche (sections supérieure et inférieure). La nouvelle expérience comporte deux éléments associés non couverts par le côté gauche : l’ensemble de la télémétrie cinq minutes avant et après cet événement et la chronologie utilisateur.
 
+*Je vois plus d’événements que prévu dans l’expérience de diagnostics de transaction lors de l’utilisation du kit de développement logiciel (SDK) JavaScript d’Application Insights. Existe-t-il un moyen de voir moins d’événements par transaction ?*
+
+L’expérience de diagnostics de transaction affiche dans une [opération unique](correlation.md#data-model-for-telemetry-correlation) toutes les données de télémétrie qui partagent un [ID d’opération](data-model-context.md#operation-id). Par défaut, le kit de développement logiciel (SDK) d’Application Insights pour JavaScript crée une opération pour chaque vue de page unique. Dans une application monopage (SPA), un seul événement de vue de page est généré et un ID d’opération unique est utilisé pour toutes les données de télémétrie générées, ce qui peut entraîner la mise en corrélation de nombreux événements avec la même opération. Dans ces scénarios, vous pouvez utiliser le suivi automatique des itinéraires pour créer automatiquement de nouvelles opérations pour la navigation dans votre application monopage. Vous devez activer [enableAutoRouteTracking](javascript.md#single-page-applications) pour qu’une vue de page soit générée chaque fois que l’itinéraire de l’URL est mis à jour (la vue de page logique est activée). Si vous souhaitez actualiser manuellement l’ID d’opération, vous pouvez le faire en appelant `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`. Le déclenchement manuel d’un événement PageView réinitialise également l’ID d’opération.

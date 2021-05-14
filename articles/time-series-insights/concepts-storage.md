@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 67ab4c8cf079adaf3b38cdcc30abeec43cd4612f
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 70a0ecb6e9ff2707401517e185964edf512a94c9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505193"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204258"
 ---
 # <a name="data-storage"></a>Stockage des données
 
@@ -53,7 +53,7 @@ Les données de votre magasin de stockage à chaud sont disponibles uniquement v
 
 * Lorsque cette option est activée, toutes les données diffusées dans votre environnement sont routées vers votre magasin de stockage à chaud, quel que soit l’horodateur de l’événement. Notez que le pipeline d’ingestion de diffusion en continu est conçu pour la diffusion en quasi temps réel et que l’ingestion d’événements historiques n’est [pas prise en charge](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * La période de rétention est calculée en fonction du moment où l’événement a été indexé dans le magasin de stockage à chaud, et non de l’horodateur de l’événement. Cela signifie que les données ne sont plus disponibles dans le magasin de stockage à chaud après l’expiration de la période de rétention, même si l’horodateur de l’événement est défini pour l’avenir.
-  * Exemple : un événement dont les prévisions météorologiques à 10 jours sont ingérées et indexées dans un conteneur de stockage à chaud configuré avec une période de rétention de 7 jours. Après 7 jours, la prédiction n’est plus accessible dans le magasin de stockage à chaud, mais peut être interrogée à partir du magasin de stockage à froid.
+  * Exemple : un événement dont les prévisions météorologiques à 10 jours sont ingérées et indexées dans un conteneur de stockage à chaud configuré avec une période de rétention de 7 jours. Après sept jours, la prédiction n’est plus accessible dans le magasin de stockage à chaud, mais peut être interrogée à partir du magasin de stockage à froid.
 * Si vous activez le magasin de stockage à chaud sur un environnement existant qui contient déjà des données récentes indexées dans le stockage froid, notez que votre magasin de stockage à chaud ne sera pas rempli avec ces données.
 * Si vous venez d’activer le magasin de stockage à chaud et que vous rencontrez des problèmes lors de l’affichage de vos données récentes dans l’Explorateur, vous pouvez désactiver temporairement les requêtes du magasin de stockage à chaud :
 
@@ -70,6 +70,9 @@ Pour obtenir une description complète du stockage Blob Azure, lisez l’[intro
 Azure Time Series Insights Gen2 conserve jusqu’à deux copies de chaque événement dans votre compte Stockage Azure. Une copie stocke les événements classés par heure d’ingestion, autorisant toujours l’accès aux événements dans un ordre chronologique. Au fil du temps, Azure Time Series Insights Gen2 crée également une copie repartitionnée des données à optimiser pour des requêtes performantes.
 
 Toutes vos données sont stockées indéfiniment dans votre compte de Stockage Azure.
+
+> [!WARNING]
+> Ne limitez pas l'accès Internet public au compte de stockage utilisé par Time Series Insights, sinon la connexion nécessaire sera interrompue.
 
 #### <a name="writing-and-editing-blobs"></a>Création et modification de d’objets blob
 

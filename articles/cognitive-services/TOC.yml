@@ -69,7 +69,7 @@
         - name: Authentifier des requêtes auprès de Cognitive Services
           href: authentication.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json
         - name: Contrôles de sécurité par Azure Policy
           href: ./security-controls-policy.md
     - name: Utiliser avec le Big Data
@@ -134,7 +134,7 @@
     - name: Contrat de Niveau de Service (SLA)
       href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: Azure Government
-      href: 'https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure'
+      href: ../azure-government/compare-azure-government-global-azure.md
     - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: Blog Azure

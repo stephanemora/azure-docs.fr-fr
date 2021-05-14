@@ -3,12 +3,12 @@ title: Contrôles de l’exemple de blueprint Australian Government ISM PROTECTE
 description: Correspondance des contrôles de l’exemple de blueprint Australian Government ISM PROTECTED. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: ecb6a912d0b1f319022f6b7deff68e1495dccbca
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 2129c3d8e63f11f3902f3ddb0690ed1463206849
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386447"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733982"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Australian Government ISM PROTECTED
 
@@ -18,7 +18,6 @@ Les correspondantes suivantes concernent les contrôles **ISM PROTECTED**. Utili
 
 > [!IMPORTANT]
 > Chaque contrôle ci-dessous est associé à une ou plusieurs définitions [Azure Policy](../../../policy/overview.md). Ces stratégies peuvent vous aider à [évaluer la conformité](../../../policy/how-to/get-compliance-data.md) avec le contrôle ; toutefois, il n’existe pas souvent de correspondance un-à-un ou parfaite entre un contrôle et une ou plusieurs stratégies. Ainsi, la **conformité** dans Azure Policy fait uniquement référence aux stratégies elles-mêmes ; cela ne garantit pas que vous êtes entièrement conforme à toutes les exigences d’un contrôle. En outre, la norme de conformité comprend des contrôles qui ne sont traités par aucune définition Azure Policy pour l’instant. Par conséquent, la conformité dans Azure Policy n’est qu’une vue partielle de l’état de conformité global. Les associations entre les contrôles et les définitions Azure Policy pour cet exemple de blueprint de conformité peuvent changer au fil du temps. Pour afficher l’historique des changements, consultez l’[historique des validations GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
-
 
 ## <a name="location-constraints"></a>Contraintes d’emplacement
 
@@ -342,9 +341,8 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 
 - DDoS Protection Standard doit être activé
 
-
 > [!NOTE]
-> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux. 
+> La disponibilité des définitions Azure Policy peut varier dans Azure Government et dans d’autres clouds nationaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -144,6 +144,6 @@
   expanded: true
   items:
     - name: Révisions d’accès - API Graph
-      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
+      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true
     - name: Gestion des droits d’utilisation - API Graph
-      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true

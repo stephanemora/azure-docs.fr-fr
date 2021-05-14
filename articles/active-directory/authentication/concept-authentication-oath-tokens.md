@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44016d81b18e8df7b6e2ed7c14559cf19ac0c07d
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 99d0dd081e3e1a681ba55e3457b79a548d6b2bb7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106634"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530386"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Méthodes d’authentification dans Azure Active Directory – Jetons OATH 
 
@@ -61,4 +61,4 @@ Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en plus sur la configuration des méthodes d’authentification à l’aide de l’[API REST Microsoft Graph bêta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Découvrez comment configurer les méthodes d’authentification à l’aide de l’[API REST Microsoft Graph](/graph/api/resources/authenticationmethods-overview).

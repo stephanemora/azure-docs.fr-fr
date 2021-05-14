@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 04/08/2021
-ms.openlocfilehash: 2dc50702113f591075b790878347c4ca47beec4e
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 60dca43f95b190791c8fb593042ed612340a3af5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027803"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874546"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Intégration de Git pour Azure Machine Learning
 
@@ -197,7 +197,7 @@ Vous pouvez utiliser la commande CLI `az ml run` pour récupérer les propriét�
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Pour plus d’informations, consultez la documentation de référence [az ml run](/cli/azure/ext/azure-cli-ml/ml/run).
+Pour plus d’informations, consultez la documentation de référence [az ml run](/cli/azure/ml/run).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

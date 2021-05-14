@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 8b46ca16fc32a7b96c071a745f49bf5d5557f34b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: c17814b51f1ebd6640bc6f500fbedbd7874cdd94
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530231"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947786"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Utilisation de la condition d’emplacement dans une stratégie d’accès conditionnel 
 
@@ -46,7 +46,7 @@ Les emplacements nommés définis par les plages d’adresses IPv4/IPv6 sont sou
 - Configurer jusqu’à 195 emplacements nommés
 - Configurer jusqu’à 2 000 plages d’adresses IP par emplacement nommé
 - Les adresses IPv4 et IPv6 sont prises en charge
-- Les plages d’adresses IP privées ne peuvent pas être configurées
+- Les plages d'adresses IP privées ne peuvent pas être configurées
 - Le nombre d’adresses IP contenues dans une plage est limité. Seuls les masques CIDR supérieurs à /8 sont autorisés lors de la définition d’une plage d’adresses IP. 
 
 ### <a name="trusted-locations"></a>Emplacements approuvés
@@ -55,7 +55,7 @@ Les administrateurs peuvent désigner des emplacements nommés définis par des 
 
 ![Emplacements approuvés dans le Portail Azure](./media/location-condition/new-trusted-location.png)
 
-Les connexions provenant d’emplacements nommés approuvés améliorent la précision du calcul des risques d’Azure AD Identity Protection, réduisant ainsi le risque de connexion des utilisateurs lorsqu’ils s’authentifient à partir d’un emplacement marqué comme approuvé. En outre, les emplacements nommés approuvés peuvent être ciblés dans des stratégies d’accès conditionnel. Par exemple, vous pouvez avoir besoin de restreindre l’inscription à l’authentification multifacteur aux emplacements nommés approuvés uniquement. 
+Les connexions provenant d'emplacements nommés approuvés améliorent la précision du calcul des risques d'Azure AD Identity Protection, réduisant ainsi le risque de connexion des utilisateurs lorsqu'ils s'authentifient à partir d'un emplacement marqué comme approuvé. En outre, les emplacements nommés approuvés peuvent être ciblés dans des stratégies d’accès conditionnel. Par exemple, vous pouvez avoir besoin de restreindre l’inscription à l’authentification multifacteur aux emplacements nommés approuvés uniquement. 
 
 ### <a name="countries-and-regions"></a>Pays et régions
 
@@ -74,13 +74,13 @@ Certaines adresses IP ne sont pas mappées à un pays ou une région spécifiqu
 
 Vous pouvez également configurer des plages d’adresses IP représentant l’intranet local de votre organisation dans les [paramètres du service d’authentification multifacteur](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Cette fonctionnalité vous permet de configurer jusqu’à 50 plages d’adresses IP. Les plages d’adresses IP sont au format CIDR. Pour plus d’informations, consultez [Adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Si vous avez approuvé des adresses IP configurées, elles apparaissent en tant qu’**adresses IP approuvées MFA** dans la liste des emplacements de la condition d’emplacement.
+Si vous avez approuvé des adresses IP configurées, elles apparaissent en tant qu'**adresses IP approuvées MFA** dans la liste des emplacements de la condition d'emplacement.
 
 ### <a name="skipping-multi-factor-authentication"></a>Ignorer l’authentification multifacteur
 
 Sur la page des paramètres du service d’authentification multifacteur, vous pouvez identifier les utilisateurs de l’intranet d’entreprise en sélectionnant **Ignorer l’authentification multifacteur pour les demandes issues d’utilisateurs fédérés provenant de mon intranet**. Ce paramètre indique que la revendication de réseau d’entreprise interne, qui est émise par AD FS, doit être approuvée et utilisée pour identifier l’utilisateur comme étant sur le réseau d’entreprise. Pour plus d’informations, consultez [Activer la fonctionnalité Adresses IP approuvées à l’aide de l’accès conditionnel](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
-Après avoir activé cette option, qui inclut l’emplacement nommé, les **Adresses IP approuvées MFA** s’appliqueront à toutes les stratégies contenant cette option sélectionnée.
+Après avoir activé cette option, ainsi que l'emplacement nommé, les **Adresses IP approuvées MFA** s'appliqueront à toutes les stratégies dans lesquelles cette option est sélectionnée.
 
 Pour les applications mobiles et de bureau avec des durées de session active longues, l’accès conditionnel est réévalué régulièrement. La valeur par défaut est une fois une heure. Lorsque la revendication de réseau d’entreprise interne n’est émise qu’au moment de l’authentification initiale, Azure AD peut ne pas contenir de liste de plages d’adresses IP approuvées. Dans ce cas, il est plus difficile de déterminer si l’utilisateur est toujours sur le réseau d’entreprise :
 
@@ -128,7 +128,7 @@ La majeure partie du trafic IPv6 qui est transférée par proxy à Azure AD prov
 Il s’agit des raisons les plus courantes pour lesquelles vous devrez peut-être configurer des plages IPv6 dans vos emplacements nommés. En outre, si vous utilisez des réseaux virtuels Azure, vous recevrez du trafic provenant d’une adresse IPv6. Si le trafic du réseau virtuel est bloqué par une stratégie d’accès conditionnel, vérifiez votre journal des connexions Azure AD. Une fois que vous avez identifié le trafic, vous pouvez obtenir l’adresse IPv6 utilisée et l’exclure de votre stratégie. 
 
 > [!NOTE]
-> Si vous souhaitez spécifier une plage CIDR IP pour une seule adresse, appliquez le masque de bits /128. Si vous indiquez que l’adresse IPv6 est 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a et si vous souhaitez exclure cette adresse unique en tant que plage, utilisez 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/128.
+> Si vous souhaitez spécifier une plage CIDR IP pour une seule adresse, appliquez le masque de bits /128. Si vous voyez l'adresse IPv6 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a et souhaitez exclure cette adresse unique en tant que plage, utilisez 2607:fb90:b27a:6f69:f8d5:dea0:fb39:74a/128.
 
 ### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identification du trafic IPv6 dans les rapports d’activité de connexion Azure AD
 
@@ -145,7 +145,7 @@ Les stratégies d’accès conditionnel sont évaluées lorsque :
 - Un utilisateur se connecte initialement à une application web, mobile ou de bureau.
 - Une application mobile ou de bureau qui utilise une authentification moderne utilise un jeton d’actualisation pour acquérir un nouveau jeton d’accès. Par défaut, la vérification est effectuée une fois par heure.
 
-Ce qui signifie que pour des applications mobiles et de bureau utilisant l’authentification moderne, un changement d’emplacement sera détecté dans l’heure du changement de l’emplacement réseau. Pour les applications mobiles et de bureau n’utilisant pas l’authentification moderne, la stratégie est appliquée sur chaque requête de jeton. La fréquence de la requête peut varier selon l’application. Il en va de même pour les applications web. La stratégie est appliquée à la connexion initiale et est valide pour toute la durée de la session dans l’application web. En raison des différences de durées de session dans les applications, le temps d’évaluation de la stratégie varie aussi. À chaque fois que l’application demande un nouveau jeton de connexion, la stratégie est appliquée.
+Ce qui signifie que pour des applications mobiles et de bureau utilisant l’authentification moderne, un changement d’emplacement sera détecté dans l’heure du changement de l’emplacement réseau. Pour les applications mobiles et de bureau n’utilisant pas l’authentification moderne, la stratégie est appliquée sur chaque requête de jeton. La fréquence de la requête peut varier selon l’application. Il en va de même pour les applications web. La stratégie est appliquée à la connexion initiale et est valide pour toute la durée de la session dans l’application web. En raison des différences de durées de session dans les applications, le temps d’évaluation de la stratégie varie aussi. À chaque fois que l'application demande un nouveau jeton de connexion, la stratégie est appliquée.
 
 Par défaut, Azure AD émet un jeton toutes les heures. Après une sortie du réseau d’entreprise, la stratégie est appliquée dans l’heure qui suit pour les applications utilisant l’authentification moderne.
 

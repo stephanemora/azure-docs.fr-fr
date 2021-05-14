@@ -65,7 +65,7 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?context=/azure/cosmos-db/context/context
     - name: Analytique avec Azure Synapse Link
       items:
         - name: Azure Synapse Link pour Cosmos DB
@@ -77,7 +77,7 @@
         - name: Cas d’utilisation de Synapse Link
           href: synapse-link-use-cases.md
         - name: Questions fréquentes (FAQ) sur Synapse Link
-          href: synapse-link-frequently-asked-questions.md
+          href: synapse-link-frequently-asked-questions.yml
     - name: Sauvegarde et restauration
       items:
         - name: Introduction à la sauvegarde et la restauration
@@ -87,7 +87,7 @@
             - name: Sauvegarde continue - Introduction
               href: continuous-backup-restore-introduction.md
             - name: Sauvegarde continue - FAQ
-              href: continuous-backup-restore-frequently-asked-questions.md
+              href: continuous-backup-restore-frequently-asked-questions.yml
             - name: Sauvegarde continue - Modèle de ressource
               href: continuous-backup-restore-resource-model.md
     - name: "Optimiser votre coût Azure Cosmos\_DB"
@@ -126,6 +126,8 @@
       items:
         - name: Conformité
           href: compliance.md
+        - name: Résidence des données
+          href: data-residency.md
     - name: Recommandations automatiques
       href: automated-recommendations.md
 - name: API SQL/Core
@@ -150,6 +152,8 @@
               href: create-sql-api-java.md
             - name: Application Spring Data
               href: create-sql-api-spring-data.md
+            - name: Application Spark v3
+              href: create-sql-api-spark.md
             - name: Application Node.js
               href: create-sql-api-nodejs.md
             - name: Application Python
@@ -583,6 +587,9 @@
             - name: Requête paramétrable
               displayName: 'parameterized query, parameterized, parameter, parameters'
               href: sql-query-parameterized-queries.md
+            - name: Pagination
+              displayName: 'continuation tokens, paging, pagination'
+              href: sql-query-pagination.md
             - name: LINQ to SQL
               displayName: 'linq, .NET'
               href: sql-query-linq-to-sql.md
@@ -669,7 +676,7 @@
                 - name: Provisionner le débit avec mise à l’échelle automatique - base de données ou conteneur
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
-                - name: Estimer les RU/s avec le planificateur de capacités Cosmos
+                - name: Estimer les RU/s avec Capacity Planner
                   displayName: 'request units, RUs, RU, capacity'
                   href: estimate-ru-with-capacity-planner.md
                 - name: Mettre à l’échelle avec le minuteur Azure Functions
@@ -752,6 +759,8 @@
                   href: troubleshoot-unauthorized.md
                 - name: Résoudre les problèmes du message d’erreur Interdit
                   href: troubleshoot-forbidden.md
+                - name: Résoudre les problèmes de demande incorrecte
+                  href: troubleshoot-bad-request.md
                 - name: Problèmes de disponibilité dans les environnements multirégions
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -828,7 +837,7 @@
               href: visualize-qlik-sense.md
         - name: Analytique intégrée à Apache Spark
           items:
-            - name: Connecteur Azure Databricks Spark
+            - name: "Connecteur OLTP Azure Databricks Spark\_2"
               href: spark-connector.md
             - name: Streaming avec Apache Kafka et Cosmos DB
               href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -877,9 +886,9 @@
             - name: Azure Event Hubs et stockage Azure
               href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
             - name: Utiliser Spring Boot Starter
-              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Guide du développeur Spring Data
-              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Pilote ODBC
               href: odbc-driver.md
     - name: Informations de référence
@@ -908,10 +917,14 @@
               href: sql-api-sdk-java-spring-v2.md
             - name: "Spring Data Connector\_v3"
               href: sql-api-sdk-java-spring-v3.md
-            - name: Spark Connector
+            - name: "Connecteur OLTP Spark\_3 (préversion)"
+              href: sql-api-sdk-java-spark-v3.md
+            - name: "Connecteur OLTP Spark\_2"
               href: sql-api-sdk-java-spark.md
             - name: Bibliothèque d’exécuteurs en bloc Java v2
               href: sql-api-sdk-bulk-executor-java.md
+        - name: Azure CLI
+          href: /cli/azure/cosmosdb
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
@@ -919,7 +932,7 @@
         - name: REST (plan de données)
           href: /rest/api/cosmos-db/
         - name: REST (plan de gestion)
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/sqlresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
@@ -966,7 +979,7 @@
     - name: Concepts
       items:
         - name: Questions fréquentes (FAQ)
-          href: cassandra-faq.md
+          href: cassandra-faq.yml
         - name: Mise à l’échelle élastique
           href: manage-scale-cassandra.md
         - name: Partitionnement
@@ -1000,7 +1013,7 @@
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
         - name: Stocker et gérer Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Résolution des problèmes courants
           href: cassandra-troubleshoot.md
         - name: Cassandra et Spark
@@ -1037,7 +1050,7 @@
     - name: Informations de référence
       items:
         - name: Fournisseur de ressources REST
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/cassandraresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
@@ -1046,7 +1059,7 @@
   items:
     - name: Vue d’ensemble
       items:
-        - name: "Qu’est-ce que l’API MongoDB dans Cosmos DB\_?"
+        - name: "Présentation de l’API MongoDB dans Cosmos\_DB"
           href: mongodb-introduction.md
     - name: Démarrages rapides
       items:
@@ -1056,8 +1069,6 @@
           href: create-mongodb-java.md
         - name: Node.js
           href: create-mongodb-nodejs.md
-        - name: Python
-          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
@@ -1139,6 +1150,9 @@
           href: mongodb-indexing.md
         - name: Utiliser des transactions multidocuments
           href: use-multi-document-transactions.md
+        - name: Estimer les RU/s avec Capacity Planner
+          displayName: 'request units, RUs, RU, capacity'
+          href: mongodb/estimate-ru-capacity-planner.md
         - name: Créer un conteneur - API MongoDB
           href: how-to-create-container-mongodb.md
         - name: Provisionner le débit - API MongoDB
@@ -1154,7 +1168,7 @@
         - name: Empêcher les erreurs de limitation du débit
           href: prevent-rate-limiting-errors.md
         - name: Stocker et gérer Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Commandes d’extension MongoDB
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -1168,7 +1182,7 @@
     - name: Informations de référence
       items:
         - name: Fournisseur de ressources REST
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/mongodbresources
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
@@ -1235,7 +1249,7 @@
         - name: Visualiser les données de graphe
           href: graph-visualization.md
         - name: Stocker et gérer Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Gérer avec des modèles Resource Manager
           href: templates-samples-gremlin.md
           displayName: ARM
@@ -1250,7 +1264,7 @@
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Fournisseur de ressources REST
-          href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
+          href: /rest/api/cosmos-db-resource-provider/2021-03-15/gremlinresources
         - name: Modèle Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API de table
@@ -1408,6 +1422,8 @@
           href: how-to-restrict-user-data.md
         - name: Configurer les clés gérées par le client
           href: how-to-setup-cmk.md
+        - name: Utiliser une identité managée
+          href: how-to-setup-managed-identity.md
     - name: Préparation pour l’entreprise
       items:
         - name: Demander une augmentation de quota

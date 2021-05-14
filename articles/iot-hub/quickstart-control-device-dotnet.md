@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: b89cc9dfb0a98f61b74ecf42471d08129661fb22
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 92f27c16b5dd45352a3a6cb65dd4bf78e88188f0
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059860"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868545"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (.NET)
 
@@ -39,7 +39,7 @@ Ce démarrage rapide utilise deux applications .NET prédéfinies :
 
 * Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de C#. Votre machine de développement doit disposer du kit SDK .NET Core 3.1 ou ultérieur.
 
-    Vous pouvez télécharger le Kit SDK .NET Core pour plusieurs plateformes sur [.NET](https://www.microsoft.com/net/download/all).
+    Vous pouvez télécharger le Kit SDK .NET Core pour plusieurs plateformes sur [.NET](https://dotnet.microsoft.com/download).
 
     Vous pouvez vérifier la version actuelle de C# sur votre machine de développement à l’aide de la commande suivante :
 

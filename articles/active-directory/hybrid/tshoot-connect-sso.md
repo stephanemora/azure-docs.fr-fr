@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef58f6e84fb3b4dec947fa3614b6ec1043ff89e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28dcf6a34621b0cc72d600d33af1cf63be875126
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644644"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289747"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
@@ -32,7 +32,7 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 - Les clients Win32 Microsoft 365 (Outlook, Word, Excel, etc.) dotés des versions 16.0.8730.xxxx et ultérieures sont pris en charge au moyen d'un flux non interactif. Les autres versions ne sont pas prises en charge ; dans ces versions, les utilisateurs entrent leur nom d’utilisateur, mais pas les mots de passe, pour se connecter. En ce qui concerne OneDrive, vous devez activer la [fonctionnalité de configuration silencieuse OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) pour une utilisation de l’authentification sans assistance.
 - L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox.
 - L’authentification unique transparente ne fonctionne pas sur Internet Explorer quand le mode protégé amélioré est activé.
-- L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Microsoft Edge (hérité).
+- Microsoft Edge (hérité) n’est plus pris en charge.
 - L’authentification unique transparente ne fonctionne pas sur les navigateurs mobiles iOS et Android.
 - Si un utilisateur fait partie de trop de groupes dans Active Directory, son ticket Kerberos sera probablement trop volumineux pour être traité, ce qui provoquera l’échec de l’authentification unique transparente. Les requêtes HTTPS Azure AD peuvent comporter des en-têtes dont la taille ne dépasse pas 50 Ko ; les tickets Kerberos doivent être plus petits pour laisser la place à d’autres artefacts d’Azure AD (en général, 2 à 5 Ko), comme les cookies. Nous vous recommandons de réduire les appartenances de l’utilisateur à des groupes, puis de réessayer.
 - Si vous synchronisez 30 forêts Active Directory ou plus, vous ne pouvez pas activer l’authentification unique transparente via Azure AD Connect. En guise de solution de contournement, vous pouvez [activer manuellement](#manual-reset-of-the-feature) la fonctionnalité pour votre locataire.

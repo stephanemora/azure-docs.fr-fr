@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb6f3c6a1463e2a3b71057145a6df770ea880b9d
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954212"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181163"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -137,8 +137,8 @@ Au cours de cette étape, vous allez créer dans Workday un groupe de sécurité
    * Consultez votre partenaire d'intégration Workday afin de sélectionner le type de groupe de sécurité qui convient le mieux à l'intégration.
    * Une fois le type de groupe choisi, sélectionnez **Groupe de sécurité du système d'intégration (sans contraintes)** ou **Groupe de sécurité du système d'intégration (avec contraintes)** dans le menu déroulant **Type de groupe de sécurité avec locataire pris en charge**.
 
-     > [!div class="mx-imgBorder"]
-     >![Créer un groupe de sécurité](./media/workday-inbound-tutorial/wd_isu_04.png "Créer un groupe de sécurité")
+     > [!div class="mx-imgBorder&quot;]
+     >![Créer un groupe de sécurité](./media/workday-inbound-tutorial/wd_isu_04.png &quot;Créer un groupe de sécurité")
 
 3. Une fois le groupe de sécurité créé, vous voyez une page où vous pouvez lui affecter des membres. Ajoutez le nouvel utilisateur du système d'intégration créé à l'étape précédente à ce groupe de sécurité. Si vous utilisez un groupe de sécurité *avec contraintes*, vous devez également sélectionner la portée appropriée de l'organisation.
 
@@ -557,7 +557,7 @@ Remplacez les variables [proxy-server] et [proxy-port] par le nom de votre serve
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Comment savoir que l'agent d'approvisionnement est en mesure de communiquer avec le locataire Azure AD et qu'aucun pare-feu ne bloque les ports requis par l'agent ?
 
-Vous pouvez également vérifier si tous les [ports requis](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) sont ouverts.
+Vous pouvez également vérifier si tous les [ports requis](../app-proxy/application-proxy-add-on-premises-application.md#open-ports) sont ouverts.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Un agent d'approvisionnement peut-il être configuré pour approvisionner plusieurs domaines AD ?
 

@@ -2,14 +2,14 @@
 title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 04/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 349a48b6178d5e4618aa62d9f0c3a150fe561e05
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 5c74a34efe8075ab7a34fab4570d9513900b3f81
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284389"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517417"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -33,7 +33,7 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 --- | ---
 **Coffres dans l’abonnement** | Jusqu’à 500 coffres Recovery Services dans un même abonnement.
 **Machines dans un coffre** | Jusqu’à 2 000 sources de donnée sur toutes les charges de travail (comme les machines virtuelles Azure, les machines virtuelles SQL Server, les serveurs MABS, etc.) peuvent être protégées dans un coffre unique.<br><br>Jusqu’à 1 000 machines virtuelles Azure dans un même coffre.<br/><br/> Jusqu’à 50 serveurs MABS peuvent être inscrits dans un seul coffre.
-**Sources de données** | La taille maximale d'une [source de données](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) est de 54 400 Go. La limite ne s’applique pas aux sauvegardes de machines virtuelles Azure. Aucune limite ne s'applique au volume total de données que vous pouvez sauvegarder dans le coffre.
+**Sources de données** | La taille maximale d'une [source de données](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) est de 54 400 Go. La limite ne s’applique pas aux sauvegardes de machines virtuelles Azure. Aucune limite ne s'applique au volume total de données que vous pouvez sauvegarder dans le coffre.
 **Sauvegardes dans le coffre** | **Machines virtuelles Azure :** Une fois par jour.<br/><br/>**Machines protégées par DPM/MABS :** Deux fois par jour.<br/><br/> **Machines sauvegardées directement à l’aide de l’agent MARS :** Trois fois par jour.
 **Sauvegardes entre les coffres** | La sauvegarde s’effectue dans une région.<br/><br/> Vous avez besoin d’un coffre dans chaque région Azure qui contient les machines virtuelles que vous souhaitez sauvegarder. Vous ne pouvez pas sauvegarder vers une autre région.
 **Déplacer les coffres** | Vous pouvez [déplacer les coffres](./backup-azure-move-recovery-services-vault.md) entre des abonnements ou entre des groupes de ressources dans le même abonnement. En revanche, le déplacement de coffres entre régions n’est pas pris en charge.
@@ -151,7 +151,7 @@ Une fonctionnalité de restauration inter-régions a été ajoutée au service S
 
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Prise en charge pour les machines virtuelles Azure dotées à la fois de disques managés et non managés. Non pris en charge pour les machines virtuelles classiques. | Disponible dans toutes les régions publiques Azure et dans les régions souveraines, à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest, Norvège Est, US Gov Iowa et US Gov Virginie. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Azure VM               | Prise en charge pour les machines virtuelles Azure (y compris chiffrées) dotées à la fois de disques managés et non managés. Non pris en charge pour les machines virtuelles classiques. | Disponible dans toutes les régions publiques Azure et dans les régions souveraines, à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest, Norvège Est, US Gov Iowa et US Gov Virginie. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | SQL /SAP HANA | En préversion                                                      | Disponible dans toutes les régions publiques Azure et dans les régions souveraines, à l’exception des régions France Centre, Australie Centre, Afrique du Sud Nord, Émirats arabes unis Nord, Suisse Nord, Allemagne Centre-Ouest, Norvège Est, US Gov Iowa et US Gov Virginie. <br>Pour plus d’informations sur l’utilisation dans ces régions, contactez [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | Agent MARS/En local  | Non                                                           | N/A               |
 | AFS (partages de fichiers Azure)                 | Non                                                           | N/A               |

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f94134b2a06155b1b1f390175578e501a840038b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae9a1a374724465148f922efe486c4680e1e36ab
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669430"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144274"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Aide autonome pour le pool SQL serverless
 
@@ -41,7 +41,7 @@ Si votre requête échoue avec le message d’erreur « Cette requête ne peut 
 
 - Si votre requête cible des fichiers CSV, envisagez de [créer des statistiques](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
-- Pour optimiser les requêtes, consultez les [bonnes pratiques concernant les performances du pool SQL serverless](best-practices-sql-on-demand.md).  
+- Pour optimiser les requêtes, consultez les [bonnes pratiques concernant les performances du pool SQL serverless](./best-practices-serverless-sql-pool.md).  
 
 ## <a name="create-statement-is-not-supported-in-master-database"></a>L’instruction CREATE 'STATEMENT' n'est pas prise en charge dans la base de données master
 

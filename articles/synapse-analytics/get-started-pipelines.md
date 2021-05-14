@@ -10,20 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 05c33db130bfa3fcc1a4f5d75935294fcc0ba1d7
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 19bff62883341947eb5290118494b8244c5476ac
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365465"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518250"
 ---
 # <a name="integrate-with-pipelines"></a>Intégrer avec des pipelines
 
 Dans ce tutoriel, vous allez découvrir comment intégrer des pipelines et des activités en utilisant Synapse Studio. 
 
 ## <a name="create-a-pipeline-and-add-a-notebook-activity"></a>Créer un pipeline et ajouter une activité de notebook
-
-
 
 1. Dans Synapse Studio, accédez au hub **Intégrer**.
 1. Sélectionnez **+**  > **Pipeline** pour créer un pipeline. Cliquez sur le nouvel objet de pipeline pour ouvrir le Concepteur de pipeline.
@@ -37,14 +35,19 @@ Dans ce tutoriel, vous allez découvrir comment intégrer des pipelines et des a
 1. Sélectionnez **OK**. 
 1. Sélectionnez **Publier tout**. 
 
+## <a name="forcing-a-pipeline-to-run-immediately"></a>Forcer l’exécution immédiate d’un pipeline
+
+Une fois le pipeline publié, vous pouvez l’exécuter immédiatement sans attendre une heure.
+
+1. Ouvrez le pipeline.
+1. Cliquez sur **Ajouter un déclencheur** > **Déclencher maintenant**.
 
 ## <a name="monitor-pipeline-execution"></a>Superviser l’exécution du pipeline
 
-1. Une fois le pipeline publié, pour qu’il s’exécute immédiatement, sans attendre l’heure suivante, sélectionnez **Ajouter un déclencheur** > **Déclencher maintenant**.
-1. Dans Synapse Studio, accédez au hub **Superviser**.
+1. Accédez au hub **Superviser**.
 1. Sélectionnez **Exécutions de pipeline** pour superviser la progression de l’exécution du pipeline.
-
-
+1. Dans cette vue, vous pouvez basculer entre la **Liste** tabulaire et l’affichage d’un diagramme de **Gantt**. 
+1. Cliquez sur un nom de pipeline pour voir l’état des activités dans ce pipeline.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

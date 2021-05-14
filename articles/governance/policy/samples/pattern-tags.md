@@ -3,16 +3,16 @@ title: 'Modèle : Utilisation d’étiquettes dans une définition de stratégi
 description: Ce modèle Azure Policy fournit des exemples sur la façon d’ajouter des étiquettes paramétrables ou d’hériter d’étiquettes à partir d’un groupe de ressources dans une définition de stratégie.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: c748eb9b8ea795f9725082ec0aa0b8065ada8c65
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 30357632e92535368505fd72d2414292da0f5ca1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093365"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752306"
 ---
 # <a name="azure-policy-pattern-tags"></a>Modèle Azure Policy : étiquettes
 
-Les [étiquettes](../../..//azure-resource-manager/management/tag-resources.md) représentent un élément important dans la gestion, l’organisation et l’administration de vos ressources Azure. Azure Policy permet de configurer à grande échelle des étiquettes sur vos ressources nouvelles et existantes au moyen de l’effet [modify](../concepts/effects.md#modify) et des [tâches de correction](../how-to/remediate-resources.md).
+Les [étiquettes](../../../azure-resource-manager/management/tag-resources.md) représentent un élément important dans la gestion, l’organisation et l’administration de vos ressources Azure. Azure Policy permet de configurer à grande échelle des étiquettes sur vos ressources nouvelles et existantes au moyen de l’effet [modify](../concepts/effects.md#modify) et des [tâches de correction](../how-to/remediate-resources.md).
 
 ## <a name="sample-1-parameterize-tags"></a>Exemple 1 : Paramétrer des étiquettes
 

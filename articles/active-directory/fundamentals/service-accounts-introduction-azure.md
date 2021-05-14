@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d657f1df14b083631227cb7c19f64b65be8801d0
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587863"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010463"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Introduction à la sécurisation des comptes de service Azure
 
@@ -26,7 +26,7 @@ Il existe trois types de comptes de service natifs dans Azure Active Directory 
 
 ## <a name="types-of-azure-active-directory-service-accounts"></a>Types de comptes de service Azure Active Directory
 
-Pour les services hébergés dans Azure, nous recommandons d'utiliser une identité managée, si possible, et un service principal si ce n'est pas le cas. Les identités managées ne peuvent pas être utilisées pour les services hébergés en dehors d'Azure. Dans ce cas, nous vous recommandons d'utiliser un principal de service. Si vous pouvez utiliser une identité managée ou un principal de service, faites-le. Nous vous recommandons de ne pas utiliser un compte d'utilisateur Azure Active Directory en tant que principal de service. Le tableau suivant fournit un récapitulatif.
+Pour les services hébergés dans Azure, nous recommandons d'utiliser une identité managée, si possible, et un service principal si ce n'est pas le cas. Les identités managées ne peuvent pas être utilisées pour les services hébergés en dehors d'Azure. Dans ce cas, nous vous recommandons d'utiliser un principal de service. Si vous pouvez utiliser une identité managée ou un principal de service, faites-le. Nous vous recommandons de ne pas utiliser un compte d'utilisateur Azure Active Directory en tant que compte de service. Le tableau suivant fournit un récapitulatif.
  
 
 | Hébergement du service| Identité managée| Principal du service| Compte d’utilisateur Azure |
@@ -52,9 +52,9 @@ Si vous n'êtes pas en mesure d'utiliser une identité managée pour représente
 
 Un principal de service est la représentation locale d'un objet d'application dans un locataire Azure AD. Il constitue l'identité de l'instance d'application, détermine qui peut accéder à l'application et à quelles ressources l'application a accès. Un principal de service est créé dans (local à) chaque locataire dans lequel l'application est utilisée, et fait référence à l'objet d'application global unique. Le locataire sécurise la connexion du principal de service et l'accès aux ressources.
 
-Il existe deux mécanismes pour l'authentification à l'aide de principaux de service : les certificats client et les clés secrètes client. Les certificats sont plus sécurisés : si possible, utilisez des certificats client. Contrairement aux clés secrètes client, les certificats client ne peuvent pas être accidentellement incorporés dans le code.
+Il existe deux mécanismes pour l'authentification à l'aide de principaux de service : les certificats client et les clés secrètes client. Les certificats sont plus sécurisés : si possible, utilisez des certificats client. Contrairement aux secrets clients, les certificats clients ne peuvent pas être incorporés par inadvertance dans le code.
 
-Pour plus d'informations sur la sécurisation des principaux de service, consultez Sécurisation des principaux de service.
+Pour plus d'informations sur la sécurisation des principaux de service, consultez [Sécurisation des principaux de service](service-accounts-principal.md).
 
  
 ## <a name="next-steps"></a>Étapes suivantes

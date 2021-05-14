@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a015ba06be6a10985a4771e842a6d910dd4cd9ab
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554521"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157539"
 ---
 L'**exemple de bannière d'appel de groupe** Azure Communication Services illustre de quelle façon le SDK web Communication Services Calling peut être utilisé pour créer une expérience d'appel de groupe.
 
@@ -48,7 +48,7 @@ Composants de l’écran principal d’appel :
 - **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. Le composant peut être fermé à l’aide du « X » situé en haut à droite. La barre latérale des participants affiche une liste des participants et un lien pour inviter davantage d’utilisateurs à discuter. La barre latérale des paramètres vous permet de configurer les paramètres du microphone et de la caméra.
 
 > [!NOTE]
-> Compte tenu des limitations relatives au SDK Web Calling, un seul flux vidéo distant est restitué. Pour plus d'informations, consultez [Prise en charge des flux du SDK Calling](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support).
+> Compte tenu des limitations relatives au SDK Web Calling, un seul flux vidéo distant est restitué. Pour plus d'informations, consultez [Prise en charge des flux du SDK Calling](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
 
 Vous trouverez ci-dessous des informations supplémentaires sur les prérequis et les étapes à suivre pour configurer l’exemple.
 
@@ -97,7 +97,7 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 Pour plus d’informations, consultez les articles suivants :
 
-- Familiarisez-vous avec l'[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarisez-vous avec l’[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Documentation supplémentaire

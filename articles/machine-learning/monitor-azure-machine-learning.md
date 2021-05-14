@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: a18ee02b5e91b628a25655949a652270bd7436c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5fd0fdd5a6f9a4a7537a844b096efdfef253638
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100575146"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816851"
 ---
 # <a name="monitor-azure-machine-learning"></a>Superviser Azure Machine Learning
 
@@ -24,8 +24,8 @@ Lorsque vous avez des applications critiques et des processus métier basés sur
 > [!TIP]
 > Les informations contenues dans ce document sont principalement destinées aux __administrateurs__, car elles décrivent la supervision du service Azure Machine Learning et des services Azure associés. Si vous êtes __scientifique des données__ ou __développeur__ et que vous voulez superviser des informations spécifiques aux *exécutions d’entraînement de votre modèle*, consultez les documents suivants :
 >
-> * [Démarrer, superviser et annuler des exécutions d’entraînement](how-to-manage-runs.md)
-> * [Journaliser des métriques pour les exécutions d’entraînement](how-to-track-experiments.md)
+> * [Démarrer, superviser et annuler des exécutions d’entraînement](how-to-track-monitor-analyze-runs.md)
+> * [Journaliser des métriques pour les exécutions d’entraînement](how-to-log-view-metrics.md)
 > * [Suivre des expériences avec MLflow](how-to-use-mlflow.md)
 > * [Visualiser les exécutions avec TensorBoard](how-to-monitor-tensorboard.md)
 >

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b62e341d35a4ff7fd5a7ddd6d9f19b138aaf0aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8c926c2fbc5b19f67fb78d321ee3293c73be939
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071645"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869344"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Effectuer une restauration jusqu’à une date et heure sur les données d’objet blob de blocs
 
@@ -86,7 +86,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour configurer la récupération jusqu`à une date et heure avec Azure CLI, commencez par installer la version 2.2.0 ou ultérieure d’Azure CLI. Appelez ensuite la commande [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) pour activer la restauration jusqu’à une date et heure, ainsi que les autres paramètres requis de protection des données pour le compte de stockage.
+Pour configurer la récupération jusqu`à une date et heure avec Azure CLI, commencez par installer la version 2.2.0 ou ultérieure d’Azure CLI. Appelez ensuite la commande [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) pour activer la restauration jusqu’à une date et heure, ainsi que les autres paramètres requis de protection des données pour le compte de stockage.
 
 L’exemple suivant active la suppression réversible et définit la période de rétention de la suppression réversible sur 14 jours, active le flux de modification et le contrôle de version, et active la récupération jusqu`à une date et heure avec une période de restauration de 7 jours. Lorsque vous exécutez l’exemple, n’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
 

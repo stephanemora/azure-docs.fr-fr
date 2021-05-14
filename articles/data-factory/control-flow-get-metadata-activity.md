@@ -1,17 +1,17 @@
 ---
 title: Activité d’obtention des métadonnées dans Azure Data Factory
 description: Découvrez comment utiliser l’activité d’obtention des métadonnées dans un pipeline Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
-ms.author: jingwang
-ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.author: jianleishen
+ms.openlocfilehash: e4715802f7b284bd9e6ce9a41b44c3750c33c260
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178539"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482756"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 

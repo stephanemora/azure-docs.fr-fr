@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: 795cc61f89729da352deb1dc1688bd19e780ca10
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90930132"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987711"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauration à un instant dans le passé d’un serveur flexible
 
@@ -26,9 +26,9 @@ Pour utiliser ce guide pratique, il vous faut :
 
 -   Vous devez disposer d’Azure Database pour PostgreSQL – Serveur flexible. La même procédure s’applique également au serveur flexible configuré avec la redondance de zone.
 
-## <a name="restoring-to-the-earliest-restore-point"></a>Restauration au point de restauration le plus ancien
+## <a name="restoring-to-the-latest-restore-point"></a>Restaurer au dernier point de restauration
 
-Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la plus ancienne sauvegarde existante.
+Suivez ces étapes pour restaurer votre serveur flexible à l’aide d’une sauvegarde existante.
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à partir duquel vous voulez restaurer la sauvegarde.
 
@@ -36,11 +36,11 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
    
    :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Présentation de la restauration":::
 
-3.  La page Restaurer s’affiche et vous permet de choisir entre Point de restauration le plus ancien et Point de restauration personnalisé.
+3.  La page Restaurer s’affiche et vous permet de choisir entre Dernier point de restauration et Point de restauration personnalisé.
 
-4.  Sélectionnez **Point de restauration le plus ancien**, puis fournissez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. L’horodateur le plus ancien auquel vous pouvez restaurer s’affiche. 
+4.  Sélectionnez **Dernier point de restauration**, puis fournissez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. Vous pouvez éventuellement choisir la zone de disponibilité vers laquelle effectuer la restauration.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Heure de restauration la plus ancienne":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-latest.png" alt-text="Dernière heure de restauration":::
 
 5.  Cliquez sur **OK**.
 
@@ -48,20 +48,20 @@ Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la pl
 
 ## <a name="restoring-to-a-custom-restore-point"></a>Restauration à un point de restauration personnalisé
 
-Effectuez ces étapes pour restaurer votre serveur flexible à l’aide de la plus ancienne sauvegarde existante.
+Suivez ces étapes pour restaurer votre serveur flexible à l’aide d’une sauvegarde existante.
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à partir duquel vous voulez restaurer la sauvegarde.
 
 2.  Dans la page de vue d’ensemble, cliquez sur **Restaurer**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Présentation de la restauration":::
     
-3.  La page Restaurer s’affiche et vous permet de choisir entre Point de restauration le plus ancien et Point de restauration personnalisé.
+3.  La page Restaurer s’affiche et vous permet de choisir entre Dernier point de restauration et Point de restauration personnalisé.
 
 4.  Choisissez **Point de restauration personnalisé**.
 
-5.  Sélectionnez la date et l’heure, puis entrez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. 
+5.  Sélectionnez la date et l’heure, puis entrez un nouveau nom de serveur dans le champ **Restaurer sur un nouveau serveur**. Fournissez un nouveau nom de serveur. Vous pouvez éventuellement choisir la **zone de disponibilité** vers laquelle effectuer la restauration.
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Heure de restauration personnalisée":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom-2.png" alt-text="Heure de restauration personnalisée":::
  
 6.  Cliquez sur **OK**.
 

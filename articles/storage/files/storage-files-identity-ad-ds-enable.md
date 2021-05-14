@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 5ee4481b3151e28d5d37760e486a43adbc194994
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2be762adfeb296546a289e745794e53e4ee16a09
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553219"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107895844"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Première partie : activer l’authentification AD DS pour vos partages de fichiers Azure 
 
@@ -41,27 +41,30 @@ Le compte AD DS créé par l’applet de commande représente le compte de stock
 Remplacer les valeurs des espaces réservés par les vôtres dans les paramètres ci-dessous avant d’exécuter le script dans PowerShell.
 > [!IMPORTANT]
 > La cmdlet de jonction de domaine crée un compte AD pour représenter le compte de stockage (partage de fichiers) dans AD. Vous pouvez choisir de vous inscrire en tant que compte d’ordinateur ou compte de connexion au service. Pour plus d’informations, consultez la [FAQ](./storage-files-faq.md#security-authentication-and-access-control). Pour les comptes d’ordinateur, la durée de vie du mot de passe par défaut est définie à 30 jours dans AD. De même, le compte de connexion au service peut avoir une durée de vie de mot de passe par défaut définie sur le domaine AD ou l’unité d’organisation (UO).
-> Pour les deux types de comptes, nous vous recommandons de vérifier le délai d’expiration du mot de passe défini dans votre environnement AD et de [mettre à jour le mot de passe de l’identité de votre compte de stockage](storage-files-identity-ad-ds-update-password.md) pour le compte AD, avant la durée de vie maximale du mot de passe. Vous pouvez [créer une unité d’organisation (UO) AD dans AD](/powershell/module/addsadministration/new-adorganizationalunit) et désactiver en conséquence la stratégie d’expiration de mot de passe pour les [comptes d’ordinateur](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) ou les comptes de connexion au service. 
+> Pour les deux types de comptes, nous vous recommandons de vérifier le délai d’expiration du mot de passe défini dans votre environnement AD et de [mettre à jour le mot de passe de l’identité de votre compte de stockage](storage-files-identity-ad-ds-update-password.md) pour le compte AD, avant la durée de vie maximale du mot de passe. Vous pouvez [créer une unité d’organisation (UO) AD dans AD](/powershell/module/activedirectory/new-adorganizationalunit) et désactiver en conséquence la stratégie d’expiration de mot de passe pour les [comptes d’ordinateur](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) ou les comptes de connexion au service. 
 
 ```PowerShell
-#Change the execution policy to unblock importing AzFilesHybrid.psm1 module
+# Change the execution policy to unblock importing AzFilesHybrid.psm1 module
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 
 # Navigate to where AzFilesHybrid is unzipped and stored and run to copy the files into your path
 .\CopyToPSPath.ps1 
 
-#Import AzFilesHybrid module
+# Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
+# If you are logging into an Azure environment other than Public (ex. AzureUSGovernment) you will need to specify that.
+# See https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps
+# for more information.
 Connect-AzAccount
 
-#Define parameters
+# Define parameters, $StorageAccountName currently has a maximum limit of 15 characters
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
 
-#Select the target subscription for the current session
+# Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId $SubscriptionId 
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
@@ -89,7 +92,7 @@ Si vous avez déjà exécuté le script `Join-AzStorageAccountForAuth` ci-dessus
 
 ### <a name="checking-environment"></a>Vérification de l’environnement
 
-Vous devez d’abord vérifier l’état de votre environnement. En particulier, vous devez vérifier si [Active Directory PowerShell](/powershell/module/addsadministration/) est installé et si l’interpréteur de commandes est en cours d’exécution avec des privilèges d’administrateur. Vérifiez ensuite si le [module Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) est installé, et installez-le si ce n’est pas le cas. Une fois ces vérifications terminées, vérifiez votre AD DS pour déterminer si un [compte d’ordinateur](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (par défaut) ou un [compte d’ouverture de session du service](/windows/win32/ad/about-service-logon-accounts) a déjà été créé avec SPN/UPN comme « cifs/votre-nom-de-compte-de-stockage-ici.file.core.windows.net ». Si le compte n’existe pas, créez-en un comme décrit dans la section suivante.
+Vous devez d’abord vérifier l’état de votre environnement. En particulier, vous devez vérifier si [Active Directory PowerShell](/powershell/module/activedirectory/) est installé et si l’interpréteur de commandes est en cours d’exécution avec des privilèges d’administrateur. Vérifiez ensuite si le [module Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) est installé, et installez-le si ce n’est pas le cas. Une fois ces vérifications terminées, vérifiez votre AD DS pour déterminer si un [compte d’ordinateur](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (par défaut) ou un [compte d’ouverture de session du service](/windows/win32/ad/about-service-logon-accounts) a déjà été créé avec SPN/UPN comme « cifs/votre-nom-de-compte-de-stockage-ici.file.core.windows.net ». Si le compte n’existe pas, créez-en un comme décrit dans la section suivante.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Création manuelle d’une identité représentant le compte de stockage dans votre AD
 

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/30/2020
-ms.topic: conceptual
-ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/22/2021
+ms.topic: how-to
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a9afef0e2616664578e66be3735104c47bfcffa9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518923"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760748"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
@@ -187,16 +187,6 @@ Fournie par le SDK Python Azure Machine Learning, la classe [PrivateEndpointConf
 > L’utilisation d’un point de terminaison privé avec un espace de travail Azure Machine Learning est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.     
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-### <a name="multiple-workspaces-with-private-endpoint"></a>Plusieurs espaces de travail avec un point de terminaison privé
-
-Lorsque vous créez un point de terminaison privé, une nouvelle zone DNS privée nommée __privatelink.api.azureml.ms__ est créée. Elle contient un lien vers le réseau virtuel. Si vous créez plusieurs espaces de travail avec des points de terminaison privés dans le même groupe de ressources, seul le réseau virtuel du premier point de terminaison privé peut être ajouté à la zone DNS. Pour ajouter des entrées pour les réseaux virtuels utilisés par les autres espaces de travail/points de terminaison privés, procédez comme suit :
-
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez le groupe de ressources contenant l’espace de travail. Sélectionnez ensuite la ressource Zone DNS privé nommée __privatelink.api.azureml.ms__.
-2. Sous __Paramètres__, sélectionnez __Liens de réseau virtuel__.
-3. Sélectionnez __Ajouter__. Dans la page __Ajouter un lien de réseau virtuel__, fournissez un __nom de lien__ unique, puis sélectionnez le __réseau virtuel__ à ajouter. Sélectionnez __OK__ pour ajouter le lien réseau.
-
-Pour plus d’informations, consultez [Configuration DNS des points de terminaison privés Azure](../private-link/private-endpoint-dns.md).
-
 ### <a name="vulnerability-scanning"></a>Analyse des vulnérabilités
 
 Azure Security Center fournit des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Vous devez autoriser Azure Security Center à analyser vos ressources et suivre ses recommandations. Pour plus d’informations, consultez [Analyse d’images Azure Container Registry par Security Center](../security-center/defender-for-container-registries-introduction.md) et [Intégration d’Azure Kubernetes Services à Security Center](../security-center/defender-for-kubernetes-introduction.md).
@@ -262,7 +252,7 @@ from azureml.core import Workspace
 
 ### <a name="download-a-configuration-file"></a>Télécharger un fichier de configuration
 
-Si vous comptez créer une [instance de calcul](tutorial-1st-experiment-sdk-setup.md#azure), ignorez cette étape.  L’instance de calcul a déjà créé une copie de ce fichier pour vous.
+Si vous comptez créer une [instance de calcul](quickstart-create-resources.md), ignorez cette étape.  L’instance de calcul a déjà créé une copie de ce fichier pour vous.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -401,8 +391,7 @@ L'espace de travail Azure Machine Learning utilise Azure Container Registry (ACR
 ## <a name="examples"></a>Exemples
 
 Exemples de création d’espace de travail :
-* utiliser le portail Azure pour [créer un espace de travail et une instance de calcul](tutorial-1st-experiment-sdk-setup.md) ;
-* Utiliser le Kit de développement logiciel (SDK) Python pour [créer un espace de travail dans votre propre environnement](tutorial-1st-experiment-sdk-setup-local.md).
+* utiliser le portail Azure pour [créer un espace de travail et une instance de calcul](quickstart-create-resources.md) ;
 
 ## <a name="next-steps"></a>Étapes suivantes
 

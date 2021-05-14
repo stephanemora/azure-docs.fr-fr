@@ -4,14 +4,14 @@ description: Création de chemins d’accès côté client pour le stockage prin
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 04/22/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5427389f007b7598274d35425a9b3e8e10a63e49
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3eddd53d8b1d4ff59f27535a070924cf0e86c5a7
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798525"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904412"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurer l’espace de noms agrégé
 
@@ -65,7 +65,7 @@ Dans le portail Azure, chargez la page de paramètres **Espace de noms**. Vous p
 
 Lorsque vous utilisez Azure CLI, vous devez ajouter un chemin d’espace de noms lors de la création de la cible de stockage. Pour en savoir plus, consultez [Ajouter une cible Stockage blob Azure](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target).
 
-Pour mettre à jour le chemin d’espace de noms d’une cible, utilisez la commande [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). Les arguments de la commande de mise à jour sont similaires à ceux de la commande de création, sauf que vous ne transmettez pas le nom du conteneur ou le compte de stockage.
+Pour mettre à jour le chemin d’espace de noms d’une cible, utilisez la commande [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update). Les arguments de la commande de mise à jour sont similaires à ceux de la commande de création, sauf que vous ne transmettez pas le nom du conteneur ou le compte de stockage.
 
 Vous ne pouvez pas supprimer le chemin d’espace de noms d’une cible Stockage blob avec Azure CLI, mais vous pouvez le remplacer par une autre valeur.
 
@@ -77,27 +77,7 @@ Une cible de stockage NFS peut avoir plusieurs chemins d’accès virtuels, à c
 
 Lors de la planification de votre espace de noms pour une cible de stockage NFS, souvenez-vous que chaque chemin doit être unique et ne peut pas être un sous-répertoire d’un autre chemin d’espace de noms. Par exemple, si vous avez un chemin d’espace de noms appelé ``/parent-a``, vous ne pouvez pas créer de chemins d’espace de noms tels que ``/parent-a/user1`` et ``/parent-a/user2``. Ces chemins d’accès de répertoire sont déjà accessibles dans l’espace de noms en tant que sous-répertoires de ``/parent-a``.
 
-Tous les chemins d’espace de noms pour un système de stockage NFS sont créés sur une seule cible de stockage. La plupart des configurations de cache peuvent prendre en charge jusqu’à dix chemins d’espace de noms par cible de stockage, mais les configurations plus volumineuses peuvent en accepter jusqu’à 20.
-
-Cette liste montre le nombre maximum de chemins d’espace de noms par configuration.
-
-* Débit jusqu’à 2 Go/s :
-
-  * Cache de 3 To - 10 chemins d’espace de noms
-  * Cache de 6 To - 10 chemins d’espace de noms
-  * Cache de 12 To - 20 chemins d’espace de noms
-
-* Débit jusqu’à 4 Go/s :
-
-  * Cache de 6 To - 10 chemins d’espace de noms
-  * Cache de 12 To - 10 chemins d’espace de noms
-  * Cache de 24 To - 20 chemins d’espace de noms
-
-* Débit jusqu’à 8 Go/s :
-
-  * Cache de 12 To - 10 chemins d’espace de noms
-  * Cache de 24 To - 10 chemins d’espace de noms
-  * Cache de 48 To - 20 chemins d’espace de noms
+Tous les chemins d’espace de noms pour un système de stockage NFS sont créés sur une seule cible de stockage.
 
 Pour chaque chemin d’espace de noms NFS, indiquez le chemin côté client, le chemin d’exportation du système de stockage et éventuellement un sous-répertoire d’exportation.
 
@@ -129,7 +109,7 @@ Renseignez ces valeurs pour chaque chemin d’espace de noms :
 
 Lorsque vous utilisez Azure CLI, vous devez ajouter au moins un chemin d’espace de noms lors de la création de la cible de stockage. Pour en savoir plus, consultez [Ajouter une cible de stockage NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target).
 
-Pour mettre à jour le chemin d’espace de noms d’une cible ou ajouter des chemins supplémentaires, utilisez la commande [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update). Utilisez l’option ``--junction`` pour spécifier tous les chemins d’espace de noms souhaités.
+Pour mettre à jour le chemin d’espace de noms d’une cible ou ajouter des chemins supplémentaires, utilisez la commande [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update). Utilisez l’option ``--junction`` pour spécifier tous les chemins d’espace de noms souhaités.
 
 Les options utilisées pour la commande de mise à jour sont similaires à celles de la commande « create », sauf que vous ne transmettez pas les informations du système de stockage (adresse IP ou nom d’hôte) et le modèle d’utilisation est facultatif. Pour en savoir plus sur la syntaxe de l’option ``--junction``, consultez [Ajouter une nouvelle cible de stockage NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target).
 

@@ -3,18 +3,18 @@ title: Service Azure IoT Hub Device Provisioning - Attestation de clé symétriq
 description: Cet article donne une vue d’ensemble conceptuelle des attestations de clé symétrique avec le service IoT Device Provisioning (DPS).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32ad3bb4f9a845ded60694d42d0b2708a61aea6a
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90531557"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483296"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation de clé symétrique
 
@@ -37,7 +37,7 @@ Vous pouvez également fournir vos propres clés symétriques pour les inscripti
 
 ## <a name="detailed-attestation-process"></a>Processus d’attestation détaillé
 
-L’attestation de clé symétrique avec le service Device Provisioning est effectuée en utilisant les mêmes [jetons de sécurité](../iot-hub/iot-hub-devguide-security.md#security-token-structure) que ceux pris en charge par les hubs IoT pour identifier les appareils. Ces jetons de sécurité sont [des jetons de signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md). 
+L’attestation de clé symétrique avec le service Device Provisioning est effectuée en utilisant les mêmes [jetons de sécurité](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure) que ceux pris en charge par les hubs IoT pour identifier les appareils. Ces jetons de sécurité sont [des jetons de signature d’accès partagé (SAP)](../service-bus-messaging/service-bus-sas.md). 
 
 Les jetons SAP ont une *signature* hachée créée en utilisant la clé symétrique. La signature est recréée par le service Device Provisioning pour vérifier si un jeton de sécurité présenté lors de l’attestation est authentique ou non.
 
@@ -57,7 +57,7 @@ Voici les composants de chaque jeton :
 
 Quand un appareil atteste avec une inscription individuelle, il utilise la clé symétrique définie dans l’entrée d’inscription individuelle pour créer la signature hachée pour le jeton SAP.
 
-Pour obtenir des exemples de code qui créent un jeton SAP, consultez [Jetons de sécurité](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
+Pour obtenir des exemples de code qui créent un jeton SAP, consultez [Jetons de sécurité](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
 La création de jetons de sécurité pour l’attestation de clé symétrique est prise en charge par le SDK C d’Azure IoT. Pour obtenir un exemple utilisant le SDK C d’Azure IoT pour attester avec une inscription individuelle, consultez [Provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md).
 
@@ -74,7 +74,73 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 Cet exemple est utilisé tel quel dans l’article [Guide pratique pour provisionner des appareils hérités avec des clés symétriques](how-to-legacy-device-symm-key.md).
 
-Une fois qu’un ID d’inscription a été défini pour l’appareil, la clé symétrique pour le groupe d’inscription est utilisée pour calculer un hachage [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) de l’ID d’inscription, pour produire une clé d’appareil dérivée. Le hachage de l’ID d’inscription peut être effectué avec le code C# suivant :
+Une fois qu’un ID d’inscription a été défini pour l’appareil, la clé symétrique pour le groupe d’inscription est utilisée pour calculer un hachage [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) de l’ID d’inscription, pour produire une clé d’appareil dérivée. Des exemples d’approches pour le calcul de la clé dérivée de l’appareil sont fournis dans les onglets ci-dessous.  
+
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+L’extension IoT pour Azure CLI fournit la commande [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) permettant de générer des clés d’appareil dérivées. Cette commande peut être utilisée à partir d’un système Windows ou Linux, dans PowerShell ou un interpréteur de commandes Bash.
+
+Remplacez la valeur de l’argument `--key` par la **clé primaire** de votre groupe d’inscription.
+
+Remplacez la valeur de l’argument `--registration-id` par votre ID d’inscription.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+Exemple de résultat :
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+Si vous utilisez une station de travail Windows, utilisez PowerShell pour générer votre clé d’appareil dérivée, comme indiqué dans l’exemple suivant.
+
+Remplacez la valeur de l’argument **KEY** par la **clé primaire** de votre groupe d’inscription.
+
+Remplacez la valeur de **REG_ID** avec votre ID d’inscription.
+
+```powershell
+$KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
+$REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
+
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID))
+$derivedkey = [Convert]::ToBase64String($sig)
+echo "`n$derivedkey`n"
+```
+
+```powershell
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+Si vous utilisez une station de travail Linux, vous pouvez utiliser openssl pour générer votre clé d’appareil dérivée, comme indiqué dans l’exemple suivant.
+
+Remplacez la valeur de l’argument **KEY** par la **clé primaire** de votre groupe d’inscription.
+
+Remplacez la valeur de **REG_ID** avec votre ID d’inscription.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+# <a name="csharp"></a>[CSharp](#tab/csharp)
+
+Le hachage de l’ID d’inscription peut être effectué avec le code C# suivant :
 
 ```csharp
 using System; 
@@ -96,6 +162,8 @@ public static class Utils
 ```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
+
+---
 
 La clé d’appareil résultante est ensuite utilisée pour générer un jeton SAP à utiliser pour l’attestation. Chaque appareil d’un groupe d’inscription doit attester avec un jeton de sécurité généré à partir d’une clé dérivée unique. La clé symétrique du groupe d’inscription ne peut pas être utilisée directement pour l’attestation.
 

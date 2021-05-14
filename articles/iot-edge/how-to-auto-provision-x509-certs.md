@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f3c783c57b49b45943882703aec6d735d12bf830
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 180226741d77defb0a9f0d00165cf858cb65ecbb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481954"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906509"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509
 
@@ -229,7 +229,6 @@ Préparez les informations suivantes :
 * La valeur **Étendue de l’ID** du service Device Provisioning. Vous pouvez récupérer cette valeur à partir de la page de présentation de votre instance du service Device Provisioning dans le portail Azure.
 * Le fichier de chaîne de certificats d’identité d’appareil sur l’appareil
 * Le fichier de clé d’identité d’appareil sur l’appareil
-* ID d’inscription facultatif. S’il n’est pas fourni, l’ID est extrait du nom commun dans le certificat d’identité d’appareil.
 
 ### <a name="linux-device"></a>Appareil Linux
 
@@ -268,7 +267,7 @@ Préparez les informations suivantes :
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. Vous pouvez fournir un `registration_id` pour l’appareil. Autrement, laissez cette ligne commentée pour inscrire l’appareil avec le nom CN du certificat d’identité.
+1. Si vous le souhaitez, fournissez le `registration_id` de l'appareil, qui doit correspondre au nom commun du certificat d'identité. Si vous laissez cette ligne commentée, le nom commun est appliqué automatiquement.
 
 1. Si vous le souhaitez, utilisez les lignes `always_reprovision_on_startup` ou `dynamic_reprovisioning` pour configurer le comportement de reprovisionnement de votre appareil. Si un appareil est configuré pour être reprovisionné au démarrage, le reprovisionnement est toujours tenté avec le service DPS dans un premier temps, puis, en cas d’échec, au moyen de la sauvegarde de provisionnement. Si un appareil est configuré pour se reprovisionner dynamiquement lui-même, IoT Edge redémarre et exécute le reprovisionnement si un événement de reprovisionnement est détecté. Pour plus d’informations, consultez [Concepts du reprovisionnement d’appareils IoT Hub](../iot-dps/concepts-device-reprovision.md).
 
@@ -309,22 +308,24 @@ Préparez les informations suivantes :
    
    [provisioning.attestation]
    method = "x509"
-   # registration_id = "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+   registration_id = "<REGISTRATION ID>"
 
-   identity_cert = "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+   identity_cert = "<DEVICE IDENTITY CERTIFICATE>"
 
-   identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   identity_pk = "<DEVICE IDENTITY PRIVATE KEY>"
    ```
 
-1. Mettez à jour les valeurs de `id_scope`, `identity_cert` et `identity_pk` avec vos informations relatives à l’appareil et à DPS.
+1. Mettez à jour la valeur de `id_scope` avec l'ID d'étendue que vous avez copié à partir de votre instance de DPS.
+
+1. Fournissez un `registration_id` pour l'appareil ; il s'agira de l'ID de l'appareil dans IoT Hub. L'ID d'inscription doit correspondre au nom commun du certificat d'identité.
+
+1. Mettez à jour les valeurs d'`identity_cert` et `identity_pk` avec les informations de votre certificat et de votre clé.
 
    La valeur du certificat d’identité peut être fournie sous la forme d’un URI de fichier ou être émise de manière dynamique à l’aide de l’autorité de certification EST ou locale. Supprimez les marques de commentaire d’une seule ligne, selon le format que vous choisissez d’utiliser.
 
    La valeur de la clé privée d’identité peut être fournie sous la forme d’un URI de fichier ou d’un URI PKCS#11. Supprimez les marques de commentaire d’une seule ligne, selon le format que vous choisissez d’utiliser.
 
    Si vous utilisez des URI PKCS#11, recherchez la section **PKCS#11** dans le fichier config et fournissez des informations sur votre configuration de PKCS#11.
-
-1. Vous pouvez fournir un `registration_id` pour l’appareil. Autrement, laissez cette ligne commentée pour inscrire l’appareil avec le nom commun du certificat d’identité.
 
 1. Enregistrez et fermez le fichier.
 

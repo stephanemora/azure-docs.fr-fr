@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 738b875a273faddd20a67be0f6feb90825f66c9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67163cd2e2af43d58133dd5ff843b475fc70e3fc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370510"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767074"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -27,11 +27,11 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 Vous pouvez copier des données **depuis Azure SQL Database** vers les magasins de données suivants :
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 Vous pouvez copier des données depuis les magasins de données suivants **vers Azure SQL Database** :
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## <a name="supported-authentication-type"></a>Type d’authentification pris en charge
 Le connecteur Azure SQL Database prend en charge l’authentification de base.

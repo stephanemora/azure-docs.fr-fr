@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b4b1234b88eafedbd03b78241baaa40231a6cbd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bdb890ac70d60e7742c4818fef27d5959c2df801
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97356801"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142294"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure (Windows) ?
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ Si vous avez besoin d’une haute disponibilité, pensez à configurer les group
 
 ## <a name="performance"></a>Performances
 
-Les machines virtuelles Azure présentent différentes tailles pour répondre aux diverses demandes de charge de travail. Les machines virtuelles SQL Server fournissent également une configuration de stockage automatisée, qui est optimisée pour vos besoins en termes de performances. Pour plus d’informations sur la configuration du stockage des machines virtuelles SQL Server, consultez [Configuration du stockage pour les machines virtuelles SQL Server](storage-configuration.md). Pour ajuster les performances, consultez [Bonnes pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](performance-guidelines-best-practices.md).
+Les machines virtuelles Azure présentent différentes tailles pour répondre aux diverses demandes de charge de travail. Les machines virtuelles SQL Server fournissent également une configuration de stockage automatisée, qui est optimisée pour vos besoins en termes de performances. Pour plus d’informations sur la configuration du stockage des machines virtuelles SQL Server, consultez [Configuration du stockage pour les machines virtuelles SQL Server](storage-configuration.md). Pour ajuster les performances, consultez [Bonnes pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](./performance-guidelines-best-practices-checklist.md).
 
 ## <a name="get-started-with-sql-server-vms"></a>Démarrer avec les machines virtuelles SQL Server
 

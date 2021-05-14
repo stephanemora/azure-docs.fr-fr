@@ -6,12 +6,12 @@ ms.author: mingshen
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: de8e9060f8e7ccdcf38b9f0908dfb05063811817
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b624b8ba997acf75c652a522ce1eae9737371c97
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103402"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133184"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Qu’est-ce que la place de marché commerciale Microsoft ?
 
@@ -75,7 +75,7 @@ Les partenaires qui figurent sur la Place de marché commerciale peuvent bénéf
 
 - Bénéficiez des ressources techniques dont vous avez besoin pour préparer le lancement de votre application, depuis le support technique, la conception de l’application et la conception de son architecture jusqu’à des crédits Azure pour le développement et les tests.
 - notamment l’accès aux principes fondamentaux de commercialisation Microsoft Go-To-Market pour vous aider à lancer et à promouvoir votre solution. Vous pouvez également avoir droit à des opportunités de campagnes marketing Microsoft supplémentaires sur la place de marché commerciale.
-- Atteignez des clients supplémentaires et développez vos opportunités de vente avec le programme [Fournisseur de solutions cloud](https://partner.microsoft.com/cloud-solution-provider) (CSP, Cloud Solution Provider), le programme de [co-vente](marketplace-co-sell.md) et les équipes de vente Microsoft.
+- Atteignez des clients supplémentaires et développez vos opportunités de vente avec le programme [Fournisseur de solutions cloud](https://partner.microsoft.com/cloud-solution-provider) (CSP, Cloud Solution Provider), le programme de [co-vente](./co-sell-overview.md) et les équipes de vente Microsoft.
 
 Pour plus d’informations sur ces avantages, consultez [Vos avantages avec la Place de marché commerciale](gtm-your-marketplace-benefits.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes provoqués par les applications qui ne prennent pas en charge TLS 1.2 | Microsoft Docs
-description: Résolution des problèmes provoqués par les applications qui ne prennent pas en charge TLS 1.2
+title: Résoudre les problèmes provoqués par les applications qui ne prennent pas en charge TLS 1.2 | Microsoft Docs
+description: Résoudre les problèmes provoqués par les applications qui ne prennent pas en charge TLS 1.2
 services: cloud-services
 documentationcenter: ''
 author: tanmaygore
@@ -12,35 +12,36 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: cf7746cc55e81593a1788608cced1253f295a5c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 79a8942fefc497701a05b6d20ab693d932daeb7d
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738376"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166465"
 ---
-# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Résolution des problèmes liés aux applications qui ne prennent pas en charge TLS 1.2
+# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Résoudre les problèmes liés aux applications qui ne prennent pas en charge TLS 1.2
 
 > [!IMPORTANT]
-> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Compte tenu de ce changement, les instances d'Azure Cloud Services exécutées sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
-Cet article décrit comment activer les anciens protocoles TLS (TLS 1.0 et 1.1) et appliquer les suites de chiffrement héritées pour prendre en charge les protocoles supplémentaires sur les rôles web et worker du service cloud Windows Server 2019. 
+Cet article décrit comment activer les anciens protocoles TLS (TLS 1.0 et 1.1) et appliquer les suites de chiffrement héritées pour prendre en charge les protocoles supplémentaires sur les rôles web et worker du service cloud Windows Server 2019.
 
-Parallèlement à nos mesures visant à déprécier TLS 1.0 et TLS 1.1, nous comprenons que certains clients aient besoin de prendre en charge les anciens protocoles et suites de chiffrement dans le but de planifier correctement leur dépréciation.  Bien nous ne recommandions pas de réactiver ces valeurs héritées, les conseils suivants sont destinés aux clients qui peuvent en avoir besoin. Nous encourageons les clients à évaluer le risque de régression avant d’implémenter les changements décrits dans cet article. 
+Parallèlement à nos mesures visant à déprécier TLS 1.0 et TLS 1.1, nous comprenons que certains clients aient besoin de prendre en charge les anciens protocoles et suites de chiffrement dans le but de planifier correctement leur dépréciation.  Bien nous ne recommandions pas de réactiver ces valeurs héritées, les conseils suivants sont destinés aux clients qui peuvent en avoir besoin. Nous encourageons les clients à évaluer le risque de régression avant d’implémenter les changements décrits dans cet article.
 
 > [!NOTE]
 > La version de système d’exploitation invité Family 6 applique TLS 1.2 en désactivant explicitement TLS 1.0 et 1.1 et en définissant un ensemble spécifique de suites de chiffrement. Pour plus d’informations sur les familles de systèmes d’exploitation invités, consultez [Actualités concernant les versions de SE invité](./cloud-services-guestos-update-matrix.md#family-6-releases).
 
+## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Fin de la prise en charge de TLS 1.0/TLS 1.1 et des anciennes suites de chiffrement
 
-## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Fin de la prise en charge de TLS 1.0/TLS 1.1 et des anciennes suites de chiffrement 
-Dans le cadre de son engagement à utiliser un chiffrement optimal, Microsoft a annoncé son intention de renoncer aux protocoles TLS 1.0 et 1.1 en juin 2017.   Depuis cette annonce initiale, Microsoft a communiqué sa volonté de désactiver les protocoles TLS (Transport Layer Security) 1.0 et 1.1 par défaut dans les versions prises en charge de Microsoft Edge et d’Internet Explorer 11 au cours du premier semestre 2020.  Des annonces similaires de la part d’Apple, de Google et de Mozilla confirment la tendance dans le secteur.   
+Dans le cadre de son engagement à utiliser un chiffrement optimal, Microsoft a annoncé son intention de renoncer aux protocoles TLS 1.0 et 1.1 en juin 2017.   Depuis cette annonce initiale, Microsoft a communiqué sa volonté de désactiver les protocoles TLS (Transport Layer Security) 1.0 et 1.1 par défaut dans les versions prises en charge de Microsoft Edge et d’Internet Explorer 11 au cours du premier semestre 2020.  Des annonces similaires de la part d’Apple, de Google et de Mozilla confirment la tendance dans le secteur.
 
 Pour plus d’informations, consultez [Préparation de TLS 1.2 dans Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
 
-## <a name="tls-configuration"></a>Configuration TLS  
-L’image du serveur cloud Windows Server 2019 est configurée de telle sorte que TTLS 1.0 et TLS 1.1 sont désactivés au niveau du Registre. Cela signifie que les applications déployées sur cette version de Windows ET que la pile Windows utilisée pour la négociation TLS n’autorisent pas les communications TLS 1.0 et TLS 1.1.   
+## <a name="tls-configuration"></a>Configuration TLS
 
-Le serveur est également fourni avec un ensemble limité de suites de chiffrement : 
+L’image du serveur cloud Windows Server 2019 est configurée de telle sorte que TTLS 1.0 et TLS 1.1 sont désactivés au niveau du Registre. Cela signifie que les applications déployées sur cette version de Windows ET que la pile Windows utilisée pour la négociation TLS n’autorisent pas les communications TLS 1.0 et TLS 1.1.
+
+Le serveur est également fourni avec un ensemble limité de suites de chiffrement :
 
 ```
     TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
@@ -53,12 +54,11 @@ Le serveur est également fourni avec un ensemble limité de suites de chiffreme
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
 ```
 
-## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Étape 1 : Créer le script PowerShell pour activer TLS 1.0 et TLS 1.1 
+## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Étape 1 : Créer le script PowerShell pour activer TLS 1.0 et TLS 1.1
 
-Utilisez le code suivant comme exemple pour créer un script qui active les anciens protocoles et suites de chiffrement. Dans cette documentation, ce script est nommé comme ceci : **TLSsettings.ps1**. Stockez ce script sur votre Bureau local pouvoir y accéder facilement lors des étapes ultérieures. 
+Utilisez le code suivant comme exemple pour créer un script qui active les anciens protocoles et suites de chiffrement. Dans cette documentation, ce script est nommé comme ceci : **TLSsettings.ps1**. Stockez ce script sur votre Bureau local pouvoir y accéder facilement lors des étapes ultérieures.
 
-
-```Powershell
+```powershell
 # You can use the -SetCipherOrder (or -sco) option to also set the TLS cipher 
 # suite order. Change the cipherorder variable below to the order you want to set on the 
 # server. Setting this requires a reboot to take effect.
@@ -275,9 +275,9 @@ If ($reboot) {
 }
 ```
 
-## <a name="step-2-create-a-command-file"></a>Étape 2 : Créer un fichier de commandes 
+## <a name="step-2-create-a-command-file"></a>Étape 2 : Créer un fichier de commandes
 
-Créez un fichier CMD nommé **RunTLSSettings.cmd** à l’aide de la commande ci-dessous. Stockez ce script sur votre Bureau local pouvoir y accéder facilement lors des étapes ultérieures. 
+Créez un fichier CMD nommé **RunTLSSettings.cmd** à l’aide de la commande ci-dessous. Stockez ce script sur votre Bureau local pouvoir y accéder facilement lors des étapes ultérieures.
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -289,22 +289,21 @@ IF "%ComputeEmulatorRunning%" == "" (
 
 IF "%ComputeEmulatorRunning%" == "false" (
        SET EXECUTE_PS1=1
-) 
+)
 
 IF %EXECUTE_PS1% EQU 1 (
        echo "Invoking TLSsettings.ps1 on Azure service at %TIME% on %DATE%" >> %LOG_FILE% 2>&1       
        PowerShell -ExecutionPolicy Unrestricted %~dp0TLSsettings.ps1 -sco  >> %LOG_FILE% 2>&1
 ) ELSE (
        echo "Skipping TLSsettings.ps1 invocation on emulated environment" >> %LOG_FILE% 2>&1       
-)    
+)
 
 EXIT /B %ERRORLEVEL%
-
 ```
 
-## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Étape 3 : Ajouter la tâche de démarrage à la définition du service de rôle (csdef) 
+## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Étape 3 : Ajouter la tâche de démarrage à la définition de service du rôle (csdef)
 
-Ajoutez l’extrait de code suivant à votre fichier de définition de service existant. 
+Ajoutez l’extrait de code suivant à votre fichier de définition de service existant.
 
 ```
     <Startup> 
@@ -313,7 +312,7 @@ Ajoutez l’extrait de code suivant à votre fichier de définition de service e
     </Startup> 
 ```
 
-Voici un exemple qui montre les rôles worker et web. 
+Voici un exemple qui montre les rôles worker et web.
 
 ```
 <?xmlversion="1.0" encoding="utf-8"?> 
@@ -343,7 +342,7 @@ Voici un exemple qui montre les rôles worker et web.
 </ServiceDefinition> 
 ```
 
-## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Étape 4 : Ajouter les scripts à votre service cloud 
+## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Étape 4 : Ajouter les scripts à votre service cloud
 
 1) Dans Visual Studio, cliquez avec le bouton droit sur votre WebRole ou WorkerRole
 2) Sélectionnez **Ajouter**
@@ -362,7 +361,6 @@ Pour vous assurer que les scripts sont chargés avec chaque mise à jour envoyé
 
 ## <a name="step-6-publish--validate"></a>Étape 6 : Publier et valider
 
-Maintenant que les étapes ci-dessus ont été effectuées, publiez la mise à jour sur votre service cloud existant. 
+Maintenant que les étapes ci-dessus ont été effectuées, publiez la mise à jour sur votre service cloud existant.
 
-Vous pouvez utiliser [SSLLabs](https://www.ssllabs.com/) pour valider l’état TLS de vos points de terminaison. 
-
+Vous pouvez utiliser [SSLLabs](https://www.ssllabs.com/) pour valider l’état TLS de vos points de terminaison.

@@ -8,19 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 03/30/2021
+ms.date: 04/26/2021
 ms.author: pafarley
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: c580828d29e92ecef7ecc73b8f3e5843c3ecd23d
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: fc61f94969311fedaa3fadb8c26e710537198f45
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078878"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018598"
 ---
 # <a name="whats-new-in-face-service"></a>Nouveautés du service Visage
 
 Le service Visage Azure est mis à jour régulièrement. Lisez cet article pour vous tenir informé des améliorations de fonctionnalités, des correctifs et des mises à jour de la documentation.
+
+## <a name="april-2021"></a>Avril 2021
+
+### <a name="persondirectory"></a>PersonDirectory
+
+* Pour effectuer des opérations de reconnaissance faciale, comme Identifier et Rechercher semblables, les clients de l’API Visage doivent créer une liste assortie d’objets **Person**. Le nouveau **PersonDirectory** est une structure de données qui contient des ID uniques, des chaînes de nom facultatives et des chaînes de métadonnées utilisateur facultatives pour chaque identité **Person** ajoutée à l’annuaire. Actuellement, l’API Visage offre la structure **LargePersonGroup** qui a des fonctionnalités similaires, mais est limitée à 1 million d’identités. La structure **PersonDirectory** peut atteindre 75 millions d’identités. Une autre différence majeure entre **PersonDirectory** et les structures de données précédentes est que vous n’avez plus besoin d’effectuer des appels d’entraînement une fois que vous avez ajouté des visages à un objet **Person** (le processus de mise à jour est automatiquement effectué). Pour plus d’informations, consultez [Utiliser la structure PersonDirectory](Face-API-How-to-Topics/use-persondirectory.md).
+
 
 ## <a name="february-2021"></a>Février 2021
 

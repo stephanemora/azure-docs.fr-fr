@@ -12,18 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 04/28/2021
 ms.author: b-juche
-ms.openlocfilehash: a17e6cc0479cf8ff2306736994a369d9e44dfdda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5282c806f5c6011418dabc14d6f82d6b9c0df251
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745942"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206346"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métriques pour Azure NetApp Files
 
 Azure NetApp Files fournit des métriques sur le stockage alloué, l’utilisation réelle du stockage, les IOPS du volume et la latence. En analysant ces métriques, vous en saurez plus sur le mode d'utilisation et les performances des volumes de vos comptes NetApp.  
+
+Vous pouvez rechercher des métriques pour un pool de capacité ou un volume en sélectionnant le **pool de capacité** ou le **volume**.  Cliquez ensuite sur **Métrique** pour afficher les métriques disponibles : 
+
+[ ![Instantané qui montre comment accéder à la liste déroulante de métriques.](../media/azure-netapp-files/metrics-navigate-volume.png)](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
 
 ## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Métriques d'utilisation des pools de capacités
 
@@ -55,6 +59,9 @@ Azure NetApp Files fournit des métriques sur le stockage alloué, l’utilisati
    Taille de tous les instantanés dans un volume.  
 
 ## <a name="performance-metrics-for-volumes"></a>Métriques de performances des volumes
+
+> [!NOTE] 
+> La latence de volume de type *Latence de lecture moyenne* et *Latence d’écriture moyenne* est mesurée au sein du service de stockage sans tenir compte du temps de réponse du réseau.
 
 - *Latence de lecture moyenne*   
     Temps moyen des lectures du volume (en millisecondes).

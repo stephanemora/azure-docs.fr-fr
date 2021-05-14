@@ -11,34 +11,34 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.author: jeedes
-ms.openlocfilehash: f7b77ae0b816fb385c3254d42e45b1fb02778c66
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 1d43a3fddec2c72302ecd607dedec9e4cb340ad3
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951570"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802915"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à PrinterLogic
 
 Ce tutoriel explique comment intégrer PrinterLogic à Azure AD (Azure Active Directory). Quand vous intégrez PrinterLogic à Azure AD, vous pouvez :
 
-* Contrôler, dans Azure AD, qui a accès à PrinterLogic.
-* Permettre à vos utilisateurs de se connecter automatiquement à PrinterLogic avec leur compte Azure AD.
-* Gérer vos comptes à un emplacement central : le Portail Azure.
+- Contrôler, dans Azure AD, qui a accès à PrinterLogic.
+- Permettre à vos utilisateurs de se connecter automatiquement à PrinterLogic avec leur compte Azure AD.
+- Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement PrinterLogic pour lequel l’authentification unique (SSO) est activée.
+- Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+- Un abonnement PrinterLogic pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* PrinterLogic prend en charge l’authentification SSO lancée par **le fournisseur de services (SP) et le fournisseur d’identité (IdP)** .
-* PrinterLogic prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+- PrinterLogic prend en charge l’authentification SSO lancée par **le fournisseur de services (SP) et le fournisseur d’identité (IdP)** .
+- PrinterLogic prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 ## <a name="add-printerlogic-from-the-gallery"></a>Ajouter PrinterLogic à partir de la galerie
 
@@ -58,10 +58,10 @@ Configurez et testez l’authentification unique Azure AD avec PrinterLogic à 
 Pour configurer et tester l’authentification unique Azure AD auprès de PrinterLogic, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+   1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+   1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique PrinterLogic](#configure-printerlogic-sso)** – pour configurer les paramètres d’authentification unique côté application.
-    1. **[Créer un utilisateur de test PrinterLogic](#create-printerlogic-test-user)** – pour avoir un équivalent de B.Simon dans PrinterLogic qui soit lié à la représentation Azure AD de l’utilisateur.
+   1. **[Créer un utilisateur de test PrinterLogic](#create-printerlogic-test-user)** – pour avoir un équivalent de B.Simon dans PrinterLogic qui soit lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -76,37 +76,37 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://gw.app.printercloud.com/<my_instance>/authn/idp/azuread/saml2/metadata`
+   a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://gw.app.printercloud.com/<my_instance>/authn/idp/azuread/saml2/metadata`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://gw.app.printercloud.com/<my_instance>/authn/idp/azuread/saml2/acs`
+   b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://gw.app.printercloud.com/<my_instance>/authn/idp/azuread/saml2/acs`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.<my_instance>printercloud.com`
+   Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.<my_instance>printercloud.com`.
 
-    > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Contactez [l’équipe du support technique client PrinterLogic](mailto:support@printerlogic.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+   > [!NOTE]
+   > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Contactez [l’équipe du support technique client PrinterLogic](mailto:support@printerlogic.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application PrinterLogic attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/edit-attribute.png)
+   ![image](common/edit-attribute.png)
 
 1. En plus de ce qui précède, l’application PrinterLogic s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-    | Nom | Attribut source |
-    | ---------| ------------ |
-    | Role | user.assignedroles |
+   | Nom | Attribut source   |
+   | ---- | ------------------ |
+   | Role | user.assignedroles |
 
-    > [!NOTE]
-    > Cliquez [ici](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) pour savoir comment configurer un rôle dans Azure AD.
+   > [!NOTE]
+   > Cliquez [ici](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) pour savoir comment configurer un rôle dans Azure AD.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/certificatebase64.png)
+   ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
 1. Dans la section **Configurer PrinterLogic**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+   ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom**, entrez `B.Simon`.
    1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
@@ -140,19 +140,19 @@ Pour configurer l’authentification unique côté **PrinterLogic**, vous devez 
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans PrinterLogic. PrinterLogic prend en charge le provisionnement d’utilisateurs juste-à-temps, qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans PrinterLogic, un utilisateur est créé après l’authentification.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
 #### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Une redirection est effectuée vers l’URL de connexion à PrinterLogic, où vous pouvez lancer le flux de connexion.  
+- Cliquez sur **Tester cette application** dans le portail Azure. Une redirection est effectuée vers l’URL de connexion à PrinterLogic, où vous pouvez lancer le flux de connexion.
 
-* Accédez directement à l’URL de connexion à PrinterLogic, puis lancez le flux de connexion à partir de cet emplacement.
+- Accédez directement à l’URL de connexion à PrinterLogic, puis lancez le flux de connexion à partir de cet emplacement.
 
 #### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors connecté automatiquement à l’instance de PrinterLogic pour laquelle vous avez configuré l’authentification SSO. 
+- Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors connecté automatiquement à l’instance de PrinterLogic pour laquelle vous avez configuré l’authentification SSO.
 
 Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette PrinterLogic dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de PrinterLogic pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 

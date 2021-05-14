@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 04/23/2021
 ms.author: duau
-ms.openlocfilehash: 796e35be12939920f9392e6f3ce4cae660415f80
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 62f51922399a300b9ed803c3ee2d380dcab615b8
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504683"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987521"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>À propos des passerelles de réseau virtuel ExpressRoute
 
@@ -36,12 +36,18 @@ Si vous souhaitez mettre à niveau votre passerelle vers une référence (SKU) d
 ### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>Performances estimées par référence (SKU) de passerelle
 Le tableau ci-dessous présente les types de passerelle et les performances estimées. Cette table s’applique aux modèles de déploiement classique et Resource Manager.
 
+> [!IMPORTANT]
+> Les performances de l’application dépendent de plusieurs facteurs, tels que la latence de bout en bout et le nombre de flux de trafic que l’application ouvre. Les numéros indiqués dans le tableau représentent la limite supérieure que l’application peut théoriquement atteindre dans un environnement idéal.
+>
+>
+
+> [!NOTE]
+> Pour toutes les passerelles, quatre circuits ExpressRoute au maximum peuvent se connecter au même réseau virtuel à partir du même emplacement d’appairage.
+>
+>
+
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
-> [!IMPORTANT]
-> * Le nombre de machines virtuelles dans le réseau virtuel comprend également des machines virtuelles dans des réseaux virtuels homologués qui utilisent la passerelle ExpressRoute distante.
-> * Les performances de l’application dépendent de plusieurs facteurs, tels que la latence de bout en bout et le nombre de flux de trafic que l’application ouvre. Les numéros indiqués dans le tableau représentent la limite supérieure que l’application peut théoriquement atteindre dans un environnement idéal.
->
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>Sous-réseau de passerelle
 

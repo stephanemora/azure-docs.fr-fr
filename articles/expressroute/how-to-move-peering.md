@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 04/28/2021
 ms.author: duau
-ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be671ec7a1f2e8fb11c49b8d17290c88f5db254a
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92206286"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203376"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Déplacer un peering public vers le peering Microsoft
 
@@ -33,7 +33,8 @@ Pour vous connecter au peering Microsoft, vous devez configurer et gérer un pro
 
 Reportez-vous à [Routage asymétrique avec chemins d’accès réseau multiples](./expressroute-asymmetric-routing.md) pour bien comprendre le routage asymétrique avant de configurer le peering Microsoft.
 
-* Si vous utilisez le peering public et disposez actuellement de règles de réseau IP pour les adresses IP publiques qui sont utilisées pour accéder au [Stockage Azure](../storage/common/storage-network-security.md) ou à [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), vérifiez que le pool d’adresses IP NAT configuré avec l’appairage Microsoft se trouve bien dans la liste des adresses IP publiques du compte de stockage Azure ou du compte Azure SQL.<br>
+* Si vous utilisez le peering public et disposez actuellement de règles de réseau IP pour les adresses IP publiques qui sont utilisées pour accéder au [Stockage Azure](../storage/common/storage-network-security.md) ou à [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), vérifiez que le pool d’adresses IP NAT configuré avec l’appairage Microsoft se trouve bien dans la liste des adresses IP publiques du compte de stockage Azure ou du compte Azure SQL.
+* Notez que le peering public hérité utilise la traduction d’adresses réseau (SNAT) source pour une adresse IP publique inscrite par Microsoft, ce qui n’est pas le cas du peering Microsoft.
 * Pour passer au peering Microsoft sans temps d’arrêt, suivez les étapes fournies dans cet article, dans l’ordre indiqué.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Créer un peering Microsoft

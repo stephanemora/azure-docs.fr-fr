@@ -4,13 +4,13 @@ description: Guide pratique pour déployer un réseau de consortium Hyperledger 
 ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: contperf-fy21q3, devx-track-azurecli
+ms.openlocfilehash: 03f19d1922c011c1b5304b66488e9fa8de703bf9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102101101"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478300"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Déployer Consortium Hyperledger Fabric sur Azure Kubernetes Service
 
@@ -124,7 +124,7 @@ L’illustration suivante montre la procédure pas à pas pour créer un consort
 
 ![Diagramme du processus de création d’un consortium.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Une fois l’installation initiale terminée, utilisez l’application cliente pour accomplir les opérations suivantes :  
+Une fois l’installation initiale terminée, utilisez l’application cliente pour accomplir les opérations suivantes :
 
 - Gestion de canal
 - Gestion de consortium
@@ -293,15 +293,15 @@ De même, pour ajouter d’autres organisations homologues dans le canal, mettez
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
 USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
+# If you are using chaincode_example02 then set CC_NAME=â€œchaincode_example02â€
 CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=“1” for validation
+# If you are using chaincode_example02 then set CC_VERSION=â€œ1â€ for validation
 CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=â€œ/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/goâ€
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
@@ -355,7 +355,7 @@ Transmettez `<transientArgs>` en tant que JSON valide dans un format de chaîne.
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Transmettez le nom de la fonction d’appel et la liste des arguments séparés par des espaces dans `<invokeFunction>` et `<invokeFuncArgs>` , respectivement. En poursuivant avec l’exemple de code chaîné chaincode_example02.go, pour effectuer l’opération d’appel, définissez  `<invokeFunction>` sur  `invoke` et  `<invokeFuncArgs>` sur `"a" "b" "10"`.  
+Transmettez le nom de la fonction d’appel et la liste des arguments séparés par des espaces dans `<invokeFunction>` et `<invokeFuncArgs>`, respectivement. En poursuivant avec l’exemple de code chaîné chaincode_example02.go, pour effectuer l’opération d’appel, définissez `<invokeFunction>` sur `invoke` et `<invokeFuncArgs>` sur `"a" "b" "10"`.  
 
 >[!NOTE]
 > Exécutez la commande une seule fois à partir d’une organisation homologue dans le canal. Une fois la transaction envoyée à l’ordonnanceur, ce dernier distribue cette transaction à toutes les organisations homologues dans le canal. L’état du monde est alors mis à jour sur tous les nœuds homologues de toutes les organisations homologues dans le canal.  
@@ -372,7 +372,7 @@ Les homologues d’endossement sont des homologues dans lesquels un code chaîn�
 
 Si vous utilisez *azhlfTool* pour installer du code chaîné, transmettez tous les noms de nœuds homologues en tant que valeur à l’argument d’homologue d’endossement. Le code chaîné est installé sur chaque nœud homologue de cette organisation. 
 
-Transmettez le nom de la fonction de requête et la liste des arguments séparés par des espaces dans  `<queryFunction>` et  `<queryFuncArgs>`, respectivement. Là encore, en prenant comme référence le code chaîné chaincode_example02.go, pour interroger la valeur de « a» dans l’état du monde, définissez  `<queryFunction>` sur  `query` et  `<queryArgs>` sur `"a"`.  
+Transmettez le nom de la fonction de requête et la liste des arguments séparés par des espaces dans `<queryFunction>` et `<queryFuncArgs>`, respectivement. Là encore, en prenant comme référence le code chaîné chaincode_example02.go, pour interroger la valeur de « a » dans l’état du monde, définissez `<queryFunction>` sur `query` et `<queryArgs>` sur `"a"`.  
 
 ## <a name="troubleshoot"></a>Dépanner
 

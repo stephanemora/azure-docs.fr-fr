@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 15bf8f4fde2128181664fa7b94f2479bac7ad5b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60b58f7cf67a22e019ff186e4e1811ff5b001d84
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98881515"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714449"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
@@ -156,7 +156,11 @@ Téléchargez le modèle comme suit :
 6. Sélectionnez **Confirmer que la région cible pour la migration est « nom_région »** .
 7. Cliquez sur **Créer des ressources**. Un coffre Azure Site Recovery est créé en arrière-plan. Vous ne pouvez pas changer la région cible du projet après avoir cliqué sur ce bouton : toutes les migrations suivantes seront effectuées dans cette région.
 
-    ![Créer un coffre Recovery Services](./media/tutorial-migrate-vmware-agent/create-resources.png)
+    ![Créer un coffre Recovery Services](./media/tutorial-migrate-vmware-agent/create-resources.png)  
+
+    > [!NOTE]
+    > Si vous avez sélectionné « Point de terminaison privé » comme méthode de connectivité pour le projet Azure Migrate lors de sa création, le coffre Recovery Services est également configuré pour la connectivité de point de terminaison privé. Vérifiez que les points de terminaison privés sont accessibles depuis l’appliance de réplication : [**En savoir plus**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
+
 
 8. Dans **Voulez-vous installer une nouvelle appliance de réplication ?** , sélectionnez **Installer une appliance de réplication**.
 9. Cliquez sur **Télécharger**. Un modèle OVF est téléchargé.
@@ -245,12 +249,17 @@ Sélectionnez les machines virtuelles pour la migration.
     - Aucune option de redondance de l’infrastructure n’est requise si vous n’avez pas besoin de ces configurations de disponibilité pour les machines migrées.
 9. Cochez chaque machine virtuelle devant faire l’objet d’une migration. Cliquez ensuite sur **Suivant : Paramètres de la cible**.
 10. Dans **Paramètres de la cible**, sélectionnez l’abonnement et la région cible vers laquelle vous allez migrer, puis spécifiez le groupe de ressources dans lequel les machines virtuelles Azure résideront après la migration.
-11. Dans **Réseau virtuel**, sélectionnez le réseau virtuel/sous-réseau Azure auquel les machines virtuelles Azure seront jointes après la migration.
-12. Dans **Options de disponibilité**, sélectionnez :
+11. Dans **Réseau virtuel**, sélectionnez le réseau virtuel/sous-réseau Azure auquel les machines virtuelles Azure seront jointes après la migration.  
+12. Dans **Compte de stockage de cache**, conservez l’option par défaut pour utiliser le compte de stockage de cache créé automatiquement pour le projet. Utilisez la liste déroulante si vous voulez spécifier un autre compte de stockage à utiliser comme compte de stockage de cache pour la réplication. <br/> 
+    > [!NOTE]
+    >
+    > - Si vous avez sélectionné « Point de terminaison privé » comme méthode de connectivité pour le projet Azure Migrate, accordez au coffre Recovery Services l’accès au compte de stockage de cache. [**En savoir plus**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
+    > - Pour répliquer en utilisant ExpressRoute avec le peering privé, créez un point de terminaison privé pour le compte de stockage de cache. [**En savoir plus**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+13. Dans **Options de disponibilité**, sélectionnez :
     -  Zone de disponibilité pour épingler la machine migrée à une Zone de disponibilité spécifique dans la région. Utilisez cette option pour distribuer les serveurs qui forment une couche Application à plusieurs nœuds entre des Zones de disponibilité. Si vous sélectionnez cette option, vous devez spécifier la Zone de disponibilité à utiliser pour chaque machine sélectionnée dans l’onglet Calcul. Cette option est disponible uniquement si la région cible sélectionnée pour la migration prend en charge les Zones de disponibilité
     -  Groupe à haute disponibilité pour placer la machine migrée dans un groupe à haute disponibilité. Pour utiliser cette option, le groupe de ressources cible qui a été sélectionné doit avoir un ou plusieurs groupes à haute disponibilité.
     - Aucune option de redondance de l’infrastructure n’est requise si vous n’avez pas besoin de ces configurations de disponibilité pour les machines migrées.
-13. Dans **Type de chiffrement de disque**, sélectionnez :
+14. Dans **Type de chiffrement de disque**, sélectionnez :
     - Chiffrement au repos avec une clé gérée par la plateforme
     - Chiffrement au repos avec une clé gérée par le client
     - Chiffrement double avec des clés gérées par la plateforme et des clés gérées par le client
@@ -258,25 +267,25 @@ Sélectionnez les machines virtuelles pour la migration.
    > [!NOTE]
    > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
   
-14. Dans **Azure Hybrid Benefit** :
+15. Dans **Azure Hybrid Benefit** :
 
     - Sélectionnez **Non** si vous ne souhaitez pas appliquer Azure Hybrid Benefit. Cliquez ensuite sur **Suivant**.
     - Sélectionnez **Oui** si vous avez des machines Windows Server couvertes par des abonnements Software Assurance ou Windows Server actifs et que vous souhaitez appliquer l’avantage aux machines que vous migrez. Cliquez ensuite sur **Suivant**.
 
     ![Paramètres de la cible](./media/tutorial-migrate-vmware/target-settings.png)
 
-15. Dans **Calcul**, vérifiez le nom de la machine virtuelle, sa taille, le type de disque du système d’exploitation et la configuration de la disponibilité (si elle a été sélectionnée à l’étape précédente). Les machines virtuelles doivent satisfaire aux [exigences d’Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+16. Dans **Calcul**, vérifiez le nom de la machine virtuelle, sa taille, le type de disque du système d’exploitation et la configuration de la disponibilité (si elle a été sélectionnée à l’étape précédente). Les machines virtuelles doivent satisfaire aux [exigences d’Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
    - **Taille de la machine virtuelle** : si vous suivez les recommandations de l’évaluation, la liste déroulante Taille de la machine virtuelle affiche la taille recommandée. Sinon, Azure Migrate choisit une taille qui correspond à la taille la plus proche dans l’abonnement Azure. Vous pouvez également choisir une taille manuelle dans **Taille de la machine virtuelle Azure**. 
     - **Disque de système d’exploitation** : spécifiez le disque du système d’exploitation (démarrage) pour la machine virtuelle. Le disque du système d’exploitation est le disque qui contient le chargeur de démarrage et le programme d’installation du système d’exploitation. 
     - **Zone de disponibilité** : Spécifiez la zone de disponibilité à utiliser.
     - **Groupe à haute disponibilité** : Spécifiez le groupe à haute disponibilité à utiliser.
 
-16. Dans **Disques**, indiquez si les disques de machine virtuelle doivent être répliqués sur Azure, puis sélectionnez le type de disque (SSD/HDD standard ou disques managés Premium) dans Azure. Cliquez ensuite sur **Suivant**.
+17. Dans **Disques**, indiquez si les disques de machine virtuelle doivent être répliqués sur Azure, puis sélectionnez le type de disque (SSD/HDD standard ou disques managés Premium) dans Azure. Cliquez ensuite sur **Suivant**.
     - Vous pouvez exclure des disques de la réplication.
     - Si vous excluez des disques, ils ne seront pas présents sur la machine virtuelle Azure après la migration. 
 
-17. Dans **Passer en revue et démarrer la réplication**, passez en revue les paramètres, puis cliquez sur **Répliquer** pour démarrer la réplication initiale pour les serveurs.
+18. Dans **Passer en revue et démarrer la réplication**, passez en revue les paramètres, puis cliquez sur **Répliquer** pour démarrer la réplication initiale pour les serveurs.
 
 > [!NOTE]
 > Vous pouvez mettre à jour les paramètres de réplication à tout moment avant le démarrage de la réplication (**Gérer** > **Réplication des machines**). Vous ne pouvez pas changer les paramètres après le démarrage de la réplication.

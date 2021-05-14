@@ -5,20 +5,24 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: eb54ad3e5e7d3db5fc1a399c473de81531e27178
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91707861"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988583"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Réplication logique et décodage logique dans le serveur flexible Azure Database pour PostgreSQL
 
 > [!IMPORTANT]
 > Le serveur flexible Azure Database pour PostgreSQL est en préversion
 
-La réplication logique et le décodage logique de PostgreSQL sont pris en charge dans le serveur flexible Azure Database pour PostgreSQL version 11.
+Azure Database pour PostgreSQL - Serveur flexible prend en charge les méthodologies d’extraction et de réplication logiques des données suivantes :
+1. **Réplication logique**
+   1. Utilisation de la [réplication logique native](https://www.postgresql.org/docs/12/logical-replication.html) de PostgreSQL pour répliquer des objets de données. La réplication logique permet un contrôle affiné de la réplication des données, notamment la réplication des données au niveau de la table.
+   2. Utilisation de l’extension [pglogical](https://github.com/2ndQuadrant/pglogical) qui fournit une réplication logique en continu et des capacités supplémentaires telles que la copie du schéma initial de la base de données, la prise en charge de TRUNCATE, la possibilité de répliquer le langage de définition de données (DDL), etc.
+2. **Décodage logique** implémenté par le [décodage](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) du contenu du journal WAL (write-ahead log). 
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Comparaison de la réplication logique et du décodage logique
 La réplication logique et le décodage logique ont plusieurs similitudes. Les deux
@@ -37,7 +41,6 @@ Décodage logique
 * extrait des modifications dans toutes les tables d’une base de données ; 
 * ne peut pas envoyer directement des données entre des instances PostgreSQL.
 
-
 ## <a name="pre-requisites-for-logical-replication-and-logical-decoding"></a>Conditions préalables pour la réplication logique et le décodage logique
 
 1. Définissez le paramètre du serveur `wal_level` sur `logical`.
@@ -48,10 +51,9 @@ Décodage logique
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
 
-
 ## <a name="using-logical-replication-and-logical-decoding"></a>Utilisation de la réplication logique et du décodage logique
 
-### <a name="logical-replication"></a>Réplication logique
+### <a name="native-logical-replication"></a>Réplication logique native
 La réplication logique utilise les termes « éditeur » et « abonné ». 
 * L’éditeur est la base de données PostgreSQL **à partir de laquelle** vous envoyez des données. 
 * L’abonné est la base de données PostgreSQL **vers laquelle** vous envoyez des données.
@@ -89,6 +91,31 @@ Vous pouvez ajouter des lignes à la table de l’éditeur et afficher les modif
 
 Consultez la documentation PostgreSQL pour en savoir plus sur la [réplication logique](https://www.postgresql.org/docs/current/logical-replication.html).
 
+
+### <a name="pglogical-extension"></a>Extension pglogical
+
+Voici un exemple de configuration de pglogical au niveau du serveur de base de données du fournisseur et de l’abonné. Pour plus d’informations, reportez-vous à la documentation de l’extension pglogical.
+
+1. Installez l’extension pglogical sur les serveurs de bases de données du fournisseur et de l’abonné.
+    ```SQL
+   CREATE EXTENSION pglogical;
+   ```
+2. Sur le serveur de base de données du fournisseur, créez le nœud du fournisseur.
+   ```SQL
+   select pglogical.create_node( node_name := 'provider1', dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
+3. Ajoutez les tables du schéma testUser au jeu de réplication par défaut.
+    ```SQL
+   SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
+   ```
+4. Sur le serveur de l’abonné, créez un nœud d’abonné.
+   ```SQL
+   select pglogical.create_node( node_name := 'subscriber1', dsn := ' host=mySubscriberDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
+5. Créez un abonnement pour démarrer le processus de synchronisation et de réplication.
+    ```SQL
+   select pglogical.create_subscription( subscription_name := 'subscription1', provider_dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
+   ```
 ### <a name="logical-decoding"></a>Décodage logique
 Le décodage logique peut être utilisé via le protocole de diffusion en continu ou une interface SQL. 
 
@@ -175,7 +202,8 @@ SELECT * FROM pg_replication_slots;
 [Définissez les alertes](howto-alert-on-metrics.md) sur le **nombre maximal d’ID de transactions utilisés** et le **stockage utilisé** des métriques de serveur flexible pour vous avertir lorsque les valeurs augmentent au-delà des seuils normaux. 
 
 ## <a name="limitations"></a>Limites
-* **Réplicas en lecture** - Les réplicas en lecture d’Azure Database pour PostgreSQL ne sont pas pris en charge pour les serveurs flexibles.
+* Les limites de la **réplication logique** s’appliquent comme indiqué [ici](https://www.postgresql.org/docs/12/logical-replication-restrictions.html).
+* **Réplicas en lecture** : Les réplicas en lecture d’Azure Database pour PostgreSQL ne sont pas pris en charge par les serveurs flexibles.
 * **Emplacements et basculement à haute disponibilité** -Les emplacements de réplication logique sur le serveur principal ne sont pas disponibles sur le serveur de secours de votre serveur secondaire AZ. Cela s’applique si votre serveur utilise l’option haute disponibilité redondante interzone. En cas de basculement vers le serveur de secours, les emplacements de réplication logique ne sont pas disponibles sur le serveur de secours.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel JavaScript : Principales caractéristiques de l’intégration de la recherche'
 titleSuffix: Azure Cognitive Search
-description: Comprendre les requêtes de recherche du SDK JavaScript utilisées dans le site web avec fonctionnalité de recherche
+description: Comprenez les requêtes d’intégration de la recherche du SDK JavaScript utilisées dans le site web avec fonctionnalité de recherche grâce à cet aide-mémoire.
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -10,16 +10,20 @@ ms.topic: tutorial
 ms.date: 03/09/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: cf4e1b1ecf209b587a45ca4c43607bfa95155aee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f6c23c7b0870fe8caed1f82e8ce102539aa2e950
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104723459"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950222"
 ---
-# <a name="4---search-integration-highlights"></a>4 - Principales caractéristiques de l’intégration de la recherche
+# <a name="4---javascript-search-integration-cheat-sheet"></a>4 - Aide-mémoire de l’intégration de la recherche JavaScript
 
 Dans les leçons précédentes, vous avez ajouté la recherche à une application web statique. Cette leçon met en évidence les étapes essentielles qui établissent l’intégration. Si vous recherchez une aide-mémoire sur l’intégration de la recherche dans votre application JavaScript, cet article explique ce que vous devez savoir.
+
+L’application est disponible : 
+* [Exemple](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website)
+* [Site web de démonstration - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## <a name="azure-sdk-azuresearch-documents"></a>Kit de développement logiciel (SDK) Azure @azure/search-documents 
 

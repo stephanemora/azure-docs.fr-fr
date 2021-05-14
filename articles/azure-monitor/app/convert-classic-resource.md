@@ -3,12 +3,13 @@ title: Migrer une ressource Azure Monitor Application Insights classique vers un
 description: En savoir plus sur les étapes requises pour mettre à niveau votre Azure Monitor Application Insights ressource classique vers le nouveau modèle basé sur l’espace de travail.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 329cfed646a2dbc2a417c1468895de62088058f6
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584252"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316692"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrer vers des ressources de Application Insights basées sur un espace de travail
 
@@ -114,7 +115,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Pour obtenir la documentation Azure CLI complète pour cette commande, consultez la [documentation Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update).
+Pour obtenir la documentation Azure CLI complète pour cette commande, consultez la [documentation Azure CLI](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_update).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

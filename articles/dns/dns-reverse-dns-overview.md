@@ -10,32 +10,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/29/2017
+ms.date: 04/26/2021
 ms.author: rohink
-ms.openlocfilehash: 8af9549efc3e8dab54f55dd404346d87201dee2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f1cde9587615dbbecc450551a3b19fe02db85f5
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94965610"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108065256"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Vue d’ensemble du DNS inversé et prise en charge dans Azure
 
-Cet article donne une vue d’ensemble du fonctionnement du DNS inversé et des scénarios DNS inversés pris en charge dans Azure.
+Cet article fournit une vue d’ensemble du fonctionnement du DNS inversé et des scénarios dans lesquels le DNS inversé est pris en charge dans Azure.
 
 ## <a name="what-is-reverse-dns"></a>Qu’est-ce que le DNS inversé ?
 
-Les enregistrements DNS traditionnels permettent d’effectuer des mappages à partir d’un nom de DNS (par exemple, « www.contoso.com ») vers une adresse IP (par exemple, 64.4.6.100).  Le DNS inversé permet la traduction d’une adresse IP (64.4.6.100) en nom (« www.contoso.com »).
+Les enregistrements DNS conventionnels mappent un nom DNS à une adresse IP. Par exemple, `www.contoso.com` se résout en 64.4.6.100. Un DNS inversé fait l’inverse en traduisant une adresse IP en un nom. Par exemple, une recherche de 64.4.6.100 sera résolue en `www.contoso.com`.
 
-Les enregistrements DNS inversés sont utilisés dans de nombreuses situations. Par exemple, les enregistrements DNS inversés sont largement utilisés dans la lutte contre les messages indésirables en vérifiant l’expéditeur d’un message électronique.  Le serveur des courriers entrants récupère l’enregistrement DNS inversé de l’adresse IP du serveur d’envoi et vérifie si cet hôte est autorisé à envoyer des e-mails depuis le domaine d’origine. 
+Les enregistrements DNS inversés sont utilisés dans diverses situations. Par exemple, les enregistrements DNS inversés sont largement utilisés dans la lutte contre les messages indésirables en vérifiant l’expéditeur d’un message électronique.  Le serveur de messagerie destinataire récupère l’enregistrement DNS inversé de l’adresse IP du serveur expéditeur. Ensuite, le serveur de messagerie destinataire vérifie si cet hôte est autorisé à envoyer des e-mails à partir du domaine d’origine.
 
 ## <a name="how-reverse-dns-works"></a>Fonctionnement du DNS inversé
 
-Les enregistrements DNS inversés sont hébergés dans des zones DNS spéciales, appelées zones « ARPA ».  Ces zones forment une hiérarchie DNS distincte en parallèle avec la hiérarchie classique hébergeant des domaines tels que « contoso.com ».
+Les enregistrements DNS inversés sont hébergés dans des zones DNS spéciales, appelées zones « ARPA ».  Ces zones forment une hiérarchie DNS distincte, parallèle à la hiérarchie classique hébergeant des domaines tels que `contoso.com`.
 
-Par exemple, l’enregistrement DNS « www.contoso.com » est implémenté à l’aide d’un enregistrement DNS « A » avec le nom « www » dans la zone « contoso.com ».  Cet enregistrement A pointe vers l’adresse IP correspondante, dans ce cas 64.4.6.100.  La recherche inversée est implémentée séparément, à l’aide d’un enregistrement « PTR » nommé « 100 » dans la zone « 6.4.64.in-addr.arpa » (notez que les adresses IP sont inversées dans les zones ARPA).  Cet enregistrement PTR, s’il a été configuré correctement, pointe vers le nom « www.contoso.com ».
+Par exemple, l’enregistrement DNS `www.contoso.com` est implémenté à l’aide d’un enregistrement DNS « A » avec le nom « www » dans la zone `contoso.com`. Cet enregistrement A pointe vers l’adresse IP correspondante, dans ce cas 64.4.6.100.  La recherche inversée est implémentée séparément, à l’aide d’un enregistrement « PTR » nommé « 100 » dans la zone « 6.4.64.in-addr.arpa ». Notez que les adresses IP sont inversées dans les zones ARPA. Lorsqu’il est correctement configuré, cet enregistrement PTR pointe vers le nom `www.contoso.com`.
 
-Lorsqu’une organisation est affectée à un bloc d’adresses IP, elle acquiert également le droit de gestion de la zone ARPA correspondante. Les zones ARPA qui correspondent aux blocs d’adresses IP utilisés par Azure sont hébergées et gérées par Microsoft. Votre fournisseur de services Internet peut héberger la zone ARPA pour vos propres adresses IP, ou peut vous autoriser à héberger la zone ARPA dans le service DNS de votre choix, par exemple Azure DNS.
+Lorsqu’une organisation est affectée à un bloc d’adresses IP, elle acquiert également le droit de gestion de la zone ARPA correspondante. Les zones ARPA qui correspondent aux blocs d’adresses IP utilisés par Azure sont hébergées et gérées par Microsoft. Votre fournisseur de services Internet peut héberger la zone ARPA pour vous pour les adresses IP que vous avez détenues. Il peut également vous permettre d’héberger la zone ARPA dans un service DNS de votre choix, tel qu’Azure DNS.
 
 > [!NOTE]
 > Les recherches DNS directes et inversées sont implémentées dans des hiérarchies DNS distinctes, en parallèle. La recherche inversée pour « www.contoso.com » n’est **pas** hébergée dans la zone « contoso.com », mais dans la zone ARPA pour le bloc d’adresses IP correspondant. Plusieurs zones distinctes sont utilisées pour les blocs d’adresses IPv4 et IPv6.
@@ -54,42 +54,44 @@ Par exemple, lorsque vous créez une zone inversée pour héberger des enregistr
 
 ### <a name="classless-ipv4-delegation"></a>Délégation de IPv4 sans classe
 
-Dans certains cas, la plage d’adresses IP allouée à une organisation est inférieure à une plage de classe C (/ 24). Dans ce cas, la plage d’adresses IP ne tombe pas dans une zone limite à l’intérieur de la `.in-addr.arpa` hiérarchie de zone. Par conséquent, elle ne peut pas être déléguée en tant que zone enfant.
+Dans certains cas, la plage d’adresses IP donnée à une organisation est plus petite qu’une plage de classe C (/24). Dans ce cas, la plage d’adresses IP ne tombe pas dans une limite de zone à l’intérieur de la hiérarchie de zone `.in-addr.arpa`. Par conséquent, elle ne peut pas être déléguée en tant que zone enfant.
 
-Au lieu de cela, un mécanisme différent est utilisé pour transférer le contrôle des enregistrements de chaque recherche inversée (PTR) vers une zone DNS dédiée. Ce mécanisme délègue une zone enfant pour chaque plage d’adresses IP, puis mappe chaque adresse IP de la plage individuellement vers cette zone enfant à l’aide d’enregistrements CNAME.
+Une autre méthode est utilisée pour transférer chaque enregistrement de recherche inversée vers une zone DNS dédiée. Cette méthode délègue une zone enfant pour chaque plage d’adresses IP. Ensuite, chaque adresse IP de la plage est mappée individuellement vers cette zone enfant à l’aide d’enregistrements CNAME.
 
-Par exemple, supposons qu’une organisation se voit attribué la plage d’adresses IP 192.0.2.128/26 par son fournisseur de services Internet. Cela représente 64 adresses IP, allant de 192.0.2.128 à 192.0.2.191. Le DNS inversé de cette plage est mis en œuvre comme suit :
-- L’organisation crée une zone de recherche inversée appelée 128-26.2.0.192.in-addr.arpa. Le préfixe « 128-26 » représente le segment réseau attribué à l’organisation au sein de la plage de Classe C (/ 24).
-- Le fournisseur de services Internet crée des enregistrements NS afin de configurer la délégation DNS pour la zone ci-dessus depuis la zone parente de Classe C. Il crée également des enregistrements CNAME dans la zone de recherche inversée parente (Classe C), en mappant chaque adresse IP dans la plage d’adresses IP vers la nouvelle zone créée par l’organisation :
+Par exemple, supposons que votre organisation se voit attribuer la plage d’adresses IP 192.0.2.128/26 par votre fournisseur de services Internet. Ce bloc d’adresses représente 64 adresses IP, de 192.0.2.128 à 192.0.2.191. Le DNS inversé de cette plage est mis en œuvre comme suit :
+- Votre organisation crée une zone de recherche inversée appelée 128-26.2.0.192.in-addr.arpa. Le préfixe « 128-26 » représente le segment réseau attribué à votre organisation au sein de la plage de classe C (/24).
+- Votre fournisseur de services Internet crée des enregistrements NS afin de configurer la délégation DNS pour la zone ci-dessus depuis la zone parente de classe C. Le fournisseur de services Internet crée également des enregistrements CNAME dans la zone de recherche inversée parente (classe C). Ensuite, il mappe chaque adresse IP de la plage d’adresses IP à la nouvelle zone créée par votre organisation :
 
-```
-$ORIGIN 2.0.192.in-addr.arpa
-; Delegate child zone
-128-26    NS       <name server 1 for 128-26.2.0.192.in-addr.arpa>
-128-26    NS       <name server 2 for 128-26.2.0.192.in-addr.arpa>
-; CNAME records for each IP address
-129       CNAME    129.128-26.2.0.192.in-addr.arpa
-130       CNAME    130.128-26.2.0.192.in-addr.arpa
-131       CNAME    131.128-26.2.0.192.in-addr.arpa
-; etc
-```
-- L’organisation gère les enregistrements PTR individuels au sein de leur zone enfant.
+    ```
+    $ORIGIN 2.0.192.in-addr.arpa
+    ; Delegate child zone
+    128-26    NS       <name server 1 for 128-26.2.0.192.in-addr.arpa>
+    128-26    NS       <name server 2 for 128-26.2.0.192.in-addr.arpa>
+    ; CNAME records for each IP address
+    129       CNAME    129.128-26.2.0.192.in-addr.arpa
+    130       CNAME    130.128-26.2.0.192.in-addr.arpa
+    131       CNAME    131.128-26.2.0.192.in-addr.arpa
+    ; etc
+    ```
 
-```
-$ORIGIN 128-26.2.0.192.in-addr.arpa
-; PTR records for each UIP address. Names match CNAME targets in parent zone
-129      PTR    www.contoso.com
-130      PTR    mail.contoso.com
-131      PTR    partners.contoso.com
-; etc
-```
-Une recherche inversée pour les requêtes de l’adresse IP « 192.0.2.129 » pour un enregistrement PTR nommé « 129.2.0.192.in-addr.arpa ». Cette requête résout l’enregistrement PTR dans la zone enfant via le CNAME dans la zone parente.
+- Votre organisation gère ensuite les enregistrements PTR individuels au sein de sa zone enfant.
+
+    ```
+    $ORIGIN 128-26.2.0.192.in-addr.arpa
+    ; PTR records for each UIP address. Names match CNAME targets in parent zone
+    129      PTR    www.contoso.com
+    130      PTR    mail.contoso.com
+    131      PTR    partners.contoso.com
+    ; etc
+    ```
+
+Une recherche inversée pour les requêtes de l’adresse IP « 192.0.2.129 » pour un enregistrement PTR nommé « 129.2.0.192.in-addr.arpa ». Cette requête résout l’enregistrement PTR dans la zone enfant avec le CNAME de la zone parente.
 
 ### <a name="ipv6"></a>IPv6
 
 Le nom d’une zone de recherche inversée IPv6 doit se présenter sous la forme suivante : `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Par exemple, lorsque vous créez une zone inversée afin d’héberger des enregistrements pour des hôtes dont les adresses IP contiennent le préfixe 2001:db8:1000:abdc::/64, le nom de zone est créé en isolant le préfixe réseau de l’adresse (2001:db8:abdc::). Développez ensuite le préfixe réseau IPv6 pour supprimer [la compression des zéros](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10)), s’il a été utilisé pour raccourcir le préfixe d’adresse IPv6 (2001:0db8:abdc:0000::). Inversez l’ordre, à l’aide d’un point comme séparateur entre chaque nombre hexadécimal dans le préfixe, pour générer le préfixe réseau inversé (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) et ajouter le suffixe `.ip6.arpa`.
+Par exemple, lorsque vous créez une zone inversée pour les enregistrements d’hôtes dont l’adresse IP se trouve dans le préfixe 2001:db8:1000:abdc::/64. Le nom de la zone serait créé en isolant le préfixe réseau de l’adresse (2001:db8:abdc::). Développez ensuite le préfixe réseau IPv6 pour supprimer [la compression des zéros](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10)), s’il a été utilisé pour raccourcir le préfixe d’adresse IPv6 (2001:0db8:abdc:0000::). Inversez l’ordre, à l’aide d’un point comme séparateur entre chaque nombre hexadécimal dans le préfixe, pour générer le préfixe réseau inversé (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) et ajouter le suffixe `.ip6.arpa`.
 
 
 |Préfixe réseau  |Préfixe réseau développé et inversé |Suffixe standard |Nom de zone inversé  |
@@ -102,15 +104,12 @@ Par exemple, lorsque vous créez une zone inversée afin d’héberger des enreg
 
 Azure prend en charge deux scénarios distincts relatifs au DNS inversé :
 
-**Hébergement de la zone de recherche inversée correspondant à votre bloc d’adresses IP.**
-Azure DNS peut être utilisé pour [héberger vos zones de recherche inversée et gérer les enregistrements PTR pour chaque recherche DNS inversée](dns-reverse-dns-hosting.md), IPv4 et IPv6.  Le processus de création de la zone de recherche inversée (ARPA), de configuration de la délégation et des enregistrements PTR est identique à celui des zones DNS standard.  Les seules différences sont que la délégation doit être configurée via votre fournisseur de services Internet plutôt que via votre bureau d’enregistrement de DNS, et seul le type d’enregistrement PTR doit être utilisé.
+**Hébergement de la zone de recherche inversée correspondant à votre bloc d’adresses IP** : Azure DNS peut être utilisé pour [héberger vos zones de recherche inversée et gérer les enregistrements PTR](dns-reverse-dns-hosting.md) pour IPv4 et IPv6. Le processus de création de la zone de recherche inversée (ARPA), de configuration de la délégation et des enregistrements PTR est identique à celui des zones DNS standard. Les différences sont que la délégation doit être configurée avec votre fournisseur de services Internet plutôt qu’avec votre bureau d’enregistrement DNS et que seul le type d’enregistrement PTR doit être utilisé.
 
-**Configurer l’enregistrement DNS inversé pour l’adresse IP attribuée à votre service Azure.** Azure vous permet de [configurer la recherche inversée pour les adresses IP allouées à votre service Azure](dns-reverse-dns-for-azure-services.md).  Cette recherche inversée est configurée par Azure comme un enregistrement PTR dans la zone ARPA correspondante.  Ces zones ARPA, qui correspondent à toutes les plages d’adresses IP utilisées par Azure, sont hébergées par Microsoft.
+**Configuration de l’enregistrement DNS inversé pour l’adresse IP attribuée à votre service Azure** : Azure vous permet de [configurer la recherche inversée pour les adresses IP attribuées à votre service Azure](dns-reverse-dns-for-azure-services.md).  Cette recherche inversée est configurée par Azure comme un enregistrement PTR dans la zone ARPA correspondante.  Ces zones ARPA, qui correspondent à toutes les plages d’adresses IP utilisées par Azure, sont hébergées par Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le DNS inversé, consultez [Recherche DNS inversée sur Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
-<br>
-Découvrez comment [héberger la zone de recherche inversée pour la plage d’adresses IP fournie par votre fournisseur de services Internet dans Azure DNS](dns-reverse-dns-for-azure-services.md).
-<br>
-Découvrez comment [gérer des enregistrements DNS inversés pour vos services Azure](dns-reverse-dns-for-azure-services.md).
+- Pour plus d’informations sur le DNS inversé, consultez [Recherche DNS inversée sur Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+- Découvrez comment [héberger la zone de recherche inversée pour la plage d’adresses IP fournie par votre fournisseur de services Internet dans Azure DNS](dns-reverse-dns-for-azure-services.md).
+- Découvrez comment [gérer des enregistrements DNS inversés pour vos services Azure](dns-reverse-dns-for-azure-services.md).

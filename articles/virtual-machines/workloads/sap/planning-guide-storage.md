@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/08/2021
+ms.date: 04/26/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecd33549536323658a7116d7d5c311eaaec98487
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c76ffbbaf6bbbb2afb5d84e92b6fe9ce04dc4a30
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107302945"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128700"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Types de stockage Azure pour une charge de travail SAP
 Azure possède de nombreux types de stockage qui diffèrent notablement en termes de capacités, de débit, de latence et de prix. Certains des types de stockage ne sont pas, ou peu, utilisables pour les scénarios SAP. En revanche, plusieurs types de stockage Azure sont bien adaptés ou optimisés pour des scénarios de charge de travail SAP spécifiques. Pour SAP HANA en particulier, certains types de stockage Azure ont été certifiés pour être utilisés avec SAP HANA. Dans ce document, nous passons en revue les différents types de stockage et décrivons leur capacité et leur facilité d'utilisation avec les charges de travail et les composants SAP.
@@ -35,6 +35,7 @@ Le stockage Microsoft Azure comprenant des disques HDD Standard et SSD Standard,
 Il existe plusieurs autres méthodes de redondance, qui sont toutes décrites dans l’article [Réplication du Stockage Azure](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) et qui s’appliquent à certains types de stockage proposés par Azure. 
 
 Gardez également à l’esprit que différents types de stockage Azure influencent la disponibilité de machine virtuelle unique. Les contrats SLA sont publiés dans [Contrat SLA pour les machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+
 
 ### <a name="azure-managed-disks"></a>Disques managés Azure
 
@@ -69,6 +70,10 @@ Pour en savoir plus sur les restrictions de support sur les types de stockage Az
 
 Les sections décrivant les différents types de stockage Azure vous donnent plus d’informations sur les restrictions et les possibilités d’utilisation du stockage que SAP prend en charge. 
 
+### <a name="storage-choices-when-using-dbms-replication"></a>Options de stockage lors de l’utilisation de la réplication SGBD
+Nos architectures de référence prévoient l’utilisation de fonctionnalités SGBD telles que SQL Server Always On, Réplication de système HANA, DB2 HADR ou Oracle Data Guard. Pour utiliser ces technologies entre deux machines virtuelles Azure ou plus, les types de stockage choisis pour chacune des machines virtuelles doivent être identiques. Cela signifie que si le stockage choisi pour le volume du journal de phase de restauration d’un système SGBD correspond au stockage Azure Premium sur une machine virtuelle, le même volume doit être basé sur le stockage Azure Premium avec toutes les autres machines virtuelles présentant la même configuration de synchronisation à haute disponibilité. Il en va de même pour les volumes de données utilisés pour les fichiers de base de données.
+  
+
 ## <a name="storage-recommendations-for-sap-storage-scenarios"></a>Recommandations de stockage pour les scénarios de stockage SAP
 Avant d’aborder les détails, nous présentons le résumé et les recommandations au début du document. Tandis que les détails des types particuliers de stockage Azure suivent cette section du document. Les recommandations de stockage SAP sont répertoriées dans le tableau suivant :
 
@@ -81,9 +86,9 @@ Avant d’aborder les détails, nous présentons le résumé et les recommandati
 | Volume du journal SGBD SAP HANA pour les familles de machines virtuelles M/Mv2 | non pris en charge | non pris en charge | recommandé<sup>1</sup> | recommandé | recommandé<sup>2</sup> | 
 | Volume de données SGBD SAP HANA pour les familles de machines virtuelles Esv3/Edsv4 | non pris en charge | non pris en charge | recommandé | recommandé | recommandé<sup>2</sup> |
 | Volume du journal SGBD SAP HANA pour les familles de machines virtuelles Esv3/Edsv4 | non pris en charge | non pris en charge | non pris en charge | recommandé | recommandé<sup>2</sup> | 
-| Volume de données SGBD non HANA | non pris en charge | restreint adapté (non prod) | recommandé | recommandé | non pris en charge |
-| Volume du journal de SGBD non HANA des familles de machines virtuelles M/Mv2 | non pris en charge | restreint adapté (non prod) | recommandé<sup>1</sup> | recommandé | non pris en charge |
-| Volume du journal de SGBD non HANA n’appartenant aux familles de machines virtuelles M/Mv2 | non pris en charge | restreint adapté (non prod) | convient pour une charge de travail faible à moyenne | recommandé | non pris en charge |
+| Volume de données SGBD non HANA | non pris en charge | restreint adapté (non prod) | recommandé | recommandé | Uniquement pour des versions spécifiques d’Oracle sur Oracle Linux |
+| Volume du journal de SGBD non HANA des familles de machines virtuelles M/Mv2 | non pris en charge | restreint adapté (non prod) | recommandé<sup>1</sup> | recommandé | Uniquement pour des versions spécifiques d’Oracle sur Oracle Linux |
+| Volume du journal de SGBD non HANA n’appartenant aux familles de machines virtuelles M/Mv2 | non pris en charge | restreint adapté (non prod) | convient pour une charge de travail faible à moyenne | recommandé | Uniquement pour des versions spécifiques d’Oracle sur Oracle Linux |
 
 
 <sup>1</sup> Avec utilisation de l’[Accélérateur d’écriture Azure](../../how-to-enable-write-accelerator.md) pour les familles de machines virtuelles M/Mv2 et les volumes journal/restauration par progression <sup>2</sup> ANF requiert la présence de volumes /hana/data et /hana/log 
@@ -92,13 +97,13 @@ Caractéristiques que vous pouvez attendre des types de stockage différents :
 
 | Scénario d’usage | HDD Standard | SSD Standard | Stockage Premium | Disque Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| SLA de débit/IOPS | non | non | Oui | Oui | Oui |
+| SLA de débit/IOPS | non | non | oui | oui | Oui |
 | Lectures de latence | high | moyen à élevé | low | sous-milliseconde | sous-milliseconde |
 | Écritures de latence | high | moyen à élevé  | faible (sous-milliseconde<sup>1</sup>) | sous-milliseconde | sous-milliseconde |
 | HANA pris en charge | non | non | Oui<sup>1</sup> | Oui | Oui |
-| Captures instantanées de disque possibles | Oui | Oui | Oui | non | Oui |
+| Captures instantanées de disque possibles | Oui | oui | oui | non | Oui |
 | Allocation de disques sur différents clusters de stockage lors de l’utilisation de groupes à haute disponibilité | via des disques managés | via des disques managés | via des disques managés | type de disque non pris en charge avec les machines virtuelles déployées via des groupes à haute disponibilité | non<sup>3</sup> |
-| Aligné avec les Zones de disponibilité | Oui | Oui | Oui | Oui | nécessite l’engagement de Microsoft |
+| Aligné avec les Zones de disponibilité | Oui | oui | oui | Oui | nécessite l’engagement de Microsoft |
 | Redondance de zone | pas pour les disques managés | pas pour les disques managés | pas pour les disques managés | non | non |
 | Redondance géographique | pas pour les disques managés | pas pour les disques managés | non | non | non |
 

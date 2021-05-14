@@ -1,14 +1,15 @@
 ---
 title: Présentation de l’agent Connected Machine
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 03/25/2021
+ms.date: 04/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2db1758240dca448409af9f4ec00c01d684c920a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 31dfb9ac38b1a6d808b5ab060600297987ab4236
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609227"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071628"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
@@ -41,6 +42,7 @@ Les informations de métadonnées sur l’ordinateur connecté sont collectées 
 
 * Nom, type et version du système d’exploitation
 * Nom de l'ordinateur
+* Fabricant et modèle de l’ordinateur
 * Nom de domaine complet (FQDN) de l’ordinateur
 * Version de l’agent Machine connectée
 * Nom de domaine complet (FQDN) Active Directory et DNS
@@ -49,6 +51,8 @@ Les informations de métadonnées sur l’ordinateur connecté sont collectées 
 * Version de l’agent Machine connectée
 * Clé publique pour l’identité managée
 * État de conformité de la stratégie et détails (si vous utilisez des stratégies de configuration invitées Azure Policy)
+* SQL Server installé (valeur booléenne)
+* ID de ressource de cluster (pour les nœuds Azure Stack HCI) 
 
 Les informations de métadonnées suivantes sont demandées par l’agent à partir d’Azure :
 
@@ -81,9 +85,9 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 
 - Windows Server 2008 R2, Windows Server 2012 R2 et versions ultérieures (y compris Server Core)
 - Ubuntu 16.04 et 18.04 LTS (x64)
-- CentOS Linux 7 (x64)
+- CentOS Linux 7 et 8 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
-- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 et 8 (x64)
 - Amazon Linux 2 (x64)
 - Oracle Linux 7
 

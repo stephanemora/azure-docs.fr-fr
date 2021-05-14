@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2a37d206955e3372b9ecf97be8d27142bd417192
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: bf6b06ba7cc7f547f752ffa7877fca186ba4465e
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490452"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713783"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0 (préversion)
 
@@ -68,15 +68,15 @@ Votre compte de stockage doit se trouver dans un réseau virtuel. Un réseau vir
 
 ## <a name="step-4-configure-network-security"></a>Étape 4 : Configurer la sécurité réseau
 
-La seule façon de sécuriser les données dans votre compte consiste à utiliser un réseau virtuel et d’autres paramètres de sécurité réseau. Tous les autres outils utilisé pour sécuriser les données, notamment l’autorisation de clé de compte, la sécurité Azure Active Directory (AD) et les listes de contrôle d’accès (ACL), ne sont pas encore pris en charge dans les comptes sur lesquels la prise en charge du protocole NFS 3.0 est activée. 
+La seule façon de sécuriser les données dans votre compte consiste à utiliser un réseau virtuel et d’autres paramètres de sécurité réseau. Tous les autres outils utilisé pour sécuriser les données, notamment l’autorisation de clé de compte, la sécurité Azure Active Directory (AD) et les listes de contrôle d’accès (ACL), ne sont pas encore pris en charge dans les comptes sur lesquels la prise en charge du protocole NFS 3.0 est activée.
 
 Pour sécuriser les données dans votre compte, consultez les recommandations suivantes : [Recommandations de sécurité réseau pour Stockage Blob](security-recommendations.md#networking).
 
 ## <a name="step-5-create-and-configure-a-storage-account"></a>Étape 5 : Créer et configurer un compte de stockage
 
-Pour monter un conteneur à l’aide de NFS 3.0, vous devez créer un compte de stockage **après** avoir inscrit la fonctionnalité avec votre abonnement. Vous ne pouvez pas activer les comptes qui existaient avant l’inscription de la fonctionnalité. 
+Pour monter un conteneur à l’aide de NFS 3.0, vous devez créer un compte de stockage **après** avoir inscrit la fonctionnalité avec votre abonnement. Vous ne pouvez pas activer les comptes qui existaient avant l’inscription de la fonctionnalité.
 
-Dans la préversion de cette fonctionnalité, le protocole NFS 3.0 est pris en charge dans les comptes [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) et [universels V2](../common/storage-account-overview.md#general-purpose-v2-accounts).
+Dans la préversion de cette fonctionnalité, le protocole NFS 3.0 est pris en charge pour les comptes de stockage universel v2 standard et pour les comptes de stockage d’objets blob de blocs Premium. Pour plus d’informations sur ces types de comptes de stockage, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 Au fur et à mesure que vous configurez le compte, choisissez les valeurs suivantes :
 

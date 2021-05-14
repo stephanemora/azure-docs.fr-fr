@@ -3,7 +3,7 @@ title: Gérer l’accès invité avec les révisions d’accès - Azure AD
 description: Gérer les utilisateurs invités en tant que membres d’un groupe ou affectés à une application avec les révisions d’accès Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/23/2020
-ms.author: barclayn
+ms.date: 4/16/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76aeb63feb006e6962efeb3687363f18acb59904
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02d7e5fd6fdbb17b91d151875a48b7763d6b93c8
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97746692"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988277"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -54,6 +54,10 @@ Vous pouvez réviser :
 
  - Un groupe dans Azure AD comprenant un ou plusieurs invités comme membres.
  - Une application connectée à Azure AD ayant un ou plusieurs utilisateurs invités attribués. 
+
+Lors de la révision de l'accès des utilisateurs invités aux groupes Microsoft 365, vous pouvez créer une révision d'accès pour chaque groupe individuellement, ou activer des révisions d'accès automatiques et récurrentes pour les utilisateurs invités dans tous les groupes Microsoft 365. Pour plus d'informations sur les révisions d'accès récurrentes des utilisateurs invités, regardez la vidéo suivante : 
+
+> [!VIDEO https://www.youtube.com/watch?v=3D2_YW2DwQ8]
 
 Vous pouvez alors décider de demander à chaque invité de revoir leur propre accès ou de demander à un ou plusieurs utilisateurs de revoir l’accès de chaque invité.
 

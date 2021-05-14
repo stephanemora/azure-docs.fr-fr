@@ -1,6 +1,6 @@
 ---
 title: Déployer des machines virtuelles dans un groupe à haute disponibilité à l’aide d’Azure CLI
-description: Avec ce tutoriel, vous allez apprendre à utiliser Azure CLI pour déployer des machines virtuelles hautement disponibles dans les groupes à haute disponibilité
+description: Découvrir comment utiliser Azure CLI pour déployer des machines virtuelles hautement disponibles dans les groupes à haute disponibilité
 documentationcenter: ''
 services: virtual-machines
 author: mimckitt
@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 21f7d3e6f624c3a8e550a33293b46284bf5c5815
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765968"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816293"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Créer et déployer des machines virtuelles dans un groupe à haute disponibilité à l’aide d’Azure CLI
 

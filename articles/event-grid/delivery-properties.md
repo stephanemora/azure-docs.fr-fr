@@ -3,15 +3,15 @@ title: Azure Event Grid – Définir des en-têtes personnalisés sur des évén
 description: Décrit comment vous pouvez définir des en-têtes personnalisés (ou des propriétés de remise) sur les événements remis.
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: fb6f0de7919ed7cf9072c0fa35e8f9be5cb5e7db
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 515f2687781329d0f9f9648460663a0a30f7c637
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278284"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107887441"
 ---
 # <a name="custom-delivery-properties"></a>Propriétés de remise personnalisées
-Les abonnements aux événements vous permettent de définir des en-têtes HTTP qui sont inclus dans les événements remis. Cette fonctionnalité vous permet de définir des en-têtes personnalisés requis par une destination. Vous pouvez configurer jusqu’à 10 en-têtes lors de la création d’un abonnement aux événements. La valeur de chaque en-tête ne doit pas être supérieure à 4 096 (4 Ko) octets.
+Les abonnements aux événements vous permettent de définir des en-têtes HTTP qui sont inclus dans les événements remis. Cette fonctionnalité vous permet de définir des en-têtes personnalisés requis par une destination. Vous pouvez configurer jusqu’à 10 en-têtes lors de la création d’un abonnement aux événements. La valeur de chaque en-tête ne doit pas être supérieure à 4 096 (4 Ko) octets.
 
 Vous pouvez définir des en-têtes personnalisés sur les événements remis aux destinations suivantes :
 
@@ -58,7 +58,7 @@ Authorization: BEARER SlAV32hkKG...
 ```
 
 > [!NOTE]
-> La définition d’en-têtes Authorization est une option raisonnable quand votre destination est un webhook. Il ne faut pas l’utiliser pour des [fonctions souscrites avec un ID de ressource](/rest/api/eventgrid/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs et Connexions hybrides, car ces destinations prennent en charge leurs propres schémas d’authentification quand elle sont utilisées avec Event Grid.
+> La définition d’en-têtes Authorization est une option raisonnable quand votre destination est un webhook. Il ne faut pas l’utiliser pour des [fonctions souscrites avec un ID de ressource](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs et Connexions hybrides, car ces destinations prennent en charge leurs propres schémas d’authentification quand elle sont utilisées avec Event Grid.
 
 ### <a name="service-bus-example"></a>Exemple Service Bus
 Azure Service Bus prend en charge l’utilisation d’un [en-tête HTTP BrokerProperties](/rest/api/servicebus/message-headers-and-properties#message-headers) pour définir des propriétés de message lors de l’envoi de messages uniques. La valeur de l’en-tête `BrokerProperties` doit être fournie au format JSON. Par exemple, si vous devez définir des propriétés de message lors de l’envoi d’un message à Service Bus, définissez l’en-tête comme suit :

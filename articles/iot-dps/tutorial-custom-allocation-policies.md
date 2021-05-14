@@ -3,17 +3,17 @@ title: Tutoriel sur l’utilisation des stratégies d’allocation personnalisé
 description: Tutoriel sur l’utilisation des stratégies d’allocation personnalisées avec le service Azure IoT Hub Device Provisioning (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/23/2020
+ms.date: 04/23/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f19f43b89cd2527a67827d7434f2e054ee40001e
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 823c154a07fed2bc3734993c25accb37aa33a228
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227379"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929918"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutoriel : Utiliser des stratégies d’allocation personnalisées avec le service DPS (Device Provisioning Service)
 
@@ -207,11 +207,30 @@ Pour l’exemple de cet article, utilisez les ID d’inscription des deux appare
 * **contoso-toaster-007**
 * **contoso-heatpump-088**
 
-Remplacez la valeur de la variable **KEY** par la **clé primaire** que vous avez notée précédemment après la création de votre groupe d’inscription. La valeur de clé et la sortie affichées avec le code ci-dessous ne sont qu’un exemple.
 
-#### <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+L’extension IoT pour Azure CLI fournit la commande [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) permettant de générer des clés d’appareil dérivées. Cette commande peut être utilisée sur des systèmes Windows ou Linux, dans PowerShell ou un interpréteur de commandes Bash.
+
+Remplacez la valeur de l’argument `--key` par la **clé primaire** de votre groupe d’inscription.
+
+```azurecli
+az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id contoso-toaster-007
+
+"JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs="
+```
+
+```azurecli
+az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id contoso-heatpump-088
+
+"6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg="
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Si vous utilisez une station de travail Windows, utilisez PowerShell pour générer votre clé d’appareil dérivée, comme indiqué dans l’exemple suivant.
+
+Remplacez la valeur de la variable **KEY** par la **clé primaire** que vous avez notée précédemment après la création de votre groupe d’inscription. La valeur de clé et la sortie affichées avec le code ci-dessous ne sont qu’un exemple.
 
 ```powershell
 $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
@@ -234,9 +253,12 @@ contoso-toaster-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
 contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
 ```
 
-#### <a name="bash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 Si vous utilisez une station de travail Linux, vous pouvez utiliser openssl pour générer vos clés d’appareil dérivées, comme indiqué dans l’exemple Bash suivant.
+
+Remplacez la valeur de la variable **KEY** par la **clé primaire** que vous avez notée précédemment après la création de votre groupe d’inscription. La valeur de clé et la sortie affichées avec le code ci-dessous ne sont qu’un exemple.
+
 
 ```bash
 KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
@@ -320,7 +342,7 @@ Dans cette section, vous allez mettre à jour un exemple d’approvisionnement n
 
 Cet exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil Toaster et son assignation au hub IoT défini par la stratégie d’allocation personnalisée.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_**.
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_** .
 
     ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

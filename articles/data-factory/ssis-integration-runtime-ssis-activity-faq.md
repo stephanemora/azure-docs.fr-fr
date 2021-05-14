@@ -3,17 +3,17 @@ title: Résoudre les problèmes d’exécution de package dans le runtime d’in
 description: Cet article fournit des instructions pour la résolution des problèmes d’exécution de package SSIS dans le runtime d’intégration SSIS
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: wenjiefu
-author: RodgeFu
+ms.author: sawinark
+author: swinarko
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 6eecedbc28bcb8bc0bd46534a2c2692636f6f2c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 17ab31faa24f2267b9d804e9820bdfc32fbfc76c
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934000"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001445"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -150,10 +150,14 @@ Assurez-vous que le fournisseur correspondant utilisé par les connecteurs OLE D
 
 Une installation ou une mise à niveau incorrecte de votre runtime d’intégration auto-hébergé peut expliquer cette erreur. Suggérez de télécharger et de réinstaller le dernier runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md#installation-best-practices).
 
+### <a name="error-message-staging-task-failed-taskstatus-failed-errorcode-2906-errormessage-package-execution-failed-for-more-details-select-the-output-of-your-activity-run-on-the-same-row-output-operationerrormessages-4142021-71035-am-0000---failed-to-start-named-pipe-proxy"></a>Message d’erreur : « État de la tâche de mise en lots. TaskStatus: Échec, ErrorCode: 2906, ErrorMessage: Échec de l’exécution du package. Pour plus d’informations, sélectionnez la sortie de votre activité exécutée sur la même ligne : {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = Failed to start Named pipe proxy..."
+
+Vérifiez si les stratégies de sécurité sont correctement attribuées au compte exécutant le service IR auto-hébergé. Si l’authentification Windows est utilisée pour l’activité Exécuter le package SSIS ou si les informations d’identification d’exécution sont définies dans le catalogue SSIS (SSISDB), les mêmes stratégies de sécurité doivent être affectées au compte Windows utilisé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-windows-authentication-for-on-premises-tasks).
+
 ### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>Message d’erreur : « Une connexion est nécessaire lors d’une demande de métadonnées. Si vous travaillez hors connexion, désactivez l’option Travailler hors connexion dans le menu SSIS pour activer la connexion. »
 
 * Cause possible et action recommandée :
-  * Si le journal d’exécution contient également le message d’avertissement « Le composant ne prend pas en charge l’utilisation du gestionnaire de connexions avec la valeur ConnectByProxy définie sur true », cela signifie qu’un gestionnaire de connexions est utilisé sur un composant qui ne prend pas encore en charge « ConnectByProxy ». Pour connaître les composants pris en charge, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy).
+  * Si le journal d’exécution contient également le message d’avertissement « Le composant ne prend pas en charge l’utilisation du gestionnaire de connexions avec la valeur ConnectByProxy définie sur true », cela signifie qu’un gestionnaire de connexions est utilisé sur un composant qui ne prend pas encore en charge « ConnectByProxy ». Pour connaître les composants pris en charge, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-use-a-proxy).
   * Le journal d’exécution est disponible dans le [rapport SSMS](/sql/integration-services/performance/monitor-running-packages-and-other-operations#reports) ou dans le dossier du journal que vous avez spécifié dans l’activité d’exécution du package SSIS.
   * Il est également possible d’utiliser un réseau virtuel pour accéder aux données locales. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
 

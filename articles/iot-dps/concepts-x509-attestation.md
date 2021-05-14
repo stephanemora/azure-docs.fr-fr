@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 9eee315aac28847710662b463add7d6e68d8d505
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3847ec5ce253d2d5f2ad18ce9a0cc912335e2f4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94967293"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141994"
 ---
 # <a name="x509-certificate-attestation"></a>Attestation de certificat X.509
 
@@ -38,7 +38,7 @@ Pour plus d’informations, consultez [Informations conceptuelles sur les certif
 
 ### <a name="root-certificate"></a>Certificat racine
 
-Un certificat racine est un certificat X.509 auto-signé représentant une autorité de certification (CA). Il constitue la dernière étape, ou ancre d’approbation, de la chaîne d’approbation. Les certificats racine peuvent être émis automatiquement par une organisation ou achetés à partir d’une autorité de certification racine. Pour plus d’informations, consultez [Obtenir des certificats d’autorité de certification X.509](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates). Le certificat racine peut également être appelé « certificat d’autorité de certification racine ».
+Un certificat racine est un certificat X.509 auto-signé représentant une autorité de certification (CA). Il constitue la dernière étape, ou ancre d’approbation, de la chaîne d’approbation. Les certificats racine peuvent être émis automatiquement par une organisation ou achetés à partir d’une autorité de certification racine. Pour plus d’informations, consultez [Obtenir des certificats d’autorité de certification X.509](../iot-hub/tutorial-x509-scripts.md). Le certificat racine peut également être appelé « certificat d’autorité de certification racine ».
 
 ### <a name="intermediate-certificate"></a>Certificat intermédiaire
 

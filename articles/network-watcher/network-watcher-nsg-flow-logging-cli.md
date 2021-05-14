@@ -3,21 +3,18 @@ title: Gérer les journaux de flux NSG – Azure CLI
 titleSuffix: Azure Network Watcher
 description: Cette page explique comment gérer les journaux d’activité des flux de groupe de sécurité réseau dans Azure Network Watcher avec l’interface de ligne de commande Azure
 services: network-watcher
-documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 46d12db413fdf01995bc84ae018065e877afb15e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db928c18d3e7a9ed5eab941cca47b46ab476e02c
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98017814"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162362"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configuration des journaux d’activité des flux de groupe de sécurité réseau avec l’interface de ligne de commande Azure
 
@@ -29,7 +26,7 @@ ms.locfileid: "98017814"
 
 Les journaux de flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet d’afficher des informations sur le trafic IP entrant et sortant d’un groupe de sécurité réseau. Ces journaux de flux sont écrits au format json et affichent les flux entrants et sortants en fonction de règles, de la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), et de l’autorisation ou du refus du trafic.
 
-Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure pour Mac, Linux et Windows (CLI)](/cli/azure/install-azure-cli).
+Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure pour Mac, Linux et Windows (CLI)](/cli/azure/install-azure-cli). Vous trouverez [ici](/cli/azure/network/watcher/flow-log) la spécification détaillée de toutes les commandes de journaux de flux.
 
 ## <a name="register-insights-provider"></a>Inscription du fournisseur Insights
 

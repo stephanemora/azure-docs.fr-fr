@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ec58b056bd610773500c8ace1fb12d268b980e0
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91929454"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726715"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Questions fréquentes (FAQ) sur les performances SMB pour Azure NetApp Files
 
@@ -153,6 +153,9 @@ La signature SMB a un effet nuisible sur les performances SMB. Parmi d’autres 
 
 ![Graphique montrant l’impact sur les performances de la signature SMB.](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
+## <a name="what-is-the-anticipated-impact-of-smb-encryption-on-client-workloads"></a>Quel est l’impact escompté du chiffrement SMB sur les charges de travail client ?
+
+Consultez le [FAQ sur le chiffrement SMB](azure-netapp-files-faqs.md#smb_encryption_impact).
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

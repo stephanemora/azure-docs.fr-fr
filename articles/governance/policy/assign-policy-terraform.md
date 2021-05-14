@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Nouvelle attribution de stratégie à l’aide de T
 description: Dans ce guide de démarrage rapide, vous allez utiliser Terraform et la syntaxe HCL pour créer une attribution de stratégie dans le but d’identifier les ressources non conformes.
 ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: 6c1a43010c48f71872d935a8fb52f608b479da8a
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 7530ad1c4e87fb2df00e1fa81e324bb9bd0c4034
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092338"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763034"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l'aide de Terraform
 
@@ -39,7 +39,7 @@ Tout d’abord, configurez les fichiers de configuration, de variables et de sor
        version = "~>2.0"
        features {}
    }
-   
+
    resource "azurerm_policy_assignment" "auditvms" {
        name = "audit-vm-manageddisks"
        scope = var.cust_scope
@@ -48,6 +48,7 @@ Tout d’abord, configurez les fichiers de configuration, de variables et de sor
        display_name = "Audit VMs without managed disks Assignment"
    }
    ```
+
 1. Créez `variables.tf` avec le code suivant :
 
    ```hcl

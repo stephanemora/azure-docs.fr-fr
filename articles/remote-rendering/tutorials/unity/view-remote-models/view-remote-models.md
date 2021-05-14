@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8784bc4744e2d4beb6a72fdc0df0fd0b32346f9
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ae84d62f8f028158450b1127abc81c5dc4416502
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605006"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315378"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutoriel : Affichage d’un modèle rendu à distance
 
@@ -126,6 +126,9 @@ Effectuez les étapes suivantes pour vérifier que les paramètres du projet son
 
     ![Validation du projet de l’éditeur Unity](./media/remote-render-unity-validation.png)
 
+> [!NOTE]
+> Si vous utilisez MRTK dans votre projet et que vous activez le sous-système de caméra, MRTK remplace les modifications manuelles que vous appliquez à la caméra. Sont inclus les correctifs de l’outil ValidateProject.
+
 ## <a name="create-a-script-to-coordinate-azure-remote-rendering-connection-and-state"></a>Créer un script pour coordonner la connexion et l’état d’Azure Remote Rendering
 
 L’affichage des modèles rendus à distance se fait en quatre phases, comme le montre le diagramme de flux ci-dessous. Chaque phase doit être effectuée dans l’ordre. L’étape suivante consiste à créer un script qui gérera l’état de l’application et passera par chaque phase obligatoire.
@@ -182,14 +185,15 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     public static RemoteRenderingCoordinator instance;
 
-    // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
+    // Account
+    // RemoteRenderingDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
+    // For most people '<region>' is either 'westus2' or 'westeurope'
     [SerializeField]
-    private string accountDomain = "westus2.mixedreality.azure.com";
-    public string AccountDomain
+    private string remoteRenderingDomain = "westus2.mixedreality.azure.com";
+    public string RemoteRenderingDomain
     {
-        get => accountDomain.Trim();
-        set => accountDomain = value;
+        get => remoteRenderingDomain.Trim();
+        set => remoteRenderingDomain = value;
     }
 
     [Header("Development Account Credentials")]
@@ -201,12 +205,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     }
 
     [SerializeField]
-    private string accountAuthenticationDomain = "<enter your account authentication domain here>";
-    public string AccountAuthenticationDomain
+    private string accountDomain = "<enter your account domain here>";
+    public string AccountDomain
     {
-        get => accountAuthenticationDomain.Trim();
-        set => accountAuthenticationDomain = value;
-    }   
+        get => accountDomain.Trim();
+        set => accountDomain = value;
+    }    
 
     [SerializeField]
     private string accountKey = "<enter your account key here>";
@@ -272,7 +276,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
             if (currentCoordinatorState != value)
             {
                 currentCoordinatorState = value;
-                Debug.Log($"State changed to: {currentCoordinatorState}");
+                Debug.LogFormat(LogType.Log, LogOption.NoStacktrace, null, "{0}", $"State changed to: {currentCoordinatorState}");
                 CoordinatorStateChange?.Invoke(currentCoordinatorState);
             }
         }
@@ -297,7 +301,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     private async Task<SessionConfiguration> GetDevelopmentCredentials()
     {
         Debug.LogWarning("Using development credentials! Not recommended for production.");
-        return await Task.FromResult(new SessionConfiguration(AccountAuthenticationDomain, AccountDomain, AccountId, AccountKey));
+        return await Task.FromResult(new SessionConfiguration(AccountDomain, RemoteRenderingDomain, AccountId, AccountKey));
     }
 
     /// <summary>
@@ -531,7 +535,7 @@ Le coordinateur de rendu à distance et son script obligatoire (*ARRServiceUnity
 1. Ajoutez le script *RemoteRenderingCoordinator* au GameObject **RemoteRenderingCoordinator**.\
 ![Ajouter le composant RemoteRenderingCoordinator](./media/add-coordinator-script.png)
 1. Vérifiez que le script *ARRServiceUnity*, qui apparaît sous le nom *Service* dans l’inspecteur, est automatiquement ajouté au GameObject. Au cas où vous vous poseriez la question, il faut avoir `[RequireComponent(typeof(ARRServiceUnity))]` en haut du script **RemoteRenderingCoordinator**.
-1. Ajoutez vos informations d’identification Azure Remote Rendering, votre domaine d’authentification de compte et le domaine du compte au script du coordinateur :\
+1. Ajoutez vos informations d’identification Azure Remote Rendering, votre domaine de compte et le domaine Remote Rendering au script du coordinateur :\
 ![Ajouter vos informations d'identification](./media/configure-coordinator-script.png)
 
 ## <a name="initialize-azure-remote-rendering"></a>Initialiser Azure Remote Rendering

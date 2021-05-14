@@ -1,20 +1,20 @@
 ---
 title: Étendre Azure IoT Central avec une analyse personnalisée | Microsoft Docs
 description: En tant que développeur de solutions, configurez une application IoT Central pour réaliser des visualisations et des analyses personnalisées. Cette solution utilise Azure Databricks.
-author: TheRealJasonAndrew
-ms.author: v-anjaso
+author: philmea
+ms.author: philmea
 ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 3132ec8fb3cb123653887d92a2f33788f40564c0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ada9947b217944d9aec9f785f4716bfe43315b1
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105033821"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872764"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Étendre Azure IoT Central avec des analyses personnalisées à l’aide d’Azure Databricks
 

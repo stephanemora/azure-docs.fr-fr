@@ -1,19 +1,19 @@
 ---
 title: Transformation des données avec un flux de données de mappage de réseau virtuel managé Azure Data Factory
 description: Ce tutoriel fournit des instructions détaillées sur l’utilisation d’Azure Data Factory pour transformer des données à l’aide de flux de données de mappage.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
-ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: ac868fdf3ca80d489d479b5be0c57bd14a90ccbb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98249434"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905699"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformation sécurisée des données à l’aide de flux de données de mappage
 
@@ -91,9 +91,6 @@ Au cours de cette étape, vous allez créer un pipeline qui contient une activit
    ![Capture d’écran montrant la création d’un pipeline](./media/doc-common-process/get-started-page.png)
 
 1. Dans le volet Propriétés du pipeline, entrez **TransformMovies** comme nom du pipeline.
-1. Dans la barre supérieure de la fabrique, faites glisser le curseur **Débogage du flux de données**. Le mode de débogage permet un test interactif de la logique de transformation sur un cluster Spark activé. Le préchauffage des clusters de flux de données prend cinq à sept minutes. Activez d’abord **Débogage du flux de données** si vous prévoyez de procéder au développement du flux de données. Pour en savoir plus, consultez [Mode débogage](./concepts-data-flow-debug-mode.md).
-
-    ![Capture d’écran montrant le curseur de débogage du flux de données.](media/tutorial-data-flow-private/dataflow-debug.png)
 1. Dans le volet **Activités**, développez **Déplacer et transformer**. Faites glisser l’activité **Flux de données** du volet jusqu’au canevas du pipeline.
 
 1. Dans la fenêtre contextuelle **Ajout de flux de données**, sélectionnez **Créer un flux de données**, puis **Flux de données de mappage**. Lorsque vous avez terminé, sélectionnez **OK**.
@@ -101,6 +98,9 @@ Au cours de cette étape, vous allez créer un pipeline qui contient une activit
     ![Capture d’écran montrant le flux de données de mappage.](media/tutorial-data-flow-private/mapping-dataflow.png)
 
 1. Nommez votre flux de données **TransformMovies** dans le volet Propriétés.
+1. Dans la barre supérieure du canevas du pipeline, faites glisser le curseur **Débogage du flux de données** pour l’activer. Le mode de débogage permet un test interactif de la logique de transformation sur un cluster Spark activé. Le préchauffage des clusters de flux de données nécessite 5 à 7 minutes et il est recommandé aux utilisateurs d’activer d’abord le débogage s’ils envisagent d’effectuer un développement de flux de données. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
+
+    ![Capture d’écran montrant le curseur de débogage du flux de données.](media/tutorial-data-flow-private/dataflow-debug.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Générer une logique de transformation dans le canevas de flux de données
 

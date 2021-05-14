@@ -5,15 +5,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: e8dd887d151eb553131048f232940555dbef324b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 385bf6382fd25406fc9927df806f35dbf973d8fa
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025031"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142528"
 ---
 # <a name="enable-sql-insights-preview"></a>Activer SQL Insights (préversion)
 Cet article explique comment activer [SQL Insights](sql-insights-overview.md) pour analyser vos déploiements SQL. L’analyse est effectuée à partir d’une machine virtuelle Azure qui établit une connexion à vos déploiements SQL et utilise des vues de gestion dynamique (DMV) pour collecter les données d’analyse. Vous pouvez contrôler les jeux de données qui sont collectés et la fréquence de collecte à l’aide d’un profil d’analyse.
+
+> [!NOTE]
+> Pour activer SQL Insights en créant le profil de surveillance et la machine virtuelle à l’aide d’un modèle Resource Manager, consultez [Exemples de modèles Resource Manager pour SQL Insights](resource-manager-sql-insights.md).
 
 ## <a name="create-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 SQL Insights stocke ses données dans un ou plusieurs [espaces de travail Log Analytics](../logs/data-platform-logs.md#log-analytics-workspaces).  Avant de pouvoir activer SQL Insights, vous devez soit [créer un espace de travail](../logs/quick-create-workspace.md), soit en sélectionner un existant. Un seul espace de travail peut être utilisé avec plusieurs profils d’analyse, mais l’espace de travail et les profils doivent se trouver dans la même région Azure. Pour activer les fonctionnalités et y accéder dans SQL Insights, vous devez avoir le [rôle de contributeur Log Analytics](../logs/manage-access.md) dans l’espace de travail. 
@@ -21,12 +24,15 @@ SQL Insights stocke ses données dans un ou plusieurs [espaces de travail Log An
 ## <a name="create-monitoring-user"></a>Créer des règles d’analyse 
 Vous avez besoin d’un utilisateur sur les déploiements SQL que vous souhaitez analyser. Suivez les procédures ci-dessous pour les différents types de déploiements SQL.
 
+Les instructions ci-dessous décrivent le processus par type de SQL que vous pouvez surveiller.  Pour effectuer cette opération avec un script sur plusieurs ressources SQL à la fois, reportez-vous au [fichier LISEZMOI](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) et à l’[exemple de script](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1) suivants.
+
+
 ### <a name="azure-sql-database"></a>Base de données Azure SQL
 Ouvrez Azure SQL Database avec [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou [Éditeur de requête (préversion)](../../azure-sql/database/connect-query-portal.md) dans le Portail Azure.
 
 Exécutez le script suivant pour créer un utilisateur avec les autorisations requises. Remplacez *utilisateur* par un nom d’utilisateur et *mystrongpassword* par un mot de passe.
 
-```
+```sql
 CREATE USER [user] WITH PASSWORD = N'mystrongpassword'; 
 GO 
 GRANT VIEW DATABASE STATE TO [user]; 
@@ -39,11 +45,23 @@ Vérifiez que l’utilisateur a été créé.
 
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Vérifiez le script utilisateur Telegraf." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type,
+       authentication_type_desc as authentication_type
+from sys.database_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
+```
+
 ### <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
 Connectez-vous à Azure SQL Managed Instance et utilisez [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou un outil similaire pour exécuter le script suivant afin de créer l’utilisateur d’analyse avec les autorisations nécessaires. Remplacez *utilisateur* par un nom d’utilisateur et *mystrongpassword* par un mot de passe.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -58,7 +76,7 @@ GO
 Connectez-vous à votre machine virtuelle Azure exécutant SQL Server et utilisez [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) ou un outil similaire pour exécuter le script suivant afin de créer l’utilisateur d’analyse avec les autorisations nécessaires. Remplacez *utilisateur* par un nom d’utilisateur et *mystrongpassword* par un mot de passe.
 
  
-```
+```sql
 USE master; 
 GO 
 CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
@@ -67,6 +85,19 @@ GRANT VIEW SERVER STATE TO [user];
 GO 
 GRANT VIEW ANY DEFINITION TO [user]; 
 GO
+```
+
+Vérifiez que l’utilisateur a été créé.
+
+```sql
+select name as username,
+       create_date,
+       modify_date,
+       type_desc as type
+from sys.server_principals
+where type not in ('A', 'G', 'R', 'X')
+       and sid is not null
+order by username
 ```
 
 ## <a name="create-azure-virtual-machine"></a>Créer une machine virtuelle Azure 
@@ -94,7 +125,7 @@ Chaque type de SQL offre des méthodes pour que votre machine virtuelle d’anal
 
 SQL Insights prend en charge l’accès à votre Azure SQL Database via son point de terminaison public, ainsi qu’à partir de son réseau virtuel.
 
-Pour accéder via le point de terminaison public, vous devez ajouter une règle dans la page **Paramètres de pare-feu** et dans la section [Paramètres du pare-feu IP](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) .  Pour spécifier l’accès à partir d’un réseau virtuel, vous pouvez définir des [règles de pare-feu de réseau virtuel](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) et définir les [balises de service requises par l’agent de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  [Cet article](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) décrit les différences entre ces deux types de règles de pare-feu.
+Pour accéder via le point de terminaison public, vous devez ajouter une règle dans la page **Paramètres de pare-feu** et dans la section [Paramètres du pare-feu IP](../../azure-sql/database/network-access-controls-overview.md#ip-firewall-rules) .  Pour spécifier l’accès à partir d’un réseau virtuel, vous pouvez définir des [règles de pare-feu de réseau virtuel](../../azure-sql/database/network-access-controls-overview.md#virtual-network-firewall-rules) et définir les [balises de service requises par l’agent de Azure Monitor](../agents/azure-monitor-agent-overview.md#networking).  [Cet article](../../azure-sql/database/network-access-controls-overview.md#ip-vs-virtual-network-firewall-rules) décrit les différences entre ces deux types de règles de pare-feu.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Définir le pare-feu du serveur" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
@@ -103,11 +134,11 @@ Pour accéder via le point de terminaison public, vous devez ajouter une règle 
 
 ### <a name="azure-sql-managed-instances"></a>Instances Azure SQL Managed Instance 
 
-Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que vos ressources SQL MI, consultez [Se connecter à l’intérieur du même réseau virtuel](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-the-same-vnet). Si votre machine virtuelle d’analyse se trouve dans le réseau virtuel différent de vos ressources SQL MI, consultez [Se connecter à l’intérieur d’un autre réseau virtuel](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-a-different-vnet).
+Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que vos ressources SQL MI, consultez [Se connecter à l’intérieur du même réseau virtuel](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-the-same-vnet). Si votre machine virtuelle d’analyse se trouve dans le réseau virtuel différent de vos ressources SQL MI, consultez [Se connecter à l’intérieur d’un autre réseau virtuel](../../azure-sql/managed-instance/connect-application-instance.md#connect-inside-a-different-vnet).
 
 
 ### <a name="azure-virtual-machine-and-azure-sql-virtual-machine"></a>Machine virtuelle Azure et machine virtuelle Azure SQL  
-Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que les ressources de votre machine virtuelle SQL, consultez [Se connecter à SQL Server au sein d’un réseau virtuel](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network). Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que les ressources de votre machine virtuelle SQL, consultez  [Se connecter à SQL Server via Internet](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet).
+Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que les ressources de votre machine virtuelle SQL, consultez [Se connecter à SQL Server au sein d’un réseau virtuel](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-within-a-virtual-network). Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel que les ressources de votre machine virtuelle SQL, consultez  [Se connecter à SQL Server via Internet](../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md#connect-to-sql-server-over-the-internet).
 
 ## <a name="store-monitoring-password-in-key-vault"></a>Stocker le mot de passe d’analyse dans Key Vault
 Vous devez stocker vos mots de passe de connexion utilisateur SQL dans un Key Vault au lieu de les entrer directement dans vos chaînes de connexion de profil d’analyse.
@@ -167,7 +198,7 @@ Entrer la chaîne de connexion dans le formulaire :
 
 ```
 sqlAzureConnections": [ 
-   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
+   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
 }
 ```
 
@@ -175,7 +206,7 @@ Obtenez les détails de l’élément de menu **Chaînes de connexion** pour la 
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="Chaîne de connexion à la base de données SQL" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
-Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion.
+Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion. SQL Insights prend en charge l’analyse d’un seul secondaire. Les données collectées seront marquées pour refléter le primaire ou le secondaire. 
 
 
 #### <a name="azure-virtual-machines-running-sql-server"></a>Machines virtuelles Azure exécutant SQL Server 
@@ -183,7 +214,7 @@ Entrer la chaîne de connexion dans le formulaire :
 
 ```
 "sqlVmConnections": [ 
-   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
+   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
 
@@ -191,15 +222,13 @@ Si votre machine virtuelle d’analyse se trouve dans le même réseau virtuel, 
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="Sécurité de la machine virtuelle SQL" lightbox="media/sql-insights-enable/sql-vm-security.png":::
 
-Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion.
-
 
 ### <a name="azure-sql-managed-instances"></a>Instances Azure SQL Managed Instance 
 Entrer la chaîne de connexion dans le formulaire :
 
 ```
 "sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
+      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
     ] 
 ```
 Obtenez les détails de l’élément de menu **Chaînes de connexion** pour l’instance gérée.
@@ -207,8 +236,7 @@ Obtenez les détails de l’élément de menu **Chaînes de connexion** pour l�
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="Chaîne de connexion SQL Managed Instance" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion.
-
+Pour analyser un secondaire accessible en lecture, incluez la valeur de clé `ApplicationIntent=ReadOnly` dans la chaîne de connexion. SQL Insights prend en charge l’analyse d’un seul secondaire, et les données collectées seront marquées pour refléter le primaire ou le secondaire. 
 
 
 ## <a name="monitoring-profile-created"></a>Création d’un profil d’analyse 

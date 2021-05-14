@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Utiliser Azure RBAC pour les contrôles d’autorisation sur les clusters Kubernetes avec Azure Arc
-ms.openlocfilehash: 0ee5f86ce12a39d86754d2e6e88263d8a03a012b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f0275e1516e8487b5a00fb08c885b09b6df1684c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304203"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145696"
 ---
 # <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Intégrer Azure Active Directory à des clusters Kubernetes avec Azure Arc
 
@@ -24,7 +24,7 @@ Une vue d’ensemble conceptuelle de cette fonctionnalité est disponible dans l
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Procédez à l'installation ou à la mise à niveau d'Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) vers la version >= 2.16.0
+- [Procédez à l'installation ou à la mise à niveau d'Azure CLI](/cli/azure/install-azure-cli) vers la version >= 2.16.0
 
 - Installez l’extension Azure CLI `connectedk8s` version >= 1.1.0 :
 

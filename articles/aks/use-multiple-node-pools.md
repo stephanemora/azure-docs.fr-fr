@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: bb10e2023187c74a9e8b9a2e4c72115841e89a84
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: af2766d5692f232970c3c7c735d4c34abebe9c3c
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552595"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070386"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -408,9 +408,12 @@ Il faut quelques minutes pour que *gpunodepool* soit créé avec succès.
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Spécifier une teinte, un intitulé ou une étiquette pour un pool de nœuds
 
-### <a name="setting-nodepool-taints"></a>Définition de teintes de pool de nœud
-
 Lorsque vous créez un pool de nœuds, vous pouvez lui ajouter des teintes, des intitulés ou des étiquettes. Lorsque vous ajoutez une teinte, un intitulé ou une étiquette, tous les nœuds du pool reçoivent cette teinte, cet intitulé ou cette étiquette.
+
+> [!IMPORTANT]
+> L’ajout de teintes, d’étiquettes ou de balises aux nœuds doit se faire pour l’ensemble du pool de nœuds à l’aide de `az aks nodepool`. L’application de teintes, d’étiquettes ou de balises à des nœuds individuels dans un pool de nœuds à l’aide de `kubectl` est déconseillée.  
+
+### <a name="setting-nodepool-taints"></a>Définition de teintes de pool de nœud
 
 Pour créer un pool de nœuds à l’aide d’une teinte, utilisez la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *taintnp* et utilisez le paramètre `--node-taints` afin de spécifier *sku=gpu:NoSchedule* pour la teinte.
 

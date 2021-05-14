@@ -1,17 +1,17 @@
 ---
 title: Démarrage rapide pour créer un coffre Recovery Services Azure avec un modèle Azure Resource Manager.
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un coffre Recovery Services Azure à l’aide d’un modèle Azure Resource Manager (modèle ARM).
-ms.date: 04/29/2020
+ms.date: 04/28/2021
 ms.topic: quickstart
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 11a88b5485ad970802a65af31daccdb30a1c86df
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 453c1a14a54011d8124588911da1cde64fe2ea28
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533258"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277297"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Démarrage rapide : Créer un coffre Recovery Services avec un modèle ARM
 
@@ -21,7 +21,7 @@ Ce guide de démarrage rapide explique comment configurer un coffre Recovery Ser
 
 Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
-[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](http
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-vault-create/azuredeploy.json":::
 
 Deux ressources Azure sont définies dans le modèle :
 
@@ -48,7 +48,7 @@ Pour déployer le modèle, vous devez définir l’**Abonnement**, le **Groupe d
 
 1. Pour vous connecter à Azure et ouvrir le modèle, sélectionnez l’image **Déployer sur Azure**.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.recoveryservices%2Frecovery-services-vault-create%2Fazuredeploy.json)
 
 1. Sélectionnez ou entrez les valeurs suivantes :
 

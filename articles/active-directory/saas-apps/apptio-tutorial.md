@@ -11,33 +11,33 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: f12ab30d0c08c5efc064df73842bc3af4b47b017
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db6ce74234a8b7deec23f245d8b36edc22aa4827
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735988"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108801889"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Apptio
 
 Dans ce tutoriel, vous découvrez comment intégrer Apptio à Azure Active Directory (Azure AD). Quand vous intégrez Apptio à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à Apptio.
-* Autoriser les utilisateurs à se connecter automatiquement à Apptio avec leur compte Azure AD.
-* Gérer vos comptes à un emplacement central : le Portail Azure.
+- Contrôler dans Azure AD qui a accès à Apptio.
+- Autoriser les utilisateurs à se connecter automatiquement à Apptio avec leur compte Azure AD.
+- Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement Apptio pour lequel l’authentification unique est activée.
+- Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+- Un abonnement Apptio pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Apptio prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+- Apptio prend en charge l’authentification unique lancée par le **fournisseur d’identité**
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -60,10 +60,10 @@ Configurez et testez l’authentification unique Azure AD avec Apptio à l’aid
 Pour configurer et tester l’authentification unique Azure AD auprès d’Apptio, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+   1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+   1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Apptio](#configure-apptio-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Apptio](#create-apptio-test-user)** pour avoir un équivalent de B.Simon dans Apptio, associé à sa représentation dans Azure AD.
+   1. **[Créer un utilisateur de test Apptio](#create-apptio-test-user)** pour avoir un équivalent de B.Simon dans Apptio, associé à sa représentation dans Azure AD.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -78,17 +78,17 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    Dans la zone de texte **Identificateur**, tapez une URL :  `urn:federation:apptio`
+   Dans la zone de texte **Identificateur**, tapez une URL : `urn:federation:apptio`
 
-1. La revendication de rôle est préconfigurée. Vous n’avez donc pas à la configurer, mais vous devez toujours créer les rôles dans Azure AD en suivant les instructions de cet [article](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+1. La revendication de rôle est préconfigurée. Vous n’avez donc pas à la configurer, mais vous devez toujours créer les rôles dans Azure AD en suivant les instructions de cet [article](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](common/metadataxml.png)
+   ![Lien Téléchargement de certificat](common/metadataxml.png)
 
 1. Dans la section **Configurer Apptio**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+   ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -97,7 +97,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom**, entrez `B.Simon`.
    1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
@@ -122,14 +122,13 @@ Pour configurer l’authentification unique côté **Apptio**, vous devez envoye
 
 Dans cette section, vous créez un utilisateur appelé B.Simon dans Apptio. Collaborez avec l’[équipe du support technique Apptio](https://www.apptio.com/resources/customer-support/) pour ajouter des utilisateurs dans la plate-forme Apptio. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-* Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance d’Apptio pour laquelle vous avez configuré l’authentification unique
+- Dans le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance d’Apptio pour laquelle vous avez configuré l’authentification unique
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Apptio dans Mes applications, vous devez vous connecter automatiquement à l’application Apptio pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
+- Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Apptio dans Mes applications, vous devez vous connecter automatiquement à l’application Apptio pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

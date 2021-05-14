@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ba75e11a067a257c659f8c659f68bb2bba6fa2e0
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: c86166c2e38e3fec251707626f5cf9ebab938299
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012083"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209208"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -108,11 +108,12 @@ Pour consulter la référence sur les versions à venir et les dépréciations, 
 
 Pour les nouvelles versions **mineures** de Kubernetes :
   * AKS publie une annonce préalable avec la date prévisionnelle d’une nouvelle version et la dépréciation de l’ancienne version correspondante dans les [Notes de publication AKS](https://aka.ms/aks/releasenotes) au moins 30 jours avant la suppression.
+  * AKS utilise [Azure Advisor](../advisor/advisor-overview.md) pour alerter les utilisateurs si une nouvelle version pose des problèmes dans leur cluster en raison d’API déconseillées. Azure Advisor est également utilisé pour alerter l’utilisateur s’il n’est plus pris en charge.
   * AKS publie une [notification d’intégrité des services](../service-health/service-health-overview.md) accessible à tous les utilisateurs disposant d’un accès à AKS et au portail, et envoie un e-mail aux administrateurs des abonnements avec les dates prévisionnelles de suppression des versions.
 
-    ````
-    To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-    ````
+    > [!NOTE]
+    > Pour savoir qui sont les administrateurs de votre abonnement ou pour les modifier, consultez [Gérer les abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+    
   * Les utilisateurs ont **30 jours** à compter de la suppression d’une version pour effectuer une mise à niveau vers une version mineure prise en charge afin de continuer à bénéficier du support.
 
 Pour les nouvelles versions de **correctif** de Kubernetes :
@@ -142,16 +143,18 @@ Pour connaître l’historique des versions antérieures, cliquez sur [Kubernete
 
 |  Version de K8s | Sortie en amont  | Préversion d’AKS  | Version GA d’AKS  | Fin de vie |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | 9 déc. 19  | janvier 2019   | Juil. 2020  | 1.20 GA | 
 | 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | 1.21 GA | 
 | 1,19  | 4 août 20  | Septembre 2020   | Nov. 2020  | 1.22 GA | 
 | 1.20  | 8 décembre2020  | Janvier 2021   | Mars 2021  | 1.23 GA |
-| 1.21  | 8 avril 2021* | Mai 2021   | Juin 2021  | 1.24 GA |
+| 1.21  | 8 avril 2021 | Mai 2021   | Juin 2021  | 1.24 GA |
 
-\* La version Kubernetes 1.21 Upstream est sujette à modification, car le calendrier Upstream n’est pas encore finalisé.
 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
+
+**Comment Microsoft m’informe-t-il des nouvelles versions de Kubernetes ?**
+
+L’équipe d’AKS publie des annonces préalables avec les dates prévues des nouvelles versions de Kubernetes dans notre documentation, sur notre [GitHub](https://github.com/Azure/AKS/releases) ainsi que dans des e-mails adressés aux administrateurs d’abonnements qui possèdent des clusters qui ne seront plus pris en charge.  Outre les annonces, AKS utilise également [Azure Advisor](../advisor/advisor-overview.md) pour informer le client dans le portail Azure afin de prévenir les utilisateurs s’ils ne sont plus pris en charge, ainsi que pour les avertir des API déconseillées qui auront une incidence sur leur application ou leur processus de développement. 
 
 **À quelle fréquence dois-je prévoir de mettre à niveau les versions de Kubernetes pour continuer à bénéficier de la prise en charge ?**
 
@@ -219,5 +222,5 @@ Pour plus d’informations sur la mise à niveau de votre cluster, consultez [Me
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
-[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
+[az-aks-get-versions]: /cli/azure/aks#az_aks_get_versions
 [preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

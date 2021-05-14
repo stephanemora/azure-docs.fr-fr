@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 02df0a3fc7dedb5ced734efcd3cdd0eb48232c37
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.openlocfilehash: d3a985fed99634edeb78bfe5c71b34d5eec14a5d
+  ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101701686"
+  ms.lasthandoff: 04/28/2021
+  ms.locfileid: "108143302"
 landingContent:
 - title: À propos du stockage Blob
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
     - text: Créez un compte de stockage.
       url: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Créer un compte de stockage d’objet blob de blocs
-      url: storage-blob-create-account-block-blob.md
+      url: ../common/storage-account-create.md
     - text: Configuration d’un domaine personnalisé
       url: storage-custom-domain-name.md
 - title: Rechercher et comprendre les données blob

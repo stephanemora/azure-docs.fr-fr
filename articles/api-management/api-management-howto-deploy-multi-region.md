@@ -2,23 +2,17 @@
 title: Déployer des services Gestion des API Azure dans plusieurs régions Azure
 titleSuffix: Azure API Management
 description: Découvrez comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure.
-services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/20/2020
+ms.topic: how-to
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9546813173e72b1f264c3668ee889bbeea07ce7f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88065452"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534089"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
 
@@ -27,24 +21,30 @@ La Gestion des API Azure prend en charge le déploiement sur plusieurs régions,
 Un nouveau service de Gestion des API Azure contient initialement une seule [unité][unit] dans une seule région Azure, la Région primaire. Des unités supplémentaires peuvent être ajoutées à la région primaire ou secondaire. Un composant de passerelle de gestion des API est déployé sur chaque région principale et secondaire sélectionnée. Les requêtes d’API entrantes sont dirigées automatiquement vers la région la plus proche. Si une région est déconnectée, les requêtes d’API sont acheminées automatiquement autour de la région défaillante vers la passerelle suivante la plus proche.
 
 > [!NOTE]
-> Seul le composant passerelle de la gestion des API est déployé dans toutes les régions. Le composant de gestion des services et le portail des développeurs sont hébergés uniquement dans la région principale. Par conséquent, en cas de panne de la région primaire, l’accès au portail des développeurs et la possibilité de modifier la configuration (par exemple, l’ajout d’API et l’application de stratégies) seront altérés jusqu’à ce que la région primaire soit de nouveau en ligne. Lorsque la région primaire n’est pas en ligne, les régions secondaires disponibles continuent de servir le trafic d’API à l’aide de la dernière configuration disponible.
+> Seul le composant passerelle de la gestion des API est déployé dans toutes les régions. Le composant de gestion des services et le portail des développeurs sont hébergés uniquement dans la région principale. Par conséquent, en cas de panne de la région primaire, l’accès au portail des développeurs et la possibilité de modifier la configuration (par exemple, l’ajout d’API et l’application de stratégies) seront altérés jusqu’à ce que la région primaire soit de nouveau en ligne. Lorsque la région primaire n’est pas en ligne, les régions secondaires disponibles continuent de servir le trafic d’API à l’aide de la dernière configuration disponible. Activez éventuellement la [redondance interzone](zone-redundancy.md) pour améliorer la disponibilité et la résilience des régions primaires ou secondaires.
 
 >[!IMPORTANT]
 > La fonctionnalité permettant le stockage de données client dans une seule région n’est actuellement disponible que dans la région Asie Sud-Est (Singapour) de la zone géographique Asie-Pacifique. Pour toutes les autres régions, les données client sont stockées dans Zone géographique.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Déployer un service Gestion des API dans une nouvelle région
 
-> [!NOTE]
-> Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API][create an api management service instance].
+## <a name="prerequisites"></a>Prérequis
 
-1. Dans le portail Azure, accédez à votre service de gestion des API, puis cliquez sur l’entrée **Emplacements** dans le menu.
-2. Cliquez sur **+ Ajouter** dans la barre supérieure.
-3. Sélectionnez l’emplacement dans la liste déroulante et définissez le nombre d’unités à l’aide du curseur.
-4. Cliquez sur le bouton **Ajouter** pour confirmer.
-5. Répétez cette procédure jusqu’à ce que vous configuriez tous les emplacements.
-6. Cliquez sur **Enregistrer** dans la barre supérieure pour démarrer le processus de déploiement.
+* Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API](get-started-create-service-instance.md). Sélectionnez le niveau de service Premium.
+* Si votre instance Gestion des API est déployée dans un [réseau virtuel](api-management-using-with-vnet.md), veillez à configurer un réseau virtuel, un sous-réseau et une adresse IP publique dans l’emplacement que vous envisagez d’ajouter.
+
+## <a name="deploy-api-management-service-to-an-additional-location"></a><a name="add-region"> </a>Déployer le service Gestion des API dans un emplacement supplémentaire
+
+1. Dans le portail Azure, accédez à votre service Gestion des API, puis sélectionnez **Emplacements** dans le menu.
+1. Sélectionnez **+ Ajouter** dans la barre supérieure.
+1. Sélectionnez l’emplacement dans la liste déroulante.
+1. Sélectionnez le nombre d’ **[Unités](upgrade-and-scale.md)** d’échelle dans l’emplacement.
+1. Activez éventuellement les [**zones de disponibilité**](zone-redundancy.md).
+1. Si l’instance Gestion des API est déployée dans un [réseau virtuel](api-management-using-with-vnet.md), configurez les paramètres de réseau virtuel dans l’emplacement. Sélectionnez un réseau virtuel, un sous-réseau et une adresse IP publique existants qui sont disponibles à l’emplacement.
+1. Sélectionnez **Ajouter** pour confirmer.
+1. Répétez cette procédure jusqu’à ce que vous configuriez tous les emplacements.
+1. Sélectionnez **Enregistrer** dans la barre supérieure pour démarrer le processus de déploiement.
 
 ## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Supprimer un emplacement du service Gestion des API
 

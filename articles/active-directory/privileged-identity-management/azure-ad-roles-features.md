@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4113c3cf8fd5942a2fb8f644c67b15066d85b41
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92371509"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517853"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Fonctionnalités de gestion des rôles Azure AD dans Privileged Identity Management
 
@@ -56,7 +56,7 @@ Ces deux actions utilisateur exigent l’approbation d’un Administrateur gén�
 
 ## <a name="api-changes"></a>Modifications d'API
 
-Quand la version mise à jour aura été déployée dans l’organisation Azure AD des clients, l’API Graph actuelle cessera de fonctionner. Vous devrez passer à [l’API Graph pour les rôles de ressources Azure](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Pour gérer les rôles Azure AD avec cette API, remplacez `/azureResources` par `/aadroles` dans la signature et utilisez l’ID répertoire de `resourceId`.
+Quand la version mise à jour aura été déployée dans l’organisation Azure AD des clients, l’API Graph actuelle cessera de fonctionner. Vous devrez passer à [l’API Graph pour les rôles de ressources Azure](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta&preserve-view=true). Pour gérer les rôles Azure AD avec cette API, remplacez `/azureResources` par `/aadroles` dans la signature et utilisez l’ID répertoire de `resourceId`.
 
 Nous avons fait tout notre possible pour contacter tous les clients qui utilisent l’ancienne API et les informer de cette modification à l’avance. Si votre organisation Azure AD est passée à la nouvelle version et que vous dépendez toujours de l’ancienne API, contactez l’équipe à l’adresse pim_preview@microsoft.com.
 

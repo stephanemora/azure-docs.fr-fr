@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e8410b4e0997798eba5ee91f361c3a5f1ce47ef1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 43bafeee90b1995c363ca03d031abc7d648001cf
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586299"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126342"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrer le disque du journal vers le disque Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ Utilisez SSMS pour déplacer les fichiers existants vers un nouvel emplacement 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez en revue les [bonnes pratiques en matière de performances](performance-guidelines-best-practices.md) pour obtenir des paramètres supplémentaires afin d’améliorer les performances. 
+Passez en revue les [bonnes pratiques en matière de performances](./performance-guidelines-best-practices-checklist.md) pour obtenir des paramètres supplémentaires afin d’améliorer les performances. 
 
 Pour obtenir une vue d’ensemble de SQL Server sur des machines virtuelles Azure, consultez les articles suivants :
 

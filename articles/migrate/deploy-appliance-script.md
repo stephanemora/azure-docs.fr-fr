@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: c78778f9152fd4c07fb9e550e562cfef858333c8
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: dfa96948b7e582457a9f09eed89d5cbe3bbc762d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786734"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750390"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurer une appliance avec un script
 
@@ -34,7 +34,7 @@ Scénario | Spécifications
 VMware | Windows Server 2016 avec 32 Go de mémoire, huit processeurs virtuels, environ 80 Go de stockage sur disque
 Hyper-V | Windows Server 2016 avec 16 Go de mémoire, huit processeurs virtuels, environ 80 Go de stockage sur disque
 
-- Le serveur a également besoin d’un commutateur virtuel externe. Elle a besoin d’une adresse IP statique ou dynamique et d’un accès à Internet.
+- Le serveur a également besoin d’un commutateur virtuel externe. Il nécessite une adresse IP statique ou dynamique. 
 - Avant de déployer l’appliance, examinez en détail la configuration requise d’appliance pour les [serveurs sur VMware](migrate-appliance.md#appliance---vmware) et [sur Hyper-V](migrate-appliance.md#appliance---hyper-v).
 - N’exécutez pas le script sur une appliance de Azure Migrate existante.
 
@@ -62,7 +62,7 @@ Le script effectue les opérations suivantes :
 
 - Installe les agents et une application web.
 - Installe des rôles Windows, à savoir le service d’activation Windows (WAS), IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS. [Plus d’informations](https://www.microsoft.com/download/details.aspx?id=7435)
+- Télécharge et installe un module réinscriptible IIS.
 - Met à jour une clé de Registre (HKLM) avec des paramètres persistants pour Azure Migrate.
 - Crée les fichiers journaux et de configuration comme suit :
     - **Fichiers config** : %ProgramData%\Microsoft Azure\Config
@@ -109,7 +109,7 @@ Le script effectue les opérations suivantes :
 
 - Installe les agents et une application web.
 - Installe des rôles Windows, à savoir le service d’activation Windows (WAS), IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS. [Plus d’informations](https://www.microsoft.com/download/details.aspx?id=7435)
+- Télécharge et installe un module réinscriptible IIS.
 - Met à jour une clé de Registre (HKLM) avec des paramètres persistants pour Azure Migrate.
 - Crée les fichiers journaux et de configuration comme suit :
     - **Fichiers config** : %ProgramData%\Microsoft Azure\Config

@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7f8aa7e8cd38de37f5d3757804f7836612ad64cb
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: b408020ecf6e4618f97c8bc51749278dc0361579
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227753"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138910"
 ---
 # <a name="monitor-media-services-metrics"></a>Surveiller les mesures Media Services
 
 [!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Azure Monitor](/azure/azure-monitor/overview) vous permet de surveiller les métriques et journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Pour une description détaillée de cette fonctionnalité et pour comprendre pourquoi vous devez utiliser les métriques et les journaux de diagnostic Azure Media Services, consultez [Surveiller les métriques et journaux de diagnostic Media Services](monitor-media-services-data-reference.md).
+[Azure Monitor](../../../azure-monitor/overview.md) vous permet de surveiller les métriques et journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Pour une description détaillée de cette fonctionnalité et pour comprendre pourquoi vous devez utiliser les métriques et les journaux de diagnostic Azure Media Services, consultez [Surveiller les métriques et journaux de diagnostic Media Services](monitor-media-services-data-reference.md).
 
 Azure Monitor offre plusieurs moyens d’interagir avec les mesures, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec Azure CLI. Cet article montre comment surveiller les mesures avec les graphiques du portail Azure et Azure CLI.
 
@@ -69,8 +69,8 @@ Pour obtenir d’autres mesures, remplacez « Sortie » par le nom de la mesur
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Mesures Azure Monitor](/azure/azure-monitor/data-platform)
-- [Créer, afficher et gérer des alertes de mesure à l’aide d’Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
+- [Mesures Azure Monitor](../../../azure-monitor/data-platform.md)
+- [Créer, afficher et gérer des alertes de mesure à l’aide d’Azure Monitor](../../../azure-monitor/alerts/alerts-metric.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

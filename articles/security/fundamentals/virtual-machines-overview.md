@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 60f67ea618746c9f2b0cd65a9fbc7fb2b5fbfe86
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 51b04feffd887fd86157d029168bc53546adfeeb
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520001"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208164"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Vue d’ensemble de la sécurité des machines virtuelles Azure
 Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec les machines virtuelles.
@@ -55,7 +55,7 @@ Pour en savoir plus sur les logiciels anti-programme malveillant pour protéger 
 * [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](../../virtual-machines/extensions/symantec.md)
 * [Solutions de sécurité dans Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-Pour une protection encore plus puissante, utilisez [Windows Defender - Protection avancée contre les menaces](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Windows Defender ATP offre les fonctionnalités suivantes :
+Pour une protection encore plus puissante, utilisez [Windows Defender - Protection avancée contre les menaces](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection). Windows Defender ATP offre les fonctionnalités suivantes :
 
 * [Réduction de la surface d’attaque](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Protection de nouvelle génération](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -69,7 +69,7 @@ Pour une protection encore plus puissante, utilisez [Windows Defender - Protecti
 En savoir plus :
 
 * [Prise en main de WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [Vue d’ensemble des fonctionnalités de WDATP](/windows/security/threat-protection/windows-defender-atp/overview)  
+* [Vue d’ensemble des fonctionnalités de WDATP](/microsoft-365/security/defender-endpoint/whats-new-in-microsoft-defender-atp)  
 
 ## <a name="hardware-security-module"></a>Module de sécurité matériel
 

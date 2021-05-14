@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 1be15c16a1897797326ea869c34c3590ffb07691
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 77b43561ea0c1fdf9ff7a8d0fcce7fa7b9a2e0fa
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363867"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129384"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
@@ -21,7 +21,7 @@ Azure Database pour MySQL a été développé à partir de [MySQL Community Edit
 
 ## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>Se connecter à un nœud de passerelle qui exécute une version spécifique de MySQL
 
-Dans l’option de déploiement Serveur unique, une passerelle est utilisée pour rediriger les connexions vers des instances de serveur. Une fois la connexion établie, le client de MySQL affiche la version de MySQL définie dans la passerelle, et non la version en cours d’exécution sur votre instance de serveur MySQL. Pour déterminer la version de votre instance de serveur MySQL, utilisez la commande `SELECT VERSION();` à l’invite de MySQL. Consultez [Architecture de connectivité](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture#connectivity-architecture) pour en savoir plus sur les passerelles dans l’architecture de service Azure Database pour MySQL.
+Dans l’option de déploiement Serveur unique, une passerelle est utilisée pour rediriger les connexions vers des instances de serveur. Une fois la connexion établie, le client de MySQL affiche la version de MySQL définie dans la passerelle, et non la version en cours d’exécution sur votre instance de serveur MySQL. Pour déterminer la version de votre instance de serveur MySQL, utilisez la commande `SELECT VERSION();` à l’invite de MySQL. Consultez [Architecture de connectivité](./concepts-connectivity-architecture.md#connectivity-architecture) pour en savoir plus sur les passerelles dans l’architecture de service Azure Database pour MySQL.
 
 Comme Azure Database pour MySQL prend en charge la version principale v5.6, v5.7 et v8.0, le port par défaut 3306 pour la connexion à Azure Database pour MySQL exécute la version client MySQL 5.6 (le plus petit dénominateur commun) pour prendre en charge les connexions aux serveurs des 3 versions principales prises en charge. Toutefois, si votre application doit se connecter à une version principale spécifique, par exemple v5.7 ou v8.0, vous pouvez le faire en modifiant le port dans la chaîne de connexion de votre serveur.
 
@@ -29,11 +29,13 @@ Dans le service Azure Database pour MySQL, les nœuds de passerelle écoutent le
 
 :::image type="content" source="./media/concepts-supported-versions/concepts-supported-versions-gateway.png" alt-text="Exemple de connexion via différentes versions de MySQL de passerelle":::
 
+> [!NOTE]
+> La connexion à Azure Database pour MySQL via les ports 3308 et 3309 est uniquement prise en charge pour la connectivité publique. Les points de terminaison de service de réseau virtuel et d’Azure Private Link ne peuvent être utilisés qu’avec le port 3306.
 
 ## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>Azure Database pour MySQL prend actuellement en charge les versions majeures et mineures suivantes de MySQL :
 
 
-| Version | [Serveur unique](overview.md) <br/> Version mineure actuelle |[Serveur flexible (préversion)](/azure/mysql/flexible-server/overview) <br/> Version mineure actuelle  |
+| Version | [Serveur unique](overview.md) <br/> Version mineure actuelle |[Serveur flexible (préversion)](./flexible-server/overview.md) <br/> Version mineure actuelle  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Mise hors service) | Non pris en charge|
 |MySQL version 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|

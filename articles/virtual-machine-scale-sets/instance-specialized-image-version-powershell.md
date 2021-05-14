@@ -3,18 +3,18 @@ title: Créer un groupe identique à partir d’une image spécialisée
 description: Créez un groupe identique à l’aide d’une image spécialisée dans une galerie d’images partagées.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.openlocfilehash: b47498127996698d53946eb2aaf54368132ae7f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: mimckitt
+ms.openlocfilehash: 831c3f0c7199a6603655e5fa4bb34672edd36317
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98877983"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771898"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>Créer un groupe identique à partir d’une image spécialisée à l’aide de PowerShell 
 

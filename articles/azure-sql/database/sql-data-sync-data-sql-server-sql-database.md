@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: c38e4681c76fb0dd52d77c7dc1438b87a9571a80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 660297beacb6594058a3d83fb622ddeb579c223b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562057"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951717"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -151,6 +151,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - S’il existe des tables avec le même nom mais un schéma différent (par exemple, dbo.customers et sales.customers), une seule des tables peut être ajoutée à la synchronisation.
 - Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge
 - Le déplacement de serveurs entre différents abonnements n’est pas pris en charge. 
+- Si deux clés primaires ne sont pas différentes dans le cas (par exemple, Foo et foo), la synchronisation des données ne prend pas en charge ce scénario.
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 
@@ -200,7 +201,7 @@ Une fois le groupe de synchronisation créé et provisionné, vous pouvez désac
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Combien coûte le service de synchronisation des données SQL Data Sync ?
 
-Aucun frais n’est facturé pour le service SQL Data Sync en lui-même. Toutefois, les frais de transfert de données pour le déplacement des données vers et depuis votre instance SQL Database vous seront facturés. Pour en savoir plus, voir [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+Aucun frais n’est facturé pour le service SQL Data Sync en lui-même. Toutefois, les frais de transfert de données pour le déplacement des données vers et depuis votre instance SQL Database vous seront facturés. Pour plus d'informations, consultez [Frais de transfert de données](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="what-regions-support-data-sync"></a>Quelles régions prennent en charge Data Sync ?
 

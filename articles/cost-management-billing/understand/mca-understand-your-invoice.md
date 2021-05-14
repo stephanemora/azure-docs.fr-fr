@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ff53131f3078b33b7e7d853c1fca891b0b86d792
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050441"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484594"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termes de votre facture de Contrat client Microsoft
 
@@ -29,6 +29,18 @@ Regardez la vidéo [Comprendre votre facture Contrat client Microsoft](https://w
 ## <a name="billing-period"></a>Période de facturation
 
 Vous bénéficiez d’une facturation mensuelle. Vous pouvez déterminer le jour du mois auquel vous recevez des factures en vérifiant la *date de la facture* dans les propriétés du profil de facturation sur le [portail Azure](https://portal.azure.com/). Les frais qui s’appliquent entre la fin de la période de facturation et la date de facturation sont inclus dans la facture du mois prochain puisqu’elles se trouvent dans la période de facturation suivante. Pour chaque facture, les dates de début et de fin de la période de facturation sont répertoriées dans la facture au format PDF située au-dessus de **Récapitulatif de facturation**.
+
+Si vous migrez un contrat Entreprise vers un contrat client Microsoft, vous continuez à recevoir les factures de votre contrat Entreprise jusqu’à la date de la migration. La nouvelle facture de votre contrat client Microsoft est générée le cinquième jour du mois suivant la migration. La première facture indique des frais partiels à partir de la date de migration. Les factures ultérieures sont générées tous les mois et indiquent tous les frais de chaque mois.
+
+### <a name="changes-for-pay-as-you-go-subscriptions"></a>Changement des abonnements avec paiement à l’utilisation
+
+En cas de transition, de transfert ou d’annulation d’un abonnement, la dernière facture générée contient les frais correspondant au cycle de facturation précédent et au nouveau cycle de facturation incomplet.
+
+Par exemple :
+
+Supposons que le cycle de facturation de votre abonnement avec paiement à l’utilisation court entre le 8ème jour et le 7ème jour de chaque mois. L’abonnement a été transféré vers un contrat client Microsoft le 16 novembre. La dernière facture du paiement à l’utilisation comprend les frais du 8 octobre 2020 au 7 novembre 2020. Elle comprend également les frais du nouveau cycle de facturation partiel correspondant au contrat client Microsoft, du 8 novembre 2020 au 16 novembre 2020. Cette image en fournit un exemple.
+
+:::image type="content" source="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" alt-text="Exemple d’image de facture indiquant le dernier cycle de facturation." lightbox="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" :::
 
 ## <a name="invoice-terms-and-descriptions"></a>Termes et descriptions de la facture
 

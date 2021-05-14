@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/26/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 34adcf2218e29572ec9a86583addc7c021313085
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
+ms.openlocfilehash: 4154d73cbf7a82c78dcc8ea30f11b8d984dd6af0
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519637"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896672"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hyperparamètre optimisant un modèle avec Azure Machine Learning
 
@@ -183,7 +183,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 Le script d’entraînement calcule la valeur de `val_accuracy` et la journalise comme valeur de précision de la métrique principale. Chaque fois que la métrique est journalisée, elle est reçue par le service d’optimisation des hyperparamètres. C’est à vous de déterminer la fréquence des rapports.
 
-Pour plus d’informations sur les valeurs de journalisation dans les exécutions d’entraînement du modèle, consultez [Activer la journalisation dans les exécutions d’entraînement Azure ML](how-to-track-experiments.md).
+Pour plus d’informations sur les valeurs de journalisation dans les exécutions d’entraînement du modèle, consultez [Activer la journalisation dans les exécutions d’entraînement Azure ML](how-to-log-view-metrics.md).
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Spécifier une stratégie d’arrêt anticipé
 
@@ -424,7 +424,7 @@ Vous pouvez visualiser vos exécutions d’optimisation des hyperparamètres dan
 
 ### <a name="studio"></a>Studio
 
-Vous pouvez visualiser toutes vos exécutions d’optimisation des hyperparamètres dans [Azure Machine Learning studio](https://ml.azure.com). Pour plus d’informations sur la visualisation d’une expérience sur le portail, reportez-vous à [Consulter les enregistrements d’exécution dans le studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+Vous pouvez visualiser toutes vos exécutions d’optimisation des hyperparamètres dans [Azure Machine Learning studio](https://ml.azure.com). Pour plus d’informations sur la visualisation d’une expérience sur le portail, reportez-vous à [Consulter les enregistrements d’exécution dans le studio](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal).
 
 - **Graphique des métriques** : cette visualisation assure le suivi des métriques journalisées pour chaque exécution enfant Hyperdrive pendant la durée de l’optimisation des hyperparamètres. Chaque ligne représente une exécution enfant, tandis que chaque point mesure la valeur de métrique principale à cette itération d’exécution.  
 
@@ -464,7 +464,7 @@ Une fois que toutes les exécutions d’optimisation des hyperparamètres ont ab
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
 best_run_metrics = best_run.get_metrics()
-parameter_values = best_run.get_details()['runDefinition']['Arguments']
+parameter_values = best_run.get_details()['runDefinition']['arguments']
 
 print('Best Run Id: ', best_run.id)
 print('\n Accuracy:', best_run_metrics['accuracy'])
@@ -481,5 +481,5 @@ Reportez-vous aux notebooks train-hyperparameter-* dans ce dossier :
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Faire le suivi d’une expérience](how-to-track-experiments.md)
+* [Faire le suivi d’une expérience](how-to-log-view-metrics.md)
 * [Déployer un modèle entraîné](how-to-deploy-and-where.md)

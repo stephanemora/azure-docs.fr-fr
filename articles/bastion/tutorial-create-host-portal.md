@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3b365e347802824e855797afb8c68e5249bf0adb
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 772cc22a0f8163e0d99599ebf1f4cdfd1ab1d103
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579624"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128190"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Tutoriel : Configurer Bastion et se connecter à une machine virtuelle Windows à partir d’un navigateur
 
@@ -21,8 +21,9 @@ Ce tutoriel vous explique comment vous connecter à une machine virtuelle via vo
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer un hôte Bastion pour votre réseau virtuel
-> * Se connecter à une machine virtuelle Windows
+> * Créer un hôte bastion pour votre réseau virtuel.
+> * Supprimer l’adresse IP publique d’une machine virtuelle.
+> * Se connecter à une machine virtuelle Windows.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -55,7 +56,7 @@ Cette section vous aide à créer l’objet bastion dans votre réseau virtuel. 
 1. Sélectionnez **Create** (Créer).
 1. Dans la page **Create a bastion** (Créer un bastion), configurez une nouvelle ressource Bastion.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/bastion-basics.png" alt-text="Créer un hôte Bastion" lightbox="./media/tutorial-create-host-portal/bastion-basics.png":::
+   :::image type="content" source="./media/tutorial-create-host-portal/create.png" alt-text="Capture d’écran de la page Créer un portail Bastion." lightbox="./media/tutorial-create-host-portal/create-expand.png":::
 
     * **Abonnement**: L’abonnement Azure que vous souhaitez utiliser pour créer une ressource Bastion.
     * **Groupe de ressources** : Le groupe de ressources Azure dans lequel la nouvelle ressource Bastion est créée. Si vous n’avez pas de groupe de ressources, vous pouvez en créer un.
@@ -68,14 +69,20 @@ Cette section vous aide à créer l’objet bastion dans votre réseau virtuel. 
          * Le sous-réseau doit être au moins égal à /27 ou supérieur.
 
       Vous n’avez pas besoin de renseigner des champs supplémentaires. Sélectionnez **OK** puis, en haut de la page, sélectionnez **Create a Bastion** (Créer un bastion) pour revenir à la page de configuration du bastion.
-    * **Adresse IP publique** : Adresse IP publique de la ressource Bastion où RDP/SSH est accessible (sur le port 443). Créez une adresse IP publique. L’adresse IP publique doit être située dans la même région que la ressource Bastion que vous créez. Cette adresse IP n’a rien à voir avec les machines virtuelles auxquelles vous voulez vous connecter. Il s’agit de l’adresse IP publique de la ressource hôte Bastion.
+    * **Adresse IP publique** : adresse IP publique de la ressource Bastion sur laquelle accéder à RDP/SSH (sur le port 443). Créez une adresse IP publique. L’adresse IP publique doit être située dans la même région que la ressource Bastion que vous créez. Cette adresse IP n’a rien à voir avec les machines virtuelles auxquelles vous voulez vous connecter. Il s’agit de l’adresse IP publique de la ressource d’hôte bastion.
     * **Nom de l’adresse IP publique** : Nom de la ressource de l’adresse IP publique. Pour ce tutoriel, vous pouvez laisser la valeur par défaut.
-    * **Référence (SKU) d'adresse IP publique** : Par défaut, ce paramètre est prérempli avec la valeur **Standard**. Azure Bastion utilise/prend en charge uniquement la référence (SKU) d’adresse IP publique standard.
+    * **Référence (SKU) d'adresse IP publique** : Par défaut, ce paramètre est prérempli avec la valeur **Standard**. Azure Bastion utilise/prend en charge uniquement la référence SKU d’IP publique Standard.
     * **Attribution** : Par défaut, ce paramètre est prérempli avec la valeur **Statique**.
 
 1. Lorsque vous avez terminé de spécifier les paramètres, sélectionnez **Vérifier + créer**. Cela valide les valeurs. Une fois la validation réussie, vous pouvez créer la ressource Bastion.
-1. Sélectionnez **Create** (Créer).
+
+   :::image type="content" source="./media/tutorial-create-host-portal/validation.png" alt-text="Capture d’écran de la page de validation.":::
+1. Passez vos paramètres en revue. Ensuite, en bas de la page, sélectionnez **Créer**.
 1. Un message vous informe que votre déploiement est en cours. L’état s’affiche sur cette page à mesure que les ressources sont créées. Il faut environ 5 minutes pour que la ressource Bastion soit créée et déployée.
+
+## <a name="remove-a-vm-public-ip-address"></a>Supprimer une adresse IP publique VM
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
 ## <a name="connect-to-a-vm"></a>Se connecter à une machine virtuelle
 
@@ -91,7 +98,7 @@ Si vous n’avez plus besoin d’utiliser cette application, supprimez vos resso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez créé un hôte Bastion et vous l’avez associé à un réseau virtuel, puis vous vous êtes connecté à une machine virtuelle Windows. Vous pouvez choisir d’utiliser des groupes de sécurité réseau avec votre sous-réseau Azure Bastion. Pour cela, consultez :
+Dans ce tutoriel, vous avez créé un hôte bastion et l’avez associé à un réseau virtuel. Vous avez ensuite supprimé l’adresse IP publique d’une machine virtuelle et vous y êtes connecté. Vous pouvez choisir d’utiliser des groupes de sécurité réseau avec votre sous-réseau Azure Bastion. Pour cela, consultez :
 
 > [!div class="nextstepaction"]
 > [Utiliser des groupes de sécurité réseau](bastion-nsg.md)

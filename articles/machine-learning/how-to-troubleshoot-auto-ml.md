@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/08/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl, references_regions
-ms.openlocfilehash: 2e6e4e468adec76d50242b31922e4db1c7e910ab
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.topic: troubleshooting
+ms.custom: devx-track-python, automl, references_regions
+ms.openlocfilehash: 6f64d3511da8fbf953a50eab44702c7356ad3c5b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210480"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140476"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Résoudre les problèmes d’expériences de ML automatisé
 
@@ -189,6 +189,6 @@ Si ce modèle est attendu dans votre série chronologique, vous pouvez faire pas
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ Découvrez plus d’informations sur [comment entraîner un modèle de régression avec le machine learning automatisé](tutorial-auto-train-models.md) ou [comment entraîner avec le machine learning automatisé sur une ressource distante](how-to-auto-train-remote.md).
++ Découvrez plus d’informations sur [comment entraîner un modèle de régression avec le machine learning automatisé](tutorial-auto-train-models.md) ou [comment entraîner avec le machine learning automatisé sur une ressource distante](concept-automated-ml.md#local-remote).
 
 + Découvrez plus d’informations sur [comment et où déployer un modèle](how-to-deploy-and-where.md).

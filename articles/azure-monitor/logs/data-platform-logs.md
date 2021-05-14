@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 6cb85bc1da7d98d3e2ad46229588a91d971ce014
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9794c5f048b8795652e4b31e0134b36a77715abe
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567288"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873376"
 ---
 # <a name="azure-monitor-logs-overview"></a>Vue d’ensemble de Journaux d’activité Azure Monitor
 Les journaux Azure Monitor sont une fonctionnalité Azure Monitor qui collecte et organise les données de performances et de journal issues de [ressources supervisées](../monitor-reference.md). Les données provenant de différentes sources, telles que les [journaux de plateforme](../essentials/platform-logs-overview.md) issus des services Azure, les données de journal et de performances issues des [agents de machines virtuelles](../agents/agents-overview.md) et les données d’utilisation et de performances issues des [applications](../app/app-insights-overview.md) peuvent être regroupées dans un espace de travail unique pour pouvoir être analysées ensemble à l’aide d’un langage de requête sophistiqué à même d’analyser rapidement des millions d’enregistrements. Vous pouvez effectuer une requête simple qui récupère simplement un ensemble spécifique d’enregistrements ou effectuer une analyse de données sophistiquée pour identifier les modèles critiques dans vos données de supervision. Utilisez les requêtes de journal et leurs résultats de manière interactive avec Log Analytics, utilisez-les dans des règles d’alerte pour être notifié des problèmes de manière proactive ou visualisez leurs résultats dans un classeur ou un tableau de bord.
@@ -29,7 +29,7 @@ Le tableau suivant décrit quelques-unes des façons d’utiliser des journaux d
 | **Alert** | Configurer une [règle d’alerte de journal](../alerts/alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](../alerts/action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique. |
 | **Visualiser** | Épingler les résultats de requête affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).<br>Créer un [classeur](../visualize/workbooks-overview.md) à combiner avec plusieurs jeux de données dans un rapport interactif. <br>Exporter les résultats d’une requête vers [Power BI](../visualize/powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.<br>Exporter les résultats d’une requête vers [Grafana](../visualize/grafana-plugin.md) afin de profiter de ses tableaux de bord et de les combiner avec d’autres sources de données.|
 | **Insights** | Prendre en charge des [insights](../monitor-reference.md#insights-and-core-solutions) qui offrent une expérience de supervision personnalisée pour des applications et services spécifiques.  |
-| **Récupérer** | Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide d’[Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide de [cmdlets PowerShell](/powershell/module/az.operationalinsights).<br>Accéder aux résultats de requête de journal à partir d’une application personnalisée à l’aide d’une [API REST](https://dev.loganalytics.io/). |
+| **Récupérer** | Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide d’[Azure CLI](/cli/azure/monitor/log-analytics).<br>Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide de [cmdlets PowerShell](/powershell/module/az.operationalinsights).<br>Accéder aux résultats de requête de journal à partir d’une application personnalisée à l’aide d’une [API REST](https://dev.loganalytics.io/). |
 | **Export** | Configurer l’[exportation automatisée des données de journal](./logs-data-export.md) vers le compte de stockage Azure ou Azure Event Hubs.<br>Générer un flux de travail pour récupérer des données de journal et les copier vers un emplacement externe à l’aide de [Logic Apps](./logicapp-flow-connector.md). |
 
 ![Vue d’ensemble des journaux d’activité](media/data-platform-logs/logs-overview.png)

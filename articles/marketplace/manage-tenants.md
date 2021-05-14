@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
-ms.openlocfilehash: 446792b26527126a4db99da14a2585c17cf8610c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 79120eb6d3d5aad9c27ed42bc825fdad4907af49
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107863"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144759"
 ---
 # <a name="manage-tenants-in-the-commercial-marketplace"></a>Gérer les locataires dans la Place de marché commerciale
 
@@ -53,7 +53,7 @@ Pour créer un nouveau locataire Azure AD avec votre compte Espace partenaires :
 1. Sélectionnez Créer pour confirmer les nouvelles informations du compte et du domaine.
 1. Connectez-vous avec vos nouveaux nom d’utilisateur d’administrateur général Azure AD et mot de passe pour commencer à [ajouter et gérer les utilisateurs](add-manage-users.md).
 
-Pour plus d’informations sur la création de nouveaux locataires au sein du Portail Azure, plutôt que via le portail Espace partenaires, consultez l’article [Créer un nouveau locataire dans Azure Active Directory](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Pour plus d’informations sur la création de nouveaux locataires au sein du Portail Azure, plutôt que via le portail Espace partenaires, consultez l’article [Créer un nouveau locataire dans Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ## <a name="remove-a-tenant"></a>Supprimer un locataire
 

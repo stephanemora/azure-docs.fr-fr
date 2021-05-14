@@ -2,13 +2,13 @@
 title: Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: b6cb1a288d0052b39bbeb52ed9fd20e68a6427ed
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.date: 04/19/2021
+ms.openlocfilehash: bd51be06e707674f3e35b3478d7f99d096be912a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167888"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718770"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -44,7 +44,7 @@ Cet article aborde les sujets suivants :
     >Utilisez le module Az 5.3.0 ou version ultérieure afin d’utiliser des clés gérées par le client pour les sauvegardes dans le coffre Recovery Services.
     
     >[!Warning]
-    >Si vous utilisez PowerShell pour gérer les clés de chiffrement pour Sauvegarde, nous vous déconseillons de mettre à jour les clés à partir du portail.<br></br>Si vous mettez à jour la clé à partir du portail, vous ne pourrez plus utiliser PowerShell pour mettre à jour la clé de chiffrement, jusqu’à ce qu’une mise à jour de PowerShell prenant en charge le nouveau modèle soit disponible. Toutefois, vous pouvez continuer à mettre à jour la clé depuis le portail Azure.
+    >Si vous utilisez PowerShell pour gérer les clés de chiffrement pour Sauvegarde, nous vous déconseillons de mettre à jour les clés à partir du portail.<br>Si vous mettez à jour la clé à partir du portail, vous ne pourrez plus utiliser PowerShell pour mettre à jour la clé de chiffrement, jusqu’à ce qu’une mise à jour de PowerShell prenant en charge le nouveau modèle soit disponible. Toutefois, vous pouvez continuer à mettre à jour la clé depuis le portail Azure.
 
 Si vous n'avez pas encore créé et configuré votre coffre Recovery Services, [cliquez ici pour accéder aux instructions correspondantes](backup-create-rs-vault.md).
 
@@ -383,6 +383,16 @@ Lorsque vous spécifiez la clé gérée par le client qui doit être utilisée p
 L’utilisation de l’option **Sélectionner dans le coffre de clés** permet d’activer la rotation automatique pour la clé sélectionnée. Cela élimine l’effort manuel de mise à jour vers la version suivante. Toutefois, en utilisant cette option :
 - La mise à jour de la version de la clé peut nécessiter jusqu’à une heure pour prendre effet.
 - Lorsqu’une nouvelle version de la clé prend effet, l’ancienne version doit également être disponible (à l’état activé) pour au moins une tâche de sauvegarde ultérieure après que la mise à jour de la clé a pris effet.
+
+### <a name="using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview"></a>Utilisation de stratégies Azure pour l’audit et l’application du chiffrement à l’aide de clés gérées par le client ou CMK (en version préliminaire)
+
+Sauvegarde Azure vous permet d’utiliser les stratégies Azure pour auditer et appliquer le chiffrement, à l’aide de clés gérées par le client, de données dans le coffre Recovery Services. Utilisation des stratégies Azure :
+
+- La stratégie d’audit peut être utilisée pour auditer des coffres avec chiffrement à l’aide de clés gérées par le client qui sont activées après le 04/01/2021. Pour les coffres avec chiffrement CMK activé avant cette date, il est possible que la stratégie ne s’applique pas ou qu’elle affiche des résultats négatifs erronés (autrement dit, ces coffres peuvent être signalés comme non conformes, même si le **chiffrement CMK** est activé).
+- Pour utiliser la stratégie d’audit pour l’audit des coffres avec **chiffrement CMK** activé avant 04/01/2021, utilisez le Portail Azure pour mettre à jour une clé de chiffrement. Cela permet d’effectuer une mise à niveau vers le nouveau modèle. Si vous ne souhaitez pas modifier la clé de chiffrement, fournissez à nouveau la même clé par le biais de l’URI de clé ou de l’option de sélection de clé. 
+
+   >[!Warning]
+    >Si vous utilisez PowerShell pour gérer les clés de chiffrement pour Sauvegarde, nous vous déconseillons de mettre à jour les clés à partir du portail.<br>Si vous mettez à jour la clé à partir du portail, vous ne pourrez plus utiliser PowerShell pour mettre à jour la clé de chiffrement, jusqu’à ce qu’une mise à jour de PowerShell prenant en charge le nouveau modèle soit disponible. Toutefois, vous pouvez continuer à mettre à jour la clé depuis le portail Azure.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 

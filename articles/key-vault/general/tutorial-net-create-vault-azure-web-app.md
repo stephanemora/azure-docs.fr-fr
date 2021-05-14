@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdefca482dfa1afeb3eebb284b08eaadf4f1af60
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98788735"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107897051"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutoriel : Utiliser une identité managée pour connecter Key Vault à une application web Azure dans .NET
 
@@ -34,7 +34,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. [Créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Le [SDK .NET Core 3.1 (ou version ultérieure)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* Une installation [Git](https://www.git-scm.com/downloads).
+* Une installation [Git](https://www.git-scm.com/downloads) version 2.28.0 ou ultérieure.
 * [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault](./overview.md). Vous pouvez créer un coffre de clés à l’aide du [portail Azure](quick-create-portal.md), d’[Azure CLI](quick-create-cli.md) ou d’[Azure PowerShell](quick-create-powershell.md).
 * Un [secret](../secrets/about-secrets.md) de coffre de clés. Vous pouvez créer un secret avec le [portail Azure](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md) ou [Azure CLI](../secrets/quick-create-cli.md).
@@ -78,14 +78,14 @@ Dans cette étape, vous allez déployer votre application .NET Core sur Azure Ap
 Dans la fenêtre de terminal, sélectionnez **Ctrl+C** pour fermer le serveur web.  Initialisez un dépôt Git pour le projet .NET Core :
 
 ```bash
-git init
+git init --initial-branch=main
 git add .
 git commit -m "first commit"
 ```
 
 Vous pouvez utiliser le protocole FTP et Git local pour déployer une application web Azure en faisant appel à un *utilisateur de déploiement*. Une fois que vous avez créé votre utilisateur de déploiement, vous pouvez l’utiliser pour tous vos déploiements Azure. Votre nom d’utilisateur et votre mot de passe de déploiement au niveau du compte sont différents de vos informations d’identification de l’abonnement Azure. 
 
-Pour configurer l’utilisateur de déploiement, exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set). Choisissez un nom d’utilisateur et un mot de passe conformes à ces instructions : 
+Pour configurer l’utilisateur de déploiement, exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az_webapp_deployment_user_set). Choisissez un nom d’utilisateur et un mot de passe conformes à ces instructions : 
 
 - Le nom d’utilisateur doit être unique au sein de Azure. Pour les envois (push) Git locaux, il ne peut pas contenir d’arobase (@). 
 - Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles. 
@@ -100,7 +100,7 @@ Enregistrez votre nom d’utilisateur et votre mot de passe afin de pouvoir les 
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel vous déployez et gérez des ressources Azure. Créez un groupe de ressources pour y mettre à la fois votre coffre de clés et votre application web à l’aide de la commande [az group create](/cli/azure/group?#az-group-create) :
+Un groupe de ressources est un conteneur logique dans lequel vous déployez et gérez des ressources Azure. Créez un groupe de ressources pour y mettre à la fois votre coffre de clés et votre application web à l’aide de la commande [az group create](/cli/azure/group?#az_group_create) :
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -167,8 +167,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-
 L’URL du Git distant est indiquée dans la propriété `deploymentLocalGitUrl`, au format `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Enregistrez cette URL. Vous en aurez besoin ultérieurement.
+
+Configurez maintenant votre application web pour un déploiement à partir de la branche `main` :
+
+```azurecli-interactive
+ az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
+```
 
 Accédez à votre nouvelle application en utilisant la commande suivante. Remplacez `<your-webapp-name>` par le nom de votre application.
 
@@ -238,7 +243,7 @@ Dans cette section, vous allez configurer l’accès web au coffre de clés et m
 
 Dans ce tutoriel, nous allons utiliser une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) pour l’authentification auprès de Key Vault. Une identité managée gère automatiquement les informations d’identification de l’application.
 
-Dans Azure CLI, pour créer l’identité de l’application, exécutez la commande [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) :
+Dans Azure CLI, pour créer l’identité de l’application, exécutez la commande [az webapp-identity assign](/cli/azure/webapp/identity?#az_webapp_identity_assign) :
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -254,7 +259,7 @@ La commande retourne cet extrait de code JSON :
 }
 ```
 
-Pour permettre à votre application web d’effectuer des opérations **get** et **list** sur votre coffre de clés, passez `principalId` à la commande Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) :
+Pour permettre à votre application web d’effectuer des opérations **get** et **list** sur votre coffre de clés, passez `principalId` à la commande Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az_keyvault_set_policy) :
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -338,4 +343,4 @@ Là où « Hello World » s’affichait, vous devez maintenant voir la valeur 
 - [Utiliser Azure Key Vault avec des applications déployées sur une machine virtuelle dans .NET](./tutorial-net-virtual-machine.md)
 - En savoir plus sur les [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 - Consulter le [Guide du développeur](./developers-guide.md)
-- [Sécuriser l’accès à un coffre de clés](./secure-your-key-vault.md)
+- [Sécuriser l’accès à un coffre de clés](./security-features.md)

@@ -3,12 +3,12 @@ title: Langage Bicep pour les modèles Azure Resource Manager
 description: Décrit le langage Bicep pour le déploiement d’infrastructure sur Azure via des modèles Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: af207e6ca88eab50fe6030883379c87c0ec05691
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104955905"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773744"
 ---
 # <a name="what-is-bicep-preview"></a>Qu’est-ce que Bicep (préversion) ?
 
@@ -31,6 +31,17 @@ Une fois les outils installés, essayez le [tutoriel Bicep](./bicep-tutorial-cre
 Pour afficher les fichiers JSON et Bicep équivalents côte à côte, consultez le [Terrain de jeu de Bicep](https://aka.ms/bicepdemo).
 
 Si vous disposez d’un modèle ARM existant que vous souhaitez le convertir en Bicep, consultez [Conversion de modèles ARM entre JSON et Bicep](bicep-decompile.md).
+
+## <a name="benefits-of-bicep-versus-other-tools"></a>Avantages de Bicep par rapport à d’autres outils
+
+Bicep offre les avantages suivants par rapport aux autres options :
+
+* **Support pour tous les types de ressources et versions d’API** : Bicep prend immédiatement en charge toutes les versions de préversion et de disponibilité générale (GA) pour les services Azure. Dès qu’un fournisseur de ressources introduit de nouveaux types de ressources et de versions d’API, vous pouvez les utiliser dans votre fichier Bicep. Vous ne devez pas attendre la mise à jour des outils avant d’utiliser les nouveaux services.
+* **Expérience de création** : lorsque vous utilisez VS code pour créer vos fichiers Bicep, vous bénéficiez d’une expérience de création de première classe. L’éditeur fournit une validation enrichie de type sécurisé, IntelliSense et de la syntaxe.
+* **Modularité** : vous pouvez diviser votre code Bicep en parties gérables à l’aide de [modules](bicep-modules.md). Le module déploie un ensemble de ressources associées. Les modules vous permettent de réutiliser le code et de simplifier le développement. Ajoutez le module à un fichier Bicep chaque fois que vous devez déployer ces ressources.
+* **Intégration aux services Azure** : Bicep est intégré aux services Azure, tels qu’Azure Policy, les specs de modèle et les blueprints.
+* **Aucun fichier d’état ou état à gérer** : tous les états sont stockés dans Azure. Les utilisateurs peuvent collaborer et être assurés que leurs mises à jour sont traitées comme prévu. Utilisez l’[opération de simulation](template-deploy-what-if.md) pour afficher des modifications avant de déployer votre modèle.
+* **Aucuns frais et open source** : Bicep est complètement gratuit. Vous ne devez pas payer les fonctionnalités Premium. Elles sont également prises en charge par le support Microsoft.
 
 ## <a name="bicep-improvements"></a>Améliorations apportées à Bicep
 
@@ -57,11 +68,7 @@ Pour une comparaison complète de la syntaxe, consultez [Comparaison de JSON et 
 
 Bicep gère automatiquement les dépendances entre ressources. Vous pouvez éviter de définir `dependsOn` quand le nom symbolique d’une ressource est utilisé dans une autre déclaration de ressource.
 
-Avec Bicep, vous pouvez scinder votre projet en plusieurs modules.
-
 La structure du fichier Bicep est plus flexible celle du modèle JSON. Vous pouvez déclarer des paramètres, des variables et des sorties n’importe où dans le fichier. Dans JSON, vous devez déclarer l’ensemble des paramètres, variables et sorties dans les sections correspondantes du modèle.
-
-L’extension VS Code pour Bicep offre une validation plus riche et IntelliSense. Par exemple, vous pouvez utiliser IntelliSense avec l’extension pour l’obtention des propriétés d’une ressource.
 
 ## <a name="known-limitations"></a>Limitations connues
 

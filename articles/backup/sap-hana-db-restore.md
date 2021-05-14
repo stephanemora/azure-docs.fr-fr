@@ -3,12 +3,12 @@ title: Restaurer les bases de données SAP HANA sur des machines virtuelles Azur
 description: Dans cet article, découvrez comment restaurer des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure. Vous pouvez également utiliser la restauration inter-régions pour restaurer vos bases de données dans une région secondaire.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0b1af610ffa19f2a7708ee6f96de335a1886f78
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021671"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279979"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurer les bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -152,7 +152,7 @@ Pour restaurer les données de sauvegarde sous forme de fichiers plutôt que sou
     ![Sélectionner le point de restauration](media/sap-hana-db-restore/select-restore-point.png)
 
 1. Tous les fichiers de sauvegarde associés au point de restauration sélectionné sont vidés dans le chemin de destination.
-1. En fonction du type de point de restauration choisi (**Limite dans le temps** ou **Différentielle et complète**), vous verrez un ou plusieurs dossiers créés dans le chemin de destination. L’un des dossiers nommés `Data_<date and time of restore>` contient les sauvegardes complètes et différentielles, et l’autre dossier nommé `Log` contient les sauvegardes de fichiers journaux.
+1. En fonction du type de point de restauration choisi (**Limite dans le temps** ou **Différentielle et complète**), vous verrez un ou plusieurs dossiers créés dans le chemin de destination. Le dossier nommé `Data_<date and time of restore>` contient les sauvegardes complètes, l’autre dossier nommé `Log` contient les sauvegardes de fichiers journaux et d’autres sauvegardes (notamment les sauvegardes complètes et différentielles).
 1. Déplacez ces fichiers restaurés sur le serveur SAP HANA sur lequel vous souhaitez les restaurer en tant que base de données.
 1. Exécutez ensuite les opérations qui suivent :
     1. Définissez des autorisations sur le dossier/répertoire dans lequel les fichiers de sauvegarde sont stockés à l’aide de la commande suivante :
@@ -176,7 +176,7 @@ Pour restaurer les données de sauvegarde sous forme de fichiers plutôt que sou
         Dans la commande ci-dessus :
 
         * `<DataFileDir>` : le dossier qui contient les sauvegardes complètes
-        * `<LogFilesDir>` : le dossier qui contient les sauvegardes de fichiers journaux
+        * `<LogFilesDir>` – dossier qui contient les sauvegardes de fichiers journaux, les sauvegardes différentielles et incrémentielles (le cas échéant)
         * `<PathToPlaceCatalogFile>` : le dossier dans lequel le fichier catalogue généré doit être placé
 
     1. Restaurez à l’aide du fichier catalogue qui vient d’être généré via HANA Studio ou exécutez la requête de restauration HDBSQL avec ce catalogue nouvellement généré. Les requêtes HDBSQL sont répertoriées ci-dessous :
@@ -196,7 +196,7 @@ Pour restaurer les données de sauvegarde sous forme de fichiers plutôt que sou
         * `<DatabaseName@HostName>` : nom de la base de données dont la sauvegarde est utilisée pour la restauration et l’**hôte**/le nom du serveur SAP HANA sur lequel réside cette base de données. L’option `USING SOURCE <DatabaseName@HostName>` spécifie que la sauvegarde de données (utilisée pour la restauration) est celle d’une base de données avec un SID ou un nom différent de celui de la machine SAP HANA cible. Il n’est donc pas nécessaire de spécifier les restaurations effectuées sur le même serveur HANA à partir duquel la sauvegarde est effectuée.
         * `<PathToGeneratedCatalogInStep3>` : chemin d’accès au fichier catalogue généré à l’**étape C**
         * `<DataFileDir>` : le dossier qui contient les sauvegardes complètes
-        * `<LogFilesDir>` : le dossier qui contient les sauvegardes de fichiers journaux
+        * `<LogFilesDir>` – dossier qui contient les sauvegardes de fichiers journaux, les sauvegardes différentielles et incrémentielles (le cas échéant)
         * `<BackupIdFromJsonFile>` : **BackupId** extrait à l’**étape C**
 
     * Pour restaurer une sauvegarde complète ou différentielle particulière :
@@ -212,7 +212,7 @@ Pour restaurer les données de sauvegarde sous forme de fichiers plutôt que sou
         * `<DatabaseName@HostName>` : nom de la base de données dont la sauvegarde est utilisée pour la restauration et l’**hôte**/le nom du serveur SAP HANA sur lequel réside cette base de données. L’option `USING SOURCE <DatabaseName@HostName>` spécifie que la sauvegarde de données (utilisée pour la restauration) est celle d’une base de données avec un SID ou un nom différent de celui de la machine SAP HANA cible. Il n’est donc pas nécessaire de spécifier les restaurations effectuées sur le même serveur HANA à partir duquel la sauvegarde est effectuée.
         * `<PathToGeneratedCatalogInStep3>` : chemin d’accès au fichier catalogue généré à l’**étape C**
         * `<DataFileDir>` : le dossier qui contient les sauvegardes complètes
-        * `<LogFilesDir>` : le dossier qui contient les sauvegardes de fichiers journaux
+        * `<LogFilesDir>` – dossier qui contient les sauvegardes de fichiers journaux, les sauvegardes différentielles et incrémentielles (le cas échéant)
         * `<BackupIdFromJsonFile>` : **BackupId** extrait à l’**étape C**
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restaurer à un point spécifique dans le temps

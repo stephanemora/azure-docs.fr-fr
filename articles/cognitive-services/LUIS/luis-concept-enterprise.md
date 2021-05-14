@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc66e20023081caa85ec24956790472e21a3a2fb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609683"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773302"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Stratégies d’entreprise pour une application LUIS
 Révisez ces stratégies de conception pour votre application d’entreprise.
@@ -72,7 +72,7 @@ Une application de répartition a 500 sources de répartition maximum, ce qui é
 * [Kit de développement logiciel (SDK) Bot Framework](https://github.com/Microsoft/botframework)
 * [Didacticiel du modèle de répartition](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [CLI Dispatch](https://github.com/Microsoft/botbuilder-tools)
-* Exemple de bot du modèle de répartition – [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
+* Exemple de bot du modèle de répartition – [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/14.nlp-with-orchestrator), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/javascript_nodejs/14.nlp-with-orchestrator)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

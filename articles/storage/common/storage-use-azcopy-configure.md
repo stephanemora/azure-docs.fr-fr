@@ -1,141 +1,41 @@
 ---
-title: Configurer, optimiser et résoudre les problèmes de AzCopy avec le Stockage Azure | Microsoft Docs
-description: Configurer, optimiser et résoudre les problèmes de AzCopy avec le Stockage Azure. Supprimer ou changer l’emplacement des fichiers journaux et de plan Modifier le niveau de consignation par défaut.
+title: Rechercher des erreurs et reprendre des travaux avec des journaux dans AzCopy (stockage Azure) | Microsoft Docs
+description: Découvrez l’utilisation des journaux pour diagnostiquer les erreurs et pour reprendre des travaux suspendus à l’aide de fichiers de plan.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ad9e5665204dbd3f99f83af3578b1996814d6fa0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3b956803e9a796c49288f90873e88c3b69f1c7b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728841"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502893"
 ---
-# <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
+# <a name="find-errors-and-resume-jobs-by-using-log-and-plan-files-in-azcopy"></a>Rechercher des erreurs et reprendre des travaux à l’aide des fichiers journaux et de plan dans AzCopy
 
-AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des blobs ou des fichiers vers ou depuis un compte de stockage. Cet article vous aide à effectuer les tâches de configuration avancées et vous aide à résoudre les problèmes pouvant survenir lorsque vous utilisez AzCopy.
-
-> [!NOTE]
-> Si vous recherchez du contenu pour vous aider à bien démarrer avec AzCopy, consultez les articles suivants :
-> - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
-> - [Transférer des données avec AzCopy et le Stockage Blob](./storage-use-azcopy-v10.md#transfer-data)
-> - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
-> - [Transférer des données avec AzCopy et des compartiments Amazon S3](storage-use-azcopy-s3.md)
-
-## <a name="configure-proxy-settings"></a>Configuration des paramètres de proxy
-
-Pour configurer les paramètres de proxy pour AzCopy, définissez la variable d’environnement `HTTPS_PROXY`. Si vous exécutez AzCopy sur Windows, AzCopy détecte automatiquement les paramètres de proxy. Vous n’avez donc pas besoin d’utiliser ce paramètre dans Windows. Si vous choisissez d’utiliser ce paramètre dans Windows, il remplace la détection automatique.
-
-| Système d’exploitation | Commande  |
-|--------|-----------|
-| **Windows** | Dans une invite de commandes, tapez : `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> Pour PowerShell, tapez : `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
-| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
-| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
-
-Actuellement, AzCopy ne prend en charge les serveurs proxy qui requièrent une authentification avec NTLM ou Kerberos.
-
-### <a name="bypassing-a-proxy"></a>Contournement d’un proxy ###
-
-Si vous exécutez AzCopy sur Windows et souhaitez lui demander de n’utiliser aucun _proxy_ (au lieu de détecter automatiquement les paramètres), utilisez ces commandes. Avec ces paramètres, AzCopy ne recherche pas ou ne tente pas d’utiliser un proxy.
-
-| Système d’exploitation | Environnement | Commandes  |
-|--------|-----------|----------|
-| **Windows** | Invite de commandes (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
-| **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
-
-Sur d’autres systèmes d’exploitation, laissez simplement la variable HTTPS_PROXY non définie si vous ne souhaitez pas utiliser de proxy.
-
-## <a name="optimize-performance"></a>Optimiser les performances
-
-Vous pouvez effectuer un test d’évaluation des performances, puis utiliser des commandes et des variables d’environnement pour trouver un compromis optimal entre les performances et la consommation des ressources.
-
-Cette section vous aidera à effectuer les tâches d'optimisation suivantes :
-
-> [!div class="checklist"]
-> * Exécuter des tests d’évaluation
-> * Optimiser le débit
-> * Optimiser l’utilisation de la mémoire 
-> * Optimiser la synchronisation des fichiers
-
-### <a name="run-benchmark-tests"></a>Exécuter des tests d’évaluation
-
-Vous pouvez exécuter un test d’évaluation des performances sur des conteneurs d’objets blob ou des partages de fichiers spécifiques pour afficher des statistiques générales sur les performances et identifier des goulots d’étranglement des performances. Vous pouvez exécuter le test en chargeant ou en téléchargeant des données de test générées. 
-
-Utilisez la commande suivante pour exécuter un test d’évaluation des performances.
-
-| Syntaxe / exemple  |  Code |
-|--------|-----------|
-| **Syntaxe** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
-| **Exemple** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
-
-> [!TIP]
-> Cet exemple englobe les arguments de chemin d’accès avec des guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
-
-Cette commande exécute un test d’évaluation des performances en chargeant les données de test dans une destination spécifiée. Les données de test sont générées en mémoire, chargées dans la destination, puis supprimées de la destination une fois le test terminé. Vous pouvez spécifier le nombre de fichiers à générer et leur taille souhaitée à l’aide de paramètres de commande facultatifs.
-
-Si vous préférez exécuter ce test en téléchargeant des données, définissez le paramètre `mode` sur `download`. Pour obtenir des informations de référence détaillées, consultez [benchmark azcopy](storage-ref-azcopy-bench.md). 
-
-### <a name="optimize-throughput"></a>Optimiser le débit
-
-Vous pouvez utiliser l’indicateur `cap-mbps` dans vos commandes pour plafonner le débit de données. Par exemple, la commande suivante reprend un travail et plafonne le débit à `10` mégabits (Mb) par seconde. 
-
-```azcopy
-azcopy jobs resume <job-id> --cap-mbps 10
-```
-
-Le débit peut diminuer pendant le transfert de petits fichiers. Vous pouvez augmenter le débit en définissant la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Cette variable spécifie le nombre de demandes pouvant être effectuées simultanément.  
-
-Si votre ordinateur dispose de moins de 5 unités centrales, la valeur de cette variable est définie sur `32`. Sinon, la valeur par défaut est égale à 16 multiplié par le nombre d’unités centrales. La valeur maximale par défaut de cette variable est `3000`, mais vous pouvez l’augmenter ou la diminuer manuellement. 
-
-| Système d’exploitation | Commande  |
-|--------|-----------|
-| **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **macOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
-
-Utilisez `azcopy env` pour vérifier la valeur actuelle de cette variable. Si la valeur est vide, vous pouvez lire la valeur utilisée en examinant le début de tout fichier journal AzCopy. La valeur sélectionnée et la raison pour laquelle elle a été sélectionnée sont signalées ici.
-
-Avant de définir cette variable, nous vous recommandons d’exécuter un test d’évaluation. Le processus de test d’évaluation signalera la valeur de concurrence recommandée. En guise d’alternative, si vos conditions de réseau et charges utiles varient, affectez le mot `AUTO` à cette variable plutôt qu’un nombre particulier. AzCopy exécutera alors toujours le même processus de réglage automatique que celui qu’il utilise dans les tests d’évaluation.
-
-### <a name="optimize-memory-use"></a>Optimiser l’utilisation de la mémoire
-
-Définissez la variable d’environnement `AZCOPY_BUFFER_GB` pour spécifier la quantité maximale de mémoire système qu’AzCopy doit utiliser pour la mise en mémoire tampon lors du téléchargement et du chargement des fichiers. Exprimez cette valeur en gigaoctets (Go).
-
-| Système d’exploitation | Commande  |
-|--------|-----------|
-| **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
-| **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
-| **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des blobs ou des fichiers vers ou depuis un compte de stockage. Cet article vous aide à utiliser les journaux pour diagnostiquer les erreurs, puis à utiliser des fichiers de plan pour reprendre des travaux. Cet article explique également comment configurer les fichiers journaux et de plan en modifiant leur niveau de détail et l’emplacement par défaut où ils sont stockés.
 
 > [!NOTE]
-> Le suivi des tâches entraîne toujours une surcharge supplémentaire dans l’utilisation de la mémoire. La quantité varie en fonction du nombre de transferts dans une tâche. Les mémoires tampons représentent le composant le plus volumineux de l’utilisation de la mémoire. Vous pouvez aider à contrôler la surcharge à l’aide de `AZCOPY_BUFFER_GB` pour répondre approximativement à vos besoins, mais aucun indicateur pour limiter strictement l’utilisation de la mémoire globale n’est disponible.
+> Si vous recherchez du contenu pour vous aider à bien démarrer avec AzCopy, consultez [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md).
 
-### <a name="optimize-file-synchronization"></a>Optimiser la synchronisation des fichiers
+## <a name="log-and-plan-files"></a>Fichiers journaux et de plan
 
-La commande [sync](storage-ref-azcopy-sync.md) identifie tous les fichiers à l'emplacement de destination, puis compare les noms de fichiers et les derniers horodatages modifiés avant de démarrer l'opération de synchronisation. Si vous disposez d'un grand nombre de fichiers, vous pouvez améliorer les performances en éliminant ce traitement préalable. 
-
-Pour ce faire, utilisez plutôt la commande [azcopy copy](storage-ref-azcopy-copy.md) et définissez l'indicateur `--overwrite` sur `ifSourceNewer`. AzCopy comparera les fichiers tels qu'ils sont copiés sans effectuer d'analyses et de comparaison préalables. Cela offre un avantage en termes de performances lorsque le nombre de fichiers à comparer est important.
-
-La commande [azcopy copy](storage-ref-azcopy-copy.md) ne supprime pas les fichiers de l'emplacement de destination. Par conséquent, si vous souhaitez supprimer les fichiers à l'emplacement de destination lorsqu'ils n'existent plus à l'emplacement source, utilisez la commande [azcopy sync](storage-ref-azcopy-sync.md) avec l'indicateur `--delete-destination` défini sur la valeur `true` ou `prompt`. 
-
-## <a name="troubleshoot-issues"></a>Problèmes de dépannage
-
-AzCopy crée des fichiers journaux et de plan pour chaque travail. Vous pouvez utiliser les journaux d’activité pour examiner et résoudre les problèmes potentiels. 
+AzCopy crée des fichiers *journaux* et *de plan* pour chaque travail. Vous pouvez utiliser ces journaux pour investiguer et résoudre les problèmes potentiels. 
 
 Les journaux d’activité contiennent l’état de la défaillance (`UPLOADFAILED`, `COPYFAILED`et `DOWNLOADFAILED`), le chemin complet et la raison de la défaillance.
 
-Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux, mais vous pouvez changer cet emplacement si vous le souhaitez.
+Par défaut, les fichiers journaux et de plan se trouvent dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux, mais vous pouvez changer cet emplacement. 
 
 L’erreur correspondante n’est pas nécessairement la première erreur qui apparaît dans le fichier. Pour les erreurs telles que les erreurs réseau, les délais d’expiration et les erreurs de serveur occupé, AzCopy effectue jusqu’à 20 nouvelles tentatives. En général, le processus aboutit.  La première erreur que vous voyez peut être un problème anodin qui a fait l’objet d’une nouvelle tentative réussie.  Ainsi, au lieu de vous concentrer sur la première erreur du fichier, recherchez les erreurs à proximité de `UPLOADFAILED`, `COPYFAILED` ou `DOWNLOADFAILED`. 
 
 > [!IMPORTANT]
 > Lorsque vous soumettez requête au support Microsoft (ou que vous résolvez le problème impliquant un tiers), partagez la version rédigée de la commande que vous souhaitez exécuter. Cela garantit que la SAP n’est pas accidentellement partagée avec tout le monde. Vous trouverez la version expurgée au début du fichier journal.
 
-### <a name="review-the-logs-for-errors"></a>Passer en revue les journaux d’activité pour détecter la présence d’erreurs
+## <a name="review-the-logs-for-errors"></a>Passer en revue les journaux d’activité pour détecter la présence d’erreurs
 
 La commande suivante obtient toutes les erreurs avec l’état `UPLOADFAILED` à partir du journal `04dc9ca9-158f-7945-5933-564021086c79` :
 
@@ -151,7 +51,7 @@ Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 ```
 
-### <a name="view-and-resume-jobs"></a>Afficher et reprendre des travaux
+## <a name="view-and-resume-jobs"></a>Afficher et reprendre des travaux
 
 Chaque opération de transfert crée un travail AzCopy. Utilisez la commande suivante pour afficher l’historique des travaux :
 
@@ -183,11 +83,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 
 Lorsque vous reprenez un travail, AzCopy examine le fichier de plan de travail. Le fichier de plan répertorie tous les fichiers identifiés pour le traitement lors de la création du travail. Lorsque vous reprenez un travail, AzCopy essaiera de transférer tous les fichiers répertoriés dans le fichier de plan et qui n’ont pas été déjà transférés.
 
-## <a name="change-the-location-of-the-plan-and-log-files"></a>Changer l’emplacement des fichiers journaux et de plan
-
-Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME/.azcopy` sur Mac et Linux. Vous pouvez changer cet emplacement.
-
-### <a name="change-the-location-of-plan-files"></a>Changer l’emplacement des fichiers de plan
+## <a name="change-the-location-of-plan-files"></a>Changer l’emplacement des fichiers de plan
 
 Utilisez l’une de ces commandes.
 
@@ -199,7 +95,7 @@ Utilisez l’une de ces commandes.
 
 Utilisez `azcopy env` pour vérifier la valeur actuelle de cette variable. Si la valeur est vide, les fichiers de plan sont écrits à l’emplacement par défaut.
 
-### <a name="change-the-location-of-log-files"></a>Changer l’emplacement des fichiers journaux
+## <a name="change-the-location-of-log-files"></a>Changer l’emplacement des fichiers journaux
 
 Utilisez l’une de ces commandes.
 
@@ -222,3 +118,7 @@ Les niveaux d’enregistrement disponibles sont : `NONE`, `DEBUG`, `INFO`, `WAR
 Si vous souhaitez supprimer tous les fichiers journaux et de plan de votre ordinateur local pour économiser de l’espace disque, utilisez la commande `azcopy jobs clean`.
 
 Pour supprimer les fichiers journaux et de plan associés à un seul travail, utilisez `azcopy jobs rm <job-id>`. Remplacez l’espace réservé `<job-id>` dans cet exemple par l’ID du travail.
+
+## <a name="see-also"></a>Voir aussi
+
+- [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)

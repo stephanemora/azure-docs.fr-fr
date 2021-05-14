@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 757dfc34e3be12d09b8f965a2bb0295adb712c11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc99f5c21abf23e9323845872ec0a28518473b5c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504233"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142906"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Haute disponibilité de SAP HANA pour les machines virtuelles Azure
 
@@ -39,7 +39,7 @@ Ces articles fournissent une bonne vue d’ensemble de l’utilisation de SAP HA
 
 - [Installation manuelle d’un système SAP HANA à instance unique sur des machines virtuelles Azure](./hana-get-started.md)
 - [Installer la réplication de système SAP HANA sur des machines virtuelles Azure](sap-hana-high-availability.md)
-- [Sauvegarder SAP HANA sur des machines virtuelles Azure](./sap-hana-backup-guide.md)
+- [Sauvegarder SAP HANA sur des machines virtuelles Azure](../../../backup/sap-hana-db-about.md)
 
 Il est également judicieux de se familiariser avec ces articles sur SAP HANA :
 
@@ -69,19 +69,4 @@ Mesurez vos exigences de disponibilité par rapport aux contrats SLA que les com
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [Disponibilité de SAP HANA au sein d’une région Azure](./sap-hana-availability-one-region.md).
-- En savoir plus sur [Disponibilité de SAP HANA dans l’ensemble des régions Azure](./sap-hana-availability-across-regions.md). 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- En savoir plus sur [Disponibilité de SAP HANA dans l’ensemble des régions Azure](./sap-hana-availability-across-regions.md).

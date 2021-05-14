@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/09/2020
-ms.openlocfilehash: 31b2a993267e6e8abbf7184d745889b74e587c50
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/21/2021
+ms.openlocfilehash: 9274bb2b28613c4b61ca139995ba54df0f402edd
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311768"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228223"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Chiffrement des données avec Azure Machine Learning
 
@@ -122,9 +122,11 @@ Ce processus vous permet de chiffrer à la fois les données et le disque de sys
 
 ### <a name="machine-learning-compute"></a>Capacité de calcul Machine Learning
 
-Le disque de système d’exploitation de chaque nœud de calcul stocké dans Stockage Azure est chiffré à l’aide de clés gérées par Microsoft dans les comptes de stockage Azure Machine Learning. Cette cible de calcul est éphémère et les clusters font généralement l’objet d’un scale-down quand aucune exécution n’est placée en file d’attente. La machine virtuelle sous-jacente est déprovisionnée et le disque de système d’exploitation supprimé. Azure Disk Encryption n’est pas pris en charge pour le disque de système d’exploitation.
+Le disque de système d’exploitation de chaque nœud de calcul stocké dans Stockage Azure est chiffré à l’aide de clés gérées par Microsoft dans les comptes de stockage Azure Machine Learning. Cette cible de calcul est éphémère et les clusters font généralement l’objet d’un scale-down quand aucune exécution n’est placée en file d’attente. La machine virtuelle sous-jacente est déprovisionnée et le disque de système d’exploitation supprimé. Azure Disk Encryption n’est pas pris en charge pour le disque de système d’exploitation. 
 
 Chaque machine virtuelle dispose également d’un disque temporaire local pour les opérations de système d’exploitation. Si vous le souhaitez, vous pouvez utiliser le disque pour indexer les données d’entraînement. Le disque est chiffré par défaut pour les espaces de travail avec le paramètre `hbi_workspace` défini sur `TRUE`. Cet environnement ne perdure que pour la durée de votre exécution et la prise en charge du chiffrement est limitée aux clés gérées par le système uniquement.
+
+Le disque de système d'exploitation de l'instance de calcul est chiffré à l'aide de clés gérées par Microsoft dans les comptes de stockage Azure Machine Learning. Le disque temporaire local situé sur l'instance de calcul est chiffré à l'aide de clés gérées par Microsoft pour les espaces de travail dont le paramètre `hbi_workspace` est défini sur `TRUE`.
 
 ### <a name="azure-databricks"></a>Azure Databricks
 

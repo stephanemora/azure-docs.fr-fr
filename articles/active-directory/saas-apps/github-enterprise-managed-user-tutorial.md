@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 864415f421f4fbecf31fd52a624ac568b4cf9c80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5a6833e07e6743eed4013739f9acda6b5bd1fa4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574760"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145917"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-managed-user"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec GitHub Enterprise Managed User
 
@@ -39,7 +39,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * GitHub Enterprise Managed User prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
 * GitHub Enterprise Managed User prend en charge le provisionnement d’utilisateurs **Juste-à-temps**.
-* GitHub Enterprise Managed User prend en charge le [provisionnement **automatique** d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial).
+* GitHub Enterprise Managed User prend en charge le [provisionnement **automatique** d’utilisateurs](./github-enterprise-managed-user-provisioning-tutorial.md).
 
 ## <a name="adding-github-enterprise-managed-user-from-the-gallery"></a>Ajout de GitHub Enterprise Managed User à partir de la galerie
 
@@ -128,7 +128,7 @@ Pour configurer l’authentification unique côté **GitHub Enterprise Managed U
 
 Dans cette section, un utilisateur nommé B.Simon est créé dans GitHub Enterprise Managed User. GitHub Enterprise Managed User prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans GitHub Enterprise Managed User, il en est créé un quand vous tentez d’y accéder.
 
-GitHub Enterprise Managed User prend également en charge le provisionnement automatique d’utilisateurs. Vous trouverez plus d’informations [ici](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) sur la façon de configurer le provisionnement automatique d’utilisateurs.
+GitHub Enterprise Managed User prend également en charge le provisionnement automatique d’utilisateurs. Vous trouverez plus d’informations [ici](./github-enterprise-managed-user-provisioning-tutorial.md) sur la façon de configurer le provisionnement automatique d’utilisateurs.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -144,11 +144,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors connecté automatiquement à l’instance de GitHub Enterprise Managed User pour laquelle vous avez configuré l’authentification unique 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette GitHub Enterprise Managed User dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de GitHub Enterprise Managed User pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette GitHub Enterprise Managed User dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de GitHub Enterprise Managed User pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré GitHub Enterprise Managed User, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Une fois que vous avez configuré GitHub Enterprise Managed User, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

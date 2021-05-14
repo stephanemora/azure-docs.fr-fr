@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fea8f52ebf40ba8195de134098693f90315bb384
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 10742ec277f5742067c432a2823cbb7592e6a752
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461417"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874690"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Tutoriel : Développer des modules IoT Edge avec des conteneurs Linux
 
@@ -44,7 +44,7 @@ Une machine de développement :
 * La plupart des systèmes d’exploitation qui exécutent un moteur de conteneur peuvent servir à développer des modules IoT Edge pour appareils Linux. Ce tutoriel utilise un ordinateur Windows, mais souligne des différences connues sur macOS ou Linux.
 * Installez [Git](https://git-scm.com/), en vue d’extraire des packages de modèle de module plus loin dans ce tutoriel.  
 * [Extension C# pour Visual Studio Code (développée par OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [SDK .NET Core 2.1](https://www.microsoft.com/net/download).
+* [SDK .NET Core 2.1](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 Un appareil Azure IoT Edge :
 

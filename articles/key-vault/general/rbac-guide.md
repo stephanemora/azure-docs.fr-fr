@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 966f704bd47b4b238ed72579a6103bd2e4348849
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e2a8e8f2abeb58cdfce53cc4578d15ace1fbff5f
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772214"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634596"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure
 
@@ -41,7 +41,7 @@ Vous ne devez utiliser des autorisations sur des clés, secrets et certificats i
 
 Pour des instructions sur la gestion d’Azure Key Vault, consultez :
 
-- [Présentation de la sécurité Azure Key Vault](security-overview.md)
+- [Meilleurs pratiques relatives à Azure Key Vault](best-practices.md)
 - [Limites du service Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Rôles intégrés Azure pour les opérations de plan de données d’Azure Key Vault

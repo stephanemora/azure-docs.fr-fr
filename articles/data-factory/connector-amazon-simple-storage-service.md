@@ -1,18 +1,18 @@
 ---
 title: Copier des données depuis Amazon Simple Storage Service (S3)
 description: Découvrez comment utiliser Azure Data Factory pour copier des données d’Amazon Simple Storage Service (S3) vers des banques de données réceptrices prises en charge.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 03b0cd852f34e115cc5bbc60448e45fcbb680474
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8da9960e363e72bd6c108a9d72cfed4cc7769cf
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601225"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488714"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copie de données à partir d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -51,7 +51,7 @@ Pour obtenir la liste complète des autorisations Amazon S3, consultez l’arti
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques d’Amazon S3.
 
@@ -126,7 +126,7 @@ Les propriétés prises en charge pour un service lié Amazon S3 prises en charg
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour les objets Amazon S3 sous les paramètres `location` dans un jeu de données basé sur le format :
 
@@ -171,7 +171,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="amazon-s3-as-a-source-type"></a>Amazon S3 comme type de source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour les objets Amazon S3 sous les paramètres `storeSettings` dans une source de copie basée sur le format :
 

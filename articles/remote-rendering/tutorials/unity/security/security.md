@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1bcba264589d6cbe9b4f671e1e4f2c9b1dbf2c5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d30ab051e58573daefd16f178feb4fc94f2ec83f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594246"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835467"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutoriel : Sécurisation d’Azure Remote Rendering et du stockage de modèles
 
@@ -211,7 +211,7 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
     ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
-
+    
     using Microsoft.Azure.RemoteRendering;
     using Microsoft.Identity.Client;
     using System;
@@ -219,17 +219,9 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
     using System.Threading;
     using System.Threading.Tasks;
     using UnityEngine;
-
+    
     public class AADAuthentication : BaseARRAuthentication
     {
-        [SerializeField]
-        private string accountDomain;
-        public string AccountDomain
-        {
-            get => accountDomain.Trim();
-            set => accountDomain = value;
-        }
-
         [SerializeField]
         private string activeDirectoryApplicationClientID;
         public string ActiveDirectoryApplicationClientID
@@ -237,7 +229,7 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
             get => activeDirectoryApplicationClientID.Trim();
             set => activeDirectoryApplicationClientID = value;
         }
-
+    
         [SerializeField]
         private string azureTenantID;
         public string AzureTenantID
@@ -245,7 +237,15 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
             get => azureTenantID.Trim();
             set => azureTenantID = value;
         }
-
+    
+        [SerializeField]
+        private string azureRemoteRenderingDomain;
+        public string AzureRemoteRenderingDomain
+        {
+            get => azureRemoteRenderingDomain.Trim();
+            set => azureRemoteRenderingDomain = value;
+        }
+    
         [SerializeField]
         private string azureRemoteRenderingAccountID;
         public string AzureRemoteRenderingAccountID
@@ -255,37 +255,37 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
         }
     
         [SerializeField]
-        private string azureRemoteRenderingAccountAuthenticationDomain;
-        public string AzureRemoteRenderingAccountAuthenticationDomain
+        private string azureRemoteRenderingAccountDomain;
+        public string AzureRemoteRenderingAccountDomain
         {
-            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
-            set => azureRemoteRenderingAccountAuthenticationDomain = value;
-        }
-
+            get => azureRemoteRenderingAccountDomain.Trim();
+            set => azureRemoteRenderingAccountDomain = value;
+        }    
+    
         public override event Action<string> AuthenticationInstructions;
-
+    
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
-
+    
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
-
+    
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
+    
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
-
+    
         public async override Task<SessionConfiguration> GetAARCredentials()
         {
             var result = await TryLogin();
             if (result != null)
             {
                 Debug.Log("Account signin successful " + result.Account.Username);
-
+    
                 var AD_Token = result.AccessToken;
-
-                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+    
+                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -293,7 +293,7 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
             }
             return default;
         }
-
+    
         private Task DeviceCodeReturned(DeviceCodeResult deviceCodeDetails)
         {
             //Since everything in this task can happen on a different thread, invoke responses on the main Unity thread
@@ -303,10 +303,10 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
                 Debug.Log(deviceCodeDetails.Message);
                 AuthenticationInstructions?.Invoke(deviceCodeDetails.Message);
             });
-
+    
             return Task.FromResult(0);
         }
-
+    
         public override async Task<AuthenticationResult> TryLogin()
         {
             var clientApplication = PublicClientApplicationBuilder.Create(ActiveDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
@@ -314,11 +314,11 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
             try
             {
                 var accounts = await clientApplication.GetAccountsAsync();
-
+    
                 if (accounts.Any())
                 {
                     result = await clientApplication.AcquireTokenSilent(scopes, accounts.First()).ExecuteAsync();
-
+    
                     return result;
                 }
                 else
@@ -356,7 +356,7 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
                 Debug.LogError("GetAccountsAsync");
                 Debug.LogException(ex);
             }
-
+    
             return null;
         }
     }
@@ -372,10 +372,10 @@ Pour ce code, nous utilisons le [flux de code d’appareil](../../../../active-d
 La partie la plus importante de ce cours du point de vue d’ARR est cette ligne :
 
 ```cs
-return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Ici, nous créons un objet **SessionConfiguration** en utilisant le domaine du compte, l’ID du compte, le domaine d’authentification du compte et le jeton d’accès. Ce jeton est ensuite utilisé par le service ARR pour interroger, créer et rejoindre les sessions de rendu à distance aussi longtemps que l’utilisateur dispose des autorisations basées sur un rôle configurées précédemment.
+Ici, nous créons un objet **SessionConfiguration** en utilisant le domaine Remote Rendering, l’ID du compte, le domaine du compte et le jeton d’accès. Ce jeton est ensuite utilisé par le service ARR pour interroger, créer et rejoindre les sessions de rendu à distance aussi longtemps que l’utilisateur dispose des autorisations basées sur un rôle configurées précédemment.
 
 À la suite de cette modification, l’état actuel de l’application et son accès à vos ressources Azure ressemblent à ceci :
 
@@ -393,11 +393,11 @@ Dans l’éditeur Unity, quand l’authentification AAD est active, il est néce
 
 1. Entrez vos valeurs dans Client ID (ID client) et Tenant ID (ID de locataire). Ces valeurs se trouvent dans la page Vue d’ensemble de l’inscription d’application :
 
-    * **Account Domain** correspond au domaine de compte que vous utilisez dans **RemoteRenderingCoordinator**.
     * **Active Directory Application Client ID** correspond à l’*ID d’application (client)* qui se trouve dans l’inscription de votre application AAD (voir l’image ci-dessous).
     * **Azure Tenant ID** correspond à l’*ID de l’annuaire (locataire)* qui se trouve dans l’inscription de votre application AAD (voir l’image ci-dessous).
+    * Le **domaine Azure Remote Rendering** est le même que celui que vous avez utilisé dans le domaine Remote Rendering de **RemoteRenderingCoordinator**.
     * **Azure Remote Rendering Account ID** correspond à l’**ID de compte** que vous utilisez pour **RemoteRenderingCoordinator**.
-    * **Account Authentication Domain** correspond au **domaine d’authentification du compte** que vous utilisez dans **RemoteRenderingCoordinator**.
+    * Le **domaine de compte Azure Remote Rendering** est identique au **domaine de compte** que vous utilisez dans **RemoteRenderingCoordinator**.
 
     ![Capture d’écran mettant à évidence l’ID d’application (client) et l’ID de l’annuaire (locataire).](./media/app-overview-data.png)
 
@@ -405,8 +405,10 @@ Dans l’éditeur Unity, quand l’authentification AAD est active, il est néce
     Comme le composant **AADAuthentication** dispose d’un contrôleur d’affichage, il est automatiquement connecté pour afficher une invite après le panneau modal d’autorisation de session.
 1. Suivez les instructions figurant dans le panneau à droite de **AppMenu**.
     Vous devez voir quelque chose de semblable à ceci : ![Illustration montrant le volet d’instructions qui s’affiche à droite d’AppMenu.](./media/device-flow-instructions.png)
+    
     Après avoir entré le code fourni sur votre appareil secondaire (ou dans le navigateur de ce même appareil) et vous être connecté avec vos informations d’identification, un jeton d’accès est retourné à l’application à l’origine de la demande, en l’occurrence, l’éditeur Unity.
-1. Après cette étape, tout doit se dérouler normalement dans l’application. Si les étapes ne s’enchaînent pas comme prévu, vérifiez s’il y a des erreurs dans la console Unity.
+
+Après cette étape, tout doit se dérouler normalement dans l’application. Si les étapes ne s’enchaînent pas comme prévu, vérifiez s’il y a des erreurs dans la console Unity.
 
 ## <a name="build-to-device"></a>Générer pour l’appareil
 

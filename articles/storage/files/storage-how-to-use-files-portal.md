@@ -4,15 +4,15 @@ description: Découvrez comment créer et gérer les partages de fichiers Azure 
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7867a4bd60bb179c18fff49691072d683660f7e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629816"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717847"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guide de démarrage rapide : créer et gérer les partages de fichiers Azure avec le portail Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Ce guide vous explique les bases de l’utilisation du partage de fichiers avec le [portail Azure](https://portal.azure.com/).
@@ -26,12 +26,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Pour créer un partage de fichiers Azure :
 
 1. Sélectionnez le compte de stockage dans votre tableau de bord.
-2. Dans la page du compte de stockage, dans la section **Services**, sélectionnez **Fichiers**.
-    ![Capture d’écran de la section des services du compte de stockage ; sélectionnez le service Fichiers](media/storage-how-to-use-files-portal/create-file-share-1.png)
+1. Dans la page du compte de stockage, dans la section **Services**, sélectionnez **Fichiers**.
+    
+    ![Capture d’écran de la section Stockage des données du compte de stockage, avec la sélection des partages de fichiers.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. Dans le menu situé en haut de la page **Service de fichiers**, cliquez sur **Partage de fichiers**. La page **Nouveau partage de fichier** s’affiche.
-4. Dans **Nom**, saisissez *myshare*.
-5. Cliquez sur **OK** pour créer le partage de fichiers Azure.
+1. Dans le menu situé en haut de la page **Service de fichiers**, cliquez sur **Partage de fichiers**. La page **Nouveau partage de fichier** s’affiche.
+1. Dans **Nom**, tapez *myshare*, entrez un quota et laissez l’option **Transaction optimisée** sélectionnée pour **Niveaux**.
+1. Sélectionnez **Créer** pour créer le partage de fichiers Azure.
 
 Le nom des partages ne doit contenir que des minuscules, des nombres et des traits d’union uniques, mais ne peut commencer par un trait d’union. Pour plus d’informations sur la façon de nommer des partages de fichiers et des fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
@@ -60,20 +61,21 @@ Maintenant que vous avez créé un partage de fichiers Azure, vous pouvez monter
 Pour créer un répertoire nommé *myDirectory* à la racine de votre partage de fichiers Azure :
 
 1. Dans la page **Service de fichiers**, sélectionnez le partage de fichiers **myshare**. La page de votre partage de fichiers s’ouvre.
-2. Dans le menu situé en haut de la page, sélectionnez **+ Ajouter un répertoire**. La page **Nouveau répertoire** s’affiche.
-3. Saisissez *myDirectory* et cliquez sur **OK**.
+1. Dans le menu situé en haut de la page, sélectionnez **+ Ajouter un répertoire**. La page **Nouveau répertoire** s’affiche.
+1. Saisissez *myDirectory* et cliquez sur **OK**.
 
 #### <a name="upload-a-file"></a>Charger un fichier 
 Pour charger un fichier, vous devez tout d’abord créer ou sélectionner un fichier à charger. Vous pouvez le faire selon la méthode de votre choix. Une fois que vous avez sélectionné le fichier que vous voulez charger :
 
 1. Cliquez sur le répertoire **myDirectory**. Le volet **myDirectory** s’ouvre.
-2. Dans le menu situé en haut, cliquez sur **Télécharger**. Le panneau **Télécharger des fichiers** s’ouvre.  
+1. Dans le menu supérieur, sélectionnez **Charger**. Le panneau **Télécharger des fichiers** s’ouvre.  
+    
     ![Capture d’écran du panneau Télécharger des fichiers](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-3. Cliquez sur l’icône de dossier pour ouvrir une fenêtre permettant de parcourir vos fichiers locaux. 
-4. Sélectionnez un fichier, puis sur **Ouvrir**. 
-5. Dans la page **Télécharger des fichiers**, vérifiez le nom du fichier, puis cliquez sur **Télécharger**.
-6. Une fois terminé, le fichier apparaît dans la liste sur la page **myDirectory**.
+1. Cliquez sur l’icône de dossier pour ouvrir une fenêtre permettant de parcourir vos fichiers locaux. 
+1. Sélectionnez un fichier, puis sur **Ouvrir**. 
+1. Dans la page **Télécharger des fichiers**, vérifiez le nom du fichier, puis cliquez sur **Télécharger**.
+1. Une fois terminé, le fichier apparaît dans la liste sur la page **myDirectory**.
 
 #### <a name="download-a-file"></a>Téléchargement d’un fichier
 Vous pouvez télécharger une copie du fichier que vous avez chargé en cliquant avec le bouton droit sur le fichier. Après avoir cliqué sur le bouton de téléchargement, l’expérience exacte dépend du système d’exploitation et du navigateur que vous utilisez.

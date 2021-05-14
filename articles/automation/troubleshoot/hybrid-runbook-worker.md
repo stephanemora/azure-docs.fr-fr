@@ -7,12 +7,13 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 565d801fb569f818613fd31b7492c0847eef9a7a
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9b06213416241f671dd0e6ef56a7660a3af5f6e8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169349"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123894"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
 
@@ -128,7 +129,7 @@ Les causes possibles sont les suivantes :
 #### <a name="resolution"></a>Résolution
 
 ##### <a name="mistyped-workspace-id-or-key"></a>ID/clé d’espace de travail mal orthographié(e)
-Pour vérifier si l’ID ou la clé d’espace de travail de l’agent est mal orthographié(e), consultez [Ajout ou suppression d’un espace de travail - Agent Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) pour l’agent Windows ou [Ajout ou suppression d’un espace de travail - Agent Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) pour l’agent Linux. Veillez à sélectionner la chaîne complète à partir du Portail Azure, puis à la copier et à la coller soigneusement.
+Pour vérifier si l’ID ou la clé d’espace de travail de l’agent est mal orthographié(e), consultez [Ajout ou suppression d’un espace de travail - Agent Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) pour l’agent Windows ou [Ajout ou suppression d’un espace de travail - Agent Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) pour l’agent Linux. Veillez à sélectionner la chaîne complète à partir du Portail Azure, puis à la copier et à la coller soigneusement.
 
 ##### <a name="configuration-not-downloaded"></a>Configuration non téléchargée
 

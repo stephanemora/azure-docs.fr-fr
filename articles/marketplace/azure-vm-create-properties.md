@@ -7,16 +7,16 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 281553782774c31ec8cfaf614542fd739c4d3dd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5942368ba1709127b815a35676b716955c1bee8f
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629527"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819085"
 ---
-# <a name="how-to-configure-virtual-machine-offer-properties"></a>Comment configurer les propriétés d’une offre de machine virtuelle
+# <a name="configure-virtual-machine-offer-properties"></a>Configurer les propriétés de l’offre de machine virtuelle
 
-Dans la page **Propriétés** (à partir du menu de navigation de gauche dans Espace partenaires), définissez les catégories utilisées pour regrouper votre offre de machine virtuelle sur Place de marché Azure, la version de votre application et les contrats légaux associés.
+Dans la page **Propriétés** (à partir du menu de navigation de gauche), définissez les catégories utilisées pour regrouper votre offre de machine virtuelle sur Place de marché Azure, la version de votre application et les contrats associés.
 
 ## <a name="select-a-category"></a>Sélectionner une catégorie
 
@@ -75,7 +75,7 @@ Dans la zone **Termes d’avenant universel au contrat standard pour la place de
 
 ### <a name="use-your-own-terms-and-conditions"></a>Utiliser vos propres conditions générales
 
-Vous pouvez également utiliser vos propres conditions générales au lieu du contrat standard. Les clients doivent accepter ces conditions avant de pouvoir essayer votre application.
+Vous pouvez fournir vos propres conditions générales au lieu d’utiliser le contrat standard. Les clients doivent accepter ces conditions avant de pouvoir essayer votre application.
 
 1. Sous **Juridique**, désactivez la case à cocher **Utiliser le contrat Standard pour le marketplace commercial de Microsoft**.
 1. Dans la zone **Conditions générales**, entrez jusqu’à 10 000 caractères de texte.

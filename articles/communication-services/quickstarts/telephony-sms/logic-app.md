@@ -9,16 +9,16 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 11cce223a0802c20c5fc144eed681327f989a949
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cabf4ba9ea17c1ad2d8af9fd17e7d6f09838e745
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103488378"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293149"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Démarrage rapide : Envoyer des SMS dans Azure Logic Apps avec Azure Communication Services
 
-À l’aide du connecteur [Azure Communication Services SMS](../../overview.md) et d’[Azure Logic Apps](../../../logic-apps/logic-apps-overview.md), vous pouvez créer des workflows automatisés, ou *applications logiques*, qui peuvent envoyer des SMS. Ce guide de démarrage rapide montre comment envoyer automatiquement des SMS en réponse à un événement déclencheur, qui est la première étape d’un workflow d’application logique. Un événement déclencheur peut être un e-mail entrant, une planification de périodicité, un événement de ressource [Azure Event Grid](../../../event-grid/overview.md) ou tout autre [déclencheur pris en charge par Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+À l’aide du connecteur [Azure Communication Services SMS](../../overview.md) et d’[Azure Logic Apps](../../../logic-apps/logic-apps-overview.md), vous pouvez créer des workflows automatisés qui peuvent envoyer des SMS. Ce guide de démarrage rapide montre comment envoyer automatiquement des SMS en réponse à un événement déclencheur, qui est la première étape d’un workflow d’application logique. Un événement déclencheur peut être un e-mail entrant, une planification de périodicité, un événement de ressource [Azure Event Grid](../../../event-grid/overview.md) ou tout autre [déclencheur pris en charge par Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 :::image type="content" source="./media/logic-app/azure-communication-services-connector.png" alt-text="Capture d’écran montrant le portail Azure, ouvert sur le concepteur d’application logique, et un exemple d’application logique qui utilise l’action Envoyer un SMS pour le connecteur Azure Communication Services":::
 
@@ -73,11 +73,11 @@ Pour ajouter l’action **Envoyer un SMS** en tant que nouvelle étape dans votr
 
 1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
-Ensuite, exécutez votre application logique à des fins de test.
+Ensuite, exécutez le workflow de votre application logique à des fins de test.
 
 ## <a name="test-your-logic-app"></a>Tester votre application logique
 
-Pour lancer manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Vous pouvez aussi attendre que votre application logique se déclenche. Dans les deux cas, l’application logique doit envoyer un SMS au numéro de téléphone de destination que vous avez spécifié. Pour plus d’informations sur l’exécution de votre application logique, consultez les [instructions permettant d’exécuter votre application logique](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-your-logic-app).
+Pour lancer manuellement votre workflow, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Sinon, vous pouvez attendre que le déclencheur se mette en œuvre. Dans les deux cas, le workflow doit envoyer un SMS au numéro de téléphone de destination que vous avez spécifié. Pour plus d’informations, consultez [Exécuter votre workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

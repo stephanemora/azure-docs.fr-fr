@@ -4,15 +4,15 @@ description: Apprenez à utiliser les fonctionnalités d’authentification et d
 keywords: app service, azure app service, authentification, autorisation, sécurisé, sécurité, plusieurs niveaux, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/29/2020
+ms.date: 04/26/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e35a4abbcaf0cd2298d55c06de0ecfbef0dff354
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c0a232dc0541ea8626cdb40a9b3497a686a5ee11
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765788"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074507"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
@@ -240,23 +240,21 @@ Dans **Groupes de ressources**, recherchez et sélectionnez votre groupe de ress
 
 :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Capture d’écran de la fenêtre Groupes de ressources montrant la vue d’ensemble d’un exemple de groupe de ressources et la page de gestion de l’applications back-end sélectionnée.":::
 
-Dans le menu de gauche de votre application back-end, sélectionnez **Authentification/Autorisation**, puis activez l’authentification App Service en sélectionnant **On** (Activé).
+Dans le menu gauche de votre application back-end, sélectionnez **Authentification**, puis cliquez sur **Ajouter un fournisseur d’identité**.
 
-Dans **Mesure à prendre quand une demande n’est pas authentifiée**, sélectionnez **Se connecter avec Azure Active Directory**.
+Dans la page **Ajouter un fournisseur d’identité**, sélectionnez **Microsoft** en tant que **fournisseur d’identité** pour vous connecter aux identités Microsoft et Azure AD.
 
-Sous **Fournisseurs d’authentification**, cliquez sur **Azure Active Directory**.
+Pour **Inscription d’application** > **Type d’inscription d’application**, sélectionnez **Créer une inscription d’application**.
+
+Pour **Inscription d’application** > **Types de comptes pris en charge**, sélectionnez **Locataire actuel - Monolocataire**.
+
+Dans la section **Paramètres d’authentification App service**, laissez **Authentification** sur **Exiger une authentification** et **Requêtes non authentifiées** sur **HTTP 302 Redirection trouvée : recommandé pour les sites web**.
+
+En bas de la page **Ajouter un fournisseur d’identité**, cliquez sur **Ajouter** pour activer l’authentification pour votre application web.
 
 :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Capture d’écran du menu de gauche de l’application back-end montrant l’élément Authentification/Autorisation sélectionné et des paramètres sélectionnés dans le menu de droite.":::
 
-Sélectionnez **Express**, puis acceptez les paramètres par défaut pour créer une application AD, et sélectionnez **OK**.
-
-Sur la page **Authentification/Autorisation**, sélectionnez **Enregistrer**.
-
-Lorsque vous voyez la notification avec le message `Successfully saved the Auth Settings for <back-end-app-name> App`, actualisez la page du portail.
-
-Sélectionnez à nouveau **Azure Active Directory**, puis sélectionnez **Application Azure AD**.
-
-Copiez l’**ID de client** de l’application Azure AD dans le Bloc-notes. Vous aurez besoin de cette valeur ultérieurement.
+La page **Authentification** s’ouvre. Copiez l’**ID de client** de l’application Azure AD dans le Bloc-notes. Vous aurez besoin de cette valeur ultérieurement.
 
 :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Capture d’écran de la fenêtre Paramètres Azure Active Directory montrant l’application Azure AD et la fenêtre Applications Azure AD montrant l’ID client à copier.":::
 

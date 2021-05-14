@@ -1,26 +1,25 @@
 ---
-title: Guide pratique pour importer une nouvelle mise à jour | Microsoft Docs
-description: Guide pratique pour importer une nouvelle mise à jour dans Device Update pour IoT Hub.
+title: Guide pratique pour ajouter une nouvelle mise à jour | Microsoft Docs
+description: Guide pratique pour ajouter une nouvelle mise à jour dans Device Update pour IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 2/11/2021
+ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ede0d279b8769f49afcdae1cb9352c1b47fb59b5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ebfeee2828b3a36f9cf47891f8aea6d889db85bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932401"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763574"
 ---
-# <a name="import-new-update"></a>Importer une nouvelle mise à jour
-Découvrez comment importer une nouvelle mise à jour dans Device Update pour IoT Hub. Si vous ne l’avez pas déjà fait, veillez à vous familiariser avec les [concepts d’importation](import-concepts.md) de base.
+# <a name="add-an-update-to-device-update-for-iot-hub"></a>Ajouter une mise à jour dans Device Update pour IoT Hub
+Découvrez comment ajouter une nouvelle mise à jour dans Device Update pour IoT Hub.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * [Accès à un hub IoT avec Device Update pour IoT Hub activé](create-device-update-account.md). 
-* Appareil IoT (ou simulateur) provisionné pour Device Update dans IoT Hub.
-   * Si vous utilisez un appareil réel, vous aurez besoin d’un fichier image de mise à jour pour une mise à jour d’image ou d’un [fichier manifeste APT](device-update-apt-manifest.md) pour une mise à jour de package.
+* Un appareil (ou un simulateur) IoT [provisionné pour Device Update](device-update-agent-provisioning.md) dans IoT Hub.
 * [PowerShell 5](/powershell/scripting/install/installing-powershell) ou version ultérieure (y compris les installations Linux, macOS et Windows)
 * Navigateurs pris en charge :
   * [Microsoft Edge](https://www.microsoft.com/edge)
@@ -29,9 +28,19 @@ Découvrez comment importer une nouvelle mise à jour dans Device Update pour Io
 > [!NOTE]
 > Certaines données envoyées à ce service peuvent être traitées dans une région située en dehors de la région dans laquelle cette instance a été créée.
 
-## <a name="create-device-update-import-manifest"></a>Créer un manifeste d’importation Device Update
+## <a name="obtain-an-update-for-your-devices"></a>Obtenir une mise à jour pour vos appareils
 
-1. Vérifiez que votre fichier image de mise à jour ou fichier manifeste APT se trouve dans un répertoire accessible à partir de PowerShell.
+Maintenant que vous avez configuré Device Update et provisionné vos appareils, vous avez besoin du ou des fichiers de mise à jour que vous allez déployer sur ces appareils.
+
+Si vous avez acheté des appareils auprès d’un OEM ou d’un intégrateur de solutions, cette organisation fournira probablement des fichiers de mise à jour à votre place, sans que vous ayez à créer les mises à jour. Contactez l’OEM ou l’intégrateur de solutions pour savoir comment il rend les mises à jour disponibles.
+
+Si votre organisation crée déjà des logiciels pour les appareils que vous utilisez, c’est ce même groupe qui créera les mises à jour de ces logiciels. Quand vous créez une mise à jour à déployer à l’aide de Device Update pour IoT Hub, commencez par l’[approche basée sur une image ou par l’approche basée sur un package](understand-device-update.md#support-for-a-wide-range-of-update-artifacts) en fonction de votre scénario. Remarque : Si vous voulez créer vos propres mises à jour, mais que vous débutez, GitHub est une excellente option pour gérer votre développement. Vous pouvez stocker et gérer votre code source, et effectuer des opérations d’intégration continue (CI) et de déploiement continu (CD) avec [GitHub Actions](https://docs.github.com/en/actions/guides/about-continuous-integration).
+
+## <a name="create-a-device-update-import-manifest"></a>Créer un manifeste d’importation Device Update
+
+Si vous ne l’avez pas déjà fait, veillez à vous familiariser avec les [concepts d’importation](import-concepts.md) de base.
+
+1. Vérifiez que vos fichiers de mise à jour se trouvent dans un répertoire accessible à partir de PowerShell.
 
 2. Créez un fichier texte nommé **AduUpdate.psm1** dans le répertoire où se trouve votre fichier image de mise à jour ou fichier manifeste APT. Ouvrez ensuite le cmdlet PowerShell [AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets), copiez le contenu dans votre fichier texte, puis enregistrez le fichier texte.
 
@@ -67,7 +76,7 @@ Découvrez comment importer une nouvelle mise à jour dans Device Update pour Io
     | updateFilePath(s) | Chemin du ou des fichiers de mise à jour sur votre ordinateur
 
 
-## <a name="review-generated-import-manifest"></a>Examiner le manifeste d’importation généré
+## <a name="review-the-generated-import-manifest"></a>Examiner le manifeste d’importation généré
 
 Exemple :
 ```json
@@ -110,10 +119,10 @@ Exemple :
 }
 ```
 
-## <a name="import-update"></a>Importer la mise à jour
+## <a name="import-an-update"></a>Importer une mise à jour
 
-[!NOTE]
-Les instructions ci-dessous montrent comment importer une mise à jour par le biais de l’interface utilisateur du Portail Azure. Vous pouvez également utiliser la [mise à jour de l’appareil pour les API IoT Hub](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) pour importer une mise à jour. 
+> [!NOTE]
+> Les instructions ci-dessous montrent comment importer une mise à jour par le biais de l’interface utilisateur du Portail Azure. Vous pouvez également utiliser la [mise à jour de l’appareil pour les API IoT Hub](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) pour importer une mise à jour. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre hub IoT avec Device Update.
 

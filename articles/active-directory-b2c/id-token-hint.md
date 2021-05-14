@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3f8a0562df4b4eeef338ddf357f37d7d0bc8f5a
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97669157"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107946634"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique id_token_hint dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -189,7 +189,7 @@ Consultez l’exemple de contrôleur MVC .Net [TokenMetadataController.cs](https
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Étape 1. Préparer un certificat auto-signé
 
-Si vous n’avez pas encore de certificat, vous pouvez utiliser un certificat auto-signé pour ce guide pratique. Sur Windows, vous pouvez utiliser l’applet de commande [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell pour générer un certificat.
+Si vous n’avez pas encore de certificat, vous pouvez utiliser un certificat auto-signé pour ce guide pratique. Sur Windows, vous pouvez utiliser l’applet de commande [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) de PowerShell pour générer un certificat.
 
 Exécutez cette commande PowerShell pour générer un certificat auto-signé. Modifiez l’argument `-Subject` comme il convient pour votre application et le nom de locataire Azure AD B2C. Vous pouvez également ajuster la date de `-NotAfter` pour spécifier un délai d’expiration différent pour le certificat.
 

@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 355d36d58935372e9d8a92599e8f810fec9ebf19
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4c50c7de84f92f1050b88a9c5c7179c69211bb42
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104785340"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766930"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Jeux de données dans Azure Data Factory (version 1)
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -140,7 +140,7 @@ Comme vous pouvez le voir, le service lié définit la façon de se connecter à
 ## <a name="dataset-type"></a><a name="Type"></a> Type du jeu de données
 Le type du jeu de données dépend du magasin de données que vous utilisez. Consultez le tableau suivant pour obtenir la liste des magasins de données pris en charge par Data Factory. Cliquez sur un magasin de données pour savoir comment créer un service lié et un jeu de données pour ce magasin de données.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Les magasins de données avec * peuvent être locaux ou sur l’infrastructure Azure en tant que service (IaaS). Ces magasins de données vous obligent à installer la [passerelle de gestion des données](data-factory-data-management-gateway.md).

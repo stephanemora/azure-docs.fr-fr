@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.custom: devx-track-js
-ms.openlocfilehash: a655199d854462285ca98a2d8f454c483c061f99
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d54b4b048632324a58708f893a4778a56137916
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92316673"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107876076"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric pour Visual Studio Code
 
@@ -48,7 +48,7 @@ Les composants requis suivants doivent être installés pour le développement J
 
 Les composants requis suivants doivent être installés pour le développement .NET Core/C# :
 
-* [.NET Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 ou ultérieure)
+* [.NET Core](https://dotnet.microsoft.com/download) (version 2.0.0 ou ultérieure)
 * [Extension VS Code C# pour Visual Studio Code (technologie OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Nécessaire pour déboguer les services C#. Vous pouvez effectuer l’installation en cliquant sur l’icône Extensions dans la **barre d’activités** de VS Code et en recherchant l’extension, ou bien à partir de la place de marché VS Code.
 
 ## <a name="setup"></a>Programme d’installation

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/20/2021
 ms.author: b-juche
-ms.openlocfilehash: eeeaf01dd20e5b309884a01f954ceca576cbcbb9
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: d3ca94524c334a20f5ee75e5300ad419fa1542c5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259623"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107873268"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -91,12 +91,32 @@ Avant de créer un volume SMB, vous devez créer une connexion Active Directory.
     * Sélectionnez **SMB** comme type de protocole pour le volume. 
     * Sélectionnez votre connexion **Active Directory** dans la liste déroulante.
     * Spécifiez le nom du volume partagé dans **Nom de partage**.
+    * Si vous souhaitez activer le chiffrement pour SMB3, sélectionnez **Activer le chiffrement de protocole SMB3**.   
+        Cette fonctionnalité active le chiffrement pour les données SMB3 à la volée. Les clients SMB qui n’utilisent pas le chiffrement SMB3 ne seront pas en mesure d’accéder à ce volume.  Les données au repos sont chiffrées, indépendamment de ce paramètre.  
+        Pour plus d’informations, consultez le [Forum aux questions sur le chiffrement SMB](azure-netapp-files-faqs.md#smb-encryption-faqs). 
+
+        La fonctionnalité **Chiffrement de protocole SMB3** est actuellement en préversion. Si vous utilisez cette fonctionnalité pour la première fois, inscrivez-la avant de l’utiliser : 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Vérifiez l’état d’inscription de la fonctionnalité : 
+
+        > [!NOTE]
+        > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit `Registered`.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription.  
     * Si vous souhaitez activer la disponibilité continue pour le volume SMB, sélectionnez **Activer la disponibilité continue**.    
 
         > [!IMPORTANT]   
         > La fonctionnalité de disponibilité continue SMB est actuellement en préversion publique. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la **[page de soumission de demande d’inscription à la liste d’attente de préversion publique de partages de disponibilité continue SMB d’Azure NetApp Files](https://aka.ms/anfsmbcasharespreviewsignup)** . Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de disponibilité continue.   
         > 
-        > Vous devez activer la disponibilité continue pour les charges de travail SQL uniquement. L’utilisation de partages de disponibilité continue SMB pour des charges de travail autres que SQL Server n’est *pas* prise en charge. Cette fonctionnalité est actuellement prise en charge sur Windows SQL Server. Linux SQL Server n’est pas pris en charge actuellement. Si vous utilisez un compte non-administrateur (domaine) pour installer SQL Server, assurez-vous que le compte dispose du privilège de sécurité requis. Si le compte de domaine ne dispose pas du privilège de sécurité requis (`SeSecurityPrivilege`) et que le privilège ne peut pas être défini au niveau du domaine, vous pouvez octroyer le privilège au compte à l’aide du champ **Utilisateurs avec privilège de sécurité** des connexions Active Directory. Consultez [Créer une connexion Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
+        > Vous devez activer la disponibilité continue uniquement pour les [conteneurs de profil utilisateur FSLogix](../virtual-desktop/create-fslogix-profile-container.md) et SQL Server. L’utilisation de partages de disponibilité continue SMB pour des charges de travail autres que les conteneurs de profil utilisateur FSLogix et SQL Server n’est *pas* prise en charge. Cette fonctionnalité est actuellement prise en charge sur Windows SQL Server. Linux SQL Server n’est pas pris en charge actuellement. Si vous utilisez un compte non-administrateur (domaine) pour installer SQL Server, assurez-vous que le compte dispose du privilège de sécurité requis. Si le compte de domaine ne dispose pas du privilège de sécurité requis (`SeSecurityPrivilege`) et que le privilège ne peut pas être défini au niveau du domaine, vous pouvez octroyer le privilège au compte à l’aide du champ **Utilisateurs avec privilège de sécurité** des connexions Active Directory. Consultez [Créer une connexion Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 

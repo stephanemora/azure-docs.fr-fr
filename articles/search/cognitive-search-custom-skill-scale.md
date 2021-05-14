@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f80e78da5c7d226c704c8b13fc496e416f5d0f0d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641141"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125586"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Faire évoluer efficacement une compétence personnalisée
 
@@ -26,7 +26,7 @@ Les compétences personnalisées sont des API web qui implémentent une interfac
 
 + Pour connaître l’interface d’entrée et de sortie qu’une compétence personnalisée doit implémenter, examinez l’[interface de compétence personnalisée](cognitive-search-custom-skill-interface.md).
 
-+ Configurez votre environnement. Vous pouvez commencer avec [ce tutoriel de bout en bout](/azure/azure-functions/create-first-function-vs-code-python) pour configurer une fonction Azure serverless à l’aide d’extensions Visual Studio Code et Python.
++ Configurez votre environnement. Vous pouvez commencer avec [ce tutoriel de bout en bout](../azure-functions/create-first-function-vs-code-python.md) pour configurer une fonction Azure serverless à l’aide d’extensions Visual Studio Code et Python.
 
 ## <a name="skillset-configuration"></a>Configuration d’un ensemble de compétences
 

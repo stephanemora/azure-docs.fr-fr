@@ -3,23 +3,23 @@ title: Qu’est-ce que Azure IoT Central | Microsoft Docs
 description: Azure IoT Central est une plateforme IoT qui simplifie la création de vos solutions IoT et contribue à réduire la charge et le coût liés à la gestion, aux opérations et au développement IoT. Cet article donne une vue d’ensemble des fonctionnalités de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: 6f7b24c711d99b1127ee77a920b305acb114d20e
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 88f59c1b3fc1014cef5035845f1f2e8616bea908
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505125"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739905"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
 IoT Central est une plateforme d’application IoT qui réduit les charges et les coûts associés au développement, à la gestion et à la maintenance de solutions IoT de qualité professionnelle. Choisir de créer des applications avec IoT Central vous offre la possibilité de consacrer votre temps, votre argent et votre énergie à transformer votre activité avec des données IoT, au lieu de simplement gérer et mettre à jour une infrastructure IoT complexe et en constante évolution.
 
-L’interface utilisateur web vous permet de superviser les conditions des appareils, de créer des règles et de gérer des millions d’appareils et leurs données tout au long de leur cycle de vie. Elle vous permet également d’agir sur les insights des appareils en élargissant l’intelligence IoT aux applications métier.
+L’interface utilisateur web vous permet de connecter rapidement des appareils, de superviser les conditions des appareils, de créer des règles, et de gérer des millions d’appareils avec leurs données tout au long de leur cycle de vie. Elle vous permet également d’agir sur les insights des appareils en élargissant l’intelligence IoT aux applications métier.
 
 Cet article décrit, en ce qui concerne IoT Central :
 
@@ -41,14 +41,18 @@ La documentation IoT Central fait référence à quatre rôles d'utilisateur qui
 
 ## <a name="create-your-iot-central-application"></a>Créer votre application IoT Central
 
-En tant que créateur de solution, vous utilisez IoT Central pour créer une solution IoT personnalisée et hébergée dans le cloud pour votre organisation. Une solution IoT personnalisée se compose généralement de :
+Vous pouvez déployer rapidement une nouvelle application IoT Central, puis la personnaliser selon vos propres besoins. Commencez avec un _modèle d’application_ générique ou avec l’un des modèles d’application propre à un secteur d’activité :
 
-- Une application basée sur le cloud qui reçoit des données de télémétrie de vos appareils et qui vous permet de gérer ces appareils.
-- Un code personnalisé exécuté sur plusieurs appareils, connecté à votre application basée sur le cloud.
+- [Retail](../retail/overview-iot-central-retail.md) (Commerce)
+- [Énergie](../energy/overview-iot-central-energy.md)
+- [Secteur public](../government/overview-iot-central-government.md)
+- [Santé](../healthcare/overview-iot-central-healthcare.md)
 
-Vous pouvez déployer rapidement une nouvelle application IoT Central, puis la personnaliser selon vos propres exigences, depuis dans votre navigateur. Vous pouvez commencer avec un _modèle d’application_ générique ou avec l’un des modèles d’application axés sur la [vente au détail](../retail/overview-iot-central-retail.md), l’[énergie](../energy/overview-iot-central-energy.md), le [secteur public](../government/overview-iot-central-government.md) ou la [santé](../healthcare/overview-iot-central-healthcare.md).
+Consultez le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md) pour obtenir une procédure pas à pas sur la création de votre première application.
 
-En tant que créateur de solution, vous utilisez les outils web pour créer un _modèle d’appareil_ pour les appareils qui se connectent à votre application. Un modèle d’appareil est le blueprint qui définit les caractéristiques et le comportement d’un type d’appareils tel que :
+## <a name="connect-devices"></a>Connecter des appareils
+
+Après avoir créé votre application, la première étape consiste à créer et à connecter des appareils. Chaque appareil connecté à IoT Central utilise un _modèle d’appareil_. Un modèle d’appareil est le blueprint qui définit les caractéristiques et le comportement d’un type d’appareils tel que :
 
 - Les données de télémétrie qu’il envoie. Par exemple, la température et l’humidité. La télémétrie se présente sous la forme de données en streaming.
 - Les propriétés commerciales qu’un opérateur peut modifier. Par exemple, une adresse de client et une date de dernier entretien.
@@ -56,9 +60,9 @@ En tant que créateur de solution, vous utilisez les outils web pour créer un _
 - Les propriétés définies par un opérateur, qui déterminent le comportement de l’appareil. Par exemple, une température cible pour l’appareil.
 - Les commandes, qu’un opérateur peut appeler, qui s’exécutent sur un appareil. Par exemple, une commande pour redémarrer un appareil à distance.
 
-Ce [modèle d’appareil](howto-set-up-template.md) inclut les éléments suivants :
+Chaque [modèle d’appareil](howto-set-up-template.md) comprend :
 
-- Un _modèle de capacité d’appareil_ qui décrit les fonctionnalités qu’un appareil doit implémenter. Les fonctionnalités de l’appareil sont les suivantes :
+- Un _modèle d’appareil_ qui décrit les fonctionnalités qu’un appareil doit implémenter. Les fonctionnalités de l’appareil sont les suivantes :
 
   - La télémétrie qu’il diffuse à IoT Central.
   - Les propriétés en lecture seule qu’il utilise pour signaler l’état à IoT Central.
@@ -68,25 +72,21 @@ Ce [modèle d’appareil](howto-set-up-template.md) inclut les éléments suivan
 - Propriétés cloud qui ne sont pas stockées sur l’appareil.
 - Personnalisations, tableaux de bord et formulaires qui font partie de votre application IoT Central.
 
-### <a name="create-device-templates"></a>Créer des modèles d’appareils
-
 Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 
 - Concevez le modèle d’appareil dans IoT Central, puis implémentez son modèle de capacité d’appareil dans le code de votre appareil.
 - Créez un de capacité d’appareil avec du code Visual Studio et publiez le modèle de capacité dans un référentiel. Implémentez votre code d’appareil à partir du modèle et connectez votre appareil à votre application IoT Central. IoT Central recherche le modèle de capacité d’appareil dans le référentiel et crée automatiquement un modèle d’appareil simple.
 - Créez un modèle de capacité d’appareil avec Visual Studio Code. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de capacité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
 
-En tant que créateur de solution, vous pouvez utiliser IoT Central pour générer du code pour les appareils de test afin de valider vos modèles d’appareil.
-
-Si vous êtes un développeur d’appareils, voir [Vue d’ensemble du développement d’appareils IoT Central](./overview-iot-central-developer.md) pour obtenir une présentation de l’implémentation des appareils qui utilisent ces modèles d’appareil.
+Pour une procédure pas à pas sur la création et la connexion de votre premier appareil, consultez le guide de démarrage rapide [Ajouter un appareil simulé](quick-create-simulated-device.md).
 
 ### <a name="customize-the-ui"></a>Personnaliser l’interface utilisateur
 
-En tant que créateur de solution, vous pouvez également personnaliser l’interface utilisateur de l’application IoT Central pour les opérateurs responsables de l’utilisation quotidienne de l’application. Les personnalisations possibles par un créateur de solution incluent :
+Vous pouvez également personnaliser l’interface utilisateur de l’application IoT Central pour les opérateurs responsables de l’utilisation quotidienne de l’application. Les personnalisations que vous pouvez effectuer sont les suivantes :
 
-- La définition de la mise en page de propriétés et des paramètres au sein d’un modèle d’appareil.
 - La configuration de tableaux de bord personnalisés permettant aux opérateurs de découvrir des insights et de résoudre les problèmes plus rapidement.
 - La configuration d’analytiques personnalisés pour explorer des données de série chronologiques à partir de vos appareils connectés.
+- La définition de la mise en page de propriétés et des paramètres au sein d’un modèle d’appareil.
 
 ## <a name="manage-your-devices"></a>Gestion de vos appareils
 
@@ -96,9 +96,9 @@ En tant qu’opérateur, vous utilisez l’application IoT Central pour [gérer 
 - La résolution et la correction des problèmes avec des appareils.
 - La configuration de nouveaux appareils.
 
-En tant que créateur de solution, vous pouvez [définir des règles et des actions](howto-configure-rules.md) personnalisées qui s’exécutent sur les flux de données d’appareils connectés. Un opérateur peut activer ou désactiver ces règles au niveau de l’appareil pour contrôler et automatiser des tâches au sein de l’application.
+Vous pouvez [définir des règles et des actions personnalisées](howto-configure-rules.md) qui s’appliquent aux données diffusées par les appareils connectés. Un opérateur peut activer ou désactiver ces règles au niveau de l’appareil pour contrôler et automatiser des tâches au sein de l’application.
 
-Pour toute solution IoT conçue pour fonctionner à grande échelle, il est important d’avoir une approche structurée de la gestion des appareils. Il ne vous suffit pas de connecter vos appareils au cloud ; ceux-ci doivent rester connectés et sains. Un opérateur peut utiliser les capacités IoT Central suivantes pour gérer vos appareils tout au long du cycle de vie de l’application :
+Comme avec toutes les solutions IoT conçues pour fonctionner à grande échelle, il est important d’avoir une approche structurée de la gestion des appareils. Il ne vous suffit pas de connecter vos appareils au cloud ; ceux-ci doivent rester connectés et sains. Utilisez les fonctionnalités IoT Central suivantes pour gérer vos appareils tout au long du cycle de vie de l’application :
 
 ### <a name="dashboards"></a>Tableaux de bord
 

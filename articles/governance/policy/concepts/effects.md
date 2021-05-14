@@ -1,14 +1,14 @@
 ---
 title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
-ms.date: 02/17/2021
+ms.date: 04/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5d819c20c27a2c2f4a316e60da1c0fdb7c8bb859
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741818"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896889"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -64,7 +64,8 @@ Un effet Append prend en charge la propriété obligatoire **details** uniquemen
 
 ### <a name="append-examples"></a>Exemples Append
 
-Exemple 1 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) non **\[\*\]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. Lorsque l’alias non **\[\*\]** est un tableau, l’effet ajoute la **value** comme tableau entier. Si le tableau existe déjà, un événement de refus se produit à partir du conflit.
+Exemple 1 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) non **\[\*\]** 
+ avec un tableau **value** afin de définir des règles IP sur un compte de stockage. Lorsque l’alias non **\[\*\]** est un tableau, l’effet ajoute la **value** comme tableau entier. Si le tableau existe déjà, un événement de refus se produit à partir du conflit.
 
 ```json
 "then": {
@@ -100,7 +101,7 @@ Audit permet de créer un événement d’avertissement dans le journal d’acti
 
 ### <a name="audit-evaluation"></a>Évaluation Audit
 
-Audit est le dernier effet vérifié par Azure Policy pendant la création ou la mise à jour d’une ressource. Pour un mode Gestionnaire des ressources, Azure Policy envoie ensuite la ressource au fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation. Pour les nouvelles ressources et celles mises à jour, Azure Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité et marque la ressource comme non conforme.
+Audit est le dernier effet vérifié par Azure Policy pendant la création ou la mise à jour d’une ressource. Pour un mode Gestionnaire des ressources, Azure Policy envoie ensuite la ressource au fournisseur de ressources. Lors de l’évaluation d’une requête de création ou de mise à jour pour une ressource, Azure Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` au journal d’activité et marque la ressource comme non conforme. Pendant un cycle d’évaluation de conformité standard, seul l’état de conformité de la ressource est mis à jour.
 
 ### <a name="audit-properties"></a>Propriétés d’Audit
 
@@ -518,7 +519,7 @@ La propriété **details** de l’effet Modify comporte toutes les sous-proprié
   - Cette propriété doit inclure un tableau de chaînes qui correspondent aux ID de rôle de contrôle de l’accès en fonction du rôle accessibles par l’abonnement. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
   - Le rôle défini doit inclure toutes les opérations accordées au rôle [Contributeur](../../../role-based-access-control/built-in-roles.md#contributor).
 - **conflictEffect** (facultatif)
-  - Détermine la définition de stratégie « wins » dans le cas où plusieurs définitions de stratégie modifient la même propriété ou lorsque l’opération Modify ne fonctionne pas sur l’alias spécifié.
+  - Détermine la définition de stratégie « wins » si plusieurs définitions de stratégie modifient la même propriété ou lorsque l’opération Modify ne fonctionne pas sur l’alias spécifié.
     - Pour les ressources nouvelles ou mises à jour, la définition de stratégie avec _deny_ est prioritaire. Les définitions de stratégie avec _audit_ ignorent toutes les **opérations**. Si plusieurs définitions de stratégie ont _deny_, la demande est refusée pour raison de conflit. Si toutes les définitions de stratégie ont _audit_, aucune des **opérations** des définitions de stratégie en conflit n’est traitée.
     - Pour les ressources existantes, si plusieurs définitions de stratégie ont _deny_, l’état de conformité est _Conflit_. Si au plus une définition de stratégie a _deny_, chaque attribution retourne l’état de conformité _Non conforme_.
   - Valeurs disponibles : _audit_, _deny_, _disabled_.

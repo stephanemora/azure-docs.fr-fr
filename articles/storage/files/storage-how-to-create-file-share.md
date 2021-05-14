@@ -5,16 +5,16 @@ description: Guide pratique pour créer un partage de fichiers Azure en utilisan
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 1/20/2021
+ms.date: 04/05/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 24bee926d84c7a5be3f19c39d39285c2cd486824
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9caabb8dc7f09e4ef3852d9269d178c086744779
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211020"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789804"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -54,11 +54,11 @@ Pour créer un compte de stockage par le biais du portail Azure, sélectionnez *
 #### <a name="basics"></a>Concepts de base
 La première section à compléter pour créer un compte de stockage s’intitule **Bases**. Elle contient tous les champs nécessaires à la création d’un compte de stockage. Pour créer un compte de stockage GPv2, assurez-vous que la case d’option **Performances** est définie sur *Standard*, et que la liste déroulante **Type de compte** est sélectionnée pour *StorageV2 (general purpose v2)* .
 
-![Capture d’écran de la case d’option Performances avec la sélection de Standard, et la sélection de StorageV2 pour le Type de compte](media/storage-how-to-create-file-share/create-storage-account-1.png)
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-standard.png" alt-text="Capture d’écran de la case d’option Performances avec la sélection de Standard, et la sélection de storagev2 pour le Type de compte.":::
 
-Pour créer un compte de stockage FileStorage, assurez-vous que la case d’option **Performances** est définie sur *Premium*, et que la liste déroulante **Type de compte** est sélectionnée pour *FileStorage*.
+Pour créer un compte de stockage FileStorage, vérifiez que la case d’option **Performances** est définie sur *Premium* et que **Partages de fichiers** est sélectionné dans la liste déroulante **Type de compte Premium**.
 
-![Capture d’écran de la case d’option Performances avec la sélection de Premium, et la sélection de FileStorage pour le Type de compte](media/storage-how-to-create-file-share/create-storage-account-2.png)
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Capture d’écran de la case d’option Performances avec la sélection de Premium, et la sélection de FileStorage pour le Type de compte.":::
 
 Les autres champs de base sont indépendants du choix du compte de stockage :
 - **Nom du compte de stockage** : nom de la ressource de compte de stockage à créer. Ce nom doit être globalement unique, mais il peut s’agir du nom de votre choix. Le nom du compte de stockage est utilisé comme nom de serveur lorsque vous montez un partage de fichiers Azure via SMB.
@@ -75,9 +75,12 @@ La section relative à la protection des données vous permet de configurer la s
 La section des paramètres avancés contient plusieurs paramètres importants pour les partages de fichiers Azure :
 
 - **Transfert sécurisé requis** : ce champ indique si le compte de stockage nécessite un chiffrement en transit pour la communication avec le compte de stockage. Si vous avez besoin d’une aide par rapport au protocole SMB 2.1, vous devez désactiver ce champ.
+
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-secure-transfer.png" alt-text="Capture d’écran du transfert sécurisé activé dans les paramètres avancés pour le compte de stockage.":::
+
 - **Partages de fichiers volumineux** : ce champ active le compte de stockage pour les partages de fichiers allant jusqu’à 100 Tio. L’activation de cette fonctionnalité permet de limiter votre compte de stockage uniquement aux options de stockage redondant en local et redondant interzone. Dès lors qu’un compte de stockage GPv2 a été activé pour les partages de fichiers volumineux, vous ne pouvez pas désactiver la fonction de partage de fichiers volumineux. Les comptes de stockage FileStorage (comptes de stockage pour les partages de fichiers Premium) ne disposent pas de cette option puisque tous les partages de fichiers Premium peuvent effectuer un scale-up jusqu’à 100 Tio. 
 
-![Capture d’écran des paramètres avancés importants qui s’appliquent à Azure Files](media/storage-how-to-create-file-share/create-storage-account-3.png)
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-large-file-shares.png" alt-text="Capture d’écran du paramètre de partage de grands fichiers dans le panneau Avancé du compte de stockage.":::
 
 Les autres paramètres disponibles sous l’onglet Avancé (espace de noms hiérarchique pour Azure Data Lake Storage Gen2, niveau de blob par défaut, NFSv3 pour le stockage Blob, etc.) ne s’appliquent pas à Azure Files.
 
@@ -160,7 +163,7 @@ az storage account create \
 
 ---
 
-## <a name="create-file-share"></a>Créer un partage de fichiers
+## <a name="create-a-file-share"></a>Créer un partage de fichiers
 Une fois que vous avez créé votre compte de stockage, il ne vous reste plus qu’à créer votre partage de fichiers. Ce processus est fondamentalement le même, que vous utilisiez un partage de fichiers Premium ou un partage de fichiers Standard. Vous devez tenir compte des différences suivantes.
 
 Les partages de fichiers Standard peuvent être déployés sur l’un des niveaux Standard : Transaction optimisée (par défaut), Accès chaud ou Accès froid. Il s’agit d’un niveau applicable à un seul partage de fichiers, qui n’est pas affecté par le **niveau d’accès Blob** du compte de stockage (cette propriété ne concerne que le stockage Blob Azure et n’est en aucun cas liée à Azure Files). Vous pouvez modifier le niveau du partage à tout moment après son déploiement. Les partages de fichiers Premium ne peuvent pas être convertis directement en niveau Standard.
@@ -175,9 +178,7 @@ La propriété **quota** du partage de fichiers Premium est légèrement différ
 - Pour les partages de fichiers Premium, le quota signifie la **taille approvisionnée**. La taille provisionnée est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Pour plus d’informations sur la planification d’un partage de fichiers Premium, consultez [Provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
-Si vous venez de créer votre compte de stockage, vous pouvez accéder à celui-ci depuis l’écran de déploiement en sélectionnant **Accéder à la ressource**. Une fois dans le compte de stockage, sélectionnez la vignette intitulée **Partages de fichiers** (vous pouvez également accéder à **Partages de fichiers** en utilisant le sommaire pour le compte de stockage).
-
-![Capture d’écran de la vignette Partages de fichiers](media/storage-how-to-create-file-share/create-file-share-1.png)
+Si vous venez de créer votre compte de stockage, vous pouvez accéder à celui-ci depuis l’écran de déploiement en sélectionnant **Accéder à la ressource**. Une fois dans le compte de stockage, sélectionnez l’entrée **Partages de fichiers** dans la table des contenus pour le compte de stockage.
 
 Dans la liste des partages de fichiers, vous devez voir tous les partages de fichiers que vous avez créés précédemment dans ce compte de stockage ; si aucun partage de fichiers n’a encore été créé, un tableau vide est affichée. Sélectionnez **+ Partage de fichiers** pour créer un partage de fichiers.
 
@@ -235,13 +236,13 @@ az storage share-rm create \
 > [!Note]  
 > Le nom de votre partage de fichiers doit être en minuscules. Pour plus d’informations sur la façon de nommer des partages de fichiers et des fichiers, consultez [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-### <a name="changing-the-tier-of-an-azure-file-share"></a>Modification du niveau d’un partage de fichiers Azure
+### <a name="change-the-tier-of-an-azure-file-share"></a>Changer le niveau d’un partage de fichiers Azure
 Les partages de fichiers qui sont déployés dans un **compte de stockage à usage général v2 (GPv2)** peuvent être associés aux niveaux Transaction optimisée, Accès chaud ou Accès froid. Vous pouvez modifier le niveau du partage de fichiers Azure à tout moment, moyennant des frais de transaction, comme indiqué ci-dessus.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 Dans la page du compte de stockage principal, sélectionnez **Partages de fichiers** (vignette intitulée **Partages de fichiers**). Vous pouvez également accéder à la page **Partages de fichiers** via le sommaire du compte de stockage.
 
-![Capture d’écran de la vignette Partages de fichiers](media/storage-how-to-create-file-share/create-file-share-1.png)
+:::image type="content" source="media/storage-files-quick-create-use-windows/click-files.png" alt-text="Capture d’écran du panneau du compte de stockage, avec Partages de fichiers sélectionné.":::
 
 Dans la liste de table des partages de fichiers, sélectionnez le partage de fichiers dont vous souhaitez modifier le niveau. Dans la page de vue d’ensemble du partage de fichiers, sélectionnez **Modifier le niveau** dans le menu.
 
@@ -276,6 +277,6 @@ az storage share-rm update \
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Planifier un déploiement d’Azure Files](storage-files-planning.md) ou [Planifier un déploiement d’Azure File Sync](storage-sync-files-planning.md). 
+- [Planifier un déploiement d’Azure Files](storage-files-planning.md) ou [Planifier un déploiement d’Azure File Sync](../file-sync/file-sync-planning.md). 
 - [Présentation de la mise en réseau](storage-files-networking-overview.md).
 - Connecter et monter un partage de fichiers sur [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) et [Linux](storage-how-to-use-files-linux.md).

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: a45b8db1f17ead8e55bac2b2bf82aa44cb7f080e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: ceb39893327af82e8dff3e82ef570727b3bdfa33
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304696"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141947"
 ---
 # <a name="glossary-of-iot-terms"></a>Glossaire IoT
 
@@ -178,7 +178,7 @@ La gestion des appareils couvre le cycle de vie complet associé à la gestion d
 
 ### <a name="device-model"></a>Modèle de l'appareil
 
-Un modèle d’appareil est un type de [modèle](#model) qui utilise le [langage DTDL (Digital Twins Definition Language)](#digital-twins-definition-language-dtdl) pour décrire les capacités d’un appareil IoT Plug-and-Play. Un modèle d'appareil simple utilise une interface unique pour décrire les capacités de l'appareil. Un modèle d'appareil plus complexe comprend plusieurs composants, chacun décrivant un ensemble de capacités. Pour plus d'informations, consultez [Composants IoT Plug-and-Play dans les modèles](../iot-pnp/concepts-components.md).
+Un modèle d’appareil est un type de [modèle](#model) qui utilise le [langage DTDL (Digital Twins Definition Language)](#digital-twins-definition-language-dtdl) pour décrire les capacités d’un appareil IoT Plug-and-Play. Un modèle d'appareil simple utilise une interface unique pour décrire les capacités de l'appareil. Un modèle d'appareil plus complexe comprend plusieurs composants, chacun décrivant un ensemble de capacités. Pour plus d'informations, consultez [Composants IoT Plug-and-Play dans les modèles](../iot-pnp/concepts-modeling-guide.md).
 
 ### <a name="device-modeling"></a>Modélisation d’appareil
 

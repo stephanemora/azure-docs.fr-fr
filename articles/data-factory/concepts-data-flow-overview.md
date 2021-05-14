@@ -3,17 +3,16 @@ title: Mappage des flux de données
 description: Vue d’ensemble du mappage de flux de données dans Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/11/2021
-ms.openlocfilehash: 53f300adb57eb17e704e7e3323b9829c485bb87a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/14/2021
+ms.openlocfilehash: 826183e09f2aa7f3f22ace8b5ce3e16767d49863
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308980"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515654"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flux de données de mappage dans Azure Data Factory
 
@@ -83,6 +82,10 @@ La barre supérieure contient des actions qui affectent l’ensemble du flux de 
 
 Pour obtenir la liste des transformations disponibles, consultez la [Vue d’ensemble de la transformation de flux de données de mappage](data-flow-transformation-overview.md).
 
+## <a name="data-flow-data-types"></a>Types de données de flux de données
+
+binaire booléen chaîne complexe court date décimal entier flottant long mappage tableau timestamp
+
 ## <a name="data-flow-activity"></a>Activité de flux de données
 
 Les flux de données de mappage sont mis en œuvre dans les pipelines ADF à l’aide de l’[activité de flux de données](control-flow-execute-data-flow-activity.md). Il suffit à l’utilisateur de spécifier le runtime d’intégration à utiliser et de passer des valeurs de paramètre. Pour plus d’informations, consultez [Runtime d’intégration Azure](concepts-integration-runtime.md#azure-integration-runtime).
@@ -96,6 +99,67 @@ Le mode débogage vous permet de voir de manière interactive les résultats de 
 Le mappage du flux de données s’intègre aux fonctionnalités d’analyse existantes d’Azure Data Factory. Pour savoir comment comprendre la sortie de la surveillance du flux de données, consultez [Supervision des flux de données de mappage](concepts-data-flow-monitoring.md).
 
 L’équipe Azure Data Factory a créé un [guide de réglage des performances](concepts-data-flow-performance.md) pour vous aider à optimiser le temps d’exécution de vos flux de données après avoir généré votre logique métier.
+
+
+## <a name="available-regions"></a>Régions disponibles
+
+Les flux de données de mappage sont disponibles dans les régions suivantes dans ADF :
+
+| Région Azure | Flux de données dans ADF |
+| ------------ | ----------------- |
+| Centre de l’Australie | |
+| Centre de l’Australie 2 | |
+| Australie Est | ✓ |
+| Sud-Australie Est   | ✓ |
+| Brésil Sud  | ✓ |
+| Centre du Canada | ✓ |
+| Inde centrale | ✓ |
+| USA Centre    | ✓ |
+| Chine orientale |      |
+| Chine orientale 2  |   |
+| Chine Non-régional | |
+| Chine du Nord | ✓ |
+| Chine Nord 2 | ✓ |
+| Asie Est | ✓ |
+| USA Est   | ✓ |
+| USA Est 2 | ✓ |
+| France Centre | ✓ |
+| France Sud  | |
+| Allemagne Centre (souverain) | |
+| Allemagne Non-régional (souverain) | |
+| Allemagne Nord (public) | |
+| Allemagne Nord-Est (souverain) | |
+| Allemagne Centre-Ouest (public) |  |
+| Japon Est | ✓ |
+| OuJapon Est |  |
+| Centre de la Corée | ✓ |
+| Corée du Sud | |
+| Centre-Nord des États-Unis  | ✓ |
+| Europe Nord  | ✓ |
+| Norvège Est | ✓ |
+| Norvège Ouest | |
+| Afrique du Sud Nord    | ✓ |
+| Afrique du Sud Ouest |  |
+| États-Unis - partie centrale méridionale  | |
+| Inde Sud | |
+| Asie Sud-Est    | ✓ |
+| Suisse Nord |   |
+| Suisse Ouest | |
+| Émirats arabes unis Centre | |
+| Émirats arabes unis Nord | ✓ |
+| Sud du Royaume-Uni  | ✓ |
+| Ouest du Royaume-Uni |     |
+| Centre des États-Unis – US DoD | |
+| Est des États-Unis – US DoD | |
+| Gouvernement des États-Unis – Arizona | ✓ |
+| US Gov Non-Régional | |
+| Gouvernement des États-Unis – Texas | |
+| Gouvernement américain - Virginie | ✓ |
+| Centre-USA Ouest |     |
+| Europe Ouest   | ✓ |
+| Inde Ouest | |
+| USA Ouest   | ✓ |
+| USA Ouest 2 | ✓ |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

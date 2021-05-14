@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/23/2021
-ms.openlocfilehash: 4db523624922d8ddcb8c1868b84927926d9ed3d5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 04/20/2021
+ms.openlocfilehash: 59c1ca67c9e93b62890512cda647ffcdf7712f9a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103808"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819265"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partager et recevoir des données à partir de Stockage Blob Azure et d’Azure Data Lake Storage
 
@@ -19,7 +19,7 @@ ms.locfileid: "107103808"
 
 Le service Azure Data Share prend en charge le partage basé sur un instantané à partir d’un compte de stockage. Cet article explique comment partager et recevoir des données à partir de Stockage Blob Azure, d’Azure Data Lake Storage Gen1 et d’Azure Data Lake Storage Gen2.
 
-Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seuls les objets blob de blocs sont actuellement pris en charge. Les données partagées à partir de ces sources peuvent être reçues par Azure Data Lake Gen2 ou dans Stockage Blob Azure.
+Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Vous pouvez partager des objet blob de pages, d’ajouts et de blocs et ils sont reçus en tant qu’objets blob de blocs. Les données partagées à partir de ces sources peuvent être reçues par Azure Data Lake Gen2 ou dans Stockage Blob Azure.
 
 Lorsque les systèmes de fichiers, les conteneurs ou les dossiers sont partagés dans un partage basé sur un instantané, les consommateurs de données peuvent choisir d’effectuer une copie complète des données de partage. Ils peuvent également utiliser la fonctionnalité d’instantané incrémentiel pour copier uniquement les fichiers nouveaux ou mis à jour. La fonctionnalité d’instantané incrémentiel est basée sur l’heure de la dernière modification des fichiers. 
 

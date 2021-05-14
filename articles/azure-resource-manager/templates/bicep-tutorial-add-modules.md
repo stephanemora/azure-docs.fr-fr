@@ -5,12 +5,13 @@ author: mumian
 ms.date: 03/25/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8c7ab1038cbe62d6f15faf56796193df12b38546
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0149858e4e63e4110af2a18a31b9c66a99ff79c9
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568764"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318583"
 ---
 # <a name="tutorial-add-modules-to-azure-resource-manager-bicep-file"></a>Tutoriel : Ajouter des modules à un fichier Bicep Azure Resource Manager
 
@@ -111,8 +112,8 @@ Vous pouvez vérifier le déploiement en explorant les groupes de ressources à 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le menu de gauche, sélectionnez **Groupes de ressources**.
-1. Vous voyez les deux nouveaux groupes de ressources que vous avez déployés dans ce tutoriel.
-1. Sélectionnez un groupe de ressources et affichez les ressources déployées. Remarquez qu’elles correspondent aux valeurs que vous avez spécifiées dans votre fichier de paramètres pour cet environnement.
+1. Vous voyez le nouveau groupe de ressources que vous avez déployé dans ce tutoriel.
+1. Sélectionnez le groupe de ressources et consultez les ressources déployées. Notez qu’elles correspondent aux valeurs que vous avez spécifiées dans votre fichier de modèle.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

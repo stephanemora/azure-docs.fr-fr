@@ -31,7 +31,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/database-migration-security-baseline?toc=/azure/dms/toc.json
 - name: Tutoriels
   expanded: true
   items:
@@ -45,7 +45,9 @@
           href: tutorial-sql-server-managed-instance-online.md
     - name: Migrer de MySQL
       items:
-        - name: vers Azure Database pour MySQL
+        - name: vers Azure Database pour MySQL (hors connexion)
+          href: tutorial-mysql-azure-mysql-offline-portal.md
+        - name: vers Azure Database pour MySQL (hors connexion)
           href: tutorial-mysql-azure-mysql-online.md
     - name: Migrer de RDS MySQL
       items:
@@ -71,10 +73,6 @@
           href: tutorial-mongodb-cosmos-db.md
         - name: "vers l’API Mongo Azure Cosmos\_DB (en ligne)"
           href: tutorial-mongodb-cosmos-db-online.md
-    - name: Migrer d’Oracle
-      items:
-        - name: "vers Azure\_DB pour PostgreSQL – Serveur unique en ligne"
-          href: tutorial-oracle-azure-postgresql-online.md
 - name: Guides pratiques
   items:
     - name: Surveiller l’activité de migration
@@ -87,12 +85,18 @@
           href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
         - name: SQL Server vers SQL MI (hors connexion)
           href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
+        - name: MySQL vers Azure Database pour MySQL (hors connexion)
+          href: migrate-mysql-to-azure-mysql-powershell.md
     - name: Redéployer le package SSIS vers
       items:
         - name: Azure SQL Database
           href: how-to-migrate-ssis-packages.md
         - name: Azure SQL Managed Instance
           href: how-to-migrate-ssis-packages-managed-instance.md
+- name: Informations de référence
+  items:
+    - name: Azure CLI
+      href: /cli/azure/dms
 - name: Ressources
   items:
     - name: Forum aux questions
@@ -110,7 +114,7 @@
         - name: Services et outils disponibles pour les scénarios de migration de données
           href: dms-tools-matrix.md
         - name: Guide de migration des bases de données Azure
-          href: 'https://aka.ms/datamigration'
+          href: /data-migration/
         - name: Assistant Migration de données
           href: /sql/dma/dma-overview
         - name: Assistant Migration SQL Server
@@ -139,8 +143,6 @@
               href: known-issues-azure-mysql-online.md
             - name: "PostgreSQL vers Azure\_DB pour PostgreSQL"
               href: known-issues-azure-postgresql-online.md
-            - name: "Oracle vers Azure\_DB pour PostgreSQL"
-              href: known-issues-oracle-azure-postgresql-online.md
             - name: "MongoDB vers l’API Azure Cosmos\_DB pour MongoDB"
               href: known-issues-mongo-cosmos-db.md
     - name: Vidéos

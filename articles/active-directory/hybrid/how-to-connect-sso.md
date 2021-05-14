@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeede88bfbe024a66e40270240d32488e581dd77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14519a1e46c3fd3414f9a09521fd6bcb5cb8b851
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517699"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285589"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -66,7 +66,7 @@ L’authentification unique via PRT fonctionne une fois que les appareils sont i
 - Cette fonctionnalité est gratuite et il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
 - L’authentification unique est prise en charge par les clients basés sur le navigateur web et les clients Office qui prennent en charge [l’authentification moderne](/office365/enterprise/modern-auth-for-office-2013-and-2016) sur les plateformes et navigateurs compatibles avec l’authentification Kerberos :
 
-| Système d’exploitation\Navigateur |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
+| Système d’exploitation\Navigateur |Internet Explorer|Microsoft Edge\*\*\*\*|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Oui\*|Oui|Oui|Oui\*\*\*|N/A
 |Windows 8.1|Oui\*|Oui*\*\*\*|Oui|Oui\*\*\*|N/A
@@ -75,14 +75,17 @@ L’authentification unique via PRT fonctionne une fois que les appareils sont i
 |Windows Server 2012 R2 ou version ultérieure|Oui\*\*|N/A|Oui|Oui\*\*\*|N/A
 |Mac OS X|N/A|N/A|Oui\*\*\*|Oui\*\*\*|Oui\*\*\*
 
+ > [!NOTE]
+ >Microsoft Edge (hérité) n’est plus pris en charge.
 
-\*Requiert Internet Explorer version 10 ou ultérieure.
 
-\*\*Requiert Internet Explorer version 10 ou ultérieure. Désactivez le mode protégé amélioré.
+\*Requiert Internet Explorer version 11 ou ultérieure.
+
+\*\*Requiert Internet Explorer version 11 ou ultérieure. Désactivez le mode protégé amélioré.
 
 \*\*\*Nécessite une [configuration supplémentaire](how-to-connect-sso-quick-start.md#browser-considerations).
 
-\*\*\*\*Nécessite Microsoft Edge version 77 ou une version ultérieure.
+\*\*\*\*Microsoft Edge basé sur Chromium
 
 ## <a name="next-steps"></a>Étapes suivantes
 

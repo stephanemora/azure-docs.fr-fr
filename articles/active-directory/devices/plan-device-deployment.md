@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa18b619c785ad23e1da037621597684b1c5c63
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a7158a42a61ccba736e94f22714cc3b30f7f1cc5
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551779"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286939"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planifier le déploiement de votre appareil Azure Active Directory
 
@@ -54,7 +54,7 @@ Voici les principaux avantages d’attribuer à vos appareils une identité Azur
 
 Vidéo :  [Accès conditionnel et les contrôles d’appareil](https://youtu.be/NcONUf-jeS4)
 
-Questions fréquentes (FAQ) : [FAQ sur la gestion des appareils Azure AD](faq.yml) et [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.md) 
+Questions fréquentes (FAQ) : [FAQ sur la gestion des appareils Azure AD](faq.yml) et [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.yml) 
 
 ## <a name="plan-the-deployment-project"></a>Planifier le projet de déploiement
 

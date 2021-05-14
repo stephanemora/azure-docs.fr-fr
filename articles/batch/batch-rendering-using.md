@@ -5,17 +5,17 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/12/2020
 ms.topic: how-to
-ms.openlocfilehash: dc3d2cc53b478b1ec955d8f4b3717b0407772849
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: df82f51377ac1a585dbfab989ca5386d33d90297
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103496624"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988961"
 ---
 # <a name="using-azure-batch-rendering"></a>Utilisation d’Azure Batch Rendering
 
 > [!IMPORTANT]
-> Les images de rendu des machines virtuelles et les licences de paiement à l’utilisation ont été [dépréciées et seront supprimées le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Pour utiliser un lot pour le rendu, vous [devez utiliser une image de machine virtuelle personnalisée et une licence d’application standard.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+> Les images de rendu des machines virtuelles et les licences de paiement à l’utilisation ont été [déconseillées et seront supprimées le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Pour utiliser un lot pour le rendu, vous [devez utiliser une image de machine virtuelle personnalisée et une licence d’application standard.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 Il existe plusieurs façons d’utiliser Azure Batch Rendering :
 

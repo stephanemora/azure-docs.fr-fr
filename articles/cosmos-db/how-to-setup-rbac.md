@@ -4,14 +4,14 @@ description: Découvrez comment configurer le contrôle d’accès en fonction d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/19/2021
 ms.author: thweiss
-ms.openlocfilehash: 1a6bdf55e52a7060423d2a016f07eee3608f50d4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 9de41835e33d50a670a44089cb10d44cc57e92a7
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063472"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818695"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurer le contrôle d’accès en fonction du rôle avec Azure Active Directory pour votre compte Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,6 +45,16 @@ Le contrôle d’accès en fonction du rôle (RBAC) de plan de données Azure Co
 
 ## <a name="permission-model"></a><a id="permission-model"></a> Modèle d’autorisation
 
+> [!IMPORTANT]
+> Ce modèle d’autorisation couvre seulement les opérations de base de données qui vous permettent de lire et d’écrire des données. Il **ne couvre aucun** type d’opération de gestion, comme la création de conteneurs ou la modification de leur débit. Cela signifie que **vous ne pouvez pas utiliser de kit de développement logiciel (SDK) de plan de données Azure Cosmos DB** pour authentifier les opérations de gestion avec une identité AAD. Au lieu de cela, vous devez utiliser [Azure RBAC](role-based-access-control.md) via un des éléments suivants :
+> - [Modèles ARM](manage-with-templates.md)
+> - [Scripts Azure PowerShell](manage-with-powershell.md),
+> - [Scripts Azure CLI](manage-with-cli.md),
+> - Bibliothèques de gestion Azure disponibles pour
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
+>   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
+
 Le tableau ci-dessous liste toutes les actions exposées par le modèle d’autorisation.
 
 | Nom | Opération(s) de base de données correspondante(s) |
@@ -64,9 +74,6 @@ Les caractères génériques sont pris en charge au niveau des *conteneurs* et d
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
-
-> [!IMPORTANT]
-> Ce modèle d’autorisation couvre seulement les opérations de base de données qui vous permettent de lire et d’écrire des données. Il **ne couvre aucun** type d’opération de gestion, comme la création de conteneurs ou la modification de leur débit. Pour authentifier les opérations de gestion avec une identité AAD, utilisez à la place [Azure RBAC](role-based-access-control.md).
 
 ### <a name="metadata-requests"></a><a id="metadata-requests"></a> Demandes de métadonnées
 
@@ -323,9 +330,10 @@ Pour utiliser le contrôle RBAC d’Azure Cosmos DB dans votre application, vous
 
 La façon dont vous créez une instance de `TokenCredential` dépasse le cadre de cet article. Il existe de nombreuses façons de créer une telle instance selon le type d’identité AAD que vous voulez utiliser (principal d’utilisateur, principal de service, groupe, etc.). Plus important encore, votre instance de `TokenCredential` doit se résoudre en l’identité (ID de principal) à laquelle vous avez affecté vos rôles. Vous trouverez des exemples de création d’une classe `TokenCredential` :
 
-- [dans .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [en Java](/java/api/overview/azure/identity-readme#credential-classes)
-- [en JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- [Dans .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [Dans Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [En JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- Dans l’API REST
 
 Les exemples ci-dessous utilisent un principal de service avec une instance de `ClientSecretCredential`.
 
@@ -372,6 +380,12 @@ const client = new CosmosClient({
     aadCredentials: servicePrincipal
 });
 ```
+
+### <a name="in-rest-api"></a>Dans l’API REST
+
+Azure Cosmos DB RBAC est actuellement pris en charge avec la version 2021-03-15 de l’API REST. Lors de la construction de l’[en-tête d’autorisation](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), définissez le paramètre **type** sur **aad** et la signature de hachage **(sig)** sur le **jeton OAuth**, comme indiqué dans l’exemple suivant :
+
+`type=aad&ver=1.0&sig=<token-from-oauth>`
 
 ## <a name="auditing-data-requests"></a>Audit des demandes de données
 

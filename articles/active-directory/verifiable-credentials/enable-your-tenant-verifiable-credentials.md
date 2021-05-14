@@ -10,12 +10,12 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: cd39f6c484ebe116918611bb1d543c1919a3cb0a
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: c289e69345b2fe537fd80f2cd8b59bc13ce8287b
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222943"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017298"
 ---
 # <a name="tutorial---configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Tutoriel : Configurer Azure Active Directory pour émettre des justificatifs vérifiables (préversion)
 
@@ -92,7 +92,7 @@ Notez les deux propriétés ci-dessous :
 
 ## <a name="create-a-modified-rules-and-display-file"></a>Créer un fichier de règles et d’affichage modifié
 
-Dans cette section, nous utilisons les fichiers de règles et d’affichage de l’exemple d’application émettrice et les modifions légèrement pour créer les premiers justificatifs vérifiables de votre locataire.
+Dans cette section, nous utilisons les fichiers de règles et d’affichage de l’[exemple d’application émettrice](https://github.com/Azure-Samples/active-directory-verifiable-credentials/) et les modifions légèrement pour créer les premiers justificatifs vérifiables de votre locataire.
 
 1. Copiez les fichiers de règles et d’affichage JSON dans un dossier temporaire, puis renommez-les respectivement **MyFirstVC-display.json** et **MyFirstVC-rules.json**. Ces deux fichiers se trouvent sous **issuer\issuer_config**.
 
@@ -125,16 +125,16 @@ Dans cette section, nous utilisons les fichiers de règles et d’affichage de l
       
     ```
 
-Remplacez le champ de type par « MyFirstVC ». 
+   Remplacez le champ de type par « MyFirstVC ». 
 
-  ```json
-   "type": ["MyFirstVC"]
+   ```json
+    "type": ["MyFirstVC"]
   
-  ```
+   ```
 
-Enregistrez cette modification.
+   Enregistrez cette modification.
 
- >[!NOTE]
+   >[!NOTE]
    > À ce stade du tutoriel, nous ne modifions pas la **« configuration »** ou le **« client_id »** . Nous utilisons le même locataire Microsoft B2C que celui utilisé lors de la [Prise en main](get-started-verifiable-credentials.md). Nous utiliserons votre instance Azure AD dans le tutoriel suivant.
 
 3. Ouvrez le fichier MyFirstVC-display.json dans votre éditeur de code.
@@ -172,17 +172,22 @@ Enregistrez cette modification.
       }
    ```
 
-Apportons-y quelques modifications de sorte que ces justificatifs vérifiables se distinguent de la version de l’exemple de code. 
-    
-```json
-     "card": {
-        "title": "My First VC",
-        "issuedBy": "Your Issuer Name",
-        "backgroundColor": "#ffffff",
-        "textColor": "#000000",
-```
+   Apportons-y quelques modifications de sorte que ces justificatifs vérifiables se distinguent de la version de l’exemple de code. 
 
-Enregistrez ces modifications.
+    ```json
+         "card": {
+            "title": "My First VC",
+            "issuedBy": "Your Issuer Name",
+            "backgroundColor": "#ffffff",
+            "textColor": "#000000",
+          }
+    ```
+ 
+   >[!NOTE]
+   > Pour vérifier que vos informations d’identification sont lisibles et accessibles, nous vous recommandons vivement de sélectionner des couleurs de texte et d’arrière-plan avec un [rapport de contraste](https://www.w3.org/WAI/WCAG21/Techniques/general/G18) d’au moins 4,5 pour 1.  
+
+   Enregistrez ces modifications.
+
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Avant de créer nos premiers justificatifs vérifiables, il nous faut créer un conteneur Stockage Blob destiné à nos fichiers de configuration et de règles.
@@ -296,7 +301,7 @@ Maintenant que vous disposez de nouveaux justificatifs, copiez l’URL correspon
     node app.js
     ```
 
-6. À l’aide d’une autre invite de commandes, exécutez ngrok pour configurer une URL sur 8081.
+6. À l’aide d’une autre invite de commandes, exécutez ngrok pour configurer une URL sur 8081. Vous pouvez installer ngrok globalement à l’aide du [package npm ngrok](https://www.npmjs.com/package/ngrok/).
 
     ```terminal
     ngrok http 8081

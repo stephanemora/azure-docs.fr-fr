@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad1b8318e261c7dfef7fc125716736087a84bdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa33a4641de1d630883a225814b2fb3d59ef9946
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579176"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285967"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -182,6 +182,6 @@ La liste suivante explique cette activité en détail :
 * [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](./tutorial-enable-sspr-writeback.md)
 * [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](./troubleshoot-sspr.md)
-* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
+* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.yml)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Exemple de journaux d’audit d’activité SSPR dans Azure AD"

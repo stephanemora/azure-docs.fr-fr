@@ -1,19 +1,19 @@
 ---
 title: Résolution des problèmes d’échec d’allocation de Cloud Service (classique) | Microsoft Docs
 description: Découvrez comment résoudre des problèmes d’échec d’allocation lorsque vous déployez Azure Cloud Services. Découvrez le fonctionnement de l’allocation et la raison pour laquelle l’allocation peut échouer.
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 95fe4a8e1f6c6ee5f519311f8e756be89a09acf8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b9cfb7e2d57d194e9f9317d0dcbff3e87318ac9f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738308"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736196"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-classic-in-azure"></a>Résolution des problèmes d’échec de répartition lorsque vous déployez des Azure Cloud Services (classique) dans Azure
 
@@ -53,7 +53,7 @@ Consultez les autres solutions pour les exceptions ci-dessous :
 |ServiceAllocationFailure     |L’opération a échoué avec le code d’erreur « InternalError » et le message d’erreur « Le serveur a rencontré une erreur interne. Relancez la requête. »|[Résoudre les problèmes ServiceAllocationFailure](cloud-services-troubleshoot-fabric-internal-server-error.md)|
 |LocationNotFoundForRoleSize     |L’opération « `{Operation ID}` » a échoué : « Le niveau de machine virtuelle demandé n’est pas disponible actuellement dans la région (`{Region ID}`) pour cet abonnement. Essayez un autre niveau ou déployez sur un autre emplacement. »|[Résoudre les problèmes LocationNotFoundForRoleSize](cloud-services-troubleshoot-location-not-found-for-role-size.md)|
 |ConstrainedAllocationFailed     |L’opération Azure « `{Operation ID}` » a échoué. Code : Compute.ConstrainedAllocationFailed. Détails : L’allocation a échoué. Impossible de satisfaire aux contraintes spécifiées dans la demande. Le nouveau déploiement de service demandé est lié à un groupe d’affinités ou cible un réseau virtuel, ou un déploiement existant se trouve sous ce service hébergé. Toutes ces conditions réduisent le nouveau déploiement à certaines ressources Azure spécifiques. Veuillez réessayer ultérieurement, ou bien essayez de réduire la taille de la machine virtuelle ou le nombre d’instances de rôle. Vous pouvez aussi éventuellement supprimer les contraintes mentionnées précédemment ou essayer de déployer dans une autre région.|[Résoudre les problèmes ConstrainedAllocationFailed](cloud-services-troubleshoot-constrained-allocation-failed.md)|
-|OverConstrainedAllocationRequest     |La taille de machine virtuelle (ou une combinaison de tailles de machines virtuelles) requise par ce déploiement ne peut pas être mise en service en raison des contraintes de la demande de déploiement. Si possible, essayez d’assouplir les contraintes telles que les liaisons de réseau virtuel, de déployer vers un service hébergé sans aucun autre déploiement et vers un autre groupe d’affinités ou sans groupe d’affinités, ou essayez de déployer vers une autre région.|[Résoudre les problèmes OverconstrainedAllocationRequest](cloud-services-troubleshoot-overconstrained-allocation-request.md)|
+|OverConstrainedAllocationRequest     |La taille de machine virtuelle (ou la combinaison de tailles de machines virtuelles) requise par ce déploiement ne peut pas être provisionnée en raison des contraintes de la demande de déploiement. Si possible, essayez d’assouplir les contraintes telles que les liaisons de réseau virtuel, de déployer vers un service hébergé sans aucun autre déploiement et vers un autre groupe d’affinités ou sans groupe d’affinités, ou essayez de déployer vers une autre région.|[Résoudre les problèmes OverconstrainedAllocationRequest](cloud-services-troubleshoot-overconstrained-allocation-request.md)|
 
 Exemple de message d’erreur :
 

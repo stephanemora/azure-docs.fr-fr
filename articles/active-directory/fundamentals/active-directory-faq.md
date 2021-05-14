@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b9f76eba9697d6ad47ecf8dc51689538923f88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74735e80326e1d05e3f8820fc2b94c8fe930fcb3
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101094473"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784230"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -119,7 +119,8 @@ Pour en savoir plus, voir [Prise en main de la gestion de mot de passe](../authe
 
 **R :** Oui, si cette fonction est activée, les opérations de mot de passe effectuées par un administrateur sont réécrites dans votre environnement local.  
 
-<a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>Si vous avez d’autres questions concernant les mots de passe, consultez [Forum aux questions - Gestion des mots de passe](../authentication/active-directory-passwords-faq.md).
+Si vous avez d’autres questions concernant les mots de passe, consultez [Forum aux questions - Gestion des mots de passe](../authentication/active-directory-passwords-faq.yml).
+
 ---
 **Q :  Que faire si je ne me souviens pas de mon mot de passe Microsoft 365/Azure AD actuel quand je tente de changer mon mot de passe ?**
 
@@ -132,8 +133,8 @@ Pour les comptes Azure AD, les administrateurs peuvent réinitialiser les mots d
 - [Réinitialiser les comptes dans le portail Azure](active-directory-users-reset-password-azure-portal.md)
 - [Utiliser PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
-
 ---
+
 ## <a name="security"></a>Sécurité
 **Q : Les comptes sont-ils verrouillés après un nombre spécifique de tentatives infructueuses, ou une stratégie plus élaborée est-elle utilisée ?**
 

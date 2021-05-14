@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ccc192bb5cf4c5e183e21add8e73d9e096d281c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728128"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136010"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilité des régions et résidence des données
 
@@ -49,7 +49,7 @@ L’utilisation du portail Azure ou d’API Azure Resource Manager avec Communic
 
 ### <a name="telephone-number-management"></a>Gestion des numéros de téléphone
 
-Azure Communication Services gère un répertoire de numéros de téléphone associés à une ressource Communication Services. Utilisez les [API d’administration de numéros de téléphone](/rest/api/communication/phonenumberadministration) pour récupérer des numéros de téléphone et les supprimer :
+Azure Communication Services gère un répertoire de numéros de téléphone associés à une ressource Communication Services. Utilisez les [API d’administration de numéros de téléphone](/rest/api/communication/phonenumbers) pour récupérer des numéros de téléphone et les supprimer :
 
 - `Get All Phone Numbers`
 - `Release Phone Number`

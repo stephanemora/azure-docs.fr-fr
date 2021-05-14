@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/25/2021
-ms.openlocfilehash: 893d38d7dcf2ef0910bc46d3e9bfd168c2a89162
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/20/2021
+ms.openlocfilehash: 318eebcca3053be2164a1fc52905f36f26b11a6d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543361"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331121"
 ---
 # <a name="create-a-test-offer"></a>Créer une offre de test
 
@@ -94,10 +94,11 @@ Pour réduire les coûts de test des modèles de tarification, y compris des dim
 | ------------ | ------------- |
 | $0.00 | Définissez un coût total de transaction égal à zéro pour n'avoir aucun impact financier. Utilisez ce prix lorsque vous passez des appels aux API de comptage, ou pour tester les plans d'achat de votre offre pendant le développement de votre solution. |
 | 0,01 - 49,99 USD | Utilisez cette fourchette de prix pour tester l'analyse, la création de rapports et le processus d'achat. |
-| 50,00 USD et plus | Utilisez cette fourchette de prix pour tester le paiement. Pour plus d'informations sur notre calendrier de paiement, consultez [Calendriers et processus de paiement](/partner-center/payout-policy-details). |
+| 50,00 à 100,00 USD | Utilisez cette fourchette de prix pour tester le paiement. Pour plus d'informations sur notre calendrier de paiement, consultez [Calendriers et processus de paiement](/partner-center/payout-policy-details). |
 |||
 
-Pour éviter que des frais de service de magasin ne soient facturés lors de votre test, ouvrez un [ticket de support](support.md).
+> [!IMPORTANT]
+>  Pour éviter que des frais Store Service ne soient facturés lors de votre test, ouvrez un [ticket de support](support.md) dans les sept jours suivant l’achat du test.
 
 #### <a name="free-trial"></a>Essai gratuit
 

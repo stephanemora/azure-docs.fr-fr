@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/23/2021
-ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9771c68dda6f457586f27ea45fbc52aa118e8006
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047349"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874780"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configurer la fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,7 +178,7 @@ Lors de la définition de la fenêtre de maintenance, chaque région a ses propr
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Découvrir les fenêtres de maintenance de SQL Database et de pool élastique
 
-L’exemple suivant retourne les fenêtres de maintenance disponibles pour la région *eastus2* à l’aide de la commande [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list). Pour les bases de données et les pools élastiques, affectez la valeur `SQLDB` à `maintenanceScope`.
+L’exemple suivant retourne les fenêtres de maintenance disponibles pour la région *eastus2* à l’aide de la commande [az maintenance public-configuration list](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list). Pour les bases de données et les pools élastiques, affectez la valeur `SQLDB` à `maintenanceScope`.
 
    ```azurecli
    location="eastus2"
@@ -188,7 +188,7 @@ L’exemple suivant retourne les fenêtres de maintenance disponibles pour la r�
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>Découvrir les fenêtres de maintenance de SQL Managed Instance
 
-L’exemple suivant retourne les fenêtres de maintenance disponibles pour la région *eastus2* à l’aide de la commande [az maintenance public-configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list). Pour les instances managées, affectez à la valeur `SQLManagedInstance` à `maintenanceScope`.
+L’exemple suivant retourne les fenêtres de maintenance disponibles pour la région *eastus2* à l’aide de la commande [az maintenance public-configuration list](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list). Pour les instances managées, affectez à la valeur `SQLManagedInstance` à `maintenanceScope`.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

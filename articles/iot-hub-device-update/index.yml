@@ -11,12 +11,12 @@ metadata:
   ms.author: philmea
   manager: philmea
   ms.date: 2/17/2021
-  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: c098c6baa5cb976b02c8e736318f6019790ae090
+  ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101677945"
+  ms.lasthandoff: 05/10/2021
+  ms.locfileid: "109715445"
 landingContent:
 - title: À propos de la mise à jour d’appareil
   linkLists:
@@ -24,6 +24,20 @@ landingContent:
     links:
     - text: Qu’est-ce que la mise à jour d’appareil pour IoT Hub ?
       url: understand-device-update.md
+- title: En savoir plus
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un compte Device Update
+      url: create-device-update-account.md
+    - text: Provisionnement de l’agent Device Update
+      url: device-update-agent-provisioning.md
+    - text: Ajouter une mise à jour
+      url: import-update.md
+    - text: Créer un groupe de mise à jour
+      url: create-update-group.md
+    - text: Déployer une mise à jour
+      url: deploy-update.md
   - linkListType: concept
     links:
     - text: Utilisation du Plug-and-Play par la mise à jour d’appareil
@@ -36,41 +50,39 @@ landingContent:
       url: import-concepts.md
     - text: Comprendre les groupes de mise à jour d’appareil
       url: device-update-groups.md
-- title: Explorer avec les tutoriels
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Mise à jour d’appareil sur Raspberry Pi
-      url: device-update-raspberry-pi.md
-  - linkListType: tutorial
-    links:
-    - text: Mise à jour d’appareil sur un simulateur
-      url: device-update-simulator.md
-  - linkListType: tutorial
-    links:
-    - text: Mise à jour d’appareil sur l’agent de package Ubuntu Server 18.04 x64
-      url: device-update-ubuntu-agent.md
-- title: En savoir plus sur la mise à jour des appareils
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Créer un compte de mise à jour d’appareil
-      url: create-device-update-account.md
-  - linkListType: how-to-guide
-    links:
-    - text: Importer une mise à jour
-      url: import-update.md
-  - linkListType: how-to-guide
-    links:
-    - text: Créer un groupe de mise à jour
-      url: create-update-group.md
-  - linkListType: how-to-guide
-    links:
-    - text: Déployer une mise à jour
-      url: deploy-update.md
 - title: Guide du développeur
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Générer, exécuter et modifier l’agent de mise à jour d’appareil
-      url: device-update-agent-provisioning.md
+    - text: Procédure de création et d’exécution de l’agent Device Update
+      url: device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent
+- title: Bien démarrer
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Mise à jour d’appareil sur un simulateur
+      url: device-update-simulator.md
+    - text: Mise à jour d’appareil sur Raspberry Pi
+      url: device-update-raspberry-pi.md
+    - text: Mise à jour d’appareil sur l’agent de package Ubuntu Server 18.04 x64
+      url: device-update-ubuntu-agent.md
+- title: Informations de référence sur les API et les SDK
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: /rest/api/deviceupdate/
+  - linkListType: reference
+    links:
+    - text: Plan de contrôle - .NET
+      url: /dotnet/api/overview/azure/iot/management
+    - text: Plan de contrôle - Python
+      url: /python/api/azure-mgmt-deviceupdate/
+  - linkListType: reference
+    links:
+    - text: Plan de données - JavaScript
+      url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
+    - text: Plan de données - Java
+      url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
+    - text: Plan de données - Python
+      url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true

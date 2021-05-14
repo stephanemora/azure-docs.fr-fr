@@ -3,12 +3,12 @@ title: Exemple de blueprint DoD Impact Level 4
 description: Étapes de déploiement pour l’exemple de blueprint DoD Impact Level 4 et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: ce0d2d162bf77c147e0e4bc26e68964cd50f4372
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 48e352ff84ecd8f17a1aaa3e19e87638d3c0839c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378446"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757544"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Déployer l’exemple de blueprint DoD Impact Level 4
 
@@ -95,10 +95,10 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |-|-|-|-|
 |Emplacements autorisés|Affectation de rôle|Emplacements autorisés|Cette stratégie vous permet de restreindre les emplacements que votre organisation peut spécifier lors du déploiement de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.|
 |Emplacements autorisés pour les groupes de ressources|Affectation de rôle |Emplacements autorisés|Cette stratégie vous permet de restreindre les emplacements où votre organisation peut créer des groupes de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.|
-|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Valeur en jours de la période de conservation (0 indique une conservation illimitée)|Durée de conservation en jours (facultatif ; 180 jours si non spécifié)|
+|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Valeur en jours de la période de conservation (0 indique une conservation illimitée) |Durée de conservation en jours (facultatif ; 180 jours si non spécifié) |
 |Déployer l’audit sur des serveurs SQL|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage pour l’audit SQL Server|L’audit écrit des événements de base de données dans un journal d’audit dans votre compte Stockage Azure (un compte de stockage sera créé dans chaque région où est créé un serveur SQL Server qui sera partagé par tous les serveurs de cette région). Important : Pour un bon fonctionnement de l’audit, vous ne devez ni supprimer ni renommer le groupe de ressources ou les comptes de stockage.|
 |Déployer les paramètres de diagnostic pour les groupes de sécurité réseau|Affectation de rôle|Préfixe du compte de stockage pour les diagnostics du groupe de sécurité réseau|Ce préfixe peut être combiné à l’emplacement du groupe de sécurité réseau pour former le nom de compte de stockage créé.|
-|Déployer les paramètres de diagnostic pour les groupes de sécurité réseau|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage pour les diagnostics du groupe de sécurité réseau (doit exister)|Groupe de ressources dans lequel le compte de stockage sera créé. Ce groupe de ressources doit déjà exister.|
+|Déployer les paramètres de diagnostic pour les groupes de sécurité réseau|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage pour les diagnostics du groupe de sécurité réseau (doit exister) |Groupe de ressources dans lequel le compte de stockage sera créé. Ce groupe de ressources doit déjà exister.|
 |Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux|Affectation de rôle|Espace de travail Log Analytics pour les groupes de machines virtuelles identiques Linux|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|
 |Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
 |Déployer Log Analytics Agent pour les machines virtuelles Linux|Affectation de rôle|Espace de travail Log Analytics pour les machines virtuelles Linux|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|

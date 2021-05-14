@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a80a357b58ec7b17cc0da3e8247a668faf7ee413
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89268602"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286471"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Activer Enterprise State Roaming dans Azure Active Directory
 
@@ -93,7 +93,7 @@ La stratégie de rétention de données n’est pas configurable. Les données d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation d’Enterprise State Roaming](enterprise-state-roaming-overview.md)
-* [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.md)
+* [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.yml)
 * [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](enterprise-state-roaming-group-policy-settings.md)
 * [Référence des paramètres d’itinérance Windows 10](enterprise-state-roaming-windows-settings-reference.md)
 * [Dépannage](enterprise-state-roaming-troubleshooting.md)

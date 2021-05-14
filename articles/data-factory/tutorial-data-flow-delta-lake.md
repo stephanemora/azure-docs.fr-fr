@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 02/09/2021
-ms.openlocfilehash: cb8d44353e826df14ed3baab2c4ca66ffed4a569
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 4a88ed2df74d3eebb96c42e2cdc87b14153419cd
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100416537"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565370"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transformer des données dans Delta Lake à l’aide de flux de données de mappage
 
@@ -58,15 +58,15 @@ Au cours de cette étape, vous allez créer un pipeline qui contient une activit
    ![Création d’un pipeline](./media/doc-common-process/get-started-page.png)
 
 1. Dans l’onglet **Général** du pipeline, entrez **DeltaLake** pour le **nom** du pipeline.
-1. Dans la barre supérieure de la fabrique, faites glisser le curseur **Débogage du flux de données**. Le mode de débogage permet un test interactif de la logique de transformation sur un cluster Spark activé. Le préchauffage des clusters de flux de données nécessite 5 à 7 minutes et il est recommandé aux utilisateurs d’activer d’abord le débogage s’ils envisagent d’effectuer un développement de flux de données. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
-
-    ![Activité de flux de données](media/tutorial-data-flow/dataflow1.png)
 1. Dans le volet **Activités**, développez la section **Déplacer et transformer**. Faites glisser et déposez l’activité **Flux de données** à partir du volet vers le canevas du pipeline.
 
     ![Capture d’écran montrant le canevas du pipeline dans lequel vous pouvez supprimer l’activité Flux de données.](media/tutorial-data-flow/activity1.png)
 1. Dans la fenêtre contextuelle **Ajout de flux de données**, sélectionnez **Créer un flux de données**, puis nommez votre flux de données **DeltaLake**. Une fois que vous avez fini, cliquez sur Terminer.
 
     ![Capture d’écran montrant où nommer votre flux de données lorsque vous en créez un.](media/tutorial-data-flow/activity2.png)
+1. Dans la barre supérieure du canevas du pipeline, faites glisser le curseur **Débogage du flux de données** pour l’activer. Le mode de débogage permet un test interactif de la logique de transformation sur un cluster Spark activé. Le préchauffage des clusters de flux de données nécessite 5 à 7 minutes et il est recommandé aux utilisateurs d’activer d’abord le débogage s’ils envisagent d’effectuer un développement de flux de données. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
+
+    ![Capture d’écran montrant l’emplacement du curseur de débogage du flux de données.](media/tutorial-data-flow/dataflow1.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>Générer une logique de transformation dans le canevas de flux de données
 

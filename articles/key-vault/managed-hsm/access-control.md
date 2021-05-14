@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bea1ccf0777c6325bc86c15e0f88304c465d89c9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653898"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750281"
 ---
 # <a name="managed-hsm-access-control"></a>Contrôle d’accès HSM managé
 
@@ -65,6 +65,7 @@ Le tableau suivant présente les points de terminaison pour les plans de gestion
 | Plan de gestion | **Mondial :**<br> management.azure.com:443<br> | Créer, lire, mettre à jour, supprimer et déplacer des HSM managés<br>Définir des balises de HSM managé | Azure RBAC |
 | Plan de données | **Mondial :**<br> &lt;nom-hsm&gt;.managedhsm.azure.net:443<br> | **Clés** : decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Gestion des rôles de plan de données (RBAC local HSM managé)**   _: répertorier les définitions de rôles, attribuer des rôles, supprimer des attributions de rôles, définir des rôles personnalisés<br/><br/>_ *Sauvegarde/restauration  **: sauvegarde, restauration, vérification des opérations de sauvegarde/restauration de l’état <br/><br/>** Domaine de sécurité** : télécharger et charger le domaine de sécurité | RBAC local HSM managé |
 |||||
+
 ## <a name="management-plane-and-azure-rbac"></a>Plan de gestion et Azure RBAC
 
 Dans le plan de gestion, vous utilisez Azure RBAC pour autoriser les opérations qu’un appelant peut exécuter. Dans le modèle Azure RBAC, chaque abonnement Azure a une instance d’Azure Active Directory. Vous accordez l’accès aux utilisateurs, groupes et applications de ce répertoire. L’accès accordé permet de gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Pour accorder l’accès, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST Azure Resource Manager](/rest/api/authorization/roleassignments).
@@ -89,4 +90,4 @@ Vous octroyez à un principal de sécurité l’accès pour exécuter des opéra
 
 - Pour un tutoriel de prise en main destiné aux administrateurs, consultez [Qu’est-ce que HSM managé ?](overview.md).
 - Pour un tutoriel de gestion des rôles, consultez [RBAC local HSM managé](role-management.md).
-- Pour plus d’informations sur la journalisation de l’utilisation pour la journalisation de HSM managé, consultez [Journalisation pour HSM managé](logging.md).
+- Pour plus d’informations sur la journalisation de l’utilisation pour la journalisation de HSM managé, consultez [Journalisation de HSM managé](logging.md).

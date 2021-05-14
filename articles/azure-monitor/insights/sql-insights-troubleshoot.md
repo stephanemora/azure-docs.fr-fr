@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 4d4a801d0cf0a2355334272053ff86dd846b6bbf
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 35aa53def1a72f98309e7616ce64194dd77c5a4d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030302"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331283"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Résolution des problèmes liés à SQL Insights (préversion)
 Pour résoudre des problèmes liés à la collecte de données dans SQL insights, vérifiez l’état de la machine d’analyse dans l’onglet **Gérer le profil**. Elle aura l’un des états suivants :
@@ -26,9 +26,12 @@ Cliquez sur l'**État** pour accéder aux journaux et obtenir plus d’informati
 ## <a name="not-collecting-state"></a>État Collecte non active 
 L’état de la machine d’analyse est *Collecte non active* s’il n’existe aucune donnée dans *InsightsMetrics* pour SQL au cours des 10 dernières minutes. 
 
+> [!NOTE]
+> Vérifiez que vous utilisez une [version prise en charge de SQL](sql-insights-overview.md#supported-versions) pour tenter de recueillir des données. Par exemple, si votre profil et votre chaîne de connexion sont valides, mais que votre version d’Azure SQL Database n’est pas prise en charge, vous obtenez un état Données non collectées.
+
 SQL Insights utilise la requête suivante pour récupérer ces informations :
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
@@ -163,14 +166,14 @@ L’état de la machine d’analyse est *Collecte avec des erreurs* s’il exist
 
 SQL Insights utilise les requêtes suivantes pour récupérer ces informations :
 
-```
+```kusto
 InsightsMetrics 
     | extend Tags = todynamic(Tags) 
     | extend SqlInstance = tostring(Tags.sql_instance) 
     | where TimeGenerated > ago(240m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
 ```
 
-```
+```kusto
 WorkloadDiagnosticLogs
 | summarize Errors = countif(Status == 'Error')
 ```

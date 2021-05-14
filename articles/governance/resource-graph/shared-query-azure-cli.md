@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer une requête partagée avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’activer l’extension Resource Graph pour Azure CLI et vous créez une requête partagée.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: ec1b010771790339a13777624f04c7bd2db01f11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 990f38b3d11cf2c0a1a8dc9c3ea8991911ada896
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594364"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751532"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Démarrage rapide : Créer une requête partagée Resource Graph avec Azure CLI
 
@@ -58,7 +58,7 @@ Une fois l’extension Azure CLI ajoutée à l’environnement de votre choix, v
    az group create --name 'resource-graph-queries' --location 'westus2'
    ```
 
-1. Créez la requête partagée Azure Resource Graph à l’aide de l’extension `graph` et de la commande [az graph shared-query create](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_create) :
+1. Créez la requête partagée Azure Resource Graph à l’aide de l’extension `graph` et de la commande [az graph shared-query create](/cli/azure/graph/shared-query#az_graph_shared_query_create) :
 
    ```azurecli-interactive
    # Create the Azure Resource Graph shared query
@@ -68,14 +68,14 @@ Une fois l’extension Azure CLI ajoutée à l’environnement de votre choix, v
       --resource-group 'resource-graph-queries'
    ```
 
-1. Listez les requêtes partagées dans le nouveau groupe de ressources. La commande [az graph shared-query list](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_list) retourne un tableau de valeurs.
+1. Listez les requêtes partagées dans le nouveau groupe de ressources. La commande [az graph shared-query list](/cli/azure/graph/shared-query#az_graph_shared_query_list) retourne un tableau de valeurs.
 
    ```azurecli-interactive
    # List all the Azure Resource Graph shared queries in a resource group
    az graph shared-query list --resource-group 'resource-graph-queries'
    ```
 
-1. Pour obtenir un seul résultat de requête partagée, utilisez la commande [az graph shared-query show](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_show).
+1. Pour obtenir un seul résultat de requête partagée, utilisez la commande [az graph shared-query show](/cli/azure/graph/shared-query#az_graph_shared_query_show).
 
    ```azurecli-interactive
    # Show a specific Azure Resource Graph shared query
@@ -83,7 +83,7 @@ Une fois l’extension Azure CLI ajoutée à l’environnement de votre choix, v
       --name 'Summarize resources by location'
    ```
 
-1. Exécutez la requête partagée dans Azure CLI à l’aide de la syntaxe `{{shared-query-uri}}` dans une commande [az graph query](/cli/azure/ext/resource-graph/graph#ext_resource_graph_az_graph_query).
+1. Exécutez la requête partagée dans Azure CLI à l’aide de la syntaxe `{{shared-query-uri}}` dans une commande [az graph query](/cli/azure/graph#az_graph_query).
    Tout d’abord, copiez le champ `id` à partir du résultat de la commande `show` précédente. Remplacez le texte `shared-query-uri` de l’exemple par la valeur provenant du champ `id`, mais laissez les caractères `{{` et `}}` autour.
 
    ```azurecli-interactive
@@ -100,7 +100,7 @@ Une autre façon de rechercher des requêtes partagées Resource Graph consiste 
 
 Si vous souhaitez supprimer la requête partagée, le groupe de ressources et l’extension Resource Graph de votre environnement Azure CLI, vous pouvez le faire à l’aide des commandes suivantes :
 
-- [az graph shared-query delete](/cli/azure/ext/resource-graph/graph/shared-query#ext_resource_graph_az_graph_shared_query_delete)
+- [az graph shared-query delete](/cli/azure/graph/shared-query#az_graph_shared_query_delete)
 - [az group delete](/cli/azure/group#az_group_delete)
 - [az extension remove](/cli/azure/extension#az_extension_remove)
 

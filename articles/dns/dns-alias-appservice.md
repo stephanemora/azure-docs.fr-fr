@@ -5,24 +5,24 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: how-to
-ms.date: 08/10/2019
+ms.date: 04/27/2021
 ms.author: rohink
-ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3817829b99d64b6874eeb94379a64cbda79430f0
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94954509"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164648"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Héberger des applications web Azure à charge équilibrée à l’extrémité de la zone
 
-Le protocole DNS empêche l’affectation de tout enregistrement autre qu’un enregistrement A ou AAAA au niveau de l’apex de zone. contoso.com est un exemple d’extrémité de zone. Cette restriction pose un problème pour les propriétaires d’application qui ont des applications à charge équilibrée derrière un profil Traffic Manager. Il est impossible de pointer vers le profil Traffic Manager à partir de l’enregistrement d’apex de zone. Les propriétaires d’application doivent donc trouver une solution de contournement. Une redirection au niveau de la couche Application doit rediriger vers un autre domaine à partir de l’apex de zone. Une redirection de contoso.com vers www\.contoso.com en est un exemple. Cette disposition présente un point de défaillance unique de la fonction de redirection.
+Le protocole DNS empêche l’affectation de tout enregistrement autre qu’un enregistrement A ou AAAA au niveau de l’apex de zone. contoso.com est un exemple d’extrémité de zone. Cette restriction pose un problème pour les propriétaires d’application qui ont des applications à charge équilibrée derrière un profil Traffic Manager. Il est impossible de pointer vers le profil Traffic Manager à partir de l’enregistrement apex de zone. Les propriétaires d’application doivent donc trouver une solution de contournement. Une redirection au niveau de la couche Application doit rediriger vers un autre domaine à partir de l’apex de zone. Citons par exemple une redirection de `contoso.com` vers `www.contoso.com`. Cette disposition présente un point de défaillance unique de la fonction de redirection.
 
-Les enregistrements d’alias éliminent ce problème. Les propriétaires d’applications peuvent maintenant pointer leur enregistrement d’apex de zone vers un profil Traffic Manager disposant de points de terminaison externes. Les propriétaires d’applications peuvent pointer vers le même profil Traffic Manager que celui utilisé pour tout autre domaine dans leur zone DNS.
+Avec les enregistrements d’alias, vous n’aurez plus ce problème. Vous pouvez pointer votre enregistrement apex de zone vers un profil Traffic Manager disposant de points de terminaison externes. Vous pouvez aussi pointer vers le même profil Traffic Manager que celui utilisé pour d’autres domaines de la zone DNS.
 
-Par exemple, contoso.com et www\.contoso.com peuvent pointer vers le même profil Traffic Manager. C’est le cas tant que le profil Traffic Manager ne compte que des points de terminaison externes.
+Par exemple, vous pouvez pointer `contoso.com` et `www.contoso.com` vers le même profil Traffic Manager. Cette configuration fonctionne tant que le profil Traffic Manager compte uniquement des points de terminaison externes.
 
-Cet article explique comment créer un enregistrement d’alias pour une extrémité de domaine et configurer des points de terminaison de profil Traffic Manager pour des applications web.
+Dans cet article, vous allez découvrir comment créer un enregistrement d’alias pour votre apex de domaine. Vous configurerez ensuite vos points de terminaison de profil Traffic Manager pour vos applications web.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -40,7 +40,7 @@ Créez un groupe de ressources qui contiendra toutes les ressources utilisées d
 
 ## <a name="create-app-service-plans"></a>Créer des plans App Service
 
-Créez deux plans Web App Service dans votre groupe de ressources en suivant les informations de configuration du tableau ci-dessous. Pour plus d’informations sur la création d’un plan App Service, voir [Gérer un plan App Service dans Azure](../app-service/app-service-plan-manage.md).
+Créez deux plans de service d’application web dans votre groupe de ressources. Aidez-vous du tableau suivant pour effectuer la configuration. Pour plus d’informations sur la création d’un plan App Service, voir [Gérer un plan App Service dans Azure](../app-service/app-service-plan-manage.md).
 
 
 |Nom  |Système d’exploitation  |Emplacement  |Niveau de tarification  |
@@ -76,7 +76,7 @@ Notez maintenant l’adresse IP et le nom d’hôte des applications web.
 
 Créez un profil Traffic Manager dans votre groupe de ressources. Utilisez les valeurs par défaut et tapez un nom unique sur l’espace de noms trafficmanager.net.
 
-Pour plus d’informations sur la création d’un profil Traffic Manager, consultez [Démarrage rapide : Créer un profil Traffic Manager pour une application web hautement disponible](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Pour plus d’informations, consultez [Démarrage rapide : créer un profil Traffic Manager pour une application web hautement disponible](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Créer des points de terminaison
 

@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 3eecb584f468bc170f0325da8d734a1890691483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45cdb9217eebf6e3129718a96d9f7b72a3ab62b3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601769"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533610"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilisez Azure CLI pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
@@ -27,7 +27,8 @@ Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
-Vous pouvez également rechercher les tailles de machine virtuelle par programmation. Pour savoir comment les récupérer par programmation, reportez-vous à la section [Rechercher les tailles de machine virtuelle prises en charge](#finding-supported-vm-sizes).
+La liste complète des tailles de machines virtuelles prises en charge peut être extraite par programmatique. Pour savoir comment les récupérer par programmation, reportez-vous à la section [Rechercher les tailles de machine virtuelle prises en charge](#finding-supported-vm-sizes).
+La mise à niveau de la taille de la machine virtuelle entraîne une validation pour vérifier si la nouvelle taille de machine virtuelle prend en charge la fonctionnalité EncryptionAtHost.
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 5632f9a6126615255306cc89425bd08a9ffa9753
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 97261755f55f9193d0169e91597318928bb45b97
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877359"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134696"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Mettre à l’échelle une application dans Azure Spring Cloud
 
@@ -29,7 +29,7 @@ Effectuez un scale-up ou un scale-down de votre application en modifiant le nomb
 Pour suivre ces procédures, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
-* Une instance du service Azure Spring Cloud déployée.  Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application par le biais d’Azure CLI](spring-cloud-quickstart.md).
+* Une instance du service Azure Spring Cloud déployée.  Pour bien démarrer, suivez notre [guide de démarrage rapide sur le déploiement d’une application par le biais d’Azure CLI](./quickstart.md).
 * Au moins une application déjà créée dans votre instance de ce service.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Accéder à la page Mettre à l’échelle sur le portail Azure
@@ -63,11 +63,11 @@ Veillez à sélectionner **Enregistrer** pour appliquer vos paramètres de mise 
 Au bout de quelques secondes, les modifications que vous avez apportées sont visibles dans la page **Vue d’ensemble**. Des détails supplémentaires sont disponibles sous l’onglet **Instances de l’application**. La mise à l’échelle ne nécessite aucune modification de code ni de redéploiement.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Passer au niveau Standard
-Si vous êtes au niveau De base et limité par une ou plusieurs de ces [restrictions](spring-cloud-quotas.md), vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu Niveau tarifaire en sélectionnant d’abord la colonne Niveau Standard et en cliquant sur le bouton **Mettre à niveau**.
+Si vous êtes au niveau De base et limité par une ou plusieurs de ces [restrictions](./quotas.md), vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu Niveau tarifaire en sélectionnant d’abord la colonne Niveau Standard et en cliquant sur le bouton **Mettre à niveau**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet exemple vous a montré comment mettre à l’échelle manuellement une application Azure Spring Cloud. Pour savoir comment superviser une application en configurant des alertes, consultez [Configurer la mise à l’échelle automatique](spring-cloud-tutorial-setup-autoscale.md).
+Cet exemple vous a montré comment mettre à l’échelle manuellement une application Azure Spring Cloud. Pour savoir comment superviser une application en configurant des alertes, consultez [Configurer la mise à l’échelle automatique](./how-to-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Découvrir comment configurer des alertes](spring-cloud-tutorial-alerts-action-groups.md)
+> [Découvrir comment configurer des alertes](./tutorial-alerts-action-groups.md)

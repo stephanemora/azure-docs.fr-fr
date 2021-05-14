@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 03/25/2021
-ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: e119d40cd0b8f482d33c3c86c644cf6a0846390a
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629987"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727117"
 ---
 ## <a name="generalize-the-image"></a>Généraliser l’image
 
@@ -40,6 +40,9 @@ Le processus suivant généralise une machine virtuelle Linux et la redéploie s
 
 ### <a name="capture-image"></a>Capturer l’image
 
+> [!NOTE]
+> L’abonnement Azure contenant la SIG doit être sous le même locataire que le compte de l’éditeur pour pouvoir être publié. En outre, le compte de l’éditeur doit avoir au moins un accès Contributeur à l’abonnement contenant la SIG.
+
 Une fois que votre machine virtuelle est prête, vous pouvez la capturer dans une galerie d’images partagées Azure. Suivez les étapes ci-dessous pour la capturer :
 
 1. Dans [Portail Azure](https://ms.portal.azure.com/), accédez à la page de votre machine virtuelle.
@@ -51,8 +54,6 @@ Une fois que votre machine virtuelle est prête, vous pouvez la capturer dans un
 7. Indiquez un **numéro de version** pour l’image.
 8. Sélectionnez **Vérifier + créer** pour passer en revue vos choix.
 9. Une fois la validation réussie, sélectionnez **Créer**.
-
-L’abonnement Azure contenant la SIG doit être sous le même locataire que le compte de l’éditeur pour pouvoir être publié. Le compte d’éditeur doit également disposer d’un accès Propriétaire à la SIG. 
 
 Pour accorder l’accès :
 

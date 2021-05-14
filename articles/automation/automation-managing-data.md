@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cb18cca782b85e608c3c7ddb001ecb03b86055f6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954671"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833523"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
@@ -45,7 +46,7 @@ Quand vous supprimez une ressource dans Azure Automation, elle est conservée pe
 
 Le tableau suivant récapitule la stratégie de rétention pour les différentes ressources.
 
-| Données | Stratégie |
+| Données | Policy |
 |:--- |:--- |
 | Comptes |Un compte est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur. |
 | Éléments multimédias |Une ressource est définitivement supprimée 30 jours après avoir été supprimée par un utilisateur ou 30 jours après qu’un utilisateur a supprimé un compte qui contenait la ressource. Les ressources incluent des variables, des planifications, des informations d’identification, des certificats, des packages Python 2 et des connexions. |

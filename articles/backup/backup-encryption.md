@@ -4,12 +4,12 @@ description: Découvrez comment les fonctionnalités de chiffrement de Sauvegard
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 28d165ccc8a966091a96fc433660899d8eef1595
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 3163962bb1c7435c96bc46c2d7514561ca0bb37a
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518471"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108325478"
 ---
 # <a name="encryption-in-azure-backup"></a>Chiffrement dans la Sauvegarde Azure
 
@@ -32,4 +32,4 @@ Sauvegarde Azure inclut un chiffrement sur deux niveaux :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Chiffrement du stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md)
-- [FAQ sur le service Sauvegarde Azure](/backup-azure-backup-faq.yml#encryption) pour toute question concernant le chiffrement
+- [FAQ sur le service Sauvegarde Azure](/azure/backup/backup-azure-backup-faq#encryption) pour toute question concernant le chiffrement

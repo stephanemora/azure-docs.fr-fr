@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a7fb5eeb90a26d85b3e56706e0c2b32ceadc8d11
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466987"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330887"
 ---
-# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modèle de cartes de visite prédéfini Form Recognizer 
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modèle de cartes de visite prédéfini Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations de contact à partir de cartes de visite à l’aide de l’un de ses modèles de carte de visite prédéfinis. Il associe de puissantes fonctionnalités de reconnaissance optique de caractères (OCR) à notre modèle de compréhension de carte de visite pour extraire des informations clés à partir de cartes de visite en anglais. Elle extrait les informations de contact personnel, le nom de la société, la fonction et plus encore. L’API Carte de visite prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1. 
+Azure Form Recognizer peut analyser et extraire des informations de contact à partir de cartes de visite à l’aide de l’un de ses modèles de carte de visite prédéfinis. Il associe de puissantes fonctionnalités de reconnaissance optique de caractères (OCR) à notre modèle de compréhension de carte de visite pour extraire des informations clés à partir de cartes de visite en anglais. Elle extrait les informations de contact personnel, le nom de la société, la fonction et plus encore. L’API Carte de visite prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1.
 
 ## <a name="what-does-the-business-card-service-do"></a>Quelle est la fonction du service Carte de visite ?
 
@@ -27,32 +27,40 @@ L’API Carte de visite prédéfinie extrait les champs clés des cartes de visi
 
 ![Image détaillée de Contoso à partir de la sortie JSON + FOTT](./media/business-card-example.jpg)
 
-
-
 ### <a name="fields-extracted"></a>Champs extraits :
 
-|Nom| Type | Description | Texte | 
+|Nom| Type | Description | Texte |
 |:-----|:----|:----|:----|
 | ContactNames | tableau d’objets | Nom de contact extrait de la carte de visite | [{ "FirstName": "John", "LastName": "Doe" }] |
-| FirstName | string | Prénom du contact | "John" | 
-| LastName | string | Nom du contact |     "Doe" | 
-| CompanyNames | tableau de chaînes | Nom de société extrait de la carte de visite | ["Contoso"] | 
-| Departments | tableau de chaînes | Service ou organisation de contact | ["R&D"] | 
-| JobTitles | tableau de chaînes | Poste indiqué du contact | ["Software Engineer"] | 
-| E-mails | tableau de chaînes | E-mail de contact extrait de la carte de visite | ["johndoe@contoso.com"] | 
-| Sites web | tableau de chaînes | Site web extrait de la carte de visite | ["https://www.contoso.com"] | 
-| Adresses | tableau de chaînes | Adresse extraite de la carte de visite | ["123 Main Street, Redmond, WA 98052"] | 
+| FirstName | string | Prénom du contact | "John" |
+| LastName | string | Nom du contact |     "Doe" |
+| CompanyNames | tableau de chaînes | Nom de société extrait de la carte de visite | ["Contoso"] |
+| Departments | tableau de chaînes | Service ou organisation de contact | ["R&D"] |
+| JobTitles | tableau de chaînes | Poste indiqué du contact | ["Software Engineer"] |
+| E-mails | tableau de chaînes | E-mail de contact extrait de la carte de visite | ["johndoe@contoso.com"] |
+| Sites web | tableau de chaînes | Site web extrait de la carte de visite | ["https://www.contoso.com"] |
+| Adresses | tableau de chaînes | Adresse extraite de la carte de visite | ["123 Main Street, Redmond, WA 98052"] |
 | MobilePhones | tableau de numéros de téléphone | Numéro de téléphone mobile extrait de la carte de visite | ["+19876543210"] |
 | Télécopies | tableau de numéros de téléphone | Numéro de télécopie extrait de la carte de visite | ["+19876543211"] |
 | WorkPhones | tableau de numéros de téléphone | Numéro de téléphone professionnel extrait de la carte de visite | ["+19876543231"] |
 | OtherPhones     | tableau de numéros de téléphone | Autre numéro de téléphone extrait de la carte de visite | ["+19876543233"] |
 
 
-L’API Carte de visite peut également retourner tout le texte reconnu de la carte de visite. Cette sortie OCR est incluse dans la réponse JSON.  
+L’API Carte de visite peut également retourner tout le texte reconnu de la carte de visite. Cette sortie OCR est incluse dans la réponse JSON.
 
-### <a name="input-requirements"></a>Spécifications relatives aux entrées 
+### <a name="input-requirements"></a>Spécifications relatives aux entrées
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
+
+## <a name="supported-locales"></a>Paramètres régionaux pris en charge
+
+**Pre-built business cards v2.1-preview.3** (préversion publique) prend en charge les paramètres régionaux suivants :
+
+* **fr-FR**
+* **en-au**
+* **en-ca**
+* **en-gb**
+* **en-in**
 
 ## <a name="the-analyze-business-card-operation"></a>Opération d’analyse de carte de visite
 
@@ -79,7 +87,7 @@ Quand le champ **status** a la valeur de **succeeded**, la réponse JSON inclut 
 La réponse à l’opération d’obtention du résultat de l’analyse de la carte de visite va correspondre à la représentation structurée de la carte de visite avec toutes les informations extraites.  Consultez ici un [exemple de fichier de carte de visite](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) et sa sortie structurée dans l’[exemple de sortie de carte de visite](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
 
 Voici un exemple de réponse JSON correcte :
-* Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. 
+* Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels.
 * Le nœud `"documentResults"` contient les valeurs spécifiques de la carte de visite découvertes par le modèle. C’est là que vous trouverez des informations de contact utiles comme le prénom, le nom, le nom de la société, etc.
 
 ```json
@@ -96,7 +104,7 @@ Voici un exemple de réponse JSON correcte :
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                   "lines": 
+                   "lines":
                              {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
@@ -115,7 +123,7 @@ Voici un exemple de réponse JSON correcte :
                                 "boundingBox": [
                                     419,
                             ]
-    
+
             }
         ],
         "documentResults": [
@@ -384,14 +392,14 @@ Voici un exemple de réponse JSON correcte :
 
 Suivez le [guide de démarrage rapide](./QuickStarts/client-library.md) pour implémenter l’extraction de données de carte de visite avec Python et l’API REST.
 
-## <a name="customer-scenarios"></a>Scénarios de client  
+## <a name="customer-scenarios"></a>Scénarios de client
 
 Les données extraites avec l’API Carte de visite peuvent être utilisées pour effectuer diverses tâches. L’extraction automatique de ces coordonnées permet aux utilisateurs en contact avec la clientèle de gagner du temps. Voici quelques exemples de ce que nos clients ont accompli avec l’API Carte de visite :
 
-* Extraction d’informations de contact des cartes de visite et création rapide de contacts téléphoniques. 
-* Intégration à CRM pour créer automatiquement des contacts à l’aide d’images de carte de visite. 
-* Suivi des prospects.  
-* Extraction d’informations de contact en bloc à partir d’images de carte de visite existantes. 
+* Extraction d’informations de contact des cartes de visite et création rapide de contacts téléphoniques.
+* Intégration à CRM pour créer automatiquement des contacts à l’aide d’images de carte de visite.
+* Suivi des prospects.
+* Extraction d’informations de contact en bloc à partir d’images de carte de visite existantes.
 
 La [fonctionnalité de traitement des cartes de visite AI Builder](/ai-builder/prebuilt-business-card) est également basée sur l’API Carte de visite.
 

@@ -3,18 +3,18 @@ title: Optimiser votre investissement dans le cloud avec Azure Cost Management
 description: Cet article vous aide à tirer le meilleur parti de vos investissements dans le cloud, à réduire vos coûts et à évaluer vos postes de dépenses.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: fc9b6c4edc5d08c30b1eadb5084155b10d0e55a3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bb40946bc01b6bd241f542b3987e8a2e7d570794
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601515"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331661"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Guide pratique pour optimiser votre investissement dans le cloud avec Azure Cost Management
 
@@ -91,7 +91,7 @@ Pour en savoir plus sur les différentes options, consultez la page [Acheter Azu
 #### <a name="free"></a>[Gratuit](https://azure.microsoft.com/free/)
 
 - 12 mois de services gratuits populaires
-- Crédit de 170 € pour explorer les services pendant 30 jours
+- Crédit de 200 dollars US dans votre devise de facturation pour découvrir les services pendant 30 jours
 - Plus de 25 services sont toujours gratuits
 
 #### <a name="pay-as-you-go"></a>[Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p)

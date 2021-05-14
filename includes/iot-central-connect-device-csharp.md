@@ -4,20 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: 0383949dd9b0aeaa185613474d91d0416169ab1f
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 85fda9b645385e38ea53728dad33bf997024fef8
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491087"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109719010"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de cet article, vous avez besoin des ressources suivantes :
 
-* Une application Azure IoT Central créée avec le modèle **Application personnalisée**. Pour plus d’informations, consultez [Créer une application](../articles/iot-central/core/quick-deploy-iot-central.md). L’application doit avoir été créée à partir du 14 juillet 2020.
-* Un ordinateur de développement avec [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/).
-* Une copie locale du dépôt GitHub [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) qui contient l’exemple de code. Utilisez ce lien pour télécharger une copie du dépôt : [Téléchargez le fichier ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Décompressez ensuite le fichier dans un emplacement approprié de votre ordinateur local.
+[!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
+
+- Un ordinateur de développement avec [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/).
+
+- Une copie locale du dépôt GitHub [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) qui contient l’exemple de code. Utilisez ce lien pour télécharger une copie du dépôt : [Téléchargez le fichier ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Décompressez ensuite le fichier dans un emplacement approprié de votre ordinateur local.
 
 ## <a name="review-the-code"></a>Vérifier le code
 

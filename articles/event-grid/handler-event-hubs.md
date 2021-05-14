@@ -3,12 +3,12 @@ title: Event Hub en tant que gestionnaire d’événements pour les événements
 description: Décrit comment utiliser des concentrateurs d’événements en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 446fef6df65f59206519e282c74d59c2ed1bfa9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b69e06335b4461ad9ee72f32d38e7e7f7056febc
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005625"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734807"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Event Hub en tant que gestionnaire d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue une action pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements, et **Azure Event Hubs** est l’un d’eux. 
@@ -21,7 +21,7 @@ Regardez les exemples suivants :
 |Intitulé  |Description  |
 |---------|---------|
 | [Démarrage rapide : Acheminer des événements personnalisés vers Azure Event Hubs avec Azure CLI](custom-event-to-eventhub.md) | Envoie un événement personnalisé à un hub d’événements afin qu’il soit traité par une application. |
-| [Modèle Resource Manager : Créer une rubrique personnalisée Event Grid et envoyer des événements à un concentrateur d’événements](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Modèle Resource Manager qui crée un abonnement pour une rubrique personnalisée. Il envoie les événements vers Azure Event Hubs. |
+| [Modèle Resource Manager : Créer une rubrique personnalisée Event Grid et envoyer des événements à un concentrateur d’événements](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| Modèle Resource Manager qui crée un abonnement pour une rubrique personnalisée. Il envoie les événements vers Azure Event Hubs. |
 
 [!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
 
@@ -33,18 +33,18 @@ Regardez les exemples suivants :
 
 ```json
 {
-    "properties": 
+  "properties": 
+  {
+    "destination": 
     {
-        "destination": 
-        {
-            "endpointType": "EventHub",
-            "properties": 
-            {
-                "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
-            }
-        },
-        "eventDeliverySchema": "EventGridSchema"
-    }
+      "endpointType": "EventHub",
+      "properties": 
+      {
+        "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+      }
+    },
+    "eventDeliverySchema": "EventGridSchema"
+  }
 }
 ```
 
@@ -52,24 +52,24 @@ Regardez les exemples suivants :
 
 ```json
 {
-    "properties": {
-        "deliveryWithResourceIdentity": 
+  "properties": {
+    "deliveryWithResourceIdentity": 
+    {
+      "identity": 
+      {
+        "type": "SystemAssigned"
+      },
+      "destination": 
+      {
+        "endpointType": "EventHub",
+        "properties": 
         {
-            "identity": 
-            {
-                "type": "SystemAssigned"
-            },
-            "destination": 
-            {
-                "endpointType": "EventHub",
-                "properties": 
-                {
-                    "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
-                }
-            }
-        },
-        "eventDeliverySchema": "EventGridSchema"
-    }
+          "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+        }
+      }
+    },
+    "eventDeliverySchema": "EventGridSchema"
+  }
 }
 ```
 

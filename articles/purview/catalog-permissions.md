@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c27287f661c133641f7b3da45784478c8fc597e
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98610367"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108016003"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Contrôle d’accès en fonction du rôle dans le plan de données d’Azure Purview
 
@@ -23,7 +23,7 @@ Cet article décrit comment le contrôle d’accès en fonction du rôle (RBAC) 
 
 ## <a name="azure-purviews-pre-defined-data-plane-roles"></a>Rôles de plan de données prédéfinis d’Azure Purview
 
-Azure Purview définit un ensemble de rôles de plan de données prédéfinis qui peuvent être utilisés pour contrôler qui peut accéder à quoi, dans Azure Purview. Ces rôles sont les suivants :
+Azure Purview définit un ensemble de rôles de plan de données prédéfinis qui peuvent être utilisés pour contrôler qui peut accéder à quoi dans Azure Purview. Ces rôles sont les suivants :
 
 * **Rôle de lecteur de données Purview** : peut accéder au portail Purview et lire tout le contenu dans Azure Purview à l’exception des liaisons d’analyse.
 * **Rôle de conservateur de données Purview** : peut accéder au portail Purview et lire tout le contenu dans Azure Purview, à l’exception des liaisons d’analyse, peut modifier les informations sur les ressources, peut modifier les définitions de classification et les termes de glossaire, et peut appliquer des classifications et des termes de glossaire aux ressources.

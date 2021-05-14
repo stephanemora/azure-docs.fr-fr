@@ -10,12 +10,12 @@ ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: baad1a0b173ae89fec9d160572224c6cb0aa615d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2de1dc71579e6915a54e3815edd2858532ba263
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574626"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075930"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
 
@@ -69,7 +69,7 @@ Le volet **Autorisations d’API** indique à présent que votre application Azu
 
 ### <a name="create-a-client-secret"></a>Créer une clé secrète client
 
-L’application a besoin d’une clé secrète client pour prouver son identité lors de la requête de jeton. Pour ajouter une clé secrète client, procédez comme suit :
+L’application a besoin d’une clé secrète client pour prouver son identité lors de la requête de jeton. Pour des raisons de sécurité, Microsoft limite la création de secrets client de plus de 24 mois et recommande vivement de définir une valeur inférieure à 12 mois. Pour ajouter une clé secrète client, procédez comme suit :
 
 1. Accédez à votre inscription d’application dans le Portail Microsoft Azure.
 1. Sélectionnez le paramètre **Certificats et clés secrètes**.

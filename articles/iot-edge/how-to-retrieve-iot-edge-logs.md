@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 19183da24a3652757626cb37fae96027ed01a8ea
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200693"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633174"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Récupérer les journaux des déploiements IoT Edge
 
@@ -210,7 +210,7 @@ Par exemple :
 L’appel suivant charge les 100 dernières lignes de journal de tous les modules, au format JSON compressé :
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",
@@ -232,7 +232,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 L’appel suivant charge les 100 dernières lignes de journal d’edgeAgent et edgeHub avec les 1 000 dernières lignes de journal du module tempSensor dans un format de texte non compressé :
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",

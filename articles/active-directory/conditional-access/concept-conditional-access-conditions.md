@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 59664a0b5127e9fde8f2890cd396bec120eff29d
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579125"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330654"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -120,7 +120,7 @@ Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire �
 | macOS | Chrome, Safari |
 
 > [!NOTE]
-> Edge 85 ou version ultérieure exige que l’utilisateur soit connecté au navigateur pour transmettre correctement l’identité de l’appareil. Dans le cas contraire, il se comporte comme Chrome sans l’extension Comptes. Cette connexion peut ne pas se produire automatiquement dans un scénario de jonction Azure AD Hybride. 
+> Edge 85 ou version ultérieure exige que l’utilisateur soit connecté au navigateur pour transmettre correctement l’identité de l’appareil. Dans le cas contraire, il se comporte comme Chrome sans l’extension Comptes. Cette connexion peut ne pas se produire automatiquement dans un scénario de jonction Azure AD Hybride. Safari est pris en charge pour l’accès conditionnel basé sur les appareils, mais il ne peut pas satisfaire à la condition **Exiger une application cliente approuvée** ni à la condition **Exiger une stratégie de protection des applications**. Un navigateur managé comme Microsoft Edge, lui, répond à ces deux exigences.
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Pourquoi une invite de saisie de certificat s’affiche-t-elle dans mon navigateur ?
 

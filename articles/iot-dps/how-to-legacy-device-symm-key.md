@@ -3,17 +3,17 @@ title: Provisionner des appareils en utilisant des clés symétriques – Servic
 description: Guide pratique pour utiliser des clés symétriques afin de provisionner des appareils avec votre instance DPS (Device Provisioning Service)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: 5d193d30428d24ccf65c3f70885192acad2fdc9f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 754db21fa8e14045696f1af2bcfe375fb1161d94
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107228326"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930566"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Comment approvisionner des appareils à l’aide de groupes d’inscription avec des clés symétriques
 
@@ -150,7 +150,23 @@ Pour générer des clés d’appareil, utilisez la clé principale du groupe d�
 > [!WARNING]
 > Votre code d’appareil pour chaque appareil doit inclure uniquement la clé d’appareil dérivée correspondante pour cet appareil. N’incluez pas votre clé de groupe principale dans le code de l’appareil. Une clé principale compromise est susceptible de compromettre la sécurité de tous les appareils qui y sont authentifiés.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+L’extension IoT pour Azure CLI fournit la commande [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) permettant de générer des clés d’appareil dérivées. Cette commande peut être utilisée à partir d’un système Windows ou Linux, dans PowerShell ou un interpréteur de commandes bash.
+
+Remplacez la valeur de l’argument `--key` par la **clé primaire** de votre groupe d’inscription.
+
+Remplacez la valeur de l’argument `--registration-id` par votre ID d’inscription.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+Exemple de résultat :
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
 # <a name="windows"></a>[Windows](#tab/windows)
 
 Si vous utilisez une station de travail Windows, utilisez PowerShell pour générer votre clé d’appareil dérivée, comme indiqué dans l’exemple suivant.

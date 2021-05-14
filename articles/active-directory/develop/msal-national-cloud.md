@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 09c4dadd7a6560bd5163d623dd8a7f247b57860e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1ecf807d566fd6603f12ebc820c176edf96ec14
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100102493"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071837"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
 
@@ -68,75 +68,59 @@ Les didacticiels suivants montrent comment créer une application Web MVC .NET C
 
 Pour activer votre application MSAL.js pour les clouds souverains :
 
-### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
+- Inscrivez votre application dans un portail spécifique en fonction du cloud. Pour plus d’informations sur la façon de choisir le portail, reportez-vous à [Points de terminaison d’inscription d’application](authentication-national-cloud.md#app-registration-endpoints)
+- Utilisez n’importe lequel des [exemple](https://github.com/Azure-Samples/ms-identity-javascript-tutorial) du référentiel en apportant quelques modifications à la configuration, en fonction du cloud, comme mentionné ci-dessous.
+- Utilisez une autorité spécifique, en fonction du cloud dans lequel vous avez inscrit l’application. Pour plus d’informations sur les autorités pour les différents clouds, consultez [Points de terminaison Azure AD Authentication](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+- L’appel de l’API Microsoft Graph nécessite une URL de point de terminaison spécifique au cloud que vous utilisez. Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison racine de service de jetons et d’inscription de l’application](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-1. Connectez-vous au <a href="https://portal.azure.us/" target="_blank">portail Azure</a>.
+Voici un exemple d’autorité :
 
-   Pour rechercher des points de terminaison de portail Azure pour d’autres clouds nationaux, consultez [Points de terminaison d’inscription d’application](authentication-national-cloud.md#app-registration-endpoints).
+```json
+"authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+```
 
-1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
-1. Recherchez et sélectionnez **Azure Active Directory**.
-1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
-1. Entrez un **nom** pour votre application. Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
-1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel**.
-1. Sous la section **URI de redirection**, sélectionnez la plateforme **Web** et définissez la valeur sur l’URL de l’application basée sur votre serveur web. Consultez les prochaines sections pour obtenir des instructions permettant de définir et d’obtenir l’URL de redirection dans Visual Studio et Node.
-1. Sélectionnez **Inscription**.
-1. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
-    Ce didacticiel vous demande d’activer le [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). 
-1. Sous **Gérer**, sélectionnez **Authentification**.
-1. Sous **Octroi implicite et flux hybrides**, sélectionnez **Jetons d’ID** et **Jetons d’accès**. Les jetons d’ID et les jetons d’accès sont nécessaires, car cette application doit connecter des utilisateurs et appeler une API.
-1. Sélectionnez **Enregistrer**.
+Voici un exemple de point de terminaison Microsoft Graph, avec l’étendue :
 
-### <a name="step-2--set-up-your-web-server-or-project"></a>Étape 2 :  Configurer le serveur web ou projet
+```json
+"endpoint" : "https://graph.microsoft.us/v1.0/me"
+"scope": "User.Read"
+```
 
-- [Télécharger les fichiers de projet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) pour un serveur web local, tel que Node.
-
-  or
-
-- [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
-
-Passez ensuite à [Configurer votre application SPA JavaScript](#step-4-configure-your-javascript-spa) pour configurer l’exemple de code avant de l’exécuter.
-
-### <a name="step-3-use-the-microsoft-authentication-library-to-sign-in-the-user"></a>Étape 3 : Utiliser Microsoft Authentication Library pour connecter l’utilisateur
-
-Suivez les étapes du [didacticiel JavaScript](tutorial-v2-javascript-spa.md#create-your-project) pour créer votre projet et l’intégrer avec MSAL pour connecter l’utilisateur.
-
-### <a name="step-4-configure-your-javascript-spa"></a>Étape 4 : Configurer une application SPA JavaScript
-
-Dans le fichier `index.html` créé au cours de la configuration du projet, ajoutez les informations d’inscription d’application. Ajoutez le code ci-après dans la partie supérieure entre les balises `<script></script>` dans le corps de votre fichier `index.html` :
+Voici le code minimal pour l’authentification d’un utilisateur avec cloud souverain et appelant Microsoft Graph :
 
 ```javascript
 const msalConfig = {
-    auth:{
-        clientId: "Enter_the_Application_Id_here",
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
         authority: "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here",
-        }
+        redirectUri: "/",
+    }
+};
+
+// Initialize MSAL
+const msalObj = new PublicClientApplication(msalConfig);
+
+// Get token using popup experience
+try {
+    const graphToken = await msalObj.acquireTokenPopup({
+        scopes: ["User.Read"]
+    });
+} catch(error) {
+    console.log(error)
 }
 
-const graphConfig = {
-        graphEndpoint: "https://graph.microsoft.us",
-        graphScopes: ["user.read"],
-}
+// Call the Graph API
+const headers = new Headers();
+const bearer = `Bearer ${graphToken}`;
 
-// create UserAgentApplication instance
-const myMSALObj = new UserAgentApplication(msalConfig);
+headers.append("Authorization", bearer);
+
+fetch("https://graph.microsoft.us/v1.0/me", {
+    method: "GET",
+    headers: headers
+})
 ```
 
-Dans ce code :
-
-- `Enter_the_Application_Id_here` est la valeur **ID d’application (client)** pour l’application que vous avez inscrite.
-- `Enter_the_Tenant_Info_Here` est défini sur l’une des options suivantes :
-    - Si votre application prend en charge les **Comptes dans cet annuaire organisationnel**, remplacez cette valeur par l’ID de locataire ou le nom du locataire (par exemple, contoso.microsoft.com).
-    - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`.
-
-    Pour rechercher des points de terminaison d’authentification pour tous les clouds nationaux, consultez [Points de terminaison d’authentification Azure AD](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
-
-    > [!NOTE]
-    > Les comptes Microsoft personnels ne sont pas pris en charge dans les clouds nationaux.
-
-- `graphEndpoint` est le point de terminaison Microsoft Graph pour Microsoft Cloud for US Government.
-
-   Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison Microsoft Graph dans des clouds nationaux](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 ## <a name="python"></a>[Python](#tab/python)
 

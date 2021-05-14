@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d6d94efea52d920b8bfe69be2ee07c8b829792d8
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 7c4e0fed78eb85e0e5326cbee6c6823466811c16
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484096"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321863"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -38,12 +38,12 @@ Pour mettre à niveau un compte de stockage d’objets blob ou v1 à usage gén�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à votre compte de stockage.
-3. Dans la section **Paramètres**, cliquez sur **Configuration**.
-4. Sous **Type de compte**, cliquez sur **Mettre à niveau**.
-5. Sous **Confirmer la mise à niveau**, saisissez le nom de votre compte.
-6. Cliquez sur l’option **Mettre à niveau** figurant en bas du panneau.
+3. Dans la section **Paramètres**, sélectionnez **Configuration**.
+4. Sous **Type de compte**, sélectionnez **Mettre à niveau**.
+5. Sous **Confirmer la mise à niveau**, entrez le nom de votre compte.
+6. Sélectionnez **Mettre à niveau** en bas du panneau.
 
-    ![Mise à niveau du type de compte](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    :::image type="content" source="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png" alt-text="Capture d’écran du panneau de configuration, avec le type de compte à mettre à niveau en surbrillance." lightbox="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -1,18 +1,18 @@
 ---
-title: 'Passerelle VPN Azure : paramètres de configuration'
-description: En savoir plus sur les ressources et les paramètres de la passerelle VPN pour un réseau virtuel créé dans le modèle de déploiement Resource Manager.
+title: Paramètres de configuration de la passerelle VPN Azure
+description: Découvrez les ressources de passerelle VPN et les paramètres de configuration.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d89af190f27e845835986c27ca028fcde69e8a9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010818"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204168"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 

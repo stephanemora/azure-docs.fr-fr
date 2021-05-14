@@ -5,18 +5,18 @@ description: Découvrez comment créer une zone et un enregistrement DNS dans Az
 services: dns
 author: rohinkoul
 ms.author: rohink
-ms.date: 10/20/2020
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: dns
 ms.custom:
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 9c457b435ca17ce9dc86e1a83a4d1a56d9623b17
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 431afacd8e8097a60c32e5e286026f33dbfa7d8c
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537872"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949989"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Démarrage rapide : Créer un enregistrement et une zone Azure DNS à l’aide d’Azure PowerShell
 
@@ -25,6 +25,8 @@ ms.locfileid: "107537872"
 Dans ce démarrage rapide, vous allez créer vos premiers enregistrement et zone DNS à l’aide d’Azure PowerShell. Vous pouvez également effectuer ces étapes à l’aide du [portail Azure](dns-getstarted-portal.md) ou [d’Azure CLI](dns-getstarted-cli.md). 
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Enfin, pour publier votre zone DNS sur Internet, vous devez configurer les serveurs de noms du domaine. Chacune de ces étapes est décrite ci-dessous.
+
+:::image type="content" source="media/dns-getstarted-portal/environment-diagram.png" alt-text="Diagramme de l’environnement de déploiement DNS avec Azure PowerShell" border="false":::
 
 Azure DNS prend également en charge la création de domaines privés. Pour obtenir des instructions détaillées sur la création de votre première zone DNS privée et enregistrement, consultez [Bien démarrer avec les zones privées Azure DNS à l’aide de PowerShell](private-dns-getstarted-powershell.md).
 

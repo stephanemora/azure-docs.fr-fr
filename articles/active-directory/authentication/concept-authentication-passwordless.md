@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/29/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d939207af195abf117645e17f4ff189b163244f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 00c6fc7916355586787bb91225e71c4db280ed26
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305529"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315911"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
@@ -26,7 +26,7 @@ Les fonctionnalités telles que l’authentification multifacteur (MFA) sont un 
 | --- | --- | --- |
 | Sans mot de passe | Appareil Windows 10, téléphone ou clé de sécurité | Biométrie ou code confidentiel |
 
-Chaque organisation a des besoins différents en matière d’authentification. Microsoft propose les trois options d’authentification sans mot de passe suivantes qui s’intègrent à Azure Active Directory (Azure AD) :
+Chaque organisation a des besoins différents en matière d’authentification. L’offre globale Microsoft Azure et Azure Government proposent les trois options d’authentification sans mot de passe suivantes qui s’intègrent à Azure Active Directory (Azure AD) :
 
 - Windows Hello Entreprise
 - Application Microsoft Authenticator
@@ -161,7 +161,7 @@ Les considérations suivantes s'appliquent :
 - Les utilisateurs finaux peuvent inscrire et gérer ces méthodes d’authentification sans mot de passe sur le portail de leur compte
 - Les utilisateurs finaux peuvent se connecter avec les méthodes d’authentification sans mot de passe suivantes :
    - Application Microsoft Authenticator : fonctionne dans les scénarios où l’authentification Azure AD est utilisée, notamment sur tous les navigateurs, pendant la configuration de Windows 10 et avec les applications mobiles intégrées sur n’importe quel système d’exploitation.
-   - Clés de sécurité : Fonctionnent sur l’écran de verrouillage Windows 10 et les navigateurs web pris en charge, comme Microsoft Edge (ancienne et nouvelle version de Edge).
+   - Clés de sécurité : fonctionne dans le programme d’installation de Windows 10 dans OOBE avec ou sans Windows Autopilot, sur l’écran de verrouillage pour Windows 10 et sur le web dans les navigateurs pris en charge comme Microsoft Edge (hérité et nouveau).
 
 ## <a name="choose-a-passwordless-method"></a>Choix d’une méthode sans mot de passe
 

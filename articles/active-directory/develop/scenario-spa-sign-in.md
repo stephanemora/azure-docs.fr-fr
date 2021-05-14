@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5892904c3cfc475683d081a58b47e4bec1266ab9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: bf1fde475227ae1735a19016e6ecb69d20fb9281
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966807"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107947516"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Application monopage : Se connecter et se déconnecter
 
@@ -35,16 +35,15 @@ Vous pouvez également passer les étendues des API, pour lesquelles l’utilisa
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Choix entre une expérience avec fenêtre indépendante ou avec redirection
 
-Vous ne pouvez pas utiliser conjointement ces deux méthodes de fenêtre contextuelle et de redirection dans votre application. Le choix entre la fenêtre contextuelle et la redirection dépend du flux de votre application :
+Le choix entre la fenêtre contextuelle et la redirection dépend du flux de votre application :
 
 * Si vous ne souhaitez pas que les utilisateurs quittent la page principale de votre application lors de l’authentification, nous vous recommandons d’utiliser la méthode avec fenêtre contextuelle. La redirection de l’authentification se produisant dans une fenêtre contextuelle, l’état de l’application principale est conservé.
 
-* Si les utilisateurs sont soumis à des contraintes imposées par le navigateur ou par des stratégies qui bloquent les fenêtres contextuelles, vous pouvez utiliser la méthode avec redirection. Utilisez la méthode avec redirection dans le navigateur Internet Explorer, car il existe des [problèmes connus avec l’utilisation de fenêtres contextuelles dans Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
+* Si les utilisateurs sont soumis à des contraintes imposées par le navigateur ou par des stratégies qui bloquent les fenêtres contextuelles, vous pouvez utiliser la méthode avec redirection. Utilisez la méthode avec redirection dans le navigateur Internet Explorer, car il existe des [problèmes connus avec l’utilisation de fenêtres contextuelles dans Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Se connecter avec une fenêtre contextuelle
 
-
-# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
+# <a name="javascript-msaljs-v2"></a>[JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
 
@@ -85,7 +84,7 @@ myMsal.loginPopup(loginRequest)
     });
 ```
 
-# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
+# <a name="javascript-msaljs-v1"></a>[JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
 
@@ -112,7 +111,7 @@ myMsal.loginPopup(loginRequest)
     });
 ```
 
-# <a name="angular"></a>[Angular](#tab/angular)
+# <a name="angular-msaljs-v2"></a>[Angular (MSAL.js v2)](#tab/angular2)
 
 Le wrapper MSAL Angular vous permet de sécuriser des itinéraires spécifiques dans votre application en ajoutant `MsalGuard` à la définition d’itinéraire. Cette protection appelle la méthode de connexion en cas d'accès à l'itinéraire.
 
@@ -124,6 +123,64 @@ import { ProfileComponent } from './profile/profile.component';
 import { MsalGuard } from '@azure/msal-angular';
 import { HomeComponent } from './home/home.component';
 
+const routes: Routes = [
+    {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [
+            MsalGuard
+        ]
+    },
+    {
+        path: '',
+        component: HomeComponent
+    }
+];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes, { useHash: false })],
+    exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+Pour une expérience de fenêtre contextuelle, définissez `interactionType` sur `InteractionType.Popup` dans la configuration de Guard. Vous pouvez également passer les étendues nécessitant un consentement comme suit :
+
+```javascript
+// In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalModule } from '@azure/msal-angular';
+
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'Enter_the_Application_Id_Here',
+            },
+            cache: {
+                cacheLocation: 'localStorage',
+                storeAuthStateInCookie: isIE,
+            }
+        }), {
+            interactionType: InteractionType.Popup, // Msal Guard Configuration
+            authRequest: {
+                scopes: ['user.read']
+            }
+        }, null)
+    ]
+})
+export class AppModule { }
+```
+
+# <a name="angular-msaljs-v1"></a>[Angular (MSAL.js v1)](#tab/angular1)
+Le wrapper MSAL Angular vous permet de sécuriser des itinéraires spécifiques dans votre application en ajoutant `MsalGuard` à la définition d’itinéraire. Cette protection appelle la méthode de connexion en cas d'accès à l'itinéraire.
+```javascript
+// In app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { MsalGuard } from '@azure/msal-angular';
+import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: 'profile',
@@ -137,7 +194,6 @@ const routes: Routes = [
     component: HomeComponent
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule]
@@ -162,11 +218,79 @@ Pour une expérience de fenêtre contextuelle, activez l’option de configurati
     ]
 })
 ```
+
+# <a name="react"></a>[React](#tab/react)
+
+Le wrapper MSAL React vous permet de protéger des composants spécifiques en les encapsulant dans le composant `MsalAuthenticationTemplate`. Si un utilisateur n'est pas déjà connecté, ce composant appellera la connexion ; sinon, il affichera les composants enfants.
+
+```javascript
+import { InteractionType } from "@azure/msal-browser";
+import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
+
+function WelcomeUser() {
+    const { accounts } = useMsal();
+    const username = accounts[0].username;
+    
+    return <p>Welcome, {username}</p>
+}
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <MsalAuthenticationTemplate interactionType={InteractionType.Popup}>
+            <p>This will only render if a user is signed-in.</p>
+            <WelcomeUser />
+        </MsalAuthenticationTemplate>
+      )
+};
+```
+
+Vous pouvez également utiliser directement les API `@azure/msal-browser` pour appeler une connexion associée aux composants `AuthenticatedTemplate` et/ou `UnauthenticatedTemplate` afin d'afficher du contenu spécifique aux utilisateurs connectés ou déconnectés, respectivement. Il s'agit de l'approche recommandée si vous devez appeler la connexion suite à une interaction utilisateur, comme un clic sur un bouton.
+
+```javascript
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+
+function signInClickHandler(instance) {
+    instance.loginPopup();
+}
+
+// SignInButton Component returns a button that invokes a popup login when clicked
+function SignInButton() {
+    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
+    const { instance } = useMsal();
+
+    return <button onClick={() => signInClickHandler(instance)}>Sign In</button>
+};
+
+function WelcomeUser() {
+    const { accounts } = useMsal();
+    const username = accounts[0].username;
+    
+    return <p>Welcome, {username}</p>
+}
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <>
+            <AuthenticatedTemplate>
+                <p>This will only render if a user is signed-in.</p>
+                <WelcomeUser />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>This will only render if a user is not signed-in.</p>
+                <SignInButton />
+            </UnauthenticatedTemplate>
+        </>
+    )
+}
+```
+
 ---
 
 ## <a name="sign-in-with-redirect"></a>Se connecter avec une redirection
 
-# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
+# <a name="javascript-msaljs-v2"></a>[JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
 
@@ -206,7 +330,7 @@ myMsal.handleRedirectPromise().then(handleResponse);
 myMsal.loginRedirect(loginRequest);
 ```
 
-# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
+# <a name="javascript-msaljs-v1"></a>[JavaScript (MSAL.js v1)](#tab/javascript1)
 
 Les méthodes de redirection ne retournent pas de promesse en raison du déplacement en dehors de l’application principale. Pour traiter les jetons retournés et y accéder, enregistrez les rappels de réussite et d’erreur avant d’appeler les méthodes de redirection.
 
@@ -235,19 +359,217 @@ myMsal.handleRedirectCallback(authCallback);
 myMsal.loginRedirect(loginRequest);
 ```
 
-# <a name="angular"></a>[Angular](#tab/angular)
+# <a name="angular-msaljs-v2"></a>[Angular (MSAL.js v2)](#tab/angular2)
+
+Le code est ici le même que celui décrit précédemment dans la section relative à la connexion avec une fenêtre contextuelle, sauf que `interactionType` est défini sur `InteractionType.Redirect` pour la configuration de MsalGuard, et que le composant `MsalRedirectComponent` est amorcé pour gérer les redirections.
+
+```javascript
+// In app.module.ts
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
+
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'Enter_the_Application_Id_Here',
+            },
+            cache: {
+                cacheLocation: 'localStorage',
+                storeAuthStateInCookie: isIE,
+            }
+        }), {
+            interactionType: InteractionType.Redirect, // Msal Guard Configuration
+            authRequest: {
+                scopes: ['user.read']
+            }
+        }, null)
+    ],
+    bootstrap: [AppComponent, MsalRedirectComponent]
+})
+export class AppModule { }
+```
+
+# <a name="angular-msaljs-v1"></a>[Angular (MSAL.js v1)](#tab/angular1)
 
 Ce code est identique à celui décrit plus haut, à la section traitant de la connexion au moyen d’une fenêtre contextuelle. La redirection correspond au flux par défaut.
 
+# <a name="react"></a>[React](#tab/react)
+
+Le wrapper MSAL React vous permet de protéger des composants spécifiques en les encapsulant dans le composant `MsalAuthenticationTemplate`. Si un utilisateur n'est pas déjà connecté, ce composant appellera la connexion ; sinon, il affichera les composants enfants.
+
+```javascript
+import { InteractionType } from "@azure/msal-browser";
+import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
+
+function WelcomeUser() {
+    const { accounts } = useMsal();
+    const username = accounts[0].username;
+    
+    return <p>Welcome, {username}</p>
+}
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <MsalAuthenticationTemplate interactionType={InteractionType.Redirect}>
+            <p>This will only render if a user is signed-in.</p>
+            <WelcomeUser />
+        </MsalAuthenticationTemplate>
+      )
+};
+```
+
+Vous pouvez également utiliser directement les API `@azure/msal-browser` pour appeler une connexion associée aux composants `AuthenticatedTemplate` et/ou `UnauthenticatedTemplate` afin d'afficher du contenu spécifique aux utilisateurs connectés ou déconnectés, respectivement. Il s'agit de l'approche recommandée si vous devez appeler la connexion suite à une interaction utilisateur, comme un clic sur un bouton.
+
+```javascript
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+
+function signInClickHandler(instance) {
+    instance.loginRedirect();
+}
+
+// SignInButton Component returns a button that invokes a popup login when clicked
+function SignInButton() {
+    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
+    const { instance } = useMsal();
+
+    return <button onClick={() => signInClickHandler(instance)}>Sign In</button>
+};
+
+function WelcomeUser() {
+    const { accounts } = useMsal();
+    const username = accounts[0].username;
+    
+    return <p>Welcome, {username}</p>
+}
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <>
+            <AuthenticatedTemplate>
+                <p>This will only render if a user is signed-in.</p>
+                <WelcomeUser />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>This will only render if a user is not signed-in.</p>
+                <SignInButton />
+            </UnauthenticatedTemplate>
+        </>
+    )
+}
+```
+
 ---
 
-## <a name="sign-out"></a>Se déconnecter
+## <a name="sign-out-with-a-popup-window"></a>Se déconnecter avec une fenêtre contextuelle
 
-La bibliothèque MSAL fournit une méthode `logout` qui efface le cache dans le stockage de navigateur, et envoie une requête de déconnexion à Azure Active Directory (Azure AD). Après la déconnexion, la bibliothèque redirige vers la page de démarrage par défaut d’une application.
+MSAL.js v2 fournit une méthode `logoutPopup` qui vide le cache dans le stockage du navigateur et ouvre une fenêtre contextuelle sur la page de déconnexion d'Azure Active Directory (Azure AD). Après la déconnexion, Azure AD redirige la fenêtre contextuelle vers votre application et MSAL.js ferme la fenêtre contextuelle.
 
-Vous pouvez configurer l’URI de redirection après la déconnexion en définissant `postLogoutRedirectUri`. Cet URI doit également être enregistré en tant qu’URI de déconnexion dans l’inscription de votre application.
+Vous pouvez configurer l'URI vers lequel Azure AD doit rediriger après la déconnexion en définissant `postLogoutRedirectUri`. Cet URI doit être enregistré en tant qu'URI de redirection dans l'inscription de votre application.
 
-# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
+Vous pouvez également configurer `logoutPopup` de manière à rediriger la fenêtre principale vers une autre page, telle que la page d'accueil ou la page de connexion, une fois la déconnexion terminée en transmettant `mainWindowRedirectUri` dans le cadre de la requête.
+
+# <a name="javascript-msaljs-v2"></a>[JavaScript (MSAL.js v2)](#tab/javascript2)
+
+```javascript
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", // defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const myMsal = new PublicClientApplication(config);
+
+// you can select which account application should sign out
+const logoutRequest = {
+    account: myMsal.getAccountByHomeId(homeAccountId),
+    mainWindowRedirectUri: "your_app_main_window_redirect_uri"
+}
+
+await myMsal.logoutPopup(logoutRequest);
+```
+# <a name="javascript-msaljs-v1"></a>[JavaScript (MSAL.js v1)](#tab/javascript1)
+
+La déconnexion à l'aide d'une fenêtre contextuelle n'est pas prise en charge dans MSAL.js v1
+
+# <a name="angular-msaljs-v2"></a>[Angular (MSAL.js v2)](#tab/angular2)
+
+```javascript
+// In app.module.ts
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'your_app_id',
+                postLogoutRedirectUri: 'your_app_logout_redirect_uri'
+            }
+        }), null, null)
+    ]
+})
+
+// In app.component.ts
+logout() {
+    this.authService.logoutPopup({
+        mainWindowRedirectUri: "/"
+    });
+}
+```
+
+# <a name="angular-msaljs-v1"></a>[Angular (MSAL.js v1)](#tab/angular1)
+
+La déconnexion à l'aide d'une fenêtre contextuelle n'est pas prise en charge dans MSAL Angular v1
+
+# <a name="react"></a>[React](#tab/react)
+
+```javascript
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+
+function signOutClickHandler(instance) {
+    const logoutRequest = {
+        account: instance.getAccountByHomeId(homeAccountId),
+        mainWindowRedirectUri: "your_app_main_window_redirect_uri",
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+    instance.logoutPopup(logoutRequest);
+}
+
+// SignOutButton Component returns a button that invokes a popup logout when clicked
+function SignOutButton() {
+    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
+    const { instance } = useMsal();
+
+    return <button onClick={() => signOutClickHandler(instance)}>Sign Out</button>
+};
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <>
+            <AuthenticatedTemplate>
+                <p>This will only render if a user is signed-in.</p>
+                <SignOutButton />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>This will only render if a user is not signed-in.</p>
+            </UnauthenticatedTemplate>
+        </>
+    )
+}
+```
+
+---
+
+## <a name="sign-out-with-a-redirect"></a>Se déconnecter à l'aide d'une redirection
+
+MSAL.js fournit une méthode `logout` dans la v1, et une méthode `logoutRedirect` dans la v2, qui vide le cache dans le stockage du navigateur et redirige la fenêtre vers la page de déconnexion d'Azure Active Directory (Azure AD). Après la déconnexion, Azure AD redirige par défaut vers la page qui a appelé la déconnexion.
+
+Vous pouvez configurer l’URI de redirection après la déconnexion en définissant `postLogoutRedirectUri`. Cet URI doit être enregistré en tant qu'URI de redirection dans l'inscription de votre application.
+
+# <a name="javascript-msaljs-v2"></a>[JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
 const config = {
@@ -262,13 +584,13 @@ const myMsal = new PublicClientApplication(config);
 
 // you can select which account application should sign out
 const logoutRequest = {
-    account: myMsal.getAccountByUsername(username)
+    account: myMsal.getAccountByHomeId(homeAccountId)
 }
 
-myMsal.logout(logoutRequest);
+myMsal.logoutRedirect(logoutRequest);
 ```
 
-# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
+# <a name="javascript-msaljs-v1"></a>[JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
 const config = {
@@ -284,7 +606,28 @@ const myMsal = new UserAgentApplication(config);
 myMsal.logout();
 ```
 
-# <a name="angular"></a>[Angular](#tab/angular)
+# <a name="angular-msaljs-v2"></a>[Angular (MSAL.js v2)](#tab/angular2)
+
+```javascript
+// In app.module.ts
+@NgModule({
+    imports: [
+        MsalModule.forRoot( new PublicClientApplication({
+            auth: {
+                clientId: 'your_app_id',
+                postLogoutRedirectUri: 'your_app_logout_redirect_uri'
+            }
+        }), null, null)
+    ]
+})
+
+// In app.component.ts
+logout() {
+    this.authService.logoutRedirect();
+}
+```
+
+# <a name="angular-msaljs-v1"></a>[Angular (MSAL.js v1)](#tab/angular1)
 
 ```javascript
 //In app.module.ts
@@ -298,9 +641,45 @@ myMsal.logout();
         })
     ]
 })
-
 // In app.component.ts
 this.authService.logout();
+```
+
+# <a name="react"></a>[React](#tab/react)
+
+```javascript
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+
+function signOutClickHandler(instance) {
+    const logoutRequest = {
+        account: instance.getAccountByHomeId(homeAccountId),
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+    instance.logoutRedirect(logoutRequest);
+}
+
+// SignOutButton Component returns a button that invokes a redirect logout when clicked
+function SignOutButton() {
+    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
+    const { instance } = useMsal();
+
+    return <button onClick={() => signOutClickHandler(instance)}>Sign Out</button>
+};
+
+// Remember that MsalProvider must be rendered somewhere higher up in the component tree
+function App() {
+    return (
+        <>
+            <AuthenticatedTemplate>
+                <p>This will only render if a user is signed-in.</p>
+                <SignOutButton />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>
+                <p>This will only render if a user is not signed-in.</p>
+            </UnauthenticatedTemplate>
+        </>
+    )
+}
 ```
 
 ---

@@ -3,12 +3,12 @@ title: Créer des stratégies pour les propriétés de tableau sur des ressource
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 18afbee0ca8b1c488e3bd3ce50dacc726bd2ef25
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 8953b67d0935ac81cffa20ee8fc48d6d9b091861
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305189"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165422"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -147,7 +147,7 @@ La condition est vraie uniquement si le nombre obtenu est supérieur à 0.
 
 Pour rendre la condition ci-dessus plus générique, utilisez une référence de paramètre au lieu d’un tableau littéral :
 
- ```json
+```json
 {
     "count": {
         "value": "[parameters('patterns')]",

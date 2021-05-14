@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: d894ce71e0ffa5a0894a1f6b0035efe66271ded8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1900326bf03c6a32f25c7a019d8bd1e460735bd6
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591464"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505596"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Déplacer un compte Stockage Azure vers une autre région
 
@@ -55,7 +55,7 @@ Pour exporter un modèle à l’aide du portail Azure :
 
 2. Choisissez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
 
-3. Sélectionnez **Paramètres** > **Exporter le modèle**.
+3. Sélectionnez > **Automatisation** > **Exporter le modèle**.
 
 4. Choisissez **Télécharger** dans le panneau **Exporter le modèle**.
 

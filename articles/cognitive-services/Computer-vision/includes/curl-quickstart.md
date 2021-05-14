@@ -7,16 +7,16 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01149eed5cc4195ca501507e7fe1d66fffecb84d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2f01b1d222470c49505638be64180948b6f7e046
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327133"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728250"
 ---
 Utilisez l'API REST Reconnaissance optique de caractères pour lire du texte imprimé et manuscrit.
 
@@ -37,6 +37,8 @@ Utilisez l'API REST Reconnaissance optique de caractères pour lire du texte imp
 
 Le service OCR peut lire du texte visible dans une image et le convertir en flux de caractères. Pour plus d'informations sur la reconnaissance de texte, consultez la [Présentation de la reconnaissance optique de caractères (OCR)](../overview-ocr.md).
 
+### <a name="call-the-read-api"></a>Appeler l’API Lire
+
 Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
 1. Copiez la commande ci-après dans un éditeur de texte.
@@ -53,6 +55,8 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 La réponse inclut un en-tête `Operation-Location`, dont la valeur est une URL unique. Utilisez cette URL pour interroger les résultats de l’opération de lecture. L’URL expire au bout de 48 heures.
+
+### <a name="get-read-results"></a>Obtenir les résultats de la lecture
 
 1. Copiez la commande ci-après dans votre éditeur de texte.
 1. Remplacez l’URL par la valeur `Operation-Location` que vous avez copiée à l’étape précédente.
@@ -131,7 +135,9 @@ Une réponse correcte est retournée au format JSON. L’exemple d’application
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez l'API OCR de manière plus approfondie. Pour tester rapidement l'API, essayez [Ouvrir la console de test d'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005/console).
+Dans ce guide de démarrage rapide, vous avez appris à appeler l’API REST Read. À présent, découvrez-en plus sur les fonctionnalités de l’API Lire.
 
 > [!div class="nextstepaction"]
-> [Explorer l'API OCR](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+>[Appeler l’API Lire](../Vision-API-How-to-Topics/call-read-api.md)
+
+* [Vue d’ensemble de la reconnaissance OCR](../overview-ocr.md)

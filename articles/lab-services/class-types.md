@@ -3,21 +3,31 @@ title: Exemples de types de classes dans Azure Lab Services | Microsoft Docs
 description: Cite certains des types de classes pour lesquels il est possible de configurer des laboratoires à l’aide d’Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5a90fb128f5954f3eb713714ff22ff40a3beab36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81b3426446894b9dd7bfccc942e04c3d9a7ea492
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99627431"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278755"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Vue d’ensemble des types de classes - Azure Lab Services
 
 Azure Lab Services vous permet de configurer rapidement un environnement lab de salle de classe dans le cloud. Les articles de cette section fournissent des conseils sur la configuration de plusieurs types de labos avec Azure Lab Services.
 
+## <a name="adobe-creative-cloud"></a>Adobe Creative Cloud
+L'ensemble d'applications [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) est couramment utilisé dans les cours dédiés aux arts numériques et au multimédia.  
+
+Pour plus d'informations sur la configuration de ce type de labo, consultez [Configurer un labo pour Adobe Creative Cloud](class-type-adobe-creative-cloud.md).
+
 ## <a name="arcgis"></a>ArcGIS
 [ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) est un type de système d’information géographique (SIG).  Vous pouvez configurer un labo qui utilise diverses applications du Bureau ArcGIS, telles que [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) pour créer, modifier et analyser des cartes 2D.
 
 Pour plus d’informations sur la configuration de ce type de labo, consultez [Configurer un labo pour le Bureau ArcMap\ArcGIS](class-type-arcgis.md).
+
+## <a name="autodesk"></a>Autodesk
+[Autodesk](https://www.autodesk.com/) propose des solutions logicielles dans les domaines de l'architecture, de l'ingénierie, de la construction, de la conception, de la fabrication, etc.  Ces solutions sont couramment utilisées dans les cours d'ingénierie et dans le cadre du programme [Project Lead the Way](class-type-pltw.md).
+
+Pour plus d'informations sur la configuration de ce type de labo, consultez [Autodesk](class-type-autodesk.md).
 
 ## <a name="big-data-analytics"></a>Analytique du Big Data
 Vous pouvez configurer un labo de GPU pour enseigner une classe Analytique du Big Data. Grâce à ce type de classe, les étudiants apprennent à gérer de gros volumes de données et à appliquer des algorithmes d’apprentissage automatique et statistique pour obtenir des informations sur les données. L’un des principaux objectifs pour les étudiants est d’apprendre à utiliser les outils d’Analytique données, tels que le package logiciel open source d’Apache Hadoop qui fournit des outils pour le stockage, la gestion et le traitement du Big Data. 

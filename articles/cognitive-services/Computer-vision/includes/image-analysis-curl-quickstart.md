@@ -7,16 +7,16 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 77958746487ffbcf19ad14be71818c59e9520374
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 1d20e484b46dedfc5ecae0d24b4b30205cbe32cd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287376"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800044"
 ---
 Utilisez l'API REST Analyse d'images pour :
 
@@ -48,7 +48,7 @@ Pour analyser les différentes caractéristiques visuelles d’une image, effect
 1. Collez la commande à partir de l’éditeur de texte dans la fenêtre d’invite de commandes, puis exécutez la commande.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
 
 ### <a name="examine-the-response"></a>Examiner la réponse
@@ -130,7 +130,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 1. Appuyez sur Entrée pour exécuter le programme.
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.2/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 
 ### <a name="examine-the-response"></a>Examiner la réponse
@@ -140,7 +140,9 @@ Une réponse réussie ajoute l’image miniature dans le fichier spécifié dans
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez l'API Analyse d'images de manière plus approfondie. Pour tester rapidement l'API, essayez [Ouvrir la console de test d'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
+Dans ce guide de démarrage rapide, vous avez appris à effectuer des appels d’analyse d’image de base à l’aide de l’API REST. À présent, découvrez-en plus sur les fonctionnalités de l’API Analyser.
 
 > [!div class="nextstepaction"]
-> [Explorer l'API Analyse d'images](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)
+>[Appeler l’API Analyser](../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
+
+* [Vue d’ensemble de l’analyse d’image](../overview-image-analysis.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 10812cf97f4f0dfc6f7957608eddf7acf929c3fc
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 25deccdd190e13d3f0ade319c7a8243e20847ee6
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579755"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071047"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utiliser Logstash pour connecter des sources de données à Azure Sentinel
 
@@ -83,7 +83,7 @@ Utilisez les informations du document Logstash [Structure d’un fichier de conf
 
 > [!TIP]
 > -  Vous pouvez trouver l’ID et la clé primaire de l’espace de travail dans la ressource d’espace de travail, sous **Gestion des agents**.
-> - **Toutefois**, étant donné que les informations d’identification et autres informations sensibles stockées en texte clair dans les fichiers de configuration ne sont pas conformes aux meilleures pratiques de sécurité, il est vivement recommandé d’utiliser le **magasin de clés Logstash** pour inclure en toute sécurité l'**ID de l’espace de travail** et la **clé primaire de l’espace de travail** dans la configuration. Pour obtenir des instructions, consultez la [documentation d’Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/current/get-started-logstash-user.html).
+> - **Toutefois**, étant donné que les informations d’identification et autres informations sensibles stockées en texte clair dans les fichiers de configuration ne sont pas conformes aux meilleures pratiques de sécurité, il est vivement recommandé d’utiliser le **magasin de clés Logstash** pour inclure en toute sécurité l'**ID de l’espace de travail** et la **clé primaire de l’espace de travail** dans la configuration. Pour obtenir des instructions, consultez la [documentation d’Elastic](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
 #### <a name="sample-configurations"></a>Exemples de configurations
 

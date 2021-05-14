@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5ab7bac635a0b670087800212727b0d2e2b96934
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ee51288e3c0ced3d12ed7f4e7ba63692d650591
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472215"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279079"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimiser le traitement des données avec Azure Machine Learning
 
@@ -86,6 +86,9 @@ Si vous maîtrisez `Pandas`| Dataframe `Modin` ou `Dask`
 Si vous préférez `Spark` | `PySpark`
 Pour moins de 1 Go de données | `Pandas` en local **ou** une instance de calcul Azure Machine Learning à distance
 Pour plus de 10 Go de données| Déplacer vers un cluster à l’aide de `Ray`, `Dask` ou `Spark`
+
+> [!TIP]
+> Chargez votre jeu de données dans un tableau de données Dask à l’aide de la méthode [to_dask_dataframe()](/python/api/azureml-core/azureml.data.tabulardataset#to-dask-dataframe-sample-size-10000--dtypes-none--on-error--null---out-of-range-datetime--null--) pour le traitement des données à grande échelle. Cette méthode est une fonctionnalité d’évaluation [expérimentale](/python/api/overview/azure/ml/#stable-vs-experimental) en préversion qui peut évoluer à tout moment.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

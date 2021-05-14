@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 430e34a1ca631be00ef46170affd4b56c79894a9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5ad065ff74a7cec293b83497d6258bcf62975f26
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566402"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139288"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrer les charges de travail d’un appareil Azure Stack Edge Pro FPGA vers un appareil Azure Stack Edge Pro GPU
 
@@ -157,10 +157,10 @@ Vous allez maintenant copier les données de l’appareil source dans les partag
 
 Pour synchroniser les données sur les partages cloud Edge sur votre appareil cible, effectuez les étapes suivantes :
 
-1. [Ajoutez des partages](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondant aux noms de partage créés sur l’appareil source. Quand vous créez les partages, assurez-vous que le paramètre **Sélectionner un conteneur d’objets blob** est défini sur **Utiliser l’existant**, puis sélectionnez le conteneur utilisé avec l’appareil précédent.
-1. [Ajoutez des utilisateurs](azure-stack-edge-j-series-manage-users.md#add-a-user) qui avaient accès à l’appareil précédent.
-1. [Actualisez le partage](azure-stack-edge-j-series-manage-shares.md#refresh-shares) de données à partir d’Azure. L’actualisation du partage extrait toutes les données cloud du conteneur existant vers les partages.
-1. Recréez les planifications de bande passante à associer à vos partages. Pour obtenir des instructions détaillées, consultez [Ajouter une planification de bande passante](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) .
+1. [Ajoutez des partages](./azure-stack-edge-gpu-manage-shares.md#add-a-share) correspondant aux noms de partage créés sur l’appareil source. Quand vous créez les partages, assurez-vous que le paramètre **Sélectionner un conteneur d’objets blob** est défini sur **Utiliser l’existant**, puis sélectionnez le conteneur utilisé avec l’appareil précédent.
+1. [Ajoutez des utilisateurs](./azure-stack-edge-gpu-manage-users.md#add-a-user) qui avaient accès à l’appareil précédent.
+1. [Actualisez le partage](./azure-stack-edge-gpu-manage-shares.md#refresh-shares) de données à partir d’Azure. L’actualisation du partage extrait toutes les données cloud du conteneur existant vers les partages.
+1. Recréez les planifications de bande passante à associer à vos partages. Pour obtenir des instructions détaillées, consultez [Ajouter une planification de bande passante](./azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) .
 
 
 ### <a name="2-from-edge-local-shares"></a>2. À partir des partages locaux Edge

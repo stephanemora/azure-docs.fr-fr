@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2021
 ms.author: Zhchia
-ms.openlocfilehash: b74175c7847bb19aa9410edd613afbfe1d762d05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0afd2e2420868e40847ff1243fc61fb5b15c4853
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105548781"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144081"
 ---
 # <a name="tutorial-configure-olfeo-saas-for-automatic-user-provisioning"></a>Tutoriel : Configurer Olfeo SAAS pour l’attribution automatique d’utilisateurs
 
-Ce tutoriel décrit les étapes à suivre dans Olfeo SAAS et Azure Active Directory (Azure AD) pour configurer l’attribution automatique d’utilisateurs. Une fois configuré, Azure AD attribue des utilisateurs et des groupes et supprime leurs privilèges d’accès automatiquement pour [Olfeo SAAS](https://www.olfeo.com) à l’aide du service d’approvisionnement d’Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md). 
+Ce tutoriel décrit les étapes à suivre dans Olfeo SAAS et Azure Active Directory (Azure AD) pour configurer l’attribution automatique d’utilisateurs. Une fois configuré, Azure AD attribue des utilisateurs et des groupes et supprime leurs privilèges d’accès automatiquement pour [Olfeo SAAS](https://www.olfeo.com) à l’aide du service d’approvisionnement d’Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
@@ -60,7 +60,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-3-add-olfeo-saas-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Olfeo SAAS à partir de la galerie d’applications Azure AD
 
-Ajoutez Olfeo SAAS à partir de la galerie d’applications Azure AD pour commencer à gérer l’approvisionnement auprès d’Olfeo SAAS. Si vous avez déjà configuré Olfeo SAAS pour l’authentification unique, vous pouvez utiliser la même application. Toutefois, il est recommandé de créer une application distincte lors du test initial de l’intégration. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](../manage-apps/add-gallery-app.md). 
+Ajoutez Olfeo SAAS à partir de la galerie d’applications Azure AD pour commencer à gérer l’approvisionnement auprès d’Olfeo SAAS. Si vous avez déjà configuré Olfeo SAAS pour l’authentification unique, vous pouvez utiliser la même application. Toutefois, il est recommandé de créer une application distincte lors du test initial de l’intégration. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Étape 4. Définir qui sera dans l’étendue pour l’approvisionnement 
 

@@ -6,22 +6,23 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 04/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 1ceed171b0516e293ffe58bca0225d3d3dfdb414
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 7331f9a894d36ee15702a8fe53804efd53049762
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094662"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284117"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Administration des rôles de l’Accord Entreprise Azure
 
-Pour faciliter la gestion de l’utilisation et des dépenses d’une organisation, les clients Azure disposant d’un Accord Entreprise peuvent affecter cinq rôles d’administrateur distincts :
+Pour faciliter la gestion de l’utilisation et des dépenses d’une organisation, les clients Azure disposant d’un Contrat Entreprise peuvent attribuer six rôles d’administrateur distincts :
 
 - Administrateur d’entreprise
 - Administrateur d’entreprise (lecture seule)<sup>1</sup>
+- Acheteur EA
 - Administrateur de service
 - Administrateur de service (lecture seule)
 - Propriétaire de compte<sup>2</sup>
@@ -61,6 +62,7 @@ Le diagramme ci-dessous illustre des hiérarchies Azure EA simples.
 Les rôles d’utilisateur d’administration suivants font partie de l’inscription de votre entreprise :
 
 - Administrateur d’entreprise
+- Acheteur EA
 - Administrateur de service
 - Propriétaire du compte
 - Administrateur de services fédérés
@@ -80,12 +82,24 @@ Les utilisateurs ayant ce rôle ont le niveau d’accès le plus élevé. Ils pe
 - Gérer d’autres administrateurs d’entreprise.
 - Gérer les administrateurs de service.
 - Gérer les contacts de notification.
+- Acheter des services Azure, y compris des réservations.
 - Consulter l’utilisation pour tous les comptes.
 - Consulter les frais non facturés pour tous les comptes.
 - Affichez et gérez tous les ordres de réservation et les réservations qui s’appliquent à l’Accord Entreprise.
   - L’administrateur d’entreprise (en lecture seule) peut afficher les ordres de réservation et les réservations. Il ne peut pas les gérer.
 
 Il peut y avoir plusieurs administrateurs d’entreprise dans une inscription Entreprise. Vous pouvez accorder un accès en lecture seule aux administrateurs d’entreprise. Tous les administrateurs d’entreprise héritent le rôle Administrateur de service.
+
+### <a name="ea-purchaser"></a>Acheteur EA
+
+Les utilisateurs qui ont ce rôle sont autorisés à acheter des services Azure, mais pas à gérer des comptes. Ils peuvent effectuer les tâches suivantes :
+
+- Acheter des services Azure, y compris des réservations.
+- Consulter l’utilisation pour tous les comptes.
+- Consulter les frais non facturés pour tous les comptes.
+- Affichez et gérez tous les ordres de réservation et les réservations qui s’appliquent à l’Accord Entreprise.
+
+Le rôle d’acheteur EA est actuellement activé uniquement pour l’accès basé sur le SPN. Pour savoir comment attribuer le rôle à un nom de principal de service, consultez [Attribuer des rôles à des noms de principal de service Contrat Entreprise Azure](assign-roles-azure-service-principals.md).
 
 ### <a name="department-administrator"></a>Administrateur de service
 
@@ -126,6 +140,7 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 |---|---|
 |Administrateur d’entreprise|Illimité|
 |Administrateur d’entreprise (lecture seule)|Illimité|
+| Acheteur EA attribué à un SPN | Illimité |
 |Administrateur de service|Illimité|
 |Administrateur de service (lecture seule)|Illimité|
 |Propriétaire du compte|1 par compte<sup>3</sup>|
@@ -134,18 +149,19 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Structure de l’organisation et autorisations par rôle
 
-|Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)|Administrateur de service|Administrateur de service (lecture seule)|Propriétaire du compte| Partenaire|
-|---|---|---|---|---|---|---|
-|Voir les administrateurs d’entreprise|✔|✔|✘|✘|✘|✔|
-|Ajouter ou supprimer des administrateurs d’entreprise|✔|✘|✘|✘|✘|✘|
-|Voir les contacts de notification<sup>4</sup> |✔|✔|✘|✘|✘|✔|
-|Ajouter ou supprimer des contacts de notification<sup>4</sup> |✔|✘|✘|✘|✘|✘|
-|Créer et gérer des services |✔|✘|✘|✘|✘|✘|
-|Voir les administrateurs de service|✔|✔|✔|✔|✘|✔|
-|Ajouter ou supprimer des administrateurs de service|✔|✘|✔|✘|✘|✘|
-|Voir les comptes de l’inscription |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
-|Ajouter des comptes à l’inscription et changer le propriétaire du compte|✔|✘|✔<sup>5</sup>|✘|✘|✘|
-|Créer et gérer des abonnements et des autorisations d’abonnement|✘|✘|✘|✘|✔|✘|
+|Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)| Acheteur EA | Administrateur de service|Administrateur de service (lecture seule)|Propriétaire du compte| Partenaire|
+|---|---|---|---|---|---|---|---|
+|Voir les administrateurs d’entreprise|✔|✔| ✔|✘|✘|✘|✔|
+|Ajouter ou supprimer des administrateurs d’entreprise|✔|✘|✘|✘|✘|✘|✘|
+|Voir les contacts de notification<sup>4</sup> |✔|✔|✔|✘|✘|✘|✔|
+|Ajouter ou supprimer des contacts de notification<sup>4</sup> |✔|✘|✘|✘|✘|✘|✘|
+|Créer et gérer des services |✔|✘|✘|✘|✘|✘|✘|
+|Voir les administrateurs de service|✔|✔|✔|✔|✔|✘|✔|
+|Ajouter ou supprimer des administrateurs de service|✔|✘|✘|✔|✘|✘|✘|
+|Voir les comptes de l’inscription |✔|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
+|Ajouter des comptes à l’inscription et changer le propriétaire du compte|✔|✘|✘|✔<sup>5</sup>|✘|✘|✘|
+|Acheter des réservations|✔|✘|✔|✘|✘|✘|✘|
+|Créer et gérer des abonnements et des autorisations d’abonnement|✘|✘|✘|✘|✘|✔|✘|
 
 - <sup>4</sup> Les contacts de notification reçoivent des communications par e-mail à propos du Contrat Entreprise Azure.
 - <sup>5</sup> La tâche est limitée aux comptes de votre service.
@@ -166,14 +182,14 @@ Pour plus d’informations sur l’ajout d’un administrateur de service, consu
 
 ## <a name="usage-and-costs-access-by-role"></a>Accès à l’utilisation et aux coûts par rôle
 
-|Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)|Administrateur de service|Administrateur de service (lecture seule) |Propriétaire du compte| Partenaire|
-|---|---|---|---|---|---|---|
-|Afficher le solde du crédit, y compris Paiement anticipé Azure|✔|✔|✘|✘|✘|✔|
-|Voir les quotas de dépenses des services|✔|✔|✘|✘|✘|✔|
-|Définir les quotas de dépenses des services|✔|✘|✘|✘|✘|✘|
-|Voir la grille tarifaire du Contrat Entreprise de l’organisation|✔|✔|✘|✘|✘|✔|
-|Voir les détails relatifs à l’utilisation et aux coûts|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
-|Gérer les ressources dans le portail Azure|✘|✘|✘|✘|✔|✘|
+|Tâches| Administrateur d’entreprise|Administrateur d’entreprise (lecture seule)|Acheteur EA|Administrateur de service|Administrateur de service (lecture seule) |Propriétaire du compte| Partenaire|
+|---|---|---|---|---|---|---|---|
+|Afficher le solde du crédit, y compris Paiement anticipé Azure|✔|✔|✔|✘|✘|✘|✔|
+|Voir les quotas de dépenses des services|✔|✔|✔|✘|✘|✘|✔|
+|Définir les quotas de dépenses des services|✔|✘|✘|✘|✘|✘|✘|
+|Voir la grille tarifaire du Contrat Entreprise de l’organisation|✔|✔|✔|✘|✘|✘|✔|
+|Voir les détails relatifs à l’utilisation et aux coûts|✔|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|Gérer les ressources dans le portail Azure|✘|✘|✘|✘|✘|✔|✘|
 
 - <sup>6</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour l’administrateur de service** dans Enterprise Portal. L’administrateur de service peut ensuite consulter le détail des coûts pour le service.
 - <sup>7</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour le propriétaire du compte** dans Enterprise Portal. Le propriétaire du compte peut ensuite consulter le détail des coûts pour le compte.
@@ -198,8 +214,6 @@ Le tableau suivant montre la relation entre les rôles d’administrateur Contra
 |None|Non applicable |Propriétaire|Tarifs au détail|
 
 Vous définissez le rôle d’administrateur Contrat Entreprise et les stratégies d’affichage des frais dans Enterprise Portal. Vous pouvez mettre à jour le rôle Azure dans le portail Azure. Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant le portail Azure](../../role-based-access-control/role-assignments-portal.md).
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

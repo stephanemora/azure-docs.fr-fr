@@ -51,7 +51,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
         - name: Sécurité pour les applications et les clusters
           href: concepts-security.md
         - name: Contrôles de sécurité par Azure Policy
@@ -136,8 +136,10 @@
       items:
         - name: Mettre à l’échelle un cluster AKS
           href: scale-cluster.md
-        - name: Arrêter un cluster AKS (préversion)
+        - name: Arrêter un cluster AKS
           href: start-stop-cluster.md
+        - name: Utiliser la maintenance planifiée (préversion)
+          href: planned-maintenance.md
         - name: Mettre à niveau un cluster AKS
           href: upgrade-cluster.md
         - name: Utiliser un SLA avec une durée de bon fonctionnement
@@ -207,6 +209,8 @@
               href: azure-disk-csi.md
             - name: Pilotes Azure Files CSI (préversion)
               href: azure-files-csi.md
+            - name: Pilote de magasin de secrets CSI (préversion)
+              href: csi-secrets-store-driver.md
     - name: Configurer la mise en réseau
       items:
         - name: Créer ou utiliser un réseau virtuel existant
@@ -268,7 +272,7 @@
           href: use-pod-security-policies.md
         - name: Définir des plages d’adresses IP autorisées du serveur d’API
           href: api-server-authorized-ip-ranges.md
-        - name: Contrôler les déploiements avec Azure Policy (préversion)
+        - name: Contrôler les déploiements avec Azure Policy
           href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Mettre à jour les informations d’identification du cluster
           href: update-credentials.md
@@ -278,7 +282,7 @@
               href: managed-aad.md
             - name: "Intégration Azure\_AD (hérité)"
               href: azure-ad-integration-cli.md
-        - name: Utiliser Azure RBAC pour l’autorisation Kubernetes (préversion)
+        - name: Utiliser l’autorisation Azure RBAC pour Kubernetes
           href: manage-azure-rbac.md
         - name: Utiliser le contrôle d’accès en fonction du rôle (RBAC) Kubernetes avec l’intégration d’Azure AD
           href: azure-ad-rbac.md
@@ -293,6 +297,8 @@
           href: enable-host-encryption.md
     - name: Surveillance et journalisation
       items:
+        - name: Consulter les métriques du cluster
+          href: view-metrics.md
         - name: Azure Monitor pour des conteneurs
           href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
@@ -347,6 +353,8 @@
       items:
         - name: À propos des maillages de service
           href: servicemesh-about.md
+        - name: Module complémentaire Open Service Mesh AKS (préversion)
+          href: servicemesh-osm-about.md
         - name: Utiliser Istio
           items:
             - name: À propos d’Istio

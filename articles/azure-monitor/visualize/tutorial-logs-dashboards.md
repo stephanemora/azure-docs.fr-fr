@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 84c710e44fbbccdefd5bf811477e1fa4c3989114
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4a76367b65556c0f6b030eba79355382e8db0c6
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043454"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754512"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
@@ -86,7 +86,7 @@ Maintenant qu’une requête est épinglée au tableau de bord, vous remarquerez
 ![Configuration terminée de l’exemple de tableau de bord](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez appris à créer un tableau de bord dans le portail Azure et à lui ajouter une requête de journal.  Passez au tutoriel suivant pour découvrir les différentes réponses que vous pouvez implémenter en fonction des résultats des requêtes de journal.  
+Dans ce tutoriel, vous avez appris à créer un tableau de bord dans le portail Azure et à lui ajouter une requête de journal.  Suivez ce lien pour examiner des exemples de scripts Log Analytics prédéfinis.
 
 > [!div class="nextstepaction"]
-> [Répondre aux événements avec des alertes Log Analytics](../alerts/tutorial-response.md)
+> [Exemples de scripts Log Analytics](../powershell-samples.md)

@@ -1,17 +1,17 @@
 ---
 title: Créer une fabrique de données Azure avec l’interface utilisateur d’Azure Data Factory
 description: Créez une fabrique de données avec un pipeline copiant les données d’un emplacement dans un stockage Blob Azure vers un autre emplacement.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: quickstart
 ms.date: 12/14/2020
-ms.author: jingwang
-ms.openlocfilehash: 8b33005b7f0d08e6da963457813b012199d89f5f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: jianleishen
+ms.openlocfilehash: 888350dacd2437f585c6571b991ae06eed2d32ab
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655031"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482162"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Démarrage rapide : Créer une fabrique de données à l’aide de l’interface utilisateur d’Azure Data Factory 
 
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide explique comment utiliser l’interface utilisateu
 > [!NOTE]
 > Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md) avant de commencer ce guide de démarrage rapide. 
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="video"></a>Vidéo 
 Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory : 

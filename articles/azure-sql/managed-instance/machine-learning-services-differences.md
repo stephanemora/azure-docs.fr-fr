@@ -12,16 +12,16 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 03/17/2021
-ms.openlocfilehash: b5ad439a8e10fa9aa44e477ca35f45d65ae40803
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a322efdf5ef21912a8e29e9b3dea4bc041c61cca
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599542"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131888"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principales différences entre la version Azure SQL Managed Instance et la version SQL Server de Machine Learning Services
 
-Cet article décrit les quelques différences clés de fonctionnalités entre [Machine Learning Services dans Azure SQL Managed Instance](machine-learning-services-overview.md) et [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning).
+Cet article décrit les quelques différences clés de fonctionnalités entre [Machine Learning Services dans Azure SQL Managed Instance](machine-learning-services-overview.md) et [SQL Server Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning).
 
 ## <a name="language-support"></a>Support multilingue
 
@@ -44,8 +44,8 @@ Il n’y a pas de prise en charge dans SQL Managed Instance des packages qui dé
 
 Pour plus d'informations sur la gestion des packages Python et R, consultez :
 
-- [Obtenir des informations sur les packages Python](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
-- [Obtenir des informations sur les packages R](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Obtenir des informations sur les packages Python](/sql/machine-learning/package-management/python-package-information?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current)
+- [Obtenir des informations sur les packages R](/sql/machine-learning/package-management/r-package-information?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current)
 
 ## <a name="resource-governance"></a>Gouvernance des ressources
 
@@ -67,7 +67,7 @@ sp_configure 'external scripts enabled', 0;
 RECONFIGURE WITH OVERRIDE;
 ```
 
-Le nombre total de ressources disponibles pour SQL Managed Instance dépend du niveau de service que vous choisissez. Pour plus d’informations, voir [Modèles d’achat Azure SQL Database](/azure/sql-database/sql-database-service-tiers).
+Le nombre total de ressources disponibles pour SQL Managed Instance dépend du niveau de service que vous choisissez. Pour plus d’informations, voir [Modèles d’achat Azure SQL Database](../database/purchasing-models.md).
 
 ### <a name="insufficient-memory-error"></a>Erreur de mémoire insuffisante
 

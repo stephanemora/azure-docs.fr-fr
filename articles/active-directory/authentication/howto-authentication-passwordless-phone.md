@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d586294f101c271f139867d0046576dc9a32f076
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653471"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861784"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Activer la connexion sans mot de passe avec l’application Microsoft Authenticator 
 
@@ -38,6 +38,7 @@ Pour utiliser la connexion par téléphone sans mot de passe avec l’applicatio
 
 - Azure AD Multi-Factor Authentication, avec notifications Push autorisées en tant que méthode de vérification.
 - Installation de la dernière version de Microsoft Authenticator sur des appareils exécutant iOS 8.0 ou une version ultérieure, ou Android 6.0 ou une version ultérieure.
+- L’appareil sur lequel l’application Microsoft Authenticator est installée doit être inscrit dans le locataire Azure AD pour un utilisateur individuel. 
 
 > [!NOTE]
 > Si vous avez activé la connexion sans mot de passe Microsoft Authenticator en utilisant Azure AD PowerShell, elle a été activée pour l’ensemble de votre annuaire. Si vous activez l’utilisation de cette nouvelle méthode, elle remplace la stratégie PowerShell. Nous vous recommandons d’activer cette fonctionnalité pour tous les utilisateurs de votre locataire par le biais du nouveau menu *Méthodes d’authentification*, sinon les utilisateurs ne figurant pas dans la nouvelle stratégie ne pourront plus se connecter sans mot de passe.

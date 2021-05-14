@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: 591f767fe0ef2150f7fe180108f207b56f7c915f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7a9eb992ff0cb98fdae2920da2beeda0bbd8941b
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764300"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107877531"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utiliser des identités managées pour accéder à App Configuration
 
@@ -41,7 +41,7 @@ Dans cet article, vous apprendrez comment :
 
 Pour suivre ce didacticiel, vous avez besoin de :
 
-* [SDK .NET Core](https://www.microsoft.com/net/download/windows).
+* [SDK .NET Core](https://dotnet.microsoft.com/download).
 * [Azure Cloud Shell configuré](../cloud-shell/quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

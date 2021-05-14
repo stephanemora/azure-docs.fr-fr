@@ -3,53 +3,52 @@ title: Gérer les utilisateurs et rôles dans votre application Azure IoT Centra
 description: Comment gérer les rôles et utilisateurs de votre application Azure IoT Central en qualité d’administrateur
 author: lmasieri
 ms.author: lmasieri
-ms.date: 12/05/2019
+ms.date: 04/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cff8830d180b0c234e54f7578ed9fafafeb598f0
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92122975"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719166"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gérer les utilisateurs et rôles dans votre application Azure IoT Central
 
-Cet article explique comment, en tant qu’administrateur, vous pouvez ajouter, modifier et supprimer des utilisateurs dans votre application Azure IoT Central. L’article explique également comment gérer des rôles dans votre application Azure IoT Central.
+Cet article explique comment, en tant qu’administrateur, vous pouvez ajouter, modifier et supprimer des utilisateurs dans votre application Azure IoT Central. L’article explique également comment gérer des rôles dans votre application.
 
 Pour accéder à la section **Administration** et l’utiliser, vous devez avoir le rôle **Administrateur** dans l’application Azure IoT Central. Si vous créez une application Azure IoT Central, le rôle **Administrateur** vous est automatiquement attribué pour cette application.
 
 ## <a name="add-users"></a>Ajouter des utilisateurs
 
-Chaque utilisateur doit avoir un compte d’utilisateur avant de pouvoir se connecter et accéder à une application Azure IoT Central. Les comptes Microsoft et les comptes Azure Active Directory sont pris en charge dans Azure IoT Central. Actuellement, les groupes Azure Active Directory ne sont pas pris en charge dans Azure IoT Central.
+Chaque utilisateur doit disposer d’un compte d’utilisateur pour pouvoir se connecter à une application et y accéder. IoT Central prend actuellement en charge les comptes Microsoft et les comptes Azure Active Directory, mais pas les groupes Azure Active Directory.
 
 Pour en savoir plus, consultez [Aide sur le compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) et [Démarrage rapide : Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Pour ajouter un utilisateur à une application IoT Central, accédez à la page **Utilisateurs** dans la section **Administration**.
-    
-    > [!div class="mx-imgBorder"]
-    >![Gestion des utilisateurs](media/howto-manage-users-roles/manage-users-pnp.png)
+
+  :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Gérer les utilisateurs":::
 
 1. Pour ajouter un utilisateur, dans la page **Utilisateurs**, choisissez **+ Ajouter un utilisateur**.
 
 1. Choisissez un rôle pour l’utilisateur dans la liste déroulante **Rôle**. En savoir plus sur les rôles dans la section [Gérer les rôles](#manage-roles) de cet article.
 
-    > [!div class="mx-imgBorder"]
-    >![Ajouter un utilisateur et sélectionner un rôle](media/howto-manage-users-roles/add-user-pnp.png)
+  :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Ajouter un utilisateur et sélectionner un rôle.":::
 
-    > [!NOTE]
-    > Un utilisateur qui se trouve dans un rôle personnalisé qui lui accorde l’autorisation d’ajouter d’autres utilisateurs peut uniquement ajouter des utilisateurs à un rôle avec des autorisations identiques ou moins nombreuses que son propre rôle.
+  > [!NOTE]
+  > Un utilisateur qui se trouve dans un rôle personnalisé qui lui accorde l’autorisation d’ajouter d’autres utilisateurs peut uniquement ajouter des utilisateurs à un rôle avec des autorisations identiques ou moins nombreuses que son propre rôle.
 
-Si un ID d’utilisateur IoT Central est supprimé d’Azure Active Directory puis rajouté, l’utilisateur ne peut pas se connecter à l’application IoT Central. Pour réactiver l’accès, l’administrateur IoT Central doit supprimer et rajouter l’utilisateur dans l’application.
+  > [!NOTE]
+  > Si un utilisateur est supprimé d’Azure Active Directory puis rajouté, il ne peut pas se connecter à l’application IoT Central. Pour réactiver l’accès, l’administrateur de l’application doit également supprimer et rajouter l’utilisateur dans l’application.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Modifier les rôles attribués aux utilisateurs
 
 Une fois attribués, les rôles ne sont plus modifiables. Pour modifier le rôle attribué à un utilisateur, supprimez cet utilisateur puis rajoutez-le avec un autre rôle.
 
 > [!NOTE]
-> Les rôles attribués sont spécifiques de l’application IoT Central et ne peuvent pas être gérés à partir du portail Azure.
+> Les rôles attribués sont spécifiques à l’application IoT Central et ne peuvent pas être gérés à partir du portail Azure.
 
 ## <a name="delete-users"></a>Suppression d’utilisateurs
 
@@ -74,11 +73,11 @@ Les utilisateurs du rôle **Créateur** peuvent gérer toutes les parties de l�
 
 ### <a name="operator"></a>Opérateur
 
-Les utilisateurs du rôle **Opérateur** peuvent surveiller l’intégrité et l’état des appareils. Ils ne sont pas autorisés à apporter des modifications aux modèles d’appareils ni à administrer l’application. Les opérateurs peuvent ajouter et supprimer des appareils, gérer des ensembles d’appareils et exécuter des analytiques et des travaux. 
+Les utilisateurs du rôle **Opérateur** peuvent surveiller l’intégrité et l’état des appareils. Ils ne sont pas autorisés à apporter des modifications aux modèles d’appareils ni à administrer l’application. Les opérateurs peuvent ajouter et supprimer des appareils, gérer des ensembles d’appareils et exécuter des analytiques et des travaux.
 
 ## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
 
-Si votre solution nécessite des contrôles d’accès plus précis, vous pouvez créer des rôles personnalisés avec des ensembles d’autorisations personnalisés. Pour créer un rôle personnalisé, accédez à la page **Rôle** dans la section **Administration** de votre application. Sélectionnez ensuite **+ Nouveau rôle**, puis ajoutez un nom et une description pour votre rôle. Sélectionnez les autorisations requises par votre rôle, puis choisissez **Enregistrer**.
+Si votre solution nécessite des contrôles d’accès plus précis, vous pouvez créer des rôles avec des ensembles d’autorisations personnalisés. Pour créer un rôle personnalisé, accédez à la page **Rôle** dans la section **Administration** de votre application. Sélectionnez ensuite **+ Nouveau rôle**, puis ajoutez un nom et une description pour votre rôle. Sélectionnez les autorisations requises par votre rôle, puis choisissez **Enregistrer**.
 
 Vous pouvez ajouter des utilisateurs à votre rôle personnalisé de la même façon que vous ajoutez des utilisateurs à un rôle intégré.
 
@@ -87,7 +86,7 @@ Vous pouvez ajouter des utilisateurs à votre rôle personnalisé de la même fa
 
 ### <a name="custom-role-options"></a>Options de rôle personnalisé
 
-Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’autorisations qu’un utilisateur reçoit s’il est membre du rôle. Certaines autorisations dépendent les unes des autres. Par exemple, si vous ajoutez l’autorisation **Mettre à jour les tableaux de bord d’application** à un rôle, l’autorisation **Afficher les tableaux de bord d’application** est automatiquement ajoutée. Les tableaux suivants résument les autorisations disponibles et leurs dépendances, que vous pouvez utiliser lors de la création de rôles personnalisés.
+Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’autorisations qu’un utilisateur reçoit s’il est membre du rôle. Certaines autorisations dépendent les unes des autres. Par exemple, si vous ajoutez l’autorisation **Mettre à jour les tableaux de bord personnels** à un rôle, l’autorisation **Afficher les tableaux de bord personnels** est automatiquement ajoutée. Les tableaux suivants résument les autorisations disponibles et leurs dépendances, que vous pouvez utiliser lors de la création de rôles personnalisés.
 
 #### <a name="managing-devices"></a>Gestion des appareils
 
@@ -108,7 +107,8 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | Créer | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
 | DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
 | Exécuter des commandes | Mettre à jour, Afficher <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
-| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer, Exécuter des commandes <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
+| Voir les données brutes | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer, Exécuter des commandes, Afficher les données brutes <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
 
 **Autorisations des groupes d’appareils**
 
@@ -117,7 +117,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils |
 | Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils   |
 | Créer | Afficher, Mettre à jour <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils   |
-| DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils   |
+| DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils  |
 | Contrôle total | Afficher, Mettre à jour, Créer, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils |
 
 **Autorisations de gestion de la connectivité des appareils**
@@ -125,10 +125,10 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | Nom | Les dépendances |
 | ---- | -------- |
 | Lire l’instance | None <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les instances d’appareils |
-| Gérer l’instance | None |
+| Gérer l’instance | Lire l’instance <br /> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les instances d’appareils |
 | Lire au niveau global | None   |
 | Gérer au niveau global | Lire au niveau global |
-| Contrôle total | Lire l’instance, Gérer l’instance, Lire au niveau global, Gérer au niveau global. <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les instances d’appareils |
+| Contrôle total | Lire l’instance, Gérer l’instance, Lire au niveau global, Gérer au niveau global <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les instances d’appareils |
 
 **Autorisations de travaux**
 
@@ -170,6 +170,14 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | Affichage | None     |
 | Exporter | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils, les groupes d’appareils, les tableaux de bord, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés, les règles |
 | Contrôle total | Afficher, Exporter <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les tableaux de bord d’application, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés, les règles |
+
+**Autorisations de chargement de fichier d’appareil**
+
+| Nom | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Gérer | Affichage   |
+| Contrôle total | Afficher, Gérer |
 
 **Autorisations de facturation**
 
@@ -256,11 +264,11 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 
 | Nom | Les dépendances |
 | ---- | -------- |
-| Affichage | None     |
-| Créer | Affichage   |
-| DELETE | Affichage   |
-| Contrôle total | Afficher, Créer, Supprimer |
+| Affichage | None  <br/> Autres dépendances : Afficher les rôles personnalisés |
+| Créer | Affichage <br/> Autres dépendances : Afficher les rôles personnalisés |
+| DELETE | Affichage <br/> Autres dépendances : Afficher les rôles personnalisés |
+| Contrôle total | Afficher, Créer, Supprimer <br/> Autres dépendances : Afficher les rôles personnalisés |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à gérer les utilisateurs et les rôles dans votre application Azure IoT Central, l’étape suivante suggérée est d’apprendre à [gérer votre facture](howto-view-bill.md).
+Maintenant que vous avez appris à gérer les utilisateurs et les rôles dans votre application IoT Central, l’étape suivante suggérée est d’apprendre à [gérer votre facture](howto-view-bill.md).

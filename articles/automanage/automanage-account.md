@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: alsin
-ms.openlocfilehash: b79e061ae00c42ed2ec2ac39f5653a868f09a15f
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 02c122486ad9ca702e518445761fef05675c9067
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368468"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209694"
 ---
 # <a name="automanage-accounts"></a>Comptes Automanage
 
@@ -46,7 +46,7 @@ La création d’un compte Automanage à l’aide d’un modèle ARM nécessite 
 1. Créer le compte Automanage
 1. Accordez des autorisations suffisantes au compte pour lui permettre d’effectuer des opérations pour vous
     1. Vous aurez besoin de l’ID d’objet du compte que vous avez créé pour cette étape.
-        1. Les étapes permettant de trouver les détails du principal de service de votre compte (y compris l’ID d’objet) sont disponibles [ici](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal#view-the-service-principal).
+        1. Les étapes permettant de trouver les détails du principal de service de votre compte (y compris l’ID d’objet) sont disponibles [ici](../active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal.md#view-the-service-principal).
     1. Une fois que vous avez trouvé le principal du service, copiez l’**ID de l'objet**. Enregistrez-le, car vous en aurez besoin pour déléguer les autorisations ci-dessous.
 
 #### <a name="1-create-automanage-account-does-not-grant-permissions-to-it"></a>1. Créer un compte Automanage (ne pas lui accorder d’autorisations)

@@ -3,19 +3,19 @@ title: Effectuer un scale-in ou un scale-out d’un cluster Service Fabric
 description: Augmentez ou diminuez la taille des instances d’un cluster Service Fabric pour répondre à la demande en définissant des règles de mise à l’échelle automatique pour chaque type de nœud/groupe de machines virtuelles identiques. Ajouter ou supprimer des nœuds d’un cluster Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7f11aa5fee2b339ea8466dac93e8629419847f0
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94409958"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018544"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Mettre à l’échelle un cluster
 
 > [!WARNING]
 > Lisez cette section avant d’effectuer une mise à l’échelle
 
-La mise à l’échelle des ressources de calcul pour provisionner la charge de travail de votre application nécessite une planification intentionnelle. Elle durera généralement plus d’une heure dans un environnement de production et vous devrez comprendre votre charge de travail et le contexte commercial. En fait, si vous n’avez jamais effectué cette opération auparavant, il est recommandé de commencer par lire et bien comprendre les [points à prendre en compte dans la planification des capacités du cluster Service Fabric](service-fabric-cluster-capacity.md) avant de poursuivre ce document. Cette recommandation vise à éviter les problèmes non intentionnels de LiveSite. Il est également recommandé de bien tester les opérations que vous choisissez d’effectuer dans un environnement hors production. Vous pouvez à tout moment [signaler des problèmes de production ou demander un support payant pour Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). Pour les ingénieurs affectés à ces opérations ayant un contexte approprié, cet article décrira les opérations de mise à l’échelle. Toutefois, vous devez déterminer et bien comprendre les opérations appropriées à votre cas d’utilisation, telles que les ressources à mettre à l’échelle (CPU, stockage, mémoire), le sens de mise à l’échelle (vertical ou horizontal) et les opérations à effectuer (déploiement de modèles de ressources, portail, PowerShell/CLI).
+La mise à l’échelle des ressources de calcul pour provisionner la charge de travail de votre application nécessite une planification intentionnelle. Elle durera généralement plus d’une heure dans un environnement de production et vous devrez comprendre votre charge de travail et le contexte commercial. En fait, si vous n’avez jamais effectué cette opération auparavant, il est recommandé de commencer par lire et bien comprendre les [points à prendre en compte dans la planification des capacités du cluster Service Fabric](service-fabric-cluster-capacity.md) avant de poursuivre ce document. Cette recommandation vise à éviter les problèmes non intentionnels de LiveSite. Il est également recommandé de bien tester les opérations que vous choisissez d’effectuer dans un environnement hors production. Vous pouvez à tout moment [signaler des problèmes de production ou demander un support payant pour Azure](service-fabric-support.md#create-an-azure-support-request). Pour les ingénieurs affectés à ces opérations ayant un contexte approprié, cet article décrira les opérations de mise à l’échelle. Toutefois, vous devez déterminer et bien comprendre les opérations appropriées à votre cas d’utilisation, telles que les ressources à mettre à l’échelle (CPU, stockage, mémoire), le sens de mise à l’échelle (vertical ou horizontal) et les opérations à effectuer (déploiement de modèles de ressources, portail, PowerShell/CLI).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

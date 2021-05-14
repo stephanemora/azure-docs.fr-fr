@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e217dcaeafd553803f5c9699ab6d7779ed755b67
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93241733"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818280"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Gérer la haute disponibilité redondante interzone dans le serveur flexible (préversion) Azure Database pour MySQL
 
@@ -62,6 +62,27 @@ Suivez ces étapes pour désactiver la haute disponibilité de votre serveur fle
 5.  Cliquez sur le bouton **Désactiver la haute disponibilité** pour désactiver la haute disponibilité.
 
 6.  Une notification indique que la désactivation du déploiement à haute disponibilité est en cours.
+
+
+## <a name="forced-failover"></a>basculement forcé
+
+Suivez les étapes ci-dessous pour forcer le basculement de votre serveur principal vers le serveur de secours flexible
+
+1.  Dans le [ portail Azure ](https://portal.azure.com/), sélectionnez votre serveur flexible Azure Database pour MySQL existant sur lequel la fonctionnalité de haute disponibilité est activée.
+
+2.  Dans la page du serveur flexible, cliquez sur **Haute disponibilité** dans le panneau avant pour ouvrir la page de haute disponibilité.
+
+3.  Vérifiez la **zone de disponibilité principale** et la **zone de disponibilité de secours**
+
+4.  Cliquez sur **Basculement forcé** pour lancer la procédure de basculement manuel. Une fenêtre contextuelle vous indiquera le temps de basculement attendu en fonction de la charge de travail actuelle sur le serveur principal, et la fraîcheur du dernier point de contrôle. Lisez le message, puis cliquez sur OK.
+ 
+5. Une notification indique que le basculement est en cours.
+
+6. Une fois le basculement vers le serveur de secours réussi, une notification s’affiche.
+
+7. Vérifiez la nouvelle **zone de disponibilité principale** et la **zone de disponibilité de secours**.
+
+![Comment forcer le basculement](media/how-to-configure-high-availability/how-to-forced-failover.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

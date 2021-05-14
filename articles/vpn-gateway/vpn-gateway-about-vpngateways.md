@@ -1,21 +1,21 @@
 ---
 title: À propos de la passerelle VPN Azure
-description: Découvrez ce qu’est une passerelle VPN et comment l’utiliser pour vous connecter à des réseaux virtuels IPsec IKE de site à site, de réseau virtuel à réseau virtuel et de point à site.
+description: Découvrez ce qu’est une passerelle VPN et comment en utiliser une pour vous connecter à des réseaux virtuels VPN IPsec IKE de site à site, de réseau virtuel à réseau virtuel et de point à site.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 ms.custom:
 - contperf-fy21q1
 - e2e-hybrid
-ms.openlocfilehash: b4a2e1b80fe62c5e8f74e35a1a7f61bdddf89c53
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bdaa61aa45c357e95e35196a5be7774f0af95ec0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066532"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202332"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -84,4 +84,4 @@ Abonnez-vous au flux RSS et consultez les dernières mises à jour des fonctionn
 
 - Pour plus d’informations, consultez la [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 - Consultez les [Limites du service et de l’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
-- Découvrez certaines des autres [fonctionnalités de réseau](../networking/networking-overview.md) clés d’Azure.
+- Découvrez certaines des autres [fonctionnalités de réseau](../networking/fundamentals/networking-overview.md) clés d’Azure.

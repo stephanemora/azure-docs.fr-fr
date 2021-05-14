@@ -1,27 +1,27 @@
 ---
-title: Inscrire Azure Peering Service - Portail Azure
-description: Découvrez comment inscrire Azure Peering Service à l’aide du portail Azure.
+title: Créer une connexion Azure Peering Service – Portail Azure
+description: Découvrez comment créer une connexion Azure Peering Service à partir du portail Azure.
 services: peering-service
-author: derekolo
+author: gthareja
 ms.service: peering-service
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 05/18/2020
-ms.author: derekol
-ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.author: gatharej
+ms.openlocfilehash: 0b351b1fe4ad9492c414dd31789b8dd0029f9638
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91534945"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202714"
 ---
-# <a name="register-peering-service-by-using-the-azure-portal"></a>Inscrire Peering Service à l’aide du portail Azure
+# <a name="create-peering-service-connection-using-the-azure-portal"></a>Créer une connexion Peering Service à partir du portail Azure
 
-Azure Peering Service est un service réseau qui améliore la connectivité entre le client et les services cloud Microsoft, comme Microsoft 365, Dynamics 365, les services SaaS, Azure ou les services Microsoft accessibles via l’Internet public.
+Azure Peering Service est un service réseau qui améliore la connectivité des clients avec les services de cloud public Microsoft, tels que Microsoft 365, Dynamics 365, les services SaaS (Software as a Service), Azure ou les services Microsoft accessibles via l’Internet public.
 
-Cet article explique comment inscrire une connexion Peering Service à l’aide du portail Azure.
+Dans cet article, vous allez découvrir comment créer une connexion Peering Service à partir du portail Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maintenant.
 
@@ -33,13 +33,12 @@ Vous devez disposer des éléments suivants :
 
 ### <a name="azure-account"></a>Compte Azure
 
-Vous devez avoir un compte Microsoft Azure actif et valide. Sinon, vous ne pourrez pas configurer la connexion Peering Service. Peering Service est une ressource fournie dans les abonnements Azure. 
+Vous devez avoir un compte Microsoft Azure actif et valide. Sinon, vous ne pourrez pas configurer la connexion Peering Service. La connexion Peering Service est une ressource intégrée aux abonnements Azure. 
 
 ### <a name="connectivity-provider"></a>Fournisseur de connectivité
 
-Vous pouvez faire appel à un fournisseur de services Internet ou un partenaire d’échange Internet pour obtenir une connectivité Peering Service qui vous permettra de connecter votre réseau au réseau Microsoft.
+Vous pouvez faire appel à un [fournisseur Azure Peering Service](https://docs.microsoft.com/azure/peering-service/location-partners) pour obtenir une connectivité Peering Service qui vous permettra de connecter votre réseau au réseau Microsoft de manière optimale.
 
-Vérifiez que les [fournisseurs de connectivité](location-partners.md) sont des partenaires de Microsoft.
 
 
 
@@ -47,27 +46,33 @@ Vérifiez que les [fournisseurs de connectivité](location-partners.md) sont des
 
 Dans un navigateur, accédez au portail Azure et connectez-vous avec votre compte Azure.
 
-## <a name="register-a-peering-service-connection"></a>Inscrire une connexion Peering Service
+## <a name="create-a-peering-service-connection"></a>Créer une connexion Peering Service
 
-1. Pour inscrire une connexion Peering Service, sélectionnez  **Créer une ressource** > **Peering Service**.
+1. Pour créer une connexion Peering Service, sélectionnez  **Créer une ressource** > **Peering Service**.
 
-    ![Inscrire Peering Service](./media/peering-service-portal/peering-servicecreate.png)
+    ![Créer une connexion Peering Service](./media/peering-service-portal/peering-servicecreate.png)
+
 1. Entrez les informations suivantes sous l’onglet **Basics** (Général) dans la page **Create a peering service connection** (Créer une connexion Peering Service).
 
  
 1. Sélectionnez l’abonnement et le groupe de ressources associé à l’abonnement.
 
-   ![Inscrire Peering Service, onglet Basics](./media/peering-service-portal/peering-servicebasics.png)
+   ![Onglet Informations de base dans la fenêtre de création de peering](./media/peering-service-portal/peering-servicebasics.png)
 
 1. Entrez le **nom** sous lequel vous voulez inscrire l’instance Peering Service.
  
-1. Sélectionnez le bouton **Next:Configuration** (Suivant : Configuration) en bas de la page. La page **Configuration** s’affiche.
+1. À présent, sélectionnez le bouton **Suivant : Configuration** au bas de la page. La page **Configuration** s’affiche.
 
 ## <a name="configure-the-peering-service-connection"></a>Configurer la connexion Peering Service
 
-1. Dans la page **Configuration**, sélectionnez l’emplacement où Peering Service doit être activé, en sélectionnant l’option dans la liste déroulante **Peering service location** (Emplacement de Peering Service).
+1. Dans la page **Configuration**, choisissez l’emplacement réseau du client où Peering Service doit être activé en le sélectionnant dans la liste déroulante **Peering service location** (Emplacement du service de peering). 
 
 1. Sélectionnez le fournisseur de services auprès duquel obtenir Peering Service, en sélectionnant un nom de fournisseur dans la liste déroulante **Peering service provider** (Fournisseur Peering Service).
+
+1. Sélectionnez l’**emplacement principal de peering du fournisseur** le plus proche de l’emplacement réseau du client. Il s’agit de l’emplacement du service de peering entre Microsoft et le partenaire.
+
+1. Sélectionnez l’**emplacement de peering de secours du fournisseur** comme étant le deuxième emplacement réseau du client le plus proche. Les services de peering ne seront actifs via l’emplacement de secours qu’en cas de défaillance de l’emplacement principal du service de peering pour la reprise d’activité. Si l’option « None » (Aucun) est sélectionnée, Internet sera la route de basculement par défaut en cas d’échec de l’emplacement principal du service de peering.
+
  
 1. Sélectionnez **Create new prefix** (Créer un préfixe) en bas de la section **Prefixes** (Préfixes). Plusieurs zones de texte s’affichent. À présent, entrez le nom de la ressource de préfixe ainsi que les préfixes associés au fournisseur de services.
 
@@ -82,13 +87,12 @@ Dans un navigateur, accédez au portail Azure et connectez-vous avec votre compt
    > ![La capture d’écran montre l’onglet Vérifier + créer de la page Créer une connexion au service de peering.](./media/peering-service-portal/peering-service-prefix.png)
 
 
-1. Une fois que vous avez inscrit une connexion Peering Service, une validation supplémentaire est effectuée sur les préfixes inclus. Vous pouvez vérifier l’état de la validation sous la section **Préfixes** du nom de la ressource. Si la validation échoue, l’un des messages d’erreur suivants s’affiche :
+1. Une fois que vous avez créé une connexion Peering Service, une validation supplémentaire est effectuée au niveau des préfixes inclus. Vous pouvez vérifier l’état de la validation sous la section **Préfixes** du nom de la ressource. Si la validation échoue, l’un des messages d’erreur suivants s’affiche :
 
-   - Préfixe Peering Service non valide ; le préfixe doit être dans un format valide, seul le préfixe Ipv4 est pris en charge.
-   - Le préfixe n’a pas été reçu du fournisseur Peering Service.
+   - Préfixe Peering Service non valide ; le préfixe doit être dans un format valide, seul le préfixe IPv4 est pris en charge actuellement.
+   - Aucun préfixe n’ayant été reçu du fournisseur Peering Service, contactez-le.
    - L’annonce du préfixe n’a pas de communauté BGP valide. Contactez le fournisseur Peering Service.
-   - Route de sauvegarde introuvable. Contactez le fournisseur Peering Service.
-   - Le préfixe reçu a un chemin AS plus long. Contactez le fournisseur Peering Service.
+   - Le préfixe reçu a un chemin AS plus long (>3) ; contactez le fournisseur Peering Service.
    - Le préfixe reçu a un AS privé dans le chemin. Contactez le fournisseur Peering Service.
 
 ### <a name="add-or-remove-a-prefix"></a>Ajouter ou supprimer un préfixe
@@ -110,5 +114,5 @@ Dans la page **Toutes les ressources**, cochez la case de la connexion Peering S
 - Pour en savoir plus sur la connexion Peering Service, consultez [Connexion Peering Service](connection.md).
 - Pour en savoir plus sur la télémétrie des connexions Peering Service, consultez [Télémétrie des connexions Peering Service](connection-telemetry.md).
 - Pour mesurer les données de télémétrie, consultez [Mesurer les données de télémétrie des connexions](measure-connection-telemetry.md).
-- Pour inscrire la connexion par le biais d’Azure PowerShell, consultez [Inscrire une connexion Peering Service - Azure PowerShell](powershell.md).
-- Pour inscrire la connexion à l’aide d’Azure CLI, consultez [Inscrire une connexion Peering Service - Azure CLI](cli.md).
+- Pour créer la connexion Peering Service à l’aide d’Azure PowerShell, consultez [Créer une connexion Peering Service – Azure PowerShell](powershell.md).
+- Pour créer la connexion à l’aide d’Azure CLI, consultez [Créer une connexion Peering Service – Azure CLI](cli.md).

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: f018f591052050431996e3017335ab003973d25a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b191941dff66f28467030a3f367837ca4ed9656c
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104771003"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330815"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Comment utiliser des clés SSH avec Windows sur Azure
 
@@ -68,7 +68,7 @@ az vm create \
    --name myVM \
    --image UbuntuLTS\
    --admin-username azureuser \
-   --ssh-key-value ~/.ssh/id_rsa
+   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 Avec PowerShell, utilisez `New-AzVM` et ajoutez la clé SSH à la configuration de la machine virtuelle à l’aide de `. Pour obtenir un exemple, consultez [Démarrage rapide : Créer une machine virtuelle Linux dans Azure avec PowerShell](quick-create-powershell.md).
@@ -81,7 +81,7 @@ Si vous effectuez un grand nombre de déploiements à l’aide du portail, vous 
 Une fois la clé publique déployée sur votre machine virtuelle Azure et la clé privée sur votre système local, établissez une connexion SSH sur votre machine virtuelle à l’aide de l’adresse IP ou du nom DNS de votre machine virtuelle. Remplacez *azureuser* et *10.111.12.123* dans la commande suivante par le nom d’utilisateur de l’administrateur, l’adresse IP (ou le nom de domaine complet) et le chemin d’accès à votre clé privée :
 
 ```bash
-ssh -i ~/.ssh/id_rsa.pub azureuser@10.111.12.123
+ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
 
 Si vous avez configuré une phrase secrète quand vous avez créé votre paire de clés, entrez-la quand vous y êtes invité.

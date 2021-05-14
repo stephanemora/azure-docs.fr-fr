@@ -1,17 +1,17 @@
 ---
 title: Utiliser des secrets Azure Key Vault dans les activités de pipeline
 description: Découvrez comment récupérer des informations d’identification stockées à partir d’Azure Key Vault, et comment les utiliser lors de l’exécution de pipelines Data Factory.
-author: ChrisLound
-ms.author: chlound
+author: nabhishek
+ms.author: abnarain
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: d7e1133b8f3880c4c1616ef5ca955ed014348935
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6e3ac551c2660cef7437ee069d3c8e4846cbd00
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383957"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906599"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Utiliser des secrets Azure Key Vault dans les activités de pipeline
 

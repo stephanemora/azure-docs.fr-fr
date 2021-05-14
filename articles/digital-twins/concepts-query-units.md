@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0e1c5f08c4292e4f3dfec448d8bf54d5d5601840
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 710800bdb1dc4a9a2d0bc69493fe1d89d279ff78
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99050496"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734288"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unités de requête dans Azure Digital Twins 
 
@@ -31,7 +31,7 @@ Cet article explique comment comprendre les unités de requête et effectuer le 
 
 Lorsque vous exécutez une requête à l’aide de l’[API de requête](/rest/api/digital-twins/dataplane/query) d’Azure Digital Twins, vous pouvez examiner l’en-tête de réponse pour suivre le nombre de RU utilisées par la requête. Recherchez « query-charge » dans la réponse renvoyée par Azure Digital Twins.
 
-Les [Kits de développement logiciel (SDK)](how-to-use-apis-sdks.md) Azure Digital Twins vous permettent d’extraire l’en-tête query-charge de la réponse paginable. Cette section montre comment interroger des jumeaux numériques et comment itérer sur la réponse paginable pour extraire l’en-tête query-charge. 
+Les [Kits de développement logiciel (SDK)](concepts-apis-sdks.md) Azure Digital Twins vous permettent d’extraire l’en-tête query-charge de la réponse paginable. Cette section montre comment interroger des jumeaux numériques et comment itérer sur la réponse paginable pour extraire l’en-tête query-charge. 
 
 L’extrait de code suivant montre comment extraire les frais d’interrogation encourus lors de l’appel de l’API de requête. Il itère d’abord sur les pages de réponse pour accéder à l’en-tête query-charge, puis itère au sein des résultats du jumeau numérique dans chaque page. 
 
@@ -41,8 +41,8 @@ L’extrait de code suivant montre comment extraire les frais d’interrogation 
 
 Pour en savoir plus sur l’interrogation d’Azure Digital Twins, rendez-vous sur le site :
 
-* [*Concepts : langage de requête*](concepts-query-language.md)
-* [*Guide pratique : Interroger le graphe de jumeaux*](how-to-query-graph.md)
+* [Concepts : Langage de requête](concepts-query-language.md)
+* [Guide pratique pour interroger le graphique de jumeaux](how-to-query-graph.md)
 * [Documentation de référence de l’API de requête](/rest/api/digital-twins/dataplane/query/querytwins)
 
-Vous trouverez des limites relatives aux requêtes Azure Digital Twins dans [*Limites du service Azure Digital Twins*](reference-service-limits.md).
+Vous trouverez des limites relatives aux requêtes Azure Digital Twins dans [Limites du service Azure Digital Twins](reference-service-limits.md).

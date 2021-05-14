@@ -47,8 +47,6 @@
       href: logs/get-started-queries.md
     - name: Créer un tableau de bord à partir d’une requête de journal
       href: visualize/tutorial-logs-dashboards.md
-    - name: Créer une alerte à partir d’une requête de journal
-      href: alerts/tutorial-response.md
     - name: Mise à l’échelle automatique sur les performances et le calendrier
       href: autoscale/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
@@ -87,6 +85,8 @@
               href: app/resource-manager-web-app.md
             - name: Azure Functions
               href: app/resource-manager-function-app.md
+        - name: "Container\_Insights"
+          href: containers/resource-manager-container-insights.md
         - name: Règles de collecte des données
           href: agents/resource-manager-data-collection-rules.md
         - name: Paramètres de diagnostic
@@ -95,10 +95,10 @@
           href: logs/resource-manager-workspace.md
         - name: Requêtes dans les journaux
           href: logs/resource-manager-log-queries.md
+        - name: Insights SQL
+          href: insights/resource-manager-sql-insights.md
         - name: Workbooks
           href: visualize/resource-manager-workbooks.md
-        - name: "Container\_Insights"
-          href: containers/resource-manager-container-insights.md
         - name: Insights de machine virtuelle
           href: vm/resource-manager-vminsights.md
     - name: Azure CLI
@@ -146,7 +146,7 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
         - name: Contrôles de sécurité par Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: .//security-controls-policy.md
@@ -475,8 +475,6 @@
           items:
             - name: Gérer les alertes de métrique
               href: alerts/alerts-metric.md
-            - name: Disponibilité
-              href: app/monitor-web-app-availability.md
             - name: Utiliser des seuils dynamiques
               href: alerts/alerts-dynamic-thresholds.md
             - name: Alertes uniques pour plusieurs séries chronologiques
@@ -642,7 +640,7 @@
             - name: Applications non-HTTP/en arrière-plan
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: Console ASP.NET
+            - name: Console .NET
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -720,12 +718,18 @@
                       href: app/java-in-process-agent.md
                     - name: Options de configuration
                       href: app/java-standalone-config.md
-                    - name: Processeurs de télémétrie
+                    - name: Configurations avancées
                       items:
-                        - name: Vue d’ensemble
-                          href: app/java-standalone-telemetry-processors.md
-                        - name: Exemples
-                          href: app/java-standalone-telemetry-processors-examples.md
+                        - name: Métriques JMX
+                          href: app/java-jmx-metrics-configuration.md
+                        - name: Remplacements d’échantillonnage
+                          href: app/java-standalone-sampling-overrides.md
+                        - name: Processeurs de télémétrie
+                          items:
+                            - name: Vue d’ensemble
+                              href: app/java-standalone-telemetry-processors.md
+                            - name: Exemples
+                              href: app/java-standalone-telemetry-processors-examples.md
                     - name: Configuration d’arguments JVM
                       href: app/java-standalone-arguments.md
                     - name: "Mise à niveau à partir du SDK\_2.x"
@@ -773,6 +777,8 @@
           displayname: 'e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies'
         - name: Disponibilité
           items:
+            - name: Vue d’ensemble
+              href: app/availability-overview.md
             - name: Tests des URL
               displayname: 'ping, ping tests, availability, GSM, up/down'
               href: app/monitor-web-app-availability.md
@@ -968,8 +974,6 @@
           items:
             - name: Connaissances F5
               href: app/visual-studio.md
-            - name: Trends
-              href: app/visual-studio-trends.md
             - name: CodeLens
               href: app/visual-studio-codelens.md
         - name: Autres plateformes
@@ -1040,6 +1044,8 @@
           href: vm/vminsights-workbooks.md
         - name: Désactiver l’analyse
           href: vm/vminsights-optout.md
+        - name: Dépanner
+          href: vm/vminsights-troubleshoot.md
     - name: "Container\_Insights"
       items:
         - name: Vue d’ensemble
@@ -1128,6 +1134,18 @@
           href: insights/network-insights-overview.md
         - name: Key Vault
           href: insights/key-vault-insights-overview.md
+        - name: Insights SQL (préversion)
+          items:
+            - name: Vue d’ensemble
+              href: insights/sql-insights-overview.md
+            - name: Questions fréquentes (FAQ)
+              href: faq.md#sql-insights-preview
+            - name: Activer
+              href: insights/sql-insights-enable.md
+            - name: Alertes
+              href: insights/sql-insights-alerts.md
+            - name: Dépanner
+              href: insights/sql-insights-troubleshoot.md
         - name: Stockage
           displayname: 'storage, monitor, insights, storage accounts, azure storage'
           href: insights/storage-insights-overview.md
@@ -1375,7 +1393,7 @@
           href: /cli/azure/azure-cli-reference-for-monitor
           displayName: 'Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope'
         - name: Application Insights
-          href: /cli/azure/ext/application-insights/monitor/app-insights
+          href: /cli/azure/monitor/app-insights
         - name: Journaux d’activité
           href: /cli/azure/monitor/activity-log
         - name: Log Analytics

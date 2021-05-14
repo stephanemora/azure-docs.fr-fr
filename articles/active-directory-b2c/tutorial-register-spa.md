@@ -12,12 +12,12 @@ ms.date: 08/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2eaf1dce432821dcfc693dc69dcf975a3d8be8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f79eee17a78bd5cfc9024a333142deaaa44b3e2
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92503859"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071133"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>Tutoriel : Inscrire une application monopage (SPA) dans Azure Active Directory B2C
 
@@ -34,12 +34,12 @@ Azure AD B2C propose **deux** options qui permettent aux applications monopages 
 
 Il s’agit de l’approche **recommandée**. Le fait d’avoir des jetons d’actualisation à durée de vie limitée permet à votre application de s’adapter aux [restrictions de confidentialité des cookies des navigateurs modernes](../active-directory/develop/reference-third-party-cookies-spas.md), tels que Safari ITP.
 
-Pour tirer parti de ce flux, votre application peut utiliser une bibliothèque d’authentification qui le prend en charge, comme [MSAL.js 2.x](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa). 
+Pour tirer parti de ce flux, votre application peut utiliser une bibliothèque d’authentification qui le prend en charge, comme [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser). 
 
 ![Authentification des applications monopages](./media/tutorial-single-page-app/spa-app-auth.svg)
 
 ### <a name="implicit-grant-flow"></a>Octroi de flux implicite
-- [Flux implicite OAuth 2.0](implicit-flow-single-page-application.md). Certaines infrastructures, telles que [MSAL.js 1.x](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp), ne prennent en charge que le flux d’octroi implicite. Le flux d’octroi implicite permet à l’application d’obtenir des jetons d’**ID** et d’**accès**. Contrairement au flux de code d’autorisation, le flux d’octroi implicite ne retourne pas de **jeton d’actualisation**. 
+- [Flux implicite OAuth 2.0](implicit-flow-single-page-application.md). Certaines bibliothèques, comme [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), prennent uniquement en charge le flux d’octroi implicite. Le flux d’octroi implicite permet à l’application d’obtenir des jetons d’**ID** et d’**accès**. Contrairement au flux de code d’autorisation, le flux d’octroi implicite ne retourne pas de **jeton d’actualisation**. 
 
 ![Flux implicite des applications monopages](./media/tutorial-single-page-app/spa-app.svg)
 

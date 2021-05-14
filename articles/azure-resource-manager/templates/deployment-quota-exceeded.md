@@ -3,12 +3,13 @@ title: Dépassement du quota de déploiement
 description: Explique comment résoudre l'erreur liée à la présence de plus de 800 déploiements dans l'historique du groupe de ressources.
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 8996d7817eea2f8daf44fbc9b4416c884b05940f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a59c4e3a4cfc4cea9ef30b08fa6ab220f2447efc
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87987050"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316404"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Résoudre l'erreur liée à un nombre de déploiements supérieur à 800
 

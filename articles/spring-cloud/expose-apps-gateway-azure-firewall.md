@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6c22d1bae4f1d116aa52846880498c7c2a425174
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7def685cb9e17ff253ade10714ece2259b432db1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877391"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129006"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Exposer des applications à Internet à l’aide d’Application Gateway et de Pare-feu Azure
 
@@ -24,7 +24,7 @@ Ce document explique comment exposer des applications à Internet à l’aide d�
 
 ## <a name="define-variables"></a>Définir des variables
 
-Définissez des variables pour le groupe de ressources et le réseau virtuel que vous avez créés comme indiqué dans [Déployer Azure Spring Cloud dans un réseau virtuel Azure (injection de réseau virtuel)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md). Personnalisez les valeurs en fonction de votre environnement réel.
+Définissez des variables pour le groupe de ressources et le réseau virtuel que vous avez créés comme indiqué dans [Déployer Azure Spring Cloud dans un réseau virtuel Azure (injection de réseau virtuel)](./how-to-deploy-in-azure-virtual-network.md). Personnalisez les valeurs en fonction de votre environnement réel.
 
 ```
 SUBSCRIPTION='subscription-id'
@@ -139,5 +139,5 @@ Copiez et collez l’adresse IP publique dans la barre d’adresse de votre navi
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Résolution des problèmes Azure Spring Cloud dans un réseau virtuel](spring-cloud-troubleshooting-vnet.md)
-- [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](spring-cloud-vnet-customer-responsibilities.md)
+- [Résolution des problèmes Azure Spring Cloud dans un réseau virtuel](./troubleshooting-vnet.md)
+- [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](./vnet-customer-responsibilities.md)

@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 04/09/2021
 ms.custom: template-overview
 ms.service: certification
-ms.openlocfilehash: b9d599542a53e3d809748b72028512c66409b4ec
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e7cd664e9eb61cae4f1888e4c94f02f19301e9e5
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307705"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502094"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>En quoi consiste le programme Azure Certified Device ?
 
-Nous vous remercions de votre intérêt pour le programme Azure Certified Device. Ce programme est votre source unique permettant de facilement différencier, promouvoir et trouver des appareils IoT conçus pour s’exécuter sur Azure. Des caméras intelligentes aux capteurs connectés à l’infrastructure de périphérie, ce programme de certification des appareils IoT améliorés aide les fabricants d’appareils à accroître la visibilité de leurs produits et permet aux clients de créer des solutions plus rapidement.
+Nous vous remercions de votre intérêt pour le programme Azure Certified Device. Azure Certified Device est un programme gratuit qui vous permet de différencier, certifier et promouvoir vos appareils IoT conçus pour s’exécuter sur Azure. Des caméras intelligentes aux capteurs connectés à l’infrastructure de périphérie, ce programme de certification des appareils IoT améliorés aide les fabricants d’appareils à accroître la visibilité de leurs produits et permet aux clients de créer des solutions plus rapidement.
 
 ## <a name="our-certification-promise"></a>Notre promesse de certification
 
@@ -58,7 +58,10 @@ La certification d’un appareil implique plusieurs étapes majeures sur le [por
 1. Validez les fonctionnalités de l’appareil.
 1. Soumettez et terminez le processus d’évaluation
 
-Une fois votre appareil certifié, vous pouvez effectuer les deux opérations suivantes :
+> [!Note]
+> Le processus d’évaluation peut prendre jusqu’à une semaine, et parfois durer plus longtemps.
+
+Une fois votre appareil certifié, vous pouvez effectuer les deux opérations suivantes : 
 
 1. Publication sur le catalogue Azure Certified Device (facultatif)
 1. Mise à jour de votre projet après approbation/publication (facultatif)
@@ -68,4 +71,4 @@ Une fois votre appareil certifié, vous pouvez effectuer les deux opérations su
 Vous êtes prêt à initier votre certification ? Consultez les ressources ci-dessous pour démarrer le processus de certification de l’appareil !
 
 - [Lancement du processus de certification](tutorial-00-selecting-your-certification.md)
-- Si vous avez des questions supplémentaires ou souhaitez formuler des commentaires, contactez [l’équipe Azure Certified Device](mailto:iotcert@microsoft.com).
+- Si vous avez d’autres questions ou souhaitez formuler des commentaires, contactez [l’équipe Azure Certified Device](mailto:iotcert@microsoft.com).

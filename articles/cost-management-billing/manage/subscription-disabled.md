@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: d7b5f1ae6db633bd1af10b1a0de1392c2a1fbcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: aad194babdf539584f3e349e8050105ed801bbf0
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685530"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331733"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Réactivation d’un abonnement Azure désactivé
 
@@ -23,7 +23,7 @@ Votre abonnement Azure peut être désactivé suite à l’arrivée à expiratio
 
 ## <a name="your-credit-is-expired"></a>Votre crédit a expiré
 
-Quand vous vous inscrivez pour obtenir un compte gratuit Azure, vous obtenez un abonnement d’essai gratuit qui fournit 200 $ de crédits Azure pour 30 jours et 12 mois de services gratuits. Au bout des 30 jours, Azure désactive votre abonnement. Votre abonnement est désactivé pour vous protéger contre tout risque d’encourir accidentellement des frais d’utilisation dépassant le crédit et les services gratuits inclus dans votre abonnement. Pour continuer à utiliser les services Azure, vous devez [mettre à niveau votre abonnement](upgrade-azure-subscription.md). Une fois la mise à niveau effectuée, votre abonnement a toujours accès aux services gratuits pendant 12 mois. Vous ne payez que pour l’utilisation ne couvrant pas les limites de quantités de services gratuits.
+Quand vous vous inscrivez pour obtenir un compte gratuit Azure, vous bénéficiez d’un abonnement d’essai gratuit qui vous octroie un crédit Azure équivalent à 200 dollars US dans votre devise de facturation pendant 30 jours et pour 12 mois de services gratuits. Au bout des 30 jours, Azure désactive votre abonnement. Votre abonnement est désactivé pour vous protéger contre tout risque d’encourir accidentellement des frais d’utilisation dépassant le crédit et les services gratuits inclus dans votre abonnement. Pour continuer à utiliser les services Azure, vous devez [mettre à niveau votre abonnement](upgrade-azure-subscription.md). Une fois la mise à niveau effectuée, votre abonnement a toujours accès aux services gratuits pendant 12 mois. Vous ne payez que pour l’utilisation ne couvrant pas les limites de quantités de services gratuits.
 
 ## <a name="you-reached-your-spending-limit"></a>Vous avez atteint votre limite de dépense
 

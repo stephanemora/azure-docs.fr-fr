@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b832e7b8aef92e14435ba78303bfc26a9a14e23
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93131018"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108180443"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -29,7 +29,7 @@ Si votre application locale utilise l’authentification basée SAML, vous pouve
 Effectuez les actions suivantes :
 
 - Intégrez l’application à l’aide de SAML, comme le décrit la page [Configuration de l’authentification unique SAML](../manage-apps/configure-saml-single-sign-on.md). Notez soigneusement la valeur de **l’URL de connexion** utilisée.
--  Utilisez le Proxy d’application Azure AD pour publier l’application locale, avec **Azure Active Directory** configuré comme source d’authentification. Pour des instructions, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](../manage-apps/application-proxy-add-on-premises-application.md). 
+-  Utilisez le Proxy d’application Azure AD pour publier l’application locale, avec **Azure Active Directory** configuré comme source d’authentification. Pour des instructions, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](../app-proxy/application-proxy-add-on-premises-application.md). 
 
    Lorsque vous configurez **l’URL interne**, utilisez l’URL de connexion indiquée dans le modèle d’application ne figurant pas dans la galerie. De cette façon, les utilisateurs peuvent accéder à l’application depuis l’extérieur de l’organisation. Le Proxy d’application exécute l’authentification unique SAML pour l’application locale.
  
@@ -39,7 +39,7 @@ Effectuez les actions suivantes :
 
 Pour fournir aux utilisateurs B2B l’accès aux applications locales sécurisées avec l’Authentification Windows intégrée et la délégation contrainte Kerberos, vous avez besoin des composants suivants :
 
-- **Authentification via le Proxy d’application Azure AD**. Les utilisateurs B2B doivent être en mesure de s’authentifier sur l’application locale. Pour ce faire, vous devez publier l’application locale via le proxy d’application Azure AD. Pour plus d’informations, consultez [Didacticiel : Ajouter des applications locales pour un accès à distance via le service Proxy d’application](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Authentification via le Proxy d’application Azure AD**. Les utilisateurs B2B doivent être en mesure de s’authentifier sur l’application locale. Pour ce faire, vous devez publier l’application locale via le proxy d’application Azure AD. Pour plus d’informations, consultez [Didacticiel : Ajouter des applications locales pour un accès à distance via le service Proxy d’application](../app-proxy/application-proxy-add-on-premises-application.md).
 - **Autorisation via un objet utilisateur B2B dans le répertoire local**. L’application doit être en mesure d’effectuer des contrôles d’accès utilisateur et d’accorder l’accès aux ressources appropriées. Pour finaliser cette autorisation, IWA et KCD exigent un objet utilisateur dans l’annuaire Windows Server Active Directory. Comme décrit dans [Fonctionnement de l’authentification unique avec KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), le Proxy d’application a besoin de cet objet utilisateur pour emprunter l’identité de l’utilisateur et obtenir un jeton Kerberos pour l’application. 
 
    > [!NOTE]

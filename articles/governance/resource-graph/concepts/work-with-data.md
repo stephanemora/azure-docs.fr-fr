@@ -1,15 +1,15 @@
 ---
 title: Utiliser de grands jeux de données
 description: Découvrez comment obtenir, mettre en forme, paginer et ignorer des enregistrements dans des jeux de données volumineux quand vous utilisez Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 822539b595e5a2d5e19b08a8131c25b45810de4d
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917688"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324290"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -67,7 +67,7 @@ Dans l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resou
 S’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements plus petits à des fins de traitement ou parce que le jeu de résultats dépasse la valeur maximale autorisée de _1000_ enregistrements retournés, utilisez une pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
 **QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**. **resultTruncated** est une valeur booléenne qui informe le consommateur s’il existe davantage d’enregistrements non retournés dans la réponse. Cette condition peut également être identifiée lorsque la valeur de la propriété **count** est inférieure à celle de la propriété **totalRecords**. La valeur **totalRecords** définit le nombre d’enregistrements correspondant à la requête.
 
- **resultTruncated** a pour valeur **true** quand la pagination est désactivée ou qu’elle est impossible en raison de l’absence de colonne `id` ou de l’insuffisance de ressources pour l’exécution d’une requête. Quand la valeur **resultTruncated** est **true**, la propriété **$skipToken** n’est pas définie.
+**resultTruncated** a pour valeur **true** quand la pagination est désactivée ou qu’elle est impossible en raison de l’absence de colonne `id` ou de l’insuffisance de ressources pour l’exécution d’une requête. Quand la valeur **resultTruncated** est **true**, la propriété **$skipToken** n’est pas définie.
 
 Les exemples suivants montrent comment **ignorer** (skip) les 3 000 premiers enregistrements et retourner les 1 000 **premiers** (first) enregistrements suivants avec Azure CLI et Azure PowerShell :
 

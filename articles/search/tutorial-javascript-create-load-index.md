@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: 0fd28262f4a4b852386fa354037e69c5097109c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef48074c5346374b12eb5a3a3aea50b2c753a082
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104723482"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950295"
 ---
 # <a name="2---create-and-load-search-index-with-javascript"></a>2 - Créer et charger un index de recherche avec JavaScript
 
@@ -61,14 +61,14 @@ Le script utilise le Kit de développement logiciel (SDK) Azure pour Recherche c
 * [Package npm @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * [Documentation de référence](/javascript/api/overview/azure/search-documents-readme)
 
-1. Dans Visual Studio Code, ouvrez le fichier `bulk_insert_books.js` dans le sous-répertoire `search-web/bulk-insert` et remplacez les variables suivantes par vos propres valeurs pour vous authentifier auprès du Kit de développement logiciel (SDK) Azure Search :
+1. Dans Visual Studio Code, ouvrez le fichier `bulk_insert_books.js` dans le sous-répertoire `search-website/bulk-insert` et remplacez les variables suivantes par vos propres valeurs pour vous authentifier auprès du Kit de développement logiciel (SDK) Azure Search :
 
     * VOTRE-NOM-DE-RESSOURCE-DE-RECHERCHE
     * VOTRE CLÉ-ADMINISTRATION-DE-RECHERCHE
 
     :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
 
-1. Ouvrez un terminal intégré dans Visual Studio pour le sous-répertoire du répertoire du projet, `search-web/bulk-insert`, puis exécutez la commande suivante pour installer les dépendances. 
+1. Ouvrez un terminal intégré dans Visual Studio pour le sous-répertoire du répertoire du projet, `search-website/bulk-insert`, puis exécutez la commande suivante pour installer les dépendances. 
 
     ```bash
     npm install 
@@ -76,7 +76,7 @@ Le script utilise le Kit de développement logiciel (SDK) Azure pour Recherche c
 
 ## <a name="run-the-bulk-import-script-for-search"></a>Exécuter le script d’importation en bloc pour la recherche
 
-1. Continuez à utiliser le terminal intégré dans Visual Studio pour le sous-répertoire du répertoire du projet, `search-web/bulk-insert`, pour exécuter la commande bash suivante afin d’exécuter le script `bulk_insert_books.js` :
+1. Continuez à utiliser le terminal intégré dans Visual Studio pour le sous-répertoire du répertoire du projet, `search-website/bulk-insert`, pour exécuter la commande bash suivante afin d’exécuter le script `bulk_insert_books.js` :
 
     ```javascript
     npm start

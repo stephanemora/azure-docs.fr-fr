@@ -1,18 +1,18 @@
 ---
 title: Copier et transformer des données dans Stockage Blob Azure
 description: Découvrez comment copier des données vers et depuis un stockage Blob, et comment transformer les données dans un stockage Blob en utilisant Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: c1e0dffafafa76e90ec57ce1a00fb8e155ff4edf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7f3880b74fe570410d24b28752f5b3d4068d978d
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608093"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481388"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -47,7 +47,7 @@ Pour l’activité Copy, ce connecteur de stockage d’objets blob prend en char
 
 ## <a name="get-started"></a>Bien démarrer
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Azure Data Factory spécifiques au stockage Blob.
 
@@ -325,7 +325,7 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour le stockage d’objets blob Azure sous les paramètres `location` dans un jeu de données basé sur un format :
 
@@ -369,7 +369,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="blob-storage-as-a-source-type"></a>Stockage Blob en tant que type de source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour le stockage d’objets blob Azure sous les paramètres `storeSettings` dans une source de copie basée sur un format :
 
@@ -440,7 +440,7 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 
 ### <a name="blob-storage-as-a-sink-type"></a>Stockage Blob en tant que type de récepteur
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)] 
 
 Les propriétés suivantes sont prises en charge pour le stockage d’objets blob Azure sous les paramètres `storeSettings` dans un récepteur de copie basé sur un format :
 

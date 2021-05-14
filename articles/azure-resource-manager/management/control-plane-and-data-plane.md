@@ -3,12 +3,12 @@ title: Opérations du plan de contrôle et du plan de données
 description: Décrit la différence entre les opérations du plan de contrôle et du plan de données. Les opérations du plan de contrôle sont gérées par Azure Resource Manager. Les opérations de plan de données sont gérées par un service.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 76304c81a1af1eef87d12cfd4130867851a61d28
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40bb3291e4eec589c88bcd6ffd0f94a718ce8d1f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544092"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132086"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Plan de contrôle et plan de données Azure
 
@@ -33,7 +33,7 @@ Toutes les requêtes d’opérations de plan de contrôle sont envoyées à l’
 * Pour Azure Allemagne, l’URL est `https://management.microsoftazure.de/`.
 * Pour Microsoft Azure China 21Vianet, l’URL est `https://management.chinacloudapi.cn`.
 
-Pour découvrir quelles opérations utilisent l’URL Azure Resource Manager, consultez [l’API REST Azure](/rest/api/azure/). Par exemple, [l’opération de création ou de mise à jour](/rest/api/mysql/databases/createorupdate) pour MySQL est une opération de plan de contrôle, car l’URL de la demande est :
+Pour découvrir quelles opérations utilisent l’URL Azure Resource Manager, consultez [l’API REST Azure](/rest/api/azure/). Par exemple, [l’opération de création ou de mise à jour](/rest/api/mysql/flexibleserver(preview)/servers/update) pour MySQL est une opération de plan de contrôle, car l’URL de la demande est :
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
@@ -52,7 +52,7 @@ Le plan de contrôle comprend deux scénarios pour la gestion des requêtes : �
 
 ## <a name="data-plane"></a>Plan de données
 
-Les demandes d’opérations du plan de données sont envoyées à un point de terminaison spécifique à votre instance. Par exemple, [Détecter l’opération de langage](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection) dans Cognitive Services est une opération du plan de données, car l’URL de la demande est :
+Les demandes d’opérations du plan de données sont envoyées à un point de terminaison spécifique à votre instance. Par exemple, [Détecter l’opération de langage](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md) dans Cognitive Services est une opération du plan de données, car l’URL de la demande est :
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

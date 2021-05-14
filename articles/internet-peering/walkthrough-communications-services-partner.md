@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: gatharej
-ms.openlocfilehash: ff6750883a904ff5ddbddd3ddfd1ed82e72aebbc
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 4c4e3e2331ce334fbdd1c273fecd899bcd24612b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498856"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124560"
 ---
 # <a name="azure-internet-peering-for-communications-services-walkthrough"></a>Procédure pas à pas de peering Internet Azure pour services de communication
 
@@ -47,7 +47,7 @@ Pour établir une interconnexion directe à l’aide d’un peering Internet Azu
 
 Si l’homologue a déjà associé son ASN public à un abonnement Azure, ignorez cette étape.
 
-[Associer l’ASN public de l’homologue à l’abonnement Azure à l’aide du portail – Azure | Microsoft Docs](https://docs.microsoft.com/azure/internet-peering/howto-subscription-association-portal)
+[Associer l’ASN public de l’homologue à l’abonnement Azure à l’aide du portail – Azure | Microsoft Docs](./howto-subscription-association-portal.md)
 
 L’étape suivante consiste à créer une connexion de peering directe pour le Peering Service.
 
@@ -56,7 +56,7 @@ L’étape suivante consiste à créer une connexion de peering directe pour le 
 
 **2. Créez une connexion de peering direct pour Peering Service :**
 
-Suivez les instructions pour [Créer ou modifier un peering direct en utilisant le portail](https://docs.microsoft.com/azure/internet-peering/howto-direct-portal)
+Suivez les instructions pour [Créer ou modifier un peering direct en utilisant le portail](./howto-direct-portal.md)
 
 Veillez à ce qu’il réponde aux exigences de haute disponibilité.
 
@@ -83,10 +83,10 @@ Utilisation pour les services de peering : **Activé**
   **2a. Utilisez une connexion de peering direct existante pour les services de peering**
 
 Si vous disposez d’un peering direct que vous souhaitez utiliser pour prendre en charge Peering Service, vous pouvez l’activer sur le portail Azure.
-1.  Suivez les instructions pour [Convertir un Peering direct existant en ressource Azure en utilisant le portail](https://docs.microsoft.com/azure/internet-peering/howto-legacy-direct-portal).
+1.  Suivez les instructions pour [Convertir un Peering direct existant en ressource Azure en utilisant le portail](./howto-legacy-direct-portal.md).
 Si nécessaire, commandez des circuits supplémentaires pour répondre à l’exigence de haute disponibilité.
 
-2.  Suivez les étapes pour [Activer Peering Service](https://docs.microsoft.com/azure/internet-peering/howto-peering-service-portal) sur un peering direct à l’aide du portail.
+2.  Suivez les étapes pour [Activer Peering Service](./howto-peering-service-portal.md) sur un peering direct à l’aide du portail.
 
 
 
@@ -94,7 +94,7 @@ Si nécessaire, commandez des circuits supplémentaires pour répondre à l’ex
 **3. Inscrivez vos préfixes pour un routage optimisé**
 
 Pour optimiser le routage de vos préfixes d’infrastructure de services de communication, vous devez inscrire tous vos préfixes auprès de vos interconnexions de peering.
-[Inscrire Azure Peering Service – Portail Azure | Microsoft Docs](https://docs.microsoft.com/azure/peering-service/azure-portal)
+[Inscrire Azure Peering Service – Portail Azure | Microsoft Docs](../peering-service/azure-portal.md)
 
 La clé préfixe étant automatiquement remplie pour les partenaires de service de communication, le partenaire n’a pas besoin d’utiliser une clé préfixe pour s’inscrire. 
 
@@ -141,4 +141,4 @@ Vérifiez que les préfixes en cours d’inscription sont annoncés sur les inte
 
 **Q.** Pouvez-vous utiliser des API pour l’intégration ?
 
-**A.** Il n’existe actuellement aucune prise en charge de l’API et la configuration doit être effectuée via le portail web. 
+**A.** Il n’existe actuellement aucune prise en charge de l’API et la configuration doit être effectuée via le portail web.

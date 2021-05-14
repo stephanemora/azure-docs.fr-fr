@@ -3,14 +3,14 @@ title: Navigateurs et appareils pris en charge pour le portail Azure
 description: Vous pouvez utiliser le portail Azure sur tous les appareils modernes et avec les versions les plus récentes de navigateurs. Consultez cet article pour vous assurer que votre navigateur est pris en charge.
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 05/06/2021
 ms.custom: accessibility
-ms.openlocfilehash: 2637dd6112d1cf1f9a3131cb9043a8b6aac2884f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75d763b3249bb0a95b260bcdcba83d44581fed1f
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735824"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481334"
 ---
 # <a name="supported-devices"></a>Appareils pris en charge
 
@@ -23,7 +23,6 @@ Si vous devez gérer des ressources Azure à partir d'un appareil mobile, essaye
 Nous vous recommandons d’utiliser le navigateur le plus récent compatible avec votre système d’exploitation. Les opérateurs suivants sont pris en charge :
 
 * Microsoft Edge (dernière version)
-* Internet Explorer 11 (pris en charge jusqu’au 31 mars 2021)
 * Safari (dernière version, Mac uniquement)
 * Chrome (version la plus récente)
 * Firefox (version la plus récente)

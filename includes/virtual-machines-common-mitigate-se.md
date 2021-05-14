@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: a9146099951aba223a7b201c1613e1ec0ba617d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95e4474924d32eca848d4dcb0e7028f328cb59c1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96509466"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108157674"
 ---
 **Dernière mise à jour du document** : 12 novembre 2019, 10 h 00 PST.
 
@@ -108,7 +108,7 @@ Si la sortie comporte `MDS mitigation is enabled: False`, [contactez le support 
 **Étape 3** : Pour activer la fonctionnalité Kernel Virtual Address Shadowing (KVAS), ou copie shadow d’adresse virtuelle du noyau, et la prise en charge de système d’exploitation Branch Target Injection (BTI), suivez les instructions figurant dans l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour activer la protection à l’aide des clés de registre `Session Manager`. Un redémarrage est nécessaire.
 
 
-**Étape 4** : Pour les déploiements qui utilisent la [virtualisation imbriquée](../articles/virtual-machines/windows/nested-virtualization.md) (D3 et E3 uniquement) : ces instructions s’appliquent à la machine virtuelle que vous utilisez comme hôte Hyper-V.
+**Étape 4** : Pour les déploiements qui utilisent la [virtualisation imbriquée](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) (D3 et E3 uniquement) : ces instructions s’appliquent à la machine virtuelle que vous utilisez comme hôte Hyper-V.
 
 1.  Suivez les instructions de l’article [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) pour activer les protections via les clés de Registre `MinVmVersionForCpuBasedMitigations`.
 2.  Définissez le type de planificateur d’hyperviseur sur `Core` en suivant les instructions fournies [ici](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).

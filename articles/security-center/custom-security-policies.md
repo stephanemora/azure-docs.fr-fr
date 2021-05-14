@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1231d4b14d4beb2b4e167b3e7572428ec99c8e54
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441055"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140278"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Créer des stratégies et des initiatives de sécurité personnalisées
 
@@ -90,7 +90,7 @@ Concepts importants utilisés dans Azure Policy :
 
 - Une **affectation** est l’application d’une initiative ou d’une stratégie à une étendue spécifique (groupe d’administration, abonnement, etc.) 
 
-Security Center dispose d’une initiative intégrée, Azure Security Benchmark, qui inclut toutes ses stratégies de sécurité. Pour évaluer les stratégies de Security Center sur vos ressources Azure, vous devez créer une affectation sur le groupe d’administration ou un abonnement que vous voulez évaluer.
+Security Center dispose d’une initiative intégrée, [Azure Security Benchmark](/security/benchmark/azure/introduction), qui inclut toutes ses stratégies de sécurité. Pour évaluer les stratégies de Security Center sur vos ressources Azure, vous devez créer une affectation sur le groupe d’administration ou un abonnement que vous voulez évaluer.
 
 L’initiative intégrée a toutes les stratégies de Security Center activées par défaut. Vous pouvez choisir de désactiver certaines stratégies de l’initiative intégrée. Par exemple, pour appliquer toutes les stratégies de Security Center à l’exception de **Pare-feu d’application web**, changez la valeur du paramètre d’effet de la stratégie à **Désactivé**.
 

@@ -99,13 +99,13 @@
     - name: Sécurité
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
-    - name: Attributs de sécurité
-      href: ./security-baseline.md
+          href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
     - name: BFD via ExpressRoute
       href: expressroute-bfd.md
     - name: Configuration requise QoS
       href: expressroute-qos.md
+    - name: "Routage du trafic Microsoft\_365 via ExpressRoute"
+      href: using-expressroute-for-microsoft365.md
     - name: Haute disponibilité - Conception
       href: designing-for-high-availability-with-expressroute.md
     - name: Reprise d’activité - Conception
@@ -144,6 +144,8 @@
           href: expressroute-howto-add-ipv6-powershell.md
     - name: Surveillance
       items:
+        - name: Insights réseau
+          href: expressroute-network-insights.md
         - name: 'Supervision, métriques et alertes ExpressRoute'
           href: expressroute-monitoring-metrics-alerts.md
         - name: Configurer Network Performance Monitor pour ExpressRoute
@@ -209,7 +211,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network#expressroute
     - name: Azure CLI
-      href: /cli/azure/network/express-route
+      href: /cli/azure/azure-cli-reference-for-network
     - name: REST
       href: /rest/api/expressroute/
     - name: REST (Classic)

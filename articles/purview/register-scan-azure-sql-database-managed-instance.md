@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: a30980ba61a1dfec918dce1a55e78f1be2a36dd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aaca73d71731ee18eb8f12468ec26ece746f1b8f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677873"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288361"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Inscrire et analyser une instance Azure SQL Database Managed Instance
 
@@ -87,7 +87,7 @@ Vous pouvez utiliser un principal de service existant ou en créer un nouveau.
 Le principal de service ou l’identité managée doivent avoir l’autorisation d’obtenir des métadonnées pour la base de données, les schémas et les tables. Ils doivent également être en mesure d’interroger les tables à échantillonner pour la classification.
 - [Configurer et gérer l’authentification Azure AD avec Azure SQL](../azure-sql/database/authentication-aad-configure.md)
 - Créez un utilisateur Azure AD dans Azure SQL Database Managed Instance en suivant les conditions préalables et le tutoriel [Créer des utilisateurs à relation contenant-contenu mappés à des identités Azure AD](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities).
-- Affectez l’autorisation `db_owner` (**recommandée**) à l’identité.
+- Attribuer l’autorisation `db_datareader` à l’identité
 
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Ajouter le principal de service aux informations d’identification de Purview et du coffre de clés
 
@@ -103,7 +103,7 @@ Il est nécessaire d’obtenir l’ID d’application et le secret du principal 
 1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme **secret client** de votre principal de service.
 1. Sélectionnez **Créer** pour terminer.
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. Enfin, [créez de nouvelles informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse.
+1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Inscrire une source de données Azure SQL Database Managed Instance
 

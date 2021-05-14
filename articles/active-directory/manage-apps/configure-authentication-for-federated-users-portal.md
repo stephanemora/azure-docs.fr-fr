@@ -12,12 +12,12 @@ ms.date: 02/12/2021
 ms.author: iangithinji
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1af80979a4712f6d25d994835128f9d5d2205f42
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d4dc415d4ce7b32c1581618c7a351110af8edaa3
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534739"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108160760"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -39,16 +39,16 @@ L’utilisateur est dirigé vers l’un des fournisseurs d’identité suivants 
 
 ## <a name="auto-acceleration"></a>Accélération automatique
 
-Certaines organisations configurent des domaines dans leur locataire Azure Active Directory pour le fédérer avec un autre fournisseur d’identité, tel qu’AD FS, pour l’authentification des utilisateurs.  
+Certaines organisations configurent des domaines dans leur locataire Azure Active Directory pour le fédérer avec un autre fournisseur d’identité, tel qu’AD FS, pour l’authentification des utilisateurs.
 
 Quand un utilisateur se connecte à une application, il se voit d’abord présenter une page de connexion Azure AD. Après avoir entré son UPN, s’il se trouve dans un domaine fédéré, il est alors dirigé vers la page de connexion de l’IdP desservant ce domaine. Dans certaines circonstances, les administrateurs peuvent vouloir diriger les utilisateurs vers la page de connexion quand ils se connectent à des applications spécifiques.
 
-En conséquence, les utilisateurs peuvent ignorer la page Azure Active Directory initiale. Ce processus est dénommée « accélération automatique de la connexion ».
+En conséquence, les utilisateurs peuvent ignorer la page Azure Active Directory initiale. Ce processus est dénommé « accélération automatique de la connexion ».
 
 Dans les cas où le locataire est fédéré avec un autre fournisseur d’identité pour la connexion, l’accélération automatique simplifie la connexion de l’utilisateur.  Vous pouvez configurer l’accélération automatique pour des applications individuelles.
 
->[!NOTE]
->Si vous configurez une application pour l’accélération automatique, les utilisateurs ne peuvent pas utiliser les informations d’identification gérées (telles que FIDO) et les utilisateurs invités ne peuvent pas se connecter. Si vous dirigez un utilisateur directement vers un fournisseur d’identité fédéré pour l’authentification, il lui est impossible de revenir à la page de connexion Azure Active Directory. Les utilisateurs invités, qui doivent éventuellement être dirigés vers d’autres locataires ou un fournisseur d’identité externe tel qu’un compte Microsoft, ne peuvent pas se connecter à cette application, car ils ignorent l’étape de la découverte du domaine d’accueil.  
+> [!NOTE]
+> Si vous configurez une application pour l’accélération automatique, les utilisateurs ne peuvent pas utiliser les informations d’identification gérées (telles que FIDO) et les utilisateurs invités ne peuvent pas se connecter. Si vous dirigez un utilisateur directement vers un fournisseur d’identité fédéré pour l’authentification, il lui est impossible de revenir à la page de connexion Azure Active Directory. Les utilisateurs invités, qui doivent éventuellement être dirigés vers d’autres locataires ou un fournisseur d’identité externe tel qu’un compte Microsoft, ne peuvent pas se connecter à cette application, car ils ignorent l’étape de la découverte du domaine d’accueil.
 
 Il existe trois façons de contrôler l’accélération automatique vers un fournisseur d’identité :
 
@@ -58,7 +58,7 @@ Il existe trois façons de contrôler l’accélération automatique vers un fou
 
 ### <a name="domain-hints"></a>Indications de domaine
 
-Les indications de domaine sont des directives qui sont incluses dans la demande d’authentification émise par une application. Elles peuvent servir à accélérer l’utilisateur vers la page de connexion de son fournisseur d’identité fédéré. Ou elles peuvent être utilisées par une application multilocataire pour accélérer l’utilisateur directement vers la page de connexion Azure AD personnalisée pour son locataire.  
+Les indications de domaine sont des directives qui sont incluses dans la demande d’authentification émise par une application. Elles peuvent servir à accélérer l’utilisateur vers la page de connexion de son fournisseur d’identité fédéré. Ou elles peuvent être utilisées par une application multilocataire pour accélérer l’utilisateur directement vers la page de connexion Azure AD personnalisée pour son locataire.
 
 Par exemple, l’application « largeapp.com » peut permettre à ses clients d’accéder à l’application depuis une URL « contoso.largeapp.com » personnalisée. L’application peut également inclure une indication de domaine pour contoso.com dans la demande d’authentification.
 
@@ -75,20 +75,20 @@ Par défaut, Azure AD tente de rediriger la connexion vers le fournisseur d’id
 - Une indication de domaine est incluse dans la demande d’authentification de l’application **et**
 - Le locataire est fédéré avec ce domaine.
 
-Si l’indication de domaine ne fait pas référence à un domaine fédéré vérifié, elle est ignorée.
+Si l'indication de domaine ne fait pas référence à un domaine fédéré vérifié, elle est ignorée.
 
 Pour plus d’informations sur l’accélération automatique à l’aide des indications de domaine qui sont prises en charge par Azure Active Directory, consultez le [blog Enterprise Mobility + Security](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
->[!NOTE]
->Si une indication de domaine est incluse dans une requête d’authentification et [doit être respectée](#home-realm-discovery-policy-to-prevent-auto-acceleration), sa présence remplace toute accélération automatique définie pour l’application dans la stratégie de découverte du domaine d’accueil.
+> [!NOTE]
+> Si une indication de domaine est incluse dans une requête d’authentification et [doit être respectée](#home-realm-discovery-policy-to-prevent-auto-acceleration), sa présence remplace toute accélération automatique définie pour l’application dans la stratégie de découverte du domaine d’accueil.
 
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Stratégie de découverte du domaine d’accueil pour l’accélération automatique
 
-Certaines applications n’offrent pas la possibilité de configurer la demande d’authentification qu’elles émettent. Dans ces cas, il est impossible d’utiliser des indications de domaine pour contrôler l’accélération automatique. Vous pouvez configurer l’accélération automatique par le biais d’une stratégie de découverte du domaine d’accueil pour obtenir le même comportement.  
+Certaines applications n’offrent pas la possibilité de configurer la demande d’authentification qu’elles émettent. Dans ce cas, il est impossible d'utiliser des indications de domaine pour contrôler l'accélération automatique. Vous pouvez configurer l’accélération automatique par le biais d’une stratégie de découverte du domaine d’accueil pour obtenir le même comportement.
 
 ### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>Stratégie de découverte du domaine d’accueil pour empêcher l’accélération automatique
 
-Certaines applications Microsoft et SaaS incluent automatiquement des indications de domaine (par exemple, `https://outlook.com/contoso.com` génère une demande de connexion avec l’ajout de `&domain_hint=contoso.com`), ce qui peut perturber le déploiement d’informations d’identification gérées telles que FIDO.  Vous pouvez utiliser la [stratégie de découverte du domaine d’accueil](/graph/api/resources/homeRealmDiscoveryPolicy) pour ignorer les indications de domaine de certaines applications ou pour certains domaines, pendant le déploiement des informations d’identification gérées.  
+Certaines applications Microsoft et SaaS incluent automatiquement des indications de domaine (par exemple, `https://outlook.com/contoso.com` génère une demande de connexion avec l’ajout de `&domain_hint=contoso.com`), ce qui peut perturber le déploiement d’informations d’identification gérées telles que FIDO.  Vous pouvez utiliser la [stratégie de découverte du domaine d’accueil](/graph/api/resources/homeRealmDiscoveryPolicy) pour ignorer les indications de domaine de certaines applications ou pour certains domaines, pendant le déploiement des informations d’identification gérées.
 
 ## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Activer l’authentification ROPC directe des utilisateurs fédérés pour les applications héritées
 
@@ -109,21 +109,21 @@ Il existe trois étapes de définition de la stratégie de découverte du domain
 
 Les stratégies prennent effet pour une application spécifique uniquement lorsqu’elles sont attachées à un principal de service.
 
-Une seule stratégie de découverte du domaine d’accueil peut être active sur un principal de service à tout moment.  
+Une seule stratégie de découverte du domaine d’accueil peut être active sur un principal de service à tout moment.
 
 Vous pouvez utiliser les cmdlets PowerShell Azure Active Directory pour créer et gérer la stratégie de découverte du domaine d’accueil.
 
 Voici un exemple de définition de la stratégie de découverte du domaine d’accueil :
 
- ```JSON
-   {  
-    "HomeRealmDiscoveryPolicy":
-    {  
+```json
+{  
+  "HomeRealmDiscoveryPolicy":
+  {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
     "AllowCloudPasswordValidation":false,    
-    }
-   }
+  }
+}
 ```
 
 Le type de stratégie est « [HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy) ».
@@ -174,13 +174,13 @@ Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des s
 
 2. Une fois que vous avez téléchargé les applets de commande Azure AD PowerShell, exécutez la commande Connect pour vous connecter à Azure AD avec votre compte d’administrateur :
 
-    ``` powershell
+    ```powershell
     Connect-AzureAD -Confirm
     ```
 
 3. Exécutez la commande suivante pour afficher toutes les stratégies dans votre organisation :
 
-    ``` powershell
+    ```powershell
     Get-AzureADPolicy
     ```
 
@@ -198,25 +198,25 @@ Dans cet exemple, vous créez une stratégie qui, lorsqu’elle est assignée à
 
 La stratégie suivante accélère automatiquement les utilisateurs vers un écran de connexion AD FS quand ils se connectent à une application lorsque votre client comporte un seul domaine.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 La stratégie suivante accélère automatiquement les utilisateurs vers un écran de connexion AD FS quand il existe plusieurs domaines fédérés dans votre client. Si vous avez plusieurs domaines fédérés qui authentifient les utilisateurs pour les applications, vous devez spécifier le domaine pour l’accélération automatique.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Pour créer une stratégie pour activer l’authentification du nom d’utilisateur/mot de passe pour les utilisateurs fédérés directement avec Azure Active Directory pour des applications spécifiques, exécutez la commande suivante :
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet**, exécutez la commande ci-après :
 
-``` powershell
+```powershell
 Get-AzureADPolicy
 ```
 
@@ -230,7 +230,7 @@ Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](/gr
 
 Étant donné que vous utilisez PowerShell, vous pouvez utiliser l’applet de commande suivante pour lister les principaux de service et leurs identifiants.
 
-``` powershell
+```powershell
 Get-AzureADServicePrincipal
 ```
 
@@ -238,19 +238,19 @@ Get-AzureADServicePrincipal
 
 Une fois que vous avez **l’ID d’objet** du principal de service de l’application pour laquelle vous souhaitez configurer l’accélération automatique, exécutez la commande suivante. Cette commande associe la stratégie de découverte du domaine d’accueil que vous avez créée à l’étape 1 au principal de service que vous avez localisé à l’étape 2.
 
-``` powershell
+```powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 ```
 
 Vous pouvez répéter cette commande pour chaque principal de service auquel vous souhaitez ajouter la stratégie.
 
-Dans le cas où une stratégie HomeRealmDiscovery est déjà affectée à une application, vous ne pourrez pas en ajouter une deuxième.  Dans ce cas, modifiez la définition de la stratégie de découverte du domaine d’accueil affectée à l’application pour ajouter des paramètres supplémentaires.
+Dans le cas où une stratégie HomeRealmDiscovery est déjà attribuée à une application, vous ne pouvez pas en ajouter une deuxième.  Dans ce cas, modifiez la définition de la stratégie de découverte du domaine d’accueil affectée à l’application pour ajouter des paramètres supplémentaires.
 
 #### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Étape 4 : Vérifier les principaux de service d’application auxquels votre stratégie de découverte du domaine d’accueil est affectée
 
 Pour déterminer les applications pour lesquelles la stratégie de découverte du domaine d’accueil est configurée, utilisez l’applet de commande **Get-AzureADPolicyAppliedObject**. Passez-lui **l’ID d’objet** de la stratégie sur laquelle porte la vérification.
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
@@ -262,15 +262,15 @@ Testez l’application pour vérifier que la nouvelle stratégie fonctionne.
 
 #### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Étape 1 : Répertorier toutes les stratégies créées dans votre organisation
 
-``` powershell
+```powershell
 Get-AzureADPolicy
 ```
 
 Notez **l’ID d’objet** de la stratégie dont vous souhaitez répertorier les affectations.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Étape 2 : Répertorier les principaux de service auxquels la stratégie est affectée  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Étape 2 : Répertorier les principaux de service auxquels la stratégie est affectée
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
@@ -280,15 +280,15 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 
 Utilisez l’exemple précédent pour obtenir **l’ID d’objet** de la stratégie et celui du principal de service d’application dont vous souhaitez la supprimer.
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Étape 2 : Supprimer l’affectation de stratégie du principal de service d’application  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Étape 2 : Supprimer l’affectation de stratégie du principal de service d’application
 
-``` powershell
+```powershell
 Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Étape 3 : Vérifier la suppression en listant les principaux de service auxquels la stratégie est affectée
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 

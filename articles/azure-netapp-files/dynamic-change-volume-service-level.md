@@ -12,19 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 05/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 7b5bbad1f0691f76c12f161d1dd1f9d6ddc43270
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d75bd3580f66d7948d28b0d9ff34e247bc51c6b5
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184319"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795021"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Changer dynamiquement le niveau de service d’un volume
-
-> [!IMPORTANT] 
-> La modification dynamique du niveau de service d’un volume de destination de réplication n’est pas prise en charge actuellement.
 
 Vous pouvez modifier le niveau de service d’un volume existant en déplaçant le volume vers un autre pool de capacité qui utilise le [niveau de service](azure-netapp-files-service-levels.md) souhaité pour le volume. Cette modification sur place du niveau du service pour le volume ne nécessite pas de migration des données. Elle n’affecte pas non plus l’accès au volume.  
 
@@ -42,6 +39,8 @@ Le pool de capacité vers lequel vous souhaitez déplacer le volume doit déjà 
 
 La fonctionnalité de déplacement d’un volume vers un autre pool de capacité est actuellement disponible en préversion. Si vous utilisez cette fonctionnalité pour la première fois, vous devez d’abord l’inscrire.
 
+Si vous avez plusieurs abonnements Azure, vérifiez que vous vous inscrivez à l’abonnement voulu à l’aide de la commande [« Set-AzContext »](/powershell/module/az.accounts/set-azcontext). <!-- GitHub #74191 --> 
+
 1. Inscrivez la fonctionnalité : 
 
     ```azurepowershell-interactive
@@ -51,7 +50,7 @@ La fonctionnalité de déplacement d’un volume vers un autre pool de capacité
 2. Vérifiez l’état d’inscription de la fonctionnalité : 
 
     > [!NOTE]
-    > **RegistrationState** peut être à l’état `Registering` pendant plusieurs minutes, et jusqu’à 60 minutes, avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
+    > **RegistrationState** peut rester à l’état `Registering` jusqu’à 60 minutes avant de passer à l’état `Registered`. Avant de continuer, attendez que l’état soit **Inscrit**.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange

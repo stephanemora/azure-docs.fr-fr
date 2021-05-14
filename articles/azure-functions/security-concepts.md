@@ -3,12 +3,12 @@ title: Sécurisation d’Azure Functions
 description: Découvrez comment exécuter votre code de fonction dans Azure à partir d’attaques courantes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e667cd8509e73624d7ef14d978480897d6636f0
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368487"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202314"
 ---
 # <a name="securing-azure-functions"></a>Sécurisation d’Azure Functions
 
@@ -42,7 +42,7 @@ Par défaut, les clients peuvent se connecter à des applications web en utilisa
 
 Lorsque vous avez besoin d’un protocole HTTPS, vous devez également disposer de la dernière version de TLS. Pour en savoir plus, consultez [Enforce TLS versions (Renforcer les versions TLS)](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
 
-Pour plus d’informations, consultez l’article dédié à la [sécurité de la couche de transport (TLS)](../app-service/overview-security.md#https-and-certificates).
+Pour plus d’informations, consultez [Connexions sécurisées (TLS)](../app-service/overview-security.md#https-and-certificates).
 
 ### <a name="function-access-keys"></a>Clé d’accès aux fonctions
 

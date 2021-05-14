@@ -3,18 +3,18 @@ title: 'Tutoriel : Trouver une route vers une position | Microsoft Azure Maps'
 description: Tutoriel expliquant comment trouver une route vers un point d’intérêt. Découvrez comment définir des coordonnées d’adresse et interroger le service Route d’Azure Maps pour obtenir des itinéraires vers ce point.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/01/2020
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 1f1647766eeae917f7a2266ebb8f00fdfab3452e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 222f54157732013309532a1ab38f3f2f8747908e
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102210577"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326522"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutoriel : Comment afficher les directions de route à l’aide du service Route Azure Maps et du contrôle de carte
 

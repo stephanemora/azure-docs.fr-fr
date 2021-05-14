@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: 254f5909e7ed8db4dc18ade2677a3213b268cf41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ad91b00c14744ab1f0cbb414defeaffb85559fe
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97511261"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127787"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurer BFD sur ExpressRoute
 
@@ -76,7 +76,7 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 - [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-bfd/BFD_Need.png "BFD accélère les temps de détection des défaillances des liaisons"
+[1]: ./media/expressroute-bfd/bfd-need.png "BFD accélère les temps de détection des défaillances des liaisons"
 
 <!--Link References-->
 [CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md

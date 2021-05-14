@@ -1,56 +1,65 @@
 ### YamlMime:Landing
 title: Documentation sur les solutions des partenaires validés Stockage Azure
-summary: Les solutions des partenaires validés pour le Stockage Azure permettent d’avoir des scénarios avancés sur la plateforme de stockage Azure.
+summary: Les solutions des partenaires validés pour le Stockage Azure permettent d’avoir des scénarios avancés reposant sur le Stockage Azure.
 metadata:
   title: Solutions des partenaires validés Stockage Azure
-  description: Les solutions des partenaires validés pour le Stockage Azure permettent d’avoir des scénarios avancés sur la plateforme de stockage Azure.
+  description: Les solutions des partenaires validés pour le Stockage Azure permettent d’avoir des scénarios avancés reposant sur le Stockage Azure.
   services: storage
   ms.service: storage
+  ms.subservice: partner
   ms.topic: landing-page
   ms.collection: collection
   author: beber-msft
   ms.author: beber
-  ms.date: 12/08/2020
-  ms.openlocfilehash: 2e9a2ac1e8d33020a94c2c783d3d695a459fcea5
-  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.date: 03/15/2021
+  ms.openlocfilehash: c1a80811c53d26028a7c3f0585bdc0cbc7c126e0
+  ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/03/2021
-  ms.locfileid: "101742677"
+  ms.lasthandoff: 05/07/2021
+  ms.locfileid: "109482036"
 landingContent:
-- title: Partenaires Azure Storage Analytics et Big Data
+- title: Partenaires Analytics et Big Data
   linkLists:
   - linkListType: overview
     links:
-    - text: Partenaires Azure Storage Analytics validés
+    - text: Partenaires d’analytique validés
       url: .\validated-partners\analytics\partner-overview.md
-- title: Partenaires Azure Storage Archive, Sauvegarde et BCDR
+- title: Partenaires d’archivage, de sauvegarde et de continuité/reprise d’activité (BCDR)
   linkLists:
   - linkListType: overview
     links:
-    - text: Partenaires Azure Storage Archive et BCDR validés
+    - text: Archive validée et partenaires BCDR
       url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
-  - linkListType: quickstart
+  - linkListType: get-started
     links:
-    - text: Guide de démarrage rapide Commvault
+    - text: Guide de démarrage de Commvault
       url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
-    - text: Guide de démarrage rapide Veeam
+    - text: Guide de démarrage de Veeam
       url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
-- title: Partenaires de solutions de conteneurs de stockage Azure
+    - text: Guide de démarrage de DobiProtect
+      url: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
+- title: Partenaires de solutions de conteneurs
   linkLists:
   - linkListType: overview
     links:
-    - text: Partenaires de solutions de conteneurs de stockage Azure validés
+    - text: Partenaires de solutions de conteneurs validés
       url: .\validated-partners\container-solutions\partner-overview.md
-- title: Partenaires de gestion et de migration de données Stockage Azure
+- title: Partenaires de gestion et de migration de données
   linkLists:
   - linkListType: overview
     links:
-    - text: Partenaires de gestion et de migration de données Stockage Azure validés
+    - text: Partenaires de gestion et de migration des données validés
       url: .\validated-partners\data-management\partner-overview.md
-- title: Partenaires de stockage principal et secondaire Stockage Azure
+    - text: Comparaison des outils de migration
+      url: ./validated-partners/data-management/migration-tools-comparison.md
+  - linkListType: get-started
+    links:
+    - text: Guide de démarrage de DobiMigrate
+      url: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
+- title: Partenaires de stockage principal et secondaire
   linkLists:
   - linkListType: overview
     links:
-    - text: Partenaires de stockage principal et secondaire Stockage Azure validés
+    - text: Partenaires validés pour le stockage principal et secondaire
       url: .\validated-partners\primary-secondary-storage\partner-overview.md

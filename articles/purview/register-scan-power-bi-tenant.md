@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 402618872c5a3ee8dd01c35021656312f1fe3371
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695740"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228439"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Inscrire et analyser un locataire Power BI (préversion)
 
@@ -70,15 +70,9 @@ Pour configurer l’authentification, créez un groupe de sécurité et ajoutez-
 
 Maintenant que vous avez accordé à l’identité managée Purview les autorisations nécessaires pour se connecter à l’API d’administration de votre locataire Power BI, vous pouvez configurer votre analyse à partir du Azure Purview Studio.
 
-Tout d’abord, ajoutez un indicateur de fonctionnalité spécial à votre URL Purview. 
+1. Sélectionnez **Sources** dans le volet de navigation de gauche.
 
-1. Sélectionnez l’icône **Centre de gestion**.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Icône du centre de gestion.":::
-
-1. Sélectionnez ensuite **+ Nouveau** dans **Sources de données**.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/data-sources.png" alt-text="Image du bouton de nouvelle source de données":::
+1. Sélectionnez ensuite **Inscription**.
 
     Sélectionnez **Power BI** comme source de données.
 
@@ -105,6 +99,7 @@ Tout d’abord, ajoutez un indicateur de fonctionnalité spécial à votre URL P
     > [!Note]
     > * Le changement de la configuration d’une analyse pour inclure ou exclure un espace de travail personnel déclenche l’analyse complète de la source Power BI
     > * Le nom de l’analyse doit comporter entre 3 et 63 caractères, et contenir uniquement des lettres minuscules, des chiffres, des traits de soulignement et des traits d’union. Les espaces ne sont pas autorisés.
+    > * Le schéma n’est pas disponible sous l’onglet Schéma.
 
 5. Configurez un déclencheur d’analyse. Les options disponibles sont **Une fois**, **Tous les 7 jours** et **Tous les 30 jours**.
 

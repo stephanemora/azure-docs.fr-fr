@@ -4,19 +4,19 @@ description: Découvrez comment modifier la délégation de domaine et les serve
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.date: 2/19/2019
+ms.date: 04/19/2021
 ms.author: rohink
 ms.topic: conceptual
-ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4753b07cc2f3ccd998c26a3392eb08c8761dd6f7
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76939048"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738843"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Délégation de zones DNS dans Azure DNS
 
-Azure DNS vous permet d’héberger une zone DNS et de gérer les enregistrements DNS pour un domaine dans Azure. Pour que les requêtes DNS d’un domaine atteignent Azure DNS, le domaine doit être délégué à Azure DNS à partir du domaine parent. GardeN’oubliez pas qu’Azure DNS n’est pas le bureau d’enregistrement de domaines. Cet article explique le fonctionnement de la délégation de domaine et indique comment déléguer des domaines à Azure DNS.
+Azure DNS vous permet d’héberger une zone DNS et de gérer les enregistrements DNS pour un domaine dans Azure. Pour que les requêtes DNS d’un domaine atteignent Azure DNS, le domaine doit être délégué à Azure DNS à partir du domaine parent. N’oubliez pas qu’Azure DNS n’est pas le bureau d’enregistrement de domaines. Cet article explique le fonctionnement de la délégation de domaine et indique comment déléguer des domaines à Azure DNS.
 
 ## <a name="how-dns-delegation-works"></a>Fonctionnement de la délégation DNS
 
@@ -68,4 +68,3 @@ Chaque délégation a en fait deux copies des enregistrements NS : une dans la z
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [déléguer votre domaine à Azure DNS](dns-delegate-domain-azure-dns.md).
-

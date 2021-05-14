@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: 0231f7f3882218ef88d6151488da6aa23e4cb8e4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 4ac0cc618ec03d844c73961dcdb66f7357ce60f2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106685"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783780"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
@@ -38,7 +38,7 @@ Dans cet article, vous allez apprendre à transférer les journaux vers un espac
 
 ## <a name="deployment-overview"></a>Vue d’ensemble du déploiement
 
-Azure AD B2C tire parti de la [supervision Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Pour activer les *Paramètres de diagnostic* dans Azure Active Directory au sein de votre locataire Azure AD B2C, vous utilisez [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) pour [déléguer une ressource](../lighthouse/concepts/azure-delegated-resource-management.md), ce qui permet à votre Azure AD B2C (le **Fournisseur de services**) de gérer une ressource Azure AD (le **Client**). Une fois que vous avez terminé la procédure de cet article, vous avez accès au groupe de ressources *azure-ad-b2c-monitor* qui contient l’[espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md) dans votre portail **Azure AD B2C**. Vous pouvez également transférer les journaux d’Azure AD B2C vers votre espace de travail Log Analytics.
+Azure AD B2C tire parti de la [supervision Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Pour activer les *Paramètres de diagnostic* dans Azure Active Directory au sein de votre locataire Azure AD B2C, vous utilisez [Azure Lighthouse](../lighthouse/overview.md) pour [déléguer une ressource](../lighthouse/concepts/architecture.md), ce qui permet à votre Azure AD B2C (le **Fournisseur de services**) de gérer une ressource Azure AD (le **Client**). Une fois que vous avez terminé la procédure de cet article, vous avez accès au groupe de ressources *azure-ad-b2c-monitor* qui contient l’[espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md) dans votre portail **Azure AD B2C**. Vous pouvez également transférer les journaux d’Azure AD B2C vers votre espace de travail Log Analytics.
 
 Pendant ce déploiement, vous allez autoriser un utilisateur ou un groupe de votre annuaire Azure AD B2C à configurer l’instance de l’espace de travail Log Analytics au sein du locataire qui contient votre abonnement Azure. Pour créer l’autorisation, vous déployez un modèle [Azure Resource Manager](../azure-resource-manager/index.yml) sur votre locataire Azure AD contenant l’abonnement.
 
@@ -259,7 +259,7 @@ Le classeur affiche des rapports sous la forme d’un tableau de bord.
 
 ## <a name="create-alerts"></a>Créez des alertes
 
-Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuvent exécuter automatiquement des requêtes enregistrées ou des recherches personnalisées dans les journaux à intervalles réguliers. Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée. Par exemple, les alertes peuvent permettre de vous avertir lorsque le nombre moyen de connexions dépasse un certain seuil. Pour plus d’informations, consultez [Créer des alertes](../azure-monitor/alerts/tutorial-response.md).
+Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuvent exécuter automatiquement des requêtes enregistrées ou des recherches personnalisées dans les journaux à intervalles réguliers. Vous pouvez créer des alertes sur la base de métriques de performances spécifiques ou quand certains événements sont créés, quand un événement fait défaut ou quand un certain nombre d’événements sont créés dans une fenêtre de temps donnée. Par exemple, les alertes peuvent permettre de vous avertir lorsque le nombre moyen de connexions dépasse un certain seuil. Pour plus d’informations, consultez [Créer des alertes](../azure-monitor/alerts/alerts-log.md).
 
 
 Suivez les instructions ci-dessous pour créer une alerte Azure, qui enverra une [notification par courrier électronique](../azure-monitor/alerts/action-groups.md#configure-notifications) lors de chaque baisse de 25 % du **Nombre total de demandes** par rapport à la période précédente. L’alerte s’exécute toutes les 5 minutes et recherche la baisse dans la fenêtre des 24 dernières heures. Les alertes sont créées à l’aide du langage de requête Kusto.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 08b22af8743082bab1d547205e51917cb9d92a11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66ed42b79e4f6b5bac7fcb76b95a04257a437daf
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695768"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733151"
 ---
 # <a name="supported-data-stores"></a>Magasins de données pris en charge
 
@@ -36,6 +36,34 @@ Purview prend en charge les banques de données suivantes. Cliquez sur chaque ba
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Oui| Oui| Non| Non| Non| Oui|
 |Services et applications|[SAP ECC](register-scan-sapecc-source.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Oui| Oui| Non| Oui| Oui| Oui|
+
+## <a name="scan-regions"></a>Analyser des régions
+Voici une liste de toutes les régions de la source de données Azure (centre de données) sur lesquelles l’analyseur Purview s’exécute. Si votre source de données Azure se trouve dans une région qui ne figure pas dans cette liste, l’analyseur s’exécutera dans la région de votre instance de Purview.
+ 
+### <a name="purview-scanner-regions"></a>Régions de l’analyseur Purview
+
+- EastUs
+- EastUs2 
+- SouthCentralUS
+- WestUs
+- WestUs2
+- AsieSudEst
+- WestEurope
+- NorthEurope
+- UkSouth
+- AustraliaEast
+- CanadaCentral
+- BrazilSouth
+- CentralIndia
+- JaponEst
+- SouthAfricaNorth
+- FranceCentral
+- KoreaCentral
+- CentralUS
+- NorthCentralUS
+- EastAsia
+- USACentreOuest
+- AustralieSudEst
 
 ## <a name="next-steps"></a>Étapes suivantes
 

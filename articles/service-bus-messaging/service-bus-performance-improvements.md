@@ -4,18 +4,73 @@ description: Explique comment utiliser Service Bus pour optimiser les performanc
 ms.topic: article
 ms.date: 03/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d4093d93da11e992ed9e6558a5386eb88f417ef9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 19c365a233a2dafc98fb91e340717ba998616891
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967759"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904691"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
 Cet article décrit comment utiliser Azure Service Bus pour optimiser les performances lors de l’échange de messages répartis. La première partie de cet article décrit les différents mécanismes pour améliorer les performances. La deuxième partie fournit des conseils sur l’utilisation de Service Bus des services visant à offrir des performances optimales dans un scénario donné.
 
 Dans cet article, le terme « client » fait référence à une entité qui accède à Service Bus. Un client peut jouer le rôle d’un expéditeur ou d’un destinataire. Le terme « expéditeur » est utilisé pour un client de file d’attente ou de rubrique Service Bus qui envoie des messages à une file d’attente ou une rubrique Service Bus. Le terme « destinataire » fait référence à un client de file d’attente ou d’abonnement de Bus de Service qui reçoit des messages de la part d’une file d’attente ou d’un abonnement Service Bus.
+
+## <a name="resource-planning-and-considerations"></a>Planification et considérations relatives aux ressources
+
+Comme pour toute ressource technique, une planification prudente est essentielle pour garantir qu’Azure Service Bus fournit les performances attendues par votre application. La configuration ou la topologie adéquate pour vos espaces de noms Service Bus dépend d’une multitude de facteurs impliquant l’architecture de votre application et la façon dont chacune des fonctionnalités de Service Bus est utilisée.
+
+### <a name="pricing-tier"></a>Niveau tarifaire
+
+Service Bus propose plusieurs niveaux tarifaires. Il est recommandé de choisir le niveau approprié pour les besoins de votre application.
+
+   * **Niveau standard** : Adapté aux environnements de développement et de test ou aux scénarios à faible débit où les applications ne sont **pas sensibles** à la limitation.
+
+   * **Niveau Premium** : Adapté aux environnements de production avec des exigences de débit variables où la latence et le débit doivent être prévisibles. En outre, les espaces de noms Premium de Service Bus peuvent être [mis à l’échelle automatiquement](automate-update-messaging-units.md) pour s’adapter aux pics de débit.
+
+> [!NOTE]
+> Si vous ne choisissez pas le niveau approprié, il existe un risque de saturation de l’espace de noms Service Bus, ce qui peut entraîner une [limitation](service-bus-throttling.md).
+>
+> La limitation n’entraîne pas la perte de données. Les applications tirant parti du Kit de développement logiciel (SDK) Service Bus peuvent utiliser la stratégie de nouvelles tentatives par défaut pour s’assurer que les données sont finalement acceptées par Service Bus.
+>
+
+### <a name="calculating-throughput-for-premium"></a>Calcul du débit pour le niveau Premium
+
+Les données envoyées à Service Bus sont sérialisées en binaire, puis désérialisées lorsqu’elles sont reçues par le destinataire. Ainsi, tandis que les applications considèrent les **messages** comme des unités atomiques de travail, Service Bus mesure le débit en octets (ou mégaoctets).
+
+Pour calculer le débit requis, tenez compte des données envoyées à Service Bus (entrée) et des données reçues de Service Bus (sortie).
+
+Comme prévu, le débit est plus élevé lorsque les charges utiles des messages sont plus petites et peuvent être regroupées.
+
+#### <a name="benchmarks"></a>Benchmarks
+
+Voici un [exemple GitHub](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) que vous pouvez exécuter pour voir le débit attendu pour votre espace de noms Service Bus. Dans nos [tests de point de référence](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), nous avons observé environ 4 Mo/s par unité de messagerie (MU) d’entrée et de sortie.
+
+L’exemple de point de référence n’utilise pas de fonctionnalités avancées, le débit observé par vos applications est donc différent selon vos scénarios.
+
+#### <a name="compute-considerations"></a>Considérations relatives à la capacité de calcul
+
+L’utilisation de certaines fonctionnalités de Service Bus peut nécessiter une utilisation du calcul qui peut diminuer le débit attendu. Voici quelques-unes de ces fonctionnalités :
+
+1. Sessions
+2. Extension à plusieurs abonnements sur une même rubrique
+3. Exécution de nombreux filtres sur un abonnement unique
+4. Messages planifiés
+5. Messages reportés
+6. Transactions
+7. Déduplication et fenêtre de temps des périodes passées
+8. Transfert à (transfert d’une entité à une autre)
+
+Si votre application utilise l’une des fonctionnalités ci-dessus et que vous ne recevez pas le débit attendu, vous pouvez examiner les métriques d’**utilisation de l’UC** et envisager d’effectuer un scale-up de votre espace de noms Service Bus Premium.
+
+Vous pouvez également utiliser Azure Monitor pour [mettre automatiquement à l’échelle l’espace de noms Service Bus](automate-update-messaging-units.md).
+
+### <a name="sharding-across-namespaces"></a>Partitionnement entre les espaces de noms
+
+Bien que le scale-up du calcul (unités de messagerie) alloué à l’espace de noms soit une solution plus facile, il **ne peut pas** fournir une augmentation linéaire du débit. Cela est dû aux éléments internes de Service Bus (stockage, réseau, etc.) qui peuvent limiter le débit.
+
+Dans ce cas, la solution la plus propre consiste à partition vos entités (files d’attente et rubriques) dans différents espaces de noms Service Bus Premium. Vous pouvez également envisager de partitionner vos entités sur différents espaces de noms dans différentes régions Azure.
 
 ## <a name="protocols"></a>Protocoles
 Service Bus permet aux clients d’envoyer et de recevoir des messages par le biais de l’un des trois protocoles suivants :

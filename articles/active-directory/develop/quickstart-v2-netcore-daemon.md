@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1b539c168deab7c1893f071a2453be28310fc132
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a31bf345f523eea940be5d56495890e8ab5c6dbd
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022923"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107861640"
 ---
 # <a name="quickstart-get-a-token-and-call-the-microsoft-graph-api-by-using-a-console-apps-identity"></a>Démarrage rapide : acquérir un jeton et appeler l’API Microsoft Graph à partir d’une de l’identité de l’application d’une console
 
@@ -32,7 +32,7 @@ Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple d
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce guide de démarrage rapide nécessite [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core), mais fonctionne également avec .NET Core 5.0.
+Ce guide de démarrage rapide nécessite le [SDK .NET Core 3.1](https://dotnet.microsoft.com/download), mais fonctionne également avec le SDK .NET 5.0.
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-the-app"></a>Inscrire et télécharger l’application

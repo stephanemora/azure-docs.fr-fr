@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 8811a30d2d0d6a31ff722e7f470b7e7bc38c4158
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 77ccfa08d5e2076a83c5a11df3ce6caf597c2d2f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877363"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134858"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Utiliser le stockage persistant dans Azure Spring Cloud
 
@@ -86,5 +86,5 @@ Autres opérations :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez les [quotas d’applications et de services](spring-cloud-quotas.md).
-* Découvrez comment [mettre à l’échelle manuellement votre application](spring-cloud-howto-scale-manual.md).
+* Découvrez les [quotas d’applications et de services](./quotas.md).
+* Découvrez comment [mettre à l’échelle manuellement votre application](./how-to-scale-manual.md).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 374fa4db4441dc82f9d14eef9cdd7589a9a82fad
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305971"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108126846"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -53,7 +53,7 @@ L’évaluation continue de l’accès est implémentée en permettant à des se
 Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches SharePoint Online de l’organisation, ainsi qu’à Teams à partir d’applications clientes Microsoft 365 quelques minutes après la survenance de l’un de ces événements critiques. 
 
 > [!NOTE] 
-> Les équipes ne prennent pas encore en charge les événements à risque pour les utilisateurs.
+> Teams et SharePoint Online ne prennent pas encore en charge les événements à risque.
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Évaluation de la stratégie d’accès conditionnel (préversion)
 
@@ -130,8 +130,12 @@ Dans l’exemple suivant, un administrateur d’accès conditionnel a configuré
 1. Connectez-vous au **portail Azure** en tant qu’administrateur de l’accès conditionnel, administrateur de la sécurité ou administrateur général.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Évaluation continue de l’accès**.
 1. Choisissez **Activer la préversion**.
+1. Sélectionnez **Enregistrer**.
 
 À partir de cette page, vous pouvez limiter les utilisateurs et les groupes bénéficiaire de la préversion.
+
+> [!WARNING]
+> Pour désactiver l’évaluation continue de l’accès, sélectionnez **Activer l’aperçu**, puis **Désactiver l’aperçu** et sélectionnez **Enregistrer**.
 
 ![Activation de la préversion de l’évaluation continue de l’accès dans le portail Azure](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 

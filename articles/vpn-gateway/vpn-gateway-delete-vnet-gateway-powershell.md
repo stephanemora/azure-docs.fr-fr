@@ -1,25 +1,25 @@
 ---
-title: 'Passerelle VPN Azure : Supprimer une passerelle : PowerShell'
-description: Supprimez une passerelle de réseau virtuel avec PowerShell dans le modèle de déploiement Resource Manager.
+title: 'Supprimer une passerelle de réseau virtuel : PowerShell'
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment supprimer une passerelle de réseau virtuel à l’aide de PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 48e0998719ea19c0b360b50d8c9171d2b448ad19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8d31ef18fb0963ac789f9edd9ff8059c7d1ab7b
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89440760"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290937"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Supprimer une passerelle de réseau virtuel avec PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (classique)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
->
 >
 
 Deux approches sont possibles afin de supprimer une passerelle de réseau virtuel pour une configuration de passerelle VPN.

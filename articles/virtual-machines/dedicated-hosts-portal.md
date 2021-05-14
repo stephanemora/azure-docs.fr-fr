@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: 3bc7909f38e63256d7d708ec189c628662cf8837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b10e281c20703f563fb2e0d3929ee936b094f26
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667327"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753450"
 ---
-# <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Déployer des machines virtuelles et des groupes identiques sur des hôtes dédiés à l'aide du portail 
+# <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Déployer des machines virtuelles et des groupes identiques sur des hôtes dédiés à l'aide du portail
 
-Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles. 
+Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles.
 
 
 ## <a name="limitations"></a>Limites
@@ -26,18 +26,18 @@ Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.
 
 ## <a name="create-a-host-group"></a>Créer un groupe hôte
 
-Un **groupe hôte** est une ressource qui représente une collection d’hôtes dédiés. Vous créez un groupe hôte dans une région et une zone de disponibilité, et lui ajoutez des hôtes. Lors de la planification de la haute disponibilité, vous pouvez accéder à des options supplémentaires. Vous pouvez utiliser l’une des options suivantes, ou les deux, avec vos hôtes dédiés : 
+Un **groupe hôte** est une ressource qui représente une collection d’hôtes dédiés. Vous créez un groupe hôte dans une région et une zone de disponibilité, et lui ajoutez des hôtes. Lors de la planification de la haute disponibilité, vous pouvez accéder à des options supplémentaires. Vous pouvez utiliser l’une des options suivantes, ou les deux, avec vos hôtes dédiés :
 - Application sur plusieurs zones de disponibilité. Dans ce cas, vous devez disposer d’un groupe hôte dans chacune des zones que vous souhaitez utiliser.
-- Application sur plusieurs domaines d’erreur mappés à des racks physiques. 
- 
-Dans les deux cas, vous devez fournir le nombre de domaines d’erreur pour votre groupe hôte. Si vous ne souhaitez pas appliquer plusieurs domaines d’erreur dans votre groupe, utilisez un seul domaine d’erreur. 
+- Application sur plusieurs domaines d’erreur mappés à des racks physiques.
 
-Vous pouvez également choisir d’utiliser des zones de disponibilité et des domaines d’erreur. 
+Dans les deux cas, vous devez fournir le nombre de domaines d’erreur pour votre groupe hôte. Si vous ne souhaitez pas appliquer plusieurs domaines d’erreur dans votre groupe, utilisez un seul domaine d’erreur.
 
-Dans cet exemple, nous allons créer un groupe hôte en utilisant 1 zone de disponibilité et 2 domaines d’erreur. 
+Vous pouvez également choisir d’utiliser des zones de disponibilité et des domaines d’erreur.
+
+Dans cet exemple, nous allons créer un groupe hôte en utilisant 1 zone de disponibilité et 2 domaines d’erreur.
 
 
-1. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com). 
+1. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com).
 1. Sélectionnez l’option **Créer une ressource**, en haut à gauche du portail.
 1. Recherchez des **groupes hôtes** et sélectionnez **Host Groups** (Groupes hôtes) dans les résultats.
 1. Dans la page **Host Groups** (Groupes hôtes), sélectionnez **Créer**.
@@ -60,7 +60,7 @@ Créez maintenant un hôte dédié dans le groupe hôte. En plus d’un nom pour
 
 Pour en savoir plus sur les références SKU et la tarification des hôtes, consultez la section relative à la [tarification des hôtes dédiés Azure](https://aka.ms/ADHPricing).
 
-Si vous définissez un nombre de domaines d’erreur pour votre groupe hôte, vous êtes invité à spécifier le domaine d’erreur de votre hôte.  
+Si vous définissez un nombre de domaines d’erreur pour votre groupe hôte, vous êtes invité à spécifier le domaine d’erreur de votre hôte.
 
 1. Sélectionnez l’option **Créer une ressource**, en haut à gauche du portail.
 1. Recherchez un **hôte dédié** et sélectionnez **Dedicated Hosts** (Hôtes dédiés) dans les résultats.
@@ -76,7 +76,7 @@ Si vous définissez un nombre de domaines d’erreur pour votre groupe hôte, vo
 
 1. Choisissez **Créer une ressource** en haut à gauche du Portail Azure.
 1. Dans la zone de recherche située au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez l'image que vous souhaitez utiliser, puis choisissez **Créer**.
-1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis sélectionnez *myDedicatedHostsRG* comme **groupe de ressources**. 
+1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis sélectionnez *myDedicatedHostsRG* comme **groupe de ressources**.
 1. Sous **Détails de l’instance**, tapez *myVM* comme **Nom de la machine virtuelle**, puis choisissez *USA Est* comme **Emplacement**.
 1. Dans **Options de disponibilité**, sélectionnez **Zone de disponibilité**, puis sélectionnez *1* dans la liste déroulante.
 1. Pour la taille, sélectionnez **Modifier la taille**. Dans la liste des tailles disponibles, choisissez-en une dans la série Esv3, par exemple **Standard E2s v3**. Vous devrez peut-être effacer le filtre afin d’afficher toutes les tailles disponibles.
@@ -88,7 +88,7 @@ Si vous définissez un nombre de domaines d’erreur pour votre groupe hôte, vo
 
 Quelques minutes sont nécessaires pour le déploiement de votre machine virtuelle.
 
-## <a name="create-a-scale-set"></a>Créer un groupe identique 
+## <a name="create-a-scale-set"></a>Créer un groupe identique
 
 Lorsque vous déployez un groupe identique, vous spécifiez le groupe hôte.
 
@@ -98,11 +98,11 @@ Lorsque vous déployez un groupe identique, vous spécifiez le groupe hôte.
 1. Sous l'onglet **Avancé**, pour **Algorithme de diffusion** sélectionnez **Diffusion maximale**.
 1. Sous **Groupe hôte**, sélectionnez le groupe hôte dans la liste déroulante. Si vous venez de créer le groupe, l'ajout à la liste peut prendre une minute.
 
-## <a name="add-an-existing-vm"></a>Ajouter une machine virtuelle existante 
+## <a name="add-an-existing-vm"></a>Ajouter une machine virtuelle existante
 
 Vous pouvez ajouter une machine virtuelle existante à un hôte dédié, mais la machine virtuelle doit d’abord être arrêtée\libérée. Avant de déplacer une machine virtuelle vers un hôte dédié, vérifiez que la configuration de la machine virtuelle est prise en charge :
 
-- La taille de la machine virtuelle doit appartenir à la même famille de tailles que l’hôte dédié. Par exemple, si votre hôte dédié est DSv3, la taille de la machine virtuelle peut être Standard_D4s_v3, mais pas Standard_A4_v2. 
+- La taille de la machine virtuelle doit appartenir à la même famille de tailles que l’hôte dédié. Par exemple, si votre hôte dédié est DSv3, la taille de la machine virtuelle peut être Standard_D4s_v3, mais pas Standard_A4_v2.
 - La machine virtuelle doit être située dans la même région que l’hôte dédié.
 - La machine virtuelle ne peut pas faire partie d’un groupe de placements de proximité. Supprimez la machine virtuelle du groupe de placements de proximité avant de la déplacer vers un hôte dédié. Pour plus d’informations, consultez [Déplacer une machine virtuelle hors d’un groupe de placements de proximité](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group).
 - La machine virtuelle ne peut pas se trouver dans un groupe à haute disponibilité.
@@ -122,6 +122,6 @@ Déplacez la machine virtuelle vers un hôte dédié à l’aide du [portail](ht
 
 - Pour en savoir plus, voir la page de présentation [Hôtes dédiés](dedicated-hosts.md).
 
-- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
+- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
 
 - Vous pouvez également déployer un hôte dédié à l'aide d'[Azure CLI](./linux/dedicated-hosts-cli.md) ou de [PowerShell](./windows/dedicated-hosts-powershell.md).

@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Documentation sur le proxy d’application Azure Active Directory
+summary: Le proxy d’application Azure Active Directory fournit un accès à distance sécurisé et une sécurité à l’échelle du cloud à vos applications privées.
+metadata:
+  title: Documentation du proxy d’application
+  description: Le proxy d’application Azure Active Directory fournit un accès à distance sécurisé et une sécurité à l’échelle du cloud à vos applications privées.
+  ms.service: active-directory
+  ms.subservice: app-proxy
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 04/27/2021
+  author: kenwith
+  ms.author: kenwith
+  manager: mtillman
+  ms.openlocfilehash: a159d75eee20b10f9f7382044c7ccadb9da384c2
+  ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 04/28/2021
+  ms.locfileid: "108175133"
+landingContent:
+- title: À propos du proxy d’application
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation de Proxy d’application
+      url: what-is-application-proxy.md
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Voir vos applications
+      url: ../manage-apps/view-applications-portal.md
+    - text: Ajouter une application
+      url: ../manage-apps/add-application-portal.md
+- title: Comprendre l’authentification unique
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Concepts de l’authentification unique
+      url: ../manage-apps/what-is-single-sign-on.md
+    - text: Options d’authentification unique
+      url: ../manage-apps/sso-options.md
+- title: Développer de nouvelles applications
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Aide pour les développeurs
+      url: ../develop/v2-howto-app-gallery-listing.md
+    - text: Comprendre la plateforme
+      url: ../develop/v2-overview.md
+- title: Nouveau dans la documentation
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Nouveautés dans la documentation
+      url: whats-new-docs.md

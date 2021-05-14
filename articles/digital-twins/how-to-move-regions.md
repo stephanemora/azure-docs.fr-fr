@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b21915b6cf0cd018ccbf7b79fc9a5ab8dc222925
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102049846"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076080"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Déplacer une instance Azure Digital Twins vers une autre région Azure
 
@@ -81,9 +81,13 @@ Si l’exemple n’est pas en mesure de gérer la taille de votre graphe, vous p
 
 Pour continuer avec Azure Digital Twins Explorer, commencez par télécharger l’exemple de code d’application, puis configurez-le pour qu’il s’exécute sur votre machine.
 
-Pour obtenir l’exemple, consultez [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Sélectionnez le bouton **Télécharger le zip** pour télécharger sur votre ordinateur un fichier .zip de cet exemple de code nommé **Azure_Digital_Twins__ADT__explorer.zip**. Décompressez le fichier.
+Pour obtenir l’exemple, accédez à [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Sélectionnez le bouton **Parcourir le code** sous le titre afin d’accéder au référentiel GitHub de l’exemple. Sélectionnez le bouton **Code** et **Télécharger ZIP** pour télécharger l’exemple sous forme de fichier *.ZIP* sur votre machine.
 
-Ensuite, définissez et configurez les autorisations pour Azure Digital Twins Explorer. Suivez les instructions mentionnées dans la section [Configurer Azure Digital Twins et Azure Digital Twins Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) du guide de démarrage rapide Azure Digital Twins. Cette section vous permet de vous familiariser avec les étapes suivantes :
+:::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Capture d’écran du référentiel digital-twins-explorer sur GitHub. Le bouton Code est sélectionné et une petite boîte de dialogue s’ouvre, dans laquelle le bouton Télécharger ZIP est mis en évidence." lightbox="media/how-to-move-regions/download-repo-zip.png":::
+
+Décompressez le fichier.
+
+Ensuite, définissez et configurez les autorisations pour Azure Digital Twins Explorer. Suivez les instructions mentionnées dans la section [Configurer Azure Digital Twins et Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) du guide de démarrage rapide Azure Digital Twins. Cette section vous permet de vous familiariser avec les étapes suivantes :
 
 1. Configurer une instance Azure Digital Twins. Vous pouvez ignorer cette partie, car vous avez déjà une instance.
 1. Configurer des informations d’identification Azure locales pour fournir l’accès à votre instance.
@@ -91,9 +95,9 @@ Ensuite, définissez et configurez les autorisations pour Azure Digital Twins Ex
 
 L’exemple d’application Azure Digital Twins Explorer doit désormais s’exécuter dans un navigateur sur votre machine. L’exemple doit être connecté à votre instance Azure Digital Twins d’origine.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Fenêtre de navigateur présentant une application exécutée sur localhost:3000. L’application s’appelle Azure Digital Twins Explorer. Elle comprend les zones suivantes : Explorateur de requêtes, Vue du modèle, Vue du graphe et Explorateur de propriétés. Il n’y a pas encore de données à l’écran." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Fenêtre de navigateur présentant une application exécutée sur localhost:3000. L’application s’appelle Azure Digital Twins Explorer. Elle contient les zones suivantes : Explorateur de requêtes, Modèles, Graphique de jumeaux et Propriétés. Il n’y a pas encore de données à l’écran." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-Afin de vérifier la connexion, vous pouvez sélectionner le bouton **Exécuter la requête** pour exécuter la requête par défaut qui affiche tous les jumeaux et les relations du graphe dans la zone **EXPLORATEUR DU GRAPHE**.
+Afin de vérifier la connexion, vous pouvez sélectionner le bouton **Exécuter la requête** pour exécuter la requête par défaut qui affiche tous les jumeaux et les relations du graphique dans la zone **GRAPHIQUE DE JUMEAUX**.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Un bouton nommé Exécuter la requête dans le coin supérieur droit de la fenêtre est mis en évidence." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -103,13 +107,13 @@ Vous pouvez laisser Azure Digital Twins Explorer s’exécuter, car vous allez l
 
 Ensuite, téléchargez les modèles, les jumeaux et le graphe dans votre solution sur votre machine.
 
-Pour télécharger tous ces éléments en même temps, vérifiez d’abord que le graphe complet apparaît dans la section **VUE DU GRAPHE**. Si le graphe complet n’apparaît pas déjà, réexécutez la requête par défaut de `SELECT * FROM digitaltwins` dans la section **EXPLORATEUR DE REQUÊTES**.
+Pour télécharger tous ces éléments en même temps, vérifiez d’abord que le graphique complet apparaît dans la zone **GRAPHIQUE DE JUMEAUX**. Si le graphe complet n’apparaît pas déjà, réexécutez la requête par défaut de `SELECT * FROM digitaltwins` dans la section **EXPLORATEUR DE REQUÊTES**.
  
-Ensuite, sélectionnez l’icône **Exporter le graphe** dans la section **VUE DU GRAPHE**.
+Ensuite, sélectionnez l’icône **Exporter le graphique** dans la zone **GRAPHIQUE DE JUMEAUX**.
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Dans la section Vue du graphe, une icône est mise en évidence. On peut y voir une flèche pointant vers le bas, à partir d’un nuage." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Dans la zone Graphique de jumeaux, une icône est mise en évidence. On peut y voir une flèche pointant vers le bas, à partir d’un nuage." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Cette action active un lien **Télécharger** dans la section **VUE DU GRAPHE**. Sélectionnez-le pour télécharger une représentation JSON du résultat de la requête incluant vos modèles, jumeaux et relations. Cette action doit permettre de télécharger un fichier .json sur votre machine.
+Cette action active un lien **Télécharger** dans la zone **GRAPHIQUE DE JUMEAUX**. Sélectionnez-le pour télécharger une représentation JSON du résultat de la requête incluant vos modèles, jumeaux et relations. Cette action doit permettre de télécharger un fichier .json sur votre machine.
 
 >[!NOTE]
 >Si le fichier téléchargé semble présenter une extension de fichier différente, essayez de modifier l’extension directement en la remplaçant par .json.
@@ -151,15 +155,15 @@ Sélectionnez **Connecter**. Vous serez peut-être amené à vous reconnecter à
 
 À présent, dans votre nouvelle instance, chargez les composants de la solution que vous avez téléchargés précédemment.
 
-Pour charger vos modèles, jumeaux et graphe, sélectionnez l’icône **Importer le graphe** dans la section **VUE DU GRAPHE**. Cette option permet de charger les trois composants en même temps. Elle permet même de charger les modèles qui ne sont pas en cours d’utilisation dans le graphe.
+Pour charger vos modèles, vos jumeaux et votre graphique, sélectionnez l’icône **Importer le graphique** dans la zone **GRAPHIQUE DE JUMEAUX**. Cette option permet de charger les trois composants en même temps. Elle permet même de charger les modèles qui ne sont pas en cours d’utilisation dans le graphe.
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Dans la section Vue du graphe, une icône est mise en évidence. On peut voir une flèche pointant vers un nuage." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Dans la zone Graphique de jumeaux, une icône est mise en évidence. On peut voir une flèche pointant vers un nuage." lightbox="media/how-to-move-regions/import-graph.png":::
 
 Dans la zone de sélection des fichiers, accédez à votre graphe téléchargé. Sélectionnez le fichier **.json** du graphe, puis **Ouvrir**.
 
 Après quelques secondes, Azure Digital Twins Explorer ouvre la vue **Importer** dans laquelle vous pouvez voir un aperçu du graphe à charger.
 
-Pour confirmer le chargement du graphe, sélectionnez l’icône **Enregistrer** située en haut à droite de la section **VUE DU GRAPHE**.
+Pour confirmer le chargement du graphique, sélectionnez l’icône **Enregistrer** en haut à droite de la zone **GRAPHIQUE DE JUMEAUX**.
 
 :::row:::
     :::column:::
@@ -177,17 +181,15 @@ Azure Digital Twins Explorer charge à présent vos modèles et votre graphe (no
     :::column-end:::
     :::column:::
     :::column-end:::
-    :::column:::
-    :::column-end:::
 :::row-end:::
 
-Pour vérifier que tout a été correctement chargé, sélectionnez le bouton **Exécuter la requête** dans la section **EXPLORATEUR DU GRAPHE** pour exécuter la requête par défaut qui affiche l’intégralité des jumeaux et des relations dans le graphe. Cette action actualise aussi la liste des modèles dans la zone **VUE DU MODÈLE**.
+Pour vérifier que tout a été correctement chargé, retournez dans l’onglet **GRAPHIQUE DE JUMEAUX** et sélectionnez le bouton **Exécuter la requête** dans la zone **EXPLORATEUR DE REQUÊTES** pour exécuter la requête par défaut qui affiche l’intégralité des jumeaux et des relations dans le graphique. Cette action actualise aussi la liste des modèles dans la zone **MODÈLES**.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Le bouton Exécuter la requête est mis en évidence dans le coin supérieur droit de la fenêtre." lightbox="media/how-to-move-regions/run-query.png":::
 
-Vous devez voir votre graphe, avec tous ses jumeaux et ses relations affichés dans la zone  **EXPLORATEUR DU GRAPHE**. Vous devez également voir vos modèles listés dans la zone **VUE DU MODÈLE**.
+Vous devez voir votre graphique, avec tous ses jumeaux et toutes ses relations affichés dans la zone **GRAPHIQUE DE JUMEAUX**. Vous devez également voir vos modèles listés dans la zone **MODÈLES**.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Vue d’Azure Digital Twins Explorer mettant en exergue deux modèles dans la zone Vue du modèle et un graphe dans la zone Explorateur du graphe." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Vue d’Azure Digital Twins Explorer mettant en évidence deux modèles dans la zone Modèles et un graphique dans la zone Graphique de jumeaux." lightbox="media/how-to-move-regions/post-upload.png":::
 
 Ces vues confirment que vos modèles, jumeaux et graphe ont été rechargés dans la nouvelle instance de la région cible.
 

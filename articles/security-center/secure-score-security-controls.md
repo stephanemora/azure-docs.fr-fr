@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: 2f5d98dd9bf893065f2bf9c37cbec4384d0f7c94
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 889c79357037afb0d9c83c645e86d05edc0df6f1
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727138"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903755"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -83,7 +83,7 @@ Exemple de recommandation de préversion :
 
 ## <a name="improve-your-secure-score"></a>Améliorer votre score de sécurité
 
-Pour améliorer votre degré de sécurisation, appliquez les recommandations de sécurité qui figurent dans la liste des recommandations. Vous pouvez appliquer chaque recommandation manuellement à chaque ressource, ou à l’aide de l’option **Correction rapide !** (si celle-ci est disponible) pour appliquer rapidement une recommandation à un groupe de ressources. Pour plus d’informations, consultez [Appliquer des recommandations](security-center-remediate-recommendations.md).
+Pour améliorer votre degré de sécurisation, appliquez les recommandations de sécurité qui figurent dans la liste des recommandations. Vous pouvez corriger chaque recommandation manuellement pour chaque ressource ou à l’aide de l’option **Corriger** (si disponible) pour résoudre rapidement un problème sur plusieurs ressources. Pour plus d’informations, consultez [Appliquer des recommandations](security-center-remediate-recommendations.md).
 
 Une autre façon d’améliorer votre score et de vous assurer que vos utilisateurs ne créent pas de ressources ayant un impact négatif sur votre score consiste à configurer les options « Appliquer » et « Refuser » sur les recommandations pertinentes. Pour plus d’informations, consultez [Empêcher des configurations incorrectes à l’aide des recommandations Appliquer/Refuser](prevent-misconfigurations.md).
 

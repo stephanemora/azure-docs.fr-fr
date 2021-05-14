@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2021
 ms.author: Zhchia
-ms.openlocfilehash: d2ab0009f036afa38dc9e401223854a034d45e42
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 385a61b3bda6c75b6fb87a5655fadb45080b7f08
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368448"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124128"
 ---
 # <a name="tutorial-configure-jostle-for-automatic-user-provisioning"></a>Didacticiel : configurer Jostle pour l’approvisionnement automatique d’utilisateurs
 
-Ce tutoriel décrit les étapes à suivre dans Jostle et Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateurs. Une fois configuré, Azure AD approvisionne et déprovisionne automatiquement les utilisateurs et les groupes pour [Jostle](https://www.jostle.me/) à l’aide du service d’approvisionnement Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md). 
+Ce tutoriel décrit les étapes à suivre dans Jostle et Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateurs. Une fois configuré, Azure AD approvisionne et déprovisionne automatiquement les utilisateurs et les groupes pour [Jostle](https://www.jostle.me/) à l’aide du service d’approvisionnement Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
@@ -81,7 +81,7 @@ L’étape suivante consiste à obtenir l’**URL de l’API** et la **clé API*
 1. Ensuite, vous utiliserez l’**URL de l’API** et la **clé API** pour configurer l’intégration dans Azure.
 ## <a name="step-3-add-jostle-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Jostle à partir de la galerie d’applications Azure AD
 
-Ajoutez Jostle à partir de la galerie d’applications Azure AD pour commencer à gérer l’approvisionnement sur Jostle. Si vous avez déjà configuré Jostle pour l’authentification unique (SSO), vous pouvez utiliser la même application. Toutefois, il est recommandé de créer une application distincte lors du test initial de l’intégration. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](../manage-apps/add-gallery-app.md). 
+Ajoutez Jostle à partir de la galerie d’applications Azure AD pour commencer à gérer l’approvisionnement sur Jostle. Si vous avez déjà configuré Jostle pour l’authentification unique (SSO), vous pouvez utiliser la même application. Toutefois, il est recommandé de créer une application distincte lors du test initial de l’intégration. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Étape 4. Définir qui sera dans l’étendue pour l’approvisionnement 
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/22/2021
 ms.author: curtand
-ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 593ec6588e2f55cb9f379dcfac437956bcabc10b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100096070"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951315"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Afficher et rechercher votre activité de connexion récente à partir de la page Mes connexions
 
@@ -29,18 +29,18 @@ Vous pouvez consulter toutes les activités récentes de connexion de votre comp
 >[!Note]
 > Si vous voyez une erreur lors de la connexion avec un compte Microsoft personnel, vous pouvez toujours vous connecter en utilisant le nom de domaine de votre organisation (par exemple, contoso.com) ou l’**ID de locataire** de votre organisation obtenu auprès de votre administrateur dans l’une des URL suivantes :
 >
->   - https://myaccount.microsoft.com?tenantId=*votre_nom_de_domaine*
->   - https://myaccount.microsoft.com?tenant=*votre_ID_de_locataire*
+>   - `https://myaccount.microsoft.com?tenantId=<your_domain_name>`
+>   - `https://myaccount.microsoft.com?tenant=<your_tenant_ID>`
 
 ## <a name="view-your-recent-sign-in-activity"></a>Afficher votre activité de connexion récente
 
 1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myaccount.microsoft.com/.
 
-2. Sélectionnez **Mes connexions** dans le volet de navigation gauche ou sélectionnez le lien **Vérifier l’activité récente** à partir du bloc **Mes connexions**.
+1. Sélectionnez **Mes connexions** dans le volet de navigation gauche ou sélectionnez le lien **Vérifier l’activité récente** à partir du bloc **Mes connexions**.
 
     ![Page Mon compte, avec les liens d’activité récente en surbrillance](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Développez et passez en revue chacun des éléments de connexion, en veillant à reconnaître chacun d’eux. Si vous trouvez un élément de connexion qui ne vous semble pas familier, modifiez votre mot de passe pour protéger votre compte au cas où il serait compromis.
+1. Développez et passez en revue chacun des éléments de connexion, en veillant à reconnaître chacun d’eux. Si vous trouvez un élément de connexion qui ne vous semble pas familier, modifiez votre mot de passe pour protéger votre compte au cas où il serait compromis.
 
     ![Page d’activité récente avec les détails de connexion étendus](media/my-account-portal-sign-ins-page/recent-activity.png)
 
@@ -74,9 +74,51 @@ Les connexions signalées comme des activités inhabituelles peuvent être confi
 
 ![Vignette de connexion inhabituelle pour confirmer que vous êtes ou non à l’origine de la tentative de connexion](media/my-account-portal-sign-ins-page/this-wasnt-me.png)
 
+## <a name="view-sign-in-activity-on-android"></a>Consulter l'activité de connexion sous Android
+
+Chaque fois que vous consultez ou modifiez des informations de sécurité, vous devez vous connecter à votre compte professionnel ou scolaire pour continuer.
+
+1. Ouvrez l'application Microsoft Authenticator et sélectionnez la page d'accueil de votre compte professionnel ou scolaire.
+
+1. Sélectionnez **Activité récente du compte**.
+
+    ![Page d'accueil du compte professionnel ou scolaire sur laquelle apparaît en surbrillance le lien d'accès aux activités de connexion les plus récentes](media/my-account-portal-sign-ins-page/android-recent-activity.png)
+
+1. Si votre connexion aboutit, passez en revue chacune des activités de connexion, en vous assurant que vous les reconnaissez toutes. Si vous trouvez un élément de connexion qui ne vous semble pas familier, modifiez votre mot de passe pour protéger votre compte au cas où il serait compromis.
+
+    ![Page relative à l'activité récente contenant les détails de connexion](media/my-account-portal-sign-ins-page/android-activity-page.png)
+
+## <a name="change-your-password-on-android"></a>Changer votre mot de passe sous Android
+
+Votre administrateur peut vous permettre de réinitialiser votre mot de passe à partir de l'application Authenticator. Chaque fois que vous connectez pour consulter ou modifier des informations de sécurité, vous devez vous connecter à votre compte professionnel ou scolaire pour continuer.
+
+1. Ouvrez l'application Microsoft Authenticator et sélectionnez la page d'accueil de votre compte professionnel ou scolaire.
+
+1. Sélectionnez **Modifier le mot de passe**.
+
+    ![Page d'accueil du compte professionnel ou scolaire sur laquelle apparaît en surbrillance le lien Modifier le mot de passe](media/my-account-portal-sign-ins-page/android-change-password.png)
+
+1. Si votre connexion aboutit, vous pouvez mettre à jour votre mot de passe sur la page **Modifier le mot de passe**.
+
+    ![Page relative à l'activité récente contenant l'ancien et le nouveau mot de passe](media/my-account-portal-sign-ins-page/android-password-page.png)
+
+## <a name="update-security-info-on-android"></a>Mettre à jour les informations de sécurité sous Android
+
+Chaque fois que vous connectez pour consulter ou modifier des informations de sécurité, vous devez vous connecter à votre compte professionnel ou scolaire pour continuer.
+
+1. Ouvrez l'application Microsoft Authenticator et sélectionnez la page d'accueil de votre compte professionnel ou scolaire.
+
+1. Sélectionnez **Mettre à jour les informations de sécurité**.
+
+    ![Page d'accueil du compte professionnel ou scolaire sur laquelle apparaît en surbrillance le lien Mettre à jour les informations de sécurité](media/my-account-portal-sign-ins-page/android-update-security-info.png)
+
+1. Si votre connexion aboutit, vous pouvez mettre à jour vos détails de sécurité sur la page **Informations de sécurité**.
+
+    ![Page relative à l'activité récente contenant les informations de sécurité](media/my-account-portal-sign-ins-page/android-security-info-page.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir consulté votre activité de connexion récente, vous pouvez :
+Après avoir consulté vos informations de connexion récentes, vous pouvez :
 
 - Afficher ou gérer vos [informations de sécurité](./security-info-setup-signin.md).
 

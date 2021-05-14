@@ -1,28 +1,27 @@
 ---
 title: Types et descriptions d’alertes
 description: Consultez les descriptions d’alertes de Defender pour IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 4/8/2021
+ms.date: 04/28/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9ef7aa388d0f25adcafec1cb4a5b38dcfb8597a1
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: bc2adabe4183420f79972d8fd58b132b38864efe
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210463"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226477"
 ---
 # <a name="alert-types-and-descriptions"></a>Types et descriptions d’alertes
 
-Cet article décrit tous les types d’alerte qui peuvent être générés à partir de moteurs Defender pour IoT. Les alertes s’affichent dans la fenêtre Alertes, qui vous permet de gérer les événements d’alerte. 
+Cet article donne des informations sur les alertes qui peuvent être générées à partir de moteurs Defender pour IoT, notamment leur type, leur description et leur gravité. Ces informations peuvent être utilisées pour relier des alertes à des guides opérationnels, définir des règles de transfert, des règles d’exclusion et des alertes personnalisées, et définir les règles appropriées au sein d’un système SIEM. Les alertes s’affichent dans la fenêtre Alertes, qui vous permet de gérer les événements d’alerte. 
 
 ## <a name="policy-engine-alerts"></a>Alertes du moteur de stratégie
 
-Les alertes du moteur de stratégie décrivent des écarts par rapport au comportement de réseau de base appris.
+Les alertes du moteur de stratégie décrivent les écarts détectés par rapport au comportement de base appris.
 
-| Titre  | Description | Gravité |
+>[!NOTE]
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+
+| Intitulé  | Description | Gravité |
 |--|--|--|
 | Utilisation anormale d’adresses MAC | Un nouvel appareil source détecté sur le réseau n’a pas été autorisé. | Secondaire |
 | Logiciel Beckhoff modifié | Le microprogramme a été mis à jour sur un appareil source. Il peut s’agir d’une activité autorisée, par exemple une procédure de maintenance planifiée. | Majeure |
@@ -122,6 +121,8 @@ Les alertes du moteur de stratégie décrivent des écarts par rapport au compor
 
 ## <a name="anomaly-engine-alerts"></a>Alertes du moteur d’anomalies
 
+Les alertes du moteur d’anomalies décrivent les anomalies détectées dans l’activité réseau.
+
 | Titre | Description | Gravité |
 |--|--|--|
 | Modèle d’exception anormale dans l’esclave | Un nombre excessif d’erreurs a été détecté sur un appareil source. Cela peut être dû à un problème opérationnel. | Secondaire |
@@ -150,6 +151,8 @@ Les alertes du moteur de stratégie décrivent des écarts par rapport au compor
 | Trafic inattendu pour un port standard | Du trafic a été détecté sur un appareil à l’aide d’un port réservé pour un autre protocole. | Majeure |
 
 ## <a name="protocol-violation-engine-alerts"></a>Alertes du moteur de violation de protocole
+
+Les alertes du moteur de protocole décrivent les écarts détectés dans la structure de paquets ou les valeurs de champs par rapport aux spécifications de protocole.
 
 | Titre | Description | Gravité |
 |--|--|--|
@@ -181,6 +184,8 @@ Les alertes du moteur de stratégie décrivent des écarts par rapport au compor
 
 ## <a name="malware-engine-alerts"></a>Alertes du moteur de programme malveillant
 
+Les alertes du moteur de programme malveillant décrivent l’activité réseau malveillante détectée.
+
 | Titre | Description| Gravité |
 |--|--|--|
 | Tentative de connexion à une adresse IP malveillante connue | Une activité réseau suspecte a été détectée. Cette activité peut être associée à une attaque exploitant une méthode utilisée par un programme malveillant connu. | Majeure |
@@ -210,6 +215,8 @@ Les alertes du moteur de stratégie décrivent des écarts par rapport au compor
 | Trafic suspect détecté | Une activité réseau suspecte a été détectée. Cette activité peut être associée à une attaque exploitant une méthode utilisée par un programme malveillant connu. | Critique |
 
 ## <a name="operational-engine-alerts"></a>Alertes du moteur opérationnel
+
+Les alertes du moteur opérationnel décrivent les incidents opérationnels détectés, ou les entités défectueuses.
 
 | Titre | Description | Gravité |
 |--|--|--|

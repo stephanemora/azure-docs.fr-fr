@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d89ee4c8e66ba4dda004fbd27e15b96ab13c642b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5aa74920919e7af98368d08bfea892494273f946
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783770"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208632"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Intégrer Azure Digital Twins avec Azure Time Series Insights
 
@@ -23,14 +23,14 @@ La solution décrite dans cet article vous permettra de collecter et d’analyse
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir configurer une relation avec Time Series Insights, vous devez configurer les ressources suivantes :
-* Un **IoT Hub**. Pour obtenir des instructions, consultez la section [*Créer un hub IoT*](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) du démarrage rapide *Envoyer la télémétrie d’IoT Hub*.
+* Un **IoT Hub**. Pour obtenir des instructions, consultez la section [Créer un hub IoT](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) du démarrage rapide *Envoyer la télémétrie d’IoT Hub*.
 * Une **instance d’Azure Digital Twins**.
-Pour obtenir des instructions, consultez [*Procédure : Configurer une instance Azure Digital Twins et l’authentification*](./how-to-set-up-instance-portal.md).
+Pour obtenir des instructions, consultez [Procédure : Configurer une instance Azure Digital Twins et l’authentification](./how-to-set-up-instance-portal.md).
 * Un **modèle et un jumeau dans l’instance Azure Digital Twins**.
-Vous devez mettre à jour les informations du jumeau plusieurs fois pour voir ces données suivies dans Time Series Insights. Pour obtenir des instructions, consultez la section [*Ajouter un modèle et un jumeau*](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) de l’article *Guide pratique : Ingérer IoT Hub*.
+Vous devez mettre à jour les informations du jumeau plusieurs fois pour voir ces données suivies dans Time Series Insights. Pour obtenir des instructions, consultez la section [Ajouter un modèle et un jumeau](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) de l’article *Guide pratique : Ingérer IoT Hub*.
 
 > [!TIP]
-> Dans cet article, les valeurs de jumeau changeantes qui sont affichées dans Time Series Insights sont mises à jour manuellement par souci de simplicité. Toutefois, si vous souhaitez suivre cet article avec des données simulées en temps réel, vous pouvez configurer une fonction Azure qui met à jour les jumeaux en fonction des événements de télémétrie IoT à partir d’un appareil simulé. Pour obtenir des instructions, consultez [*Guide pratique : Ingérer les données d’IoT Hub*](how-to-ingest-iot-hub-data.md), notamment les dernières étapes pour exécuter le simulateur d’appareil et valider le fonctionnement du workflow.
+> Dans cet article, les valeurs de jumeau changeantes qui sont affichées dans Time Series Insights sont mises à jour manuellement par souci de simplicité. Toutefois, si vous souhaitez suivre cet article avec des données simulées en temps réel, vous pouvez configurer une fonction Azure qui met à jour les jumeaux en fonction des événements de télémétrie IoT à partir d’un appareil simulé. Pour obtenir des instructions, consultez [Guide pratique : Ingérer les données d’IoT Hub](how-to-ingest-iot-hub-data.md), notamment les dernières étapes pour exécuter le simulateur d’appareil et valider le fonctionnement du workflow.
 >
 > Plus tard, recherchez un autre conseil pour vous montrer où démarrer l’exécution du simulateur d’appareil et faire en sorte que vos fonctions Azure mettent à jour automatiquement les jumeaux, au lieu d’envoyer des commandes de mise à jour de jumeau manuellement.
 
@@ -49,7 +49,7 @@ Vous allez attacher Time Series Insights à Azure Digital Twins via le chemin d�
 
 ## <a name="create-event-hub-namespace"></a>Créer un espace de noms du hub d’événements
 
-Avant de créer les hubs d’événements, créez d’abord un espace de noms Event Hub, qui recevra les événements de notre instance Azure Digital Twins. Vous pouvez utiliser les instructions Azure CLI ci-dessous ou utiliser le portail Azure : [*Démarrage rapide : Créer un hub d’événements avec le portail Azure*](../event-hubs/event-hubs-create.md). Pour connaître les régions qui prennent en charge Event Hubs, consultez [*Produits Azure disponibles par région*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
+Avant de créer les hubs d’événements, créez d’abord un espace de noms Event Hub, qui recevra les événements de notre instance Azure Digital Twins. Vous pouvez utiliser les instructions Azure CLI ci-dessous ou utiliser le portail Azure : [Démarrage rapide : Créer un hub d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). Pour connaître les régions qui prennent en charge Event Hubs, consultez [Produits Azure disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
 ```azurecli-interactive
 az eventhubs namespace create --name <name-for-your-event-hubs-namespace> --resource-group <your-resource-group> -l <region>
@@ -100,7 +100,7 @@ az dt endpoint create eventhub -n <your-Azure-Digital-Twins-instance-name> --eve
 
 ### <a name="create-twins-hub-event-route"></a>Créer un itinéraire d’événement hub Twins
 
-Les instances Azure Digital Twins peuvent émettre des [événements de mise à jour des jumeaux](how-to-interpret-event-data.md) chaque fois que l’état d’un jumeau est mis à jour. Dans cette section, vous allez créer un **itinéraire d’événement** Azure Digital Twins qui dirigera ces événements de mise à jour vers le hub Twins en vue d’un traitement ultérieur.
+Les instances Azure Digital Twins peuvent émettre des [événements de mise à jour des jumeaux](./concepts-event-notifications.md) chaque fois que l’état d’un jumeau est mis à jour. Dans cette section, vous allez créer un **itinéraire d’événement** Azure Digital Twins qui dirigera ces événements de mise à jour vers le hub Twins en vue d’un traitement ultérieur.
 
 Créez un [itinéraire](concepts-route-events.md#create-an-event-route) dans Azure Digital Twins pour envoyer des événements de mise à jour de jumeaux à votre point de terminaison à partir d’en haut. Le filtre de cet itinéraire permet uniquement aux messages de mise à jour de jumeaux d’être transmis à votre point de terminaison. Spécifiez un nom pour l’itinéraire d’événement du hub Twins.
 
@@ -162,7 +162,7 @@ Dans cette section, vous créez une fonction Azure qui convertit les événement
 
 ### <a name="step-1-create-function-app"></a>Étape 1 : Créer une application de fonction
 
-Tout d’abord, créez un projet d’application de fonction dans Visual Studio. Pour obtenir des instructions sur la façon de procéder, consultez la section [**Créer une application de fonction dans Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) de l’article *Guide pratique : Configurer une fonction pour le traitement des données*.
+Tout d’abord, créez un projet d’application de fonction dans Visual Studio. Pour obtenir des instructions sur la façon de procéder, consultez la section [Créer une application de fonction dans Visual Studio](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) de l’article *Guide pratique : Configurer une fonction pour le traitement des données*.
 
 ### <a name="step-2-add-a-new-function"></a>Étape 2 : Ajouter une nouvelle fonction
 
@@ -187,13 +187,13 @@ Enregistrez le code de votre fonction.
 
 Publiez le projet avec la fonction *ProcessDTUpdatetoTSI.cs* dans une application de fonction dans Azure.
 
-Pour obtenir des instructions sur la façon de procéder, consultez la section [**Publier l’application de fonction dans Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) de l’article *Guide pratique : configurer une fonction pour le traitement des données*.
+Pour obtenir des instructions sur la façon de procéder, consultez la section [Publier l’application de fonction dans Azure](how-to-create-azure-function.md#publish-the-function-app-to-azure) de l’article *Guide pratique : configurer une fonction pour le traitement des données*.
 
 Enregistrez le nom de l’application de fonction pour l’utiliser ultérieurement pour configurer les paramètres de l’application pour les deux hubs d’événements.
 
 ### <a name="step-5-security-access-for-the-function-app"></a>Étape 5 : Accès de sécurité pour l’application de fonction
 
-Ensuite, **attribuez un rôle d’accès** à la fonction et **configurez les paramètres de l’application** afin qu’elle puisse accéder à votre instance d’Azure Digital Twins. Pour obtenir des instructions sur la façon de procéder, consultez la section [**Configurer l’accès de sécurité pour l’application de fonction**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) de l’article *Guide pratique : Configurer une fonction pour le traitement des données*.
+Ensuite, **attribuez un rôle d’accès** à la fonction et **configurez les paramètres de l’application** afin qu’elle puisse accéder à votre instance d’Azure Digital Twins. Pour obtenir des instructions sur la façon de procéder, consultez la section [Configurer l’accès de sécurité pour l’application de fonction](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) de l’article *Guide pratique : Configurer une fonction pour le traitement des données*.
 
 ### <a name="step-6-configure-app-settings-for-the-two-event-hubs"></a>Étape 6 : Configurer les paramètres d’application pour les deux hubs d’événements
 
@@ -213,7 +213,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-t
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Créer et connecter une instance Time Series Insights
 
-Dans cette section, vous allez configurer une instance Time Series Insights pour recevoir des données de votre hub Time Series. Pour plus d’informations sur ce processus, consultez le [*Tutoriel : Configurer un environnement Azure Time Series Insights Gen2 avec paiement à l’utilisation*](../time-series-insights/tutorial-set-up-environment.md). Suivez les étapes ci-dessous pour créer un environnement Time Series Insights.
+Dans cette section, vous allez configurer une instance Time Series Insights pour recevoir des données de votre hub Time Series. Pour plus d’informations sur ce processus, consultez le [Tutoriel : Configurer un environnement Azure Time Series Insights Gen2 avec paiement à l’utilisation](../time-series-insights/tutorial-set-up-environment.md). Suivez les étapes ci-dessous pour créer un environnement Time Series Insights.
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez *Environnements Time Series Insights*, puis cliquez sur le bouton **Ajouter**. Choisissez les options suivantes pour créer l’environnement Time Series.
 
@@ -222,7 +222,7 @@ Dans cette section, vous allez configurer une instance Time Series Insights pour
     * **Nom de l’environnement** : Spécifiez un nom pour votre environnement Time Series.
     * **Emplacement** - Choisissez un emplacement.
     * **Niveau** : choisissez le niveau tarifaire **Gen2 (L1)** .
-    * **Nom de propriété** - Entrez **$dtId** (Pour plus d’informations sur la sélection d’une valeur d’ID, consultez [*Meilleures pratiques pour choisir un ID de série chronologique*](../time-series-insights/how-to-select-tsid.md)).
+    * **Nom de propriété** - Entrez **$dtId** (Pour plus d’informations sur la sélection d’une valeur d’ID, consultez [Meilleures pratiques pour choisir un ID de série chronologique](../time-series-insights/how-to-select-tsid.md)).
     * **Nom du compte de stockage** : Spécifiez un nom de compte de stockage.
     * **Activer le magasin chaud** : laissez ce champ défini sur *Oui*.
 
@@ -261,7 +261,7 @@ az dt twin update -n <your-azure-digital-twins-instance-name> --twin-id thermost
 **Répétez la commande au moins 4 fois avec différentes valeurs de température** pour créer plusieurs points de données qui peuvent être observés plus tard dans l’environnement Time Series Insights.
 
 > [!TIP]
-> Si vous souhaitez terminer cet article avec des données simulées en temps réel au lieu de mettre à jour manuellement les valeurs numériques, commencez par vous assurer que vous avez appliqué le Conseil de la section [*Conditions préalables*](#prerequisites) pour configurer une fonction Azure qui met à jour les jumeaux à partir d’un appareil simulé.
+> Si vous souhaitez terminer cet article avec des données simulées en temps réel au lieu de mettre à jour manuellement les valeurs numériques, commencez par vous assurer que vous avez appliqué le Conseil de la section [Conditions préalables](#prerequisites) pour configurer une fonction Azure qui met à jour les jumeaux à partir d’un appareil simulé.
 Après cela, vous pouvez exécuter l’appareil pour commencer à envoyer des données simulées et mettre à jour votre jumeau par le biais de ce flux de données.
 
 ## <a name="visualize-your-data-in-time-series-insights"></a>Visualiser vos données dans Time Series Insights
@@ -288,9 +288,9 @@ Si vous autorisez l’exécution d’une simulation pendant une durée plus long
 
 Les jumeaux numériques sont stockés par défaut sous la forme d’une hiérarchie plate dans Time Series Insights, mais ils peuvent être enrichis avec des informations de modèle et une hiérarchie à plusieurs niveaux pour l’organisation. Pour en savoir plus sur ce processus, lisez : 
 
-* [*Tutoriel : Définir et appliquer un modèle*](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
+* [Tutoriel : Définir et appliquer un modèle](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
 
 Vous pouvez écrire une logique personnalisée pour fournir automatiquement ces informations à l’aide des données de modèle et de graphique déjà stockées dans Azure Digital Twins. Pour en savoir plus sur la gestion, la mise à niveau et la récupération d’informations à partir du graphique de jumeaux, consultez les références suivantes :
 
-* [*Guide pratique : Gérer un jumeau numérique*](./how-to-manage-twin.md)
-* [*Guide pratique : Interroger le graphe de jumeaux*](./how-to-query-graph.md)
+* [Guide pratique : Gérer un jumeau numérique](./how-to-manage-twin.md)
+* [Guide pratique pour interroger le graphique de jumeaux](./how-to-query-graph.md)

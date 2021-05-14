@@ -7,16 +7,16 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: b81d9b4a637965dd103d8fa89305424686a0c72c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8086ce0e5964d4e37a5ffc3082d5f2856058e4e5
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789912"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875482"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Exemple de script Azure CLI – Créer une application logique
 
-Ce script crée un exemple d’application logique via l’[extension Logic Apps de l’interface Azure CLI](/cli/azure/ext/logic/logic), (`az logic`). Pour obtenir un guide détaillé de la création et de la gestion d’applications logiques via l’interface Azure CLI, consultez le [Guide de démarrage rapide Logic Apps pour l’interface Azure CLI](quickstart-logic-apps-azure-cli.md).
+Ce script crée un exemple d’application logique via l’[extension Logic Apps de l’interface Azure CLI](/cli/azure/logic), (`az logic`). Pour obtenir un guide détaillé de la création et de la gestion d’applications logiques via l’interface Azure CLI, consultez le [Guide de démarrage rapide Logic Apps pour l’interface Azure CLI](quickstart-logic-apps-azure-cli.md).
 
 > [!WARNING]
 > L’extension Logic Apps d’Azure CLI, actuellement *expérimentale*, *ne bénéficie pas d’un support technique*. Utilisez-la CLI avec précaution, en particulier si vous choisissez de l’utiliser dans des environnements de production.
@@ -198,7 +198,7 @@ Cet exemple de script utilise les commandes suivantes pour créer un groupe de r
 | Commande | Notes |
 | ------- | ----- |
 | [`az group create`](/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel les ressources de votre application logique sont stockées. |
-| [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-create) | Crée une application logique basée sur le workflow défini dans le paramètre `--definition`. |
+| [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) | Crée une application logique basée sur le workflow défini dans le paramètre `--definition`. |
 | [`az group delete`](/cli/azure/vm/extension) | Supprime un groupe de ressources et toutes ses ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f416a23dbb47660097c41ada09c8c135434bcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b8a84da331568d36b6f6910054fdb2aea76f490
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743647"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530325"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Comment fonctionne la réécriture de la réinitialisation de mot de passe en libre-service dans Azure Active Directory ?
 
@@ -140,7 +140,7 @@ Les mots de passe sont réécrits dans les situations suivantes :
    * Tout changement forcé de mot de passe en libre-service de l’administrateur (par exemple, expiration du mot de passe)
    * Toute réinitialisation de mot de passe en libre-service de l’administrateur émanant du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com)
    * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur depuis le [portail Azure](https://portal.azure.com)
-   * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur depuis l’[API Microsoft Graph bêta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
+   * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur à partir de l’[API Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http).
 
 ## <a name="unsupported-writeback-operations"></a>Opérations de réécriture non prises en charge
 
@@ -149,7 +149,7 @@ Les mots de passe ne sont pas réécrits dans les situations suivantes :
 * **Opérations de l’utilisateur final non prises en charge**
    * Toute réinitialisation de mot de passe de l’utilisateur final lancée par ce dernier à l’aide de PowerShell (version 1 ou version 2) ou l’API Microsoft Graph
 * **Opérations de l’administrateur non prises en charge**
-   * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur à l’aide de PowerShell (version 1 ou version 2) ou l’API Microsoft Graph (l’[API Microsoft Graph bêta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) est prise en charge).
+   * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur à l’aide de PowerShell (version 1 ou version 2) ou de l’API Microsoft Graph (l’[API Microsoft Graph](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http) est prise en charge).
    * Toute réinitialisation de mot de passe de l’utilisateur final lancée par l’administrateur depuis le [Centre d’administration Microsoft 365](https://admin.microsoft.com)
    * N’importe quel administrateur ne peut pas utiliser l’outil de réinitialisation de mot de passe en vue de réinitialiser son propre mot de passe pour la réécriture du mot de passe.
 

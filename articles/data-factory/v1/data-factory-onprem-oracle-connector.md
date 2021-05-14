@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 02fc142a08176aa577250417c0e394218e832f34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a590082acee1a3382ef51ce2361eb2c9b5fb2636
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387340"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741542"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copier des données vers ou à partir d’une instance locale d’Oracle à l’aide d’Azure Data Factory
 
@@ -30,11 +30,11 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 
 Vous pouvez copier des données *d’une base de données Oracle* vers les magasins de données suivants :
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 Vous pouvez copier des données des magasins de données suivants *vers une base de données Oracle* :
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

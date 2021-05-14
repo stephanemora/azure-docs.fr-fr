@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 8e0b94a46e96dd8ba16040e16b421520eb67de19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 907b3020091de1be9a037d149de737c14de125ad
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102583530"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207336"
 ---
 # <a name="programmatic-access-paradigm"></a>Paradigme de l’accès programmatique
 
@@ -349,5 +349,5 @@ Définitions clés des éléments dans la réponse.
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Vous pouvez tester les API via l’[URL d’API Swagger](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)
-- Prise en main de l’accès programmatique aux données d’analyse
+- Vous pouvez tester les API par le biais de l’[URL d’API Swagger](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)
+- [Prise en main de l’accès programmatique aux données d’analyse](analytics-get-started.md)

@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser Azure Policy pour utiliser des stratégies intégrées pour Azure Machine Learning afin de vous assurer que vos espaces de travail sont conformes à vos besoins.
 author: aashishb
 ms.author: aashishb
-ms.date: 03/25/2021
+ms.date: 05/03/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: f708e2181511da97ecffcd6f1636a2b232b4fbc6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 688af6bbc4de786c36011312f64fb6d67e34183f
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544364"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633804"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Auditer et gérer Azure Machine Learning à l'aide d'Azure Policy
 

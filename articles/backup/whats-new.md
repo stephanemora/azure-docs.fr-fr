@@ -2,13 +2,13 @@
 title: Nouveautés de Sauvegarde Azure
 description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 11/11/2020
-ms.openlocfilehash: 68e0e5cc0876840c30ab9e428a2b96bd7d667756
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/22/2021
+ms.openlocfilehash: 09a1008871df61cdf38097b692b99237f97057b9
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516329"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326502"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
 
@@ -18,6 +18,8 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
 
 ## <a name="updates-summary"></a>Résumé des mises à jour
 
+- Avril 2021
+  - [Améliorations apportées au chiffrement à l’aide de clés gérées par le client pour Sauvegarde Azure (préversion)](#enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview)
 - Mars 2021
   - [La sauvegarde des disques Azure est désormais en disponibilité générale](#azure-disk-backup-is-now-generally-available)
   - [Le Centre de sauvegarde est désormais en disponibilité générale](#backup-center-is-now-generally-available)
@@ -89,7 +91,7 @@ Pour plus d’informations, consultez [Modèles Azure Resource Manager pour la S
 
 Sauvegarde Azure prend maintenant en charge les sauvegardes incrémentielles pour les bases de données SAP HANA hébergées sur des machines virtuelles Azure. Cela permet d’obtenir des sauvegardes plus rapides et plus rentables de vos données SAP HANA.
 
-Pour plus d’informations, consultez [diverses options disponibles lors de la création d’une stratégie de sauvegarde](/sap-hana-faq-backup-azure-vm.yml#policy) et la procédure de [création d’une stratégie de sauvegarde pour les bases de données SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+Pour plus d’informations, consultez [diverses options disponibles lors de la création d’une stratégie de sauvegarde](/azure/backup/sap-hana-faq-backup-azure-vm#policy) et la procédure de [création d’une stratégie de sauvegarde pour les bases de données SAP HANA](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## <a name="backup-center-in-preview"></a>Centre de sauvegarde (en préversion)
 
@@ -152,6 +154,22 @@ Une fonctionnalité de ce type est la suppression réversible. Avec la suppressi
 Actuellement, en plus de la prise en charge de la suppression réversible pour les machines virtuelles Azure, les charges de travail SQL Server et SAP HANA dans les machines virtuelles Azure sont également protégées avec la suppression réversible.
 
 Pour plus d’informations, consultez [Suppression réversible pour les charges de travail SQL Server sur une machine virtuelle Azure et SAP HANA sur une machine virtuelle Azure](soft-delete-sql-saphana-in-azure-vm.md).
+
+## <a name="enhancements-to-encryption-using-customer-managed-keys-for-azure-backup-in-preview"></a>Améliorations apportées au chiffrement à l’aide de clés gérées par le client pour Sauvegarde Azure (préversion)
+
+Sauvegarde Azure offre désormais des capacités améliorées (en préversion) pour gérer le chiffrement avec des clés gérées par le client. Sauvegarde Azure vous permet d’introduire vos propres clés pour chiffrer les données de sauvegarde dans les coffres Recovery Services, ce qui vous offre un meilleur contrôle.
+
+- Prend en charge les identités managées affectées par l’utilisateur pour accorder des autorisations aux clés afin de gérer le chiffrement des données dans le coffre Recovery Services.
+- Permet le chiffrement avec des clés gérées par le client lors de la création d’un coffre Recovery Services.
+  >[!NOTE]
+  >Cette fonctionnalité est actuellement en préversion limitée. Pour vous inscrire, remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) et écrivez-nous à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+- Vous permet d’utiliser des stratégies Azure pour auditer et appliquer le chiffrement à l’aide de clés gérées par le client.
+>[!NOTE]
+>- Les capacités ci-dessus sont prises en charge par le portail Azure uniquement, PowerShell n’est pas pris en charge actuellement.<br>Si vous utilisez PowerShell pour gérer les clés de chiffrement pour Sauvegarde, nous vous déconseillons de mettre à jour les clés à partir du portail.<br>Si vous mettez à jour la clé à partir du portail, vous ne pourrez plus utiliser PowerShell pour mettre à jour la clé de chiffrement, jusqu’à ce qu’une mise à jour de PowerShell prenant en charge le nouveau modèle soit disponible. Toutefois, vous pouvez continuer à mettre à jour la clé depuis le portail Azure.
+>- Vous pouvez utiliser la stratégie d’audit pour auditer des coffres dont le chiffrement à l’aide de clés gérées par le client (CMK) est activé après le 01/04/2021.  
+>- Pour les coffres avec chiffrement CMK activé avant cette date, la stratégie risque de ne pas s’appliquer ou d’afficher des résultats négatifs erronés (autrement dit, ces coffres peuvent être signalés comme non conformes, même si le chiffrement CMK est activé). [Plus d’informations](encryption-at-rest-with-cmk.md#using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview)
+
+Pour plus d’informations, consultez [Chiffrement pour Sauvegarde Azure à l’aide de clés gérées par le client](encryption-at-rest-with-cmk.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

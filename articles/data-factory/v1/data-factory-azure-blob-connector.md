@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f1343f900e12bff09c0436ca52d8b091fe48a181
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d42c7cc6498adad251174db7caea11feec82784
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393545"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753554"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -33,11 +33,11 @@ Vous pouvez copier et coller les données à partir de tout magasin de données 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 Vous pouvez copier les données **à partir du stockage Blob Azure** dans les magasins de données suivants :
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 Vous pouvez copier les données des magasins de données suivants **dans le stockage Blob Azure** :
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!IMPORTANT]
 > L’activité de copie prend en charge l’échange de données avec des comptes de stockage Azure à usage général et le Stockage Blob à chaud/froid. L’activité prend en charge la **lecture à partir d’objets blob de blocs, d’annexe ou de page**, mais l’**écriture vers des objets blob de blocs** uniquement. Le stockage Azure Premium n’est pas pris en charge en tant que récepteur, car il repose sur des objets blob de pages.
@@ -65,7 +65,7 @@ Les sections suivantes offrent des informations détaillées sur les propriété
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Deux types de services liés permettent de lier un stockage Azure à une fabrique de données Azure. Il s'agit de : service lié **AzureStorage** et service lié **AzureStorageSas**. Le service lié Azure Storage fournit à la fabrique de données un accès global à Azure Storage. Tandis que le service lié Azure de stockage SAP (signature d'accès partagé) fournit à la fabrique de données un accès restreint/limité dans le temps à Azure Storage. Il n'existe aucune différence entre ces deux services liés. Choisissez le service lié qui répond à vos besoins. Les sections suivantes expliquent plus en détail ces deux services liés.
 
-[!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
+[!INCLUDE [data-factory-azure-storage-linked-services](includes/data-factory-azure-storage-linked-services.md)]
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour spécifier un jeu de données afin de représenter les données d’entrée ou de sortie dans un Stockage Blob Azure, vous devez définir la propriété de type du jeu de données sur **AzureBlob**. Définissez la propriété **linkedServiceName** du jeu de données sur le nom du service lié du Stockage Azure ou SAP Azure Storage.  Les propriétés de type du jeu de données spécifient le **conteneur d’objets blob** et le **dossier** dans le Stockage Blob.

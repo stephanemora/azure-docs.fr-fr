@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 17968f2c137eef51eecdb6c7098c7056944dc970
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: cb22c2a9cacf4e226338b45fed79f7fa135874e7
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782186"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228817"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Déclencheur Azure Event Grid pour Azure Functions
 
@@ -358,6 +358,9 @@ Dans Azure Functions 2.x et ultérieur, vous pouvez également utiliser le type 
 > [!NOTE]
 > Dans Functions v1, si vous essayez de lier à `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, le compilateur affiche un message « déprécié » et vous conseille d’utiliser `Microsoft.Azure.EventGrid.Models.EventGridEvent` à la place. Pour utiliser le type le plus récent, référencez le package NuGet [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) et qualifiez entièrement le nom de type `EventGridEvent` en le faisant précéder de `Microsoft.Azure.EventGrid.Models`.
 
+### <a name="additional-types"></a>Autres types 
+Les applications qui utilisent la version 3.0.0 ou une version ultérieure de l’extension Event Grid se servent du type `EventGridEvent` de l’espace de noms [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid.eventgridevent).
+
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Dans Azure Functions 1.x et ultérieur, vous pouvez utiliser les types de paramètres suivants pour le déclencheur Event Grid :
@@ -371,6 +374,9 @@ Dans Azure Functions 2.x et ultérieur, vous pouvez également utiliser le type 
 
 > [!NOTE]
 > Dans Functions v1, si vous essayez de lier à `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, le compilateur affiche un message « déprécié » et vous conseille d’utiliser `Microsoft.Azure.EventGrid.Models.EventGridEvent` à la place. Pour utiliser le type le plus récent, référencez le package NuGet [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) et qualifiez entièrement le nom de type `EventGridEvent` en le faisant précéder de `Microsoft.Azure.EventGrid.Models`. Pour plus d’informations sur la façon de référencer des packages NuGet dans une fonction de script C#, consultez [Utiliser des packages NuGet](functions-reference-csharp.md#using-nuget-packages).
+
+### <a name="additional-types"></a>Autres types 
+Les applications qui utilisent la version 3.0.0 ou une version ultérieure de l’extension Event Grid se servent du type `EventGridEvent` de l’espace de noms [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid.eventgridevent).
 
 # <a name="java"></a>[Java](#tab/java)
 

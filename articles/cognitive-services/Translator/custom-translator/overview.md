@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: overview
-ms.openlocfilehash: 89ab25f45cd35a86d2ff4416ceb851ae6cd5e115
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 07bc3cd9fdda98e6eeb0d7fe4ebefd562aafc47b
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657159"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992301"
 ---
 # <a name="what-is-custom-translator"></a>Qu’est-ce que Custom Translator ?
 
 [Custom Translator](https://portal.customtranslator.azure.ai) est une fonctionnalité du service Microsoft Translator qui permet aux entreprises de traduction, aux développeurs d’applications et aux fournisseurs de services linguistiques de créer des systèmes de traduction automatique neuronaux (NMT) personnalisés. Les systèmes de traduction personnalisés s’intègrent de manière fluide aux applications, aux workflows et aux sites web existants.
 
-Les systèmes de traduction créés avec [Custom Translator](https://portal.customtranslator.azure.ai) sont disponibles via la même [API de traduction de texte Translator Text V3](../reference/v3-0-translate.md?tabs=curl) cloud [sécurisée](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality) extrêmement performante et scalable de Microsoft qui génère des milliards de traductions tous les jours.
+Les systèmes de traduction créés avec [Custom Translator](https://portal.customtranslator.azure.ai) sont disponibles avec la même [API de traduction de texte Translator Text V3](../reference/v3-0-translate.md?tabs=curl) cloud, sécurisée, haute performance et hautement scalable de Microsoft, qui génère des milliards de traductions tous les jours.
 
 Custom Translator prend en charge plus de trente-six langues et mappe directement vers les langues disponibles pour les systèmes NMT. Pour une liste complète, consultez [Langues Microsoft Translator](../language-support.md#customization).
 

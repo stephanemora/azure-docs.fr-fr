@@ -3,12 +3,12 @@ title: À propos de la reprise d’activité pour les applications locales avec 
 description: Décrit les charges de travail qui peuvent être protégées à l’aide de la récupération d’urgence avec le service Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a5d20e6feacfe72052142c07dc45753b9bc3138
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80062834"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599109"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>À propos de la reprise d’activité pour les applications locales
 
@@ -50,7 +50,7 @@ Site Recovery permet de répliquer n’importe quelle application exécutée sur
 | Linux (système d’exploitation et applications) |Oui (testé par Microsoft) |Oui (testé par Microsoft) |Oui (testé par Microsoft) |Oui (testé par Microsoft) |Oui (testé par Microsoft)|
 | Dynamics AX |Oui |Oui |Oui |Oui |Oui|
 | Serveur de fichiers Windows |Oui |Oui |Oui |Oui |Oui|
-| Citrix XenApp et XenDesktop |Oui|N/A |Oui |N/A |Oui |
+| Citrix XenApp et XenDesktop |Non|N/A |Non |N/A |Non |
 
 ## <a name="replicate-active-directory-and-dns"></a>Répliquer Active Directory et DNS
 
@@ -151,14 +151,7 @@ Azure Site Recovery assure la récupération d’urgence en répliquant les comp
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>Protéger Citrix XenApp et XenDesktop
 
-Site Recovery permet de protéger vos déploiements Citrix XenApp XenDesktop, comme suit :
-
-- Activez la protection du déploiement de Citrix XenApp et XenDesktop. Répliquez les différentes couches de déploiement sur Azure : Active Directory, serveur DNS, serveur de base de données SQL, Citrix Delivery Controller, serveur StoreFront, XenApp Master (VDA) et serveur de licences Citrix XenApp.
-- Simplifiez la migration vers le cloud en utilisant Site Recovery pour migrer votre déploiement Citrix XenApp et XenDesktop sur Azure.
-- Simplifiez le test de Citrix XenApp/XenDesktop en créant une copie de type production à la demande pour le test et le débogage.
-- Cette solution s’applique uniquement aux bureaux virtuels Windows Server et non aux bureaux virtuels clients. Les bureaux virtuels clients ne sont pas encore pris en charge pour la gestion des licences dans Azure. [Apprenez-en plus](https://azure.microsoft.com/pricing/licensing-faq/) sur les licences pour les bureaux client/serveur dans Azure.
-
-[En savoir plus](site-recovery-citrix-xenapp-and-xendesktop.md) sur la reprise d’activité pour les déploiements Citrix XenApp et XenDesktop. Vous pouvez également consulter le [livre blanc Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr).
+Depuis mars 2020, Citrix a annoncé la désapprobation et la fin de la prise en charge des charges de travail hébergées dans le cloud public. Par conséquent, nous vous déconseillons d’utiliser Site Recovery pour la protection des charges de travail Citrix.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

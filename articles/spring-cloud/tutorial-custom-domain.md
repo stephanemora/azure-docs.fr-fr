@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7d01f3d5efeee2db5f468a0fe6217d1ff3c313a7
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 583124e9e3ca657ee13e4726eda981ae26022856
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375013"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138514"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Tutoriel : Mapper un domaine personnalisé existant à Azure Spring Cloud
 
@@ -23,14 +23,14 @@ DNS (Domain Name Service) est une technique de stockage des noms de nœuds rése
 Les certificats chiffrent le trafic web. Ces certificats TLS/SSL peuvent être stockés dans Azure Key Vault. 
 
 ## <a name="prerequisites"></a>Prérequis
-* Une application déployée dans Azure Spring Cloud (consultez [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](spring-cloud-quickstart.md) ou utilisez une application existante).
+* Une application déployée dans Azure Spring Cloud (consultez [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](./quickstart.md) ou utilisez une application existante).
 * Un nom de domaine avec un accès au registre DNS pour le fournisseur de domaine, par exemple GoDaddy.
 * Un certificat privé (autrement dit, votre certificat auto-signé) d’un fournisseur tiers. Le certificat doit correspondre au domaine.
 * Une instance déployée d’[Azure Key Vault](../key-vault/general/overview.md).
 
 ## <a name="keyvault-private-link-considerations"></a>Considérations relatives aux liaisons privées des coffre de clés
 
-Les adresses IP de gestion Azure Spring Cloud ne font pas partie des services Microsoft Azure approuvés. Par conséquent, pour permettre à Azure Spring Cloud de charger des certificats à partir d’un coffre de clés protégé avec des connexions de points de terminaisons privés, vous devez ajouter les adresses IP suivantes au pare-feu Azure Key Vault :
+Les adresses IP de gestion d’Azure Spring Cloud ne font pas encore partie des services Microsoft Azure approuvés. Par conséquent, pour permettre à Azure Spring Cloud de charger des certificats à partir d’un coffre de clés protégé avec des connexions de points de terminaisons privés, vous devez ajouter les adresses IP suivantes au pare-feu Azure Key Vault :
 
 ```
 20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243
@@ -164,7 +164,7 @@ Accédez à votre fournisseur DNS et ajoutez un enregistrement CNAME pour mapper
 ![Page Enregistrements DNS](./media/custom-dns-tutorial/dns-records.png)
 
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Mapper votre domaine personnalisé à l’application Azure Spring Cloud
-Si vous n’avez pas d’application dans Azure Spring Cloud, suivez les instructions du [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](./spring-cloud-quickstart.md).
+Si vous n’avez pas d’application dans Azure Spring Cloud, suivez les instructions du [Démarrage rapide : Lancer une application Azure Spring Cloud existante à partir du portail Azure](./quickstart.md).
 
 #### <a name="portal"></a>[Portail](#tab/Azure-portal)
 Accédez à la page de l’application.
@@ -234,4 +234,4 @@ Une fois l’opération terminée, accédez à une des URL HTTPS qui pointent ve
 ## <a name="see-also"></a>Voir aussi
 * [Qu’est-ce qu’Azure Key Vault ?](../key-vault/general/overview.md)
 * [Importer un certificat](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
-* [Lancer votre application Spring Cloud en utilisant Azure CLI](./spring-cloud-quickstart.md)
+* [Lancer votre application Spring Cloud en utilisant Azure CLI](./quickstart.md)

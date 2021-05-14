@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint Azure Security Benchmark Foundation
 description: Vue d’ensemble et architecture de l’exemple de blueprint Azure Security Benchmark Foundation.
-ms.date: 02/17/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a60f70b1f3e9d810ccded8bbeee726ea950524e9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741869"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739256"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Azure Security Benchmark Foundation
 
@@ -35,7 +35,7 @@ Ce blueprint déploie plusieurs services Azure pour fournir une base sécurisée
 - [Azure Bastion](../../../../bastion/bastion-overview.md) pour fournir une connectivité fluide et sécurisée à une machine virtuelle qui n’a pas besoin d’adresse IP publique, d’agent ou de logiciel client spécial.
 - Une [passerelle VPN Azure](../../../../vpn-gateway/vpn-gateway-about-vpngateways.md) pour permettre le trafic chiffré entre un réseau virtuel Azure et un emplacement local sur le réseau Internet public.
 
-> [!NOTE] 
+> [!NOTE]
 > Azure Security Benchmark Foundation présente une architecture de base pour les charges de travail. Le diagramme de l’architecture ci-dessus comprend plusieurs ressources théoriques pour démontrer l’utilisation potentielle de sous-réseaux. Vous devez quand même déployer des charges de travail sur cette architecture de base.
 
 ## <a name="next-steps"></a>Étapes suivantes

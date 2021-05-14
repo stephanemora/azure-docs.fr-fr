@@ -2,6 +2,7 @@
 title: Liste des mises à jour appliquées au système d’exploitation invité d’Azure | Microsoft Docs
 description: Cet article répertorie les mises à jour de Microsoft Security Response Center appliquées à différents systèmes d’exploitation invités d’Azure. Vérifiez si une mise à jour s’applique au système d’exploitation invité que vous utilisez.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
 author: gunnarcms
 editor: ''
@@ -10,17 +11,73 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/28/2021
+ms.date: 4/30/2021
 ms.author: gunnarc
-ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bdf729d3f5842953be6cf87b7dcaab38582711fc
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709903"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736125"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="april-2021-guest-os"></a>Système d’exploitation invité, avril 2021
+
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 21-04 |  [5001342]  |  Dernière mise à jour cumulative (LCU) | [6,30] | 13 avril 2021 |
+|  Version 21-04 |  [4580325]  |  Mise à jour de Flash | [3.96], [4.89], [5.54], [6.30] | 13 octobre 2020 |
+|  Version 21-04 |  [5000800]  |  Mises à jour cumulatives d’IE | [2.109], [3.96], [4.89] | 9 mars 2021 |
+|  Version 21-04 |  [5001347]  |  Dernière mise à jour cumulative (LCU) | [5.54] | 13 avril 2021 |
+|  Version 21-04 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2,109] | 13 octobre 2020 |
+|  Version 21-04 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [2,109] | 13 octobre 2020 |
+|  Version 21-04 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [4.89] | 13 octobre 2020 |
+|  Version 21-04 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [4.89] | 13 octobre 2020 |
+|  Version 21-04 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [3,96] | 13 octobre 2020 |
+|  Version 21-04 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | [3,96] | 13 octobre 2020 |
+|  Version 21-04 |  [4601060]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | [6,30] | 9 février 2021 |
+|  Version 21-04 |  [5001335]  |  Correctif cumulatif mensuel  | [2,109] | 9 mars 2021 |
+|  Version 21-04 |  [5001387]  |  Correctif cumulatif mensuel  | [3,96] | 13 avril 2021 |
+|  Version 21-04 |  [5001382]  |  Correctif cumulatif mensuel  | [4.89] | 13 avril 2021 |
+|  Version 21-04 |  [5001401]  |  Mise à jour de la pile de maintenance  | [3,96] | 13 avril 2021 |
+|  Version 21-04 |  [5001403]  |  Mise à jour de la pile de maintenance  | [4.89] | 13 avril 2021 |
+|  Version 21-04 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | [4.89] | 19 août 2020 |
+|  Version 21-04 |  [5001402]  |  Mise à jour de la pile de maintenance  | [5.54] | 13 avril 2021 |
+|  Version 21-04 |  [4592510]  |  Mise à jour de la pile de maintenance  | [2,109] | 8 décembre 2020 |
+|  Version 21-04 |  [5001404]  |  Mise à jour de la pile de maintenance  | [6,30] | 13 avril 2021 |
+|  Version 21-04 |  [4494175]  |  Microcode  | [5.54] | 1er septembre 2020 |
+|  Version 21-04 |  [4494174]  |  Microcode  | [6,30] | 1er septembre 2020 |
+
+[5001342]: https://support.microsoft.com/kb/5001342
+[4580325]: https://support.microsoft.com/kb/4580325
+[5000800]: https://support.microsoft.com/kb/5000800
+[5001347]: https://support.microsoft.com/kb/5001347
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5001335]: https://support.microsoft.com/kb/5001335
+[5001387]: https://support.microsoft.com/kb/5001387
+[5001382]: https://support.microsoft.com/kb/5001382
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5001404]: https://support.microsoft.com/kb/5001404
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2,109]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,96]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.89]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.54]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,30]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="march-2021-guest-os"></a>Système d’exploitation invité, mars 2021
 

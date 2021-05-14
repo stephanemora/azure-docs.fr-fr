@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 9a2ad2eb197af613919efa4414da1759cd47e2e7
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: bcf3cb5a020bb2efd5a2528c28421deba206ee31
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802741"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125262"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Déployer des machines virtuelles Azure Spot à l’aide d’Azure PowerShell
 
@@ -99,7 +99,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 Cette première réponse peut prendre jusqu’à 2 minutes. À partir de maintenant, ils devraient afficher la sortie presque immédiatement.
 
-À partir d’un ordinateur sur lequel le module Az PowerShell est installé (comme votre ordinateur local), simulez une éviction à l’aide de la commande [Set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). Remplacez le nom du groupe de ressources et le nom de la machine virtuelle par les vôtres 
+À partir d’un ordinateur sur lequel le module Az PowerShell est installé (comme votre ordinateur local), simulez une éviction à l’aide de la commande [Set-AzVM](/powershell/module/az.compute/set-azvm). Remplacez le nom du groupe de ressources et le nom de la machine virtuelle par les vôtres 
 
 ```azurepowershell-interactive
 Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction

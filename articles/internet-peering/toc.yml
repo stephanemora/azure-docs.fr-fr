@@ -20,6 +20,8 @@
       href: walkthrough-exchange-all.md
     - name: Procédure pas à pas pour le partenaire Peering Service
       href: walkthrough-peering-service-all.md
+    - name: Procédure pas à pas pour les partenaires Communication Services
+      href: walkthrough-communications-services-partner.md
     - name: Associer un ASN de pair à un abonnement Azure
       items:
         - name: Portail

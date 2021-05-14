@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: a77476086d6100cbaf49d54791972940cca0644f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3427dfafe1918590f215793acbae3d5fd290e604
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708932"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205230"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Réécrire les en-têtes de requête et de réponse HTTP avec Azure Application Gateway - Azure portal
 
@@ -131,4 +131,4 @@ Dans cet exemple, nous allons modifier une URL de redirection en réécrivant l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la configuration de certains cas d’usage courants, consultez l’article présentant des [scénarios de réécriture d’en-têtes courants](./rewrite-http-headers.md).
+Pour plus d’informations sur la configuration de certains cas d’usage courants, consultez l’article présentant des [scénarios de réécriture d’en-têtes courants](./rewrite-http-headers-url.md).

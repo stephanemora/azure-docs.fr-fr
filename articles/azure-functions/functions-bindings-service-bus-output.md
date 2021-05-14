@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: ae2be8dbcb4839c7d16b864c484c3360fdcfe324
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2702b657b1725351f28180f15213dbcf7678139a
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425581"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226423"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Liaison de sortie Azure Service Bus pour Azure Functions
 
@@ -324,7 +324,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name** | n/a | Nom de la variable qui représente le message de la file d’attente ou de la rubrique dans le code de la fonction. Défini sur « $return » pour faire référence à la valeur de retour de la fonction. |
 |**queueName**|**QueueName**|Nom de la file d’attente.  Défini uniquement en cas d’envoi de messages de file d’attente, ne s’applique pas à une rubrique.
 |**topicName**|**TopicName**|Nom de la rubrique. Défini uniquement en cas d’envoi de messages de rubrique, ne s’applique pas à une file d’attente.|
-|**connection**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.|
+|**connection**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.<br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections).|
 |**accessRights** (v1 uniquement)|**y accéder**|Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion. Dans Azure Functions versions 2.x et ultérieures, cette propriété n’est pas disponible parce que la version la plus récente du Kit de développement logiciel (SDK) Service Bus ne prend pas en charge les opérations de gestion.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -350,6 +350,12 @@ Quand vous utilisez des fonctions C# :
 
 * Pour accéder à l’ID de session, établissez une liaison à un type [`Message`](/dotnet/api/microsoft.azure.servicebus.message) et utilisez la propriété `sessionId`.
 
+### <a name="additional-types"></a>Autres types 
+
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Service Bus utilisent le type `ServiceBusMessage` dans [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage) au lieu de celui de l’espace de noms [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message). Cette version ne prend plus en charge le type hérité `Message`, mais elle prend désormais en charge les types suivants :
+
+- [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
+
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Utilisez les types de paramètres suivants pour la liaison de sortie :
@@ -366,6 +372,11 @@ Quand vous utilisez des fonctions C# :
 * Les fonctions asynchrones ont besoin d’une valeur renvoyée ou de `IAsyncCollector` au lieu d’un paramètre `out`.
 
 * Pour accéder à l’ID de session, établissez une liaison à un type [`Message`](/dotnet/api/microsoft.azure.servicebus.message) et utilisez la propriété `sessionId`.
+
+### <a name="additional-types"></a>Autres types 
+Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Service Bus utilisent le type `ServiceBusMessage` dans [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage) au lieu de celui de l’espace de noms [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message). Cette version ne prend plus en charge le type hérité `Message`, mais elle prend désormais en charge les types suivants :
+
+- [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -391,47 +402,6 @@ Utilisez le [Kit de développement logiciel (SDK) Azure Service Bus](../service-
 |---|---|
 | Service Bus | [Codes d’erreur de Service Bus](../service-bus-messaging/service-bus-messaging-exceptions.md) |
 | Service Bus | [Limites de Service Bus](../service-bus-messaging/service-bus-quotas.md) |
-
-<a name="host-json"></a>  
-
-## <a name="hostjson-settings"></a>Paramètres host.json
-
-Cette section décrit les paramètres de configuration globaux disponibles pour cette liaison dans les versions 2.x et ultérieures. L’exemple de fichier host.json ci-dessous contient seulement les paramètres pour cette liaison. Pour plus d’informations sur les paramètres de configuration globale, consultez [Informations de référence sur le fichier host.json pour la version d’Azure Functions](functions-host-json.md).
-
-> [!NOTE]
-> Pour obtenir une référence de host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md).
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "serviceBus": {
-            "prefetchCount": 100,
-            "messageHandlerOptions": {
-                "autoComplete": true,
-                "maxConcurrentCalls": 32,
-                "maxAutoRenewDuration": "00:05:00"
-            },
-            "sessionHandlerOptions": {
-                "autoComplete": false,
-                "messageWaitTimeout": "00:00:30",
-                "maxAutoRenewDuration": "00:55:00",
-                "maxConcurrentSessions": 16
-            }
-        }
-    }
-}
-```
-
-Si vous avez défini `isSessionsEnabled` sur `true`, les options `sessionHandlerOptions` sont respectées.  Si vous avez défini `isSessionsEnabled` sur `false`, les options `messageHandlerOptions` sont respectées.
-
-|Propriété  |Default | Description |
-|---------|---------|---------|
-|prefetchCount|0|Obtient ou définit le nombre de messages que le destinataire des messages peut demander simultanément.|
-|maxAutoRenewDuration|00:05:00|Durée maximale pendant laquelle le verrouillage de message doit être renouvelé automatiquement.|
-|autoComplete|true|Indique si le déclencheur doit terminer l’appel automatiquement après le traitement, ou si le code de la fonction termine manuellement l’appel.<br><br>La définition de `false` est prise en charge uniquement dans C# .<br><br>Si la valeur est `true`, le déclencheur termine automatiquement le message si l’exécution de la fonction se termine correctement et abandonne le message dans le cas contraire.<br><br>Lorsque la valeur est `false`, il vous incombe d’appeler des méthodes [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) pour terminer, abandonner ou mettre au rebut le message. Si une exception est levée (et qu’aucune des méthodes `MessageReceiver` n’est appelée), le verrou reste. Une fois le verrou expiré, le message est de nouveau mis en file d’attente avec `DeliveryCount` incrémenté, et le verrou est automatiquement renouvelé.<br><br>Dans les fonctions non C#, les exceptions de la fonction entraînent l’appel par le runtime de `abandonAsync` en arrière-plan. Si aucune exception ne se produit, `completeAsync` est appelé en arrière-plan. |
-|maxConcurrentCalls|16|Nombre maximal d’appels simultanés pour le rappel que la pompe de messages doit initier par instance mise à l’échelle. Par défaut, le runtime Functions traite plusieurs messages simultanément.|
-|maxConcurrentSessions|2000|Nombre maximal de sessions qui peuvent être traitées simultanément par instance mise à l’échelle.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

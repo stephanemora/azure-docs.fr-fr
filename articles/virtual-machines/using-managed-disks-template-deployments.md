@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 7c66a8b8483673a9d8fbdc9922b9cc377781bab3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af47182219441a373fd3e05585dbbb9484d06b37
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91976659"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753024"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Utilisation de disques dans les modèles Azure Resource Manager
 
@@ -168,7 +168,7 @@ Au lieu de spécifier la configuration du disque dans l’objet de machine virtu
 }
 ```
 
-Dans l’objet de machine virtuelle, faites référence à l’objet de disque devant être attaché. Spécifier l’ID de ressource du disque managé créé dans la propriété `managedDisk` permet d’attacher le disque lors de la création de la machine virtuelle. La propriété `apiVersion` de la ressource de la machine virtuelle est définie sur `2017-03-30`. Une dépendance sur la ressource de disque est créée pour garantir qu’elle est correctement créée avant la création de la machine virtuelle. 
+Dans l’objet de machine virtuelle, faites référence à l’objet de disque devant être attaché. Spécifier l’ID de ressource du disque managé créé dans la propriété `managedDisk` permet d’attacher le disque lors de la création de la machine virtuelle. La propriété `apiVersion` de la ressource de la machine virtuelle est définie sur `2017-03-30`. Une dépendance sur la ressource de disque est créée pour garantir qu’elle est correctement créée avant la création de la machine virtuelle.
 
 ```json
 {
@@ -252,11 +252,11 @@ L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’u
 }
 ```
 
-Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-with-standardssd-disk/).
 
 ### <a name="additional-scenarios-and-customizations"></a>Personnalisations et scénarios supplémentaires
 
-Pour obtenir des informations complètes sur les spécifications de l’API REST, veuillez consulter la [documentation de l’API REST portant sur la création d’un disque géré](/rest/api/manageddisks/disks/disks-create-or-update). Vous trouverez d’autres scénarios, ainsi que des valeurs par défaut et acceptables qui peuvent être envoyées à l’API via des déploiements de modèle. 
+Pour obtenir des informations complètes sur les spécifications de l’API REST, veuillez consulter la [documentation de l’API REST portant sur la création d’un disque géré](/rest/api/manageddisks/disks/disks-create-or-update). Vous trouverez d’autres scénarios, ainsi que des valeurs par défaut et acceptables qui peuvent être envoyées à l’API via des déploiements de modèle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

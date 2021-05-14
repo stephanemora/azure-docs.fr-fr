@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 12/16/2020
-ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/22/2021
+ms.openlocfilehash: 57b5e5f483ce8076622e4705a3a5b566e2e3aa1f
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97964505"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987881"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
@@ -20,11 +20,7 @@ Cet article explique comment résoudre les problèmes courants dans Azure Data S
 
 ## <a name="azure-data-share-invitations"></a>Invitations Azure Data Share 
 
-Dans certains cas, lorsque de nouveaux utilisateurs sélectionnent **Accepter l’invitation** dans une invitation par e-mail, il est possible qu’une liste vide d’invitations s’affiche. 
-
-:::image type="content" source="media/no-invites.png" alt-text="Capture d’écran montrant une liste vide d’invitations.":::
-
-Ce problème peut avoir l’une des causes suivantes :
+Dans certains cas, lorsque de nouveaux utilisateurs sélectionnent **Accepter l’invitation** dans une invitation par e-mail, il est possible qu’une liste vide d’invitations s’affiche. Ce problème peut avoir l’une des causes suivantes :
 
 * **Le service Azure Data Share n’est pas inscrit en tant que fournisseur de ressources d’un abonnement Azure dans le locataire Azure.** Ce problème se produit lorsque votre locataire Azure n’a pas de ressource Data Share. 
 
@@ -73,15 +69,35 @@ Pour les comptes de stockage, un instantané peut échouer parce qu’un fichier
 
 Pour les sources SQL, un instantané peut échouer pour les raisons suivantes :
 
-* Le script SQL source ou le script SQL cible qui accorde l’autorisation Data Share n’a pas été exécuté. Ou, pour Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL Data Warehouse), le script est exécuté à l’aide de l’authentification SQL au lieu de l’authentification Azure Active Directory.  
+* Le script SQL source ou le script SQL cible qui accorde l’autorisation Data Share n’a pas été exécuté. Ou, pour Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL Data Warehouse), le script est exécuté à l’aide de l’authentification SQL au lieu de l’authentification Azure Active Directory. Vous pouvez exécuter la requête ci-dessous pour vérifier si le compte de partage de données dispose des autorisations appropriées sur la base de données SQL. Pour la base de données SQL source, le résultat de la requête doit indiquer que le compte de partage de données a le rôle *db_datareader*. Pour la base de données SQL cible, le résultat de la requête doit indiquer que le compte de partage de données possède des rôles *db_datareader*, *db_datawriter* et *db_dlladmin*.
+
+    ```sql
+        SELECT DP1.name AS DatabaseRoleName,
+        isnull (DP2.name, 'No members') AS DatabaseUserName
+        FROM sys.database_role_members AS DRM
+        RIGHT OUTER JOIN sys.database_principals AS DP1
+        ON DRM.role_principal_id = DP1.principal_id
+        LEFT OUTER JOIN sys.database_principals AS DP2
+        ON DRM.member_principal_id = DP2.principal_id
+        WHERE DP1.type = 'R'
+        ORDER BY DP1.name; 
+     ``` 
+
 * Le magasin de données source ou le magasin de données SQL cible est interrompu.
 * Les types de données SQL ne sont pas pris en charge par le processus d’instantané ou le magasin de données cible. Pour plus d’informations, consultez [Partager à partir de sources SQL](how-to-share-from-sql.md#supported-data-types).
 * Le magasin de données source ou le magasin de données SQL cible est verrouillé par d’autres processus. Azure Data Share ne verrouille pas ces magasins de données. Toutefois, les verrous existants sur ces magasins de données peuvent causer l’échec d’un instantané.
 * La table SQL cible est référencée par une contrainte de clé étrangère. Pendant la prise d’un instantané, si une table cible porte le même nom qu’une table dans les données sources, Azure Data Share supprime la table et en crée une nouvelle. Si la table SQL cible est référencée par une contrainte de clé étrangère, elle ne peut pas être supprimée.
 * Un fichier CSV cible est généré, mais les données ne peuvent pas être lues dans Excel. Ce problème peut apparaître lorsque la table SQL source contient des données qui incluent des caractères n’appartenant pas à l’alphabet latin. Dans Excel, sélectionnez l’onglet **Obtenir les données** et choisissez le fichier CSV. Sélectionnez l’origine du fichier **65001: Unicode (UTF-8)** , puis chargez les données.
 
-## <a name="updated-snapshot-schedules"></a>Planifications d’instantanés mises à jour
-Une fois que le fournisseur de données a mis à jour la planification d’instantanés pour le partage envoyé, le consommateur de données doit désactiver la planification d’instantanés précédente. Il doit ensuite réactiver la planification d’instantanés mise à jour pour le partage reçu. 
+## <a name="update-snapshot-schedule"></a>Mettre à jour la planification d’instantané
+Une fois que le fournisseur de données a mis à jour la planification d’instantanés pour le partage envoyé, le consommateur de données doit désactiver la planification d’instantanés précédente et réactiver la planification d’instantanés mise à jour pour le partage reçu. La planification d’instantanés est stockée au format UTC et affichée dans l’interface utilisateur comme heure locale de l’ordinateur. Elle ne s’ajuste pas automatiquement à l’heure d’été.  
+
+## <a name="in-place-sharing"></a>Partage en place
+Le mappage de jeu de données peut échouer pour les clusters Explorateur de données Azure pour les raisons suivantes :
+
+* L’utilisateur n’a pas d’autorisation en *écriture* sur le cluster Explorateur de données Azure. En règle générale, cette autorisation existe dans le rôle Contributeur. 
+* Le cluster Explorateur de données Azure source ou cible est suspendu.
+* Le cluster Explorateur de données Azure source est EngineV2 et la cible est EngineV3, ou vice versa. Le partage entre les clusters Explorateur de données Azure de différentes versions de moteur n’est pas pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

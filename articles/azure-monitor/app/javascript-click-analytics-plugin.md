@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2eabbfb5928fea861874e78fa68ac196d16134d3
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102429848"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291331"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Plug-in Click Analytics Auto-collection pour kit SDK JavaScript Application Insights
 
@@ -23,7 +23,7 @@ Ce plug-in suit automatiquement les événements de clic sur les pages web et ut
 
 Les utilisateurs peuvent configurer le plug-in Click Analytics Auto-collection via npm.
 
-### <a name="npm-setup"></a>Configuration npm
+### <a name="npm-setup"></a>Configuration NPM
 
 Installez le package npm :
 
@@ -54,12 +54,44 @@ const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
 ```
 
+## <a name="snippet-setup-ignore-if-using-npm-setup"></a>Configuration d’extrait (à ignorer si vous utilisez la configuration NPM)
+
+```html
+<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.6.2.min.js"></script>
+<script type="text/javascript">
+  var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
+  // Click Analytics configuration
+  var clickPluginConfig = {
+    autoCapture : true,
+    dataTags: {
+      useDefaultContentNameOrId: true
+    }
+  }
+  // Application Insights Configuration
+  var configObj = {
+    instrumentationKey: "YOUR INSTRUMENTATION KEY",
+    extensions: [
+      clickPluginInstance
+    ],
+    extensionConfig: {
+      [clickPluginInstance.identifier] : clickPluginConfig
+    },
+  };
+  // Application Insights Snippet code
+  !function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+    crossOrigin: "anonymous",
+    cfg: configObj
+  });
+</script>
+```
+
 ## <a name="how-to-effectively-use-the-plugin"></a>Comment utiliser efficacement le plug-in
 
 1. Les données de télémétrie générées à partir des événements de clic sont stockées en tant que `customEvents` dans la section Application Insights du portail Azure.
 2. Le `name` de customEvent est rempli en fonction des règles suivantes :
     1.  Le `id` fourni dans le `data-*-id` sera utilisé comme nom de customEvent. Par exemple, si l’élément HTML cliqué a l’attribut « data-sample-id »=« button1 », alors « button1 » est le nom de customEvent.
-    2. Si aucun attribut de ce type n’existe et que `useDefaultContentNameOrId` est défini sur `true` dans la configuration, l’attribut HTML `id` de l’élément cliqué ou le nom de contenu de l’élément est utilisé comme nom de customEvent.
+    2. Si aucun attribut de ce type n’existe et que `useDefaultContentNameOrId` est défini sur `true` dans la configuration, l’attribut HTML `id` de l’élément cliqué ou le nom de contenu de l’élément est utilisé comme nom de customEvent. Si `id` et le nom de contenu sont tous deux présents, la priorité est donnée à `id`.
     3. Si `useDefaultContentNameOrId` a la valeur false, le nom de customEvent est « not_specified ».
 
     > [!TIP]
@@ -77,16 +109,42 @@ appInsights.loadAppInsights();
     - Le nom ne doit pas contenir de point-virgule (U + 003A).
     - Le nom ne doit pas contenir de lettres majuscules.
 
+## <a name="what-data-does-the-plugin-collect"></a>Quelles données le plug-in collecte-t-il ?
+
+Voici quelques-unes des principales propriétés capturées par défaut lorsque le plug-in est activé :
+
+### <a name="custom-event-properties"></a>Propriétés d’événements personnalisés
+| Nom                  | Description                            | Exemple          |
+| --------------------- | ---------------------------------------|-----------------|
+| name                  | `name` du customEvent. Vous trouverez plus d’informations sur la façon dont ce champ est renseigné [ici](#how-to-effectively-use-the-plugin).| À propos de              |
+| itemType              | Type d’événement.                                      | customEvent      |
+|sdkVersion             | Version du Kit de développement logiciel (SDK) Application Insights avec le plug-in Click.|javascript:2.6.2_ClickPlugin2.6.2|
+
+### <a name="custom-dimensions"></a>Dimensions personnalisées
+| Nom                  | Description                            | Exemple          |
+| --------------------- | ---------------------------------------|-----------------|
+| actionType            | Type d’action qui a provoqué l’événement de clic. Peut être un clic gauche ou un clic droit. | CL              |
+| baseTypeSource        | Source du type de base de l’événement personnalisé.                                      | ClickEvent      |
+| clickCoordinates      | Coordonnées où l’événement de clic est déclenché.                            | 659X47          |
+| contenu               | Espace réservé pour stocker des attributs et des valeurs `data-*` supplémentaires.            | [{sample1:value1, sample2:value2}] |
+| pageName              | Titre de la page où l’événement de clic est déclenché.                      | Exemple de titre    |
+| parentId              | ID ou nom de l’élément parent.                                           | navbarContainer |
+
+### <a name="custom-measurements"></a>Mesures personnalisées
+| Nom                  | Description                            | Exemple          |
+| --------------------- | ---------------------------------------|-----------------|
+| timeToAction          | Temps en millisecondes pris par l’utilisateur pour cliquer sur l’élément depuis le chargement initial de la page. | 87407              |
+
 ## <a name="configuration"></a>Configuration
 
 | Name                  | Type                               | Default | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
-| autoCapture           | boolean                            | true    | Configuration de capture automatique.                                                                                                         |
-| rappel              | [IValueCallback](#ivaluecallback)  | null    | Configuration des rappels.                                                                                                                 |
-| pageTags              | string                             | null    | Balises de page.                                                                                                                               |
-| dataTags              | [ICustomDataTags](#icustomdatatags)| null    | Balises de données personnalisées fournies pour remplacer les balises par défaut utilisées pour capturer les données de clic.                                                           |
-| urlCollectHash        | boolean                            | false   | Active la journalisation des données après un caractère « # » de l’URL.                                                                          |
-| urlCollectQuery       | boolean                            | false   | Active la journalisation de la chaîne de requête de l’URL.                                                                                      |
+| autoCapture           | boolean                            | true    | Configuration de capture automatique.                                |
+| rappel              | [IValueCallback](#ivaluecallback)  | null    | Configuration des rappels.                               |
+| pageTags              | string                             | null    | Balises de page.                                             |
+| dataTags              | [ICustomDataTags](#icustomdatatags)| null    | Balises de données personnalisées fournies pour remplacer les balises par défaut utilisées pour capturer les données de clic. |
+| urlCollectHash        | boolean                            | false   | Active la journalisation des données après un caractère « # » de l’URL.                |
+| urlCollectQuery       | boolean                            | false   | Active la journalisation de la chaîne de requête de l’URL.                            |
 | behaviorValidator     | Fonction                           | null  | Fonction de rappel à utiliser pour la validation de la valeur `data-*-bhvr`. Pour plus d’informations, consultez la [section behaviorValidator](#behaviorvalidator).|
 | defaultRightClickBhvr | Chaîne (ou) nombre                 | ''      | Valeur de comportement par défaut lorsqu’un événement de clic droit s’est produit. Cette valeur sera remplacée si l’élément a l’attribut `data-*-bhvr`. |
 | dropInvalidEvents     | boolean                            | false   | Marquer pour supprimer les événements qui n’ont pas de données de clic utiles.                                                                                   |

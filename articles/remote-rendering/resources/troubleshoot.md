@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f0fb9ab5c53c3fd1bfb32ac7b112a116301cba7
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99593331"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575341"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -249,6 +249,39 @@ Les surfaces coplanaires peuvent avoir plusieurs causes :
 
 Dans certains cas, les applications C++ natives qui utilisent un mode de rendu stéréo à plusieurs passes pour le contenu local (rendu gauche et droite dans des passes séparées) après l’appel de [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) peuvent déclencher un bogue du pilote. Le bogue entraîne des problèmes de pixellisation non déterministes, provoquant la disparition aléatoire de triangles individuels ou de parties de triangles du contenu local. Pour des raisons de performances, il est de toute manière recommandé de rendre le contenu local avec une technique de rendu stéréo en une seule passe plus moderne, par exemple utilisant **SV_RenderTargetArrayIndex**.
 
+## <a name="conversion-file-download-errors"></a>Erreurs de téléchargement du fichier de conversion
+
+Le service de conversion peut rencontrer des erreurs lors du téléchargement de fichiers à partir du Stockage Blob en raison des restrictions de longueur des chemins qui sont imposées par Windows et par le service. Dans le Stockage Blob, les chemins et les noms de fichiers ne doivent pas dépasser 178 caractères. Par exemple, pour un `blobPrefix` de `models/Assets` qui comporte 13 caractères :
+
+`models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
+
+Le service de conversion télécharge tous les fichiers spécifiés sous `blobPrefix`, et pas seulement les fichiers utilisés dans la conversion. Les fichiers ou le dossier à l’origine des problèmes peuvent être moins évidents dans ce cas. Il est donc important de vérifier tout ce qui se trouve dans le compte de stockage situé sous `blobPrefix`. Consultez les exemples d’entrées ci-dessous pour savoir ce qui est téléchargé.
+``` json
+{
+  "settings": {
+    "inputLocation": {
+      "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
+      "blobPrefix": "models/Assets",
+      "relativeInputAssetPath": "myAsset.fbx"
+    ...
+  }
+}
+```
+
+```
+models
+├───Assets
+│   │   myAsset.fbx                 <- Asset
+│   │
+│   └───Textures
+│   |       myTexture.png           <- Used in conversion
+│   |
+|   └───MyFiles
+|          myOtherFile.txt          <- File also downloaded under blobPrefix      
+|           
+└───OtherFiles
+        myReallyLongFileName.txt    <- Ignores files not under blobPrefix             
+```
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configuration système requise](../overview/system-requirements.md)

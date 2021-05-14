@@ -1,18 +1,19 @@
 ---
-title: 'Passerelle VPN Azure : Générer et exporter des certificats pour P2S : MakeCert'
-description: Créez un certificat racine auto-signé, exportez la clé publique et générez des certificats clients à l’aide de MakeCert.
+title: 'Générer et exporter des certificats pour P2S : MakeCert'
+titleSuffix: Azure VPN Gateway
+description: Apprenez à créer un certificat racine auto-signé, à exporter une clé publique et à générer des certificats clients à l'aide de MakeCert.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 55e22ebec5853d6b4f10b53be8e24f4dbebe4e1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f28e361c434797e80a0a377842fa375e4b8235de
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94659775"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229735"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de MakeCert
 

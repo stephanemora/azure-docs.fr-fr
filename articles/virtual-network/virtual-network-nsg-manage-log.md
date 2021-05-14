@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: bb078b9738e995a1c507f7934a7dd64f075d5fe0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d171dee87a391c5e1d66db10363e6823ef387c1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596532"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774158"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Journalisation des ressources pour un groupe de sécurité réseau
 
@@ -28,7 +28,7 @@ Quand vous activez la journalisation pour un groupe de sécurité réseau, vous 
 
 Les journaux de ressources ne sont disponibles que pour les groupes de sécurité réseau déployés via le modèle de déploiement Azure Resource Manager. Vous ne pouvez pas activer la journalisation des ressources pour les groupes de sécurité réseau déployés via le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, consultez [Présentation des modèles de déploiement Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-La journalisation des ressources est activée séparément pour *chaque* groupe de sécurité réseau pour lequel vous souhaitez collecter des données de diagnostic. Si vous êtes plus intéressé par les journaux d’activité (activité des opérations), consultez [Journalisation des activités Azure](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La journalisation des ressources est activée séparément pour *chaque* groupe de sécurité réseau pour lequel vous souhaitez collecter des données de diagnostic. Si vous êtes plus intéressé par les journaux d’activité (activité des opérations), consultez [Journalisation des activités Azure](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous êtes intéressé par le trafic IP passant par les NSG, consultez les [journaux de flux NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) d’Azure Network Watcher. 
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 
@@ -95,9 +95,9 @@ Consultez et analysez les journaux d’activité. Pour plus d’informations, vo
 
 Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/bash), ou en exécutant Azure CLI à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez l’interface CLI à partir de votre ordinateur, vous avez besoin de la version 2.0.38 ou ultérieure. Exécutez `az --version` sur votre ordinateur pour trouver la version installée. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez l’interface CLI localement, vous devez aussi exécuter `az login` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Pour activer la journalisation des ressources, vous avez besoin de l’ID d’un groupe de sécurité réseau existant. Si vous ne disposez pas de groupe de sécurité réseau, vous pouvez en créer un avec la commande [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
+Pour activer la journalisation des ressources, vous avez besoin de l’ID d’un groupe de sécurité réseau existant. Si vous ne disposez pas de groupe de sécurité réseau, vous pouvez en créer un avec la commande [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
 
-Récupérez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation des ressources avec [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show). Par exemple, pour récupérer un groupe de sécurité réseau nommé *myNsg*, qui existe dans un groupe de ressources appelé *myResourceGroup*, entrez la commande suivante :
+Récupérez le groupe de sécurité réseau pour lequel vous souhaitez activer la journalisation des ressources avec [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show). Par exemple, pour récupérer un groupe de sécurité réseau nommé *myNsg*, qui existe dans un groupe de ressources appelé *myResourceGroup*, entrez la commande suivante :
 
 ```azurecli-interactive
 nsgId=$(az network nsg show \
@@ -109,7 +109,7 @@ nsgId=$(az network nsg show \
 
 Vous pouvez écrire des journaux de ressources sur trois types de destinations. Pour plus d’informations, consultez [Destinations de journaux](#log-destinations). Dans cet article, les journaux d’activité sont envoyés à la destination *Log Analytics*, à titre d’exemple. Pour plus d’informations, consultez [Catégories de journal](#log-categories).
 
-Activez la journalisation des ressources pour le groupe de sécurité réseau avec [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). L’exemple suivant journalise les données de catégorie événement et compteur dans un espace de travail existant nommé *myWorkspace*, qui se trouve dans un groupe de ressources nommé *myWorkspaces*, et l’ID de groupe de sécurité réseau que vous avez récupéré :
+Activez la journalisation des ressources pour le groupe de sécurité réseau avec [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create). L’exemple suivant journalise les données de catégorie événement et compteur dans un espace de travail existant nommé *myWorkspace*, qui se trouve dans un groupe de ressources nommé *myWorkspaces*, et l’ID de groupe de sécurité réseau que vous avez récupéré :
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \

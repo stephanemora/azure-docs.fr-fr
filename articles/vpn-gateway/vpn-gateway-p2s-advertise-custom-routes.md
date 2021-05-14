@@ -1,18 +1,19 @@
 ---
-title: 'Passerelle VPN Azure : Publier des routes personnalisées pour des clients VPN point à site'
-description: Étapes à suivre pour publier des routes personnalisées pour vos clients de point à site
+title: Publier des itinéraires personnalisés pour des clients de passerelle VPN point à site
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment publier des itinéraires personnalisés sur vos clients de passerelle VPN point à site.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: a02bd5519b776a063646c11be2a34366fe429f99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2d822fdf62d24718c3732ccb77fa5c5f50cd506
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89392389"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293077"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Publier des routes personnalisées pour des clients VPN point à site
 

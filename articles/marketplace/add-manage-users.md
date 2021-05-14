@@ -8,12 +8,12 @@ author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
 ms.date: 04/07/2021
-ms.openlocfilehash: d5b9197bfd2526dd414406ebf1aca509d3b3fa91
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 108beee178cbf65bb4ba4f29479b335ab8d01a1e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107840"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108141592"
 ---
 # <a name="add-and-manage-users-for-the-commercial-marketplace"></a>Ajouter et gérer des utilisateurs pour le programme Place de marché commerciale
 
@@ -38,7 +38,7 @@ Pour ajouter des utilisateurs qui existent déjà dans le [compte professionnel 
 
 ## <a name="create-new-users"></a>Créer de nouveaux utilisateurs
 
-Pour créer de nouveaux comptes d’utilisateur, vous devez disposer d’un compte avec des autorisations d’[Administrateur général](/azure/active-directory/roles/permissions-reference).
+Pour créer de nouveaux comptes d’utilisateur, vous devez disposer d’un compte avec des autorisations d’[Administrateur général](../active-directory/roles/permissions-reference.md).
 
 1. Accédez à **Utilisateurs** (sous **Paramètres de compte**), sélectionnez **Ajouter des utilisateurs**, puis **Créer de nouveaux utilisateurs**.
 1. Entrez le prénom, le nom de famille et le nom d’utilisateur pour chaque nouvel utilisateur.
@@ -52,7 +52,7 @@ La création d’un utilisateur dans l’Espace partenaires entraîne également
 
 ## <a name="invite-new-users-by-email"></a>Inviter de nouveaux utilisateurs par e-mail
 
-Pour inviter des utilisateurs qui ne font actuellement pas partie du compte professionnel de votre entreprise (locataire Azure AD) par courrier électronique, vous devez disposer d’un compte avec des autorisations d’[Administrateur général](/azure/active-directory/roles/permissions-reference).
+Pour inviter des utilisateurs qui ne font actuellement pas partie du compte professionnel de votre entreprise (locataire Azure AD) par courrier électronique, vous devez disposer d’un compte avec des autorisations d’[Administrateur général](../active-directory/roles/permissions-reference.md).
 
 1. Accédez à **Utilisateurs** (sous **Paramètres de compte**), sélectionnez **Ajouter des utilisateurs**, puis **Inviter des utilisateurs par e-mail**.
 1. Entrez une ou plusieurs adresses e-mail (jusqu’à dix), séparées par des virgules ou des points-virgules.
@@ -63,7 +63,7 @@ Les utilisateurs que vous avez invités recevront un e-mail d’invitation à re
 
 Si vous avez besoin de renvoyer une invitation, accédez à la page *Utilisateurs*, recherchez l’invitation dans la liste des utilisateurs, sélectionnez l’adresse e-mail (ou le texte indiquant *Invitation en attente*). Ensuite, en bas de la page, sélectionnez **Renvoyer l’invitation**.
 
-Si votre organisation utilise l’[intégration d’annuaire](https://docs.microsoft.com/previous-versions/azure/azure-services/jj573653(v=azure.100)) pour synchroniser le service d’annuaire local avec votre compte Azure AD, vous ne pourrez pas créer de nouveaux utilisateurs, groupes ou applications Azure AD dans l’Espace partenaires. Vous (ou un autre administrateur de l’annuaire local) devez les créer directement dans le répertoire local avant de pouvoir les afficher et les ajouter dans l’Espace partenaires.
+Si votre organisation utilise l’[intégration d’annuaire](/previous-versions/azure/azure-services/jj573653(v=azure.100)) pour synchroniser le service d’annuaire local avec votre compte Azure AD, vous ne pourrez pas créer de nouveaux utilisateurs, groupes ou applications Azure AD dans l’Espace partenaires. Vous (ou un autre administrateur de l’annuaire local) devez les créer directement dans le répertoire local avant de pouvoir les afficher et les ajouter dans l’Espace partenaires.
 
 ## <a name="remove-a-user"></a>Supprimer un utilisateur
 
@@ -71,7 +71,7 @@ Pour supprimer un utilisateur de votre compte professionnel (locataire Azure AD)
 
 ## <a name="change-a-user-password"></a>Modifier le mot de passe utilisateur
 
-Si l’un de vos utilisateurs a besoin de modifier son mot de passe, il peut le faire lui-même si vous avez fourni une *adresse e-mail de récupération de mot de passe* lors de la création du compte d’utilisateur. Vous pouvez également mettre à jour le mot de passe utilisateur en suivant les étapes ci-dessous. Pour modifier un mot de passe utilisateur dans votre compte professionnel d’entreprise (locataire Azure AD), vous devez être connecté sur un compte avec des autorisations d’[Administrateur général](/azure/active-directory/roles/permissions-reference). Cela modifiera le mot de passe utilisateur dans votre locataire Azure AD, ainsi que le mot de passe permettant d’accéder à l’Espace partenaires.
+Si l’un de vos utilisateurs a besoin de modifier son mot de passe, il peut le faire lui-même si vous avez fourni une *adresse e-mail de récupération de mot de passe* lors de la création du compte d’utilisateur. Vous pouvez également mettre à jour le mot de passe utilisateur en suivant les étapes ci-dessous. Pour modifier un mot de passe utilisateur dans votre compte professionnel d’entreprise (locataire Azure AD), vous devez être connecté sur un compte avec des autorisations d’[Administrateur général](../active-directory/roles/permissions-reference.md). Cela modifiera le mot de passe utilisateur dans votre locataire Azure AD, ainsi que le mot de passe permettant d’accéder à l’Espace partenaires.
 
 1. Depuis la page **Utilisateurs** (sous **Paramètres de compte**), sélectionnez le nom du compte d’utilisateur que vous souhaitez modifier.
 1. Cliquez sur le bouton **Réinitialiser le mot de passe** en bas de la page.

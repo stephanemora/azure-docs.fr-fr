@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 419e609c4b78007f215d67ab4a69671bc9cbb198
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493700"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205626"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutoriel : Créer un graphe Azure Digital Twins à l’aide d’un exemple d’application cliente
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-Dans ce tutoriel, vous allez créer un graphe dans Azure Digital Twins à l’aide de modèles, de jumeaux et de relations. L’outil utilisé pour ce tutoriel est un **exemple d’application cliente en ligne de commande** pour interagir avec une instance Azure Digital Twins. L’application cliente est semblable à celle écrite dans [*Tutoriel : Coder une application cliente*](tutorial-code.md).
+Dans ce tutoriel, vous allez créer un graphe dans Azure Digital Twins à l’aide de modèles, de jumeaux et de relations. L’outil utilisé pour ce tutoriel est un **exemple d’application cliente en ligne de commande** pour interagir avec une instance Azure Digital Twins. L’application cliente est semblable à celle écrite dans [Tutoriel : Coder une application cliente](tutorial-code.md).
 
 Vous pouvez utiliser cet exemple pour effectuer des actions Azure Digital Twins essentielles, telles que le chargement de modèles, la création et la modification de jumeaux et la création de relations. Vous pouvez également examiner le [code de l’exemple](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) pour en savoir plus sur les API Azure Digital Twins, et vous exercer à implémenter vos propres commandes en modifiant l’exemple de projet comme bon vous semble.
 
@@ -55,7 +55,7 @@ Laissez la console de projet en cours d’exécution pour le reste des étapes d
 
 Maintenant que l’instance Azure Digital Twins et l’exemple d’application sont configurés, vous pouvez commencer à créer un graphe d’un scénario. 
 
-La première étape de la création d’une solution Azure Digital Twins consiste à définir des [**modèles**](concepts-models.md) de jumeaux pour votre environnement. 
+La première étape de la création d’une solution Azure Digital Twins consiste à définir des [modèles](concepts-models.md) de jumeaux pour votre environnement. 
 
 Les modèles sont similaires aux classes dans les langages de programmation orientés objet. Ils fournissent des modèles de [jumeaux numériques](concepts-twins-graph.md) définis par l’utilisateur à suivre et à instancier ultérieurement. Ils sont écrits dans un langage de type JSON appelé **DTDL (Digital Twins Definition Language**) et peuvent définir les *propriétés*, la *télémétrie*, les *relations* et les *composants* d’un jumeau.
 
@@ -95,7 +95,7 @@ CreateModels Room
 ```
 
 Comme les modèles ne peuvent pas être remplacés, une erreur de service est désormais retournée.
-Pour plus d’informations sur la façon de supprimer des modèles existants, consultez [*Guide pratique : Gérer les modèles DTDL*](how-to-manage-model.md).
+Pour plus d’informations sur la façon de supprimer des modèles existants, consultez [Guide pratique : Gérer les modèles DTDL](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -112,7 +112,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="create-digital-twins"></a>Créer des jumeaux numériques
 
-Maintenant que certains modèles ont été chargés sur votre instance Azure Digital Twins, vous pouvez créer des [**jumeaux numériques**](concepts-twins-graph.md) basés sur les définitions de modèle. Les jumeaux numériques représentent les entités au sein de votre environnement d’entreprise (par exemple les capteurs dans une ferme, les salles d’un bâtiment ou les voyants d’une voiture). 
+Maintenant que certains modèles ont été chargés sur votre instance Azure Digital Twins, vous pouvez créer des [jumeaux numériques](concepts-twins-graph.md) basés sur les définitions de modèle. Les jumeaux numériques représentent les entités au sein de votre environnement d’entreprise (par exemple les capteurs dans une ferme, les salles d’un bâtiment ou les voyants d’une voiture). 
 
 Pour créer un jumeau numérique, utilisez la commande `CreateDigitalTwin`. Vous devez référencer le modèle sur lequel le jumeau est basé, et vous pouvez éventuellement définir des valeurs initiales pour les propriétés du modèle. Vous n’avez pas besoin de transmettre d’informations de relation à ce stade.
 
@@ -157,9 +157,9 @@ Vous pouvez également modifier les propriétés d’un jumeau que vous avez cr�
 
 ## <a name="create-a-graph-by-adding-relationships"></a>Créer un graphe en ajoutant des relations
 
-Ensuite, vous pouvez créer des **relations** entre ces jumeaux, afin de les raccorder sur un [**graphe de jumeaux**](concepts-twins-graph.md). Les graphes de jumeaux servent à représenter un environnement entier. 
+Ensuite, vous pouvez créer des **relations** entre ces jumeaux, afin de les raccorder sur un [graphe de jumeaux](concepts-twins-graph.md). Les graphes de jumeaux servent à représenter un environnement entier. 
 
-Les types de relations que vous pouvez créer d’un jumeau à un autre sont définis dans les [modèles](#model-a-physical-environment-with-dtdl) que vous avez chargés. La [définition de modèle pour *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) spécifie que les étages peuvent avoir un type de relation nommé *contains*. Cela permet de créer une relation de type *contains* entre chaque jumeau *Floor* et la pièce correspondante qu’il contient.
+Les types de relations que vous pouvez créer d’un jumeau à un autre sont définis dans les [modèles](#model-a-physical-environment-with-dtdl) que vous avez chargés. La [définition de modèle pour Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) spécifie que les étages peuvent avoir un type de relation nommé *contains*. Cela permet de créer une relation de type *contains* entre chaque jumeau *Floor* et la pièce correspondante qu’il contient.
 
 Pour ajouter une relation, utilisez la commande `CreateRelationship`. Spécifiez le jumeau d’où provient la relation, le type de relation, et le jumeau avec lequel la relation établit une connexion. Pour finir, attribuez un ID unique à la relation.
 
@@ -171,7 +171,7 @@ Pour ajouter une relation, utilisez la commande `CreateRelationship`. Spécifiez
     ```
 
     >[!TIP]
-    >La relation *contains* dans le [modèle *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) a également été définie avec deux propriétés de chaîne, `ownershipUser` et `ownershipDepartment`. Vous pouvez donc aussi fournir des arguments avec les valeurs initiales de ces propriétés lorsque vous créez les relations.
+    >La relation *contains* dans le modèle [Floor](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) a également été définie avec deux propriétés de chaîne, `ownershipUser` et `ownershipDepartment`. Vous pouvez donc aussi fournir des arguments avec les valeurs initiales de ces propriétés lorsque vous créez les relations.
     > Voici une autre version de la commande ci-dessus pour créer *relationship0* qui spécifie également des valeurs initiales pour ces propriétés :
     > ```cmd/sh
     > CreateRelationship floor0 contains room0 relationship0 ownershipUser string MyUser ownershipDepartment string myDepartment
@@ -279,4 +279,4 @@ Dans ce tutoriel, vous avez commencé à utiliser Azure Digital Twins en génér
 
 Passez au tutoriel suivant pour combiner Azure Digital Twins à d’autres services Azure afin de bénéficier d’un scénario de bout en bout piloté par les données :
 > [!div class="nextstepaction"]
-> [*Tutoriel : Connecter une solution de bout en bout*](tutorial-end-to-end.md)
+> [Tutoriel : Connecter une solution de bout en bout](tutorial-end-to-end.md)

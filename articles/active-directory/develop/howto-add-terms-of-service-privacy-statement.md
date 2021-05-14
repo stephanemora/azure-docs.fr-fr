@@ -12,26 +12,26 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ca10c54cff14bd9301e06a891bcb1f7013959f9
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104193"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176465"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procédure : Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
 
-Les développeurs qui génèrent et gèrent des applications qui s’intègrent à Azure Active Directory (Azure AD) et à des comptes Microsoft doivent ajouter des liens vers les conditions d’utilisation et la déclaration de confidentialité de ces applications. Les conditions d’utilisation et la déclaration de confidentialité sont présentées aux utilisateurs par le biais de l’expérience de consentement de l’utilisateur. Elles permettent à vos utilisateurs de savoir qu’ils peuvent faire confiance à votre application. Les conditions d’utilisation et la déclaration de confidentialité sont particulièrement importantes pour les applications multilocataires accessibles aux utilisateurs (applications utilisées par plusieurs annuaires ou disponibles pour n’importe quel compte Microsoft).
+Les développeurs qui créent et gèrent des applications multi-locataires compatibles avec Azure Active Directory (Azure AD) et les comptes Microsoft doivent ajouter des liens vers les conditions d’utilisation du service et la déclaration de confidentialité de ces applications. Les conditions d’utilisation et la déclaration de confidentialité sont présentées aux utilisateurs par le biais de l’expérience de consentement de l’utilisateur. Elles permettent à vos utilisateurs de savoir qu’ils peuvent faire confiance à votre application. Les conditions d’utilisation et la déclaration de confidentialité sont particulièrement importantes pour les applications multilocataires accessibles aux utilisateurs (applications utilisées par plusieurs annuaires ou disponibles pour n’importe quel compte Microsoft).
 
 Il vous incombe de créer les documents des conditions d’utilisation et de la déclaration de confidentialité pour votre application, ainsi que de fournir les URL permettant d’accéder à ces documents. Pour les applications multilocataires qui ne fournissent pas ces liens, l’expérience de consentement de l’utilisateur pour votre application affiche une alerte, ce qui peut décourager les utilisateurs de donner leur consentement pour votre application.
 
 > [!NOTE]
-> * Les applications monolocataires n’affichent pas d’alerte.
+> * Les liens vers les conditions d’utilisation du service et la déclaration de confidentialité ne s’appliquent pas aux applications mono-locataires.
 > * Si l’un des liens, ou des deux, sont manquants, votre application affiche une alerte.
 
 ## <a name="user-consent-experience"></a>Expérience de consentement de l'utilisateur
 
-Les exemples suivants montrent l’expérience de consentement de l’utilisateur quand les conditions d’utilisation et la déclaration de confidentialité sont configurées et que ces liens ne le sont pas.
+L’exemple suivant montre l’expérience de consentement de l’utilisateur pour une application multi-locataire quand les conditions d’utilisation du service et la déclaration de confidentialité sont configurées, mais que ces liens ne le sont pas.
 
 ![Captures d’écran avec et sans déclaration de confidentialité et conditions d’utilisation fournies](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
 

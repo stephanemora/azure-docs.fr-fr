@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5d945c421dc0a4abed17b3a355339c131dd922df
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598252"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728047"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -396,51 +396,6 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
     Vous pouvez accéder à la clé API dans le portail Azure Enterprise sous l’onglet **Télécharger l’utilisation**. Sélectionnez **Clé d’accès API**, puis collez la clé dans la zone **Clé du compte**.
 1. Le chargement des données dure entre 5 et 30 minutes environ dans Power BI, en fonction de la taille des jeux de données.
-
-## <a name="reports-faq"></a>FAQ sur les rapports
-
-Cette section répond aux questions les plus courantes sur les rapports.
-
-### <a name="why-is-my-cost-showing-as-0"></a>Pourquoi mon coût affiche-t-il $0 ?
-
-Pour les clients avec **inscription directe**, les administrateurs d'entreprise peuvent fournir aux propriétaires de compte et aux administrateurs de service un accès aux informations sur le coût et le prix des rapports d'utilisation. Procédez comme suit :
-
-1. Dans le portail Enterprise, sélectionnez **Gérer** dans le volet de navigation de gauche.
-1. Sélectionnez le crayon bleu en regard de l’affichage des frais pour le DA (administrateur de service).
-1. Sélectionnez **Activé** et enregistrez.
-1. Sélectionnez le crayon bleu en regard de l’affichage des frais pour l’AO (propriétaire du compte).
-1. Sélectionnez **Activé** et enregistrez.
-
-> [!NOTE]
-> Si vous êtes propriétaire de compte ou administrateur de service, contactez votre administrateur d’entreprise pour activer la fonctionnalité de tarification.
-
-Pour les clients avec **inscription indirecte**, vérifiez auprès de votre partenaire s’il a activé la fonctionnalité de tarification pour vous. Cette opération ne peut être réalisée que par le partenaire. Une fois cette fonctionnalité activée, vous pouvez afficher le coût et le prix de votre inscription en tant qu'administrateur d'entreprise.
-
-Pour les partenaires, si vous souhaitez activer la fonctionnalité d'affichage des frais pour un propriétaire de compte ou un administrateur de service, suivez les étapes de l'**inscription directe**.
-
-### <a name="why-is-there-no-sku-information-on-my-usage-detail-report"></a>Pourquoi mon rapport de détails de l’utilisation ne contient-il aucune information de référence SKU ?
-
-Le rapport de détails de l’utilisation ne contient aucune information de référence SKU. En revanche, étant donné qu’il contient des informations sur l'utilisation, vous pouvez télécharger le rapport de grille tarifaire afin d’obtenir des informations de référence SKU.
-
-### <a name="why-doesnt-the-total-amount-on-azure-marketplace-match-the-reports-for-usage-summary-and-detail"></a>Pourquoi le montant total sur la Place de marché Azure ne correspond-il pas aux rapports pour le résumé et les détails de l'utilisation ?
-
-Le rapport de frais de la Place de marché Azure affiche uniquement les frais basés sur l’utilisation. Les frais à usage unique ne sont pas affichés. Reportez-vous à la page Résumé de l’utilisation pour connaître les utilisations à jour sur les frais basés sur l’utilisation et les frais à usage unique.
-
-### <a name="why-is-there-no-information-on-my-api-report"></a>Pourquoi mon rapport d’API n’affiche-t-il aucune information ?
-
-Les clés API expirent tous les six mois. En cas de problème, un administrateur d'entreprise doit générer une nouvelle clé API. N'oubliez pas de suivre les étapes de la FAQ sur le rapport API.
-
-### <a name="why-isnt-my-power-bi-report-working"></a>Pourquoi mon rapport Power BI ne fonctionne-t-il pas ?
-
-En cas de problème avec Power BI, ouvrez un ticket auprès de l'[équipe de support Power BI](https://support.powerbi.com).
-
-### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>Pourquoi mes balises de ressources ne s'affichent-elles pas sur mes rapports ?
-
-Les balises de ressources sont gérées sur le portail Azure. Vous pouvez contacter l'équipe des abonnements Azure sur le [portail Azure](https://portal.azure.com). Suivez les étapes de l'article [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
-
-### <a name="why-does-my-resource-rate-change-every-day"></a>Pourquoi mon taux de ressource change-t-il tous les jours ?
-
-Le taux de ressource indiqué dans le rapport de détails de l’utilisation est une valeur calculée. Il représente le tarif mensuel moyen qui a été facturé pour le service. Le taux de ressource est calculé à l’aide de la moyenne de votre engagement mensuel et de vos frais de dépassement mensuels pour une unité de service. La partie de l’utilisation facturée par rapport à votre engagement et aux tarifs de dépassement change à chaque fin de journée. Ainsi, le taux de ressource affiché change également au cours du mois. Le taux de ressource est verrouillé le cinquième jour suivant la fin du mois.
 
 ### <a name="glossary-of-processes-for-calculating-the-resource-rate"></a>Glossaire des processus de calcul du taux de ressource
 

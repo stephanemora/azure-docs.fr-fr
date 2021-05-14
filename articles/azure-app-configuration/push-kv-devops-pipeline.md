@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: e1a4fb52a5f9622758e9ed805bf9380f5f608870
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a3b3c8760c3bf7d6bf4bee444bef7ed77134fb5a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068250"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748270"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envoyer des paramètres vers App Configuration avec Azure Pipelines
 
@@ -27,38 +27,12 @@ La tâche [Azure App Configuration Push](https://marketplace.visualstudio.com/it
 
 ## <a name="create-a-service-connection"></a>Créer une connexion de service
 
-Une [connexion de service](/azure/devops/pipelines/library/service-endpoints) vous permet d’accéder aux ressources de votre abonnement Azure à partir de votre projet Azure DevOps.
-
-1. Dans Azure DevOps, accédez au projet contenant votre pipeline cible et ouvrez les **Paramètres du projet** en bas à gauche.
-1. Sous **Pipelines** sélectionnez **Connexions de service** puis **Nouvelle connexion de service** en haut à droite.
-1. Sélectionnez **Azure Resource Manager**.
-![La capture d’écran montre la sélection d’Azure Resource Manager dans la liste déroulante Nouvelle connexion de service.](./media/new-service-connection.png)
-1. Dans la boîte de dialogue **Méthode d’authentification** , sélectionnez **Principal du service (automatique)** .
-    > [!NOTE]
-    > L’authentification par **Identité managée** n’est actuellement pas prise en charge pour la tâche Configuration d’application.
-1. Renseignez votre abonnement et votre ressource. Donnez un nom à votre connexion de service.
-
-Maintenant que votre connexion de service est créée, recherchez le nom du principal de service qui lui est assigné. Vous ajouterez une nouvelle attribution de rôle à ce principal de service à l’étape suivante.
-
-1. Accédez à **Paramètres du projet** > **Connexions de service**.
-1. Sélectionnez la connexion de service que vous avez créée dans la section précédente.
-1. Sélectionnez **Gérer le principal du service**.
-1. Notez le **Nom complet** listé.
-![Capture d’écran montrant le nom complet du principal de service.](./media/service-principal-display-name.png)
+[!INCLUDE [azure-app-configuration-service-connection](../../includes/azure-app-configuration-service-connection.md)]
 
 ## <a name="add-role-assignment"></a>Ajouter une attribution de rôle
 
-Affectez les attributions de rôle App Configuration appropriées aux informations d’identification utilisées dans la tâche, afin que la tâche puisse accéder au magasin App Configuration.
+[!INCLUDE [azure-app-configuration-role-assignment](../../includes/azure-app-configuration-role-assignment.md)]
 
-1. Accédez à votre magasin App Configuration cible. 
-1. Sur la gauche, sélectionnez **Contrôle d’accès (IAM)** .
-1. Sur le côté droit, cliquez sur le bouton **Ajouter des attributions de rôles**.
-![Capture d’écran montrant le bouton Ajouter des attributions de rôles.](./media/add-role-assignment-button.png)
-1. Sous **Rôle**, sélectionnez **Propriétaire des données App Configuration**. Ce rôle permet à la tâche de lire et d’écrire dans le magasin App Configuration. 
-1. Sélectionnez le principal de service associé à la connexion de service que vous avez créée dans la section précédente.
-![Capture d’écran montrant la boîte de dialogue Ajouter une attribution de rôle.](./media/add-role-assignment.png)
-
-  
 ## <a name="use-in-builds"></a>Utiliser dans les builds
 
 Cette section explique comment utiliser la tâche Azure App Configuration Push dans un pipeline de build Azure DevOps.

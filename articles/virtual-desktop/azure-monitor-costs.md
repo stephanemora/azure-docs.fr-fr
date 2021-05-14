@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 26262f83e14602d6ea93f96ec47630ef870c357d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: d3c65c08691a234934a1641af9cc8203f655ef8c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309303"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144310"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Estimer les coûts d’Azure Monitor
 
@@ -180,7 +180,7 @@ Pour en savoir plus sur la gestion des droits et des autorisations d’accès au
 Voici quelques suggestions pour optimiser vos paramètres Log Analytics pour gérer l’ingestion des données :
 
 - Utilisez un espace de travail Log Analytics désigné pour vos ressources Windows Virtual Desktop pour vous assurer que Log Analytics collecte uniquement les compteurs de performance et les événements des machines virtuelles dans votre déploiement Windows Virtual Desktop.
-- Ajustez vos paramètres de stockage Log Analytics pour gérer les coûts. Vous pouvez réduire la période de rétention, évaluer si un niveau de tarification de stockage fixe est plus rentable ou définir des limites sur la quantité de données que vous pouvez ingérer pour limiter l’impact d’un déploiement défectueux. Pour plus d’informations, consultez [Gérer l’utilisation et les coûts des journaux d’Azure Monitor](../azure-monitor/platform/manage-cost-storage.md).
+- Ajustez vos paramètres de stockage Log Analytics pour gérer les coûts. Vous pouvez réduire la période de rétention, évaluer si un niveau de tarification de stockage fixe est plus rentable ou définir des limites sur la quantité de données que vous pouvez ingérer pour limiter l’impact d’un déploiement défectueux. Pour plus d’informations, consultez [Gérer l’utilisation et les coûts des journaux d’Azure Monitor](../azure-monitor/logs/manage-cost-storage.md).
 
 ### <a name="remove-excess-data"></a>Supprimer les données excédentaires
 
@@ -208,7 +208,7 @@ Perf
 
 Cette requête affiche tous les compteurs de performances que vous avez activés sur l’environnement, pas seulement ceux par défaut pour Azure Monitor pour Windows Virtual Desktop. Ces informations peuvent vous aider à comprendre les domaines à cibler pour réduire les coûts, par exemple réduire la fréquence d’un compteur ou le supprimer complètement.
 
-Vous pouvez également réduire les coûts en supprimant des compteurs de performances. Pour savoir comment supprimer des compteurs de performances ou modifier des compteurs existants pour réduire leur fréquence, consultez la section [Configurer les compteurs de performances](../azure-monitor/platform/data-sources-performance-counters.md#configuring-performance-counters).
+Vous pouvez également réduire les coûts en supprimant des compteurs de performances. Pour savoir comment supprimer des compteurs de performances ou modifier des compteurs existants pour réduire leur fréquence, consultez la section [Configurer les compteurs de performances](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters).
 
 ### <a name="manage-windows-event-logs"></a>Gérer les journaux d’événements Windows
 

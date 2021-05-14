@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 3/14/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e70906cbf26c899744bfbe137da4ce9cfa651b20
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d157419614ee3a3f89036177e962e5b7fc4466b2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753143"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815029"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Comment créer un coffre de clés Azure et une stratégie d’accès à l’aide d’un modèle Resource Manager
 
@@ -213,10 +213,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - Consultez une [présentation d’Azure Key Vault](../general/overview.md).
 - Découvrez [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Passer en revue la [Vue d’ensemble de la sécurité d’Azure Key Vault](security-overview.md)
+- Passer en revue la [Vue d’ensemble de la sécurité d’Azure Key Vault](security-features.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Sécuriser l’accès à un coffre de clés](security-overview.md)
+- [Sécuriser l’accès à un coffre de clés](security-features.md)
 - [S’authentifier auprès d’un coffre de clés](authentication.md)
 - [Guide du développeur de coffre de clés Azure](developers-guide.md)

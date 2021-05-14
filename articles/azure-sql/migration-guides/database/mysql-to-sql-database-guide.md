@@ -9,19 +9,19 @@ ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: d4510aa5cda61dac88102c89b3e03da231380bd6
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 6aa6537cefb110662f9fbc535832d8c9423a6f68
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389449"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108136586"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>Guide de migration : MySQL vers Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
 Dans ce guide, vous allez découvrir [comment migrer](https://azure.microsoft.com/migration/migration-journey) votre base de données MySQL vers une base de données Azure SQL à l’aide de l’Assistant [Migration SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) pour MySQL (SSMA pour MySQL). 
 
-Pour d’autres guides sur la migration, consultez [Guide sur la migration de bases de données Azure](https://docs.microsoft.com/data-migration). 
+Pour d’autres guides sur la migration, consultez [Guide sur la migration de bases de données Azure](/data-migration). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -180,4 +180,3 @@ L’équipe d’ingénierie SQL des données a développé ces ressources. La ch
 - Pour obtenir des vidéos sur la migration, consultez [Vue d’ensemble du parcours de migration, outils et services de migration et d’évaluation recommandés](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
 
 - Pour plus de [ressources sur la migration cloud](https://azure.microsoft.com/migration/resources/), consultez [Solutions de migration cloud](https://azure.microsoft.com/migration).
-

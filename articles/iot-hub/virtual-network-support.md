@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df38f9b3482847ea0415af5cb47540e244b0510b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98630291"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739887"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Prise en charge par IoT Hub des réseaux virtuels avec Private Link et Managed Identity
 
@@ -174,7 +174,7 @@ La fonctionnalité d'exception des services internes Microsoft approuvés est gr
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Connectivité sortante vers les points de terminaison de stockage pour le routage
 
-IoT Hub peut router les messages vers un compte de stockage détenu par le client. Pour permettre à la fonctionnalité de routage d'accéder à un compte de stockage alors que des restrictions de pare-feu sont en place, votre hub IoT doit disposer d’une [identité managée](#turn-on-managed-identity-for-iot-hub). Une fois qu’une identité managée est configurée, suivez la procédure ci-dessous pour donner à l’identité de ressource de votre hub l’autorisation Azure RBAC d’accéder à votre compte de stockage.
+IoT Hub peut router les messages vers un compte de stockage détenu par le client. Pour permettre à la fonctionnalité de routage d’accéder à un compte de stockage alors que des restrictions de pare-feu sont en place, votre hub doit utiliser une identité managée pour accéder au compte de stockage. Tout d’abord, votre hub a besoin d’une [identité managée](#turn-on-managed-identity-for-iot-hub). Une fois qu’une identité managée est configurée, suivez la procédure ci-dessous pour donner à l’identité de ressource de votre hub l’autorisation Azure RBAC d’accéder à votre compte de stockage.
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de votre compte de stockage, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
 
@@ -192,7 +192,7 @@ Votre point de terminaison de stockage personnalisé est maintenant configuré p
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Connectivité sortante vers les points de terminaison de hubs d’événements pour le routage
 
-IoT Hub peut être configuré pour router les messages vers un espace de noms de hubs d’événements appartenant au client. Pour permettre à la fonctionnalité de routage d'accéder à une ressource Event Hubs alors que des restrictions de pare-feu sont en place, votre hub IoT doit disposer d’une identité managée. Une fois qu’une identité managée est créée, suivez la procédure ci-dessous pour donner à l’identité de ressource de votre hub l’autorisation Azure RBAC d’accéder à vos Event Hubs.
+IoT Hub peut être configuré pour router les messages vers un espace de noms de hubs d’événements appartenant au client. Pour permettre à la fonctionnalité de routage d’accéder à une ressource Event Hubs alors que des restrictions de pare-feu sont en place, votre hub IoT doit utiliser une identité managée pour accéder à la ressource Event Hubs. Tout d’abord, votre hub a besoin d’une identité managée. Une fois qu’une identité managée est créée, suivez la procédure ci-dessous pour donner à l’identité de ressource de votre hub l’autorisation Azure RBAC d’accéder à vos Event Hubs.
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de vos hubs d’événements, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
 
@@ -210,7 +210,7 @@ Votre point de terminaison de hubs d’événements personnalisé est maintenant
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Connectivité sortante vers les points de terminaison Service Bus pour le routage
 
-IoT Hub peut être configuré pour router les messages vers un espace de noms Service Bus appartenant au client. Pour permettre à la fonctionnalité de routage d'accéder à une ressource Service Bus alors que des restrictions de pare-feu sont en place, votre hub IoT doit disposer d’une identité managée. Une fois qu’une identité managée est configurée, suivez la procédure ci-dessous pour donner à l’identité de ressource de votre hub l’autorisation Azure RBAC d’accéder à votre bus de services.
+IoT Hub peut être configuré pour router les messages vers un espace de noms Service Bus appartenant au client. Pour permettre à la fonctionnalité de routage d'accéder à une ressource Service Bus alors que des restrictions de pare-feu sont en place, votre hub IoT doit utiliser une identité managée pour accéder à la ressource Service Bus. Tout d’abord, votre hub a besoin d’une identité managée. Une fois qu’une identité managée est configurée, suivez la procédure ci-dessous pour donner à l’identité de ressource de votre hub l’autorisation Azure RBAC d’accéder à votre bus de services.
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de Service Bus, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
 

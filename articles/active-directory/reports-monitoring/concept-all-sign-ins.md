@@ -1,10 +1,10 @@
 ---
-title: Rapports d’activité de connexion Azure Active Directory – Préversion | Microsoft Docs
-description: Présentation des rapports d’activité de connexion dans le portail Azure Active Directory
+title: Journaux des connexions dans Azure Active Directory - préversion | Microsoft Docs
+description: Présentation des connexions des connexions dans Azure Active Directory, y compris les nouvelles fonctionnalités de la préversion.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/16/2021
+ms.date: 04/25/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17e7f34da1428eec219a393417b0a2a7b461078
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e25fc61fe99a5c7df19b7c0ecb8265f4dcc681cc
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552731"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108137018"
 ---
-# <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Rapports d’activité de connexion Azure Active Directory – Préversion
+# <a name="sign-ins-logs-in-azure-active-directory---preview"></a>Journaux des connexions dans Azure Active Directory - préversion
 
-L’architecture de création de rapports dans Azure Active Directory (Azure AD) comprend les composants suivants :
+En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
 
-- **Activité** 
-    - **Connexions** : informations concernant les moments auxquels des utilisateurs, des applications et des ressources managées se connectent à Azure AD et accèdent à des ressources.
-    - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) : fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
-- **Sécurité** 
-    - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) correspond à un indicateur de tentative de connexion d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
-    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
+Pour vous aider à atteindre cet objectif, le portail Azure Active Directory vous donne accès à trois journaux d’activité :
 
-Le rapport classique sur les connexions dans Azure Active Directory fournit une vue d’ensemble des connexions utilisateur interactives. En plus de celui-ci, vous avez désormais accès à trois rapports de connexion supplémentaires actuellement en préversion :
+- **[Connexions](concept-sign-ins.md)**  : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
+- **[Audit](concept-audit-logs.md)**  : Informations sur les modifications appliquées à votre locataire, telles que la gestion des utilisateurs et des groupes ou les mises à jour appliquées aux ressources de votre locataire.
+- **[Approvisionnement](concept-provisioning-logs.md)**  : Activités réalisées par le service d’approvisionnement, telles que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday.
+
+
+Le rapport classique sur les connexions dans Azure Active Directory fournit une vue d’ensemble des connexions utilisateur interactives. En plus de celui-ci, vous avez désormais accès à trois journaux de connexion supplémentaires actuellement en préversion :
 
 - Connexions utilisateur non interactives
 
@@ -43,19 +43,22 @@ Le rapport classique sur les connexions dans Azure Active Directory fournit une 
 
 - Identités managées pour les connexions aux ressources Azure
 
-Cet article présente une vue d’ensemble du rapport d’activité de connexion avec la préversion des connexions non interactives, d’applications et d’identités managées pour les ressources Azure. Pour plus d’informations sur le rapport de connexion sans les fonctionnalités en version préliminaire, consultez [Rapports d’activité de connexion dans le portail Azure Active Directory](concept-sign-ins.md).
+Cet article présente une vue d’ensemble du rapport d’activité de connexion avec la préversion des connexions non interactives, d’applications et d’identités managées pour les ressources Azure. Pour plus d’informations sur le rapport de connexion sans les fonctionnalités en version préliminaire, consultez [Journaux de connexion dans le portail Azure Active Directory](concept-sign-ins.md).
 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="what-can-you-do-with-it"></a>Que pouvez-vous faire avec ?
 
-Avant de commencer à utiliser cette fonctionnalité, vous devez connaître les réponses aux questions suivantes :
+Le rapport de connexions contient des réponses à des questions comme :
 
-- Qui peut accéder aux données ?
+- Quel est le modèle de connexion d’un utilisateur, d’une application ou d’un service ?
 
-- De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
+- Combien d’utilisateurs, d’applications ou de services se sont-ils connectés au cours d’une semaine ?
 
-### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
+- Quel est l’état de ces connexions ?
+
+
+## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 
 - Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité et Lecteur de rapports
 
@@ -63,20 +66,20 @@ Avant de commencer à utiliser cette fonctionnalité, vous devez connaître les 
 
 - Tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
 
-### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
+## <a name="what-azure-ad-license-do-you-need"></a>De quelle licence Azure AD avez-vous besoin ?
 
-Votre client doit avoir une licence Azure AD Premium associée pour afficher les activités de connexion. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Quelques jours seront nécessaires pour que les données s’affichent dans les rapports après la mise à niveau vers une licence premium s’il n’y a aucune activité de données avant la mise à niveau.
+Votre client doit avoir une licence Azure AD Premium associée pour afficher les activités de connexion. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Quelques jours seront nécessaires pour que les données s’affichent dans les journaux après la mise à niveau vers une licence premium s’il n’y a aucune activité de données avant la mise à niveau.
 
 
 
-## <a name="sign-ins-report"></a>Rapport de connexions
 
-Le rapport de connexions contient des réponses aux questions suivantes :
+## <a name="where-can-you-find-it-in-the-azure-portal"></a>Où le trouver dans le portail Azure ?
 
-- Quel est le modèle de connexion d’un utilisateur, d’une application ou d’un service ?
-- Combien d’utilisateurs, d’applications ou de services se sont-ils connectés au cours d’une semaine ?
-- Quel est l’état de ces connexions ?
+Le portail Azure vous offre plusieurs options pour accéder au journal. Par exemple, dans le menu Azure Active Directory, vous pouvez ouvrir le journal dans la section **Surveillance**.  
 
+![Ouvrir les journaux des connexions](./media/concept-sign-ins/sign-ins-logs-menu.png)
+
+En outre, vous pouvez accéder directement aux journaux des connexions à l’aide de ce lien : [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
 Dans le panneau du rapport de connexions, vous pouvez basculer entre les deux affichages suivants :
 
@@ -92,17 +95,6 @@ Dans le panneau du rapport de connexions, vous pouvez basculer entre les deux af
 ![Types de rapports de connexions](./media/concept-all-sign-ins/sign-ins-report-types.png)
 
 
-
-
-
-
-
-
-
-
-
-
-## <a name="user-sign-ins&quot;></a>Connexions utilisateur
 
 Chaque onglet du panneau des connexions affiche les colonnes par défaut ci-dessous. Certains onglets contiennent des colonnes supplémentaires :
 
@@ -120,7 +112,7 @@ Chaque onglet du panneau des connexions affiche les colonnes par défaut ci-dess
 
 
 
-### <a name=&quot;interactive-user-sign-ins&quot;></a>Connexions utilisateur interactives
+### <a name="interactive-user-sign-ins&quot;></a>Connexions utilisateur interactives
 
 
 Les connexions utilisateur interactives sont des connexions où un utilisateur fournit un facteur d’authentification à Azure AD ou interagit directement avec Azure AD ou une application auxiliaire telle que l’application Microsoft Authenticator. Les facteurs que les utilisateurs fournissent incluent des mots de passe, des réponses à des demandes d’authentification multifacteur, des facteurs biométriques ou des codes QR qu’un utilisateur fournit à Azure AD ou à une application auxiliaire.
@@ -130,7 +122,8 @@ Les connexions utilisateur interactives sont des connexions où un utilisateur f
 
 
 
-Remarque : le rapport de connexions utilisateur interactives contenait auparavant des connexions non interactives de clients Microsoft Exchange. Bien que ces connexions ne soient pas interactives, elles étaient incluses dans le rapport des connexions utilisateur interactives pour une meilleure visibilité. Une fois le rapport de connexions utilisateur non interactives entré en préversion publique en novembre 2020, les journaux des événements de connexion non interactive ont été déplacés vers le rapport de connexions utilisateur non interactives pour une plus grande précision. 
+> [!NOTE] 
+> Le rapport des connexions utilisateur interactives contenait auparavant des connexions non interactives de clients Microsoft Exchange. Bien que ces connexions ne soient pas interactives, elles étaient incluses dans le rapport des connexions utilisateur interactives pour une meilleure visibilité. Une fois le rapport de connexions utilisateur non interactives entré en préversion publique en novembre 2020, les journaux des événements de connexion non interactive ont été déplacés vers le rapport de connexions utilisateur non interactives pour une plus grande précision. 
 
 
 **Taille du rapport :** petite <br> 
@@ -328,6 +321,18 @@ Sélectionnez un élément dans la liste pour afficher toutes les connexions reg
 Sélectionnez un élément regroupé pour afficher tous les détails de la connexion. 
 
 
+## <a name="sign-in-error-code"></a>Code d’erreur de connexion
+
+Si une connexion a échoué, vous pouvez obtenir plus d’informations sur la raison de cet échec dans la section **Informations de base** de l’élément de journal correspondant. 
+
+![Capture d’écran montrant une vue d’informations détaillées.](./media/concept-all-sign-ins/error-code.png)
+ 
+Bien que l’élément de journal vous fournisse la raison de l’échec, dans certains cas, vous pouvez obtenir plus d’informations en utilisant l’[outil de recherche de l’erreur de connexion](https://login.microsoftonline.com/error). Par exemple, s’il est disponible, cet outil vous propose des étapes de correction.  
+
+![Outil de recherche du code d’erreur](./media/concept-all-sign-ins/error-code-lookup-tool.png)
+
+
+
 ## <a name="filter-sign-in-activities"></a>Filtrer les activités de connexion
 
 En définissant un filtre, vous pouvez réduire l’étendue des données de connexion retournées. Azure AD vous offre une large gamme de filtres supplémentaires que vous pouvez définir. Lorsque vous définissez votre filtre, vous devez toujours prêter une attention particulière à votre filtre de **plage de dates** de configuré. Un filtre de plage de dates approprié garantit qu’Azure AD retourne uniquement les données qui vous intéressent vraiment.     
@@ -358,12 +363,12 @@ Le filtre est le même pour les des connexions interactives et non interactives.
 
 
 
-## <a name="access-the-new-sign-in-activity-reports"></a>Accéder aux nouveaux rapports d’activité de connexion 
+## <a name="access-the-new-sign-in-activity-logs"></a>Accéder aux nouveaux journaux d’activité de connexion 
 
-Le rapport d’activité de connexion dans le Portail Azure offre une méthode simple pour activer et désactiver le rapport en préversion. Si les rapports en préversion sont activés, un nouveau menu s’affiche, qui vous permet d’accéder à tous les types de rapports d’activité de connexion.     
+Le rapport d’activité de connexion dans le Portail Azure offre une méthode simple pour activer et désactiver le rapport en préversion. Si les journaux en préversion sont activés, un nouveau menu s’affiche, qui vous permet d’accéder à tous les types de rapports d’activité de connexion.     
 
 
-Pour accéder aux nouveaux rapports de connexion avec des connexions d’application non interactives : 
+Pour accéder aux nouveaux journaux de connexion avec des connexions d’application non interactives : 
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
 
@@ -387,7 +392,7 @@ Pour accéder aux nouveaux rapports de connexion avec des connexions d’applica
 
 
 
-## <a name="download-sign-in-activity-reports"></a>Télécharger les rapports d’activité de connexion
+## <a name="download-sign-in-activity-logs"></a>Télécharger les journaux d’activité de connexion
 
 Lorsque vous téléchargez un rapport d’activité de connexion, les conditions suivantes sont réunies :
 
@@ -400,7 +405,7 @@ Lorsque vous téléchargez un rapport d’activité de connexion, les conditions
 - Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md). 
 
 
-![Télécharger des rapports](./media/concept-all-sign-ins/download-reports.png "Rapports de téléchargement")
+![Télécharger les journaux](./media/concept-all-sign-ins/download-reports.png "Télécharger les journaux")
 
 
 Chaque téléchargement au format CSV se compose de six fichiers différents :
@@ -434,6 +439,6 @@ Chaque téléchargement au format JSON se compose de quatre fichiers différents
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Codes d’erreur du rapport d’activité de connexion](reference-sign-ins-error-codes.md)
+* [Codes d’erreur du rapport d’activité de connexion](./concept-sign-ins.md)
 * [Stratégies de conservation des données Azure AD](reference-reports-data-retention.md)
 * [Latences de rapport Azure AD](reference-reports-latencies.md)

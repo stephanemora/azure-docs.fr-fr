@@ -4,12 +4,12 @@ description: Découvrez les types de comptes d’utilisateur et comment les conf
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.custom: seodec18
-ms.openlocfilehash: 02cad0bff9e76ec5db82c417f2439b12ef088045
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 5a071e03b27a2cb612118ad37e078ca8f8f86e08
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389279"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987971"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Exécuter des tâches sous des comptes d’utilisateur dans Azure Batch
 
@@ -18,7 +18,7 @@ ms.locfileid: "107389279"
 >
 > Pour vous connecter à un nœud exécutant la configuration de machine virtuelle Linux via SSH, consultez [Installer et configurer xrdp pour utiliser Bureau à distance avec Ubuntu](../virtual-machines/linux/use-remote-desktop.md). Pour vous connecter aux nœuds exécutant Windows via RDP, consultez [Connexion à une machine virtuelle Azure exécutant Windows](../virtual-machines/windows/connect-logon.md).
 >
-> Pour vous connecter à un nœud qui exécute la configuration du service cloud via RDP, consultez [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> Pour vous connecter à un nœud qui s’exécute via RDP, consultez [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 Dans Azure Batch, une tâche s’exécute toujours sous un compte d’utilisateur. Par défaut, les tâches s’exécutent sous des comptes d’utilisateur standard qui ne possèdent pas de droits d’administrateur. Pour certains scénarios, vous pouvez configurer le compte d’utilisateur sous lequel vous voulez exécuter une tâche. Cet article décrit les types de comptes d’utilisateur et la manière de les configurer pour votre scénario.
 
@@ -139,7 +139,7 @@ Les comptes d’utilisateur nommé activent le protocole SSH sans mot de passe 
 
 ### <a name="create-named-user-accounts"></a>Créer des comptes d’utilisateur nommé
 
-Pour créer des comptes d’utilisateur nommé dans Batch, ajoutez une collection de comptes d’utilisateur au pool. Les extraits de code suivants montrent comment créer des comptes d’utilisateur nommé dans .NET, Java et Python. Ces extraits de code montrent comment créer des comptes nommés admin et non-admin sur un pool. Les exemples montrent comment créer des pools à l’aide de la configuration du service cloud, mais en utilisant la même approche que lors de la création d’un pool Windows ou Linux à l’aide de la configuration de machine virtuelle.
+Pour créer des comptes d’utilisateur nommé dans Batch, ajoutez une collection de comptes d’utilisateur au pool. Les extraits de code suivants montrent comment créer des comptes d’utilisateur nommé dans .NET, Java et Python. Ces extraits de code montrent comment créer des comptes nommés admin et non-admin sur un pool.
 
 #### <a name="batch-net-example-windows"></a>Exemple .NET Batch (Windows)
 
@@ -147,7 +147,7 @@ Pour créer des comptes d’utilisateur nommé dans Batch, ajoutez une collectio
 CloudPool pool = null;
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create a pool using the cloud service configuration.
+// Create a pool using Virtual Machine Configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,

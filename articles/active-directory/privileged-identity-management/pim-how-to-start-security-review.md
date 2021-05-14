@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 4/05/2021
+ms.date: 4/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aba8d9de5e068cd98675f67cb26b0eac8d1ad6d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 60473d034820627605616c0bc280f1f105f4b3e5
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552821"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124100"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles Azure AD dans Privileged Identity Management
 
@@ -29,7 +29,7 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 
 ## <a name="prerequisite-license"></a>Licence requise
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Pour plus d’informations sur les licences pour PIM, consultez [Exigences relatives aux licences pour l’utilisation de Privileged Identity Management](subscription-requirements.md).
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] Pour plus d’informations sur les licences pour PIM, consultez [Exigences relatives aux licences pour l’utilisation de Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
 >  Actuellement, vous pouvez étendre une révision d’accès aux principaux de service ayant accès à Azure AD et aux rôles de ressource Azure (préversion) avec une édition Azure Active Directory Premium P2 active dans votre locataire. Le modèle de licence pour les principaux de service sera finalisé pour la disponibilité générale de cette fonctionnalité, et des licences supplémentaires peuvent être nécessaires.
@@ -42,35 +42,35 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle Administrateur de rôle privilégié.
 
-1. Sélectionnez **Identity Governance**
+2. Sélectionnez **Identity Governance**
  
-1. Sélectionnez **Rôles Azure AD** sous **Azure Active Directory Privileged Identity Management**.
+3. Sélectionnez **Rôles Azure AD** sous **Azure Active Directory Privileged Identity Management**.
  
-1. Sélectionnez de nouveau **Rôles Azure AD** sous **Gérer**.
+4. Sélectionnez de nouveau **Rôles Azure AD** sous **Gérer**.
 
-1. Sous Gérer, sélectionnez **Révisions d’accès**, puis sélectionnez **Nouveau**.
+5. Sous Gérer, sélectionnez **Révisions d’accès**, puis sélectionnez **Nouveau**.
 
     ![Rôles d’Azure AD : liste des révisions d’accès indiquant l’état de toutes les révisions](./media/pim-how-to-start-security-review/access-reviews.png)
 
-Cliquez sur **Nouveau** pour créer une révision d’accès.
+6. Cliquez sur **Nouveau** pour créer une révision d’accès.
 
-1. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
+7. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
 
     ![Créer une révision d’accès - Nom et description de la révision](./media/pim-how-to-start-security-review/name-description.png)
 
-1. Définissez la **Date de début**. Par défaut, une révision d’accès se produit une seule fois, démarre le jour même de sa création et s’arrête un mois plus tard. Vous pouvez modifier les dates de début et de fin pour que la révision d’accès démarre ultérieurement et dure le nombre de jours souhaité.
+8. Définissez la **Date de début**. Par défaut, une révision d’accès se produit une seule fois, démarre le jour même de sa création et s’arrête un mois plus tard. Vous pouvez modifier les dates de début et de fin pour que la révision d’accès démarre ultérieurement et dure le nombre de jours souhaité.
 
     ![Date de début, fréquence, durée, fin, nombre de tentatives et date de fin](./media/pim-how-to-start-security-review/start-end-dates.png)
 
-1. Pour que la révision d’accès soit périodique, modifiez le paramètre **Fréquence** en remplaçant la valeur **Une fois** par **Hebdomadaire**, **Mensuel**, **Trimestriel**, **Annuel** ou **Semestriel**. Utilisez la zone de texte ou le curseur **Durée** pour définir le nombre de jours pendant lequel chaque révision de la série périodique pourra être modifiée par les réviseurs. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
+9. Pour que la révision d’accès soit périodique, modifiez le paramètre **Fréquence** en remplaçant la valeur **Une fois** par **Hebdomadaire**, **Mensuel**, **Trimestriel**, **Annuel** ou **Semestriel**. Utilisez la zone de texte ou le curseur **Durée** pour définir le nombre de jours pendant lequel chaque révision de la série périodique pourra être modifiée par les réviseurs. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
 
-1. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. Les séries accès récurrentes peuvent se terminer de trois façons : elles peuvent s’exécuter de façon continue pour démarrer des révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Un autre administrateur d’utilisateur, ou un autre administrateur d’entreprise ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans la zone **Paramètres**, afin qu’elle s’arrête à cette date.
+10. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. Les séries accès récurrentes peuvent se terminer de trois façons : elles peuvent s’exécuter de façon continue pour démarrer des révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Un autre administrateur d’utilisateur, ou un autre administrateur d’entreprise ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans la zone **Paramètres**, afin qu’elle s’arrête à cette date.
 
-1. Dans la section **Étendue des utilisateurs**, sélectionnez l’étendue de la révision. Pour réviser les utilisateurs et les groupes ayant accès au rôle Azure AD, sélectionnez **Utilisateurs et groupes**, ou sélectionnez **(Préversion) Principaux de service** pour réviser les comptes d’ordinateurs ayant accès au rôle Azure AD.
+11. Dans la section **Étendue des utilisateurs**, sélectionnez l’étendue de la révision. Pour réviser les utilisateurs et les groupes ayant accès au rôle Azure AD, sélectionnez **Utilisateurs et groupes**, ou sélectionnez **(Préversion) Principaux de service** pour réviser les comptes d’ordinateurs ayant accès au rôle Azure AD.
 
     ![Étendue des utilisateurs pour la révision d’une appartenance à un rôle](./media/pim-how-to-start-security-review/users.png)
 
-1. Sous **Réviser l’appartenance au rôle**, sélectionnez les rôles Azure AD privilégiés à réviser. 
+12. Sous **Réviser l’appartenance au rôle**, sélectionnez les rôles Azure AD privilégiés à réviser. 
 
     > [!NOTE]
     > - Les rôles sélectionnés ici incluent des [rôles permanents et éligibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -84,7 +84,7 @@ Cliquez sur **Nouveau** pour créer une révision d’accès.
 
     ![Volet Révision d’appartenance répertoriant les rôles de ressource Azure que vous pouvez sélectionner](./media/pim-how-to-start-security-review/review-membership-azure-resource-roles.png)
 
-1. Dans la section **Réviseurs**, sélectionnez une ou plusieurs personnes pour vérifier tous les utilisateurs. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès.
+13. Dans la section **Réviseurs**, sélectionnez une ou plusieurs personnes pour vérifier tous les utilisateurs. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès.
 
     ![Liste pour les réviseurs des utilisateurs ou membres sélectionnés (auto)](./media/pim-how-to-start-security-review/reviewers.png)
 
@@ -106,6 +106,10 @@ Cliquez sur **Nouveau** pour créer une révision d’accès.
     - **Supprimer l’accès** : supprimer l’accès de l’utilisateur
     - **Approuver l’accès** : approuver l’accès de l’utilisateur
     - **Accepter les recommandations** : accepter la recommandation du système sur le refus ou l’approbation de la prolongation de l’accès de l’utilisateur
+
+1. Vous pouvez envoyer des notifications à des utilisateurs ou groupes supplémentaires (préversion) pour recevoir des mises à jour d’achèvement de révision. Cette fonctionnalité permet d’informer les parties prenantes autres que le créateur de la révision de la progression de la révision. Pour utiliser cette fonctionnalité, sélectionnez **Sélectionner un ou plusieurs utilisateurs ou groupes** et ajoutez un utilisateur ou groupe supplémentaire pour lequel vous souhaitez recevoir l’état d’achèvement.
+
+    ![Paramètres d’achèvement - Ajouter des utilisateurs supplémentaires pour recevoir des notifications](./media/pim-how-to-start-security-review/upon-completion-settings-additional-receivers.png) 
 
 ### <a name="advanced-settings"></a>Paramètres avancés
 

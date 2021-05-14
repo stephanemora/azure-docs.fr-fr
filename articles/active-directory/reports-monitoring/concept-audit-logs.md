@@ -1,10 +1,10 @@
 ---
-title: Rapports d’activité d’audit dans le portail Azure Active Directory | Microsoft Docs
-description: Présentation des rapports d’activité d’audit dans le portail Azure Active Directory
+title: Journaux d’audit dans Azure Active Directory | Microsoft Docs
+description: Présentation des journaux d’audit dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
@@ -13,44 +13,103 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/17/2020
+ms.date: 04/30/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7ccca25bf140a51755c229f8c438e053a7ac7de
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95995979"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319254"
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
+# <a name="audit-logs-in-azure-active-directory"></a>Journaux d’audit dans Azure Active Directory 
 
-Avec les rapports Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement.
+En tant qu’administrateur informatique, vous souhaitez savoir comment fonctionne votre environnement informatique. Les informations sur l’intégrité de votre système vous permettent d’évaluer si vous devez répondre aux problèmes potentiels et, le cas échéant, de quelle manière. 
+
+Pour vous aider à atteindre cet objectif, le portail Azure Active Directory vous donne accès à trois journaux d’activité :
+
+- **[Connexions](concept-sign-ins.md)**  : Informations sur les connexions et la manière dont vos ressources sont utilisées par vos utilisateurs.
+- **[Audit](concept-audit-logs.md)**  : Informations sur les modifications appliquées à votre locataire, telles que la gestion des utilisateurs et des groupes ou les mises à jour appliquées aux ressources de votre locataire.
+- **[Approvisionnement](concept-provisioning-logs.md)**  : Activités réalisées par le service d’approvisionnement, telles que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday.
+
+Cet article présente une vue d’ensemble des journaux d’audit.
 
 
+## <a name="what-is-it"></a>Qu’est-ce que c’est ?
 
-Cette architecture de création de rapports est constituée des composants suivants :
+Avec les journaux d’audit dans Azure AD, vous accédez aux enregistrements des activités du système pour la conformité.
+Les affichages les plus courants de ce journal sont basés sur les catégories suivantes :
 
-- **Activité** 
-    - **Connexions** – le [rapport de connexions](concept-sign-ins.md) fournit des informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
-    - **Journaux d’audit** : traçabilité proposée via des journaux d’activité pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. Par exemple, les journaux d’audit peuvent inclure les modifications apportées à des ressources dans Azure AD comme l’ajout ou la suppression d’utilisateurs, d’applications, de groupes, de rôles, de stratégies, etc.
-    - **Les journaux de provisionnement** - [journaux de provisionnement](./concept-provisioning-logs.md) permettent aux clients de superviser l’activité effectuée par le service de provisionnement, telle que la création d’un groupe dans ServiceNow ou l’importation d’un utilisateur à partir de Workday. 
-- **Sécurité** 
-    - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
-    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
+- User Management
 
-Cet article présente une vue d’ensemble du rapport d’audit.
+- Gestion des groupes
  
-## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
-
-* Les utilisateurs des rôles **Administrateur de la sécurité**, **Lecteur Sécurité**, **Lecteur de rapports**, **Lecteur général** ou **Administrateur général**
-
-## <a name="audit-logs"></a>Journaux d’audit
-
-Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Surveillance** d’**Azure Active Directory**. 
+- Gestion des applications  
 
 
+L’affichage centré sur l’utilisateur vous permet d’obtenir des réponses à des questions, telles que :
+
+- Quels types de mises à jour ont été appliqués aux utilisateurs ?
+
+- Combien d’utilisateurs ont été modifiés ?
+
+- Combien de mots de passe ont été modifiés ?
+
+- Qu’a fait un administrateur dans un répertoire ?
+
+
+L’affichage centré sur les groupes vous permet d’obtenir des réponses à des questions, telles que :
+
+- Quels sont les groupes qui ont été ajoutés ?
+
+- Existe-t-il des groupes comportant des modifications d’adhésion ?
+
+- Les propriétaires de groupe ont-ils été modifiés ?
+
+- Quelles licences ont été attribuées à un groupe ou un utilisateur ?
+
+L’affichage basé sur les applications vous permet d’obtenir des réponses à des questions telles que :
+
+- Quelles applications ont été ajoutées ou mises à jour ?
+
+- Quelles applications ont été supprimées ?
+
+- Le principal de service d’une application a-t-il été modifié ?
+
+- Les noms des applications ont-ils été modifiés ?
+
+- Qui a donné son consentement à une application ?
+
+ 
+## <a name="what-license-do-i-need"></a>De quelle licence ai-je besoin ?
+
+Le rapport d’activité d’audit est disponible dans toutes les éditions d’Azure AD.
+
+## <a name="who-can-access-it"></a>Qui peut y accéder ?
+
+Pour accéder aux journaux d’audit, vous devez disposer d’un des rôles suivants : 
+
+- Security Administrator
+- Lecteur de sécurité
+- Lecteur de rapport
+- Lecteur général
+- Administrateur général
+
+## <a name="where-can-i-find-it"></a>Où puis-je le trouver ?
+
+Le portail Azure vous offre plusieurs options pour accéder au journal. Par exemple, dans le menu Azure Active Directory, vous pouvez ouvrir le journal dans la section **Surveillance**.  
+
+![Ouvrir les journaux d’audit](./media/concept-audit-logs/audit-logs-menu.png)
+
+En outre, vous pouvez accéder directement aux journaux d’audit en cliquant sur [ce lien](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
+
+
+Vous pouvez également accéder au journal d’audit par le biais de l’API Microsoft Graph.
+
+
+## <a name="what-is-the-default-view"></a>Qu’est-ce que la vue par défaut ?
 
 Un journal d’audit inclut un mode Liste par défaut, qui indique :
 
@@ -74,7 +133,6 @@ Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des c
 Sélectionnez un élément dans la vue sous forme de liste pour obtenir des informations plus détaillées.
 
 ![sélectionner un élément](./media/concept-audit-logs/details.png "Sélectionner un élément")
-
 
 ## <a name="filtering-audit-logs"></a>Filtrage des journaux d’audit
 
@@ -162,54 +220,7 @@ Vous pouvez également télécharger les données filtrées, jusqu’à 250 000
 
 ![Télécharger des données](./media/concept-audit-logs/download.png "Télécharger des données")
 
-## <a name="audit-logs-shortcuts"></a>Raccourcis de journaux d’audit
 
-En plus d’**Azure Active Directory**, le portail Azure vous offre deux autres points d’entrée pour les données d’audit :
-
-- Utilisateurs et groupes
-- Applications d’entreprise
-
-### <a name="users-and-groups-audit-logs"></a>Journaux d’audit des utilisateurs et des groupes
-
-Les rapports d’audit basés sur les utilisateurs et les groupes vous permettent d’obtenir des réponses aux questions telles que :
-
-- Quels types de mises à jour ont été appliqués aux utilisateurs ?
-
-- Combien d’utilisateurs ont été modifiés ?
-
-- Combien de mots de passe ont été modifiés ?
-
-- Qu’a fait un administrateur dans un répertoire ?
-
-- Quels sont les groupes qui ont été ajoutés ?
-
-- Existe-t-il des groupes comportant des modifications d’adhésion ?
-
-- Les propriétaires de groupe ont-ils été modifiés ?
-
-- Quelles licences ont été attribuées à un groupe ou un utilisateur ?
-
-Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs, vous pouvez filtrer l’affichage dans **Journaux d’audit** dans la section **Surveillance** de l’onglet **Utilisateurs**. La catégorie présélectionnée de ce point d'entrée est **UserManagement**.
-
-![Utilisateur](./media/concept-audit-logs/users.png "Utilisateur")
-
-Si vous souhaitez simplement consulter les données d’audit connexes aux groupes, vous pouvez filtrer l’affichage dans **Journaux d’audit** dans la section **Surveillance** de l’onglet **Groupes**. La catégorie présélectionnée de ce point d'entrée est **GroupManagement**.
-
-![Filtrer les groupes](./media/concept-audit-logs/groups.png "Filtrer les groupes")
-
-### <a name="enterprise-applications-audit-logs"></a>Journaux d’audit d’applications d’entreprise
-
-Les rapports d’audit basés sur les applications vous permettent d’obtenir des réponses aux questions telles que :
-
-* Quelles applications ont été ajoutées ou mises à jour ?
-* Quelles applications ont été supprimées ?
-* Le principal de service d’une application a-t-il été modifié ?
-* Les noms des applications ont-ils été modifiés ?
-* Qui a donné son consentement à une application ?
-
-Si vous souhaitez consulter les données d’audit associées à vos applications, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** du panneau **Applications d’entreprise**. Dans ce point d’entrée, **Applications d’entreprise** est présélectionné comme **Type d'application**.
-
-![Applications d’entreprise](./media/concept-audit-logs/enterpriseapplications.png "Applications d’entreprise")
 
 ## <a name="microsoft-365-activity-logs"></a>Journaux d’activité Microsoft 365
 
@@ -220,5 +231,6 @@ Vous pouvez également accéder par programme aux journaux d’activité de Micr
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Référence sur l’activité d’audit Azure AD](reference-audit-activities.md)
-- [Référence de la rétention des rapports Azure AD](reference-reports-data-retention.md)
+- [Référence sur la rétention des journaux Azure AD](reference-reports-data-retention.md)
 - [Référencent des latences de journal Azure AD](reference-reports-latencies.md)
+- [Acteurs inconnus dans le rapport d’audit](/troubleshoot/azure/active-directory/unknown-actors-in-audit-reports)

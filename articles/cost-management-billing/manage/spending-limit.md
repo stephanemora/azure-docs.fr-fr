@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/29/2021
 ms.author: banders
-ms.openlocfilehash: df5c5ed74a5e0a63727962fa86d261cfb588a384
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 47f1a1ed182420852682e908c7cd8b5e094bc085
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690559"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932554"
 ---
 # <a name="azure-spending-limit"></a>Limite de dépense d’Azure
 
-La limite de dépense dans Azure vous empêche de dépasser la quantité de vos crédits. Pour tout nouveau client qui s’inscrit en vue d’obtenir un compte gratuit Azure ou des types d’abonnements incluant des crédits s’étalant sur plusieurs mois, la limite de dépense est activée par défaut. La limite de dépense est égale au montant de crédit et ne peut pas être modifiée. Par exemple, si vous vous êtes inscrit à un compte gratuit Azure, votre limite de dépense est fixée à 200 USD et vous ne pouvez pas la remplacer par 500 USD. Cependant, vous pouvez supprimer la limite de dépense. Par conséquent, soit vous n’avez aucune limite, soit vous avez une limite égale au montant de votre crédit. Cela vous évite la plupart des dépenses. La limite de dépense n’est pas disponible pour les abonnements impliquant un plan d’engagement ou un paiement à l’utilisation. Pour plus d’informations, consultez la [liste complète des types d’abonnements Azure et la disponibilité de la limite de dépense](https://azure.microsoft.com/support/legal/offer-details/).
+La limite de dépense dans Azure vous empêche de dépasser la quantité de vos crédits. Pour tout nouveau client qui s’inscrit en vue d’obtenir un compte gratuit Azure ou des types d’abonnements incluant des crédits s’étalant sur plusieurs mois, la limite de dépense est activée par défaut. La limite de dépense est égale au montant des crédits. Vous ne pouvez pas changer le montant de la limite de dépense. Par exemple, si vous vous êtes inscrit à un compte gratuit Azure, votre limite de dépense est fixée à 200 USD et vous ne pouvez pas la remplacer par 500 USD. Cependant, vous pouvez supprimer la limite de dépense. Par conséquent, soit vous n’avez aucune limite, soit vous avez une limite égale au montant de votre crédit. Cela vous évite la plupart des dépenses. La limite de dépense n’est pas disponible pour les abonnements impliquant un plan d’engagement ou un paiement à l’utilisation. Pour plus d’informations, consultez la [liste complète des types d’abonnements Azure et la disponibilité de la limite de dépense](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## <a name="reaching-a-spending-limit"></a>Atteindre une limite de dépense
 

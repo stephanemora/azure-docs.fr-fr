@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f28ddfc272e6f95106595958cacfe732b2bfc3cc
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a60634175ff06780372331bef6b28de2edbfea33
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258688"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144634"
 ---
 # <a name="azure-spring-cloud-faq"></a>Questions fréquentes sur Azure Spring Cloud
 
@@ -63,7 +63,7 @@ Si vous rencontrez des problèmes avec Azure Spring Cloud, créez une [demande d
 
 ### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>Je suis développeur Spring Cloud, mais je débute sur Azure. Quel est le moyen le plus rapide pour apprendre à développer une application Azure Spring Cloud ?
 
-Pour connaître le moyen le plus rapide de se lancer avec Azure Spring Cloud, suivez les instructions du [guide de démarrage rapide : Lancer une application Azure Spring Cloud en utilisant le portail Azure](spring-cloud-quickstart.md).
+Pour connaître le moyen le plus rapide de se lancer avec Azure Spring Cloud, suivez les instructions du [guide de démarrage rapide : Lancer une application Azure Spring Cloud en utilisant le portail Azure](./quickstart.md).
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Quel runtime Java est pris en charge par Azure Spring Cloud ?
@@ -96,7 +96,7 @@ Azure Spring Cloud prend en charge l’exportation des journaux et des métrique
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud prend-il en charge le suivi distribué ?
 
-Oui. Pour plus d’informations, consultez [Didacticiel : Utiliser le suivi distribué avec Azure Spring Cloud](spring-cloud-howto-distributed-tracing.md).
+Oui. Pour plus d’informations, consultez [Didacticiel : Utiliser le suivi distribué avec Azure Spring Cloud](./how-to-distributed-tracing.md).
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>Quels sont les types de ressources pris en charge par la liaison de service ?
@@ -186,7 +186,7 @@ Les correctifs de sécurité critiques (score CVE > = 9) applicables à Azure Sp
 ## <a name="deployment"></a>Déploiement
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Azure Spring Cloud prend-il en charge le déploiement bleu-vert ?
-Oui. Pour plus d’informations, consultez [Configuration de votre environnement intermédiaire](spring-cloud-howto-staging-environment.md).
+Oui. Pour plus d’informations, consultez [Configuration de votre environnement intermédiaire](./how-to-staging-environment.md).
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Puis-je accéder à Kubernetes pour manipuler mes conteneurs d’application ?
 
@@ -194,11 +194,11 @@ Non.  Azure Spring Cloud rend l’architecture sous-jacente abstraite pour le d�
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure Spring Cloud prend-il en charge la création de conteneurs à partir d’une source ?
 
-Oui. Pour plus d’informations, consultez [Lancer votre application Spring Cloud à partir du code source](spring-cloud-quickstart.md).
+Oui. Pour plus d’informations, consultez [Lancer votre application Spring Cloud à partir du code source](./quickstart.md).
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud prend-il en charge la mise à l’échelle automatique dans les instances d’application ?
 
-Oui.  Pour plus d’informations, consultez [Configuration de la mise à l’échelle automatique](spring-cloud-tutorial-setup-autoscale.md).
+Oui.  Pour plus d’informations, consultez [Configuration de la mise à l’échelle automatique](./how-to-setup-autoscale.md).
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Quelles sont les bonnes pratiques pour la migration de microservices Spring Cloud existants vers Azure Spring Cloud ?
@@ -243,4 +243,4 @@ Nous allons améliorer cette partie et éviter cette erreur des applications des
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez d’autres questions, consultez le [Guide de résolution des problèmes d’Azure Spring Cloud](spring-cloud-troubleshoot.md).
+Si vous avez d’autres questions, consultez le [Guide de résolution des problèmes d’Azure Spring Cloud](./troubleshoot.md).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: f851d7999b063a2b1334564902d81343e3789439
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 0f4064e6baf6c6ce237371a2a725fbe023b1e9f2
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011171"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277693"
 ---
 # <a name="speech-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -31,9 +31,9 @@ Pour l’utilisation avec le [Kit de développement logiciel (SDK) Speech](speec
 
 | Quota | Gratuit (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Limite de requêtes simultanées - Modèle de base** | 1 | 100 (valeur par défaut) |
+| **Limite de requêtes simultanées - Point de terminaison du modèle de base** | 1 | 100 (valeur par défaut) |
 | Réglable | Non <sup>2</sup> | Oui<sup>2</sup> |
-| **Limite de requêtes simultanées - Modèle personnalisé** | 1 | 20 (valeur par défaut) |
+| **Limite de requêtes simultanées - Point de terminaison personnalisé** | 1 | 100 (valeur par défaut) |
 | Réglable | Non <sup>2</sup> | Oui<sup>2</sup> |
 
 #### <a name="batch-transcription"></a>Transcription par lot
@@ -98,10 +98,10 @@ Les sections suivantes décrivent des cas spécifiques d’ajustement des quotas
 Accédez à [Synthèse vocale. Augmentation de la limite de demandes simultanées de transcription pour Custom Voice](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice).
 
 ### <a name="speech-to-text-increasing-online-transcription-concurrent-request-limit"></a>Reconnaissance vocale : augmentation de la limite du nombre de demandes simultanées de transcription en ligne
-Par défaut, le nombre de demandes simultanées est limité à 100 par ressource vocale (modèle de base) et à 20 par point de terminaison personnalisé (modèle personnalisé). Pour le niveau tarifaire standard, vous pouvez augmenter ce montant. Avant de soumettre la demande, assurez-vous d’avoir bien compris le contenu de [cette section](#detailed-description-quota-adjustment-and-best-practices), ainsi que les [meilleures pratiques](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+Par défaut, le nombre de demandes simultanées est limité à 100 par ressource vocale (modèle de base) et à 100 par point de terminaison personnalisé (modèle personnalisé). Pour le niveau tarifaire standard, vous pouvez augmenter ce montant. Avant de soumettre la demande, assurez-vous d’avoir bien compris le contenu de [cette section](#detailed-description-quota-adjustment-and-best-practices), ainsi que les [meilleures pratiques](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
 >[!NOTE]
-> Si vous utilisez des modèles personnalisés, sachez qu’une ressource Speech peut être associée à de nombreux points de terminaison personnalisés hébergeant de nombreux déploiements de modèles personnalisés. Pour chaque point de terminaison personnalisé, le nombre maximal de demandes simultanées (20) par défaut est défini lors de la création. Si vous devez l’ajuster, vous devez le faire **séparément** pour chaque point de terminaison personnalisé. Notez également que la valeur du nombre maximal de demandes simultanées pour le modèle de base d’une ressource Speech n’a **aucun** effet sur les points de terminaison personnalisés associés à cette ressource.
+> Si vous utilisez des modèles personnalisés, sachez qu’une ressource Speech peut être associée à de nombreux points de terminaison personnalisés hébergeant de nombreux déploiements de modèles personnalisés. Pour chaque point de terminaison personnalisé, le nombre maximal de demandes simultanées (100) par défaut est défini lors de la création. Si vous devez l’ajuster, vous devez le faire **séparément** pour chaque point de terminaison personnalisé. Notez également que la valeur du nombre maximal de demandes simultanées pour le modèle de base d’une ressource Speech n’a **aucun** effet sur les points de terminaison personnalisés associés à cette ressource.
 
 
 L’amélioration de la limite de demandes simultanées n’affecte **pas** directement vos coûts. Le service Speech utilise le modèle « Payez uniquement pour ce que vous utilisez ». La limite définit la hauteur à laquelle le service peut mettre à l’échelle avant de commencer à limiter vos demandes.

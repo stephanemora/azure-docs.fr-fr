@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 5d73c02b7fd5e40f3cc23f5b0eba1945cf3c8a40
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 322b9a0c298d81fc3f35819054fc03a0094676d0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258433"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288217"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 
@@ -25,20 +25,7 @@ Pour générer et exécuter des [applications Azure Service Fabric][1] sur votre
 
 ## <a name="prerequisites"></a>Prérequis
 
-### <a name="supported-operating-system-versions"></a>Versions du système d'exploitation prises en charge
-
-Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
-
-* Windows 7
-* Windows 8 et Windows 8.1
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows 10
-
-> [!NOTE]
-> Windows 7 prend en charge :
-> - Windows 7 inclut uniquement Windows PowerShell 2.0 par défaut. Les applets de commande PowerShell de Service Fabric nécessitent PowerShell 3.0 ou version ultérieure. Vous pouvez [télécharger Windows PowerShell 5.1][powershell5-download] à partir du Centre de téléchargement Microsoft.
-> - Le Proxy inverse de Service Fabric n’est pas disponible sur Windows 7.
+Vérifiez que vous utilisez une [version de Windows](service-fabric-versions.md#supported-windows-versions-and-support-end-date) prise en charge.
 
 ## <a name="install-the-sdk-and-tools"></a>Installer le Kit de développement logiciel (SDK) et les outils
 
@@ -49,7 +36,7 @@ Web Platform Installer (WebPI) est la méthode recommandée pour installer le Ki
 
 ### <a name="to-use-visual-studio-2017-or-2019"></a>Pour utiliser Visual Studio 2017 ou 2019
 
-Les outils Service Fabric font partie de la charge de travail de développement Azure dans Visual Studio 2017 et 2019. Activez cette charge de travail dans le cadre de votre installation de Visual Studio.
+Les outils Service Fabric Tools font partie de la charge de travail de développement Azure dans Visual Studio 2019 et 2017. Activez cette charge de travail dans le cadre de votre installation de Visual Studio.
 En outre, vous devez installer le Kit de développement logiciel (SDK) et le runtime Microsoft Azure Service Fabric à l’aide de Web Platform Installer.
 
 * [Installez le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]

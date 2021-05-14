@@ -4,17 +4,17 @@ description: Découvrez comment créer une stratégie Guest Configuration pour d
 ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 926c6d472b3e4e3b6837a4d4136ee591a3d7e6c5
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096561"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165368"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
 Avant de créer des stratégies personnalisées, lisez les informations de présentation de [Configuration d’invité Azure Policy](../concepts/guest-configuration.md).
- 
+
 Pour en savoir plus sur la création de stratégies Guest Configuration pour Windows, consultez la page [Créer des stratégies Guest Configuration pour Windows](./guest-configuration-create.md)
 
 Lors de l’audit de Linux, Guest Configuration utilise [Chef InSpec](https://www.inspec.io/). Le profil InSpec définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’**auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
@@ -260,16 +260,16 @@ Publish-GuestConfigurationPolicy `
   -Path './policies'
 ```
 
- La cmdlet `Publish-GuestConfigurationPolicy` accepte le chemin à partir du pipeline PowerShell. Cette fonctionnalité signifie que vous pouvez créer les fichiers de stratégie et les publier dans un ensemble unique de commandes redirigées.
+La cmdlet `Publish-GuestConfigurationPolicy` accepte le chemin à partir du pipeline PowerShell. Cette fonctionnalité signifie que vous pouvez créer les fichiers de stratégie et les publier dans un ensemble unique de commandes redirigées.
 
- ```azurepowershell-interactive
- New-GuestConfigurationPolicy `
+```azurepowershell-interactive
+New-GuestConfigurationPolicy `
   -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit Linux file path.' `
   -Description 'Audit that a file path exists on a Linux machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
- ```
+| Publish-GuestConfigurationPolicy
+```
 
 Avec la stratégie créée dans Azure, la dernière étape consiste à attribuer la définition. Apprenez à attribuer la définition à l’aide du [portail](../assign-policy-portal.md), d’[Azure CLI](../assign-policy-azurecli.md) et d’[Azure PowerShell](../assign-policy-powershell.md).
 

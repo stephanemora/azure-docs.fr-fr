@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1b7a846ee92da001ea2ac3ddd02efa9a870f72c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f153544d27621e4978b496d74f8d79e4e0bf2024
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501904"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108207786"
 ---
 # <a name="write-client-app-authentication-code"></a>Écrire le code d’authentification de l’application cliente
 
@@ -20,11 +20,11 @@ Après avoir [configuré une instance et une authentification Azure Digital Twin
 
 Azure Digital Twins effectue l’authentification à l’aide de [jetons de sécurité Azure AD Security basés sur OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Pour authentifier votre kit de développement logiciel (SDK), vous devez obtenir un jeton du porteur avec les autorisations appropriées sur Azure Digital Twins et le transmettre avec vos appels d’API. 
 
-Cet article explique comment obtenir des informations d’identification à l’aide de la bibliothèque cliente `Azure.Identity`. Bien que cet article présente des exemples de code en C#, tels que ce que vous écrivez pour le [kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client), vous pouvez utiliser une version de `Azure.Identity` quel que soit le kit de développement logiciel (SDK) que vous utilisez (pour plus d’informations sur les kits de développement logiciel (SDK) disponibles pour Azure Digital Twins, consultez [*Guide pratique : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md)).
+Cet article explique comment obtenir des informations d’identification à l’aide de la bibliothèque cliente `Azure.Identity`. Bien que cet article présente des exemples de code en C#, tels que ce que vous écrivez pour le [kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client), vous pouvez utiliser une version de `Azure.Identity` quel que soit le kit de développement logiciel (SDK) que vous utilisez (pour plus d’informations sur les kits de développement logiciel (SDK) disponibles pour Azure Digital Twins, consultez [Guide pratique : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins](how-to-use-apis-sdks.md)).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Tout d’abord, suivez les étapes de configuration décrites dans [*Guide pratique : Configurer une instance et l’authentification*](how-to-set-up-instance-portal.md). Cela permet de s’assurer que vous disposez d’une instance Azure Digital Twins et que votre utilisateur dispose d’autorisations d’accès. Une fois cette configuration terminée, vous êtes prêt à écrire le code de l’application cliente.
+Tout d’abord, suivez les étapes de configuration décrites dans [Guide pratique : Configurer une instance et l’authentification](how-to-set-up-instance-portal.md). Cela permet de s’assurer que vous disposez d’une instance Azure Digital Twins et que votre utilisateur dispose d’autorisations d’accès. Une fois cette configuration terminée, vous êtes prêt à écrire le code de l’application cliente.
 
 Pour continuer, vous aurez besoin d’un projet d’application cliente dans lequel écrire votre code. Si vous n’avez pas encore configuré de projet d’application cliente, créez un projet de base à utiliser avec ce didacticiel dans le langage de votre choix.
 
@@ -87,7 +87,7 @@ Dans une fonction Azure, vous pouvez utiliser les informations d’identificatio
 
 La méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential) est destinée aux applications interactives et affiche un navigateur web pour l’authentification. Vous pouvez l’utiliser à la place de `DefaultAzureCredential` lorsque vous avez besoin d’une authentification interactive.
 
-Pour utiliser les informations d’identification du navigateur interactif, vous avez besoin d’une **inscription d’application** disposant d’autorisations sur les API Azure Digital Twins. Pour plus d’informations sur la configuration de cette inscription d’application, consultez [*Guide pratique : Créer une inscription d’application*](how-to-create-app-registration.md). Une fois l’inscription d’application configurée, vous avez besoin de...
+Pour utiliser les informations d’identification du navigateur interactif, vous avez besoin d’une **inscription d’application** disposant d’autorisations sur les API Azure Digital Twins. Pour plus d’informations sur la configuration de cette inscription d’application, consultez [Guide pratique : Créer une inscription d’application](how-to-create-app-registration.md). Une fois l’inscription d’application configurée, vous avez besoin de...
 * l’*ID (client) d’application* de l’inscription d’application ([instructions pour le trouver](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * l’*ID (locataire) de répertoire* de l’inscription d’application ([instructions pour le trouver](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * l’URL de l’instance Azure Digital Twins ([instructions pour la trouver](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
@@ -101,21 +101,35 @@ Voici un exemple de code permettant de créer un client du kit de développement
 
 #### <a name="other-notes-about-authenticating-azure-functions"></a>Autres remarques sur l’authentification Azure Functions
 
-Consultez le [*Guide pratique : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md) pour obtenir un exemple plus complet sur quelques-unes des options de configuration importantes dans le contexte des fonctions.
+Découvrez [comment faire : Configurez une fonction Azure pour le traitement des données](how-to-create-azure-function.md) pour obtenir un exemple plus complet sur quelques-unes des options de configuration importantes dans le contexte des fonctions.
 
 En outre, pour utiliser l’authentification dans une fonction, n’oubliez pas :
 * [Activer une identité managée](../app-service/overview-managed-identity.md?tabs=dotnet)
 * D’utiliser des [variables d'environnement](/sandbox/functions-recipes/environment-variables?tabs=csharp) le cas échéant
-* Affectez des autorisations à l’application de fonction pour lui permettre d’accéder aux API Digital Twins. Pour plus d’informations sur les processus Azure Functions, consultez [*Guide pratique : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md).
+* Affectez des autorisations à l’application de fonction pour lui permettre d’accéder aux API Digital Twins. Pour plus d’informations sur les processus Azure Functions, consultez [Guide pratique : Configurer une fonction Azure pour le traitement des données](how-to-create-azure-function.md).
+
+## <a name="authenticate-across-tenants"></a>S’authentifier auprès des locataires
+
+Azure Digital Twins est un service qui ne prend en charge qu’un seul [locataire Azure Active Directory (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md), à savoir le locataire principal de l’abonnement où se trouve l’instance Azure Digital Twins.
+
+[!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
+
+Si vous avez besoin d’accéder à votre instance Azure Digital Twins à l’aide d’un principal de service ou d’un compte d’utilisateur qui appartient à un autre locataire de l’instance, vous pouvez faire en sorte que chaque identité fédérée issue d’un autre locataire demande un **jeton** au locataire « d’accueil » de l’instance Azure Digital Twins. 
+
+[!INCLUDE [digital-twins-tenant-solution-1](../../includes/digital-twins-tenant-solution-1.md)]
+
+Vous pouvez également spécifier un locataire d’accueil dans les options d’informations d’identification de votre code. 
+
+[!INCLUDE [digital-twins-tenant-solution-2](../../includes/digital-twins-tenant-solution-2.md)]
 
 ## <a name="other-credential-methods"></a>Autres méthodes d’informations d’identification
 
-Si les scénarios d’authentification indiqués ci-dessus ne couvrent pas les besoins de votre application, vous pouvez explorer les autres types d’authentification proposés dans la [**Plateforme d’identité Microsoft**](../active-directory/develop/v2-overview.md#getting-started). La documentation de cette plateforme couvre des scénarios d’authentification supplémentaires, organisés par type d’application.
+Si les scénarios d’authentification indiqués ci-dessus ne couvrent pas les besoins de votre application, vous pouvez explorer les autres types d’authentification proposés dans la [Plateforme d’identité Microsoft](../active-directory/develop/v2-overview.md#getting-started). La documentation de cette plateforme couvre des scénarios d’authentification supplémentaires, organisés par type d’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur le fonctionnement de la sécurité dans Azure Digital Twins :
-* [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md)
+* [Concepts : Sécurité pour les solutions Azure Digital Twins](concepts-security.md)
 
 Sinon, l’authentification étant configurée, passez à la création et à la gestion de modèles dans votre instance :
-* [*Guide pratique : Gérer les modèles DTDL*](how-to-manage-model.md)
+* [Guide pratique : Gérer les modèles DTDL](how-to-manage-model.md)

@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4434b59044aed8c9814431864e5c3c9b7d98254c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98937606"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575715"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de point de terminaison V2 pour la synchronisation d’Azure AD Connect 
 Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connect qui améliore les performances des opérations des services de synchronisation pour Azure Active Directory. En utilisant le nouveau point de terminaison v2, vous constaterez des gains de performances perceptibles lors de l’exportation et de l’importation vers Azure AD. Ce nouveau point de terminaison prend en charge les éléments suivants :
@@ -27,6 +27,12 @@ Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connec
  
 > [!NOTE]
 > Actuellement, le nouveau point de terminaison n’a pas de limite de taille de groupe configurée pour les groupes Microsoft 365 réécrits. Cela peut avoir un effet sur vos latences Active Directory et du cycle de synchronisation. Il est recommandé d’augmenter la taille des groupes de façon incrémentielle.  
+
+>[!NOTE]
+> L’API de point de terminaison Azure AD Connect Sync V2 est actuellement uniquement disponible dans les environnements Azure suivants :
+> - Azure Commercial
+> - Le cloud Azure Chine
+> - Le cloud US Government Azure. Il ne sera pas disponible dans le cloud Azure Allemagne.
 
 ## <a name="prerequisites"></a>Prérequis  
 Pour utiliser le nouveau point de terminaison v2, vous devez utiliser [version Azure AD Connect 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou version ultérieure et suivre les étapes de déploiement fournies ci-dessous pour activer le point de terminaison v2 pour votre serveur Azure AD Connect.   

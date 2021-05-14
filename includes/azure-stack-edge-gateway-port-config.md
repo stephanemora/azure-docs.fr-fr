@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 12/16/2019
+ms.date: 04/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 417fbdea3f46dfb3e90ab4890cec5e88c5aa4e07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a3ec82ad06b9f72af3700c72d31d402a14e840d4
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94523985"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073163"
 ---
 | N° de port| Entrant ou sortant | Étendue de ports| Obligatoire | Notes |
 |---------|-----------|-----------|----------|-------|
@@ -18,6 +18,7 @@ ms.locfileid: "94523985"
 | UDP 123 (NTP)|Sortie|WAN|Dans certains cas<br>Voir les remarques|Ce port est requis seulement si vous utilisez un serveur NTP Internet.  |   
 | UDP 53 (DNS)|Sortie|WAN|Dans certains cas<br>Voir les remarques|Ce port est requis seulement si vous utilisez un serveur DNS Internet.<br>Nous vous recommandons d’utiliser un serveur DNS local. |
 | TCP 5985 (WinRM)|Sortie/Entrée|LAN|Dans certains cas<br>Voir les remarques|Ce port est requis pour se connecter à l’appareil via PowerShell à distance sur HTTP.  |
+| TCP 5986 (WinRM)|Sortie/Entrée|LAN|Dans certains cas<br>Voir les remarques|Ce port est requis pour se connecter à l’appareil via PowerShell à distance sur HTTPS.  |
 | UDP 67 (DHCP)|Sortie|LAN|Dans certains cas<br>Voir les remarques|Ce port est requis seulement si vous utilisez un serveur DHCP local.  |
 | TCP 80 (HTTP)|Sortie/Entrée|LAN|Oui|Ce port est le port d’entrée pour l’interface utilisateur locale de l’appareil pour la gestion locale. <br>L’accès à l’interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS.  |
 | TCP 443 (HTTPS)|Sortie/Entrée|LAN|Oui|Ce port est le port d’entrée pour l’interface utilisateur locale de l’appareil pour la gestion locale. Ce port est également utilisé pour connecter Azure Resource Manager aux API locales de l’appareil, pour connecter le stockage Blob via des API REST et au service d’émission de jeton de sécurité (STS) pour l’authentification via des jetons d’accès et d’actualisation.|

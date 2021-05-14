@@ -4,19 +4,19 @@ description: Créez une copie cohérente au niveau transactionnel d’une base d
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: wiassaf
 ms.date: 03/10/2021
-ms.openlocfilehash: 3ce07af74c3f01fd78ef15ab0e7d43b91361e556
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 895219622999334c4d5a91e7af922ae9d54f30a5
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784471"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073950"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -218,7 +218,7 @@ Pour gérer la copie de bases de données à l’aide du Portail Azure, vous dev
 
    Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-Si vous voulez voir les opérations en cours de déploiement dans le groupe de ressources sur le portail et les opérations sur plusieurs fournisseurs de ressources, dont les opérations SQL, vous devez disposer des rôles Azure supplémentaires suivants :
+Si vous voulez voir les opérations sous « deployments » dans le groupe de ressources sur le portail (opérations entre plusieurs fournisseurs de ressources, dont les opérations SQL), vous devez disposer de ces autorisations supplémentaires :
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 

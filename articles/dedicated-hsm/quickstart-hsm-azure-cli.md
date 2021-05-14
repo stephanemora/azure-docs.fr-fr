@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.devlang: azurecli
 ms.date: 01/06/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e07bc758b1ef86b3d8c605cbce72f6db564a355f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80d5bbb54715c5a1a5102f8991f366e273145edc
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98020854"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107868948"
 ---
 # <a name="quickstart-create-an-azure-dedicated-hsm-by-using-the-azure-cli"></a>Démarrage rapide : Créer un HSM dédié Azure avec Azure CLI
 
-Cet article explique comment créer et gérer un HSM dédié Azure à l’aide de l’extension Azure CLI [az dedicated-hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm).
+Cet article explique comment créer et gérer un HSM dédié Azure à l’aide de l’extension Azure CLI [az dedicated-hsm](/cli/azure/dedicated-hsm).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,7 +44,7 @@ az group create --name myRG --location westus
 
 ## <a name="create-a-dedicated-hsm"></a>Créer un HSM dédié
 
-Pour créer un HSM dédié, utilisez la commande [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create). L’exemple suivant provisionne un HSM dédié nommé `hsm1` dans la région `westus`, le groupe de ressources `myRG` ainsi que l’abonnement, le réseau virtuel et le sous-réseau spécifiés. Les paramètres obligatoires sont `name`, `location` et `resource group`.
+Pour créer un HSM dédié, utilisez la commande [az dedicated-hsm create](/cli/azure/dedicated-hsm#az_dedicated_hsm_create). L’exemple suivant provisionne un HSM dédié nommé `hsm1` dans la région `westus`, le groupe de ressources `myRG` ainsi que l’abonnement, le réseau virtuel et le sous-réseau spécifiés. Les paramètres obligatoires sont `name`, `location` et `resource group`.
 
 ```azurecli-interactive
 az dedicated-hsm create \
@@ -63,7 +63,7 @@ Le déploiement prend environ 25 à 30 minutes.
 
 ## <a name="get-a-dedicated-hsm"></a>Obtenir un HSM dédié
 
-Pour obtenir un HSM dédié actuel, exécutez la commande [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show). L’exemple suivant obtient le HSM dédié `hsm1` dans le groupe de ressources `myRG`.
+Pour obtenir un HSM dédié actuel, exécutez la commande [az dedicated-hsm show](/cli/azure/dedicated-hsm#az_dedicated_hsm_show). L’exemple suivant obtient le HSM dédié `hsm1` dans le groupe de ressources `myRG`.
 
 ```azurecli-interactive
 az dedicated-hsm show --resource-group myRG --name hsm1
@@ -71,7 +71,7 @@ az dedicated-hsm show --resource-group myRG --name hsm1
 
 ## <a name="update-a-dedicated-hsm"></a>Mettre à jour un HSM dédié
 
-Utilisez la commande [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) pour mettre à jour un HSM dédié. L’exemple suivant met à jour le HSM dédié `hsm1` dans le groupe de ressources `myRG` et ses étiquettes :
+Utilisez la commande [az dedicated-hsm update](/cli/azure/dedicated-hsm#az_dedicated_hsm_update) pour mettre à jour un HSM dédié. L’exemple suivant met à jour le HSM dédié `hsm1` dans le groupe de ressources `myRG` et ses étiquettes :
 
 ```azurecli-interactive
 az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType="hsm" Environment="prod" Slice="A"
@@ -79,7 +79,7 @@ az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType=
 
 ## <a name="list-dedicated-hsms"></a>Lister des HSM dédiés
 
-Exécutez la commande [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) pour obtenir des informations sur les HSM dédiés actuels. L’exemple suivant liste les HSM dédiés dans le groupe de ressources `myRG` :
+Exécutez la commande [az dedicated-hsm list](/cli/azure/dedicated-hsm#az_dedicated_hsm_list) pour obtenir des informations sur les HSM dédiés actuels. L’exemple suivant liste les HSM dédiés dans le groupe de ressources `myRG` :
 
 ```azurecli-interactive
 az dedicated-hsm list --resource-group myRG
@@ -87,7 +87,7 @@ az dedicated-hsm list --resource-group myRG
 
 ## <a name="remove-a-dedicated-hsm"></a>Supprimer un HSM dédié
 
-Pour supprimer un HSM dédié, utilisez la commande [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete). L’exemple suivant supprime le HSM dédié `hsm1` du groupe de ressources `myRG` :
+Pour supprimer un HSM dédié, utilisez la commande [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az_dedicated_hsm_delete). L’exemple suivant supprime le HSM dédié `hsm1` du groupe de ressources `myRG` :
 
 ```azurecli-interactive
 az dedicated-hsm delete --resource-group myRG –-name hsm1

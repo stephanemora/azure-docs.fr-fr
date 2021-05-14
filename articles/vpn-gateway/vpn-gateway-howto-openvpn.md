@@ -1,18 +1,19 @@
 ---
-title: Comment configurer OpenVPN pour une passerelle VPN Azure
-description: Découvrez comment activer le protocole OpenVPN sur une passerelle VPN Azure pour un environnement point à site.
+title: Guide pratique pour activer OpenVPN sur les passerelles VPN P2S
+titleSuffix: Azure VPN Gateway
+description: Découvrez comment activer le protocole OpenVPN sur les passerelles VPN pour les configurations point à site.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 137e4e1372ef1af3319c0b9af7ba965fffcb9e34
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 056e9a44009f90be23d66c5da005902ccc8ebebf
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584038"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205428"
 ---
 # <a name="configure-openvpn-for-point-to-site-vpn-gateways"></a>Configurer OpenVPN pour des passerelles VPN point à site
 

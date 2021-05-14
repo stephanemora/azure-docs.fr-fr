@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: d252aa15fef29f7c22e224fd7b6021a469530287
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ba874790b8da6c1dc021163259f8df934fa17d41
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067739"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714869"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Python)
 
@@ -33,7 +33,7 @@ Dans ce guide de démarrage rapide, vous utilisez une méthode directe pour cont
 
 * [Python 3.7+](https://www.python.org/downloads/). Pour les autres versions de Python prises en charge, consultez les [fonctionnalités des appareils Azure IoT](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
 
-* [Un exemple de projet Python](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
+* [Exemple de projet Python](https://github.com/Azure-Samples/azure-iot-samples-python/) tiré de GitHub. Téléchargez ou clonez les exemples à l’aide du bouton **Code** dans le dépôt GitHub.
 
 * Le port 8883 ouvert dans votre pare-feu. L’exemple d’appareil de ce guide de démarrage rapide utilise le protocole MQTT, lequel communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -84,7 +84,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     ```azurecli-interactive
     az iot hub connection-string show \
       --policy-name service \
-      --name {YourIoTHubName} \
+      --hub-name {YourIoTHubName} \
       --output table
     ```
 

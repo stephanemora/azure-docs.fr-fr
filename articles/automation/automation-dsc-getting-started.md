@@ -5,18 +5,18 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 95072970004ae53663f130a78af36a84a6fab685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ff365200828b786b4cf770508e5a811983abd58
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051496"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732737"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Prise en main d'Azure Automation State Configuration
 
 Cet article fournit un guide pas à pas pour l’exécution des tâches les plus courantes avec Azure Automation State Configuration, comme la création, l’importation et la compilation de configurations, l’habilitation d’ordinateurs pour la gestion, et la consultation de rapports. Pour une vue d’ensemble de State Configuration, consultez [Vue d’ensemble de State Configuration](automation-dsc-overview.md). Pour accéder à une documentation de Desired State Configuration (DSC), consultez l’article [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
-Si vous souhaitez obtenir un exemple d’environnement préconfiguré sans avoir à suivre les étapes décrites dans cet article, vous pouvez utiliser le [modèle Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Ce modèle configure un environnement State Configuration (DSC) complet, incluant une machine virtuelle Azure gérée par State Configuration (DSC).
+Si vous souhaitez obtenir un exemple d’environnement préconfiguré sans avoir à suivre les étapes décrites dans cet article, vous pouvez utiliser le [modèle Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration). Ce modèle configure un environnement State Configuration (DSC) complet, incluant une machine virtuelle Azure gérée par State Configuration (DSC).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -216,16 +216,7 @@ Vous pouvez attribuer un nœud à une configuration de nœud différente de cell
 
 ## <a name="unregister-a-node"></a>Désinscrire un nœud
 
-Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vous pouvez le désinscrire.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
-1. Sur la page Compte Automation, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
-1. Sur la page State Configuration (DSC), cliquez sur l'onglet **Nœuds**.
-1. Sous l’onglet **Nœuds**, cliquez sur le nom du nœud dont vous voulez annuler l’inscription.
-1. Sur le volet de ce nœud, cliquez sur **Annuler l'inscription**.
-
-    ![Capture d’écran de la page de détails des nœuds mettant en évidence le bouton Annuler l’inscription](./media/automation-dsc-getting-started/UnregisterNode.png)
+Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vous pouvez le désinscrire. Consultez [Supprimer une configuration et un nœud de State Configuration dans Automation](./state-configuration/remove-node-and-configuration-package.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

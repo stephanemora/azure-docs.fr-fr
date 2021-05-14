@@ -4,16 +4,18 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: 097886e5e1942dd957b8fa3d9b8599177c229747
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 00e0eb3bbf8784c16a6f305813191143ce4f8c2a
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491092"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109719054"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer les étapes décrites dans cet article, vous avez besoin de l’application Azure IoT Central créée à l’aide du modèle **Application personnalisée**. Pour plus d’informations, consultez [Créer une application](../articles/iot-central/core/quick-deploy-iot-central.md). L’application doit avoir été créée à partir le 14 juillet 2020 ou après.
+Pour suivre les étapes de ce tutoriel, vous devez disposer des éléments suivants :
+
+[!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
 
 Vous pouvez exécuter ce tutoriel sur Linux ou Windows. Dans ce tutoriel, les commandes de l’interpréteur de commandes suivent la convention Linux des séparateurs de chemin « `/` ». Si vous suivez ce guide sur Windows, veillez à remplacer les séparateurs par « `\` ».
 

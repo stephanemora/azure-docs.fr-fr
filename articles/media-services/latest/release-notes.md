@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 796abf8506a832c4053b505e903bb24ef9d09004
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: bb331f8829252b69499944e5354c9343e96c78bd
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279032"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684735"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -62,7 +62,7 @@ Consultez les dernières langues disponibles dans l'[article Analyser des fichie
 
 L’encodeur standard prend désormais en charge l’encodage 8 bits HEVC (H.265). Le contenu HEVC peut être fourni et empaqueté via l’empaqueteur dynamique à l’aide du format 'hev1'.  
 
-Un nouvel encodage .NET personnalisé avec l’exemple HEVC est disponible dans le [dépôt GitHub media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_HEVC).
+Un nouvel encodage .NET personnalisé avec l’exemple HEVC est disponible dans le [dépôt GitHub media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC).
 En plus de l’encodage personnalisé, les nouvelles présélections d’encodage HEVC intégrées suivantes sont désormais disponibles :
 
 - H265ContentAwareEncoding
@@ -84,7 +84,7 @@ La version 3 offre les avantages suivants :
  
 - Prise en charge des événements en direct 24 h/24, 7 j/7
 - API REST ARM, SDK clients pour .NET core, Node.js, Python, Java, Go et Ruby.
-- Clés gérées par le client, intégration du stockage approuvé, prise en charge des liens privés et [bien plus encore](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- Clés gérées par le client, intégration du stockage approuvé, prise en charge des liens privés et [bien plus encore](./migrate-v-2-v-3-migration-benefits.md)
 
 #### <a name="action-required"></a>Action requise
 
@@ -98,7 +98,7 @@ Consultez [l’annonce officielle sur les mises à jour Azure](https://azure.mic
 En plus de la nouvelle prise en charge de l’encodage HEVC (H.265), les fonctionnalités suivantes sont désormais disponibles dans la version 2020-05-01 de l’API d’encodage.
 
 - La combinaison de plusieurs fichiers d’entrée est désormais possible à l’aide de la nouvelle prise en charge de **JobInputClip**.
-    - Un exemple est disponible pour .NET, montrant comment [combiner deux ressources](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets).
+    - Un exemple est disponible pour .NET, montrant comment [combiner deux ressources](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).
 - La sélection de la piste audio permet aux clients de sélectionner et de mapper des pistes audio entrantes et de les acheminer vers la sortie pour l’encodage
     - Consultez l'[API REST OpenAPI pour plus d’informations](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L385) sur **AudioTrackDescriptor** et la sélection de pistes
 - Sélection de pistes pour l’encodage : permet aux clients de choisir des pistes à partir d’un fichier source ABR ou d’une archive en direct comportant plusieurs pistes de débit binaire. Très utile pour générer des fichiers MP4 à partir de fichiers d’archive d’événements en direct.

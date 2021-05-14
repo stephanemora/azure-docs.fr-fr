@@ -3,12 +3,12 @@ title: Résoudre les problèmes du capteur et de la console de gestion locale
 description: Dépannez votre capteur et la console de gestion locale pour éliminer les problèmes que vous pourriez rencontrer.
 ms.date: 03/14/2021
 ms.topic: article
-ms.openlocfilehash: 83ffec959a5b38e9f4fd4d7d0dcfd3b1b9faa096
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e20c11e869ebeea0b4fc7f917dd8cebba7a69c5c
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104785442"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209046"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Résoudre les problèmes du capteur et de la console de gestion locale
 
@@ -127,7 +127,7 @@ Lorsque les appareils indiqués sur la carte semblent ne pas être connectés en
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="Visualisez vos appareils de diffusion.":::
 
-Dans ce cas, vous devez confirmer que vous ne pouvez voir que le trafic de diffusion. Demandez ensuite à l’ingénieur réseau de corriger la configuration du port SPAN pour que vous puissiez voir le trafic de monodiffusion.
+Dans ce cas, vérifiez que vous ne voyez que le trafic de diffusion, puis demandez à l’ingénieur réseau de corriger la configuration du port SPAN pour que vous puissiez également voir le trafic de monodiffusion.
 
 Pour confirmer que vous ne voyez que le trafic de diffusion :
 

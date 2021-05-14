@@ -3,12 +3,12 @@ title: Exemple de blueprint DoD Impact Level 5
 description: Étapes de déploiement de l’exemple de blueprint DoD Impact Level 5 et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: b978b9fb30732c13785a6a425e5195daf67bae0f
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 158925ad12e55d365cbd4f751c2f78e99fcaa83d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377401"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757490"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>Déployer l’exemple de blueprint DoD Impact Level 5
 

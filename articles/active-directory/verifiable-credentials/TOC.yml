@@ -1,0 +1,50 @@
+- name: "Documentation sur les justificatifs vérifiables Azure\_AD"
+  href: index.yml
+- name: Vue d’ensemble
+  expanded: true
+  items:
+    - name: Présentation des justificatifs vérifiables Azure Active Directory
+      href: decentralized-identifier-overview.md
+- name: Tutoriels
+  expanded: true
+  items:
+    - name: Prise en main des justificatifs vérifiables
+      href: get-started-verifiable-credentials.md
+    - name: Configurer les justificatifs vérifiables dans votre locataire
+      items:
+        - name: "1 - Configurer l’émetteur de justificatifs vérifiables dans votre propre instance Azure\_AD"
+          href: enable-your-tenant-verifiable-credentials.md
+        - name: "2 - Connecter votre émetteur de justificatifs vérifiables à votre propre instance Azure\_AD"
+          href: issue-verify-verifiable-credentials-your-tenant.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Informations détaillées sur le protocole OpenID Connect
+      href: issuer-openid.md
+- name: Guides pratiques
+  expanded: true
+  items:
+    - name: Personnaliser vos justificatifs
+      href: credential-design.md
+    - name: Gérer la révocation des justificatifs
+      href: how-to-issuer-revoke.md
+    - name: Lier votre domaine à votre DID
+      href: how-to-dnsbind.md
+    - name: Refuser les justificatifs vérifiables
+      href: how-to-opt-out.md
+- name: Exemples
+  expanded: true
+  items:
+    - name: Exemple d’application Node
+      href: 'https://github.com/Azure-Samples/active-directory-verifiable-credentials'
+    - name: Exemple d’émetteur
+      href: 'https://didvc-issuer-sample.azurewebsites.net/'
+    - name: Exemple de vérificateur
+      href: 'https://didvc-verifier-sample.azurewebsites.net/'
+- name: Ressources
+  expanded: true
+  items:
+    - name: Questions fréquentes (FAQ)
+      href: verifiable-credentials-faq.md
+    - name: Guide pratique pour créer un compte de développeur
+      href: how-to-create-a-free-developer-account.md

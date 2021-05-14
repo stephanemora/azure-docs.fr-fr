@@ -2,19 +2,88 @@
 title: Nouveautés d’Azure Defender pour IoT
 description: Cet article vous présente les nouveautés de la dernière version de Defender pour IoT.
 ms.topic: overview
-ms.date: 03/14/2021
-ms.openlocfilehash: 7d8c4ebfc55c80878b780fe9f663aaec62a75f9d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.date: 04/25/2021
+ms.openlocfilehash: f7631caedcb26227abf65d6fad216fc629d41dd4
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382910"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987090"
 ---
-# <a name="whats-new-in-azure-defender-for-iot"></a>Nouveautés d’Azure Defender pour IoT
+# <a name="whats-new-in-azure-defender-for-iot"></a>Nouveautés d’Azure Defender pour IoT  
 
 Cet article répertorie les nouvelles fonctionnalités et améliorations apportées à Defender pour IoT.
 
-Ces fonctionnalités sont en PRÉVERSION. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
+Ces fonctionnalités sont en PRÉVERSION. Les [conditions supplémentaires pour les préversions Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent d’autres conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou qui ne sont pas encore en disponibilité générale.
+
+## <a name="versioning-and-support-for-azure-defender-for-iot"></a>Versioning et support d’Azure Defender pour IoT 
+
+La liste ci-dessous inclut la prise en charge, les stratégies avec modification cassante pour Defender pour IoT et les versions d’Azure Defender pour IoT actuellement disponibles. 
+
+### <a name="servicing-information-and-timelines"></a>Informations de maintenance et chronologies 
+
+Microsoft prévoit de publier des mises à jour pour Azure Defender pour IoT au moins une fois par trimestre. Chaque version en disponibilité générale (GA) d’Azure Defender pour le capteur IoT et la console de gestion locale est prise en charge jusqu’à neuf mois après sa publication. Les correctifs et les nouvelles fonctionnalités seront appliqués aux versions en disponibilité générale actuellement prises en charge, mais ne seront pas appliqués aux versions en disponibilité générale plus anciennes.
+
+### <a name="versions-and-support-dates"></a>Versions et dates de prise en charge
+
+| Version | Date de publication | Date de fin de prise en charge |
+|--|--|--|
+| 10.0 | 01/2021 | 10/2021 |
+| 10.3 | 04/2021 | 02/2022 |
+
+## <a name="april-2021"></a>Avril 2021
+
+### <a name="work-with-automatic-threat-intelligence-updates-public-preview"></a>Utiliser les mises à jour automatiques de Threat Intelligence (préversion publique)
+
+De nouveaux packages Threat Intelligence peuvent désormais être automatiquement envoyés aux capteurs connectés au cloud, car ils sont publiés par Microsoft Defender pour IoT. Ceci s’ajoute au téléchargement des packages Threat Intelligence, puis à leur chargement sur les capteurs.
+
+L’utilisation des mises à jour automatiques permet de réduire les travaux opérationnels et de garantir une plus grande sécurité. Activez la mise à jour automatique en intégrant votre capteur connecté au cloud sur le portail Defender pour IoT avec **Mises à jour automatiques de Threat Intelligence** activé.
+
+Si vous voulez adopter une approche plus conservatrice pour mettre à jour vos données Threat Intelligence, vous pouvez envoyer manuellement les packages à partir du portail Azure Defender pour IoT vers des capteurs connectés au cloud seulement quand vous l’estimez nécessaire.
+Ceci vous donne la possibilité de contrôler le moment où un package est installé, sans devoir le télécharger, puis le charger sur vos capteurs. Envoyez manuellement les mises à jour aux capteurs à partir de la page **Sites et capteurs** de Defender pour IoT.
+
+Vous pouvez également consulter les informations suivantes sur les packages Threat Intelligence :
+
+- Version de package installée
+- Mode de mise à jour de Threat Intelligence 
+- État de la mise à jour de Threat Intelligence
+
+### <a name="view-cloud-connected-sensor-information-public-preview"></a>Visualiser des informations sur les capteurs connectés au cloud (préversion publique)
+
+Visualisez les informations opérationnelles importantes sur les capteurs connectés au cloud sur la page **Sites et capteurs**.
+
+- La version installée du capteur.
+- L’état de connexion du capteur au cloud.
+- La dernière fois que le capteur a été détecté comme connecté au cloud.
+
+### <a name="alert-api-enhancements"></a>Améliorations de l’API d’alerte
+
+De nouveaux champs sont disponibles pour les utilisateurs qui travaillent avec les API d’alerte.
+
+**Console de gestion locale**
+
+- Adresses source et de destination
+- Étapes de correction
+- Le nom du capteur défini par l’utilisateur
+- Le nom de la zone associée au capteur 
+- Le nom du site associé au capteur
+
+**Capteur**
+
+- Adresses source et de destination
+- Étapes de correction
+
+L’API version 2 est nécessaire quand vous utilisez les nouveaux champs.
+
+### <a name="features-delivered-as-generally-available-ga"></a>Fonctionnalités fournies en disponibilité générale
+
+Avant, les fonctionnalités suivantes étaient disponibles pour la préversion publique et sont maintenant en disponibilité générale (GA) :
+
+- Capteur - Règles d’alerte personnalisées améliorées
+- Console de gestion locale - Exporter les alertes
+- Ajouter une deuxième interface réseau à la console de gestion locale
+- Générateur d’appareils - Nouveau micro-agent
+
 ## <a name="march-2021"></a>Mars 2021
 
 ### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Capteur - Règles d’alerte personnalisée améliorées (préversion publique)
@@ -23,9 +92,15 @@ Vous pouvez maintenant créer des règles d’alerte personnalisées en fonction
 
 Cette fonctionnalité est disponible sur le capteur avec la version 10.2.
 
-### <a name="on-premises-management-console---export-alerts-public-preview"></a>Console de gestion sur site - Exporter les alertes (préversion publique)
+### <a name="on-premises-management-console---export-alerts-public-preview"></a>Console de gestion locale - Exporter les alertes (préversion publique)
 
 Les informations d’alerte peuvent maintenant être exportées vers un fichier. csv à partir de la console de gestion locale. Vous pouvez exporter les informations de toutes les alertes détectées ou exporter des informations en fonction de la vue filtrée.
+
+Cette fonctionnalité est disponible sur la console de gestion locale avec la version 10.2.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Ajouter une deuxième interface réseau à la console de gestion locale (préversion publique)
+
+Vous pouvez maintenant améliorer la sécurité de votre déploiement en ajoutant une deuxième interface réseau à votre console de gestion locale. Cette fonctionnalité permet à votre gestion sur site d’avoir ses capteurs connectés sur un réseau sécurisé, tout en permettant à vos utilisateurs d’accéder à la console de gestion sur site via une deuxième interface réseau distincte.
 
 Cette fonctionnalité est disponible sur la console de gestion locale avec la version 10.2.
 

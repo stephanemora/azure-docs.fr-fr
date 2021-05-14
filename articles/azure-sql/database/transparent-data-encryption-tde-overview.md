@@ -12,19 +12,19 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 160066f9599388256c7c821732a1e06fec49bdf5
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f93d65b4d10c1a8454a8e24b5cb081dae4d6943e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749039"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812801"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Chiffrement transparent des données pour SQL Database, SQL Managed Instance et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) est une technologie de chiffrement transparent des données qui contribue à protéger Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics contre les menaces d’activités hors connexion malveillantes en chiffrant les données au repos. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application. Par défaut, TDE est activé pour toutes les bases de données SQL déployées récemment et doit être activé manuellement pour les anciennes bases de données d’Azure SQL Database et d’Azure SQL Managed Instance. TDE doit être activé manuellement pour Azure Synapse Analytics.
 
-TDE effectue le chiffrement et le déchiffrement des données d’E/S en temps réel au niveau de la page. Chaque page est déchiffrée lorsqu’elle est lue en mémoire, puis chiffrée avant d’être écrite sur le disque. TDE chiffre le stockage d’une base de données entière à l’aide d’une clé symétrique appelée clé de chiffrement de la base de données (« clé DEK »). Au démarrage de la base de données, la clé DEK chiffrée est déchiffrée, puis elle est utilisée pour déchiffrer et rechiffrer les fichiers de la base de données dans le processus du moteur de base de données SQL Server. La clé de chiffrement DEK est protégée par le protecteur TDE. Le protecteur TDE est soit un certificat géré par le service (chiffrement transparent des données géré par le service), soit une clé asymétrique stockée dans [Azure Key Vault](../../key-vault/general/security-overview.md) (chiffrement transparent des données géré par le client).
+TDE effectue le chiffrement et le déchiffrement des données d’E/S en temps réel au niveau de la page. Chaque page est déchiffrée lorsqu’elle est lue en mémoire, puis chiffrée avant d’être écrite sur le disque. TDE chiffre le stockage d’une base de données entière à l’aide d’une clé symétrique appelée clé de chiffrement de la base de données (« clé DEK »). Au démarrage de la base de données, la clé DEK chiffrée est déchiffrée, puis elle est utilisée pour déchiffrer et rechiffrer les fichiers de la base de données dans le processus du moteur de base de données SQL Server. La clé de chiffrement DEK est protégée par le protecteur TDE. Le protecteur TDE est soit un certificat géré par le service (chiffrement transparent des données géré par le service), soit une clé asymétrique stockée dans [Azure Key Vault](../../key-vault/general/security-features.md) (chiffrement transparent des données géré par le client).
 
 Pour Azure SQL Database et Azure Synapse, le protecteur TDE est défini au niveau du [serveur](logical-servers.md) logique SQL et est hérité par toutes les bases de données associées à ce serveur. Pour Azure SQL Managed Instance, le protecteur TDE est défini au niveau de l’instance et il est hérité par toutes les bases de données chiffrées sur cette instance. Le terme *serveur* fait référence à la fois au serveur et à l’instance tout au long de ce document, sauf indication contraire.
 
@@ -156,4 +156,4 @@ Utilisez l'ensemble de commandes suivant pour Azure SQL Database et Azure Synaps
 - Pour obtenir une description générale du chiffrement transparent des données, consultez la page [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Pour plus d'informations sur TDE avec prise en charge de BYOK pour Azure SQL Database, Azure SQL Managed Instance et Azure Synapse, consultez [Chiffrement transparent des données avec prise en charge du service Bring Your Own Key](transparent-data-encryption-byok-overview.md).
 - Pour commencer à utiliser TDE avec prise en charge de Bring Your Own Key, consultez le guide pratique [Activer le chiffrement transparent des données avec votre propre clé Key Vault](transparent-data-encryption-byok-configure.md).
-- Pour plus d’informations sur Key Vault, consultez [Accès sécurisé à un coffre de clés](../../key-vault/general/security-overview.md).
+- Pour plus d’informations sur Key Vault, consultez [Accès sécurisé à un coffre de clés](../../key-vault/general/security-features.md).

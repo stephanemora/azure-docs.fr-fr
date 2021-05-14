@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 49b267d36fb6c365cf2125912c0d27fe7d669474
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f491681c8054c800e15c3c77516ff22e3c70dbac
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585280"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001499"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Étendre Azure Sentinel dans les espaces de travail et les locataires
 
@@ -34,7 +34,7 @@ Vous pouvez tirer pleinement parti de l’expérience Azure Sentinel lors de l�
 | Souveraineté et conformité réglementaire | Un espace de travail est lié à une région spécifique. Si les données doivent être conservées dans différentes [zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/) pour satisfaire les exigences réglementaires, elles doivent être fractionnées en espaces de travail distincts. |  |
 | Propriétaire des données | Les limites de la propriété des données, par exemple par les filiales ou les sociétés affiliées, sont mieux définies à l’aide d’espaces de travail distincts. |  |
 | Plusieurs locataires Azure | Azure Sentinel prend en charge la collecte de données à partir de ressources Microsoft et SaaS Azure uniquement dans sa propre limite de locataire Azure Active Directory (Azure AD). Par conséquent, chaque locataire Azure AD requiert un espace de travail distinct. |  |
-| Contrôle d’accès granulaire aux données | Une organisation peut avoir besoin d’autoriser des groupes différents, au sein ou à l’extérieur de l’organisation, à accéder à certaines des données collectées par Azure Sentinel. Par exemple :<br><ul><li>Accès des propriétaires de ressources aux données relatives à leurs ressources</li><li>Accès des SOC régionaux ou des filiales aux données relatives à leurs parties de l’organisation</li></ul> | Utilisez le contrôle [RBAC Azure des ressources](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) ou [Azure RBAC au niveau de la table](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Contrôle d’accès granulaire aux données | Une organisation peut avoir besoin d’autoriser des groupes différents, au sein ou à l’extérieur de l’organisation, à accéder à certaines des données collectées par Azure Sentinel. Par exemple :<br><ul><li>Accès des propriétaires de ressources aux données relatives à leurs ressources</li><li>Accès des SOC régionaux ou des filiales aux données relatives à leurs parties de l’organisation</li></ul> | Utilisez le contrôle [RBAC Azure des ressources](resource-context-rbac.md) ou [Azure RBAC au niveau de la table](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Paramètres de rétention granulaires | Historiquement, disposer de plusieurs espaces de travail était la seule solution pour définir des périodes de rétention différentes pour différents types de données. Cela n’est plus nécessaire dans de nombreux cas, grâce à l’introduction des paramètres de rétention au niveau table. | Utilisez les [paramètres de rétention au niveau table](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) ou automatisez la [suppression des données](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Facturation fractionnée | Placer des espaces de travail dans des abonnements distincts permet de les facturer à différentes parties. | Rapports d’utilisation et facturation interne |
 | Architecture héritée | L’utilisation de plusieurs espaces de travail peut provenir d’une conception historique qui a pris en compte des limitations ou des pratiques recommandées qui ne sont plus valables. Il peut également s’agir d’un choix de conception arbitraire qui peut être modifié pour mieux prendre en charge Azure Sentinel.<br><br>Voici quelques exemples :<br><ul><li>Utilisation d’un espace de travail par abonnement par défaut lors du déploiement d’Azure Security Center</li><li>La nécessité d’un contrôle d’accès granulaire ou de paramètres de rétention, pour lesquels les solutions sont relativement nouvelles</li></ul> | Restructurer les espaces de travail |

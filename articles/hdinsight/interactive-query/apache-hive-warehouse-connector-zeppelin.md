@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 7957041c9d445f4239b8f0100128a531d982b451
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c266861f10b32c63c48680ed548928613dc6b0d
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104871552"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108064554"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Intégrer Apache Zeppelin avec Hive Warehouse Connector dans Azure HDInsight
 
@@ -103,7 +103,7 @@ Les configurations suivantes sont requises pour accéder aux tables Hive à part
 
         :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Domaine AAD du connecteur d’entrepôt Hive" border="true":::
 
-    * Par exemple, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
+    * Par exemple, `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
 
 1. Enregistrez les modifications, puis redémarrez l’interpréteur Livy.
 

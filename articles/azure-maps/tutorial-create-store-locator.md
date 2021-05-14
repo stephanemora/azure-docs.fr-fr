@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 801c2fe1710952a12584bf10dd8e5c77de3b839c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc7e58dcf2ed9c8897ec5a425415451e1083ed44
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625096"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326576"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -35,7 +35,7 @@ Passez directement à l’[exemple de localisateur de magasin animé](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. [Créer un compte Azure Maps avec le niveau tarifaire S1](quick-demo-map-app.md#create-an-azure-maps-account)
+1. [Créer un compte Azure Maps dans le niveau tarifaire Gen 1 (S1) ou Gen 2](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
 
 Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).

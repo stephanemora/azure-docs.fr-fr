@@ -11,6 +11,9 @@
     - name: Nouveautés
       href: whats-new.md
       displayName: 'release notes, service updates, videos'
+    - name: Questions fréquentes (FAQ) sur Personalizer
+      href: frequently-asked-questions.md
+      displayName: 'frequently asked questions, troubleshooting, questions'
 - name: Démarrage rapide
   href: ./quickstart-personalizer-sdk.md
 - name: Exemples
@@ -120,10 +123,8 @@
         - name: Conformité et certification
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Modules Microsoft Learn
-      href: 'https://docs.microsoft.com/learn/browse/?terms=personalizer'
+      href: /learn/browse/?terms=personalizer
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
-    - name: Résolution des problèmes
-      href: troubleshooting.md
     - name: Mises à jour Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'

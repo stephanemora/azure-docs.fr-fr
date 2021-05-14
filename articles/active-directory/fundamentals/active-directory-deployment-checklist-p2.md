@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a43388c2750c7f82d407d59b6923258046fa00c7
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836918"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108175871"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -83,7 +83,7 @@ Selon notre approche de renforcement des étapes précédentes, nous identifions
 | ---- | ------ | ---------------- |
 | Identifier vos applications | Identifiez les applications utilisées dans votre organisation : les applications locales, les applications SaaS dans le cloud et les autres applications métier. Déterminez si ces applications peuvent et doivent être gérées avec Azure AD. | Aucune licence obligatoire |
 | [Intégrer les applications SaaS prises en charge dans la galerie](../manage-apps/add-application-portal.md) | Azure AD a une galerie qui contient des milliers d’applications préintégrées. Certaines applications utilisées par votre organisation sont probablement dans la galerie, accessible directement à partir du portail Azure. | Azure AD Gratuit |
-| [Utiliser le proxy d’application pour intégrer les applications locales](../manage-apps/application-proxy-add-on-premises-application.md) | Le proxy d’application permet aux utilisateurs d’accéder aux applications locales en se connectant avec leur compte Azure AD. | |
+| [Utiliser le proxy d’application pour intégrer les applications locales](../app-proxy/application-proxy-add-on-premises-application.md) | Le proxy d’application permet aux utilisateurs d’accéder aux applications locales en se connectant avec leur compte Azure AD. | |
 
 ## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Phase 4 : Auditer les identités privilégiées, effectuer une révision d’accès et gérer le cycle de vie utilisateur
 

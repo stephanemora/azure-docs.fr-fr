@@ -3,13 +3,13 @@ title: Surveiller un cluster Azure Kubernetes Service (AKS) déployé | Microsof
 description: Découvrez comment activer la surveillance d’un cluster Azure Kubernetes service (AKS) avec Container Insights déjà déployé dans votre abonnement.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: fba12fb8dd5c6c91883a88d4acfdca6c6d332c24
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-terraform, devx-track-azurepowershell
+ms.openlocfilehash: 7ab840f2de90f316461c84e2698e9b760c082e03
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109622"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318636"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Activer la surveillance d’un cluster Azure Kubernetes Service (AKS) déjà déployé
 

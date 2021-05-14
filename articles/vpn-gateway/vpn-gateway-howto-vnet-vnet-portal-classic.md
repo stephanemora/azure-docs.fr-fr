@@ -1,6 +1,6 @@
 ---
 title: 'Créer une connexion entre réseaux virtuels : classique : Portail Azure'
-description: Interconnectez des réseaux virtuels Azure à l’aide de PowerShell et du portail Azure.
+description: Découvrez comment interconnecter des réseaux virtuels Azure classiques à l’aide de PowerShell et du portail Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aee40b4d642a43f0d4261bae7c42f92049daa4de
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92103218"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289513"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
 

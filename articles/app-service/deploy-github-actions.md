@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 1ed2b007ae00516a030e67b7f6abacbd00a8d403
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c17b18f42a5b07252874aef812a50746e069c1a9
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772880"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108209730"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Déployer sur App Service à l’aide de GitHub Actions
 
@@ -24,7 +24,7 @@ Prenez en main [GitHub Actions](https://docs.github.com/en/actions/learn-github-
 - Un compte GitHub. Si vous n’en avez pas, inscrivez-vous [gratuitement](https://github.com/join).  
 - Une application Azure App Service fonctionnelle. 
     - .NET : [Créer une application web ASP.NET Core dans Azure](quickstart-dotnetcore.md)
-    - ASP.NET : [Créer une application web ASP.NET Framework dans Azure](quickstart-dotnet-framework.md)
+    - ASP.NET : [Créer une application web ASP.NET Framework dans Azure](./quickstart-dotnetcore.md?tabs=netframework48)
     - JavaScript : [Créer une application web Node.js dans Azure App Service](quickstart-nodejs.md)  
     - Java : [Créer une application Java dans Azure App Service](quickstart-java.md)
     - Python : [Créer une application Python dans Azure App Service](quickstart-python.md)
@@ -235,7 +235,7 @@ Vous pouvez restaurer les dépendances NuGet et exécuter MSBuild avec `run`.
   run: nuget restore
 
 - name: Add msbuild to PATH
-  uses: microsoft/setup-msbuild@v1.0.0
+  uses: microsoft/setup-msbuild@v1.0.2
 
 - name: Run msbuild
   run: msbuild .\SampleWebApplication.sln
@@ -359,7 +359,7 @@ jobs:
       run: nuget restore
   
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln
@@ -581,7 +581,7 @@ jobs:
       run: nuget restore
   
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Run MSBuild
       run: msbuild .\SampleWebApplication.sln

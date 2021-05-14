@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: c39ef505b0cea0ad0c03b81683db8441077cd0d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ac17de3f73424994fc39ef0044d17ef83b501b7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94874540"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866140"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Démarrage rapide : Créer une salle de conversation avec ASP.NET et SignalR Service
 
@@ -29,7 +29,7 @@ Ce guide de démarrage rapide explique comment démarrer avec ASP.NET et Azure S
 ## <a name="prerequisites"></a>Prérequis
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-* [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
+* [.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461)
 * [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
 Vous rencontrez des problèmes ? Essayez le [guide de résolution des problèmes](signalr-howto-troubleshoot-guide.md) ou [faites-le nous savoir](https://aka.ms/asrs/qsnet).

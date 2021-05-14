@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b10d2e10f95470cadf67af762a0d7320bc09b7e0
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d7fc04e65e2b79d43c48acd5a8c621f28d5c0403
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075693"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714665"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -128,7 +128,44 @@ download.microsoft.com/download | Autorisez les téléchargements à partir du c
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Connectez-vous aux URL du service Azure Migrate.
 *.hypervrecoverymanager.windowsazure.us | **Utilisé pour la migration sans agent VMware**<br/><br/> Connectez-vous aux URL du service Azure Migrate.
 *.blob.core.usgovcloudapi.net  |  **Utilisé pour la migration sans agent VMware**<br/><br/>Chargez les données vers le stockage pour la migration.
-*.applicationinsights.us | Chargez les journaux de l’appliance utilisés pour la surveillance interne.
+*.applicationinsights.us | Chargez les journaux de l’appliance utilisés pour la surveillance interne.  
+
+### <a name="public-cloud-urls-for-private-link-connectivity"></a>URL de cloud public pour la connectivité de liaison privée
+
+L’appliance doit accéder aux URL suivantes (directement ou via proxy) sur ou en plus de l’accès de liaison privée. 
+
+**URL** | **Détails**  
+--- | --- | 
+*. portal.azure.com  | Accédez au portail Azure.
+\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Connectez-vous à votre abonnement Azure.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Créez des applications Azure Active Directory (AD) pour que l’appliance communique avec Azure Migrate.
+management.azure.com | Créez des applications Azure AD pour que l’appliance communique avec le service Azure Migrate.
+*.services.visualstudio.com (facultatif) | Chargez les journaux de l’appliance utilisés pour la surveillance interne.
+aka.ms/* (facultatif) | Autorisez l’accès aux aka links utilisés pour télécharger et installer les dernières mises à jour pour les services de l’appliance.
+download.microsoft.com/download | Autorisez les téléchargements à partir du centre de téléchargement Microsoft.
+*.servicebus.windows.net | **Utilisé pour la migration sans agent VMware**<br/><br/> Communication entre l’appliance et le service Azure Migrate.
+*.vault.azure.net | **Utilisé pour la migration sans agent VMware**<br/><br/>  Assurez-vous que les serveurs à répliquer y ont accès.
+*.hypervrecoverymanager.windowsazure.com | **Utilisé pour la migration sans agent VMware**<br/><br/> Connectez-vous aux URL du service Azure Migrate.
+*.blob.core.windows.net |  **Utilisé pour la migration sans agent VMware**<br/><br/>Chargez les données vers le stockage pour la migration.
+
+### <a name="government-cloud-urls-for-private-link-connectivity"></a>URL de cloud du secteur public pour la connectivité de liaison privée   
+
+L’appliance doit accéder aux URL suivantes (directement ou via proxy) sur ou en plus de l’accès de liaison privée. 
+
+**URL** | **Détails**  
+--- | --- |
+*.portal.azure.us  | Accédez au portail Azure.
+graph.windows.net | Connectez-vous à votre abonnement Azure.
+login.microsoftonline.us  | Créez des applications Azure Active Directory (AD) pour que l’appliance communique avec Azure Migrate.
+management.usgovcloudapi.net | Créez des applications Azure AD pour que l’appliance communique avec le service Azure Migrate.
+*.services.visualstudio.com (facultatif) | Chargez les journaux de l’appliance utilisés pour la surveillance interne.
+aka.ms/* (facultatif) | Autorisez l’accès aux aka links utilisés pour télécharger et installer les dernières mises à jour pour les services de l’appliance.
+download.microsoft.com/download | Autorisez les téléchargements à partir du centre de téléchargement Microsoft.
+*.servicebus.usgovcloudapi.net  | **Utilisé pour la migration sans agent VMware**<br/><br/> Communication entre l’appliance et le service Azure Migrate. 
+*.vault.usgovcloudapi.net | **Utilisé pour la migration sans agent VMware**<br/><br/> Gérez les secrets dans Azure Key Vault.
+*.hypervrecoverymanager.windowsazure.us | **Utilisé pour la migration sans agent VMware**<br/><br/> Connectez-vous aux URL du service Azure Migrate.
+*.blob.core.usgovcloudapi.net  |  **Utilisé pour la migration sans agent VMware**<br/><br/>Chargez les données vers le stockage pour la migration.
+*.applicationinsights.us (facultatif) | Chargez les journaux de l’appliance utilisés pour la surveillance interne.  
 
 ## <a name="collected-data---vmware"></a>Données collectées - VMware
 

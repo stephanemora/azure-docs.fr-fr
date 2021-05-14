@@ -8,12 +8,12 @@ ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 4ff7d9aa2075b675a7ecd979c08d5621bbdd831a
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 4898c0ec17766d0bcbd89176194aec9dee7157ea
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286685"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293041"
 ---
 # <a name="technical-details-of-migrating-to-azure-cloud-services-extended-support"></a>Détails techniques de la migration vers Azure Cloud Services (support étendu)   
 
@@ -36,7 +36,7 @@ Cet article présente les détails techniques relatifs à l’outil de migration
 ### <a name="service-configuration-and-service-definition-files"></a>Fichiers de configuration et de définition du service
 - Les fichiers. cscfg et. csdef doivent être mis à jour pour Azure Cloud Services (support étendu) avec des modifications mineures. 
 - Les noms de ressources telles que le réseau virtuel et la référence (SKU) de machine virtuelle sont différents. Consultez [Traduction des ressources et convention d’affectation de noms post-migration](#translation-of-resources-and-naming-convention-post-migration)
-- Les clients peuvent récupérer leurs nouveaux déploiements via [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) et une [API REST](https://docs.microsoft.com/rest/api/compute/cloudservices/get). 
+- Les clients peuvent récupérer leurs nouveaux déploiements via [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) et une [API REST](/rest/api/compute/cloudservices/get). 
 
 ### <a name="cloud-service-and-deployments"></a>Services cloud et déploiements
 - Chaque déploiement d’Azure Cloud Services (support étendu) est un service cloud indépendant. Les déploiements ne sont plus regroupés dans un service cloud à l’aide d’emplacements.
@@ -100,4 +100,4 @@ Dans le cadre de la migration, les noms de ressources sont modifiés, et peu de 
 - Les clients peuvent utiliser PowerShell ou l’API REST pour abandonner ou valider. 
 
 ### <a name="how-much-time-can-the-operations-takebr"></a>Combien de temps les opérations peuvent-elles prendre ?<br>
-La validation est conçue pour être rapide. La préparation est plus longue et prend un certain temps en fonction du nombre total d’instances de rôle migrées. L’abandon et la validation peuvent également prendre du temps, mais moins que la préparation. Toutes les opérations expirent au bout de 24 heures. 
+La validation est conçue pour être rapide. La préparation est plus longue et prend un certain temps en fonction du nombre total d’instances de rôle migrées. L’abandon et la validation peuvent également prendre du temps, mais moins que la préparation. Toutes les opérations expirent au bout de 24 heures.

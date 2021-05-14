@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d45ef8c32e61b5567798b7c42af28badb222601
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: a99f5ebf0fd4f3c4684446a868e1c4e342f3785e
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376713"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783835"
 ---
 # <a name="add-tags-to-digital-twins"></a>Ajouter des étiquettes à des jumeaux numériques 
 
-Vous pouvez utiliser le concept d’étiquettes pour identifier et catégoriser davantage vos jumeaux numériques. En particulier, les utilisateurs peuvent être amenés à répliquer des étiquettes à partir de systèmes existants, tels que les [étiquettes Haystack](https://project-haystack.org/doc/TagModel), dans leurs instances Azure Digital Twins. 
+Vous pouvez utiliser le concept d’étiquettes pour identifier et catégoriser davantage vos jumeaux numériques. En particulier, les utilisateurs peuvent être amenés à répliquer des étiquettes à partir de systèmes existants, tels que les [étiquettes Haystack](https://project-haystack.org/doc/appendix/tags), dans leurs instances Azure Digital Twins. 
 
 Ce document décrit les modèles qui peuvent être utilisés pour implémenter des étiquettes sur des jumeaux numériques.
 
@@ -52,11 +52,11 @@ Une fois que des balises ont été ajoutées aux jumeaux numériques, les balise
 
 Voici une requête permettant d’obtenir tous les jumeaux qui sont rouges (marqués de la balise « red ») : 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 Vous pouvez également combiner des balises pour créer des requêtes plus complexes. Voici une requête permettant d’obtenir tous les jumeaux qui sont ronds et pas rouges : 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>Balises de valeur 
 
@@ -86,16 +86,16 @@ Comme avec les balises de marqueur, vous pouvez utiliser des balises de valeur p
 
 Dans l’exemple ci-dessus, `red` est utilisé en tant que balise de marqueur. Voici une requête permettant d’obtenir tous les jumeaux qui sont rouges (marqués de la balise « red ») : 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 Voici une requête permettant d’obtenir toutes les entités qui sont de petite taille (balise de valeur) et pas rouges : 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus d’informations sur la conception et la gestion de modèles de jumeaux numériques :
-* [*Guide pratique : Gérer les modèles DTDL*](how-to-manage-model.md)
+* [Guide pratique : Gérer les modèles DTDL](how-to-manage-model.md)
 
 Découvrez plus d’informations sur l’interrogation du graphe de jumeaux :
-* [*Guide pratique : Interroger le graphe de jumeaux*](how-to-query-graph.md)
+* [Guide pratique pour interroger le graphique de jumeaux](how-to-query-graph.md)

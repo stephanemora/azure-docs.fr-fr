@@ -5,24 +5,29 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f9a10aca24203b69ff38ff5fab7960681145af5
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604836"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227827"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problèmes connus avec les machines virtuelles des séries H et N
 
 Cet article tente de répertorier les problèmes courants récents et leurs solutions correspondantes en lien avec l’utilisation de machines virtuelles HPC et GPU des séries [H](../../sizes-hpc.md) et [N](../../sizes-gpu.md).
 
+## <a name="cache-topology-on-standard_hb120rs_v3"></a>Topologie du cache sur Standard_HB120rs_v3
+`lstopo` affiche une topologie de cache incorrecte sur la taille de machine virtuelle Standard_HB120rs_v3. Il peut afficher qu’il n’y a que 32 Mo de L3 par NUMA. Toutefois, dans la pratique, il existe en fait 120 Mo de L3 par NUMA, comme prévu, car les mêmes 480 Mo de L3 sont disponibles pour l’ensemble de la machine virtuelle, comme pour les autres tailles de machine virtuelle HBv3 avec nombre de cœurs limité. Il s’agit d’une erreur superficielle dans l’affichage de la valeur correcte qui ne devrait pas avoir d’impact sur les charges de travail.
+
+## <a name="qp0-access-restriction"></a>Restriction d’accès qp0
+Pour empêcher l’accès au matériel de bas niveau pouvant entraîner des failles de sécurité, Queue Pair 0 n’est pas accessible aux machines virtuelles invitées. Cela ne doit affecter que les actions généralement associées à l’administration de la carte réseau ConnectX InfiniBand et l’exécution de diagnostics InfiniBand comme ibdiagnet, mais pas les applications de l’utilisateur final.
+
 ## <a name="mofed-installation-on-ubuntu"></a>Installation de MOFED sur Ubuntu
-Sur Ubuntu-18.04, l’OFED Mellanox s’est avéré incompatible avec les noyaux `5.4.0-1039-azure #42` et de version plus récente, ce qui entraîne une augmentation du temps de démarrage de machine virtuelle jusqu’à environ 30 minutes. Cela a été signalé pour les versions d’OFED Mellanox 5.2-1.0.4.0 et 5.2-2.2.0.0.
-La solution temporaire consiste à utiliser l’image **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** disponible sur la place de marché, ou une version antérieure, et à ne pas mettre à jour le noyau.
-Ce problème devrait être résolu avec un MOFED plus récent (à déterminer).
+Sur les images de machine virtuelle de la Place de marché Ubuntu-18.04 avec la version des noyaux `5.4.0-1039-azure #42` et ultérieures, certains Mellanox OFED plus anciens ne sont pas compatibles, ce qui entraîne une augmentation du temps de démarrage de la machine virtuelle de jusqu’à 30 minutes dans certains cas. Cela a été signalé pour les versions d’OFED Mellanox 5.2-1.0.4.0 et 5.2-2.2.0.0. Le problème est résolu avec Mellanox OFED 5.3-1.0.0.1.
+S’il est nécessaire d’utiliser l’OFED incompatible, une solution est d’utiliser l’image de machine virtuelle de la Place de marché **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** ou antérieure, et de ne pas mettre à jour le noyau.
 
 ## <a name="mpi-qp-creation-errors"></a>Erreurs de création MPI QP
 Si, lors de l’exécution de charges de travail MPI, les erreurs de création InfiniBand QP, comme illustré ci-dessous, sont levées, nous vous suggérons de redémarrer la machine virtuelle et de réessayer la charge de travail. Ce problème sera corrigé ultérieurement.
@@ -72,10 +77,6 @@ Ce problème « Adresse MAC en doublon avec cloud-init sur Ubuntu » est connu
       version: 2
     EOF
     ```
-
-## <a name="qp0-access-restriction"></a>Restriction d’accès qp0
-
-Pour empêcher l’accès au matériel de bas niveau pouvant entraîner des failles de sécurité, Queue Pair 0 n’est pas accessible aux machines virtuelles invitées. Cela ne doit affecter que les actions généralement associées à l’administration de la carte réseau ConnectX-5 et à l’exécution des diagnostics InfiniBand comme ibdiagnet, et pas les applications de l’utilisateur final elles-mêmes.
 
 ## <a name="dram-on-hb-series-vms"></a>DRAM sur machines virtuelles de série HB
 

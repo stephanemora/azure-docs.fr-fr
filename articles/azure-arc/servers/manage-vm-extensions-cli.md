@@ -1,19 +1,22 @@
 ---
 title: Activer l’extension de machine virtuelle à l’aide d’Azure CLI
 description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs Azure Arc exécutés dans des environnements cloud hybrides avec Azure CLI.
-ms.date: 01/05/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6edb7d55e542f963c75693d535fa3b50dc5b827b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2255742e626e62f771730359c1c19c3b10f9d71
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97916199"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108015174"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Activer l’extension de machine virtuelle Azure à l’aide d’Azure CLI
 
 Cet article explique comment déployer et désinstaller des extensions de machine virtuelle, prises en charge par les serveurs Azure Arc, sur une machine hybride Linux ou Windows via Azure CLI.
+
+> [!NOTE]
+> Les serveurs avec Azure Arc ne prennent pas en charge le déploiement et la gestion des extensions de machine virtuelle sur les machines virtuelles Azure. Pour les machines virtuelles Azure, consultez l’article [Vue d’ensemble de l’extension de machine virtuelle](../../virtual-machines/extensions/overview.md) suivant.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -27,7 +30,7 @@ az extension add --name connectedmachine
 
 ## <a name="enable-extension"></a>Activer l’extension
 
-Pour activer une extension de machine virtuelle sur votre serveur Arc, utilisez [az connectedmachine extension create](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_create) avec les paramètres `--machine-name`, `--extension-name`, `--location`, `--type`, `settings` et `--publisher`.
+Pour activer une extension de machine virtuelle sur votre serveur Arc, utilisez [az connectedmachine extension create](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_create) avec les paramètres `--machine-name`, `--extension-name`, `--location`, `--type`, `settings` et `--publisher`.
 
 L’exemple suivant active l’extension de machine virtuelle Log Analytics sur un serveur Arc :
 
@@ -49,7 +52,7 @@ az connectedmachine extension create --resource-group "resourceGroupName" --mach
 
 ## <a name="list-extensions-installed"></a>Lister les extensions installées
 
-Pour obtenir une liste des extensions de machine virtuelle sur votre serveur Arc, utilisez [az connectedmachine extension list](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_list) avec les paramètres `--machine-name` et `--resource-group`.
+Pour obtenir une liste des extensions de machine virtuelle sur votre serveur Arc, utilisez [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list) avec les paramètres `--machine-name` et `--resource-group`.
 
 Exemple :
 
@@ -74,7 +77,7 @@ L’exemple suivant illustre la sortie JSON partielle obtenue avec la commande `
 
 ## <a name="remove-an-installed-extension"></a>Supprimer une extension installée
 
-Pour supprimer une extension de machine virtuelle installée sur votre serveur Arc, utilisez [az connectedmachine extension delete](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_delete) avec les paramètres `--extension-name`, `--machine-name` et `--resource-group`.
+Pour supprimer une extension de machine virtuelle installée sur votre serveur Arc, utilisez [az connectedmachine extension delete](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_delete) avec les paramètres `--extension-name`, `--machine-name` et `--resource-group`.
 
 Par exemple, pour supprimer l’extension de machine virtuelle Log Analytics pour Linux, exécutez la commande suivante :
 
@@ -88,4 +91,4 @@ az connectedmachine extension delete --machine-name "myMachineName" --name "OmsA
 
 - Des informations de dépannage sont accessibles dans le [guide Résoudre les problèmes liés aux extensions de machine virtuelle](troubleshoot-vm-extensions.md).
 
-- Pour plus d’informations sur les commandes, consultez l’article sur la [vue d’ensemble](/cli/azure/ext/connectedmachine/connectedmachine/extension) de l’extension de machine virtuelle Azure CLI.
+- Pour plus d’informations sur les commandes, consultez l’article sur la [vue d’ensemble](/cli/azure/connectedmachine/extension) de l’extension de machine virtuelle Azure CLI.

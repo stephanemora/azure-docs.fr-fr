@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 6629beacb5c3edc6fe1d21509051b915c0894479
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5b5e1491d7f76cd4cff76d0c9a1af4daa49fa483
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109690"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812999"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de haute disponibilité dans le serveur flexible Azure Database pour MySQL (préversion)
 
@@ -69,6 +69,9 @@ Les événements de temps d’arrêt planifiés comprennent les activités plani
 
 ### <a name="failover-process---unplanned-events"></a>Processus de basculement – événements non planifiés
 Les interruptions de service non planifiées comprennent les bogues logiciels, ou les erreurs d’infrastructure telles que les défaillances de calcul, de réseau, de stockage, ou encore les pannes de courant ; elles ont un impact sur la disponibilité de la base de données. En cas d’indisponibilité de la base de données, la réplication sur le réplica de secours est interrompue, et le réplica de secours est activé pour devenir la base de données primaire. Le système DNS est mis à jour et les clients se reconnectent ensuite au serveur de base de données pour reprendre leurs opérations. Le temps de basculement global doit prendre entre 60 et 120 s. Toutefois, en fonction de l’activité sur le serveur de base de données primaire au moment du basculement, par exemple si des transactions sont volumineuses et que le temps de récupération est long, le basculement peut prendre plus de temps.
+
+### <a name="forced-failover"></a>Basculement forcé
+Le basculement forcé d’Azure Database pour MySQL vous permet de forcer manuellement un basculement, ce qui vous permet de tester la fonctionnalité dans vos scénarios d’application et vous aide à être prêt en cas de panne. Le basculement forcé permet au serveur de secours de devenir le serveur principal en déclenchant un basculement qui active le réplica de secours pour qu’il devienne le serveur principal avec le même nom de serveur de base de données en mettant à jour l’enregistrement DNS. Le serveur principal d’origine est redémarré et devient le réplica de secours. Les connexions des clients sont déconnectées et doivent être reconnectées pour reprendre leurs opérations. Le temps de basculement global dépendra de la charge de travail actuelle et du dernier point de contrôle. En général, il doit être compris entre 60 et 120 secondes.
 
 ## <a name="schedule-maintenance-window"></a>Fenêtre Planifier la maintenance 
 

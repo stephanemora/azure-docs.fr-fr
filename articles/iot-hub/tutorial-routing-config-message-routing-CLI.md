@@ -2,19 +2,18 @@
 title: 'Tutoriel : Configurer le routage des messages pour Azure IoT Hub à l’aide d’Azure CLI'
 description: 'Tutoriel : Configurez le routage des messages pour Azure IoT Hub à l’aide d’Azure CLI. En fonction des propriétés du message, effectuez le routage vers un compte de stockage ou une file d’attente Service Bus.'
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 04/04/2021
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf994dfe3d53232ab1e2374fda620dc768127097
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9f95fd456a042d41fff94f5520802be1be5f38f3
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788886"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278377"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutoriel : Utiliser Azure CLI pour configurer le routage des messages IoT Hub
 

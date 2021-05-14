@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb14d5227204a69f8a2ef9e0bf2da05bd7bde51c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0b41880bea25c1b833ab2a996a50edcf557f37b8
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169094"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161660"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configurer les flux de sortie et de messages d’un runbook
 
@@ -100,14 +101,14 @@ Workflow Test-Runbook
   $output = "This is some string output."
   Write-Output $output
 }
- ```
+```
 
 #### <a name="declare-output-data-type-in-a-graphical-runbook"></a>Déclarer le type de données de sortie dans un Runbook graphique
 
 Pour déclarer un type de sortie dans un Runbook graphique ou PowerShell Workflow graphique, vous pouvez sélectionner l’option de menu **Entrée et sortie** puis entrer le type de sortie. Il est recommandé d’utiliser le nom de classe .NET complet pour le rendre facilement identifiable lorsqu’un Runbook parent y fait référence. L’utilisation d’un nom complet expose toutes les propriétés de la classe au bus de données du Runbook et offre plus de flexibilité lorsque ces propriétés sont utilisées pour la logique conditionnelle, la journalisation et le référencement en tant que valeurs pour d’autres activités du Runbook.<br> ![Option Entrée et sortie de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
->[!NOTE]
->Une fois que vous avez entré une valeur dans le champ **Type de sortie** dans le volet des propriétés d’entrée et de sortie, veillez à cliquer à l’extérieur du contrôle afin que ce dernier puisse reconnaître votre entrée.
+> [!NOTE]
+> Une fois que vous avez entré une valeur dans le champ **Type de sortie** dans le volet des propriétés d’entrée et de sortie, veillez à cliquer à l’extérieur du contrôle afin que ce dernier puisse reconnaître votre entrée.
 
 L’exemple suivant montre deux Runbooks graphiques illustrant la fonctionnalité Entrée et sortie. Si le modèle de conception Runbook modulaire est appliqué, l’un des Runbooks sert de modèle Runbook d’authentification et gère l’authentification auprès d’Azure à l’aide du compte d’identification. Le deuxième Runbook, qui exécute normalement la logique principale pour automatiser un scénario donné, exécute dans ce cas le modèle Runbook d’authentification. Il affiche les résultats dans le volet de sortie du test. Dans des circonstances normales, ce Runbook effectue ses activités par rapport à une ressource utilisant la sortie du Runbook enfant.
 
@@ -207,8 +208,8 @@ Vous pouvez utiliser l’onglet **Configurer** du portail Azure pour configurer 
 
 Si vous activez la journalisation des enregistrements de progression, votre Runbook consigne un enregistrement dans l’historique des travaux avant et après l’exécution de chaque activité. Le test d’un Runbook n’affiche pas les messages de progression, même si le Runbook est configuré pour consigner les informations de progression.
 
->[!NOTE]
->La cmdlet [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) n’est pas valide dans un Runbook, dans la mesure où cette cmdlet est destinée à un utilisateur interactif.
+> [!NOTE]
+> La cmdlet [Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) n’est pas valide dans un Runbook, dans la mesure où cette cmdlet est destinée à un utilisateur interactif.
 
 ## <a name="work-with-preference-variables"></a>Utiliser les variables de préférence
 
@@ -262,13 +263,13 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 
 ### <a name="retrieve-runbook-output-and-messages-in-graphical-runbooks"></a>Récupérer la sortie et les messages du Runbook dans des Runbooks graphiques
 
-Pour les Runbooks graphiques, une journalisation supplémentaire de la sortie et des messages est disponible sous la forme de suivi au niveau de l’activité. Il existe deux niveaux de suivi : de base et détaillé. Le suivi de base affiche l’heure de début et de fin de chaque activité dans le Runbook, ainsi que des informations relatives à toute nouvelle tentative de l’activité. Par exemple, le nombre de tentatives et l’heure de début de l’activité. Le suivi détaillé inclut les fonctionnalités de suivi de base ainsi que des données d’entrée et de sortie pour chaque activité. 
+Pour les Runbooks graphiques, une journalisation supplémentaire de la sortie et des messages est disponible sous la forme de suivi au niveau de l’activité. Il existe deux niveaux de suivi : de base et détaillé. Le suivi de base affiche l’heure de début et de fin de chaque activité dans le Runbook, ainsi que des informations relatives à toute nouvelle tentative de l’activité. Par exemple, le nombre de tentatives et l’heure de début de l’activité. Le suivi détaillé inclut les fonctionnalités de suivi de base ainsi que des données d’entrée et de sortie pour chaque activité.
 
 Actuellement, le suivi au niveau de l’activité consigne des enregistrements à l’aide du flux des commentaires. Vous devez donc activer la journalisation détaillée lorsque vous activez le suivi. Pour les runbooks graphiques avec le suivi activé, il est inutile de journaliser les informations de progression. Le suivi de base a le même objectif et fournit des informations plus détaillées.
 
 ![Vue du flux de travail de création graphique](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-Cette image illustre le fait que lorsque vous activez la journalisation détaillée et le suivi pour des Runbooks graphiques, vous obtenez beaucoup plus d’informations dans la vue **Flux de travail** de production. Ces informations supplémentaires peuvent être essentielles pour résoudre les problèmes de production affectant un Runbook. 
+Cette image illustre le fait que lorsque vous activez la journalisation détaillée et le suivi pour des Runbooks graphiques, vous obtenez beaucoup plus d’informations dans la vue **Flux de travail** de production. Ces informations supplémentaires peuvent être essentielles pour résoudre les problèmes de production affectant un Runbook.
 
 Cependant, à moins que vous n’ayez besoin de ces informations pour suivre la progression d’un Runbook à des fins de dépannage, vous pouvez choisir de désactiver le suivi. Les enregistrements de suivi peuvent être particulièrement nombreux. Avec le suivi de Runbook graphique, vous pouvez obtenir entre deux et quatre enregistrements par activité, selon votre configuration du suivi de base ou du suivi détaillé.
 

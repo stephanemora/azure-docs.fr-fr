@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: a5b3daa499546f3a30b5a4d133d77786a1916b6a
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 7df88f1a425b563733310d69fc14d85f9251ae44
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105559194"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794373"
 ---
 # <a name="how-to-export-fhir-data"></a>Comment exporter des données FHIR
 
@@ -107,6 +107,9 @@ Sélectionnez **Réseaux sélectionnés**. Dans la section pare-feu, spécifiez 
 | Centre-USA Ouest      | 52.150.156.44     |
 | Europe Ouest          | 20.61.98.66       |
 | USA Ouest 2            | 40.64.135.77      |
+
+> [!NOTE]
+> Les étapes ci-dessus sont similaires aux étapes de configuration décrites dans le document Comment convertir des données en FHIR (version préliminaire). Pour plus d’informations, consultez [héberger et utiliser des modèles](https://docs.microsoft.com/azure/healthcare-apis/fhir/convert-data#host-and-use-templates)
 
 ### <a name="when-the-azure-storage-account-is-in-the-same-region"></a>Quand le compte de stockage Azure se trouve dans la même région
 

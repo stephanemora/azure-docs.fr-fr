@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: 95e11e98be8a58611a435de533ffcc16ec5ce357
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d4053628247cc01851aa19b66514398da0660a81
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048554"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107883559"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveaux de service Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -53,7 +53,7 @@ Le tableau suivant décrit les principales différences entre les niveaux de ser
 | | Instance managée SQL  | [24 Go par vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/A | Jusqu’à 4 To - [limité par taille de stockage](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Débit d’écriture des journaux** | SQL Database | [1,875 Mo/s par vCore (30 Mo/s max)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 Mo/s | [6 Mo/s par vCore (96 Mo/s max)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instance managée SQL | [3 Mo/s par vCore (22 Mo/s max)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/A | [4 Mo/s par vCore (48 Mo/s max)](../managed-instance/resource-limits.md#service-tier-characteristics) |
-|**Disponibilité**|Tous| 99,99 % |  [99,95 % avec un réplica secondaire, 99,99 % avec d’autres réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> [99,995 % avec base de données unique et redondante dans une zone](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Disponibilité**|Tous| 99,99 % |  [99,95 % avec un réplica secondaire, 99,99 % avec d’autres réplicas](service-tier-hyperscale-frequently-asked-questions-faq.yml#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> [99,995 % avec base de données unique et redondante dans une zone](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut) La durée de rétention pour le niveau De base est de 7 jours maximum. | RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
 |**OLTP en mémoire** | | N/A | N/A | Disponible |
 |**Réplicas en lecture seule**| | 0 intégré <br> 0 à 4 utilisant la [géoréplication](active-geo-replication-overview.md) | 0 à 4 intégrés | 1 intégré et inclus dans le prix <br> 0 à 4 utilisant la [géoréplication](active-geo-replication-overview.md) |

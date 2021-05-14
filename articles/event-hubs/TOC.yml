@@ -135,30 +135,30 @@
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
-    - name: "Guide du protocole AMQP\_1.0"
-      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
-      maintainContext: true
+          href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
+    - name: AMQP
+      items:
+        - name: "Guide du protocole AMQP\_1.0"
+          href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+          maintainContext: true
+        - name: Erreurs AMPQ
+          href: event-hubs-amqp-troubleshoot.md
 - name: Guides pratiques
   items:
-    - name: Créer un registre de schémas
-      href: create-schema-registry.md
-    - name: Déplacer
-      items:
-        - name: Déplacer un espace de noms vers une autre région
-          href: move-across-regions.md
-        - name: Déplacer un cluster dédié vers une autre région
-          href: move-cluster-across-regions.md
-    - name: Ajouter dynamiquement des partitions
-      href: dynamically-add-partitions.md
-    - name: Utiliser le Stockage Blob comme magasin de points de contrôle sur Azure Stack Hub
-      href: use-blob-storage-checkpoint-store-azure-stack-hub.md
-    - name: Migrer des API Azure Service Manager (Classic) vers des API Resource Manager
-      href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
     - name: Développer
       items:
         - name: "Obtenir la chaîne de connexion Event\_Hubs"
           href: event-hubs-get-connection-string.md
+        - name: Ajouter des données personnalisées aux événements
+          href: add-custom-data-event.md
+        - name: Créer un registre de schémas
+          href: create-schema-registry.md
+        - name: Ajouter dynamiquement des partitions
+          href: dynamically-add-partitions.md
+        - name: Utiliser le Stockage Blob comme magasin de points de contrôle sur Azure Stack Hub
+          href: use-blob-storage-checkpoint-store-azure-stack-hub.md
+        - name: Migrer des API Azure Service Manager (Classic) vers des API Resource Manager
+          href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
         - name: Échanger les événements entre les applications à l’aide de différents protocoles
           href: event-hubs-exchange-events-different-protocols.md
         - name: Guides de programmation
@@ -206,7 +206,7 @@
         - name: Connecter Akka Streams à un hub d’événements
           href: event-hubs-kafka-akka-streams-tutorial.md
         - name: Questions fréquentes (FAQ) - Event Hubs pour Kafka
-          href: apache-kafka-frequently-asked-questions.md
+          href: apache-kafka-frequently-asked-questions.yml
     - name: Gestion et surveillance
       items:
         - name: Surveiller Event Hubs avec la surveillance Azure Monitor
@@ -243,6 +243,12 @@
           href: event-hubs-messaging-exceptions.md
         - name: Exceptions Resource Manager
           href: resource-manager-exceptions.md
+    - name: Déplacer
+      items:
+        - name: Déplacer un espace de noms vers une autre région
+          href: move-across-regions.md
+        - name: Déplacer un cluster dédié vers une autre région
+          href: move-cluster-across-regions.md
 - name: Informations de référence
   items:
     - name: Kits SDK
@@ -291,6 +297,8 @@
           href: 'https://pkg.go.dev/github.com/Azure/azure-event-hubs-go?tab=doc'
         - name: Bibliothèque de gestion
           href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub?tab=doc'
+    - name: Azure CLI
+      href: /cli/azure/eventhubs
     - name: REST
       href: /rest/api/eventhub
     - name: Modèle Resource Manager
@@ -307,7 +315,7 @@
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-event-hubs
     - name: Questions fréquentes (FAQ)
-      href: event-hubs-faq.md
+      href: event-hubs-faq.yml
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Tarifs

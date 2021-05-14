@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: e0e5a817bad87391b84c43ceae0751fc6ebffd1f
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 203baa58e286bd605bf28f511a5c12fcf3dc2033
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076153"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165062"
 ---
-# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
+# <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux
 
 Cet article fournit une assistance sur les erreurs que vous pourriez rencontrer avec l’agent Log Analytics pour Linux dans Azure Monitor et suggère des solutions possibles pour les résoudre.
 
@@ -22,16 +22,18 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 * Les clients titulaires d’un contrat de support Azure peuvent ouvrir une demande de support [sur le portail Azure](https://azure.microsoft.com/support/options/).
 * Diagnostiquez les problèmes liés à OMI avec le [Guide de dépannage pour OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Déposez un [problème GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visitez la page de commentaires de Log Analytics pour consulter les idées et bogues soumis sur [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou en partager de nouveaux. 
+* Visitez la page de commentaires de Log Analytics pour consulter les idées et bogues soumis sur [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou en partager de nouveaux.
 
 ## <a name="log-analytics-troubleshooting-tool"></a>Outil de résolution des problèmes Log Analytics
 
 L’outil de résolution des problèmes de l’agent Log Analytics Linux est un script conçu pour faciliter la recherche et le diagnostic des problèmes liés à l’agent Log Analytics. Il est automatiquement inclus avec l’agent lors de l’installation. L’exécution de l’outil doit être la première étape du diagnostic d’un problème.
 
 ### <a name="how-to-use"></a>Utilisation
+
 L’outil de dépannage peut être exécuté en collant la commande suivante dans une fenêtre de terminal sur un ordinateur avec l’agent Log Analytics : `sudo /opt/microsoft/omsagent/bin/troubleshooter`
 
 ### <a name="manual-installation"></a>Installation manuelle
+
 L’outil de résolution des problèmes est inclus automatiquement lors de l’installation de l’agent Log Analytics. Toutefois, si l’installation échoue de quelque façon que ce soit, vous pouvez également l’installer manuellement en suivant les étapes ci-dessous.
 
 1. Copiez le pack de l’utilitaire de résolution des problèmes sur votre ordinateur : `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
@@ -39,6 +41,7 @@ L’outil de résolution des problèmes est inclus automatiquement lors de l’i
 3. Exécutez l’installation manuelle : `sudo ./install_tst`
 
 ### <a name="scenarios-covered"></a>Scénarios couverts
+
 Voici une liste de scénarios vérifiés par l’outil de résolution des problèmes :
 
 1. L’agent est défectueux, la pulsation ne fonctionne pas correctement
@@ -51,8 +54,8 @@ Voici une liste de scénarios vérifiés par l’outil de résolution des probl�
 
 Pour plus d’informations, consultez notre [documentation GitHub](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
 
- >[!NOTE]
- >Si vous rencontrez un problème, exécutez l’outil collecteur de journaux. Le fait d’avoir les journaux dès le départ permettra à notre équipe de support de résoudre plus rapidement votre problème.
+ > [!NOTE]
+ > Si vous rencontrez un problème, exécutez l’outil collecteur de journaux. Le fait d’avoir les journaux dès le départ permettra à notre équipe de support de résoudre plus rapidement votre problème.
 
 ## <a name="purge-and-re-install-the-linux-agent"></a>Vider et réinstaller l’agent Linux
 
@@ -80,9 +83,8 @@ Nous avons vu qu’une nouvelle réinstallation de l’agent permet de résoudre
  Performances, Nagios, Zabbix, sortie Log Analytics et agent général | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
  Configurations supplémentaires | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
- >[!NOTE]
- >La modification des fichiers de configuration pour les compteurs de performances et Syslog est remplacée si la collection est configurée à partir du [menu Données dans les paramètres avancés Log Analytics ](../agents/agent-data-sources.md#configuring-data-sources) dans le portail Azure pour votre espace de travail. Pour désactiver la configuration de tous les agents, désactivez la collecte dans les **Paramètres avancés** Log Analytics, ou bien, pour un seul agent, exécutez la commande suivante :  
-> `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
+ > [!NOTE]
+ > La modification des fichiers de configuration pour les compteurs de performances et Syslog est remplacée si la collection est configurée à partir du [menu Données dans les paramètres avancés Log Analytics ](../agents/agent-data-sources.md#configuring-data-sources) dans le portail Azure pour votre espace de travail. Pour désactiver la configuration de tous les agents, désactivez la collecte dans les **Paramètres avancés** de Log Analytics, ou bien, pour un seul agent, exécutez la commande suivante : `sudo /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable && sudo rm /etc/opt/omi/conf/omsconfig/configuration/Current.mof* /etc/opt/omi/conf/omsconfig/configuration/Pending.mof*`
 
 ## <a name="installation-error-codes"></a>Codes d’erreur d’installation
 
@@ -127,13 +129,15 @@ Nous avons vu qu’une nouvelle réinstallation de l’agent permet de résoudre
 | 34 | Script de génération de métaconfiguration absent. Recommencez l’intégration avec `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key>`. |
 
 ## <a name="enable-debug-logging"></a>Activer l’enregistrement du débogage
+
 ### <a name="oms-output-plugin-debug"></a>Débogage dans le plug-in de sortie OMS
- FluentD prend en charge des niveaux de journalisation spécifiques au plug-in, ce qui vous permet de spécifier différents niveaux du journal en relation avec les entrées et sorties. Pour spécifier un autre niveau du journal pour une sortie OMS, modifiez la configuration générale de l’agent à l’emplacement `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.  
+
+ FluentD prend en charge des niveaux de journalisation spécifiques au plug-in, ce qui vous permet de spécifier différents niveaux du journal en relation avec les entrées et sorties. Pour spécifier un autre niveau du journal pour une sortie OMS, modifiez la configuration générale de l’agent à l’emplacement `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
  Dans le plug-in de sortie OMS, avant la fin du fichier de configuration, changez la propriété `log_level` en remplaçant `info` par `debug` :
 
- ```
- <match oms.** docker.**>
+```
+<match oms.** docker.**>
   type out_oms
   log_level debug
   num_threads 5
@@ -145,7 +149,7 @@ Nous avons vu qu’une nouvelle réinstallation de l’agent permet de résoudre
   retry_limit 10
   retry_wait 30s
 </match>
- ```
+```
 
 La journalisation du débogage vous permet de voir les chargements par lot sur Azure Monitor, répartis par type, nombre d’éléments de données et temps d’envoi :
 
@@ -158,6 +162,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 ```
 
 ### <a name="verbose-output"></a>Sortie détaillée.
+
 Au lieu d’utiliser le plug-in de sortie OMS, vous pouvez acheminer les éléments de données directement vers `stdout`, qui est visible dans le fichier journal de l’agent Log Analytics pour Linux.
 
 Dans le fichier de configuration générale de l’agent Log Analytics sur `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, commentez le plug-in de sortie OMS en ajoutant le symbole `#` au début de chaque ligne :
@@ -188,36 +193,40 @@ Sous le plug-in de sortie, supprimez les marques de commentaire de la section su
 ## <a name="issue--unable-to-connect-through-proxy-to-azure-monitor"></a>Problème :  impossible de se connecter via le proxy à Azure Monitor
 
 ### <a name="probable-causes"></a>Causes probables
+
 * Le proxy spécifié pendant l’intégration est incorrect
-* Les points de terminaison des services Azure Monitor et Azure Automation ne figurent pas dans la liste approuvée de votre centre de données. 
+* Les points de terminaison des services Azure Monitor et Azure Automation ne figurent pas dans la liste approuvée de votre centre de données.
 
 ### <a name="resolution"></a>Résolution
+
 1. Réintégrez Azure Monitor avec l’agent Log Analytics pour Linux à l’aide de la commande suivante avec l’option `-v` activée. Cela autorise une sortie détaillée de l’agent qui se connecte via le proxy à Azure Monitor. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
-2. Pour vérifier que vous avez correctement configuré l’agent de manière à communiquer via un serveur proxy, consultez la section [Mettre à jour les paramètres du proxy](agent-manage.md#update-proxy-settings).    
+2. Pour vérifier que vous avez correctement configuré l’agent de manière à communiquer via un serveur proxy, consultez la section [Mettre à jour les paramètres du proxy](agent-manage.md#update-proxy-settings).
 
 3. Vérifiez que les points de terminaison décrits dans la liste [Configuration requise du pare-feu réseau](./log-analytics-agent.md#firewall-requirements) Azure Monitor sont correctement ajoutés à une liste verte. Si vous utilisez Azure Automation, un lien d'accès aux étapes de configuration du réseau est également disponible ci-dessus.
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problème : vous voyez une erreur 403 lorsque vous tentez d’effectuer l’intégration
 
 ### <a name="probable-causes"></a>Causes probables
-* La date et l’heure sont incorrectes sur le serveur Linux 
+
+* La date et l’heure sont incorrectes sur le serveur Linux
 * L’ID et la clé d’espace de travail utilisés sont incorrects
 
 ### <a name="resolution"></a>Résolution
 
-1. Vérifiez l’heure sur votre serveur Linux avec la commande date. Si l’heure est à +/-15 minutes de l’heure actuelle, l’intégration échoue. Pour corriger ce problème, mettez à jour de la date et/ou le fuseau horaire de votre serveur Linux. 
+1. Vérifiez l’heure sur votre serveur Linux avec la commande date. Si l’heure est à +/-15 minutes de l’heure actuelle, l’intégration échoue. Pour corriger ce problème, mettez à jour de la date et/ou le fuseau horaire de votre serveur Linux.
 2. Vérifiez que vous avez installé la dernière version de l’agent Log Analytics pour Linux.  Celle-ci vous avertit si le décalage horaire est à l’origine de l’échec d’intégration.
 3. Relancez l’intégration avec la bonne clé et le bon identifiant d’espace de travail en suivant les instructions d’installation fournies précédemment dans cet article.
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problème : vous voyez une erreur 500 et 404 dans le fichier journal juste après l’intégration
-Il s’agit d’un problème connu qui se produit lors du premier chargement de données Linux dans un espace de travail Log Analytics. Cela n’affecte pas les données envoyées ni l’expérience du service.
 
+Il s’agit d’un problème connu qui se produit lors du premier chargement de données Linux dans un espace de travail Log Analytics. Cela n’affecte pas les données envoyées ni l’expérience du service.
 
 ## <a name="issue-you-see-omiagent-using-100-cpu"></a>Problème : Vous voyez que l’omiagent utilise 100 % du processeur
 
 ### <a name="probable-causes"></a>Causes probables
+
 Une régression dans le package nss-pem [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) a provoqué un problème de performances, récurrent dans les distributions Redhat/Centos 7.x. Pour en savoir plus sur ce problème, consultez la documentation suivante : Bogue [1667121 sur la régression des performances dans libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
 
 Les bogues relatifs aux performances ne sont pas réguliers, et sont difficiles à reproduire. Si vous rencontrez ce genre de problèmes avec omiagent, vous devez utiliser le script omiHighCPUDiagnostics.sh afin de collecter les traces de l’omiagent lorsqu’il dépasse un certain seuil.
@@ -241,15 +250,16 @@ Les bogues relatifs aux performances ne sont pas réguliers, et sont difficiles 
 3. Redémarrez OMI : <br/>
 `sudo scxadmin -restart`
 
-
-## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problème : vous ne voyez pas les messages Syslog transférés 
+## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Problème : vous ne voyez pas les messages Syslog transférés
 
 ### <a name="probable-causes"></a>Causes probables
+
 * La configuration appliquée au serveur Linux n’autorise pas la collecte des fonctionnalités et/ou niveaux du journal envoyés.
 * Le message Syslog n’est pas transmis correctement au serveur Linux.
 * Le nombre de messages transmis par seconde est trop élevé pour être géré avec la configuration de base de l’agent Log Analytics pour Linux.
 
 ### <a name="resolution"></a>Résolution
+
 * Vérifiez que la configuration de l’espace de travail Log Analytics pour Syslog possède toutes les fonctionnalités nécessaires et les niveaux corrects du journal d’activité. Consultez [Configurer la collecte Syslog dans le portail Azure](data-sources-syslog.md#configure-syslog-in-the-azure-portal).
 * Vérifiez que les démons de messagerie Syslog natifs (`rsyslog`, `syslog-ng`) peuvent recevoir les messages transférés
 * Vérifiez les paramètres de pare-feu sur le serveur Syslog pour vous assurer que les messages ne sont pas bloqués.
@@ -257,12 +267,15 @@ Les bogues relatifs aux performances ne sont pas réguliers, et sont difficiles 
   * `logger -p local0.err "This is my test message"`
 
 ## <a name="issue-you-are-receiving-errno-address-already-in-use-in-omsagent-log-file"></a>Problème : vous recevez une erreur Errno indiquant qu’une adresse est déjà en cours d’utilisation dans le fichier journal omsagent
+
 Si vous voyez `[error]: unexpected error error_class=Errno::EADDRINUSE error=#<Errno::EADDRINUSE: Address already in use - bind(2) for "127.0.0.1" port 25224>` dans omsagent.log.
 
 ### <a name="probable-causes"></a>Causes probables
+
 Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à côté de l’extension de machine virtuelle Linux Log Analytics, et qu’elle utilise le même port pour la collecte de données syslog qu’omsagent.
 
 ### <a name="resolution"></a>Résolution
+
 1. En tant qu’utilisateur root, exécutez les commandes suivantes (25224 étant un exemple, il est possible que dans votre environnement vous voyiez un autre numéro de port utilisé par LAD) :
 
     ```
@@ -285,16 +298,19 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 * L’extension de diagnostic Linux a été installée et désinstallée, mais vous voyez toujours une erreur indiquant qu’omsagent est utilisé par mdsd et qu’il ne peut pas être supprimé.
 
 ### <a name="resolution"></a>Résolution
+
 1. Désinstallez l’extension de diagnostic Linux (LAD).
 2. Supprimez les fichiers de l’extension de diagnostic Linux de la machine s’ils sont présents à l’emplacement suivant : `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` et `/var/opt/microsoft/omsagent/LAD/`.
 
-## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Problème : vous ne pouvez pas voir de données Nagios 
+## <a name="issue-you-cannot-see-data-any-nagios-data"></a>Problème : vous ne pouvez pas voir de données Nagios
 
 ### <a name="probable-causes"></a>Causes probables
+
 * L’utilisateur omsagent n’a pas les autorisations nécessaires pour lire le fichier journal Nagios
 * Les marques de commentaire associées au filtre et à la source Nagios n’ont pas été supprimées du fichier omsagent.conf
 
 ### <a name="resolution"></a>Résolution
+
 1. Ajoutez l’utilisateur omsagent pour lire à partir du fichier Nagios en suivant ces [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts).
 2. Dans le fichier de configuration générale de l’agent Log Analytics pour Linux situé à l’emplacement `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, vérifiez que la source et le filtre Nagios sont **tous deux** exempts de marques de commentaire.
 
@@ -311,9 +327,10 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
     </filter>
     ```
 
-## <a name="issue-you-are-not-seeing-any-linux-data"></a>Problème : vous ne pouvez pas voir de données Linux 
+## <a name="issue-you-are-not-seeing-any-linux-data"></a>Problème : vous ne pouvez pas voir de données Linux
 
 ### <a name="probable-causes"></a>Causes probables
+
 * Échec de l’intégration à Azure Monitor
 * La connexion à Azure Monitor est bloquée
 * La machine virtuelle a été redémarrée
@@ -324,6 +341,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 * DSC journalise le message *Aucune configuration actuelle n’existe. Exécutez la commande Start-DscConfiguration avec le paramètre -Path pour commencer par spécifier un fichier de configuration et créer une configuration actuelle.* dans le fichier journal `omsconfig.log`, mais aucun message de journal n’existe concernant les opérations `PerformRequiredConfigurationChecks`.
 
 ### <a name="resolution"></a>Résolution
+
 1. Installez toutes les dépendances telles que le package auditd.
 2. Vérifiez si l’intégration à Azure Monitor a réussi en vous assurant que le fichier suivant existe : `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`.  Si ce n’est pas le cas, relancez l’intégration avec les [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) de la ligne de commande omsadmin.sh.
 4. Si vous utilisez un proxy, consultez les étapes de résolution de problèmes de proxy décrites plus haut.
@@ -333,8 +351,8 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 7. Si vous voyez une erreur de type *classe introuvable* pour les ressources DSC dans omsconfig.log, exécutez `sudo /opt/omi/bin/service_control restart`.
 8. Dans certains cas, quand l’agent Log Analytics pour Linux ne peut pas parler à Azure Monitor, les données de l’agent sont sauvegardées dans la taille de mémoire tampon saturée : 50 Mo. Il est nécessaire de redémarrer l’agent en exécutant la commande suivante : `/opt/microsoft/omsagent/bin/service_control restart`.
 
-    >[!NOTE]
-    >Ce problème est résolu dans l’agent version 1.1.0-28 ou ultérieure.
+    > [!NOTE]
+    > Ce problème est résolu dans l’agent version 1.1.0-28 ou ultérieure.
     >
 
 * Si le fichier journal `omsconfig.log` n’indique pas que des opérations `PerformRequiredConfigurationChecks` s’exécutent régulièrement sur le système, un problème affecte peut-être le service/travail cron. Assurez-vous que le travail cron existe sous `/etc/cron.d/OMSConsistencyInvoker`. Au besoin, exécutez les commandes suivantes pour créer le travail cron :
@@ -386,10 +404,12 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 ## <a name="issue-when-configuring-collection-from-the-portal-for-syslog-or-linux-performance-counters-the-settings-are-not-applied"></a>Problème : quand vous configurez la collection à partir du portail pour les compteurs de performances Syslog ou Linux, les paramètres ne sont pas appliqués
 
 ### <a name="probable-causes"></a>Causes probables
+
 * L’agent Log Analytics pour Linux n’a pas récupéré la configuration la plus récente.
 * Les paramètres changés dans le portail n’ont pas été appliqués.
 
 ### <a name="resolution"></a>Résolution
+
 **Contexte :** `omsconfig` est l’agent de configuration de l’agent Log Analytics pour Linux qui cherche la nouvelle configuration côté portail toutes les cinq minutes. Cette configuration est ensuite appliquée aux fichiers de configuration de l’agent Log Analytics pour Linux situés à l’emplacement /etc/opt/microsoft/omsagent/conf/omsagent.conf.
 
 * Dans certains cas, l’agent de configuration de l’agent Log Analytics pour Linux n’est pas en mesure de communiquer avec le service de configuration du portail, de sorte que la configuration la plus récente n’est pas appliquée.
@@ -397,22 +417,24 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 
   2. Vérifiez que l’agent `omsconfig` peut communiquer avec Azure Monitor en exécutant la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`. Cette commande retourne la configuration que l’agent reçoit du service, dont les paramètres Syslog, les compteurs de performances Linux et les journaux d’activité personnalisés. Si cette commande échoue, exécutez la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. Cette commande force l’agent omsconfig à parler à Azure Monitor pour récupérer la configuration la plus récente.
 
-## <a name="issue-you-are-not-seeing-any-custom-log-data"></a>Problème : vous ne pouvez pas voir de données de journal personnalisé 
+## <a name="issue-you-are-not-seeing-any-custom-log-data"></a>Problème : vous ne pouvez pas voir de données de journal personnalisé
 
 ### <a name="probable-causes"></a>Causes probables
+
 * Échec de l’intégration à Azure Monitor.
 * Le paramètre **Appliquer la configuration suivante à mes serveurs Linux** n’a pas été sélectionné.
 * L’agent omsconfig n’a pas récupéré la dernière configuration de journal personnalisé du service.
 * L’utilisateur `omsagent` de l’agent Log Analytics pour Linux ne parvient pas à accéder au journal personnalisé parce qu’il n’a pas les autorisations ou qu’il ne le trouve pas.  Les erreurs suivantes peuvent apparaître :
- * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
- * `[DATETIME] [error]: file not accessible by omsagent.`
+* `[DATETIME] [warn]: file not found. Continuing without tailing it.`
+* `[DATETIME] [error]: file not accessible by omsagent.`
 * Problème connu lié à une condition de concurrence corrigé dans la version 1.1.0-217 de l’agent Log Analytics pour Linux
 
 ### <a name="resolution"></a>Résolution
-1. Vérifiez si l’intégration à Azure Monitor a réussi en vous assurant que le fichier suivant existe : `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Si ce n’est pas le cas, effectuez l’une des deux opérations suivantes :  
+
+1. Vérifiez si l’intégration à Azure Monitor a réussi en vous assurant que le fichier suivant existe : `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Si ce n’est pas le cas, effectuez l’une des deux opérations suivantes :
 
   1. Relancez l’intégration avec les [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) de la ligne de commande omsadmin.sh.
-  2. Sous **Paramètres avancés** dans le portail Azure, vérifiez que le paramètre **Appliquer la configuration suivante à mes serveurs Linux** est activé.  
+  2. Sous **Paramètres avancés** dans le portail Azure, vérifiez que le paramètre **Appliquer la configuration suivante à mes serveurs Linux** est activé.
 
 2. Vérifiez que l’agent `omsconfig` peut communiquer avec Azure Monitor en exécutant la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Cette commande retourne la configuration que l’agent reçoit du service, dont les paramètres Syslog, les compteurs de performances Linux et les journaux d’activité personnalisés. Si cette commande échoue, exécutez la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. Cette commande force l’agent omsconfig à parler à Azure Monitor pour récupérer la configuration la plus récente.
 
@@ -424,11 +446,13 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 Il existe un problème connu lié à une condition de concurrence affectant les versions de l’agent Log Analytics pour Linux antérieures à 1.1.0-217. Après mise à jour vers le dernier agent, exécutez la commande suivante pour obtenir la dernière version du plug-in de sortie : `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
 ## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Problème : vous tentez d’effectuer une réintégration dans un nouvel espace de travail
+
 Quand vous tentez de réintégrer un agent dans un espace de travail, la configuration de l’agent Log Analytics doit être nettoyée avant la réintégration. Pour nettoyer l’ancienne configuration de l’agent, exécutez le bundle de l’interpréteur de commandes avec `--purge`
 
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
 ```
+
 ou
 
 ```
@@ -440,16 +464,17 @@ Vous pouvez poursuivre la réintégration après avoir utilisé l’option `--pu
 ## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>L’extension de l’agent Log Analytics dans le portail Azure est marquée avec un état d’échec : Échec de l’approvisionnement
 
 ### <a name="probable-causes"></a>Causes probables
+
 * L’agent Log Analytics a été supprimé du système d’exploitation.
 * Le service de l’agent Log Analytics est arrêté, désactivé ou n’est pas configuré.
 
-### <a name="resolution"></a>Résolution 
+### <a name="resolution"></a>Résolution
+
 Effectuez les étapes suivantes pour résoudre le problème.
 1. Supprimez l’extension du portail Azure.
 2. Installez l’agent en suivant les [instructions](../vm/quick-collect-linux-computer.md).
 3. Redémarrez l’agent en exécutant la commande suivante : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 * Patientez quelques minutes ; l’état du provisionnement passe alors à **Approvisionnement réussi**.
-
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problème : Mise à jour de l’agent Log Analytics à la demande
 
@@ -457,7 +482,8 @@ Effectuez les étapes suivantes pour résoudre le problème.
 
 Les packages de l’agent Log Analytics sur l’hôte sont obsolètes.
 
-### <a name="resolution"></a>Résolution 
+### <a name="resolution"></a>Résolution
+
 Effectuez les étapes suivantes pour résoudre le problème.
 
 1. Recherchez la dernière version dans cette [page](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/).

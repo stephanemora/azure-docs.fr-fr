@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: b2cdb106ab1c77c23626258f7e0708a20ffd3c4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574972"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772250"
 ---
 # <a name="buy-a-reservation"></a>Acheter une réservation
 
@@ -35,8 +35,8 @@ Vous pouvez étendre une réservation à un groupe de ressources ou à un groupe
 
 Vous disposez de trois options pour définir l’étendue d’une réservation, selon vos besoins :
 
-- **Étendue de groupe de ressources unique** : applique la remise sur réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
-- **Étendue d’abonnement unique** : applique la remise sur réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
+- **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
+- **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
 - **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation.
     - Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. L’étendue partagée de réservation inclut plusieurs locataires Active Directory dans une inscription.
     - Pour les clients avec un Contrat Client Microsoft, l’étendue de facturation correspond au profil de facturation.
@@ -44,9 +44,9 @@ Vous disposez de trois options pour définir l’étendue d’une réservation, 
 
 Lors de l’application des remises de réservation sur votre utilisation, Azure traite la réservation dans l’ordre suivant :
 
-1. Réservations limitées à un groupe de ressources
-2. Réservations à étendue unique
-3. Réservations à étendue partagée
+1. Réservations avec une étendue de groupe de ressources unique
+2. Réservations avec une étendue d’abonnement unique
+3. Réservations avec une étendue partagée (plusieurs abonnements), décrite précédemment
 
 Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour ce faire, accédez à la réservation, cliquez sur **Configuration** et redéfinissez la réservation. La modification de l’étendue de la réservation n’est pas une transaction commerciale. Le terme de votre réservation n’est pas modifié. Pour plus d’informations sur la mise à jour de l’étendue, consultez [Mettre à jour la portée après avoir acheté une réservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
@@ -133,4 +133,8 @@ Pour les clients qui ont des abonnements individuels :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [En savoir plus sur les autorisations de réservation](view-reservations.md)
 - [Gérer les réservations pour les ressources Azure](manage-reserved-vm-instance.md)
+- [Automatiser à l’aide des API REST](/rest/api/reserved-vm-instances/reservationorder)
+- [Automatiser à l’aide d’Azure PowerShell](/powershell/module/az.reservations)
+- [Automatiser à l’aide de l’interface CLI](/cli/azure/reservations)

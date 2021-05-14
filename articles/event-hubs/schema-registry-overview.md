@@ -2,14 +2,14 @@
 title: Azure Schema Registry dans Event Hubs (préversion)
 description: Cet article fournit une vue d’ensemble de la prise en charge du registre de schémas par Azure Event Hubs (version préliminaire).
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 04/28/2021
 ms.custom: references_regions
-ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 578bb082cf439d48b186461742ed51c39ce85e80
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92330493"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226441"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure Schema Registry dans Event Hubs (préversion)
 Dans de nombreux scénarios de diffusion en continu d’événements et de messagerie, l’événement ou la charge utile de message contient des données structurées qui sont en cours de sérialisation ou de désérialisation à l’aide d’un format piloté par schéma comme Apache Avro. Les expéditeurs et les destinataires peuvent être amenés à valider l’intégrité des données avec un document de schéma comme avec le schéma JSON. Pour les formats pilotés par schéma, le fait de rendre le schéma disponible pour le consommateur du message est une condition préalable pour que le consommateur puisse désérialiser les données. 
@@ -48,7 +48,7 @@ L’illustration suivante montre le flux d’informations du registre de schéma
 :::image type="content" source="./media/schema-registry-overview/flow-diagram.png" alt-text="Diagramme de flux":::
 
 ## <a name="standard-vs-dedicated-limits"></a>Limites standard et limites dédiées
-Pour connaître les limites (par exemple, le nombre de groupes de schémas dans un espace de noms) qui sont identiques et différents pour les niveaux standard et dédiés d’Event Hubs, consultez [Limites du registre de schémas](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
+Pour connaître les limites (par exemple, le nombre de groupes de schémas dans un espace de noms) qui sont identiques et différents pour les niveaux standard et dédiés d’Event Hubs, consultez [Quotas et limites d’Azure Event Hubs](event-hubs-quotas.md).
 
 ## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 Quand vous accédez au registre de schémas programmatiquement, vous devez inscrire une application dans Azure Active Directory (Azure AD) et ajouter le principal de sécurité de l’application à l’un des rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) :

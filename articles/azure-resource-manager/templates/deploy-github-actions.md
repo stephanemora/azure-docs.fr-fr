@@ -3,13 +3,13 @@ title: Déployer des modèles Resource Manager à l’aide de GitHub Actions
 description: Explique comment déployer des modèles Azure Resource Manager (modèles ARM) à l’aide de GitHub Actions.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: ec29ae019555c54ccdcef9dd743706f8d6401bbd
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: github-actions-azure
+ms.openlocfilehash: fb14c6e452ea4923ece7561ca8af968626f4af77
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781970"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737024"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Déployer des modèles ARM à l’aide de GitHub Actions
 
@@ -88,7 +88,7 @@ Vous devez créer des secrets pour vos informations d’identification, votre gr
 Ajoutez un modèle Resource Manager à votre référentiel GitHub. Ce modèle crée un compte de stockage.
 
 ```url
-https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
 Vous pouvez placer le fichier n’importe où dans le référentiel. L’exemple de workflow dans la section suivante suppose que le fichier de modèle est nommé **azuredeploy.json** et qu’il est stocké à la racine de votre référentiel.

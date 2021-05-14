@@ -11,18 +11,52 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: cc532c5ac6babb8378860ac5049e931cc7657932
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4d66b766e1fb3996194b34f88abb4245398f70d2
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629255"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108017064"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurer une application Java pour Azure App Service
 
 Azure App Service permet aux développeurs Java de rapidement générer, déployer et mettre à l’échelle leurs applications web Java SE, Tomcat et JBoss EAP sur un service complètement managé. Déployez des applications avec les plug-ins Maven à partir de la ligne de commande ou dans des éditeurs comme IntelliJ, Eclipse ou Visual Studio Code.
 
 Ce guide fournit les concepts et instructions clés aux développeurs Java qui utilisent App Service. Si vous n’avez jamais utilisé Azure App Service, commencez par lire [Démarrage rapide avec Java](quickstart-java.md). Des questions générales sur l’utilisation d’App Service qui ne sont pas spécifiques au développement Java sont traitées dans [Questions fréquentes (FAQ) sur App Service](faq-configuration-and-management.md).
+
+## <a name="show-java-version"></a>Afficher la version de Java
+
+::: zone pivot="platform-windows"  
+
+Pour afficher la version actuelle de Java, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
+
+```azurecli-interactive
+az webapp config show --name <app-name> --resource-group <resource-group-name> --query "[javaVersion, javaContainer, javaContainerVersion]"
+```
+
+Pour afficher toutes les versions prises en charge de Java, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
+
+```azurecli-interactive
+az webapp list-runtimes | grep java
+```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Pour afficher la version actuelle de Java, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+Pour afficher toutes les versions prises en charge de Java, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
+```
+
+::: zone-end
 
 ## <a name="deploying-your-app"></a>Déploiement de votre application
 
@@ -32,7 +66,10 @@ Sinon, votre méthode de déploiement dépend du type de votre archive :
 
 ### <a name="java-se"></a>Java SE
 
-Pour déployer des fichiers .jar dans Java SE, utilisez le point de terminaison `/api/zipdeploy/` du site Kudu. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#rest).
+Pour déployer des fichiers .jar dans Java SE, utilisez le point de terminaison `/api/zipdeploy/` du site Kudu. Pour plus d’informations sur cette API, voir [cette documentation](./deploy-zip.md#rest). 
+
+> [!NOTE]
+>  Vous devez nommer votre application. jar `app.jar` pour qu’App Service puisse identifier et exécuter votre application. Le plug-in Maven (mentionné ci-dessus) renomme automatiquement votre application pendant le déploiement. Si vous ne souhaitez pas renommer votre JAR en *app.jar*, vous pouvez charger un script d’interpréteur de commandes avec la commande pour exécuter votre application .jar. Collez le chemin d’accès absolu à ce script dans la zone de texte [Fichier de démarrage](faq-app-service-linux.md#built-in-images), dans la section Configuration du portail. Le script de démarrage ne s’exécute pas dans le répertoire dans lequel il est placé. Par conséquent, utilisez toujours des chemins d’accès absolus pour référencer les fichiers dans votre script de démarrage (par exemple : `java -jar /home/myapp/myapp.jar`).
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -141,12 +178,12 @@ Utilisez [FTPS](deploy-ftp.md) pour télécharger votre fichier JFR sur votre or
 
 ::: zone pivot="platform-windows"
 
-Activez [Journal des applications](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. La journalisation sur l’instance du système de fichiers App Service locale est désactivée 12 heures après avoir été configurée. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob. Vous trouverez vos journaux d’application Java et Tomcat dans le répertoire */home/LogFiles/Application/* .
+Activez [Journal des applications](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az_webapp_log_config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. La journalisation sur l’instance du système de fichiers App Service locale est désactivée 12 heures après avoir été configurée. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob. Vous trouverez vos journaux d’application Java et Tomcat dans le répertoire */home/LogFiles/Application/* .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-Activez [Journal des applications](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob. Vous trouverez vos journaux d’application Java et Tomcat dans le répertoire */home/LogFiles/Application/* .
+Activez [Journal des applications](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az_webapp_log_config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob. Vous trouverez vos journaux d’application Java et Tomcat dans le répertoire */home/LogFiles/Application/* .
 
 La journalisation du Stockage Blob Azure pour les services App Services Linux ne peut être configurée qu’avec [Azure Monitor (préversion)](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview). 
 
@@ -461,6 +498,236 @@ Ensuite, déterminez si la source de données doit être mise à la disposition 
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
+
+#### <a name="shared-server-level-resources"></a>Ressources au niveau du serveur partagées
+
+Les installations Tomcat sur App Service sur Windows existent dans l’espace partagé sur le plan App Service. Vous ne pouvez pas modifier directement une installation Tomcat pour une configuration à l’ensemble du serveur. Pour apporter des modifications de configuration au niveau du serveur à votre installation Tomcat, vous devez copier Tomcat dans un dossier local, dans lequel vous pouvez modifier la configuration de Tomcat. 
+
+##### <a name="automate-creating-custom-tomcat-on-app-start"></a>Automatisation de la création d’une application personnalisée Tomcat au démarrage de l’application
+
+Vous pouvez utiliser un script de démarrage pour effectuer des actions avant le démarrage d’une application web. Le script de démarrage pour la personnalisation de Tomcat doit effectuer les étapes suivantes :
+
+1. Vérifier si Tomcat a déjà été copié et configuré localement. Si c’est le cas, le script de démarrage peut se terminer ici.
+2. Copier Tomcat localement.
+3. Apporter les modifications de configuration requises.
+4. Indiquer que la configuration a été correctement effectuée.
+
+Voici un script PowerShell qui effectue ces étapes :
+
+```powershell
+    # Check for marker file indicating that config has already been done
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
+        return 0
+    }
+
+    # Delete previous Tomcat directory if it exists
+    # In case previous config could not be completed or a new config should be forcefully installed
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
+    }
+
+    # Copy Tomcat to local
+    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
+
+    # Perform the required customization of Tomcat
+    {... customization ...}
+
+    # Mark that the operation was a success
+    New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+```
+
+##### <a name="transforms"></a>Transformations
+
+Un cas d’usage courant pour la personnalisation d’une version de Tomcat consiste à modifier les fichiers de configuration `server.xml`, `context.xml` ou `web.xml` de Tomcat. App Service modifie déjà ces fichiers pour fournir des fonctionnalités de plateforme. Pour continuer à utiliser ces fonctionnalités, il est important de conserver le contenu de ces fichiers lorsque vous y apportez des modifications. Pour ce faire, nous vous recommandons d’utiliser une [transformation XSL (XSLT)](https://www.w3schools.com/xml/xsl_intro.asp). Utilisez une transformation XSL pour apporter des modifications aux fichiers XML tout en conservant le contenu d’origine du fichier.
+
+###### <a name="example-xslt-file"></a>Exemple de fichier XSLT
+
+Cet exemple de transformation ajoute un nouveau nœud de connecteur à `server.xml`. Notez la *transformation d’identité*, qui conserve le contenu d’origine du fichier.
+
+```xml
+    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" indent="yes"/>
+  
+    <!-- Identity transform: this ensures that the original contents of the file are included in the new file -->
+    <!-- Ensure that your transform files include this block -->
+    <xsl:template match="@* | node()" name="Copy">
+      <xsl:copy>
+        <xsl:apply-templates select="@* | node()"/>
+      </xsl:copy>
+    </xsl:template>
+  
+    <xsl:template match="@* | node()" mode="insertConnector">
+      <xsl:call-template name="Copy" />
+    </xsl:template>
+  
+    <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                   contains(., '&lt;Connector') and
+                                   (contains(., 'scheme=&quot;https&quot;') or
+                                    contains(., &quot;scheme='https'&quot;))]">
+      <xsl:value-of select="." disable-output-escaping="yes" />
+    </xsl:template>
+  
+    <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                     comment()[contains(., '&lt;Connector') and
+                                               (contains(., 'scheme=&quot;https&quot;') or
+                                                contains(., &quot;scheme='https'&quot;))]
+                                    )]
+                        ">
+      <xsl:copy>
+        <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+      </xsl:copy>
+    </xsl:template>
+  
+    <!-- Add the new connector after the last existing Connnector if there is one -->
+    <xsl:template match="Connector[last()]" mode="insertConnector">
+      <xsl:call-template name="Copy" />
+  
+      <xsl:call-template name="AddConnector" />
+    </xsl:template>
+  
+    <!-- ... or before the first Engine if there is no existing Connector -->
+    <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                  mode="insertConnector">
+      <xsl:call-template name="AddConnector" />
+  
+      <xsl:call-template name="Copy" />
+    </xsl:template>
+  
+    <xsl:template name="AddConnector">
+      <!-- Add new line -->
+      <xsl:text>&#xa;</xsl:text>
+      <!-- This is the new connector -->
+      <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+                 maxThreads="150" scheme="https" secure="true" 
+                 keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+                 clientAuth="false" sslProtocol="TLS" />
+    </xsl:template>
+
+    </xsl:stylesheet>
+```
+
+###### <a name="function-for-xsl-transform"></a>Fonction pour la transformation XSL
+
+PowerShell offre des outils intégrés permettant de transformer des fichiers XML à l’aide de transformations XSL. Le script suivant est un exemple de fonction que vous pouvez utiliser dans `startup.ps1` pour effectuer la transformation :
+
+```powershell
+    function TransformXML{
+        param ($xml, $xsl, $output)
+
+        if (-not $xml -or -not $xsl -or -not $output)
+        {
+            return 0
+        }
+
+        Try
+        {
+            $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
+            $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
+            $xslt_settings.EnableScript = 1;
+
+            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
+            $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+            $xslt.Transform($xml, $output);
+
+        }
+
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $FailedItem = $_.Exception.ItemName
+            Write-Host  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            return 0
+        }
+        return 1
+    }
+```
+
+##### <a name="app-settings"></a>Paramètres de l’application
+
+La plateforme doit également savoir où votre version personnalisée de Tomcat est installée. Vous pouvez définir l’emplacement de l’installation dans le paramètre d’application `CATALINA_BASE`.
+
+Vous pouvez utiliser Azure CLI pour changer ce paramètre :
+
+```powershell
+    az webapp config appsettings set -g $MyResourceGroup -n $MyUniqueApp --settings CATALINA_BASE="%LOCAL_EXPANDED%\tomcat"
+```
+
+Ou vous pouvez modifier manuellement le paramètre dans le portail Azure :
+
+1. Accédez à **Paramètres** > **Configuration** > **Paramètres d’application**.
+1. Sélectionnez **+ New application setting** (+ Nouveau paramètre d’application).
+1. Utilisez ces valeurs pour créer le paramètre :
+   1. **Nom** : `CATALINA_BASE`
+   1. **Valeur** : `"%LOCAL_EXPANDED%\tomcat"`
+
+##### <a name="example-startupps1"></a>Exemple avec startup.ps1
+
+L’exemple de script suivant copie un fichier Tomcat personnalisé vers un dossier local, exécute une transformation XSL et indique que la transformation a réussi :
+
+```powershell
+    # Locations of xml and xsl files
+    $target_xml="$Env:LOCAL_EXPANDED\tomcat\conf\server.xml"
+    $target_xsl="$Env:HOME\site\server.xsl"
+    
+    # Define the transform function
+    # Useful if transforming multiple files
+    function TransformXML{
+        param ($xml, $xsl, $output)
+    
+        if (-not $xml -or -not $xsl -or -not $output)
+        {
+            return 0
+        }
+    
+        Try
+        {
+            $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
+            $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
+            $xslt_settings.EnableScript = 1;
+    
+            $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
+            $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+            $xslt.Transform($xml, $output);
+        }
+    
+        Catch
+        {
+            $ErrorMessage = $_.Exception.Message
+            $FailedItem = $_.Exception.ItemName
+            echo  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            return 0
+        }
+        return 1
+    }
+    
+    $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+    
+    # Check for marker file indicating that config has already been done
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
+        return 0
+    }
+    
+    # Delete previous Tomcat directory if it exists
+    # In case previous config could not be completed or a new config should be forcefully installed
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
+    }
+    
+    md -Path "$Env:LOCAL_EXPANDED\tomcat"
+    
+    # Copy Tomcat to local
+    # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" "$Env:LOCAL_EXPANDED\tomcat" -Recurse
+    
+    # Perform the required customization of Tomcat
+    $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+    
+    # Mark that the operation was a success if successful
+    if($success){
+        New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+    }
+```
 
 #### <a name="finalize-configuration"></a>Finaliser la configuration
 

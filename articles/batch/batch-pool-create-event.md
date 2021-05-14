@@ -3,18 +3,18 @@ title: Événement de création de pool Azure Batch
 description: Informations de référence pour l’événement de création de pool Batch, qui est émis après la création d’un pool. Le contenu du journal fournit des informations générales sur le pool.
 ms.topic: reference
 ms.date: 10/08/2020
-ms.openlocfilehash: f8b020401443b2a9e80837599d6fd4b2a3001d27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e75b56a6fd5de5fd17107c3960004e0edb1b799
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97609001"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988259"
 ---
 # <a name="pool-create-event"></a>Événement de création de pool
 
  Cet événement est émis après la création d’un pool. Le contenu du journal fournit des informations générales sur le pool. Notez que, si la taille cible du pool est supérieure à 0 nœud de calcul, un événement de démarrage de redimensionnement de pool suit immédiatement cet événement.
 
- L'exemple suivant montre le corps d'un événement de création de pool pour un pool créé à l'aide de la propriété `CloudServiceConfiguration`.
+ L’exemple suivant montre le corps d’un événement de création de pool.
 
 ```
 {
@@ -55,7 +55,7 @@ ms.locfileid: "97609001"
 |`displayName`|String|Nom d’affichage du pool.|
 |`vmSize`|String|Taille des machines virtuelles dans le pool. Toutes les machines virtuelles d’un pool ont la même taille. <br/><br/> Pour plus d’informations sur les tailles disponibles de machines virtuelles pour les pools de Services Cloud (pools créés avec cloudServiceConfiguration), voir [Tailles de Services Cloud](../cloud-services/cloud-services-sizes-specs.md). Le service Batch prend en charge toutes les tailles de machines virtuelles des Services Cloud, à l’exception de `ExtraSmall`.<br/><br/> Pour plus d’informations sur les tailles de machines virtuelles pour les pools utilisant des images de la Place de marché Machines Virtuelles (pools créés avec virtualMachineConfiguration), voir [Tailles de machines virtuelles](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) ou [ailles de machines virtuelles](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). Le service Batch prend en charge l’ensemble des tailles de machine virtuelle Azure, à l’exception de `STANDARD_A0` et de celles comprises dans Premium Storage (série `STANDARD_GS`, `STANDARD_DS`, et `STANDARD_DSV2`).|
 |`imageType`|String|Méthode de déploiement de l'image. Valeurs prises en charge : `virtualMachineConfiguration` ou `cloudServiceConfiguration`|
-|[`cloudServiceConfiguration`](#bk_csconf)|Type complexe|Configuration de service cloud pour le pool.|
+|[`cloudServiceConfiguration`](#bk_csconf)|Type complexe|Configuration des services cloud pour le pool.|
 |[`virtualMachineConfiguration`](#bk_vmconf)|Type complexe|Configuration de machine virtuelle pour le pool.|
 |[`networkConfiguration`](#bk_netconf)|Type complexe|Configuration réseau pour le pool.|
 |`resizeTimeout`|Temps|Délai d’attente pour l’allocation de nœuds de calcul au pool spécifié pour la dernière opération de redimensionnement sur le pool.  (dimensionnement initial quand la création du pool est considérée comme un redimensionnement).|
@@ -68,6 +68,9 @@ ms.locfileid: "97609001"
 |`vmFillType`|String|Définit la manière dont le service Batch distribue les tâches entre les nœuds de calcul au sein du pool. Les valeurs valides sont Spread ou Pack.|
 
 ###  <a name="cloudserviceconfiguration"></a><a name="bk_csconf"></a> cloudServiceConfiguration
+
+> [!WARNING]
+> Les pools de configuration des services Cloud sont [déconseillés](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Utilisez à la place des pools de configuration de machines virtuelles.
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|

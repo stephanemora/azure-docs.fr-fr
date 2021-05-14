@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/23/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 2d14ca2423d34926a9e297823a6515c2c5dde06a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b068fd00402fc281001e8572f9e03662c8ffd55
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607114"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951789"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -92,6 +92,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **DataFactory**  | Azure Data Factory | Les deux | Non | Non |
 | **DataFactoryManagement** | Trafic de gestion pour Azure Data Factory. | Règle de trafic sortant | Non | Non |
 | **Dynamics365ForMarketingEmail** | Plages d’adresses pour le service de messagerie marketing de Dynamics 365. | Règle de trafic sortant | Oui | Non |
+| **EOPExternalPublishedIPs** | Cette balise représente les adresses IP utilisées pour le Centre de sécurité et de conformité PowerShell. Pour plus d'informations, consultez [Se connecter au Centre de sécurité et de conformité PowerShell à l'aide du module EXO V2](https://docs.microsoft.com/powershell/exchange/connect-to-scc-powershell). <br/><br/> *Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*. | Les deux | Non | Oui |
 | **EventHub** | Azure Event Hubs. | Règle de trafic sortant | Oui | Oui |
 | **GatewayManager** | Trafic de gestion pour les déploiements dédiés à la passerelle VPN Azure et Application Gateway. | Trafic entrant | Non | Non |
 | **GuestAndHybridManagement** | Azure Automation et Guest Configuration. | Règle de trafic sortant | Non | Oui |
@@ -135,11 +136,13 @@ Vous pouvez récupérer par programmation la liste actuelle des balises de servi
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
+- [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
 > [!NOTE]
-> Bien qu’elle soit en préversion publique, l’API Discovery peut renvoyer des informations qui sont moins actuelles que celles renvoyées par les téléchargements JSON. (Voir la section suivante.)
+> La propagation des nouvelles données d’étiquette de service dans les résultats de l’API prend jusqu’à 4 semaines. Le numéro de modification dans les métadonnées de réponse sera incrémenté quand ceci se produit. Il peut y avoir des différences temporelles dans les résultats quand différentes valeurs d’emplacement sont spécifiées. Quand vous utilisez les résultats pour créer des règles de groupe de sécurité réseau, vous devez définir le paramètre d’emplacement pour qu’il corresponde à la région du groupe de sécurité réseau. 
 
+> [!NOTE]
+> Les données d’API vont représenter ces étiquettes qui peuvent être utilisées avec les règles de groupe de sécurité réseau, un sous-ensemble des étiquettes actuellement présentes dans le fichier JSON téléchargeable. Pendant la période de préversion publique, nous ne garantissons pas que les données restent les mêmes d’une mise à jour à l’autre. 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>Détection de balises de service à l’aide de fichiers JSON téléchargeables 
 Vous pouvez télécharger des fichiers JSON qui contiennent la liste actuelle des balises de service avec les informations relatives aux plages d’adresses IP. Ces listes sont mises à jour et publiées chaque semaine. Les emplacements de chaque Cloud sont :

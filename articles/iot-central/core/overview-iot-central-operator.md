@@ -8,16 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: b8692973f187743e282de6f8e54a55363cc3105b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b29c9ceb5ad8cd7adb38582d087e91c2fe6e8b1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104669936"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743468"
 ---
 # <a name="iot-central-operator-guide"></a>Guide de l’opérateur IoT Central
-
-*Cet article est destiné aux opérateurs.*
 
 Une application IoT Central vous permet de surveiller et de gérer des millions d’appareils tout au long de leur cycle de vie. Ce guide est conçu pour les opérateurs qui utilisent une application IoT Central pour gérer les appareils IoT.
 

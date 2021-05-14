@@ -9,14 +9,14 @@ ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 02/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: 0de3c9a7cf464f38a1a12d8bc19451fb1158a5ad
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 4a045d7475c2380c9e591e18a37c4f9e99501097
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102520504"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107951933"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utiliser le ML automatisé dans un pipeline Azure Machine Learning dans Python
 
@@ -260,7 +260,7 @@ Comparaison des deux techniques :
 Les sorties de l’étape `AutoMLStep` sont les scores de métrique finaux du modèle d’exécution plus performant et ce modèle lui-même. Pour utiliser ces sorties dans d’autres étapes du pipeline, préparez les objets `OutputFileDatasetConfig` à les recevoir.
 
 ```python
-from azureml.pipeline.core import TrainingOutput
+from azureml.pipeline.core import TrainingOutput, PipelineData
 
 metrics_data = PipelineData(name='metrics_data',
                             datastore=datastore,
@@ -450,7 +450,7 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-Pour plus d’informations sur le chargement et l’utilisation des modèles existants, consultez [Utiliser un modèle existant avec Azure Machine Learning](how-to-deploy-existing-model.md).
+Pour plus d’informations sur le chargement et l’utilisation des modèles existants, consultez [Utiliser un modèle existant avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="download-the-results-of-an-automated-ml-run"></a>Télécharger les résultats d’un cycle d’exécution de ML automatisé
 

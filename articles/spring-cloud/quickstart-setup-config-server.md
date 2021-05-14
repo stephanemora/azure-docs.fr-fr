@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, fasttrack-edit
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 643d1cd6df3791b2e5ea2118425eecb29dbcdea2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c71e76213011beaa63deeaadfa3d6d2dc0d4ce2
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877372"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108286530"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Démarrage rapide : Configurer un serveur de configuration Azure Spring Cloud
 
@@ -23,7 +23,7 @@ Le serveur de configuration Azure Spring Cloud est un service de configuration c
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivez ce guide de démarrage rapide précédent de la série : [Provisionner le service Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
+* Suivez ce guide de démarrage rapide précédent de la série : [Provisionner le service Azure Spring Cloud](./quickstart-provision-service-instance.md).
 
 ## <a name="azure-spring-cloud-config-server-procedures"></a>Procédures pour le serveur de configuration Azure Spring Cloud
 
@@ -51,11 +51,11 @@ Le serveur de configuration Azure Spring Cloud est un service de configuration c
 
 #### <a name="portal"></a>[Portail](#tab/Azure-portal)
 
-La procédure suivante permet de configurer le serveur de configuration en utilisant le portail Azure pour déployer l’[exemple Piggymetrics](spring-cloud-quickstart-sample-app-introduction.md).
+La procédure suivante configure le serveur de configuration en utilisant le portail Azure pour déployer l’[exemple PetClinic](https://github.com/azure-samples/spring-petclinic-microservices).
 
 1. Accédez à la page **Vue d’ensemble** du service, puis sélectionnez **Serveur de configuration**.
 
-2. Dans la section **Dépôt par défaut**, définissez **URI** sur « https://github.com/Azure-Samples/piggymetrics-config  ».
+2. Dans la section **Dépôt par défaut**, définissez **URI** sur « https://github.com/azure-samples/spring-petclinic-microservices-config  ».
 
 3. Cliquez sur **Valider**.
 
@@ -73,47 +73,47 @@ La procédure suivante permet de configurer le serveur de configuration en utili
 
 #### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/Azure-CLI)
 
-La procédure suivante utilise Azure CLI pour configurer le serveur de configuration afin de déployer l’[exemple Piggymetrics](spring-cloud-quickstart-sample-app-introduction.md).
 
-Configurez votre serveur de configuration avec l’emplacement du dépôt Git pour le projet :
+La procédure suivante utilise l’interface Azure CLI pour configurer le serveur de configuration afin de déployer l’[exemple PetClinic](https://github.com/azure-samples/spring-petclinic-microservices).
+
+Exécutez la commande suivante pour définir le dépôt par défaut.
 
 ```azurecli
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
-```
----
+
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
 ::: zone-end
 
 > [!TIP]
-> Si vous utilisez un dépôt privé pour le serveur de configuration, reportez-vous à notre [tutoriel sur la configuration de l’authentification](./spring-cloud-howto-config-server.md).
+> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](./how-to-config-server.md).
 
-## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Résolution des problèmes de Config Server d’Azure Spring Cloud
+## Troubleshooting of Azure Spring Cloud config server
 
-La procédure suivante explique comment résoudre les problèmes liés aux paramètres de Config Server.
+The following procedure explains how to troubleshoot config server settings.
 
-1. Dans le portail Azure, accédez à la page **Vue d’ensemble** du service, puis sélectionnez **Journaux**. 
-1. Sélectionnez **Requêtes** et **Afficher les journaux des applications qui contiennent les termes « erreur » ou « exceptions »** . 
-1. Cliquez sur **Exécuter**. 
-1. Si vous trouvez l’erreur **java.lang.illegalStateException** dans les journaux, cela indique que le service Spring Cloud ne peut pas localiser les propriétés provenant de Config Server.
+1. In the Azure portal, go to the service **Overview** page and select **Logs**. 
+1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**. 
+1. Click **Run**. 
+1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
 
-    [ ![Portail ASC, exécuter une requête](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+    [ ![ASC portal run query](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
 
-1. Allez à la page **Vue d’ensemble** du service.
-1. Sélectionnez **Diagnostiquer et résoudre les problèmes**. 
-1. Sélectionnez le détecteur **Config Server**.
+1. Go to the service **Overview** page.
+1. Select **Diagnose and solve problems**. 
+1. Select **Config Server** detector.
 
-    [ ![Portail ASC, diagnostiquer les problèmes](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+    [ ![ASC portal diagnose problems](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
 
-3. Cliquez sur **Contrôle d’intégrité de Config Server**.
+3. Click **Config Server Health Check**.
 
-    [ ![Portail ASC, Genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+    [ ![ASC portal genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
 
-4. Cliquez sur **État de Config Server** pour afficher plus de détails à partir du détecteur.
+4. Click **Config Server Status** to see more details from the detector.
 
-    [ ![Portail ASC, état d’intégrité](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
+    [ ![ASC portal health status](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## Next steps
 
-Dans ce guide de démarrage rapide, vous avez créé des ressources Azure qui continueront de générer des frais tant qu’elles resteront dans votre abonnement. Si vous n’avez pas prévu de passer au guide de démarrage rapide suivant, consultez [Nettoyer les ressources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Dans le cas contraire, passez au guide de démarrage rapide suivant :
+In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](./quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
 
 > [!div class="nextstepaction"]
-> [Créer et déployer des applications](spring-cloud-quickstart-deploy-apps.md)
+> [Build and deploy apps](./quickstart-deploy-apps.md)

@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2ce552a13592c9d26ef70575f98b0b76ecc454ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f433d09079769cca99fd78183b9acbcd23c2adf0
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97591988"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163568"
 ---
 # <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Restaurer un pool SQL dédié existant (anciennement SQL DW)
 
@@ -54,7 +54,7 @@ Pour restaurer un pool SQL dédié existant (anciennement SQL DW) à partir d’
 
 8. Une fois la restauration terminée, vous pouvez configurer votre pool SQL dédié récupéré (anciennement SQL DW) en suivant les instructions de la section [Configurer votre base de données après récupération](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
-```Powershell
+```powershell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -75,7 +75,7 @@ Get-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 $Database = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Pick desired restore point using RestorePointCreationDate "xx/xx/xxxx xx:xx:xx xx"
-$PointInTime="<RestorePointCreationDate>"  
+$PointInTime="<RestorePointCreationDate>"
 
 # Restore database from a restore point
 $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
@@ -86,7 +86,6 @@ $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTim
 
 # Verify the status of restored database
 $RestoredDatabase.status
-
 ```
 
 ## <a name="restore-an-existing-dedicated-sql-pool-formerly-sql-dw-through-the-azure-portal"></a>Restaurer un pool SQL dédié existant (anciennement SQL DW) via le portail Azure

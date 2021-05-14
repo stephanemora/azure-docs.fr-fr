@@ -4,12 +4,12 @@ description: Découvrez comment identifier et interagir avec des instances BareM
 ms.topic: how-to
 ms.subservice: workloads
 ms.date: 04/06/2021
-ms.openlocfilehash: a7fdc17aa4271915f7dc02aaa2d7a688016bf892
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 8f28579a83c45692e5d1eade2e4632ff8c1c8e42
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106579196"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139612"
 ---
 # <a name="connect-baremetal-infrastructure-instances-in-azure"></a>Connecter des instances BareMetal Infrastructure dans Azure
 
@@ -83,7 +83,7 @@ Lors du déploiement de vos instances BareMetal, un nouveau [groupe de ressource
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour voir toutes vos instances BareMetal, exécutez la commande [az baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) pour votre groupe de ressources :
+Pour voir toutes vos instances BareMetal, exécutez la commande [az baremetalinstance list](/cli/azure/baremetalinstance#az_baremetalinstance_list) pour votre groupe de ressources :
 
 ```azurecli
 az baremetalinstance list --resource-group DSM05A-T550 –output table
@@ -123,11 +123,11 @@ Les révisions matérielles possibles sont les suivantes :
 En outre, sur le côté droit, vous trouverez le nom du [groupe de placement de proximité Azure](../virtual-machines/co-location.md), qui est créé automatiquement pour chaque instance BareMetal déployée. Référencez le groupe de placement de proximité lorsque vous déployez les machines virtuelles Azure qui hébergent la couche d’application. Lorsque vous utilisez le groupe de placement de proximité associé à l’instance BareMetal, vous vous assurez que les machines virtuelles Azure sont déployées près de l’instance BareMetal.
  
 >[!TIP]
->Pour trouver la couche application dans le même centre de données Azure que Révision 4.x, consultez [Groupes de placement de proximité Azure pour une latence réseau optimale](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
+>Pour trouver la couche application dans le même centre de données Azure que Révision 4.x, consultez [Groupes de placement de proximité Azure pour une latence réseau optimale](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour afficher les détails d’une instance BareMetal, exécutez la commande [az baremetalinstance show](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show) :
+Pour afficher les détails d’une instance BareMetal, exécutez la commande [az baremetalinstance show](/cli/azure/baremetalinstance#az_baremetalinstance_show) :
 
 ```azurecli
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
@@ -159,7 +159,7 @@ La suppression des étiquettes fonctionne également de la même manière que po
 
 L’attribution d’étiquettes à des instances BareMetal fonctionne de la même façon que l’attribution d’étiquettes à des machines virtuelles. Comme pour les machines virtuelles, les étiquettes existent dans les métadonnées Azure. Les étiquettes ont les mêmes restrictions pour les instances BareMetal que pour les machines virtuelles.
 
-Pour ajouter des étiquettes à une instance BareMetal, exécutez la commande [az baremetalinstance update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) :
+Pour ajouter des étiquettes à une instance BareMetal, exécutez la commande [az baremetalinstance update](/cli/azure/baremetalinstance#az_baremetalinstance_update) :
 
 ```azurecli
 az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
@@ -197,7 +197,7 @@ Lorsque vous redémarrez une instance BareMetal, vous remarquerez un délai. Pen
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour redémarrer une instance BareMetal, utilisez la commande [az baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) :
+Pour redémarrer une instance BareMetal, utilisez la commande [az baremetalinstance restart](/cli/azure/baremetalinstance#az_baremetalinstance_restart) :
 
 ```azurecli
 az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01

@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
-ms.openlocfilehash: b917e3fc93c59de85c5236c18e31d7bbc9d891f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/25/2021
+ms.openlocfilehash: 1df93a987348ed54303f2d9118337dbc710bc3bc
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98065471"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001415"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceptions et codes d’erreur pour le concepteur
 
@@ -1252,7 +1252,7 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 
 |Messages d’exception|
 |------------------------|
-|Le modèle n’a pas pu être désérialisé parce qu’il est probablement sérialisé dans un format de sérialisation plus ancien. Réentrainez et réenregistrez le modèle.|
+|Le modèle n’a pas pu être désérialisé parce qu’il est probablement sérialisé dans un format de sérialisation plus ancien. Formez de nouveau le modèle, puis enregistrez-le.|
 
 
 ## <a name="error-0083"></a>Erreur 0083  
@@ -1436,7 +1436,7 @@ Résolution :
 
   <!--If you use the visualizations on datasets to check the cardinality of columns, only some rows are sampled. To get a full report, use [Summarize Data](summarize-data.md). You can also use the [Apply SQL Transformation](apply-sql-transformation.md) to check for the number of unique values in each column.  
 
- Sometimes transient loads can lead to this error. Machine support also changes over time. 
+ Sometimes transient loads can lead to such error. Machine support also changes over time. 
 
  Try using [Principal Component Analysis](principal-component-analysis.md) or one of the provided feature selection methods to reduce your dataset to a smaller set of more feature-rich columns: [Feature Selection](feature-selection-modules.md)  -->
 
@@ -1537,3 +1537,23 @@ Pour obtenir plus d’aide, nous vous recommandons de publier le message détail
 ## <a name="execute-python-script-module"></a>Module Exécuter le script Python
 
 Recherchez **in azureml_main** dans **70_driver_logs** du **Module Exécuter le script Python** pour trouver la ligne où l’erreur s’est produite. Par exemple, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indique que l’erreur s’est produite dans la ligne 17 de votre script Python.
+
+## <a name="distributed-training"></a>Entraînement distribué
+
+Actuellement, le concepteur prend en charge la formation distribuée pour le module [Entraîner un modèle Pytorch](train-pytorch-model.md).
+
+<!-- [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) module  -->
+
+Si la formation distribuée activée pour le module échoue sans aucun journal `70_driver`, vous pouvez vérifier les détails de l’erreur dans `70_mpi_log`.
+
+  L’exemple suivant montre que le **Nombre de nœuds** des paramètres d’exécution est supérieur au nombre de nœuds disponibles du cluster de calcul.
+  
+  [ ![Capture d’écran indiquant une erreur de nombre de nœuds](./media/module/distributed-training-node-count-error.png)](./media/module/distributed-training-node-count-error.png#lightbox)
+
+  L’exemple suivant montre que le **Nombre de processus par nœud** est supérieur à l’**Unité de traitement** du calcul.
+
+  [ ![Capture d’écran montrant le journal mpi](./media/module/distributed-training-error-mpi-log.png) ](./media/module/distributed-training-error-mpi-log.png#lightbox)
+
+Sinon, vous pouvez vérifier `70_driver_log` pour chaque processus. `70_driver_log_0` est le processus principal.
+
+  [ ![Capture d’écran montrant le journal du pilote](./media/module/distributed-training-error-driver-log.png) ](./media/module/distributed-training-error-driver-log.png#lightbox)

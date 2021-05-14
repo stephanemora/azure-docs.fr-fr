@@ -16,6 +16,8 @@
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Comment se connecter
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Connexion à un compte professionnel ou scolaire
+      href: multi-factor-authentication-end-user-signin.md
     - name: Obtenir de l’aide
       href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Aide relative à la réinitialisation du mot de passe

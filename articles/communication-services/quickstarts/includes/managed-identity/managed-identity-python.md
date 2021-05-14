@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 3fcfb364ebffdd3643e803922cbe4f3dd0d87935
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6a9628f3bd77e2e7001a5c8cf371259c18fa373c
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107512968"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107984399"
 ---
 ## <a name="setting-up"></a>Configuration
 
-## <a name="create-a-new-python-application"></a>Créer une application Python
+### <a name="create-a-new-python-application"></a>Créer une application Python
 
 Ouvrez votre fenêtre de terminal ou de commande, créez un répertoire pour votre application, puis accédez-y.
 

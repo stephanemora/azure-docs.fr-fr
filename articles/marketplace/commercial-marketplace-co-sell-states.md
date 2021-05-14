@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 09/02/2020
-ms.openlocfilehash: 9ec914e5fea0d54f4705e8f14f5a64fa80c1adfe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0a29bb07eea979c66cf2d32c56850a27a0c1d73d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120026"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108133166"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Codes d’état et de province pour la co-vente dans la Place de marché Azure
 
-Cet article répertorie les codes d’état et de province disponibles lorsque vous fournissez des informations de contact sur la page de co-vente de votre offre. Le cas échéant, utilisez ces codes pour fournir des informations sur les états/provinces lorsque vous [fournissez des coordonnées sur la page de co-vente de votre offre](commercial-marketplace-co-sell.md#enter-your-contacts).
+Cet article répertorie les codes d’état et de province disponibles lorsque vous fournissez des informations de contact sur la page de co-vente de votre offre. Le cas échéant, utilisez ces codes pour fournir des informations sur les états/provinces lorsque vous [fournissez des coordonnées sur la page de co-vente de votre offre](./co-sell-configure.md#enter-your-contacts).
 
 ## <a name="us-states-and-territories"></a>États et territoires des USA
 
@@ -115,4 +115,4 @@ Cet article répertorie les codes d’état et de province disponibles lorsque v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [l’option de co-vente sur le marketplace commercial](./commercial-marketplace-co-sell.md).
+- En savoir plus sur [l’option de co-vente sur le marketplace commercial](./co-sell-configure.md).
