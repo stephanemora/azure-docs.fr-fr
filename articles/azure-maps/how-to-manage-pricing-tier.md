@@ -3,17 +3,17 @@ title: Gérer le niveau tarifaire de votre compte Azure Maps | Microsoft Azure M
 description: Vous pouvez utiliser le portail Azure pour gérer votre compte Microsoft Azure Maps et son niveau tarifaire.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/27/2020
+ms.date: 04/26/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9934a2660d18fdcbada1cda86f957345b2d1a8c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7612379f436f587d96f58ee9a03ba86c5eb5972
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92895730"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326766"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gérer le niveau tarifaire de votre compte Azure Maps
 
@@ -25,13 +25,13 @@ Apprenez-en davantage sur le [choix du niveau tarifaire approprié dans Azure Ma
 
 Pour afficher le niveau tarifaire choisi, accédez à l’option **Niveau tarifaire** dans le menu Paramètres.
 
-[ ![Voir le niveau tarifaire choisi](./media/how-to-manage-pricing-tier/view-pricing-tier.png) ](./media/how-to-manage-pricing-tier/view-pricing-tier.png#lightbox)
+:::image type="content" source="./media/how-to-manage-pricing-tier/view-pricing-tier.png" border="true" alt-text="Voir le niveau tarifaire choisi":::
 
 ## <a name="change-a-pricing-tier"></a>Modifier un niveau tarifaire
 
-Après avoir créé votre compte Azure Maps, vous pouvez passer à un niveau tarifaire supérieur ou inférieur. Pour passer à un niveau tarifaire supérieur ou inférieur, dans le menu Paramètres, accédez à l’option **Niveau tarifaire**. Sélectionnez le niveau tarifaire qui n’est pas en surbrillance. Sélectionnez le bouton **Enregistrer** pour enregistrer l’option de niveau tarifaire choisie.
+Après avoir créé votre compte Azure Maps, vous pouvez passer à un niveau tarifaire supérieur ou inférieur. Pour passer à un niveau tarifaire supérieur ou inférieur, dans le menu Paramètres, accédez à l’option **Niveau tarifaire**. Sélectionnez le niveau tarifaire dans la liste déroulante.  Remarque : Le niveau tarifaire actuel est sélectionné par défaut.  Sélectionnez le bouton **Enregistrer** pour enregistrer l’option de niveau tarifaire choisie.
 
-[ ![Changer de niveau tarifaire](./media/how-to-manage-pricing-tier/change-pricing-tier.png) ](./media/how-to-manage-pricing-tier/change-pricing-tier.png#lightbox)
+:::image type="content" source="./media/how-to-manage-pricing-tier/change-pricing-tier.png" border="true" alt-text="Changer de niveau tarifaire":::
 
 > [!NOTE]
 > Vous n’avez pas à générer de nouvelles clés d’abonnement ou de nouveaux ID client (pour l’authentification Azure Active Directory) pour modifier le niveau tarifaire de votre compte Azure Maps.

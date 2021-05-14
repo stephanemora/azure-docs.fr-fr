@@ -11,10 +11,8 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: ASP.NET Core
-      href: quickstart-dotnetcore.md
     - name: ASP.NET
-      href: quickstart-dotnet-framework.md
+      href: quickstart-dotnetcore.md
     - name: Node.js
       href: quickstart-nodejs.md
     - name: PHP
@@ -34,6 +32,8 @@
       href: quickstart-custom-container.md
     - name: Application pour plusieurs conteneurs
       href: quickstart-multi-container.md
+    - name: Application sur Azure Arc (préversion)
+      href: quickstart-arc.md
 - name: Tutoriels
   items:
     - name: Sécuriser les accès d’application au stockage et à Microsoft Graph
@@ -108,6 +108,8 @@
       href: operating-system-functionality.md
     - name: Bonnes pratiques de déploiement
       href: deploy-best-practices.md
+    - name: Hébergement Azure Arc (préversion)
+      href: overview-arc-integration.md
     - name: Sécurité
       items:
         - name: Recommandations
@@ -117,7 +119,7 @@
         - name: Système d’exploitation et mise à jour corrective du runtime
           href: overview-patch-os-runtime.md
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Contrôles de sécurité par Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -187,6 +189,8 @@
               href: deploy-ci-cd-custom-container.md
             - name: Déployer à partir de Git local
               href: deploy-local-git.md
+            - name: GitHub Actions
+              href: deploy-github-actions.md
             - name: GitHub Actions pour les conteneurs
               href: deploy-container-github-action.md
             - name: Déployer avec un modèle
@@ -217,8 +221,6 @@
               href: configure-authentication-provider-facebook.md
             - name: S’authentifier avec Google
               href: configure-authentication-provider-google.md
-            - name: S’authentifier avec un compte Microsoft
-              href: configure-authentication-provider-microsoft.md
             - name: S’authentifier avec Twitter
               href: configure-authentication-provider-twitter.md
             - name: S’authentifier auprès d’un fournisseur OpenID Connect (préversion)
@@ -277,6 +279,8 @@
           href: app-service-undelete.md
         - name: Restaurer à partir d’une région en panne
           href: manage-disaster-recovery.md
+        - name: Activer sur Azure Arc
+          href: manage-create-arc-environment.md
     - name: Déplacer une application
       items:
         - name: Déplacer d’une région à l’autre
@@ -320,8 +324,10 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=app-service'
-    - name: Guides de l’Assistant Migration
-      href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
+    - name: Service Kudu
+      href: resources-kudu.md
+    - name: Assistant Migration
+      href: app-service-migration-assistant.md
     - name: Meilleures pratiques
       href: app-service-best-practices.md
     - name: Exemples

@@ -4,12 +4,12 @@ description: Décrit les files d’attente de lettres mortes dans Azure Service 
 ms.topic: article
 ms.date: 04/08/2021
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 6293a3a9a760ece137644578d8ee7dccebc63d95
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 9a7eaf3cee7af4ba0f0049ee8b7a8dd0b271a94a
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812369"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804463"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -50,7 +50,7 @@ Il existe une limite du nombre de tentatives de remise des messages pour files d
 ## <a name="time-to-live"></a>Durée de vie
 Lorsque vous activez les lettres mortes sur les files d’attente ou les abonnements, tous les messages arrivant à expiration sont déplacés vers la file d’attente de lettres mortes. Le code de motif de lettres mortes est défini sur : TTLExpiredException.
 
-Les messages ayant expiré sont uniquement purgés et transférés vers la file d’attente de lettres mortes quand au moins un destinataire actif effectue une collecte à partir de la file d’attente principale ou l’abonnement. Les messages différés ne sont pas purgés et sont déplacés vers la file d’attente de lettres mortes après leur expiration. Ce comportement est normal.
+Les messages différés ne sont pas purgés et sont déplacés vers la file d’attente de lettres mortes après leur expiration. Ce comportement est normal.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Erreurs pendant le traitement des règles d’abonnement
 Si vous activez les lettres mortes sur les exceptions d’évaluation de filtre, toutes les erreurs qui se produisent pendant l’exécution d’une règle de filtre SQL d’un abonnement sont capturées dans la file d’attente de lettres mortes avec le message incriminé. N’utilisez pas cette option dans un environnement de production dans lequel certains types de messages n’ont pas d’abonnés.

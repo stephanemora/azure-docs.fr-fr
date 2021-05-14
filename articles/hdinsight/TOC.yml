@@ -190,6 +190,8 @@
                   href: ./optimize-hive-ambari.md
                 - name: Optimiser Apache Pig
                   href: ./optimize-pig-ambari.md
+            - name: Rechercher les noms d’hôte des nœuds de cluster
+              href: ./find-host-name.md
             - name: Redémarrer les nœuds de cluster
               href: ./cluster-reboot-vm.md
             - name: Utiliser l’API REST Apache Ambari
@@ -244,6 +246,8 @@
               href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
             - name: Outils Spark et Hive Tools pour VSCode
               href: ./hdinsight-for-vscode.md
+            - name: Référence sur les paramètres de configuration HDInsight
+              href: ./hdinsight-config-for-vscode.md
         - name: Surveillance
           items:
             - name: Utiliser les journaux d’activité Azure Monitor
@@ -256,6 +260,8 @@
               href: ./hdinsight-cluster-availability.md
             - name: Disponibilité des clusters - Journaux Azure Monitor
               href: ./cluster-availability-monitor-logs.md
+            - name: Mises à jour de tables Azure Monitor
+              href: ./log-analytics-migration.md
         - name: Dépanner
           items:
             - name: Demander une augmentation du quota de cœurs de processeur
@@ -266,10 +272,14 @@
               href: ./troubleshoot-resource-creation-fails.md
             - name: Résoudre les problèmes Apache Oozie
               href: ./troubleshoot-oozie.md
+            - name: Résoudre les problèmes Apache Sqoop
+              href: ./troubleshoot-sqoop.md
             - name: Comprendre et résoudre les erreurs WebHCat
               href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Informations de référence
       items:
+        - name: Azure CLI
+          href: /cli/azure/hdinsight
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
         - name: Kit SDK pour .NET
@@ -659,8 +669,6 @@
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: Utiliser Apache Kafka avec IoT Hub
               href: ./kafka/apache-kafka-connector-iot-hub.md
-            - name: Confluent Schema Registry
-              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: Créer des pipelines de streaming
               items:
                 - name: 'Apache Spark, Apache Kafka et Azure Cosmos DB'
@@ -732,6 +740,8 @@
               href: ./hbase/apache-hbase-backup-replication.md
             - name: Migrer un cluster Apache HBase vers une version plus récente
               href: ./hbase/apache-hbase-migrate-new-version.md
+            - name: Migration de la version et du compte de stockage Apache HBase
+              href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
             - name: Bonnes pratiques pour les performances d’Apache Phoenix
               href: ./hbase/apache-hbase-phoenix-performance.md
             - name: Créer un cluster Apache HBase dans le réseau virtuel Azure
@@ -971,7 +981,7 @@
     - name: Concepts
       items:
         - name: Base de référence de la sécurité
-          href: security-baseline.md
+          href: /security/benchmark/azure/baselines/hdinsight-security-baseline?toc=/azure/hdinsight/TOC.json
         - name: Recommandations générales sur la sécurité en entreprise
           href: ./domain-joined/general-guidelines.md
         - name: Planifier des clusters ESP

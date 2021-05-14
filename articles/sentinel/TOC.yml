@@ -286,6 +286,8 @@
       href: create-incidents-from-alerts.md
     - name: Mieux gérer votre SOC avec des métriques d’incident
       href: manage-soc-with-incident-metrics.md
+    - name: Gérer les faux positifs
+      href: false-positives.md
     - name: Auditer les requêtes et les activités Azure Sentinel
       href: audit-sentinel-data.md
     - name: Chasse
@@ -331,7 +333,7 @@
       items:
         - name: Vue d’ensemble des requêtes Kusto
           href: /azure/data-explorer/kusto/query/
-        - name: Aide-mémoire sur le langage de requête Kusto
+        - name: Aide-mêmoire sur le langage de requête Kusto
           href: /azure/data-explorer/kql-quick-reference
         - name: "Optimisations des requêtes de journal Azure\_Monitor"
           href: ../azure-monitor/logs/query-optimization.md

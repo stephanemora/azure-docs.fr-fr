@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ff7cfb8c7aa8469111d4531da17c7cd184920f9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42a82a59483a582e0d395092558665b12e1cd5a3
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727564"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684358"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Tutoriel : Créer une application connectée de gestion des déchets
 
@@ -53,8 +53,6 @@ Dans cette section, vous utilisez le modèle de gestion connectée des déchets 
     * **Application name** (Nom de l’application). Par défaut, le nom de l’application est **Gestion connectée des déchets** suivi d’une chaîne d’ID unique générée par IoT Central. Si vous le souhaitez, vous pouvez choisir un nom d’application convivial. Vous pouvez également modifier le nom de l’application.
     * **URL**. Si vous le souhaitez, vous pouvez spécifier l’URL de votre choix. Vous pourrez la changer plus tard. 
     * **Plan tarifaire**. Si vous avez un abonnement Azure, entrez votre annuaire, votre abonnement Azure et votre région dans les champs appropriés de la boîte de dialogue **Informations de facturation**. Si vous n’avez pas d’abonnement, sélectionnez **Gratuit** pour activer l’essai de 7 jours, puis indiquez les coordonnées nécessaires.  
-
-    Pour plus d’informations sur les annuaires et les abonnements, consultez [Démarrage rapide : Créer une application Azure IoT Central](../core/quick-deploy-iot-central.md).
 
 1. Au bas de la page, sélectionnez **Créer**. 
 

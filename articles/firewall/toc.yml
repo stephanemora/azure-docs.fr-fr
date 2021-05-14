@@ -19,11 +19,11 @@
 - name: Tutoriels
   items:
     - name: Déployer et configurer
-      href: tutorial-firewall-deploy-portal.md
+      href: tutorial-firewall-deploy-portal-policy.md
     - name: Déployer dans un réseau hybride
-      href: tutorial-hybrid-portal.md
+      href: tutorial-hybrid-portal-policy.md
     - name: Filtrer le trafic entrant avec DNAT
-      href: tutorial-firewall-dnat.md
+      href: tutorial-firewall-dnat-policy.md
 - name: Exemples
   items:
     - name: Azure PowerShell
@@ -63,13 +63,21 @@
     - name: FQDN dans les règles de réseau
       href: fqdn-filtering-network-rules.md
     - name: Base de référence de la sécurité
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
     - name: Prise en charge FTP active
       href: active-ftp-support.md
 - name: Guides pratiques
   items:
+    - name: Déployer et configurer - Classique
+      href: tutorial-firewall-deploy-portal.md
+    - name: Déployer dans un réseau hybride - Classique
+      href: tutorial-hybrid-portal.md
+    - name: Filtrer le trafic entrant avec DNAT - Classique
+      href: tutorial-firewall-dnat.md
     - name: Déployer avec Azure PowerShell
       href: deploy-ps.md
+    - name: Déployer une stratégie avec Azure PowerShell
+      href: deploy-ps-policy.md
     - name: "Déployer dans un réseau hybride\_- PowerShell"
       href: tutorial-hybrid-ps.md
     - name: Déployer à l’aide d’Azure CLI
@@ -103,10 +111,12 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrer vers le Pare-feu Azure Premium
       href: premium-migrate.md
+    - name: Mettre à l’échelle les ports SNAT sortants
+      href: integrate-with-nat-gateway.md
 - name: Informations de référence
   items:
     - name: Azure CLI
-      href: /cli/azure/ext/azure-firewall/network/firewall
+      href: /cli/azure/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET

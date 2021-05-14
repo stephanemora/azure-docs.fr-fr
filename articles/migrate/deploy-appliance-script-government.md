@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: b0bc2b69a4a1ec31cfa560d51920378fe1ab52b8
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: edc74f0379a15c9119d2e3ed4f207832c367866b
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714791"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804031"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurer une appliance dans Azure Government 
 
@@ -62,7 +62,7 @@ Le script effectue les opérations suivantes :
 
 - Installe les agents et une application web.
 - Installe des rôles Windows, à savoir le service d’activation Windows (WAS), IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS. [Plus d’informations](https://www.microsoft.com/download/details.aspx?id=7435)
+- Télécharge et installe un module réinscriptible IIS.
 - Met à jour une clé de Registre (HKLM) avec des paramètres persistants pour Azure Migrate.
 - Crée les fichiers journaux et de configuration comme suit :
     - **Fichiers config** : %ProgramData%\Microsoft Azure\Config
@@ -117,7 +117,7 @@ Le script effectue les opérations suivantes :
 
 - Installe les agents et une application web.
 - Installe des rôles Windows, à savoir le service d’activation Windows (WAS), IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS. [Plus d’informations](https://www.microsoft.com/download/details.aspx?id=7435)
+- Télécharge et installe un module réinscriptible IIS.
 - Met à jour une clé de Registre (HKLM) avec des paramètres persistants pour Azure Migrate.
 - Crée les fichiers journaux et de configuration comme suit :
     - **Fichiers config** : %ProgramData%\Microsoft Azure\Config
@@ -170,7 +170,7 @@ Le script effectue les opérations suivantes :
 
 - Installe les agents et une application web.
 - Installe des rôles Windows, à savoir le service d’activation Windows (WAS), IIS et PowerShell ISE.
-- Télécharge et installe un module réinscriptible IIS. [Plus d’informations](https://www.microsoft.com/download/details.aspx?id=7435)
+- Télécharge et installe un module réinscriptible IIS.
 - Met à jour une clé de Registre (HKLM) avec des paramètres persistants pour Azure Migrate.
 - Crée les fichiers journaux et de configuration comme suit :
     - **Fichiers config** : %ProgramData%\Microsoft Azure\Config

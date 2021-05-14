@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ff3661a7e092fd20207fe2e973afc316b2c244ef
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 06409903e77923176ac5fab4dd27bf918ea0d9d9
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447095"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331799"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personnaliser les propriétés de Remote Desktop Protocol (RDP) pour un pool d’hôtes
 
@@ -26,11 +26,16 @@ Pour obtenir la liste complète des propriétés prises en charge et leur valeur
 
 Les fichiers RDP ont les propriétés suivantes par défaut :
 
-|Propriété RDP|Sur l’ordinateur de bureau|En tant qu’application distante|
-|---|---|---|
-|Mode à plusieurs écrans|Désactivé|activé|
-|Redirections de lecteur activées|Lecteurs, presse-papiers, imprimantes, ports COM et cartes à puce|Lecteurs, presse-papiers et imprimantes|
-|Mode audio distant|Lire localement|Lire localement|
+|Propriété RDP|Pour les applications de bureau et RemoteApp|
+|---|---|
+|Mode à plusieurs écrans|Désactivé|
+|Redirections de lecteur activées|Lecteurs, Presse-papiers, imprimantes, ports COM, cartes à puce, appareils et usbdevicestore|
+|Mode audio distant|Lire localement|
+|VideoPlayback|activé|
+|EnableCredssp|activé|
+
+>[!NOTE]
+>Le mode multimoniteur ne s’applique qu’aux groupes d’applications de bureau. Il est ignoré pour les groupes d’applications RemoteApp.
 
 ## <a name="prerequisites"></a>Prérequis
 
