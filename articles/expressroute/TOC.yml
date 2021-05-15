@@ -148,6 +148,8 @@
           href: expressroute-network-insights.md
         - name: 'Supervision, métriques et alertes ExpressRoute'
           href: expressroute-monitoring-metrics-alerts.md
+        - name: Afficher et configurer des alertes de maintenance
+          href: maintenance-alerts.md
         - name: Configurer Network Performance Monitor pour ExpressRoute
           href: how-to-npm.md
         - name: Configurer des alertes personnalisées pour superviser les routes publiées
