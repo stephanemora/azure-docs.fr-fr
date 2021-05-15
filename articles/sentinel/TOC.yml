@@ -25,6 +25,8 @@
       href: tutorial-respond-threats-playbook.md
     - name: Créer des requêtes KQL (module Learn)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+    - name: Déployer la solution Azure Sentinel pour SAP
+      href: sap-deploy-solution.md
 - name: Concepts
   items:
     - name: Classifier les données avec des entités
@@ -49,8 +51,12 @@
           href: automate-responses-with-playbooks.md
     - name: Identifier les menaces avancées avec UEBA
       href: identify-threats-with-entity-behavior-analytics.md
+    - name: Utiliser les anomalies SOC-ML pour détecter les menaces
+      href: soc-ml-anomalies.md
     - name: Importer le renseignement sur les menaces dans Azure Sentinel
       href: import-threat-intelligence.md
+    - name: Intégrations du renseignement sur les menaces
+      href: threat-intelligence-integration.md
     - name: Apporter votre propre plateforme de machine learning
       href: bring-your-own-ml.md
     - name: "Intégrer Microsoft\_365\_Defender à Azure\_Sentinel"
@@ -59,6 +65,12 @@
       href: watchlists.md
     - name: Étendre Azure Sentinel dans les espaces de travail et les locataires
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: Solutions Azure Sentinel
+      items:
+        - name: À propos des solutions Sentinel
+          href: sentinel-solutions.md
+        - name: Catalogue de solutions
+          href: sentinel-solutions-catalog.md
     - name: Normaliser vos données dans plusieurs tables
       href: normalization.md
     - name: Utiliser Azure Data Explorer pour la conservation des journaux à long terme
@@ -266,6 +278,16 @@
           href: connect-azure-stack.md
         - name: Superviser l’intégrité du connecteur de données
           href: monitor-data-connector-health.md
+    - name: Déployer des solutions
+      items:
+        - name: Découvrir et déployer des solutions
+          href: sentinel-solutions-deploy.md
+        - name: Avancé - Déployer le connecteur de données SAP localement
+          href: sap-solution-deploy-alternate.md
+    - name: Utiliser des règles d’anomalie SOC-ML
+      href: work-with-anomaly-rules.md
+    - name: Créer des activités d’entité personnalisées
+      href: customize-entity-activities.md
     - name: Utiliser l’analytique du comportement des entités et des utilisateurs
       items:
         - name: Activer UEBA
@@ -284,6 +306,8 @@
       href: surface-custom-details-in-alerts.md
     - name: Créer des incidents à partir d’alertes
       href: create-incidents-from-alerts.md
+    - name: "Collaborer dans Microsoft\_Teams"
+      href: collaborate-in-microsoft-teams.md
     - name: Mieux gérer votre SOC avec des métriques d’incident
       href: manage-soc-with-incident-metrics.md
     - name: Gérer les faux positifs
@@ -333,7 +357,7 @@
       items:
         - name: Vue d’ensemble des requêtes Kusto
           href: /azure/data-explorer/kusto/query/
-        - name: Aide-mêmoire sur le langage de requête Kusto
+        - name: Aide-mémoire sur le langage de requête Kusto
           href: /azure/data-explorer/kql-quick-reference
         - name: "Optimisations des requêtes de journal Azure\_Monitor"
           href: ../azure-monitor/logs/query-optimization.md
@@ -343,6 +367,14 @@
       href: cef-name-mapping.md
     - name: "Alertes MCAS non intégrées à Microsoft\_365 Defender"
       href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
+    - name: "Références de la solution\_SAP"
+      items:
+        - name: "Configuration requise détaillée de la solution\_SAP"
+          href: sap-solution-detailed-requirements.md
+        - name: Journaux SAP disponibles
+          href: sap-solution-log-reference.md
+        - name: "Informations de référence sur le contenu de sécurité de la solution\_SAP"
+          href: sap-solution-security-content.md
 - name: Ressources
   items:
     - name: Ressources utiles
