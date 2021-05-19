@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 05/10/2021
 ms.author: alkohli
-ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d98141c52acc3cd0628943d17a89ec9822299d48
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147928"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738137"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Suivi et journalisation des événements de vos ordres d’importation Azure Data Box et Azure Data Box Heavy
 
 Un ordre d’importation Data Box ou Data Box Heavy passe par les étapes suivantes : ordre, configuration, copie des données, retour, chargement sur Azure et vérification, puis effacement des données. Lors de chaque étape de la commande, vous pouvez effectuer plusieurs actions pour contrôler l’accès à la commande, auditer les événements, suivre la commande et interpréter les différents journaux générés.
 
-Le tableau suivant récapitule les étapes de l’ordre d’importation Data Box ou Data Box Heavy ainsi que les outils disponibles pour effectuer le suivi et l’audit de l’ordre à chaque étape.
+Le tableau suivant présente un résumé de chaque étape du traitement d’un ordre d’importation et des outils disponibles pour suivre et auditer l’ordre au cours de l’étape.
 
-| Étape de l’ordre d’importation Data Box       | Outil de suivi et d’audit                                                                        |
-|----------------------------|------------------------------------------------------------------------------------------------|
+| Étape de l’ordre d’importation Data Box| Outil de suivi et d’audit|
+|----------------------------|------------------------|
 | Créer la commande               | [Configurer le contrôle d’accès sur la commande via Azure RBAC](#set-up-access-control-on-the-order)                                                    |
 | Commande traitée            | [Suivre la commande](#track-the-order) via <ul><li> Portail Azure </li><li> Site web du transporteur </li><li>Notifications par e-mail</ul> |
 | Configurer l’appareil              | Accès aux informations d’identification de l’appareil dans les [journaux d’activité](#query-activity-logs-during-setup)                                              |
@@ -78,8 +78,8 @@ Lors de la copie des données dans Data Box ou Data Box Heavy, un fichier d’er
 
 Assurez-vous que les travaux de copie ont été accomplis sans erreurs. Si des erreurs se sont produites durant le processus de copie, téléchargez les journaux à partir de la page **Connexion et copie**.
 
-- Si vous avez copié un fichier qui n’est pas de 512 octets alignés dans un dossier de disque managé sur votre Data Box, celui-ci n’est pas chargé en tant qu’objet blob de pages sur votre compte de stockage intermédiaire. Vous verrez une erreur dans les journaux. Supprimez le fichier et copiez un fichier de 512 octets alignés.
-- Si vous avez copié un fichier de disque dur virtuel (VHDX), VHD dynamique ou VHD de différenciation (ces fichiers ne sont pas pris en charge), vous verrez une erreur dans les journaux.
+- Si vous avez copié un fichier dont l’alignement n’est pas de 512 octets dans un dossier de disque managé sur votre Data Box, le fichier n’est pas chargé en tant qu’objet blob de pages vers votre compte de stockage intermédiaire. Vous verrez une erreur dans les journaux. Supprimez le fichier et copiez un fichier aligné sur 512 octets.
+- Si vous avez copié un fichier de disque dur virtuel (VHDX), de VHD dynamique ou de VHD de différenciation (ces types de fichiers ne sont pas pris en charge), vous verrez une erreur dans les journaux.
 
 Voici un exemple de fichier *error.xml* contenant différentes erreurs pouvant survenir lors de la copie vers des disques managés.
 
@@ -161,7 +161,7 @@ Pour plus d’informations sur les erreurs reçues pendant la préparation de l�
 
 ### <a name="bom-or-manifest-file"></a>Nomenclature ou fichier manifeste
 
-La nomenclature ou le fichier manifeste contient la liste de tous les fichiers copiés sur l’appareil Data Box. Le fichier de nomenclature contient le nom des fichiers et la taille correspondante, ainsi que la somme de contrôle. Un fichier de nomenclature distinct est créé pour les objets blob de blocs, les objets blob de pages, Azure Files, pour la copie via les API REST et pour la copie vers des disques managés sur Data Box. Vous pouvez télécharger les fichiers de nomenclature à partir de l’interface utilisateur web locale de l’appareil pendant la préparation de l’expédition.
+La nomenclature ou le fichier manifeste contient la liste de tous les fichiers copiés sur l’appareil Data Box. Le fichier de marque d’ordre d’octet contient les noms et les tailles des fichiers, ainsi que la somme de contrôle. Un fichier de nomenclature distinct est créé pour les objets blob de blocs, les objets blob de pages, Azure Files, pour la copie via les API REST et pour la copie vers des disques managés sur Data Box. Vous pouvez télécharger les fichiers de nomenclature à partir de l’interface utilisateur web locale de l’appareil pendant la préparation de l’expédition.
 
 Ces fichiers se trouvent également sur l’appareil Data Box et sont chargés sur le compte de stockage associé dans le centre de données Azure.
 
@@ -199,7 +199,7 @@ Lors du chargement de données dans Azure, un journal de copie est créé.
 
 ### <a name="copy-log"></a>Journal de copie
 
-Pour chaque commande traitée, le service Data Box crée un journal de copie dans le compte de stockage associé. Le journal de copie contient le nombre total de fichiers chargés et le nombre de fichiers ayant rencontré des erreurs pendant la copie des données de Data Box vers votre compte de stockage Azure.
+Pour chaque ordre traité, le service Data Box crée un journal de copie dans le compte de stockage associé. Le journal de copie contient le nombre total de fichiers chargés et le nombre de fichiers ayant rencontré des erreurs pendant la copie des données de Data Box vers votre compte de stockage Azure.
 
 Un contrôle de redondance cyclique (CRC) est effectué pendant le chargement vers Azure. Les CRC de la copie des données et post-chargement sont comparés. Une différence entre les CRC indique que les fichiers correspondants n’ont pas été chargés.
 
@@ -211,7 +211,7 @@ Le chemin du journal de copie s’affiche également dans le panneau **Vue d’e
 
 ![Chemin du journal de copie dans le panneau Vue d’ensemble une fois l’opération terminée](media/data-box-logs/copy-log-path-1.png)
 
-### <a name="upload-completed-successfully"></a>Chargement réussi 
+### <a name="upload-completed-successfully"></a>Chargement réussi
 
 L’exemple suivant décrit le format général d’un journal de copie pour un chargement Data Box terminé correctement :
 
@@ -224,40 +224,15 @@ L’exemple suivant décrit le format général d’un journal de copie pour un 
 </CopyLog>
 ```
 
-### <a name="upload-completed-with-errors"></a>Chargement terminé avec des erreurs 
-
-Le chargement vers Azure peut également se terminer avec des erreurs.
-
-![Chemin du journal de copie dans le panneau Vue d’ensemble avec des erreurs](media/data-box-logs/copy-log-path-2.png)
-
-Voici un exemple de journal de copie pour un chargement terminé avec des erreurs :
-
-```xml
-<ErroredEntity Path="iso\samsungssd.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
-  <Category>UploadErrorCloudHttp</Category>
-  <ErrorCode>409</ErrorCode>
-  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
-  <Type>File</Type>
-</ErroredEntity><CopyLog Summary="Summary">
-  <Status>Failed</Status>
-  <TotalFiles_Blobs>72</TotalFiles_Blobs>
-  <FilesErrored>2</FilesErrored>
-</CopyLog>
-```
 ### <a name="upload-completed-with-warnings"></a>Chargement terminé avec des avertissements
 
-Le chargement dans Azure s’effectue avec des avertissements si vos données ont des noms de conteneur/d’objet blob/de fichier qui ne sont pas conformes aux conventions de nommage Azure et que les noms ont été modifiés pour charger les données dans Azure.
+Le chargement vers Azure se termine par des avertissements si les noms de conteneur, de blob ou de fichier de vos données n’étaient pas conformes aux conventions d’affectation de noms d’Azure et que les noms ont été modifiés afin de charger les données vers Azure.
 
 ![Chemin du journal de copie dans le panneau Vue d’ensemble avec des avertissements](media/data-box-logs/copy-log-path-3.png)
 
-Voici un exemple de journal de copie où les conteneurs non conformes aux conventions de nommage Azure ont été renommés lors du chargement des données dans Azure.
+Voici un exemple de journal de copie où les conteneurs non conformes aux conventions d’affectation de noms d’Azure ont été renommés lors du chargement des données vers Azure.
 
-Les nouveaux noms uniques des conteneurs sont au format `DataBox-GUID` et les données du conteneur sont placées dans le nouveau conteneur renommé. Le journal de copie spécifie l’ancien et le nouveau nom du conteneur.
+Les noms uniques des nouveaux conteneurs sont au format `DataBox-GUID`. Les données des conteneurs d’origine sont placées dans les nouveaux conteneurs renommés. Le journal de copie spécifie les noms de l’ancien et du nouveau conteneur.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -268,7 +243,7 @@ Les nouveaux noms uniques des conteneurs sont au format `DataBox-GUID` et les do
 </ErroredEntity>
 ```
 
-Voici un exemple de journal de copie où les objets blob ou fichiers non conformes aux conventions de nommage Azure ont été renommés lors du chargement des données dans Azure. Les nouveaux noms des objets blob ou fichiers sont convertis avec le code de hachage SHA256 du chemin d’accès relatif au conteneur et sont chargés vers le chemin d’accès, en fonction du type de destination. Il peut s’agir d’objets blob de blocs, d’objets blob de pages ou fichiers Azure Files.
+Voici un exemple de journal de copie dans lequel des blobs ou des fichiers non conformes aux conventions d’affectation de noms d’Azure ont été renommés lors du chargement des données vers Azure. Les nouveaux noms de blob ou de fichier sont convertis en code de hachage SHA256 du chemin d’accès relatif au conteneur et sont chargés vers le chemin d’accès, en fonction du type de destination. Il peut s’agir d’objets blob de blocs, d’objets blob de pages ou fichiers Azure Files.
 
 Le `copylog` spécifie l’ancien et le nouveau nom de l’objet blob ou du fichier et son chemin d’accès dans Azure.
 
@@ -289,6 +264,35 @@ Le `copylog` spécifie l’ancien et le nouveau nom de l’objet blob ou du fich
   <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
   <Type>File</Type>
 </ErroredEntity>
+```
+
+
+### <a name="upload-completed-with-errors"></a>Chargement terminé avec des erreurs
+
+Le chargement vers Azure peut également se terminer avec des erreurs.
+
+![Chemin du journal de copie dans le panneau Vue d’ensemble avec des erreurs](media/data-box-logs/copy-log-path-2.png)
+
+Il peut arriver qu’une erreur non renouvelable empêche le chargement d’un fichier. Dans ce cas, vous recevez une notification. Pour plus d’informations sur le suivi de la notification, consultez [Examiner les erreurs de copie dans les chargements de données à partir d’appareils Azure Data Box et Azure Data Box Heavy](data-box-troubleshoot-data-upload.md).
+
+Voici un exemple de journal de copie pour un chargement terminé avec des erreurs :
+
+```xml
+<ErroredEntity Path="iso\samsungssd.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><CopyLog Summary="Summary">
+  <Status>Failed</Status>
+  <TotalFiles_Blobs>72</TotalFiles_Blobs>
+  <FilesErrored>2</FilesErrored>
+</CopyLog>
 ```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Obtenir les journaux d’activité de chaîne de responsabilité après l’effacement des données

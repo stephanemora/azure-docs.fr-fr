@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 6e281931eb4646e09bb9aa3226ed7d0735c84e3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74ea971a16d1c16be17f16cc5345e162fd974f43
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643777"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutoriel : Intégration d’Azure Active Directory à EverBridge
 
@@ -79,8 +79,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Pour configurer l’application **EverBridge** en tant que **portail de manager EverBridge**, dans la section **Configuration SAML de base**, procédez comme suit :
 
-    ![Informations d’authentification unique du domaine et des URL EverBridge](common/idp-intiated.png)
-
     a. Dans la zone **Identificateur**, entrez une URL en suivant le modèle.
     `https://sso.everbridge.net/<API_Name>`
 
@@ -94,15 +92,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
   * Si vous voulez configurer l’application en mode lancé par le fournisseur d’identité, procédez comme suit :
 
-     ![Informations d’authentification unique du domaine et des URL EverBridge en mode lancé par le fournisseur d’identité](common/idp-intiated.png)
-
     a. Dans la zone **Identificateur**, entrez une URL en suivant le modèle `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
     b. Dans la zone **URL de réponse**, entrez une URL en suivant le modèle `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
    * Si vous voulez configurer l’application en mode lancé par le fournisseur de services, sélectionnez **Définir des URL supplémentaires**, puis procédez comme suit :
-
-     ![Informations d’authentification unique du domaine et des URL EverBridge en mode lancé par le fournisseur de services](common/both-signonurl.png)
 
      a. Dans la zone **URL de connexion**, entrez une URL en suivant le modèle `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
@@ -141,15 +135,15 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-everbridge-sso"></a>Configurer l’authentification SSO pour Everbridge
+## <a name="configure-everbridge-sso"></a>Configurer l’authentification SSO pour Everbridge
 
 Pour configurer l’authentification unique sur **EverBridge** comme une application de **portail de manager EverBridge**, procédez comme suit.
  
 1. Dans une autre fenêtre de navigateur web, connectez-vous à EverBridge en tant qu’administrateur.
 
-1. Dans le menu situé en haut, cliquez sur l’onglet **Paramètres**. Sous **Sécurité**, sélectionnez **Authentification unique**.
+1. Dans le menu du haut, cliquez sur l’onglet **Paramètres**. Sous **Sécurité**, sélectionnez **Authentification unique pour le portail des gestionnaires**.
    
-     ![Configurer l’authentification unique](./media/everbridge-tutorial/sso.png)
+     ![Configurer l’authentification unique](./media/everbridge-tutorial/settings.png)
    
      a. Dans la zone **Nom**, entrez le nom du fournisseur d’identité. Exemple : le nom de votre société.
    
@@ -165,7 +159,7 @@ Pour configurer l’authentification unique sur **EverBridge** comme une applica
 
      g. Sélectionnez **Enregistrer**.
 
-### <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Configurer l’authentification SSO sur Everbridge sous forme d’un portail de membre Everbridge
+## <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Configurer l’authentification SSO sur Everbridge sous forme d’un portail de membre Everbridge
 
 Pour configurer l’authentification unique sur **EverBridge** en tant que **portail de membre EverBridge**, envoyez le fichier **XML des métadonnées de fédération** à l’[équipe de support technique EverBridge](mailto:support@everbridge.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
@@ -173,7 +167,7 @@ Pour configurer l’authentification unique sur **EverBridge** en tant que **por
 
 Dans cette section, vous allez créer l’utilisateur de test appelé Britta Simon dans EverBridge. Pour ajouter des utilisateurs dans la plateforme EverBridge, contactez l’[équipe de support technique EverBridge](mailto:support@everbridge.com). Les utilisateurs doivent être créés et activés dans EverBridge pour que vous puissiez utiliser l’authentification unique. 
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 

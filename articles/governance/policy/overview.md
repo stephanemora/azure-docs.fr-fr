@@ -3,12 +3,12 @@ title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
 ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: 8d261cc958a104b4a11a6f82a8f86352159c0275
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: b9cd2becc0c1241c34b7cd887a274088296150ba
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323696"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733480"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -137,9 +137,9 @@ Une définition d’initiative est une collection de définitions de stratégie 
 
 Dans cette initiative, vous avez par exemple des définitions de stratégie comme celles-ci :
 
-- **Surveiller les bases de données non chiffrées dans Security Center** : pour surveiller les bases de données et les serveurs SQL Server non chiffrés.
-- **Surveiller les vulnérabilités du système d’exploitation dans Security Center** : pour surveiller les serveurs qui ne répondent pas à la ligne de base configurée.
-- **Surveiller l’absence d’Endpoint Protection dans Security Center** : pour surveiller les serveurs où un agent Endpoint Protection n’est pas installé.
+- **Surveiller une base de données SQL non chiffrée dans Security Center** : pour surveiller les bases de données et les serveurs SQL Server non chiffrés.
+- **Surveiller les vulnérabilités du système d’exploitation dans Security Center** : pour surveiller les serveurs qui ne répondent pas à la ligne de base configurée.
+- **Surveiller l’absence d’Endpoint Protection dans Security Center** : pour surveiller les serveurs où un agent Endpoint Protection n’est pas installé.
 
 Comme les paramètres de stratégie, les paramètres d’initiative permettent de simplifier la gestion en réduisant la redondance. Les paramètres d’initiative sont les paramètres utilisés par les définitions de stratégie dans l’initiative.
 
@@ -153,7 +153,7 @@ Par exemple, imaginons un scénario où vous avez une définition d’initiative
 Dans ce scénario, quand vous définissez les paramètres d’initiative pour **initiativeC**, vous avec trois options :
 
 - Utilisez les paramètres des définitions de stratégie dans cette initiative : Dans cet exemple, _allowedLocations_ et _allowedSingleLocation_ deviennent des paramètres d’initiative pour **initiativeC**.
-- Fournir des valeurs pour les paramètres des définitions de stratégie dans la définition de cette initiative. Dans cet exemple, vous pouvez fournir une liste d’emplacements au paramètre de **policyA** (**allowedLocations**) et au paramètre de **policyB** (**allowedSingleLocation**. Vous pouvez également fournir des valeurs lors de l’affectation de cette initiative.
+- Fournir des valeurs pour les paramètres des définitions de stratégie dans la définition de cette initiative. Dans cet exemple, vous pouvez fournir une liste d’emplacements au paramètre de **policyA** (**allowedLocations**) et au paramètre de **policyB** (**allowedSingleLocation**). Vous pouvez également fournir des valeurs lors de l’affectation de cette initiative.
 - Fournir une liste d’options de _valeurs_ qui peuvent être utilisées lors de l’affectation de cette initiative. Lorsque vous affectez cette initiative, les paramètres hérités des définitions de stratégie dans l’initiative peuvent avoir seulement des valeurs provenant de cette liste fournie.
 
 Lorsque vous créez des options de valeur dans une définition d’initiative, vous ne pouvez pas entrer de valeur différente lors de l’affectation d’initiative, car elle ne fait pas partie de la liste.

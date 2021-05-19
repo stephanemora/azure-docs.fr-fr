@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/26/2021
+ms.date: 05/06/2021
 ms.author: rolyon
-ms.openlocfilehash: b285755d24cdbf1f8ef06eb850fc218a00734f16
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 96eb88bf1e62753cff5606881af471d32bf1e85c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771728"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483684"
 ---
 # <a name="list-azure-role-definitions"></a>Lister les définitions de rôles Azure
 
@@ -28,7 +28,7 @@ Pour voir la liste des rôles d’administrateur pour Azure Active Directory, co
 
 Suivez ces étapes pour lister tous les rôles dans le portail Azure.
 
-Pour voir une mise à jour de l’expérience relative aux rôles, consultez l’onglet **Rôles (préversion)** , qui est en préversion publique. L’onglet **Rôles (préversion)** affiche la même liste de rôles que l’onglet **Rôles** avec quelques fonctionnalités supplémentaires. Vous pouvez utiliser l’un ou l’autre des onglets Rôles pour utiliser vos rôles. Toutefois, si vous créez ou supprimez des rôles personnalisés, vous devrez peut-être actualiser manuellement la page pour voir les derniers changements apportés.
+L’onglet **Rôles** a été récemment mis à jour avec des fonctionnalités supplémentaires. Si vous voulez consulter l’expérience précédente, consultez l’onglet **Rôles (classiques)** . Vous pouvez utiliser l’un ou l’autre des onglets Rôles pour utiliser vos rôles. Toutefois, si vous créez ou supprimez des rôles personnalisés, vous devrez peut-être actualiser manuellement la page pour voir les derniers changements apportés.
 
 #### <a name="roles"></a>[Rôles](#tab/roles/)
 
@@ -40,21 +40,7 @@ Pour voir une mise à jour de l’expérience relative aux rôles, consultez l�
 
 1. Cliquez sur l’onglet **Rôles** pour afficher une liste de tous les rôles intégrés et personnalisés.
 
-   Vous pouvez voir le nombre d’utilisateurs et de groupes affectés à chaque rôle dans cette étendue.
-
-   ![Liste de rôles](./media/role-definitions-list/roles-list-current.png)
-
-#### <a name="roles-preview"></a>[Rôles (préversion)](#tab/roles-preview/)
-
-1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
-
-1. Cliquez sur la ressource spécifique.
-
-1. Cliquez sur **Contrôle d’accès (IAM)** .
-
-1. Cliquez sur l’onglet **Rôles (préversion)** pour voir une liste de tous les rôles intégrés et personnalisés.
-
-   ![Liste des rôles avec la préversion](./media/role-definitions-list/roles-list.png)
+   ![Capture d’écran montrant la liste des rôles avec une nouvelle expérience.](./media/role-definitions-list/roles-list.png)
 
 1. Pour voir les autorisations d’un rôle en particulier, dans la colonne **Détails**, cliquez sur le lien **Voir**.
 
@@ -62,7 +48,21 @@ Pour voir une mise à jour de l’expérience relative aux rôles, consultez l�
 
 1. Cliquez sur l’onglet **Autorisations** pour voir et rechercher les autorisations relatives au rôle sélectionné.
 
-   ![Autorisations relatives aux rôles avec la préversion](./media/role-definitions-list/role-permissions.png)
+   ![Capture d’écran montrant les autorisations de rôles avec une nouvelle expérience.](./media/role-definitions-list/role-permissions.png)
+
+#### <a name="roles-classic"></a>[Rôles (classiques)](#tab/roles-classic/)
+
+1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
+
+1. Cliquez sur la ressource spécifique.
+
+1. Cliquez sur **Contrôle d’accès (IAM)** .
+
+1. Cliquez sur l’onglet **Rôles (classiques)** pour voir une liste de tous les rôles intégrés et personnalisés.
+
+   Vous pouvez voir le nombre d’utilisateurs et de groupes affectés à chaque rôle dans cette étendue.
+
+   ![Liste de rôles](./media/role-definitions-list/roles-list-classic.png)
 
 ---
 

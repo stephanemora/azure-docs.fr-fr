@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: d8dee086f55c5596af50245b5271d98536eb7e57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe58822755959b35fce2a7e714b6e81c2ca58c2c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026197"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518123"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Concevoir une base de données multilocataire avec Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -62,6 +62,9 @@ CREATE TABLE campaigns (
   PRIMARY KEY (company_id, id)
 );
 ```
+
+>[!NOTE]
+> Cet article contient des références au terme *mis sur liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Chaque campagne paiera pour afficher des publicités. Ajoutez également une table pour les publicités, en exécutant le code suivant dans psql après le code ci-dessus :
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel : Exécuter un script Python « Hello World! »'
 titleSuffix: Azure Machine Learning
-description: La partie 2 de notre série de tutoriels sur la prise en main d’Azure Machine Learning explique comment soumettre un script Python « Hello World » simple dans le cloud.
+description: La partie 1 de la série de tutoriels sur la prise en main d’Azure Machine Learning explique comment soumettre un script Python « Hello World! » simple dans le cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 02/11/2021
+ms.date: 04/27/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 4f2b01b7a04958c4bd1f97332b54a1ff4fc32356
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d50105b88c7c719aa1d89aaa3f29fad43abc0a28
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522323"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740760"
 ---
-# <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutoriel : Exécuter un script Python « Hello World! » (partie 2 sur 4)
+# <a name="tutorial-run-a-hello-world-python-script-part-1-of-3"></a>Tutoriel : Exécuter un script Python « Hello World! » (partie 1 sur 3)
 
 Dans ce tutoriel, vous allez découvrir comment utiliser le SDK Azure Machine Learning pour Python pour soumettre et exécuter un script Python « Hello World! ».
 
-Ce tutoriel constitue la *partie 2 d’une série de quatre tutoriels* où vous découvrez les principes fondamentaux d’Azure Machine Learning et comment effectuer des tâches de machine learning basées sur des travaux dans Azure. Ce tutoriel s’appuie sur les exercices que vous avez effectués dans [Partie 1 : Configurer votre machine locale pour Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
+Ce tutoriel constitue la *partie 1 d’une série de trois tutoriels* où vous découvrez les principes fondamentaux d’Azure Machine Learning ainsi que l’exécution de tâches de machine learning basées sur des travaux dans Azure. 
 
 Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
-> * Créer et exécuter un script Python « Hello World! » localement.
+> * Créer et exécuter un script Python « Hello World! » Script Python.
 > * Créer un script de contrôle Python pour soumettre « Hello World » à Azure Machine Learning.
 > * Comprendre les concepts d’Azure Machine Learning en matière de script de contrôle.
 > * Soumettre et exécuter le script « Hello world! ».
@@ -35,42 +35,60 @@ Ce didacticiel présente les procédures suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avoir effectué la [partie 1](tutorial-1st-experiment-sdk-setup-local.md) si vous n’avez pas déjà un espace de travail Azure Machine Learning.
+- Suivez les instructions contenues dans [Démarrage rapide : Configurer l’espace de travail pour bien démarrer avec Azure Machine Learning](quickstart-create-resources.md) afin de créer un espace de travail, une instance de calcul et un cluster de calcul à utiliser dans cette série de tutoriels.
 
-## <a name="create-and-run-a-python-script-locally"></a>Créer et exécuter un script Python en local
+## <a name="create-and-run-a-python-script"></a>Créer et exécuter un script Python
 
-Créez un sous-répertoire appelé `src` sous le répertoire `tutorial` pour stocker le code que vous souhaitez exécuter sur un cluster de calcul Azure Machine Learning. Dans le sous-répertoire `src`, créez le script Python `hello.py` :
+Ce tutoriel utilise l’instance de calcul sur votre ordinateur de développement.  Commencez par créer quelques dossiers ainsi que le script :
+
+1. Connectez-vous au [studio Azure Machine Learning](https://ml.azure.com), puis sélectionnez votre espace de travail si vous y êtes invité.
+1. Sur la gauche, sélectionnez **Notebooks**.
+1. Dans la barre d’outils **Fichiers**, sélectionnez **+** , puis **Créer un dossier**.
+  :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-folder.png" alt-text="La capture d’écran montre la création d’un dossier à partir de la barre d’outils.":::
+1. Nommez le dossier **get-started**.
+1. À droite du nom du dossier, utilisez **...** pour créer un autre dossier sous **get-started**.
+  :::image type="content" source="media/tutorial-1st-experiment-hello-world/create-sub-folder.png" alt-text="La capture d’écran montre le menu de création d’un sous-dossier.":::
+1. Nommez le nouveau dossier **src**.  Utilisez le lien **Modifier l’emplacement** si l’emplacement du fichier n’est pas correct.
+1. À droite du dossier **src**, utilisez **...** pour créer un fichier dans le dossier **src**. 
+1. Nommez le fichier *hello.py*.  Changez le **Type de fichier** en *Python (* .py)*.
+
+Copiez ce code dans votre fichier :
 
 ```python
 # src/hello.py
 print("Hello world!")
 ```
 
-La structure du répertoire de votre projet doit maintenant ressembler à ce qui suit :
+La structure de dossiers du projet ressemble désormais à : 
 
-:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="La structure de répertoires affiche hello.py dans le sous-répertoire src":::
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="La structure de dossiers montre hello.py dans le sous-dossier src.":::
 
 
-### <a name="test-your-script-locally"></a><a name="test"></a>Valider votre script en local
+### <a name="test-your-script"></a><a name="test"></a>Tester votre script
 
-Vous pouvez exécuter votre code localement en utilisant votre IDE favori ou un terminal. L’exécution locale du code présente l’avantage de pouvoir déboguer le code en mode interactif.  Dans la fenêtre qui contient l’environnement Conda *tutorial1* activé, exécutez le fichier Python :
+Vous pouvez exécuter votre code localement, ce qui signifie dans le cas présent sur l’instance de calcul. L’exécution locale du code présente l’avantage de pouvoir déboguer le code en mode interactif.  
 
-```bash
-cd <path/to/tutorial>
-python ./src/hello.py
-```
+Si vous avez arrêté l’instance de calcul, démarrez-la maintenant avec l’outil **​​Démarrer le calcul** situé à droite de la liste déroulante Calculer. Attendez environ une minute que l’état passe à *Exécution en cours*.
+
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/start-compute.png" alt-text="La capture d’écran montre le démarrage de l’instance de calcul, si elle est arrêtée":::
+
+Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script.
+
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/save-run-in-terminal.png" alt-text="La capture d’écran montre l’outil permettant d’enregistrer et d’exécuter le script dans le terminal à partir de la barre d’outils":::
+
+Vous voyez la sortie du script dans la fenêtre du terminal au moment où elle s’ouvre. Fermez l’onglet, puis sélectionnez **Terminer** pour fermer la session.
 
 > [!div class="nextstepaction"]
 > [J’ai exécuté le script localement](?success=run-local#control-script) [J’ai rencontré un problème](https://www.research.net/r/7C2NTH7?issue=run-local)
 
 ## <a name="create-a-control-script"></a><a name="control-script"></a> Créer un script de contrôle
 
-Un *script de contrôle* vous permet d’exécuter votre script `hello.py` dans le cloud. Vous utilisez le script de contrôle pour contrôler comment et où votre code de machine learning est exécuté.  
+Un *script de contrôle* vous permet d’exécuter votre script `hello.py` sur différentes ressources de calcul. Vous utilisez le script de contrôle pour contrôler comment et où votre code de machine learning est exécuté.  
 
-Dans le répertoire de votre tutoriel, créez un nouveau fichier Python appelé `03-run-hello.py` et copiez-collez le code suivant dans ce fichier :
+Sélectionnez **...** à la fin du dossier **get-started** pour créer un fichier.  Créez un fichier Python appelé *run-hello.py*, puis copiez/collez le code suivant dans ce fichier :
 
 ```python
-# tutorial/03-run-hello.py
+# get-started/run-hello.py
 from azureml.core import Workspace, Experiment, Environment, ScriptRunConfig
 
 ws = Workspace.from_config()
@@ -82,6 +100,9 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+
+> [!TIP]
+> Si vous avez utilisé un autre nom quand vous avez créé le cluster de calcul, veillez à modifier également ce nom dans le code `compute_target='cpu-cluster'`.
 
 ### <a name="understand-the-code"></a>Comprendre le code
 
@@ -133,24 +154,18 @@ Voici une description du fonctionnement du script de contrôle :
 
 ## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> Soumettre et exécuter votre code dans le cloud
 
-Exécutez votre script de contrôle, qui exécute à son tout `hello.py` sur le cluster de calcul que vous avez créé dans le [tutoriel de configuration](tutorial-1st-experiment-sdk-setup-local.md).
+Sélectionnez **Enregistrer et exécuter le script dans le terminal** pour exécuter le script de contrôle, qui à son tour exécute `hello.py` sur le cluster de calcul que vous avez créé dans le [tutoriel de configuration](quickstart-create-resources.md).
 
-
-```bash
-python 03-run-hello.py
-```
-
-> [!TIP]
-> Si l’exécution de ce code génère une erreur indiquant que vous n’avez pas accès à l’abonnement, consultez [Se connecter à un espace de travail](how-to-manage-workspace.md?tab=python#connect-multi-tenant) pour obtenir plus d’informations sur les options d’authentification.
+Dans le terminal, vous pouvez être invité à vous connecter pour vous authentifier.  Copiez le code et suivez le lien pour effectuer cette étape.
 
 > [!div class="nextstepaction"]
 > [J’ai soumis le code dans le cloud](?success=submit-to-cloud#monitor) [J’ai rencontré un problème](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Surveiller votre code dans le cloud en utilisant Studio
+## <a name="monitor-your-code-in-the-cloud-in-the-studio"></a><a name="monitor"></a>Superviser votre code dans le cloud à partir du studio
 
 La sortie de votre script va contenir un lien vers Studio qui se présente comme ceci : `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Suivez le lien.  Dans un premier temps, vous voyez l’état **Préparation en cours**.  Comptez 5 à 10 minutes pour la première exécution. Ceci est dû aux événements suivants :
+Suivez le lien.  Dans un premier temps, vous verrez l’état **En file d’attente** ou **Préparation en cours**.  Comptez 5 à 10 minutes pour la première exécution. Ceci est dû aux événements suivants :
 
 * Une image Docker est créée dans le cloud
 * Le cluster de calcul repasse de 0 à 1 nœud
@@ -158,7 +173,7 @@ Suivez le lien.  Dans un premier temps, vous voyez l’état **Préparation en c
 
 Les exécutions suivantes sont beaucoup plus rapides (environ 15 secondes), car l’image Docker est mise en cache sur le calcul. Vous pouvez le tester en renvoyant le code ci-dessous une fois la première exécution terminée.
 
-Une fois le travail terminé, accédez à l’onglet **Sorties + journaux**. Vous pouvez y voir un fichier `70_driver_log.txt` qui se présente comme ceci :
+Attendez environ 10 minutes.  Vous verrez un message indiquant que l’exécution s’est effectuée. Utilisez ensuite **Actualiser** pour voir l’état passer à *Effectué*.  Une fois le travail terminé, accédez à l’onglet **Sorties + journaux**. Vous pouvez y voir un fichier `70_driver_log.txt` qui se présente comme ceci :
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

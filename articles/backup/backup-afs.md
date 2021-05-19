@@ -2,13 +2,13 @@
 title: Sauvegarder des partages de fichiers Azure dans le portail Azure
 description: Découvrir comment utiliser le portail Azure pour sauvegarder des partages de fichiers Azure sauvegardés dans le coffre Recovery Services
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: e7f44a71388468be432bdfcb0eb2bf67c0fcc8ef
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 05/07/2021
+ms.openlocfilehash: e236980310889e84fe905861c5843f5a7b7039a2
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519933"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516755"
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 
@@ -25,7 +25,7 @@ Dans cet article, vous allez apprendre à :
 
 * [Découvrez](azure-file-share-backup-overview.md) la solution de sauvegarde de partage de fichiers Azure basée sur une capture instantanée de partage.
 * Assurez-vous que le partage de fichiers est présent dans l’un des [types de comptes de stockage pris en charge](azure-file-share-support-matrix.md).
-* Identifiez ou créez un [coffre Recovery Services](#create-a-recovery-services-vault) dans la même région que le compte de stockage hébergeant le partage de fichiers.
+* Identifiez ou créez un [coffre Recovery Services](#create-a-recovery-services-vault) dans la même région et le même abonnement que le compte de stockage hébergeant le partage de fichiers.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

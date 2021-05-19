@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78fd91e2ba7badb1936b8603c8ed089130b29ffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d64fd91d3f033c0a04c4936f11d096aa640942a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644063"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743882"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Présentation des identités externes dans Azure Active Directory
 
@@ -39,7 +39,7 @@ Le tableau ci-dessous fournit une comparaison détaillée des scénarios que vou
 | ---- | --- | --- |
 | **Scénario principal** | Collaboration à l’aide des applications Microsoft (Microsoft 365, Teams, etc.) ou de vos propres applications (applications SaaS, applications personnalisées, etc.).  | Gestion des identités et des accès pour les applications personnalisées ou SaaS modernes (pas les applications Microsoft internes).   |
 | **Usage prévu**    | Collaboration avec des partenaires commerciaux d’organisations externes tels que des fournisseurs, des partenaires et des distributeurs. Les utilisateurs apparaissent en tant qu’utilisateurs invités dans votre annuaire. Ces utilisateurs peuvent disposer ou non de services IT managés.  | Clients de votre produit. Ces utilisateurs sont gérés dans un annuaire Azure AD distinct.  |
-| **Fournisseurs d’identité pris en charge** | Les utilisateurs externes peuvent collaborer à l’aide de comptes professionnels, de comptes scolaires, de n’importe quelle adresse e-mail, de fournisseurs d’identité basés sur SAML et WS-Fed, de Gmail ou de Facebook.  | Utilisateurs consommateurs disposant de comptes d’application locaux (n’importe quel nom d’utilisateur ou adresse de messagerie), diverses identités sociales prises en charge et utilisateurs dotés d’une identité émise par le gouvernement ou une entreprise via la fédération directe.       |
+| **Fournisseurs d’identité pris en charge** | Les utilisateurs externes peuvent collaborer à l’aide de comptes professionnels, de comptes scolaires, de n’importe quelle adresse e-mail, de fournisseurs d’identité basés sur SAML et WS-Fed, de Gmail ou de Facebook.  | Utilisateurs consommateurs disposant de comptes d’application locaux (n’importe quel nom d’utilisateur ou adresse de messagerie), diverses identités sociales prises en charge et utilisateurs dotés d’une identité émise par le gouvernement ou une entreprise par le biais de la fédération des fournisseurs d’identité WS-Fed/SAML.       |
 | **Gestion des utilisateurs externes**   | Les utilisateurs externes sont gérés dans le même annuaire que les employés, mais sont généralement annotés en tant qu’utilisateurs invités. Les utilisateurs invités peuvent être gérés de la même façon que les employés, ajoutés aux mêmes groupes, etc.    | Les utilisateurs externes sont gérés dans l’annuaire Azure AD B2C. Ils sont gérés séparément du répertoire des partenaires et des employés de l’organisation (s’il existe).  |
 | **Authentification unique (SSO)**      | l’authentification unique (SSO) auprès de toutes les applications connectées à Azure AD est prise en charge. Par exemple, vous pouvez donner accès à des applications Microsoft 365 ou des applications locales, et à d’autres applications SaaS telles que Salesforce ou Workday.    | L’authentification unique auprès d’applications détenues par le client dans les clients Azure AD B2C est prise en charge. L’authentification unique auprès de Microsoft 365 ou d’autres applications SaaS Microsoft n’est pas prise en charge.    |
 | **Stratégie de sécurité et conformité**        | gérée par l’organisation hôte ou qui invite (par exemple, avec des [règles d’accès conditionnelles](conditional-access.md)). | Gérée par l’organisation via l’accès conditionnel et la protection d’identité.        |

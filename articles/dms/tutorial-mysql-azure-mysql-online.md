@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b7afc6c82f06e977caea90ac3e8d2355d56c920d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 561cc2a32ce7c9d3fd61fafb47326ce9c95cad45
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129762"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753198"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migration de MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
 Vous pouvez utiliser Azure Database Migration Service pour effectuer la migration de bases de données entre une instance locale de MySQL et [Azure Database pour MySQL](../mysql/index.yml), pour un temps d’arrêt minimal. En d’autres termes, la migration peut être effectuée avec un temps d’arrêt minimal de l’application. Dans ce tutoriel, vous allez effectuer la migration de l’exemple de base de données **Employees** à partir d’une instance MySQL 5.7 locale vers Azure Database pour MySQL, à l’aide d’une activité de migration en ligne dans Azure Database Migration Service.
 
 > [!IMPORTANT]
-> Le scénario de migration en ligne « MySQL vers Azure Database pour MySQL » sera remplacé par un scénario de migration hors connexion, très performant et en parallèle le 1er juin 2021. Pour les migrations en ligne, vous pouvez utiliser cette nouvelle offre ainsi que la [réplication des données entrantes](../mysql/concepts-data-in-replication.md). Vous pouvez également utiliser des outils open source tels que [MyDumper/MyLoader](https://centminmod.com/mydumper.html) avec la réplication des données entrantes pour les migrations en ligne. 
+> Le scénario de migration en ligne « MySQL vers Azure Database pour MySQL » **ne sera plus disponible après le 1er juin 2021**. Une [fonctionnalité de migration hors connexion](./tutorial-mysql-azure-mysql-offline-portal.md), parallélisée et hautement performante, est **désormais disponible en préversion** pour prendre en charge les migrations « MySQL vers Azure Database pour MySQL ». Pour les migrations en ligne, vous pouvez utiliser des outils open source comme [MyDumper/MyLoader](https://centminmod.com/mydumper.html) avec [réplication des données entrantes](/azure/mysql/concepts-data-in-replication).
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]

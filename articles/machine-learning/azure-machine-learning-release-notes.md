@@ -9,18 +9,51 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 1bdc439bc281338fc3df95f7d82784a5eebf7a4a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 55522324dc69fe0a433f012d28cbbde077b5ef04
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288541"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754170"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](/python/api/overview/azure/ml/intro) d’Azure Machine Learning.
 
 __Flux RSS__ : Recevez une notification quand cette page est mise à jour en copiant et collant l’URL suivante dans votre lecteur de flux : `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-05-10"></a>2021-05-10
+
+### <a name="azure-machine-learning-sdk-for-python-v1280"></a>SDK Azure Machine Learning pour Python v1.28.0
++ **Résolutions de bogue et améliorations**
+  + **azureml-automl-core**
+    + Ajout de la prise en charge de la version 2 du script de scoring AutoML qui gère les améliorations et est conforme à la spécification du concepteur
+  + **azureml-automl-runtime**
+    + Ajout de la prise en charge de la version 2 du script de scoring AutoML qui gère les améliorations et est conforme à la spécification du concepteur
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Ajout de la prise en charge de la version 2 du script de scoring AutoML qui gère les améliorations et est conforme à la spécification du concepteur
+  + **azureml-contrib-dataset**
+    + Description de la documentation mise à jour indiquant que libfuse doit être installé lors de l’utilisation du montage.
+  + **azureml-core**
+    +  Image de processeur par défaut mise à jour vers mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04 - Image de processeur par défaut mise à jour vers mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04
+    + Run.fail() est maintenant déprécié ; utilisez Run.tag() pour marquer l’exécution comme ayant échoué, ou utilisez Run.cancel() pour marquer l’exécution comme annulée.
+    + Description de la documentation mise à jour indiquant que libfuse doit être installé lors de l’utilisation du montage.
+    + Activation de l’audience dans l’authentification msi
+    +  Ajout de la prise en charge expérimentale de register_dask_dataframe () au jeu de données tabulaire.
+    + Prise en charge de DatabricksStep avec Azure Blob/ADL-S comme entrées/sorties et exposition des paramètres permit_cluster_restart pour permettre au client de décider si AML peut redémarrer le cluster lorsque la configuration d’accès aux E/S doit être ajoutée au cluster
+  + **azureml-dataprep**
+    + azureml-dataset-runtime prend désormais en charge les versions de pyarrow < 4.0.0
+  + **azureml-dataset-runtime**
+    + azureml-dataset-runtime prend désormais en charge les versions de pyarrow < 4.0.0
+  + **azureml-mlflow**
+    + Ajout de la prise en charge du déploiement sur AzureML via notre plug-in MLFlow.
+  + **azureml-pipeline-steps**
+    + Prise en charge de DatabricksStep avec Azure Blob/ADL-S comme entrées/sorties et exposition des paramètres permit_cluster_restart pour permettre au client de décider si AML peut redémarrer le cluster lorsque la configuration d’accès aux E/S doit être ajoutée au cluster
+  + **azureml-synapse**
+    + Activation de l’audience dans l’authentification msi
+  + **azureml-train-automl-client**
+    + Ajout d’un lien modifié pour le document de cible de calcul
 
 
 ## <a name="2021-04-19"></a>2021-04-19

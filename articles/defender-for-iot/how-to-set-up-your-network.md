@@ -3,12 +3,12 @@ title: Configurer votre réseau
 description: En savoir plus sur l’architecture de la solution, la préparation du réseau, les conditions préalables et d’autres informations nécessaires pour vous assurer que votre réseau est correctement configuré pour fonctionner avec les appliances Azure Defender pour IoT.
 ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: ed75995b7cbc3b051d77942698a5d0d948e6eef0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bbc627cccf12491d7e6eacedf834bbc845451082
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781804"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734972"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>À propos de la configuration du réseau d’Azure Defender pour IoT
 

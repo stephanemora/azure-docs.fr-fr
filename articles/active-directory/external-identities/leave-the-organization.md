@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/13/2019
+ms.date: 05/05/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc07e038ef382a44c4672b2d63c49d8f5a961cda
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87907176"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486312"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Quitter une organisation en tant qu’utilisateur invité
 
@@ -32,18 +32,18 @@ Pour quitter une organisation, procédez comme suit.
 1. Accédez à la page Profil Panneau d’accès en effectuant l’une des étapes suivantes :
    
    - Dans le [portail Azure](https://portal.azure.com), cliquez sur votre nom dans le coin supérieur droit et sélectionnez **Afficher le compte**.
-   - Ouvrez votre [Panneau d’accès](https://myapps.microsoft.com), cliquez sur votre nom dans le coin supérieur droit, puis sur **Organisations**, et sélectionnez l’icône Paramètres (engrenages).
+   - Ouvrez votre [Panneau d’accès](https://myapps.microsoft.com), cliquez sur votre nom dans le coin supérieur droit, puis sur **Organisations** et sélectionnez **Voir le compte**.
  
-   ![Capture d’écran des paramètres utilisateur dans le Panneau d’accès](media/leave-the-organization/UserSettings.png) 
-
-   > [!NOTE]
-   > Si vous n’êtes pas déjà connecté à l’organisation que vous souhaitez quitter, dans **Organisations**, cliquez sur le lien **Se connecter pour quitter l’organisation** en regard du nom de l’organisation. Une fois connecté, cliquez de nouveau sur votre nom dans le coin supérieur droit, puis sur **Organisations**, et sélectionnez l’icône Paramètres (engrenages).
-
+ 
+2. Sélectionnez **Gérer les organisations**.
+  ![Capture d’écran des paramètres utilisateur dans le Panneau d’accès](media/leave-the-organization/manage-organizations.png) 
+  
 3. Sous **Organisations**, recherchez l’organisation que vous voulez quitter, puis sélectionnez **Quitter l’organisation**.
 
-   ![Capture d’écran montrant l’option Quitter l’organisation dans l’interface utilisateur](media/leave-the-organization/LeaveOrg.png)
-
-4. Lorsque vous êtes invité à confirmer votre choix, sélectionnez **Quitter**. 
+   ![Capture d’écran montrant l’option Quitter l’organisation dans l’interface utilisateur](media/leave-the-organization/leave-org.png)
+4. Lorsque vous êtes invité à confirmer votre choix, sélectionnez **Quitter**.
+> [!NOTE]
+   > Vous ne pouvez pas quitter votre organisation d’origine.
 
 ## <a name="account-removal"></a>Suppression du compte
 

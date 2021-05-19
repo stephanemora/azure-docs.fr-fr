@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eeb189434eea2bf65bdbbc65f0fde5e922e95f14
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 175c1d7f2e6239c48358e5244cb82100ee4e20a2
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175403"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481190"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -91,7 +91,7 @@ L’exemple suivant `TechnicalProfile` envoie un e-mail de vérification à l’
 
 ## <a name="output-claims"></a>Revendications de sortie
 
-L’élément **OutputClaims** contient une liste de revendications retournée par l’API REST. Il se peut que vous deviez mapper le nom de la revendication définie dans votre stratégie au nom défini dans l’API REST. Vous pouvez également inclure des revendications qui ne sont pas retournées par le fournisseur d’identité de l’API REST, pour autant que vous définissiez l’attribut `DefaultValue`.
+L’élément **OutputClaims** contient une liste de revendications retournée par l’API REST. Il se peut que vous deviez mapper le nom de la revendication définie dans votre stratégie au nom défini dans l’API REST. Vous pouvez également inclure des revendications qui ne sont pas renvoyées par l’API REST, pour autant que vous définissiez l’attribut `DefaultValue`.
 
 L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
 
@@ -117,7 +117,7 @@ Le profil technique retourne également des revendications, qui ne sont pas reto
 | ServiceUrl | Oui | URL du point de terminaison de l’API REST. |
 | AuthenticationType | Oui | Type de l’authentification effectuée par le fournisseur de revendications RESTful. Valeurs possibles : `None`, `Basic`, `Bearer`, `ClientCertificate` ou `ApiKeyHeader`. <br /><ul><li>La valeur `None` indique que l’API REST est anonyme. </li><li>La valeur `Basic` indique que l’API REST est sécurisée avec une authentification HTTP de base. Seuls des utilisateurs vérifiés, notamment Azure AD B2C, peuvent accéder à votre API. </li><li>La valeur `ClientCertificate` (recommandée) indique que l’API REST restreint l’accès à l’aide d’une authentification de certificat client. Seuls des services disposant des certificats appropriés, par exemple Azure AD B2C, peuvent accéder à votre API. </li><li>La valeur `Bearer` indique que l’API REST restreint l’accès à l’aide d’un jeton du porteur OAuth2 du client. </li><li>La valeur `ApiKeyHeader` indique que l’API REST est sécurisée par l’en-tête HTTP de la clé API, par exemple *x-functions-key*. </li></ul> |
 | AllowInsecureAuthInProduction| Non| Indique si `AuthenticationType` peut être défini sur `none` dans l’environnement de production (`DeploymentMode` de la stratégie [TrustFrameworkPolicy](trustframeworkpolicy.md) est défini sur `Production` ou n’est pas spécifié). Valeurs possibles : true ou false (par défaut). |
-| SendClaimsIn | Non | Spécifie la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful. Valeurs possibles : `Body` (par défaut), `Form`, `Header`, `Url` ou `QueryString`. La valeur `Body` est la revendication d’entrée envoyée dans le corps de la demande au format JSON. Le valeur `Form` est la revendication d’entrée envoyée dans le corps de la demande, dans un format de valeurs de clé séparées par des perluètes (&). La valeur `Header` est la revendication d’entrée envoyée dans l’en-tête de la demande. La valeur `Url` correspond à la revendication d’entrée qui est envoyée dans l’URL, par exemple, https://{claim1}.example.com/{claim2}/{claim3}?{claim4}={claim5}. La valeur `QueryString` est la revendication d’entrée envoyée dans la chaîne de requête de la demande. Les verbes HTTP appelés par chacune sont les suivants :<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
+| SendClaimsIn | Non | Spécifie la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful. Valeurs possibles : `Body` (par défaut), `Form`, `Header`, `Url` ou `QueryString`. <br /> La valeur `Body` est la revendication d’entrée envoyée dans le corps de la demande au format JSON. <br />Le valeur `Form` est la revendication d’entrée envoyée dans le corps de la demande, dans un format de valeurs de clé séparées par des perluètes (&). <br />La valeur `Header` est la revendication d’entrée envoyée dans l’en-tête de la demande. <br />La valeur `Url` est la revendication d’entrée envoyée dans l’URL, par exemple, https://api.example.com/{claim1}/{claim2}?{claim3}={claim4}. La partie nom d’hôte de l’URL ne peut pas contenir de revendications.  <br />La valeur `QueryString` est la revendication d’entrée envoyée dans la chaîne de requête de la demande. <br />Les verbes HTTP appelés par chacune sont les suivants :<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`Url`: GET</li><li>`QueryString`: GET</li></ul> |
 | ClaimsFormat | Non | Non utilisé actuellement, peut être ignoré. |
 | ClaimUsedForRequestPayload| Non | Nom d’une revendication de chaîne qui contient la charge utile à envoyer à l’API REST. |
 | DebugMode | Non | Exécute le profil technique en mode débogage. Valeurs possibles : `true` ou `false` (par défaut). En mode débogage, l’API REST peut retourner plus d’informations. Consultez la section [Retour de message d’erreur](#returning-validation-error-message). |
@@ -290,6 +290,6 @@ public class ResponseContent
 Consultez les articles suivants pour obtenir des exemples d’utilisation d’un profil technique RESTful :
 
 - [Intégrer les échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C](api-connectors-overview.md)
-- [Procédure pas à pas : Ajout d’un connecteur d’API à un flux utilisateur d’inscription](add-api-connector.md)
+- [Procédure pas à pas : ajouter un connecteur d’API à un flux d’utilisateur d’inscription](add-api-connector.md)
 - [Procédure pas à pas : Ajouter des échanges de revendications de l’API REST aux stratégies personnalisées dans Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
 - [Sécuriser vos services d’API REST](secure-rest-api.md)

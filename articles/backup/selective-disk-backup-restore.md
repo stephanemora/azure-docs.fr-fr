@@ -2,14 +2,14 @@
 title: Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 description: Dans cet article, découvrez la sauvegarde et la restauration sélectives de disques à travers la solution de sauvegarde de machine virtuelle Azure.
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 05/03/2021
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: e82c959dc63222e8565243cc9ac805283cab6617
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 296aea2e11dede1cd0eeaeb222e954c40cb99d3f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501825"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745646"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 
@@ -47,6 +47,9 @@ az account set -s {subscriptionID}
 ### <a name="configure-backup-with-azure-cli"></a>Configurer la sauvegarde avec Azure CLI
 
 Pendant l’opération de configuration de la protection, vous devez spécifier le paramètre de liste de disques avec un paramètre d’**inclusion** / **exclusion**, en indiquant les numéros LUN des disques à inclure ou à exclure dans la sauvegarde.
+
+>[!NOTE]
+>L’opération de configuration de la protection remplace les paramètres précédents, qui ne sont pas cumulatifs.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -124,6 +127,11 @@ Cette commande permet d’obtenir les détails des disques sauvegardés et des d
    "Excluded disk(s)": "diskextest_DataDisk_2",
 ```
 
+_BackupJobID_ est le nom du travail de sauvegarde. Pour extraire le nom du travail, exécutez la commande suivante :
+
+```azurecli
+az backup job list --resource-group {resourcegroup} --vault-name {vaultname}
+```
 ### <a name="list-recovery-points-with-azure-cli"></a>Lister les points de récupération avec Azure CLI
 
 ```azurecli
@@ -190,6 +198,9 @@ Quand vous exécutez ces commandes, vous voyez `"diskExclusionProperties": null`
 Veillez à utiliser Azure PowerShell version 3.7.0 ou supérieure.
 
 Pendant l’opération de configuration de la protection, vous devez spécifier le paramètre de liste de disques avec un paramètre d’inclusion/exclusion, en indiquant les numéros LUN des disques à inclure ou à exclure dans la sauvegarde.
+
+>[!NOTE]
+>L’opération de configuration de la protection remplace les paramètres précédents, qui ne sont pas cumulatifs.
 
 ### <a name="enable-backup-with-powershell"></a>Activer la sauvegarde avec PowerShell
 

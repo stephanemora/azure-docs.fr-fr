@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9b33658ff67c306085a36104679bcc855d0a3f58
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 14d3da16c8ebee0c32462cc916984536cdf943a9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208920"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734216"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Activer une identité managée pour le routage des événements Azure Digital Twins (préversion) : Portail Azure
 
@@ -60,7 +61,7 @@ Dans cette section, vous allez ajouter une identité managée par le système à
 
 1. Dans cette page, sélectionnez l’option **On** (Activer) pour activer cette fonctionnalité.
 
-1. Cliquez sur le bouton **Enregistrer** puis sur **Oui** pour confirmer.
+1. Sélectionnez le bouton **Enregistrer**, puis **Oui** pour confirmer.
 
     :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Capture d’écran du portail Azure, montrant la page Identité (préversion) pour une instance Azure Digital Twins. Une mise en surbrillance est appliquée au nom de la page dans le menu de l’instance Azure Digital Twins, à l’option On pour État, au bouton Enregistrer, et au bouton de confirmation Oui.":::
 
@@ -94,26 +95,20 @@ Pour plus d’informations sur les points de terminaison, les routes et les type
 Pour affecter un rôle à l’identité, commencez par ouvrir le [portail Azure](https://portal.azure.com).
 
 1. Accédez à votre ressource de point de terminaison (votre rubrique Event Hub, Service Bus, ou votre conteneur de stockage) en recherchant son nom dans la barre de recherche du portail. 
-1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche.
-1. Sélectionnez le bouton **+ Ajouter** pour ajouter une nouvelle attribution de rôle.
 
-    :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-1.png" alt-text="Capture d’écran du portail Azure, montrant la page Contrôle d’accès (IAM) pour une rubrique Event Hub. Le bouton +Ajouter est mis en surbrillance." lightbox="media/how-to-enable-managed-identities/add-role-assignment-1.png":::
+1. Sélectionnez **Contrôle d’accès (IAM)** .
 
-1. Sur la page **Ajouter une attribution de rôle** suivante, spécifiez les valeurs :
-    * **Rôle** : Sélectionnez le rôle souhaité dans le menu déroulant.
-    * **Attribuer l’accès à** : Sous **Identité managée affectée par le système**, sélectionnez **Digital Twins**.
-    * **Abonnement** : sélectionnez votre abonnement. Cela permet d’afficher toutes les identités managées Azure Digital Twins de l’abonnement sélectionné.
-    * **Select** : Ici, vous allez sélectionner l’identité gérée de votre instance Azure Digital Twins affectée au rôle. Dans la mesure où le nom de l’identité managée correspond au nom de l’instance, vous devez choisir le nom de votre instance d’Azure Digital Twins. Quand vous la sélectionnez, l’identité de l’instance s’affiche dans la section **Membres sélectionnés** au bas du volet.
+1. Sélectionnez **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir la page Ajouter une attribution de rôle.
 
-    :::row:::
-        :::column:::
-            :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-2.png" alt-text="Remplissage des champs répertoriés dans la boîte de dialogue « Ajouter une attribution de rôle »":::
-        :::column-end:::
-        :::column:::
-        :::column-end:::
-    :::row-end:::
-
-Lorsque vous avez fini d’entrer les détails, sélectionnez **Enregistrer**.
+1. Attribuez le rôle souhaité à l’identité gérée de votre instance Azure Digital Twins à l’aide des informations ci-dessous. Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+    
+    | Paramètre | Valeur |
+    | --- | --- |
+    | Role | Sélectionnez le rôle souhaité dans le menu déroulant. |
+    | Attribuer l’accès à | Sous **Identité managée affectée par le système**, sélectionnez **Digital Twins**. |
+    | Membres | Sélectionnez l’identité gérée de votre instance Azure Digital Twins affectée au rôle. Dans la mesure où le nom de l’identité managée correspond au nom de l’instance, vous devez choisir le nom de votre instance d’Azure Digital Twins. |
+    
+    ![Page Ajouter une attribution de rôle](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## <a name="create-an-endpoint-with-identity-based-authentication"></a>Créer un point de terminaison avec une authentification basée sur l’identité
 

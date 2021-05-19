@@ -4,12 +4,12 @@ description: Découvrez les fonctionnalités disponibles dans BareMetal pour une
 ms.topic: overview
 ms.subservice: workloads
 ms.date: 04/16/2021
-ms.openlocfilehash: b27dc4b857d553be791528cbd91aee70b2294a92
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 91ec416c6f7c98100bf8ee00af2c060219e54693
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600214"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518339"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Fonctionnalités de haute disponibilité pour Oracle sur Azure BareMetal
 
@@ -59,7 +59,7 @@ La restauration par progression peut être retardée pendant une période préd�
 
 La solution de stockage NetApp Files utilisée dans BareMetal vous permet de créer des instantanés de volumes. Les instantanés vous donne la possibilité de rétablir rapidement un système de fichiers à un point spécifique dans le temps. Les technologies d’instantané autorisent des durées d’objectifs de délai de récupération (RTO) représentant une fraction du temps nécessaire à la restauration d’une sauvegarde de base de données.
 
-La fonctionnalité de capture instantanée pour les bases de données Oracle est disponible via Azure NetApp SnapCenter. SnapCenter permet les captures instantanées pour la sauvegarde, SnapVault apporte un archivage hors connexion et Snap Clone active la restauration en libre-service ainsi que d’autres opérations.
+La fonctionnalité de capture instantanée pour les bases de données Oracle est disponible via Azure NetApp SnapCenter. SnapCenter permet les captures instantanées pour la sauvegarde, SnapVault apporte un archivage hors connexion et Snap Clone active la restauration en libre-service ainsi que d’autres opérations. Pour plus d’informations, consultez [Intégration de SnapCenter pour Oracle sur BareMetal Infrastructure](netapp-snapcenter-integration-oracle-baremetal.md).
 
 ## <a name="recovery-manager"></a>Gestionnaire de récupération
 

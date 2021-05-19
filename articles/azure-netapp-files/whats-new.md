@@ -12,18 +12,45 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/30/2021
+ms.date: 05/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 46e84814e27562097a4c5dc4e3daa1e5b36669f7
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c1c0545d333a27c9a7d78f0363dc00a905bd4aa6
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287824"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481856"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
 Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les dernières fonctionnalités et améliorations. 
+
+## <a name="may-2021"></a>Mai 2021
+
+* [Prise en charge des étiquettes de facturation du pool de capacité](manage-billing-tags.md)   
+
+    Azure NetApp Files prend maintenant en charge les étiquettes de facturation pour vous aider à référencer les coûts auprès des unités commerciales et autres consommateurs internes. Les étiquettes de facturation sont attribuées au niveau du pool de capacité et non au niveau du volume. Elles apparaissent sur la facture client.
+
+* [ADDS LDAP sur TLS](configure-ldap-over-tls.md) (préversion) 
+
+    Par défaut, les communications LDAP entre les applications clientes et serveur ne sont pas chiffrées. Cela signifie qu’il est possible d’utiliser un appareil ou logiciel de supervision réseau pour voir les communications entre un client LDAP et des ordinateurs serveurs. Ce scénario peut s’avérer problématique sur des réseaux virtuels non isolés ou partagés quand une simple liaison LDAP est utilisée, car les informations d’identification (nom d’utilisateur et mot de passe) utilisées pour lier le client LDAP au serveur LDAP sont transmises sur le réseau sans être chiffrées. LDAP sur TLS (également appelé LDAPS) est un protocole qui utilise TLS pour sécuriser les communications entre des clients LDAP et des serveurs LDAP. Azure NetApp Files prend maintenant en charge les communications sécurisées entre serveurs ADDS (Active Directory Domain Services) à l’aide du protocole LDAP sur TLS. Azure NetApp Files peut maintenant utiliser le protocole LDAP sur TLS pour configurer des sessions authentifiées entre des serveurs LDAP intégrés à Active Directory. Vous pouvez activer la fonctionnalité LDAP sur TLS pour des volumes NFS, SMB et à double protocole. Par défaut, LDAP sur TLS est désactivé sur Azure NetApp Files.  
+
+* Prise en charge de [métriques](azure-netapp-files-metrics.md) de débit    
+
+    Azure NetApp Files prend en charge les métriques supplémentaires suivantes :   
+    * Métriques de débit du pool de capacité
+        * *Pool alloué au débit du volume*
+        * *Débit consommé par le pool*
+        * *Pourcentage du pool alloué au débit du volume*
+        * *Pourcentage du débit consommé par le pool*
+    * Métriques de débit du volume
+        * *Débit alloué du volume*
+        * *Débit consommé par le volume*
+        * *Pourcentage du débit consommé par le volume*
+
+* Prise en charge de la [modification dynamique du niveau de service](dynamic-change-volume-service-level.md) des volumes de réplication   
+
+    Azure NetApp Files prend maintenant en charge la modification dynamique du niveau de service des volumes de réplication source et de destination.
 
 ## <a name="april-2021"></a>Avril 2021
 
@@ -115,11 +142,11 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
 * [Chiffrement NFS v4.1 Kerberos en transit](configure-kerberos-encryption.MD)
 
-    Azure NetApp Files prend désormais en charge le chiffrement client NFS dans les modes Kerberos (krb5, krb5i, et krb5p) avec le chiffrement AES-256, ce qui renforce la sécurité des données. Cette fonctionnalité est gratuite (le [coût de stockage Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) normal s’applique) et mise à la disposition générale. Pour en savoir plus, consultez la [documentation relative au chiffrement NFS v 4.1 Kerberos](configure-kerberos-encryption.MD).
+    Azure NetApp Files prend maintenant en charge le chiffrement client NFS dans les modes Kerberos (krb5, krb5i, et krb5p) avec le chiffrement AES-256, ce qui renforce la sécurité des données. Cette fonctionnalité est gratuite (le [coût de stockage Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) normal s’applique) et mise à la disposition générale. Pour en savoir plus, consultez la [documentation relative au chiffrement NFS v 4.1 Kerberos](configure-kerberos-encryption.MD).
 
-* [Modification du niveau de service d’un volume dynamique](dynamic-change-volume-service-level.MD)
+* [Changement du niveau de service d’un volume dynamique](dynamic-change-volume-service-level.MD) (préversion) 
 
-    Le cloud permet la flexibilité des dépenses informatiques. Vous pouvez désormais modifier le niveau de service d’un volume Azure NetApp Files existant en déplaçant le volume vers un autre pool de capacité qui utilise le niveau de service souhaité pour le volume. Cette modification sur place du niveau du service pour le volume ne nécessite pas de migration des données. Elle n’affecte pas non plus l’accès de plan de données au volume. Vous pouvez modifier un volume existant pour utiliser un niveau de service supérieur afin d’améliorer les performances, ou pour utiliser un niveau de service inférieur afin d’optimiser les coûts. Actuellement en préversion publique, cette fonctionnalité est gratuite (le [coût de stockage Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) normal s’applique). Vous pouvez vous inscrire à la préversion de la fonctionnalité en suivant la [documentation sur la modification du niveau de service d’un volume dynamique](dynamic-change-volume-service-level.md).
+    Le cloud permet la flexibilité des dépenses informatiques. Vous pouvez désormais modifier le niveau de service d’un volume Azure NetApp Files existant en déplaçant le volume vers un autre pool de capacité qui utilise le niveau de service souhaité pour le volume. Cette modification sur place du niveau du service pour le volume ne nécessite pas de migration des données. Elle n’affecte pas non plus l’accès de plan de données au volume. Vous pouvez modifier un volume existant pour utiliser un niveau de service supérieur afin d’améliorer les performances, ou pour utiliser un niveau de service inférieur afin d’optimiser les coûts. Cette fonctionnalité est gratuite (en revanche, le [coût normal du stockage Azure NetApp Files](https://azure.microsoft.com/pricing/details/netapp/) s’applique). Elle est actuellement en préversion. Vous pouvez vous inscrire à la préversion de la fonctionnalité en suivant la [documentation sur la modification du niveau de service d’un volume dynamique](dynamic-change-volume-service-level.md).
 
 * [Stratégie d’instantané de volume](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) (préversion) 
 

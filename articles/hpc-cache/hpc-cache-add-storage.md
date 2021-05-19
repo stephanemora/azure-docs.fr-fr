@@ -4,23 +4,23 @@ description: Comment définir des cibles de stockage pour qu’Azure HPC Cache p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/05/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: 81d361a82a05bed83156857b2381be0d6d113827
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: aae7d29abbb9ef18846e85e9a54ff0fb97f09181
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209892"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738515"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
 Les *cibles de stockage* constituent un stockage back-end pour des fichiers accessibles via un Azure HPC Cache. Vous pouvez ajouter un stockage NFS (comme un système local), ou stocker des données dans un objet blob Azure.
 
-Vous pouvez définir jusqu’à 20 cibles de stockage différentes pour un même cache. Le cache présente toutes les cibles de stockage d’un espace de noms agrégé.
+Vous pouvez définir 10 cibles de stockage différentes pour n’importe quel cache, et les caches plus volumineux peuvent [prendre en charge jusqu’à 20 cibles de stockage](#size-your-cache-correctly-to-support-your-storage-targets).
 
-Les chemins d’accès à l’espace de noms sont configurés séparément une fois que vous avez ajouté les cibles de stockage.
+Le cache présente toutes les cibles de stockage d’un espace de noms agrégé. Les chemins d’accès à l’espace de noms sont configurés séparément une fois que vous avez ajouté les cibles de stockage.
 
 N’oubliez pas que les exportations de stockage doivent être accessibles à partir du réseau virtuel de votre cache. Pour le stockage matériel local, vous devrez peut-être configurer un serveur DNS capable de résoudre les noms d’hôtes pour l’accès au stockage NFS. Pour plus d’informations, lisez [Accès DNS](hpc-cache-prerequisites.md#dns-access).
 
@@ -35,6 +35,15 @@ La procédure d’ajout d’une cible de stockage est légèrement différente s
 Cliquez sur l’image ci-dessous pour regarder une [vidéo de démonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) montrant comment créer un cache et ajouter une cible de stockage à partir du portail Azure.
 
 [![Miniature de vidéo : Azure HPC Cache : Configuration (cliquez pour visiter la page vidéo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+
+## <a name="size-your-cache-correctly-to-support-your-storage-targets"></a>Dimensionner correctement votre cache pour prendre en charge vos cibles de stockage
+
+Le nombre de cibles de stockage prises en charge dépend de la taille du cache définie lors de la création de ce dernier. Cette taille est une combinaison de la capacité de débit (en Go/s) et de la capacité de stockage (en To).
+
+* Jusqu’à 10 cibles de stockage : si vous choisissez la taille de stockage de cache la plus faible ou intermédiaire en guise de valeur de débit, votre cache peut avoir jusqu’à 10 cibles de stockage.
+* Jusqu’à 20 cibles de stockage : choisissez la taille de cache la plus élevée en guise de valeur de débit si vous souhaitez utiliser plus de 10 cibles de stockage. (Si vous utilisez Azure CLI, choisissez la taille de cache valide la plus élevée pour votre référence SKU de cache.)
+
+Pour plus d’informations sur les paramètres de débit et de taille de cache, consultez [Définir la capacité du cache](hpc-cache-create.md#set-cache-capacity) .
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Ajouter une cible de stockage Blob Azure
 

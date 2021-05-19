@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: f4cc631bd3ff05dc63566677ec96ef0360d362c9
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f36d5deb93f141bb7467a50d4b5dba7f3df1ea92
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517349"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517007"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explorer le centre des connaissances Synapse
 
@@ -51,7 +51,7 @@ Cette section comprend trois éléments :
 1. Faites défiler jusqu’à la première requête (lignes 28 à 32), puis sélectionnez le texte de la requête.
 1. Cliquez sur Exécuter. Cette opération exécute uniquement le code que vous avez sélectionné.
 
-## <a name="gallery-a-collectiopn-of-sample-data-sets-and-sample-code"></a>Galerie : une collection d’exemples de jeux de données et d’exemples de code
+## <a name="gallery-a-collection-of-sample-datasets-and-sample-code"></a>Galerie : une collection d’exemples de jeux de données et d’exemples de code
 
 1. Accédez au **Centre des connaissances**, puis cliquez sur **Browse gallery** (Parcourir la galerie).
 1. Sélectionnez l’onglet **SQL scripts** (Scripts SQL) en haut.

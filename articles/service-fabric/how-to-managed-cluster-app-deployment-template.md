@@ -1,18 +1,18 @@
 ---
-title: Déployer une application de cluster managé Service Fabric (préversion) à l’aide d’un modèle ARM
-description: Déployez une application sur un cluster managé Azure Service Fabric (préversion) à l’aide d’un modèle Azure Resource Manager.
+title: Déployer une application de cluster managé Service Fabric à l’aide d’un modèle ARM
+description: Déployez une application sur un cluster managé Azure Service Fabric à l’aide d’un modèle Azure Resource Manager.
 ms.topic: how-to
-ms.date: 02/15/2021
-ms.openlocfilehash: e860c77d77e3aabb70f70defdaa25de14e77e0e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 5/10/2021
+ms.openlocfilehash: 0712040032f0e7b33720df5bef1555652c27fbb0
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728009"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735617"
 ---
-# <a name="deploy-a-service-fabric-managed-cluster-preview-application-using-arm-template"></a>Déployer une application de cluster managé Service Fabric (préversion) à l’aide d’un modèle ARM
+# <a name="deploy-a-service-fabric-managed-cluster-application-using-arm-template"></a>Déployer une application de cluster managé Service Fabric à l’aide d’un modèle ARM
 
-Vous avez plusieurs options pour déployer des applications Azure Service Fabric sur votre cluster managé Service Fabric. Nous vous recommandons d’utiliser Azure Resource Manager. Si vous utilisez Resource Manager, vous pouvez décrire les applications et les services au format JSON, puis les déployer dans le même modèle Resource Manager que votre cluster. Contrairement à l’utilisation de PowerShell ou d’Azure CLI pour déployer et gérer des applications, si vous utilisez Resource Manager, vous n’avez pas besoin d’attendre que le cluster soit prêt. L’inscription, le provisionnement et le déploiement d’applications peuvent tous être réalisés en une seule étape. L’utilisation de Resource Manager est la meilleure façon de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez [Meilleures pratiques : Infrastructure en tant que code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+Vous avez plusieurs options pour déployer des applications Azure Service Fabric sur votre cluster managé Service Fabric. Nous vous recommandons d’utiliser Azure Resource Manager. Si vous utilisez Resource Manager, vous pouvez décrire les applications et les services au format JSON, puis les déployer dans le même modèle Resource Manager que votre cluster. Contrairement à l’utilisation de PowerShell ou d’Azure CLI pour déployer et gérer des applications, si vous utilisez Resource Manager, vous n’avez pas besoin d’attendre que le cluster soit prêt. L’inscription, le provisionnement et le déploiement d’applications peuvent tous être réalisés en une seule étape. L’utilisation de Resource Manager est la meilleure façon de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez [Meilleures pratiques : Infrastructure en tant que code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
 La gestion de vos applications en tant que ressources dans Resource Manager peut vous aider à obtenir des améliorations dans les domaines suivants :
 
@@ -101,25 +101,25 @@ L’exemple d’application contient des [modèles Azure Resource Manager](https
 
 ```json
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2021-01-01-preview",
+    "apiVersion": "2021-05-01",
     "type": "Microsoft.ServiceFabric/managedclusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -181,12 +181,10 @@ Pour supprimer une application qui a été déployée à l’aide du modèle de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Obtenir des informations sur le modèle de ressource de l’application :
+En savoir plus sur le déploiement d’applications de cluster managé :
 
-* [Modéliser une application dans Service Fabric](service-fabric-application-model.md)
-* [Manifestes des services et applications Service Fabric](service-fabric-application-and-service-manifests.md)
-* [Bonnes pratiques : Infrastructure en tant que code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
-* [Gérer des applications et services en tant que ressources Azure](service-fabric-best-practices-infrastructure-as-code.md)
+* [Déployer des secrets d’application de cluster managé](how-to-managed-cluster-application-secrets.md)
+* [Déployer des applications de cluster managé avec une identité managée](how-to-managed-cluster-application-managed-identity.md)
 
 
 <!--Image references-->

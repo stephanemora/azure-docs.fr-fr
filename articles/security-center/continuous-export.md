@@ -1,19 +1,18 @@
 ---
 title: L’exportation continue peut envoyer des alertes et des recommandations d’Azure Security Center à des espaces de travail Log Analytics ou à Azure Event Hubs
 description: Découvrez comment configurer l’exportation continue d’alertes et de recommandations de sécurité vers des espaces de travail Log Analytics ou vers Azure Event Hubs.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/24/2020
+ms.date: 05/05/2021
 ms.author: memildin
-ms.openlocfilehash: fc3774a01665b88ccae2e25ae8382497f8010c35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3a64b385cbac972fd55eae5c341b4ecb7a431d5b
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096970"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108732974"
 ---
 # <a name="continuously-export-security-center-data"></a>Exporter en continu des données Security Center
 
@@ -59,7 +58,7 @@ L’exportation continue peut exporter les types de données suivants à chaque 
 - Données de conformité réglementaire
 
 > [!NOTE]
-> L’exportation du score sécurisé et des données de conformité réglementaire est une fonctionnalité d’évaluation qui n’est pas disponible sur les clouds gouvernementaux. 
+> L’exportation du score sécurisé et des données de conformité réglementaire est une fonctionnalité d’évaluation. 
 
 ## <a name="set-up-a-continuous-export"></a>Configurer une exportation continue 
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 0fee7a7a58a6aabc7d545981b1f8b56033bf9857
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 2c2730025d39f03824489c6f46ae625de49ea0cf
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203754"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753540"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -219,6 +219,10 @@ Non, tous les tunnels VPN, y compris les VPN point à site, partagent la même p
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Puis-je configurer plusieurs tunnels entre mon réseau virtuel et mon site local à l'aide d’un VPN multisite ?
 
 Oui, mais vous devez configurer BGP sur les deux tunnels, au même emplacement.
+
+### <a name="does-azure-vpn-gateway-honor-as-path-prepending-to-influence-routing-decisions-between-multiple-connections-to-my-on-premises-sites"></a>La passerelle VPN Azure respecte-t-elle les préfixes de chemin AS pour influencer les décisions de routage entre plusieurs connexions à mes sites locaux ?
+
+Oui, la passerelle VPN Azure respecte les préfixes de chemin AS pour faciliter les décisions de routage lorsque le protocole BGP est activé. Un chemin AS plus court sera préférable dans la sélection du chemin BGP.
 
 ### <a name="can-i-use-point-to-site-vpns-with-my-virtual-network-with-multiple-vpn-tunnels"></a>Puis-je utiliser des réseaux VPN point à site avec mon réseau virtuel comportant plusieurs tunnels VPN ?
 

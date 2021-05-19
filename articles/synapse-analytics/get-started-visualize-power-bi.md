@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Prise en main d’Azure Synapse Analytics - Visualiser des données d’espace de travail avec Power BI'
-description: Dans ce tutoriel, découvrez comment créer un espace de travail Power BI, lier votre espace de travail Azure Synapse et créer un jeu de données Power BI qui utilise les données de l’espace de travail Azure Synapse.
+description: Dans ce tutoriel, vous allez apprendre à utiliser Power BI pour visualiser des données dans Azure Synapse Analytics.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 03/25/2021
-ms.openlocfilehash: 829daaa9c739657528a9085201c61c88635931d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fe830d277fa2e2ff57661500c3c56c0927637ab4
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608440"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516900"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualiser des données avec Power BI
 

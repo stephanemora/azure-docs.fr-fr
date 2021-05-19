@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: ad5bb6e45479b4cccfa0b002427066439135e468
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 8225d81b11553307b9675decf74c651eb8a5f9d4
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588443"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628065"
 ---
 # <a name="link-your-domain-to-your-decentralized-identifier-did"></a>Lier votre domaine à votre identificateur décentralisé (DID)
 
@@ -133,4 +133,4 @@ Félicitations, vous avez amorcé le web de confiance avec votre identificateur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si, lors de l’intégration, vous entrez des informations de domaine erronées ou que vous décidez de les modifier, vous devrez vous [désinscrire](how-to-opt-out.md). Nous ne prenons pas en charge la modification du document DID pour le moment. Le fait de se désinscrire puis de se réinscrire aura pour effet de créer un nouveau DID.
+Si, lors de l'intégration, vous entrez des informations de domaine erronées, ou si vous décidez de les modifier, vous devrez vous [désinscrire](how-to-opt-out.md). Nous ne prenons pas en charge la modification du document DID pour le moment. Le fait de se désinscrire puis de se réinscrire aura pour effet de créer un nouveau DID.

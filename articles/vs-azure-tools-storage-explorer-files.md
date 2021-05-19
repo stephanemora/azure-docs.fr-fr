@@ -1,5 +1,5 @@
 ---
-title: Utilisation de l’Explorateur Stockage avec le Stockage Fichier Azure | Microsoft Docs
+title: Utilisation de l’Explorateur Stockage avec Azure Files | Microsoft Docs
 description: Apprenez à utiliser l’Explorateur Stockage pour travailler avec des fichiers et des partages de fichiers.
 services: storage
 documentationcenter: na
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0387aaecd45a2f09acc8d9ad7af230a62da6ed1
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96488389"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628497"
 ---
-# <a name="using-storage-explorer-with-azure-file-storage"></a>Utilisation de l’Explorateur de stockage avec le Stockage Fichier Azure
+# <a name="using-storage-explorer-with-azure-files"></a>Utilisation de l’Explorateur de stockage avec Azure Files
 
-Azure Stockage Fichier est un service qui propose des partages de fichiers dans le cloud en utilisant le protocole SMB standard. Les protocoles SMB 2.1 et SMB 3.0 sont pris en charge. Avec le stockage de fichiers Azure, vous pouvez migrer vers Azure des applications héritées qui s’appuient sur des partages de fichiers, rapidement et sans réécritures onéreuses. Vous pouvez utiliser Stockage Fichier pour exposer les données publiquement au monde ou pour le stockage privé de données d’applications. Dans cet article, vous allez apprendre à utiliser l’Explorateur Stockage pour travailler avec des fichiers et des partages de fichiers.
+Azure Files est un service qui propose des partages de fichiers dans le cloud en utilisant le protocole SMB (Server Message Block) standard. Les protocoles SMB 2.1 et SMB 3.0 sont pris en charge. Avec Azure Files, vous pouvez migrer vers Azure des applications héritées qui s’appuient sur des partages de fichiers, rapidement et sans réécritures onéreuses. Vous pouvez utiliser Stockage Fichier pour exposer les données publiquement au monde ou pour le stockage privé de données d’applications. Dans cet article, vous allez apprendre à utiliser l’Explorateur Stockage pour travailler avec des fichiers et des partages de fichiers.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Pour pouvoir suivre les étapes de cet article, vous devrez :
 
 - [Vous connecter à un service ou un compte de stockage Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
-## <a name="create-a-file-share"></a>Créer un partage de fichiers
+## <a name="create-a-file-share"></a>Créer un partage de fichier
 
 Tous les fichiers doivent résider dans un partage de fichiers, c’est-à-dire un simple regroupement logique de fichiers. Un compte peut contenir un nombre illimité de partages de fichiers, et chaque partage de fichiers peut stocker un nombre illimité de fichiers.
 
@@ -41,7 +41,7 @@ Les étapes suivantes expliquent comment créer un partage de fichiers dans l’
 
 1. Ouvrez l’Explorateur de stockage.
 
-1. Dans le volet gauche, développez le compte de stockage dans lequel vous souhaitez créer le partage de fichiers.
+1. Dans le volet gauche, développez le compte de stockage dans lequel vous souhaitez créer le partage de fichiers
 
 1. Cliquez avec le bouton droit sur **Partages de fichiers**, puis sélectionnez **Créer un partage de fichiers** dans le menu contextuel.
 
@@ -145,7 +145,7 @@ Les étapes suivantes expliquent comment créer une signature d’accès partag�
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Gérer les stratégies d’accès d’un partage de fichiers
 
-Les étapes suivantes montrent comment gérer (ajouter et supprimer) les stratégies d’accès d’un partage de fichiers : Les stratégies d’accès sont utilisées pour créer des URL SAP permettant d’accéder à la ressource du fichier de stockage pendant une période définie.
+Les étapes suivantes montrent comment gérer (ajouter et supprimer) les stratégies d’accès d’un partage de fichiers : Les stratégies d’accès sont utilisées pour créer des URL SAP permettant d’accéder à la ressource Azure Files pendant une période définie.
 
 1. Ouvrez l’Explorateur de stockage.
 

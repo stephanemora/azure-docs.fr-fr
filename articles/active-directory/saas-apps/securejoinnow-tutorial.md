@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 024de5acfbc4e6c4aaa510de84c0bceb6bde2b3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f000cf2b58bb9f9b3c2077dbad490e6a4ff3da43
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92672970"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735902"
 ---
 # <a name="tutorial-integrate-securew2-joinnow-connector-with-azure-active-directory"></a>Tutoriel : Intégrer Azure Active Directory à SecureW2 JoinNow Connector
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer SecureW2 JoinNow Connector �
 * Contrôler, dans Azure AD, qui a accès à SecureW2 JoinNow Connector.
 * Autoriser les utilisateurs à se connecter automatiquement à SecureW2 JoinNow Connector avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,48 +37,43 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* SecureW2 JoinNow Connector prend en charge l’authentification unique initiée par le **fournisseur de services**
+* SecureW2 JoinNow Connector prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-
-
-
-
-## <a name="adding-securew2-joinnow-connector-from-the-gallery"></a>Ajout de SecureW2 JoinNow Connector à partir de la galerie
+## <a name="add-securew2-joinnow-connector-from-the-gallery"></a>Ajouter SecureW2 JoinNow Connector à partir de la galerie
 
 Pour configurer l’intégration de SecureW2 JoinNow Connector à Azure AD, vous devez ajouter SecureW2 JoinNow Connector à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **SecureW2 JoinNow Connector** dans la zone de recherche.
 1. Sélectionnez **SecureW2 JoinNow Connector** dans le panneau de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-securew2-joinnow-connector"></a>Configurer et tester l’authentification unique Azure AD pour SecureW2 JoinNow Connector
 
 Configurez et testez l’authentification unique Azure AD avec SecureW2 JoinNow Connector à l’aide d’un utilisateur de test nommé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans SecureW2 JoinNow Connector.
 
-Pour configurer et tester l’authentification unique Azure AD avec SecureW2 JoinNow Connector, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec SecureW2 JoinNow Connector, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique SecureW2 JoinNow Connector](#configure-securew2-joinnow-connector-sso)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test SecureW2 JoinNow Connector](#create-securew2-joinnow-connector-test-user)** pour avoir un équivalent de B.Simon dans SecureW2 JoinNow Connector lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique SecureW2 JoinNow Connector](#configure-securew2-joinnow-connector-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test SecureW2 JoinNow Connector](#create-securew2-joinnow-connector-test-user)** pour avoir un équivalent de B.Simon dans SecureW2 JoinNow Connector lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SecureW2 JoinNow Connector**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **SecureW2 JoinNow Connector**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
 
@@ -97,9 +90,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="configure-securew2-joinnow-connector-sso"></a>Configurer l’authentification unique SecureW2 JoinNow Connector
-
-Pour configurer l’authentification unique du côté de **SecureW2 JoinNow Connector**, vous devez envoyer les **métadonnées XML** téléchargées et les URL appropriées copiées à partir du portail Azure à [l’équipe du support technique de SecureW2 JoinNow Connector](mailto:support@securew2.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -119,31 +109,29 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **SecureW2 JoinNow Connector**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-securew2-joinnow-connector-sso"></a>Configurer l’authentification unique SecureW2 JoinNow Connector
+
+Pour configurer l’authentification unique du côté de **SecureW2 JoinNow Connector**, vous devez envoyer les **métadonnées XML** téléchargées et les URL appropriées copiées à partir du portail Azure à [l’équipe du support technique de SecureW2 JoinNow Connector](mailto:support@securew2.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-securew2-joinnow-connector-test-user"></a>Créer un utilisateur de test SecureW2 JoinNow Connector
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SecureW2 JoinNow Connector. Rapprochez-vous de l’[équipe de support SecureW2 JoinNow Connector](mailto:support@securew2.com) pour ajouter les utilisateurs dans la plateforme SecureW2 JoinNow Connector. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Le fait de cliquer sur la mosaïque SecureW2 JoinNow Connector dans le volet d’accès doit vous connecter automatiquement à l’application SecureW2 JoinNow Connector pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion de SecureW2 JoinNow Connector, où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion de SecureW2 JoinNow Connector pour lancer le flux de connexion à partir de là.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SecureW2 JoinNow Connector dans Mes applications vous redirige vers l’URL de connexion de SecureW2 JoinNow Connector. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Après avoir configuré SecureW2 JoinNow Connector, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

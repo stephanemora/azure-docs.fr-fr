@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2021
 ms.author: jeedes
-ms.openlocfilehash: d21ccdcb1f3854733d045b47a5f43e27bbdf4ccb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79153734beb9ddc8bb43c1c4928844c5d4bd18e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98807913"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739987"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Box
 
@@ -153,12 +153,21 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Box. Box
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Box, où vous pouvez lancer le processus de connexion.
+* Dans le portail Azure, sélectionnez **Tester cette application**. Vous êtes alors redirigé vers l’URL de connexion à Box, d’où vous pouvez lancer le flux de connexion.
 
 * Accédez directement à l’URL de connexion Box pour lancer le processus de connexion.
 
 * Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Box dans Mes applications vous redirige vers l’URL de connexion Box. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
+### <a name="push-an-azure-group-to-box"></a>Envoyer (push) un groupe Azure à Box
+
+Vous pouvez envoyer un groupe Azure à Box et synchroniser ce groupe. Azure envoie les groupes à Box via une intégration de niveau API.
+
+1. Dans **Utilisateurs et groupes**, recherchez le groupe que vous voulez affecter à Box.
+1. Dans **Provisionnement**, vérifiez que **Synchroniser les groupes Azure Active Directory sur Box** est sélectionné. Ce paramètre synchronise les groupes que vous avez alloués à l’étape précédente. L’envoi de ces groupes à partir d’Azure peut prendre un certain temps.
+
+> [!NOTE]
+> Si vous devez créer un utilisateur manuellement, contactez l’[équipe de support technique de Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

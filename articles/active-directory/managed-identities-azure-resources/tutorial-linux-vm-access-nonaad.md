@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/16/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f808c9d01ecbd125e2ef0e3a7b61152767b1b4b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5ac851c54a17893082d70bec5d96e8b8cf63b482
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124020"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517889"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Key Vault 
 
@@ -47,7 +47,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 Cette section montre comment accorder à votre machine virtuelle l’accès à un secret stocké dans un coffre de clés. À l’aide d’identités managées pour ressources Azure, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD.Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser des identités managées pour les ressources Azure avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez des identités managées de machine virtuelle afin d’accéder à Key Vault pour récupérer les informations d’identification.
 
-Tout d’abord, nous devons créer un Key Vault et accorder son accès à l’identité managée attribuée par le système de machine virtuelle.
+Tout d’abord, nous devons créer un coffre de clés Key Vault et octroyer son accès à l’identité managée affectée par le système de notre machine virtuelle.
 
 1. Ouvrez le [portail](https://portal.azure.com/) Azure.
 1. En haut de la barre de navigation de gauche, sélectionnez **Créer une ressource**.  
@@ -97,10 +97,10 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous ut
 
 >[!IMPORTANT]
 > Tous les SDK Azure prennent en charge la bibliothèque Azure.Identity qui permet d’acquérir facilement des jetons Azure AD pour accéder aux services cibles. Découvrez en plus sur les [SDK Azure](https://azure.microsoft.com/downloads/) et tirez parti de la bibliothèque Azure.Identity.
-> - [.NET](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet)
-> - [JAVA](/java/api/overview/azure/identity-readme?view=azure-java-stable)
-> - [Javascript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
-> - [Python](/python/api/overview/azure/identity-readme?view=azure-python)
+> - [.NET](/dotnet/api/overview/azure/identity-readme)
+> - [JAVA](/java/api/overview/azure/identity-readme)
+> - [Javascript](/javascript/api/overview/azure/identity-readme)
+> - [Python](/python/api/overview/azure/identity-readme)
 
 
 1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**. 
@@ -126,7 +126,7 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous ut
     "token_type":"Bearer"} 
     ```
     
-    Vous pouvez utiliser ce jeton d’accès pour vous authentifier sur Azure Key Vault.  La requête CURL suivante montre comment lire un secret de Key Vault à l’aide de CURL et de l’API REST de Key Vault.  Vous avez besoin de l’URL de votre Key Vault qui se trouve dans la section **Bases** de la page **Vue d’ensemble** de Key Vault.  Vous avez également besoin du jeton d’accès que vous avez obtenu lors de l’appel précédent. 
+    Vous pouvez utiliser ce jeton d’accès pour vous authentifier sur Azure Key Vault.  La requête CURL suivante montre comment lire un secret de Key Vault à l’aide de CURL et de l’API REST de Key Vault.  Vous avez besoin de l’URL de votre coffre de clés, qui se trouve dans la section **Bases** de la page **Vue d’ensemble** du coffre de clés.  Vous avez également besoin du jeton d’accès que vous avez obtenu lors de l’appel précédent. 
         
     ```bash
     curl 'https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
@@ -138,7 +138,7 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous ut
     {"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 
     ```
     
-Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utiliser pour vous authentifier sur un service qui requiert un nom et un mot de passe.
+Après avoir récupéré le secret à partir du coffre de clés, vous pouvez l’utiliser pour vous authentifier auprès d’un service qui nécessite l’entrée d’un nom et d’un mot de passe.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

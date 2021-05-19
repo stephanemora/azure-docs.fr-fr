@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 757de37fdc3f55170d8c620a69adf104b8884b14
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 4669edd4b812eaf1dba4324c46ba97ab71392592
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204276"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628263"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -198,7 +198,7 @@ Vous pouvez créer un budget en utilisant un modèle Azure Resource Manager. Pou
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous avez créé un budget et que vous ne l’utilisez plus, affichez ses détails et supprimez-le.
+Si vous avez créé un budget et que vous n’en avez plus besoin, affichez ses détails et supprimez-le.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

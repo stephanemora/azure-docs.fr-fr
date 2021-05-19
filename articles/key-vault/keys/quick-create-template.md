@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 66d41ed1bb900f55db0d3670c1ce312950ff165d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 261b939d62c4952b7dc6d1f1a4b0e91c2922b4ce
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147046"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744926"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Démarrage rapide : Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM 
 
@@ -166,6 +166,17 @@ Deux ressources sont définies dans le modèle :
 - Microsoft.KeyVault/vaults/keys
 
 Vous trouverez d’autres exemples de modèles Azure Key Vault dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
+
+## <a name="parameters-and-definitions"></a>Paramètres et définitions
+
+|Paramètre  |Définition  |
+|---------|---------|
+|**Keysize**  | Spécifie les opérations qui peuvent être effectuées à l’aide de la clé. Si vous ne spécifiez pas ce paramètre, toutes les opérations peuvent être effectuées. Les valeurs acceptables pour ce paramètre figurent dans une liste séparée par des virgules des opérations clés définies par la spécification de la [clé web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41) : <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**CurveName**  |  Nom de la courbe elliptique pour le type de clé EC. Consultez [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
+|**Kty**  |  Type de clé à créer. Pour connaître les valeurs valides, consultez [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype) |
+|**Balises** | Métadonnées spécifiques d’application sous la forme de paires clé/valeur.  |
+|**nbf**  |  Spécifie l’heure, sous la forme d’un objet DateTime, avant laquelle la clé ne peut pas être utilisée. Le format est l’horodatage UNIX (le nombre de secondes après Unix Epoch le 1er janvier 1970, UTC).  |
+|**exp**  |  Spécifie l’heure d’expiration, sous la forme d’un objet DateTime. Le format est l’horodatage UNIX (le nombre de secondes après Unix Epoch le 1er janvier 1970, UTC). |
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 Vous pouvez utiliser le [portail Azure](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, Azure CLI, ou l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../../azure-resource-manager/templates/deploy-powershell.md).

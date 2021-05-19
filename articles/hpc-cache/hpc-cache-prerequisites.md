@@ -4,14 +4,14 @@ description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 05/06/2021
 ms.author: v-erkel
-ms.openlocfilehash: 3cddbba3dca64561d7e2b7b27715152a26a8c9e9
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 59b83132f4de25886494bdc5c23819243240e962
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717582"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737327"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -95,6 +95,8 @@ Consultez les prérequis liés aux autorisations avant de créer votre cache.
 
 Le cache prend en charge les conteneurs d’objets blob Azure, les exportations de stockage matériel NFS et les conteneurs d’objets blob ADLS montés NFS (actuellement en préversion). Ajoutez des cibles de stockage après avoir créé le cache.
 
+La taille de votre cache détermine le nombre de cibles de stockage qu’il peut prendre en charge, jusqu’à 10 cibles de stockage pour la plupart des caches, voire 20 pour les plus grandes tailles. Pour plus d’informations, consultez [Dimensionner correctement votre cache pour prendre en charge vos cibles de stockage](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+
 Chaque type de stockage possède des conditions préalables spécifiques.
 
 ### <a name="blob-storage-requirements"></a>Exigences relatives au stockage Blob
@@ -129,7 +131,7 @@ Si vous utilisez un système de stockage NFS (par exemple, un système NAS maté
 
 Pour plus d’informations, consultez [Résoudre les problèmes de configuration NAS et de cible de stockage NFS](troubleshoot-nas.md).
 
-* Connectivité réseau : Azure HPC Cache a besoin d’un accès réseau à bande passante élevée entre le sous-réseau du cache et le centre de données du système NFS. Il est recommandé de disposer d’un accès [ExpressRoute](../expressroute/index.yml) ou similaire. Si vous utilisez un VPN, vous devrez peut-être le configurer pour fixer la MSS TCP à 1350 afin de vous assurer que les paquets volumineux ne sont pas bloqués. Lisez les [restrictions de taille des paquets VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) pour obtenir de l'aide supplémentaire sur le dépannage des paramètres VPN.
+* Connectivité réseau : Azure HPC Cache a besoin d’un accès réseau à bande passante élevée entre le sous-réseau du cache et le centre de données du système NFS. Il est recommandé de disposer d’un accès [ExpressRoute](../expressroute/index.yml) ou similaire. Si vous utilisez un VPN, vous devrez peut-être le configurer pour fixer la MSS TCP à 1350 afin de vous assurer que les paquets volumineux ne sont pas bloqués. Pour obtenir de l’aide relative à la résolution des problèmes de paramètres VPN, consultez [Restrictions de taille des paquets VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions).
 
 * Accès au port : Le cache a besoin d’accéder à des ports TCP/UDP spécifiques sur votre système de stockage. Les différents types de stockage ont des exigences de port différentes.
 

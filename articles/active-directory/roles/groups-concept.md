@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 05/05/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236606bea3ff4edcd6786828f4cb2379251a77f8
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c8a3015fa2c078232ca9c37c2b0ce0ded313c859
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203322"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480830"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)
 
@@ -39,8 +39,7 @@ Si vous ne souhaitez pas que les membres du groupe disposent d’un accès perma
 
 Si un rôle est attribué à un groupe, tout administrateur informatique qui peut gérer l’appartenance au groupe peut également gérer indirectement l’appartenance à ce rôle. Par exemple, supposons qu’un groupe Contoso_User_Administrators est affecté au rôle Administrateur de compte d’utilisateur. Un Administrateur Exchange qui peut modifier l’appartenance au groupe peut s’ajouter au groupe Contoso_User_Administrators et devenir ainsi un Administrateur de compte d’utilisateur. Comme vous pouvez le voir, un administrateur peut élever ses privilèges d’une manière que vous n’aviez pas prévue.
 
-Azure AD vous permet de protéger un groupe affecté à un rôle à l’aide d’une nouvelle propriété appelée isAssignableToRole pour les groupes. Seuls les groupes cloud dont la propriété isAssignableToRole a la valeur « true » au moment de la création peuvent être affectés à un rôle. Cette propriété est non modifiable ; une fois qu’un groupe a été créé avec cette propriété définie sur « true », il ne peut pas être modifié. Vous ne pouvez pas définir la propriété sur un groupe existant.
-Nous avons conçu la manière dont les groupes sont affectés aux rôles afin d’éviter que ce genre de violation potentielle ne se produise :
+Azure AD vous permet de protéger un groupe affecté à un rôle à l’aide d’une nouvelle propriété appelée isAssignableToRole pour les groupes. Seuls les groupes cloud dont la propriété isAssignableToRole a la valeur « true » au moment de la création peuvent être affectés à un rôle. Cette propriété est non modifiable ; une fois qu’un groupe a été créé avec cette propriété définie sur « true », il ne peut pas être modifié. Vous ne pouvez pas définir la propriété sur un groupe existant. Nous avons conçu la manière dont les groupes sont affectés aux rôles afin d’éviter des violations potentielles :
 
 - Seuls les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent créer un groupe assignable à un rôle (avec la propriété « isAssignableToRole » activée).
 - Il ne peut pas s’agir d’un groupe dynamique Azure AD ; autrement dit, il doit avoir le type d’appartenance « Assigned ». L’alimentation automatisée de groupes dynamiques peut entraîner l’ajout d’un compte indésirable au groupe et don son affectation au rôle.

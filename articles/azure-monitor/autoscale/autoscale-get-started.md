@@ -4,12 +4,12 @@ description: Apprenez à mettre à l'échelle votre ressource Application web, S
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f229b3087bd616dfb55cbec4b0f6c3fcc4ec9fe1
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641545"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737525"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -115,7 +115,7 @@ Vous pouvez toujours revenir à la mise à l’échelle automatique en cliquant 
 
 ### <a name="cool-down-period-effects"></a>Effets de la période de recharge
 
-La mise à l’échelle automatique utilise une période de recharge pour empêcher le « ballottement », c’est-à-dire le scale-up et le scale-down rapides et répétitifs des instances.  Pour plus d’informations, consultez [Étapes de l’évaluation de mise à l’échelle automatique](autoscale-understanding-settings.md#autoscale-evaluation).  Vous trouverez d’autres informations précieuses sur le ballottement et sur la façon de surveiller le moteur de mise à l’échelle automatique dans [Meilleures pratiques pour la mise à l’échelle automatique](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) et [Résolution des problèmes de mise à l’échelle automatique](autoscale-troubleshoot.md) respectivement. 
+La mise à l’échelle automatique utilise une période de recharge pour empêcher le « ballottement », c’est-à-dire le scale-up et le scale-down rapides et répétitifs des instances.  Pour plus d’informations, consultez [Étapes de l’évaluation de mise à l’échelle automatique](autoscale-understanding-settings.md#autoscale-evaluation).  Vous trouverez d’autres informations précieuses sur le ballottement et sur la façon de surveiller le moteur de mise à l’échelle automatique dans [Meilleures pratiques pour la mise à l’échelle automatique](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) et [Résolution des problèmes de mise à l’échelle automatique](autoscale-troubleshoot.md) respectivement.
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Acheminer le trafic vers des instances saines (App Service)
 
@@ -132,14 +132,14 @@ Cette section explique comment déplacer la mise à l’échelle automatique Azu
 ### <a name="move"></a>Déplacer
 Utilisez l’[API REST](/rest/api/monitor/autoscalesettings/createorupdate) pour créer un paramètre de mise à l’échelle automatique dans le nouvel environnement. Le paramètre de mise à l’échelle automatique créé dans la région de destination est une copie du paramètre de mise à l’échelle automatique dans la région source.
 
-Les [paramètres de diagnostic](../essentials/diagnostic-settings.md) créés en association avec le paramètre de mise à l’échelle automatique dans la région source ne peuvent pas être déplacés. Vous devez recréer les paramètres de diagnostic dans la région de destination une fois créés les paramètres de mise à l’échelle automatique. 
+Les [paramètres de diagnostic](../essentials/diagnostic-settings.md) créés en association avec le paramètre de mise à l’échelle automatique dans la région source ne peuvent pas être déplacés. Vous devez recréer les paramètres de diagnostic dans la région de destination une fois créés les paramètres de mise à l’échelle automatique.
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>En savoir plus sur le déplacement de ressources dans les régions Azure
 Pour en savoir plus sur le déplacement de ressources entre régions et sur la reprise d’activité après sinistre dans Azure, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Créez une alerte de journal d’activité pour surveiller tous les échecs d’opérations de diminution et d’augmentation de la taille des instances de la mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Créez une alerte de journal d’activité pour surveiller toutes les opérations du moteur de mise à l’échelle automatique dans votre abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Créez une alerte de journal d’activité pour surveiller tous les échecs d’opérations de diminution et d’augmentation de la taille des instances de la mise à l’échelle automatique dans votre abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
 
 
 <!--Reference-->

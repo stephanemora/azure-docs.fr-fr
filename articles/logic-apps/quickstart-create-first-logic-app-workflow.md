@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
 ms.date: 04/28/2021
-ms.openlocfilehash: ea115d42f84562e67adb7e6f45ce8d35be21d6b0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1ff7ba5e3835fccb2f67fa56cf3737adb9d36b45
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292509"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738893"
 ---
 # <a name="quickstart-create-an-integration-workflow-using-azure-logic-apps-in-the-azure-portal"></a>Démarrage rapide : Créer un workflow d’intégration automatisé avec Azure Logic Apps dans le portail Azure
 
@@ -51,7 +51,7 @@ Pour créer et gérer une application logique à l’aide d’autres outils, pas
 
 * Si vous avez un pare-feu qui limite le trafic vers des adresses IP spécifiques, configurez-le pour autoriser l’accès *à la fois* aux adresses IP [entrantes](logic-apps-limits-and-config.md#inbound) et [sortantes](logic-apps-limits-and-config.md#outbound) utilisées par le service Logic Apps dans la région Azure où se trouve votre application logique.
 
-  Cet exemple utilise également les connecteurs RSS et Office 365 Outlook [gérés par Microsoft](/connectors/managed.md). Ces connecteurs exigent que vous configuriez votre pare-feu de façon à autoriser l’accès pour *toutes* les [adresses IP sortantes du connecteur managé](logic-apps-limits-and-config.md#outbound) dans la région Azure de l’application logique.
+  Cet exemple utilise également les connecteurs RSS et Office 365 Outlook [gérés par Microsoft](../connectors/managed.md). Ces connecteurs exigent que vous configuriez votre pare-feu de façon à autoriser l’accès pour *toutes* les [adresses IP sortantes du connecteur managé](logic-apps-limits-and-config.md#outbound) dans la région Azure de l’application logique.
 
 <a name="create-logic-app-resource"></a>
 

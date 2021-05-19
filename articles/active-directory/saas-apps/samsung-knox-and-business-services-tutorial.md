@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 330c02f15c0818f0a5c69088757c92a91a523589
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c292838305baa44699b6309fcaaf7de7366ba94
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952641"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753378"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsung-knox-and-business-services"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Samsung Knox and Business Services
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Samsung Knox and Business Services prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Samsung Knox and Business Services prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -78,7 +78,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    * Dans la zone de texte **URL de connexion**, tapez l’URL : `https://www.samsungknox.com`
+    * Dans la zone de texte **URL de connexion**, tapez l’URL : `https://www2.samsungknox.com/en/sso/login/ad`
     * Dans la zone de texte **URL de réponse (URL d’assertion consumer service)** , saisissez l’URL `https://central.samsungknox.com/ams/ad/saml/acs`.
     
     ![Valeurs de la configuration SAML de base](https://docs.samsungknox.com/assets/merge/ad-sso/basic-saml-configuration.png)

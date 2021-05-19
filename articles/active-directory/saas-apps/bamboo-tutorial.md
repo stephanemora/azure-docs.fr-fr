@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 04/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 8ec834d76692f78d1d7bc60ddbd4c73fe4adaede
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29ffe0f0509629daa0fc0c9b72e4a55d16b88856
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646103"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Tutoriel : Intégration d’Azure Active Directory avec SAML SSO for Bamboo by resolution GmbH
 
@@ -30,15 +30,15 @@ Dans ce tutoriel, vous allez découvrir comment intégrer SAML SSO for Bamboo by
 
 Pour configurer l’intégration d’Azure AD avec SAML SSO for Bamboo by resolution GmbH, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
-* Une authentification unique SAML SSO for Bamboo by resolution GmbH sur un abonnement activé
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement SAML SSO for Bamboo by resolution GmbH activé pour l’authentification unique.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* SAML SSO for Bamboo by resolution GmbH prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
-* SSO SAML pour Bamboo de resolution GmbH prend en charge l’attribution d’utilisateurs **Juste-à-temps**
+* SAML SSO for Bamboo by resolution GmbH prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* SAML SSO for Bamboo by resolution GmbH prend en charge le provisionnement d’utilisateurs **Juste-à-temps**.
 
 ## <a name="add-saml-sso-for-bamboo-by-resolution-gmbh-from-the-gallery"></a>Ajouter SAML SSO for Bamboo by resolution GmbH à partir de la galerie
 
@@ -125,19 +125,19 @@ Dans cette section, vous permettez à B.Simon d’utiliser l’authentification 
 
 1. À droite dans la barre d’outils principale, cliquez sur **Paramètres** > **Composants additionnels**.
 
-    ![Les paramètres](./media/bamboo-tutorial/tutorial_bamboo_setings.png)
+    ![Les paramètres](./media/bamboo-tutorial/settings.png)
 
 1. Accédez à la section SÉCURITÉ, cliquez sur **SAML SingleSignOn** sur la barre de menus.
 
-    ![Samlsingle](./media/bamboo-tutorial/tutorial_bamboo_samlsingle.png)
+    ![Samlsingle](./media/bamboo-tutorial/single-sign-on.png)
 
 1. Sur la **page Configuration du plug-in SAML SIngleSignOn**, cliquez sur **Ajouter idp**.
 
-    ![Ajout d’un fournisseur d’identité (idp)](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
+    ![Ajout d’un fournisseur d’identité (idp)](./media/bamboo-tutorial/configuration.png)
 
 1. Sur la page **Choisir votre fournisseur d’identité SAML**, procédez comme suit :
 
-    ![Fournisseur d’identité](./media/bamboo-tutorial/tutorial_bamboo_identityprovider.png)
+    ![Fournisseur d’identité](./media/bamboo-tutorial/identity-provider.png)
 
     a. Sélectionnez **Type d’Idp** en tant qu’**AD AZURE**.
 
@@ -149,11 +149,11 @@ Dans cette section, vous permettez à B.Simon d’utiliser l’authentification 
 
 1. Sur la page **Configuration du fournisseur d’identité**, cliquez sur le bouton **Suivant**.
 
-    ![La configuration de l’identité](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
+    ![La configuration de l’identité](./media/bamboo-tutorial/identity-configuration.png)
 
 1. Sur la page **Importer les métadonnées SAML Idp**, cliquez sur **Charger le fichier** pour charger le fichier **METADATA XML** que vous avez téléchargé à partir du portail Azure.
 
-    ![idpmetadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
+    ![idpmetadata](./media/bamboo-tutorial/metadata.png)
 
 1. Cliquez sur **Suivant**.
 
