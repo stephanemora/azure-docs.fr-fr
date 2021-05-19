@@ -3,15 +3,14 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 863f85c1eeeed381eda12a066a247c2605a1d68f
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 6ca5990306dd77e59298c7df6a64f463b36be93b
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326126"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804103"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
-
 
 Azure Policy peut vérifier les paramètres à l’intérieur d’une machine, tant pour les machines s’exécutant dans Azure que dans [Arc Connected Machines](../../../azure-arc/servers/overview.md). La validation est effectuée par le client et l’extension de configuration d’invité. L’extension, via le client, valide des paramètres tels que :
 
@@ -38,7 +37,7 @@ Pour vérifier les paramètres à l’intérieur d’une machine, une [extension
 
 > [!IMPORTANT]
 > L’extension Guest Configuration et une identité managée sont requises pour l’audit des machines virtuelles Azure. Pour déployer l’extension à l’échelle, attribuez l’initiative de stratégie suivante :
-> 
+>
 > `Deploy prerequisites to enable Guest Configuration policies on virtual machines`
 
 ### <a name="limits-set-on-the-extension"></a>Limites définies sur l’extension
@@ -54,11 +53,12 @@ Le tableau suivant affiche une liste des outils locaux utilisés sur chaque syst
 |Système d’exploitation|Outil de validation|Notes|
 |-|-|-|
 |Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Chargé dans un dossier utilisé uniquement par Azure Policy. Aucun conflit avec Windows PowerShell DSC. PowerShell Core n’est pas ajouté au chemin d’accès système.|
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Installe Chef InSpec version 2.2.61 dans l’emplacement par défaut et est ajouté au chemin d’accès système. Des dépendances pour le package InSpec, y compris Ruby et Python, sont également installées. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/) | Installe Chef InSpec version 2.2.61 dans l’emplacement par défaut et est ajouté au chemin d’accès système. Des dépendances pour le package InSpec, y compris Ruby et Python, sont également installées. |
 
 ### <a name="validation-frequency"></a>Fréquence de validation
 
-Le client de configuration d'invité vérifie les affectations d’invités nouvelles ou modifiées toutes les 5 minutes. Une fois l’affectation d’invité reçue, les paramètres de cette configuration sont revérifiés à intervalle de 15 minutes. Les résultats sont envoyés au fournisseur de ressources de configuration d’invité dès la fin de l’audit. Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers) de stratégie intervient, l'état de la machine est consigné dans le fournisseur de ressources de configuration d'invité. Avec cette mise à jour, Azure Policy évalue alors les propriétés Azure Resource Manager. Une évaluation Azure Policy à la demande récupère la valeur la plus récente du fournisseur de ressources de configuration d'invité. Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la machine. L’état est écrit simultanément dans Azure Resource Graph.
+Le client de configuration d'invité vérifie les affectations d’invités nouvelles ou modifiées toutes les 5 minutes. Une fois l’affectation d’invité reçue, les paramètres de cette configuration sont revérifiés à intervalle de 15 minutes. Les résultats sont envoyés au fournisseur de ressources de configuration d’invité dès la fin de l’audit.
+Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers) de stratégie intervient, l'état de la machine est consigné dans le fournisseur de ressources de configuration d'invité. Avec cette mise à jour, Azure Policy évalue alors les propriétés Azure Resource Manager. Une évaluation Azure Policy à la demande récupère la valeur la plus récente du fournisseur de ressources de configuration d'invité. Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la machine. L’état est écrit simultanément dans Azure Resource Graph.
 
 ## <a name="supported-client-types"></a>Types de clients pris en charge
 
@@ -120,9 +120,8 @@ Les définitions de stratégie **AuditIfNotExists** ne retournent pas de résult
 
 ### <a name="what-is-a-guest-assignment"></a>Qu’est-ce qu’une affectation d’invité ?
 
-Lorsqu’une instance Azure Policy est affectée, si elle se trouve dans la catégorie « Configuration d’invité », des métadonnées sont incluses pour décrire une affectation d’invité.
-Vous pouvez considérer une affectation d’invité comme un lien entre un ordinateur et un scénario Azure Policy.
-Par exemple, l’extrait de code ci-dessous associe la configuration de base Windows Azure avec une version minimale `1.0.0` à n’importe quel ordinateur dans l’étendue de la stratégie. Par défaut, l’affectation d’invité effectue uniquement un audit de l’ordinateur.
+Lorsqu’une instance Azure Policy est affectée, si elle se trouve dans la catégorie « Configuration d’invité », des métadonnées sont incluses pour décrire une affectation d’invité. Vous pouvez considérer une affectation d’invité comme un lien entre un ordinateur et un scénario Azure Policy. Par exemple, l’extrait de code suivant associe la configuration de base Windows Azure avec une version minimale `1.0.0` à n’importe quel ordinateur dans l’étendue de la stratégie.
+Par défaut, l’affectation d’invité effectue uniquement un audit de l’ordinateur.
 
 ```json
 "metadata": {
@@ -134,8 +133,7 @@ Par exemple, l’extrait de code ci-dessous associe la configuration de base Win
 //additional metadata properties exist
 ```
 
-Les affectations d’invités sont créées automatiquement pour chaque ordinateur par le service de configuration d’invité. Le type de ressource, est `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
-Azure Policy utilise la propriété **complianceStatus** de la ressource Attribution d’invité pour signaler l’état de conformité. Pour plus d’informations, consultez [Obtention de données de conformité](../how-to/get-compliance-data.md).
+Les affectations d’invités sont créées automatiquement pour chaque ordinateur par le service de configuration d’invité. Le type de ressource, est `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure Policy utilise la propriété **complianceStatus** de la ressource Attribution d’invité pour signaler l’état de conformité. Pour plus d’informations, consultez [Obtention de données de conformité](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Audit des paramètres du système d’exploitation conformément aux lignes de base du secteur
 
@@ -160,6 +158,14 @@ Lorsque vous attribuez des définitions qui commencent par _Configurer_, vous de
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Attribution de stratégies à des machines en dehors d’Azure
 
 Les définitions de stratégie Audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**. Toutes les machines intégrées à [Azure Arc pour serveurs](../../../azure-arc/servers/overview.md) qui relèvent du champ d’application de l’attribution de stratégies sont automatiquement incluses.
+
+## <a name="availability"></a>Disponibilité
+
+Les clients qui conçoivent une solution hautement disponible doivent tenir compte des exigences de planification de la redondance pour les [machines virtuelles](../../../virtual-machines/availability.md), car les attributions d’invités sont des extensions des ressources de machine dans Azure. Si une région physique devient indisponible dans Azure, il n’est pas possible d’afficher les rapports d’historique d’une attribution d’invité tant que la région n’est pas restaurée.
+
+Lorsque vous envisagez une architecture pour les applications hautement disponibles, en particulier lorsque les machines virtuelles sont approvisionnées dans des [groupes à haute disponibilité](../../../virtual-machines/availability.md#availability-sets) derrière une solution d’équilibrage de charge pour fournir une haute disponibilité, il est recommandé d’affecter les mêmes définitions de stratégie avec les mêmes paramètres à toutes les machines de la solution. Si possible, une attribution de stratégie unique couvrant toutes les machines offrirait la surcharge administrative la moins importante.
+
+Pour les machines protégées par [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md), assurez-vous que les machines d’un site secondaire se trouvent dans l’étendue des attributions d’Azure Policy pour les mêmes définitions en utilisant les mêmes valeurs de paramètres que les machines du site principal.
 
 ## <a name="troubleshooting-guest-configuration"></a>Résolution des problèmes de configuration invité
 
@@ -200,7 +206,7 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 
 Capturez des informations de fichiers journaux à l’aide de la [commande Run de la machine virtuelle Azure](../../../virtual-machines/linux/run-command.md). L’exemple de script Bash suivant peut être utile.
 
-```Bash
+```bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log

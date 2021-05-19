@@ -1,18 +1,20 @@
 ---
-title: Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution
+title: Surveiller et gérer les machines virtuelles Azure VMware Solution
 description: Découvrez comment gérer tous les aspects du cycle de vie des machines virtuelles de votre service Azure VMware Solution avec les outils natifs de Microsoft Azure.
-ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 2cb9964b68769b1e784cebf62b4d336b355c68fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.date: 05/04/2021
+ms.openlocfilehash: 3cffba1147a52a48d5005aa22e3a08a33956d66e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572201"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769252"
 ---
-# <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution
+# <a name="monitor-and-manage-azure-vmware-solution-vms"></a>Surveiller et gérer les machines virtuelles Azure VMware Solution
 
-Les outils natifs de Microsoft Azure vous permettent de surveiller et gérer vos machines virtuelles dans l’environnement Azure. Ils vous permettent également de surveiller et gérer vos machines virtuelles sur le service Azure VMware Solution et vos machines virtuelles locales. Cette vue d’ensemble examine les offres Azure d’architecture de surveillance intégrée et la façon dont vous pouvez utiliser ses outils natifs pour gérer les machines virtuelles de votre service Azure VMware Solution tout au long de leur cycle de vie.
+
+
+Les outils natifs de Microsoft Azure vous permettent de surveiller et gérer vos machines virtuelles dans l’environnement Azure. Ils vous permettent également de surveiller et gérer vos machines virtuelles sur le service Azure VMware Solution et vos machines virtuelles locales. Cet article examine les offres Azure d’architecture de surveillance intégrée et la façon dont vous pouvez utiliser ses outils natifs pour gérer les machines virtuelles de votre service Azure VMware Solution tout au long de leur cycle de vie.
 
 ## <a name="benefits"></a>Avantages
 
@@ -36,7 +38,7 @@ Les outils natifs de Microsoft Azure vous permettent de surveiller et gérer vos
 
 ## <a name="integrated-azure-monitoring-architecture"></a>Architecture de surveillance Azure intégrée
 
-Le diagramme suivant illustre l’architecture de surveillance intégrée pour les machines virtuelles du service Azure VMware Solution.
+Le diagramme illustre l’architecture de surveillance intégrée pour les machines virtuelles du service Azure VMware Solution.
 
 ![Architecture de surveillance Azure intégrée](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
@@ -51,7 +53,7 @@ Si vous débutez avec Azure ou si vous découvrez les services mentionnés préc
 - [Que sont les serveurs Azure Arc ?](../azure-arc/servers/overview.md) et [Que sont les Kubernetes Azure Arc ?](../azure-arc/kubernetes/overview.md)
 - [Vue d’ensemble de Update Management](../automation/update-management/overview.md)
 
-## <a name="integrating-and-deploying-azure-native-services"></a>Intégration et déploiement des services natifs d’Azure
+## <a name="integrate-and-deploy-azure-native-services"></a>Intégrer et déployer des services Azure natifs
 
 ### <a name="enable-azure-update-management"></a>Activer Azure Update Management
 

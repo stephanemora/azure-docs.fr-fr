@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 0832b54e02cabecb0b1f0e7af600b8adc621a8b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c15bac8417fdba5f87551dc13311b5272c0926ee
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99584768"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743846"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Ajouter une source de données SharePoint sécurisée à votre base de connaissances
 
@@ -52,7 +52,7 @@ Lorsque vous testez la paire QnA dans le panneau de test interactif, sur le port
 
 ## <a name="permissions"></a>Autorisations
 
-Un octroi d’autorisations a lieu quand un fichier sécurisé d’un serveur SharePoint est ajouté à une base de connaissances. Selon la configuration de SharePoint et les autorisations accordées à la personne qui ajoute le fichier, cette opération peut nécessiter :
+Un octroi d’autorisations a lieu quand un fichier sécurisé d’un serveur exécutant SharePoint est ajouté à une base de connaissances. Selon la configuration de SharePoint et les autorisations accordées à la personne qui ajoute le fichier, cette opération peut nécessiter :
 
 * Aucune étape supplémentaire si la personne qui ajoute le fichier dispose de toutes les autorisations nécessaires.
 * Des actions du [Gestionnaire de la Base de connaissances](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) et du [ Gestionnaire Active Directory](#active-directory-manager-grant-file-read-access-to-qna-maker).

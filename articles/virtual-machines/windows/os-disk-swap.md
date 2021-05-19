@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 8e928944a7508cc2a0ed35e89189fa2dd8c50665
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eaf541f1b95880e4d055af8cbd4ccbee06b41428
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550380"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803041"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure à l’aide de PowerShell
 
@@ -24,7 +24,7 @@ Pour remplacer le disque d’une machine virtuelle existante par un disque de sa
 Vous devez arrêter/libérer la machine virtuelle, puis remplacer l’ID de ressource du disque managé par celui d’un autre disque managé.
 
 Vérifiez que la taille et le type de stockage de la machine virtuelle sont compatibles avec le disque à attacher. Ainsi, si le disque que vous souhaitez utiliser bénéficie d’un stockage Premium, la machine virtuelle doit être de taille suffisante pour prendre en charge ce niveau de stockage (comme une série DS). Les deux disques doivent également avoir la même taille.
-Et veillez à ne pas combiner une machine virtuelle non chiffrée avec un disque de système d’exploitation chiffré, car cela n’est pas pris en charge. Si la machine virtuelle n’utilise pas Azure Disk Encryption, le disque du système d’exploitation qui est échangé ne doit pas utiliser Azure Disk Encryption.
+Et veillez à ne pas combiner une machine virtuelle non chiffrée avec un disque de système d’exploitation chiffré, car cela n’est pas pris en charge. Si la machine virtuelle n’utilise pas Azure Disk Encryption, le disque du système d’exploitation qui est échangé ne doit pas utiliser Azure Disk Encryption. Si les disques utilisent des jeux de chiffrement de disque, les deux disques doivent appartenir au même jeu de chiffrement de disque.
 
 Obtenir la liste des disques d'un groupe de ressources à l'aide de [Get-AzDisk](/powershell/module/az.compute/get-azdisk)
 

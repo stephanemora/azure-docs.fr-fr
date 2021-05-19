@@ -5,25 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/28/2019
+ms.date: 04/30/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16edc850382ba9023b54eb34cebb7ebafb539161
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 392176dca67bcf12cf8e5125deba43740b28d087
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286669"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802141"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
 Dans l’idéal, pour compléter le cycle de vie, vous devez annuler l’inscription des appareils dont vous n’avez plus besoin. Toutefois, lorsque des appareils sont perdus, volés ou défectueux par exemple, ou lorsque des réinstallations de système d’exploitation sont nécessaires, votre environnement inclut généralement des appareils obsolètes. En tant qu’administrateur informatique, vous avez probablement besoin d’une méthode pour supprimer les appareils obsolètes et ainsi pouvoir consacrer vos ressources à la gestion des appareils qui en ont réellement besoin.
 
 Cet article vous apprend à gérer efficacement les appareils obsolètes présents dans votre environnement.
-  
 
 ## <a name="what-is-a-stale-device"></a>Qu’est qu’un appareil obsolète ?
 
@@ -95,7 +94,7 @@ Ne supprimez pas des appareils gérés par le système. Il s’agit souvent d’
 
 Vos appareils joints à une version hybride d’Azure AD doivent respecter vos stratégies en matière de gestion des appareils obsolètes locaux. 
 
-Pour nettoyer l’environnement Azure AD :
+Pour nettoyer Azure AD :
 
 - **Appareils Windows 10** : désactivez ou supprimez les appareils Windows 10 dans votre environnement AD local, et laissez Azure AD Connect synchroniser l’état modifié des appareils sur Azure AD.
 - **Windows 7/8** : commencez par désactiver ou supprimer les appareils Windows 7/8 dans votre service AD local. Vous ne pouvez pas utiliser Azure AD Connect pour désactiver ou supprimer des appareils Windows 7/8 dans Azure AD. Au lieu de cela, quand vous apportez la modification à votre service local, vous devez désactiver/supprimer les appareils dans Azure AD.
@@ -105,7 +104,6 @@ Pour nettoyer l’environnement Azure AD :
 >* La suppression d’un appareil Windows 10 uniquement dans Azure AD resynchronise l’appareil à partir de votre service local à l’aide d’Azure AD Connect, mais en tant que nouvel objet avec l’état « En attente ». Une nouvelle inscription est nécessaire sur l’appareil.
 >* La suppression d’appareils Windows 10/Server 2016 de l’étendue de synchronisation supprime l’appareil Azure AD. Si vous l’ajoutez de nouveau à l’étendue de synchronisation, un nouvel objet est placé avec l’état « En attente ». Une réinscription de l’appareil est nécessaire.
 >* Si vous n’utilisez pas Azure AD Connect pour la synchronisation des appareils Windows 10 (par exemple, en utilisant uniquement AD FS pour l’inscription), vous devez gérer le cycle de vie de la même façon que pour les appareils Windows 7/8.
-
 
 ### <a name="azure-ad-joined-devices"></a>Appareils joints Azure AD
 
@@ -140,31 +138,40 @@ La procédure classique se déroule comme suit :
 Pour obtenir la liste complète des appareils et stocker les données retournées dans un fichier CSV :
 
 ```PowerShell
-Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv -NoTypeInformation
 ```
 
-Si votre annuaire comporte un grand nombre d’appareils, utilisez le filtre de timestamp pour limiter le nombre d’appareils retournés. Pour obtenir la liste complète des appareils dont le timestamp est plus ancien qu’une date spécifique et stocker les données retournées dans un fichier CSV : 
+Si votre annuaire comporte un grand nombre d’appareils, utilisez le filtre de timestamp pour limiter le nombre d’appareils retournés. Pour obtenir tous les appareils qui ne se sont pas connectés depuis plus de 90 jours et stocker les données retournées dans un fichier CSV : 
 
 ```PowerShell
+$dt = (Get-Date).AddDays(-90)
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-90days-summary.csv -NoTypeInformation
+```
+
+#### <a name="set-devices-to-disabled"></a>Définir les appareils comme désactivés
+
+À l’aide des mêmes commandes, nous pouvons diriger la sortie vers la commande set pour désactiver les appareils de plus d’un certain âge.
+
+```powershell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice
 ```
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
 ### <a name="why-is-the-timestamp-not-updated-more-frequently"></a>Pourquoi le timestamp n’est-il pas mis à jour plus fréquemment ?
 
-La mise à jour du timestamp vise à simplifier les scénarios de cycle de vie des appareils. Il ne s’agit pas d’un audit. Utilisez les journaux d’audit de connexion pour les mises à jour plus fréquentes sur l’appareil.
+La mise à jour du timestamp vise à simplifier les scénarios de cycle de vie des appareils. Cet attribut n’est pas un audit. Utilisez les journaux d’audit de connexion pour les mises à jour plus fréquentes sur l’appareil.
 
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>Pourquoi dois-je me soucier de mes clés BitLocker ?
 
-Lorsque vous configurez des clés BitLocker pour des appareils Windows 10, elles sont stockées sur l’objet appareil dans Azure AD. Si vous supprimez un appareil obsolète, vous supprimez également les clés BitLocker qui sont stockées sur l’appareil. Vous devez déterminer si votre stratégie de nettoyage correspond au cycle de vie réel de votre appareil avant de supprimer un appareil obsolète. 
+Lorsque vous configurez des clés BitLocker pour des appareils Windows 10, elles sont stockées sur l’objet appareil dans Azure AD. Si vous supprimez un appareil obsolète, vous supprimez également les clés BitLocker qui sont stockées sur l’appareil. Confirmez que votre stratégie de nettoyage correspond au cycle de vie réel de votre appareil avant de supprimer un appareil obsolète. 
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Pourquoi dois-je surveiller de près l’utilisation des appareils Windows AutoPilot ?
 
 Quand vous supprimez un appareil Azure AD associé à un objet Windows AutoPilot, les trois scénarios suivants peuvent se produire en cas de réaffectation de l’appareil :
 - Dans le cadre d’un déploiement de Windows AutoPilot piloté par l’utilisateur sans pré-provisionnement, un appareil Azure AD est créé, sans que ce dernier soit identifié par un ZTDID.
-- Dans le cadre d’un déploiement en mode automatique de Windows AutoPilot, la réaffectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé.  Il s’agit d’un mécanisme de sécurité qui permet de se prémunir contre les tentatives d’infiltrations d’appareils « frauduleux » dans Azure AD, sans informations d’identification. L’échec entraîne l’affichage d’un message d’erreur indiquant une incompatibilité ZTDID.
+- Dans le cadre d’un déploiement en mode automatique de Windows AutoPilot, la réaffectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé.  (Cet échec est un mécanisme de sécurité qui permet de se prémunir contre les tentatives d’infiltrations d’appareils « frauduleux » dans Azure AD, sans informations d’identification.) L’échec entraîne l’affichage d’un message d’erreur indiquant une incompatibilité ZTDID.
 - Dans le cadre d’un déploiement de pré-approvisionnement Windows Autopilot, l’affectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé. (En arrière-plan, les déploiements de pré-provisionnement utilisent le même processus en mode de déploiement automatique, de sorte qu’ils appliquent les mêmes mécanismes de sécurité.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Comment faire pour connaître tous les types d’appareils joints ?

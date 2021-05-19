@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40779e4517b610e52e41caacc46fc613b72023e5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 10242d867c5d9676b4f6833151863b820b2f11d1
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567133"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481802"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles de ressource Azure dans Privileged Identity Management
 
@@ -40,7 +40,7 @@ Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
     ![Page de ressources Azure qui répertorie les ressources pouvant être gérées](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. Sélectionnez **Paramètres du rôle**.
+1. Sélectionnez **Paramètres**.
 
     ![Page Paramètres de rôle répertoriant les rôles de ressources Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -48,7 +48,7 @@ Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
     ![Page Détails des paramètres de rôle répertoriant plusieurs paramètres d’affectation et d’activation](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Sélectionnez **Modifier** pour ouvrir le volet **Paramètres de rôle**. Le premier onglet vous permet de mettre à jour la configuration de l’activation de rôles dans Privileged Identity Management.
+1. Sélectionnez **Modifier** pour ouvrir le volet **Modifier les paramètres de rôle**. Le premier onglet vous permet de mettre à jour la configuration de l’activation de rôles dans Privileged Identity Management.
 
     ![Page Modifier les paramètres de rôle avec l’onglet Activation ouvert](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 

@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d1817db4615d321db3d5f098d449410ee5b0606c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 819e3574a2341d2a9f946e7fa7e008c798bd099f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141846"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756428"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Device Update pour IoT Hub et IoT Plug-and-Play
 
@@ -36,7 +36,7 @@ Les métadonnées de l’agent contiennent des champs que l’appareil ou l’ag
 |resultCode|entier|appareil à cloud|Code qui contient des informations sur le résultat de la dernière action de mise à jour. Peut être renseigné pour la réussite ou l’échec et doit suivre la [spécification du code d’état http](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).|500|
 |extendedResultCode|entier|appareil à cloud|Code qui contient des informations supplémentaires sur le résultat. Peut être renseigné pour la réussite ou l’échec.|0x80004005|
 |state|entier|appareil à cloud|Il s’agit d’un entier qui indique l’état actuel de l’agent Device Update. Voir les détails ci-dessous. |Idle|
-|installedUpdateId|string|appareil à cloud|ID de la mise à jour actuellement installée (via Device Update). Cette valeur sera null pour un appareil qui n’a jamais obtenu de mise à jour via Device Update.|Null|
+|installedUpdateId|string|appareil à cloud|ID de la mise à jour actuellement installée (via Device Update). Cette valeur est une chaîne qui capture le JSON d’ID de mise à jour ou null pour un appareil qui n’a jamais effectué une mise à jour via la mise à jour d’appareil.|"{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
 |`deviceProperties`|Mappage|appareil à cloud|Ensemble de propriétés qui contiennent le fabricant et le modèle.|Voir les détails ci-dessous.
 
 #### <a name="state"></a>State

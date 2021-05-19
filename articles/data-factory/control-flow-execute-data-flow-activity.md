@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/16/2021
-ms.openlocfilehash: da8d193d140d96d9742666429ebc85672c71ad4e
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 05/06/2021
+ms.openlocfilehash: 78a40b3a84b0d3df19b1fabc6c3485f12d8c3dbb
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567262"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481748"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -69,6 +69,9 @@ traceLevel | Définissez le niveau de journalisation de votre exécution d’act
 ### <a name="dynamically-size-data-flow-compute-at-runtime"></a>Dimensionner dynamiquement le calcul du flux de données au moment de l’exécution
 
 Les propriétés Nombre de cœurs et Type de capacité de calcul peuvent être définies de manière dynamique en fonction de la taille de vos données sources entrantes au moment de l’exécution. Utilisez des activités de pipeline telles que Recherche ou Obtention des métadonnées afin de déterminer la taille des données du jeu de données source. Ensuite, utilisez Ajouter du contenu dynamique dans les propriétés de l’activité Flux de données.
+
+> [!NOTE]
+> Lors du choix des cœurs de nœuds de pilote et de travail dans les flux de données Synapse, un minimum de 3 nœuds sera toujours utilisé.
 
 ![Flux de données dynamique](media/data-flow/dyna1.png "Flux de données dynamique")
 

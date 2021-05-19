@@ -4,12 +4,12 @@ description: Apprenez à regrouper, échelonner, paginer et interroger en parall
 ms.date: 04/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 891d5951670dd6022b66ae2936ee855f73f8b33a
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 87d94da5ae247f80d1d7eb26e7aea3d9f582b370
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107283539"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751964"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Conseils pour les requêtes limitées dans Azure Resource Graph
 
@@ -174,7 +174,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
         var azureOperationResponse = await this.resourceGraphClient
             .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
             .ConfigureAwait(false);
-        
+
         var responseHeaders = azureOperationResponse.response.Headers;
         int remainingQuota = /* read and parse x-ms-user-quota-remaining from responseHeaders */
         TimeSpan resetAfter = /* read and parse x-ms-user-quota-resets-after from responseHeaders */
@@ -190,7 +190,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 ## <a name="pagination"></a>Pagination
 
-Étant donné qu’Azure Resource Graph retourne au maximum 1000 entrées dans une même réponse de requête, vous devrez peut-être [paginer](./work-with-data.md#paging-results) vos requêtes afin d’obtenir le jeu de données complet que vous recherchez. Toutefois, certains clients Azure Resource Graph gèrent la pagination différemment des autres.
+Étant donné qu’Azure Resource Graph retourne au maximum 1 000 entrées dans une même réponse de requête, vous devrez peut-être [paginer](./work-with-data.md#paging-results) vos requêtes afin d’obtenir le jeu de données complet que vous recherchez. Toutefois, certains clients Azure Resource Graph gèrent la pagination différemment des autres.
 
 - Kit de développement logiciel (SDK) C#
 
@@ -219,7 +219,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 - Azure CLI / Azure PowerShell
 
-  Quand vous utilisez Azure CLI ou Azure PowerShell, les requêtes envoyées à Azure Resource Graph sont automatiquement paginées afin d’extraire au maximum 5000 entrées. Les résultats de requête retournent une liste combinée d’entrées à partir de tous les appels paginés. Dans ce cas, en fonction du nombre d’entrées dans le résultat de requête, une requête paginée peut consommer plus d’un quota de requête. Dans les exemples suivants, une seule exécution de la requête peut consommer jusqu’à cinq quotas de requête :
+  Quand vous utilisez Azure CLI ou Azure PowerShell, les requêtes envoyées à Azure Resource Graph sont automatiquement paginées afin d’extraire au maximum 5 000 entrées. Les résultats de requête retournent une liste combinée d’entrées à partir de tous les appels paginés. Dans ce cas, en fonction du nombre d’entrées dans le résultat de requête, une requête paginée peut consommer plus d’un quota de requête. Dans les exemples suivants, une seule exécution de la requête peut consommer jusqu’à cinq quotas de requête :
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

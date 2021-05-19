@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 215da0e38045a2e66a4a11b54204c26e7720815c
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: fcf222573ac16be54ae98777749306fee0847109
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719058"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749588"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -132,7 +132,6 @@ Pour bien démarrer avec Azure Machine Learning, voir :
 
 + [Vue d’ensemble d’Azure Machine Learning](overview-what-is-azure-ml.md)
 + [Créer et gérer un espace de travail](how-to-manage-workspace.md)
-+ [Tutoriel : Bien démarrer avec Azure Machine Learning dans votre environnement de développement](tutorial-1st-experiment-sdk-setup-local.md)
-+ [Tutoriel : Bien démarrer avec la création de votre première expérience ML sur une instance de calcul](tutorial-1st-experiment-sdk-setup.md)
++ [Tutoriel : Prendre en main Azure Machine Learning](quickstart-create-resources.md)
 + [Tutoriel : Créer votre premier modèle de classification avec le machine learning automatisé](tutorial-first-experiment-automated-ml.md) 
 + [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md)

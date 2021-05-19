@@ -4,13 +4,13 @@ description: Dernières notes de publication pour Azure HDInsight. Obtenez des c
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.openlocfilehash: 1971e847745853730938409961b0531213932917
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/07/2021
+ms.openlocfilehash: 399ba119e7a58a04bd623d8b08c28dd860304b99
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129582"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632220"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notes de publication Azure HDInsight
 
@@ -21,6 +21,21 @@ Cet article fournit des informations sur les mises à jour **les plus récentes*
 Azure HDInsight est l’un des services les plus populaires parmi les clients d’entreprise pour l’analytique open source sur Azure.
 
 Si vous souhaitez vous abonner aux notes de publication, regardez les communiqués sur [ce référentiel GitHub](https://github.com/hdinsight/release-notes/releases).
+
+## <a name="price-correction-for-hdinsight-dv2-virtual-machines"></a>Correction du prix pour les machines virtuelles HDInsight Dv2
+
+Une erreur de tarification a été corrigée le 25 avril 2021, pour la série de machines virtuelles HDInsight Dv2. L’erreur de tarification a entraîné un coût réduit pour les factures de certains clients avant le 25 avril, et avec la correction, les prix correspondent désormais à ceux qui ont été publiés sur la page de tarification HDInsight et la calculatrice de prix HDInsight. L’erreur de tarification a affecté les clients qui ont utilisé des machines virtuelles Dv2 dans les régions suivantes :
+
+- Centre du Canada
+- Est du Canada
+- Asie Est
+- Afrique du Sud Nord
+- Asie Sud-Est
+- Émirats arabes unis Centre
+
+À partir du 25 avril 2021, le montant corrigé pour les machines virtuelles Dv2 s’appliquera à votre compte. Les notifications client ont été envoyées aux propriétaires d’abonnements avant la modification. Vous pouvez utiliser la calculatrice de prix, la page de tarification HDInsight ou le panneau Créer un cluster HDInsight dans le portail Azure pour afficher les coûts corrigés pour les machines virtuelles Dv2 dans votre région.
+
+Aucune autre action n’est nécessaire de votre côté. La correction du prix s’applique uniquement à l’utilisation le 25 avril 2021 ou après dans les régions spécifiées, et non à toute utilisation avant cette date. Pour vous assurer que vous disposez de la solution la plus performante et la plus rentable, nous vous recommandons de passer en revue la tarification, les processeurs virtuels et la RAM pour vos clusters Dv2, et de comparer les spécifications Dv2 aux machines virtuelles Ev3 afin de déterminer si votre solution peut tirer parti de l’utilisation de l’une des nouvelles séries de machines virtuelles.
 
 ## <a name="release-date-03242021"></a>Date de publication : 24/03/2021
 
@@ -65,6 +80,14 @@ HDInsight migre progressivement vers les groupes de machines virtuelles identiqu
 
 ## <a name="upcoming-changes"></a>Changements à venir
 Les changements suivants se produiront dans les prochaines versions.
+
+### <a name="hdinsight-interactive-query-only-supports-schedule-based-autoscale"></a>La requête interactive HDInsight prend uniquement en charge la mise à l’échelle automatique basée sur une planification
+
+À mesure que les scénarios client augmentent et se diversifient, nous avons identifié certaines limitations avec la mise à l’échelle automatique basée sur la charge LLAP (Interactive Query). Ces limitations sont dues à la nature de la dynamique des requêtes LLAP, aux problèmes de précision de la prédiction de la charge future et aux problèmes dans la redistribution des tâches du planificateur LLAP. En raison de ces limitations, les utilisateurs peuvent voir leurs requêtes s’exécuter plus lentement sur les clusters LLAP lorsque la mise à l’échelle automatique est activée. L’impact sur les performances peut être plus important que le coût de la mise à l’échelle automatique.
+
+À partir du 15 mai 2021, la charge de travail Interactive Query dans HDInsight prend uniquement en charge la mise à l’échelle automatique basée sur la planification. Vous ne pouvez plus activer la mise à l’échelle automatique sur les nouveaux clusters Interactive Query. Les clusters en cours d’exécution existants peuvent continuer à s’exécuter avec les limitations connues décrites ci-dessus. 
+
+Microsoft vous recommande de passer à une mise à l’échelle automatique basée sur une planification pour LLAP.  Vous pouvez analyser le modèle d’utilisation actuel de votre cluster via le tableau de bord Grafana Hive. Pour plus d’informations, consultez [Mettre à l’échelle automatiquement les clusters Azure HDInsight](hdinsight-autoscale-clusters.md). 
 
 ### <a name="os-version-upgrade"></a>Mise à niveau de la version du système d’exploitation
 Les clusters HDInsight sont en cours d’exécution sur Ubuntu 16.04 LTS. Comme indiqué dans l’article sur le [cycle de publication d’Ubuntu](https://ubuntu.com/about/release-cycle), le noyau Ubuntu 16.04 arrivera en fin de vie (EOL) en avril 2021. Nous allons commencer à déployer la nouvelle image de cluster HDInsight 4.0 qui s’exécute sur Ubuntu 18.04 en mai 2021. Une fois disponibles, les clusters HDInsight 4.0 nouvellement créés s’exécuteront par défaut sur Ubuntu 18.04. Les clusters existants sur Ubuntu 16.04 s’exécuteront en l’état avec une prise en charge complète.

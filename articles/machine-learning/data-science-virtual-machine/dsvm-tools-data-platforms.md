@@ -5,16 +5,16 @@ description: Apprenez-en davantage sur les outils et plateformes de données pri
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 ms.service: data-science-vm
-author: lobrien
-ms.author: laobri
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: 927e945a0d045abcd1caa2951dbd484224b2f425
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/29/2021
+ms.openlocfilehash: 52a431cae26d1d45534abd55f9de5357b31ecbea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519539"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749462"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
@@ -27,16 +27,17 @@ Les outils de plateforme de données pris en charge sur DSVM sont les suivants.
 | Category | Valeur |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Une instance de base de données relationnelle locale      |
-| Éditions DSVM prises en charge      | Windows 2016 : SQL Server 2017, Windows 2019 : SQL Server 2019      |
+| Éditions DSVM prises en charge      | Windows 2019, Ubuntu 18.04 (SQL Server 2019)   |
 | Utilisations classiques      | <ul><li>Développement rapide localement avec le plus petit jeu de données</li><li>Exécution de R en base de données</li></ul> |
 | Liens vers des exemples      | <ul><li>Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL :<br/>  `nyctaxi`</li><li>Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft Machine Learning Server et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
-| Outils connexes sur la machine virtuelle DSVM       | <ul><li>SQL Server Management Studio</li><li>Pilotes ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
+| Outils connexes sur la machine virtuelle DSVM       | <ul><li>SQL Server Management Studio</li><li>Pilotes ODBC/JDBC</li><li>pyodbc, RODBC</li></ul> |
 
 > [!NOTE]
 > L’édition Développeur de SQL Server peut uniquement être utilisée à des fins de test et de développement. Vous avez besoin d’une licence ou de l’une des machines virtuelles SQL Server pour l’exécuter en production.
 
+### <a name="windows"></a>Windows
 
-### <a name="setup"></a>Programme d’installation
+#### <a name="setup"></a>Programme d’installation
 
 Le serveur de base de données est déjà préconfiguré et les services Windows associés à SQL Server (comme `SQL Server (MSSQLSERVER)`) sont définis pour s’exécuter automatiquement. La seule étape manuelle implique l’activation de l’analytique en base de données à l’aide de Microsoft Machine Learning Server. Vous pouvez activer les analyses en exécutant la commande suivante une seule fois dans SQL Server Management Studio (SSMS). Exécutez cette commande après vous être connecté en tant qu’administrateur de l’ordinateur, ouvrez une nouvelle requête dans SSMS et assurez-vous que la base de données sélectionnée est `master` :
 
@@ -48,15 +49,21 @@ CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS
 
 Pour exécuter l’outil SQL Server Management Studio, vous pouvez rechercher « SQL Server Management Studio » dans la liste des programmes ou utiliser Windows Search pour le rechercher et l’exécuter. Quand vous êtes invité à fournir des informations d’identification, séelctionnez **Authentification Windows** et utilisez le nom d’ordinateur ou ```localhost``` dans le champ **Nom du serveur SQL**.
 
-### <a name="how-to-use-and-run-it"></a>Comment l’utiliser et l’exécuter ?
+#### <a name="how-to-use-and-run-it"></a>Comment l’utiliser et l’exécuter ?
 
 Par défaut, le serveur de base de données avec l’instance de base de données par défaut s’exécute automatiquement. Vous pouvez utiliser des outils tels que SQL Server Management Studio sur la machine virtuelle pour accéder à la base de données SQL Server localement. Les comptes administrateurs locaux ont un accès administrateur à la base de données.
 
 De plus, l’environnement DSVM est fourni avec des pilotes ODBC et JDBC pour communiquer avec SQL Server, les bases de données Azure SQL et Azure Synapse Analytics à partir d’applications écrites dans plusieurs langages, notamment Python et Machine Learning Server.
 
-### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Comment est-il configuré et installé sur la machine virtuelle DSVM ? 
+#### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Comment est-il configuré et installé sur la machine virtuelle DSVM ? 
 
  SQL Server est installé de manière standard. Il se trouve dans `C:\Program Files\Microsoft SQL Server`. L’instance de Machine Learning Server en base de données se trouve à l’emplacement `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. L’environnement DSVM a aussi une instance de Machine Learning Server autonome distincte, installée à l’emplacement `C:\Program Files\Microsoft\R Server\R_SERVER`. Ces deux instances de Machine Learning Server ne partagent pas de bibliothèques.
+
+
+### <a name="ubuntu"></a>Ubuntu
+
+Pour utiliser SQL Server Developer Edition sur une DSVM Ubuntu, vous devez d’abord l’installer. [Démarrage rapide : Installer SQL Server et créer une base de données sur Ubuntu](https://docs.microsoft.com/sql/linux/quickstart-install-connect-ubuntu) vous explique comment.
+
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (autonome)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 52dd642c661aa60157876a89d41c771cabfe2f1d
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: c7bd85a3cf02196216b63c3ad29eba7f425fb0c5
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256155"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795003"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -414,25 +414,30 @@ Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètr
 
 ### <a name="customization"></a>Personnalisation
 
-Custom Voice est disponible dans le niveau standard et le niveau neuronal. Les langues prises en charge sont différentes pour ces deux niveaux. 
+Custom Voice est disponible au niveau neuronal (Voix neuronale personnalisée). Vérifiez ci-dessous les langues prises en charge. 
 
-| Langage | Paramètres régionaux | Standard | Neuronale |
-|--|--|--|--|
-| Chinois (mandarin, simplifié) | `zh-CN` | Oui | Oui |
-| Chinois (mandarin, simplifié), anglais bilingue | `zh-CN` bilingue | Oui | Oui |
-| Anglais (Australie) | `en-AU` | Non | Oui |
-| Anglais (Inde) | `en-IN` | Oui | Oui |
-| Anglais (Royaume-Uni) | `en-GB` | Oui | Oui |
-| Anglais (États-Unis) | `en-US` | Oui | Oui |
-| Français (Canada) | `fr-CA` | Non | Oui |
-| Français (France) | `fr-FR` | Oui | Oui |
-| Allemand (Allemagne) | `de-DE` | Oui | Oui |
-| Italien (Italie) | `it-IT` | Oui | Oui |
-| Japonais (Japon) | `ja-JP` | Non | Oui |
-| Coréen (Corée) | `ko-KR` | Non | Oui |
-| Portugais (Brésil) | `pt-BR` | Oui | Oui |
-| Espagnol (Mexique) | `es-MX` | Oui | Oui |
-| Espagnol (Espagne) | `es-ES` | Non | Oui |
+> [!IMPORTANT]
+> Le niveau standard, y compris les méthodes de formation paramétrique statistique et par concaténation de Custom Voice, est déprécié et sera retiré le 2/29/2024. Si vous utilisez une instance Custom Voice non neurale/standard, migrez immédiatement vers la Voix neuronale personnalisée pour profiter de la meilleure qualité et déployer les voix de manière responsable. 
+
+| Langage | Paramètres régionaux | Neuronale |
+|--|--|--|
+| Bulgare (Bulgarie)| `bg-BG` | Oui |
+| Chinois (mandarin, simplifié) | `zh-CN` | Oui |
+| Chinois (mandarin, simplifié), anglais bilingue | `zh-CN` bilingue | Oui |
+| Néerlandais (Pays-Bas)   | `nl-NL` | Oui |
+| Anglais (Australie) | `en-AU` | Oui |
+| Anglais (Inde) | `en-IN` | Oui |
+| Anglais (Royaume-Uni) | `en-GB` | Oui |
+| Anglais (États-Unis) | `en-US` | Oui |
+| Français (Canada) | `fr-CA` | Oui |
+| Français (France) | `fr-FR` | Oui |
+| Allemand (Allemagne) | `de-DE` | Oui |
+| Italien (Italie) | `it-IT` | Oui |
+| Japonais (Japon) | `ja-JP` | Oui |
+| Coréen (Corée) | `ko-KR` | Oui |
+| Portugais (Brésil) | `pt-BR` | Oui |
+| Espagnol (Mexique) | `es-MX` | Oui |
+| Espagnol (Espagne) | `es-ES` | Oui |
 
 Sélectionnez les paramètres régionaux qui correspondent aux données d’apprentissage servant à entraîner un modèle vocal personnalisé. Par exemple, si vos données d’enregistrement sont en anglais avec un accent britannique, sélectionnez `en-GB`.
 

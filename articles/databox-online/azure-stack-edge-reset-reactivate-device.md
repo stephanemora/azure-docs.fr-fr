@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 05/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 95fbe5dc4a934fee10c558f640bc24f261203a33
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f744e85c97d3c7e79028ae95b4d90626af41787
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443509"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773086"
 ---
 # <a name="reset-and-reactivate-your-azure-stack-edge-pro-device"></a>Réinitialiser et réactiver votre appareil Azure Stack Edge Pro
 
@@ -23,14 +23,12 @@ Cet article explique comment réinitialiser, reconfigurer et réactiver un appar
 
 Une fois que vous avez réinitialisé l’appareil pour supprimer les données, vous devez le réactiver en tant que nouvelle ressource. La réinitialisation d’un appareil a pour effet de supprimer sa configuration. Vous devez donc le reconfigurer via l’interface utilisateur web locale.
 
-Dans cet article, vous apprendrez comment :
+Par exemple, vous devrez peut-être déplacer une ressource Azure Stack Edge existante vers un nouvel abonnement. Pour ce faire :
 
-> [!div class="checklist"]
->
-> * Effacer les données des disques de données sur l’appareil
-> * Réactiver l’appareil en créant une nouvelle commande, en reconfigurant l’appareil et en l’activant
+1. Réinitialisez les données sur l’appareil en suivant les étapes décrites dans [Réinitialiser un appareil](#reset-device).
+2. Créez une nouvelle ressource qui utilise le nouvel abonnement avec votre appareil existant, puis activez l’appareil. Suivez les étapes décrites dans [Réactiver l’appareil](#reactivate-device).
 
-## <a name="reset-data-from-the-device"></a>Réinitialiser les données de l’appareil
+## <a name="reset-device"></a>Réinitialiser un appareil
 
 Pour effacer les données des disques de données de votre appareil, vous devez réinitialiser votre appareil.
 

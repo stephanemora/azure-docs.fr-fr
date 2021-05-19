@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.custom: include file
-ms.openlocfilehash: c003e765574d764b6653823e8554d0718ea85e0e
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 532ac3b60f90a3d587a57ad8ea9663a6cfad3d90
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106081036"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109645046"
 ---
 Un partage de fichiers Azure est stocké dans le cloud dans un compte de stockage Azure.
 Les performances doivent être considérées à un autre niveau ici.
@@ -27,7 +27,7 @@ Ces considérations s’appliquent davantage à l’accès direct au cloud (par 
 
 Si vous avez établi la liste de vos partages, vous devez mapper chaque partage au compte de stockage dans lequel il résidera.
 
-Durant la phase précédente, vous avez déterminé le nombre de partages approprié. Au cours de cette étape, vous avez créé un mappage des comptes de stockage aux partages de fichiers. Déployez maintenant le nombre approprié de comptes de stockage Azure avec le nombre approprié de partages de fichiers Azure contenus.
+Durant la phase précédente, vous avez déterminé le nombre de partages approprié. Au cours de cette étape, vous avez un mappage des comptes de stockage aux partages de fichiers. Déployez maintenant le nombre approprié de comptes de stockage Azure avec le nombre approprié de partages de fichiers Azure contenus.
 
 Vérifiez que la région est la même pour tous vos comptes de stockage et qu’elle correspond à la région de la ressource de service de synchronisation de stockage que vous avez déjà déployée.
 

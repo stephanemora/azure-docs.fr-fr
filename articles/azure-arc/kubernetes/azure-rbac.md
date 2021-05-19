@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Utiliser Azure RBAC pour les contrôles d’autorisation sur les clusters Kubernetes avec Azure Arc
-ms.openlocfilehash: f0275e1516e8487b5a00fb08c885b09b6df1684c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 63621391da3dec966e9d0375a8671b7413a0b222
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145696"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804597"
 ---
 # <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Intégrer Azure Active Directory à des clusters Kubernetes avec Azure Arc
 
@@ -398,6 +398,112 @@ Une fois le processus de proxy en cours d’exécution, vous pouvez ouvrir un au
 
     Un administrateur doit créer une nouvelle attribution de rôle pour autoriser cet utilisateur à accéder à la ressource.
 
+## <a name="use-conditional-access-with-azure-ad"></a>Utiliser l’accès conditionnel avec Azure AD
+
+Lorsque vous intégrez Azure AD à votre cluster avec Kubernetes, vous pouvez également utiliser l’[accès conditionnel](../../active-directory/conditional-access/overview.md) pour contrôler l’accès à votre cluster.
+
+> [!NOTE]
+> L’accès conditionnel Azure AD est une fonctionnalité Azure AD Premium.
+
+Pour créer un exemple de stratégie d’accès conditionnel à utiliser avec le cluster, procédez comme suit :
+
+1. En haut du portail Azure, recherchez et sélectionnez Azure Active Directory.
+1. Dans le menu Azure Active Directory sur le côté gauche, sélectionnez *Applications d’entreprise*.
+1. Dans le menu Applications d’entreprise sur le côté gauche, sélectionnez *Accès conditionnel*.
+1. Dans le menu Accès conditionnel sur le côté gauche, sélectionnez *Stratégies* puis *Nouvelle stratégie*.
+1. Dans le menu Accès conditionnel sur le côté gauche, sélectionnez *Stratégies* puis *Nouvelle stratégie*.
+    
+    [ ![Ajout d’une stratégie d’accès conditionnel](./media/azure-rbac/conditional-access-new-policy.png) ](./media/azure-rbac/conditional-access-new-policy.png#lightbox)
+
+1. Entrez le nom de la stratégie, par exemple *arc-k8s-policy*.
+1. Sélectionnez *Utilisateurs et groupes*, puis sous *Inclure* sélectionnez *Sélectionner des utilisateurs et des groupes*. Choisissez les utilisateurs et les groupes auxquels vous souhaitez appliquer la stratégie. Pour cet exemple, choisissez le groupe Azure AD qui dispose déjà d’un accès d’administration à votre cluster.
+
+    [ ![Sélection d’utilisateurs ou de groupes pour appliquer la stratégie d’accès conditionnel](./media/azure-rbac/conditional-access-users-groups.png) ](./media/azure-rbac/conditional-access-users-groups.png#lightbox)
+
+1. Sélectionnez *Applications ou actions cloud*, puis sous *Inclure* sélectionnez *Sélectionner des applications*. Recherchez et sélectionnez l’application serveur que vous avez créée précédemment.
+
+    [ ![Sélectionner l’application serveur pour l’application de la stratégie d’accès conditionnel](./media/azure-rbac/conditional-access-apps.png) ](./media/azure-rbac/conditional-access-apps.png#lightbox)
+
+1. Sous *Contrôles d’accès*, sélectionnez *Accorder*. Sélectionnez *Accorder l’accès* puis *Exiger que l’appareil soit marqué comme conforme*.
+
+    [ ![Sélection de l’option Autoriser uniquement les appareils conformes pour la stratégie d’accès conditionnel](./media/azure-rbac/conditional-access-grant-compliant.png) ](./media/azure-rbac/conditional-access-grant-compliant.png#lightbox)
+    
+1. Sous *Activer une stratégie*, sélectionnez *Activé*, puis *Créer*.
+
+    [ ![Activation de la stratégie d’accès conditionnel](./media/azure-rbac/conditional-access-enable-policies.png) ](./media/azure-rbac/conditional-access-enable-policies.png#lightbox)
+
+Accédez à nouveau au cluster. Par exemple, en exécutant la commande `kubectl get nodes` pour afficher les nœuds du cluster :
+
+```console
+kubectl get nodes
+```
+
+Suivez les instructions pour vous reconnecter. Notez qu’un message d’erreur s’affiche, indiquant que vous êtes correctement connecté, mais que votre administrateur requiert que l’appareil demandant l’accès soit géré par votre instance Azure AD pour accéder à la ressource.
+
+Dans le portail Azure, accédez à Azure Active Directory, sélectionnez *Applications d’entreprise*, puis sous *Activité*, sélectionnez *Connexions*. Notez une entrée en haut avec l’*état* *Échec* et l’*accès conditionnel* *Réussite*. Sélectionnez l’entrée, puis *Accès conditionnel* dans *Détails*. Notez que votre stratégie d’accès conditionnel est indiquée.
+
+[ ![Entrée de connexion ayant échoué en raison d’une stratégie d’accès conditionnel](./media/azure-rbac/conditional-access-sign-in-activity.png) ](./media/azure-rbac/conditional-access-sign-in-activity.png#lightbox)
+
+## <a name="configure-just-in-time-cluster-access-with-azure-ad"></a>Configurer un accès juste-à-temps au cluster avec Azure AD
+
+Une autre option pour le contrôle d’accès aux clusters consiste à utiliser Privileged Identity Management (PIM) pour les requêtes juste-à-temps.
+
+>[!NOTE]
+> PIM est une fonctionnalité Azure AD Premium nécessitant une référence SKU P2 Premium. Pour plus d’informations sur les références SKU Azure AD, consultez le [Guide de tarification](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Pour configurer des demandes d’accès juste-à-temps pour votre cluster, procédez comme suit :
+
+1. En haut du portail Azure, recherchez et sélectionnez Azure Active Directory.
+1. Prenez note de l’ID de locataire, appelé pour le reste de ces instructions <tenant-id>
+
+    [ ![Détails des locataires AAD](./media/azure-rbac/jit-get-tenant-id.png) ](./media/azure-rbac/jit-get-tenant-id.png#lightbox)
+
+1. Dans le menu de Azure Active Directory sur le côté gauche, sous *Gérer* sélectionner *Groupes*, puis *Nouveau groupe*.
+
+    [ ![Sélectionner un nouveau groupe](./media/azure-rbac/jit-create-new-group.png) ](./media/azure-rbac/jit-create-new-group.png#lightbox)
+
+1. Assurez-vous qu’un Type de groupe de *Sécurité* est sélectionné et entrez un nom de groupe, comme *myJITGroup*. Sous *Rôles Azure AD pouvant être attribués à ce groupe (préversion)* , sélectionnez *Oui*. Pour finir, sélectionnez *Créer*.
+
+    [ ![Création de groupe](./media/azure-rbac/jit-new-group-created.png) ](./media/azure-rbac/jit-new-group-created.png#lightbox)
+
+1. Vous serez redirigé vers la page *Groupes*. Sélectionnez le groupe que vous venez de créer et prenez note de l’ID d’objet, référencé pour le reste de ces instructions sous la forme de `<object-id>`.
+
+    [ ![Groupe créé](./media/azure-rbac/jit-get-object-id.png) ](./media/azure-rbac/jit-get-object-id.png#lightbox)
+
+1. De retour dans le Portail Azure, dans le menu de *Activité* sur le côté gauche, sélectionnez *Accès privilégié (préversion)* et cliquez sur *Activer l’accès privilégié*.
+
+    [ ![Activer l’accès privilégié](./media/azure-rbac/jit-enabling-priv-access.png) ](./media/azure-rbac/jit-enabling-priv-access.png#lightbox)
+
+1. Sélectionnez *Ajouter des affectations* pour commencer à accorder l’accès.
+
+    [ ![Ajouter une affectation active](./media/azure-rbac/jit-add-active-assignment.png) ](./media/azure-rbac/jit-add-active-assignment.png#lightbox)
+
+1. Sélectionnez un rôle de *membre*, puis choisissez les utilisateurs et les groupes auxquels vous souhaitez accorder l’accès au cluster. Un administrateur de groupe peut modifier ces affectations à tout moment. Quand vous êtes prêt à continuer, choisissez *Suivant*.
+
+    [ ![Ajout de l’attribution](./media/azure-rbac/jit-adding-assignment.png) ](./media/azure-rbac/jit-adding-assignment.png#lightbox)
+
+1. Choisissez un type d’affectation *Actif*, la durée souhaitée et fournissez une justification. Lorsque vous êtes prêt à continuer, sélectionnez *Attribuer*. Pour plus d’informations sur les types d’affectations, consultez [Attribuer l’éligibilité à l’appartenance ou la propriété d’un groupe d’accès privilégié (préversion) dans Privileged Identity Management](../../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group).
+
+    [ ![Choix des propriétés pour l’affectation](./media/azure-rbac/jit-set-active-assignment.png) ](./media/azure-rbac/jit-set-active-assignment.png#lightbox)
+
+Une fois les attributions effectuées, vérifiez que l’accès juste-à-temps fonctionne en accédant au cluster. Par exemple :
+
+Exécutez la commande `kubectl get nodes` pour afficher les nœuds du cluster :
+
+```console
+kubectl get nodes
+```
+
+Notez la configuration requise pour l’authentification et suivez les étapes pour vous authentifier. Le résultat devrait ressembler à ce qui suit :
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+
+NAME      STATUS   ROLES    AGE      VERSION
+node-1    Ready    agent    6m36s    v1.18.14
+node-2    Ready    agent    6m42s    v1.18.14
+node-3    Ready    agent    6m33s    v1.18.14
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

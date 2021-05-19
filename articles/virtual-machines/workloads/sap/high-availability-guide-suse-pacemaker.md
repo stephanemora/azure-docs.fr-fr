@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 04/30/2021
 ms.author: radeltch
-ms.openlocfilehash: aa2006ecfad91e21ac13a1e63be23302b2a70399
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e0ebc527f1eb0aa3ed014957633b89c407952364
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551031"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743198"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -442,8 +442,8 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    >Vous pouvez vérifier l’extension en exécutant la commande SUSEConnect---list-extensions.  
    >Pour obtenir des délais de basculement plus rapides avec Azure Fence Agent :
    > - sur SLES 12 SP4 ou SLES 12 SP5, installez la version **4.6.2** ou une version ultérieure du package python-azure-mgmt-compute  
-   > - sur SLES 15, installez la version **4.6.2** ou une version ultérieure du package python **3**-azure-mgmt-compute 
-
+   > - sur SLES 15.X, installez la version **4.6.2** du package python **3**-azure-mgmt-compute, mais pas une version supérieure. Évitez la version 17.0.0-6.7.1 du package python **3**-azure-mgmt-compute, car il contient des modifications incompatibles avec l’agent d’isolation Azure    
+     
 1. **[A]** Configurer la résolution de nom d’hôte
 
    Vous pouvez utiliser un serveur DNS ou modifier le fichier /etc/hosts sur tous les nœuds. Cet exemple montre comment utiliser le fichier /etc/hosts.

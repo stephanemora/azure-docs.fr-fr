@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0e59fa2bcbc2d357857ddef39d990ddee9bc9c90
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 23bd1ce63e3d697a40125c79e802ad3e01915f49
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129456"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487490"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -37,6 +37,7 @@ Les demandes adressées à IoT Hub échouent en générant l’un des messages d
 * La règle d’autorisation « \* » n’autorise pas l’accès pour « \* »
 * L’authentification a échoué pour cet appareil. Renouvelez le jeton ou le certificat, puis recommencez la connexion
 * L’empreinte numérique ne correspond pas à la configuration : Empreinte : SHA1Hash=\*, SHA2Hash=\*; Configuration : PrimaryThumbprint=\*, SecondaryThumbprint=\*
+* Le principal user@example.com n’est pas autorisé pour GET sur/exampleOperation en raison de l’absence d’autorisations affectées
 
 ## <a name="cause"></a>Cause
 
@@ -73,6 +74,7 @@ En général, le message d’erreur présenté doit expliquer comment corriger l
 - Pour l’authentification par empreinte de certificat X.509, l’empreinte numérique du certificat d’appareil est inscrite auprès de IoT Hub.
 - Les informations d’identification d’autorisation sont bien formées pour le protocole que vous utilisez. Pour plus d’informations, consultez [Contrôle de l’accès à IoT Hub](iot-hub-devguide-security.md).
 - La règle d’autorisation utilisée a l’autorisation pour l’opération demandée.
+- Pour les derniers messages d’erreur commençant par « Le principal... », cette erreur peut être résolue en affectant le niveau d’autorisation Azure RBAC approprié à l’utilisateur. Par exemple, un propriétaire sur IoT Hub peut attribuer le rôle « Propriétaire des données IoT Hub », qui accorde toutes les autorisations. Essayez ce rôle pour résoudre le problème d’autorisation insuffisante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

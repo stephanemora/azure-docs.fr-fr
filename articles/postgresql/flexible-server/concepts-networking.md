@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/22/2021
-ms.openlocfilehash: 5b832ca7f1b5fb8a6b0044ca299c75f01a2d0f32
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: b7019ac01666243d0d11bcfa80e0e96865482fc5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987040"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756410"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble des réseaux - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -70,12 +70,13 @@ Voici quelques concepts à connaître quand vous utilisez des réseaux virtuels 
 
 * **Groupes de sécurité réseau (NSG)**  : les règles de sécurité dans les groupes de sécurité réseau permettent de filtrer le type de trafic qui peut circuler vers et depuis les interfaces réseau et les sous-réseaux de réseau virtuel. Pour plus d’informations, consultez la documentation [Vue d’ensemble des groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md).
 
-* **Intégration de DNS privé** : l’intégration de zones DNS privées Azure permet de résoudre le DNS privé au sein du réseau virtuel actuel ou de tout réseau virtuel appairé dans la région où la zone DNS privée est liée. Pour plus d’informations, consultez [la documentation relative aux zones DNS privées](https://docs.microsoft.com/azure/dns/private-dns-overview).
+* **Intégration de zone DNS privée** : l’intégration de zones DNS privées Azure permet de résoudre le DNS privé au sein du réseau virtuel actuel ou de tout réseau virtuel appairé dans la région où la zone DNS privée est liée. Pour plus d’informations, consultez [la documentation relative aux zones DNS privées](https://docs.microsoft.com/azure/dns/private-dns-overview).
 
 Découvrez comment créer un serveur flexible avec accès privé (intégration au réseau virtuel) dans le [portail Azure](how-to-manage-virtual-network-portal.md) ou [Azure CLI](how-to-manage-virtual-network-cli.md).
 
-> [!NOTE]
-> Si vous utilisez le serveur DNS personnalisé, vous devez utiliser un redirecteur DNS pour résoudre le nom de domaine complet du serveur Azure Database pour PostgreSQL – Serveur flexible. Consultez [Résolution de noms utilisant votre propre serveur DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) pour en savoir plus.
+### <a name="integration-with-custom-dns-server"></a>Intégration avec un serveur DNS personnalisé
+
+Si vous utilisez le serveur DNS personnalisé, vous devez utiliser un redirecteur DNS pour résoudre le nom de domaine complet du serveur Azure Database pour PostgreSQL – Serveur flexible. L’adresse IP du redirecteur doit être [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) et le serveur DNS personnalisé doit être à l’intérieur du réseau virtuel. Consultez [Résolution de noms utilisant votre propre serveur DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) pour en savoir plus.
 
 ### <a name="private-dns-zone-and-vnet-peering"></a>Zone DNS privée et appairage de réseaux virtuels
 
@@ -84,6 +85,8 @@ Les paramètres de zone DNS privée et l’appairage de réseaux virtuels sont 
 * Par défaut, une nouvelle zone DNS privée est approvisionnée automatiquement par serveur à l’aide du nom de serveur fourni. Toutefois, si vous souhaitez configurer votre propre zone DNS privée à utiliser avec le serveur flexible, consultez la documentation [Vue d’ensemble du DNS privé](https://docs.microsoft.com/azure/dns/private-dns-overview).
 * Si vous souhaitez vous connecter au serveur flexible à partir d’un client configuré dans un autre réseau virtuel, vous devez lier la zone DNS privée au réseau virtuel. Consultez la documentation [Lier le réseau virtuel](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
 
+> [!NOTE]
+> Les noms de zone DNS privée qui se terminent par `private.postgres.database.azure.com` peuvent seulement être liés.
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Scénarios de réseau virtuel non pris en charge
 * Point de terminaison public (ou adresse IP publique ou DNS) : un serveur flexible déployé sur un réseau virtuel ne peut pas avoir de point de terminaison public.

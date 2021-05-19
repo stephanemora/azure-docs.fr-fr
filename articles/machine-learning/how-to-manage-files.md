@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: 7879db0e059358a2df550a8c82f3b692597de8f6
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e1868794f7e47ccce3efa36b7954a1a2a704e8d6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888995"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739022"
 ---
 # <a name="how-to-create-and-manage-files-in-your-workspace"></a>Créer et gérer des fichiers dans votre espace de travail
 
@@ -58,7 +58,7 @@ Pour créer un fichier dans un autre dossier :
 
 Votre espace de travail comprend le dossier **Exemples de notebooks** qui contient des notebooks conçus pour vous aider à explorer le SDK et pour servir d’exemples à vos propres projets de machine learning.   Clonez ces notebooks dans votre propre dossier en vue de les exécuter et de les modifier.  
 
-Pour obtenir un exemple, consultez [Tutoriel : Créer votre première expérience ML](tutorial-1st-experiment-sdk-setup.md#azure).
+Pour obtenir un exemple, consultez [Tutoriel : Créer votre première expérience ML](tutorial-train-models-with-aml.md#azure).
 
 ## <a name="share-files"></a>Partager des fichiers
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 05/06/2021
 ms.author: victorh
-ms.openlocfilehash: a682523b9486886d5be3c96a372fe36c81582649
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 4c3b33400340fc4dd13e74437aa9fddf6921e710
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988619"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804499"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Superviser les journaux d’activité et les métriques du Pare-feu Azure
 
@@ -26,7 +26,7 @@ Vous pouvez accéder à certains de ces journaux d’activité via le portail. L
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, consultez [Journaux d'activité et métriques du Pare-feu Azure](logs-and-metrics.md) pour obtenir une vue d'ensemble des journaux de diagnostic et des métriques disponibles pour le Pare-feu Azure.
+Avant de commencer, consultez [Journaux d’activité et métriques du Pare-feu Azure](logs-and-metrics.md) pour obtenir une vue d’ensemble des journaux de diagnostic et des métriques disponibles pour le Pare-feu Azure.
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>Activer la journalisation des diagnostics via le portail Azure
 
@@ -59,19 +59,19 @@ Pour activer la journalisation des diagnostics avec PowerShell, procédez comme 
 
    Vous pouvez utiliser n’importe quel espace de travail dans votre abonnement. Vous pouvez utiliser le portail Azure pour rechercher ces informations. Les informations se trouvent dans la page **Propriétés** de la ressource.
 
-2. Notez l’ID de ressource de votre pare-feu pour lequel la journalisation est activée. Cette valeur se présente sous la forme suivante : `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+2. Notez l’ID de ressource pour le pare-feu. Cette valeur se présente sous la forme suivante : `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
 
    Vous pouvez utiliser le portail pour rechercher ces informations.
 
 3. Activez la journalisation des diagnostics pour l’ensemble des journaux et métriques à l’aide de la cmdlet PowerShell suivante :
 
-   ```powershell
-   $diagSettings = @{
+   ```azurepowershell
+      $diagSettings = @{
       Name = 'toLogAnalytics'
       ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
       Enabled = $true
-   }
+      }
    Set-AzDiagnosticSetting  @diagSettings 
    ```
 
@@ -85,14 +85,14 @@ Pour activer la journalisation des diagnostics avec Azure CLI, procédez comme s
 
    Vous pouvez utiliser n’importe quel espace de travail dans votre abonnement. Vous pouvez utiliser le portail Azure pour rechercher ces informations. Les informations se trouvent dans la page **Propriétés** de la ressource.
 
-2. Notez l’ID de ressource de votre pare-feu pour lequel la journalisation est activée. Cette valeur se présente sous la forme suivante : `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+2. Notez l’ID de ressource pour le pare-feu. Cette valeur se présente sous la forme suivante : `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
 
    Vous pouvez utiliser le portail pour rechercher ces informations.
 
 3. Activez la journalisation des diagnostics pour l’ensemble des journaux et métriques à l’aide de la commande Azure CLI suivante :
 
-   ```azurecli-interactive
-   az monitor diagnostic-settings create -n 'toLogAnalytics'
+   ```azurecli
+      az monitor diagnostic-settings create -n 'toLogAnalytics'
       --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
       --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
@@ -121,12 +121,12 @@ Vous pouvez également vous connecter à votre compte de stockage et récupérer
 > Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans GitHub.
 
 ## <a name="view-metrics"></a>Afficher les mesures
-Accédez à un Pare-feu Azure. Sous **Supervision**, sélectionnez **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
+Accédez à un pare-feu Azure. Sous **Supervision**, sélectionnez **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez configuré votre pare-feu pour collecter des journaux d’activité, vous pouvez explorer les journaux d’activité Azure Monitor pour voir vos données.
 
-[Monitoring des journaux avec un classeur Pare-feu Azure](firewall-workbook.md)
+- [Monitoring des journaux avec un classeur Pare-feu Azure](firewall-workbook.md)
 
-[Solutions de supervision réseau dans les journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
+- [Solutions de supervision réseau dans les journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)

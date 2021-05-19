@@ -1,16 +1,16 @@
 ---
 title: Configurer une sauvegarde opérationnelle pour des objets blob Azure
-description: Découvrez comment configurer et gérer une sauvegarde opérationnelle pour des objets blob Azure (préversion)
+description: Découvrez comment configurer et gérer une sauvegarde opérationnelle pour des objets blob Azure.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 0dc490842389ba9286799aef5d37c1cf7c1ba64e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 05/05/2021
+ms.openlocfilehash: cb2bc525018b33eb3441a8ed949d3e808c5051d8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102051070"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767407"
 ---
-# <a name="configure-operational-backup-for-azure-blobs-in-preview"></a>Configurer une sauvegarde opérationnelle pour des objets blob Azure (préversion)
+# <a name="configure-operational-backup-for-azure-blobs"></a>Configurer une sauvegarde opérationnelle pour des objets blob Azure
 
 Le service Sauvegarde Azure vous permet de configurer facilement une sauvegarde opérationnelle pour la protection d’objets blob de blocs dans vos comptes de stockage. Cet article explique comment configurer une sauvegarde opérationnelle sur un ou plusieurs comptes de stockage à l’aide du portail Azure. Cet article aborde les points suivants :
 
@@ -40,7 +40,14 @@ Pour obtenir des instructions sur la création d’un coffre de sauvegarde, cons
 
 ## <a name="grant-permissions-to-the-backup-vault-on-storage-accounts"></a>Accorder au coffre de sauvegarde des autorisations sur des comptes de stockage
 
-Une sauvegarde opérationnelle protège également le compte de stockage (contenant les objets blob à protéger) contre des suppressions accidentelles en appliquant un verrou de suppression détenu par le service Sauvegarde. Cela nécessite que le coffre de sauvegarde dispose de certaines autorisations sur les comptes de stockage à protéger. Pour des raisons de commodité d’utilisation, ces autorisations ont été consolidées dans le rôle contributeur de sauvegarde de compte de stockage. Suivez les instructions ci-dessous pour les comptes de stockage à protéger :
+Une sauvegarde opérationnelle protège également le compte de stockage (contenant les objets blob à protéger) contre des suppressions accidentelles en appliquant un verrou de suppression détenu par le service Sauvegarde. Cela nécessite que le coffre de sauvegarde dispose de certaines autorisations sur les comptes de stockage à protéger. Pour des raisons de commodité d’utilisation, ces autorisations minimales ont été consolidées dans le rôle **contributeur de sauvegarde de compte de stockage**. 
+
+Nous vous recommandons d’attribuer ce rôle au coffre de sauvegarde avant de configurer la sauvegarde. Toutefois, vous pouvez également effectuer l’attribution de rôle lors de la configuration de la sauvegarde. [En savoir plus](#using-backup-center) sur la configuration de la sauvegarde à l’aide du centre de sauvegarde. 
+
+Pour affecter le rôle requis pour les comptes de stockage que vous devez protéger, procédez comme suit :
+
+>[!NOTE]
+>Vous pouvez également attribuer les rôles au coffre au niveau de l’abonnement ou du groupe de ressources selon ce qui vous convient le mieux.
 
 1. Dans le compte de stockage à protéger, dans le volet de navigation gauche, accédez à l’**onglet Contrôle d’accès (IAM)** .
 1. Sélectionnez **Ajouter des attributions de rôles** pour attribuer le rôle requis.
@@ -51,13 +58,13 @@ Une sauvegarde opérationnelle protège également le compte de stockage (conten
 
     1. Sous **Rôle**, choisissez **Contributeur de stockage de compte de stockage**.
     1. Sous **Attribuer l’accès à**, choisissez **Utilisateur, groupe ou principal de service**.
-    1. Tapez le **nom du coffre de sauvegarde** donc vous souhaitez protéger les objets blob dans ce compte de stockage, puis sélectionnez-le dans les résultats de recherche.
-    1. Cela fait, sélectionnez **Enregistrer**.
+    1. Recherchez le coffre de sauvegarde que vous souhaitez utiliser pour la sauvegarde des objets blob dans ce compte de stockage, puis sélectionnez-le dans les résultats de recherche.
+    1. Sélectionnez **Enregistrer**.
 
         ![Options d’attribution de rôle](./media/blob-backup-configure-manage/role-assignment-options.png)
 
         >[!NOTE]
-        >Laissez s’écouler jusqu’à 10 minutes pour que l’attribution de rôle prenne effet.
+        >Jusqu’à 10 minutes peuvent s’écouler avant que l’attribution de rôle prenne effet.
 
 ## <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde
 
@@ -91,9 +98,14 @@ Voici les étapes de création d’une stratégie de sauvegarde pour la sauvegar
 
 Une sauvegarde d’objets blob est configurée au niveau du compte de stockage. Ainsi, tous les objets blob du compte de stockage sont protégés par une sauvegarde opérationnelle.
 
+Vous pouvez configurer une sauvegarde pour plusieurs comptes de stockage à l’aide du Centre de sauvegarde. Vous pouvez également configurer la sauvegarde pour un compte de stockage à l’aide des propriétés de **protection des données** du compte de stockage. Cette section décrit les deux façons de configurer la sauvegarde.
+
+### <a name="using-backup-center"></a>Utiliser le Centre de sauvegarde
+
 Pour commencer à configurer une sauvegarde :
 
 1. Tapez **Centre de sauvegarde** dans la zone de recherche.
+
 1. Accédez à **Vue d’ensemble** ->  **+Sauvegarde**.
 
     ![Vue d’ensemble du Centre de sauvegarde](./media/blob-backup-configure-manage/backup-center-overview.png)
@@ -102,36 +114,91 @@ Pour commencer à configurer une sauvegarde :
 
     ![Onglet Lancer : Configurer la sauvegarde](./media/blob-backup-configure-manage/initiate-configure-backup.png)
 
-1. Sous l’onglet **De base**, spécifiez **Objets blob Azure (Stockage Azure)** comme type de **source de source**, puis sélectionnez le coffre de sauvegarde auquel vous souhaitez associer vos comptes de stockage. Vous pouvez afficher les détails du coffre sélectionné dans le volet.
+1. Sous l’onglet **De base**, spécifiez **Objets blob Azure (Stockage Azure)** comme type de source de données, puis sélectionnez le coffre de sauvegarde auquel vous souhaitez associer vos comptes de stockage.<br></br>Vous pouvez afficher les détails du coffre sélectionné dans le même volet.
 
     ![Onglet Informations de base](./media/blob-backup-configure-manage/basics-tab.png)
 
-1. Ensuite, sélectionnez la stratégie de sauvegarde à utiliser pour spécifier la rétention. Vous pouvez afficher les détails de la stratégie sélectionnée dans la partie inférieure de l’écran. La colonne du magasin de données opérationnelles affiche la rétention définie dans la stratégie. « Opérationnelles » signifie que les données sont conservées localement dans le compte de stockage source proprement dit.
+    >[!NOTE]
+    >Seules les sauvegardes opérationnelles sont activées pour les objets blob, qui stockent les sauvegardes dans le compte de stockage source (et non dans le coffre de sauvegarde). Par conséquent, le type de redondance du stockage de sauvegarde sélectionné pour le coffre ne s’applique pas à la sauvegarde des objets blob.
 
+1. Sélectionnez la stratégie de sauvegarde à utiliser pour spécifier la rétention.<br></br>Vous pouvez afficher les détails de la stratégie sélectionnée dans la partie inférieure de l’écran. La colonne du magasin de données opérationnelles affiche la rétention définie dans la stratégie. **Opérationnelles** implique que les données sont conservées localement dans le compte de stockage source.
+    
     ![Choisir une stratégie de sauvegarde](./media/blob-backup-configure-manage/choose-backup-policy.png)
 
-    Pour créer une stratégie de sauvegarde. Pour ce faire, sélectionnez **Créer** et suivez les étapes ci-dessous :
+    Pour créer une stratégie de sauvegarde. Pour ce faire, sélectionnez **Créer** et suivez ces étapes :
+    
+    1. Spécifiez un nom pour la stratégie à créer.<br></br>Vérifiez que les autres zones affichent le type de source de données et le nom de coffre corrects.
+    
+    1. Sous l’onglet **Stratégie de sauvegarde**, sélectionnez l’icône **Modifier la règle de rétention** pour la règle de rétention afin de modifier la durée de la rétention des données.<br></br>Vous pouvez définir une durée de rétention jusqu’à **360** jours. 
+    
+        >[!NOTE]
+        >Si les sauvegardes ne sont pas affectées par la période de rétention, l’opération de restauration pour la restauration de sauvegardes plus anciennes peut prendre plus de temps.
 
-    1. Spécifiez un nom pour la stratégie à créer. Vérifiez que les autres zones affichent le type de source de données et le nom de coffre corrects.
-    1. Sous l’onglet **Stratégie de sauvegarde**, sélectionnez l’icône Modifier la règle de conservation pour modifier et spécifier la durée pendant laquelle vous voulez que les données soient conservées. Vous pouvez spécifier une durée de rétention jusqu’à 360 jours. Restaurer sur de longues durées peut conduire à des opérations de restauration plus longues.
+       ![Créer une stratégie de sauvegarde](./media/blob-backup-configure-manage/new-backup-policy.png)
 
-        ![Créer une stratégie de sauvegarde](./media/blob-backup-configure-manage/new-backup-policy.png)
+    1. Sélectionnez **Vérifier + créer** pour créer la stratégie de sauvegarde.
 
-    1. Une fois que vous avez terminé, sélectionnez **Vérifier + créer** pour créer la stratégie de sauvegarde.
+1. Choisissez les comptes de stockage requis pour la configuration de la protection des objets blob. Vous pouvez sélectionner plusieurs comptes de stockage à la fois, puis choisir Sélectionner.<br></br>Toutefois, vérifiez que le coffre que vous avez choisi a le rôle RBAC requis affecté pour configurer la sauvegarde sur les comptes de stockage. Consultez [Accorder au coffre de sauvegarde des autorisations sur des comptes de stockage](#grant-permissions-to-the-backup-vault-on-storage-accounts) pour en savoir plus.<br></br>Si le rôle n’est pas attribué, vous pouvez toujours attribuer le rôle lors de la configuration de la sauvegarde. Consultez l’étape 7.
 
-1. Ensuite, vous devez choisir les comptes de stockage pour lesquels vous souhaitez configurer la protection d’objets blob. Vous pouvez sélectionner plusieurs comptes de stockage à la fois, puis choisir **Sélectionner**.
+    ![Vérifier les autorisations du coffre](./media/blob-backup-configure-manage/verify-vault-permissions.png)
 
-    Toutefois, assurez-vous que le coffre que vous avez choisi dispose des autorisations requises pour configurer la sauvegarde sur les comptes de stockage comme indiqué ci-dessus dans [Accorder au coffre de sauvegarde des autorisations sur des comptes de stockage](#grant-permissions-to-the-backup-vault-on-storage-accounts).
+    Le service Sauvegarde valide que le coffre dispose d’autorisations suffisantes pour permettre la configuration d’une sauvegarde sur les comptes de stockage sélectionnés. Un certain temps est nécessaire pour terminer les validations.
+    
+    ![Autorisations pour autoriser la configuration de la sauvegarde](./media/blob-backup-configure-manage/permissions-for-configuring-backup.png)
 
-    ![Sélectionner les ressources à sauvegarder](./media/blob-backup-configure-manage/select-resources.png)
+1. Une fois les validations terminées, la colonne **Préparation de la sauvegarde** indique si le coffre de sauvegarde dispose des autorisations suffisantes pour configurer des sauvegardes pour chaque compte de stockage.
 
-    Le service Sauvegarde vérifie si le coffre dispose d’autorisations suffisantes pour permettre la configuration d’une sauvegarde sur les comptes de stockage sélectionnés.
+   ![Informations sur les autorisations de coffre de sauvegarde](./media/blob-backup-configure-manage/information-of-backup-vault-permissions.png)
 
-    ![Le service Sauvegarde valide les autorisations.](./media/blob-backup-configure-manage/validate-permissions.png)
+    Si la validation affiche des erreurs (pour deux des comptes de stockage indiqués dans l’illustration ci-dessus), vous n’avez pas attribué le rôle **Collaborateur de sauvegarde de compte de stockage** pour ces [comptes de stockage](#grant-permissions-to-the-backup-vault-on-storage-accounts). En outre, vous pouvez attribuer le rôle requis ici, en fonction de vos autorisations actuelles. Le message d’erreur peut vous aider à comprendre si vous disposez des autorisations requises et à prendre les mesures appropriées :
 
-    Si la validation génère des erreurs (comme avec l’un des comptes de stockage dans la capture d’écran), accédez aux comptes de stockage sélectionnés et attribuez les rôles appropriés, comme indiqué [ici](#grant-permissions-to-the-backup-vault-on-storage-accounts), puis sélectionnez **Revalider**. Jusqu’à 10 minutes peuvent s’écouler avant que la nouvelle attribution de rôle prenne effet.
+    - **Attribution de rôle non effectuée :** Cette erreur (comme indiqué pour l’élément _blobbackupdemo3_ de la figure ci-dessus) indique que vous (l’utilisateur) avez l’autorisation d’attribuer le rôle **Contributeur de sauvegarde de compte de stockage** et les autres rôles requis pour le compte de stockage dans le coffre. Sélectionnez les rôles, puis cliquez sur **Attribuer les rôles manquants** dans la barre d’outils. Cela affectera automatiquement le rôle requis au coffre de sauvegarde et déclenchera une revalidation automatique.<br><br>Parfois, la propagation des rôles peut prendre un certain temps (jusqu’à 10 minutes), entraînant l’échec de la revalidation. Dans ce scénario, patientez quelques minutes, puis cliquez sur le bouton « Revalider » pour retenter la validation.
+    
+    - **Autorisations insuffisantes pour l’attribution de rôle :** Cette erreur (comme indiqué pour l’élément _blobbackupdemo4_ dans l’illustration ci-dessus) indique que le coffre n’a pas le rôle requis pour configurer la sauvegarde, et que vous (l’utilisateur) ne disposez pas des autorisations suffisantes pour attribuer le rôle requis. Pour faciliter l’attribution de rôle, l’utilitaire de sauvegarde vous permet de télécharger le modèle d’attribution de rôle, que vous pouvez partager avec des utilisateurs disposant d’autorisations pour attribuer des rôles pour les comptes de stockage. Pour ce faire, sélectionnez ce type de compte de stockage, puis cliquez sur **Télécharger le modèle d’attribution de rôle** pour télécharger le modèle.<br><br>Une fois les rôles attribués, vous pouvez les partager avec les utilisateurs appropriés. En cas de réussite de l’attribution du rôle, cliquez sur **Revalider** pour valider à nouveau les autorisations, puis configurez la sauvegarde.
+        >[!NOTE]
+        >Le modèle contient uniquement des détails sur les comptes de stockage sélectionnés. Par conséquent, si plusieurs utilisateurs doivent attribuer des rôles pour différents comptes de stockage, vous pouvez sélectionner et télécharger des modèles différents en conséquence.
+1. Une fois la validation effectuée pour tous les comptes de stockage sélectionnés, allez à **Vérifier et configurer** pour configurer la sauvegarde.<br><br>Vous recevrez des notifications sur l’état de la configuration de la protection et de son achèvement.
 
-1. Une fois la validation effectuée pour tous les comptes de stockage sélectionnés, allez à **Vérifier et configurer** pour configurer la sauvegarde. Vous verrez des notifications vous informant de l’état de la configuration de la protection et de son achèvement.
+### <a name="using-data-protection-settings-of-the-storage-account"></a>Utilisation des paramètres de protection des données du compte de stockage
+
+Vous pouvez configurer la sauvegarde des objets blob dans un compte de stockage directement à partir des paramètres « Protection des données » du compte de stockage. 
+
+1. Accédez au compte de stockage pour lequel vous souhaitez configurer la sauvegarde des objets blob, puis accédez à **Protection des données** dans le volet gauche (sous **Gestion des données**).
+
+1. Dans les options de protection des données disponibles, la première vous permet d’activer la sauvegarde opérationnelle à l’aide de la Sauvegarde Azure.
+
+    ![Sauvegarde opérationnelle à l’aide de la Sauvegarde Azure](./media/blob-backup-configure-manage/operational-backup-using-azure-backup.png)
+
+1. Cochez la case correspondant à l’option **Activer la sauvegarde opérationnelle avec la Sauvegarde Azure**. Sélectionnez ensuite le coffre de sauvegarde et la stratégie de sauvegarde que vous souhaitez associer.<br><br>Vous pouvez sélectionner le coffre et la stratégie existants, ou en créer de nouveaux, selon les besoins.
+
+    >[!IMPORTANT]
+    >Vous devez avoir affecté le rôle **Contributeur de sauvegarde du compte de stockage** au coffre sélectionné. Consultez [Accorder au coffre de sauvegarde des autorisations sur des comptes de stockage](#grant-permissions-to-the-backup-vault-on-storage-accounts) pour en savoir plus.
+    
+    - Si vous avez déjà affecté le rôle requis, cliquez sur **Enregistrer** pour terminer la configuration de la sauvegarde. Suivez les notifications du portail pour garder la trace de la progression de la configuration de la sauvegarde.
+    - Si vous ne l’avez pas encore fait, cliquez sur **Gérer l’identité** et suivez les étapes ci-dessous pour attribuer les rôles. 
+
+        ![Activer la sauvegarde opérationnelle avec la Sauvegarde Azure](./media/blob-backup-configure-manage/enable-operational-backup-with-azure-backup.png)
+
+
+        1. Cliquer sur **Gérer l’identité** vous amène au panneau Identité du compte de stockage. 
+        
+        1. Cliquez sur **Ajouter une attribution de rôle** pour initier l’attribution de rôle.
+
+            ![Ajouter une attribution de rôle pour initier l’attribution de rôle](./media/blob-backup-configure-manage/add-role-assignment-to-initiate-role-assignment.png)
+
+
+        1. Choisissez l’étendue, l’abonnement, le groupe de ressources ou le compte de stockage que vous souhaitez affecter au rôle.<br><br>Nous vous recommandons d’attribuer le rôle au niveau du groupe de ressources si vous souhaitez configurer la sauvegarde opérationnelle pour les objets blob de plusieurs comptes de stockage.
+
+        1. Dans la liste déroulante **Rôle**, sélectionnez le rôle **Contributeur de sauvegarde de compte de stockage**.
+
+            ![Sélectionner le rôle contributeur de sauvegarde du compte de stockage](./media/blob-backup-configure-manage/select-storage-account-backup-contributor-role.png)
+
+
+        1. Cliquez sur **Enregistrer** pour terminer l’attribution de rôle.<br><br>Une fois cette opération terminée, vous recevrez une notification par le biais du portail. Vous pouvez également voir le nouveau rôle ajouté à la liste des éléments existants pour le coffre sélectionné.
+
+            ![Terminer l’attribution de rôle](./media/blob-backup-configure-manage/finish-role-assignment.png)
+
+        1. Cliquez sur l’icône d’annulation (**x**) dans le coin supérieur droit pour revenir au panneau **Protection des données** du compte de stockage.<br><br>Une fois de retour, poursuivez la configuration de la sauvegarde.
 
 ## <a name="effects-on-backed-up-storage-accounts"></a>Effets sur les comptes de stockage sauvegardés
 
@@ -166,8 +233,31 @@ Vous pouvez utiliser le Centre de sauvegarde comme volet unique pour gérer tout
 
     ![Centre de sauvegarde](./media/blob-backup-configure-manage/backup-center.png)
 
-Pour plus d’informations, consultez [Vue d’ensemble du Centre de sauvegarde (préversion)](backup-center-overview.md).
+Pour plus d’informations, consultez [Vue d’ensemble du centre de sauvegarde](backup-center-overview.md).
+
+## <a name="stopping-protection"></a>Arrêt de la protection
+
+Vous pouvez arrêter la sauvegarde opérationnelle pour votre compte de stockage selon vos besoins.
+
+>[!NOTE]
+>L’arrêt de la protection dissocie uniquement le compte de stockage du coffre de sauvegarde (et les outils de sauvegarde, tels que le Centre de sauvegarde), et ne désactive pas la restauration à un instant dans le passé des objets blob, le contrôle de version et le flux de modification qui ont été configurés.
+
+Pour arrêter la sauvegarde d’un compte de stockage, procédez comme suit :
+
+1. Accédez à l’instance de sauvegarde pour le compte de stockage en cours de sauvegarde.<br><br>Vous pouvez y accéder à partir du compte de stockage via **Compte de stockage** -> **Protection des données** -> **Gérer les paramètres de sauvegarde**, ou directement à partir du Centre de sauvegarde via le **Centre de sauvegarde** -> **Instances de sauvegarde** -> recherchez le nom du compte de stockage.
+
+    ![Emplacement du compte de stockage](./media/blob-backup-configure-manage/storage-account-location.png)
+
+    ![Emplacement du compte de stockage via le Centre de sauvegarde](./media/blob-backup-configure-manage/storage-account-location-through-backup-center.png)
+
+
+1. Dans l’instance de sauvegarde, cliquez sur **Supprimer** pour arrêter la sauvegarde opérationnelle pour le compte de stockage en question. 
+ 
+    ![Arrêter une sauvegarde opérationnelle](./media/blob-backup-configure-manage/stop-operational-backup.png)
+
+Après l’arrêt de la sauvegarde, vous pouvez désactiver d’autres fonctionnalités de protection des données de stockage (activées pour la configuration de la sauvegarde) à partir du panneau Protection des données du compte de stockage.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Restaurer des objets blob Azure](blob-restore.md)
+[Restaurer des objets blob Azure](blob-restore.md)

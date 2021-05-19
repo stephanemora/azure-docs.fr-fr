@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddb2a002969b031f25dae2511d679cc520928ff6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365631"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737780"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Bonnes pratiques relatives à Azure Active Directory B2B
 Cet article contient des recommandations et des meilleures pratiques pour la collaboration interentreprises (B2B) dans Azure Active Directory (Azure AD).
@@ -29,7 +29,7 @@ Cet article contient des recommandations et des meilleures pratiques pour la col
 ## <a name="b2b-recommendations"></a>Recommandations B2B
 | Recommandation | Commentaires |
 | --- | --- |
-| Pour une expérience de connexion optimale, associez-vous aux fournisseurs d’identité | Dans la mesure du possible, associez-vous directement aux fournisseurs d’identité pour permettre aux utilisateurs invités de se connecter à vos applications et ressources partagées sans avoir à créer des comptes Microsoft (MSAs) ou des comptes de Azure AD. Vous pouvez utiliser la fonctionnalité [Fédération de Google](google-federation.md) pour autoriser les utilisateurs invités B2B à se connecter avec leurs comptes Google. Ou, vous pouvez utiliser la [fonction Fédération directe (aperçu)](direct-federation.md) pour configurer la fédération directe avec toute organisation dont le fournisseur d'identité (IdP) prend en charge le protocole SAML 2.0 ou WS-Fed. |
+| Pour une expérience de connexion optimale, associez-vous aux fournisseurs d’identité | Dans la mesure du possible, associez-vous directement aux fournisseurs d’identité pour permettre aux utilisateurs invités de se connecter à vos applications et ressources partagées sans avoir à créer des comptes Microsoft (MSAs) ou des comptes de Azure AD. Vous pouvez utiliser la fonctionnalité [Fédération de Google](google-federation.md) pour autoriser les utilisateurs invités B2B à se connecter avec leurs comptes Google. Ou, vous pouvez utiliser la [fonction de fournisseur d’identité SAML/WS-Fed (préversion)](direct-federation.md) pour configurer la fédération directe avec toute organisation dont le fournisseur d’identité (IdP) prend en charge le protocole SAML 2.0 ou WS-Fed. |
 | Utilisez la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour les invités B2B qui ne peuvent pas s’authentifier par d’autres moyens | La fonctionnalité [Envoi d’un code secret à usage unique par e-mail](one-time-passcode.md) permet d’authentifier les utilisateurs invités B2B lorsqu’il n’est pas possible de les authentifier par d’autres moyens, comme Azure AD, un compte Microsoft (MSA) ou la fédération Google. Lorsque l’utilisateur invité accepte une invitation ou accède à une ressource partagée, il peut demander un code temporaire, qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter. |
 | Ajouter votre marque à votre page de connexion | Vous pouvez personnaliser votre page de connexion afin qu’elle soit plus intuitive pour vos utilisateurs invités B2B. Découvrez comment [ajouter une marque de société aux pages de connexion et du volet d’accès](../fundamentals/customize-branding.md). |
 | Ajoutez votre déclaration de confidentialité à l’expérience d’échange d’utilisateurs invités B2B | Vous pouvez ajouter l’URL de la déclaration de confidentialité de votre organisation au processus d’acceptation d’invitation envoyé pour la première fois à l’utilisateur invité. Il devra ainsi donner son consentement à vos conditions de confidentialité pour continuer. Découvrez [comment faire : pour ajouter les informations de confidentialité de votre organisation dans Azure Active Directory](../fundamentals/active-directory-properties-area.md). |

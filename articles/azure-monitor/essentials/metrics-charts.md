@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: 444185dc41532bfa55c271e2f0027eb8b71de42f
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 8564f96ad311a07ccf4582f274e44e6ebd1e0c85
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959899"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758508"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -71,13 +71,17 @@ Pour afficher plusieurs métriques sur le même graphique, commencez par [créer
 > [!NOTE]
 > En règle générale, vos graphiques ne doivent pas mélanger les métriques qui utilisent des unités de mesure différentes. Par exemple, évitez de mélanger une mesure qui utilise les millisecondes avec une autre qui utilise les kilo-octets. Évitez également de mélanger les métriques dont les échelles diffèrent de manière significative. 
 >
-> Dans ce cas, envisagez plutôt d’utiliser plusieurs graphiques. Dans Metrics Explorer, sélectionnez **Ajouter un graphique** pour créer un graphique.
+> Dans ce cas, envisagez plutôt d’utiliser plusieurs graphiques. Dans Metrics Explorer, sélectionnez **Nouveau graphique** pour créer un graphique.
+
+![Capture d’écran présentant des métriques multiples.](./media/metrics-charts/multiple-metrics-chart.png)
 
 ### <a name="multiple-charts"></a>Plusieurs graphiques
 
-Pour créer un autre graphique qui utilise une métrique différente, sélectionnez **Ajouter un graphique**.
+Pour créer un autre graphique qui utilise une métrique différente, sélectionnez **Nouveau graphique**.
 
 Pour réorganiser ou supprimer plusieurs graphiques, sélectionnez le bouton de sélection ( **…** ) pour ouvrir le menu du graphique. Choisissez ensuite **Déplacer vers le haut**, **Déplacer vers le bas** ou **Supprimer**.
+
+![Capture d’écran présentant des métriques multiples.](./media/metrics-charts/multiple-charts.png)
 
 ## <a name="time-range-controls"></a>Contrôles d'intervalle de temps
 

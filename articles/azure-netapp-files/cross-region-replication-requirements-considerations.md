@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: ed03e20f7a1a24d1a38e023b958959fdc6fdc326
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5509b9fc63b97338ebc87a1cbef20a176c06f4dd
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579338"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795039"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Configuration requise et considérations pour la réplication inter-région 
 
@@ -27,7 +27,7 @@ Notez la configuration requise et les considérations suivantes relatives à l�
 
 ## <a name="requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte 
 
-* La fonctionnalité de réplication inter-région est actuellement disponible en préversion publique. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la [page de soumission de demande d’inscription à la liste d’attente de réplication inter-région Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de réplication inter-région.
+* La fonctionnalité de réplication inter-région est actuellement disponible en préversion. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la [page de soumission de demande d’inscription à la liste d’attente de réplication inter-région Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de réplication inter-région.
 * La réplication Azure NetApp Files n’est disponible que dans certaines paires de régions fixes. Voir [Paires de régions prises en charge](cross-region-replication-introduction.md#supported-region-pairs). 
 * Les volumes SMB et les volumes NFS sont pris en charge. La réplication des volumes SMB nécessite une connexion Active Directory dans les comptes NetApp source et de destination. La connexion Active Directory de destination doit avoir accès aux serveurs DNS ou aux contrôleurs de domaine ADDS qui sont accessibles à partir du sous-réseau délégué dans la région de destination. Pour plus d’informations, consultez [Configuration requise pour les connexions Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Le compte de destination doit se trouver dans une région différente du volume source. Vous pouvez également sélectionner un compte NetApp existant dans une autre région.  

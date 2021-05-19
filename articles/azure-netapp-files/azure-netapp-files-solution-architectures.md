@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 05/03/2021
 ms.author: b-juche
-ms.openlocfilehash: d5ff0f2444aac153116e8e33a6ed2af74c93f057
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 358bddaffc90467d6ff636b0e9c88eeac04a2fed
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553513"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742496"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architectures de solution avec Azure NetApp Files
 Cet article fournit des références aux meilleures pratiques pouvant vous aider à comprendre les architectures de solution pour l’utilisation d’Azure NetApp Files.  
@@ -41,6 +41,9 @@ Cette section fournit des références pour les solutions de bases de données e
 
 ### <a name="machine-learning"></a>Machine Learning
 *   [Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
+
+### <a name="education"></a>Education
+* [Moodle sur stockage NFS Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
 
 ## <a name="windows-apps-and-sql-server-solutions"></a>Applications Windows et les solutions de SQL Server
 

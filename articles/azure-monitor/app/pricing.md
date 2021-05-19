@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 3/30/2021
+ms.date: 5/05/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1ed9fc345b1c8afe416b4b98c621fc1c9b48a557
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078398"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795255"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -197,8 +197,11 @@ Voici quelques suggestions de techniques pour vous aider à gérer le volume de 
  
 * **Limite quotidienne** : au moment où vous créez une ressource Application Insights dans le Portail Azure, la limite quotidienne est définie à 100 Go/jour. Quand vous créez une ressource Application Insights dans Visual Studio, la valeur par défaut est faible (seulement 32,3 Mo/jour). La valeur par défaut de la limite quotidienne est définie pour faciliter les tests. L’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. 
 
-    La limite maximale est de 1 000 Go/jour, à moins que vous en demandiez une plus élevée pour les besoins d’une application à fort trafic.
+    La limite maximale dans Application Insights est de 1 000 Go/jour, à moins que vous en demandiez une plus élevée pour les besoins d’une application à fort trafic.
     
+    > [!TIP]
+    > Si vous disposez d’une ressource Application Insights basée sur un espace de travail, nous vous recommandons d’utiliser la [limite quotidienne de l’espace de travail](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) pour limiter l’ingestion et les coûts au lieu de la limite d’Application Insights.
+
     Les e-mails d’avertissement relatifs à la limite quotidienne sont envoyés aux comptes qui sont membres de ces rôles pour votre ressource Application Insights : « ServiceAdmin », « AccountAdmin », « CoAdmin », « Owner ».
 
     Soyez prudent quand vous définissez la limite quotidienne. Votre objectif doit être de *ne jamais atteindre la limite quotidienne*. Si vous atteignez la limite quotidienne, vous perdez des données pour le reste de la journée, ce qui vous empêche de surveiller votre application. Pour changer la limite quotidienne, utilisez l’option **Limite quotidienne de volume**. Vous pouvez accéder à cette option dans le volet **Utilisation et estimation des coûts** (comme décrit plus loin dans l’article).
@@ -210,6 +213,9 @@ Voici quelques suggestions de techniques pour vous aider à gérer le volume de 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Gérer votre volume de données maximal quotidien
 
 Vous pouvez utiliser la limite quotidienne de volume pour limiter les données collectées. Toutefois, si la limite est atteinte, toutes les données de télémétrie envoyées à partir de votre application sont perdues pour le reste de la journée. Il est *déconseillé* que votre application atteigne la limite quotidienne. Vous ne pouvez pas suivre l’intégrité et les performances de votre application une fois qu’elle a atteint la limite quotidienne.
+
+> [!WARNING]
+> Si vous disposez d’une ressource Application Insights basée sur un espace de travail, nous vous recommandons d’utiliser la [limite quotidienne de l’espace de travail](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) pour limiter l’ingestion et les coûts. La limite quotidienne d’Application Insights peut ne pas limiter l’ingestion dans tous les cas au niveau sélectionné. (Si votre ressource Application Insights reçoit beaucoup de données, il peut être nécessaire d’élever la limite quotidienne d’Application Insights.)
 
 Au lieu d’utiliser la limite quotidienne de volume, utilisez [l’échantillonnage](./sampling.md) pour régler le volume de données sur le niveau souhaité. Ensuite, n’utilisez la limite quotidienne qu’en « dernier recours », au cas où votre application commencerait soudainement à envoyer des volumes de données de télémétrie beaucoup plus élevés.
 

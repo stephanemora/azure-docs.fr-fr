@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cd63144074577d4ff3564da41e672dd1ca226dcb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f359595a136a356938194f2df728935c80059008
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257158"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742874"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la modification du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -160,7 +160,7 @@ Dans Azure Active Directory B2C (Azure AD B2C), vous pouvez permettre aux utili
 
 1. Ouvrez la stratégie que vous avez changée. Par exemple, *B2C_1A_profile_edit_password_change*.
 2. Pour **Application**, sélectionnez l’application que vous avez précédemment inscrite. Pour voir le jeton, l’**URL de réponse** doit indiquer `https://jwt.ms`.
-3. Cliquez sur **Exécuter maintenant**. Connectez-vous avec le compte que vous avez créé précédemment. Vous devez à présent avoir la possibilité de modifier le mot de passe.
+3. Cliquez sur **Exécuter maintenant**. Dans le nouvel onglet qui s’ouvre, supprimez « &prompt=login » de l’URL, puis actualisez l’onglet. Ensuite, connectez-vous avec le compte que vous avez créé précédemment. Vous devez à présent avoir la possibilité de modifier le mot de passe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

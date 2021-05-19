@@ -5,12 +5,12 @@ author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 04/14/2021
-ms.openlocfilehash: d449f660fa97af8b5c24542258029834a964b3f2
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d69935c663106e9377fe78b77bcad063b0e528b4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751613"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746168"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 
@@ -101,8 +101,6 @@ Grâce à la nouvelle intégration Azure-Datadog, les organisations peuvent dés
 -   Rationalisez l'authentification unique (SSO) à Datadog. Il n'est plus nécessaire de procéder à une authentification distincte à partir du portail Datadog. 
 -   Bénéficiez d'une facturation unifiée pour le service Datadog via la fonctionnalité de facturation de l'abonnement Azure.
 
-Inscrivez-vous pour bénéficier de la [Préversion publique](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) de la nouvelle intégration à Azure de Datadog.  La préversion publique sera disponible sur la Place de marché Azure à partir d'octobre 2020.
-
 S’abonner à la préversion de l’« Intégration de Datadog avec Azure » disponible sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
 
 Si vous utilisez toujours la précédente intégration configurée manuellement, consultez la [documentation disponible sur le site web de DataDog](https://docs.datadoghq.com/integrations/azure/).
@@ -111,7 +109,16 @@ Si vous utilisez toujours la précédente intégration configurée manuellement,
 
 ![Logo DynaTrace](./media/partners/dynatrace.png)
 
-Dynatrace OneAgent s’intègre aux machines virtuelles Azure et à App Services via les mécanismes d’extension Azure correspondants. De cette façon, Dynatrace OneAgent peut collecter des indicateurs de performance sur les hôtes, réseaux et services. En plus d’afficher les métriques, Dynatrace visualise les environnements de bout en bout. Ce service présente les transactions du côté client à la couche de base de données. Dynatrace fournit propose une corrélation basée sur AI des problèmes et une analyse de la cause racine entièrement intégrée pour donner des insights au niveau de la méthode sur le code et la base de données. Cet insight facilite grandement la résolution des problèmes et les optimisations des performances.
+Dynatrace simplifie la complexité du cloud et constitue une source unique de vérité pour vos plateformes cloud, ce qui vous permet de surveiller l’intégrité de l’ensemble de votre infrastructure et de vos applications Azure.  Dynatrace s’intègre à Azure Monitor/Application Insights en enrichissant les données et en étendant l’observabilité à la plateforme avec des métriques supplémentaires pour l’infrastructure cloud, des équilibreurs de charge, des services de gestion des API et plus encore. Dynatrace prend en charge plus de 80 services Azure Monitor qui couvrent les charges de travail des applications et des microservices, ainsi que les services liés à l’infrastructure. 
+
+Bénéficiez d’une observation automatisée et assistée par intelligence artificielle dans les environnements Azure :
+
+- Observation complète de la pile en quelques minutes, tout en contexte, notamment les métriques, les journaux et les traces.
+- Détection automatique, mappage de dépendances continu et réponses instantanées pour automatiser la surveillance des services cloud Azure, notamment App Service, les performances de base de données, AKS, HDInsight et bien plus encore.
+- Davis, l’IA de Dynatrace, analyse en permanence les milliards de dépendances pour fournir une cause racine précise.
+- Une seule source de vérité pour permettre aux équipes de collaborer et d’innover, où qu’elles se trouvent.
+- Accélérez les migrations dans le cloud Azure.
+
 
 [Documentation de Dynatrace](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
 

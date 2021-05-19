@@ -5,53 +5,71 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/16/2021
 ms.author: pepogors
-ms.openlocfilehash: 1d4c92d91a620a56afbee9a1f41c8a67aa4b8f6a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 60c9a378c1ac6e7c16bac05a3f6ee0baf47a0076
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072978"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749390"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
+
 Les zones de disponibilité dans Azure constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Une zone de disponibilité est un emplacement physique unique équipé d’une alimentation, d’un refroidissement et d’une mise en réseau indépendants dans une région Azure.
 
-Service Fabric prend en charge les clusters qui s’étendent sur des zones de disponibilité en déployant des types de nœuds qui sont épinglés à des zones spécifiques. Ceci garantit la haute disponibilité de vos applications. Les zones de disponibilité Azure sont disponibles uniquement dans les régions sélectionnées. Pour plus d’informations, consultez [Vue d’ensemble des zones de disponibilité Azure](../availability-zones/az-overview.md).
+Azure Service Fabric prend en charge les clusters qui s’étendent sur des zones de disponibilité en déployant des types de nœuds qui sont épinglés à des zones spécifiques. Les zones de disponibilité sont disponibles uniquement dans les régions sélectionnées. Pour plus d’informations, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
 
-Des exemples de modèles sont disponibles : [Modèle entre zones de disponibilité Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+Des exemples de modèles sont disponibles dans les [modèles de zones de disponibilité croisée Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates).
 
 ## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>Topologie recommandée de type de nœud principal de clusters Azure Service Fabric s’étendant sur des zones de disponibilité
-Un cluster Service Fabric distribué entre des zones de disponibilité garantit la haute disponibilité de l’état du cluster. Pour étendre un cluster Service Fabric sur des zones, vous devez créer un type de nœud principal dans chaque zone de disponibilité prise en charge par la région. Les nœuds initiaux seront ainsi distribués uniformément sur chacun des types de nœuds principaux.
 
-La topologie recommandée du type de nœud principal nécessite les ressources décrites ci-dessous :
+Pour étendre un cluster Service Fabric sur des zones de disponibilité, vous devez créer un type de nœud principal dans chaque zone de disponibilité prise en charge par la région. Les nœuds initiaux sont ainsi distribués uniformément sur chacun des types de nœuds principaux.
 
-* Le niveau de fiabilité du cluster défini sur Platinum.
-* Trois types de nœuds marqués comme principaux.
-    * Chaque type de nœud doit être mappé à son propre groupe de machines virtuelles identiques situé dans différentes zones.
-    * Chaque groupe de machines virtuelles identiques doit avoir au moins cinq nœuds (durabilité Silver).
-* Une ressource d’adresse IP publique unique utilisant une référence SKU standard.
-* Une ressource de Load Balancer unique utilisant une référence SKU standard.
-* Un groupe de sécurité réseau (NSG) référencé par le sous-réseau dans lequel vous déployez vos groupes de machines virtuelles identiques.
+La topologie recommandée du type de nœud principal nécessite les ressources suivantes :
+
+* Le niveau de fiabilité du cluster défini sur `Platinum`
+* Trois types de nœuds marqués comme principaux
+  * Chaque type de nœud doit être mappé à son propre groupe de machines virtuelles identiques situé dans une zone différente.
+  * Chaque groupe de machines virtuelles identiques doit avoir au moins cinq nœuds (durabilité Silver).
+* Une ressource d’adresse IP publique unique utilisant une référence SKU standard
+* Une ressource de Load Balancer unique utilisant une référence SKU standard
+* Un groupe de sécurité réseau (NSG) référencé par le sous-réseau dans lequel vous déployez vos groupes de machines virtuelles identiques
 
 >[!NOTE]
-> La propriété de groupe de placement unique du groupe de machines virtuelles identiques doit être définie sur true.
+>La propriété de groupe de placement unique du groupe de machines virtuelles identiques doit être définie sur `true`.
 
-Diagramme illustrant le diagramme d’architecture de zone de disponibilité Azure Service Fabric ![Diagramme illustrant le diagramme d’architecture de zone de disponibilité Azure Service Fabric.][sf-architecture]
+Le diagramme illustre l’architecture des zones de disponibilité Azure Service Fabric :
 
-Exemple de liste de nœuds illustrant les formats FD/UD dans les zones étendues d’un groupe de machines virtuelles identiques
+![Diagramme illustrant l’architecture des zones de disponibilité Azure Service Fabric.][sf-architecture]
 
- ![Exemple de liste de nœuds illustrant les formats FD/UD dans les zones étendues d’un groupe de machines virtuelles identiques.][sf-multi-az-nodes]
+L’exemple de liste de nœuds suivant illustre les formats FD/UD dans les zones étendues d’un groupe de machines virtuelles identiques :
 
-**Distribution des réplicas de service entre les zones** : Quand un service est déployé sur les nodeTypes, qui sont des zones étendues, des réplicas sont placés pour s’assurer qu’ils se trouvent dans des zones distinctes. Cela est assuré, car le domaine d’erreur sur les nœuds présents dans chacun de ces nodeTypes est configuré avec les informations de zone (p. ex. FD = fd:/zone1/1, etc.). Par exemple : pour 5 réplicas ou instances d’un service, la distribution sera 2-2-1 et le runtime essaiera de garantir une distribution égale entre les zones de disponibilité.
+![Capture d’écran montrant un exemple de liste de nœuds des formats FD/UD dans les zones étendues d’un groupe de machines virtuelles identiques.][sf-multi-az-nodes]
 
-**Configuration du réplica de service utilisateur** : Les services d’utilisateur avec état déployés sur la zone de disponibilité croisée nodeTypes doivent être configurés avec cette configuration : nombre de réplicas avec cible = 9, min = 5. Cette configuration permet au service de fonctionner même lorsqu’une zone tombe en panne, car 6 réplicas sont toujours dans les deux autres zones. Une mise à niveau d’une application passera également dans un tel scénario.
+## <a name="distribution-of-service-replicas-across-zones"></a>Distribution des réplicas de service entre les zones
 
-**ReliabilityLevel du cluster** : Définit le nombre de nœuds de départ dans le cluster ainsi que la taille de réplica des services système. Dans la mesure où la configuration d’une zone de disponibilité croisée a un plus grand nombre de nœuds répartis entre les zones pour permettre la résilience de zone, une valeur de fiabilité plus élevée garantit que plus de nœuds initiaux et de réplicas de service système sont présents et répartis uniformément entre les zones. « ReliabilityLevel = Platinum » permet de s’assurer qu’il y a 9 nœuds initiaux répartis entre les zones du cluster avec 3 nœuds initiaux dans chaque zone, ce qui est recommandé pour la configuration d’une zone de disponibilité croisée.
+Lorsqu’un service est déployé sur les types de nœuds qui couvrent plusieurs zones de disponibilité, les réplicas sont placés pour s’assurer qu’ils se trouvent dans des zones distinctes. Les domaines d’erreur sur les nœuds de chacun de ces types de nœuds sont configurés avec les informations de zone (FD = fd:/zone1/1, etc.). Par exemple : pour cinq réplicas ou instances de service, la distribution sera 2-2-1 et le runtime essaiera de garantir une distribution égale entre les zones.
 
-**Scénario de zone défaillante** : Lorsqu’une zone est défaillante, tous les nœuds de cette zone apparaissent comme étant en panne. Les réplicas de service sur ces nœuds sont également indisponibles. Étant donné qu’il y a des réplicas dans les autres zones, le service continue à être réactif avec les réplicas principaux qui basculent vers les zones qui fonctionnent. Les services s’affichent dans un état d’avertissement, car le nombre de réplicas cibles n’est pas encore atteint et le nombre de machines virtuelles est toujours supérieur à la taille minimale de réplica cible. Par la suite, un équilibreur de charge Service Fabric affichera les réplicas dans les zones de travail afin de correspondre au nombre de réplicas cible configuré. À ce stade, les services apparaissent intègres. Lorsque la zone qui était introuvable est reprise, l’équilibrage de charge répartit de nouveau tous les réplicas de service uniformément dans toutes les zones.
+### <a name="user-service-replica-configuration"></a>Configuration du réplica du service utilisateur
+
+Les services utilisateur avec état déployés sur les types de nœuds sur plusieurs zones de disponibilité doivent être configurés comme suit : nombre de réplicas avec cible = 9, min = 5. Cette configuration permet au service de fonctionner même lorsqu’une zone tombe en panne, car six réplicas sont toujours dans les deux autres zones. Une mise à niveau de l’application dans ce scénario réussit également.
+
+## <a name="cluster-reliabilitylevel"></a>ReliabilityLevel du cluster
+
+Cette valeur définit le nombre de nœuds de départ dans le cluster et la taille de réplica des services système. Une configuration de zone de disponibilité croisée possède un nombre de nœuds plus élevé, qui sont répartis entre les zones pour permettre la résilience de zone.
+  
+Une valeur plus élevée de `ReliabilityLevel` garantit que davantage de nœuds de départ et de réplicas de service système sont présents et uniformément répartis entre les zones, de sorte que si une zone échoue, le cluster et les services système ne sont pas affectés. `ReliabilityLevel = Platinum` (recommandé) permet de s’assurer qu’il y a neuf nœuds de départ répartis entre les zones du cluster, avec trois seeds dans chaque zone.
+
+### <a name="zone-down-scenario"></a>Scénario de zonage
+
+Quand une zone tombe en panne, tous les nœuds et réplicas de service pour cette zone apparaissent comme étant inactifs. Étant donné qu’il y a des réplicas dans les autres zones, le service continue de répondre. Les réplicas principaux basculent vers les zones fonctionnelles. Les services semblent être dans des états d’avertissement, car le nombre de réplicas cible n’est pas encore atteint et le nombre de machines virtuelles est toujours supérieur à la taille minimale du réplica cible.
+
+L’équilibreur de charge Service Fabric affiche les réplicas dans les zones de travail afin de correspondre au nombre de réplicas cible. À ce stade, les services apparaissent intègres. Lorsque la zone qui était introuvable est reprise, l’équilibrage de charge répartit tous les réplicas de service uniformément dans les zones.
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
+
 ### <a name="public-ip-and-load-balancer-resource"></a>Ressource d’adresse IP publique et Load Balancer
-Pour activer la propriété de zones sur une ressource de groupe de machines virtuelles identiques, les ressources d’équilibreur de charge et d’adresse IP référencées par ce groupe de machines virtuelles identiques doivent toutes deux utiliser une référence SKU *Standard*. La création d’une ressource d’équilibreur de charge ou d’adresse IP sans la propriété de référence SKU créera une référence SKU de base, qui ne prend pas en charge les zones de disponibilité. Un équilibreur de charge de référence SKU Standard bloque par défaut tout le trafic provenant de l’extérieur ; pour autoriser le trafic de l’extérieur, un groupe de sécurité réseau (NSG) doit être déployé sur le sous-réseau.
+
+Pour activer la propriété `zones` sur une ressource de groupe de machines virtuelles identiques, les ressources d’équilibreur de charge et d’adresse IP référencées par ce groupe de machines virtuelles identiques doivent toutes deux utiliser une référence SKU Standard. La création d’une ressource d’équilibreur de charge ou d’adresse IP sans la propriété de référence SKU créera une référence SKU de base, qui ne prend pas en charge les zones de disponibilité. Un équilibreur de charge de référence SKU standard bloque tout le trafic en provenance de l’extérieur par défaut. Pour autoriser le trafic externe, déployez un groupe de sécurité réseau sur le sous-réseau.
 
 ```json
 {
@@ -101,8 +119,9 @@ Pour activer la propriété de zones sur une ressource de groupe de machines vir
 >[!NOTE]
 > Il n’est pas possible d’effectuer une modification sur place de référence SKU sur les ressources d’adresse IP publique et d’équilibreur de charge. Si vous effectuez une migration à partir de ressources existantes ayant une référence SKU de base, consultez la section relative à la migration de cet article.
 
-### <a name="virtual-machine-scale-set-nat-rules"></a>Règles NAT de groupe de machines virtuelles identiques
-Les règles NAT de trafic entrant de l’équilibreur de charge doivent correspondre aux pools NAT du groupe de machines virtuelles identiques. Chaque groupe de machines virtuelles identiques doit avoir un pool NAT entrant unique.
+### <a name="nat-rules-for-virtual-machine-scale-sets"></a>Règles NAT pour les groupes de machines virtuelles identiques
+
+Les règles de traduction d’adresses réseau (NAT) entrantes pour l’équilibreur de charge doivent correspondre aux pools NAT du groupe de machines virtuelles identiques. Chaque groupe de machines virtuelles identiques doit avoir un pool NAT entrant unique.
 
 ```json
 {
@@ -147,22 +166,23 @@ Les règles NAT de trafic entrant de l’équilibreur de charge doivent correspo
 }
 ```
 
-### <a name="standard-sku-load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer de la référence SKU standard
-Si on les compare à l’utilisation de références SKU de base, Standard Load Balancer et les adresses IP publiques Standard introduisent de nouvelles fonctionnalités et des comportements différents pour la connectivité sortante. Si vous souhaitez une connectivité sortante lorsque vous travaillez avec des références SKU Standard, vous devez explicitement la définir avec des adresses IP publiques Standard ou l’équilibreur de charge public Standard. Pour plus d’informations, consultez [Connexions sortantes](../load-balancer/load-balancer-outbound-connections.md) et [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md).
+### <a name="outbound-rules-for-a-standard-sku-load-balancer"></a>Règles de trafic sortant dans Load Balancer de la référence SKU standard
+
+Les références SKU Standard pour les adresses IP publiques et l’équilibreur de charge introduisent de nouvelles fonctionnalités et des comportements différents pour la connectivité sortante. Si vous souhaitez une connectivité sortante lorsque vous travaillez avec des références SKU Standard, vous devez explicitement la définir avec des adresses IP publiques Standard ou l’équilibreur de charge public du SKU Standard. Pour plus d’informations, consultez [Connexions sortantes](../load-balancer/load-balancer-outbound-connections.md) et [Présentation d’Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 > Le modèle standard fait référence à un groupe de sécurité réseau (NSG) qui autorise tout le trafic sortant par défaut. Le trafic entrant est limité aux ports qui sont requis pour les opérations de gestion de Service Fabric. Les règles NSG peuvent être modifiées pour répondre à vos besoins.
 
->[!NOTE]
-> Tout cluster Service Fabric utilisant la référence SLB SKU Standard doit vérifier que chaque type de nœud a une règle autorisant le trafic sortant sur le port 443. Cette opération est nécessaire pour terminer l’installation du cluster, et tout déploiement sans règle de ce type échouera.
+>[!IMPORTANT]
+> Chaque type de nœud d’un cluster Service Fabric qui utilise un équilibreur de charge de référence SKU standard requiert une règle autorisant le trafic sortant sur le port 443. Cela est nécessaire pour terminer l’installation du cluster. Tout déploiement sans cette règle échoue.
 
+### <a name="enable-zones-on-a-virtual-machine-scale-set"></a>Activation de zones sur un groupe de machines virtuelles identiques
 
-### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Activation de zones sur un groupe de machines virtuelles identiques
-Pour activer une zone sur un groupe de machines virtuelles identiques, vous devez inclure les trois valeurs suivantes dans la ressource de groupe de machines virtuelles identiques.
+Pour activer une zone sur un groupe de machines virtuelles identiques, incluez les trois valeurs suivantes dans la ressource de groupe de machines virtuelles identiques :
 
-* La première valeur est la propriété **zones**, qui spécifie la zone de disponibilité sur laquelle le groupe de machines virtuelles identiques sera déployé.
-* La deuxième valeur est la propriété « singlePlacementGroup », qui doit être définie sur true (vrai).
-* La troisième valeur est la propriété « faultDomainOverride » dans l’extension de groupe de machines virtuelles identiques Service Fabric. La valeur de cette propriété doit uniquement inclure la zone dans lesquelles ce groupe de machines virtuelles identiques sera placé. Exemple : « faultDomainOverride » : « az1 ». Toutes les ressources de groupe de machines virtuelles identiques doivent être placées dans la même région car les clusters Azure Service Fabric ne prennent pas en charge entre régions.
+* La première valeur est la propriété `zones`, qui spécifie la zone de disponibilité sur laquelle le groupe de machines virtuelles identiques sera déployé.
+* La deuxième valeur est la propriété `singlePlacementGroup`, qui doit être définie sur `true`.
+* La troisième valeur est la propriété `faultDomainOverride` dans l’extension de groupe de machines virtuelles identiques Service Fabric. Cette propriété doit uniquement inclure la zone dans laquelle ce groupe de machines virtuelles identiques sera placé. Exemple : `"faultDomainOverride": "az1"`. Toutes les ressources de groupe de machines virtuelles identiques doivent être placées dans la même région car les clusters Azure Service Fabric ne prennent pas en charge entre régions.
 
 ```json
 {
@@ -202,8 +222,9 @@ Pour activer une zone sur un groupe de machines virtuelles identiques, vous deve
 }
 ```
 
-### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Activation de plusieurs types de nœuds principaux dans la ressource de cluster Service Fabric
-Pour définir un ou plusieurs types de nœuds comme principaux dans une ressource de cluster, définissez la propriété « isPrimary » sur « true ». Lorsque vous déployez un cluster Service Fabric entre des zones de disponibilité, vous devez avoir trois types de nœuds dans des zones distinctes.
+### <a name="enable-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Activation de plusieurs types de nœuds principaux dans la ressource de cluster Service Fabric
+
+Pour définir un ou plusieurs types de nœuds comme principal dans une ressource de cluster, définissez la propriété `isPrimary` sur `true`. Lorsque vous déployez un cluster Service Fabric entre des zones de disponibilité, vous devez avoir trois types de nœuds dans des zones distinctes.
 
 ```json
 {
@@ -261,106 +282,113 @@ Pour définir un ou plusieurs types de nœuds comme principaux dans une ressourc
 }
 ```
 
-## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrer à l’aide de zones de disponibilité à partir d’un cluster à l’aide d’un Load Balancer de référence SKU de base et d’une adresse IP de référence SKU de base
-Pour migrer un cluster qui utilisait un Load Balancer et une adresse IP avec une référence SKU de base, vous devez tout d’abord créer une toute nouvelle ressource de Load Balancer et d’adresse à l’aide de la référence SKU standard. Il n’est pas possible de mettre à jour ces ressources sur place.
+## <a name="migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrer à l’aide de zones de disponibilité à partir d’un cluster à l’aide d’un Load Balancer de référence SKU de base et d’une adresse IP de référence SKU de base
 
-Les nouveaux équilibreur de charge et adresse IP doivent être référencés dans les nouveaux types de nœuds entre zones de disponibilité que vous souhaitez utiliser. Dans l’exemple ci-dessus, trois nouvelles ressources de groupe de machines virtuelles identiques ont été ajoutées dans les zones 1, 2 et 3. Ces groupes de machines virtuelles identiques font référence aux nouveaux équilibreur de charge et adresse IP et sont marqués comme des types de nœuds principaux dans la ressource de cluster Service Fabric.
+Pour migrer un cluster qui utilisait un Load Balancer et une adresse IP avec une référence SKU de base, vous devez tout d’abord créer une toute nouvelle ressource de Load Balancer et d’adresse à l’aide de la référence SKU standard. Il n’est pas possible de mettre à jour ces ressources.
 
-Pour commencer, vous devez ajouter les nouvelles ressources à votre modèle Resource Manager existant. Ces ressources incluent :
-* Une ressource d’adresse IP publique utilisant une référence SKU standard.
-* Une ressource de Load Balancer utilisant une référence SKU standard.
-* Un groupe de sécurité réseau (NSG) référencé par le sous-réseau dans lequel vous déployez vos groupes de machines virtuelles identiques.
-* Trois types de nœuds marqués comme principaux.
-    * Chaque type de nœud doit être mappé à son propre groupe de machines virtuelles identiques situé dans différentes zones.
-    * Chaque groupe de machines virtuelles identiques doit avoir au moins cinq nœuds (durabilité Silver).
+Référencez le nouvel équilibreur de charge et l’adresse IP dans les nouveaux types de nœuds de zone de disponibilité croisée que vous souhaitez utiliser. Dans l’exemple précédent, trois nouvelles ressources de groupe de machines virtuelles identiques ont été ajoutées dans les zones 1, 2 et 3. Ces groupes de machines virtuelles identiques font référence aux nouveaux équilibreur de charge et adresse IP et sont marqués comme des types de nœuds principaux dans la ressource de cluster Service Fabric.
 
-Vous trouverez un exemple de ces ressources dans l’[exemple de modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
+1. Pour commencer, ajoutez les nouvelles ressources à votre modèle Azure Resource Manager existant. Ces ressources incluent :
 
-```powershell
-New-AzureRmResourceGroupDeployment `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $Template `
-    -TemplateParameterFile $Parameters
-```
+   * Une ressource d’adresse IP publique utilisant une référence SKU standard
+   * Une ressource de Load Balancer utilisant une référence SKU standard
+   * Un groupe de sécurité réseau (NSG) référencé par le sous-réseau dans lequel vous déployez vos groupes de machines virtuelles identiques
+   * Trois types de nœuds marqués comme principaux
+     * Chaque type de nœud doit être mappé à son propre groupe de machines virtuelles identiques situé dans une zone différente.
+     * Chaque groupe de machines virtuelles identiques doit avoir au moins cinq nœuds (durabilité Silver).
 
-Une fois le déploiement des ressources terminé, vous pouvez commencer à désactiver les nœuds dans le type de nœud principal du cluster d’origine. Comme les nœuds sont désactivés, les services système migrent vers le nouveau type de nœud principal qui a été déployé à l’étape précédente.
+   Vous trouverez un exemple de ces ressources dans l’[exemple de modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
 
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
+   ```powershell
+   New-AzureRmResourceGroupDeployment `
+       -ResourceGroupName $ResourceGroupName `
+       -TemplateFile $Template `
+       -TemplateParameterFile $Parameters
+   ```
 
-Write-Host "Connected to cluster"
+1. Une fois le déploiement des ressources terminé, vous pouvez désactiver les nœuds dans le type de nœud principal du cluster d’origine. Comme les nœuds sont désactivés, les services système migrent vers le nouveau type de nœud principal que vous avez déployé précédemment.
 
-$nodeNames = @("_nt0_0", "_nt0_1", "_nt0_2", "_nt0_3", "_nt0_4")
+   ```powershell
+   Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
+       -KeepAliveIntervalInSec 10 `
+       -X509Credential `
+       -ServerCertThumbprint $thumb  `
+       -FindType FindByThumbprint `
+       -FindValue $thumb `
+       -StoreLocation CurrentUser `
+       -StoreName My 
 
-Write-Host "Disabling nodes..."
-foreach($name in $nodeNames) {
-    Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
-}
-```
+   Write-Host "Connected to cluster"
 
-Lorsque tous les nœuds sont désactivés, les services système sont exécutés sur le type de nœud principal, qui s’étend entre des zones. Vous pouvez ensuite supprimer les nœuds désactivés du cluster. Lorsque les nœuds sont supprimés, vous pouvez supprimer les ressources d’adresse IP, de Load Balancer et de groupe de machines virtuelles identiques d’origine.
+   $nodeNames = @("_nt0_0", "_nt0_1", "_nt0_2", "_nt0_3", "_nt0_4")
 
-```powershell
-foreach($name in $nodeNames){
-    # Remove the node from the cluster
-    Remove-ServiceFabricNodeState -NodeName $name -TimeoutSec 300 -Force
-    Write-Host "Removed node state for node $name"
-}
+   Write-Host "Disabling nodes..."
+   foreach($name in $nodeNames) {
+       Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
+   }
+   ```
 
-$scaleSetName="nt0"
-Remove-AzureRmVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+1. Lorsque tous les nœuds sont désactivés, les services système s’exécutent sur le type de nœud principal, qui s’étend entre des zones. Vous pouvez ensuite supprimer les nœuds désactivés du cluster. Lorsque les nœuds sont supprimés, vous pouvez supprimer les ressources d’adresse IP, de Load Balancer et de groupe de machines virtuelles identiques d’origine.
 
-$lbname="LB-cluster-nt0"
-$oldPublicIpName="LBIP-cluster-0"
-$newPublicIpName="LBIP-cluster-1"
+   ```powershell
+   foreach($name in $nodeNames){
+       # Remove the node from the cluster
+       Remove-ServiceFabricNodeState -NodeName $name -TimeoutSec 300 -Force
+       Write-Host "Removed node state for node $name"
+   }
 
-Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
-Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
-```
+   $scaleSetName="nt0"
+   Remove-AzureRmVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
 
-Vous devez ensuite supprimer les références à ces ressources du modèle Resource Manager que vous avez déployé.
+   $lbname="LB-cluster-nt0"
+   $oldPublicIpName="LBIP-cluster-0"
+   $newPublicIpName="LBIP-cluster-1"
 
-La dernière étape implique de mettre à jour le nom DNS et l’adresse IP publique.
+   Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
+   Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+   ```
 
-```powershell
-$oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
-$primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
-$primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
+1. Ensuite, supprimez les références à ces ressources du modèle Resource Manager que vous avez déployé.
 
-Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
-Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+1. Enfin, mettez à jour le nom DNS et l’adresse IP publique.
 
-$PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
-$PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
-$PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
-Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+   ```powershell
+   $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
+   $primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
+   $primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
 
-```
+   Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
+   Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+
+   $PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
+   $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
+   $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
+   Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+ 
+   ```
 
 ## <a name="preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set"></a>(Préversion) Activer plusieurs zones de disponibilité dans un seul groupe de machines virtuelles identiques
 
-La solution mentionnée précédemment utilise un nodeType par AZ. La solution suivante permet aux utilisateurs de déployer 3 AZ dans le même nodeType.
+La solution précédente utilise un type de nœud dans chaque zone de disponibilité. La solution suivante permet aux utilisateurs de déployer trois zones de disponibilité dans le même type de nœud.
 
-**Cette fonctionnalité étant actuellement en préversion, elle n’est pas prise en charge pour les scénarios de production.**
+> [!NOTE]
+> Comme cette fonctionnalité est actuellement en préversion, elle n’est pas prise en charge pour les scénarios de production.
 
-L’exemple de modèle complet se trouve [ici](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
+Un exemple de modèle complet est disponible [sur GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 
-![Architecture de zone de disponibilité Azure Service Fabric][sf-multi-az-arch]
+![Diagramme de l’architecture des zones de disponibilité Azure Service Fabric.][sf-multi-az-arch]
 
 ### <a name="configuring-zones-on-a-virtual-machine-scale-set"></a>Configuration de zones sur un groupe de machines virtuelles identiques
-Pour activer des zones sur un groupe de machines virtuelles identiques, vous devez inclure les trois valeurs suivantes dans la ressource de groupe de machines virtuelles identiques.
 
-* La première valeur est la propriété **zones** qui spécifie les zones de disponibilité présentes dans le groupe de machines virtuelles identiques.
-* La deuxième valeur est la propriété « singlePlacementGroup », qui doit être définie sur true (vrai). **Le groupe identique s’étend sur 3 zones de disponibilité et peut effectuer un scale-up jusqu’à 300 machines virtuelles, même avec « singlePlacementGroup = true ».**
-* La troisième valeur est « zoneBalance », qui garantit un strict équilibrage des zones. La valeur doit être « true ». Cela garantit que les distributions de machines virtuelles entre les zones ne sont pas déséquilibrées, assurant ainsi que lorsque l’une des zones tombe en panne, les deux autres zones disposent de suffisamment de machines virtuelles pour s’assurer que le cluster continue à s’exécuter sans interruption. Un cluster avec une distribution de machines virtuelles déséquilibrée peut ne pas survivre à un scénario de zone défaillante, car cette zone peut avoir la majorité des machines virtuelles. La distribution déséquilibrée des machines virtuelles entre les zones entraînera également des problèmes liés au placement de services et au blocage des mises à jour de l’infrastructure. Découvrez [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
-* Les remplacements FaultDomain et UpgradeDomain ne doivent pas être configurés.
+Pour activer des zones sur un groupe de machines virtuelles identiques, incluez les trois valeurs suivantes dans la ressource de groupe de machines virtuelles identiques :
+
+* La première valeur est la propriété `zones` qui spécifie les zones de disponibilité dans le groupe de machines virtuelles identiques.
+* La deuxième valeur est la propriété `singlePlacementGroup`, qui doit être définie sur `true`. Le groupe identique qui s’étend sur trois zones de disponibilité peut monter en puissance jusqu’à 300 machines virtuelles même avec `singlePlacementGroup = true`.
+* La troisième valeur est `zoneBalance`, qui garantit un strict équilibrage des zones. Cette valeur doit être `true`. Cela garantit que les distributions de machines virtuelles entre les zones ne sont pas déséquilibrées, ce qui signifie que lorsqu’une zone tombe en panne, les deux autres zones ont suffisamment de machines virtuelles pour maintenir l’exécution du cluster.
+
+  Un cluster avec une distribution de machines virtuelles déséquilibrée peut ne pas survivre à un scénario de zone défaillante, car cette zone peut avoir la majorité des machines virtuelles. La distribution déséquilibrée des machines virtuelles entre les zones entraînera également des problèmes liés au placement de services et au blocage des mises à jour de l’infrastructure. Découvrez [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+
+Vous n’avez pas besoin de configurer les remplacements `FaultDomain` et `UpgradeDomain`.
 
 ```json
 {
@@ -377,25 +405,32 @@ Pour activer des zones sur un groupe de machines virtuelles identiques, vous dev
 ```
 
 >[!NOTE]
-> * **Les clusters Service Fabric doivent avoir au moins un nodeType principal. La valeur de durabilityLevel des nodeTypes principaux doit être Silver ou une valeur supérieure.**
-> * Le groupe de machines virtuelles identiques couvrant AZ doit être configuré avec au moins 3 zones de disponibilité, quelle que soit la valeur de durabilityLevel.
-> * Un groupe de machines virtuelles identiques couvrant AZ défini avec une durabilité Silver (ou supérieure) doit compter au moins 15 machines virtuelles.
-> * Un groupe de machines virtuelles identiques couvrant AZ défini avec une durabilité Bronze doit compter au moins 6 machines virtuelles.
+>
+> * Les clusters Service Fabric doivent avoir au moins un nodeType principal. Le niveau de durabilité des types de nœuds principaux doit être Silver ou supérieur.
+> * La zone de disponibilité qui s’étend sur les groupes de machines virtuelles identiques doit être configurée avec au moins trois zones de disponibilité, quel que soit le niveau de durabilité.
+> * Les zones de disponibilité qui s’étendent sur des groupes de machines virtuelles identiques avec une durabilité Silver ou supérieure doivent avoir au moins 15 machines virtuelles.
+> * Les zones de disponibilité qui s’étendent sur des groupes de machines virtuelles identiques avec une durabilité Bronze doivent avoir au moins six machines virtuelles.
 
-### <a name="enabling-the-support-for-multiple-zones-in-the-service-fabric-nodetype"></a>Activation de la prise en charge de plusieurs zones dans le nodeType Service Fabric
+### <a name="enable-support-for-multiple-zones-in-the-service-fabric-node-type"></a>Activation de la prise en charge de plusieurs zones dans le nodeType Service Fabric
+
 Le nodeType Service Fabric doit être activé pour prendre en charge plusieurs zones de disponibilité.
 
-* La première valeur, **multipleAvailabilityZones**, doit être définie sur true pour le nodeType.
-* La deuxième valeur, **sfZonalUpgradeMode**, est facultative. Il n’est pas possible de modifier cette propriété si un type de nœud avec plusieurs AZ est déjà présent dans le cluster.
-  La propriété contrôle le regroupement logique des machines virtuelles dans les domaines de mise à niveau.
-  **Si la valeur est définie sur « Parallèle » :** Les machines virtuelles sous le type de nœud seront regroupées en UD en ignorant les informations de zone dans 5 UD. Cela entraînera la mise à niveau de UD0 en même temps dans toutes les zones. Ce mode de déploiement est plus rapide pour les mises à niveau, mais il n’est pas recommandé, car il s’applique aux pratiques de déploiement sûr, qui stipulent que les mises à jour doivent être appliquées à une seule zone à la fois.
-  **Si la valeur est omise ou définie sur « Hiérarchique » :** les machines virtuelles sont regroupées pour refléter la distribution zonale jusqu’à 15 UD. Chacune des 3 zones aura 5 UD. Cela permet de s’assurer que les mises à jour se déplacent vers la zone suivante uniquement après avoir effectué 5 UD au sein de la première zone, lentement sur 15 UD (3 zones, 5 UD), ce qui est plus sûr du point de vue du cluster et de l’application utilisateur.
-  Cette propriété définit uniquement le comportement de mise à niveau pour l’application ServiceFabric et les mises à niveau de code. Les mises à niveau du groupe de machines virtuelles identiques sous-jacentes seront toujours parallèles dans tous les AZ.
-  Cette propriété n’a aucun impact sur la distribution d’UD pour les types de nœuds pour lesquels plusieurs zones ne sont pas activées.
-* La troisième valeur est **vmssZonalUpgradeMode = Parallel**. Il s’agit d’une propriété *obligatoire* à configurer dans le cluster en cas d’ajout d’un nodeType avec plusieurs AZ. Cette propriété définit le mode de mise à niveau pour les mises à jour du groupe de machines virtuelles identiques qui se produiront en parallèle simultanément dans tous les AZ.
+* La première valeur est `multipleAvailabilityZones`, qui doit être définie sur `true` pour le type de nœud.
+* La deuxième valeur, `sfZonalUpgradeMode`, est facultative. Il n’est pas possible de modifier cette propriété si un type de nœud avec plusieurs AZ est déjà présent dans le cluster.
+  La propriété contrôle le regroupement logique des machines virtuelles dans les domaines de mise à niveau (UD).
+  
+  * Si cette valeur est définie sur `Parallel` : les machines virtuelles sous le type de nœud sont regroupées en UD et ignorent les informations de zone dans cinq UD. Ce paramètre entraîne la mise à niveau simultanée des UD dans toutes les zones. Ce mode de déploiement est plus rapide pour les mises à niveau, mais il n’est pas recommandé, car il s’applique aux instructions SDP, qui stipulent que les mises à jour doivent être appliquées à une seule zone à la fois.
+  * Si la valeur est omise ou définie sur `Hierarchical` : les machines virtuelles sont regroupées pour refléter la distribution zonale jusqu’à 15 UD. Chacune des trois zones a cinq UD. Cela permet de s’assurer que les zones sont mises à jour l’une après l’autre, en passant à la zone suivante uniquement après avoir terminé cinq UD au sein de la première zone. Ce processus de mise à jour est plus sûr pour le cluster et l’application utilisateur.
+  
+  Cette propriété définit uniquement le comportement de mise à niveau pour l’application Service Fabric et les mises à niveau de code. Les mises à niveau du groupe de machines virtuelles identiques sous-jacentes seront toujours parallèles dans toutes les zones de disponibilité. Cette propriété n’affecte pas la distribution d’UD pour les types de nœuds pour lesquels plusieurs zones ne sont pas activées.
+* La troisième valeur est `vmssZonalUpgradeMode = Parallel`. Cette propriété est obligatoire si un type de nœud avec plusieurs zones de disponibilité est ajouté. Cette propriété définit le mode de mise à niveau pour les mises à jour du groupe de machines virtuelles identiques qui se produiront simultanément dans toutes les zones de disponibilité.
+  
   Actuellement, cette propriété ne peut être définie que sur parallèle.
-* La ressource de cluster Service Fabric apiVersion doit être « 2020-12-01-preview » ou une version ultérieure.
-* La version de code du cluster doit être « 7.2.445 » ou une version ultérieure.
+
+>[!IMPORTANT]
+>La version d’API de la ressource de cluster Service Fabric doit être « 2020-12-01-preview » ou une version ultérieure.
+>
+>La version de code du cluster doit être « 7.2.445 » ou une version ultérieure.
 
 ```json
 {
@@ -420,23 +455,25 @@ Le nodeType Service Fabric doit être activé pour prendre en charge plusieurs z
 ```
 
 >[!NOTE]
+>
 > * Les ressources d’adresse IP publique et d’équilibreur de charge doivent utiliser la référence (SKU) Standard, comme décrit précédemment dans l’article.
-> * la propriété « multipleAvailabilityZones » sur le nodeType ne peut être définie qu’au moment de la création du nodeType, et ne peut pas être modifiée ultérieurement. Par conséquent, des nodeTypes existants ne peuvent pas être configurés avec cette propriété.
-> * Quand « sfZonalUpgradeMode » est omis ou défini sur « Hierachical », les déploiements de cluster et d’application sont plus lents, car il y a plus de domaines de mise à niveau dans le cluster. Il est important d’ajuster correctement les délais d’expiration de stratégie de mise à niveau à incorporer pendant la durée de mise à niveau pour 15 domaines de mise à niveau. La stratégie de mise à niveau pour l’application et le cluster doit être mise à jour pour s’assurer que le déploiement ne dépasse pas les délais d’attente de déploiement du service Azure Resource de 12 heures. Cela signifie que le déploiement ne doit pas prendre plus de 12 heures pour 15 UD, c.-à-d. pas plus de 40 min/UD.
-> * Définissez **reliabilityLevel = Platinum** dans le cluster pour garantir que le cluster résiste au scénario à une seule zone.
+> * La propriété `multipleAvailabilityZones` sur le type de nœud ne peut être définie que lorsque le type de nœud est créé et ne peut pas être modifié ultérieurement. Des types de nœuds existants ne peuvent pas être configurés avec cette propriété.
+> * Quand `sfZonalUpgradeMode` est omis ou défini sur `Hierarchical`, les déploiements de cluster et d’application sont plus lents, car il y a plus de domaines de mise à niveau dans le cluster. Il est important d’ajuster correctement les délais d’expiration de stratégie de mise à niveau pour prendre en compte la durée de mise à niveau requise pour 15 domaines de mise à niveau. La stratégie de mise à niveau pour l’application et le cluster doit être mise à jour pour s’assurer que le déploiement ne dépasse pas les délais d’attente de déploiement du service Azure Resource de 12 heures. Cela signifie que le déploiement ne doit pas durer plus de 12 heures pour 15 UD (autrement dit, il ne doit pas prendre plus de 40 minutes pour chaque UD).
+> * Définissez le niveau de fiabilité du cluster sur `Platinum` pour garantir que le cluster résiste au scénario à une seule zone.
 
->[!NOTE]
-> En guise de meilleure pratique, nous recommandons de définir sfZonalUpgradeMode sur Hierarchical ou de l’omettre. Le déploiement suivra la distribution zonale des machines virtuelles ayant un impact sur un plus petit nombre de réplicas et/ou d’instances, rendant celles-ci plus sûres.
-> Utilisez sfZonalUpgradeMode défini sur Parallel si la vitesse de déploiement est une priorité ou si seule une charge de travail sans état s’exécute sur le type de nœud avec plusieurs AZ. Cela aura pour effet que le parcours d’UD se passera en parallèle dans tous les AZ.
+>[!TIP]
+> Nous vous recommandons de définir la valeur `sfZonalUpgradeMode` sur `Hierarchical` ou de l’omettre. Le déploiement suivra la distribution zonale des machines virtuelles ayant un impact sur un plus petit nombre de réplicas et/ou d’instances, rendant celles-ci plus sûres.
+> Utilisez `sfZonalUpgradeMode` défini sur `Parallel` si la vitesse de déploiement est une priorité ou si seule une charge de travail sans état s’exécute sur le type de nœud avec plusieurs zones de disponibilité. Cela provoque l’exécution en parallèle des UD dans toutes les zones de disponibilité.
 
-### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migration vers le type de nœud avec plusieurs zones de disponibilité
-Pour tous les scénarios de migration, un nouveau type de nœud doit être ajouté, qui aura plusieurs zones de disponibilité prises en charge. Un nodeType existant ne peut pas être migré pour prendre en charge plusieurs zones.
-L’article [ici](./service-fabric-scale-up-primary-node-type.md) décrit en détail les étapes d’ajout d’un nouveau type de nœud, ainsi que d’ajout d’autres ressources requises pour le nouveau type de nœud, telles que les ressources IP et LB. Le même article décrit également comment retirer le type de nœud existant après l’ajout du type de nœud avec plusieurs zones de disponibilité au cluster.
+### <a name="migrate-to-the-node-type-with-multiple-availability-zones"></a>Migration vers le type de nœud avec plusieurs zones de disponibilité
 
-* Migration à partir d’un type de nœud qui utilise le SKU de base pour les ressources LB et IP de base : Cette procédure est déjà décrite [ici](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) pour la solution avec un seul type de nœud par AZ. 
-    Pour le nouveau type de nœud, la seule différence est qu’il n’y a qu’un seul groupe de machines virtuelles identiques et 1 type de nœud pour tous les AZ au lieu de 1 par AZ.
-* Migration à partir d’un type de nœud utilisant les ressources LB et IP de référence (SKU) Standard avec un groupe de sécurité réseau :   Suivez la procédure décrite ci-dessus, sauf qu’il n’est pas nécessaire d’ajouter de nouvelles ressources LB, IP et NSG, et que les mêmes ressources peuvent être réutilisées dans le nouveau type de nœud.
+Pour tous les scénarios de migration, vous devez ajouter un nouveau type de nœud qui prend en charge plusieurs zones de disponibilité. Un type de nœud existant ne peut pas être migré pour prendre en charge plusieurs zones.
+L’article [Monter en puissance un type de nœud principal de cluster Service Fabric](./service-fabric-scale-up-primary-node-type.md) comprend des étapes détaillées pour ajouter un nouveau type de nœud et les autres ressources requises pour le nouveau type de nœud, telles que les ressources d’équilibrage de charge et d’adresse IP. Le même article décrit également comment retirer le type de nœud existant après l’ajout du type de nœud avec plusieurs zones de disponibilité au cluster.
 
+* Migration à partir d’un type de nœud qui utilise l’équilibrage de charge et les ressources IP de base : ce processus est déjà décrit dans [une section précédente](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) pour la solution avec un type de nœud par zone de disponibilité.
+
+  Pour le nouveau type de nœud, la seule différence est qu’il n’y a qu’un seul groupe de machines virtuelles identiques et un seul type de nœud pour toutes les zones de disponibilité au lieu d’un par zone de disponibilité.
+* Migration à partir d’un type de nœud qui utilise l’équilibrage de charge et les ressources IP de référence SKU standard avec un groupe de sécurité réseau : suivez la même procédure que celle décrite précédemment. Toutefois, il n’est pas nécessaire d’ajouter de nouvelles ressources d’équilibrage de charge, d’adresse IP et de groupe de sécurité réseau. Les mêmes ressources peuvent être réutilisées dans le nouveau type de nœud.
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png

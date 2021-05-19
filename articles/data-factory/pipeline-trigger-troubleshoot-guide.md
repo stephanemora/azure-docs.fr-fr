@@ -7,12 +7,12 @@ ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 49205025e26f7c0eb609638e70a58c9c0c14748e
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: d9827eab8c9d6187c78a979591f2c7ee0cad99e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385409"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108741884"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
@@ -26,7 +26,7 @@ Les exécutions de pipeline sont généralement instanciées en transmettant des
 
 ### <a name="an-azure-functions-app-pipeline-throws-an-error-with-private-endpoint-connectivity"></a>Un pipeline de l’application Azure Functions lève une erreur liée à une connexion de point de terminaison privé
  
-Data Factory et l’application de fonction Azure s’exécutent sur un point de terminaison privé. Vous essayez d’exécuter un pipeline qui interagit avec l’application de fonction. Vous avez essayé trois méthodes différentes, mais l’une retourne l’erreur « Requête incorrecte » et les deux autres méthodes retournent l’erreur « 103 Erreur Interdit ».
+Data Factory et l’application de fonction s’exécutent sur un point de terminaison privé dans Azure. Vous essayez d’exécuter un pipeline qui interagit avec l’application de fonction. Vous avez essayé trois méthodes différentes, mais l’une retourne l’erreur « Requête incorrecte » et les deux autres méthodes retournent l’erreur « 103 Erreur Interdit ».
 
 **Cause**
 

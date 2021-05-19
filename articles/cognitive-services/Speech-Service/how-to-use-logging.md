@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 32715ad1a01366d7d56e6fa8129151b15c315e1d
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 611d41b166a283dffd36729c0f4516ff80ecd35f
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504173"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803077"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Activer la journalisation dans le SDK Speech
 
@@ -69,6 +69,17 @@ config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
 Vous trouverez des informations supplémentaires sur l’autorisation d’accès aux fichiers pour les applications UWP [ici](/windows/uwp/files/file-access-permissions).
+
+### <a name="universal-windows-platform-uwp-on-unity"></a>Plateforme Windows universelle (UWP) sur Unity
+
+Dans une application Unity et UWP, un fichier journal peut être créé dans le dossier persistant de l’application comme suit :
+
+```csharp
+#if ENABLE_WINMD_SUPPORT
+        string logFile = Application.persistentDataPath + "/logFile.txt";
+        config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+#endif
+```
 
 ### <a name="android"></a>Android
 

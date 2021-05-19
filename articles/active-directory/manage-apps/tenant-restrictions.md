@@ -12,12 +12,12 @@ ms.date: 4/6/2021
 ms.author: iangithinji
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dda21b70d7e65915b1ecd92de8a3ebcf2ac52059
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: 78ae7a6fec007818da584dc7e22658890dd2bea6
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108006941"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517043"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -41,7 +41,7 @@ La solution comprend les composants suivants :
 
 3. **Logiciel client** : pour prendre en charge les restrictions liées au locataire, le logiciel client doit demander des jetons directement à Azure AD, afin que l’infrastructure du proxy puisse intercepter le trafic. Actuellement, les applications Microsoft 365 basées sur navigateur prennent en charge les restrictions liées au locataire, comme les clients Office qui utilisent l’authentification moderne (comme OAuth 2.0).
 
-4. **Authentification moderne** : les services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions liées au locataire et bloquer l’accès à tous les locataires non autorisés. Vous devez configurer les services cloud Microsoft 365 pour qu’ils utilisent les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Microsoft 365, consultez [Updated Office 365 modern authentication](https://docs.microsoft.com/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide).
+4. **Authentification moderne** : les services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions liées au locataire et bloquer l’accès à tous les locataires non autorisés. Vous devez configurer les services cloud Microsoft 365 pour qu’ils utilisent les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Microsoft 365, consultez [Updated Office 365 modern authentication](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016).
 
 Le schéma suivant illustre le flux de trafic de niveau supérieur. Les restrictions liées au locataire nécessitent l’inspection TLS uniquement pour le trafic vers Azure AD, pas pour le trafic vers les services cloud Microsoft 365. Cette distinction est importante, car le volume de trafic pour l’authentification auprès d’Azure AD est généralement beaucoup plus faible que le volume de trafic vers les applications SaaS comme Exchange Online et SharePoint Online.
 

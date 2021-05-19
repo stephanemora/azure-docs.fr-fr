@@ -6,13 +6,13 @@ ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/25/2020
-ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/08/2021
+ms.openlocfilehash: 9ae996d344604ebdaf4e166f6c0536eb6acb169b
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880639"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656598"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Inscrire et analyser Stockage Blob Azure
 
@@ -119,10 +119,10 @@ Pour inscrire un nouveau compte blob dans votre catalogue de données, procédez
 Dans l’écran **Inscrire des sources (Stockage Blob Azure)** , procédez comme suit :
 
 1. Entrez le **nom** avec lequel la source de données sera listée dans le catalogue. 
-1. Choisissez votre abonnement pour filtrer les comptes de stockage
-1. Sélectionner un compte de stockage
-1. Sélectionnez une collection ou créez-en une (facultatif)
-1. Utilisez **Terminer** pour inscrire la source de données.
+1. Choisissez votre abonnement pour filtrer les comptes de stockage.
+1. Sélectionnez un compte de stockage.
+1. Sélectionnez une collection ou créez-en une (facultatif).
+1. Sélectionnez **Inscrire** pour inscrire la source de données.
 
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a8abb31b2442a8823437bb155b5b9970db1d181
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98600188"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742262"
 ---
 # <a name="face-detection-and-attributes"></a>Détection et attributs de visage
 
@@ -39,6 +39,7 @@ Les coordonnées des points sont retournées en unités de pixels.
 
 Les attributs sont un ensemble de fonctionnalités qui peuvent éventuellement être détectées par l’API [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). Les attributs suivants peuvent être détectés :
 
+* **Accessories**. Indique si le visage donné porte des accessoires. Cet attribut retourne les accessoires possibles, y compris casques, lunettes et masques, avec un score de confiance entre zéro et un pour chaque accessoire.
 * **age**. L’âge estimé en années d’un visage particulier.
 * **blur**. L’aspect flouté du visage dans l’image. Cet attribut retourne une valeur comprise entre 0 et 1, ainsi qu’une évaluation informelle low (faible), medium (moyenne) ou high (élevée).
 * **emotion**. Une liste d’émotions avec leur confiance de détection pour le visage donné. Les scores de confiance sont normalisés et la somme des scores de toutes les émotions est égale à 1. Les émotions détectées sont le bonheur, la tristesse, la neutralité, la colère, le mépris, le dégoût, la surprise et la peur.
@@ -51,6 +52,7 @@ Les attributs sont un ensemble de fonctionnalités qui peuvent éventuellement �
 
     ![Tête avec les axes d’inclinaison longitudinale (pitch), d’inclinaison latérale (roll) et de lacet (yaw) étiquetés](../Images/headpose.1.jpg)
 * **makeup**. Indique si le visage comporte du maquillage. Cet attribut retourne une valeur booléenne pour eyeMakeup (maquillage des yeux) et lipMakeup (maquillage des lèvres).
+* **mask**.  Indique si le visage porte un masque. Cet attribut retourne un type de masque possible et une valeur booléenne pour indiquer si le nez et la bouche sont couverts.
 * **noise**. Le bruit visuel détecté dans l’image du visage. Cet attribut retourne une valeur comprise entre 0 et 1, ainsi qu’une évaluation informelle low (faible), medium (moyenne) ou high (élevée).
 * **occlusion**. Indique si des objets obstruent des parties du visage. Cet attribut retourne une valeur booléenne pour eyeOccluded (obstruction des yeux), foreheadOccluded (obstruction du front) et mouthOccluded (obstruction de la bouche).
 * **smile**. L’expression de sourire du visage donné. Cette valeur est comprise entre 0 pour aucun sourire et 1 pour un sourire clair.

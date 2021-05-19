@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: e8502b1d01e0f3fbf5d42e924511cc978690bce4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e62aa434efade2cb1fa3d82265eb44d523dd869
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96342190"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773356"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Forum Aux Questions (FAQ) portant sur l’API Recherche d’images Bing
 
@@ -24,7 +24,7 @@ ms.locfileid: "96342190"
 > Les API Recherche Bing provisionnées à l’aide de Cognitive Services seront prises en charge les trois prochaines années ou jusqu’à la fin de votre Contrat Entreprise, selon la première éventualité.
 > Pour obtenir des instructions de migration, consultez [Services de recherche Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Trouvez les réponses aux questions fréquemment posées sur les concepts, codes et scénarios relatifs à l’API Recherche d’images Bing pour Microsoft Cognitive Services sur Azure.
+Trouvez les réponses aux questions fréquemment posées sur les concepts, codes et scénarios relatifs à l’API Recherche d’images Bing pour Azure Cognitive Services sur Azure.
 
 ## <a name="response-headers-in-javascript"></a>En-têtes de réponse dans JavaScript
 
@@ -69,7 +69,7 @@ Cette approche protège également votre clé API de l’exposition au public, �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Votre question concerne-t-elle une fonctionnalité manquante ? Demandez-la ou votez pour elle sur notre [site web UserVoice](https://cognitive.uservoice.com/forums/555907-bing-search).
+Votre question concerne-t-elle une fonctionnalité manquante ? Envisagez de la demander ou de la voter à l’aide de l’[outil de commentaires](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749).
 
 ## <a name="see-also"></a>Voir aussi
 

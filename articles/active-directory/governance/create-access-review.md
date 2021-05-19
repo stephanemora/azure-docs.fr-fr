@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 4/27/2021
+ms.date: 5/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd283e5ef0d7a3692e819311a749c8c12b1b38b1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: abd0ff2b7330bdc459bf3775e92b376686ebfc83
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137889"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517174"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
-L’accès aux groupes et aux applications pour les employés et les invités change au fil du temps. Afin de réduire les risques associés aux affectations d’accès obsolètes, les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour créer des révision des accès pour les membres de groupes ou pour l’accès aux applications. Si vous devez régulièrement passer en revue les accès, vous pouvez aussi créer des révisions d’accès périodiques. Pour plus d’informations sur ces scénarios, consultez [Gérer l’accès des utilisateurs](manage-user-access-with-access-reviews.md) et [Gérer l’accès des invités](manage-guest-access-with-access-reviews.md).
+L’accès aux groupes et aux applications pour les employés et les invités change au fil du temps. Afin de réduire les risques associés aux affectations d’accès obsolètes, les administrateurs peuvent utiliser Azure Active Directory (Azure AD) pour créer des révision des accès pour les membres de groupes ou pour l’accès aux applications. Les propriétaires de groupes de sécurité et de Microsoft 365 peuvent également utiliser Azure AD pour créer des révisions d’accès pour les membres du groupe (préversion) tant que l’administrateur général ou utilisateur active le paramètre via le panneau Paramètres de révision d’accès. Si vous devez régulièrement passer en revue les accès, vous pouvez aussi créer des révisions d’accès périodiques. Pour plus d’informations sur ces scénarios, consultez [Gérer l’accès des utilisateurs](manage-user-access-with-access-reviews.md) et [Gérer l’accès des invités](manage-guest-access-with-access-reviews.md).
 
 Vous pouvez regarder une courte vidéo sur l’activation des révisions d’accès :
 
@@ -36,6 +36,7 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 
 - Azure AD Premium P2
 - Administrateur général ou Administrateur d’utilisateurs
+- Microsoft 365 et Propriétaire du groupe de sécurité (préversion)
 
 Pour plus d’informations, consultez [Exigences des licences](access-reviews-overview.md#license-requirements).
 
@@ -75,7 +76,8 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
     >[!NOTE]
     > Si vous avez sélectionné Tous les groupes Microsoft 365 avec des utilisateurs invités à l’étape 2, la seule option consiste à réviser les utilisateurs invités à l’étape 3.
 
-8. Cliquez sur Suivant : Révisions
+8. Cliquez sur **Suivant : Révisions**.
+
 9. Dans la section **Sélectionner les réviseurs**, sélectionnez une ou plusieurs personnes pour effectuer les révisions d’accès. Vous pouvez choisir :
     - **Propriétaire(s) de groupe**. (Disponible uniquement lors de la révision d’une équipe ou d’un groupe).
     - **Utilisateur(s) ou groupe(s) sélectionné(s)** .
@@ -89,7 +91,8 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
     ![Choisir la fréquence de la révision](./media/create-access-review/frequency.png)
 
-11. Cliquez sur le bouton **Next: Paramètres** en bas de la page.
+11. Cliquez sur le bouton **Suivant : Paramètres** en bas de la page.
+
 12. Dans **Paramètres une fois l’opération terminée**, vous pouvez spécifier ce qui se produit une fois la révision terminée.
 
     ![Créer une révision d’accès : paramètres une fois l’opération terminée](./media/create-access-review/upon-completion-settings-new.png)
@@ -111,12 +114,11 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
     Pour en savoir plus sur les meilleures pratiques pour la suppression des utilisateurs invités qui n’ont plus accès aux ressources de votre organisation, lisez l’article intitulé [Utiliser Azure AD Identity Governance pour examiner et supprimer les utilisateurs externes qui n’ont plus accès aux ressources](access-reviews-external-users.md).
 
-   > [!NOTE]
-   > L’action à appliquer sur les utilisateurs invités refusés n’est pas configurable sur les révisions dont la portée est plus large que celle des utilisateurs invités. Elle n’est pas non plus configurable pour les révisions de **Tous les groupes M365 avec des utilisateurs invités.** Lorsqu’elle n’est pas configurable, l’option par défaut de suppression de l’appartenance de l’utilisateur à la ressource est utilisée sur les utilisateurs refusés.
+
+    > [!NOTE]
+    > L’action à appliquer sur les utilisateurs invités refusés n’est pas configurable sur les révisions dont la portée est plus large que celle des utilisateurs invités. Elle n’est pas non plus configurable pour les révisions de **Tous les groupes Microsoft 365 avec des utilisateurs invités.** Lorsqu’elle n’est pas configurable, l’option par défaut de suppression de l’appartenance de l’utilisateur à la ressource est utilisée sur les utilisateurs refusés.
 
 13. Vous pouvez envoyer des notifications à des utilisateurs ou groupes supplémentaires (préversion) pour recevoir des mises à jour d’achèvement de révision. Cette fonctionnalité permet d’informer les parties prenantes autres que le créateur de la révision de la progression de la révision. Pour utiliser cette fonctionnalité, sélectionnez **Sélectionner un ou plusieurs utilisateurs ou groupes** et ajoutez un utilisateur ou groupe supplémentaire pour lequel vous souhaitez recevoir l’état d’achèvement.
-
-    ![Paramètres d’achèvement - Ajouter des utilisateurs supplémentaires pour recevoir des notifications](./media/create-access-review/upon-completion-settings-additional-receivers.png) 
 
 14. Dans **Activer l’assistance aux décisions de révision**, indiquez si vous souhaitez que votre réviseur reçoive des recommandations au cours du processus de révision.
 
@@ -131,10 +133,27 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
       ![Contenu supplémentaire pour le réviseur](./media/create-access-review/additional-content-reviewer.png)
 
 16. Cliquez sur **Suivant : Réviser + créer** pour passer à la page suivante.
+
 17. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
+
 18. Vérifiez les informations, puis sélectionnez **Créer**.
 
        ![Écran de création d’une révision](./media/create-access-review/create-review.png)
+
+## <a name="allow--group-owners-to-create-and-manage-access-reviews-preview"></a>Autoriser les propriétaires de groupes à créer et à gérer des révisions d’accès (préversion)
+
+Rôle prérequis : Administrateur général ou d’utilisateurs
+
+1. Connectez-vous au portail Azure et ouvrez la page [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+
+1. Dans le menu de gauche, sous **Révisions d’accès**, **Paramètres**.
+
+1. Dans la page Déléguer qui peut créer et gérer des révisions d’accès, définissez **(Préversion) Les propriétaires du groupe peuvent créer et gérer les révisions d’accès des groupes dont ils disposent**, sur **Oui**.
+
+    ![Créer des révisions - Autoriser les propriétaires de groupes à effectuer des révisions](./media/create-access-review/group-owners-review-access.png)
+
+    > [!NOTE]
+    > Par défaut, le paramètre est défini sur **Non**. Il doit donc être mis à jour pour permettre aux propriétaires de groupes de créer et gérer les révisions d’accès.
 
 ## <a name="start-the-access-review"></a>Démarrer la révision d’accès
 

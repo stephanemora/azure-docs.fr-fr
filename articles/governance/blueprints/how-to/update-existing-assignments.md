@@ -3,12 +3,12 @@ title: Mettre à jour une affectation à partir du portail
 description: Découvrez le mécanisme de mise à jour d’une attribution de blueprint existante dans Azure Blueprints à partir du portail Azure.
 ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 67ce41d6d7b4497d84d960e96813f20db940c965
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: b08862ba32dbdd52faff85115553e59ae856b453
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323732"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761360"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Comment mettre à jour une affectation de blueprint existante
 
@@ -24,7 +24,7 @@ Quand un blueprint est affecté, l’affectation peut être mise à jour. Plusie
 
 1. Sélectionnez **Blueprints affectés** dans la page de gauche.
 
-1. Dans la liste des blueprints, sélectionnez l’affectation de blueprint. Utilisez ensuite sur le bouton **Mettre à jour l’affectation** OU cliquez avec le bouton droit sur l’affectation de blueprint, puis sélectionnez **Mettre à jour l’affectation**.
+1. Dans la liste des blueprints, sélectionnez l’affectation de blueprint. Utilisez ensuite sur le bouton **Mettre à jour l’affectation** OU sélectionnez et maintenez (ou cliquez avec le bouton droit sur) l’affectation de blueprint, puis sélectionnez **Mettre à jour l’affectation**.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Capture d’écran de la page d’affectation de blueprint avec le bouton « Mettre à jour l’affectation » mis en surbrillance." border="false":::
 
@@ -56,7 +56,7 @@ Le déploiement des affectations mises à jour obéit à quelques règles import
 
 Pendant la mise à jour d’affectations, il est possible d’apporter des modifications qui sont rompues au moment de l’exécution. Cela peut se produire par exemple quand l’emplacement d’un groupe de ressources est modifié après avoir déjà été déployé. Il est possible d’apporter n’importe quelle modification prise en charge par [Resource Manager](../../../azure-resource-manager/management/overview.md), mais celles susceptibles d’entraîner une erreur via Resource Manager entraîneront aussi l’échec de l’affectation.
 
-Il n’existe aucune limite quant au nombre de fois qu’une affectation peut être mise à jour. Si une erreur se produit, déterminez la cause et apportez une autre mise à jour à l’affectation.  Exemples de scénarios d’erreur :
+Il n’existe aucune limite quant au nombre de fois qu’une affectation peut être mise à jour. Si une erreur se produit, déterminez la cause et apportez une autre mise à jour à l’affectation. Exemples de scénarios d’erreur :
 
 - Paramètre incorrect
 - Objet déjà existant

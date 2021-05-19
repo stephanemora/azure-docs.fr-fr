@@ -1,6 +1,6 @@
 ---
 title: Application Node.js avec Socket.IO - Azure
-description: Utilisez ce didacticiel pour apprendre à héberger une application de conversation basée sur Socket.IO sur Azure. Socket.IO permet une communication en temps réel entre un serveur node.js et des clients.
+description: Utilisez ce didacticiel pour apprendre à héberger une application de conversation basée sur Socket.IO sur Azure. Socket.IO permet une communication en temps réel entre un serveur Node.js et des clients.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,19 +8,19 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: abc02769d7d978e14975d90ae0f98547bdc4faf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3f6d331c6579d6317ab226d6d2d1e4f8682ac3b
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743319"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803833"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure (classique)
 
 > [!IMPORTANT]
-> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
-Socket.IO permet une communication en temps réel entre votre serveur node.js et vos clients. Ce didacticiel présente l’hébergement d’une application de conversation instantanée Socket.IO dans Azure. Pour plus d’informations sur Socket.IO, consultez [socket.io](https://socket.io).
+Socket.IO permet une communication en temps réel entre votre serveur Node.js et vos clients. Ce didacticiel présente l’hébergement d’une application de conversation instantanée Socket.IO dans Azure. Pour plus d’informations sur Socket.IO, consultez [socket.io](https://socket.io).
 
 Voici une capture d’écran de l’application terminée :
 

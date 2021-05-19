@@ -3,12 +3,12 @@ title: Déterminer les causes de non-conformité
 description: De nombreuses raisons peuvent expliquer une ressource non conforme. Découvrez comment identifier l'origine d'une non-conformité.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 66b0c6d7d0575e7361d04d16e6ba6fb06e36801b
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d36ed90990d2f8ba6677281ed865625da8cd3c17
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094113"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752702"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -34,7 +34,7 @@ Pour afficher les détails de conformité, procédez comme suit :
 
 1. Sur la page **Vue d'ensemble** ou **Conformité**, sélectionnez une stratégie affichant un **état de conformité**_Non conforme_.
 
-1. Sous l'onglet **Conformité des ressources** de la page **Conformité à la stratégie**, cliquez avec le bouton droit ou sélectionnez les points de suspension d’une ressource affichant un **état de conformité**_non conforme_. Sélectionnez ensuite **Afficher les détails de la conformité**.
+1. Sous l’onglet **Conformité des ressources** de la page **Conformité à la stratégie**, sélectionnez et maintenez (ou cliquez avec le bouton droit) ou sélectionnez les points de suspension d’une ressource affichant un **état de conformité**_non conforme_. Sélectionnez ensuite **Afficher les détails de la conformité**.
 
    :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Capture d’écran du lien « Afficher les détails de la conformité » sous l’onglet Conformité des ressources." border="false":::
 

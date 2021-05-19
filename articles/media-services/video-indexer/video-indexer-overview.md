@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7508b8123bbcd4188537fefd053394888e507c86
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100530227"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795836"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Qu’est-ce qu’Azure Media Services Video Indexer ?
 
@@ -71,6 +71,7 @@ La liste suivante présente les insights que vous pouvez récupérer à partir d
 * **Déploiement de crédits** : Identifie le début et la fin des crédits à la fin des émissions de télévision et des films.
 * **Détection de personnages animés** (préversion) : Détection, regroupement et reconnaissance de personnages dans le contenu animé via l’intégration avec [Cognitive Services Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Pour plus d’informations, consultez [Détection de personnages animés](animated-characters-recognition.md).
 * **Détection du type de plan éditorial** : Marquage de plans en fonction de leur type (par exemple, plan large, plan moyen, gros plan, très gros plan, deux plans, plusieurs personnes, extérieur et intérieur, etc.). Pour plus d’informations, consultez [Détection du type de plan éditorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* **Suivi des personnes observées** : Détecte les personnes dans les vidéos et fournit des informations telles que l’emplacement de la personne dans le cadre de la vidéo (à l’aide de zones englobantes) et l’horodatage exact (début, fin) ainsi que la confiance lorsqu’une personne apparaît. Pour plus d’informations, consultez [Suivre des personnes dans une vidéo](observed-people-tracing.md).
 
 ### <a name="audio-insights"></a>Insights audio
 

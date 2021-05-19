@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14519a1e46c3fd3414f9a09521fd6bcb5cb8b851
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 42c73e2fa0439b247267f8d1021c0a779b6ca2ba
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108285589"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627903"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -71,7 +71,6 @@ L’authentification unique via PRT fonctionne une fois que les appareils sont i
 |Windows 10|Oui\*|Oui|Oui|Oui\*\*\*|N/A
 |Windows 8.1|Oui\*|Oui*\*\*\*|Oui|Oui\*\*\*|N/A
 |Windows 8|Oui\*|N/A|Oui|Oui\*\*\*|N/A
-|Windows 7|Oui\*|N/A|Oui|Oui\*\*\*|N/A
 |Windows Server 2012 R2 ou version ultérieure|Oui\*\*|N/A|Oui|Oui\*\*\*|N/A
 |Mac OS X|N/A|N/A|Oui\*\*\*|Oui\*\*\*|Oui\*\*\*
 
@@ -79,7 +78,7 @@ L’authentification unique via PRT fonctionne une fois que les appareils sont i
  >Microsoft Edge (hérité) n’est plus pris en charge.
 
 
-\*Requiert Internet Explorer version 11 ou ultérieure.
+\*Requiert Internet Explorer version 11 ou ultérieure. ([À compter du 17 août 2021, les applications et services Microsoft 365 ne prendront pas en charge IE 11](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).)
 
 \*\*Requiert Internet Explorer version 11 ou ultérieure. Désactivez le mode protégé amélioré.
 
