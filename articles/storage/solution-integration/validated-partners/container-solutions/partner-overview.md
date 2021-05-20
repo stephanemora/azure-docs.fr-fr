@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 8b46ad7a34be99aefeb067591fa1b029dba2361e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 618ae75367fd16469fd56a29e8dce37f4d39351d
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561887"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109480506"
 ---
 # <a name="azure-storage-container-management-partners"></a>Partenaires de gestion des conteneurs du Stockage Azure
 
@@ -27,6 +27,7 @@ Cet article met en évidence les solutions de partenaires Microsoft qui permette
 | ![Logo de la société Portworx](./media/portworx-logo.png) |**Portworx**<br>Seul Portworx, par Pure Storage, fournit une solution de stockage persistant, de continuité/reprise d’activité, de sécurité des données, de multicloud et de migration des données pour les applications qui s’exécutent de manière intégrée sur Kubernetes.|[Page du partenaire](https://portworx.com/azure/)|
 | ![<n/>Logo de la société Robin.io](./media/robin-logo.png) |**<n/>Robin.io**<br>Robin.io propose une plateforme de gestion des applications et des données qui permet aux entreprises et aux fournisseurs de services de 5G de fournir des pipelines d’application complexes en tant que service. Basé sur le standard Kubernetes, Robin permet aux développeurs et aux ingénieurs de plateforme de déployer rapidement et de gérer facilement les applications centrées sur les données et sur le réseau indépendamment des ressources sous-jacentes de l’infrastructure.<br><br>Robin Cloud Native Storage (CNS) ajoute des fonctionnalités avancées de gestion de données à Microsoft Azure Kubernetes Service. Robin CNS s’intègre parfaitement au Stockage sur disque Azure pour simplifier la gestion des applications avec état. Les développeurs et les équipes DevOps peuvent déployer Robin CNS comme opérateur Kubernetes standard sur AKS. Robin Cloud Native Storage permet de simplifier les opérations de gestion des données comme la continuité de l’activité, la récupération d’urgence et le clonage d’applications entières. |[Page du partenaire](https://robin.io/robin-cloud-native-storage-for-microsoft-aks/)|
 
+Vous êtes un partenaire de stockage, mais votre solution n’est pas encore répertoriée ? Envoyez-nous vos informations [ici](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUQjY4QlJYUzFHQ0ZBVDNYWERaUlNRVU5IMyQlQCN0PWcu).
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur certains de nos autres partenaires, voir :

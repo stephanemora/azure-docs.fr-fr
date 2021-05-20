@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 493ec8ccc46ea5c2763f3a0159891fe9cbea142c
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 7622b3bb50139ddfdce53bb7e765db5aac90eff3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209244"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766058"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Saba Cloud
 
@@ -79,9 +79,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<CUSTOMER_NAME>_SPLN_PRINCIPLE`
+    a. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le modèle suivant (vous obtiendrez cette valeur dans la section Configurer l’authentification unique de Saba Cloud à l’étape 6, mais elle est généralement au format `<CUSTOMER_NAME>_sp`) : `<CUSTOMER_NAME>_sp`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SIGN-ON URL>/Saba/saml/SSO/alias/<ENTITY_ID>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL en utilisant le format suivant (ENTITY_ID fait référence à l’étape précédente, en général `<CUSTOMER_NAME>_sp`) : `https://<CUSTOMER_NAME>.sabacloud.com/Saba/saml/SSO/alias/<ENTITY_ID>`
+    
+    > [!NOTE]
+    > Si vous spécifiez l’URL de réponse de façon incorrecte, vous devrez probablement la rectifier dans la section **Inscription d’application** d’Azure AD, et non pas dans la section **Application d’entreprise**. Apporter des modifications à la section **Configuration SAML de base** ne met pas toujours à jour l’URL de réponse.
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
@@ -90,10 +93,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     b. Dans la zone de texte **État de relais**, tapez une URL au format suivant : `IDP_INIT---SAML_SSO_SITE=<SITE_ID> ` ou, si SAML est configuré pour un microsite, tapez une URL au format suivant : `IDP_INIT---SAML_SSO_SITE=<SITE_ID>---SAML_SSO_MICRO_SITE=<MicroSiteId>`
 
     > [!NOTE]
-    > Pour plus d’informations sur la configuration de l’état de relais, consultez [ce lien](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html).
-
-    > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse, l’URL de connexion et l’État de relais exacts. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Saba Cloud](mailto:support@saba.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > 
+    > Pour plus d’informations sur la configuration de RelayState, consultez [Authentification unique lancée par le fournisseur d’identité et le fournisseur de services pour un microsite](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html).
+
+1. Dans la section **Attributs et revendications de l’utilisateur**, ajustez l’identificateur d’utilisateur unique à ce que votre organisation prévoit d’utiliser comme nom d’utilisateur principal pour les utilisateurs de Saba.
+
+   Cette étape est nécessaire seulement si vous tentez de convertir un nom d’utilisateur/mot de passe en authentification unique. S’il s’agit d’un nouveau déploiement de Saba Cloud qui n’a pas d’utilisateurs existants, vous pouvez ignorer cette étape.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -153,6 +159,8 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans la section **Configure Properties** (Configurer les propriétés), vérifiez les champs remplis, puis cliquez sur **SAVE** (Enregistrer). 
 
     ![Capture d’écran de la configuration des propriétés](./media/saba-cloud-tutorial/configure-properties.png) 
+    
+    Vous devrez peut-être définir **Max Authentication Age (in seconds)** (Durée maximale de l’authentification (en secondes)) sur **7776000** (90 jours) pour qu’il corresponde à la durée maximale par défaut autorisée par Azure AD pour une connexion. Dans le cas contraire, vous êtes susceptible de recevoir l’erreur `(109) Login failed. Please contact system administrator.`.
 
 ### <a name="create-saba-cloud-test-user"></a>Créer un utilisateur de test Saba Cloud
 

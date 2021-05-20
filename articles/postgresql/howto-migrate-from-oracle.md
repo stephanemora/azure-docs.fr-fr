@@ -1,23 +1,23 @@
 ---
 title: 'Oracle vers Azure Database pour PostgreSQL : Guide de migration'
 titleSuffix: Azure Database for PostgreSQL
-description: Ce guide vous apprend à migrer votre schéma Oracle vers Azure Database pour PostgreSQL.
+description: Ce guide vous aide à migrer votre schéma Oracle vers Azure Database pour PostgreSQL.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: 973dcd94d7535434914bd718deb136e4c9952245
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c197f5200c3db60a63bfd8c8e4e01ab4881aa5b6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108135542"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756356"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Migrer Oracle vers Azure Database pour PostgreSQL
 
-Ce guide vous apprend à migrer votre schéma Oracle vers Azure Database pour PostgreSQL. 
+Ce guide vous aide à migrer votre schéma Oracle vers Azure Database pour PostgreSQL. 
 
 Pour obtenir des conseils de migration détaillés et complets, consultez les [ressources du guide de migration](https://github.com/microsoft/OrcasNinjaTeam/blob/master/Oracle%20to%20PostgreSQL%20Migration%20Guide/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Guide.pdf). 
 
@@ -71,13 +71,13 @@ Après avoir approvisionné la machine virtuelle et Azure Database pour PostgreS
 - Si possible, utilisez des index uniques dans les vues matérialisées. Ces index peuvent accélérer l’actualisation lorsque vous utilisez la syntaxe `REFRESH MATERIALIZED VIEW CONCURRENTLY`.
 
 
-## <a name="premigration"></a>Prémigration 
+## <a name="pre-migration"></a>Prémigration 
 
 Après avoir vérifié que votre environnement source est pris en charge et que les conditions préalables sont satisfaites, vous êtes prêt à démarrer l’étape de prémigration. Pour commencer : 
 
-1. Inventoriez les bases de données que vous devez migrer. 
-1. Évaluez ces bases de données pour détecter les problèmes ou les obstacles potentiels à la migration.
-1. Résolvez tous les problèmes que vous avez découverts. 
+1. **Découvrir** : Inventoriez les bases de données que vous devez migrer. 
+2. **Évaluer** : Évaluez ces bases de données pour détecter les problèmes ou les obstacles potentiels à la migration.
+3. **Convertir** : Résolvez tous les problèmes que vous avez découverts. 
  
 Pour les migrations hétérogènes telles qu’Oracle vers Azure Database pour PostgreSQL, cette étape consiste également à rendre les schémas de la base de données source compatibles avec l’environnement cible.
 
@@ -92,7 +92,7 @@ Les scripts de pré-évaluation Microsoft pour Oracle s’exécutent sur la base
 - La taille des tables dans chaque schéma.
 - Le nombre de lignes de code par package, fonction, procédure, etc.
 
-Téléchargez les scripts associés à partir du [site web ora2pg](https://ora2pg.darold.net/).
+Téléchargez les scripts associés à partir de [GitHub](https://github.com/microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts).
 
 ### <a name="assess"></a>Évaluer
 
@@ -120,8 +120,6 @@ L’unité de migration par défaut représente environ cinq minutes pour un exp
 
 La dernière ligne du rapport indique le code de migration total estimé en jours-hommes. L’estimation suit le nombre d’unités de migration estimé pour chaque objet.
 
-Cette unité de migration représente environ cinq minutes pour un expert PostgreSQL. S’il s’agit de votre première migration, vous pouvez augmenter la valeur par défaut à l’aide de la directive de configuration `COST_UNIT_VALUE` ou de l’option de ligne de commande `--cost_unit_value`. 
-
 Dans l’exemple de code suivant, vous voyez quelques variations d’évaluation : 
 * Évaluation des tables
 * Évaluation des colonnes
@@ -129,9 +127,9 @@ Dans l’exemple de code suivant, vous voyez quelques variations d’évaluation
 * Évaluation de schéma qui utilise une unité de coût de dix minutes
 
 ```
-ora2pg -t SHOW_TABLE -c c:\ora2pg\ora2pg_hr.conf > c:\ts303\hr_migration\reports\tables.txt ora2pg -t SHOW_COLUMN -c c:\ora2pg\ora2pg_hr.conf > c:\ts303\hr_migration\reports\columns.txt
-ora2pg -t SHOW_REPORT -c c:\ora2pg\ora2pg_hr.conf --dump_as_html --estimate_cost > c:\ts303\hr
-_migration\reports\report.html
+ora2pg -t SHOW_TABLE -c c:\ora2pg\ora2pg_hr.conf > c:\ts303\hr_migration\reports\tables.txt 
+ora2pg -t SHOW_COLUMN -c c:\ora2pg\ora2pg_hr.conf > c:\ts303\hr_migration\reports\columns.txt
+ora2pg -t SHOW_REPORT -c c:\ora2pg\ora2pg_hr.conf --dump_as_html --estimate_cost > c:\ts303\hr_migration\reports\report.html
 ora2pg -t SHOW_REPORT -c c:\ora2pg\ora2pg_hr.conf –-cost_unit_value 10 --dump_as_html --estimate_cost > c:\ts303\hr_migration\reports\report2.html
 ```
 
@@ -183,20 +181,46 @@ Utilisez la commande suivante :
 
 ```
 ora2pg --project_base /app/migration/ --init_project test_project
-
-ora2pg --project_base /app/migration/ --init_project test_project
 ```
 
 Voici l’exemple de sortie : 
    
 ```
-Creating project test_project. /app/migration/test_project/ schema/ dblinks/ directories/ functions/ grants/ mviews/ packages/ partitions/ procedures/ sequences/ synonyms/    tables/ tablespaces/ triggers/ types/ views/ sources/ functions/ mviews/ packages/ partitions/ procedures/ triggers/ types/ views/ data/ config/ reports/
+ora2pg --project_base /app/migration/ --init_project test_project
+        Creating project test_project.
+        /app/migration/test_project/
+                schema/
+                        dblinks/
+                        directories/
+                        functions/
+                        grants/
+                        mviews/
+                        packages/
+                        partitions/
+                        procedures/
+                        sequences/
+                        synonyms/
+                        tables/
+                        tablespaces/
+                        triggers/
+                        types/
+                        views/
+                sources/
+                        functions/
+                        mviews/
+                        packages/
+                        partitions/
+                        procedures/
+                        triggers/
+                        types/
+                        views/
+                data/
+                config/
+                reports/
 
-Generating generic configuration file
-
-Creating script export_schema.sh to automate all exports.
-
-Creating script import_all.sh to automate all imports.
+        Generating generic configuration file
+        Creating script export_schema.sh to automate all exports.
+        Creating script import_all.sh to automate all imports.
 ```
 
 Le répertoire `sources/` contient le code Oracle. Le répertoire `schema/` contient le code porté sur PostgreSQL. Et le répertoire `reports/` contient les rapports HTML et l’évaluation des coûts de migration.
@@ -219,25 +243,21 @@ Exécutez manuellement la commande suivante.
 ```
 SET namespace="/app/migration/mig_project"
 
-ora2pg -t DBLINK -p -o dblink.sql -b %namespace%/schema/dblinks -c
-%namespace%/config/ora2pg.conf
-ora2pg -t DIRECTORY -p -o directory.sql -b %namespace%/schema/directories -c
-%namespace%/config/ora2pg.conf
-ora2pg -p -t FUNCTION -o functions2.sql -b %namespace%/schema/functions -c
-%namespace%/config/ora2pg.conf ora2pg -t GRANT -o grants.sql -b %namespace%/schema/grants -c %namespace%/config/ora2pg.conf ora2pg -t MVIEW -o mview.sql -b %namespace%/schema/   mviews -c %namespace%/config/ora2pg.conf
-ora2pg -p -t PACKAGE -o packages.sql
-%namespace%/config/ora2pg.conf -b %namespace%/schema/packages -c
-ora2pg -p -t PARTITION -o partitions.sql %namespace%/config/ora2pg.conf -b %namespace%/schema/partitions -c
-ora2pg -p -t PROCEDURE -o procs.sql
-%namespace%/config/ora2pg.conf -b %namespace%/schema/procedures -c
-ora2pg -t SEQUENCE -o sequences.sql
-%namespace%/config/ora2pg.conf -b %namespace%/schema/sequences -c
-ora2pg -p -t SYNONYM -o synonym.sql -b %namespace%/schema/synonyms -c
-%namespace%/config/ora2pg.conf
-ora2pg -t TABLE -o table.sql -b %namespace%/schema/tables -c %namespace%/config/ora2pg.conf ora2pg -t TABLESPACE -o tablespaces.sql -b %namespace%/schema/tablespaces -c
-%namespace%/config/ora2pg.conf
-ora2pg -p -t TRIGGER -o triggers.sql -b %namespace%/schema/triggers -c
-%namespace%/config/ora2pg.conf ora2pg -p -t TYPE -o types.sql -b %namespace%/schema/types -c %namespace%/config/ora2pg.conf ora2pg -p -t VIEW -o views.sql -b %namespace%/   schema/views -c %namespace%/config/ora2pg.conf
+ora2pg -p -t DBLINK -o dblink.sql -b %namespace%/schema/dblinks -c %namespace%/config/ora2pg.conf
+ora2pg -p -t DIRECTORY -o directory.sql -b %namespace%/schema/directories -c %namespace%/config/ora2pg.conf
+ora2pg -p -t FUNCTION -o functions2.sql -b %namespace%/schema/functions -c %namespace%/config/ora2pg.conf 
+ora2pg -p -t GRANT -o grants.sql -b %namespace%/schema/grants -c %namespace%/config/ora2pg.conf 
+ora2pg -p -t MVIEW -o mview.sql -b %namespace%/schema/mviews -c %namespace%/config/ora2pg.conf
+ora2pg -p -t PACKAGE -o packages.sql -b %namespace%/schema/packages -c %namespace%/config/ora2pg.conf
+ora2pg -p -t PARTITION -o partitions.sql -b %namespace%/schema/partitions -c %namespace%/config/ora2pg.conf
+ora2pg -p -t PROCEDURE -o procs.sql -b %namespace%/schema/procedures -c %namespace%/config/ora2pg.conf
+ora2pg -p -t SEQUENCE -o sequences.sql -b %namespace%/schema/sequences -c %namespace%/config/ora2pg.conf
+ora2pg -p -t SYNONYM -o synonym.sql -b %namespace%/schema/synonyms -c %namespace%/config/ora2pg.conf
+ora2pg -p -t TABLE -o table.sql -b %namespace%/schema/tables -c %namespace%/config/ora2pg.conf 
+ora2pg -p -t TABLESPACE -o tablespaces.sql -b %namespace%/schema/tablespaces -c %namespace%/config/ora2pg.conf
+ora2pg -p -t TRIGGER -o triggers.sql -b %namespace%/schema/triggers -c %namespace%/config/ora2pg.conf 
+ora2pg -p -t TYPE -o types.sql -b %namespace%/schema/types -c %namespace%/config/ora2pg.conf 
+ora2pg -p -t VIEW -o views.sql -b %namespace%/schema/views -c %namespace%/config/ora2pg.conf
 ```
 
 Utilisez la commande suivante pour extraire les données.
@@ -251,13 +271,9 @@ ora2pg -t COPY -o data.sql -b %namespace/data -c %namespace/config/ora2pg.conf
 Enfin, compilez tous les fichiers sur le serveur Azure Database pour PostgreSQL. Vous pouvez choisir de charger les fichiers DDL générés manuellement ou utiliser le deuxième script *import_all.sh* pour importer ces fichiers de manière interactive.
 
 ```
-psql -f %namespace%\schema\sequences\sequence.sql -h server1-
+psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l %namespace%\ schema\sequences\create_sequences.log
 
-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l
-
-%namespace%\ schema\sequences\create_sequences.log
-
-psql -f %namespace%\schema\tables\table.sql -h server1-server.postgres.database.azure.com p 5432 -U username@server1-server -d database -l    %namespace%\schema\tables\create_table.log
+psql -f %namespace%\schema\tables\table.sql -h server1-server.postgres.database.azure.com p 5432 -U username@server1-server -d database -l %namespace%\schema\tables\create_table.log
 ```
 
 Voici la commande d’importation de données :
@@ -306,7 +322,7 @@ select * from table1 where filter_data >= 01/01/2019
 
 Dans ce cas, nous vous recommandons d’améliorer la validation en vérifiant la parité des données des deux côtés, source et cible.
 
-## <a name="postmigration"></a>Postmigration 
+## <a name="post-migration"></a>Post-migration 
 
 Après l’étape *Migration*, effectuez les tâches de post-migration pour vous assurer que tout fonctionne de la manière la plus fluide et efficace possible.
 

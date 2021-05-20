@@ -3,7 +3,7 @@ title: Régir l’accès des utilisateurs externes dans la gestion des droits d�
 description: Découvrez plus en détail les paramètres à spécifier pour régir l’accès des utilisateurs externes à la gestion des droits d'utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c78dcbc34deca769739f82964df41ebfc596ea
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4dae1695d372db94c7bd0fa12d20a7d327143b8a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176788"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786480"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Régir l’accès des utilisateurs externes dans la gestion des droits d’utilisation Azure AD
 
-La gestion des droits d'utilisation Azure AD utilise [Azure AD B2B (Business-to-Business)](../external-identities/what-is-b2b.md) pour collaborer avec des personnes extérieures à votre organisation dans un autre annuaire. Avec Azure AD B2B, les utilisateurs externes s’authentifient auprès de leur annuaire de base, mais disposent d’une représentation dans votre annuaire. La représentation dans votre annuaire permet à l’utilisateur d’avoir accès à vos ressources.
+La gestion des droits d'utilisation Azure AD utilise [Azure AD B2B (Business-to-Business)](../external-identities/what-is-b2b.md) pour partager l’accès et vous permettre de collaborer avec des personnes extérieures à votre organisation. Avec Azure AD B2B, les utilisateurs externes s’authentifient auprès de leur annuaire de base, mais disposent d’une représentation dans votre annuaire. La représentation dans votre annuaire permet à l’utilisateur d’avoir accès à vos ressources.
 
 Cet article décrit les paramètres que vous pouvez spécifier pour régir l’accès des utilisateurs externes.
 
 ## <a name="how-entitlement-management-can-help"></a>De quelle façon la gestion des droits d’utilisation peut aider
 
-Lorsque vous utilisez l'expérience d'invitation [Azure AD B2B](../external-identities/what-is-b2b.md), vous devez déjà connaître les adresses e-mail des utilisateurs invités externes que vous souhaitez importer dans votre annuaire de ressources, et avec lesquels vous voulez collaborer. Cela fonctionne très bien lorsque vous travaillez sur un projet plus petit ou à court terme et que vous connaissez déjà tous les participants, mais s'avère plus complexe si vous souhaitez collaborer avec un grand nombre d'utilisateurs ou si les participants changent au fil du temps.  Par exemple, vous pouvez travailler avec une autre organisation et avoir un point de contact avec cette organisation, mais au fil du temps, d'autres utilisateurs de cette organisation auront également besoin d'un accès.
+Lorsque vous utilisez l'expérience d'invitation [Azure AD B2B](../external-identities/what-is-b2b.md), vous devez déjà connaître les adresses e-mail des utilisateurs invités externes que vous souhaitez importer dans votre annuaire de ressources, et avec lesquels vous voulez collaborer. Inviter directement chaque utilisateur fonctionne très bien lorsque vous travaillez sur un projet plus petit ou à court terme et que vous connaissez déjà tous les participants, mais ce processus s'avère plus complexe si vous souhaitez collaborer avec un grand nombre d'utilisateurs ou si les participants changent au fil du temps.  Par exemple, vous pouvez travailler avec une autre organisation et avoir un point de contact avec cette organisation, mais au fil du temps, d'autres utilisateurs de cette organisation auront également besoin d'un accès.
 
-Avec la gestion des droits d'utilisation, vous pouvez définir une stratégie autorisant les utilisateurs des organisations que vous spécifiez à pouvoir demander eux-mêmes un package d'accès. Vous pouvez spécifier si une approbation est requise, ainsi qu'une date d’expiration de l’accès. Si une approbation est exigée, vous pouvez également inviter un ou plusieurs utilisateurs de l'organisation externe dans votre annuaire, et le ou les désigner comme approbateurs, car ils sont susceptibles de savoir quels utilisateurs externes de leur organisation ont besoin d'un accès. Une fois le package d'accès configuré, vous pouvez envoyer le lien de ce package à la personne à contacter (sponsor) au sein de l'organisation externe. Cette personne peut le partager avec d'autres utilisateurs de l'organisation externe et ceux-ci peuvent à leur tour utiliser ce lien pour demander le package d'accès. Les utilisateurs de cette organisation déjà invités dans votre répertoire peuvent également utiliser ce lien.
+Avec la gestion des droits d'utilisation, vous pouvez définir une stratégie autorisant les utilisateurs des organisations que vous spécifiez à pouvoir demander eux-mêmes un package d'accès. Cette stratégie indique si une approbation est requise, si des révisions d’accès sont requises, et une date d’expiration pour l’accès. Si une approbation est exigée, vous pouvez envisager d’inviter un ou plusieurs utilisateurs de l'organisation externe dans votre répertoire, et les désigner comme commanditaires, et configurer ces commanditaires comme approbateurs, car ils sont susceptibles de savoir quels utilisateurs externes de leur organisation ont besoin d'un accès. Une fois le package d'accès configuré, obtenez le lien de ce package pour l’envoyer à la personne à contacter (commanditaire) au sein de l'organisation externe. Cette personne peut le partager avec d'autres utilisateurs de l'organisation externe et ceux-ci peuvent à leur tour utiliser ce lien pour demander le package d'accès. Les utilisateurs de cette organisation déjà invités dans votre répertoire peuvent également utiliser ce lien.
 
-Lorsqu'une demande est approuvée, la gestion des droits d'utilisation accorde à l'utilisateur l'accès nécessaire, notamment une invitation si cet utilisateur n'est pas encore présent dans votre répertoire. Azure AD crée automatiquement un compte invité B2B pour cet utilisateur. Notez qu’un administrateur peut avoir précédemment restreint les organisations autorisées à collaborer, en définissant une [liste d'autorisations ou de refus B2B](../external-identities/allow-deny-list.md) pour autoriser ou refuser les invitations liées à d’autres organisations.  Si l’utilisateur ne figure pas sur la liste d'autorisations ou de refus, il ne sera pas invité.
+En général, lorsqu'une demande est approuvée, la gestion des droits d'utilisation accorde à l'utilisateur l'accès nécessaire. Si cet utilisateur n'est pas encore présent dans votre répertoire, la gestion des droits d’utilisation commence par lui envoyer une invitation. Lorsque l’utilisateur est invité, Azure AD lui crée automatiquement un compte invité B2B, sans pour autant lui envoyer d’e-mail. Notez qu’un administrateur peut avoir précédemment restreint les organisations autorisées à collaborer, en définissant une [liste d'autorisations ou de refus B2B](../external-identities/allow-deny-list.md) pour autoriser ou refuser les invitations liées à d’autres organisations.  Si l’utilisateur ne figure pas sur la liste d’autorisation ou de refus, il ne sera pas invité et ne pourra pas se voir accorder d’accès avant la mise à jour de ces listes.
 
 Pour limiter dans le temps l'accès de l'utilisateur externe, vous spécifiez une date d'expiration dans la stratégie, comme 180 jours. Une fois ces 180 jours écoulés et en l'absence d’extension, la gestion des droits d'utilisateur supprime tous les accès associés à ce package d'accès. Par défaut, si l'utilisateur invité par le biais de la gestion des droits d'utilisation ne dispose d'aucune autre attribution de package d'accès, lorsqu'il perd sa dernière attribution, son compte invité est bloqué pendant 30 jours, puis supprimé. Et ce, afin d'éviter la prolifération de comptes inutiles. Comme décrit dans les sections suivantes, ces paramètres sont configurables.
 
@@ -51,7 +51,7 @@ Le diagramme et les étapes ci-dessous offrent une vue d’ensemble de la façon
 
 1. Vous envoyez un [lien du portail Mon accès](entitlement-management-access-package-settings.md) à votre contact, à l’organisation externe, afin qu’il puisse le partager avec ses utilisateurs qui veulent demander le package d’accès.
 
-1. Un utilisateur externe (**Demandeur A** dans cet exemple) utilise le lien vers le portail Mon accès pour [demander l’accès](entitlement-management-request-access.md) au package d’accès. La façon dont l’utilisateur se connecte dépend du type d’authentification du répertoire ou domaine défini dans l’organisation connectée.
+1. Un utilisateur externe (**Demandeur A** dans cet exemple) utilise le lien vers le portail Mon accès pour [demander l’accès](entitlement-management-request-access.md) au package d’accès. La façon dont l’utilisateur se connecte dépend du type d’authentification du répertoire ou domaine défini dans l’organisation connectée et dans les paramètres des utilisateurs externes.
 
 1. Un approbateur [approuve la demande](entitlement-management-request-approve.md) (ou la demande est approuvée automatiquement).
 
@@ -65,7 +65,7 @@ Le diagramme et les étapes ci-dessous offrent une vue d’ensemble de la façon
 
 1. Pour accéder aux ressources, l’utilisateur externe peut cliquer sur le lien dans l’e-mail, ou tenter d’accéder directement à une des ressources de l’annuaire pour terminer le processus d’invitation.
 
-1. Selon les paramètres de stratégie, au fil du temps, l’attribution du package d’accès à l’utilisateur externe expire, et l’accès de l’utilisateur externe est supprimé.
+1. Si les paramètres de stratégie inclut une date d’expiration, plus tard, lorsque l’attribution du package d’accès à l’utilisateur externe expire, les droits d’accès de l’utilisateur externe en lien avec ce package d’accès sont supprimés.
 
 1. En fonction du cycle de vie des paramètres des utilisateurs externes, lorsque l’utilisateur externe n’a plus d’attribution de package d’accès, il ne peut plus se connecter et le compte d’utilisateur invité est supprimé de votre annuaire.
 
@@ -82,7 +82,7 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 ### <a name="configure-your-azure-ad-b2b-external-collaboration-settings"></a>Configurer vos paramètres de collaboration B2B externe Azure AD
 
 - Autoriser les invités à inviter d’autres invités dans votre répertoire signifie que des invitations d’invités peuvent se produire en dehors de la gestion des droits d’utilisation. Nous vous recommandons de définir **Les invités peuvent inviter** sur **Non** pour autoriser uniquement les invitations correctement régies.
-- Si vous utilisez la liste verte B2B, vous devez vous assurer que tous les domaines que vous souhaitez associer à la gestion des droits d’utilisation sont ajoutés à la liste. De même, si vous utilisez la liste d’exclusion B2B, vous devez vous assurer que tous les domaines auxquels vous souhaitez vous associer ne sont pas ajoutés à la liste.
+- Si vous utilisez la liste d’autorisation B2B, vous devez vous assurer que tous les domaines de toutes les organisations que vous souhaitez associer à la gestion des droits d’utilisation sont ajoutés à la liste. De même, si vous utilisez la liste d’exclusion B2B, vous devez vous assurer qu’aucun domaine d’aucune organisation auquel vous souhaitez vous associer n’est présent sur cette liste.
 - Si vous créez une stratégie de gestion des droits d'utilisation pour **Tous les utilisateurs** (toutes les organisations connectées + tous les nouveaux utilisateurs externes) et qu’un utilisateur n’appartient pas à une organisation connectée dans votre annuaire, une organisation connectée est automatiquement créée pour celui-ci quand il demande le package. Tout paramètre de liste d’autorisation ou de refus B2B que vous avez est prioritaire. Par conséquent, veillez à inclure les domaines que vous prévoyez d’inclure dans cette stratégie dans votre liste verte si vous en utilisez une, et excluez-les de votre liste d’exclusion si vous utilisez une liste d’exclusion.
 - Si vous souhaitez créer une stratégie de gestion des droits d’utilisation incluant **Tous les utilisateurs** (toutes les organisations connectées + tous les nouveaux utilisateurs externes), vous devez d’abord activer l’authentification par code secret à usage unique d’e-mail pour votre répertoire. Pour plus d’informations, consultez [Authentification par envoi d’un code secret à usage unique par e-mail](../external-identities/one-time-passcode.md).
 - Pour plus d’informations sur les paramètres de collaboration B2B externe Azure AD, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../external-identities/delegate-invitations.md).
@@ -117,9 +117,9 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>Gérer le cycle de vie des utilisateurs externes
 
-Vous pouvez sélectionner ce qui se passe lorsqu’un utilisateur externe, qui a été invité à accéder à votre annuaire par le biais d’une demande de package d’accès en cours d’approbation, ne dispose plus d’attributions de package d’accès. Cela peut se produire si l’utilisateur abandonne toutes les attributions de package d’accès, ou si l’attribution de son dernier package d’accès arrive à expiration. Par défaut, lorsqu’un utilisateur externe n’a plus d’attributions de package d’accès, il ne peut pas se connecter à votre annuaire. Au bout de 30 jours, son compte d’utilisateur invité est supprimé de votre annuaire.
+Vous pouvez sélectionner ce qui se passe lorsqu’un utilisateur externe, qui a été invité à accéder à votre annuaire par le biais d’une demande de package d’accès, ne dispose plus d’attributions de package d’accès. Cela peut se produire si l’utilisateur abandonne toutes les attributions de package d’accès, ou si l’attribution de son dernier package d’accès arrive à expiration. Par défaut, lorsqu’un utilisateur externe n’a plus d’attributions de package d’accès, il ne peut pas se connecter à votre annuaire. Au bout de 30 jours, son compte d’utilisateur invité est supprimé de votre annuaire.
 
-**Rôle prérequis :** Administrateur général ou Administrateur d’utilisateurs
+**Rôle prérequis :** administrateur d’entreprise, administrateur de la gouvernance des identités ou administrateur d’utilisateurs
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

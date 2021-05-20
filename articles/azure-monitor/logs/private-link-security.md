@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 5db990fe4bf54c5604eb58af677ec4891639eb1b
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 83775a48e0be1dec50e9205bb1fa9ddb8fcf0087
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165620"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743918"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -203,7 +203,7 @@ Cette zone couvre le mappage spécifique de l’espace de travail aux points de 
 Cette zone configure la connectivité au compte de stockage des packs de solutions des agents globaux. Par son intermédiaire, les agents peuvent télécharger des packs de solutions (également appelés packs d’administration) nouveaux ou mis à jour. Une seule entrée est requise pour gérer les agents Log Analytics, quel que soit le nombre d’espaces de travail utilisés.
 [![Capture d’écran de la zone DNS privée blob-core-windows-net.](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
 > [!NOTE]
-> Cette entrée est uniquement ajoutée aux configurations de liaison privée créées à compter du 19 avril 2021.
+> Cette entrée est uniquement ajoutée aux configurations Private Link créées à partir du 19 avril 2021 (ou de juin 2021 sur les clouds souverains Azure).
 
 
 ### <a name="validating-you-are-communicating-over-a-private-link"></a>Validation que vous communiquez sur une liaison privée
@@ -226,7 +226,7 @@ Accédez au portail Azure. Dans le menu de votre ressource d’espace de travail
 Toutes les étendues connectées à l’espace de travail apparaissent dans cet écran. La connexion aux étendues (AMPLS) autorise le trafic réseau à partir du réseau virtuel connecté à chaque AMPLS pour atteindre cet espace de travail. La création d’une connexion de cette manière a le même effet que si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources). Pour ajouter une nouvelle connexion, sélectionnez **Ajouter**, puis choisissez l’étendue de liaison privée Azure Monitor. Sélectionnez **Appliquer** pour la connecter. Notez qu’un espace de travail peut se connecter à 5 objets AMPLS, comme mentionné dans [Restrictions et limitations](#restrictions-and-limitations). 
 
 ### <a name="manage-access-from-outside-of-private-links-scopes"></a>Gérer l’accès depuis l’extérieur d’étendues de liaisons privées
-Les paramètres dans la partie inférieure de cette page contrôlent l’accès à partir de réseaux publics, ce qui signifie que les réseaux ne sont pas connectés via les étendues répertoriées. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, vous bloquez l’ingestion des journaux à partir des machines en dehors des étendues connectées. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, vous bloquez les requêtes provenant des machines en dehors des étendues. Cela inclut les requêtes exécutées via des classeurs, les tableaux de bord, les expériences client basées sur l’API, les informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui interrogent des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
+Les paramètres de la partie inférieure de cette page contrôlent l'accès depuis les réseaux publics, c'est-à-dire les réseaux non connectés aux étendues répertoriées. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, vous bloquez l’ingestion des journaux à partir des machines en dehors des étendues connectées. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, vous bloquez les requêtes provenant des machines en dehors des étendues. Cela inclut les requêtes exécutées via des classeurs, les tableaux de bord, les expériences client basées sur l’API, les informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui interrogent des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
 
 ### <a name="exceptions"></a>Exceptions
 La restriction de l’accès comme expliqué ci-dessus ne s’applique pas à Azure Resource Manager et présente donc les limitations suivantes :
@@ -237,7 +237,7 @@ La restriction de l’accès comme expliqué ci-dessus ne s’applique pas à Az
 > Les journaux et les métriques chargés sur un espace de travail par le biais des [paramètres de diagnostic](../essentials/diagnostic-settings.md) passent par un canal privé sécurisé de Microsoft et ne sont pas contrôlés par ces paramètres.
 
 ### <a name="log-analytics-solution-packs-download"></a>Télécharger des packs de solutions Log Analytics
-Les agents Log Analytics doivent accéder à un compte de stockage global pour télécharger des packs de solutions. Les configurations de liaison privée créées le 19 avril 2021 ou après peuvent atteindre le stockage des packs de solutions des agents sur la liaison privée. Cela est possible grâce à la nouvelle zone DNS créée pour [blob.core.windows.net](#privatelink-blob-core-windows-net).
+Les agents Log Analytics doivent accéder à un compte de stockage global pour télécharger des packs de solutions. Les configurations Private Link créées à partir du 19 avril 2021 (ou de juin 2021 sur les clouds souverains Azure) peuvent accéder au stockage des packs de solutions des agents via la liaison privée. Cela est possible grâce à la nouvelle zone DNS créée pour [blob.core.windows.net](#privatelink-blob-core-windows-net).
 
 Si votre installation de liaison privée a été créée avant le 19 avril 2021, elle n’atteindra pas le stockage de packs de solutions via une liaison privée. Pour gérer cela, vous pouvez effectuer l’une des actions suivantes :
 * Recréez votre AMPLS et le point de terminaison privé qui y est connecté

@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint sur Azure Stack. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efaeb1c206130778463de47ed806d9b10ea7da62
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89378319"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767344"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
 
@@ -82,7 +82,7 @@ Pour sauvegarder la batterie de serveurs SharePoint, configurez la protection po
 
 1. Dans **Sélectionnez les membres du groupe**, développez le serveur qui détient le rôle WFE. S’il y a plusieurs serveurs WFE, sélectionnez celui sur lequel vous avez installé ConfigureSharePoint.exe.
 
-    Lorsque vous développez le serveur SharePoint, MABS interroge VSS pour savoir quelles données MABS peut protéger.  Si la base de données SharePoint est distante, MABS s’y connecte. Si les sources de données SharePoint ne s’affichent pas, vérifiez que l’enregistreur VSS est en cours d’exécution sur le serveur SharePoint et un serveur SQL distant, et assurez-vous que l’agent MABS est bien installé à la fois sur le serveur SharePoint et le serveur SQL distant. En outre, assurez-vous que les bases de données SharePoint ne sont pas protégées ailleurs en tant que bases de données SQL Server.
+   Lorsque vous développez l’ordinateur exécutant SharePoint, MABS interroge VSS pour identifier les données que MABS peut protéger. Si la base de données SharePoint est distante, MABS s’y connecte. Si les sources de données SharePoint ne s’affichent pas, vérifiez que l’enregistreur VSS est en cours d’exécution sur l’ordinateur qui exécute SharePoint et sur toute instance distante de SQL Server. Ensuite, assurez-vous que l’agent MABS est installé à la fois sur l’ordinateur exécutant SharePoint et sur l’instance distante de SQL Server. En outre, assurez-vous que les bases de données SharePoint ne sont pas protégées ailleurs en tant que bases de données SQL Server.
 
 1. Dans **Sélectionner la méthode de protection des données**, spécifiez la façon dont vous souhaitez gérer les sauvegardes à court et à long terme. La sauvegarde à court terme se fait toujours sur le disque en premier, avec la possibilité de sauvegarder du disque vers le cloud Azure à l’aide de Sauvegarde Azure \(à court ou long terme\).
 

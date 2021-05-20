@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: c4ba48377d868404ff130ec458e50e2b42fae977
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 14a235337a1b3bf26874cffe8893f0c21f2ed9f7
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790514"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517871"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -58,6 +58,7 @@ Les propriétés système permettent d’identifier le contenu et la source des 
 | contentType | string | L’utilisateur spécifie le type de contenu du message. Pour autoriser la requête sur le corps du message, cette valeur doit être définie sur application/JSON. |
 | contentEncoding | string | L’utilisateur spécifie le type d’encodage du message. Les valeurs autorisées sont UTF-8, UTF-16, UTF-32 si la valeur contentType est définie sur application/JSON. |
 | iothub-connection-device-id | string | Cette valeur est définie par IoT Hub et identifie l’ID de l’appareil. Pour interroger, utilisez `$connectionDeviceId`. |
+| iothub-connection-module-id | string | Cette valeur est définie par IoT Hub et identifie l’ID du module Edge. Pour interroger, utilisez `$connectionModuleId`. |
 | iothub-enqueuedtime | string | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `enqueuedTime`. |
 | dt-dataschema | string |  Cette valeur est définie par IoT Hub sur les messages appareil-à-cloud. Elle contient l’ID du modèle d’appareil défini dans la connexion de l’appareil. Pour interroger, utilisez `$dt-dataschema`. |
 | dt-subject | string | Nom du composant qui envoie les messages appareil-à-cloud. Pour interroger, utilisez `$dt-subject`. |

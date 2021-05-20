@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4396eb25980610e9ba22e640957b24147e875cba
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99223455"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803257"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Sauvegarder et Restaurer des machines virtuelles Azure chiffrées
 
@@ -159,6 +159,10 @@ Vous ne pouvez restaurer les machines virtuelles chiffrées qu’en restaurant l
 Restaurez les machines virtuelles chiffrées de la façon suivante :
 
 1. [Restaurez le disque de la machine virtuelle](backup-azure-arm-restore-vms.md#restore-disks).
+
+   > [!NOTE]
+   > Après avoir restauré le disque de la machine virtuelle, échangez le disque du système d’exploitation de la machine virtuelle d’origine avec le disque de machine virtuelle restauré sans le recréer. [Plus d’informations](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/)
+
 2. Recréez l’instance de machine virtuelle en effectuant l’une des actions suivantes :
     1. Utilisez le modèle généré durant l’opération de restauration pour personnaliser les paramètres de la machine virtuelle et déclencher le déploiement de celle-ci. [Plus d’informations](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
     2. Créez une machine virtuelle à partir des disques restaurés à l’aide de PowerShell. [Plus d’informations](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)

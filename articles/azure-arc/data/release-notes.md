@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/29/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: f062782ec2b28ca155b49c9d6ecd5c169c0430eb
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 58dd7baa612e2dcf302ce87b2d77cd0e71f90187
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286831"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763844"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notes de publication – Services de données activés par Azure Arc (préversion)
 
@@ -60,6 +60,7 @@ Cette section décrit les nouvelles fonctionnalités introduites ou activées po
 - En mode de connexion directe, le chargement de l'utilisation, des métriques et des journaux à l'aide de `azdata arc dc upload` est actuellement bloqué. Les données d'utilisation sont automatiquement chargées. Le chargement du contrôleur de données créé en mode de connexion indirecte doit continuer à fonctionner.
 - Le chargement automatique des données d'utilisation en mode de connexion directe échoue si vous utilisez un proxy via `–proxy-cert <path-t-cert-file>`.
 - SQL Managed Instance avec Azure Arc et PostgreSQL Hyperscale avec Azure Arc ne sont pas certifiés GB18030.
+- Actuellement, un seul contrôleur de données Azure Arc en mode connecté direct est pris en charge par cluster Kubernetes.
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance avec Azure Arc
 

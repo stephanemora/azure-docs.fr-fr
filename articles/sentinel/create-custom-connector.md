@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: a1aaf89624f8d0ab48692629d859f3c1bdb4ba67
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d964dc25fd450f244e34140080e77cdc0e319941
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107738897"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749426"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Ressources pour la création de connecteurs Azure Sentinel personnalisés
 
@@ -83,7 +83,7 @@ Pour obtenir des exemples de plug-ins Logstash utiles, consultez :
 
 ## <a name="connect-with-logic-apps"></a>Se connecter avec Logic Apps
 
-Utilisez une [application logique Azure](../logic-apps/index.yml) pour créer un connecteur personnalisé serverless pour Azure Sentinel.
+Utilisez [Azure Logic Apps](../logic-apps/index.yml) pour créer un connecteur personnalisé serverless pour Azure Sentinel.
 
 > [!NOTE]
 > Si la création de connecteurs serverless à l’aide de Logic Apps peut être pratique, l’utilisation de Logic Apps pour vos connecteurs peut s’avérer coûteuse pour des volumes importants de données.

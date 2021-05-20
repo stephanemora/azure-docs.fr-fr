@@ -1,24 +1,24 @@
 ---
 title: Créer un point de terminaison SCIM pour l’approvisionnement des utilisateurs dans des applications à partir d’Azure Active Directory
-description: Apprenez à développer un point de terminaison SCIM, à intégrer votre API SCIM à Azure AD et à automatiser le provisionnement des utilisateurs et des groupes dans vos applications cloud avec Azure Active Directory.
+description: Apprenez à développer un point de terminaison SCIM, à intégrer votre API SCIM à Azure Active Directory et à automatiser le provisionnement des utilisateurs et des groupes dans vos applications cloud.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac876ff4370c20ca0b4db59575a3d8ab49b7b0a3
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689332"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784842"
 ---
-# <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutoriel : Développer un exemple de point de terminaison SCIM
+# <a name="tutorial-develop-a-sample-scim-endpoint-in-azure-active-directory"></a>Tutoriel : Développer un exemple de point de terminaison SCIM dans Azure Active Directory
 
 Personne ne souhaite créer un nouveau point de terminaison à partir de zéro. Nous avons donc créé du [code de référence](https://aka.ms/scimreferencecode) pour vous permettre de bien démarrer avec [SCIM (System for Cross-domain Identity Management)](https://aka.ms/scimoverview). Vous pouvez rendre votre point de terminaison SCIM opérationnel sans code en seulement cinq minutes.
 

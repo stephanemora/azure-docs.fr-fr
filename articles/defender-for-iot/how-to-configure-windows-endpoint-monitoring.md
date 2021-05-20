@@ -1,18 +1,18 @@
 ---
-title: Améliorer la résolution des noms de ports et de VLAN
-description: Personnalisez les noms de ports et de VLAN sur vos capteurs afin d’enrichir la résolution d’appareil.
-ms.date: 04/28/2021
+title: Configurer la surveillance des points de terminaison Windows
+description: Enrichissez les données résolues sur les appareils en utilisant la surveillance des points de terminaison Windows (WMI).
+ms.date: 05/03/2021
 ms.topic: how-to
-ms.openlocfilehash: f47011b5ecab97596783f8e51be0505774a94f88
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 4d701cfda88a2c257b001a52a19853a937661714
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108210154"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108734990"
 ---
-# <a name="configure-windows-endpoint-monitoring"></a>Configuration de la surveillance des points de terminaison Windows
+# <a name="configure-windows-endpoint-monitoring-wmi"></a>Configurer la surveillance des points de terminaison Windows (WMI)
 
-Avec la fonctionnalité de surveillance des points de terminaison Windows, vous pouvez configurer Azure Defender pour IoT afin que la solution sonde de manière sélective les systèmes Windows. Vous disposez ainsi d’informations plus ciblées et précises sur vos appareils, telles que les niveaux de Service Pack.
+Grâce à la capacité de surveillance des points de terminaison Windows, vous pouvez configurer Azure Defender pour IoT afin que la solution sonde de manière sélective les systèmes Windows. Vous disposez ainsi d’informations plus ciblées et précises sur vos appareils, telles que les niveaux de Service Pack.
 
 Vous pouvez configurer la détection avec des plages et des hôtes spécifiques et la configurer pour qu’elle soit exécutée aussi souvent que vous le souhaitez. Effectuez une détection sélective à l’aide de Windows Management Instrumentation (WMI), le langage standard de script de Microsoft pour la gestion des systèmes Windows.
 

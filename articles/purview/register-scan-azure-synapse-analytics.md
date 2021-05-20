@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/22/2020
-ms.openlocfilehash: 7d6a0b04306c2ed6ae4887c79962cbb5528643fc
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.date: 05/08/2021
+ms.openlocfilehash: f2797af01dad10c04c8a56cf52a584ea0f04af31
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106970"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656742"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Inscrire et analyser des pools SQL dédiés (anciennement SQL DW)
 
@@ -123,18 +123,18 @@ Lorsque la méthode d’authentification sélectionnée est **Authentification S
 Pour inscrire un nouveau serveur Azure Synapse Analytics dans votre Data Catalog, procédez comme suit :
 
 1. Accédez à votre compte Purview.
-1. Sélectionnez **Sources** dans le volet de navigation de gauche.
-1. Sélectionnez **Inscrire**.
+1. Sélectionnez **Sources** dans la barre de navigation à gauche.
+1. Sélectionnez **Inscription**.
 1. Dans **Inscrire des sources**, sélectionnez **Pool SQL dédié (anciennement SQL DW)** .
-1. Sélectionnez **Continue** (Continuer)
+1. Sélectionnez **Continuer**.
 
 Sur l’écran **Inscrire des sources (Azure Synapse Analytics)** , procédez comme suit :
 
 1. Entrez le **Nom** sous lequel la source de données apparaîtra dans le catalogue.
-1. Choisissez la façon dont vous souhaitez pointer vers le serveur SQL logique de votre choix :
-   1. Sélectionnez **À partir de l’abonnement Azure**, puis sélectionnez l’abonnement approprié dans la zone de liste déroulante **Abonnement Azure** et le serveur approprié dans la zone de liste déroulante **Nom du serveur**.
-   1. Vous pouvez également sélectionner **Entrer manuellement** et entrer le **Nom du serveur**.
-1. Sélectionnez **Terminer** pour inscrire la source de données.
+2. Choisissez votre abonnement Azure pour filtrer les espaces de travail Azure Synapse.
+3. Sélectionnez un espace de travail Azure Synapse.
+4. Sélectionnez une collection ou créez-en une (facultatif).
+5. Sélectionnez **Inscrire** pour inscrire la source de données.
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 

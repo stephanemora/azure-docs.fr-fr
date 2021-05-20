@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7b8730d9a3e50eb1373cdc2f8f2984c6cc5bbccf
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 589e7ea53f6f247d18d4a2b532af3c87a8b0230c
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208002"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787884"
 ---
 # <a name="adopting-an-industry-ontology"></a>Adoption de l’ontologie d’un secteur
 
-Dans la mesure où il est peut-être plus facile de commencer avec une ontologie DTDL open source que de partir d’une page vierge, Microsoft s’associe à des experts de domaine pour publier des ontologies. Celles-ci représentent des conventions largement acceptées dans le secteur et prennent en charge toutes sortes de cas d’usage pour les clients. 
+Dans la mesure où il est peut-être plus facile de commencer avec une ontologie DTDL open source que de partir d’une page vierge, Microsoft s’associe à des experts de domaine pour publier des ontologies. Celles-ci représentent des conventions largement acceptées dans le secteur et prennent en charge différents cas d’usage pour les clients. 
 
 Il en résulte un ensemble d’ontologies open source en langage DTDL, qui reposent sur des standards du secteur, en tirent parti ou les utilisent directement. Ces ontologies sont conçues pour répondre aux besoins des développeurs en aval. Elles ont le potentiel nécessaire pour être largement adoptées et/ou étendues par le secteur.
 
@@ -24,7 +24,7 @@ Il en résulte un ensemble d’ontologies open source en langage DTDL, qui repos
 
 ## <a name="realestatecore-smart-building-ontology"></a>Ontologie des bâtiments intelligents RealEstateCore
 
-*Trouvez l’ontologie ici :* [Ontologie RealEstateCore basée sur le langage DTDL (Digital Twins Definition Language) pour les bâtiments intelligents](https://github.com/Azure/opendigitaltwins-building).
+*Trouvez l’ontologie dans le référentiel suivant :* [Ontologie RealEstateCore basée sur le langage DTDL (Digital Twins Definition Language) pour les bâtiments intelligents](https://github.com/Azure/opendigitaltwins-building).
 
 Microsoft s’est associé à [RealEstateCore](https://www.realestatecore.io/), un consortium suédois de propriétaires immobiliers, d’éditeurs de logiciels et d’instituts de recherche pour proposer cette ontologie DTDL open source liée au secteur immobilier.
 
@@ -36,15 +36,15 @@ Vous pouvez également en savoir plus sur le partenariat avec RealEstateCore et 
 
 ## <a name="smart-cities-ontology"></a>Ontologie des villes intelligentes
 
-*Trouvez l’ontologie ici :* [Ontologie DTDL (Digital Twins Definition Language) pour les villes intelligentes](https://github.com/Azure/opendigitaltwins-smartcities).
+*Trouvez l’ontologie dans le référentiel suivant :* [Ontologie basée sur le langage DTDL (Digital Twins Definition Language) pour les villes intelligentes](https://github.com/Azure/opendigitaltwins-smartcities).
 
 Microsoft a collaboré avec des [OASC (Open Agile Smart Cities)](https://oascities.org/) et [Sirus](https://sirus.be/) pour fournir une ontologie basée sur DTDL pour les villes intelligentes, en commençant par [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). Outre ETSI NGSI-LD, nous avons également évalué Saref4City, CityGML et ISO, entre autres.
 
-La version actuelle de l’ontologie se concentre sur un ensemble initial de modèles. Les auteurs de l’ontologie vous invitent à contribuer à l’extension de l’ensemble initial de cas d’usage, ainsi qu’à l’amélioration des modèles existants. 
+La version actuelle de l’ontologie se concentre sur un ensemble initial de modèles. Les auteurs de l’ontologie vous invitent à contribuer à l’extension de l’ensemble initial de cas d’usage et à l’amélioration des modèles existants. 
 
 Pour en savoir plus sur l’ontologie, sur la façon de l’utiliser et sur la façon d’y contribuer, accédez à son dépôt sur GitHub : [Azure/opendigitaltwins-smartcities](https://github.com/Azure/opendigitaltwins-smartcities). 
 
-Vous pouvez également obtenir plus d’informations sur les partenariats et l’approche pour les villes intelligentes dans ce billet de blog et la vidéo qui l’accompagne : [Ontologie des villes intelligentes pour Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/smart-cities-ontology-for-digital-twins/ba-p/2166585).
+Vous pouvez également obtenir plus d’informations sur les partenariats et l’approche pour les villes intelligentes dans le billet de blog suivant et la vidéo qui l’accompagne : [Ontologie des villes intelligentes pour Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/smart-cities-ontology-for-digital-twins/ba-p/2166585).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

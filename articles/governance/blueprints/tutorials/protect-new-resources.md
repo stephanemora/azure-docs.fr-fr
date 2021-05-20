@@ -3,12 +3,12 @@ title: 'Tutoriel : Protéger des nouvelles ressources avec des verrous'
 description: Dans ce tutoriel, vous utilisez les options de verrous de ressources Azure Blueprints « Lecture seule » et « Ne pas supprimer » pour protéger les ressources nouvellement déployées.
 ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abb880923da71c437507245917c8e8fddb92b2fa
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485739"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733856"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutoriel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
 
@@ -161,7 +161,7 @@ Une fois que la définition de blueprint est publiée, vous pouvez l’affecter 
      |-|-|-|-|-|
      |Groupe de ressources RGtoLock|Resource group|Nom|TestingBPLocks|Définit le nom du premier groupe de ressources auquel appliquer les verrous de blueprint.|
      |Groupe de ressources RGtoLock|Resource group|Emplacement|USA Ouest 2|Définit l’emplacement du nouveau groupe de ressources auquel appliquer les verrous de blueprint.|
-     |StorageAccount|Modèle Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|Référence SKU du stockage. La valeur par défaut est _Standard_LRS_.|
+     |StorageAccount|Modèle Resource Manager|storageAccountType (StorageAccount) |Standard_GRS|Référence SKU du stockage. La valeur par défaut est _Standard_LRS_.|
 
 1. Une fois tous les paramètres entrés, sélectionnez **Affecter** au bas de la page.
 
@@ -177,7 +177,7 @@ L’affectation crée le groupe de ressources _TestingBPLocks_ et le compte de s
 
 1. Sélectionnez la page **Blueprints affectés** à gauche. Utilisez les filtres pour trouver l’affectation de blueprint **assignment-locked-storageaccount-TestingBPLocks**, puis sélectionnez celle-ci.
 
-   Dans cette page, nous voyons que l’affectation a réussi et que les ressources ont été déployées avec le nouvel état de verrouillage de blueprint. Si l’affectation est mise à jour, le menu déroulant **Opération d’affectation** affiche des détails sur le déploiement de chaque version de définition. Vous pouvez sélectionner le groupe de ressources pour ouvrir la page de propriétés.
+   Dans cette page, nous voyons que l’affectation a réussi et que les ressources ont été déployées avec le nouvel état de verrouillage de blueprint. Si l’affectation est mise à jour, la liste déroulante **Opération d’affectation** affiche des détails sur le déploiement de chaque version de définition. Vous pouvez sélectionner le groupe de ressources pour ouvrir la page de propriétés.
 
 1. Sélectionnez le groupe de ressources **TestingBPLocks**.
 

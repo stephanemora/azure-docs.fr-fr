@@ -5,12 +5,12 @@ author: emaher
 ms.author: enewman
 ms.date: 06/26/2020
 ms.topic: article
-ms.openlocfilehash: 067a2c9672b87974557f650cef07b0394e7d5a63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b37d94249c136d2ec90a955e71e61e8eef0aeb6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445846"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772294"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Paramètres de pare-feu pour Azure Lab Services
 
@@ -20,6 +20,9 @@ Chaque labo utilise une adresse IP publique unique et plusieurs ports.  Toutes l
 
 >[!IMPORTANT]
 >Chaque labo aura une adresse IP publique différente.
+
+> [!NOTE]
+> Si votre établissement scolaire doit effectuer un filtrage de contenu, par exemple pour être en conformité avec les règles de protection de l’enfance sur Internet (comme le [CIPA (Children’s Internet Protection Act)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act) aux États-Unis), vous devez utiliser un logiciel tiers.  Pour plus d’informations, lisez les recommandations sur le [filtrage de contenu avec Lab Services](./administrator-guide.md#content-filtering).
 
 ## <a name="find-public-ip-for-a-lab"></a>Trouver l’adresse IP publique d’un labo
 

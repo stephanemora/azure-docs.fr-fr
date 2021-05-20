@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/03/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 094b2ee101b10da4ec6eda9d6537656e5de28e54
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 5c00090ec6b63f41a92beb485433d4667fc85860
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891034"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766013"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Utilisateurs Identity Protection et B2B
 
 Identity Protection détecte les informations d’identification compromises pour les utilisateurs d’Azure AD. Si vos informations d’identification sont détectées comme étant compromises, cela signifie qu’une autre personne est susceptible d’avoir votre mot de passe et de l’utiliser de manière illégitime. Pour éviter tout risque supplémentaire pour votre compte, il est important de réinitialiser votre mot de passe de manière sécurisée afin que le mauvais intervenant ne puisse plus utiliser votre mot de passe compromis. Identity Protection marque les comptes susceptibles d’être compromis comme étant « à risque ».
 
-Vous pouvez utiliser les informations d’identification de votre organisation pour vous connecter à une autre organisation en tant qu’invité. Ce processus est appelé authentification B2B. Les organisations peuvent configurer des stratégies pour empêcher les utilisateurs de se connecter si leurs informations d’identification sont à risque. Si votre compte est à risque et que vous ne parvenez pas à vous connecter à une autre organisation en tant qu’invité, vous pourrez peut-être corriger automatiquement votre compte en suivant les étapes suivantes. Si votre organisation n’a pas activé la réinitialisation de mot de passe en libre-service, votre administrateur devra corriger manuellement votre compte.
+Vous pouvez utiliser les informations d’identification de votre organisation pour vous connecter à une autre organisation en tant qu’invité. Ce processus est appelé [collaboration interentreprises ou B2B](../external-identities/what-is-b2b.md). Les organisations peuvent configurer des stratégies pour empêcher les utilisateurs de se connecter si leurs informations d’identification sont considérées [à risque](concept-identity-protection-risks.md). Si votre compte est à risque et que vous ne parvenez pas à vous connecter à une autre organisation en tant qu’invité, vous pourrez peut-être corriger automatiquement votre compte en suivant les étapes suivantes. Si votre organisation n’a pas activé la réinitialisation de mot de passe en libre-service, votre administrateur devra corriger manuellement votre compte.
 
 ## <a name="how-to-unblock-your-account"></a>Comment débloquer votre compte 
 

@@ -1,57 +1,37 @@
 ---
-title: Azure Service Bus avec .NET et AMQP 1.0 | Microsoft Docs
-description: Cet article explique comment utiliser Azure Service Bus à partir d’une application .NET avec AMQP (Advanced Messaging Queuing Protocol).
+title: Utiliser la bibliothèque .NET Framework WindowsAzure.ServiceBus héritée avec AMQP 1.0 | Microsoft Docs
+description: Cet article explique comment utiliser la bibliothèque .NET Framework WindowsAzure.ServiceBus héritée avec AMQP (Advanced Messaging Queuing Protocol).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 20800363327aefda073cd484dc737b28e60466a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/30/2021
+ms.openlocfilehash: 160da6a770e58e9a76e966f018d25dc9bc8a8c76
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98632848"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770062"
 ---
-# <a name="use-service-bus-from-net-with-amqp-10"></a>Utiliser Service Bus à partir de .NET avec AMQP 1.0
-
-La prise en charge d’AMQP 1.0 est disponible dans la version 2.1 du package Service Bus ou supérieure. Vous pouvez vérifier que vous disposez de la dernière version en téléchargeant les éléments Service Bus à partir de [NuGet][NuGet].
+# <a name="use-legacy-windowsazureservicebus-net-framework-library-with-amqp-10"></a>Utiliser la bibliothèque .NET Framework WindowsAzure.ServiceBus héritée avec AMQP 1.0
 
 > [!NOTE]
-> Vous pouvez utiliser le protocole Advance Message Queueing Protocol (AMQP) ou Service Bus Messaging Protocol (SBMP) avec la bibliothèque .NET pour Service Bus. AMQP est le protocole par défaut utilisé par la bibliothèque .NET. Nous vous recommandons d’utiliser le protocole AMQP (qui est la valeur par défaut) et de ne pas le remplacer. 
+> Cet article s’adresse aux utilisateurs du package WindowsAzure.ServiceBus qui cherchent à passer à l’utilisation d’AMQP dans le même package. Même si ce package continuera de recevoir des correctifs de bogues critiques, nous vous encourageons vivement à effectuer plutôt une mise à niveau vers le nouveau package [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus), qui est disponible depuis novembre 2020 et qui prend en charge AMQP par défaut.
 
-## <a name="configure-net-applications-to-use-amqp-10"></a>Configurer des applications .NET pour utiliser AMQP 1.0
+Par défaut, le package WindowsAzure.ServiceBus communique avec le service Service Bus à l’aide d’un protocole SOAP dédié nommé SBMP (Service Bus Messaging Protocol). Dans la version 2.1, la prise en charge d’AMQP 1.0 a été ajoutée. Nous vous recommandons de l’utiliser plutôt que le protocole par défaut.
 
-Par défaut, la bibliothèque cliente .NET Service Bus communique avec le Service Bus à l’aide du protocole AMQP. Vous pouvez également spécifier explicitement AMQP comme type de transport, comme indiqué dans la section suivante. 
+Pour utiliser AMQP 1.0 au lieu du protocole par défaut, vous avez besoin d’une configuration explicite sur la chaîne de connexion Service Bus, ou dans les constructeurs clients par le biais de l’option [TransportType](/dotnet/api/microsoft.servicebus.messaging.transporttype). À l'exception de cette modification, le code de l'application reste inchangé lors de l'utilisation d'AMQP 1.0.
 
-Dans la version actuelle, quelques fonctionnalités de l’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Ces fonctionnalités non prises en charge sont répertoriées dans la section [Différences de comportement](#behavioral-differences). Certains paramètres de configuration avancés ont également une signification différente lors de l’utilisation d’AMQP.
+Quelques fonctionnalités d’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Ces fonctionnalités non prises en charge sont répertoriées dans la section [Différences de comportement](#behavioral-differences). Certains paramètres de configuration avancés ont également une signification différente lors de l’utilisation d’AMQP.
 
-### <a name="configuration-using-appconfig"></a>Configuration à l’aide d’App.config
+## <a name="configure-connection-string-to-use-amqp-10"></a>Configurer une chaîne de connexion pour utiliser AMQP 1.0
 
-Une bonne pratique pour les applications est d’utiliser le fichier de configuration App.config afin de stocker les paramètres. Pour les applications Service Bus, vous pouvez utiliser App.config pour stocker la chaîne de connexion Service Bus. Voici un exemple de fichier App.config :
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-    <appSettings>
-        <add key="Microsoft.ServiceBus.ConnectionString"
-             value="Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
-    </appSettings>
-</configuration>
-```
-
-La valeur du paramètre `Microsoft.ServiceBus.ConnectionString` est la chaîne de connexion Service Bus utilisée pour configurer la connexion à Service Bus. au format suivant :
+Ajoutez votre chaîne de connexion avec `;TransportType=Amqp` pour indiquer au client d’établir sa connexion à Service Bus à l’aide d’AMQP 1.0.
+Par exemple, 
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
 Où les éléments `namespace` et `SAS key` sont obtenus à partir du [portail Azure][Azure portal] lorsque vous créez un espace de noms Service Bus. Pour plus d’informations, consultez [Créer un espace de noms Service Bus à l’aide du portail Azure][Create a Service Bus namespace using the Azure portal].
 
-Lorsque vous utilisez AMQP, ajoutez la chaîne de connexion avec `;TransportType=Amqp`. Cette notation informe la bibliothèque cliente qu’elle doit se connecter à Service Bus à l’aide d’AMQP 1.0.
-
 ### <a name="amqp-over-websockets"></a>AMQP sur WebSockets
 Pour utiliser AMQP sur WebSockets, définissez `TransportType` dans la chaîne de connexion sur `AmqpWebSockets`. Par exemple : `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 
-
-Si vous utilisez la bibliothèque .NET Microsoft.Azure.ServiceBus, définissez [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) sur AmqpWebSockets de l’[enum TransportType](/dotnet/api/microsoft.azure.servicebus.transporttype).
-
-Si vous utilisez la bibliothèque .NET Azure.Messaging.ServiceBus, définissez [ServiceBusClient.TransportType](/dotnet/api/azure.messaging.servicebus.servicebusclient.transporttype) sur AmqpWebSockets de l’[enum ServiceBusTransportType](/dotnet/api/azure.messaging.servicebus.servicebustransporttype).
-
 
 ## <a name="message-serialization"></a>Sérialisation de messages
 
@@ -97,7 +77,7 @@ Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez
 
 ## <a name="behavioral-differences"></a>Différences de comportement
 
-Il existe quelques petites différences dans le comportement de l’API .NET Service Bus lors de l’utilisation d’AMQP par rapport au protocole par défaut :
+Il existe quelques petites différences dans le comportement de l’API WindowsAzure.ServiceBus lors de l’utilisation d’AMQP par rapport au protocole par défaut :
 
 * La propriété [OperationTimeout][OperationTimeout] est ignorée.
 * `MessageReceiver.Receive(TimeSpan.Zero)` est implémenté en tant que `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
@@ -124,7 +104,6 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
 [Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md

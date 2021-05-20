@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: 40a17da6383fb1f368c74a82fefa71991cdc1b19
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f0fc0611e48f25c8faec415b8702a420402280c5
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517672"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483836"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Procédure d’attribution d’un rôle Azure
 
@@ -68,7 +68,7 @@ Lorsque vous attribuez un rôle à une étendue parente, ces autorisations sont 
 - Si vous attribuez le rôle [Lecteur de facturation](built-in-roles.md#billing-reader) à un groupe au niveau de l’étendue d’abonnement, les membres de ce groupe peuvent lire les données de facturation de chaque groupe de ressources et de chaque ressource dans l’abonnement.
 - Si vous affectez le rôle de [contributeur](built-in-roles.md#contributor) à une application au niveau du groupe de ressources, il peut gérer tous les types de ressources dans ce groupe de ressources, mais aucun groupe de ressources dans l’abonnement.
 
- Pour plus d’informations, consultez [Comprendre l’étendue](scope-overview.md).
+[!INCLUDE [Scope for Azure RBAC least privilege](../../includes/role-based-access-control/scope-least.md)] Pour plus d’informations, consultez [Comprendre l’étendue](scope-overview.md).
 
 ## <a name="step-4-check-your-prerequisites"></a>Étape 4. Vérifier les conditions préalables
 

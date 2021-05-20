@@ -1,16 +1,16 @@
 ---
 title: Restaurer des objets blob Azure
-description: Découvrez comment restaurer des objets blob Azure (en préversion).
+description: Découvrez comment restaurer des objets blob Azure.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: 4cbd47ea654115f00095e30f7d5114aec0f2c85a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: aaca425e2ea13948fbd52bf60ed30d64c29c27d3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101743141"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767272"
 ---
-# <a name="restore-azure-blobs-in-preview"></a>Restaurer des objets blob Azure (en préversion)
+# <a name="restore-azure-blobs"></a>Restaurer des objets blob Azure
 
 Les objet blob de blocs dans des comptes de stockage avec la sauvegarde opérationnelle configurée peuvent être restaurés à n’importe quel instant dans le passé compris durant la période de conservation. Vous pouvez également étendre vos restaurations à tous les objets blob de blocs dans le compte de stockage ou à un sous-ensemble d’objets blob.
 
@@ -84,4 +84,4 @@ L’opération de restauration indiquée dans l’image effectue les actions sui
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble de la sauvegarde opérationnelle pour des objets blob Azure (préversion)](blob-backup-overview.md)
+- [Vue d’ensemble de la sauvegarde opérationnelle des objets blob Azure](blob-backup-overview.md)

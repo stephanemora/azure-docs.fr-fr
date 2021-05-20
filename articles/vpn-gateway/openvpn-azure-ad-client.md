@@ -8,22 +8,22 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: alzam
-ms.openlocfilehash: ce03424288b8d0f4f7189eac9ba9d82a43aaa3d8
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: ba3733f16353ad1e921430ca7699212a60d5ff2f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202890"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754952"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Authentification Azure Active Directory : Configurer un client VPN pour les connexions P2S de protocole OpenVPN
 
-Cet article vous aide à configurer un client VPN pour qu’il se connecte à un réseau virtuel à l’aide d’un VPN point à site et de l’authentification Azure Active Directory. Avant de pouvoir vous connecter et vous authentifier à l’aide d’Azure AD, vous devez d’abord configurer votre locataire Azure AD. Pour plus d’informations, consultez [Configurer un locataire Azure AD](openvpn-azure-ad-tenant.md).
+Cet article vous aide à configurer un client VPN pour qu’il se connecte à un réseau virtuel à l’aide d’un VPN point à site et de l’authentification Azure Active Directory. Avant de pouvoir vous connecter et vous authentifier à l’aide d’Azure AD, vous devez d’abord configurer votre locataire Azure AD. Pour plus d’informations, consultez [Configurer un locataire Azure AD](openvpn-azure-ad-tenant.md). Pour plus d’informations sur la connexion point à site, consultez l’article [À propos du VPN point à site](point-to-site-about.md).
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Utilisation de profils clients
 
-Pour l’ordinateur appelé à se connecter au réseau virtuel via le client VPN, vous devez télécharger Azure VPN Client sur l’ordinateur et aussi configurer un profil client VPN. Si vous souhaitez configurer plusieurs ordinateurs, vous pouvez créer un profil client sur un ordinateur, l’exporter, puis l’importer sur les autres ordinateurs.
+Pour chaque ordinateur appelé à se connecter au réseau virtuel via le client VPN, vous devez télécharger Azure VPN Client sur l’ordinateur et configurer un profil client VPN. Si vous souhaitez configurer plusieurs ordinateurs, vous pouvez créer un profil client sur un ordinateur, l’exporter, puis l’importer sur les autres ordinateurs.
 
 ### <a name="to-download-the-azure-vpn-client"></a>Pour télécharger le client VPN Azure
 
@@ -161,7 +161,7 @@ Oui, avec le correctif logiciel [KB4577063](https://support.microsoft.com/help/4
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Comment faire pour ajouter des suffixes DNS au client VPN ?
 
-Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** .
+Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** .
 
 ```
 <azvpnprofile>
@@ -179,7 +179,7 @@ Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balis
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Comment ajouter des serveurs DNS personnalisés au client VPN ?
 
-Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** .
+Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** .
 
 ```
 <azvpnprofile>
@@ -253,7 +253,7 @@ Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balis
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Comment bloquer (exclure) des routes à partir du client VPN ?
 
-Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** .
+Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** .
 
 ```
 <azvpnprofile>
@@ -269,7 +269,7 @@ Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balis
 </azvpnprofile>
 ```
 
-### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Est-ce que je peux importer le profil à partir d’une invite de ligne de commande ?
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Puis-je importer le profil à partir d’une invite de ligne de commande ?
 
 Vous pouvez importer le profil à partir d’une invite de ligne de commande en plaçant le fichier **azurevpnconfig.xml** téléchargé dans le dossier **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** et en exécutant la commande suivante :
 

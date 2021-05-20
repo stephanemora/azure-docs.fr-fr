@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/28/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4e408832affd84fcde41c79d33ec7f157611ef08
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: aba837ab590ae941e161e10e88782dcce944c085
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166806"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760460"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>Tutoriel : Créer un entrepôt de données logique avec un pool SQL serverless
 
@@ -52,9 +52,9 @@ CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
 Un appelant peut accéder à une source de données sans informations d’identification si le propriétaire de cette source de données a autorisé l’accès anonyme ou octroyé un accès explicite à l’identité Azure AD de cet appelant.
 
 Vous pouvez définir explicitement des informations d’identification personnalisées à utiliser pour accéder à des données sur une source de données externe.
-- Identité managée dans l’espace de travail Synapse
-- Signature d’accès partagé du stockage Azure
-- Clé de compte Cosmos DB en lecture seule
+- [Identité managée](develop-storage-files-storage-access-control.md?tabs=managed-identity) dans l’espace de travail Synapse
+- [Signature d’accès partagé](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) du stockage Azure
+- Clé de compte Cosmos DB en lecture seule qui vous permet de lire le stockage analytique Cosmos DB.
 
 Un prérequis vous oblige à créer une clé principale dans la base de données :
 ```sql
@@ -77,7 +77,8 @@ Pour accéder à un stockage analytique Cosmos DB, vous devez définir des info
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
 
 ### <a name="define-external-file-formats"></a>Définir des formats de fichiers externes
@@ -118,19 +119,19 @@ La table externe suivante fait référence au fichier Parquet ECDC COVID placé 
 
 ```sql
 create external table ecdc_adls.cases (
-    date_rep        date,
-    day    smallint,
-    month             smallint,
-    year  smallint,
-    cases smallint,
-    deaths            smallint,
-    countries_and_territories       varchar(256),
-    geo_id             varchar(60),
-    country_territory_code           varchar(16),
-    pop_data_2018           int,
-    continent_exp             varchar(32),
-    load_date      datetime2(7),
-    iso_country   varchar(16)
+    date_rep                   date,
+    day                        smallint,
+    month                      smallint,
+    year                       smallint,
+    cases                      smallint,
+    deaths                     smallint,
+    countries_and_territories  varchar(256),
+    geo_id                     varchar(60),
+    country_territory_code     varchar(16),
+    pop_data_2018              int,
+    continent_exp              varchar(32),
+    load_date                  datetime2(7),
+    iso_country                varchar(16)
 ) with (
     data_source= ecdc_cases,
     location = 'latest/ecdc_cases.parquet',
@@ -195,6 +196,12 @@ Les règles de sécurité dépendent de vos stratégies de sécurité. Voici que
 - Vous devez refuser l’autorisation `ADMINISTER DATABASE BULK OPERATIONS` aux nouveaux utilisateurs, car ceux-ci doivent être en mesure de lire des données uniquement en utilisant les tables et vues externes que vous avez préparées.
 - Vous devez fournir une autorisation `SELECT` uniquement aux tables que les utilisateurs doivent être en mesure d’utiliser.
 - Si vous fournissez un accès aux données à l’aide des vues, vous devez octroyer l’autorisation `REFERENCES` aux informations d’identification utilisées pour accéder à la source de données externe.
+
+Cet utilisateur dispose des autorisations minimales nécessaires pour interroger les données externes. Si vous souhaitez créer un utilisateur avec pouvoir qui peut configurer des autorisations, des tables et des vues externes, vous pouvez lui accorder l’autorisation `CONTROL` :
+
+```sql
+GRANT CONTROL TO [jovan@contoso.com]
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

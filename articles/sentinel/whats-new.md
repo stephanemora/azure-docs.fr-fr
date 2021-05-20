@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 04/08/2021
-ms.openlocfilehash: 9873b3626b77a898b7bd682446e11a77b270b297
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.date: 05/05/2021
+ms.openlocfilehash: 2de9be37b8f5398bc6774e9b55ee96483b29b078
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897304"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759601"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
@@ -29,6 +29,26 @@ Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions
 >
 > Vous pouvez également contribuer ! Rejoignez-nous dans la [communauté GitHub des chasseurs de menaces Azure Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
 >
+
+## <a name="may-2021"></a>Mai 2021
+
+- [Classeur Confiance Zéro (TIC 3.0)](#zero-trust-tic30-workbook)
+
+### <a name="zero-trust-tic30-workbook"></a>Classeur Confiance Zéro (TIC 3.0)
+
+Le nouveau classeur Confiance Zéro (TIC3.0) d’Azure Sentinel fournit une visualisation automatisée des principes de [Confiance Zéro](/security/zero-trust/) croisée avec l’infrastructure [Trusted Internet Connections](https://www.cisa.gov/trusted-internet-connections) (TIC).
+
+Nous savons que la conformité n’est pas seulement une exigence annuelle et que les organisations doivent surveiller les configurations au fil du temps. Le classeur Confiance Zéro d’Azure Sentinel utilise toute la gamme des offres de sécurité Microsoft dans Azure, Office 365, Teams, Intune, Windows Virtual Desktop et bien d’autres.
+
+[ ![Classeur Confiance Zéro. ](media/zero-trust-workbook.gif) ](media/zero-trust-workbook.gif#lightbox)
+
+**Le classeur Confiance Zéro** :
+
+- Permet aux implémenteurs, analystes des opérations de sécurité, évaluateurs, décideurs de sécurité et de conformité, MSSP et autres d’avoir connaissance de la posture de sécurité des charges de travail cloud.
+- Propose plus de 75 cartes de contrôle, alignées sur les fonctionnalités de sécurité TIC 3.0, avec des boutons d’interface utilisateur sélectionnables pour la navigation.
+- Est conçu pour habiliter le personnel grâce à l’automatisation, l’intelligence artificielle, le Machine Learning, la génération de requêtes/alertes, les visualisations, les recommandations personnalisées et les références de documentation respectives.
+
+Pour plus d’informations, consultez [Tutoriel : Visualisation et supervision des données](tutorial-monitor-your-data.md).
 
 ## <a name="april-2021"></a>Avril 2021
 

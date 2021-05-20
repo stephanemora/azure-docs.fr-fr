@@ -6,12 +6,12 @@ ms.author: rishjai
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5f55d8c4d2c361f4375c44a333c2fec6afc7ef88
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 3fe6ec7baba3e075f5c5026732b10fab81f3bd42
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108077695"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108749372"
 ---
 # <a name="using-policy-with-azure-site-recovery-public-preview"></a>Utilisation de Policy avec Azure Site Recovery (Préversion publique)
 
@@ -39,20 +39,18 @@ Disques multiples | Prise en charge
 Groupes à haute disponibilité | Prise en charge
 Zones de disponibilité | Prise en charge
 Machines virtuelles avec Azure Disk Encryption (ADE) | Non pris en charge
-Groupes de placement de proximité (PPG) | Non pris en charge
+Groupes de placement de proximité (PPG) | Prise en charge
 Disques avec clés gérées par le client (CMK) | Non pris en charge
 Clusters d’espaces de stockage direct (S2D) | Non pris en charge
 Modèle de déploiement Azure Resource Manager | Prise en charge
 Modèle de déploiement classique | Non pris en charge
 Récupération d’urgence zone à zone  | Prise en charge
-Azure Disk Encryption v1 | Non pris en charge
-Azure Disk Encryption v2 | Non pris en charge
-Interopérabilité avec Sauvegarde Azure | Non pris en charge
-Ajout/suppression à chaud de disques | Non pris en charge
 Interopérabilité avec d’autres stratégies appliquées par défaut par Azure (le cas échéant) | Prise en charge
 
 >[!NOTE]
->Si une machine virtuelle non prise en charge est créée dans le cadre de la stratégie, Site Recovery ne sera pas activé pour elle. Toutefois, elle apparaîtra comme _Non conforme_ dans Conformité des ressources.
+>Dans les cas suivants, la récupération de site ne sera pas activée. Toutefois, elle apparaîtra comme _Non conforme_ dans Conformité des ressources : 
+>1. Si une machine virtuelle non prise en charge est créée dans le cadre de la stratégie.
+>1. Si une machine virtuelle fait partie d’un groupe à haute disponibilité et de PPG.
 
 ## <a name="create-a-policy-assignment"></a>Créer une attribution de stratégie
 Dans cette section, vous allez créer une attribution de stratégie qui active Azure Site Recovery pour toutes les ressources nouvellement créées.

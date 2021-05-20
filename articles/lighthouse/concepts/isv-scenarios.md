@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse dans les scénarios d’ISV
 description: Les capacités d’Azure Lighthouse peuvent être utilisées par les éditeurs de logiciels indépendants pour une plus grande flexibilité dans les offres aux clients.
-ms.date: 12/18/2020
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: d6a12a51d360ad236563b871dbd94cc442ade434
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fc8c261f49e8a12189708ada1d0da31965e5159
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97696291"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788676"
 ---
 # <a name="azure-lighthouse-in-isv-scenarios"></a>Azure Lighthouse dans les scénarios d’ISV
 
@@ -37,4 +37,4 @@ Pour permettre cette architecture, l’ISV doit obtenir l’ID d’objet d’un 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les [Expériences de gestion inter-locataire](cross-tenant-management-experience.md).
-- Découvrez [Gestion des ressources déléguées Azure](azure-delegated-resource-management.md).
+- Apprenez-en davantage sur l’[architecture d’Azure Lighthouse](architecture.md).

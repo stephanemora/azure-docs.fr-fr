@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1e05435f364cc30b351275439a04caff47c35512
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 4fd5d7bfc7a4ac8ab3b255091b4383085a87d4da
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871792"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634524"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -65,7 +65,7 @@ Pour sécuriser un domaine personnalisé dans une liaison TLS/SSL, votre certif
 
 Le certificat managé App Service gratuit est une solution clé en main pour la sécurisation de votre nom DNS personnalisé dans App Service. Il s’agit d’un certificat TLS/SSL entièrement fonctionnel géré par App Service et renouvelé automatiquement. Le certificat gratuit comprend les limitations suivantes :
 
-- Ne prend pas en charge les certificats avec caractères génériques.
+- Il ne prend pas en charge les certificats avec des caractères génériques et ne doit pas être utilisé comme certificat client.
 - Il n’est pas exportable.
 - N’est pas pris en charge sur App Service Environment (ASE).
 - N’est pas pris en charge avec les domaines racine intégrés à Traffic Manager.

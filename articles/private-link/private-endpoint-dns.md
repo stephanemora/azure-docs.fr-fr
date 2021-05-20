@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 24a3c1ed9b94459eaa1993a26ce910b3f16e5383
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 0e37e6740613c7d025a461b1b3f1497880a50124
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293113"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634560"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuration DNS des points de terminaison privés Azure
 
@@ -64,7 +64,7 @@ Pour les services Azure, utilisez les noms de zone recommandés comme indiqué d
 | Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) / management | privatelink.{region}.azmk8s.io | {region}.azmk8s.io |
 | Azure Search (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) / registre | privatelink.azurecr.io | azurecr.io |
-| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStore | privatelink.azconfig.io | azconfig.io |
+| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.io | azconfig.io |
 | Sauvegarde Azure (Microsoft.RecoveryServices/vaults) / coffre | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
 | Azure Site Recovery (Microsoft.RecoveryServices/vaults) / coffre | {region}.privatelink.siterecovery.windowsazure.com | {region}.hypervrecoverymanager.windowsazure.com |
 | Azure Event Hubs (Microsoft.EventHub/namespaces) / espace de noms | privatelink.servicebus.windows.net | servicebus.windows.net |

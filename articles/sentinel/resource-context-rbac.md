@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: fc1246d079760fd86513840aebbffa34d192f8ed
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c6fc31c006c832550cafde16959bb0c7202f915d
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044173"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109655297"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Gérer l’accès aux données d’Azure Sentinel par ressource
 
@@ -39,10 +39,11 @@ Quand des utilisateurs ont accès à des données d’Azure Sentinel via les res
 Activez un RBAC dans le contexte de la ressource dans Azure Monitor. Pour plus d’informations, consultez [Gérer l’accès aux données du journal et aux espaces de travail dans Azure Monitor](../azure-monitor/logs/manage-access.md).
 
 > [!NOTE]
-> Si vos données ne sont pas des ressources Azure, telles que des données Syslog, CEF ou AAD, ou des données recueillies par un collecteur personnalisé, vous devez configurer manuellement l’ID de ressource utilisé pour identifier les données et autoriser l’accès à celles-ci.
+> Si vos données ne sont pas des ressources Azure, telles que des données Syslog, CEF ou AAD, ou des données recueillies par un collecteur personnalisé, vous devez configurer manuellement l’ID de ressource utilisé pour identifier les données et autoriser l’accès à celles-ci. Pour plus d’informations, consultez [Configurer explicitement un RBAC dans le contexte de la ressource](#explicitly-configure-resource-context-rbac).
 >
-> Pour plus d’informations, consultez [Configurer explicitement un RBAC dans le contexte de la ressource](#explicitly-configure-resource-context-rbac).
->
+> En outre, les [fonctions](/azure/azure-monitor/logs/functions) et les recherches enregistrées ne sont pas prises en charge dans les contextes centrés sur les ressources. Par conséquent, les fonctionnalités d’Azure Sentinel telles que l’analyse et la [normalisation](normalization.md) ne sont pas prises en charge pour le RBAC dans le contexte de la ressource dans Azure Sentinel.
+> 
+
 ## <a name="scenarios-for-resource-context-rbac"></a>Scénarios pour un RBAC dans le contexte de la ressource
 
 Le tableau suivant met en évidence les scénarios dans lesquels un RBAC dans le contexte de la ressource est le plus utile. Notez les différences d’exigences d’accès entre équipes SOC et non-SOC.

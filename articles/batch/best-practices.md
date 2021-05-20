@@ -1,18 +1,18 @@
 ---
 title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
-ms.date: 03/11/2020
+ms.date: 04/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1a53915f4cdbae03fd86137f3a436bb6e9a6f615
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 181f8f8ced4113521c8791fd9e1b5d651776783e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147586"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773338"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
-Cet article présente une collection de bonnes pratiques et de conseils utiles pour utiliser le service Azure Batch de manière efficace, basée sur des expériences réelles avec Batch. Ces conseils peuvent vous aider à améliorer les performances et à éviter les pièges de conception dans vos solutions Azure Batch.
+Cet article présente les bonnes pratiques et des conseils utiles pour utiliser le service Azure Batch de manière efficace. Ces conseils peuvent vous aider à améliorer les performances et à éviter les pièges de conception dans vos solutions Batch.
 
 > [!TIP]
 > Pour obtenir des conseils sur la sécurité dans Azure Batch, consultez [Meilleures pratiques en matière de sécurité et de conformité par lots](security-best-practices.md).
@@ -23,34 +23,31 @@ Les [pools](nodes-and-pools.md#pools) sont les ressources de calcul pour l’ex�
 
 ### <a name="pool-configuration-and-naming"></a>Configuration et dénomination de pools
 
-- **Mode d’allocation de pool :** lorsque vous créez un compte Batch, vous pouvez choisir entre deux modes d’allocation de pool : **service Batch** ou **abonnement utilisateur**. Dans la plupart des cas, vous devez utiliser le mode de service Batch par défaut. Les pools sont alloués en arrière-plan dans des abonnements managés par Azure Batch. Dans l’autre mode d’abonnement utilisateur, les machines virtuelles Batch et les autres ressources sont créées directement dans l’abonnement lors de la création d’un pool. Les comptes d’abonnement utilisateur sont principalement utilisés pour permettre un petit sous-ensemble important de scénarios. Pour plus d’informations sur le mode d’abonnement utilisateur, consultez [Configuration supplémentaire pour le mode d’abonnement utilisateur](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Mode d’allocation de pool :** lorsque vous créez un compte Batch, vous pouvez choisir entre deux modes d’allocation de pool : **service Batch** ou **abonnement utilisateur**. Dans la plupart des cas, vous devez utiliser le mode de service Batch par défaut. Les pools sont alloués en arrière-plan dans des abonnements managés par Azure Batch. Dans l’autre mode d’abonnement utilisateur, les machines virtuelles Batch et les autres ressources sont créées directement dans l’abonnement lors de la création d’un pool. Les comptes d’abonnement utilisateur sont principalement utilisés pour permettre un petit sous-ensemble important de scénarios. Pour plus d’informations, consultez [Configuration supplémentaire pour le mode d’abonnement utilisateur](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **« virtualMachineConfiguration » ou « cloudServiceConfiguration » :** Si vous pouvez créer des pools à l’aide de chaque configuration, vous devez configurer les nouveaux pools à l’aide de « virtualMachineConfiguration » et non de « cloudServiceConfiguration ». Toutes les fonctionnalités Batch, actuelles et nouvelles, seront prises en charge par les pools de configuration de machine virtuelle. Les pools de configuration des Services cloud ne prennent pas en charge toutes les fonctionnalités, et aucune fonctionnalité nouvelle n’est prévue. [Après le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/), vous ne pourrez plus créer de pools « cloudServiceConfiguration » ou ajouter de nouveaux nœuds à des pools existants. Pour plus d’informations, consultez [Migrer la configuration des pools Batch des Services cloud vers une machine virtuelle](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
-- **Tenez compte du temps d’exécution des travaux et des tâches lors de la détermination du mappage du travail au pool :** si vous avez des travaux constitués principalement de tâches de courte durée et que le nombre total de tâches attendu est faible, de sorte que le temps d’exécution global prévu du travail n’est pas long, n’allouez pas de nouveau pool pour chaque travail. Le temps de répartition des nœuds diminuera le temps d’exécution du travail.
+- **Considérations en matière de durée d’exécution des travaux et des tâches :** Si vous avez des travaux constitués principalement de tâches de courte durée et que le nombre total de tâches attendu est faible, de sorte que le temps d’exécution global prévu du travail n’est pas long, n’allouez pas de nouveau pool pour chaque travail. Le temps de répartition des nœuds diminuera le temps d’exécution du travail.
 
-- **Les pools doivent avoir plusieurs nœuds de calcul :** il n’est pas garanti que les nœuds individuels soient toujours disponibles. Bien que rares, les défaillances matérielles, les mises à jour du système d’exploitation et une foule d’autres problèmes peuvent entraîner la déconnexion de nœuds individuels. Si votre charge de travail Batch requiert une progression déterministe et garantie, vous devez allouer des pools avec plusieurs nœuds.
+- **Plusieurs nœuds de calcul :** Il n’est pas garanti que les nœuds individuels soient toujours disponibles. Bien que rares, les défaillances matérielles, les mises à jour du système d’exploitation et une foule d’autres problèmes peuvent entraîner la déconnexion de nœuds individuels. Si votre charge de travail Batch requiert une progression déterministe et garantie, vous devez allouer des pools avec plusieurs nœuds.
 
-- **N’utilisez pas d’images avec des dates de fin de vie (EOL) imminentes.**
-    Il est fortement recommandé d’éviter les images avec des dates de fin de vie (EOL) de prise en charge de Batch imminentes. Vous pouvez découvrir ces dates via l’[`ListSupportedImages`API](/rest/api/batchservice/account/listsupportedimages) , [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) ou [Azure CLI](/cli/azure/batch/pool/supported-images). Il vous incombe d’actualiser régulièrement votre affichage des dates de fin de vie pertinentes pour vos pools, et de migrer vos charges de travail avant la date de fin de vie. Si vous utilisez une image personnalisée avec un agent de nœud spécifié, vous devez vous assurer que vous suivez les dates de fin de vie de prise en charge de Batch pour l’image pour laquelle votre image personnalisée est dérivée ou avec laquelle elle est alignée.
+- **Images avec des dates de fin de vie (EOL) imminentes :** Nous vous recommandons vivement d’éviter les images avec des dates de fin de vie de prise en charge de Batch imminentes. Vous pouvez découvrir ces dates via l’[`ListSupportedImages`API](/rest/api/batchservice/account/listsupportedimages) , [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage) ou [Azure CLI](/cli/azure/batch/pool/supported-images). Il vous incombe d’actualiser régulièrement votre affichage des dates de fin de vie pertinentes pour vos pools, et de migrer vos charges de travail avant la date de fin de vie. Si vous utilisez une image personnalisée avec un agent de nœud spécifié, veillez à suivre les dates de fin de vie de prise en charge de Batch pour l’image pour laquelle votre image personnalisée est dérivée ou avec laquelle elle est alignée.
 
-- **Ne réutilisez pas les noms de ressources.**
-    Les ressources Batch (travaux, pools, etc.) vont et viennent souvent au fil du temps. Par exemple, vous pouvez créer un pool le lundi, le supprimer le mardi, puis créer un autre pool le jeudi. Chaque nouvelle ressource que vous créez doit avoir un nom unique que vous n’avez pas utilisé auparavant. Pour ce faire, vous pouvez utiliser un GUID (comme nom complet de la ressource ou comme partie de celui-ci) ou incorporer l’heure de création de la ressource dans son nom. Batch prend en charge [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), qui peut être utilisé pour donner un nom lisible par l’utilisateur à une ressource, même si l’ID réel de la ressource est un nom qui n’est pas convivial. L’utilisation de noms uniques facilite la différenciation des ressources particulières dans les journaux et les métriques. Cela élimine également toute ambiguïté si vous devez créer une demande de support pour une ressource.
+- **Noms de ressources uniques :** Les ressources Batch (travaux, pools, etc.) vont et viennent souvent au fil du temps. Par exemple, vous pouvez créer un pool le lundi, le supprimer le mardi, puis créer un autre pool similaire le jeudi. Chaque nouvelle ressource que vous créez doit avoir un nom unique que vous n’avez pas utilisé auparavant. Pour ce faire, vous pouvez utiliser un GUID (comme nom complet de la ressource ou comme partie de celui-ci) ou incorporer l’heure et la date de création de la ressource dans son nom. Batch prend en charge [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), ce qui permet de donner un nom lisible à une ressource, même si l’ID réel de la ressource est un nom qui n’est pas convivial. L’utilisation de noms uniques facilite la différenciation des ressources particulières dans les journaux et les métriques. Cela élimine également toute ambiguïté si vous devez créer une demande de support pour une ressource.
 
+- **Continuité pendant la maintenance et la défaillance des pools :** il est préférable que vos travaux utilisent des pools de manière dynamique. Si vos travaux utilisent le même pool pour tout, il y a une chance que les travaux ne soient pas exécutés en cas de problème avec le pool. Cela est particulièrement important pour les charges de travail urgentes. Pour remédier à ce problème, sélectionnez ou créez un pool de manière dynamique lorsque vous planifiez chaque travail, ou disposez d’un moyen de substituer le nom du pool pour pouvoir ignorer un pool non sain.
 
-- **Continuité pendant la maintenance et la défaillance des pools :** il est préférable que vos travaux utilisent des pools de manière dynamique. Si vos travaux utilisent le même pool pour tout, il y a une chance que vos travaux ne soient pas exécutés en cas de problème avec le pool. Cela est particulièrement important pour les charges de travail urgentes. Pour remédier à ce problème, sélectionnez ou créez un pool de manière dynamique lorsque vous planifiez chaque travail, ou disposez d’un moyen de substituer le nom du pool pour pouvoir ignorer un pool non sain.
-
-- **Continuité de l’activité pendant la maintenance et la défaillance des pools :** il existe de nombreuses raisons pour lesquelles un pool ne peut pas croître jusqu’à la taille souhaitée, telles que des erreurs internes, des contraintes de capacité, etc. Pour cette raison, vous devez être prêt à recibler des travaux dans un autre pool (éventuellement avec une taille de machine virtuelle différente. Batch le prend en charge via [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) le cas échéant. Évitez d’utiliser un ID de pool statique en pensant qu’il ne sera jamais supprimé et jamais modifié.
+- **Continuité de l’activité pendant la maintenance et la défaillance des pools :** Il existe de nombreuses raisons pour lesquelles un pool ne peut pas croître jusqu’à la taille souhaitée, telles que des erreurs internes ou des contraintes de capacité. Veillez à recibler des travaux dans un autre pool (éventuellement avec une taille de machine virtuelle différente ; Batch le prend en charge avec [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) le cas échéant. Évitez d’utiliser un ID de pool statique en pensant qu’il ne sera jamais supprimé et jamais modifié.
 
 ### <a name="pool-lifetime-and-billing"></a>Durée de vie et facturation d’un pool
 
-La durée de vie d’un pool peut varier en fonction de la méthode de répartition et des options appliquées à la configuration du pool. À tout moment, les pools peuvent avoir une durée de vie arbitraire et un nombre variable de nœuds de calcul dans le pool. Il vous incombe de gérer les nœuds de calcul dans le pool, soit explicitement, soit par le biais de fonctionnalités fournies par le service ([mise à l’échelle automatique](nodes-and-pools.md#automatic-scaling-policy) ou [pool automatique](nodes-and-pools.md#autopools)).
+La durée de vie d’un pool peut varier en fonction de la méthode de répartition et des options appliquées à la configuration du pool. À tout moment, les pools peuvent avoir une durée de vie arbitraire et un nombre variable de nœuds de calcul. Il vous incombe de gérer les nœuds de calcul dans le pool, soit explicitement, soit par le biais de fonctionnalités fournies par le service ([mise à l’échelle automatique](nodes-and-pools.md#automatic-scaling-policy) ou [pool automatique](nodes-and-pools.md#autopools)).
 
-- **Maintenez les pools à jour :** redimensionnez vos pools à zéro tous les quelques mois pour bénéficier systématiquement des [derniers correctifs de bogues et mises à jour de l’agent de nœud](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Votre pool ne reçoit pas les mises à jour de l’agent de nœud à moins qu’il ne soit recréé ou redimensionné à 0 nœud de calcul. Avant de recréer ou de redimensionner votre pool, il est recommandé de télécharger tous les journaux de l’agent de nœud à des fins de débogage, comme indiqué dans la section [Nœuds](#nodes).
+- **Actualisation des pools :** Redimensionnez vos pools à zéro tous les quelques mois pour bénéficier systématiquement des [derniers correctifs de bogues et mises à jour de l’agent de nœud](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Votre pool ne reçoit pas les mises à jour de l’agent de nœud à moins qu’il ne soit recréé (ou redimensionné à 0 nœud de calcul). Avant de recréer ou de redimensionner votre pool, téléchargez tous les journaux de l’agent de nœud à des fins de débogage, comme indiqué dans la section [Nœuds](#nodes).
 
-- **Recréation de pool :** dans le même ordre d’idées, il n’est pas recommandé de supprimer et recréer vos pools quotidiennement. Au lieu de cela, créez un nouveau pool, mettez à jour vos travaux existants pour qu’ils pointent vers le nouveau pool. Une fois que toutes les tâches ont été déplacées vers le nouveau pool, supprimez l’ancien pool.
+- **Recréation de pool :** Dans le même ordre d’idées, évitez de supprimer et de recréer des pools quotidiennement. Au lieu de cela, créez un pool, puis mettez à jour vos travaux existants pour qu’ils pointent vers le nouveau pool. Une fois que toutes les tâches ont été déplacées vers le nouveau pool, supprimez l’ancien pool.
 
-- **Efficacité du pool et facturation :** Batch n’entraîne pas en soi de frais supplémentaires, mais vous êtes facturé pour les ressources de calcul utilisées. Vous êtes facturé pour chaque nœud de calcul dans le pool, quel que soit l’état dans lequel il se trouve. Cela comprend les frais requis pour le fonctionnement du nœud, tels que les coûts de stockage et de mise en réseau. Pour en savoir plus sur les meilleures pratiques, consultez [Analyse des coûts et budgets pour Azure Batch](budget.md).
+- **Efficacité du pool et facturation :** Batch n’entraîne pas en soi de frais supplémentaires, mais vous êtes facturé pour les ressources de calcul utilisées. Vous êtes facturé pour chaque nœud de calcul dans le pool, quel que soit l’état dans lequel il se trouve. Cela comprend les frais requis pour le fonctionnement du nœud, tels que les coûts de stockage et de réseau. Pour plus d’informations, consultez [Analyse des coûts et budgets pour Azure Batch](budget.md).
 
 ### <a name="pool-allocation-failures"></a>Échecs de répartition de pool
 
@@ -58,9 +55,7 @@ Les échecs de répartition de pool peuvent se produire à tout moment pendant l
 
 ### <a name="unplanned-downtime"></a>Temps d’arrêt non planifié
 
-Il est possible que les pools Batch rencontrent des événements de temps d’arrêt dans Azure. Gardez cela à l’esprit lors de la planification et du développement de votre scénario ou de votre workflow pour Batch.
-
-En cas de défaillance d’un nœud, Batch tente automatiquement de récupérer ces nœuds de calcul en votre nom. Cela peut déclencher la replanification d’une tâche en cours d’exécution sur le nœud qui est récupéré. Consultez [Conception des nouvelles tentatives](#design-for-retries-and-re-execution) pour en savoir plus sur les tâches interrompues.
+Il est possible que les pools Batch rencontrent des événements de temps d’arrêt dans Azure. Gardez cela à l’esprit lors de la planification et du développement de votre scénario ou de votre workflow pour Batch. Si des nœuds échouent, Batch tente automatiquement de récupérer ces nœuds de calcul en votre nom. Cela peut déclencher la replanification d’une tâche en cours d’exécution sur le nœud qui est récupéré. Pour en savoir plus sur les tâches interrompues, consultez [Conception des nouvelles tentatives](#design-for-retries-and-re-execution).
 
 ### <a name="custom-image-pools"></a>Pools d’images personnalisés
 
@@ -72,7 +67,9 @@ Les pools peuvent être créés à l’aide d’images tierces publiées sur Pla
 
 ### <a name="azure-region-dependency"></a>Dépendance de région Azure
 
-Vous ne devriez pas dépendre d’une seule région Azure si vous avez une charge de travail de production ou soumise à une contrainte de temps. Bien que rare, il existe des problèmes qui peuvent perturber une région entière. Par exemple, si votre traitement doit démarrer à un moment donné, envisagez d’augmenter l’échelle du pool dans votre région primaire *bien avant votre heure de début*. Si cette mise à l’échelle du pool échoue, vous pouvez vous replier sur l’augmentation de l’échelle d’un pool dans une ou plusieurs régions de sauvegarde. Les pools sur plusieurs comptes et dans différentes régions fournissent une sauvegarde prête et facilement accessible en cas de problème avec un autre pool. Pour plus d’informations, consultez [Conception de votre application pour une haute disponibilité](high-availability-disaster-recovery.md).
+Vous ne devriez pas dépendre d’une seule région Azure si vous avez une charge de travail de production ou soumise à une contrainte de temps. Bien que rare, il existe des problèmes qui peuvent perturber une région entière. Par exemple, si votre traitement doit démarrer à un moment donné, envisagez d’augmenter l’échelle du pool dans votre région primaire *bien avant votre heure de début*. Si cette mise à l’échelle du pool échoue, vous pouvez vous replier sur l’augmentation de l’échelle d’un pool dans une ou plusieurs régions de sauvegarde.
+
+Les pools sur plusieurs comptes et dans différentes régions fournissent une sauvegarde prête et facilement accessible en cas de problème avec un autre pool. Pour plus d’informations, consultez [Conception de votre application pour une haute disponibilité](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>travaux
 
@@ -82,7 +79,7 @@ Une [tâche](jobs-and-tasks.md#jobs) est un conteneur conçu pour contenir des c
 
 L’utilisation d’un travail pour exécuter une seule tâche est inefficace. Par exemple, il est plus efficace d’utiliser un seul travail contenant 1 000 tâches plutôt que de créer 100 travaux qui contiennent 10 tâches chacun. L’exécution de 1 000 travaux, chacun avec une seule tâche, serait l’approche la moins efficace, la plus lente et la plus coûteuse à prendre.
 
-Pour cette raison, ne concevez pas de solution Batch qui nécessite des milliers de travaux actifs simultanément. Étant donné qu’il n’existe aucun quota pour les tâches, l’exécution d’autant de tâches que possible sous le moins de travaux possible utilise efficacement vos [quotas de travail et de planification de travail](batch-quota-limit.md#resource-quotas).
+Pour cette raison, évitez de concevoir une solution Batch qui nécessite des milliers de travaux actifs simultanément. Étant donné qu’il n’existe aucun quota pour les tâches, l’exécution d’autant de tâches que possible sous le moins de travaux possible utilise efficacement vos [quotas de travail et de planification de travail](batch-quota-limit.md#resource-quotas).
 
 ### <a name="job-lifetime"></a>Durée de vie du travail
 
@@ -94,11 +91,11 @@ Il existe un [quota de travail actif et de planification de travail](batch-quota
 
 ## <a name="tasks"></a>Tâches
 
-Les [tâches](jobs-and-tasks.md#tasks) sont des unités fonctionnelles individuelles qui composent un travail. Les tâches sont soumises par l’utilisateur et planifiées par Batch sur les nœuds de calcul. Il y a plusieurs considérations de conception à prendre en compte lors de la création et de l’exécution des tâches. Les sections suivantes décrivent des scénarios courants et expliquent comment concevoir vos tâches pour les exécuter efficacement et gérer les problèmes.
+Les [tâches](jobs-and-tasks.md#tasks) sont des unités fonctionnelles individuelles qui composent un travail. Les tâches sont soumises par l’utilisateur et planifiées par Batch sur les nœuds de calcul. Les sections suivantes fournissent des suggestions pour concevoir vos tâches de manière à ce qu’elles s’exécutent et gèrent les problèmes efficacement.
 
 ### <a name="save-task-data"></a>Enregistrer des données de tâche
 
-Les nœuds de calcul sont éphémères par nature. Il existe de nombreuses fonctionnalités dans Batch, telles que le [pool automatique](nodes-and-pools.md#autopools) et la [mise à l’échelle automatique](nodes-and-pools.md#automatic-scaling-policy), qui facilitent la disparition des nœuds. Lorsque les nœuds quittent un pool (en raison d’un redimensionnement ou d’une suppression de pool), tous les fichiers figurant sur ces nœuds sont également supprimés. Pour cette raison, une tâche devrait déplacer sa sortie du nœud sur lequel elle s’exécute vers un magasin durable avant de se terminer. De même, si une tâche échoue, elle devrait déplacer les journaux requis pour diagnostiquer l’échec dans un magasin durable.
+Les nœuds de calcul sont éphémères par nature. Les fonctionnalités Batch telles que le [pool automatique](nodes-and-pools.md#autopools) et la [mise à l’échelle automatique](nodes-and-pools.md#automatic-scaling-policy) peuvent faciliter la disparition des nœuds. Quand des nœuds quittent un pool (en raison d’un redimensionnement ou d’une suppression de pool), tous les fichiers figurant sur ces nœuds sont également supprimés. Pour cette raison, une tâche devrait déplacer sa sortie du nœud sur lequel elle s’exécute vers un magasin durable avant de se terminer. De même, si une tâche échoue, elle devrait déplacer les journaux requis pour diagnostiquer l’échec dans un magasin durable.
 
 Batch prend en charge Stockage Azure afin de charger des données via [OutputFiles](batch-task-output-files.md), ainsi qu’un large éventail de systèmes de fichiers partagés, ou vous pouvez effectuer le chargement vous-même dans vos tâches.
 
@@ -160,29 +157,19 @@ Lors de l’exécution de ces services, ceux-ci ne doivent pas verrouiller les f
 
 Les jonctions de répertoires, parfois appelées liens physiques de répertoires, sont difficiles à gérer lors du nettoyage des tâches et des travaux. Utilisez des symlinks (liens symboliques) plutôt que des liens physiques.
 
-### <a name="collect-the-batch-agent-logs"></a>Collecter les journaux de l’agent Batch
+### <a name="collect-batch-agent-logs"></a>Collecter les journaux de l’agent Batch
 
 Si vous remarquez un problème impliquant le comportement d’un nœud ou de tâches en cours d’exécution sur un nœud, collectez les journaux de l’agent Batch avant de libérer les nœuds en question. Les journaux de l’agent Batch peuvent être collectés à l’aide de l’API de chargement des journaux du service Batch. Ces journaux peuvent être fournis dans le cadre d’un ticket de support envoyé à Microsoft. Ils vous aideront à détecter les problèmes et à les résoudre.
 
 ### <a name="manage-os-upgrades"></a>Gérer les mises à jour du système d’exploitation
 
-Pour les comptes Batch en mode d’abonnement utilisateur, les mises à jour automatiques du système d’exploitation peuvent interrompre la progression des tâches, en particulier si elles sont de longue durée. La [création de tâches idempotent](#build-durable-tasks) peut aider à réduire les erreurs provoquées par ces interruptions. Nous vous recommandons également de [planifier des mises à jour des images de système d’exploitation pour les périodes où les tâches ne sont pas censées s’exécuter](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
+Pour les comptes Batch en mode d’abonnement utilisateur, les mises à jour automatiques du système d’exploitation peuvent interrompre la progression des tâches, en particulier si elles sont de longue durée. La [création de tâches idempotent](#build-durable-tasks) peut aider à réduire les erreurs provoquées par ces interruptions. Nous vous recommandons également de [planifier des mises à jour des images de système d’exploitation lorsque les tâches ne sont pas censées s’exécuter](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 Pour des pools Windows, `enableAutomaticUpdates` est défini sur `true` par défaut. Il est recommandé d’autoriser les mises à jour automatiques, mais vous pouvez définir cette valeur sur `false` pour vous assurer qu’une mise à jour du système d’exploitation ne se produise pas de manière inattendue.
 
 ## <a name="isolation-security"></a>Isolation de sécurité
 
 À des fins d’isolation, si votre scénario nécessite l’isolation des travaux les uns des autres, isolez ces travaux en les plaçant dans des pools distincts. Un pool est la limite d’isolation de sécurité dans Batch et, par défaut, deux pools ne sont pas visibles l’un par l’autre ni en mesure de communiquer entre eux. Évitez d’utiliser des comptes Batch distincts comme méthode d’isolation.
-
-## <a name="moving-batch-accounts-across-regions"></a>Déplacement de comptes Batch entre régions
-
-Il existe des scénarios dans lesquels il peut être judicieux de déplacer un compte Batch existant d’une région à une autre. Par exemple, vous pouvez le déplacer vers une autre région dans le cadre de la planification d’une reprise d’activité après sinistre.
-
-Vous ne pouvez pas déplacer des comptes Azure Batch directement d’une région à l’autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la configuration existante de votre compte Batch. Vous pouvez ensuite déplacer la ressource dans une autre région en exportant le compte Batch vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant le modèle dans la nouvelle région.
-
-Après avoir chargé le modèle dans la nouvelle région, vous devrez recréer les certificats, les planifications des travaux et les packages d’application. Pour valider les changements et terminer le déplacement du compte Batch, n’oubliez pas de supprimer le groupe de ressources ou le compte Batch d’origine.
-
-Pour plus d’informations sur Resource Manager et les modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="connectivity"></a>Connectivité
 
@@ -196,7 +183,7 @@ Pour les itinéraires définis par l’utilisateur (UDR), assurez-vous d’avoir
 
 ### <a name="honoring-dns"></a>Respect du DNS
 
-Assurez-vous que vos systèmes respectent la durée de vie (TTL) du DNS pour l’URL de service de votre compte Batch. Par ailleurs, assurez-vous que les clients de votre service Batch et d’autres mécanismes de connectivité au service Batch ne reposent pas sur des adresses IP (ou [créez un pool avec des adresses IP publiques statiques](create-pool-public-ip.md) comme décrit ci-dessous).
+Vérifiez que vos systèmes respectent la durée de vie (TTL) du DNS pour l’URL de service de votre compte Batch. Par ailleurs, assurez-vous que les clients de votre service Batch et d’autres mécanismes de connectivité au service Batch ne reposent pas sur des adresses IP (ou [créez un pool avec des adresses IP publiques statiques](create-pool-public-ip.md) comme décrit ci-dessous).
 
 Si vos demandes reçoivent des réponses HTTP de niveau 5xx et que celles-ci contiennent un en-tête « Connection: close », le client de votre service Batch doit respecter la recommandation en fermant la connexion existante, en résolvant le DNS pour l’URL de service du compte Batch, et en essayant les demandes suivantes sur une nouvelle connexion.
 

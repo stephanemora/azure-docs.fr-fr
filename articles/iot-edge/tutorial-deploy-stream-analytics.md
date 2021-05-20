@@ -3,16 +3,16 @@ title: Tutoriel - Stream Analytics en périphérie à l’aide d’Azure IoT Edg
 description: Dans ce tutoriel, vous déployez Azure Stream Analytics en tant que module dans un appareil IoT Edge
 author: kgremban
 ms.author: kgremban
-ms.date: 07/29/2020
+ms.date: 05/03/2021
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 323973b7646acee07a0c4dbc59834e0aceca75ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cafb9cdbc5ca9851130ea4d9b2ef60c1616d213
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462046"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790718"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutoriel : Déployer Azure Stream Analytics en tant que module IoT Edge
 
@@ -89,7 +89,7 @@ Lorsque vous créez un travail Azure Stream Analytics pour s’exécuter sur un 
    | Abonnement | Choisissez le même abonnement que votre IoT Hub. |
    | Resource group | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez dans le cadre des démarrages rapides et didacticiels IoT Edge. Par exemple, utilisez **IoTEdgeResources**. |
    | Emplacement | Choisissez un emplacement proche de vous. |
-   | Environnement d’hébergement | Sélectionnez **Edge**. |
+   | Environnement d’hébergement | Sélectionnez **Edge**. Cette option indique que la tâche va être déployée sur un appareil IoT Edge au lieu d’être hébergée dans le cloud. |
 
 1. Sélectionnez **Create** (Créer).
 
@@ -101,11 +101,13 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
 
 1. Accédez à votre travail Stream Analytics dans le portail Azure.
 
-1. Sous **Topologie de la tâche**, sélectionnez **Entrées** puis **Ajouter une entrée de flux**.
+1. Sous **Topologie de la tâche**, sélectionnez **Entrées**, puis **Ajouter une entrée de flux**.
 
    ![Azure Stream Analytics - Ajouter une entrée](./media/tutorial-deploy-stream-analytics/asa-input.png)
 
 1. Choisissez **Edge Hub** dans la liste déroulante.
+
+   Si vous ne voyez pas l’option **Edge Hub** dans la liste, vous avez peut-être créé votre travail Stream Analytics en tant que travail hébergé dans le cloud. Essayez de créer un travail et veillez à sélectionner **Edge** comme environnement d’hébergement.
 
 1. Dans le volet **Nouvelle entrée**, saisissez **température** comme alias d’entrée.
 
@@ -140,15 +142,15 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
 
 ### <a name="configure-iot-edge-settings"></a>Configurer les paramètres IoT Edge
 
-Pour préparer votre travail Stream Analytics à déployer sur un appareil IoT Edge, vous devez associer le travail à un conteneur dans un compte de stockage. Lorsque vous passez au déploiement de votre travail, la définition du travail est exportée vers le conteneur de stockage.
+Pour préparer votre travail Stream Analytics à déployer sur un appareil IoT Edge, vous devez associer le travail à un compte de stockage. Quand vous passez au déploiement de votre travail, la définition du travail est exportée vers le conteneur de stockage sous la forme d’un conteneur.
 
 1. Sous **Configurer**, sélectionnez **Paramètres du compte de stockage**, puis **Ajouter un compte de stockage**.
 
    ![Azure Stream Analytics - Ajouter un compte de stockage](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 
-1. Dans le menu déroulant, sélectionnez le **compte de stockage** que vous avez créé au début de ce tutoriel.
+1. Choisissez l’option **Sélectionner un stockage blob/ADLS Gen 2 dans vos abonnements**.
 
-1. Pour le champ **Conteneur**, sélectionnez **Créer nouveau** et fournissez un nom pour le conteneur de stockage.
+1. Utilisez les menus déroulants pour sélectionner l’**abonnement** et le **compte de stockage** que vous avez configurés au début de ce tutoriel.
 
 1. Sélectionnez **Enregistrer**.
 

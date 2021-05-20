@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 05/05/2021
 ms.author: b-juche
-ms.openlocfilehash: d3ca94524c334a20f5ee75e5300ad419fa1542c5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e32480a8b5e76cf0a3a8e287c0f318aa7ff445a6
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873268"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753411"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -116,7 +116,7 @@ Avant de créer un volume SMB, vous devez créer une connexion Active Directory.
         > [!IMPORTANT]   
         > La fonctionnalité de disponibilité continue SMB est actuellement en préversion publique. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la **[page de soumission de demande d’inscription à la liste d’attente de préversion publique de partages de disponibilité continue SMB d’Azure NetApp Files](https://aka.ms/anfsmbcasharespreviewsignup)** . Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de disponibilité continue.   
         > 
-        > Vous devez activer la disponibilité continue uniquement pour les [conteneurs de profil utilisateur FSLogix](../virtual-desktop/create-fslogix-profile-container.md) et SQL Server. L’utilisation de partages de disponibilité continue SMB pour des charges de travail autres que les conteneurs de profil utilisateur FSLogix et SQL Server n’est *pas* prise en charge. Cette fonctionnalité est actuellement prise en charge sur Windows SQL Server. Linux SQL Server n’est pas pris en charge actuellement. Si vous utilisez un compte non-administrateur (domaine) pour installer SQL Server, assurez-vous que le compte dispose du privilège de sécurité requis. Si le compte de domaine ne dispose pas du privilège de sécurité requis (`SeSecurityPrivilege`) et que le privilège ne peut pas être défini au niveau du domaine, vous pouvez octroyer le privilège au compte à l’aide du champ **Utilisateurs avec privilège de sécurité** des connexions Active Directory. Consultez [Créer une connexion Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
+        Vous devez activer la disponibilité continue uniquement pour les [conteneurs de profil utilisateur FSLogix](../virtual-desktop/create-fslogix-profile-container.md) et SQL Server. L’utilisation de partages de disponibilité continue SMB pour des charges de travail autres que les conteneurs de profil utilisateur FSLogix et SQL Server n’est *pas* prise en charge. Cette fonctionnalité est actuellement prise en charge sur Windows SQL Server. Linux SQL Server n’est pas pris en charge actuellement. Si vous utilisez un compte non-administrateur (domaine) pour installer SQL Server, assurez-vous que le compte dispose du privilège de sécurité requis. Si le compte de domaine ne dispose pas du privilège de sécurité requis (`SeSecurityPrivilege`) et que le privilège ne peut pas être défini au niveau du domaine, vous pouvez octroyer le privilège au compte à l’aide du champ **Utilisateurs avec privilège de sécurité** des connexions Active Directory. Consultez [Créer une connexion Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 
@@ -167,7 +167,9 @@ Vous pouvez définir des autorisations pour un fichier ou un dossier à l’aide
 
 * [Monter ou démonter un volume pour des machines virtuelles Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Questions fréquentes sur SMB](./azure-netapp-files-faqs.md#smb-faqs)
+* [Configurer ADDS LDAP sur TLS pour Azure NetApp Files](configure-ldap-over-tls.md) 
+* [Convertir des volumes SMB existants pour utiliser la disponibilité continue](convert-smb-continuous-availability.md)
+* [Questions fréquentes sur SMB](azure-netapp-files-faqs.md#smb-faqs)
 * [Résoudre les problèmes des volumes SMB ou à deux protocoles](troubleshoot-dual-protocol-volumes.md)
 * [En savoir plus sur l’intégration d’un réseau virtuel pour les services Azure](../virtual-network/virtual-network-for-azure-services.md)
 * [Installation d’une nouvelle forêt Active Directory à l’aide d’Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

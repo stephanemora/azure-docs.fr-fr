@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 04/26/2021
+ms.date: 05/06/2021
 ms.custom: generated
-ms.openlocfilehash: 4e2df06b67ee9148d3c74700ebfadd72bff8392f
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: e8683b3348dab0c01ed797525b497ced3c2737bb
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108069972"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634218"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -37,7 +37,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Calcul** |  |  |
 > | [Contributeur de machine virtuelle classique](#classic-virtual-machine-contributor) | Permet de gérer des machines virtuelles classiques, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | [Connexion de l’administrateur aux machines virtuelles](#virtual-machine-administrator-login) | Afficher les machines virtuelles dans le portail et se connecter en tant qu’administrateur | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
-> | [Contributeur de machine virtuelle](#virtual-machine-contributor) | Permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
+> | [Contributeur de machine virtuelle](#virtual-machine-contributor) | Créer et gérer des machines virtuelles, gérer des disques et des instantanés de disques, installer et exécuter des logiciels, réinitialiser le mot de passe de l’utilisateur racine de la machine virtuelle à l’aide d’extensions de machine virtuelle et gérer les comptes d’utilisateurs locaux à l’aide d’extensions de machine virtuelle. Ce rôle ne vous accorde pas l’accès de gestion au réseau virtuel ou au compte de stockage auquel les machines virtuelles sont connectées. Ce rôle ne vous permet pas d’attribuer des rôles dans Azure RBAC. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | [Connexion de l’utilisateur aux machines virtuelles](#virtual-machine-user-login) | Affichez les machines virtuelles dans le portail et connectez-vous en tant qu’utilisateur normal. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | **Mise en réseau** |  |  |
 > | [Contributeur de point de terminaison CDN](#cdn-endpoint-contributor) | Peut gérer les points de terminaison CDN, mais ne peut pas accorder l’accès à d’autres utilisateurs. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
@@ -88,12 +88,12 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | [Contributeur de plan web](#web-plan-contributor) | Permet de gérer des plans web pour des sites web, mais pas d’y accéder. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Contributeur de site web](#website-contributor) | Permet de gérer des sites web (pas des plans web), mais pas d’y accéder. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Containers** |  |  |
-> | [AcrDelete](#acrdelete) | acr delete | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
-> | [AcrImageSigner](#acrimagesigner) | signataire d’image ACR | 6cef56e8-d556-48e5-a04f-b8e64114680f |
-> | [AcrPull](#acrpull) | tirer (pull) acr | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
-> | [AcrPush](#acrpush) | envoyer (push) acr | 8311e382-0749-4cb8-b61a-304f252e45ec |
-> | [AcrQuarantineReader](#acrquarantinereader) | lecteur de données de quarantaine ACR | cdda3590-29a3-44f6-95f2-9f980659eb04 |
-> | [AcrQuarantineWriter](#acrquarantinewriter) | écriture de données de quarantaine ACR | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
+> | [AcrDelete](#acrdelete) | Supprimer des référentiels, des balises ou des manifestes d’un registre de conteneurs. | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | [AcrImageSigner](#acrimagesigner) | Envoyer (push) des images approuvées vers un registre de conteneurs activé pour l’approbation de contenu ou tirer (pull) des images approuvées d’un tel registre. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
+> | [AcrPull](#acrpull) | Tirer (pull) des artefacts à partir d’un registre de conteneurs.  | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | [AcrPush](#acrpush) | Envoyer (push) des artefacts vers un registre de conteneurs ou tirer (pull) des artefacts d’un tel registre. | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | [AcrQuarantineReader](#acrquarantinereader) | Tirer (pull) des images en quarantaine à partir d’un registre de conteneurs. | cdda3590-29a3-44f6-95f2-9f980659eb04 |
+> | [AcrQuarantineWriter](#acrquarantinewriter) | Envoyer (push) des images en quarantaine vers un registre de conteneurs ou extraire des images en quarantaine d’un tel registre. | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | [Rôle d’administrateur de cluster Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Répertorie les actions relatives aux informations d’identification de l’administrateur du cluster. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Rôle d’utilisateur de cluster Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Répertorie les actions relatives aux informations d’identification de l’utilisateur du cluster. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | [Rôle Contributeur Azure Kubernetes Service](#azure-kubernetes-service-contributor-role) | Octroie l’accès en lecture et en écriture aux clusters Azure Kubernetes Service | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
@@ -143,6 +143,10 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | [Lecteur QnA Maker Cognitive Services](#cognitive-services-qna-maker-reader) | Vous permet de seulement lire et tester une base de connaissances. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Utilisateur Cognitive Services](#cognitive-services-user) | Vous permet de lire et de répertorier les clés de Cognitive Services. | a97b65f3-24C7-4388-baec-2e87135dc908 |
 > | **Internet des objets** |  |  |
+> | [Contributeur de données IoT Hub](#iot-hub-data-contributor) | Permet un accès complet aux opérations du plan de données IoT Hub. | 4fc6c259-987e-4a07-842e-c321cc9d413f |
+> | [Lecteur de données IoT Hub](#iot-hub-data-reader) | Permet un accès en lecture complet aux propriétés du plan de données IoT Hub. | b447c946-2db7-41ec-983d-d8bf3b1c77e3 |
+> | [Contributeur du Registre IoT Hub](#iot-hub-registry-contributor) | Permet un accès complet au Registre de l’appareil IoT Hub. | 4ea46cd5-c1b2-4a8e-910b-273211f9ce47 |
+> | [Contributeur de jumeau IoT Hub](#iot-hub-twin-contributor) | Autorise l’accès en lecture et en écriture à tous les appareils et jumeaux de module IoT Hub. | 494bdba2-168f-4f31-a0a1-191d2f7c028c |
 > | [Administrateur Device Update](#device-update-administrator) | Vous accorde l’accès complet aux opérations de gestion et de contenu | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
 > | [Administrateur de contenu Device Update](#device-update-content-administrator) | Vous accorde l’accès complet aux opérations de contenu | 0378884a-3af5-44ab-8323-f5b22f9f3c98 |
 > | [Lecteur du contenu Device Update](#device-update-content-reader) | Vous accorde l’accès en lecture aux opérations de contenu, mais ne vous permet pas d’effectuer des modifications | d1ee9a80-8b14-47f0-bdc2-f4a351625a7b |
@@ -570,7 +574,7 @@ Afficher les machines virtuelles dans le portail et se connecter en tant qu’ad
 
 ### <a name="virtual-machine-contributor"></a>Contributeur de machine virtuelle
 
-Permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau virtuel ou au compte de stockage auquel elles sont connectées. [En savoir plus](../virtual-machines/linux/tutorial-govern-resources.md)
+Créer et gérer des machines virtuelles, gérer des disques et des instantanés de disques, installer et exécuter des logiciels, réinitialiser le mot de passe de l’utilisateur racine de la machine virtuelle à l’aide d’extensions de machine virtuelle et gérer les comptes d’utilisateurs locaux à l’aide d’extensions de machine virtuelle. Ce rôle ne vous accorde pas l’accès de gestion au réseau virtuel ou au compte de stockage auquel les machines virtuelles sont connectées. Ce rôle ne vous permet pas d’attribuer des rôles dans Azure RBAC. [En savoir plus](/azure/architecture/reference-architectures/n-tier/linux-vm)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -578,7 +582,7 @@ Permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Lire les rôles et les affectations de rôles |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Créer et gérer des groupes à haute disponibilité de calcul |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | Créer et gérer des emplacements de calcul |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Effectuer toutes les actions de machine virtuelle, notamment créer, mettre à jour, supprimer, démarrer, redémarrer et mettre hors tension des machines virtuelles. Exécuter des scripts prédéfinis sur des machines virtuelles. |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Effectuer toutes les actions de machine virtuelle, notamment créer, mettre à jour, supprimer, démarrer, redémarrer et mettre hors tension des machines virtuelles. Exécuter des scripts sur des machines virtuelles |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | Créez et gérez des jeux de mise à l’échelle des machines virtuelles |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Créer ou mettre à jour un disque |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Obtenir les propriétés d’un disque |
@@ -3229,7 +3233,7 @@ Permet de gérer des sites web (pas des plans web), mais pas d’y accéder.
 
 ### <a name="acrdelete"></a>AcrDelete
 
-suppression Arc [En savoir plus](../container-registry/container-registry-roles.md)
+Supprimer des référentiels, des balises ou des manifestes d’un registre de conteneurs. [En savoir plus](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3268,7 +3272,7 @@ suppression Arc [En savoir plus](../container-registry/container-registry-roles.
 
 ### <a name="acrimagesigner"></a>AcrImageSigner
 
-signataire d’image Arc [En savoir plus](../container-registry/container-registry-roles.md)
+Envoyer (push) des images approuvées vers un registre de conteneurs activé pour l’approbation de contenu ou tirer (pull) des images approuvées d’un tel registre. [En savoir plus](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3307,7 +3311,7 @@ signataire d’image Arc [En savoir plus](../container-registry/container-regist
 
 ### <a name="acrpull"></a>AcrPull
 
-tirage (pull) Arc [En savoir plus](../container-registry/container-registry-roles.md)
+Tirer (pull) des artefacts à partir d’un registre de conteneurs. [En savoir plus](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3387,7 +3391,7 @@ envoi (push) Arc [En savoir plus](../container-registry/container-registry-roles
 
 ### <a name="acrquarantinereader"></a>AcrQuarantineReader
 
-lecteur de données de quarantaine ACR
+Tirer (pull) des images en quarantaine à partir d’un registre de conteneurs. [En savoir plus](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3426,7 +3430,7 @@ lecteur de données de quarantaine ACR
 
 ### <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 
-écriture de données de quarantaine ACR
+Envoyer (push) des images en quarantaine vers un registre de conteneurs ou extraire des images en quarantaine d’un tel registre. [En savoir plus](../container-registry/container-registry-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6063,6 +6067,163 @@ Vous permet de lire et de répertorier les clés de Cognitive Services. [En savo
 
 ## <a name="internet-of-things"></a>Internet des objets
 
+### <a name="iot-hub-data-contributor"></a>Contributeur de données IoT Hub
+
+Permet un accès complet aux opérations du plan de données IoT Hub.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to IoT Hub data plane operations.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4fc6c259-987e-4a07-842e-c321cc9d413f",
+  "name": "4fc6c259-987e-4a07-842e-c321cc9d413f",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-data-reader"></a>Lecteur de données IoT Hub
+
+Permet un accès en lecture complet aux propriétés du plan de données IoT Hub.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/*/read |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/fileUpload/notifications/action | Reçoit, termine ou abandonne les notifications de téléchargement de fichier |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full read access to IoT Hub data-plane properties",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b447c946-2db7-41ec-983d-d8bf3b1c77e3",
+  "name": "b447c946-2db7-41ec-983d-d8bf3b1c77e3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/*/read",
+        "Microsoft.Devices/IotHubs/fileUpload/notifications/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-registry-contributor"></a>Contributeur du Registre IoT Hub
+
+Permet un accès complet au Registre de l’appareil IoT Hub.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/devices/* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to IoT Hub device registry.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4ea46cd5-c1b2-4a8e-910b-273211f9ce47",
+  "name": "4ea46cd5-c1b2-4a8e-910b-273211f9ce47",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/devices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Registry Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="iot-hub-twin-contributor"></a>Contributeur de jumeau IoT Hub
+
+Autorise l’accès en lecture et en écriture à tous les appareils et jumeaux de module IoT Hub.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](resource-provider-operations.md#microsoftdevices)/IotHubs/twins/* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read and write access to all IoT Hub device and module twins.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/494bdba2-168f-4f31-a0a1-191d2f7c028c",
+  "name": "494bdba2-168f-4f31-a0a1-191d2f7c028c",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/IotHubs/twins/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "IoT Hub Twin Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ### <a name="device-update-administrator"></a>Administrateur Device Update
 

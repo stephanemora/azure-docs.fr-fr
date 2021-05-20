@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8750ad846b832eb4fe037568d3b99f299cfe121b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430805"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790628"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
@@ -231,7 +231,7 @@ Pour pouvoir appliquer votre Paiement anticipé Azure aux dépassements, vous de
 - Le montant de votre Paiement anticipé Azure disponible doit couvrir le montant total des frais engagés, y compris toutes les factures Azure échues non payées.
 - La durée de facturation que vous demandez doit être entièrement clôturée. La facturation est entièrement clôturée après le cinq du mois.
 - La période de facturation que vous demandez pour le décalage doit être entièrement clôturée.
-- Votre remise ACD (Paiement anticipé Azure) se base sur le nouveau Paiement anticipé réel moins les fonds prévus pour la consommation précédente. Cette exigence s’applique uniquement aux frais de dépassement engagés. Elle n’est valable que pour les services qui consomment Paiement anticipé Azure, et exclut donc les frais relatifs à la Place de marché Azure. Les frais relatifs à la Place de marché Azure sont facturés séparément.
+- Votre remise APD (Paiement anticipé Azure) se base sur le nouveau Paiement anticipé réel moins les fonds prévus pour la consommation précédente. Cette exigence s’applique uniquement aux frais de dépassement engagés. Elle n’est valable que pour les services qui consomment Paiement anticipé Azure, et exclut donc les frais relatifs à la Place de marché Azure. Les frais relatifs à la Place de marché Azure sont facturés séparément.
 
 Pour effectuer un décalage de dépassement, vous ou l’équipe en charge des comptes pouvez ouvrir une demande de support. Une approbation par e-mail de la part de l'administrateur de votre entreprise ou du contact facturation est nécessaire.
 

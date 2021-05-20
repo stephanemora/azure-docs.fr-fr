@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: a9997fac66dd49af04f4ed78737118d605e27072
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 58a616953afd15bd4098eaf7ec96838137d110c5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829869"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764780"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -80,7 +80,7 @@ Vérifiez que votre machine est conforme aux conditions requises pour Defender p
 
     - Pour les serveurs **Windows**, configurez les paramètres réseau décrits dans [Configurer les paramètres de proxy et de connectivité Internet de l’appareil](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
     - Pour des machines **locales**, connectez-la à Azure Arc comme expliqué dans [Connecter des machines hybrides à des serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-    - Pour les machines **Windows Server 2019** et [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), vérifiez que vos machines exécutent l’agent Log Analytics et que vous disposez de l’extension MicrosoftMonitoringAgent.
+    - Pour les machines **Windows Server 2019** et [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), vérifiez que vos machines disposent de l’extension MicrosoftMonitoringAgent.
     
 1. Activez **Azure Defender pour les serveurs**. Consultez [Démarrage rapide : Activer Azure Defender](enable-azure-defender.md).
 1. Si vous avez déjà acheté et déployé des licences Microsoft Defender for Endpoint sur vos serveurs, supprimez-les à l’aide de la procédure décrite dans [Retirer des serveurs Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).

@@ -3,12 +3,12 @@ title: 'Tutoriel : Créer une définition de stratégie personnalisée'
 description: Dans ce tutoriel, vous créez une définition de stratégie personnalisée pour Azure Policy afin d’appliquer des règles métier personnalisées sur vos ressources Azure.
 ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: c6c4fbe05b6df8a6f8521a0551fe276c893bb6be
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 1cd88481e84fd334b95a5969fb7f4fa268e30cf5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092793"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752126"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutoriel : Créer une définition de stratégie personnalisée
 

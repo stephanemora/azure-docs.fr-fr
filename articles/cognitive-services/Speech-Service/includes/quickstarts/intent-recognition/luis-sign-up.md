@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/27/2020
+ms.date: 05/04/2021
 ms.author: trbye
-ms.openlocfilehash: ab22ad75b5b49588bbdcedf5fc995ce65fe4e690
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4ac14a82fa5698faf6f79c97cd1cdd729f1966a8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105448"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769434"
 ---
 Pour terminer le démarrage rapide de reconnaissance de l’intention, vous devez créer un compte LUIS et un projet à partir de la préversion du portail LUIS. Ce démarrage rapide nécessite uniquement un abonnement LUIS. Il n’est *pas* nécessaire de disposer d’un abonnement au service Speech.
 
@@ -31,7 +31,7 @@ Voici comment vous pouvez trouver ces informations sur la [préversion du portai
 
 1. À partir du portail LUIS en préversion, sélectionnez votre application, puis sélectionnez le bouton **Publier**.
 
-2. Sélectionnez l’emplacement de **Production**. Si vous utilisez `en-US`, basculez l’option **Préparation vocale** sur la position **Activé**. Cliquez ensuite sur le bouton **Publier**.
+2. Sélectionnez l’**emplacement de production**. Si vous utilisez `en-US`, sélectionnez **Modifier les paramètres**, puis passez l’option **Préparation vocale** à la position **Activé**. Cliquez ensuite sur le bouton **Publier**.
 
     > [!IMPORTANT]
     > La **Préparation vocale** est vivement recommandée, car elle améliore la précision de la reconnaissance vocale.
@@ -39,12 +39,12 @@ Voici comment vous pouvez trouver ces informations sur la [préversion du portai
     > [!div class="mx-imgBorder"]
     > ![Publier LUIS sur le point de terminaison](../../../media/luis/publish-app-popup.png)
 
-3. À partir de la préversion du portail LUIS, sélectionnez **Manage** (Gérer), puis sélectionnez **Azure Resources** (Ressources Azure). Dans cette page, vous trouverez votre clé et votre localisation LUIS (parfois appelée _région_).
+3. À partir de la préversion du portail LUIS, sélectionnez **Manage** (Gérer), puis sélectionnez **Azure Resources** (Ressources Azure). Sur cette page, vous trouverez votre clé LUIS ainsi que le lieu (parfois appelé _région_) correspondant à votre ressource de prédiction LUIS.
 
    > [!div class="mx-imgBorder"]
    > ![Clé et localisation LUIS](../../../media/luis/luis-key-region.png)
 
-4. Après vous être procuré la clé et la localisation, vous aurez besoin de l’ID d’application. Sélectionnez **Application Settings** (Paramètres d’application) – votre ID d’application est disponible dans cette page.
+4. Après vous être procuré la clé et la localisation, vous aurez besoin de l’ID d’application. Sélectionnez **Paramètres**. L’ID d’application est disponible sur cette page.
 
    > [!div class="mx-imgBorder"]
    > ![ID d’application LUIS](../../../media/luis/luis-app-id.png)

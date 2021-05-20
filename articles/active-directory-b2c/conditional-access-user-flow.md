@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 04/22/2021
+ms.date: 05/06/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cc163f02873cf1827af515791e254261149fc4f9
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3214069f68233fb3cb4facc08a409f4b1e05222a
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124434"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654865"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Ajouter l’accès conditionnel à des flux d’utilisateurs dans Azure Active Directory B2C
 
@@ -48,9 +48,18 @@ L’exemple suivant présente un profil technique d’accès conditionnel utili
 </TechnicalProfile>
 ```
 
+Pour veiller à ce que les signaux Identity Protection soient évalués correctement, vous pouvez appeler le profil technique `ConditionalAccessEvaluation` pour tous les utilisateurs, notamment les [comptes locaux et sociaux](technical-overview.md#consumer-accounts). Sinon, Identity Protection indique un degré de risque incorrect associé aux utilisateurs.
+
 ::: zone-end
 
-Lors de la phase de **correction** qui s’ensuit, l’utilisateur reçoit une demande d’authentification multifacteur. Une fois l’opération terminée, Azure AD B2C informe Identity Protection que la menace de connexion identifiée a été corrigée et indique la méthode utilisée. Dans cet exemple, Azure AD B2C indique que l’utilisateur a correctement effectué la demande d’authentification multifacteur. 
+Lors de la phase de *correction* qui s’ensuit, l’utilisateur reçoit une demande d’authentification multifacteur. Une fois l’opération terminée, Azure AD B2C informe Identity Protection que la menace de connexion identifiée a été corrigée et indique la méthode utilisée. Dans cet exemple, Azure AD B2C indique que l’utilisateur a correctement effectué la demande d’authentification multifacteur.
+
+La correction peut aussi se produire par le biais d’autres canaux, par exemple, quand le mot de passe du compte est réinitialisé, soit par l’administrateur, soit par l’utilisateur. Vous pouvez vérifier l’*état du risque* de l’utilisateur dans le [rapport sur les utilisateurs à risque](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
+
+> [!IMPORTANT]
+> Pour corriger correctement le risque dans le parcours, vérifiez que le profil technique *Correction* est appelé après l’exécution du profil technique *Évaluation*. Si *Évaluation* est appelé sans *Correction*, l’état du risque est *Risqué*.
+
+Quand la recommandation du profil technique *Évaluation* retourne `Block`, l’appel du profil technique *Évaluation* n’est pas nécessaire. L’état du risque est défini sur *Risqué*.
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -155,21 +164,15 @@ Pour ajouter une stratégie d’accès conditionnel :
 
 1. Activez votre stratégie d’accès conditionnel de test en sélectionnant **Créer**.
 
-## <a name="add-conditional-access-to-a-user-flow"></a>Ajouter l’accès conditionnel à un flux d’utilisateur
-
-Après avoir ajouté la stratégie d’accès conditionnel Azure AD, activez l’accès conditionnel dans votre flux d’utilisateur ou votre stratégie personnalisée. Lorsque vous activez l’accès conditionnel, vous n’avez pas besoin de spécifier un nom de stratégie.
-
-Plusieurs stratégies d’accès conditionnel peuvent s’appliquer à un utilisateur individuel à tout moment. Dans ce cas, la stratégie de contrôle d’accès la plus stricte est prioritaire. Par exemple, si une stratégie requiert l’authentification multifacteur (MFA), tandis que l’autre bloque l’accès, l’utilisateur est bloqué.
-
 ## <a name="conditional-access-template-1-sign-in-risk-based-conditional-access"></a>Modèle d’accès conditionnel 1 : Accès conditionnel basé sur les risques de connexion
 
 La plupart des utilisateurs ont un comportement normal qui peut être suivi. Lorsqu’ils dévient de cette norme, il peut être risqué de les autoriser à se connecter uniquement. Vous pouvez bloquer ces utilisateurs ou simplement leur demander d’effectuer une authentification multifacteur pour prouver qu’ils sont vraiment ceux qu’ils prétendent être.
 
-Un risque de connexion reflète la probabilité qu’une requête d’authentification donnée soit rejetée par le propriétaire de l'identité. Les organisations disposant de licences P2 peuvent créer des stratégies d’accès conditionnel incorporant les [détections de risques de connexion d’Azure AD Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Veuillez noter les [limitations relatives aux détections de protection des identités pour B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
+Un risque de connexion reflète la probabilité qu’une requête d’authentification donnée soit rejetée par le propriétaire de l'identité. Les locataires Azure AD B2C disposant de licences P2 peuvent créer des stratégies d’accès conditionnel incorporant les [détections de risques de connexion d’Azure AD Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#sign-in-risk). Veuillez noter les [limitations relatives aux détections de protection des identités pour B2C](./identity-protection-investigate-risk.md?pivots=b2c-user-flow#service-limitations-and-considerations).
 
 Si un risque est détecté, les utilisateurs peuvent effectuer l’authentification multifacteur pour résoudre automatiquement et fermer l’événement de connexion risquée afin d’éviter toute perturbation inutile pour les administrateurs.
 
-Les organisations doivent choisir l’une des options suivantes pour activer une stratégie d’accès conditionnel basé sur les risques de connexion nécessitant l’authentification multifacteur (MFA) quand le risque de connexion est moyen OU élevé.
+Configurez l’accès conditionnel par le biais du portail Azure ou des API Microsoft Graph pour activer une stratégie d’accès conditionnel en fonction des risques de connexion qui exige une authentification multifacteur quand le risque de connexion est *moyen* ou *élevé*.
 
 ### <a name="enable-with-conditional-access-policy"></a>Activer avec la stratégie d’accès conditionnel
 
@@ -189,11 +192,11 @@ Les organisations doivent choisir l’une des options suivantes pour activer une
 9. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 10. Sélectionnez **Créer** pour créer votre stratégie.
 
-### <a name="enable-with-conditional-access-apis"></a>Activer avec les API d’accès conditionnel
+### <a name="enable-with-conditional-access-apis-optional"></a>Activer avec les API d’accès conditionnel (facultatif)
 
-Pour créer une stratégie d’accès conditionnel basé sur les risques de connexion à l’aide des API d’accès conditionnel, reportez-vous à la documentation des [API d’accès conditionnel](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+Créez une stratégie d’accès conditionnel en fonction des risques de connexion avec les API MS Graph. Pour plus d’informations, consultez [API d’accès conditionnel](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
 
-Le modèle suivant peut être utilisé pour créer une stratégie d’accès conditionnel avec le nom complet « CA002: Require MFA for medium+ sign-in risk » en mode rapport seul.
+Le modèle suivant peut être utilisé pour créer une stratégie d’accès conditionnel avec le nom complet « Template 1 : Require MFA for medium+ sign-in risk » en mode rapport seul.
 
 ```json
 {
@@ -226,6 +229,12 @@ Le modèle suivant peut être utilisé pour créer une stratégie d’accès con
 }
 ```
 
+## <a name="add-conditional-access-to-a-user-flow"></a>Ajouter l’accès conditionnel à un flux d’utilisateur
+
+Après avoir ajouté la stratégie d’accès conditionnel Azure AD, activez l’accès conditionnel dans votre flux d’utilisateur ou votre stratégie personnalisée. Quand vous activez l’accès conditionnel, vous n’avez pas besoin de spécifier un nom de stratégie.
+
+Plusieurs stratégies d’accès conditionnel peuvent s’appliquer à un utilisateur individuel à tout moment. Dans ce cas, la stratégie de contrôle d’accès la plus stricte est prioritaire. Par exemple, si une stratégie demande une authentification multifacteur, tandis qu’une autre bloque l’accès, l’utilisateur est bloqué.
+
 ## <a name="enable-multi-factor-authentication-optional"></a>Activer l’authentification multifacteur (facultatif)
 
 Lorsque vous ajoutez un accès conditionnel à un flux d’utilisateur, envisagez l’utilisation de l'**authentification multifacteur (MFA)** . Les utilisateurs peuvent utiliser un code à usage unique par SMS ou voix, ou un mot de passe à usage unique par e-mail pour l’authentification multifacteur. Les paramètres MFA sont indépendants des paramètres d’accès conditionnel. Vous pouvez choisir parmi les options MFA suivantes :
@@ -233,9 +242,6 @@ Lorsque vous ajoutez un accès conditionnel à un flux d’utilisateur, envisage
    - **Désactivé** – MFA n’est jamais appliquée pendant la connexion, et les utilisateurs ne sont pas invités à s’inscrire à MFA dans le cadre de l’inscription ou de la connexion.
    - **Toujours activé** – MFA est toujours requise quelle que soit votre configuration de l’accès conditionnel. Si les utilisateurs ne sont pas déjà inscrits dans MFA, ils sont invités à s’inscrire lors de la connexion. Lors de l’inscription, les utilisateurs sont invités à s’inscrire dans MFA.
    - **Conditionnel (préversion)** – MFA est requise uniquement quand une stratégie d’accès conditionnel active l’exige. Si le résultat de l’évaluation de l’accès conditionnel est un défi d’authentification MFA sans risque, l’authentification MFA est appliquée lors de la connexion. Si le résultat est un défi d’authentification MFA en raison d’un risque *et* que l’utilisateur n’est pas inscrit dans MFA, la connexion est bloquée. Lors de l’inscription, les utilisateurs ne sont pas invités à s’inscrire dans MFA.
-
-> [!IMPORTANT]
-> Si votre stratégie d’accès conditionnel accorde l’accès avec authentification multifacteur mais que l’utilisateur n’a pas inscrit de numéro de téléphone, il peut être bloqué.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -269,6 +275,23 @@ Pour activer l’accès conditionnel pour un flux d’utilisateur, assurez-vous 
 1. Découvrez un exemple de stratégie d’accès conditionnel sur [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
 1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c*, toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
 1. Téléchargez les fichiers de stratégie.
+ 
+### <a name="configure-claim-other-than-phone-number-to-be-used-for-mfa"></a>Configurer une revendication autre que le numéro de téléphone à utiliser pour l’authentification multifacteur
+
+Dans la stratégie d’accès conditionnel ci-dessus, la méthode de transformation de revendication `DoesClaimExist` vérifie si une revendication contient une valeur, par exemple si la revendication `strongAuthenticationPhoneNumber` contient un numéro de téléphone. 
+
+La transformation des revendications ne se limite pas à la revendication `strongAuthenticationPhoneNumber`. Selon le scénario, vous pouvez utiliser n’importe quelle autre revendication. Dans l’extrait de code XML suivant, c’est la revendication `strongAuthenticationEmailAddress` qui est plutôt vérifiée. La revendication que vous choisissez doit avoir une valeur valide, sans quoi la revendication `IsMfaRegistered`est définie sur `False`. Quand sa valeur est `False`, l’évaluation de la stratégie d’accès conditionnel retourne un type d’autorisation `Block`, ce qui empêche l’utilisateur d’accomplir le flux d’utilisateur.
+
+```XML
+ <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="IsMfaRegistered" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+ </ClaimsTransformation>
+```
 
 ## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
 

@@ -1,21 +1,22 @@
 ---
-title: Tutoriel - Personnaliser les mappages d’attributs Azure Active Directory
-description: Découvrez ce que sont les mappages d’attributs pour les applications SaaS dans Azure Active Directory et comment les modifier pour répondre aux besoins de votre entreprise.
+title: Tutoriel - Personnaliser les mappages d’attributs Azure Active Directory dans le provisionnement d’application
+description: Découvrez ce que sont les mappages d’attributs pour les applications SaaS (software as a service) dans le provisionnement d’application Azure Active Directory, et comment les modifier pour répondre à vos besoins métier.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.openlocfilehash: 8534c21bb0dad782b89c6518ea2313b4232639a6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.reviewer: arvinh
+ms.openlocfilehash: 78e2b01da1b47a51309a9e26500514aea396190b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128664"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783006"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -79,7 +80,7 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
   - **Lors de la création uniquement** : appliquez ce mappage uniquement aux actions de création d’utilisateur.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Correspondance des utilisateurs dans les systèmes source et cible
-Le service de provisionnement Azure AD peut être déployé aussi bien dans les scénarios « greenfield » (« terrain vierge »), où les utilisateurs ne quittent pas le système cible que dans les scénarios « brownfield » (« friche industrielle »), où les utilisateurs existent déjà dans le système cible. Pour prendre en charge ces deux scénarios, le service de provisionnement utilise le concept de correspondance d’attributs. Les attributs correspondants vous permettent de déterminer comment identifier de manière unique un utilisateur dans la source et faire correspondre l’utilisateur dans la cible. Dans le cadre de la planification de votre déploiement, identifiez l’attribut qui peut être utilisé pour identifier de manière unique un utilisateur dans les systèmes source et cible. Points à noter :
+Le service de provisionnement Azure AD peut être déployé aussi bien dans les scénarios « greenfield » (« refonte totale du système existant »), où les utilisateurs n’existent pas sur le système cible, que dans les scénarios « brownfield » (« évolution du système existant »), où les utilisateurs existent déjà sur le système cible. Pour prendre en charge ces deux scénarios, le service de provisionnement utilise le concept de correspondance d’attributs. Les attributs correspondants vous permettent de déterminer comment identifier de manière unique un utilisateur dans la source et faire correspondre l’utilisateur dans la cible. Dans le cadre de la planification de votre déploiement, identifiez l’attribut qui peut être utilisé pour identifier de manière unique un utilisateur dans les systèmes source et cible. Points à noter :
 
 - **Les attributs correspondants doivent être uniques :** Les clients utilisent souvent des attributs tels que userPrincipalName, le courrier électronique ou l’ID d’objet comme attribut correspondant.
 - **Plusieurs attributs peuvent être utilisés comme attributs correspondants :** Vous pouvez définir plusieurs attributs à évaluer lors de la correspondance des utilisateurs et de l’ordre dans lequel ils sont évalués (définis comme priorité correspondante dans l’interface utilisateur). Si, par exemple, vous définissez trois attributs comme attributs correspondants, et qu’un utilisateur est mis en correspondance de manière unique après l’évaluation des deux premiers attributs, le service n’évalue pas le troisième attribut. Le service évalue les attributs correspondants dans l’ordre spécifié et arrête l’évaluation lorsqu’une correspondance est trouvée.  

@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21bab82044e3c661ccd797030b43987a60c0cdce
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556181"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787560"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Répertorier les attributions de rôles Azure à l’aide du portail Azure
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] Cet article explique comment lister les attributions de rôles à l’aide du portail Azure.
 
 > [!NOTE]
-> Si votre organisation possède des fonctions de gestion externalisées pour un fournisseur de services qui utilise la [gestion des ressources déléguées Azure](../lighthouse/concepts/azure-delegated-resource-management.md), les attributions de rôles autorisées par ce fournisseur de services ne seront pas affichées ici.
+> Si votre organisation possède des fonctions de gestion externalisées à un fournisseur de services qui utilise[Azure Lighthouse](../lighthouse/overview.md), les attributions de rôles autorisées par ce fournisseur de services ne s’afficheront pas ici.
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Lister les attributions de rôles pour un utilisateur ou un groupe
 

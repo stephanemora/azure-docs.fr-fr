@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e436427a790a3c4ebdbbedb4570c399966ab8c95
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d5273d2aedd1382146b83197afb48c5120dcbb11
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317862"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767740"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -69,7 +69,7 @@ Quand un utilisateur clique sur le lien **Accepter l’invitation** dans un [e-m
 
 1. Azure AD effectue une découverte basée sur l’utilisateur pour déterminer si l’utilisateur existe dans un [locataire Azure AD](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 
-2. Si un administrateur a activé la [fédération directe](./direct-federation.md), Azure AD vérifie si le suffixe de domaine de l’utilisateur correspond au domaine d’un fournisseur d’identité SAML/WS-Fed configuré et redirige l’utilisateur vers le fournisseur d’identité préconfiguré.
+2. Si un administrateur a activé la [fédération SAML/WS-Fed IdP](./direct-federation.md), Azure AD vérifie si le suffixe de domaine de l’utilisateur correspond au domaine d’un fournisseur d’identité SAML/WS-Fed configuré et redirige l’utilisateur vers le fournisseur d’identité préconfiguré.
 
 3. Si un administrateur a activé la [fédération Google](./google-federation.md), Azure AD vérifie si le suffixe de domaine de l’utilisateur est gmail.com ou googlemail.com et redirige l’utilisateur vers Google.
 
